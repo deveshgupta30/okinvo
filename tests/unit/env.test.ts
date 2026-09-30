@@ -40,6 +40,15 @@ describe("serverSchema", () => {
   it("rejects a non-postgres DATABASE_URL", () => {
     expect(() => serverSchema.parse({ ...base, DATABASE_URL: "mysql://x" })).toThrow(/postgres/);
   });
+  it("rejects the .env.example placeholder secret so an unedited example cannot boot", () => {
+    const r = serverSchema.safeParse({
+      ...base,
+      AUTH_SECRET: "replace-me-with-at-least-32-random-characters",
+    });
+    expect(r.success).toBe(false);
+    const paths = r.success ? [] : r.error.issues.map((i) => i.path.join("."));
+    expect(paths).toContain("AUTH_SECRET");
+  });
   it("rejects a FIELD_ENCRYPTION_KEY that is not 32 bytes", () => {
     expect(() => serverSchema.parse({ ...base, FIELD_ENCRYPTION_KEY: "short" })).toThrow(
       /32 random bytes/,

@@ -36,7 +36,12 @@ const objectSchema = z
       .string()
       .regex(/^postgres(ql)?:\/\//, "must be a postgres:// or postgresql:// URL"),
 
-    AUTH_SECRET: z.string().min(32, "at least 32 characters"),
+    AUTH_SECRET: z
+      .string()
+      .min(32, "at least 32 characters")
+      .refine((v) => !v.startsWith("replace-me"), {
+        message: "still the .env.example placeholder — run scripts/gen-secrets.sh",
+      }),
     AUTH_ALLOWED_EMAILS: z.string().default(""),
     AUTH_LINKING_TRUSTED_PROVIDERS: z.string().default("google,github"),
     AUTH_GOOGLE_ID: optional,
