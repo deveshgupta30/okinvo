@@ -9,6 +9,7 @@ export default defineConfig([
     ".next/**",
     "out/**",
     "src/generated/**",
+    "src/lib/typography-keys.generated.ts",
     "playwright-report/**",
     "test-results/**",
     "coverage/**",

@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { parseFrontMatter, toTokensCss } from "../../scripts/design-tokens";
+import { parseFrontMatter, toTokensCss, toTypographyKeysTs } from "../../scripts/design-tokens";
 
 const dark = `---
 name: t
@@ -94,5 +94,13 @@ describe("repository files", () => {
   it("committed src/app/tokens.css is current", () => {
     const committed = readFileSync(resolve(root, "src/app/tokens.css"), "utf8");
     expect(committed).toBe(toTokensCss(d, l));
+  });
+  it("exports the typography keys as a TS module so tailwind-merge knows text-<key> is a size", () => {
+    const ts = toTypographyKeysTs(d);
+    expect(ts).toContain('"app-label"');
+    expect(ts).toContain('"display-md"');
+    expect(ts).toMatch(/export const TYPOGRAPHY_KEYS = \[[\s\S]*\] as const;/);
+    const committed = readFileSync(resolve(root, "src/lib/typography-keys.generated.ts"), "utf8");
+    expect(committed).toBe(ts);
   });
 });
