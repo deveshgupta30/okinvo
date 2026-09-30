@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { parseAllowedEmails } from "@/server/allow-list";
+import { parseAllowedEmails, type AllowList } from "@/server/allow-list";
 
 const optional = z.string().trim().min(1).optional();
 
@@ -83,19 +83,20 @@ const objectSchema = z
     UPLOAD_MAX_RECEIPT_MB: z.coerce.number().positive().default(10),
   })
   .superRefine((v, ctx) => {
+    // A malformed allow-list is a configuration error in every environment; only its
+    // emptiness is production-specific.
+    let list: AllowList | undefined;
+    try {
+      list = parseAllowedEmails(v.AUTH_ALLOWED_EMAILS);
+    } catch (e) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["AUTH_ALLOWED_EMAILS"],
+        message: (e as Error).message,
+      });
+    }
     if (v.NODE_ENV === "production") {
-      let list;
-      try {
-        list = parseAllowedEmails(v.AUTH_ALLOWED_EMAILS);
-      } catch (e) {
-        ctx.addIssue({
-          code: "custom",
-          path: ["AUTH_ALLOWED_EMAILS"],
-          message: (e as Error).message,
-        });
-        return;
-      }
-      if (list.emails.size + list.domains.size === 0) {
+      if (list && list.emails.size + list.domains.size === 0) {
         ctx.addIssue({
           code: "custom",
           path: ["AUTH_ALLOWED_EMAILS"],
@@ -124,7 +125,9 @@ const objectSchema = z
         }
       }
     }
-  });
+  })
+  // Runs only when every check above passed, so parseAllowedEmails cannot throw here.
+  .transform((v) => ({ ...v, allowList: parseAllowedEmails(v.AUTH_ALLOWED_EMAILS) }));
 
 export const serverSchema = z.preprocess(stripEmpty, objectSchema);
 

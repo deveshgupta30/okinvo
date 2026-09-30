@@ -9,6 +9,11 @@ const base = {
   FIELD_ENCRYPTION_KEY: KEY32,
 };
 
+const issuePaths = (input: Record<string, unknown>) => {
+  const r = serverSchema.safeParse(input);
+  return r.success ? [] : r.error.issues.map((i) => i.path.join("."));
+};
+
 describe("serverSchema", () => {
   it("parses a minimal development env with defaults", () => {
     const env = serverSchema.parse(base);
@@ -41,23 +46,33 @@ describe("serverSchema", () => {
     expect(() => serverSchema.parse({ ...base, DATABASE_URL: "mysql://x" })).toThrow(/postgres/);
   });
   it("rejects the .env.example placeholder secret so an unedited example cannot boot", () => {
-    const r = serverSchema.safeParse({
-      ...base,
-      AUTH_SECRET: "replace-me-with-at-least-32-random-characters",
-    });
-    expect(r.success).toBe(false);
-    const paths = r.success ? [] : r.error.issues.map((i) => i.path.join("."));
-    expect(paths).toContain("AUTH_SECRET");
+    expect(
+      issuePaths({ ...base, AUTH_SECRET: "replace-me-with-at-least-32-random-characters" }),
+    ).toContain("AUTH_SECRET");
   });
   it("rejects a FIELD_ENCRYPTION_KEY that is not 32 bytes", () => {
     expect(() => serverSchema.parse({ ...base, FIELD_ENCRYPTION_KEY: "short" })).toThrow(
       /32 random bytes/,
     );
   });
+  it("exposes the parsed allow-list so callers never re-parse it", () => {
+    const env = serverSchema.parse({ ...base, AUTH_ALLOWED_EMAILS: " Me@Example.com, *@Corp.io" });
+    expect(env.allowList.emails.has("me@example.com")).toBe(true);
+    expect(env.allowList.domains.has("corp.io")).toBe(true);
+  });
+  it("rejects a malformed allow-list in every environment, not only production", () => {
+    expect(issuePaths({ ...base, AUTH_ALLOWED_EMAILS: "*" })).toContain("AUTH_ALLOWED_EMAILS");
+    expect(issuePaths({ ...base, AUTH_ALLOWED_EMAILS: "not-an-email" })).toContain(
+      "AUTH_ALLOWED_EMAILS",
+    );
+  });
   it("requires an allow-list and at least one provider in production", () => {
-    const r = serverSchema.safeParse({ ...base, NODE_ENV: "production" });
-    expect(r.success).toBe(false);
-    const paths = r.success ? [] : r.error.issues.map((i) => i.path.join("."));
+    const paths = issuePaths({ ...base, NODE_ENV: "production" });
+    expect(paths).toContain("AUTH_ALLOWED_EMAILS");
+    expect(paths).toContain("AUTH_GOOGLE_ID");
+  });
+  it("reports the missing provider even when the allow-list itself is malformed", () => {
+    const paths = issuePaths({ ...base, NODE_ENV: "production", AUTH_ALLOWED_EMAILS: "*" });
     expect(paths).toContain("AUTH_ALLOWED_EMAILS");
     expect(paths).toContain("AUTH_GOOGLE_ID");
   });
@@ -72,9 +87,6 @@ describe("serverSchema", () => {
     expect(env.NODE_ENV).toBe("production");
   });
   it("requires S3 settings when STORAGE_DRIVER=s3", () => {
-    const r = serverSchema.safeParse({ ...base, STORAGE_DRIVER: "s3" });
-    expect(r.success).toBe(false);
-    const paths = r.success ? [] : r.error.issues.map((i) => i.path.join("."));
-    expect(paths).toContain("S3_ACCESS_KEY");
+    expect(issuePaths({ ...base, STORAGE_DRIVER: "s3" })).toContain("S3_ACCESS_KEY");
   });
 });
