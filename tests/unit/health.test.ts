@@ -23,4 +23,21 @@ describe("checkReadiness", () => {
     await vi.advanceTimersByTimeAsync(1000);
     await expect(pending).resolves.toEqual({ status: 503, body: { ok: false, db: "timeout" } });
   });
+  it("reports the failure cause to the caller so it can be logged", async () => {
+    const onFailure = vi.fn();
+    const error = new Error("down");
+    await checkReadiness(
+      async () => {
+        throw error;
+      },
+      1000,
+      onFailure,
+    );
+    expect(onFailure).toHaveBeenCalledWith("error", error);
+
+    const pending = checkReadiness(() => new Promise(() => {}), 1000, onFailure);
+    await vi.advanceTimersByTimeAsync(1000);
+    await pending;
+    expect(onFailure).toHaveBeenCalledWith("timeout", undefined);
+  });
 });
