@@ -52,13 +52,24 @@ describe("toTokensCss", () => {
     expect(lightBlock).toContain("--color-canvas: #ffffff;");
     expect(lightBlock).not.toContain("--color-ink");
   });
-  it("emits typography as --text-* with sub-values, radius and spacing", () => {
+  it("emits typography as --text-* with sub-values and the radius scale", () => {
     expect(css).toContain("  --text-app-body: 14px;");
     expect(css).toContain("  --text-app-body--line-height: 1.5;");
     expect(css).toContain("  --text-app-body--font-weight: 400;");
     expect(css).toContain("  --text-app-body--letter-spacing: 0px;");
     expect(css).toContain("  --radius-md: 8px;");
-    expect(css).toContain("  --spacing-md: 16px;");
+  });
+  it("maps DESIGN.md spacing onto Tailwind's numeric scale instead of named tokens", () => {
+    // Named spacing tokens (sm/md/lg/xl) collide with Tailwind's container sizes in max-w-*/w-*:
+    // `max-w-sm` would resolve to 12px. The scale is 4px-based, so p-3 == DESIGN.md `sm`.
+    expect(css).not.toContain("--spacing-md");
+    expect(css).toContain("spacing md = 16px → Tailwind 4 (p-4, gap-4, …)");
+  });
+  it("rejects a spacing token that is not a multiple of 4px", () => {
+    const bad = parseFrontMatter(
+      `---\nname: x\ncolors:\n  canvas: "#010102"\nspacing:\n  odd: 10px\n---\n`,
+    );
+    expect(() => toTokensCss(bad, parseFrontMatter(light))).toThrow(/spacing\.odd/);
   });
   it("rejects a light token that does not exist in dark (typo protection)", () => {
     const bad = parseFrontMatter(`---\nname: x\ncolors:\n  canvsa: "#ffffff"\n---\n`);
