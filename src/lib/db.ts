@@ -3,6 +3,7 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "@/generated/prisma/client";
 import { poolConfig } from "@/lib/db-config";
 import { env } from "@/lib/env";
+import { lazyProxy } from "@/lib/lazy";
 
 const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
 
@@ -22,12 +23,7 @@ function client(): PrismaClient {
 
 /**
  * Lazy handle: the client (and therefore env) is created on first use, not on import, so
- * `next build` can load route modules without a database or a production .env.
+ * `next build` can load route modules without a database or a production .env. Wrap an
+ * `$extends` client the same way when the DAL introduces one.
  */
-export const prisma: PrismaClient = new Proxy({} as PrismaClient, {
-  get: (_, key) => {
-    const target = client();
-    const value = Reflect.get(target, key);
-    return typeof value === "function" ? value.bind(target) : value;
-  },
-});
+export const prisma: PrismaClient = lazyProxy(client);
