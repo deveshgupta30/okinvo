@@ -60,7 +60,19 @@ export function toTokensCss(dark: DesignTokens, light: DesignTokens): string {
   out.push(`  --font-sans: ${FONT_STACKS.sans};`);
   out.push(`  --font-mono: ${FONT_STACKS.mono};`);
   for (const [k, v] of Object.entries(dark.rounded ?? {})) out.push(`  --radius-${k}: ${v};`);
-  for (const [k, v] of Object.entries(dark.spacing ?? {})) out.push(`  --spacing-${k}: ${px(v)};`);
+  // Spacing is NOT emitted as named --spacing-* tokens: names like sm/md/lg/xl collide with
+  // Tailwind's container sizes inside multi-namespace utilities (max-w-sm would become 12px).
+  // DESIGN.md's scale is 4px-based, which is exactly Tailwind's numeric scale, so we document
+  // the mapping and components use p-3 / gap-4 / mt-6 etc.
+  for (const [k, v] of Object.entries(dark.spacing ?? {})) {
+    const value = px(v);
+    const n = Number.parseFloat(value);
+    if (!value.endsWith("px") || !Number.isInteger(n) || n % 4 !== 0 || n <= 0) {
+      throw new Error(`spacing.${k} must be a positive multiple of 4px, got "${value}"`);
+    }
+    const step = n / 4;
+    out.push(`  /* spacing ${k} = ${value} → Tailwind ${step} (p-${step}, gap-${step}, …) */`);
+  }
   for (const [k, t] of Object.entries(dark.typography ?? {})) {
     out.push(`  --text-${k}: ${t.fontSize};`);
     if (t.lineHeight !== undefined) out.push(`  --text-${k}--line-height: ${t.lineHeight};`);
