@@ -75,6 +75,14 @@ describe("toTokensCss", () => {
     const bad = parseFrontMatter(`---\nname: x\ncolors:\n  canvsa: "#ffffff"\n---\n`);
     expect(() => toTokensCss(parseFrontMatter(dark), bad)).toThrow(/colors\.canvsa/);
   });
+  it("rejects non-colour sections in the light file instead of ignoring them", () => {
+    const bad = parseFrontMatter(
+      `---\nname: x\ncolors:\n  canvas: "#ffffff"\ntypography:\n  app-body:\n    fontFamily: Inter\n    fontSize: 14px\n---\n`,
+    );
+    expect(() => toTokensCss(parseFrontMatter(dark), bad)).toThrow(
+      /DESIGN\.light\.md.*only.*colors/,
+    );
+  });
   it("rejects non-hex colours", () => {
     const bad = parseFrontMatter(`---\nname: x\ncolors:\n  canvas: "white"\n---\n`);
     expect(() => toTokensCss(bad, parseFrontMatter(light))).toThrow(/canvas/);

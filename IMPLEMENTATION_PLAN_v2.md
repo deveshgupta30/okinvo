@@ -1745,7 +1745,8 @@ Buttons map 1:1 onto DESIGN.md's `button-primary` / `-secondary` / `-tertiary` /
 | Pair | Ratio | Consequence |
 |---|---|---|
 | `primary #5e6ad2` on `canvas` | 4.44 | OK for buttons, borders, icons, active-nav indicator (≥ 3:1 for UI); **not** for body-size link text |
-| `primary-hover #828fff` on `canvas` | 7.27 | link text colour in the app |
+| `link #828fff` on `canvas` | 7.27 | link text colour in the app |
+| white on `primary-hover #525dc7` | 5.60 | hovered primary button label (DESIGN.md's original hover `#828fff` was 2.87:1 and was changed) |
 | `ink-subtle` on `canvas` / `surface-1` | 6.42 / 5.86 | secondary text: fine |
 | `ink-tertiary` on `canvas` | 3.62 | disabled text and footnotes only — never for information the user must read |
 | `semantic-success` on `canvas` | 6.58 | fine |
@@ -1796,8 +1797,8 @@ Status pills (Linear product style): colour at 12 % alpha as background, colour 
 | `ink-subtle` | `#8a8f98` | `#62666d` | 5.77 / 5.33 on s1 | `#8a8f98` on white is 3.25 — fails — so it moves one step darker |
 | `ink-tertiary` | `#62666d` | `#8a8f98` | 3.25 | disabled and footnotes only, same rule as dark |
 | `primary` | `#5e6ad2` | `#5e6ad2` | 4.70 / 4.34 on s1 | unchanged: buttons, focus ring, active-nav indicator |
-| `link` | `#828fff` (= `primary-hover`) | `#4a55bd` | 7.27 dark / 6.32 light | body-size link text |
-| `primary-hover` | `#828fff` | `#4f5bc4` | — | lighter on hover in dark, darker in light |
+| `link` | `#828fff` | `#4a55bd` | 7.27 dark / 6.32 light | body-size link text |
+| `primary-hover` | `#525dc7` | `#4f5bc4` | white label 5.60 / 5.79 | darker on hover in both themes so the white label stays AA |
 | `semantic-*` | status table above | status table above | | |
 | `semantic-overlay` | `#000000` @ 60 % | `#000000` @ 40 % | | |
 
