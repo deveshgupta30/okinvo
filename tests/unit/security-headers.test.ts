@@ -15,6 +15,17 @@ describe("buildCsp", () => {
     expect(buildCsp({ nonce: "n", isProd: false })).toContain("'unsafe-eval'");
     expect(buildCsp({ nonce: "n", isProd: false })).toContain("connect-src 'self' ws: wss:");
   });
+  it("upgrades insecure requests only when production is actually served over https", () => {
+    expect(buildCsp({ nonce: "n", isProd: true, https: true })).toContain(
+      "upgrade-insecure-requests",
+    );
+    expect(buildCsp({ nonce: "n", isProd: true, https: false })).not.toContain(
+      "upgrade-insecure-requests",
+    );
+    expect(buildCsp({ nonce: "n", isProd: false, https: true })).not.toContain(
+      "upgrade-insecure-requests",
+    );
+  });
 });
 
 describe("securityHeaders", () => {

@@ -1,11 +1,18 @@
 export interface CspOptions {
   nonce: string;
   isProd: boolean;
+  /** Whether this request arrived over https (directly or via a trusted proxy). */
+  https?: boolean;
   /** Extra origins allowed as form-action targets (identity providers, added in M1). */
   formActionOrigins?: string[];
 }
 
-export function buildCsp({ nonce, isProd, formActionOrigins = [] }: CspOptions): string {
+export function buildCsp({
+  nonce,
+  isProd,
+  https = false,
+  formActionOrigins = [],
+}: CspOptions): string {
   const directives = [
     "default-src 'self'",
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${isProd ? "" : " 'unsafe-eval'"}`,
@@ -18,7 +25,9 @@ export function buildCsp({ nonce, isProd, formActionOrigins = [] }: CspOptions):
     `form-action 'self'${formActionOrigins.map((o) => ` ${o}`).join("")}`,
     "object-src 'none'",
   ];
-  if (isProd) directives.push("upgrade-insecure-requests");
+  // Only meaningful when the page itself is https; on plain-http production (LAN, CI) some
+  // browsers would upgrade sub-resource requests to an https origin that does not exist.
+  if (isProd && https) directives.push("upgrade-insecure-requests");
   return directives.join("; ");
 }
 
