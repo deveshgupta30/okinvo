@@ -40,6 +40,14 @@ export function parseFrontMatter(markdown: string): DesignTokens {
 const px = (v: number | string): string => (typeof v === "number" ? `${v}px` : v);
 
 export function toTokensCss(dark: DesignTokens, light: DesignTokens): string {
+  const extraSections = Object.keys(light).filter(
+    (k) => !["version", "name", "description", "colors"].includes(k),
+  );
+  if (extraSections.length > 0) {
+    throw new Error(
+      `DESIGN.light.md may only override colors (typography, rounded and spacing come from DESIGN.md); found: ${extraSections.join(", ")}`,
+    );
+  }
   for (const [k, v] of Object.entries(dark.colors)) {
     if (!HEX.test(v)) throw new Error(`DESIGN.md colors.${k} must be a 6-digit hex, got "${v}"`);
   }
