@@ -44,7 +44,7 @@ export function AppSidebar() {
                   "bg-sidebar-accent text-ink before:absolute before:top-1 before:bottom-1 before:left-0 before:w-[2px] before:rounded-full before:bg-primary",
               )}
             >
-              <Icon aria-hidden className="size-4" />
+              <Icon aria-hidden className="size-5" strokeWidth={1.5} />
               {label}
             </Link>
           );

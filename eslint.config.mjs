@@ -22,13 +22,15 @@ export default defineConfig([
       "no-restricted-syntax": [
         "error",
         {
-          selector: "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+          selector:
+            "Literal[value=/(#[0-9a-fA-F]{3,8}\\b|\\b(rgba?|hsla?|oklch|oklab|lab|lch|color)\\()/]",
           message:
-            "Hex colour literal: use a token utility generated from DESIGN.md (bg-canvas, text-ink, …).",
+            "Colour literal: use a token utility generated from DESIGN.md (bg-canvas, text-ink, …).",
         },
         {
-          selector: "TemplateElement[value.raw=/#[0-9a-fA-F]{3,8}\\b/]",
-          message: "Hex colour literal: use a token utility generated from DESIGN.md.",
+          selector:
+            "TemplateElement[value.raw=/(#[0-9a-fA-F]{3,8}\\b|\\b(rgba?|hsla?|oklch|oklab|lab|lch|color)\\()/]",
+          message: "Colour literal: use a token utility generated from DESIGN.md.",
         },
       ],
     },

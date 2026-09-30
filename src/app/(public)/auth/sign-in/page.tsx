@@ -31,16 +31,16 @@ export default function SignInPage() {
             </p>
           ) : (
             providers.map((p) => (
-              <Button
+              // The wrapper carries the tooltip: a disabled button has pointer-events: none.
+              <div
                 key={p.id}
-                variant="secondary"
-                size="lg"
-                disabled
+                className="flex flex-col"
                 title="Sign-in is wired to Better Auth in M1"
-                data-provider={p.id}
               >
-                Continue with {p.name}
-              </Button>
+                <Button variant="secondary" size="lg" disabled data-provider={p.id}>
+                  Continue with {p.name}
+                </Button>
+              </div>
             ))
           )}
         </div>
