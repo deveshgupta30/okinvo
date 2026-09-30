@@ -1,12 +1,14 @@
-import { execFileSync } from "node:child_process";
+import { execSync } from "node:child_process";
+
+const FILES = ["DESIGN.md", "DESIGN.light.md"];
 
 let failed = false;
-for (const file of ["DESIGN.md", "DESIGN.light.md"]) {
+for (const file of FILES) {
   let stdout = "";
   try {
-    stdout = execFileSync("pnpm", ["exec", "designmd", "lint", file], {
+    // Constant command string: the file names are fixed above, so no argument escaping is needed.
+    stdout = execSync(`pnpm exec designmd lint ${file}`, {
       encoding: "utf8",
-      shell: true,
       stdio: ["ignore", "pipe", "pipe"],
     });
   } catch (err) {
