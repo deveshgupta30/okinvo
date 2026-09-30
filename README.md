@@ -34,4 +34,17 @@ cp .env.example .env && scripts/gen-secrets.sh >> .env    # then delete the two 
 docker compose up -d --build    # migrate → app → caddy (automatic TLS; internal CA for localhost)
 ```
 
+If something on your machine already owns ports 80/443, serve on another port with a local
+`compose.override.yml` (auto-applied, keep it out of git):
+
+```yaml
+services:
+  caddy:
+    environment: { APP_DOMAIN: "localhost:8443" }
+    ports: !override ["8443:8443"]
+```
+
+and set `APP_URL=https://localhost:8443` in `.env`. Your browser will warn once about Caddy's
+local CA certificate — accept it for `localhost`.
+
 Status: M0 scaffold. Sign-in, invoices and the rest arrive milestone by milestone (`IMPLEMENTATION_PLAN_v2.md` §22).
