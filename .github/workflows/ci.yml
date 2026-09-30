@@ -73,3 +73,18 @@ jobs:
           severity: HIGH,CRITICAL
           exit-code: "1"
           ignore-unfixed: true
+      - name: container smoke — an invalid env must stop the process, a valid one must answer /live
+        run: |
+          set -euo pipefail
+          if docker run --rm -e APP_URL=http://x -e DATABASE_URL=postgresql://u:p@h:5432/d \
+               -e AUTH_SECRET=short -e FIELD_ENCRYPTION_KEY=bad okinvo:ci; then
+            echo "container kept running with an invalid environment"; exit 1
+          fi
+          docker run -d --name okinvo-smoke -p 3000:3000 \
+            -e APP_URL=http://127.0.0.1:3000 -e DATABASE_URL=postgresql://u:p@h:5432/d \
+            -e AUTH_SECRET="$AUTH_SECRET" -e FIELD_ENCRYPTION_KEY="$FIELD_ENCRYPTION_KEY" \
+            -e AUTH_ALLOWED_EMAILS="$AUTH_ALLOWED_EMAILS" \
+            -e AUTH_GITHUB_ID="$AUTH_GITHUB_ID" -e AUTH_GITHUB_SECRET="$AUTH_GITHUB_SECRET" okinvo:ci
+          for i in $(seq 1 30); do curl -sf http://127.0.0.1:3000/api/health/live && break; sleep 1; done
+          curl -sf http://127.0.0.1:3000/api/health/live
+          docker rm -f okinvo-smoke
