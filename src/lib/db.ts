@@ -14,5 +14,19 @@ function createClient(): PrismaClient {
 }
 
 /** One client per process; cached on globalThis so Next's dev HMR doesn't leak pools. */
-export const prisma: PrismaClient = globalForPrisma.prisma ?? createClient();
-if (env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+function client(): PrismaClient {
+  if (!globalForPrisma.prisma) globalForPrisma.prisma = createClient();
+  return globalForPrisma.prisma;
+}
+
+/**
+ * Lazy handle: the client (and therefore env) is created on first use, not on import, so
+ * `next build` can load route modules without a database or a production .env.
+ */
+export const prisma: PrismaClient = new Proxy({} as PrismaClient, {
+  get: (_, key) => {
+    const target = client();
+    const value = Reflect.get(target, key);
+    return typeof value === "function" ? value.bind(target) : value;
+  },
+});
