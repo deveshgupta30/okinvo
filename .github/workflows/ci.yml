@@ -3,6 +3,9 @@ on:
   push: { branches: [main] }
   pull_request: {}
 
+permissions:
+  contents: read
+
 env:
   PNPM_VERSION: 10.34.5
   NODE_VERSION: 24.21.0
@@ -30,6 +33,7 @@ jobs:
       - run: pnpm lint && pnpm typecheck && pnpm format:check
       - run: pnpm design:lint && pnpm design:tokens --check
       - run: pnpm db:migrate
+      - run: pnpm db:check # migrations replayed into a shadow DB must equal schema.prisma
       - run: pnpm test -- --coverage
       - run: pnpm audit --audit-level=high
       - run: pnpm build
