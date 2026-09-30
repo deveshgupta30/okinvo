@@ -14,7 +14,7 @@ const buttonVariants = cva(
         tertiary: "bg-transparent text-ink hover:bg-surface-1",
         inverse: "bg-inverse-canvas text-inverse-ink hover:opacity-90",
         destructive: "bg-destructive text-destructive-foreground hover:opacity-90",
-        link: "h-auto px-0 text-link underline-offset-4 hover:underline",
+        link: "text-link underline-offset-4 hover:underline",
       },
       size: {
         default: "h-8 px-[14px]",
@@ -23,6 +23,8 @@ const buttonVariants = cva(
         icon: "size-8",
       },
     },
+    // Applied after `size`, so a link never carries button height or padding.
+    compoundVariants: [{ variant: "link", class: "h-auto px-0" }],
     defaultVariants: { variant: "primary", size: "default" },
   },
 );
