@@ -12,9 +12,10 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 FROM deps AS build
 COPY . .
-# prisma.config.ts reads DATABASE_URL via env(), which throws when unset; generate never connects.
-ENV DATABASE_URL=postgresql://build:build@localhost:5432/build
-RUN pnpm prisma generate && pnpm build            # next.config.ts: output: "standalone"
+# prisma.config.ts reads DATABASE_URL via env(), which throws when unset; generate never connects,
+# so the placeholder is scoped to this one command and never becomes an image ENV.
+RUN DATABASE_URL=postgresql://build:build@localhost:5432/build pnpm prisma generate \
+ && pnpm build                                     # next.config.ts: output: "standalone"
 
 # ── Migration image: Prisma CLI + schema only ──
 FROM deps AS migrate
@@ -33,7 +34,7 @@ CMD ["pnpm", "prisma", "migrate", "deploy"]
 FROM ${NODE_IMAGE} AS runner
 ENV NODE_ENV=production PORT=3000 HOSTNAME=0.0.0.0 NEXT_TELEMETRY_DISABLED=1
 RUN apk add --no-cache tini && addgroup -S -g 1001 app && adduser -S -u 1001 -G app app \
- && mkdir -p /data/storage /tmp/okinvo && chown -R app:app /data /tmp/okinvo
+ && mkdir -p /data/storage && chown -R app:app /data
 WORKDIR /app
 COPY --from=build --chown=app:app /app/.next/standalone ./
 COPY --from=build --chown=app:app /app/.next/static ./.next/static

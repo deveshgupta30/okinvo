@@ -28,10 +28,9 @@ Checks: `pnpm lint`, `pnpm typecheck`, `pnpm format:check`, `pnpm test`, `pnpm t
 ## Run (Docker Compose)
 
 ```bash
-cp .env.example .env && scripts/gen-secrets.sh >> .env
-# edit: APP_DOMAIN, APP_URL, NODE_ENV=production, TRUST_PROXY=true,
-#       DATABASE_URL=postgresql://okinvo:<POSTGRES_PASSWORD>@postgres:5432/okinvo,
-#       STORAGE_LOCAL_ROOT=/data/storage, AUTH_ALLOWED_EMAILS, one AUTH_* provider
+cp .env.example .env && scripts/gen-secrets.sh >> .env    # then delete the two placeholder secret lines
+# edit: APP_DOMAIN, APP_URL, AUTH_ALLOWED_EMAILS and one AUTH_* provider pair
+#       (compose derives NODE_ENV, TRUST_PROXY, STORAGE_LOCAL_ROOT and DATABASE_URL itself)
 docker compose up -d --build    # migrate → app → caddy (automatic TLS; internal CA for localhost)
 ```
 
