@@ -91,12 +91,12 @@ Pin exact versions in `package.json` + `pnpm-lock.yaml`; this table is the recor
 |---|---|---|
 | `next` | `16.3.8` | App Router, Server Actions, `proxy.ts`, `after()`, Turbopack builds |
 | `react` / `react-dom` | `19.3.0` | |
-| `typescript` | `7.0.2` | Native (Go) compiler. If any tool in the chain (e.g. `typescript-eslint 8.71`) is not yet TS7-clean at scaffold time, pin `6.x` — TS 6 is the compatibility bridge release. |
+| `typescript` | `6.0.3` (M0 outcome) | 7.0.2 was tried first: Next 16 builds and `tsc` are fine on it, but `typescript-eslint 8.71` refuses TS 7.0 (typescript-eslint#10940). Renovate holds `<7` until that lands. |
 | `prisma` / `@prisma/client` / `@prisma/adapter-pg` | `7.10.0` | `prisma-client` generator + `pg` driver adapter (no Rust engine). **Do not** take `8.0.0-rc.*`, which is currently tagged `latest` for the CLI package — install `prisma@7.10.0` explicitly. |
 | `pg` | `8.23.1` | |
 | `better-auth` | `1.7.6` | Social providers + `genericOAuth` plugin + Prisma adapter |
 | `zod` | `4.6.5` | |
-| `@t3-oss/env-nextjs` | `0.13.11` | Typed env validation on top of Zod |
+| `@t3-oss/env-nextjs` | `0.13.11` | *Not used in M0*: plain Zod + `server-only` (`src/lib/env.ts`, lazily validated; eager at boot via `instrumentation.ts`). Adopt when a `NEXT_PUBLIC_*` variable appears. |
 | `tailwindcss` / `@tailwindcss/postcss` | `4.3.3` | CSS-first config |
 | `radix-ui` | `1.6.7` | Unified package, via shadcn/ui generator |
 | `lucide-react` | `1.49.0` | |
@@ -128,7 +128,7 @@ Pin exact versions in `package.json` + `pnpm-lock.yaml`; this table is the recor
 |---|---|
 | `vitest` | `5.0.3` |
 | `@playwright/test` | `1.63.0` |
-| `eslint` / `typescript-eslint` | `10.11.0` / `8.71.0` |
+| `eslint` / `typescript-eslint` | `9.39.5` / `8.71.0` — ESLint 10 was tried first; `eslint-config-next 16.3.8` depends on `eslint-plugin-react ^7.37`, whose peer range ends at eslint 9 and which calls the removed `context.getFilename`. Renovate holds `<10`. |
 | `prettier` | `3.9.9` |
 | `@types/node` | `24.x` (match the runtime major, not `26.6.3`) |
 | `pdf-parse` | `2.4.5` (document tests only) |
@@ -278,6 +278,7 @@ As in `SPEC.md` §5. Implementation notes:
 - Encrypted columns are suffixed `Enc` and hold `v1.<iv>.<tag>.<ciphertext>` (base64url).
 - Better Auth owns its four tables; they are generated with `npx @better-auth/cli@latest generate` (the docs' shorter alias is `npx auth@latest generate`) and then kept in the same schema file.
 - Money columns are `Decimal(14, 2)`; values are rounded to the currency's minor units (0 or 2) before storage, so zero-decimal currencies store as `x.00`.
+- The authoritative schema is `prisma/schema.prisma`. The block below is the design reference; note Prisma requires **one enum value per line** — the compact `enum X { A B }` form shown here for brevity does not parse.
 
 ### 7.2 `prisma/schema.prisma`
 
@@ -1272,6 +1273,8 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 FROM deps AS build
 COPY . .
+# prisma.config.ts reads DATABASE_URL via env(), which throws when unset; generate never connects.
+ENV DATABASE_URL=postgresql://build:build@localhost:5432/build
 RUN pnpm prisma generate && pnpm build            # next.config.ts: output: "standalone"
 
 # ── Migration image: Prisma CLI + schema only ──
@@ -1361,7 +1364,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
-    volumes: [pg_data:/var/lib/postgresql/data]
+    volumes: [pg_data:/var/lib/postgresql]       # postgres:18 image: mount the parent, not …/data
     security_opt: [no-new-privileges:true]
     networks: [data]
     healthcheck:
@@ -1708,7 +1711,7 @@ Resolved 2026-10-01. Kept so the reasoning survives.
 
 ### 24.1 Pipeline
 
-- `scripts/design-tokens.ts` parses the YAML front matter of `DESIGN.md` (dark, canonical) and `DESIGN.light.md` (light overrides, same token names) and writes `src/app/tokens.css`: a Tailwind 4 `@theme` block (`--color-canvas`, `--color-surface-1`, `--color-ink-subtle`, `--color-hairline`, `--radius-md`, `--spacing-lg`, `--font-display`, …) plus `--text-*` entries for the type scale. Both themes are emitted: `:root` carries dark, `[data-theme="light"]` the light overrides, so utilities are theme-agnostic. Components use only the generated utilities (`bg-surface-1`, `text-ink-subtle`, `border-hairline`, `rounded-md`). **No hex literals in components**; ESLint rule `no-restricted-syntax` on `#[0-9a-f]{3,8}` in `src/components` and `src/app` enforces it.
+- `scripts/design-tokens.ts` parses the YAML front matter of `DESIGN.md` (dark, canonical) and `DESIGN.light.md` (light overrides, same token names) and writes `src/app/tokens.css`: a Tailwind 4 `@theme` block (`--color-canvas`, `--color-surface-1`, `--color-ink-subtle`, `--color-hairline`, `--radius-md`, `--font-sans`, …) plus `--text-*` entries for the type scale. DESIGN.md's spacing scale is **not** emitted as named `--spacing-*` tokens: `sm/md/lg/xl` collide with Tailwind's container sizes inside `max-w-*`/`w-*` (M0 found `max-w-sm` resolving to 12 px), and the scale is 4 px-based, i.e. exactly Tailwind's numeric utilities — xxs=1, xs=2, sm=3, md=4, lg=6, xl=8, xxl=12, section=24 (`p-3` is DESIGN.md `sm`); `tokens.css` carries the mapping as comments and the generator rejects non-4 px values. Both themes are emitted: `:root` carries dark, `[data-theme="light"]` the light overrides, so utilities are theme-agnostic. Components use only the generated utilities (`bg-surface-1`, `text-ink-subtle`, `border-hairline`, `rounded-md`). **No hex literals in components**; ESLint rule `no-restricted-syntax` on `#[0-9a-f]{3,8}` in `src/components` and `src/app` enforces it.
 - CI runs `npx @google/design.md lint DESIGN.md` and `pnpm design:tokens --check` (regenerate and diff), so a token edit without a regenerated `tokens.css` fails the build.
 - `src/app/globals.css` imports `tokens.css` and maps tokens onto shadcn/ui's semantic variables (§24.3). shadcn components are generated once (`pnpm dlx shadcn@latest add …`) and then owned by the repo.
 

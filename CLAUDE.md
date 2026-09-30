@@ -15,7 +15,7 @@ If code and these docs disagree, fix whichever is wrong and say so; don't silent
 
 ## Stack (versions pinned in `IMPLEMENTATION_PLAN_v2.md` §3)
 
-Node 24 LTS · pnpm 10 · Next.js 16 (App Router, `proxy.ts` not `middleware.ts`) · React 19 · TypeScript 7 (strict) · Prisma 7 with `@prisma/adapter-pg` · PostgreSQL 18 · Better Auth · Tailwind 4 + shadcn/ui · Zod 4 · `@react-pdf/renderer` · `nodemailer` · `exceljs` / `csv-stringify` · Docker Compose (primary) and Kustomize (K8s).
+Node 24 LTS · pnpm 10 · Next.js 16 (App Router, `proxy.ts` not `middleware.ts`) · React 19 · TypeScript 6 (strict; TS 7 waits on typescript-eslint) · Prisma 7 with `@prisma/adapter-pg` · PostgreSQL 18 · Better Auth · Tailwind 4 + shadcn/ui · Zod 4 · `@react-pdf/renderer` · `nodemailer` · `exceljs` / `csv-stringify` · Docker Compose (primary) and Kustomize (K8s).
 
 ## Non-negotiable rules
 
@@ -52,10 +52,12 @@ compose.yml        production stack (repo root)   compose.dev.yml    postgres (+
 ## Commands (once scaffolded)
 
 ```
-pnpm dev                 pnpm test            pnpm test:e2e
-pnpm typecheck           pnpm lint            pnpm db:migrate      pnpm db:studio
-pnpm design:tokens       (regenerates src/app/tokens.css from DESIGN.md; --check in CI)
-docker compose up -d     pnpm release <ver>   (builds + pushes docker.io/deveshgupta30/okinvo)
+pnpm dev · pnpm build · pnpm start
+pnpm lint · pnpm typecheck · pnpm format · pnpm format:check
+pnpm test · pnpm test:watch · pnpm test:e2e
+pnpm db:up · pnpm db:down · pnpm db:generate · pnpm db:migrate · pnpm db:migrate:dev · pnpm db:reset · pnpm db:studio
+pnpm design:tokens [--check] · pnpm design:lint
+docker compose up -d --build      (M5 adds scripts/release.sh → docker.io/deveshgupta30/okinvo)
 ```
 
 `next lint` no longer exists in Next 16 — run `eslint` directly.
@@ -77,3 +79,13 @@ docker compose up -d     pnpm release <ver>   (builds + pushes docker.io/deveshg
 ## Don'ts
 
 No Redis or other extra infrastructure; no managed cloud services; no `any`; no editing issued documents; no storing URLs; no public buckets; no `unsafe-inline`/`unsafe-eval` in the production CSP; no adding a dependency without a reason in the commit message.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
