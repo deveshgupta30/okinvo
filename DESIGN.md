@@ -27,6 +27,10 @@ colors:
   brand-secure: "#7a7fad"
   semantic-success: "#27a644"
   semantic-overlay: "#000000"
+  semantic-warning: "#f2994a"
+  semantic-danger: "#eb5757"
+  semantic-danger-fill: "#c83a3a"
+  link: "#828fff"
 
 typography:
   display-xl:
@@ -107,6 +111,55 @@ typography:
     fontWeight: 400
     lineHeight: 1.50
     letterSpacing: 0
+  app-title:
+    fontFamily: Inter
+    fontSize: 20px
+    fontWeight: 600
+    lineHeight: 1.2
+    letterSpacing: -0.4px
+  app-section:
+    fontFamily: Inter
+    fontSize: 16px
+    fontWeight: 600
+    lineHeight: 1.3
+    letterSpacing: -0.2px
+  app-body:
+    fontFamily: Inter
+    fontSize: 14px
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: 0
+  app-label:
+    fontFamily: Inter
+    fontSize: 14px
+    fontWeight: 500
+    lineHeight: 1.3
+    letterSpacing: 0
+  app-table:
+    fontFamily: Inter
+    fontSize: 13px
+    fontWeight: 400
+    lineHeight: 1.4
+    letterSpacing: 0
+  app-caption:
+    fontFamily: Inter
+    fontSize: 12px
+    fontWeight: 400
+    lineHeight: 1.4
+    letterSpacing: 0
+  app-mono:
+    fontFamily: JetBrains Mono
+    fontSize: 13px
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: 0
+  app-amount:
+    fontFamily: JetBrains Mono
+    fontSize: 13px
+    fontWeight: 500
+    lineHeight: 1.5
+    letterSpacing: 0
+    fontFeature: tnum
 
 rounded:
   xs: 4px
