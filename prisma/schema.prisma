@@ -376,7 +376,7 @@ model Invoice {
   clientId           String
   status             DocumentStatus @default(DRAFT)
 
-  number             String?        @unique
+  number             String?        // unique per issuer profile, see @@unique below
   fiscalYear         String?
   sequenceNumber     Int?
 
@@ -438,6 +438,7 @@ model Invoice {
   documents          Document[]
   emails             EmailMessage[]
 
+  @@unique([issuerProfileId, number])
   @@index([issuerProfileId, fiscalYear])
   @@index([clientId])
   @@index([status, dueDate])
@@ -525,7 +526,7 @@ model CreditNote {
   clientId          String
   invoiceId         String
   status            DocumentStatus @default(DRAFT)
-  number            String?        @unique
+  number            String?        // unique per issuer profile, see @@unique below
   fiscalYear        String?
   sequenceNumber    Int?
   issueDate         DateTime       @db.Date
@@ -552,6 +553,7 @@ model CreditNote {
   documents         Document[]
   emails            EmailMessage[]
 
+  @@unique([issuerProfileId, number])
   @@index([invoiceId])
   @@index([issuerProfileId, fiscalYear])
 }

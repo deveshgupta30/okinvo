@@ -581,7 +581,7 @@ model Invoice {
   clientId           String
   status             DocumentStatus @default(DRAFT)
 
-  number             String?        @unique
+  number             String?        // @@unique([issuerProfileId, number]) — per issuer, per SPEC §4.6; a global @unique collided across profiles
   fiscalYear         String?
   sequenceNumber     Int?
 
@@ -730,7 +730,7 @@ model CreditNote {
   clientId          String
   invoiceId         String
   status            DocumentStatus @default(DRAFT)
-  number            String?        @unique
+  number            String?        // @@unique([issuerProfileId, number]), as on Invoice
   fiscalYear        String?
   sequenceNumber    Int?
   issueDate         DateTime       @db.Date
