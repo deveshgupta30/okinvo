@@ -59,3 +59,33 @@ test("app shell shows the primary navigation", async ({ page }) => {
     "page",
   );
 });
+
+test("no CSP violations and the client hydrates under the served policy", async ({ page }) => {
+  const consoleViolations: string[] = [];
+  page.on("console", (message) => {
+    if (message.type() === "error" && /Content Security Policy/i.test(message.text())) {
+      consoleViolations.push(message.text());
+    }
+  });
+  await page.addInitScript(() => {
+    const w = window as unknown as { __csp: string[] };
+    w.__csp = [];
+    window.addEventListener("securitypolicyviolation", (e) => {
+      w.__csp.push(`${e.violatedDirective} ${e.blockedURI}`);
+    });
+  });
+  await page.goto("/");
+  // React attaches __reactFiber$… to DOM nodes only once hydration has run: proof that the
+  // app's scripts executed under the served CSP rather than being blocked.
+  await expect
+    .poll(() =>
+      page.evaluate(() =>
+        Object.keys(document.querySelector("nav a") ?? {}).some((k) =>
+          k.startsWith("__reactFiber"),
+        ),
+      ),
+    )
+    .toBe(true);
+  expect(await page.evaluate(() => (window as unknown as { __csp: string[] }).__csp)).toEqual([]);
+  expect(consoleViolations).toEqual([]);
+});
