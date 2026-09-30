@@ -20,6 +20,11 @@ services:
     build: { context: ., dockerfile: docker/Dockerfile, target: runner }
     restart: unless-stopped
     <<: *app-env
+    environment: # container-specific values derived here so .env holds them once
+      NODE_ENV: production
+      TRUST_PROXY: "true"
+      STORAGE_LOCAL_ROOT: /data/storage
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
     volumes: [app_data:/data]
     read_only: true
     tmpfs: [/tmp, /app/.next/cache]
@@ -36,10 +41,16 @@ services:
       retries: 5
       start_period: 30s
 
-  migrate:
+  migrate: # only needs the database URL — no env_file, so it never sees app secrets
     image: docker.io/deveshgupta30/okinvo:${OKINVO_VERSION:-latest}-migrate
     build: { context: ., dockerfile: docker/Dockerfile, target: migrate }
-    <<: *app-env
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      CHECKPOINT_DISABLE: "1" # Prisma CLI telemetry would try to write a cache on the read-only FS
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
     networks: [data]
     depends_on: { postgres: { condition: service_healthy } }
 
