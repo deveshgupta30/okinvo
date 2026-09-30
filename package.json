@@ -18,6 +18,7 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:e2e": "playwright test",
     "design:tokens": "tsx scripts/design-tokens.ts",
     "design:lint": "node scripts/design-lint.mjs",
     "db:up": "docker compose -f compose.dev.yml up -d --wait postgres",
@@ -49,6 +50,7 @@
   },
   "devDependencies": {
     "@google/design.md": "0.4.0",
+    "@playwright/test": "1.63.0",
     "@tailwindcss/postcss": "4.3.3",
     "@types/node": "24.19.0",
     "@types/pg": "8.23.1",
