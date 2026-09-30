@@ -4,6 +4,8 @@ Personal project of **deveshgupta30** (`keshav.gupta@hotmail.com`). It is unrela
 
 ## Read these first
 
+If `MEMORY.md` exists at the repo root (local, gitignored), read it before anything else: it holds machine state, session history and decisions that neither the repo nor git records. Update it at the end of every session; never commit it.
+
 | Doc | Role |
 |---|---|
 | `SPEC.md` | **What** we build: domain rules (lifecycle, numbering, tax, money, exports). Authoritative for behaviour. |
@@ -22,7 +24,7 @@ Node 24 LTS · pnpm 10 · Next.js 16 (App Router, `proxy.ts` not `middleware.ts`
 - **Money:** `Decimal` (decimal.js / Prisma Decimal) end to end. Never `number` for amounts. Round half-up to the currency's minor units (`roundMoney(v, currency)`, never a bare `toDecimalPlaces(2)`) only at the points `SPEC.md` §4.6 defines. All money math lives in `src/lib/money`.
 - **Dates:** document dates are calendar dates handled as `YYYY-MM-DD` strings at every boundary; instants are UTC `Date`s. Never construct a `Date` from a bare `YYYY-MM-DD` string. "Today" is `todayFor(user)` in the signed-in user's timezone — never the server's.
 - **Validation:** Zod at every boundary — env (`src/lib/env.ts`), server actions, route handlers, and every `Json` column (schemas in `src/lib/schemas`).
-- **Authorization:** every server action and route handler calls `requireUser()` / `requireOwner()` from `src/server/auth`. `proxy.ts` is a convenience redirect, never the security boundary.
+- **Authorization:** every server action and route handler calls `requireUser()` / `requireOwner()` from `src/server/auth` — the only public exceptions are `/api/health/*` and `/verify/*`, which are public by design. `proxy.ts` is a convenience redirect, never the security boundary.
 - **Immutability:** an `ISSUED` invoice or credit note is never updated except for `sentAt`, void fields, payments and credit notes. Enforce in the DAL, not just the UI.
 - **Numbering:** only `allocateDocumentNumber()` in `src/lib/numbering` may assign numbers, and only inside the issue transaction.
 - **Storage:** all blobs go through `src/lib/storage` (`StorageAdapter`). Store **keys**, never URLs. Nothing in blob storage is publicly reachable; serve via `/api/assets` and `/api/documents`.
@@ -32,7 +34,7 @@ Node 24 LTS · pnpm 10 · Next.js 16 (App Router, `proxy.ts` not `middleware.ts`
 - **Audit:** state-changing DAL functions call `audit()` inside the same transaction.
 - **Templates:** issued documents render from the `templateSnapshot` stored on the invoice/credit note, never from current settings. Template config is parameters only — no user markup, CSS or fonts reach the renderer.
 - **Email:** nothing is sent without an explicit click in the composer; bodies are plain text; attachments only from stored `Document` rows; every attempt is logged in `EmailMessage`.
-- **Design:** colours, type, radius and spacing come from `DESIGN.md` through the generated `src/app/tokens.css` — never a hex literal in a component, never edit `tokens.css` by hand. Lavender (`primary`) only for the brand mark, the one primary button per view, focus rings and the active-nav indicator; link text uses `primary-hover`. Status colours only from the status palette (v2 §24.5). Amounts, document numbers and dates use JetBrains Mono (`app-amount` / `app-mono`), amounts right-aligned. Both themes ship: every component must read correctly under `:root` (dark) and `[data-theme="light"]` — never a dark-only colour.
+- **Design:** colours, type, radius and spacing come from `DESIGN.md` through the generated `src/app/tokens.css` — never a hex literal in a component, never edit `tokens.css` by hand. Lavender (`primary`) only for the brand mark, the one primary button per view, focus rings and the active-nav indicator; link text uses the `link` token. `shadcn add` may append oklch `:root`/`.dark` blocks to `globals.css` — delete them; the mapping block there is the only source. Status colours only from the status palette (v2 §24.5). Amounts, document numbers and dates use JetBrains Mono (`app-amount` / `app-mono`), amounts right-aligned. Both themes ship: every component must read correctly under `:root` (dark) and `[data-theme="light"]` — never a dark-only colour.
 
 ## Layout (planned)
 
@@ -78,7 +80,7 @@ docker compose up -d --build      (M5 adds scripts/release.sh → docker.io/deve
 
 ## Don'ts
 
-No Redis or other extra infrastructure; no managed cloud services; no `any`; no editing issued documents; no storing URLs; no public buckets; no `unsafe-inline`/`unsafe-eval` in the production CSP; no adding a dependency without a reason in the commit message.
+No Redis or other extra infrastructure; no managed cloud services; no `any`; no editing issued documents; no storing URLs; no public buckets; no `'unsafe-inline'` or `'unsafe-eval'` in the production `script-src` (`style-src 'unsafe-inline'` is required by Next and allowed); no adding a dependency without a reason in the commit message.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
