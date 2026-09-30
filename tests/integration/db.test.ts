@@ -3,6 +3,8 @@ import { Pool } from "pg";
 import { afterAll, describe, expect, it } from "vitest";
 
 const url = process.env.DATABASE_URL;
+// Locally these tests skip without a database; in CI a missing DATABASE_URL is a broken pipeline, not a skip.
+if (!url && process.env.CI) throw new Error("DATABASE_URL is required when CI is set");
 
 describe.skipIf(!url)("database", () => {
   const pool = new Pool({ connectionString: url });
