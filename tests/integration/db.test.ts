@@ -28,6 +28,40 @@ describe.skipIf(!url)("database", () => {
     }
   });
 
+  it("keeps invoice numbers unique per issuer profile, not globally", async () => {
+    const client = await pool.connect();
+    try {
+      await client.query("BEGIN");
+      for (const id of ["issuer-a", "issuer-b"]) {
+        await client.query(
+          `INSERT INTO "IssuerProfile"
+             (id, label, "legalName", email, address, "countryCode", "defaultDisplayConfig", "updatedAt")
+           VALUES ($1, $1, $1, 't@example.com', '{}', 'IN', '{}', now())`,
+          [id],
+        );
+      }
+      await client.query(
+        `INSERT INTO "Client" (id, "displayName", "billingAddress", "countryCode", currency, "updatedAt")
+         VALUES ('client-a', 'Client', '{}', 'IN', 'INR', now())`,
+      );
+      const invoice = (id: string, issuer: string) =>
+        client.query(
+          `INSERT INTO "Invoice"
+             (id, "issuerProfileId", "clientId", "issueDate", "dueDate", currency, "taxRegime",
+              "displayConfig", "verificationToken", number, "updatedAt")
+           VALUES ($1, $2, 'client-a', '2026-04-01', '2026-05-01', 'INR', 'INDIA_GST', '{}', $1,
+                   'INV/26-27/001', now())`,
+          [id, issuer],
+        );
+      await invoice("inv-1", "issuer-a");
+      await invoice("inv-2", "issuer-b"); // same number, different issuer: allowed
+      await expect(invoice("inv-3", "issuer-a")).rejects.toMatchObject({ code: "23505" });
+    } finally {
+      await client.query("ROLLBACK");
+      client.release();
+    }
+  });
+
   it("allows exactly one non-archived default issuer profile", async () => {
     const client = await pool.connect();
     try {
