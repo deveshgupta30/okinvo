@@ -1,11 +1,11 @@
 "use client";
 
-import { ImagePlus, X } from "lucide-react";
+import { FileText, ImagePlus, X } from "lucide-react";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
-type Kind = "LOGO" | "SIGNATURE" | "STAMP";
+type Kind = "LOGO" | "SIGNATURE" | "STAMP" | "RECEIPT";
 
 /** Uploads through /api/uploads and keeps the asset id in a hidden field named `name`. */
 export function AssetPicker({
@@ -43,7 +43,9 @@ export function AssetPicker({
           json.error === "TOO_LARGE"
             ? "That file is too large."
             : json.error === "UNSUPPORTED_TYPE"
-              ? "Use a PNG, JPEG or WebP image."
+              ? kind === "RECEIPT"
+                ? "Use a PNG, JPEG, WebP image or a PDF."
+                : "Use a PNG, JPEG or WebP image."
               : "Upload failed.",
         );
         return;
@@ -64,7 +66,9 @@ export function AssetPicker({
       <input type="hidden" name={name} value={id} />
       <div className="flex items-center gap-3">
         <div className="flex size-16 items-center justify-center overflow-hidden rounded-md border border-hairline bg-surface-2">
-          {key ? (
+          {key && key.endsWith(".pdf") ? (
+            <FileText aria-hidden className="size-6 text-ink-subtle" strokeWidth={1.5} />
+          ) : key ? (
             // eslint-disable-next-line @next/next/no-img-element -- private, session-gated asset route
             <img
               src={`/api/assets/${key}`}
@@ -79,7 +83,11 @@ export function AssetPicker({
           <input
             ref={fileRef}
             type="file"
-            accept="image/png,image/jpeg,image/webp"
+            accept={
+              kind === "RECEIPT"
+                ? "image/png,image/jpeg,image/webp,application/pdf"
+                : "image/png,image/jpeg,image/webp"
+            }
             className="text-app-caption text-ink-subtle file:mr-2 file:h-7 file:rounded-md file:border file:border-hairline file:bg-surface-1 file:px-3 file:text-app-caption file:text-ink"
             disabled={busy}
             onChange={(e) => {
