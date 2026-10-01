@@ -24,7 +24,13 @@ export interface ClientForTax {
 
 export interface ComputeParams {
   currency: string;
-  items: { position: number; quantity: string; unitPrice: string; taxRate: string }[];
+  items: {
+    position: number;
+    quantity: string;
+    unitPrice: string;
+    taxRate: string;
+    taxExempt?: boolean | undefined;
+  }[];
   discount: { type: "AMOUNT" | "PERCENT"; value: string } | null;
   roundingAdjustment: string | null;
   tdsRate: string;
@@ -51,6 +57,7 @@ export function computeInvoice(
       quantity: D(i.quantity),
       unitPrice: D(i.unitPrice),
       taxRate: D(i.taxRate),
+      exempt: i.taxExempt ?? false,
     })),
     discount: p.discount ? { type: p.discount.type, value: D(p.discount.value) } : null,
     roundingAdjustment: p.roundingAdjustment ? D(p.roundingAdjustment) : null,
@@ -70,6 +77,7 @@ export function computeInvoice(
       position: l.position,
       taxableAmount: l.taxableAmount,
       taxRate: l.taxRate,
+      exempt: l.exempt,
     })),
   );
   const totals = computeTotals(totalsInput, tax);

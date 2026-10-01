@@ -38,6 +38,15 @@ describe("displayStatus", () => {
     );
   });
 
+  it("OVERDUE beats PARTIALLY_PAID: a partly paid invoice past its due date is overdue", () => {
+    const inv = invoice({
+      dueDate: "2026-04-14",
+      amountPaid: D("400"),
+      balanceDue: D("600"),
+      sentAt: new Date("2026-04-02T00:00:00Z"),
+    });
+    expect(displayStatus(inv, today)).toBe("OVERDUE");
+  });
   it("PARTIALLY_PAID when some payment is in and a balance remains, even when sent", () => {
     const inv = invoice({
       sentAt: new Date("2026-04-10T10:00:00Z"),
@@ -86,9 +95,9 @@ describe("displayStatus", () => {
     expect(displayStatus(invoice({ dueDate: today }), today)).toBe("ISSUED");
   });
 
-  it("OVERDUE beats PARTIALLY_PAID? No — partial payment wins (plan order)", () => {
+  it("a token payment does not hide that the rest is late", () => {
     const inv = invoice({ dueDate: "2026-01-01", amountPaid: D("1"), balanceDue: D("999") });
-    expect(displayStatus(inv, today)).toBe("PARTIALLY_PAID");
+    expect(displayStatus(inv, today)).toBe("OVERDUE");
   });
 
   it("overdue depends on the caller's today, which differs by timezone", () => {
@@ -105,7 +114,7 @@ describe("displayStatus", () => {
       [{ sentAt: new Date("2026-04-01T00:00:00Z") }, "SENT"],
       [{ dueDate: "2026-04-01" }, "OVERDUE"],
       [{ amountPaid: D("500"), balanceDue: D("500") }, "PARTIALLY_PAID"],
-      [{ amountPaid: D("500"), balanceDue: D("500"), dueDate: "2026-04-01" }, "PARTIALLY_PAID"],
+      [{ amountPaid: D("500"), balanceDue: D("500"), dueDate: "2026-04-01" }, "OVERDUE"],
       [{ amountPaid: D("1000"), balanceDue: ZERO }, "PAID"],
       [{ amountCredited: D("500"), balanceDue: D("500"), dueDate: "2026-04-01" }, "OVERDUE"],
       [{ amountCredited: D("500"), balanceDue: D("500") }, "ISSUED"],

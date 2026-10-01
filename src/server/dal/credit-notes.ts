@@ -2,10 +2,10 @@ import "server-only";
 import { Prisma } from "@/generated/prisma/client";
 import { creditNoteTaxLines } from "@/lib/credit-notes/apportion";
 import { randomToken } from "@/lib/crypto";
-import { fromDateString, todayIn, toDateString, type DateString } from "@/lib/dates";
+import { compareDates, fromDateString, todayIn, toDateString, type DateString } from "@/lib/dates";
 import { prisma, type Tx } from "@/lib/db";
 import { recalculateBalances } from "@/lib/invoices/balances";
-import { D, sum, toMoneyString } from "@/lib/money";
+import { D, ZERO, sum, toMoneyString } from "@/lib/money";
 import { fiscalYearOf, formatDocumentNumber } from "@/lib/numbering";
 import { allocateDocumentNumber } from "@/lib/numbering/allocate";
 import {
@@ -49,6 +49,7 @@ export interface CreditNoteListRow {
 }
 
 export interface CreditNoteDto extends CreditNoteListRow {
+  roundingAdjustment: string;
   fiscalYear: string | null;
   sequenceNumber: number | null;
   issuedAt: string | null;
@@ -135,6 +136,7 @@ function toDto(row: Row): CreditNoteDto {
     supplyType: row.supplyType,
     subtotal: m(row.subtotal),
     taxAmount: m(row.taxAmount),
+    roundingAdjustment: m(row.roundingAdjustment),
     total: m(row.total),
     taxLines: row.taxLines.map((t) => ({
       taxType: t.taxType,
@@ -214,6 +216,16 @@ function computeCredit(
   );
 }
 
+function assertNotBeforeInvoice(issueDate: string, invoiceIssueDate: Date): void {
+  const invoiceDate = toDateString(invoiceIssueDate);
+  if (compareDates(issueDate, invoiceDate) < 0) {
+    throw new InvariantError(
+      `A credit note cannot be dated before the invoice it credits (issued ${invoiceDate}).`,
+      { issueDate: ["before the invoice"] },
+    );
+  }
+}
+
 function assertAmountPositive(subtotal: string): void {
   if (D(subtotal).lte(0)) {
     throw new InvariantError("The credit amount must be greater than zero.", {
@@ -237,6 +249,7 @@ export async function createCreditNoteDraft(
   assertAmountPositive(input.subtotal);
   return prisma.$transaction(async (tx) => {
     const invoice = await loadInvoiceForCredit(tx, input.invoiceId);
+    assertNotBeforeInvoice(input.issueDate, invoice.issueDate);
     const credit = computeCredit(invoice, input.subtotal);
     const c = invoice.currency;
     const row = await tx.creditNote.create({
@@ -284,6 +297,7 @@ export async function updateCreditNoteDraft(
     if (before.status !== "DRAFT")
       throw new InvariantError("An issued credit note cannot be edited.");
     const invoice = await loadInvoiceForCredit(tx, before.invoiceId);
+    assertNotBeforeInvoice(input.issueDate, invoice.issueDate);
     const credit = computeCredit(invoice, input.subtotal);
     const c = invoice.currency;
     await tx.creditNoteTaxLine.deleteMany({ where: { creditNoteId: id } });
@@ -353,7 +367,15 @@ export async function issueCreditNote(actor: Actor, id: string): Promise<CreditN
           { subtotal: ["exceeds the outstanding taxable balance"] },
         );
       }
-      if (credit.total.gt(D(balances.balanceDue))) {
+      // Crediting the whole remaining taxable amount must close the balance exactly: the
+      // invoice's rounding adjustment (and any apportioning residue below one unit) rides along.
+      let roundingAdjustment = ZERO;
+      if (D(cn.subtotal.toString()).eq(outstandingTaxable)) {
+        const residue = D(balances.balanceDue).minus(credit.total);
+        if (residue.abs().lt(1)) roundingAdjustment = residue;
+      }
+      const total = credit.total.plus(roundingAdjustment);
+      if (total.gt(D(balances.balanceDue))) {
         throw new InvariantError(
           `The credit note total exceeds the outstanding balance of ${toMoneyString(balances.balanceDue, c)}.`,
           { subtotal: ["total exceeds the outstanding balance"] },
@@ -405,7 +427,8 @@ export async function issueCreditNote(actor: Actor, id: string): Promise<CreditN
           issuedAt: new Date(),
           supplyType: invoice.supplyType,
           taxAmount: toMoneyString(credit.taxAmount, c),
-          total: toMoneyString(credit.total, c),
+          roundingAdjustment: toMoneyString(roundingAdjustment, c),
+          total: toMoneyString(total, c),
           snapshot: json(snapshot),
           templateSnapshot: json(template),
           verificationToken: randomToken(),

@@ -15,6 +15,13 @@ export async function POST(request: Request): Promise<Response> {
   const limited = await enforceRateLimit(request.headers, "uploads", actor.userId);
   if (limited) return limited;
 
+  // The declared size is checked before the body is read; the exact per-kind cap follows below.
+  const declared = Number(request.headers.get("content-length") ?? "0");
+  const largestCap =
+    Math.max(env.UPLOAD_MAX_IMAGE_MB, env.UPLOAD_MAX_RECEIPT_MB) * 1024 * 1024 + 64 * 1024;
+  if (Number.isFinite(declared) && declared > largestCap) {
+    return Response.json({ error: "TOO_LARGE" }, { status: 413 });
+  }
   const form = await request.formData();
   const file = form.get("file");
   const kind = String(form.get("kind") ?? "");

@@ -1,6 +1,6 @@
 import "server-only";
 import { Prisma } from "@/generated/prisma/client";
-import { fromDateString, toDateString, type DateString } from "@/lib/dates";
+import { compareDates, fromDateString, toDateString, type DateString } from "@/lib/dates";
 import { prisma, type Tx } from "@/lib/db";
 import { recalculateBalances } from "@/lib/invoices/balances";
 import { D, sum, toMoneyString } from "@/lib/money";
@@ -144,6 +144,16 @@ function assertWithinLimits(
   }
 }
 
+function assertNotBeforeInvoice(paymentDate: DateString, invoiceIssueDate: Date): void {
+  const invoiceDate = toDateString(invoiceIssueDate);
+  if (compareDates(paymentDate, invoiceDate) < 0) {
+    throw new InvariantError(
+      `A payment cannot be dated before the invoice was issued (${invoiceDate}).`,
+      { paymentDate: ["before the invoice"] },
+    );
+  }
+}
+
 async function loadInvoice(tx: Tx, invoiceId: string) {
   await lockInvoice(tx, invoiceId); // serialises concurrent ledger changes (review finding)
   const invoice = await tx.invoice.findUnique({
@@ -157,6 +167,7 @@ async function loadInvoice(tx: Tx, invoiceId: string) {
       amountPaid: true,
       amountCredited: true,
       balanceDue: true,
+      issueDate: true,
       issuerProfile: { select: { locale: true } },
       client: { select: { displayName: true } },
     },
@@ -175,6 +186,7 @@ export async function recordPayment(
     if (invoice.status !== "ISSUED") {
       throw new InvariantError("Only issued invoices accept payments.");
     }
+    assertNotBeforeInvoice(input.paymentDate, invoice.issueDate);
     const balances = await recalculateBalances(tx, invoiceId);
     assertWithinLimits(input, balances, invoice.currency);
     const row = await tx.payment.create({
@@ -202,6 +214,7 @@ export async function updatePayment(
     if (invoice.status !== "ISSUED") {
       throw new InvariantError("Only issued invoices accept payment changes.");
     }
+    assertNotBeforeInvoice(input.paymentDate, invoice.issueDate);
     const current = await recalculateBalances(tx, invoice.id);
     // Evaluate the limits as if this payment did not exist yet.
     const without = {

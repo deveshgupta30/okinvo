@@ -23,8 +23,19 @@ describe("guardCell", () => {
     expect(guardCell("a=b")).toBe("a=b");
     expect(guardCell("5")).toBe("5");
     expect(guardCell("Acme (Pvt) Ltd.")).toBe("Acme (Pvt) Ltd.");
-    expect(guardCell(" =1+1")).toBe(" =1+1");
     expect(guardCell("'=1+1")).toBe("'=1+1");
+  });
+  it("looks past leading whitespace and line breaks, which spreadsheets trim", () => {
+    expect(guardCell(" =1+1")).toBe("' =1+1");
+    expect(guardCell("\n=1+1")).toBe("'\n=1+1");
+    expect(guardCell("\t\t+1")).toBe("'\t\t+1");
+    expect(guardCell("  plain")).toBe("  plain");
+  });
+  it("catches full-width ＝ ＋ － ＠, which Excel folds to their ASCII forms", () => {
+    expect(guardCell("＝1+1")).toBe("'＝1+1");
+    expect(guardCell("＋1")).toBe("'＋1");
+    expect(guardCell("－1")).toBe("'－1");
+    expect(guardCell("＠SUM(A1)")).toBe("'＠SUM(A1)");
   });
   it("treats a negative-looking text cell as text (numbers are the writer's job)", () => {
     expect(guardCell("-5")).toBe("'-5");

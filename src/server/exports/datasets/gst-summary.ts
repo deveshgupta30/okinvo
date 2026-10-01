@@ -104,10 +104,12 @@ export const gstSummaryDataset = defineDataset<PeriodExportFilters, GstSummaryRo
     for await (const { row: inv } of invoices) {
       const cur = inv.currency;
       const { taxId, taxIdType } = clientTaxId(inv.clientSnapshot, inv.client);
+      // The invoice may have hidden the tax id on paper; the return still needs the GSTIN.
+      const liveGstin = inv.client.taxIdType === "GSTIN" ? inv.client.taxId : null;
       const head = {
         invoiceNumber: inv.number,
         date: day(inv.issueDate),
-        clientGstin: taxIdType === "GSTIN" ? taxId : null,
+        clientGstin: (taxIdType === "GSTIN" ? taxId : null) ?? liveGstin,
         placeOfSupply: inv.placeOfSupply,
         supplyType: inv.supplyType,
       };

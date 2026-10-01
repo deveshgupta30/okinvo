@@ -41,6 +41,8 @@ export interface TaxableLine {
   taxableAmount: Decimal;
   /** Percentage, e.g. D("18"). */
   taxRate: Decimal;
+  /** UK VAT "exempt" (SPEC §4.7): no tax, and the line stays out of the tax rows. */
+  exempt?: boolean | undefined;
 }
 
 export interface TaxLineResult {

@@ -1,5 +1,8 @@
 "use client";
 
+import { suggestRoundingAdjustment } from "@/lib/invoices";
+import { D } from "@/lib/money";
+
 import Link from "next/link";
 import { useActionState, useDeferredValue, useMemo, useState } from "react";
 import { ScaledPreview } from "@/components/documents/scaled-preview";
@@ -234,6 +237,7 @@ export function InvoiceBuilder({
               items={values.items}
               services={context.services}
               rates={rates}
+              allowExempt={values.taxRegime === "UK_VAT"}
               errors={errors}
               onChange={(items) => set("items", items)}
             />
@@ -320,10 +324,11 @@ export function InvoiceBuilder({
                     type="button"
                     variant="secondary"
                     onClick={() => {
-                      const total =
-                        Number(preview.totals.total) - Number(preview.totals.roundingAdjustment);
-                      const adj = Math.round(total) - total;
-                      set("roundingAdjustment", Math.abs(adj) < 0.005 ? "" : adj.toFixed(2));
+                      const base = D(preview.totals.total).minus(
+                        D(preview.totals.roundingAdjustment),
+                      );
+                      const adj = suggestRoundingAdjustment(base, values.currency);
+                      set("roundingAdjustment", adj.isZero() ? "" : adj.toFixed(2));
                     }}
                   >
                     Round

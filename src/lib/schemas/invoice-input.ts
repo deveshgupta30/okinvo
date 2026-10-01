@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { DateStringSchema, compareDates } from "@/lib/dates";
 import { fBool, fDecimal, fOptional } from "@/lib/forms";
-import { D } from "@/lib/money";
+import { D, minorUnits } from "@/lib/money";
 import { GST_RATES, UK_VAT_RATES } from "@/lib/tax";
 import { CurrencySchema } from "./currency";
 import { DisplayConfigSchema } from "./display-config";
@@ -17,9 +17,15 @@ export const InvoiceItemInputSchema = z.object({
   description: z.string().trim().min(1, "required").max(500),
   sacHsnCode: fOptional(z.string().trim().max(10)),
   unitType: z.enum(UNIT_TYPES),
-  quantity: fDecimal(3).refine((v) => D(v).gt(0), { message: "must be greater than zero" }),
-  unitPrice: fDecimal(2).refine((v) => D(v).gte(0), { message: "must not be negative" }),
+  quantity: fDecimal(3)
+    .refine((v) => D(v).gt(0), { message: "must be greater than zero" })
+    .refine((v) => D(v).lte("999999.999"), { message: "must be at most 999,999.999" }),
+  unitPrice: fDecimal(2)
+    .refine((v) => D(v).gte(0), { message: "must not be negative" })
+    .refine((v) => D(v).lte("99999999.99"), { message: "must be at most 99,999,999.99" }),
   taxRate: fDecimal(2).refine(inRange(0, 100), { message: "must be between 0 and 100" }),
+  /** UK VAT exempt supply: no VAT, shown as "Exempt" instead of a rate. Absent means taxable. */
+  taxExempt: fBool.optional(),
   serviceItemId: fOptional(z.string().max(64)),
 });
 export type InvoiceItemInput = z.infer<typeof InvoiceItemInputSchema>;
@@ -61,6 +67,26 @@ export const InvoiceDraftInputSchema = z
         code: "custom",
         path: ["dueDate"],
         message: "must not be before the issue date",
+      });
+    }
+    // Money columns hold 12 integer digits: refuse an invoice that could not be stored.
+    const subtotal = v.items.reduce((s, i) => s.plus(D(i.quantity).mul(i.unitPrice)), D(0));
+    if (subtotal.gt("999999999999.99")) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["items"],
+        message: "the invoice is too large: line subtotals must total at most 999,999,999,999.99",
+      });
+    }
+    if (
+      v.roundingAdjustment !== undefined &&
+      minorUnits(v.currency) === 0 &&
+      !D(v.roundingAdjustment).isZero()
+    ) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["roundingAdjustment"],
+        message: `not applicable: ${v.currency} has no minor units to round away`,
       });
     }
     const allowed =

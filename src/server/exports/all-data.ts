@@ -1,7 +1,7 @@
 import "server-only";
 import { Readable } from "node:stream";
 import { prisma } from "@/lib/db";
-import { csvString } from "@/lib/exports/csv";
+import { csvChunks } from "@/lib/exports/csv";
 import type { ZipEntry } from "@/lib/exports/zip";
 import { APP_VERSION } from "@/lib/version";
 import type { Actor } from "@/server/actor";
@@ -265,7 +265,11 @@ export async function* allDataEntries(actor: Actor): AsyncGenerator<ZipEntry> {
     yield {
       name: `csv/${ds.id}.csv`,
       // `archived=1` includes archived rows for clients/services; other schemas drop the key.
-      body: () => csvString(ds.columns, ds.rows(actor, ds.filters.parse({ archived: "1" }))),
+      body: () =>
+        Readable.from(
+          utf8(csvChunks(ds.columns, ds.rows(actor, ds.filters.parse({ archived: "1" })))),
+          { objectMode: false },
+        ),
       date,
     };
   }

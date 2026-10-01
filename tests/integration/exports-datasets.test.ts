@@ -465,8 +465,86 @@ describe.skipIf(!url)("export datasets", () => {
     expect(rows[1]).toMatchObject({ taxable: "4000.00", cgst: "100.00", sgst: "100.00" });
   });
 
+  it("register and credit-note rows carry the names frozen at issue, not later edits", async () => {
+    const clients = await import("@/server/dal/clients");
+    const current = await clients.getClient(actor, clientId);
+    await prisma.client.update({
+      where: { id: clientId },
+      data: { displayName: `${tag} client RENAMED` },
+    });
+    await prisma.issuerProfile.update({
+      where: { id: profileId },
+      data: { legalName: `${tag} Legal RENAMED` },
+    });
+    try {
+      const { rows } = await run("invoices", { issuerProfileId: profileId, status: "ISSUED" });
+      expect(rows[0]).toMatchObject({ client: `${tag} client`, issuer: `${tag} Legal` });
+      const cn = await run("credit-notes", { issuerProfileId: profileId, fy: "2026-27" });
+      expect(cn.rows[0]).toMatchObject({ client: `${tag} client` });
+      // Drafts have no snapshot yet: they show the live names.
+      const drafts = await run("invoices", { issuerProfileId: profileId, status: "DRAFT" });
+      expect(drafts.rows[0]).toMatchObject({ client: `${tag} client RENAMED` });
+    } finally {
+      await prisma.client.update({
+        where: { id: clientId },
+        data: { displayName: current.displayName },
+      });
+      await prisma.issuerProfile.update({
+        where: { id: profileId },
+        data: { legalName: `${tag} Legal` },
+      });
+    }
+  });
+
+  it("GST summary falls back to the live client GSTIN when the invoice hid the tax id", async () => {
+    const d = await inv.createDraft(
+      actor,
+      InvoiceDraftInputSchema.parse({
+        issuerProfileId: profileId,
+        clientId,
+        issueDate: "2026-07-01",
+        dueDate: "2027-03-31",
+        currency: "INR",
+        taxRegime: "INDIA_GST",
+        items: [
+          {
+            description: "Hidden tax id",
+            sacHsnCode: "998314",
+            unitType: "HOUR",
+            quantity: "1",
+            unitPrice: "1000",
+            taxRate: "18",
+          },
+        ],
+        displayConfig: {
+          ...DEFAULT_DISPLAY_CONFIG,
+          client: { ...DEFAULT_DISPLAY_CONFIG.client, showTaxIdentifier: false },
+        },
+      }),
+    );
+    invoiceIds.push(d.id);
+    const issued = await inv.issueInvoice(actor, d.id);
+    expect(issued.clientSnapshot?.taxId ?? null).toBeNull();
+    const { rows } = await run("gst-summary", { issuerProfileId: profileId, from: "2026-07-01" });
+    expect(rows.map((r) => r.invoiceNumber)).toEqual([issued.number]);
+    expect(rows[0]).toMatchObject({ clientGstin: "29AAAAA0000A1Z5" });
+  });
+
+  it("refuses a fiscal-year label that does not fit the issuer's start month", async () => {
+    const ds = datasets.getDataset("invoices");
+    if (!ds) throw new Error("no dataset");
+    const parsed = ds.filters.parse({ fy: "2026", issuerProfileId: profileId });
+    await expect(ds.range(parsed)).rejects.toThrow(/fiscal year/i);
+    await expect(collect(ds.rows(actor, parsed))).rejects.toThrow(/fiscal year/i);
+  });
+
   it("summarises TDS per client from issued invoices and recorded payments", async () => {
-    const { rows } = await run("tds-summary", { issuerProfileId: profileId, fy: "2026-27" });
+    // A date range rather than the FY: the GSTIN test above adds a July invoice to this issuer.
+    const { rows } = await run("tds-summary", {
+      issuerProfileId: profileId,
+      from: "2026-04-01",
+      to: "2026-06-30",
+    });
     expect(rows).toHaveLength(1);
     expect(rows[0]).toMatchObject({
       client: `${tag} client`,

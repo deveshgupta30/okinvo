@@ -53,6 +53,10 @@ export function applyTaxDetermination(
 
   const buckets = new Map<string, TaxLineResult>();
   for (const line of lines) {
+    if (line.exempt) {
+      result.lines.push({ position: line.position, taxAmount: ZERO });
+      continue;
+    }
     let lineTax = ZERO;
     for (const component of components(line.taxRate)) {
       const rate = D(component.rate);
