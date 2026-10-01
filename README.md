@@ -49,9 +49,12 @@ local CA certificate — accept it for `localhost`.
 
 ## Using okinvo
 
-1. **Sign in.** Only addresses on `AUTH_ALLOWED_EMAILS` can sign in (or sign up, when
-   `AUTH_PASSWORD_SIGNIN=true`); the first account is the owner. Your timezone is detected on
-   the first page and can be changed in Settings → Account.
+1. **Sign in.** Only addresses on `AUTH_ALLOWED_EMAILS` can sign in, through an identity
+   provider or, with `AUTH_PASSWORD_SIGNIN=true`, a password. Every allow-listed account is an
+   owner. A password sign-up is accepted only for an address listed exactly (a `*@domain` pattern
+   admits provider sign-ins, not password sign-ups), so list your own address and create it right
+   after deploying. Your timezone is detected on the first page and can be changed in
+   Settings → Account.
 2. **Set up an issuer profile** (Settings → Profiles): legal name, address, GSTIN/PAN or VAT
    number, base currency, fiscal-year start, number formats such as `INV/{FY}/{SEQ:3}`, logo,
    signature and stamp. Add the **payment methods** (Settings → Payment methods) that should print

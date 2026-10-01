@@ -11,7 +11,9 @@ test.describe.configure({ mode: "serial" });
 test.setTimeout(600_000);
 
 const stamp = Date.now();
-const email = `e2e-${stamp}@example.com`;
+// Password sign-up needs an exact allow-list entry (no *@domain), so the owner is a fixed address:
+// created on the first run against a database, signed in on every later run.
+const email = "e2e@example.com";
 const password = "correct horse battery staple";
 const profileLabel = `E2E profile ${stamp}`;
 const clientName = `E2E client ${stamp}`;
@@ -20,6 +22,7 @@ const serviceName = `E2E service ${stamp}`;
 async function signIn(page: Page) {
   await page.goto("/auth/sign-in");
   const form = page.getByTestId("password-sign-in");
+  const shell = page.getByRole("navigation", { name: "Primary" });
   // The toggle is client-side: keep clicking until hydration makes it take effect.
   await expect(async () => {
     await form.getByRole("button", { name: /First time here/ }).click();
@@ -29,7 +32,11 @@ async function signIn(page: Page) {
   await form.getByLabel("Email").fill(email);
   await form.getByLabel("Password").fill(password);
   await form.getByRole("button", { name: "Create account" }).click();
-  await expect(page.getByRole("navigation", { name: "Primary" })).toBeVisible();
+  // Second and later runs: the account exists ("User already exists"), so sign in instead.
+  const exists = form.getByText(/user already exists|already exists/i);
+  await expect(shell.or(exists).first()).toBeVisible({ timeout: 30_000 });
+  if (!(await shell.isVisible())) await signInAgain(page);
+  await expect(shell).toBeVisible();
 }
 
 /** The existing account, through the password sign-in (not sign-up) branch of the same form. */

@@ -125,10 +125,11 @@ describe("NumberFormatSchema", () => {
     expect(NumberFormatSchema.parse("CN/{FY}/{SEQ:3}")).toBe("CN/{FY}/{SEQ:3}");
     expect(NumberFormatSchema.safeParse("{YYYY}{MM}-{SEQ:4}").success).toBe(true);
     expect(NumberFormatSchema.safeParse("ACME_{FYYYY}.{YY}-{SEQ:9}").success).toBe(true);
-    expect(NumberFormatSchema.safeParse("{SEQ}").success).toBe(true);
+    expect(NumberFormatSchema.safeParse("{FY}{SEQ}").success).toBe(true);
   });
-  it("requires a sequence token", () => {
+  it("requires a sequence token and a year token", () => {
     expect(NumberFormatSchema.safeParse("INV/{FY}").success).toBe(false);
+    expect(NumberFormatSchema.safeParse("{SEQ}").success).toBe(false);
   });
   it("rejects spaces and other characters outside the allowed set", () => {
     expect(NumberFormatSchema.safeParse("INV {SEQ}").success).toBe(false);
@@ -136,8 +137,8 @@ describe("NumberFormatSchema", () => {
     expect(NumberFormatSchema.safeParse("").success).toBe(false);
   });
   it("rejects formats over 40 characters", () => {
-    expect(NumberFormatSchema.safeParse(`${"A".repeat(35)}{SEQ}`).success).toBe(true);
-    expect(NumberFormatSchema.safeParse(`${"A".repeat(36)}{SEQ}`).success).toBe(false);
+    expect(NumberFormatSchema.safeParse(`${"A".repeat(31)}{FY}{SEQ}`).success).toBe(true);
+    expect(NumberFormatSchema.safeParse(`${"A".repeat(32)}{FY}{SEQ}`).success).toBe(false);
   });
   it("rejects unknown tokens and padding outside 1–9", () => {
     expect(NumberFormatSchema.safeParse("INV/{FOO}/{SEQ}").success).toBe(false);

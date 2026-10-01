@@ -1175,7 +1175,7 @@ Applied to every text cell in both writers; unit-tested with the OWASP cases.
 
 | Control | Implementation |
 |---|---|
-| Access | Allow-listed SSO only; no sign-up; verified email required; `requireOwner()` in every DAL entry point |
+| Access | Allow-listed SSO; `requireOwner()` in every DAL entry point. With `AUTH_PASSWORD_SIGNIN=true` (R1) a password sign-up is accepted only for an address listed *exactly* in `AUTH_ALLOWED_EMAILS` — a `*@domain` pattern covers provider sign-ins only — because a password sign-up proves nothing about who owns the address |
 | Sessions | Server-side, HttpOnly + Secure + SameSite=Lax cookies; 30-day sliding; listed and revocable; revoked on allow-list removal |
 | CSRF | Better Auth origin checks on its endpoints; Next Server Actions enforce same-origin; custom `POST` routes check `Origin` against `APP_URL` |
 | Headers (`proxy.ts` + `next.config.ts`) | `Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-…' 'strict-dynamic'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' <idp-origins>` · `Strict-Transport-Security: max-age=31536000; includeSubDomains` (no `preload` by default; self-hosters opt in) · `X-Content-Type-Options: nosniff` · `Referrer-Policy: strict-origin-when-cross-origin` · `Permissions-Policy: camera=(), microphone=(), geolocation=()` · `Cross-Origin-Opener-Policy: same-origin` |

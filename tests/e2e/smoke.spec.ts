@@ -73,18 +73,30 @@ test("anonymous visitors are sent to sign-in; the shell shows the primary naviga
   await page.goto("/");
   await expect(page).toHaveURL(/\/auth\/sign-in$/);
 
-  // Password sign-up of a fresh allow-listed owner (AUTH_PASSWORD_SIGNIN=true, *@example.com).
+  // Password sign-in of the exactly allow-listed smoke owner (AUTH_PASSWORD_SIGNIN=true); the
+  // account is created on the first run against a database and signed in on later runs.
+  const email = "smoke@example.com";
+  const password = "correct horse battery staple";
   const form = page.getByTestId("password-sign-in");
-  await expect(async () => {
-    await form.getByRole("button", { name: /First time here/ }).click();
-    await expect(form.getByLabel("Name")).toBeVisible({ timeout: 1_000 });
-  }).toPass({ timeout: 60_000 });
-  await form.getByLabel("Name").fill("Smoke Owner");
-  await form.getByLabel("Email").fill(`smoke-${Date.now()}@example.com`);
-  await form.getByLabel("Password").fill("correct horse battery staple");
-  await form.getByRole("button", { name: "Create account" }).click();
-
   const nav = page.getByRole("navigation", { name: "Primary" });
+  // The dashboard compiles on first hit in dev, and a click before hydration reloads the page:
+  // give each attempt time to land, and the whole sign-in a generous budget.
+  test.setTimeout(180_000);
+  await expect(async () => {
+    await form.getByLabel("Email").fill(email);
+    await form.getByLabel("Password").fill(password);
+    await form.getByRole("button", { name: "Sign in" }).click();
+    // Either the shell appears (signed in) or the form reports "Invalid email or password".
+    await expect(nav.or(form.getByRole("alert")).first()).toBeVisible({ timeout: 30_000 });
+  }).toPass({ timeout: 120_000 });
+  if (!(await nav.isVisible())) {
+    await form.getByRole("button", { name: /First time here/ }).click();
+    await form.getByLabel("Name").fill("Smoke Owner");
+    await form.getByLabel("Email").fill(email);
+    await form.getByLabel("Password").fill(password);
+    await form.getByRole("button", { name: "Create account" }).click();
+  }
+
   await expect(nav.getByRole("link", { name: "Invoices" })).toBeVisible();
   await expect(nav.getByRole("link", { name: "Dashboard" })).toHaveAttribute(
     "aria-current",
