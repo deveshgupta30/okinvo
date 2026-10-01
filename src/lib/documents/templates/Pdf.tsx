@@ -1,0 +1,508 @@
+/* eslint-disable jsx-a11y/alt-text -- react-pdf <Image> is a PDF primitive without alt */
+import {
+  Document,
+  Image,
+  Page,
+  StyleSheet,
+  Text,
+  View,
+  type DocumentProps,
+  type TextProps,
+} from "@react-pdf/renderer";
+import type { ReactElement } from "react";
+import type { TemplateConfig } from "@/lib/schemas";
+import type { DocumentViewModel, TotalsRow } from "../view-model";
+import { SYMBOL_FAMILY, splitCurrency, templateStyle, type TemplateStyle } from "./styles";
+
+export interface PdfImages {
+  logo?: string;
+  signature?: string;
+  stamp?: string;
+}
+
+interface Props {
+  vm: DocumentViewModel;
+  config: TemplateConfig;
+  images: PdfImages;
+  createdAt: Date;
+}
+
+/** Currency strings: the symbol run goes to the face that has the glyph (₹ is not in latin). */
+function Money({ value, style }: { value: string; style?: TextProps["style"] }) {
+  const { prefix, number, suffix } = splitCurrency(value);
+  const needsSymbol = /[^\x00-\x7F]/.test(prefix + suffix);
+  const styleProp = style ? { style } : {};
+  if (!needsSymbol) return <Text {...styleProp}>{value}</Text>;
+  return (
+    <Text {...styleProp}>
+      {prefix ? <Text style={{ fontFamily: SYMBOL_FAMILY }}>{prefix}</Text> : null}
+      {number}
+      {suffix ? <Text style={{ fontFamily: SYMBOL_FAMILY }}>{suffix}</Text> : null}
+    </Text>
+  );
+}
+
+function makeStyles(s: TemplateStyle) {
+  const pad = s.dense ? 3 : 5;
+  return StyleSheet.create({
+    page: {
+      fontFamily: s.body,
+      fontSize: s.base,
+      color: s.text,
+      paddingTop: s.margin,
+      paddingBottom: s.margin + 18,
+      paddingHorizontal: s.margin,
+      lineHeight: 1.35,
+    },
+    heading: { fontFamily: s.heading, fontWeight: 600 },
+    muted: { color: s.muted },
+    small: { fontSize: s.base - 1.5 },
+    mono: { fontFamily: s.body },
+    header: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start" },
+    headerRule: {
+      marginTop: 10,
+      marginBottom: 14,
+      borderBottomWidth: s.accentRule ? 2 : 1,
+      borderBottomColor: s.accentRule ? s.accent : s.hairline,
+    },
+    title: {
+      fontFamily: s.heading,
+      fontWeight: 600,
+      fontSize: s.base * 2,
+      letterSpacing: -0.3,
+      color: s.variant === "ledger" ? s.accent : s.text,
+    },
+    meta: { flexDirection: "row", gap: 14, marginTop: 6 },
+    metaLabel: { color: s.muted, fontSize: s.base - 1 },
+    parties: { flexDirection: "row", gap: 24, marginBottom: 14 },
+    party: { flex: 1 },
+    eyebrow: {
+      fontSize: s.base - 1.5,
+      color: s.muted,
+      textTransform: "uppercase",
+      letterSpacing: 0.6,
+      marginBottom: 3,
+    },
+    table: {
+      marginTop: 4,
+      borderWidth: s.tableBorders ? 1 : 0,
+      borderColor: s.hairline,
+    },
+    th: {
+      flexDirection: "row",
+      backgroundColor: s.tableBorders ? "#f3f4f6" : "transparent",
+      borderBottomWidth: 1,
+      borderBottomColor: s.tableBorders ? s.hairline : s.accentRule ? s.accent : s.hairline,
+      paddingVertical: pad,
+      paddingHorizontal: pad,
+      fontSize: s.base - 1,
+      color: s.muted,
+      fontWeight: 500,
+    },
+    tr: {
+      flexDirection: "row",
+      paddingVertical: pad + 1,
+      paddingHorizontal: pad,
+      borderBottomWidth: s.tableStyle === "plain" ? 0 : 0.5,
+      borderBottomColor: s.hairline,
+    },
+    zebra: { backgroundColor: s.zebra },
+    cell: { paddingRight: 4 },
+    num: { textAlign: "right" },
+    totalsWrap: { flexDirection: "row", justifyContent: "flex-end", marginTop: 10 },
+    totals: {
+      width: "46%",
+      borderWidth: s.boxedTotals ? 1 : 0,
+      borderColor: s.hairline,
+      padding: s.boxedTotals ? 6 : 0,
+    },
+    totalRow: { flexDirection: "row", justifyContent: "space-between", paddingVertical: 2 },
+    totalEmphasis: {
+      borderTopWidth: 1,
+      borderTopColor: s.accentRule ? s.accent : s.text,
+      marginTop: 3,
+      paddingTop: 4,
+      fontWeight: 600,
+      fontSize: s.base + 1.5,
+    },
+    words: { marginTop: 8, fontSize: s.base - 0.5 },
+    section: { marginTop: 14 },
+    sectionTitle: {
+      fontFamily: s.heading,
+      fontWeight: 600,
+      fontSize: s.base + 0.5,
+      marginBottom: 3,
+      color: s.variant === "ledger" ? s.accent : s.text,
+    },
+    payLine: { flexDirection: "row", gap: 6 },
+    payLabel: { color: s.muted, width: 90 },
+    footerRow: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "flex-end",
+      marginTop: 24,
+    },
+    signatureBox: { alignItems: "flex-end", width: 170 },
+    pageFooter: {
+      position: "absolute",
+      bottom: s.margin / 2,
+      left: s.margin,
+      right: s.margin,
+      flexDirection: "row",
+      justifyContent: "space-between",
+      fontSize: s.base - 2,
+      color: s.muted,
+    },
+    watermark: {
+      position: "absolute",
+      top: s.paper.height / 2 - 40,
+      left: 0,
+      right: 0,
+      textAlign: "center",
+      fontSize: 48,
+      fontFamily: s.heading,
+      fontWeight: 600,
+      color: "#9ca3af",
+      opacity: 0.18,
+      transform: "rotate(-30deg)",
+    },
+    statement: { marginTop: 8, fontStyle: "italic", color: s.muted },
+    qr: { width: 64, height: 64 },
+  });
+}
+
+function widths(cols: DocumentViewModel["columns"]) {
+  const w = {
+    pos: "5%",
+    desc: "0%",
+    sac: cols.sac ? "11%" : "0%",
+    qty: cols.qty ? "9%" : "0%",
+    unit: cols.qty ? "8%" : "0%",
+    rate: cols.rate ? "13%" : "0%",
+    tax: cols.tax ? "15%" : "0%",
+    amount: "16%",
+  };
+  const used = [w.pos, w.sac, w.qty, w.unit, w.rate, w.tax, w.amount].reduce(
+    (n, x) => n + parseFloat(x),
+    0,
+  );
+  w.desc = `${100 - used}%`;
+  return w;
+}
+
+export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElement<DocumentProps> {
+  const s = templateStyle(config);
+  const st = makeStyles(s);
+  const w = widths(vm.columns);
+  const docLabel = vm.kind === "CREDIT_NOTE" ? vm.labels.creditNote : vm.labels.invoice;
+  const totalsRows = (rows: TotalsRow[]) =>
+    rows.map((r) => (
+      <View key={r.key} style={r.emphasis ? [st.totalRow, st.totalEmphasis] : st.totalRow}>
+        <Text>{r.label}</Text>
+        <Money value={r.value} />
+      </View>
+    ));
+  const qr = vm.qrDataUrl ? (
+    <View style={{ alignItems: "center", width: 80 }}>
+      <Image src={vm.qrDataUrl} style={st.qr} />
+      <Text style={[st.small, st.muted, { marginTop: 2 }]}>Scan to verify</Text>
+    </View>
+  ) : null;
+
+  const logo =
+    images.logo && vm.showLogo ? (
+      <Image
+        src={images.logo}
+        style={{ height: s.logoHeight, objectFit: "contain", maxWidth: 160 }}
+      />
+    ) : null;
+
+  return (
+    <Document
+      title={`${vm.title} ${vm.number ?? "(draft)"}`}
+      author={vm.issuer.legalName}
+      creator="okinvo"
+      producer="okinvo"
+      creationDate={createdAt}
+      modificationDate={createdAt}
+    >
+      <Page size={[s.paper.width, s.paper.height]} style={st.page}>
+        {vm.watermark ? (
+          <Text fixed style={st.watermark}>
+            {vm.watermark}
+          </Text>
+        ) : null}
+
+        {/* Header */}
+        <View style={st.header}>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: s.logoAlign === "right" ? "row-reverse" : "row",
+              gap: 12,
+              alignItems: "flex-start",
+              justifyContent: s.logoAlign === "center" ? "center" : "flex-start",
+            }}
+          >
+            {logo}
+            <View>
+              <Text style={[st.heading, { fontSize: s.base + 3 }]}>{vm.issuer.legalName}</Text>
+              {vm.issuer.tradeName ? <Text style={st.muted}>{vm.issuer.tradeName}</Text> : null}
+              {vm.issuer.addressLines.map((l, i) => (
+                <Text key={i} style={st.muted}>
+                  {l}
+                </Text>
+              ))}
+              {vm.issuer.email ? <Text style={st.muted}>{vm.issuer.email}</Text> : null}
+              {vm.issuer.phone ? <Text style={st.muted}>{vm.issuer.phone}</Text> : null}
+              {vm.issuer.website ? <Text style={st.muted}>{vm.issuer.website}</Text> : null}
+              {vm.issuer.gstin ? <Text>GSTIN {vm.issuer.gstin}</Text> : null}
+              {vm.issuer.pan ? <Text>PAN {vm.issuer.pan}</Text> : null}
+              {vm.issuer.cin ? <Text>CIN {vm.issuer.cin}</Text> : null}
+              {vm.issuer.ukVatNumber ? <Text>VAT {vm.issuer.ukVatNumber}</Text> : null}
+              {vm.issuer.lutNumber ? (
+                <Text>
+                  LUT {vm.issuer.lutNumber}
+                  {vm.issuer.lutFiscalYear ? ` (${vm.issuer.lutFiscalYear})` : ""}
+                </Text>
+              ) : null}
+            </View>
+          </View>
+          <View style={{ alignItems: "flex-end" }}>
+            <Text style={st.title}>{vm.title}</Text>
+            {vm.number ? (
+              <Text style={[st.heading, { fontSize: s.base + 2, marginTop: 2 }]}>{vm.number}</Text>
+            ) : null}
+            {vm.replaces ? <Text style={st.muted}>{vm.replaces}</Text> : null}
+            <View style={[st.meta, { justifyContent: "flex-end" }]}>
+              <View>
+                <Text style={st.metaLabel}>{vm.labels.issueDate}</Text>
+                <Text>{vm.issueDate}</Text>
+              </View>
+              {vm.dueDate ? (
+                <View>
+                  <Text style={st.metaLabel}>{vm.labels.dueDate}</Text>
+                  <Text>{vm.dueDate}</Text>
+                </View>
+              ) : null}
+              {vm.paymentTerms ? (
+                <View>
+                  <Text style={st.metaLabel}>Terms</Text>
+                  <Text>{vm.paymentTerms}</Text>
+                </View>
+              ) : null}
+            </View>
+            {vm.poReference ? (
+              <Text style={[st.muted, { marginTop: 4 }]}>
+                {vm.labels.poReference}: {vm.poReference}
+              </Text>
+            ) : null}
+            {s.qrPosition === "header" ? <View style={{ marginTop: 6 }}>{qr}</View> : null}
+          </View>
+        </View>
+        {vm.headerNote ? <Text style={[st.muted, { marginTop: 6 }]}>{vm.headerNote}</Text> : null}
+        <View style={st.headerRule} />
+
+        {/* Parties */}
+        <View style={st.parties}>
+          <View style={st.party}>
+            <Text style={st.eyebrow}>{vm.labels.billTo}</Text>
+            <Text style={st.heading}>{vm.client.displayName}</Text>
+            {vm.client.contactPerson ? <Text>{vm.client.contactPerson}</Text> : null}
+            {vm.client.billingAddressLines.map((l, i) => (
+              <Text key={i} style={st.muted}>
+                {l}
+              </Text>
+            ))}
+            {vm.client.email ? <Text style={st.muted}>{vm.client.email}</Text> : null}
+            {vm.client.phone ? <Text style={st.muted}>{vm.client.phone}</Text> : null}
+            {vm.client.taxId ? (
+              <Text>
+                {vm.client.taxIdType ?? "Tax ID"} {vm.client.taxId}
+              </Text>
+            ) : null}
+          </View>
+          {vm.client.shippingAddressLines?.length ? (
+            <View style={st.party}>
+              <Text style={st.eyebrow}>{vm.labels.shipTo}</Text>
+              {vm.client.shippingAddressLines.map((l, i) => (
+                <Text key={i} style={st.muted}>
+                  {l}
+                </Text>
+              ))}
+            </View>
+          ) : null}
+          {vm.placeOfSupply || vm.creditNote ? (
+            <View style={st.party}>
+              {vm.placeOfSupply ? (
+                <>
+                  <Text style={st.eyebrow}>{vm.labels.placeOfSupply}</Text>
+                  <Text>{vm.placeOfSupply}</Text>
+                </>
+              ) : null}
+              {vm.creditNote ? (
+                <View style={{ marginTop: vm.placeOfSupply ? 6 : 0 }}>
+                  <Text style={st.eyebrow}>
+                    Against{" "}
+                    {docLabel === vm.labels.creditNote
+                      ? vm.labels.invoice.toLowerCase()
+                      : "invoice"}
+                  </Text>
+                  <Text>
+                    {vm.creditNote.againstNumber} · {vm.creditNote.againstDate}
+                  </Text>
+                  <Text style={[st.muted, { marginTop: 2 }]}>{vm.creditNote.reason}</Text>
+                </View>
+              ) : null}
+            </View>
+          ) : null}
+        </View>
+
+        {/* Items */}
+        {vm.items.length > 0 ? (
+          <View style={st.table}>
+            <View style={st.th} fixed>
+              <Text style={[st.cell, { width: w.pos }]}>#</Text>
+              <Text style={[st.cell, { width: w.desc }]}>{vm.labels.description}</Text>
+              {vm.columns.sac ? (
+                <Text style={[st.cell, { width: w.sac }]}>{vm.labels.sacHsn}</Text>
+              ) : null}
+              {vm.columns.qty ? (
+                <Text style={[st.cell, st.num, { width: w.qty }]}>{vm.labels.qty}</Text>
+              ) : null}
+              {vm.columns.qty ? (
+                <Text style={[st.cell, { width: w.unit }]}>{vm.labels.unit}</Text>
+              ) : null}
+              {vm.columns.rate ? (
+                <Text style={[st.cell, st.num, { width: w.rate }]}>{vm.labels.rate}</Text>
+              ) : null}
+              {vm.columns.tax ? (
+                <Text style={[st.cell, st.num, { width: w.tax }]}>{vm.labels.tax}</Text>
+              ) : null}
+              <Text style={[st.cell, st.num, { width: w.amount }]}>{vm.labels.amount}</Text>
+            </View>
+            {vm.items.map((it, idx) => (
+              <View
+                key={it.position}
+                style={s.tableStyle === "zebra" && idx % 2 === 1 ? [st.tr, st.zebra] : st.tr}
+                wrap={false}
+              >
+                <Text style={[st.cell, { width: w.pos }]}>{it.position}</Text>
+                <Text style={[st.cell, { width: w.desc }]}>{it.description}</Text>
+                {vm.columns.sac ? (
+                  <Text style={[st.cell, { width: w.sac }]}>{it.sacHsnCode ?? ""}</Text>
+                ) : null}
+                {vm.columns.qty ? (
+                  <Text style={[st.cell, st.num, { width: w.qty }]}>{it.qty}</Text>
+                ) : null}
+                {vm.columns.qty ? (
+                  <Text style={[st.cell, { width: w.unit }]}>{it.unit}</Text>
+                ) : null}
+                {vm.columns.rate ? (
+                  <Text style={[st.cell, st.num, { width: w.rate }]}>{it.rate}</Text>
+                ) : null}
+                {vm.columns.tax ? (
+                  <Text style={[st.cell, st.num, { width: w.tax }]}>
+                    {it.taxAmount} ({it.taxRate})
+                  </Text>
+                ) : null}
+                <Text style={[st.cell, st.num, { width: w.amount }]}>
+                  {vm.columns.tax ? it.lineSubtotal : it.lineTotal}
+                </Text>
+              </View>
+            ))}
+          </View>
+        ) : null}
+
+        {/* Totals */}
+        <View style={st.totalsWrap}>
+          {s.qrPosition === "beside-totals" && qr ? <View style={{ flex: 1 }}>{qr}</View> : null}
+          <View style={st.totals}>{totalsRows(vm.totals.rows)}</View>
+        </View>
+        {vm.totals.amountInWords && s.wordsPosition === "below-total" ? (
+          <Text style={st.words}>
+            <Text style={st.muted}>{vm.labels.amountInWords}: </Text>
+            {vm.totals.amountInWords}
+          </Text>
+        ) : null}
+        {vm.supplyStatement ? <Text style={st.statement}>{vm.supplyStatement}</Text> : null}
+
+        {/* Payment details */}
+        {vm.paymentMethods.length > 0 ? (
+          <View style={st.section}>
+            <Text style={st.sectionTitle}>{vm.labels.paymentDetails}</Text>
+            <View style={{ flexDirection: "row", gap: 18, flexWrap: "wrap" }}>
+              {vm.paymentMethods.map((m, i) => (
+                <View key={i} style={{ minWidth: "40%" }}>
+                  <Text style={{ fontWeight: 500 }}>{m.name}</Text>
+                  {m.lines.map((l, j) => (
+                    <View key={j} style={st.payLine}>
+                      {l.label ? <Text style={st.payLabel}>{l.label}</Text> : null}
+                      <Text>{l.value}</Text>
+                    </View>
+                  ))}
+                  {m.instructions ? (
+                    <Text style={[st.muted, st.small]}>{m.instructions}</Text>
+                  ) : null}
+                </View>
+              ))}
+            </View>
+          </View>
+        ) : null}
+
+        {vm.notes ? (
+          <View style={st.section}>
+            <Text style={st.sectionTitle}>{vm.labels.notes}</Text>
+            <Text>{vm.notes}</Text>
+          </View>
+        ) : null}
+        {vm.terms ? (
+          <View style={st.section}>
+            <Text style={st.sectionTitle}>{vm.labels.terms}</Text>
+            <Text style={st.muted}>{vm.terms}</Text>
+          </View>
+        ) : null}
+
+        {/* Footer: QR + words + signature */}
+        <View style={st.footerRow} wrap={false}>
+          <View style={{ flex: 1 }}>
+            {s.qrPosition === "footer" ? qr : null}
+            {vm.totals.amountInWords && s.wordsPosition === "footer" ? (
+              <Text style={st.words}>
+                <Text style={st.muted}>{vm.labels.amountInWords}: </Text>
+                {vm.totals.amountInWords}
+              </Text>
+            ) : null}
+            {vm.footer ? (
+              <Text style={[st.muted, st.small, { marginTop: 6 }]}>{vm.footer}</Text>
+            ) : null}
+          </View>
+          {vm.showSignature || vm.showStamp ? (
+            <View style={st.signatureBox}>
+              <View style={{ flexDirection: "row", gap: 8, alignItems: "flex-end" }}>
+                {images.stamp && vm.showStamp ? (
+                  <Image src={images.stamp} style={{ height: 50, objectFit: "contain" }} />
+                ) : null}
+                {images.signature && vm.showSignature ? (
+                  <Image src={images.signature} style={{ height: 36, objectFit: "contain" }} />
+                ) : null}
+              </View>
+              <Text style={{ fontWeight: 500, marginTop: 4 }}>{vm.issuer.legalName}</Text>
+              <Text style={[st.muted, st.small]}>{vm.signatureCaption}</Text>
+            </View>
+          ) : null}
+        </View>
+
+        <View style={st.pageFooter} fixed>
+          <Text>
+            {vm.number ? `${docLabel} ${vm.number}` : vm.title}
+            {vm.isVoid ? " · VOID" : ""}
+          </Text>
+          {s.pageNumbers ? (
+            <Text render={({ pageNumber, totalPages }) => `Page ${pageNumber} of ${totalPages}`} />
+          ) : null}
+        </View>
+      </Page>
+    </Document>
+  );
+}

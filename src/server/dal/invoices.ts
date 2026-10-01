@@ -474,6 +474,11 @@ export async function getInvoice(actor: Actor, id: string): Promise<InvoiceDto> 
   return toDto(await loadDetail(prisma, id), todayIn(actor.timezone));
 }
 
+/** Internal loader for other DAL modules (documents, emails) that already hold a transaction. */
+export async function getInvoiceTx(tx: Tx, id: string, today: DateString): Promise<InvoiceDto> {
+  return toDto(await loadDetail(tx, id), today);
+}
+
 export async function createDraft(actor: Actor, input: InvoiceDraftInput): Promise<InvoiceDto> {
   return prisma.$transaction(async (tx) => {
     const { issuer, client } = await loadParties(tx, input);

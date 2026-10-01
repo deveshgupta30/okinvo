@@ -84,6 +84,18 @@ export async function getAssetStream(
   };
 }
 
+export async function getAssetStreamById(
+  actor: Actor,
+  assetId: string,
+): Promise<{ asset: AssetDto; stream: Readable }> {
+  const row = await prisma.asset.findUnique({
+    where: { id: assetId },
+    select: { storageKey: true },
+  });
+  if (!row) throw new NotFoundError("Asset", assetId);
+  return getAssetStream(actor, row.storageKey);
+}
+
 /** Raw bytes of an asset, for embedding in PDFs. Null when missing so a render never fails on a logo. */
 export async function readAssetBytes(assetId: string): Promise<Buffer | null> {
   const row = await prisma.asset.findUnique({ where: { id: assetId } });
