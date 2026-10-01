@@ -57,8 +57,9 @@ compose.yml        production stack (repo root)   compose.dev.yml    postgres (+
 pnpm dev · pnpm build · pnpm start
 pnpm lint · pnpm typecheck · pnpm format · pnpm format:check
 pnpm test · pnpm test:watch · pnpm test:e2e
-pnpm db:up · pnpm db:down · pnpm db:generate · pnpm db:migrate · pnpm db:migrate:dev · pnpm db:reset · pnpm db:studio
+pnpm db:up · pnpm db:down · pnpm db:generate · pnpm db:migrate · pnpm db:migrate:dev · pnpm db:reset · pnpm db:studio · pnpm db:check · pnpm db:seed
 pnpm design:tokens [--check] · pnpm design:lint
+scripts/restore-drill.sh          (backup → wipe → restore against its own "drill" database; runs in CI)
 docker compose up -d --build      (M5 adds scripts/release.sh → docker.io/deveshgupta30/okinvo)
 ```
 

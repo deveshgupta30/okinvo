@@ -5,8 +5,11 @@ import { ConfirmAction } from "@/components/confirm-action";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DescriptionList, Item } from "@/components/ui/description-list";
+import { Amount, Mono } from "@/components/ui/mono";
 import { PageHeader } from "@/components/ui/page-header";
-import { Pill } from "@/components/ui/status-pill";
+import { Pill, StatusPill } from "@/components/ui/status-pill";
+import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/table";
+import { formatDate, formatMoney } from "@/lib/format";
 import { formatAddressLines } from "@/lib/schemas";
 import {
   archiveClientAction,
@@ -14,8 +17,10 @@ import {
   unarchiveClientAction,
 } from "@/server/actions/clients";
 import { requireOwner } from "@/server/auth";
-import { getClient } from "@/server/dal/clients";
+import { clientSummary, getClient } from "@/server/dal/clients";
 import { NotFoundError } from "@/server/dal/errors";
+import { listInvoices } from "@/server/dal/invoices";
+import { getDefaultProfile } from "@/server/dal/profiles";
 
 export const metadata: Metadata = { title: "Client" };
 
@@ -26,6 +31,13 @@ export default async function ClientPage({ params }: { params: Promise<{ id: str
     if (e instanceof NotFoundError) notFound();
     throw e;
   });
+  const [summary, invoices, defaultProfile] = await Promise.all([
+    clientSummary(actor, client.id),
+    listInvoices(actor, { clientId: client.id }),
+    getDefaultProfile(actor),
+  ]);
+  const recent = invoices.slice(0, 10);
+  const locale = defaultProfile?.locale ?? "en-IN";
   const returnTo = `/clients/${client.id}`;
   return (
     <>
@@ -135,15 +147,124 @@ export default async function ClientPage({ params }: { params: Promise<{ id: str
         </Card>
         <Card className="lg:col-span-2">
           <CardHeader>
-            <CardTitle>Invoices</CardTitle>
+            <CardTitle>Lifetime</CardTitle>
             <Button asChild variant="link">
               <Link href={`/invoices?clientId=${client.id}`}>Open the register</Link>
             </Button>
           </CardHeader>
           <CardContent>
-            <p className="text-app-body text-ink-subtle">
-              Lifetime billed, received and outstanding appear here once invoices exist.
-            </p>
+            {summary.currencies.length === 0 ? (
+              <p className="text-app-body text-ink-subtle">
+                No issued invoices yet{summary.drafts > 0 ? ` (${summary.drafts} draft)` : ""}.
+              </p>
+            ) : (
+              <div className="flex flex-col gap-4">
+                <Table>
+                  <THead>
+                    <TR>
+                      <TH>Currency</TH>
+                      <TH numeric>Invoices</TH>
+                      <TH numeric>Billed</TH>
+                      <TH numeric>Received</TH>
+                      <TH numeric>Credited</TH>
+                      <TH numeric>Outstanding</TH>
+                      <TH numeric>Overdue</TH>
+                    </TR>
+                  </THead>
+                  <TBody>
+                    {summary.currencies.map((c) => (
+                      <TR key={c.currency}>
+                        <TD mono>{c.currency}</TD>
+                        <TD numeric mono>
+                          {c.invoices}
+                        </TD>
+                        <TD numeric>
+                          <Amount>{formatMoney(c.billed, c.currency, locale)}</Amount>
+                        </TD>
+                        <TD numeric>
+                          <Amount>{formatMoney(c.received, c.currency, locale)}</Amount>
+                        </TD>
+                        <TD numeric>
+                          <Amount>{formatMoney(c.credited, c.currency, locale)}</Amount>
+                        </TD>
+                        <TD numeric>
+                          <Amount>{formatMoney(c.outstanding, c.currency, locale)}</Amount>
+                        </TD>
+                        <TD numeric>
+                          <Amount
+                            className={c.overdueCount > 0 ? "text-semantic-danger" : undefined}
+                          >
+                            {formatMoney(c.overdue, c.currency, locale)}
+                          </Amount>
+                        </TD>
+                      </TR>
+                    ))}
+                  </TBody>
+                </Table>
+                <p className="text-app-caption text-ink-subtle">
+                  First invoice{" "}
+                  <Mono>
+                    {summary.firstInvoiceDate ? formatDate(summary.firstInvoiceDate, locale) : "—"}
+                  </Mono>
+                  , latest{" "}
+                  <Mono>
+                    {summary.lastInvoiceDate ? formatDate(summary.lastInvoiceDate, locale) : "—"}
+                  </Mono>
+                  {summary.drafts > 0
+                    ? ` · ${summary.drafts} draft${summary.drafts === 1 ? "" : "s"}`
+                    : ""}
+                </p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+        <Card className="lg:col-span-2">
+          <CardHeader>
+            <CardTitle>Recent invoices</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Table>
+              <THead>
+                <TR>
+                  <TH>Number</TH>
+                  <TH>Issue date</TH>
+                  <TH>Due</TH>
+                  <TH numeric>Total</TH>
+                  <TH numeric>Balance</TH>
+                  <TH>Status</TH>
+                </TR>
+              </THead>
+              <TBody>
+                {recent.length === 0 ? (
+                  <TableEmpty colSpan={6}>No invoices for this client yet.</TableEmpty>
+                ) : (
+                  recent.map((r) => (
+                    <TR key={r.id}>
+                      <TD mono>
+                        <Link href={`/invoices/${r.id}`} className="hover:underline">
+                          {r.number ?? <span className="text-ink-subtle">Draft</span>}
+                        </Link>
+                      </TD>
+                      <TD mono>{formatDate(r.issueDate, r.locale)}</TD>
+                      <TD mono>{formatDate(r.dueDate, r.locale)}</TD>
+                      <TD numeric>
+                        <Amount>{formatMoney(r.total, r.currency, r.locale)}</Amount>
+                      </TD>
+                      <TD numeric>
+                        <Amount>
+                          {r.status === "ISSUED"
+                            ? formatMoney(r.balanceDue, r.currency, r.locale)
+                            : "—"}
+                        </Amount>
+                      </TD>
+                      <TD>
+                        <StatusPill status={r.displayStatus} />
+                      </TD>
+                    </TR>
+                  ))
+                )}
+              </TBody>
+            </Table>
           </CardContent>
         </Card>
       </div>

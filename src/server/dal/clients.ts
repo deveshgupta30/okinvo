@@ -1,6 +1,8 @@
 import "server-only";
 import { prisma, type Tx } from "@/lib/db";
 import { Prisma } from "@/generated/prisma/client";
+import { compareDates, todayIn, toDateString, type DateString } from "@/lib/dates";
+import { D, ZERO, toMoneyString, type Decimal } from "@/lib/money";
 import type { Address } from "@/lib/schemas";
 import type { ClientInput } from "@/lib/schemas/client-input";
 import type { Actor } from "@/server/actor";
@@ -172,4 +174,104 @@ export async function deleteClient(actor: Actor, id: string): Promise<void> {
       before: auditView(row),
     });
   });
+}
+
+// ───────────────────────── lifetime summary ─────────────────────────
+
+export interface ClientCurrencySummary {
+  currency: string;
+  /** Issued invoices (voided ones excluded). */
+  invoices: number;
+  billed: string;
+  received: string;
+  credited: string;
+  outstanding: string;
+  overdue: string;
+  overdueCount: number;
+}
+
+export interface ClientSummary {
+  drafts: number;
+  /** One entry per currency the client was billed in, alphabetical. */
+  currencies: ClientCurrencySummary[];
+  firstInvoiceDate: DateString | null;
+  lastInvoiceDate: DateString | null;
+}
+
+/**
+ * Lifetime figures for the client page (SPEC §4.3): billed, received, credited and outstanding
+ * per currency over issued invoices, with what is overdue as of today in the viewer's zone.
+ */
+export async function clientSummary(actor: Actor, clientId: string): Promise<ClientSummary> {
+  const today = todayIn(actor.timezone);
+  const rows = await prisma.invoice.findMany({
+    where: { clientId, status: { in: ["ISSUED", "DRAFT"] } },
+    select: {
+      status: true,
+      currency: true,
+      issueDate: true,
+      dueDate: true,
+      total: true,
+      amountPaid: true,
+      amountCredited: true,
+      balanceDue: true,
+    },
+  });
+  const byCurrency = new Map<
+    string,
+    {
+      invoices: number;
+      billed: Decimal;
+      received: Decimal;
+      credited: Decimal;
+      outstanding: Decimal;
+      overdue: Decimal;
+      overdueCount: number;
+    }
+  >();
+  let drafts = 0;
+  let first: DateString | null = null;
+  let last: DateString | null = null;
+  for (const r of rows) {
+    if (r.status === "DRAFT") {
+      drafts += 1;
+      continue;
+    }
+    const issued = toDateString(r.issueDate);
+    if (!first || compareDates(issued, first) < 0) first = issued;
+    if (!last || compareDates(issued, last) > 0) last = issued;
+    const acc = byCurrency.get(r.currency) ?? {
+      invoices: 0,
+      billed: ZERO,
+      received: ZERO,
+      credited: ZERO,
+      outstanding: ZERO,
+      overdue: ZERO,
+      overdueCount: 0,
+    };
+    const balance = D(r.balanceDue.toString());
+    acc.invoices += 1;
+    acc.billed = acc.billed.plus(D(r.total.toString()));
+    acc.received = acc.received.plus(D(r.amountPaid.toString()));
+    acc.credited = acc.credited.plus(D(r.amountCredited.toString()));
+    acc.outstanding = acc.outstanding.plus(balance);
+    if (balance.gt(0) && compareDates(toDateString(r.dueDate), today) < 0) {
+      acc.overdue = acc.overdue.plus(balance);
+      acc.overdueCount += 1;
+    }
+    byCurrency.set(r.currency, acc);
+  }
+  const currencies = [...byCurrency.entries()]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([currency, a]) => ({
+      currency,
+      invoices: a.invoices,
+      billed: toMoneyString(a.billed, currency),
+      received: toMoneyString(a.received, currency),
+      credited: toMoneyString(a.credited, currency),
+      outstanding: toMoneyString(a.outstanding, currency),
+      overdue: toMoneyString(a.overdue, currency),
+      overdueCount: a.overdueCount,
+    }));
+  return { drafts, currencies, firstInvoiceDate: first, lastInvoiceDate: last };
 }
