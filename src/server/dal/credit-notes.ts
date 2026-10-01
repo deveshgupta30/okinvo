@@ -6,7 +6,7 @@ import { fromDateString, todayIn, toDateString, type DateString } from "@/lib/da
 import { prisma, type Tx } from "@/lib/db";
 import { recalculateBalances } from "@/lib/invoices/balances";
 import { D, sum, toMoneyString } from "@/lib/money";
-import { fiscalYearOf, fiscalYearRange, formatDocumentNumber } from "@/lib/numbering";
+import { fiscalYearOf, formatDocumentNumber } from "@/lib/numbering";
 import { allocateDocumentNumber } from "@/lib/numbering/allocate";
 import {
   CreditNoteSnapshotSchema,
@@ -21,6 +21,7 @@ import type { SupplyType } from "@/lib/tax";
 import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { InvariantError, NotFoundError } from "./errors";
+import { resolveDateRange } from "./fiscal-range";
 import type { TaxLineDto } from "./invoices";
 import { resolveTemplateConfig } from "./templates";
 
@@ -478,20 +479,7 @@ export async function listCreditNotes(
   _actor: Actor,
   filters: CreditNoteFilters,
 ): Promise<CreditNoteListRow[]> {
-  let range: { from?: DateString | undefined; to?: DateString | undefined } = {
-    from: filters.from,
-    to: filters.to,
-  };
-  if (filters.fy) {
-    const profile = filters.issuerProfileId
-      ? await prisma.issuerProfile.findUnique({ where: { id: filters.issuerProfileId } })
-      : await prisma.issuerProfile.findFirst({ where: { isDefault: true } });
-    try {
-      range = fiscalYearRange(filters.fy, profile?.fiscalYearStartMonth ?? 4);
-    } catch {
-      range = {};
-    }
-  }
+  const range = await resolveDateRange(filters);
   const rows = await prisma.creditNote.findMany({
     where: {
       ...(filters.issuerProfileId ? { issuerProfileId: filters.issuerProfileId } : {}),

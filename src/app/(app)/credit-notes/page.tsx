@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Receipt } from "lucide-react";
+import { ExportButton } from "@/components/export-button";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Field } from "@/components/ui/field";
@@ -48,11 +49,7 @@ export default async function CreditNotesPage({
       <PageHeader
         title="Credit notes"
         description="Raised against issued invoices; each reduces its invoice balance when issued."
-        actions={
-          <Button asChild variant="secondary">
-            <Link href={`/api/exports/credit-notes?format=csv`}>Export</Link>
-          </Button>
-        }
+        actions={<ExportButton dataset="credit-notes" params={params} />}
       />
       <form className="mb-4 grid gap-3 md:grid-cols-3 xl:grid-cols-6" role="search">
         <Field label="From" htmlFor="from">

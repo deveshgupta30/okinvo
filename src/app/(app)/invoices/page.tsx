@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FileText } from "lucide-react";
+import { ExportButton } from "@/components/export-button";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Field } from "@/components/ui/field";
@@ -62,13 +63,7 @@ export default async function InvoicesPage({
         description="Drafts, issued and voided invoices; statuses derive from payments and due dates."
         actions={
           <>
-            <Button asChild variant="secondary">
-              <Link
-                href={`/api/exports/invoices?format=csv&${new URLSearchParams(Object.entries(params).filter((e): e is [string, string] => typeof e[1] === "string")).toString()}`}
-              >
-                Export
-              </Link>
-            </Button>
+            <ExportButton dataset="invoices" params={params} />
             <Button asChild>
               <Link href="/invoices/new">New invoice</Link>
             </Button>

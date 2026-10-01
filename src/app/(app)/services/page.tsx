@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Wrench } from "lucide-react";
 import { ConfirmAction } from "@/components/confirm-action";
+import { ExportButton } from "@/components/export-button";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Amount } from "@/components/ui/mono";
@@ -47,6 +48,7 @@ export default async function ServicesPage({
                 {showArchived ? "Hide archived" : "Show archived"}
               </Link>
             </Button>
+            <ExportButton dataset="services" params={showArchived ? { archived: "1" } : {}} />
             <Button asChild>
               <Link href="/services/new">New service</Link>
             </Button>
