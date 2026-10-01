@@ -17,22 +17,26 @@ export function FlashFromSearch() {
   const params = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
-  const [flash, setFlash] = useState<Flash | null>(null);
   const raw = params.get("flash");
+  // Derived state: a new raw value replaces the shown flash during render (not in an effect).
+  const [shown, setShown] = useState<{ raw: string | null; flash: Flash | null }>({
+    raw: null,
+    flash: null,
+  });
+  if (raw && raw !== shown.raw) setShown({ raw, flash: readFlash(raw) });
 
   useEffect(() => {
-    const next = readFlash(raw);
-    if (!next) return;
-    setFlash(next);
+    if (!raw) return;
     const rest = new URLSearchParams(params.toString());
     rest.delete("flash");
     const qs = rest.toString();
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
-    const t = setTimeout(() => setFlash(null), 6000);
+    const t = setTimeout(() => setShown((s) => ({ ...s, flash: null })), 6000);
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the raw flash changes
   }, [raw]);
 
+  const flash = shown.flash;
   if (!flash) return null;
   return (
     <div
@@ -47,7 +51,7 @@ export function FlashFromSearch() {
         type="button"
         aria-label="Dismiss"
         className="text-ink-subtle hover:text-ink"
-        onClick={() => setFlash(null)}
+        onClick={() => setShown((s) => ({ ...s, flash: null }))}
       >
         <X className="size-4" strokeWidth={1.5} />
       </button>
