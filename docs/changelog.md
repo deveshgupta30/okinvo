@@ -21,7 +21,9 @@ went green on the development branch.
   all-data ZIP; uploads refuse an oversized body up front.
 - Ops: backup containers get only the database variables; release script checks untracked files
   and existing tags and scans both images; NetworkPolicy allows in-cluster identity providers
-  and relays; the SeaweedFS overlay is marked experimental.
+  and relays; the SeaweedFS overlay is marked experimental. The runtime and migration images
+  ship no npm, npx, corepack or yarn (Trivy flagged npm's bundled dependencies), and the restore
+  drill removes root-owned backup files through a container so cleanup cannot fail a passed run.
 - "New credit note" from the dashboard and the register, with an invoice picker.
 
 ## M4 — Exports, data and polish (2026-10-01)

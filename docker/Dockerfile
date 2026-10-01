@@ -24,8 +24,12 @@ COPY prisma.config.ts ./
 # The schema engine is fetched by @prisma/engines' postinstall (allow-listed in package.json
 # `pnpm.onlyBuiltDependencies`). Verify it is present now — the runtime network has no egress —
 # and let the unprivileged user own the directory so the CLI never tries to write as root.
+# pnpm (installed by npm in `base`) is self-contained; the migration image never runs npm, npx,
+# corepack or yarn, so they leave with their bundled dependencies (Trivy flags npm's).
 RUN DATABASE_URL=postgresql://build:build@localhost:5432/build pnpm prisma --version \
- && chown -R node:node /app/node_modules/.pnpm/@prisma+engines*
+ && chown -R node:node /app/node_modules/.pnpm/@prisma+engines* \
+ && rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack /opt/yarn-v* \
+           /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack /usr/local/bin/yarn /usr/local/bin/yarnpkg
 USER node
 ENTRYPOINT ["tini", "--"]
 CMD ["pnpm", "prisma", "migrate", "deploy"]
@@ -33,8 +37,12 @@ CMD ["pnpm", "prisma", "migrate", "deploy"]
 # ── Runtime image ──
 FROM ${NODE_IMAGE} AS runner
 ENV NODE_ENV=production PORT=3000 HOSTNAME=0.0.0.0 NEXT_TELEMETRY_DISABLED=1
+# The runtime only runs `node server.js`: npm, npx, corepack and yarn leave with their bundled
+# dependencies (Trivy flags npm's), which also keeps the image smaller.
 RUN apk add --no-cache tini && addgroup -S -g 1001 app && adduser -S -u 1001 -G app app \
- && mkdir -p /data/storage && chown -R app:app /data
+ && mkdir -p /data/storage && chown -R app:app /data \
+ && rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack /opt/yarn-v* \
+           /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack /usr/local/bin/yarn /usr/local/bin/yarnpkg
 WORKDIR /app
 COPY --from=build --chown=app:app /app/.next/standalone ./
 COPY --from=build --chown=app:app /app/.next/static ./.next/static
