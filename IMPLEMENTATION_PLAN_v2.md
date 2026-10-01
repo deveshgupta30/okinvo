@@ -94,7 +94,7 @@ Pin exact versions in `package.json` + `pnpm-lock.yaml`; this table is the recor
 | `typescript` | `6.0.3` (M0 outcome) | 7.0.2 was tried first: Next 16 builds and `tsc` are fine on it, but `typescript-eslint 8.71` refuses TS 7.0 (typescript-eslint#10940). Renovate holds `<7` until that lands. |
 | `prisma` / `@prisma/client` / `@prisma/adapter-pg` | `7.10.0` | `prisma-client` generator + `pg` driver adapter (no Rust engine). **Do not** take `8.0.0-rc.*`, which is currently tagged `latest` for the CLI package — install `prisma@7.10.0` explicitly. |
 | `pg` | `8.23.1` | |
-| `better-auth` | `1.7.6` | Social providers + `genericOAuth` plugin + Prisma adapter |
+| `better-auth` | `1.7.7` | Social providers + `genericOAuth` plugin + Prisma adapter |
 | `zod` | `4.6.5` | |
 | `@t3-oss/env-nextjs` | `0.13.11` | *Not used in M0*: plain Zod + `server-only` (`src/lib/env.ts`, lazily validated; eager at boot via `instrumentation.ts`). Adopt when a `NEXT_PUBLIC_*` variable appears. |
 | `tailwindcss` / `@tailwindcss/postcss` | `4.3.3` | CSS-first config |
@@ -116,7 +116,7 @@ Pin exact versions in `package.json` + `pnpm-lock.yaml`; this table is the recor
 | `file-type` | `22.1.1` | Magic-byte MIME sniffing |
 | `exceljs` | `4.4.0` | XLSX streaming writer |
 | `csv-stringify` | `6.9.0` | CSV streaming |
-| `archiver` | `8.0.0` | ZIP bundles |
+| `archiver` | `8.0.0` | ZIP bundles — ESM-only since 8.0: `new ZipArchive()` instead of the `archiver("zip")` factory |
 | `@aws-sdk/client-s3` | `3.1143.0` | S3 driver only (lazy-loaded) |
 | `nanoid` | `6.0.1` | Storage key suffixes |
 | `pino` | `10.3.1` | Structured logs |
@@ -130,6 +130,7 @@ Pin exact versions in `package.json` + `pnpm-lock.yaml`; this table is the recor
 | `@playwright/test` | `1.63.0` |
 | `eslint` / `typescript-eslint` | `9.39.5` / `8.71.0` — ESLint 10 was tried first; `eslint-config-next 16.3.8` depends on `eslint-plugin-react ^7.37`, whose peer range ends at eslint 9 and which calls the removed `context.getFilename`. Renovate holds `<10`. |
 | `prettier` | `3.9.9` |
+| `jszip` (dev) | `3.10.2` | Reads ZIP bundles back in tests; the version exceljs already pulls in |
 | `@types/node` | `24.x` (match the runtime major, not `26.6.3`) |
 | `pdf-parse` | `2.4.5` (document tests only) |
 | `@google/design.md` | `0.4.0` — lints `DESIGN.md` (`npx @google/design.md lint DESIGN.md`) |
@@ -899,7 +900,7 @@ Pure: `(items, discount, taxResult, roundingAdjustment, tdsRate) → { subtotal,
 
 ```ts
 export function fiscalYearOf(date: string /* YYYY-MM-DD */, startMonth: number): string; // "2026-27" (or "2026" when startMonth === 1)
-export function formatNumber(format: string, parts: { fy: string; fyyyy: string; yyyy: string; yy: string; mm: string; seq: number }): string;
+export function formatDocumentNumber(format: string, parts: { fy: string; fyyyy: string; yyyy: string; yy: string; mm: string; seq: number }): string;
 
 /** Atomic, gap-free. Must be called inside the issue transaction so a rollback also rolls back the increment. */
 export async function allocateDocumentNumber(tx: Prisma.TransactionClient, p: { issuerProfileId: string; kind: DocumentKind; fiscalYear: string }): Promise<number> {
@@ -925,7 +926,7 @@ export async function issueInvoice(id: string, actor: Actor) {
     validateForIssue(draft);                                    // items > 0, SAC when GST, client state when intra-India, LUT validity, …
     const fy   = fiscalYearOf(draft.issueDate, draft.issuerProfile.fiscalYearStartMonth);
     const seq  = await allocateDocumentNumber(tx, { issuerProfileId: draft.issuerProfileId, kind: "INVOICE", fiscalYear: fy });
-    const num  = formatNumber(draft.issuerProfile.invoiceNumberFormat, { …, seq });
+    const num  = formatDocumentNumber(draft.issuerProfile.invoiceNumberFormat, { …, seq });
     const tax  = computeTax(ctxFrom(draft, fy), taxableLines(draft));
     const tot  = computeTotals(draft, tax);
     const snap = buildSnapshots(draft, decryptPaymentMethods(draft.paymentMethods));
@@ -951,7 +952,7 @@ export async function issueInvoice(id: string, actor: Actor) {
 ### 8.6 Balances and status
 
 - `recalculateBalances(tx, invoiceId)` recomputes `amountPaid`, `amountCredited`, `balanceDue` from `Payment` and issued `CreditNote` rows. Called by every payment and credit-note DAL mutation, in the same transaction. Single code path.
-- `creditNoteTaxLines(invoice, creditSubtotal, currency)`: `apportion(creditSubtotal, invoice.taxLines.map(t => t.taxableAmount))` gives each tax line's credited taxable part; its tax is `roundMoney(part × rate, currency)`; total = subtotal + Σ tax. Pure; fixture-tested for mixed-rate invoices.
+- `creditNoteTaxLines(invoice, creditSubtotal, currency)`: the credit subtotal is apportioned **within each tax type** (CGST and SGST each see the whole subtotal split across their rates; IGST/VAT likewise), because intra-state lines carry the same taxable base twice — apportioning across all lines at once would halve the tax. Each line's tax is `roundMoney(part × rate, currency)`; total = subtotal + Σ tax. Pure; fixture-tested for mixed-rate invoices (M3 ruling).
 - `displayStatus(invoice, todayInUserTz)` is pure (see `SPEC.md` §4.6) and used by lists, detail pages and exports. `todayFor(user)` = current date in `user.timezone ?? "UTC"` via `@date-fns/tz`.
 - Dashboard "overdue" is a query on `status = 'ISSUED' AND balanceDue > 0 AND dueDate < :today` — no cron.
 
@@ -1681,6 +1682,8 @@ docker compose run --rm app node scripts/rotate-key.js --old "$OLD" --new "$NEW"
 | v1.1 | | Viewer role, DOCX, payment reminders through the composer, import from `data.json`. |
 
 Each milestone ends with its tests green in CI and a short `docs/changelog.md` entry.
+
+**Status (2026-10-01):** M0–M4 delivered on `feat/initial-version-okinvo` (see `docs/changelog.md`); M5 in progress. Deviations recorded along the way: TypeScript 6 (TS 7 blocked by typescript-eslint), hand-written UI primitives instead of `shadcn add`, a `postgres` rate-limit store wired in M5, and `AUTH_PASSWORD_SIGNIN` for IdP-less installs and CI.
 
 ---
 

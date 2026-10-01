@@ -1,5 +1,6 @@
 "use client";
 
+import type React from "react";
 import { ArrowDown, ArrowUp, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -58,6 +59,21 @@ export function LineItemsEditor({
     onChange([...base, row]);
   };
   const err = (i: number, key: keyof BuilderItem) => errors?.[`items.${i}.${key}`];
+  /**
+   * Enter in a single-line field never submits the form (that would save or issue by accident):
+   * on the last row it adds a line, otherwise it moves to the next row's description.
+   */
+  const rowKeyDown = (i: number) => (e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.key !== "Enter" || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    if (i === rows.length - 1) onChange([...rows, EMPTY]);
+    const focusNext = () =>
+      document
+        .querySelector<HTMLTextAreaElement>(`[aria-label="Line ${i + 2} description"]`)
+        ?.focus();
+    if (typeof requestAnimationFrame === "function") requestAnimationFrame(focusNext);
+    else focusNext();
+  };
 
   return (
     <div className="flex flex-col gap-3">
@@ -143,6 +159,7 @@ export function LineItemsEditor({
                     value={row.sacHsnCode}
                     invalid={Boolean(err(i, "sacHsnCode"))}
                     onChange={(e) => update(i, { sacHsnCode: e.target.value })}
+                    onKeyDown={rowKeyDown(i)}
                   />
                 </td>
                 <td className="w-24 px-2 py-2">
@@ -155,6 +172,7 @@ export function LineItemsEditor({
                     value={row.quantity}
                     invalid={Boolean(err(i, "quantity"))}
                     onChange={(e) => update(i, { quantity: e.target.value })}
+                    onKeyDown={rowKeyDown(i)}
                   />
                 </td>
                 <td className="w-28 px-2 py-2">
@@ -183,6 +201,7 @@ export function LineItemsEditor({
                     value={row.unitPrice}
                     invalid={Boolean(err(i, "unitPrice"))}
                     onChange={(e) => update(i, { unitPrice: e.target.value })}
+                    onKeyDown={rowKeyDown(i)}
                   />
                 </td>
                 <td className="w-24 px-2 py-2">
@@ -209,6 +228,7 @@ export function LineItemsEditor({
                       max="100"
                       value={row.taxRate}
                       onChange={(e) => update(i, { taxRate: e.target.value })}
+                      onKeyDown={rowKeyDown(i)}
                     />
                   )}
                 </td>
