@@ -59,21 +59,35 @@ describe("assetKey", () => {
 });
 
 describe("documentKey", () => {
-  it("places invoices and credit notes under their fiscal year with a version suffix", () => {
-    expect(documentKey("INVOICE", "2026-27", "inv-26-27-001", 1)).toBe(
-      "documents/invoices/2026-27/inv-26-27-001-v1.pdf",
+  // Numbers are unique per issuer profile (SPEC §4.6), so the key must carry the issuer too:
+  // two profiles both issuing INV/26-27/001 must never share (or overwrite) one blob.
+  const issuer = "01a0f6d7-852b-75cb-81dc-cfe6142f3f57";
+  it("places documents under issuer, kind and fiscal year with a version suffix", () => {
+    expect(documentKey("INVOICE", issuer, "2026-27", "inv-26-27-001", 1)).toBe(
+      `documents/invoices/${issuer}/2026-27/inv-26-27-001-v1.pdf`,
     );
-    expect(documentKey("CREDIT_NOTE", "2026-27", "cn-26-27-004", 3)).toBe(
-      "documents/credit-notes/2026-27/cn-26-27-004-v3.pdf",
+    expect(documentKey("CREDIT_NOTE", issuer, "2026-27", "cn-26-27-004", 3)).toBe(
+      `documents/credit-notes/${issuer}/2026-27/cn-26-27-004-v3.pdf`,
     );
   });
-  it("refuses an unsafe number or fiscal year and a non-positive version", () => {
-    expect(() => documentKey("INVOICE", "2026-27", "INV/26-27/001", 1)).toThrow(
+  it("gives different issuers different keys for the same number", () => {
+    const other = "01a0f6d8-4b14-73dc-8a88-2af67b29c477";
+    expect(documentKey("INVOICE", issuer, "2026-27", "inv-26-27-001", 1)).not.toBe(
+      documentKey("INVOICE", other, "2026-27", "inv-26-27-001", 1),
+    );
+  });
+  it("refuses an unsafe number, issuer or fiscal year and a non-positive version", () => {
+    expect(() => documentKey("INVOICE", issuer, "2026-27", "INV/26-27/001", 1)).toThrow(
       InvalidStorageKeyError,
     );
-    expect(() => documentKey("INVOICE", "../2026", "inv-001", 1)).toThrow(InvalidStorageKeyError);
-    expect(() => documentKey("INVOICE", "2026-27", "inv-001", 0)).toThrow(RangeError);
-    expect(() => documentKey("INVOICE", "2026-27", "inv-001", 1.5)).toThrow(RangeError);
+    expect(() => documentKey("INVOICE", "../x", "2026-27", "inv-001", 1)).toThrow(
+      InvalidStorageKeyError,
+    );
+    expect(() => documentKey("INVOICE", issuer, "../2026", "inv-001", 1)).toThrow(
+      InvalidStorageKeyError,
+    );
+    expect(() => documentKey("INVOICE", issuer, "2026-27", "inv-001", 0)).toThrow(RangeError);
+    expect(() => documentKey("INVOICE", issuer, "2026-27", "inv-001", 1.5)).toThrow(RangeError);
   });
 });
 

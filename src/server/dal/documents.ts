@@ -36,6 +36,16 @@ export interface DocumentDto {
 
 export const assetUrl = (assetId: string) => `/api/assets/id/${assetId}`;
 
+/** Another render already stored this version's blob (concurrent first render). */
+export class DocumentExistsError extends InvariantError {
+  constructor(key: string) {
+    super(`A document already exists at ${key}; refusing to overwrite it.`);
+    this.name = "DocumentExistsError";
+  }
+}
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
 /** An issued invoice DTO → renderer input (snapshots are authoritative; live rows are ignored). */
 export function renderInputFromInvoice(inv: InvoiceDto): RenderInput {
   if (!inv.issuerSnapshot || !inv.clientSnapshot) {
@@ -188,10 +198,13 @@ async function renderStored(
   const sha256 = sha256Hex(pdf);
   const key = documentKey(
     kind,
+    doc.issuerProfileId,
     doc.fiscalYear.toLowerCase(),
     safeFileStem(doc.number ?? id).toLowerCase(),
     version,
   );
+  // Stored documents are immutable: never overwrite a blob that already exists at this key.
+  if (await storage.exists(key)) throw new DocumentExistsError(key);
   await storage.put(key, pdf, { contentType: "application/pdf", byteSize: pdf.length });
   return tx.document.create({
     data: {
@@ -225,9 +238,16 @@ export async function ensureDocument(kind: DocumentKind, id: string): Promise<Do
     const row = await renderStored(prisma, kind, id, 1);
     return toDto(row, await numberOf());
   } catch (e) {
-    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === "P2002") {
-      const row = await latestDocument(prisma, kind, id);
-      if (row) return toDto(row, await numberOf());
+    const lostRace =
+      e instanceof DocumentExistsError ||
+      (e instanceof Prisma.PrismaClientKnownRequestError && e.code === "P2002");
+    if (lostRace) {
+      // The winner wrote the blob first and its row follows within milliseconds; wait for it.
+      for (let attempt = 0; attempt < 25; attempt++) {
+        const row = await latestDocument(prisma, kind, id);
+        if (row) return toDto(row, await numberOf());
+        await sleep(200);
+      }
     }
     throw e;
   }
