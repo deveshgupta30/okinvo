@@ -87,6 +87,7 @@ const DOCUMENT_FOLDERS: Record<DocumentKeyKind, string> = {
 /** `documents/{invoices|credit-notes}/{fy}/{numberSafe}-v{n}.pdf`. */
 export function documentKey(
   kind: DocumentKeyKind,
+  issuerProfileId: string,
   fiscalYear: string,
   numberSafe: string,
   version: number,
@@ -94,9 +95,11 @@ export function documentKey(
   if (!Number.isInteger(version) || version < 1) {
     throw new RangeError(`document version must be a positive integer, got ${String(version)}`);
   }
+  // Numbers are unique per issuer (SPEC §4.6): the issuer id keeps two profiles' INV/26-27/001 apart.
+  assertSingleSegment(issuerProfileId, "issuer profile id");
   assertSingleSegment(fiscalYear, "fiscal year");
   assertSingleSegment(numberSafe, "document number");
-  const key = `documents/${DOCUMENT_FOLDERS[kind]}/${fiscalYear}/${numberSafe}-v${version}.pdf`;
+  const key = `documents/${DOCUMENT_FOLDERS[kind]}/${issuerProfileId}/${fiscalYear}/${numberSafe}-v${version}.pdf`;
   assertValidKey(key);
   return key;
 }
