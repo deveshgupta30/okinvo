@@ -9,7 +9,8 @@ export function Checkbox({
   id,
   ...props
 }: React.ComponentProps<"input"> & { label: React.ReactNode; description?: React.ReactNode }) {
-  const inputId = id ?? React.useId();
+  const generatedId = React.useId();
+  const inputId = id ?? generatedId;
   return (
     <label htmlFor={inputId} className={cn("flex cursor-pointer items-start gap-2", className)}>
       <input

@@ -4,11 +4,11 @@ import { cn } from "@/lib/utils";
 
 export interface FieldProps {
   label: React.ReactNode;
-  htmlFor?: string;
+  htmlFor?: string | undefined;
   hint?: React.ReactNode;
   error?: string | string[] | undefined;
-  required?: boolean;
-  className?: string;
+  required?: boolean | undefined;
+  className?: string | undefined;
   children: React.ReactNode;
 }
 
