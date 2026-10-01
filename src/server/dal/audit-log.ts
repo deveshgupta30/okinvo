@@ -87,3 +87,34 @@ export async function auditEntityTypes(): Promise<string[]> {
   });
   return rows.map((r) => r.entityType);
 }
+
+/** Everything that happened to one invoice: its own events plus payments, credit notes, emails and documents that reference it. */
+export async function invoiceHistory(_actor: Actor, invoiceId: string): Promise<AuditEventDto[]> {
+  const rows = await prisma.auditEvent.findMany({
+    where: {
+      OR: [
+        { entityType: "Invoice", entityId: invoiceId },
+        { after: { path: ["invoiceId"], equals: invoiceId } },
+        { before: { path: ["invoiceId"], equals: invoiceId } },
+        { after: { path: ["replaces"], equals: invoiceId } },
+      ],
+    },
+    include: { actor: { select: { name: true, email: true } } },
+    orderBy: { createdAt: "desc" },
+    take: 200,
+  });
+  return rows.map((r) => ({
+    id: r.id,
+    action: r.action,
+    entityType: r.entityType,
+    entityId: r.entityId,
+    summary: r.summary,
+    before: r.before,
+    after: r.after,
+    actorName: r.actor?.name ?? null,
+    actorEmail: r.actor?.email ?? null,
+    ipAddress: r.ipAddress,
+    userAgent: r.userAgent,
+    createdAt: r.createdAt.toISOString(),
+  }));
+}
