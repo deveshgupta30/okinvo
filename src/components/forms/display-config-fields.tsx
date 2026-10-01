@@ -15,8 +15,19 @@ export function labelForDisplayKey(key: string): string {
   return words.charAt(0).toUpperCase() + words.slice(1).toLowerCase();
 }
 
-/** Checkbox matrix over the display config; names are `<prefix>.<group>.<key>`. */
-export function DisplayConfigFields({ prefix, config }: { prefix: string; config: DisplayConfig }) {
+/**
+ * Checkbox matrix over the display config; names are `<prefix>.<group>.<key>`. Uncontrolled by
+ * default (profile form); pass `onChange` to drive it from state (invoice builder).
+ */
+export function DisplayConfigFields({
+  prefix,
+  config,
+  onChange,
+}: {
+  prefix: string;
+  config: DisplayConfig;
+  onChange?: (config: DisplayConfig) => void;
+}) {
   return (
     <div className="grid gap-6 md:grid-cols-3">
       {(Object.keys(config) as (keyof DisplayConfig)[]).map((group) => (
@@ -26,8 +37,17 @@ export function DisplayConfigFields({ prefix, config }: { prefix: string; config
             <Checkbox
               key={key}
               name={`${prefix}.${group}.${key}`}
-              defaultChecked={on}
               label={labelForDisplayKey(key)}
+              {...(onChange
+                ? {
+                    checked: on,
+                    onChange: (e) =>
+                      onChange({
+                        ...config,
+                        [group]: { ...config[group], [key]: e.target.checked },
+                      } as DisplayConfig),
+                  }
+                : { defaultChecked: on })}
             />
           ))}
         </fieldset>

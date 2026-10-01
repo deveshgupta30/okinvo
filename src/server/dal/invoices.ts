@@ -1,7 +1,5 @@
 import "server-only";
 import { Prisma } from "@/generated/prisma/client";
-import { countryName } from "@/lib/schemas/address";
-import { placeOfSupplyLabel } from "@/lib/countries";
 import { randomToken } from "@/lib/crypto";
 import {
   addDays,
@@ -12,7 +10,8 @@ import {
   type DateString,
 } from "@/lib/dates";
 import { prisma, type Tx } from "@/lib/db";
-import { computeLines, computeTotals, displayStatus, type DisplayStatus } from "@/lib/invoices";
+import { displayStatus, type DisplayStatus } from "@/lib/invoices";
+import { computeInvoice, placeOfSupplyFor, type Computed } from "@/lib/invoices/compute";
 import { recalculateBalances } from "@/lib/invoices/balances";
 import { buildSnapshots } from "@/lib/invoices/snapshots";
 import { validateForIssue } from "@/lib/invoices/validate-for-issue";
@@ -31,7 +30,7 @@ import {
   type TemplateConfig,
 } from "@/lib/schemas";
 import type { InvoiceDraftInput, InvoiceFilters } from "@/lib/schemas/invoice-input";
-import { computeTax, type SupplyType, type TaxRegime, type TaxResult } from "@/lib/tax";
+import type { SupplyType, TaxRegime } from "@/lib/tax";
 import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { InvariantError, NotFoundError } from "./errors";
@@ -292,78 +291,7 @@ function toDto(row: DetailRow, today: DateString): InvoiceDto {
   };
 }
 
-// ───────────────────────── computation ─────────────────────────
-
-interface IssuerForTax {
-  countryCode: string;
-  gstStateCode: string | null;
-  gstin: string | null;
-  lutNumber: string | null;
-  lutFiscalYear: string | null;
-  ukVatNumber: string | null;
-}
-interface ClientForTax {
-  countryCode: string;
-  gstStateCode: string | null;
-}
-
-interface Computed {
-  tax: TaxResult;
-  totals: ReturnType<typeof computeTotals>;
-  lines: ReturnType<typeof computeLines>;
-}
-
-function compute(
-  p: {
-    currency: string;
-    items: { position: number; quantity: string; unitPrice: string; taxRate: string }[];
-    discount: { type: "AMOUNT" | "PERCENT"; value: string } | null;
-    roundingAdjustment: string | null;
-    tdsRate: string;
-    taxRegime: TaxRegime;
-    isReverseCharge: boolean;
-    fiscalYear: string;
-  },
-  issuer: IssuerForTax,
-  client: ClientForTax,
-): Computed {
-  const totalsInput = {
-    currency: p.currency,
-    items: p.items.map((i) => ({
-      position: i.position,
-      quantity: D(i.quantity),
-      unitPrice: D(i.unitPrice),
-      taxRate: D(i.taxRate),
-    })),
-    discount: p.discount ? { type: p.discount.type, value: D(p.discount.value) } : null,
-    roundingAdjustment: p.roundingAdjustment ? D(p.roundingAdjustment) : null,
-    tdsRate: D(p.tdsRate),
-  };
-  const lines = computeLines(totalsInput);
-  const tax = computeTax(
-    {
-      regime: p.taxRegime,
-      currency: p.currency,
-      fiscalYear: p.fiscalYear,
-      isReverseCharge: p.isReverseCharge,
-      issuer,
-      client,
-    },
-    lines.map((l) => ({
-      position: l.position,
-      taxableAmount: l.taxableAmount,
-      taxRate: l.taxRate,
-    })),
-  );
-  const totals = computeTotals(totalsInput, tax);
-  return { tax, totals, lines };
-}
-
-function placeOfSupplyFor(regime: TaxRegime, client: ClientForTax): string | null {
-  if (regime !== "INDIA_GST") return null;
-  if (client.countryCode.toUpperCase() === "IN") return placeOfSupplyLabel(client.gstStateCode);
-  return countryName(client.countryCode);
-}
+// ───────────────────────── computation (shared with the live preview) ─────────────────────────
 
 function totalsData(c: Computed, currency: string) {
   const t = c.totals;
@@ -483,7 +411,7 @@ export async function createDraft(actor: Actor, input: InvoiceDraftInput): Promi
   return prisma.$transaction(async (tx) => {
     const { issuer, client } = await loadParties(tx, input);
     const fy = fiscalYearOf(input.issueDate, issuer.fiscalYearStartMonth);
-    const c = compute(
+    const c = computeInvoice(
       {
         ...input,
         fiscalYear: fy,
@@ -528,7 +456,7 @@ export async function updateDraft(
     assertDraft(before, "edited");
     const { issuer, client } = await loadParties(tx, input);
     const fy = fiscalYearOf(input.issueDate, issuer.fiscalYearStartMonth);
-    const c = compute(
+    const c = computeInvoice(
       {
         ...input,
         fiscalYear: fy,
@@ -609,7 +537,7 @@ export async function issueInvoice(actor: Actor, id: string): Promise<InvoiceDto
       });
       if (errors.length > 0) throw new InvariantError(errors.join(" "), { _form: errors });
 
-      const c = compute(
+      const c = computeInvoice(
         {
           currency: draft.currency,
           items: draft.items.map((i) => ({
