@@ -1,0 +1,95 @@
+name: release
+# Manual, optional (IMPLEMENTATION_PLAN_v2.md §18.2): releases are normally built and pushed from
+# the owner's machine with scripts/release.sh. This workflow does the same multi-arch build and
+# push on a hosted runner, but only when DOCKERHUB_USERNAME / DOCKERHUB_TOKEN repository secrets
+# exist; without them it builds, scans and stops.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to publish (X.Y.Z)
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      IMAGE: docker.io/deveshgupta30/okinvo
+      VERSION: ${{ inputs.version }}
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: validate version
+        run: |
+          [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "version must be X.Y.Z"; exit 1; }
+          echo "MINOR=${VERSION%.*}" >> "$GITHUB_ENV"
+      - id: registry
+        name: registry secrets present?
+        run: |
+          if [ -n "$DOCKERHUB_USERNAME" ] && [ -n "$DOCKERHUB_TOKEN" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; fi
+      - uses: docker/setup-qemu-action@v4
+      - uses: docker/setup-buildx-action@v4
+      - name: build the host-arch runner image and scan it
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: docker/Dockerfile
+          target: runner
+          push: false
+          load: true
+          tags: ${{ env.IMAGE }}:${{ env.VERSION }}
+          labels: |
+            org.opencontainers.image.version=${{ env.VERSION }}
+            org.opencontainers.image.source=https://github.com/deveshgupta30/okinvo
+            org.opencontainers.image.revision=${{ github.sha }}
+      - uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          image-ref: ${{ env.IMAGE }}:${{ env.VERSION }}
+          severity: HIGH,CRITICAL
+          exit-code: "1"
+          ignore-unfixed: true
+      - if: steps.registry.outputs.ok != 'true'
+        run: echo "No DOCKERHUB_USERNAME / DOCKERHUB_TOKEN secrets — built and scanned only, nothing pushed."
+      - if: steps.registry.outputs.ok == 'true'
+        uses: docker/login-action@v4
+        with:
+          username: ${{ env.DOCKERHUB_USERNAME }}
+          password: ${{ env.DOCKERHUB_TOKEN }}
+      - if: steps.registry.outputs.ok == 'true'
+        name: push runner (multi-arch)
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: docker/Dockerfile
+          target: runner
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ${{ env.IMAGE }}:${{ env.VERSION }}
+            ${{ env.IMAGE }}:${{ env.MINOR }}
+            ${{ env.IMAGE }}:latest
+          labels: |
+            org.opencontainers.image.version=${{ env.VERSION }}
+            org.opencontainers.image.source=https://github.com/deveshgupta30/okinvo
+            org.opencontainers.image.revision=${{ github.sha }}
+      - if: steps.registry.outputs.ok == 'true'
+        name: push migrate (multi-arch)
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: docker/Dockerfile
+          target: migrate
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ${{ env.IMAGE }}:${{ env.VERSION }}-migrate
+            ${{ env.IMAGE }}:${{ env.MINOR }}-migrate
+            ${{ env.IMAGE }}:latest-migrate
+          labels: |
+            org.opencontainers.image.version=${{ env.VERSION }}
+            org.opencontainers.image.source=https://github.com/deveshgupta30/okinvo
+            org.opencontainers.image.revision=${{ github.sha }}

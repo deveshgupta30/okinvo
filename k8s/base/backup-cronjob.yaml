@@ -1,0 +1,81 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: okinvo-backup
+  labels:
+    app.kubernetes.io/name: okinvo
+    app.kubernetes.io/component: backup
+spec:
+  schedule: "0 2 * * *" # BACKUP_CRON equivalent; patch for another time (cluster time zone)
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 1
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/name: okinvo
+            app.kubernetes.io/component: backup
+        spec:
+          restartPolicy: Never
+          automountServiceAccountToken: false
+          # The app-data and backups volumes are ReadWriteOnce: the job must land on the node that
+          # holds them, i.e. beside the app pod.
+          affinity:
+            podAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - topologyKey: kubernetes.io/hostname
+                  labelSelector:
+                    matchLabels:
+                      app.kubernetes.io/name: okinvo
+                      app.kubernetes.io/component: app
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 70
+            runAsGroup: 70
+            fsGroup: 70
+            seccompProfile:
+              type: RuntimeDefault
+          containers:
+            - name: backup
+              image: postgres:18.6-alpine
+              command: ["/bin/sh", "/backup/backup.sh", "--now"]
+              envFrom:
+                - configMapRef:
+                    name: okinvo-config
+                - secretRef:
+                    name: okinvo-secrets
+              securityContext:
+                allowPrivilegeEscalation: false
+                readOnlyRootFilesystem: true
+                capabilities:
+                  drop: ["ALL"]
+              volumeMounts:
+                - name: scripts
+                  mountPath: /backup
+                  readOnly: true
+                - name: app-data
+                  mountPath: /data
+                  readOnly: true
+                - name: backups
+                  mountPath: /backups
+                - name: tmp
+                  mountPath: /tmp
+              resources:
+                requests: { cpu: 100m, memory: 128Mi }
+                limits: { memory: 512Mi }
+          volumes:
+            - name: scripts
+              configMap:
+                name: okinvo-backup-scripts
+                defaultMode: 0555
+            - name: app-data
+              persistentVolumeClaim:
+                claimName: app-data
+            - name: backups
+              persistentVolumeClaim:
+                claimName: backups
+            - name: tmp
+              emptyDir: {}

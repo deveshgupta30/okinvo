@@ -6,6 +6,7 @@
  */
 export type { RateLimitDecision, RateLimiter } from "./types";
 export { MemoryRateLimiter } from "./memory";
+export { PostgresRateLimiter, type SqlClient } from "./postgres";
 // `clientIp` lives in its own file so `src/server/actor.ts` can import it without the limiter.
 export { clientIp } from "./memory-ip";
 

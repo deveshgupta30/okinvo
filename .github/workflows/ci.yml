@@ -54,6 +54,19 @@ jobs:
       - run: scripts/restore-drill.sh # owns a database whose name must contain "drill"
         env: { DATABASE_URL: postgresql://okinvo:okinvo@127.0.0.1:5432/okinvo_drill }
 
+  k8s: # the Kustomize overlays must build and pass kubeconform's strict schema check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: |
+          set -euo pipefail
+          mkdir -p /tmp/k8s
+          for o in compose-parity with-seaweedfs; do
+            kubectl kustomize --load-restrictor LoadRestrictionsNone "k8s/overlays/$o" > "/tmp/k8s/$o.yaml"
+          done
+          docker run --rm -v /tmp/k8s:/m ghcr.io/yannh/kubeconform:v0.7.0 -strict -summary /m/compose-parity.yaml /m/with-seaweedfs.yaml
+      - run: bash -n scripts/release.sh scripts/restore-drill.sh docker/backup/backup.sh docker/backup/restore.sh
+
   e2e:
     needs: test
     runs-on: ubuntu-latest
