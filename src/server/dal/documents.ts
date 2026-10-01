@@ -17,6 +17,8 @@ import type { Actor } from "@/server/actor";
 import { readAssetBytes } from "./assets";
 import { audit } from "./audit";
 import { InvariantError, NotFoundError } from "./errors";
+import { creditNoteRenderInputFromSnapshot } from "@/lib/credit-notes/preview";
+import { getCreditNoteTx } from "./credit-notes";
 import { getInvoiceTx, type InvoiceDto } from "./invoices";
 import { decryptDetails } from "./payment-methods";
 import { resolveTemplateConfig } from "./templates";
@@ -165,8 +167,16 @@ async function latestDocument(tx: Tx, kind: DocumentKind, id: string): Promise<D
 
 async function loadIssued(tx: Tx, kind: DocumentKind, id: string, today: string) {
   if (kind === "CREDIT_NOTE") {
-    // Wired with the credit-note DAL (Task 18).
-    throw new InvariantError("Credit-note documents are not available yet.");
+    const cn = await getCreditNoteTx(tx, id);
+    if (cn.status === "DRAFT") throw new InvariantError("Drafts are previewed, never stored.");
+    return {
+      input: creditNoteRenderInputFromSnapshot(cn),
+      config: cn.templateSnapshot ?? (await resolveTemplateConfig(tx, cn.issuerProfileId)),
+      number: cn.number,
+      issuerProfileId: cn.issuerProfileId,
+      fiscalYear: cn.fiscalYear ?? "unknown",
+      issuedAt: cn.issuedAt ? new Date(cn.issuedAt) : new Date(0),
+    };
   }
   const inv = await getInvoiceTx(tx, id, today);
   if (inv.status === "DRAFT") throw new InvariantError("Drafts are previewed, never stored.");
@@ -288,6 +298,29 @@ export async function getDocumentStream(
     document: toDto(row, row.invoice?.number ?? row.creditNote?.number ?? null),
     stream: obj.stream,
   };
+}
+
+/** Watermarked draft credit-note preview from the invoice's snapshots; never stored. */
+export async function renderCreditNoteDraftPreview(
+  actor: Actor,
+  creditNoteId: string,
+): Promise<Buffer> {
+  const cn = await getCreditNoteTx(prisma, creditNoteId);
+  if (cn.status !== "DRAFT")
+    throw new InvariantError("Only drafts are previewed; download the stored PDF.");
+  const inv = await getInvoiceTx(prisma, cn.invoiceId, todayIn(actor.timezone));
+  const { creditNoteRenderInput } = await import("@/lib/credit-notes/preview");
+  const input = creditNoteRenderInput({
+    invoice: inv,
+    reason: cn.reason,
+    subtotal: cn.subtotal,
+    issueDate: cn.issueDate,
+    displayConfig: cn.displayConfig,
+    status: "DRAFT",
+  });
+  const config = await resolveTemplateConfig(prisma, cn.issuerProfileId);
+  const vm = buildDocumentViewModel(input, { appUrl: env.APP_URL, assetUrl, config, draft: true });
+  return renderPdf(vm, config, { assets: readAssetBytes });
 }
 
 /** Watermarked draft preview, never stored (SPEC §4.6). */

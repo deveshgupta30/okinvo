@@ -1,6 +1,11 @@
 import { mergeTemplateConfig } from "@/lib/schemas";
 import { isActor, requireOwnerApi } from "@/server/auth";
-import { ensureDocument, renderDraftPreview, renderSamplePdf } from "@/server/dal/documents";
+import {
+  ensureDocument,
+  renderCreditNoteDraftPreview,
+  renderDraftPreview,
+  renderSamplePdf,
+} from "@/server/dal/documents";
 import { isDalError, NotFoundError } from "@/server/dal/errors";
 import { getDocumentStream } from "@/server/dal/documents";
 import { Readable } from "node:stream";
@@ -43,6 +48,27 @@ export async function GET(request: Request): Promise<Response> {
         if (!isDalError(e) || e.code !== "INVARIANT") throw e;
         // Not a draft: serve the stored document inline instead.
         const doc = await ensureDocument("INVOICE", invoiceId);
+        const { stream } = await getDocumentStream(actor, doc.id);
+        return new Response(Readable.toWeb(stream) as ReadableStream, {
+          headers: {
+            "Content-Type": "application/pdf",
+            "Content-Disposition": `inline; filename="${doc.filename}"`,
+            "Cache-Control": "private, max-age=0, no-store",
+            "X-Content-Type-Options": "nosniff",
+          },
+        });
+      }
+    }
+    const creditNoteId = url.searchParams.get("creditNote");
+    if (creditNoteId) {
+      try {
+        return pdfResponse(
+          await renderCreditNoteDraftPreview(actor, creditNoteId),
+          "credit-note-draft.pdf",
+        );
+      } catch (e) {
+        if (!isDalError(e) || e.code !== "INVARIANT") throw e;
+        const doc = await ensureDocument("CREDIT_NOTE", creditNoteId);
         const { stream } = await getDocumentStream(actor, doc.id);
         return new Response(Readable.toWeb(stream) as ReadableStream, {
           headers: {
