@@ -70,6 +70,9 @@ const objectSchema = z
     S3_ACCESS_KEY: optional,
     S3_SECRET_KEY: optional,
 
+    /** `last-backup.json` written by the backup service; Settings → Data shows it when present. */
+    BACKUP_STATUS_FILE: optional,
+
     SMTP_HOST: optional,
     SMTP_PORT: z.coerce.number().int().positive().default(587),
     SMTP_SECURITY: z.enum(["starttls", "tls", "none"]).default("starttls"),
