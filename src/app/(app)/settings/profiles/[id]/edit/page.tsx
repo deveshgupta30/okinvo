@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ConfirmAction } from "@/components/confirm-action";
 import { ProfileForm } from "@/components/forms/profile-form";
+import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/ui/page-header";
 import { Pill } from "@/components/ui/status-pill";
 import { deleteProfileAction } from "@/server/actions/profiles";
@@ -30,16 +32,21 @@ export default async function EditProfilePage({ params }: { params: Promise<{ id
         }
         breadcrumb={[{ href: "/settings/profiles", label: "Profiles" }]}
         actions={
-          <ConfirmAction
-            action={deleteProfileAction}
-            title={`Delete ${profile.label}?`}
-            description="Only possible while no invoice or credit note references this profile. Otherwise archive it."
-            confirmLabel="Delete"
-            hidden={{ id: profile.id }}
-            trigger="Delete"
-            triggerVariant="tertiary"
-            destructive
-          />
+          <>
+            <Button asChild variant="secondary">
+              <Link href={`/settings/profiles/${profile.id}/template`}>Template</Link>
+            </Button>
+            <ConfirmAction
+              action={deleteProfileAction}
+              title={`Delete ${profile.label}?`}
+              description="Only possible while no invoice or credit note references this profile. Otherwise archive it."
+              confirmLabel="Delete"
+              hidden={{ id: profile.id }}
+              trigger="Delete"
+              triggerVariant="tertiary"
+              destructive
+            />
+          </>
         }
       />
       <ProfileForm profile={profile} />

@@ -68,6 +68,8 @@ describe.skipIf(!url)("database", () => {
     const client = await pool.connect();
     try {
       await client.query("BEGIN");
+      // Rolled back below: clear whatever default a populated database already holds.
+      await client.query(`UPDATE "IssuerProfile" SET "isDefault" = false WHERE "isDefault" = true`);
       const insert = (id: string) =>
         client.query(
           `INSERT INTO "IssuerProfile"
