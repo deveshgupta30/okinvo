@@ -1,0 +1,81 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import { useState, type FormEvent } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { authClient } from "@/lib/auth/client";
+
+/**
+ * Email + password sign-in (AUTH_PASSWORD_SIGNIN). The first sign-in of an allow-listed address
+ * creates the account; anyone else is refused by the server-side allow-list hook.
+ */
+export function PasswordSignInForm() {
+  const router = useRouter();
+  const [mode, setMode] = useState<"signIn" | "create">("signIn");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function submit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const email = String(form.get("email") ?? "").trim();
+    const password = String(form.get("password") ?? "");
+    const name = String(form.get("name") ?? "").trim();
+    setBusy(true);
+    setError(null);
+    const result =
+      mode === "create"
+        ? await authClient.signUp.email({ email, password, name: name || email, callbackURL: "/" })
+        : await authClient.signIn.email({ email, password, callbackURL: "/" });
+    if (result.error) {
+      setError(result.error.message ?? "Sign-in failed.");
+      setBusy(false);
+      return;
+    }
+    router.push("/");
+    router.refresh();
+  }
+
+  return (
+    <form onSubmit={submit} className="flex flex-col gap-3" data-testid="password-sign-in">
+      {mode === "create" ? (
+        <div className="flex flex-col gap-1">
+          <Label htmlFor="name">Name</Label>
+          <Input id="name" name="name" autoComplete="name" />
+        </div>
+      ) : null}
+      <div className="flex flex-col gap-1">
+        <Label htmlFor="email">Email</Label>
+        <Input id="email" name="email" type="email" autoComplete="email" required />
+      </div>
+      <div className="flex flex-col gap-1">
+        <Label htmlFor="password">Password</Label>
+        <Input
+          id="password"
+          name="password"
+          type="password"
+          autoComplete={mode === "create" ? "new-password" : "current-password"}
+          minLength={12}
+          required
+        />
+      </div>
+      {error ? (
+        <p role="alert" className="text-app-caption text-semantic-danger">
+          {error}
+        </p>
+      ) : null}
+      <Button type="submit" size="lg" disabled={busy}>
+        {busy ? "Signing in…" : mode === "create" ? "Create account" : "Sign in"}
+      </Button>
+      <button
+        type="button"
+        className="text-app-caption text-link hover:underline"
+        onClick={() => setMode(mode === "create" ? "signIn" : "create")}
+      >
+        {mode === "create" ? "I already have a password" : "First time here? Set a password"}
+      </button>
+    </form>
+  );
+}

@@ -43,6 +43,7 @@ const objectSchema = z
         message: "still the .env.example placeholder — run scripts/gen-secrets.sh",
       }),
     AUTH_ALLOWED_EMAILS: z.string().default(""),
+    AUTH_PASSWORD_SIGNIN: z.stringbool().default(false), // email+password (allow-list still applies); e2e/CI and IdP-less owners
     AUTH_LINKING_TRUSTED_PROVIDERS: z.string().default("google,github"),
     AUTH_GOOGLE_ID: optional,
     AUTH_GOOGLE_SECRET: optional,
@@ -104,6 +105,7 @@ const objectSchema = z
         });
       }
       const anyProvider =
+        v.AUTH_PASSWORD_SIGNIN ||
         (v.AUTH_GOOGLE_ID && v.AUTH_GOOGLE_SECRET) ||
         (v.AUTH_GITHUB_ID && v.AUTH_GITHUB_SECRET) ||
         (v.AUTH_KEYCLOAK_ISSUER && v.AUTH_KEYCLOAK_ID && v.AUTH_KEYCLOAK_SECRET) ||
@@ -114,7 +116,7 @@ const objectSchema = z
           code: "custom",
           path: ["AUTH_GOOGLE_ID"],
           message:
-            "configure at least one sign-in provider (Google, GitHub, Keycloak, Casdoor or OIDC)",
+            "configure at least one sign-in method (Google, GitHub, Keycloak, Casdoor, OIDC or AUTH_PASSWORD_SIGNIN=true)",
         });
       }
     }
