@@ -131,7 +131,7 @@ export function creditNoteRenderInputFromSnapshot(cn: CreditNoteDto): RenderInpu
     discountAmount: toMoneyString(0, cn.currency),
     taxableAmount: cn.subtotal,
     taxAmount: cn.taxAmount,
-    roundingAdjustment: toMoneyString(0, cn.currency),
+    roundingAdjustment: cn.roundingAdjustment,
     total: cn.total,
     tdsRate: "0",
     tdsExpected: toMoneyString(0, cn.currency),

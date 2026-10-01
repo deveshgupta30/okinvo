@@ -52,6 +52,7 @@ export interface InvoiceItemDto {
   unitPrice: string;
   lineSubtotal: string;
   taxRate: string;
+  taxExempt: boolean;
   taxAmount: string;
   lineTotal: string;
 }
@@ -256,6 +257,7 @@ function toDto(row: DetailRow, today: DateString): InvoiceDto {
       unitPrice: money(i.unitPrice, c),
       lineSubtotal: money(i.lineSubtotal, c),
       taxRate: D(i.taxRate.toString()).toString(),
+      taxExempt: i.taxExempt,
       taxAmount: money(i.taxAmount, c),
       lineTotal: money(i.lineTotal, c),
     })),
@@ -333,6 +335,7 @@ function itemsCreate(input: InvoiceDraftInput, c: Computed) {
       unitPrice: it.unitPrice,
       lineSubtotal: toMoneyString(line.lineSubtotal, input.currency),
       taxRate: it.taxRate,
+      taxExempt: it.taxExempt ?? false,
       taxAmount: toMoneyString(line.taxAmount, input.currency),
       lineTotal: toMoneyString(line.lineTotal, input.currency),
     };
@@ -515,6 +518,18 @@ export async function issueInvoice(actor: Actor, id: string): Promise<InvoiceDto
       if (draft.status !== "DRAFT") throw new InvariantError("Only drafts can be issued.");
       const issuer = draft.issuerProfile;
       const client = draft.client;
+      if (issuer.archivedAt) {
+        throw new InvariantError("The issuer profile is archived; restore it before issuing.");
+      }
+      if (client.archivedAt) {
+        throw new InvariantError("The client is archived; restore it before issuing.");
+      }
+      if (draft.currency !== issuer.baseCurrency && D(draft.fxRateToBase.toString()).eq(1)) {
+        throw new InvariantError(
+          `Enter the exchange rate from ${draft.currency} to ${issuer.baseCurrency} before issuing (1 is only right when both are the same currency).`,
+          { fxRateToBase: ["required for a foreign-currency invoice"] },
+        );
+      }
       const issueDate = toDateString(draft.issueDate);
       const fy = fiscalYearOf(issueDate, issuer.fiscalYearStartMonth);
       const errors = validateForIssue({

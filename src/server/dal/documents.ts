@@ -281,19 +281,33 @@ export async function regenerateDocument(
   kind: DocumentKind,
   id: string,
 ): Promise<DocumentDto> {
-  const latest = await latestDocument(prisma, kind, id);
-  const version = (latest?.version ?? 0) + 1;
-  const row = await renderStored(prisma, kind, id, version);
-  await audit(prisma, actor, "document.regenerated", "Document", row.id, {
-    summary: `Regenerated ${kind.toLowerCase()} PDF v${version}`,
-    after: { version, sha256: row.sha256 },
-  });
-  const number =
-    kind === "INVOICE"
-      ? ((await prisma.invoice.findUnique({ where: { id }, select: { number: true } }))?.number ??
-        null)
-      : null;
-  return toDto(row, number);
+  // The row and its audit event land together: a failed render leaves neither.
+  const row = await prisma.$transaction(
+    async (tx) => {
+      const latest = await latestDocument(tx, kind, id);
+      const version = (latest?.version ?? 0) + 1;
+      const created = await renderStored(tx, kind, id, version);
+      await audit(tx, actor, "document.regenerated", "Document", created.id, {
+        summary: `Regenerated ${kind.toLowerCase()} PDF v${version}`,
+        after: { version, sha256: created.sha256 },
+      });
+      return created;
+    },
+    { maxWait: 15_000, timeout: 60_000 },
+  );
+  return toDto(row, await documentNumber(kind, id));
+}
+
+async function documentNumber(kind: DocumentKind, id: string): Promise<string | null> {
+  if (kind === "INVOICE") {
+    return (
+      (await prisma.invoice.findUnique({ where: { id }, select: { number: true } }))?.number ?? null
+    );
+  }
+  return (
+    (await prisma.creditNote.findUnique({ where: { id }, select: { number: true } }))?.number ??
+    null
+  );
 }
 
 export async function getDocumentStream(

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { Receipt } from "lucide-react";
 import { ExportButton } from "@/components/export-button";
 import { Button } from "@/components/ui/button";
@@ -12,10 +13,18 @@ import { Select } from "@/components/ui/select";
 import { StatusPill } from "@/components/ui/status-pill";
 import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/table";
 import { formatDate, formatMoney } from "@/lib/format";
+import { withFlash } from "@/lib/flash";
 import { requireOwner } from "@/server/auth";
+import { isDalError } from "@/server/dal/errors";
 import { listClients } from "@/server/dal/clients";
 import { listCreditNotes, type CreditNoteDisplayStatus } from "@/server/dal/credit-notes";
 import { listProfiles } from "@/server/dal/profiles";
+
+/** A hand-edited query string with an impossible fiscal year: back to the register with a note. */
+function rejectBadFilters(e: unknown): never {
+  if (isDalError(e)) redirect(withFlash("/credit-notes", { kind: "error", message: e.message }));
+  throw e;
+}
 
 export const metadata: Metadata = { title: "Credit notes" };
 
@@ -39,7 +48,7 @@ export default async function CreditNotesPage({
       clientId: s("clientId"),
       status,
       q: s("q"),
-    }),
+    }).catch(rejectBadFilters),
     listProfiles(actor),
     listClients(actor),
   ]);

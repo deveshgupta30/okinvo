@@ -109,6 +109,7 @@ async function documentContext(
     const inv = await getInvoiceTx(prisma, id, today);
     if (inv.status === "DRAFT" || !inv.number)
       throw new InvariantError("Issue the invoice before sending it.");
+    if (inv.status === "VOID") throw new InvariantError("This invoice is void and cannot be sent.");
     const profile = await prisma.issuerProfile.findUniqueOrThrow({
       where: { id: inv.issuerProfileId },
     });
@@ -142,6 +143,8 @@ async function documentContext(
   const cn = await getCreditNoteTx(prisma, id);
   if (cn.status === "DRAFT" || !cn.number || !cn.snapshot)
     throw new InvariantError("Issue the credit note before sending it.");
+  if (cn.status === "VOID")
+    throw new InvariantError("This credit note is void and cannot be sent.");
   const profile = await prisma.issuerProfile.findUniqueOrThrow({
     where: { id: cn.issuerProfileId },
   });
@@ -238,9 +241,10 @@ export async function sendDocumentEmail(
       `Sending limit reached; try again in ${Math.ceil(decision.retryAfterMs / 60_000)} minutes.`,
     );
   }
+  // The document's own rules (issued, not void) come before any transport question.
+  const ctx = await documentContext(actor, input.kind, input.id);
   const smtp = await resolveSmtp();
   if (!smtp) throw new InvariantError("SMTP is not configured; use “Open in mail app” instead.");
-  const ctx = await documentContext(actor, input.kind, input.id);
   const doc = await ensureDocument(input.kind, input.id);
   const { stream } = await getDocumentStream(actor, doc.id);
   const chunks: Buffer[] = [];

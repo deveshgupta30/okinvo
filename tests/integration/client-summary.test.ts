@@ -174,6 +174,28 @@ describe.skipIf(!url)("client summary", () => {
     expect(s.lastInvoiceDate).toBe("2026-05-01");
   });
 
+  it("counts money received from payments only: a write-off is not cash", async () => {
+    const payments = await import("@/server/dal/payments");
+    const inv = await import("@/server/dal/invoices");
+    const b = (await inv.listInvoices(actor, { clientId, status: "OVERDUE" }))[0];
+    if (!b) throw new Error("expected the overdue invoice B");
+    await payments.recordPayment(
+      actor,
+      b.id,
+      PaymentInputSchema.parse({
+        kind: "WRITE_OFF",
+        paymentDate: "2026-06-01",
+        amountApplied: "360",
+      }),
+    );
+    const s = await clients.clientSummary(actor, clientId);
+    expect(s.currencies[0]).toMatchObject({
+      received: "5000.00", // unchanged by the write-off
+      outstanding: "7620.00", // 7980 − 360
+      overdue: "2000.00",
+    });
+  });
+
   it("is empty for a client without invoices", async () => {
     const s = await clients.clientSummary(actor, emptyClientId);
     expect(s).toEqual({

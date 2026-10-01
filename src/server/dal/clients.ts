@@ -215,6 +215,7 @@ export async function clientSummary(actor: Actor, clientId: string): Promise<Cli
       amountPaid: true,
       amountCredited: true,
       balanceDue: true,
+      payments: { select: { kind: true, amountApplied: true } },
     },
   });
   const byCurrency = new Map<
@@ -252,7 +253,10 @@ export async function clientSummary(actor: Actor, clientId: string): Promise<Cli
     const balance = D(r.balanceDue.toString());
     acc.invoices += 1;
     acc.billed = acc.billed.plus(D(r.total.toString()));
-    acc.received = acc.received.plus(D(r.amountPaid.toString()));
+    // Cash only: write-offs reduce the balance but no money arrived.
+    for (const p of r.payments) {
+      if (p.kind !== "WRITE_OFF") acc.received = acc.received.plus(D(p.amountApplied.toString()));
+    }
     acc.credited = acc.credited.plus(D(r.amountCredited.toString()));
     acc.outstanding = acc.outstanding.plus(balance);
     if (balance.gt(0) && compareDates(toDateString(r.dueDate), today) < 0) {

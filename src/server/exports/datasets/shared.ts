@@ -2,7 +2,13 @@ import "server-only";
 import type { Prisma } from "@/generated/prisma/client";
 import { fromDateString, toDateString } from "@/lib/dates";
 import { D, roundMoney, toMoneyString, type Decimal } from "@/lib/money";
-import { AddressSchema, ClientSnapshotSchema, type Address } from "@/lib/schemas";
+import {
+  AddressSchema,
+  ClientSnapshotSchema,
+  CreditNoteSnapshotSchema,
+  IssuerSnapshotSchema,
+  type Address,
+} from "@/lib/schemas";
 import type { RegisterExportFilters } from "@/lib/schemas/export-filters";
 import type { DateRange } from "@/server/dal/fiscal-range";
 
@@ -79,6 +85,26 @@ export function clientTaxId(
     return { taxId: parsed.data.taxId ?? null, taxIdType: parsed.data.taxIdType ?? null };
   }
   return { taxId: client.taxId, taxIdType: client.taxIdType };
+}
+
+/** The issuer and client names frozen at issue (null for drafts, which have no snapshot yet). */
+export function snapshotNames(row: { issuerSnapshot: unknown; clientSnapshot: unknown }): {
+  issuer: string | null;
+  client: string | null;
+} {
+  const i = row.issuerSnapshot ? IssuerSnapshotSchema.safeParse(row.issuerSnapshot) : null;
+  const c = row.clientSnapshot ? ClientSnapshotSchema.safeParse(row.clientSnapshot) : null;
+  return {
+    issuer: i?.success ? i.data.legalName : null,
+    client: c?.success ? c.data.displayName : null,
+  };
+}
+
+/** The client name a credit note was issued to, from its own snapshot. */
+export function creditNoteClientName(snapshot: unknown): string | null {
+  if (!snapshot) return null;
+  const parsed = CreditNoteSnapshotSchema.safeParse(snapshot);
+  return parsed.success ? parsed.data.client.displayName : null;
 }
 
 /** The 10-character PAN embedded in a GSTIN (positions 3–12); null for any other tax ID. */

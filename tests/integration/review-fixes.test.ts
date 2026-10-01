@@ -257,6 +257,166 @@ describe.skipIf(!url)("review fixes", () => {
     expect(scoped.billedThisFy).toBe("5900.00");
   });
 
+  it("a regenerated credit note is named after its number and audited in the same transaction", async () => {
+    const i = await inv.issueInvoice(actor, (await draft(profileId, "INR", "10")).id);
+    const cn = await cns.issueCreditNote(
+      actor,
+      (
+        await cns.createCreditNoteDraft(
+          actor,
+          CreditNoteInputSchema.parse({
+            invoiceId: i.id,
+            reason: "Regenerate",
+            subtotal: "100",
+            issueDate: "2026-05-10",
+          }),
+        )
+      ).id,
+    );
+    await docs.ensureDocument("CREDIT_NOTE", cn.id);
+    const v2 = await docs.regenerateDocument(actor, "CREDIT_NOTE", cn.id);
+    expect(v2.version).toBe(2);
+    expect(v2.filename).toBe(`${cn.number!.replaceAll("/", "-")}-v2.pdf`);
+    const audits = await prisma.auditEvent.findMany({
+      where: { entityType: "Document", entityId: v2.id, action: "document.regenerated" },
+    });
+    expect(audits).toHaveLength(1);
+  });
+
+  it("the email DAL refuses to send a voided document, whatever the UI shows", async () => {
+    const emails = await import("@/server/dal/emails");
+    const i = await inv.issueInvoice(actor, (await draft()).id);
+    await inv.voidInvoice(actor, i.id, "sent in error");
+    await expect(emails.composerDefaults(actor, "INVOICE", i.id)).rejects.toThrow(/void/i);
+    await expect(
+      emails.sendDocumentEmail(actor, {
+        kind: "INVOICE",
+        id: i.id,
+        to: ["client@example.com"],
+        cc: [],
+        bcc: [],
+        subject: "x",
+        body: "y",
+      }),
+    ).rejects.toThrow(/void/i);
+  });
+
+  it("payments and credit notes cannot be dated before the invoice was issued", async () => {
+    const i = await inv.issueInvoice(actor, (await draft(profileId, "INR", "10")).id); // 2026-05-01
+    await expect(
+      payments.recordPayment(
+        actor,
+        i.id,
+        PaymentInputSchema.parse({
+          kind: "PAYMENT",
+          paymentDate: "2026-04-30",
+          amountApplied: "10",
+        }),
+      ),
+    ).rejects.toThrow(/before the invoice/i);
+    await expect(
+      cns.createCreditNoteDraft(
+        actor,
+        CreditNoteInputSchema.parse({
+          invoiceId: i.id,
+          reason: "Too early",
+          subtotal: "10",
+          issueDate: "2026-04-30",
+        }),
+      ),
+    ).rejects.toThrow(/before the invoice/i);
+  });
+
+  it("issue requires an explicit exchange rate when the invoice currency differs from the base", async () => {
+    const usd = await draft(profileId, "USD"); // INR profile, fxRateToBase defaults to 1
+    await expect(inv.issueInvoice(actor, usd.id)).rejects.toThrow(/exchange rate/i);
+    await inv.updateDraft(
+      actor,
+      usd.id,
+      InvoiceDraftInputSchema.parse({
+        issuerProfileId: profileId,
+        clientId,
+        issueDate: "2026-05-01",
+        dueDate: "2027-03-31",
+        currency: "USD",
+        fxRateToBase: "83.5",
+        taxRegime: "INDIA_GST",
+        items: [
+          {
+            description: "Work",
+            sacHsnCode: "998314",
+            unitType: "HOUR",
+            quantity: "1",
+            unitPrice: "100",
+            taxRate: "18",
+          },
+        ],
+        displayConfig: DEFAULT_DISPLAY_CONFIG,
+      }),
+    );
+    expect((await inv.issueInvoice(actor, usd.id)).fxRateToBase).toBe("83.5");
+  });
+
+  it("issue refuses an archived issuer or client", async () => {
+    const clients = await import("@/server/dal/clients");
+    const d = await draft();
+    await clients.archiveClient(actor, clientId);
+    try {
+      await expect(inv.issueInvoice(actor, d.id)).rejects.toThrow(/archived/i);
+    } finally {
+      await clients.unarchiveClient(actor, clientId);
+    }
+  });
+
+  it("crediting the whole taxable amount of a rounded invoice closes the balance exactly", async () => {
+    // 10 h × 99.99 = 999.90; GST 18 % = 89.99 + 89.99 → 1179.88; rounded up by 0.12 to 1180.00.
+    const d = await inv.createDraft(
+      actor,
+      InvoiceDraftInputSchema.parse({
+        issuerProfileId: profileId,
+        clientId,
+        issueDate: "2026-05-01",
+        dueDate: "2027-03-31",
+        currency: "INR",
+        taxRegime: "INDIA_GST",
+        roundingAdjustment: "0.12",
+        items: [
+          {
+            description: "Work",
+            sacHsnCode: "998314",
+            unitType: "HOUR",
+            quantity: "10",
+            unitPrice: "99.99",
+            taxRate: "18",
+          },
+        ],
+        displayConfig: DEFAULT_DISPLAY_CONFIG,
+      }),
+    );
+    invoiceIds.push(d.id);
+    const i = await inv.issueInvoice(actor, d.id);
+    expect(i.total).toBe("1180.00");
+    const cn = await cns.issueCreditNote(
+      actor,
+      (
+        await cns.createCreditNoteDraft(
+          actor,
+          CreditNoteInputSchema.parse({
+            invoiceId: i.id,
+            reason: "Cancelled in full",
+            subtotal: "999.90",
+            issueDate: "2026-05-10",
+          }),
+        )
+      ).id,
+    );
+    expect(cn.roundingAdjustment).toBe("0.12");
+    expect(cn.total).toBe("1180.00");
+    const after = await inv.getInvoice(actor, i.id);
+    expect(after.balanceDue).toBe("0.00");
+    expect(after.displayStatus).toBe("PAID");
+  });
+
   it("credit-note tokens: a draft never resolves, an issued one resolves as a credit note", async () => {
     const i = await inv.issueInvoice(actor, (await draft(profileId, "INR", "10")).id);
     const cn = await cns.createCreditNoteDraft(

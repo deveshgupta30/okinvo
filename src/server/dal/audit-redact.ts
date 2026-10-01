@@ -5,6 +5,11 @@ const IGNORED_KEYS = new Set(["updatedAt"]);
 export function redactSensitive<T>(value: T): T {
   if (value === null || typeof value !== "object") return value;
   if (value instanceof Date) return value;
+  // Decimal-like objects (decimal.js / Prisma Decimal) would otherwise be stored as their
+  // internal {s,e,d} representation; keep the readable decimal string.
+  if (typeof (value as { toFixed?: unknown }).toFixed === "function") {
+    return String(value) as unknown as T;
+  }
   if (Array.isArray(value)) return value.map((v) => redactSensitive(v)) as unknown as T;
   const out: Record<string, unknown> = {};
   for (const [k, v] of Object.entries(value as Record<string, unknown>)) {

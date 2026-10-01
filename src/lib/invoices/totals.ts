@@ -16,7 +16,14 @@ import type { TaxResult } from "@/lib/tax";
  */
 export interface TotalsInput {
   currency: string;
-  items: { position: number; quantity: Decimal; unitPrice: Decimal; taxRate: Decimal }[];
+  items: {
+    position: number;
+    quantity: Decimal;
+    unitPrice: Decimal;
+    taxRate: Decimal;
+    /** UK VAT: an exempt supply carries no VAT and sits outside the VAT rows. */
+    exempt?: boolean | undefined;
+  }[];
   discount?: { type: "AMOUNT" | "PERCENT"; value: Decimal } | null;
   roundingAdjustment?: Decimal | null;
   /** Percentage, e.g. D("10") for 10 % under §194J. Informational only. */
@@ -29,6 +36,7 @@ export interface LineComputation {
   /** lineSubtotal less this line's share of the invoice-level discount. */
   taxableAmount: Decimal;
   taxRate: Decimal;
+  exempt: boolean;
 }
 
 export interface Totals {
@@ -90,13 +98,19 @@ export function computeLines(input: TotalsInput): LineComputation[] {
       lineSubtotal,
       taxableAmount: lineSubtotal.minus(part),
       taxRate: D(item.taxRate),
+      exempt: item.exempt ?? false,
     };
   });
 }
 
-/** |adj| < 1: the adjustment only ever nudges the total to a whole unit (SPEC.md §4.6). */
-export function isValidRoundingAdjustment(adj: Decimal): boolean {
-  return D(adj).abs().lt(1);
+/**
+ * |adj| < 1: the adjustment only ever nudges the total to a whole unit (SPEC.md §4.6). A currency
+ * without minor units (JPY, KRW, …) has nothing to nudge, so only zero is valid there.
+ */
+export function isValidRoundingAdjustment(adj: Decimal, currency?: string): boolean {
+  const a = D(adj);
+  if (currency !== undefined && minorUnits(currency) === 0) return a.isZero();
+  return a.abs().lt(1);
 }
 
 /**

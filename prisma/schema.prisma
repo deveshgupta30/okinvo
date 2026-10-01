@@ -459,6 +459,7 @@ model InvoiceItem {
   unitPrice     Decimal      @db.Decimal(14, 2)
   lineSubtotal  Decimal      @db.Decimal(14, 2)
   taxRate       Decimal      @default(0) @db.Decimal(5, 2)
+  taxExempt     Boolean      @default(false) // UK VAT exempt supply
   taxAmount     Decimal      @default(0) @db.Decimal(14, 2)
   lineTotal     Decimal      @db.Decimal(14, 2)
 
@@ -541,6 +542,7 @@ model CreditNote {
   supplyType        SupplyType
   subtotal          Decimal        @default(0) @db.Decimal(14, 2) // credit amount excl. tax; tax lines apportioned from the invoice
   taxAmount         Decimal        @default(0) @db.Decimal(14, 2)
+  roundingAdjustment Decimal       @default(0) @db.Decimal(14, 2) // absorbs the invoice's rounding when the whole taxable amount is credited
   total             Decimal        @default(0) @db.Decimal(14, 2)
   displayConfig     Json
   templateSnapshot  Json?          // TemplateConfigSchema frozen at issue

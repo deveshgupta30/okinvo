@@ -11,6 +11,8 @@ import type { BuilderItem } from "@/lib/invoices/client-preview";
 import { UNIT_LABELS, UNIT_TYPES } from "@/lib/schemas/service-input";
 import type { ServiceDto } from "@/server/dal/services";
 
+const EXEMPT = "__exempt";
+
 const EMPTY: BuilderItem = {
   description: "",
   sacHsnCode: "",
@@ -24,12 +26,15 @@ export function LineItemsEditor({
   items,
   services,
   rates,
+  allowExempt = false,
   errors,
   onChange,
 }: {
   items: BuilderItem[];
   services: ServiceDto[];
   rates: readonly string[] | null;
+  /** UK VAT: offer "Exempt" beside the rates (SPEC §4.7). */
+  allowExempt?: boolean | undefined;
   errors?: FieldErrors | undefined;
   onChange: (items: BuilderItem[]) => void;
 }) {
@@ -206,18 +211,36 @@ export function LineItemsEditor({
                 </td>
                 <td className="w-24 px-2 py-2">
                   {rates ? (
-                    <Select
-                      name={`items[${i}].taxRate`}
-                      aria-label={`Line ${i + 1} tax rate`}
-                      value={rates.includes(row.taxRate) ? row.taxRate : rates[0]}
-                      onChange={(e) => update(i, { taxRate: e.target.value })}
-                    >
-                      {rates.map((r) => (
-                        <option key={r} value={r}>
-                          {r}%
-                        </option>
-                      ))}
-                    </Select>
+                    <>
+                      <input type="hidden" name={`items[${i}].taxRate`} value={row.taxRate} />
+                      <input
+                        type="hidden"
+                        name={`items[${i}].taxExempt`}
+                        value={row.taxExempt ? "true" : "false"}
+                      />
+                      <Select
+                        aria-label={`Line ${i + 1} tax rate`}
+                        value={
+                          row.taxExempt
+                            ? EXEMPT
+                            : rates.includes(row.taxRate)
+                              ? row.taxRate
+                              : rates[0]
+                        }
+                        onChange={(e) =>
+                          e.target.value === EXEMPT
+                            ? update(i, { taxRate: "0", taxExempt: true })
+                            : update(i, { taxRate: e.target.value, taxExempt: false })
+                        }
+                      >
+                        {rates.map((r) => (
+                          <option key={r} value={r}>
+                            {r}%
+                          </option>
+                        ))}
+                        {allowExempt ? <option value={EXEMPT}>Exempt</option> : null}
+                      </Select>
+                    </>
                   ) : (
                     <Input
                       name={`items[${i}].taxRate`}

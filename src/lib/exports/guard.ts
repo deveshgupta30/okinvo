@@ -13,5 +13,8 @@ export const RISKY = /^[=+\-@\t\r]/;
  */
 export function guardCell(s: string): string {
   const clean = s.includes("\u0000") ? s.replaceAll("\u0000", "") : s;
-  return RISKY.test(clean) ? `'${clean}` : clean;
+  // Spreadsheets trim leading whitespace and line breaks and fold full-width punctuation (NFKC)
+  // before deciding whether a cell is a formula: judge the cell the way they will, as well as raw.
+  const probe = clean.replace(/^[\s\uFEFF]+/, "").normalize("NFKC");
+  return RISKY.test(clean) || RISKY.test(probe) ? `'${clean}` : clean;
 }

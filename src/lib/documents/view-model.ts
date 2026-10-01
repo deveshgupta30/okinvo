@@ -35,6 +35,7 @@ export interface RenderItem {
   unitPrice: string;
   lineSubtotal: string;
   taxRate: string;
+  taxExempt?: boolean | undefined;
   taxAmount: string;
   lineTotal: string;
 }
@@ -288,7 +289,7 @@ export function buildDocumentViewModel(input: RenderInput, o: ViewModelOptions):
       qty: formatQuantity(i.quantity, locale),
       unit: UNIT_LABELS[i.unitType] ?? i.unitType,
       rate: amount(i.unitPrice),
-      taxRate: formatPercent(i.taxRate),
+      taxRate: i.taxExempt ? "Exempt" : formatPercent(i.taxRate),
       taxAmount: amount(i.taxAmount),
       lineSubtotal: amount(i.lineSubtotal),
       lineTotal: amount(i.lineTotal),

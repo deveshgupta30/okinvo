@@ -11,7 +11,16 @@ import {
 } from "@/lib/schemas/export-filters";
 import { resolveDateRange } from "@/server/dal/fiscal-range";
 import { paginate } from "../paginate";
-import { clientTaxId, cursorArgs, day, invoiceWhere, iso, money, plain } from "./shared";
+import {
+  clientTaxId,
+  cursorArgs,
+  day,
+  invoiceWhere,
+  iso,
+  money,
+  plain,
+  snapshotNames,
+} from "./shared";
 import { defineDataset } from "./types";
 
 export interface InvoiceRegisterRow extends Record<string, string | null> {
@@ -167,13 +176,14 @@ export const invoicesDataset = defineDataset<RegisterExportFilters, InvoiceRegis
       const base = r.issuerProfile.baseCurrency;
       const tax = taxByType(r.taxLines);
       const { taxId } = clientTaxId(r.clientSnapshot, r.client);
+      const names = snapshotNames(r);
       yield {
         number: r.number,
         status,
         issueDate: day(r.issueDate),
         dueDate: day(r.dueDate),
-        issuer: r.issuerProfile.legalName,
-        client: r.client.displayName,
+        issuer: names.issuer ?? r.issuerProfile.legalName,
+        client: names.client ?? r.client.displayName,
         clientTaxId: taxId,
         placeOfSupply: r.placeOfSupply,
         supplyType: r.supplyType,

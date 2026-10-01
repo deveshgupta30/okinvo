@@ -8,7 +8,7 @@ import {
 } from "@/lib/schemas/export-filters";
 import { resolveDateRange } from "@/server/dal/fiscal-range";
 import { paginate } from "../paginate";
-import { cursorArgs, dateFilter, day, money } from "./shared";
+import { creditNoteClientName, cursorArgs, dateFilter, day, money } from "./shared";
 import { defineDataset } from "./types";
 
 export interface CreditNoteRow extends Record<string, string | null> {
@@ -90,7 +90,7 @@ export const creditNotesDataset = defineDataset<CreditNoteExportFilters, CreditN
         status,
         issueDate: day(r.issueDate),
         againstInvoice: r.invoice.number,
-        client: r.client.displayName,
+        client: creditNoteClientName(r.snapshot) ?? r.client.displayName,
         currency: cur,
         subtotal: money(r.subtotal, cur) ?? "0.00",
         tax: money(r.taxAmount, cur) ?? "0.00",

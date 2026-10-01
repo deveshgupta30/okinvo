@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { FileText } from "lucide-react";
 import { ExportButton } from "@/components/export-button";
 import { Button } from "@/components/ui/button";
@@ -15,10 +16,18 @@ import { formatDate, formatMoney } from "@/lib/format";
 import { STATUS_LABELS } from "@/lib/invoices";
 import { COMMON_CURRENCIES } from "@/lib/schemas";
 import { InvoiceFiltersSchema } from "@/lib/schemas/invoice-input";
+import { withFlash } from "@/lib/flash";
 import { requireOwner } from "@/server/auth";
+import { isDalError } from "@/server/dal/errors";
 import { listClients } from "@/server/dal/clients";
 import { INVOICE_PAGE_SIZE, invoiceFiscalYears, listInvoices } from "@/server/dal/invoices";
 import { getDefaultProfile, listProfiles } from "@/server/dal/profiles";
+
+/** A hand-edited query string with an impossible fiscal year: back to the register with a note. */
+function rejectBadFilters(e: unknown): never {
+  if (isDalError(e)) redirect(withFlash("/invoices", { kind: "error", message: e.message }));
+  throw e;
+}
 
 export const metadata: Metadata = { title: "Invoices" };
 
@@ -34,7 +43,7 @@ export default async function InvoicesPage({
   const parsed = InvoiceFiltersSchema.safeParse(params);
   const filters = parsed.success ? parsed.data : { page: 1 };
   const [rows, profiles, clients, defaultProfile] = await Promise.all([
-    listInvoices(actor, filters),
+    listInvoices(actor, filters).catch(rejectBadFilters),
     listProfiles(actor),
     listClients(actor),
     getDefaultProfile(actor),

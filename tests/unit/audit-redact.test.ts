@@ -26,6 +26,13 @@ describe("redactSensitive", () => {
     expect(redactSensitive(null)).toBeNull();
     expect(redactSensitive("x")).toBe("x");
   });
+  it("stores Decimal values as their decimal string, not decimal.js internals", async () => {
+    const { D } = await import("@/lib/money");
+    expect(redactSensitive({ rate: D("10.50"), nested: { amount: D("1234.5") } })).toEqual({
+      rate: "10.5",
+      nested: { amount: "1234.5" },
+    });
+  });
 });
 
 describe("diffForAudit", () => {

@@ -25,8 +25,9 @@ export function displayStatus(inv: StatusInput, today: DateString): DisplayStatu
 
   const settled = inv.total.gt(0) || inv.amountPaid.gt(0) || inv.amountCredited.gt(0);
   if (inv.balanceDue.lte(0) && settled) return "PAID";
-  if (inv.amountPaid.gt(0) && inv.balanceDue.gt(0)) return "PARTIALLY_PAID";
+  // Overdue outranks partially paid: a late balance is the thing to act on, however much is in.
   if (inv.balanceDue.gt(0) && compareDates(inv.dueDate, today) < 0) return "OVERDUE";
+  if (inv.amountPaid.gt(0) && inv.balanceDue.gt(0)) return "PARTIALLY_PAID";
   if (inv.sentAt) return "SENT";
   return "ISSUED";
 }
