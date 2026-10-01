@@ -3,6 +3,27 @@
 Milestones of okinvo v1.0 (`IMPLEMENTATION_PLAN_v2.md` §22). Dates are when the milestone's tests
 went green on the development branch.
 
+## Review follow-ups (2026-10-02)
+
+- Whole-branch review fixes: row locks on the issue, void, payment and credit-note
+  transactions; password sign-up only for addresses listed exactly; number formats need a year
+  token; orphaned PDFs adopted; no void while a credit note is issued; dashboard scoped to the
+  base currency.
+- Secrets at rest: verification tokens stored as SHA-256 hashes (encrypted copy for links),
+  payment-method snapshots encrypted, Zod on every snapshot read, DAL role checks ahead of the
+  Viewer role, and JWT API tokens (`/api/auth/token`, `/api/auth/jwks`, `Authorization: Bearer`).
+- Rules: overdue outranks partially paid; line bounds and zero-decimal rounding; UK VAT exempt
+  lines; payments and credit notes not before the invoice; exchange rate required for a
+  foreign-currency invoice; archived parties cannot be invoiced; a final credit note absorbs the
+  invoice's rounding; "received" counts cash only.
+- Exports: guard catches leading whitespace and full-width symbols; names frozen at issue; GSTIN
+  fallback in the GST summary; a wrong fiscal-year label is an error; CSVs stream inside the
+  all-data ZIP; uploads refuse an oversized body up front.
+- Ops: backup containers get only the database variables; release script checks untracked files
+  and existing tags and scans both images; NetworkPolicy allows in-cluster identity providers
+  and relays; the SeaweedFS overlay is marked experimental.
+- "New credit note" from the dashboard and the register, with an invoice picker.
+
 ## M4 — Exports, data and polish (2026-10-01)
 
 - Eight CSV/XLSX datasets (invoices register, line items, payments ledger, credit notes, clients,
