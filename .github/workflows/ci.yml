@@ -109,6 +109,13 @@ jobs:
           severity: HIGH,CRITICAL
           exit-code: "1"
           ignore-unfixed: true
+      - name: the runtime image ships no package manager (npm, npx, corepack, yarn)
+        run: |
+          docker run --rm --entrypoint sh okinvo:ci -c \
+            'test ! -e /usr/local/lib/node_modules/npm && test ! -e /usr/local/lib/node_modules/corepack \
+             && ! command -v npm >/dev/null && ! command -v npx >/dev/null \
+             && ! command -v corepack >/dev/null && ! command -v yarn >/dev/null' \
+            || { echo "runtime image still ships a package manager"; exit 1; }
       - name: container smoke — an invalid env must stop the process, a valid one must answer /live
         run: |
           set -euo pipefail

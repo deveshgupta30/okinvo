@@ -35,7 +35,16 @@ DRILL_DIR="$(mktemp -d "${TMPDIR:-/tmp}/okinvo-drill.XXXXXX")"
 mkdir -p "$DRILL_DIR/data/storage" "$DRILL_DIR/backups"
 export STORAGE_DRIVER=local
 export STORAGE_LOCAL_ROOT="$DRILL_DIR/data/storage"
-trap 'rm -rf "$DRILL_DIR"' EXIT
+# backup.sh and restore.sh run as root inside the postgres container, so on a Linux host the dump,
+# the tarball and the restored storage come back owned by root and a plain rm fails (Docker Desktop
+# maps ownership to the caller, which is why this only shows in CI). Remove those through a
+# container first; under `set -e` a failing trap command would turn a passed drill into exit 1.
+cleanup() {
+  rm -rf "$DRILL_DIR" 2>/dev/null && return 0
+  docker run --rm -v "$(hostpath "$DRILL_DIR"):/w" "$PG_IMAGE" rm -rf /w/backups /w/data >/dev/null 2>&1 || true
+  rm -rf "$DRILL_DIR" || echo "restore-drill: could not remove $DRILL_DIR" >&2
+}
+trap cleanup EXIT
 
 run_in_pg() { # <args…>: a command inside the stock Postgres image on the dev network
   docker run --rm --network "$NETWORK" \
