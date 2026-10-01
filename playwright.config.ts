@@ -14,5 +14,11 @@ export default defineConfig({
     url: "http://127.0.0.1:3000/api/health/live",
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
+    // The flow signs up a fresh *@example.com owner through the password form (plan R1).
+    env: {
+      APP_URL: "http://127.0.0.1:3000",
+      AUTH_PASSWORD_SIGNIN: "true",
+      AUTH_ALLOWED_EMAILS: "*@example.com",
+    },
   },
 });

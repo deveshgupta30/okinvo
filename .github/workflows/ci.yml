@@ -81,7 +81,7 @@ jobs:
       - run: docker compose -f compose.dev.yml up -d --wait postgres
       - run: pnpm db:generate && pnpm db:migrate
       - run: pnpm test:e2e
-        env: { CI: "true" }
+        env: { CI: "true", AUTH_PASSWORD_SIGNIN: "true", AUTH_ALLOWED_EMAILS: "*@example.com" }
       - uses: actions/upload-artifact@v7
         if: failure()
         with: { name: playwright-report, path: playwright-report }
