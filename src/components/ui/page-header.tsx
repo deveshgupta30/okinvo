@@ -1,0 +1,50 @@
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
+import * as React from "react";
+
+export interface Crumb {
+  href: string;
+  label: string;
+}
+
+/** 48px breadcrumb + actions row at the top of every screen (v2 §24.5 density). */
+export function PageHeader({
+  title,
+  description,
+  breadcrumb = [],
+  actions,
+  meta,
+}: {
+  title: React.ReactNode;
+  description?: React.ReactNode;
+  breadcrumb?: Crumb[];
+  actions?: React.ReactNode;
+  meta?: React.ReactNode;
+}) {
+  return (
+    <div className="mb-6 flex flex-col gap-2">
+      {breadcrumb.length > 0 ? (
+        <nav aria-label="Breadcrumb" className="flex h-5 items-center gap-1 text-app-caption">
+          {breadcrumb.map((c, i) => (
+            <React.Fragment key={c.href}>
+              {i > 0 ? (
+                <ChevronRight aria-hidden className="size-3 text-ink-tertiary" strokeWidth={1.5} />
+              ) : null}
+              <Link href={c.href} className="text-ink-subtle hover:text-ink">
+                {c.label}
+              </Link>
+            </React.Fragment>
+          ))}
+        </nav>
+      ) : null}
+      <div className="flex min-h-12 flex-wrap items-center justify-between gap-4">
+        <div className="flex min-w-0 flex-col gap-1">
+          <h1 className="flex items-center gap-3 text-app-title text-ink">{title}</h1>
+          {description ? <p className="text-app-body text-ink-subtle">{description}</p> : null}
+          {meta ? <div className="text-app-caption text-ink-subtle">{meta}</div> : null}
+        </div>
+        {actions ? <div className="flex flex-wrap items-center gap-2">{actions}</div> : null}
+      </div>
+    </div>
+  );
+}
