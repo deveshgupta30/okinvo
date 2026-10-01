@@ -533,6 +533,7 @@ model CreditNote {
   sequenceNumber    Int?
   issueDate         DateTime       @db.Date
   issuedAt          DateTime?
+  sentAt            DateTime?
   voidedAt          DateTime?
   voidReason        String?
   reason            String
