@@ -16,6 +16,16 @@ export default defineConfig([
     ".superpowers/**",
   ]),
   {
+    files: ["**/*.{ts,tsx,mjs}"],
+    rules: {
+      // `_`-prefixed names are the conventional "intentionally unused" marker (rest-omit, DAL actor params).
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_", destructuredArrayIgnorePattern: "^_" },
+      ],
+    },
+  },
+  {
     // v2 §24.1: colours come from DESIGN.md through tokens.css, never from literals in components.
     files: ["src/app/**/*.{ts,tsx}", "src/components/**/*.{ts,tsx}"],
     rules: {
