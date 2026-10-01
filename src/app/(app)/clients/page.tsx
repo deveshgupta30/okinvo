@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Users } from "lucide-react";
+import { ExportButton } from "@/components/export-button";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Input } from "@/components/ui/input";
@@ -37,6 +38,7 @@ export default async function ClientsPage({
                 {showArchived ? "Hide archived" : "Show archived"}
               </Link>
             </Button>
+            <ExportButton dataset="clients" params={showArchived ? { archived: "1" } : {}} />
             <Button asChild>
               <Link href="/clients/new">New client</Link>
             </Button>

@@ -16,7 +16,7 @@ import { recalculateBalances } from "@/lib/invoices/balances";
 import { buildSnapshots } from "@/lib/invoices/snapshots";
 import { validateForIssue } from "@/lib/invoices/validate-for-issue";
 import { D, toMoneyString, type Decimal } from "@/lib/money";
-import { fiscalYearOf, fiscalYearRange, formatDocumentNumber } from "@/lib/numbering";
+import { fiscalYearOf, formatDocumentNumber } from "@/lib/numbering";
 import { allocateDocumentNumber } from "@/lib/numbering/allocate";
 import {
   mergeDisplayConfig,
@@ -34,6 +34,7 @@ import type { SupplyType, TaxRegime } from "@/lib/tax";
 import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { InvariantError, NotFoundError } from "./errors";
+import { resolveDateRange } from "./fiscal-range";
 import { decryptDetails } from "./payment-methods";
 import { resolveTemplateConfig } from "./templates";
 
@@ -768,21 +769,7 @@ export async function listInvoices(
   filters: Partial<InvoiceFilters>,
 ): Promise<InvoiceListRow[]> {
   const today = todayIn(actor.timezone);
-  let range: { from?: DateString | undefined; to?: DateString | undefined } = {
-    from: filters.from,
-    to: filters.to,
-  };
-  if (filters.fy) {
-    const profile = filters.issuerProfileId
-      ? await prisma.issuerProfile.findUnique({ where: { id: filters.issuerProfileId } })
-      : await prisma.issuerProfile.findFirst({ where: { isDefault: true } });
-    const startMonth = profile?.fiscalYearStartMonth ?? 4;
-    try {
-      range = fiscalYearRange(filters.fy, startMonth);
-    } catch {
-      range = {};
-    }
-  }
+  const range = await resolveDateRange(filters);
   const rows = await prisma.invoice.findMany({
     where: {
       ...(filters.issuerProfileId ? { issuerProfileId: filters.issuerProfileId } : {}),
