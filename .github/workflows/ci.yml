@@ -28,15 +28,31 @@ jobs:
       - uses: actions/setup-node@v7
         with: { node-version: "${{ env.NODE_VERSION }}", cache: pnpm }
       - run: pnpm install --frozen-lockfile
-      - run: docker compose -f compose.dev.yml up -d --wait postgres
+      - run: docker compose -f compose.dev.yml up -d --wait postgres mailpit
       - run: pnpm db:generate
       - run: pnpm lint && pnpm typecheck && pnpm format:check
       - run: pnpm design:lint && pnpm design:tokens --check
       - run: pnpm db:migrate
       - run: pnpm db:check # migrations replayed into a shadow DB must equal schema.prisma
       - run: pnpm test -- --coverage
+        env: { MAILPIT_URL: http://127.0.0.1:8025 } # the email test delivers through Mailpit
       - run: pnpm audit --audit-level=high
       - run: pnpm build
+
+  restore-drill: # seed → backup.sh → wipe → restore.sh → row counts and one PDF hash match
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with: { version: "${{ env.PNPM_VERSION }}" }
+      - uses: actions/setup-node@v7
+        with: { node-version: "${{ env.NODE_VERSION }}", cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: docker compose -f compose.dev.yml up -d --wait postgres
+      - run: pnpm db:generate
+      - run: scripts/restore-drill.sh # owns a database whose name must contain "drill"
+        env: { DATABASE_URL: postgresql://okinvo:okinvo@127.0.0.1:5432/okinvo_drill }
 
   e2e:
     needs: test

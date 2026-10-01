@@ -8,7 +8,7 @@ import type { ExportFormat } from "./types";
  */
 export function exportFilename(
   dataset: string,
-  format: ExportFormat,
+  format: ExportFormat | "zip",
   range: { from?: DateString | undefined; to?: DateString | undefined } | null,
   today: DateString,
 ): string {
