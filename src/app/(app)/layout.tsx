@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import { AppSidebar } from "@/components/app-sidebar";
+import { FlashFromSearch } from "@/components/flash-from-search";
 import { TimezoneDetect } from "@/components/timezone-detect";
 import { requireUser } from "@/server/auth";
 
@@ -11,6 +13,9 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       <div className="flex min-w-0 flex-1 flex-col">
         <main className="mx-auto w-full max-w-[1280px] p-6">{children}</main>
       </div>
+      <Suspense fallback={null}>
+        <FlashFromSearch />
+      </Suspense>
     </div>
   );
 }
