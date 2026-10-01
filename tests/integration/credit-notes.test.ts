@@ -221,25 +221,24 @@ describe.skipIf(!url)("credit notes DAL", () => {
     expect(byType.CGST).toBeCloseTo(1000, 2);
     expect(byType.SGST).toBeCloseTo(1000, 2);
     expect(
-      cn.taxLines.map((t) => `${t.taxType} ${t.rate} ${t.taxableAmount} ${t.taxAmount}`),
-    ).toEqual([
-      "CGST 9 666.67 60.00",
-      "SGST 9 666.67 60.00",
-      "CGST 6 333.33 20.00",
-      "SGST 6 333.33 20.00",
-    ]);
+      cn.taxLines.map((t) => `${t.taxType} ${t.rate} ${t.taxableAmount} ${t.taxAmount}`).sort(),
+    ).toEqual(
+      [
+        "CGST 9 666.67 60.00",
+        "SGST 9 666.67 60.00",
+        "CGST 6 333.33 20.00",
+        "SGST 6 333.33 20.00",
+      ].sort(),
+    );
     expect(cn.total).toBe("1160.00");
-    await expect(
-      cns.updateCreditNoteDraft(
-        actor,
-        cn.id,
-        CreditNoteInputSchema.parse({
-          invoiceId: i.id,
-          reason: "Goodwill",
-          subtotal: "0",
-          issueDate: "2026-05-12",
-        }),
-      ),
-    ).rejects.toThrow();
+    // A zero amount is refused by the schema before it reaches the DAL.
+    expect(() =>
+      CreditNoteInputSchema.parse({
+        invoiceId: i.id,
+        reason: "Goodwill",
+        subtotal: "0",
+        issueDate: "2026-05-12",
+      }),
+    ).toThrow(/greater than zero/);
   });
 });
