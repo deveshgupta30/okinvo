@@ -1,0 +1,30 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+# Parity with compose.yml: local blob storage on an RWO volume, one replica, in-memory rate
+# limiting, nightly backup CronJob. Patch the host, APP_URL and the allow-list for your install:
+#
+#   kubectl kustomize --load-restrictor LoadRestrictionsNone k8s/overlays/compose-parity | kubectl apply -f -
+resources:
+  - ../../base
+
+patches:
+  - target:
+      kind: ConfigMap
+      name: okinvo-config
+    patch: |
+      - op: replace
+        path: /data/APP_URL
+        value: https://invoices.example.com
+      - op: replace
+        path: /data/AUTH_ALLOWED_EMAILS
+        value: owner@example.com
+  - target:
+      kind: Ingress
+      name: okinvo
+    patch: |
+      - op: replace
+        path: /spec/rules/0/host
+        value: invoices.example.com
+      - op: replace
+        path: /spec/tls/0/hosts/0
+        value: invoices.example.com

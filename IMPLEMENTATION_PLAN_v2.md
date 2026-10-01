@@ -91,12 +91,12 @@ Pin exact versions in `package.json` + `pnpm-lock.yaml`; this table is the recor
 |---|---|---|
 | `next` | `16.3.8` | App Router, Server Actions, `proxy.ts`, `after()`, Turbopack builds |
 | `react` / `react-dom` | `19.3.0` | |
-| `typescript` | `7.0.2` | Native (Go) compiler. If any tool in the chain (e.g. `typescript-eslint 8.71`) is not yet TS7-clean at scaffold time, pin `6.x` — TS 6 is the compatibility bridge release. |
+| `typescript` | `6.0.3` (M0 outcome) | 7.0.2 was tried first: Next 16 builds and `tsc` are fine on it, but `typescript-eslint 8.71` refuses TS 7.0 (typescript-eslint#10940). Renovate holds `<7` until that lands. |
 | `prisma` / `@prisma/client` / `@prisma/adapter-pg` | `7.10.0` | `prisma-client` generator + `pg` driver adapter (no Rust engine). **Do not** take `8.0.0-rc.*`, which is currently tagged `latest` for the CLI package — install `prisma@7.10.0` explicitly. |
 | `pg` | `8.23.1` | |
-| `better-auth` | `1.7.6` | Social providers + `genericOAuth` plugin + Prisma adapter |
+| `better-auth` | `1.7.7` | Social providers + `genericOAuth` plugin + Prisma adapter |
 | `zod` | `4.6.5` | |
-| `@t3-oss/env-nextjs` | `0.13.11` | Typed env validation on top of Zod |
+| `@t3-oss/env-nextjs` | `0.13.11` | *Not used in M0*: plain Zod + `server-only` (`src/lib/env.ts`, lazily validated; eager at boot via `instrumentation.ts`). Adopt when a `NEXT_PUBLIC_*` variable appears. |
 | `tailwindcss` / `@tailwindcss/postcss` | `4.3.3` | CSS-first config |
 | `radix-ui` | `1.6.7` | Unified package, via shadcn/ui generator |
 | `lucide-react` | `1.49.0` | |
@@ -116,7 +116,7 @@ Pin exact versions in `package.json` + `pnpm-lock.yaml`; this table is the recor
 | `file-type` | `22.1.1` | Magic-byte MIME sniffing |
 | `exceljs` | `4.4.0` | XLSX streaming writer |
 | `csv-stringify` | `6.9.0` | CSV streaming |
-| `archiver` | `8.0.0` | ZIP bundles |
+| `archiver` | `8.0.0` | ZIP bundles — ESM-only since 8.0: `new ZipArchive()` instead of the `archiver("zip")` factory |
 | `@aws-sdk/client-s3` | `3.1143.0` | S3 driver only (lazy-loaded) |
 | `nanoid` | `6.0.1` | Storage key suffixes |
 | `pino` | `10.3.1` | Structured logs |
@@ -128,8 +128,9 @@ Pin exact versions in `package.json` + `pnpm-lock.yaml`; this table is the recor
 |---|---|
 | `vitest` | `5.0.3` |
 | `@playwright/test` | `1.63.0` |
-| `eslint` / `typescript-eslint` | `10.11.0` / `8.71.0` |
+| `eslint` / `typescript-eslint` | `9.39.5` / `8.71.0` — ESLint 10 was tried first; `eslint-config-next 16.3.8` depends on `eslint-plugin-react ^7.37`, whose peer range ends at eslint 9 and which calls the removed `context.getFilename`. Renovate holds `<10`. |
 | `prettier` | `3.9.9` |
+| `jszip` (dev) | `3.10.2` | Reads ZIP bundles back in tests; the version exceljs already pulls in |
 | `@types/node` | `24.x` (match the runtime major, not `26.6.3`) |
 | `pdf-parse` | `2.4.5` (document tests only) |
 | `@google/design.md` | `0.4.0` — lints `DESIGN.md` (`npx @google/design.md lint DESIGN.md`) |
@@ -278,6 +279,7 @@ As in `SPEC.md` §5. Implementation notes:
 - Encrypted columns are suffixed `Enc` and hold `v1.<iv>.<tag>.<ciphertext>` (base64url).
 - Better Auth owns its four tables; they are generated with `npx @better-auth/cli@latest generate` (the docs' shorter alias is `npx auth@latest generate`) and then kept in the same schema file.
 - Money columns are `Decimal(14, 2)`; values are rounded to the currency's minor units (0 or 2) before storage, so zero-decimal currencies store as `x.00`.
+- The authoritative schema is `prisma/schema.prisma`. The block below is the design reference; note Prisma requires **one enum value per line** — the compact `enum X { A B }` form shown here for brevity does not parse.
 
 ### 7.2 `prisma/schema.prisma`
 
@@ -580,7 +582,7 @@ model Invoice {
   clientId           String
   status             DocumentStatus @default(DRAFT)
 
-  number             String?        @unique
+  number             String?        // @@unique([issuerProfileId, number]) — per issuer, per SPEC §4.6; a global @unique collided across profiles
   fiscalYear         String?
   sequenceNumber     Int?
 
@@ -729,7 +731,7 @@ model CreditNote {
   clientId          String
   invoiceId         String
   status            DocumentStatus @default(DRAFT)
-  number            String?        @unique
+  number            String?        // @@unique([issuerProfileId, number]), as on Invoice
   fiscalYear        String?
   sequenceNumber    Int?
   issueDate         DateTime       @db.Date
@@ -898,7 +900,7 @@ Pure: `(items, discount, taxResult, roundingAdjustment, tdsRate) → { subtotal,
 
 ```ts
 export function fiscalYearOf(date: string /* YYYY-MM-DD */, startMonth: number): string; // "2026-27" (or "2026" when startMonth === 1)
-export function formatNumber(format: string, parts: { fy: string; fyyyy: string; yyyy: string; yy: string; mm: string; seq: number }): string;
+export function formatDocumentNumber(format: string, parts: { fy: string; fyyyy: string; yyyy: string; yy: string; mm: string; seq: number }): string;
 
 /** Atomic, gap-free. Must be called inside the issue transaction so a rollback also rolls back the increment. */
 export async function allocateDocumentNumber(tx: Prisma.TransactionClient, p: { issuerProfileId: string; kind: DocumentKind; fiscalYear: string }): Promise<number> {
@@ -924,7 +926,7 @@ export async function issueInvoice(id: string, actor: Actor) {
     validateForIssue(draft);                                    // items > 0, SAC when GST, client state when intra-India, LUT validity, …
     const fy   = fiscalYearOf(draft.issueDate, draft.issuerProfile.fiscalYearStartMonth);
     const seq  = await allocateDocumentNumber(tx, { issuerProfileId: draft.issuerProfileId, kind: "INVOICE", fiscalYear: fy });
-    const num  = formatNumber(draft.issuerProfile.invoiceNumberFormat, { …, seq });
+    const num  = formatDocumentNumber(draft.issuerProfile.invoiceNumberFormat, { …, seq });
     const tax  = computeTax(ctxFrom(draft, fy), taxableLines(draft));
     const tot  = computeTotals(draft, tax);
     const snap = buildSnapshots(draft, decryptPaymentMethods(draft.paymentMethods));
@@ -950,7 +952,7 @@ export async function issueInvoice(id: string, actor: Actor) {
 ### 8.6 Balances and status
 
 - `recalculateBalances(tx, invoiceId)` recomputes `amountPaid`, `amountCredited`, `balanceDue` from `Payment` and issued `CreditNote` rows. Called by every payment and credit-note DAL mutation, in the same transaction. Single code path.
-- `creditNoteTaxLines(invoice, creditSubtotal, currency)`: `apportion(creditSubtotal, invoice.taxLines.map(t => t.taxableAmount))` gives each tax line's credited taxable part; its tax is `roundMoney(part × rate, currency)`; total = subtotal + Σ tax. Pure; fixture-tested for mixed-rate invoices.
+- `creditNoteTaxLines(invoice, creditSubtotal, currency)`: the credit subtotal is apportioned **within each tax type** (CGST and SGST each see the whole subtotal split across their rates; IGST/VAT likewise), because intra-state lines carry the same taxable base twice — apportioning across all lines at once would halve the tax. Each line's tax is `roundMoney(part × rate, currency)`; total = subtotal + Σ tax. Pure; fixture-tested for mixed-rate invoices (M3 ruling).
 - `displayStatus(invoice, todayInUserTz)` is pure (see `SPEC.md` §4.6) and used by lists, detail pages and exports. `todayFor(user)` = current date in `user.timezone ?? "UTC"` via `@date-fns/tz`.
 - Dashboard "overdue" is a query on `status = 'ISSUED' AND balanceDue > 0 AND dueDate < :today` — no cron.
 
@@ -1173,12 +1175,12 @@ Applied to every text cell in both writers; unit-tested with the OWASP cases.
 
 | Control | Implementation |
 |---|---|
-| Access | Allow-listed SSO only; no sign-up; verified email required; `requireOwner()` in every DAL entry point |
+| Access | Allow-listed SSO; `requireOwner()` in every DAL entry point. With `AUTH_PASSWORD_SIGNIN=true` (R1) a password sign-up is accepted only for an address listed *exactly* in `AUTH_ALLOWED_EMAILS` — a `*@domain` pattern covers provider sign-ins only — because a password sign-up proves nothing about who owns the address |
 | Sessions | Server-side, HttpOnly + Secure + SameSite=Lax cookies; 30-day sliding; listed and revocable; revoked on allow-list removal |
 | CSRF | Better Auth origin checks on its endpoints; Next Server Actions enforce same-origin; custom `POST` routes check `Origin` against `APP_URL` |
 | Headers (`proxy.ts` + `next.config.ts`) | `Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-…' 'strict-dynamic'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' <idp-origins>` · `Strict-Transport-Security: max-age=31536000; includeSubDomains` (no `preload` by default; self-hosters opt in) · `X-Content-Type-Options: nosniff` · `Referrer-Policy: strict-origin-when-cross-origin` · `Permissions-Policy: camera=(), microphone=(), geolocation=()` · `Cross-Origin-Opener-Policy: same-origin` |
-| Field encryption | AES-256-GCM, key `FIELD_ENCRYPTION_KEY` (32 bytes base64), versioned ciphertext prefix for rotation; applied to `PaymentMethodProfile.detailsEnc`, `IssuerProfile.usTaxIdEnc`; decrypted only in DAL functions that need to print or edit them; redacted in audit diffs |
-| Tokens | `verificationToken` = 32 bytes from `crypto.randomBytes`, base64url |
+| Field encryption | AES-256-GCM, key `FIELD_ENCRYPTION_KEY` (32 bytes base64), versioned ciphertext prefix for rotation; applied to `PaymentMethodProfile.detailsEnc`, `IssuerProfile.usTaxIdEnc`, `Invoice.paymentMethodsSnapshotEnc` (the bank details an issued invoice prints), `Invoice/CreditNote.verificationTokenEnc`, the SMTP password; decrypted only in DAL functions that need to print or edit them; redacted in audit diffs and left out of the all-data export |
+| Tokens | `verificationToken` = 32 bytes from `crypto.randomBytes`, base64url; the row stores its SHA-256 (lookup key) plus an encrypted copy for rebuilding links, so a database leak yields no usable verify links. API tokens: Better Auth `jwt` plugin (EdDSA, 15 min, `/api/auth/token`, `/api/auth/jwks`), accepted as `Authorization: Bearer` by route handlers after re-reading the user; browser sessions stay server-side cookies |
 | Uploads | Size caps, magic-byte sniffing, `sharp` re-encode, SVG rejected, keys validated, served with `nosniff` and never inline for PDFs from untrusted sources (receipts are `attachment`) |
 | Rate limiting | Token bucket per client IP (from `X-Forwarded-For` first hop, trusted only when `TRUST_PROXY=true`, which compose/k8s set): `/api/auth/*` 20/min, `/verify/*` 30/min, `/api/uploads` 30/min, `/api/exports/*` 10/min, email sends 30/h. `RATE_LIMIT_STORE=memory` (default) or `postgres` for multi-replica |
 | Email | SMTP password encrypted in `AppSetting`; composer body is plain text rendered to escaped HTML plus a text part; attachments only from stored `Document` rows; recipients validated and capped; nothing sent without an explicit click; every attempt logged |
@@ -1272,6 +1274,8 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 FROM deps AS build
 COPY . .
+# prisma.config.ts reads DATABASE_URL via env(), which throws when unset; generate never connects.
+ENV DATABASE_URL=postgresql://build:build@localhost:5432/build
 RUN pnpm prisma generate && pnpm build            # next.config.ts: output: "standalone"
 
 # ── Migration image: Prisma CLI + schema only ──
@@ -1361,7 +1365,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
-    volumes: [pg_data:/var/lib/postgresql/data]
+    volumes: [pg_data:/var/lib/postgresql]       # postgres:18 image: mount the parent, not …/data
     security_opt: [no-new-privileges:true]
     networks: [data]
     healthcheck:
@@ -1679,6 +1683,8 @@ docker compose run --rm app node scripts/rotate-key.js --old "$OLD" --new "$NEW"
 
 Each milestone ends with its tests green in CI and a short `docs/changelog.md` entry.
 
+**Status (2026-10-01):** M0–M4 delivered on `feat/initial-version-okinvo` (see `docs/changelog.md`); M5 in progress. Deviations recorded along the way: TypeScript 6 (TS 7 blocked by typescript-eslint), hand-written UI primitives instead of `shadcn add`, a `postgres` rate-limit store wired in M5, and `AUTH_PASSWORD_SIGNIN` for IdP-less installs and CI.
+
 ---
 
 ## 23. Decisions log
@@ -1708,7 +1714,7 @@ Resolved 2026-10-01. Kept so the reasoning survives.
 
 ### 24.1 Pipeline
 
-- `scripts/design-tokens.ts` parses the YAML front matter of `DESIGN.md` (dark, canonical) and `DESIGN.light.md` (light overrides, same token names) and writes `src/app/tokens.css`: a Tailwind 4 `@theme` block (`--color-canvas`, `--color-surface-1`, `--color-ink-subtle`, `--color-hairline`, `--radius-md`, `--spacing-lg`, `--font-display`, …) plus `--text-*` entries for the type scale. Both themes are emitted: `:root` carries dark, `[data-theme="light"]` the light overrides, so utilities are theme-agnostic. Components use only the generated utilities (`bg-surface-1`, `text-ink-subtle`, `border-hairline`, `rounded-md`). **No hex literals in components**; ESLint rule `no-restricted-syntax` on `#[0-9a-f]{3,8}` in `src/components` and `src/app` enforces it.
+- `scripts/design-tokens.ts` parses the YAML front matter of `DESIGN.md` (dark, canonical) and `DESIGN.light.md` (light overrides, same token names) and writes `src/app/tokens.css`: a Tailwind 4 `@theme` block (`--color-canvas`, `--color-surface-1`, `--color-ink-subtle`, `--color-hairline`, `--radius-md`, `--font-sans`, …) plus `--text-*` entries for the type scale. DESIGN.md's spacing scale is **not** emitted as named `--spacing-*` tokens: `sm/md/lg/xl` collide with Tailwind's container sizes inside `max-w-*`/`w-*` (M0 found `max-w-sm` resolving to 12 px), and the scale is 4 px-based, i.e. exactly Tailwind's numeric utilities — xxs=1, xs=2, sm=3, md=4, lg=6, xl=8, xxl=12, section=24 (`p-3` is DESIGN.md `sm`); `tokens.css` carries the mapping as comments and the generator rejects non-4 px values. Both themes are emitted: `:root` carries dark, `[data-theme="light"]` the light overrides, so utilities are theme-agnostic. Components use only the generated utilities (`bg-surface-1`, `text-ink-subtle`, `border-hairline`, `rounded-md`). **No hex literals in components**; ESLint rule `no-restricted-syntax` on `#[0-9a-f]{3,8}` in `src/components` and `src/app` enforces it.
 - CI runs `npx @google/design.md lint DESIGN.md` and `pnpm design:tokens --check` (regenerate and diff), so a token edit without a regenerated `tokens.css` fails the build.
 - `src/app/globals.css` imports `tokens.css` and maps tokens onto shadcn/ui's semantic variables (§24.3). shadcn components are generated once (`pnpm dlx shadcn@latest add …`) and then owned by the repo.
 
@@ -1742,7 +1748,8 @@ Buttons map 1:1 onto DESIGN.md's `button-primary` / `-secondary` / `-tertiary` /
 | Pair | Ratio | Consequence |
 |---|---|---|
 | `primary #5e6ad2` on `canvas` | 4.44 | OK for buttons, borders, icons, active-nav indicator (≥ 3:1 for UI); **not** for body-size link text |
-| `primary-hover #828fff` on `canvas` | 7.27 | link text colour in the app |
+| `link #828fff` on `canvas` | 7.27 | link text colour in the app |
+| white on `primary-hover #525dc7` | 5.60 | hovered primary button label (DESIGN.md's original hover `#828fff` was 2.87:1 and was changed) |
 | `ink-subtle` on `canvas` / `surface-1` | 6.42 / 5.86 | secondary text: fine |
 | `ink-tertiary` on `canvas` | 3.62 | disabled text and footnotes only — never for information the user must read |
 | `semantic-success` on `canvas` | 6.58 | fine |
@@ -1793,8 +1800,8 @@ Status pills (Linear product style): colour at 12 % alpha as background, colour 
 | `ink-subtle` | `#8a8f98` | `#62666d` | 5.77 / 5.33 on s1 | `#8a8f98` on white is 3.25 — fails — so it moves one step darker |
 | `ink-tertiary` | `#62666d` | `#8a8f98` | 3.25 | disabled and footnotes only, same rule as dark |
 | `primary` | `#5e6ad2` | `#5e6ad2` | 4.70 / 4.34 on s1 | unchanged: buttons, focus ring, active-nav indicator |
-| `link` | `#828fff` (= `primary-hover`) | `#4a55bd` | 7.27 dark / 6.32 light | body-size link text |
-| `primary-hover` | `#828fff` | `#4f5bc4` | — | lighter on hover in dark, darker in light |
+| `link` | `#828fff` | `#4a55bd` | 7.27 dark / 6.32 light | body-size link text |
+| `primary-hover` | `#525dc7` | `#4f5bc4` | white label 5.60 / 5.79 | darker on hover in both themes so the white label stays AA |
 | `semantic-*` | status table above | status table above | | |
 | `semantic-overlay` | `#000000` @ 60 % | `#000000` @ 40 % | | |
 

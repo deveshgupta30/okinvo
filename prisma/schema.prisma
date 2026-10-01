@@ -1,0 +1,655 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ───────────────────────── Auth (Better Auth-managed) ─────────────────────────
+
+enum UserRole {
+  OWNER
+  VIEWER
+}
+
+model User {
+  id            String    @id
+  name          String
+  email         String    @unique
+  emailVerified Boolean   @default(false)
+  image         String?
+  role          UserRole  @default(OWNER)
+  timezone      String?   // IANA zone; filled by the app shell on first render, editable in Settings → Account
+  theme         String?   // "system" | "light" | "dark"; mirrored to the okinvo.theme cookie
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  sessions      Session[]
+  accounts      Account[]
+  auditEvents   AuditEvent[]
+
+  @@map("user")
+}
+
+model Session {
+  id        String   @id
+  token     String   @unique
+  expiresAt DateTime
+  ipAddress String?
+  userAgent String?
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([providerId, accountId])
+  @@index([userId])
+  @@map("account")
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+  @@map("verification")
+}
+
+// ───────────────────────── Enums ─────────────────────────
+
+enum IssuerType {
+  INDIVIDUAL
+  COMPANY
+}
+
+enum TaxRegime {
+  INDIA_GST
+  UK_VAT
+  US_SALES_TAX
+  NONE
+}
+
+enum SupplyType {
+  INTRA_STATE
+  INTER_STATE
+  EXPORT_LUT
+  EXPORT_WITH_TAX
+  REVERSE_CHARGE
+  NOT_APPLICABLE
+}
+
+enum TaxType {
+  CGST
+  SGST
+  IGST
+  VAT
+  SALES_TAX
+  OTHER
+}
+
+enum DocumentKind {
+  INVOICE
+  CREDIT_NOTE
+}
+
+enum DocumentFormat {
+  PDF
+  DOCX
+}
+
+enum DocumentStatus {
+  DRAFT
+  ISSUED
+  VOID
+}
+
+enum DiscountType {
+  AMOUNT
+  PERCENT
+}
+
+enum UnitType {
+  HOUR
+  DAY
+  FIXED
+  MILESTONE
+  UNIT
+}
+
+enum PaymentMethodType {
+  BANK_TRANSFER
+  UPI
+  WISE
+  REVOLUT
+  PAYPAL
+  CUSTOM
+}
+
+enum PaymentKind {
+  PAYMENT
+  REFUND
+  WRITE_OFF
+}
+
+enum TaxIdType {
+  GSTIN
+  VAT
+  EIN
+  OTHER
+}
+
+enum AssetKind {
+  LOGO
+  SIGNATURE
+  STAMP
+  RECEIPT
+}
+
+enum EmailStatus {
+  SENT
+  FAILED
+  MANUAL
+}
+
+// ───────────────────────── Master data ─────────────────────────
+
+model IssuerProfile {
+  id                     String     @id @default(uuid(7))
+  type                   IssuerType @default(INDIVIDUAL)
+  isDefault              Boolean    @default(false)
+  label                  String
+  legalName              String
+  tradeName              String?
+  designation            String?
+  email                  String
+  phone                  String?
+  website                String?
+
+  address                Json       // AddressSchema
+  countryCode            String     @db.VarChar(2)
+  stateCode              String?    // ISO 3166-2 subdivision, e.g. "KA"
+  gstStateCode           String?    @db.VarChar(2) // "29"
+
+  panNumber              String?
+  gstin                  String?
+  cinNumber              String?
+  ukVatNumber            String?
+  usTaxIdEnc             String?    // encrypted EIN/SSN
+  lutNumber              String?
+  lutFiscalYear          String?    // "2026-27"
+
+  baseCurrency           String     @default("INR") @db.VarChar(3)
+  locale                 String     @default("en-IN") // document formatting only; "today" uses User.timezone
+  fiscalYearStartMonth   Int        @default(4)
+  invoiceNumberFormat    String     @default("INV/{FY}/{SEQ:3}")
+  creditNoteNumberFormat String     @default("CN/{FY}/{SEQ:3}")
+  defaultTaxRegime       TaxRegime  @default(INDIA_GST)
+  defaultTdsRate         Decimal?   @db.Decimal(5, 2)
+  defaultDisplayConfig   Json       // DisplayConfigSchema
+  defaultNotes           String?
+  defaultTerms           String?
+
+  emailCc                String?    // comma-separated defaults for the composer
+  emailBcc               String?
+  emailInvoiceSubject    String?    // templates with {{placeholders}}; null → built-in default
+  emailInvoiceBody       String?
+  emailCreditNoteSubject String?
+  emailCreditNoteBody    String?
+  templateConfigOverride Json?      // TemplateConfigSchema; null → AppSetting.documentTemplate
+
+  logoAssetId            String?    @unique
+  signatureAssetId       String?    @unique
+  stampAssetId           String?    @unique
+  logo                   Asset?     @relation("IssuerLogo",      fields: [logoAssetId],      references: [id])
+  signature              Asset?     @relation("IssuerSignature", fields: [signatureAssetId], references: [id])
+  stamp                  Asset?     @relation("IssuerStamp",     fields: [stampAssetId],     references: [id])
+
+  archivedAt             DateTime?
+  createdAt              DateTime   @default(now())
+  updatedAt              DateTime   @updatedAt
+
+  invoices               Invoice[]
+  creditNotes            CreditNote[]
+  sequences              DocumentSequence[]
+
+  @@index([archivedAt])
+}
+// Partial unique index (Prisma cannot express it) lives in migration *_partial_unique_indexes:
+// CREATE UNIQUE INDEX "IssuerProfile_single_default"
+//   ON "IssuerProfile" ((true)) WHERE "isDefault" = true AND "archivedAt" IS NULL;
+
+model DocumentSequence {
+  id              String        @id @default(uuid(7))
+  issuerProfileId String
+  kind            DocumentKind
+  fiscalYear      String        // "2026-27"
+  nextNumber      Int           @default(1)
+
+  issuerProfile   IssuerProfile @relation(fields: [issuerProfileId], references: [id])
+
+  @@unique([issuerProfileId, kind, fiscalYear])
+}
+
+model Client {
+  id               String     @id @default(uuid(7))
+  displayName      String
+  contactPerson    String?
+  email            String?
+  phone            String?
+  billingAddress   Json       // AddressSchema
+  shippingAddress  Json?
+  countryCode      String     @db.VarChar(2)
+  stateCode        String?
+  gstStateCode     String?    @db.VarChar(2)
+  taxIdType        TaxIdType?
+  taxId            String?
+  currency         String     @db.VarChar(3)
+  paymentTermsDays Int        @default(30)
+  defaultTdsRate   Decimal?   @db.Decimal(5, 2)
+  notes            String?
+
+  archivedAt       DateTime?
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+
+  invoices         Invoice[]
+  creditNotes      CreditNote[]
+
+  @@index([displayName])
+  @@index([archivedAt])
+}
+
+model ServiceItem {
+  id             String    @id @default(uuid(7))
+  name           String
+  description    String?
+  unitType       UnitType  @default(HOUR)
+  defaultRate    Decimal   @db.Decimal(14, 2)
+  currency       String    @db.VarChar(3)
+  sacHsnCode     String?
+  defaultTaxRate Decimal   @default(0) @db.Decimal(5, 2)
+  isActive       Boolean   @default(true)
+
+  archivedAt     DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  invoiceItems   InvoiceItem[]
+
+  @@index([name])
+}
+
+model PaymentMethodProfile {
+  id           String            @id @default(uuid(7))
+  name         String
+  type         PaymentMethodType @default(BANK_TRANSFER)
+  currency     String?           @db.VarChar(3)
+  isDefault    Boolean           @default(false)
+  isActive     Boolean           @default(true)
+  detailsEnc   String            // encrypted JSON, PaymentMethodDetailsSchema (discriminated on `type`)
+  instructions String?
+
+  archivedAt   DateTime?
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  invoiceLinks InvoicePaymentMethod[]
+  payments     Payment[]
+}
+// Partial unique index in migration *_partial_unique_indexes:
+// CREATE UNIQUE INDEX "PaymentMethodProfile_single_default"
+//   ON "PaymentMethodProfile" ((true)) WHERE "isDefault" = true AND "archivedAt" IS NULL;
+
+// ───────────────────────── Blobs ─────────────────────────
+
+model Asset {
+  id          String    @id @default(uuid(7))
+  kind        AssetKind
+  storageKey  String    @unique
+  contentType String
+  byteSize    Int
+  width       Int?
+  height      Int?
+  sha256      String
+  createdAt   DateTime  @default(now())
+  createdById String?
+
+  issuerLogo      IssuerProfile? @relation("IssuerLogo")
+  issuerSignature IssuerProfile? @relation("IssuerSignature")
+  issuerStamp     IssuerProfile? @relation("IssuerStamp")
+  paymentReceipt  Payment?
+}
+
+model Document {
+  id           String         @id @default(uuid(7))
+  kind         DocumentKind
+  format       DocumentFormat @default(PDF)
+  version      Int            @default(1)
+  invoiceId    String?
+  creditNoteId String?
+  templateId   String
+  storageKey   String         @unique
+  sha256       String
+  byteSize     Int
+  generatedAt  DateTime       @default(now())
+
+  invoice      Invoice?       @relation(fields: [invoiceId],    references: [id])
+  creditNote   CreditNote?    @relation(fields: [creditNoteId], references: [id])
+  emails       EmailMessage[]
+
+  @@unique([invoiceId, format, version])
+  @@unique([creditNoteId, format, version])
+}
+
+// ───────────────────────── Invoices ─────────────────────────
+
+model Invoice {
+  id                 String         @id @default(uuid(7))
+  issuerProfileId    String
+  clientId           String
+  status             DocumentStatus @default(DRAFT)
+
+  number             String?        // unique per issuer profile, see @@unique below
+  fiscalYear         String?
+  sequenceNumber     Int?
+
+  issueDate          DateTime       @db.Date
+  dueDate            DateTime       @db.Date
+  issuedAt           DateTime?
+  sentAt             DateTime?
+  voidedAt           DateTime?
+  voidReason         String?
+
+  replacesInvoiceId  String?        @unique
+  replacesInvoice    Invoice?       @relation("Reissue", fields: [replacesInvoiceId], references: [id])
+  replacedBy         Invoice?       @relation("Reissue")
+
+  currency           String         @db.VarChar(3)
+  fxRateToBase       Decimal        @default(1) @db.Decimal(18, 8)
+
+  taxRegime          TaxRegime
+  supplyType         SupplyType     @default(NOT_APPLICABLE)
+  placeOfSupply      String?        // "Karnataka (29)"
+  isReverseCharge    Boolean        @default(false)
+  lutNumber          String?        // snapshotted at issue when EXPORT_LUT
+
+  subtotal           Decimal        @default(0) @db.Decimal(14, 2)
+  discountType       DiscountType?
+  discountValue      Decimal?       @db.Decimal(14, 2)
+  discountAmount     Decimal        @default(0) @db.Decimal(14, 2)
+  taxableAmount      Decimal        @default(0) @db.Decimal(14, 2)
+  taxAmount          Decimal        @default(0) @db.Decimal(14, 2)
+  roundingAdjustment Decimal        @default(0) @db.Decimal(14, 2)
+  total              Decimal        @default(0) @db.Decimal(14, 2)
+  tdsRate            Decimal        @default(0) @db.Decimal(5, 2)
+  tdsExpected        Decimal        @default(0) @db.Decimal(14, 2)
+  amountPaid         Decimal        @default(0) @db.Decimal(14, 2)
+  amountCredited     Decimal        @default(0) @db.Decimal(14, 2)
+  balanceDue         Decimal        @default(0) @db.Decimal(14, 2)
+
+  poReference        String?
+  notes              String?
+  terms              String?
+  displayConfig      Json           // DisplayConfigSchema
+  templateSnapshot   Json?          // TemplateConfigSchema frozen at issue (§12.2)
+
+  issuerSnapshot         Json?      // IssuerSnapshotSchema (incl. decrypted-for-print tax IDs the config allows)
+  clientSnapshot         Json?
+  paymentMethodsSnapshotEnc String? // encrypted JSON (PaymentMethodsSnapshotSchema): the details the PDF prints
+  verificationToken      String     @unique // SHA-256 hex of the token in the verify URL
+  verificationTokenEnc   String?    // the token itself, encrypted, so links and QR codes can be rebuilt
+
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+
+  issuerProfile      IssuerProfile  @relation(fields: [issuerProfileId], references: [id])
+  client             Client         @relation(fields: [clientId],        references: [id])
+  items              InvoiceItem[]
+  taxLines           InvoiceTaxLine[]
+  paymentMethods     InvoicePaymentMethod[]
+  payments           Payment[]
+  creditNotes        CreditNote[]
+  documents          Document[]
+  emails             EmailMessage[]
+
+  @@unique([issuerProfileId, number])
+  @@index([issuerProfileId, fiscalYear])
+  @@index([clientId])
+  @@index([status, dueDate])
+  @@index([issueDate])
+}
+
+model InvoiceItem {
+  id            String       @id @default(uuid(7))
+  invoiceId     String
+  position      Int
+  serviceItemId String?
+  description   String
+  sacHsnCode    String?
+  unitType      UnitType     @default(HOUR)
+  quantity      Decimal      @db.Decimal(12, 3)
+  unitPrice     Decimal      @db.Decimal(14, 2)
+  lineSubtotal  Decimal      @db.Decimal(14, 2)
+  taxRate       Decimal      @default(0) @db.Decimal(5, 2)
+  taxExempt     Boolean      @default(false) // UK VAT exempt supply
+  taxAmount     Decimal      @default(0) @db.Decimal(14, 2)
+  lineTotal     Decimal      @db.Decimal(14, 2)
+
+  invoice       Invoice      @relation(fields: [invoiceId],     references: [id], onDelete: Cascade)
+  service       ServiceItem? @relation(fields: [serviceItemId], references: [id], onDelete: SetNull)
+
+  @@unique([invoiceId, position])
+}
+
+model InvoiceTaxLine {
+  id            String  @id @default(uuid(7))
+  invoiceId     String
+  taxType       TaxType
+  rate          Decimal @db.Decimal(5, 2)
+  taxableAmount Decimal @db.Decimal(14, 2)
+  taxAmount     Decimal @db.Decimal(14, 2)
+
+  invoice       Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  @@unique([invoiceId, taxType, rate])
+}
+
+model InvoicePaymentMethod {
+  invoiceId              String
+  paymentMethodProfileId String
+  position               Int
+
+  invoice                Invoice              @relation(fields: [invoiceId],              references: [id], onDelete: Cascade)
+  paymentMethod          PaymentMethodProfile @relation(fields: [paymentMethodProfileId], references: [id])
+
+  @@id([invoiceId, paymentMethodProfileId])
+}
+
+// ───────────────────────── Payments ─────────────────────────
+
+model Payment {
+  id                     String       @id @default(uuid(7))
+  invoiceId              String
+  kind                   PaymentKind  @default(PAYMENT)
+  paymentDate            DateTime     @db.Date
+  amountApplied          Decimal      @db.Decimal(14, 2)  // invoice currency; negative for REFUND
+  tdsDeducted            Decimal      @default(0) @db.Decimal(14, 2)
+  receivedAmount         Decimal?     @db.Decimal(14, 2)
+  receivedCurrency       String?      @db.VarChar(3)
+  exchangeRate           Decimal?     @db.Decimal(18, 8)
+  bankFees               Decimal      @default(0) @db.Decimal(14, 2)
+  paymentMethodProfileId String?
+  reference              String?
+  notes                  String?
+  receiptAssetId         String?      @unique
+  createdAt              DateTime     @default(now())
+  updatedAt              DateTime     @updatedAt
+
+  invoice                Invoice               @relation(fields: [invoiceId],              references: [id])
+  paymentMethod          PaymentMethodProfile? @relation(fields: [paymentMethodProfileId], references: [id])
+  receipt                Asset?                @relation(fields: [receiptAssetId],         references: [id])
+
+  @@index([invoiceId])
+  @@index([paymentDate])
+}
+
+// ───────────────────────── Credit notes ─────────────────────────
+
+model CreditNote {
+  id                String         @id @default(uuid(7))
+  issuerProfileId   String
+  clientId          String
+  invoiceId         String
+  status            DocumentStatus @default(DRAFT)
+  number            String?        // unique per issuer profile, see @@unique below
+  fiscalYear        String?
+  sequenceNumber    Int?
+  issueDate         DateTime       @db.Date
+  issuedAt          DateTime?
+  sentAt            DateTime?
+  voidedAt          DateTime?
+  voidReason        String?
+  reason            String
+  currency          String         @db.VarChar(3)
+  supplyType        SupplyType
+  subtotal          Decimal        @default(0) @db.Decimal(14, 2) // credit amount excl. tax; tax lines apportioned from the invoice
+  taxAmount         Decimal        @default(0) @db.Decimal(14, 2)
+  roundingAdjustment Decimal       @default(0) @db.Decimal(14, 2) // absorbs the invoice's rounding when the whole taxable amount is credited
+  total             Decimal        @default(0) @db.Decimal(14, 2)
+  displayConfig     Json
+  templateSnapshot  Json?          // TemplateConfigSchema frozen at issue
+  snapshot          Json?          // issuer + client + invoice header, frozen at issue
+  verificationToken String         @unique // SHA-256 hex of the token in the verify URL
+  verificationTokenEnc String?     // the token itself, encrypted
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+
+  issuerProfile     IssuerProfile  @relation(fields: [issuerProfileId], references: [id])
+  client            Client         @relation(fields: [clientId],        references: [id])
+  invoice           Invoice        @relation(fields: [invoiceId],       references: [id])
+  taxLines          CreditNoteTaxLine[]
+  documents         Document[]
+  emails            EmailMessage[]
+
+  @@unique([issuerProfileId, number])
+  @@index([invoiceId])
+  @@index([issuerProfileId, fiscalYear])
+}
+
+model CreditNoteTaxLine {
+  id            String     @id @default(uuid(7))
+  creditNoteId  String
+  taxType       TaxType
+  rate          Decimal    @db.Decimal(5, 2)
+  taxableAmount Decimal    @db.Decimal(14, 2)
+  taxAmount     Decimal    @db.Decimal(14, 2)
+
+  creditNote    CreditNote @relation(fields: [creditNoteId], references: [id], onDelete: Cascade)
+
+  @@unique([creditNoteId, taxType, rate])
+}
+
+// ───────────────────────── Email ─────────────────────────
+
+model EmailMessage {
+  id                String       @id @default(uuid(7))
+  kind              DocumentKind
+  invoiceId         String?
+  creditNoteId      String?
+  documentId        String?      // the attached, stored PDF
+  to                String[]
+  cc                String[]
+  bcc               String[]
+  subject           String
+  bodyText          String
+  status            EmailStatus
+  providerMessageId String?
+  error             String?
+  sentById          String?
+  createdAt         DateTime     @default(now())
+
+  invoice           Invoice?     @relation(fields: [invoiceId],    references: [id])
+  creditNote        CreditNote?  @relation(fields: [creditNoteId], references: [id])
+  document          Document?    @relation(fields: [documentId],   references: [id])
+
+  @@index([invoiceId])
+  @@index([creditNoteId])
+  @@index([createdAt])
+}
+
+// ───────────────────────── Audit & infra ─────────────────────────
+
+model AuditEvent {
+  id         String   @id @default(uuid(7))
+  actorId    String?
+  action     String   // "invoice.issued", "payment.created", "auth.sign_in", …
+  entityType String
+  entityId   String
+  summary    String?
+  before     Json?
+  after      Json?
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime @default(now())
+
+  actor      User?    @relation(fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([entityType, entityId])
+  @@index([createdAt])
+  @@index([actorId])
+}
+
+model RateLimitBucket {          // used only when RATE_LIMIT_STORE=postgres (multi-replica)
+  key         String   @id
+  count       Int
+  windowStart DateTime
+}
+
+model AppSetting {             // keys: documentTemplate (TemplateConfig), smtp (SmtpConfig, password field encrypted), emailDefaults
+  key       String   @id
+  value     Json
+  updatedAt DateTime @updatedAt
+}
+
+/// Signing keys of the Better Auth JWT plugin (API tokens); private keys are encrypted by the
+/// plugin with AUTH_SECRET.
+model Jwks {
+  id         String    @id @default(uuid(7))
+  publicKey  String
+  privateKey String
+  createdAt  DateTime
+  expiresAt  DateTime?
+  alg        String?
+  crv        String?
+
+  @@map("jwks")
+}

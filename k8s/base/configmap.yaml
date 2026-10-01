@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: okinvo-config
+data:
+  # Non-secret environment only (see .env.example); secrets go in `okinvo-secrets`, created out of
+  # band from .env.secrets — see k8s/README.md. Patch APP_URL, AUTH_ALLOWED_EMAILS and the host in
+  # ingress.yaml for your install.
+  NODE_ENV: production
+  APP_URL: https://invoices.example.com
+  TRUST_PROXY: "true"
+  AUTH_ALLOWED_EMAILS: owner@example.com
+  AUTH_PASSWORD_SIGNIN: "false"
+  STORAGE_DRIVER: local
+  STORAGE_LOCAL_ROOT: /data/storage
+  RATE_LIMIT_STORE: memory
+  UPLOAD_MAX_IMAGE_MB: "2"
+  UPLOAD_MAX_RECEIPT_MB: "10"
+  BACKUP_STATUS_FILE: /backups/last-backup.json
+  BACKUP_RETENTION_DAYS: "30"
+  POSTGRES_USER: okinvo
+  POSTGRES_DB: okinvo
+  PGHOST: postgres
