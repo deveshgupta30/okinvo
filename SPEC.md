@@ -131,7 +131,7 @@ DRAFT ──issue──▶ ISSUED ──void──▶ VOID
 - `VOID`: requires a reason. Allowed only if no payments are recorded; otherwise use a credit note. A voided number is never reused (voided invoices remain in the register — this is what keeps the sequence gap-free and auditable).
 - **Void & reissue** voids the original and creates a new draft with the same content, linked both ways. The new invoice prints "Replaces INV/…" if the display config allows.
 
-**Derived display status** (never stored): `DRAFT`, `VOID`, `PAID` (balance ≤ 0), `PARTIALLY_PAID` (some payment, balance > 0), `OVERDUE` (unpaid, due date passed), `SENT` (`sentAt` set), otherwise `ISSUED`. "Mark as sent" sets `sentAt` manually in v1.
+**Derived display status** (never stored), first match wins: `DRAFT`, `VOID`, `PAID` (balance ≤ 0), `OVERDUE` (balance > 0 and the due date has passed — a partial payment does not hide a late balance), `PARTIALLY_PAID` (some payment, balance > 0), `SENT` (`sentAt` set), otherwise `ISSUED`. "Mark as sent" sets `sentAt` manually in v1.
 
 **Numbering.** Allocated **at issue**, per issuer, per document kind, per fiscal year, strictly consecutive. Drafts never consume numbers. Issue and allocation happen in one transaction; a failed issue leaves no gap.
 

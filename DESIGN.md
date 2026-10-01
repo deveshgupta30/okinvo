@@ -6,7 +6,7 @@ description: "A near-black product-focused marketing canvas built around #010102
 colors:
   primary: "#5e6ad2"
   on-primary: "#ffffff"
-  primary-hover: "#828fff"
+  primary-hover: "#525dc7"
   primary-focus: "#5e69d1"
   ink: "#f7f8f8"
   ink-muted: "#d0d6e0"
@@ -27,6 +27,10 @@ colors:
   brand-secure: "#7a7fad"
   semantic-success: "#27a644"
   semantic-overlay: "#000000"
+  semantic-warning: "#f2994a"
+  semantic-danger: "#eb5757"
+  semantic-danger-fill: "#c83a3a"
+  link: "#828fff"
 
 typography:
   display-xl:
@@ -107,6 +111,55 @@ typography:
     fontWeight: 400
     lineHeight: 1.50
     letterSpacing: 0
+  app-title:
+    fontFamily: Inter
+    fontSize: 20px
+    fontWeight: 600
+    lineHeight: 1.2
+    letterSpacing: -0.4px
+  app-section:
+    fontFamily: Inter
+    fontSize: 16px
+    fontWeight: 600
+    lineHeight: 1.3
+    letterSpacing: -0.2px
+  app-body:
+    fontFamily: Inter
+    fontSize: 14px
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: 0
+  app-label:
+    fontFamily: Inter
+    fontSize: 14px
+    fontWeight: 500
+    lineHeight: 1.3
+    letterSpacing: 0
+  app-table:
+    fontFamily: Inter
+    fontSize: 13px
+    fontWeight: 400
+    lineHeight: 1.4
+    letterSpacing: 0
+  app-caption:
+    fontFamily: Inter
+    fontSize: 12px
+    fontWeight: 400
+    lineHeight: 1.4
+    letterSpacing: 0
+  app-mono:
+    fontFamily: JetBrains Mono
+    fontSize: 13px
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: 0
+  app-amount:
+    fontFamily: JetBrains Mono
+    fontSize: 13px
+    fontWeight: 500
+    lineHeight: 1.5
+    letterSpacing: 0
+    fontFeature: tnum
 
 rounded:
   xs: 4px
@@ -259,7 +312,7 @@ components:
 
 Linear's marketing canvas is the deepest dark surface in this collection — `{colors.canvas}` is #010102, essentially pure black with a faint blue tint. On top sits a four-step surface ladder (`{colors.surface-1}` through `{colors.surface-4}`) for cards, panels, and lifted tiles, with hairline borders running from `{colors.hairline}` (#23252a) up through `{colors.hairline-strong}` and `{colors.hairline-tertiary}`. Light gray text (`{colors.ink}` #f7f8f8) carries the body and headlines.
 
-The single chromatic accent is **Linear lavender-blue** `{colors.primary}` (#5e6ad2) — used on the brand mark, focus rings, and the primary CTA button. A lighter hover state (`{colors.primary-hover}` #828fff) and a focus-tinted variant (`{colors.primary-focus}` #5e69d1) extend the same hue. Linear avoids saturated greens, oranges, reds, etc. on the marketing canvas — the only semantic color is `{colors.semantic-success}` (#27a644) for status pills and the rare success indicator.
+The single chromatic accent is **Linear lavender-blue** `{colors.primary}` (#5e6ad2) — used on the brand mark, focus rings, and the primary CTA button. A darker hover state (`{colors.primary-hover}` #525dc7 — chosen so a white label stays ≥ 4.5:1; the site's original #828fff was 2.87:1) and a focus-tinted variant (`{colors.primary-focus}` #5e69d1) extend the same hue. Linear avoids saturated greens, oranges, reds, etc. on the marketing canvas — the only semantic color is `{colors.semantic-success}` (#27a644) for status pills and the rare success indicator.
 
 Display type runs Linear's custom sans (with `SF Pro Display` fallback) at weight 500–700 with negative letter-spacing scaling from -3.0px at 80px down to 0 at body. The body family is Linear's text cut, and a Linear Mono is reserved for code snippets in product screenshots.
 
@@ -280,7 +333,7 @@ The page rhythm is **dense product screenshots** — Linear's marketing leads wi
 
 ### Brand & Accent
 - **Lavender-Blue** ({colors.primary}): The signature Linear accent — primary CTA, brand mark, link emphasis.
-- **Lavender Hover** ({colors.primary-hover}): Lighter lavender (#828fff) — hovered state of the primary CTA.
+- **Lavender Hover** ({colors.primary-hover}): Darker lavender (#525dc7) — hovered state of the primary CTA, keeping the white label AA (5.6:1). The original marketing value #828fff is kept as {colors.link} for body-size link text on the dark canvas (7.27:1).
 - **Lavender Focus** ({colors.primary-focus}): Focus-ring tint (#5e69d1) — focused inputs, focused buttons.
 - **Brand Secure** ({colors.brand-secure}): Muted lavender-gray (#7a7fad) — used in "Linear Security" surfaces.
 

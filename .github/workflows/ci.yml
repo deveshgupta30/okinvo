@@ -1,0 +1,133 @@
+name: ci
+on:
+  push: { branches: [main] }
+  pull_request: {}
+
+permissions:
+  contents: read
+
+env:
+  PNPM_VERSION: 10.34.5
+  NODE_VERSION: 24.21.0
+  DATABASE_URL: postgresql://okinvo:okinvo@127.0.0.1:5432/okinvo
+  APP_URL: http://127.0.0.1:3000
+  AUTH_SECRET: ci-only-secret-value-that-is-long-enough-0123456789
+  FIELD_ENCRYPTION_KEY: BwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwc=
+  # `pnpm start` runs with NODE_ENV=production, whose validation requires an allow-list and a provider.
+  AUTH_ALLOWED_EMAILS: ci@example.com
+  AUTH_GITHUB_ID: ci-placeholder
+  AUTH_GITHUB_SECRET: ci-placeholder
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with: { version: "${{ env.PNPM_VERSION }}" }
+      - uses: actions/setup-node@v7
+        with: { node-version: "${{ env.NODE_VERSION }}", cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: docker compose -f compose.dev.yml up -d --wait postgres mailpit
+      - run: pnpm db:generate
+      - run: pnpm lint && pnpm typecheck && pnpm format:check
+      - run: pnpm design:lint && pnpm design:tokens --check
+      - run: pnpm db:migrate
+      - run: pnpm db:check # migrations replayed into a shadow DB must equal schema.prisma
+      - run: pnpm test -- --coverage
+        env: { MAILPIT_URL: http://127.0.0.1:8025 } # the email test delivers through Mailpit
+      - run: pnpm audit --audit-level=high
+      - run: pnpm build
+
+  restore-drill: # seed → backup.sh → wipe → restore.sh → row counts and one PDF hash match
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with: { version: "${{ env.PNPM_VERSION }}" }
+      - uses: actions/setup-node@v7
+        with: { node-version: "${{ env.NODE_VERSION }}", cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: docker compose -f compose.dev.yml up -d --wait postgres
+      - run: pnpm db:generate
+      - run: scripts/restore-drill.sh # owns a database whose name must contain "drill"
+        env: { DATABASE_URL: postgresql://okinvo:okinvo@127.0.0.1:5432/okinvo_drill }
+
+  k8s: # the Kustomize overlays must build and pass kubeconform's strict schema check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: |
+          set -euo pipefail
+          mkdir -p /tmp/k8s
+          for o in compose-parity with-seaweedfs; do
+            kubectl kustomize --load-restrictor LoadRestrictionsNone "k8s/overlays/$o" > "/tmp/k8s/$o.yaml"
+          done
+          docker run --rm -v /tmp/k8s:/m ghcr.io/yannh/kubeconform:v0.7.0 -strict -summary /m/compose-parity.yaml /m/with-seaweedfs.yaml
+      - run: bash -n scripts/release.sh scripts/restore-drill.sh docker/backup/backup.sh docker/backup/restore.sh
+
+  e2e:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with: { version: "${{ env.PNPM_VERSION }}" }
+      - uses: actions/setup-node@v7
+        with: { node-version: "${{ env.NODE_VERSION }}", cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: docker compose -f compose.dev.yml up -d --wait postgres
+      - run: pnpm db:generate && pnpm db:migrate
+      - run: pnpm test:e2e
+        env:
+          CI: "true"
+          AUTH_PASSWORD_SIGNIN: "true"
+          AUTH_ALLOWED_EMAILS: e2e@example.com,smoke@example.com # password sign-up needs exact entries
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with: { name: playwright-report, path: playwright-report }
+
+  image:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: docker/setup-buildx-action@v4
+      - uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: docker/Dockerfile
+          target: runner
+          push: false
+          load: true
+          tags: okinvo:ci
+      - uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          image-ref: okinvo:ci
+          severity: HIGH,CRITICAL
+          exit-code: "1"
+          ignore-unfixed: true
+      - name: the runtime image ships no package manager (npm, npx, corepack, yarn)
+        run: |
+          docker run --rm --entrypoint sh okinvo:ci -c \
+            'test ! -e /usr/local/lib/node_modules/npm && test ! -e /usr/local/lib/node_modules/corepack \
+             && ! command -v npm >/dev/null && ! command -v npx >/dev/null \
+             && ! command -v corepack >/dev/null && ! command -v yarn >/dev/null' \
+            || { echo "runtime image still ships a package manager"; exit 1; }
+      - name: container smoke — an invalid env must stop the process, a valid one must answer /live
+        run: |
+          set -euo pipefail
+          if docker run --rm -e APP_URL=http://x -e DATABASE_URL=postgresql://u:p@h:5432/d \
+               -e AUTH_SECRET=short -e FIELD_ENCRYPTION_KEY=bad okinvo:ci; then
+            echo "container kept running with an invalid environment"; exit 1
+          fi
+          docker run -d --name okinvo-smoke -p 3000:3000 \
+            -e APP_URL=http://127.0.0.1:3000 -e DATABASE_URL=postgresql://u:p@h:5432/d \
+            -e AUTH_SECRET="$AUTH_SECRET" -e FIELD_ENCRYPTION_KEY="$FIELD_ENCRYPTION_KEY" \
+            -e AUTH_ALLOWED_EMAILS="$AUTH_ALLOWED_EMAILS" \
+            -e AUTH_GITHUB_ID="$AUTH_GITHUB_ID" -e AUTH_GITHUB_SECRET="$AUTH_GITHUB_SECRET" okinvo:ci
+          for i in $(seq 1 30); do curl -sf http://127.0.0.1:3000/api/health/live && break; sleep 1; done
+          curl -sf http://127.0.0.1:3000/api/health/live
+          docker rm -f okinvo-smoke

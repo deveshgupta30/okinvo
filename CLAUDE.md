@@ -4,6 +4,8 @@ Personal project of **deveshgupta30** (`keshav.gupta@hotmail.com`). It is unrela
 
 ## Read these first
 
+If `MEMORY.md` exists at the repo root (local, gitignored), read it before anything else: it holds machine state, session history and decisions that neither the repo nor git records. Update it at the end of every session; never commit it.
+
 | Doc | Role |
 |---|---|
 | `SPEC.md` | **What** we build: domain rules (lifecycle, numbering, tax, money, exports). Authoritative for behaviour. |
@@ -15,14 +17,14 @@ If code and these docs disagree, fix whichever is wrong and say so; don't silent
 
 ## Stack (versions pinned in `IMPLEMENTATION_PLAN_v2.md` §3)
 
-Node 24 LTS · pnpm 10 · Next.js 16 (App Router, `proxy.ts` not `middleware.ts`) · React 19 · TypeScript 7 (strict) · Prisma 7 with `@prisma/adapter-pg` · PostgreSQL 18 · Better Auth · Tailwind 4 + shadcn/ui · Zod 4 · `@react-pdf/renderer` · `nodemailer` · `exceljs` / `csv-stringify` · Docker Compose (primary) and Kustomize (K8s).
+Node 24 LTS · pnpm 10 · Next.js 16 (App Router, `proxy.ts` not `middleware.ts`) · React 19 · TypeScript 6 (strict; TS 7 waits on typescript-eslint) · Prisma 7 with `@prisma/adapter-pg` · PostgreSQL 18 · Better Auth · Tailwind 4 + shadcn/ui · Zod 4 · `@react-pdf/renderer` · `nodemailer` · `exceljs` / `csv-stringify` · Docker Compose (primary) and Kustomize (K8s).
 
 ## Non-negotiable rules
 
 - **Money:** `Decimal` (decimal.js / Prisma Decimal) end to end. Never `number` for amounts. Round half-up to the currency's minor units (`roundMoney(v, currency)`, never a bare `toDecimalPlaces(2)`) only at the points `SPEC.md` §4.6 defines. All money math lives in `src/lib/money`.
 - **Dates:** document dates are calendar dates handled as `YYYY-MM-DD` strings at every boundary; instants are UTC `Date`s. Never construct a `Date` from a bare `YYYY-MM-DD` string. "Today" is `todayFor(user)` in the signed-in user's timezone — never the server's.
 - **Validation:** Zod at every boundary — env (`src/lib/env.ts`), server actions, route handlers, and every `Json` column (schemas in `src/lib/schemas`).
-- **Authorization:** every server action and route handler calls `requireUser()` / `requireOwner()` from `src/server/auth`. `proxy.ts` is a convenience redirect, never the security boundary.
+- **Authorization:** every server action and route handler calls `requireUser()` / `requireOwner()` from `src/server/auth` — the only public exceptions are `/api/health/*` and `/verify/*`, which are public by design. `proxy.ts` is a convenience redirect, never the security boundary.
 - **Immutability:** an `ISSUED` invoice or credit note is never updated except for `sentAt`, void fields, payments and credit notes. Enforce in the DAL, not just the UI.
 - **Numbering:** only `allocateDocumentNumber()` in `src/lib/numbering` may assign numbers, and only inside the issue transaction.
 - **Storage:** all blobs go through `src/lib/storage` (`StorageAdapter`). Store **keys**, never URLs. Nothing in blob storage is publicly reachable; serve via `/api/assets` and `/api/documents`.
@@ -32,7 +34,7 @@ Node 24 LTS · pnpm 10 · Next.js 16 (App Router, `proxy.ts` not `middleware.ts`
 - **Audit:** state-changing DAL functions call `audit()` inside the same transaction.
 - **Templates:** issued documents render from the `templateSnapshot` stored on the invoice/credit note, never from current settings. Template config is parameters only — no user markup, CSS or fonts reach the renderer.
 - **Email:** nothing is sent without an explicit click in the composer; bodies are plain text; attachments only from stored `Document` rows; every attempt is logged in `EmailMessage`.
-- **Design:** colours, type, radius and spacing come from `DESIGN.md` through the generated `src/app/tokens.css` — never a hex literal in a component, never edit `tokens.css` by hand. Lavender (`primary`) only for the brand mark, the one primary button per view, focus rings and the active-nav indicator; link text uses `primary-hover`. Status colours only from the status palette (v2 §24.5). Amounts, document numbers and dates use JetBrains Mono (`app-amount` / `app-mono`), amounts right-aligned. Both themes ship: every component must read correctly under `:root` (dark) and `[data-theme="light"]` — never a dark-only colour.
+- **Design:** colours, type, radius and spacing come from `DESIGN.md` through the generated `src/app/tokens.css` — never a hex literal in a component, never edit `tokens.css` by hand. Lavender (`primary`) only for the brand mark, the one primary button per view, focus rings and the active-nav indicator; link text uses the `link` token. `shadcn add` may append oklch `:root`/`.dark` blocks to `globals.css` — delete them; the mapping block there is the only source. Status colours only from the status palette (v2 §24.5). Amounts, document numbers and dates use JetBrains Mono (`app-amount` / `app-mono`), amounts right-aligned. Both themes ship: every component must read correctly under `:root` (dark) and `[data-theme="light"]` — never a dark-only colour.
 
 ## Layout (planned)
 
@@ -52,10 +54,13 @@ compose.yml        production stack (repo root)   compose.dev.yml    postgres (+
 ## Commands (once scaffolded)
 
 ```
-pnpm dev                 pnpm test            pnpm test:e2e
-pnpm typecheck           pnpm lint            pnpm db:migrate      pnpm db:studio
-pnpm design:tokens       (regenerates src/app/tokens.css from DESIGN.md; --check in CI)
-docker compose up -d     pnpm release <ver>   (builds + pushes docker.io/deveshgupta30/okinvo)
+pnpm dev · pnpm build · pnpm start
+pnpm lint · pnpm typecheck · pnpm format · pnpm format:check
+pnpm test · pnpm test:watch · pnpm test:e2e
+pnpm db:up · pnpm db:down · pnpm db:generate · pnpm db:migrate · pnpm db:migrate:dev · pnpm db:reset · pnpm db:studio · pnpm db:check · pnpm db:seed
+pnpm design:tokens [--check] · pnpm design:lint
+scripts/restore-drill.sh          (backup → wipe → restore against its own "drill" database; runs in CI)
+docker compose up -d --build      (M5 adds scripts/release.sh → docker.io/deveshgupta30/okinvo)
 ```
 
 `next lint` no longer exists in Next 16 — run `eslint` directly.
@@ -76,4 +81,14 @@ docker compose up -d     pnpm release <ver>   (builds + pushes docker.io/deveshg
 
 ## Don'ts
 
-No Redis or other extra infrastructure; no managed cloud services; no `any`; no editing issued documents; no storing URLs; no public buckets; no `unsafe-inline`/`unsafe-eval` in the production CSP; no adding a dependency without a reason in the commit message.
+No Redis or other extra infrastructure; no managed cloud services; no `any`; no editing issued documents; no storing URLs; no public buckets; no `'unsafe-inline'` or `'unsafe-eval'` in the production `script-src` (`style-src 'unsafe-inline'` is required by Next and allowed); no adding a dependency without a reason in the commit message.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
