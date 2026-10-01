@@ -1,15 +1,23 @@
 import "server-only";
+import { prisma } from "@/lib/db";
 import { env } from "@/lib/env";
 import { lazyProxy } from "@/lib/lazy";
-import { LIMITS, MemoryRateLimiter, clientIp, type RateLimiter } from "@/lib/rate-limit";
+import {
+  LIMITS,
+  MemoryRateLimiter,
+  PostgresRateLimiter,
+  clientIp,
+  type RateLimiter,
+} from "@/lib/rate-limit";
 
 export type Bucket = keyof typeof LIMITS;
 
 const globalForLimiter = globalThis as unknown as { rateLimiter?: RateLimiter };
 
+/** `RATE_LIMIT_STORE=memory` (one replica, the default) or `postgres` (shared across replicas). */
 function createLimiter(): RateLimiter {
-  // The Postgres store (multi-replica) is wired in the hardening task; memory is the default.
-  globalForLimiter.rateLimiter ??= new MemoryRateLimiter();
+  globalForLimiter.rateLimiter ??=
+    env.RATE_LIMIT_STORE === "postgres" ? new PostgresRateLimiter(prisma) : new MemoryRateLimiter();
   return globalForLimiter.rateLimiter;
 }
 

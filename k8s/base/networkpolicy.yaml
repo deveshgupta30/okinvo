@@ -1,0 +1,103 @@
+# Default deny in the namespace, then the few flows okinvo needs (IMPLEMENTATION_PLAN_v2.md §17).
+# The ingress controller is matched by its namespace label; patch `ingress-nginx` if yours differs.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny
+spec:
+  podSelector: {}
+  policyTypes: ["Ingress", "Egress"]
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: app
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: okinvo
+      app.kubernetes.io/component: app
+  policyTypes: ["Ingress", "Egress"]
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: ingress-nginx
+      ports:
+        - port: 3000
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: okinvo
+              app.kubernetes.io/component: postgres
+      ports:
+        - port: 5432
+    - to: # DNS
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+      ports:
+        - port: 53
+          protocol: UDP
+        - port: 53
+          protocol: TCP
+    - to: # identity providers over https, SMTP relays
+        - ipBlock:
+            cidr: 0.0.0.0/0
+            except: ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
+      ports:
+        - port: 443
+        - port: 587
+        - port: 465
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: postgres
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: okinvo
+      app.kubernetes.io/component: postgres
+  policyTypes: ["Ingress", "Egress"]
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: okinvo
+              app.kubernetes.io/component: app
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: okinvo
+              app.kubernetes.io/component: backup
+      ports:
+        - port: 5432
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: backup
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: okinvo
+      app.kubernetes.io/component: backup
+  policyTypes: ["Ingress", "Egress"]
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: okinvo
+              app.kubernetes.io/component: postgres
+      ports:
+        - port: 5432
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+      ports:
+        - port: 53
+          protocol: UDP
+        - port: 53
+          protocol: TCP

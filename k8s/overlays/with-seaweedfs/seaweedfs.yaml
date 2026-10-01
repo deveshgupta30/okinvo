@@ -1,0 +1,127 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: seaweedfs
+  labels:
+    app.kubernetes.io/name: okinvo
+    app.kubernetes.io/component: seaweedfs
+spec:
+  clusterIP: None
+  selector:
+    app.kubernetes.io/name: okinvo
+    app.kubernetes.io/component: seaweedfs
+  ports:
+    - name: s3
+      port: 8333
+      targetPort: s3
+    - name: master
+      port: 9333
+      targetPort: master
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: seaweedfs
+  labels:
+    app.kubernetes.io/name: okinvo
+    app.kubernetes.io/component: seaweedfs
+spec:
+  serviceName: seaweedfs
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: okinvo
+      app.kubernetes.io/component: seaweedfs
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: okinvo
+        app.kubernetes.io/component: seaweedfs
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: seaweedfs
+          image: chrislusf/seaweedfs:4.48
+          args:
+            - server
+            - -dir=/data
+            - -ip=seaweedfs
+            - -master.volumeSizeLimitMB=1024
+            - -s3
+            - -s3.port=8333
+            - -s3.config=/etc/seaweedfs/s3.json
+          ports:
+            - name: s3
+              containerPort: 8333
+            - name: master
+              containerPort: 9333
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: seaweed-data
+              mountPath: /data
+            - name: s3-config
+              mountPath: /etc/seaweedfs
+              readOnly: true
+            - name: tmp
+              mountPath: /tmp
+          readinessProbe:
+            httpGet: { path: /cluster/status, port: master }
+            periodSeconds: 10
+          resources:
+            requests: { cpu: 100m, memory: 256Mi }
+            limits: { memory: 1Gi }
+      volumes:
+        - name: s3-config
+          secret:
+            secretName: seaweedfs-s3 # kubectl -n okinvo create secret generic seaweedfs-s3 --from-file=s3.json
+        - name: tmp
+          emptyDir: {}
+  volumeClaimTemplates:
+    - metadata:
+        name: seaweed-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 20Gi
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: seaweedfs
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: okinvo
+      app.kubernetes.io/component: seaweedfs
+  policyTypes: ["Ingress", "Egress"]
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: okinvo
+              app.kubernetes.io/component: app
+      ports:
+        - port: 8333
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: okinvo
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: okinvo
+      app.kubernetes.io/component: app

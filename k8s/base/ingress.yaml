@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: okinvo
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt # remove if certificates come from elsewhere
+    nginx.ingress.kubernetes.io/proxy-body-size: 25m # receipts up to UPLOAD_MAX_RECEIPT_MB
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts: ["invoices.example.com"]
+      secretName: okinvo-tls
+  rules:
+    - host: invoices.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: okinvo
+                port:
+                  name: http

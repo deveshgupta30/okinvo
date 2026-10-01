@@ -1,0 +1,34 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+# okinvo on Kubernetes (IMPLEMENTATION_PLAN_v2.md §17). Same images as compose.yml; the app pod
+# runs the migrate image as an init container, so there is no Job to sequence.
+#
+# The backup CronJob mounts the scripts from docker/backup through a generated ConfigMap, which
+# lives outside this directory, so build with the relaxed load restrictor:
+#   kubectl kustomize --load-restrictor LoadRestrictionsNone k8s/base | kubectl apply -f -
+namespace: okinvo
+
+resources:
+  - namespace.yaml
+  - configmap.yaml
+  - pvc.yaml
+  - postgres-service.yaml
+  - postgres-statefulset.yaml
+  - app-service.yaml
+  - app-deployment.yaml
+  - backup-cronjob.yaml
+  - networkpolicy.yaml
+  - ingress.yaml
+
+configMapGenerator:
+  - name: okinvo-backup-scripts
+    files:
+      - backup.sh=../../docker/backup/backup.sh
+      - restore.sh=../../docker/backup/restore.sh
+
+images:
+  - name: docker.io/deveshgupta30/okinvo
+    newTag: latest
+  - name: docker.io/deveshgupta30/okinvo-migrate # placeholder name patched to the -migrate tag below
+    newName: docker.io/deveshgupta30/okinvo
+    newTag: latest-migrate
