@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FileText, LayoutDashboard, Receipt, Settings, Users, Wrench } from "lucide-react";
+import { FileText, LayoutDashboard, LogOut, Receipt, Settings, Users, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { signOutAction } from "@/server/actions/auth";
 
 const NAV = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
@@ -14,7 +15,7 @@ const NAV = [
   { href: "/settings/profiles", label: "Settings", icon: Settings },
 ] as const;
 
-export function AppSidebar() {
+export function AppSidebar({ user }: { user: { name: string; email: string } }) {
   const pathname = usePathname();
   return (
     <aside className="flex w-60 shrink-0 flex-col border-r border-sidebar-border bg-sidebar">
@@ -50,6 +51,21 @@ export function AppSidebar() {
           );
         })}
       </nav>
+      <div className="mt-auto border-t border-sidebar-border p-3">
+        <div className="truncate px-1 text-app-caption text-ink-subtle" title={user.email}>
+          <span className="block truncate text-app-label text-ink">{user.name}</span>
+          <span className="block truncate">{user.email}</span>
+        </div>
+        <form action={signOutAction} className="mt-2">
+          <button
+            type="submit"
+            className="flex h-8 w-full items-center gap-3 rounded-md px-3 text-app-body text-ink-subtle transition-colors duration-150 hover:bg-surface-1 hover:text-ink"
+          >
+            <LogOut aria-hidden className="size-4" strokeWidth={1.5} />
+            Sign out
+          </button>
+        </form>
+      </div>
     </aside>
   );
 }

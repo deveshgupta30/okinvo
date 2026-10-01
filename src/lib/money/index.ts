@@ -25,6 +25,7 @@ export function minorUnits(currency: string): number {
   if (!name || name === code) throw new RangeError(`Unknown currency code: ${currency}`);
   const units = new Intl.NumberFormat("en", { style: "currency", currency: code }).resolvedOptions()
     .maximumFractionDigits;
+  if (units === undefined) throw new RangeError(`Unknown currency code: ${currency}`);
   minorUnitsCache.set(code, units);
   return units;
 }
