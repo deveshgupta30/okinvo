@@ -1,7 +1,7 @@
 import { Readable } from "node:stream";
 import { StorageNotFoundError } from "@/lib/storage";
 import { isActor, requireOwnerApi } from "@/server/auth";
-import { getAssetStream } from "@/server/dal/assets";
+import { getAssetStream, getAssetStreamById } from "@/server/dal/assets";
 import { NotFoundError } from "@/server/dal/errors";
 
 export const runtime = "nodejs";
@@ -15,7 +15,11 @@ export async function GET(
   if (!isActor(actor)) return actor;
   const { key } = await ctx.params;
   try {
-    const { asset, stream } = await getAssetStream(actor, key.join("/"));
+    // `/api/assets/id/<assetId>` resolves by id (snapshots store ids); otherwise the storage key.
+    const { asset, stream } =
+      key[0] === "id" && key[1]
+        ? await getAssetStreamById(actor, key[1])
+        : await getAssetStream(actor, key.join("/"));
     const disposition = asset.contentType === "application/pdf" ? "attachment" : "inline";
     return new Response(Readable.toWeb(stream) as ReadableStream, {
       headers: {
