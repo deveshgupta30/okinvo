@@ -10,9 +10,27 @@ mkdirSync(OUT, { recursive: true });
 
 const FACES = [
   // latin-ext carries the currency symbols (₹ U+20B9) the latin subsets lack; registered as "Symbols".
-  ["@fontsource/inter", ["inter-latin-400-normal", "inter-latin-500-normal", "inter-latin-600-normal", "inter-latin-ext-400-normal"]],
-  ["@fontsource/ibm-plex-sans", ["ibm-plex-sans-latin-400-normal", "ibm-plex-sans-latin-500-normal", "ibm-plex-sans-latin-600-normal"]],
-  ["@fontsource/source-serif-4", ["source-serif-4-latin-400-normal", "source-serif-4-latin-600-normal"]],
+  [
+    "@fontsource/inter",
+    [
+      "inter-latin-400-normal",
+      "inter-latin-500-normal",
+      "inter-latin-600-normal",
+      "inter-latin-ext-400-normal",
+    ],
+  ],
+  [
+    "@fontsource/ibm-plex-sans",
+    [
+      "ibm-plex-sans-latin-400-normal",
+      "ibm-plex-sans-latin-500-normal",
+      "ibm-plex-sans-latin-600-normal",
+    ],
+  ],
+  [
+    "@fontsource/source-serif-4",
+    ["source-serif-4-latin-400-normal", "source-serif-4-latin-600-normal"],
+  ],
   ["@fontsource/noto-sans", ["noto-sans-latin-400-normal"]],
 ];
 
