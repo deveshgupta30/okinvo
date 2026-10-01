@@ -62,6 +62,9 @@ export async function dashboardData(
   const fiscalYear = fiscalYearOf(today, startMonth);
   const fyRange = fiscalYearRange(fiscalYear, startMonth);
   const scope = o.issuerProfileId ? { issuerProfileId: o.issuerProfileId } : {};
+  // Base-currency figures only make sense for profiles that share this base currency: an INR
+  // profile's "billed this FY" must not absorb a GBP profile's totals (review finding).
+  const baseScope = o.issuerProfileId ? scope : { issuerProfile: { baseCurrency } };
 
   const open = await prisma.invoice.findMany({
     where: { ...scope, status: "ISSUED", balanceDue: { gt: 0 } },
@@ -84,7 +87,7 @@ export async function dashboardData(
 
   const billed = await prisma.invoice.findMany({
     where: {
-      ...scope,
+      ...baseScope,
       status: "ISSUED",
       issueDate: { gte: fromDateString(fyRange.from), lte: fromDateString(fyRange.to) },
     },
@@ -98,7 +101,7 @@ export async function dashboardData(
     where: {
       kind: { in: ["PAYMENT", "REFUND"] },
       paymentDate: { gte: fromDateString(fyRange.from), lte: fromDateString(fyRange.to) },
-      invoice: { ...scope },
+      invoice: { ...baseScope },
     },
     select: { amountApplied: true, invoice: { select: { fxRateToBase: true } } },
   });

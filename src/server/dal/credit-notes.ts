@@ -22,6 +22,7 @@ import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { InvariantError, NotFoundError } from "./errors";
 import { resolveDateRange } from "./fiscal-range";
+import { lockCreditNote, lockInvoice } from "./locks";
 import type { TaxLineDto } from "./invoices";
 import { resolveTemplateConfig } from "./templates";
 
@@ -331,8 +332,10 @@ export async function deleteCreditNoteDraft(actor: Actor, id: string): Promise<s
 export async function issueCreditNote(actor: Actor, id: string): Promise<CreditNoteDto> {
   return prisma.$transaction(
     async (tx) => {
+      await lockCreditNote(tx, id);
       const cn = await load(tx, id);
       if (cn.status !== "DRAFT") throw new InvariantError("Only draft credit notes can be issued.");
+      await lockInvoice(tx, cn.invoiceId); // caps are read under the same lock payments take
       const invoice = await loadInvoiceForCredit(tx, cn.invoiceId);
       const c = invoice.currency;
       const credit = computeCredit(invoice, cn.subtotal.toString());
@@ -369,6 +372,15 @@ export async function issueCreditNote(actor: Actor, id: string): Promise<CreditN
         fiscalYear: fy,
         seq,
       });
+      const duplicate = await tx.creditNote.findFirst({
+        where: { issuerProfileId: profile.id, number },
+        select: { id: true },
+      });
+      if (duplicate) {
+        throw new InvariantError(
+          `Number ${number} already exists for this issuer. The number format "${profile.creditNoteNumberFormat}" must include a fiscal-year token such as {FY} so numbers stay unique across years.`,
+        );
+      }
       const snapshot = CreditNoteSnapshotSchema.parse({
         issuer: invoice.issuerSnapshot,
         client: invoice.clientSnapshot,
@@ -424,9 +436,11 @@ export async function voidCreditNote(
   reason: string,
 ): Promise<CreditNoteDto> {
   return prisma.$transaction(async (tx) => {
+    await lockCreditNote(tx, id);
     const row = await load(tx, id);
     if (row.status !== "ISSUED")
       throw new InvariantError("Only issued credit notes can be voided.");
+    await lockInvoice(tx, row.invoiceId);
     const trimmed = reason.trim();
     if (!trimmed)
       throw new InvariantError("A reason is required to void a credit note.", {

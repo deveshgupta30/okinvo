@@ -16,6 +16,9 @@ const KNOWN_TOKEN_SOURCE = String.raw`\{(FYYYY|FY|YYYY|YY|MM|SEQ|SEQ:[1-9])\}`;
 const KNOWN_TOKEN_RE = new RegExp(`^${KNOWN_TOKEN_SOURCE}$`);
 const ANY_TOKEN_RE = /\{[^{}]*\}/g;
 const SEQ_TOKEN_RE = /\{SEQ(?::[1-9])?\}/;
+const YEAR_TOKEN_RE = /\{(FYYYY|FY|YYYY|YY)\}/;
+/** True when the format carries a fiscal-year token (`{FY}` / `{FYYYY}`), not just a calendar year. */
+export const hasFiscalYearToken = (format: string): boolean => /\{(FYYYY|FY)\}/.test(format);
 const ALLOWED_CHARS_RE = /^[A-Za-z0-9/_\-.{}:]+$/;
 
 export interface DocumentNumberParts {
@@ -58,8 +61,8 @@ export function formatDocumentNumber(format: string, p: DocumentNumberParts): st
 }
 
 /**
- * A number format: ≤ 40 characters from `[A-Za-z0-9/_\-.{}:]`, containing `{SEQ}` or `{SEQ:n}`,
- * and no unknown or unbalanced `{…}` tokens.
+ * A number format: ≤ 40 characters from `[A-Za-z0-9/_\-.{}:]`, containing `{SEQ}` or `{SEQ:n}`
+ * and a year token, and no unknown or unbalanced `{…}` tokens.
  */
 export const NumberFormatSchema: z.ZodType<string> = z
   .string()
@@ -72,6 +75,13 @@ export const NumberFormatSchema: z.ZodType<string> = z
   .superRefine((format, ctx) => {
     if (!SEQ_TOKEN_RE.test(format)) {
       ctx.addIssue({ code: "custom", message: "must contain {SEQ} or {SEQ:n} (n from 1 to 9)" });
+    }
+    // Sequences restart every fiscal year, so without a year token numbers repeat next year.
+    if (!YEAR_TOKEN_RE.test(format)) {
+      ctx.addIssue({
+        code: "custom",
+        message: "must contain a year token: {FY}, {FYYYY}, {YYYY} or {YY}",
+      });
     }
     for (const token of format.match(ANY_TOKEN_RE) ?? []) {
       if (!KNOWN_TOKEN_RE.test(token)) {

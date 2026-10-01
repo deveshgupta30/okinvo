@@ -7,6 +7,7 @@ if (!url && process.env.CI) throw new Error("DATABASE_URL is required when CI is
 // The hook must reject before any row exists, so these tests talk to a real database.
 describe.skipIf(!url)("allow-list enforcement at user creation", () => {
   const allowed = `allowed-${Date.now()}@allowed.example`;
+  const wildcardOnly = `wild-${Date.now()}@allowed.example`;
   const blocked = `blocked-${Date.now()}@blocked.example`;
   const password = "correct horse battery staple";
   let auth: typeof import("@/server/auth-config").auth;
@@ -14,14 +15,22 @@ describe.skipIf(!url)("allow-list enforcement at user creation", () => {
 
   beforeAll(async () => {
     process.env.AUTH_PASSWORD_SIGNIN = "true";
-    process.env.AUTH_ALLOWED_EMAILS = "*@allowed.example";
+    // A domain pattern admits identity-provider sign-ins; password sign-up needs an exact entry.
+    process.env.AUTH_ALLOWED_EMAILS = `*@allowed.example, ${allowed}`;
     process.env.APP_URL ??= "http://127.0.0.1:3000";
     ({ auth } = await import("@/server/auth-config"));
     ({ prisma } = await import("@/lib/db"));
   });
 
   afterAll(async () => {
-    await prisma.user.deleteMany({ where: { email: { in: [allowed, blocked] } } });
+    await prisma.user.deleteMany({ where: { email: { in: [allowed, wildcardOnly, blocked] } } });
+  });
+
+  it("refuses password sign-up for an address covered only by a domain pattern", async () => {
+    await expect(
+      auth.api.signUpEmail({ body: { email: wildcardOnly, password, name: "Wild" } }),
+    ).rejects.toMatchObject({ status: "FORBIDDEN" });
+    expect(await prisma.user.count({ where: { email: wildcardOnly } })).toBe(0);
   });
 
   it("rejects an email outside the allow-list and creates nothing", async () => {

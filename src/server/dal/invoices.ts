@@ -35,6 +35,7 @@ import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { InvariantError, NotFoundError } from "./errors";
 import { resolveDateRange } from "./fiscal-range";
+import { lockInvoice } from "./locks";
 import { decryptDetails } from "./payment-methods";
 import { resolveTemplateConfig } from "./templates";
 
@@ -500,6 +501,7 @@ export async function deleteDraft(actor: Actor, id: string): Promise<void> {
 export async function issueInvoice(actor: Actor, id: string): Promise<InvoiceDto> {
   return prisma.$transaction(
     async (tx) => {
+      await lockInvoice(tx, id); // a second issue of the same draft waits, then sees ISSUED
       const draft = await tx.invoice.findUnique({
         where: { id },
         include: {
@@ -570,6 +572,17 @@ export async function issueInvoice(actor: Actor, id: string): Promise<InvoiceDto
         fiscalYear: fy,
         seq,
       });
+      // Sequences reset per fiscal year: a format without a year token repeats its numbers.
+      // Report that as an invariant (the whole transaction rolls back) instead of a crash.
+      const duplicate = await tx.invoice.findFirst({
+        where: { issuerProfileId: issuer.id, number },
+        select: { id: true },
+      });
+      if (duplicate) {
+        throw new InvariantError(
+          `Number ${number} already exists for this issuer. The number format "${issuer.invoiceNumberFormat}" must include a fiscal-year token such as {FY} so numbers stay unique across years.`,
+        );
+      }
       const display = mergeDisplayConfig(draft.displayConfig);
       const snap = buildSnapshots({
         issuer: { ...issuer, address: issuer.address as Address },
@@ -629,11 +642,20 @@ export async function issueInvoice(actor: Actor, id: string): Promise<InvoiceDto
 }
 
 async function voidInTx(tx: Tx, actor: Actor, id: string, reason: string): Promise<DetailRow> {
+  await lockInvoice(tx, id);
   const row = await loadDetail(tx, id);
   if (row.status !== "ISSUED") throw new InvariantError("Only issued invoices can be voided.");
   if (row._count.payments > 0) {
     throw new InvariantError(
       "This invoice has payments recorded; issue a credit note instead of voiding it.",
+    );
+  }
+  const issuedCreditNotes = await tx.creditNote.count({
+    where: { invoiceId: id, status: "ISSUED" },
+  });
+  if (issuedCreditNotes > 0) {
+    throw new InvariantError(
+      "This invoice has an issued credit note; void the credit note first, then the invoice.",
     );
   }
   const trimmed = reason.trim();

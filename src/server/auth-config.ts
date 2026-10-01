@@ -71,10 +71,19 @@ function createAuth() {
     databaseHooks: {
       user: {
         create: {
-          before: async (user) => {
+          before: async (user, ctx) => {
             if (!isAllowedEmail(user.email, env.allowList)) {
               throw new APIError("FORBIDDEN", {
                 message: "This email is not allowed to sign in.",
+              });
+            }
+            // A password sign-up proves nothing about who owns the address, so a `*@domain`
+            // pattern must not be enough: the address has to be listed exactly (review finding;
+            // identity-provider sign-ins still honour the pattern).
+            const exact = env.allowList.emails.has(user.email.trim().toLowerCase());
+            if (ctx?.path === "/sign-up/email" && !exact) {
+              throw new APIError("FORBIDDEN", {
+                message: "Password sign-up needs this exact address on the allow-list.",
               });
             }
             return { data: { ...user, role: "OWNER" } };

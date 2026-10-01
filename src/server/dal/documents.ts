@@ -48,6 +48,12 @@ export class DocumentExistsError extends InvariantError {
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+async function bytesOf(stream: Readable): Promise<Buffer> {
+  const chunks: Buffer[] = [];
+  for await (const chunk of stream) chunks.push(chunk as Buffer);
+  return Buffer.concat(chunks);
+}
+
 /** An issued invoice DTO → renderer input (snapshots are authoritative; live rows are ignored). */
 export function renderInputFromInvoice(inv: InvoiceDto): RenderInput {
   if (!inv.issuerSnapshot || !inv.clientSnapshot) {
@@ -213,9 +219,15 @@ async function renderStored(
     safeFileStem(doc.number ?? id).toLowerCase(),
     version,
   );
-  // Stored documents are immutable: never overwrite a blob that already exists at this key.
-  if (await storage.exists(key)) throw new DocumentExistsError(key);
-  await storage.put(key, pdf, { contentType: "application/pdf", byteSize: pdf.length });
+  // Stored documents are immutable: never overwrite a blob that already exists at this key. A
+  // blob with no row (a crash between put and insert, or a concurrent first render) is adopted
+  // when it is byte-identical to this render — renders are deterministic — else refused.
+  if (await storage.exists(key)) {
+    const existing = await bytesOf((await storage.get(key)).stream);
+    if (sha256Hex(existing) !== sha256) throw new DocumentExistsError(key);
+  } else {
+    await storage.put(key, pdf, { contentType: "application/pdf", byteSize: pdf.length });
+  }
   return tx.document.create({
     data: {
       kind,

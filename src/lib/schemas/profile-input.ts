@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { fDecimal, fEmailList, fInt, fOptional } from "@/lib/forms";
-import { NumberFormatSchema } from "@/lib/numbering";
+import { hasFiscalYearToken, NumberFormatSchema } from "@/lib/numbering";
 import { AddressSchema, CountryCodeSchema } from "./address";
 import { CurrencySchema } from "./currency";
 import { DisplayConfigSchema } from "./display-config";
@@ -85,6 +85,19 @@ export const ProfileInputSchema = z
     }
     if (v.lutNumber && !v.lutFiscalYear) {
       ctx.addIssue({ code: "custom", path: ["lutFiscalYear"], message: "required with an LUT" });
+    }
+    // {YYYY}/{YY} change in January while the sequence resets at the fiscal-year start: unless
+    // the two coincide, a calendar-year format can repeat a number (e.g. 2027-001 twice).
+    if (v.fiscalYearStartMonth !== 1) {
+      for (const key of ["invoiceNumberFormat", "creditNoteNumberFormat"] as const) {
+        if (!hasFiscalYearToken(v[key])) {
+          ctx.addIssue({
+            code: "custom",
+            path: [key],
+            message: "use {FY} or {FYYYY} when the fiscal year does not start in January",
+          });
+        }
+      }
     }
   });
 

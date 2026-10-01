@@ -8,7 +8,14 @@ an Ingress.
 | Overlay | Blob storage | Replicas | Rate limits |
 | --- | --- | --- | --- |
 | `overlays/compose-parity` | local, RWO volume `app-data` | 1 (`Recreate`) | in memory |
-| `overlays/with-seaweedfs` | SeaweedFS S3 (`seaweedfs` StatefulSet) | 2 (`RollingUpdate`, PDB) | Postgres |
+| `overlays/with-seaweedfs` (**experimental**) | SeaweedFS S3 (`seaweedfs` StatefulSet) | 2 (`RollingUpdate`, PDB) | Postgres |
+
+`with-seaweedfs` is experimental: the S3 driver is not exercised by the automated tests or the
+restore drill, `backup.sh` covers the database only there (snapshot the `seaweed-data` volume
+yourself), the `okinvo` bucket must exist before the first upload (create it with `weed shell`
+or any S3 client against `seaweedfs:8333`), and Settings → Data cannot show the backup status
+because the app pods mount no volumes. The backup CronJob itself still runs: it mounts
+`app-data` (empty under S3) and `backups`, so keep it on a node that can attach them.
 
 The backup CronJob gets `docker/backup/*.sh` through a generated ConfigMap. That directory sits
 outside `k8s/`, so every build needs the relaxed load restrictor shown below.

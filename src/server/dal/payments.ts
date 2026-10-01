@@ -9,6 +9,7 @@ import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { diffForAudit } from "./audit-redact";
 import { InvariantError, NotFoundError } from "./errors";
+import { lockInvoice } from "./locks";
 
 export type PaymentKind = "PAYMENT" | "REFUND" | "WRITE_OFF";
 
@@ -144,6 +145,7 @@ function assertWithinLimits(
 }
 
 async function loadInvoice(tx: Tx, invoiceId: string) {
+  await lockInvoice(tx, invoiceId); // serialises concurrent ledger changes (review finding)
   const invoice = await tx.invoice.findUnique({
     where: { id: invoiceId },
     select: {

@@ -1,7 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-# Blob storage on SeaweedFS (S3 API) instead of an RWO volume, so the app can run two replicas
-# with a rolling update; rate limits move to Postgres to be shared across them.
+# EXPERIMENTAL (see k8s/README.md): blob storage on SeaweedFS (S3 API) instead of an RWO volume,
+# so the app can run two replicas with a rolling update; rate limits move to Postgres to be shared
+# across them. The app pod drops the app-data and backups volumes (RWO volumes cannot follow two
+# pods), so Settings → Data cannot show the backup status here, and backup.sh covers the database
+# only — snapshot the seaweed-data volume with your cluster's tooling.
 #
 #   kubectl kustomize --load-restrictor LoadRestrictionsNone k8s/overlays/with-seaweedfs | kubectl apply -f -
 #
@@ -25,6 +28,8 @@ patches:
       - op: add
         path: /data/S3_REGION
         value: us-east-1
+      - op: remove
+        path: /data/BACKUP_STATUS_FILE
   - target:
       kind: Deployment
       name: okinvo
@@ -37,6 +42,17 @@ patches:
         value:
           type: RollingUpdate
           rollingUpdate: { maxUnavailable: 0, maxSurge: 1 }
+      # Blobs live in S3: no ReadWriteOnce volumes on a multi-replica Deployment.
+      - op: replace
+        path: /spec/template/spec/containers/0/volumeMounts
+        value:
+          - { name: tmp, mountPath: /tmp }
+          - { name: next-cache, mountPath: /app/.next/cache }
+      - op: replace
+        path: /spec/template/spec/volumes
+        value:
+          - { name: tmp, emptyDir: {} }
+          - { name: next-cache, emptyDir: {} }
   - target:
       kind: NetworkPolicy
       name: app
