@@ -224,9 +224,11 @@ export async function getDefaultProfile(_actor: Actor): Promise<ProfileDto | nul
 
 export async function createProfile(actor: Actor, input: ProfileInput): Promise<ProfileDto> {
   return prisma.$transaction(async (tx) => {
-    const active = await tx.issuerProfile.count();
+    // "Exactly one non-archived profile is default at any time" (SPEC §4.2): the first profile, or
+    // the first one created while no default exists, takes the role.
+    const defaults = await tx.issuerProfile.count({ where: { isDefault: true } });
     const row = await tx.issuerProfile.create({
-      data: { ...toData(input), isDefault: active === 0 },
+      data: { ...toData(input), isDefault: defaults === 0 },
       include: ASSET_INCLUDE,
     });
     await audit(tx, actor, "profile.created", "IssuerProfile", row.id, {
