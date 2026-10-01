@@ -31,7 +31,11 @@ const issued: RenderInput = {
     paymentTermsDays: 15,
   },
   paymentMethods: [
-    { name: "HDFC current account", type: "BANK_TRANSFER", lines: [{ label: "IFSC", value: "HDFC0001234" }] },
+    {
+      name: "HDFC current account",
+      type: "BANK_TRANSFER",
+      lines: [{ label: "IFSC", value: "HDFC0001234" }],
+    },
   ],
   taxRegime: "INDIA_GST",
   supplyType: "INTER_STATE",
@@ -88,7 +92,12 @@ describe("buildDocumentViewModel", () => {
     expect(vm.isDraft).toBe(false);
     expect(vm.issueDate).toBe("15 Apr 2026");
     expect(vm.dueDate).toBe("30 Apr 2026");
-    expect(vm.items[0]).toMatchObject({ qty: "10", rate: "1,000.00", taxRate: "18%", lineTotal: "11,800.00" });
+    expect(vm.items[0]).toMatchObject({
+      qty: "10",
+      rate: "1,000.00",
+      taxRate: "18%",
+      lineTotal: "11,800.00",
+    });
     expect(vm.totals.rows.map((r) => [r.label, r.value])).toEqual([
       ["Subtotal", "₹10,000.00"],
       ["IGST 18%", "₹1,800.00"],
@@ -105,7 +114,10 @@ describe("buildDocumentViewModel", () => {
   });
 
   it("marks drafts: watermark, no number, no verification link", () => {
-    const vm = buildDocumentViewModel({ ...issued, status: "DRAFT", number: null }, { ...opts, draft: true });
+    const vm = buildDocumentViewModel(
+      { ...issued, status: "DRAFT", number: null },
+      { ...opts, draft: true },
+    );
     expect(vm.isDraft).toBe(true);
     expect(vm.number).toBeNull();
     expect(vm.verifyUrl).toBeUndefined();
@@ -136,7 +148,12 @@ describe("buildDocumentViewModel", () => {
 
   it("uses a plain title without GST registration and a custom title when configured", () => {
     const vm = buildDocumentViewModel(
-      { ...issued, issuer: { ...issued.issuer, gstin: undefined }, supplyType: "NOT_APPLICABLE", taxLines: [] },
+      {
+        ...issued,
+        issuer: { ...issued.issuer, gstin: undefined },
+        supplyType: "NOT_APPLICABLE",
+        taxLines: [],
+      },
       opts,
     );
     expect(vm.title).toBe("INVOICE");
@@ -162,13 +179,21 @@ describe("buildDocumentViewModel", () => {
         total: "1180.00",
         tdsRate: "0",
         tdsExpected: "0.00",
-        creditNote: { reason: "Milestone cancelled", againstNumber: "INV/26-27/007", againstDate: "2026-04-15" },
+        creditNote: {
+          reason: "Milestone cancelled",
+          againstNumber: "INV/26-27/007",
+          againstDate: "2026-04-15",
+        },
         displayConfig: DEFAULT_DISPLAY_CONFIG,
       },
       opts,
     );
     expect(vm.title).toBe("CREDIT NOTE");
-    expect(vm.creditNote).toEqual({ reason: "Milestone cancelled", againstNumber: "INV/26-27/007", againstDate: "15 Apr 2026" });
+    expect(vm.creditNote).toEqual({
+      reason: "Milestone cancelled",
+      againstNumber: "INV/26-27/007",
+      againstDate: "15 Apr 2026",
+    });
     expect(vm.totals.rows.map((r) => r.label)).toEqual(["Credit amount", "IGST 18%", "Total"]);
   });
 });
