@@ -6,6 +6,7 @@ import type { PreparedUpload } from "@/lib/uploads";
 import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { NotFoundError } from "./errors";
+import { requireWriter } from "./authz";
 
 export interface AssetDto {
   id: string;
@@ -24,6 +25,7 @@ export async function createAsset(
   kind: AssetKind,
   prepared: PreparedUpload,
 ): Promise<AssetDto> {
+  requireWriter(actor);
   const id = crypto.randomUUID();
   const key = assetKey(kind, id, prepared.ext);
   await storage.put(key, prepared.buffer, {

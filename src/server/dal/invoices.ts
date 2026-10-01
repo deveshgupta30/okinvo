@@ -1,6 +1,5 @@
 import "server-only";
 import { Prisma } from "@/generated/prisma/client";
-import { randomToken } from "@/lib/crypto";
 import {
   addDays,
   compareDates,
@@ -25,6 +24,9 @@ import {
   type Address,
   type ClientSnapshot,
   type DisplayConfig,
+  IssuerSnapshotSchema,
+  ClientSnapshotSchema,
+  PaymentMethodsSnapshotSchema,
   type IssuerSnapshot,
   type PaymentMethodsSnapshot,
   type TemplateConfig,
@@ -34,6 +36,8 @@ import type { SupplyType, TaxRegime } from "@/lib/tax";
 import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { InvariantError, NotFoundError } from "./errors";
+import { decryptJson, encryptJson, parseSnapshot, tokenFields, tokenFromRow } from "./at-rest";
+import { requireWriter } from "./authz";
 import { resolveDateRange } from "./fiscal-range";
 import { lockInvoice } from "./locks";
 import { decryptDetails } from "./payment-methods";
@@ -242,10 +246,13 @@ function toDto(row: DetailRow, today: DateString): InvoiceDto {
     terms: row.terms,
     displayConfig: mergeDisplayConfig(row.displayConfig),
     templateSnapshot: row.templateSnapshot ? mergeTemplateConfig(row.templateSnapshot) : null,
-    issuerSnapshot: (row.issuerSnapshot as IssuerSnapshot | null) ?? null,
-    clientSnapshot: (row.clientSnapshot as ClientSnapshot | null) ?? null,
-    paymentMethodsSnapshot: (row.paymentMethodsSnapshot as PaymentMethodsSnapshot | null) ?? null,
-    verificationToken: row.verificationToken,
+    issuerSnapshot: parseSnapshot(IssuerSnapshotSchema, row.issuerSnapshot),
+    clientSnapshot: parseSnapshot(ClientSnapshotSchema, row.clientSnapshot),
+    paymentMethodsSnapshot: decryptJson(
+      row.paymentMethodsSnapshotEnc,
+      PaymentMethodsSnapshotSchema,
+    ),
+    verificationToken: tokenFromRow(row.verificationTokenEnc),
     items: row.items.map((i) => ({
       id: i.id,
       position: i.position,
@@ -413,6 +420,7 @@ export async function getInvoiceTx(tx: Tx, id: string, today: DateString): Promi
 }
 
 export async function createDraft(actor: Actor, input: InvoiceDraftInput): Promise<InvoiceDto> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const { issuer, client } = await loadParties(tx, input);
     const fy = fiscalYearOf(input.issueDate, issuer.fiscalYearStartMonth);
@@ -431,7 +439,7 @@ export async function createDraft(actor: Actor, input: InvoiceDraftInput): Promi
       data: {
         ...draftData(input, c, placeOfSupplyFor(input.taxRegime, client)),
         status: "DRAFT",
-        verificationToken: randomToken(),
+        ...tokenFields(),
       },
       select: { id: true },
     });
@@ -456,6 +464,7 @@ export async function updateDraft(
   id: string,
   input: InvoiceDraftInput,
 ): Promise<InvoiceDto> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const before = await loadDetail(tx, id);
     assertDraft(before, "edited");
@@ -489,6 +498,7 @@ export async function updateDraft(
 }
 
 export async function deleteDraft(actor: Actor, id: string): Promise<void> {
+  requireWriter(actor);
   await prisma.$transaction(async (tx) => {
     const row = await loadDetail(tx, id);
     assertDraft(row, "deleted");
@@ -502,6 +512,7 @@ export async function deleteDraft(actor: Actor, id: string): Promise<void> {
 
 /** SPEC §4.6: number, snapshots, tax lines and totals are fixed in one transaction. */
 export async function issueInvoice(actor: Actor, id: string): Promise<InvoiceDto> {
+  requireWriter(actor);
   return prisma.$transaction(
     async (tx) => {
       await lockInvoice(tx, id); // a second issue of the same draft waits, then sees ISSUED
@@ -627,10 +638,10 @@ export async function issueInvoice(actor: Actor, id: string): Promise<InvoiceDto
           placeOfSupply: placeOfSupplyFor(draft.taxRegime, client),
           lutNumber: c.tax.supplyType === "EXPORT_LUT" ? issuer.lutNumber : null,
           ...totalsData(c, draft.currency),
-          verificationToken: randomToken(),
+          ...tokenFields(),
           issuerSnapshot: json(snap.issuer),
           clientSnapshot: json(snap.client),
-          paymentMethodsSnapshot: json(snap.paymentMethods),
+          paymentMethodsSnapshotEnc: encryptJson(snap.paymentMethods),
           templateSnapshot: json(template),
           taxLines: { deleteMany: {}, create: taxLinesCreate(c, draft.currency) },
         },
@@ -688,6 +699,7 @@ async function voidInTx(tx: Tx, actor: Actor, id: string, reason: string): Promi
 }
 
 export async function voidInvoice(actor: Actor, id: string, reason: string): Promise<InvoiceDto> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     await voidInTx(tx, actor, id, reason);
     return toDto(await loadDetail(tx, id), todayIn(actor.timezone));
@@ -696,6 +708,7 @@ export async function voidInvoice(actor: Actor, id: string, reason: string): Pro
 
 /** Void the original and open a linked draft with the same content, dated today (SPEC §4.6). */
 export async function voidAndReissue(actor: Actor, id: string, reason: string): Promise<string> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const old = await voidInTx(tx, actor, id, reason);
     const today = todayIn(actor.timezone);
@@ -732,7 +745,7 @@ export async function voidAndReissue(actor: Actor, id: string, reason: string): 
         terms: old.terms,
         displayConfig: old.displayConfig as Prisma.InputJsonValue,
         replacesInvoiceId: old.id,
-        verificationToken: randomToken(),
+        ...tokenFields(),
         items: {
           create: old.items.map((i) => ({
             position: i.position,
@@ -778,6 +791,7 @@ export async function voidAndReissue(actor: Actor, id: string, reason: string): 
 }
 
 export async function markSent(actor: Actor, id: string): Promise<InvoiceDto> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const row = await loadDetail(tx, id);
     if (row.status !== "ISSUED")

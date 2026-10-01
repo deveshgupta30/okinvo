@@ -73,7 +73,12 @@ local CA certificate — accept it for `localhost`.
    Raise a **credit note** against an issued invoice when part of it is cancelled.
 7. **Reports and hand-offs**: every register has an Export menu (CSV or Excel with the page's
    filters); Settings → Data offers the GST and TDS summaries, the full-data ZIP and the
-   documents ZIP for your accountant.
+   documents ZIP for your accountant. The full-data ZIP leaves every encrypted column out
+   (payment-method details, the printed payment-method snapshot, the SMTP password, verify-link
+   tokens); its README lists them.
+9. **API access**: a signed-in owner can mint a 15-minute JWT at `GET /api/auth/token` (keys at
+   `/api/auth/jwks`) and call the `/api/*` routes with `Authorization: Bearer <token>`; the
+   browser itself keeps a server-side session cookie that Settings → Security can revoke at once.
 8. **Backups**: the Compose `backup` service dumps the database and the storage volume nightly
    (`BACKUP_CRON`, `BACKUP_RETENTION_DAYS`); Settings → Data shows the last run. Restore with
    `docker compose run --rm backup /backup/restore.sh <dump> <storage.tgz>` after stopping the

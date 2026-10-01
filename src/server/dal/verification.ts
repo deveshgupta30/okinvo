@@ -2,7 +2,12 @@ import "server-only";
 import { toDateString, type DateString } from "@/lib/dates";
 import { prisma } from "@/lib/db";
 import { toMoneyString } from "@/lib/money";
-import type { ClientSnapshot, IssuerSnapshot } from "@/lib/schemas";
+import {
+  ClientSnapshotSchema,
+  CreditNoteSnapshotSchema,
+  IssuerSnapshotSchema,
+} from "@/lib/schemas";
+import { parseSnapshot, tokenHash } from "./at-rest";
 
 /** What the public page may show (SPEC §4.12): never payment status, never anything from drafts. */
 export interface VerificationResult {
@@ -22,9 +27,12 @@ export interface VerificationResult {
 const TOKEN_RE = /^[A-Za-z0-9_-]{20,64}$/;
 
 export async function lookupByToken(token: string): Promise<VerificationResult | null> {
-  if (!TOKEN_RE.test(token)) return null;
+  // The row stores the token's SHA-256. A malformed token still runs the same two lookups (for
+  // a hash that cannot match) so the response time does not say which shape was tried.
+  const wellFormed = TOKEN_RE.test(token);
+  const hash = tokenHash(wellFormed ? token : "not-a-token");
   const invoice = await prisma.invoice.findUnique({
-    where: { verificationToken: token },
+    where: { verificationToken: hash },
     select: {
       status: true,
       number: true,
@@ -40,9 +48,9 @@ export async function lookupByToken(token: string): Promise<VerificationResult |
       },
     },
   });
-  if (invoice && invoice.status !== "DRAFT" && invoice.number) {
-    const issuer = invoice.issuerSnapshot as IssuerSnapshot | null;
-    const client = invoice.clientSnapshot as ClientSnapshot | null;
+  if (wellFormed && invoice && invoice.status !== "DRAFT" && invoice.number) {
+    const issuer = parseSnapshot(IssuerSnapshotSchema, invoice.issuerSnapshot);
+    const client = parseSnapshot(ClientSnapshotSchema, invoice.clientSnapshot);
     return {
       kind: "INVOICE",
       number: invoice.number,
@@ -58,7 +66,7 @@ export async function lookupByToken(token: string): Promise<VerificationResult |
     };
   }
   const creditNote = await prisma.creditNote.findUnique({
-    where: { verificationToken: token },
+    where: { verificationToken: hash },
     select: {
       status: true,
       number: true,
@@ -73,8 +81,8 @@ export async function lookupByToken(token: string): Promise<VerificationResult |
       },
     },
   });
-  if (creditNote && creditNote.status !== "DRAFT" && creditNote.number) {
-    const snap = creditNote.snapshot as { issuer?: IssuerSnapshot; client?: ClientSnapshot } | null;
+  if (wellFormed && creditNote && creditNote.status !== "DRAFT" && creditNote.number) {
+    const snap = parseSnapshot(CreditNoteSnapshotSchema, creditNote.snapshot);
     return {
       kind: "CREDIT_NOTE",
       number: creditNote.number,

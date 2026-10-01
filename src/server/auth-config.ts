@@ -3,7 +3,7 @@ import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { APIError } from "better-auth/api";
 import { nextCookies } from "better-auth/next-js";
-import { genericOAuth, type GenericOAuthConfig } from "better-auth/plugins";
+import { genericOAuth, jwt, type GenericOAuthConfig } from "better-auth/plugins";
 import { prisma } from "@/lib/db";
 import { env } from "@/lib/env";
 import { lazyProxy } from "@/lib/lazy";
@@ -55,7 +55,19 @@ function createAuth() {
         ? { github: { clientId: env.AUTH_GITHUB_ID, clientSecret: env.AUTH_GITHUB_SECRET } }
         : {}),
     },
-    plugins: [genericOAuth({ config: oidcProviders() }), nextCookies()],
+    plugins: [
+      genericOAuth({ config: oidcProviders() }),
+      // API tokens: GET /api/auth/token mints a 15-minute EdDSA JWT for the signed-in session,
+      // /api/auth/jwks publishes the keys, and route handlers accept `Authorization: Bearer`
+      // (src/server/auth.ts). Browser sessions stay server-side cookies so revocation is immediate.
+      jwt({
+        jwt: {
+          expirationTime: "15m",
+          definePayload: ({ user }) => ({ email: user.email, role: user.role }),
+        },
+      }),
+      nextCookies(),
+    ],
     user: {
       additionalFields: {
         role: { type: "string", defaultValue: "OWNER", input: false },

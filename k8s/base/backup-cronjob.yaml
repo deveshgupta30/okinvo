@@ -42,11 +42,19 @@ spec:
             - name: backup
               image: postgres:18.6-alpine
               command: ["/bin/sh", "/backup/backup.sh", "--now"]
-              envFrom:
-                - configMapRef:
-                    name: okinvo-config
-                - secretRef:
-                    name: okinvo-secrets
+              # Only what the script needs: never the whole app secret.
+              env:
+                - name: PGHOST
+                  valueFrom: { configMapKeyRef: { name: okinvo-config, key: PGHOST } }
+                - name: POSTGRES_USER
+                  valueFrom: { configMapKeyRef: { name: okinvo-config, key: POSTGRES_USER } }
+                - name: POSTGRES_DB
+                  valueFrom: { configMapKeyRef: { name: okinvo-config, key: POSTGRES_DB } }
+                - name: BACKUP_RETENTION_DAYS
+                  valueFrom:
+                    configMapKeyRef: { name: okinvo-config, key: BACKUP_RETENTION_DAYS }
+                - name: POSTGRES_PASSWORD
+                  valueFrom: { secretKeyRef: { name: okinvo-secrets, key: POSTGRES_PASSWORD } }
               securityContext:
                 allowPrivilegeEscalation: false
                 readOnlyRootFilesystem: true

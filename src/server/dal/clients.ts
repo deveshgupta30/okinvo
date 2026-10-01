@@ -9,6 +9,7 @@ import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { diffForAudit } from "./audit-redact";
 import { InvariantError, NotFoundError } from "./errors";
+import { requireWriter } from "./authz";
 
 type Row = Prisma.ClientGetPayload<object>;
 const json = (v: unknown): Prisma.InputJsonValue =>
@@ -110,6 +111,7 @@ export async function getClient(_actor: Actor, id: string): Promise<ClientDto> {
 }
 
 export async function createClient(actor: Actor, input: ClientInput): Promise<ClientDto> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const row = await tx.client.create({ data: toData(input) });
     await audit(tx, actor, "client.created", "Client", row.id, {
@@ -125,6 +127,7 @@ export async function updateClient(
   id: string,
   input: ClientInput,
 ): Promise<ClientDto> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const before = await load(tx, id);
     const row = await tx.client.update({ where: { id }, data: toData(input) });
@@ -139,6 +142,7 @@ export async function updateClient(
 }
 
 export async function archiveClient(actor: Actor, id: string): Promise<void> {
+  requireWriter(actor);
   await prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     if (row.archivedAt) return;
@@ -150,6 +154,7 @@ export async function archiveClient(actor: Actor, id: string): Promise<void> {
 }
 
 export async function unarchiveClient(actor: Actor, id: string): Promise<void> {
+  requireWriter(actor);
   await prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     if (!row.archivedAt) return;
@@ -162,6 +167,7 @@ export async function unarchiveClient(actor: Actor, id: string): Promise<void> {
 
 /** Clients referenced by any invoice are archived, never deleted (SPEC §4.3). */
 export async function deleteClient(actor: Actor, id: string): Promise<void> {
+  requireWriter(actor);
   await prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     const refs = await tx.invoice.count({ where: { clientId: id } });

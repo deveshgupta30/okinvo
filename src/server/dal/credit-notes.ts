@@ -1,7 +1,6 @@
 import "server-only";
 import { Prisma } from "@/generated/prisma/client";
 import { creditNoteTaxLines } from "@/lib/credit-notes/apportion";
-import { randomToken } from "@/lib/crypto";
 import { compareDates, fromDateString, todayIn, toDateString, type DateString } from "@/lib/dates";
 import { prisma, type Tx } from "@/lib/db";
 import { recalculateBalances } from "@/lib/invoices/balances";
@@ -21,6 +20,8 @@ import type { SupplyType } from "@/lib/tax";
 import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { InvariantError, NotFoundError } from "./errors";
+import { parseSnapshot, tokenFields, tokenFromRow } from "./at-rest";
+import { requireWriter } from "./authz";
 import { resolveDateRange } from "./fiscal-range";
 import { lockCreditNote, lockInvoice } from "./locks";
 import type { TaxLineDto } from "./invoices";
@@ -146,8 +147,8 @@ function toDto(row: Row): CreditNoteDto {
     })),
     displayConfig: mergeDisplayConfig(row.displayConfig),
     templateSnapshot: row.templateSnapshot ? mergeTemplateConfig(row.templateSnapshot) : null,
-    snapshot: (row.snapshot as CreditNoteSnapshot | null) ?? null,
-    verificationToken: row.verificationToken,
+    snapshot: parseSnapshot(CreditNoteSnapshotSchema, row.snapshot),
+    verificationToken: tokenFromRow(row.verificationTokenEnc),
     invoiceNumber: row.invoice.number,
     clientId: row.clientId,
     clientName: row.client.displayName,
@@ -246,6 +247,7 @@ export async function createCreditNoteDraft(
   actor: Actor,
   input: CreditNoteInput,
 ): Promise<CreditNoteDto> {
+  requireWriter(actor);
   assertAmountPositive(input.subtotal);
   return prisma.$transaction(async (tx) => {
     const invoice = await loadInvoiceForCredit(tx, input.invoiceId);
@@ -266,7 +268,7 @@ export async function createCreditNoteDraft(
         taxAmount: toMoneyString(credit.taxAmount, c),
         total: toMoneyString(credit.total, c),
         displayConfig: json(input.displayConfig ?? mergeDisplayConfig(invoice.displayConfig)),
-        verificationToken: randomToken(),
+        ...tokenFields(),
         taxLines: {
           create: credit.taxLines.map((t) => ({
             taxType: t.taxType,
@@ -291,6 +293,7 @@ export async function updateCreditNoteDraft(
   id: string,
   input: CreditNoteInput,
 ): Promise<CreditNoteDto> {
+  requireWriter(actor);
   assertAmountPositive(input.subtotal);
   return prisma.$transaction(async (tx) => {
     const before = await load(tx, id);
@@ -330,6 +333,7 @@ export async function updateCreditNoteDraft(
 }
 
 export async function deleteCreditNoteDraft(actor: Actor, id: string): Promise<string> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     if (row.status !== "DRAFT") throw new InvariantError("Only draft credit notes can be deleted.");
@@ -344,6 +348,7 @@ export async function deleteCreditNoteDraft(actor: Actor, id: string): Promise<s
 
 /** SPEC §4.9: own sequence, apportioned tax, capped by the invoice's outstanding amounts. */
 export async function issueCreditNote(actor: Actor, id: string): Promise<CreditNoteDto> {
+  requireWriter(actor);
   return prisma.$transaction(
     async (tx) => {
       await lockCreditNote(tx, id);
@@ -431,7 +436,7 @@ export async function issueCreditNote(actor: Actor, id: string): Promise<CreditN
           total: toMoneyString(total, c),
           snapshot: json(snapshot),
           templateSnapshot: json(template),
-          verificationToken: randomToken(),
+          ...tokenFields(),
           taxLines: {
             create: credit.taxLines.map((t) => ({
               taxType: t.taxType,
@@ -458,6 +463,7 @@ export async function voidCreditNote(
   id: string,
   reason: string,
 ): Promise<CreditNoteDto> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     await lockCreditNote(tx, id);
     const row = await load(tx, id);
@@ -483,6 +489,7 @@ export async function voidCreditNote(
 }
 
 export async function markCreditNoteSent(actor: Actor, id: string): Promise<CreditNoteDto> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     if (row.status !== "ISSUED")

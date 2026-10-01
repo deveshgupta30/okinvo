@@ -11,12 +11,18 @@ import { buildDocumentViewModel, type RenderInput } from "@/lib/documents/view-m
 import { env } from "@/lib/env";
 import { buildSnapshots } from "@/lib/invoices/snapshots";
 import { safeFileStem } from "@/lib/numbering";
-import { mergeDisplayConfig, paymentMethodLines, type TemplateConfig } from "@/lib/schemas";
+import {
+  AddressSchema,
+  mergeDisplayConfig,
+  paymentMethodLines,
+  type TemplateConfig,
+} from "@/lib/schemas";
 import { documentKey, storage } from "@/lib/storage";
 import type { Actor } from "@/server/actor";
 import { readAssetBytes } from "./assets";
 import { audit } from "./audit";
 import { InvariantError, NotFoundError } from "./errors";
+import { requireWriter } from "./authz";
 import { creditNoteRenderInputFromSnapshot } from "@/lib/credit-notes/preview";
 import { getCreditNoteTx } from "./credit-notes";
 import { getInvoiceTx, type InvoiceDto } from "./invoices";
@@ -111,12 +117,12 @@ export async function renderInputForDraft(tx: Tx, inv: InvoiceDto): Promise<Rend
   const snap = buildSnapshots({
     issuer: {
       ...issuer,
-      address: issuer.address as RenderInput["issuer"] extends never ? never : never,
+      address: AddressSchema.parse(issuer.address),
     },
     client: {
       ...client,
-      billingAddress: client.billingAddress as never,
-      shippingAddress: (client.shippingAddress as never) ?? null,
+      billingAddress: AddressSchema.parse(client.billingAddress),
+      shippingAddress: client.shippingAddress ? AddressSchema.parse(client.shippingAddress) : null,
     },
     methods: links.map((l) => ({
       name: l.paymentMethod.name,
@@ -281,6 +287,7 @@ export async function regenerateDocument(
   kind: DocumentKind,
   id: string,
 ): Promise<DocumentDto> {
+  requireWriter(actor);
   // The row and its audit event land together: a failed render leaves neither.
   const row = await prisma.$transaction(
     async (tx) => {

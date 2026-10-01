@@ -9,6 +9,7 @@ import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { diffForAudit } from "./audit-redact";
 import { InvariantError, NotFoundError } from "./errors";
+import { requireWriter } from "./authz";
 import { lockInvoice } from "./locks";
 
 export type PaymentKind = "PAYMENT" | "REFUND" | "WRITE_OFF";
@@ -181,6 +182,7 @@ export async function recordPayment(
   invoiceId: string,
   input: PaymentInput,
 ): Promise<PaymentDto> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const invoice = await loadInvoice(tx, invoiceId);
     if (invoice.status !== "ISSUED") {
@@ -207,6 +209,7 @@ export async function updatePayment(
   paymentId: string,
   input: PaymentInput,
 ): Promise<PaymentDto> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const before = await tx.payment.findUnique({ where: { id: paymentId }, include: INCLUDE });
     if (!before) throw new NotFoundError("Payment", paymentId);
@@ -245,6 +248,7 @@ export async function updatePayment(
 }
 
 export async function deletePayment(actor: Actor, paymentId: string): Promise<string> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const row = await tx.payment.findUnique({ where: { id: paymentId }, include: INCLUDE });
     if (!row) throw new NotFoundError("Payment", paymentId);

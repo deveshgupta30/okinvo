@@ -65,9 +65,14 @@ export default async function DashboardPage() {
         title="Dashboard"
         description={`Fiscal year ${d.fiscalYear}${d.profileLabel ? ` · base currency ${d.baseCurrency} (${d.profileLabel})` : ""}`}
         actions={
-          <Button asChild>
-            <Link href="/invoices/new">New invoice</Link>
-          </Button>
+          <>
+            <Button asChild variant="secondary">
+              <Link href="/credit-notes/new">New credit note</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/invoices/new">New invoice</Link>
+            </Button>
+          </>
         }
       />
       {profiles.length === 0 ? (
