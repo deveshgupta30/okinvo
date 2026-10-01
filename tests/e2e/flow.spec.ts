@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { expect, test, type Page } from "@playwright/test";
+import ExcelJS from "exceljs";
 
 /**
  * The whole owner journey through the real UI (SPEC §4, v2 §19). Needs AUTH_PASSWORD_SIGNIN=true
@@ -7,7 +8,7 @@ import { expect, test, type Page } from "@playwright/test";
  */
 test.describe.configure({ mode: "serial" });
 // Many navigations against a dev server whose first compiles are slow.
-test.setTimeout(240_000);
+test.setTimeout(600_000);
 
 const stamp = Date.now();
 const email = `e2e-${stamp}@example.com`;
@@ -31,7 +32,23 @@ async function signIn(page: Page) {
   await expect(page.getByRole("navigation", { name: "Primary" })).toBeVisible();
 }
 
-test("sign in, master data, invoice, issue, download, verify", async ({ page }) => {
+/** The existing account, through the password sign-in (not sign-up) branch of the same form. */
+async function signInAgain(page: Page) {
+  await page.goto("/auth/sign-in");
+  const form = page.getByTestId("password-sign-in");
+  await expect(async () => {
+    await form.getByLabel("Email").fill(email);
+    await form.getByLabel("Password").fill(password);
+    await form.getByRole("button", { name: "Sign in" }).click();
+    await expect(page.getByRole("navigation", { name: "Primary" })).toBeVisible({
+      timeout: 5_000,
+    });
+  }).toPass({ timeout: 60_000 });
+}
+
+test("sign in, master data, invoice, issue, download, verify, pay, credit, template, export", async ({
+  page,
+}) => {
   await signIn(page);
 
   // Issuer profile
@@ -116,4 +133,76 @@ test("sign in, master data, invoice, issue, download, verify", async ({ page }) 
   await expect(page.getByText(shaOnPage!.trim())).toBeVisible();
   await page.goto("/verify/definitely-not-a-token-0000000000");
   await expect(page.getByText("No such document")).toBeVisible();
+
+  // Back in as the same owner through the password sign-in branch
+  await signInAgain(page);
+
+  // Partial payment → PARTIALLY_PAID (a fully paid invoice could not take a credit note)
+  await page.goto(`/invoices/${invoiceId}/payments`);
+  await page.locator("#amountApplied").fill("2000");
+  await page.locator("#reference").fill("UTR-E2E-1");
+  await page.getByRole("button", { name: "Record" }).click();
+  await expect(page.getByText("UTR-E2E-1")).toBeVisible();
+  await page.goto(`/invoices/${invoiceId}`);
+  await expect(page.locator("h1 [data-status]")).toHaveAttribute("data-status", "PARTIALLY_PAID");
+  await expect(page.getByText("₹3,310.00").first()).toBeVisible(); // 5310 − 2000
+
+  // Credit note for 1000 + 18 % IGST = 1180 → balance 2130
+  await page.goto(`/credit-notes/new?invoice=${invoiceId}`);
+  await page.locator("#subtotal").fill("1000");
+  await page.locator("#reason").fill("E2E partial cancellation");
+  await page.getByRole("button", { name: "Save and issue" }).click();
+  await expect(page).toHaveURL(/\/credit-notes\/[^/]+$/);
+  await expect(page.locator("h1")).toContainText(/CN\/\d\d-\d\d\/\d{3}/);
+  await page.goto(`/invoices/${invoiceId}`);
+  await expect(page.getByText("₹2,130.00").first()).toBeVisible();
+
+  // Settle the rest → PAID
+  await page.goto(`/invoices/${invoiceId}/payments`);
+  await page.locator("#amountApplied").fill("2130");
+  await page.locator("#reference").fill("UTR-E2E-2");
+  await page.getByRole("button", { name: "Record" }).click();
+  await expect(page.getByText("UTR-E2E-2")).toBeVisible(); // the action redirected to the ledger
+  await page.goto(`/invoices/${invoiceId}`);
+  await expect(page.locator("h1 [data-status]")).toHaveAttribute("data-status", "PAID");
+  await expect(page.getByText("₹0.00").first()).toBeVisible();
+
+  // Changing the template later never rewrites an issued document
+  await page.goto("/settings/templates");
+  const accentText = page.locator("#accent ~ input");
+  await accentText.fill("#aa3366");
+  await page.getByRole("button", { name: "Save template" }).click();
+  await expect(page.getByText(/saved/i).first()).toBeVisible();
+  const again = await page.request.get(`/api/documents/preview?invoice=${invoiceId}`);
+  expect(again.status()).toBe(200);
+  expect(
+    createHash("sha256")
+      .update(await again.body())
+      .digest("hex"),
+  ).toBe(shaOnPage?.trim());
+
+  // Exports: CSV (BOM, header, our number) and XLSX (typed workbook with a Filters sheet)
+  const csv = await page.request.get(
+    `/api/exports/invoices?format=csv&q=${encodeURIComponent(number!)}`,
+  );
+  expect(csv.status()).toBe(200);
+  expect(csv.headers()["content-type"]).toContain("text/csv");
+  const csvText = (await csv.body()).toString("utf8");
+  expect(csvText.startsWith("﻿Number,Status,Issue date")).toBe(true);
+  expect(csvText).toContain(`${number},PAID,`);
+  const xlsx = await page.request.get(
+    `/api/exports/invoices?format=xlsx&q=${encodeURIComponent(number!)}`,
+  );
+  expect(xlsx.status()).toBe(200);
+  const wb = new ExcelJS.Workbook();
+  await wb.xlsx.load((await xlsx.body()) as unknown as ArrayBuffer);
+  const sheet = wb.getWorksheet("Invoices register");
+  expect(sheet?.getRow(1).getCell(1).value).toBe("Number");
+  expect(sheet?.getRow(2).getCell(1).value).toBe(number);
+  expect(sheet?.getRow(2).getCell(20).value).toBe(5310); // Total, a numeric cell
+  expect(wb.getWorksheet("Filters")?.getRow(1).getCell(2).value).toBe("invoices");
+
+  // Sessions page lists this device
+  await page.goto("/settings/security");
+  await expect(page.getByText("This device")).toBeVisible();
 });

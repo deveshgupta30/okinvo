@@ -67,8 +67,23 @@ test("theme: explicit cookies win over the OS, no cookie and garbage follow the 
   expect(errors).toEqual([]);
 });
 
-test("app shell shows the primary navigation", async ({ page }) => {
+test("anonymous visitors are sent to sign-in; the shell shows the primary navigation after", async ({
+  page,
+}) => {
   await page.goto("/");
+  await expect(page).toHaveURL(/\/auth\/sign-in$/);
+
+  // Password sign-up of a fresh allow-listed owner (AUTH_PASSWORD_SIGNIN=true, *@example.com).
+  const form = page.getByTestId("password-sign-in");
+  await expect(async () => {
+    await form.getByRole("button", { name: /First time here/ }).click();
+    await expect(form.getByLabel("Name")).toBeVisible({ timeout: 1_000 });
+  }).toPass({ timeout: 60_000 });
+  await form.getByLabel("Name").fill("Smoke Owner");
+  await form.getByLabel("Email").fill(`smoke-${Date.now()}@example.com`);
+  await form.getByLabel("Password").fill("correct horse battery staple");
+  await form.getByRole("button", { name: "Create account" }).click();
+
   const nav = page.getByRole("navigation", { name: "Primary" });
   await expect(nav.getByRole("link", { name: "Invoices" })).toBeVisible();
   await expect(nav.getByRole("link", { name: "Dashboard" })).toHaveAttribute(
@@ -95,15 +110,16 @@ test("no CSP violations and the client hydrates under the served policy", async 
       w.__csp.push(`${e.violatedDirective} ${e.blockedURI}`);
     });
   });
-  await page.goto("/");
+  await page.goto("/auth/sign-in");
   // React attaches __reactFiber$… to DOM nodes only once hydration has run: proof that the
-  // app's scripts executed under the served CSP rather than being blocked. The generous
-  // timeout covers Turbopack's first client compile in dev; production hydrates in well under 1 s.
+  // app's scripts executed under the served CSP rather than being blocked. The sign-in form is a
+  // client component, so its node carries the key once hydrated. The generous timeout covers
+  // Turbopack's first client compile in dev; production hydrates in well under 1 s.
   await expect
     .poll(
       () =>
         page.evaluate(() =>
-          Object.keys(document.querySelector("nav a") ?? {}).some((k) =>
+          Object.keys(document.querySelector("[data-testid=password-sign-in]") ?? {}).some((k) =>
             k.startsWith("__reactFiber"),
           ),
         ),
