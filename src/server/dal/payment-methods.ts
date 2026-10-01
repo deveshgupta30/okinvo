@@ -14,6 +14,7 @@ import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { diffForAudit } from "./audit-redact";
 import { InvariantError, NotFoundError } from "./errors";
+import { requireWriter } from "./authz";
 
 type Row = NonNullable<Awaited<ReturnType<typeof prisma.paymentMethodProfile.findUnique>>>;
 
@@ -108,6 +109,7 @@ export async function createPaymentMethod(
   actor: Actor,
   input: PaymentMethodInput,
 ): Promise<PaymentMethodDto> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     if (input.isDefault) {
       await tx.paymentMethodProfile.updateMany({
@@ -131,6 +133,7 @@ export async function updatePaymentMethod(
   id: string,
   input: PaymentMethodInput,
 ): Promise<PaymentMethodDto> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const before = await load(tx, id);
     if (input.isDefault && !before.isDefault) {
@@ -154,6 +157,7 @@ export async function updatePaymentMethod(
 }
 
 export async function setDefaultPaymentMethod(actor: Actor, id: string): Promise<void> {
+  requireWriter(actor);
   await prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     if (row.archivedAt) throw new InvariantError("An archived method cannot be the default");
@@ -169,6 +173,7 @@ export async function setDefaultPaymentMethod(actor: Actor, id: string): Promise
 }
 
 export async function archivePaymentMethod(actor: Actor, id: string): Promise<void> {
+  requireWriter(actor);
   await prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     if (row.archivedAt) return;
@@ -183,6 +188,7 @@ export async function archivePaymentMethod(actor: Actor, id: string): Promise<vo
 }
 
 export async function unarchivePaymentMethod(actor: Actor, id: string): Promise<void> {
+  requireWriter(actor);
   await prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     if (!row.archivedAt) return;
@@ -197,6 +203,7 @@ export async function unarchivePaymentMethod(actor: Actor, id: string): Promise<
 }
 
 export async function deletePaymentMethod(actor: Actor, id: string): Promise<void> {
+  requireWriter(actor);
   await prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     const refs =

@@ -6,6 +6,7 @@ import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { diffForAudit } from "./audit-redact";
 import { InvariantError, NotFoundError } from "./errors";
+import { requireWriter } from "./authz";
 
 type Row = NonNullable<Awaited<ReturnType<typeof prisma.serviceItem.findUnique>>>;
 
@@ -93,6 +94,7 @@ export async function getService(_actor: Actor, id: string): Promise<ServiceDto>
 }
 
 export async function createService(actor: Actor, input: ServiceInput): Promise<ServiceDto> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const row = await tx.serviceItem.create({ data: toData(input) });
     await audit(tx, actor, "service.created", "ServiceItem", row.id, {
@@ -108,6 +110,7 @@ export async function updateService(
   id: string,
   input: ServiceInput,
 ): Promise<ServiceDto> {
+  requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const before = await load(tx, id);
     const row = await tx.serviceItem.update({ where: { id }, data: toData(input) });
@@ -122,6 +125,7 @@ export async function updateService(
 }
 
 export async function toggleServiceActive(actor: Actor, id: string, isActive: boolean) {
+  requireWriter(actor);
   await prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     await tx.serviceItem.update({ where: { id }, data: { isActive } });
@@ -134,6 +138,7 @@ export async function toggleServiceActive(actor: Actor, id: string, isActive: bo
 }
 
 export async function archiveService(actor: Actor, id: string): Promise<void> {
+  requireWriter(actor);
   await prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     if (row.archivedAt) return;
@@ -148,6 +153,7 @@ export async function archiveService(actor: Actor, id: string): Promise<void> {
 }
 
 export async function unarchiveService(actor: Actor, id: string): Promise<void> {
+  requireWriter(actor);
   await prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     if (!row.archivedAt) return;
@@ -159,6 +165,7 @@ export async function unarchiveService(actor: Actor, id: string): Promise<void> 
 }
 
 export async function deleteService(actor: Actor, id: string): Promise<void> {
+  requireWriter(actor);
   await prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     const refs = await tx.invoiceItem.count({ where: { serviceItemId: id } });

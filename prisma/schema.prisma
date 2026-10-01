@@ -424,8 +424,9 @@ model Invoice {
 
   issuerSnapshot         Json?      // IssuerSnapshotSchema (incl. decrypted-for-print tax IDs the config allows)
   clientSnapshot         Json?
-  paymentMethodsSnapshot Json?      // decrypted details, in display order — this is what the PDF prints
-  verificationToken      String     @unique
+  paymentMethodsSnapshotEnc String? // encrypted JSON (PaymentMethodsSnapshotSchema): the details the PDF prints
+  verificationToken      String     @unique // SHA-256 hex of the token in the verify URL
+  verificationTokenEnc   String?    // the token itself, encrypted, so links and QR codes can be rebuilt
 
   createdAt          DateTime       @default(now())
   updatedAt          DateTime       @updatedAt
@@ -547,7 +548,8 @@ model CreditNote {
   displayConfig     Json
   templateSnapshot  Json?          // TemplateConfigSchema frozen at issue
   snapshot          Json?          // issuer + client + invoice header, frozen at issue
-  verificationToken String         @unique
+  verificationToken String         @unique // SHA-256 hex of the token in the verify URL
+  verificationTokenEnc String?     // the token itself, encrypted
   createdAt         DateTime       @default(now())
   updatedAt         DateTime       @updatedAt
 
@@ -636,4 +638,18 @@ model AppSetting {             // keys: documentTemplate (TemplateConfig), smtp 
   key       String   @id
   value     Json
   updatedAt DateTime @updatedAt
+}
+
+/// Signing keys of the Better Auth JWT plugin (API tokens); private keys are encrypted by the
+/// plugin with AUTH_SECRET.
+model Jwks {
+  id         String    @id @default(uuid(7))
+  publicKey  String
+  privateKey String
+  createdAt  DateTime
+  expiresAt  DateTime?
+  alg        String?
+  crv        String?
+
+  @@map("jwks")
 }

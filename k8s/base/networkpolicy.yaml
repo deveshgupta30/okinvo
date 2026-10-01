@@ -42,10 +42,10 @@ spec:
           protocol: UDP
         - port: 53
           protocol: TCP
-    - to: # identity providers over https, SMTP relays
+    - to: # identity providers over https and SMTP relays — on the internet or in-cluster / LAN
+        # (a Keycloak, Casdoor or mail relay next door is the common self-hosted case)
         - ipBlock:
             cidr: 0.0.0.0/0
-            except: ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
       ports:
         - port: 443
         - port: 587

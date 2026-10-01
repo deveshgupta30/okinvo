@@ -27,6 +27,14 @@ export class InvariantError extends DalError {
   }
 }
 
+/** The actor may read but not change data (the v1.1 Viewer role; owners always pass). */
+export class ForbiddenError extends DalError {
+  constructor(message = "This account can only view data.") {
+    super("FORBIDDEN", message);
+    this.name = "ForbiddenError";
+  }
+}
+
 export function isDalError(e: unknown): e is DalError {
   return e instanceof DalError;
 }

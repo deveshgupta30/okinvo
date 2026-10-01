@@ -21,6 +21,7 @@ import { audit } from "./audit";
 import { getCreditNoteTx, setCreditNoteSentAtIfUnset } from "./credit-notes";
 import { ensureDocument, getDocumentStream, type DocumentKind } from "./documents";
 import { InvariantError } from "./errors";
+import { requireWriter } from "./authz";
 import { getInvoiceTx, setSentAtIfUnset } from "./invoices";
 import { getEmailDefaults, resolveSmtp } from "./smtp-settings";
 
@@ -231,6 +232,7 @@ export async function sendDocumentEmail(
   actor: Actor,
   input: SendEmailInput & { kind: DocumentKind; id: string },
 ): Promise<EmailMessageDto> {
+  requireWriter(actor);
   const decision = await rateLimiter.hit(
     `email:${actor.userId}`,
     LIMITS.email.limit,
@@ -321,6 +323,7 @@ export async function markSentManually(
   kind: DocumentKind,
   id: string,
 ): Promise<EmailMessageDto> {
+  requireWriter(actor);
   const ctx = await documentContext(actor, kind, id);
   const defaults = await composerDefaults(actor, kind, id);
   const row = await prisma.$transaction(async (tx) => {

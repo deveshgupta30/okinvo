@@ -42,8 +42,12 @@ run() { # print, then execute unless --dry-run
   if [ "$DRY_RUN" -eq 0 ]; then "$@"; fi
 }
 
-if [ "$DRY_RUN" -eq 0 ] && ! git diff --quiet --ignore-submodules HEAD; then
-  echo "release.sh: working tree is dirty — commit or stash first" >&2
+if [ "$DRY_RUN" -eq 0 ] && [ -n "$(git status --porcelain --ignore-submodules)" ]; then
+  echo "release.sh: working tree is dirty (modified or untracked files) — commit, stash or clean first" >&2
+  exit 1
+fi
+if [ "$DRY_RUN" -eq 0 ] && git rev-parse -q --verify "refs/tags/v$VERSION" >/dev/null; then
+  echo "release.sh: tag v$VERSION already exists — a published version is never rebuilt; bump it" >&2
   exit 1
 fi
 
@@ -62,16 +66,21 @@ LABELS=(
 run docker buildx inspect okinvo >/dev/null 2>&1 || run docker buildx create --name okinvo --use
 run docker buildx use okinvo
 
-# 1. Host-architecture build, loaded locally, scanned before any push.
+# 1. Host-architecture builds of BOTH images, loaded locally and scanned before any push.
+scan() {
+  if command -v trivy >/dev/null 2>&1; then
+    run trivy image --severity HIGH,CRITICAL --exit-code 1 --ignore-unfixed "$1"
+  elif docker image inspect aquasec/trivy:latest >/dev/null 2>&1 || docker pull aquasec/trivy:latest >/dev/null 2>&1; then
+    run docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest \
+      image --severity HIGH,CRITICAL --exit-code 1 --ignore-unfixed "$1"
+  else
+    echo "release.sh: Trivy not available — $1 NOT scanned" >&2
+  fi
+}
 run docker buildx build -f docker/Dockerfile --target runner --load -t "$IMAGE:$VERSION" "${LABELS[@]}" .
-if command -v trivy >/dev/null 2>&1; then
-  run trivy image --severity HIGH,CRITICAL --exit-code 1 --ignore-unfixed "$IMAGE:$VERSION"
-elif docker image inspect aquasec/trivy:latest >/dev/null 2>&1 || docker pull aquasec/trivy:latest >/dev/null 2>&1; then
-  run docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest \
-    image --severity HIGH,CRITICAL --exit-code 1 --ignore-unfixed "$IMAGE:$VERSION"
-else
-  echo "release.sh: Trivy not available — image NOT scanned" >&2
-fi
+scan "$IMAGE:$VERSION"
+run docker buildx build -f docker/Dockerfile --target migrate --load -t "$IMAGE:$VERSION-migrate" "${LABELS[@]}" .
+scan "$IMAGE:$VERSION-migrate"
 
 if [ "$PUSH" -eq 0 ]; then
   echo "release.sh: built and scanned $IMAGE:$VERSION locally. Re-run with --push to publish"

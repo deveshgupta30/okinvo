@@ -58,7 +58,14 @@ export default async function CreditNotesPage({
       <PageHeader
         title="Credit notes"
         description="Raised against issued invoices; each reduces its invoice balance when issued."
-        actions={<ExportButton dataset="credit-notes" params={params} />}
+        actions={
+          <>
+            <ExportButton dataset="credit-notes" params={params} />
+            <Button asChild>
+              <Link href="/credit-notes/new">New credit note</Link>
+            </Button>
+          </>
+        }
       />
       <form className="mb-4 grid gap-3 md:grid-cols-3 xl:grid-cols-6" role="search">
         <Field label="From" htmlFor="from">
