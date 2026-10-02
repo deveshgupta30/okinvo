@@ -19,6 +19,7 @@ export interface SidebarProps {
   initial: SidebarState;
   theme: ThemeMode;
   accent: AccentId;
+  minimal?: boolean;
 }
 
 /**
@@ -26,7 +27,7 @@ export interface SidebarProps {
  * viewport height, footer order theme toggle → Settings → user. State persists in a cookie the
  * server reads for the first paint; `[` toggles it from the keyboard.
  */
-export function Sidebar({ user, initial, theme }: SidebarProps) {
+export function Sidebar({ user, initial, theme, minimal = false }: SidebarProps) {
   const [state, setState] = useState<SidebarState>(initial);
   const collapsed = state === "collapsed";
   const pathname = usePathname();
@@ -122,7 +123,7 @@ export function Sidebar({ user, initial, theme }: SidebarProps) {
         ) : null}
 
         <div className="min-h-0 flex-1 overflow-y-auto px-2">
-          <PrimaryNav collapsed={collapsed} />
+          {minimal ? null : <PrimaryNav collapsed={collapsed} />}
         </div>
 
         <div
@@ -132,7 +133,7 @@ export function Sidebar({ user, initial, theme }: SidebarProps) {
           )}
         >
           <ThemeToggle initial={theme} collapsed={collapsed} />
-          {collapsed ? (
+          {minimal ? null : collapsed ? (
             <Tooltip>
               <TooltipTrigger asChild>{settingsLink}</TooltipTrigger>
               <TooltipContent side="right">Settings</TooltipContent>

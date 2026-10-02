@@ -15,7 +15,12 @@ export async function shellVisible(page: Page): Promise<boolean> {
  * database (the address must be an exact allow-list entry), signs in on later runs. Resolves once
  * the signed-in shell is visible.
  */
-export async function signInAs(page: Page, email: string, name = "E2E Owner"): Promise<void> {
+export async function signInAs(
+  page: Page,
+  email: string,
+  name = "E2E Owner",
+  opts: { completeOnboarding?: boolean } = {},
+): Promise<void> {
   await page.goto("/auth/sign-in");
   const form = page.getByTestId("password-sign-in");
   await expect(async () => {
@@ -28,12 +33,46 @@ export async function signInAs(page: Page, email: string, name = "E2E Owner"): P
   await form.getByRole("button", { name: "Create account" }).click();
   const exists = form.getByText(/user already exists|already exists/i);
   await expect
-    .poll(async () => (await shellVisible(page)) || (await exists.isVisible()), {
-      timeout: 60_000,
+    .poll(
+      async () =>
+        (await shellVisible(page)) ||
+        page.url().includes("/onboarding") ||
+        (await exists.isVisible()),
+      { timeout: 60_000 },
+    )
+    .toBe(true);
+  if (!(await shellVisible(page)) && !page.url().includes("/onboarding")) {
+    await signInExisting(page, email);
+  }
+  if (opts.completeOnboarding !== false) await finishOnboardingIfShown(page, name);
+  await expect
+    .poll(async () => (await shellVisible(page)) || page.url().includes("/onboarding"), {
+      timeout: 30_000,
     })
     .toBe(true);
-  if (!(await shellVisible(page))) await signInExisting(page, email);
-  await expect.poll(() => shellVisible(page), { timeout: 30_000 }).toBe(true);
+}
+
+/**
+ * A brand-new account lands in the first-run wizard (spec §4.2). Specs that are not about the
+ * wizard answer it with the minimum (India, INR, personal) and come back to the dashboard.
+ */
+export async function finishOnboardingIfShown(page: Page, name: string): Promise<void> {
+  await page.waitForLoadState("domcontentloaded");
+  if (!page.url().includes("/onboarding")) return;
+  await waitHydrated(page);
+  await page.getByLabel("Name").fill(name);
+  await page.getByLabel("Country").selectOption("IN");
+  await page.getByLabel("Preferred currency").selectOption("INR");
+  await page.getByRole("button", { name: "Continue" }).click();
+  await expect(page).toHaveURL(/step=2/);
+  await waitHydrated(page);
+  await page.getByRole("radio", { name: /Personal invoicing/ }).check();
+  await page.getByRole("button", { name: "Continue" }).click();
+  await expect(page).toHaveURL(/step=3/);
+  await waitHydrated(page);
+  await page.getByRole("button", { name: /Go to profiles/ }).click();
+  await expect(page).toHaveURL(/settings\/profiles\/new/);
+  await page.goto("/");
 }
 
 /** The existing account, through the sign-in (not sign-up) branch of the same form. */
@@ -45,6 +84,15 @@ export async function signInExisting(page: Page, email: string): Promise<void> {
     await form.getByLabel("Password").fill(E2E_PASSWORD);
     await form.getByRole("button", { name: "Sign in" }).click();
     // The dev server compiles "/" on first hit, which can take longer than a quick retry window.
-    await expect.poll(() => shellVisible(page), { timeout: 30_000 }).toBe(true);
+    await expect
+      .poll(async () => (await shellVisible(page)) || page.url().includes("/onboarding"), {
+        timeout: 30_000,
+      })
+      .toBe(true);
   }).toPass({ timeout: 120_000 });
+}
+
+/** The onboarding wizard marks itself hydrated; controlled inputs ignore clicks before that. */
+export async function waitHydrated(page: Page): Promise<void> {
+  await expect(page.locator('[data-hydrated="true"]')).toBeVisible({ timeout: 60_000 });
 }

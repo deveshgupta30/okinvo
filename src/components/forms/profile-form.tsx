@@ -42,12 +42,19 @@ const REGIME_LABELS: Record<(typeof TAX_REGIMES)[number], string> = {
   NONE: "No tax",
 };
 
-export function ProfileForm({ profile }: { profile: ProfileDto | null }) {
+export function ProfileForm({
+  profile,
+  prefill,
+}: {
+  profile: ProfileDto | null;
+  /** First-run defaults from onboarding (spec §4.2); only used for a new profile. */
+  prefill?: Partial<Record<string, string>> | undefined;
+}) {
   const [state, action] = useActionState(saveProfile.bind(null, profile?.id ?? null), null);
   const values = state?.values;
   const errors = state?.fieldErrors;
   const v = (key: string, fallback: string | number | null | undefined) =>
-    values?.[key] ?? (fallback == null ? "" : String(fallback));
+    values?.[key] ?? prefill?.[key] ?? (fallback == null ? "" : String(fallback));
 
   return (
     <form action={action} className="flex flex-col gap-6">

@@ -17,7 +17,15 @@ import { UserMenu, type ShellUser } from "./user-menu";
  * Below `md`: a sticky top bar with the mark and a menu button that opens the navigation as a
  * drawer (spec §3.3). The drawer closes on navigation and keeps the sidebar's footer order.
  */
-export function MobileTopbar({ user, theme }: { user: ShellUser; theme: ThemeMode }) {
+export function MobileTopbar({
+  user,
+  theme,
+  minimal = false,
+}: {
+  user: ShellUser;
+  theme: ThemeMode;
+  minimal?: boolean;
+}) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const settingsActive = pathname.startsWith("/settings");
@@ -56,22 +64,24 @@ export function MobileTopbar({ user, theme }: { user: ShellUser; theme: ThemeMod
           </div>
           <TooltipProvider>
             <div className="min-h-0 flex-1 overflow-y-auto px-2">
-              <PrimaryNav collapsed={false} onNavigate={() => setOpen(false)} />
+              {minimal ? null : <PrimaryNav collapsed={false} onNavigate={() => setOpen(false)} />}
             </div>
             <div className="flex flex-col gap-2 border-t border-hairline p-2">
               <ThemeToggle initial={theme} collapsed={false} />
-              <Link
-                href="/settings"
-                onClick={() => setOpen(false)}
-                aria-current={settingsActive ? "page" : undefined}
-                className={cn(
-                  "relative flex h-9 items-center gap-3 rounded-md px-3 text-app-body text-ink-subtle hover:bg-surface-2 hover:text-ink",
-                  settingsActive && "bg-surface-2 text-ink",
-                )}
-              >
-                <Settings aria-hidden className="size-5" strokeWidth={1.5} />
-                Settings
-              </Link>
+              {minimal ? null : (
+                <Link
+                  href="/settings"
+                  onClick={() => setOpen(false)}
+                  aria-current={settingsActive ? "page" : undefined}
+                  className={cn(
+                    "relative flex h-9 items-center gap-3 rounded-md px-3 text-app-body text-ink-subtle hover:bg-surface-2 hover:text-ink",
+                    settingsActive && "bg-surface-2 text-ink",
+                  )}
+                >
+                  <Settings aria-hidden className="size-5" strokeWidth={1.5} />
+                  Settings
+                </Link>
+              )}
               <UserMenu user={user} collapsed={false} side="top" />
             </div>
           </TooltipProvider>

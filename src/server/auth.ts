@@ -15,12 +15,29 @@ export const getSession = cache(async (): Promise<AuthSession | null> => {
   return auth.api.getSession({ headers: await headers() });
 });
 
-/** Page helper: redirects to sign-in when anonymous or no longer allow-listed. */
-export const requireUser = cache(async (): Promise<AuthSession> => {
+/** One allow-list-checked session per request; redirects to sign-in when anonymous. */
+const requireSession = cache(async (): Promise<AuthSession> => {
   const s = await getSession();
   if (!s || !isAllowedEmail(s.user.email, env.allowList)) redirect("/auth/sign-in");
   return s;
 });
+
+/**
+ * Page helper: redirects to sign-in when anonymous or no longer allow-listed, and to the first-run
+ * wizard until onboarding is complete (spec §4.2) unless the caller is the wizard itself or the
+ * shell around it (`allowOnboarding`). The session user carries `onboardedAt` (Better Auth
+ * additional field), so this costs no extra query.
+ */
+export async function requireUser(opts: { allowOnboarding?: boolean } = {}): Promise<AuthSession> {
+  const s = await requireSession();
+  if (!opts.allowOnboarding && !onboarded(s)) redirect("/onboarding");
+  return s;
+}
+
+function onboarded(s: AuthSession): boolean {
+  const v = (s.user as { onboardedAt?: Date | string | null }).onboardedAt;
+  return v !== null && v !== undefined;
+}
 
 /** The only way a server action or page obtains an Actor for the DAL. */
 export async function requireOwner(): Promise<Actor> {
