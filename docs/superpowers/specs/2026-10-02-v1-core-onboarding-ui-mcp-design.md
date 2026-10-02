@@ -1,6 +1,6 @@
 # okinvo v1.1 — shell, onboarding, documents, platform, API/MCP, localisation: design
 
-Date 2026-10-02 · branch `feature/v1-core-onboarding-ui-mcp` (from `main@a81b0f7`) · status: **draft for review**
+Date 2026-10-02 · branch `feature/v1-core-onboarding-ui-mcp` (from `main@a81b0f7`) · status: **approved by the owner on 2026-10-02 (defaults in §10 confirmed; scope extended, see §9b–§9e)**
 
 This spec turns the owner's 27-point request (and the two "refined prompt" documents that came
 with it) into a design the existing codebase can carry. It is one umbrella document with seven
@@ -55,13 +55,17 @@ Desktop locally, personal GitHub account, `.env` never committed.
 |---|---|---|---|
 | A | **Shell & identity** | 1, 3, 4, 5, 6, 7, 10, 11, 26 (+ 2 pre-existing defects) | Everything else renders inside this shell; fixes a data leak first |
 | B | **Onboarding & preferences** | 2, 14, and the Account half of 13 | Needs the avatar, country and currency pieces from A |
+| H | **Multi-user roles** (added) | owner's addition | Before E: API keys and every later screen depend on roles |
 | C | **Catalogue & documents** | 8, 9, 23, 24, 27 | Independent domain work; the largest sub-project |
+| J | **DOCX output** (added) | owner's addition | Right after C: same view-model and templates |
 | D | **Platform & compliance** | 12, 15, 16, 17, 18, 19 | Mostly additive; README last because it documents everything |
 | E | **API keys, OpenAPI, SDK, MCP, skill** | 20 (API part), 21, 22 | Builds on C's products/catalogue and on D's status endpoint |
-| F | **Localisation** | 13 | Touches every string; done late so new screens are translated once |
+| F | **Localisation (UI)** | 13 | Touches every string; done late so new screens are translated once |
+| I | **Translated documents & non-Latin fonts** (added) | owner's addition | After F: reuses the catalogues |
+| K | **E-invoicing** (added) | owner's addition | After C, H, I: needs products/HSN, settings roles, document locale |
 | G | **Documentation site** | 20 (Wiki.js part) | Screenshots must show the finished UI |
 
-Item 25 ("what else can we add?") is answered in §11 and does not produce work in this branch.
+Build order is the table order: A, B, H, C, J, D, E, F, I, K, G. Item 25 ("what else can we add?") is answered in §11 and does not produce work in this branch.
 
 Each sub-project is one plan and one PR-sized commit series on this branch; the owner can stop
 after any sub-project and still have a releasable app.
@@ -583,7 +587,136 @@ order. Integration: `User.locale` round-trip. E2E: switching to `hi` changes the
 
 ---
 
-## 10. Decisions the owner should confirm (defaults apply if unchanged)
+## 9b. Sub-project H — Multi-user roles
+
+Added to scope by the owner on 2026-10-02. Built right after B because API keys (E) and every
+later screen depend on it.
+
+- **Roles:** `UserRole` becomes `OWNER | EDITOR | VIEWER`. OWNER: everything. EDITOR: clients,
+  catalogue, invoices, credit notes, payments, e-mail sending, exports of those datasets; no
+  settings beyond their own account. VIEWER: read-only (register, documents, dashboard, exports
+  of datasets they can read). The first user stays OWNER and at least one active OWNER must
+  always remain (the DAL refuses the last demotion or deactivation).
+- **Enforcement:** `src/server/dal/authz.ts` grows `requireRole(actor, "OWNER" | "EDITOR")`;
+  `requireWriter` admits OWNER and EDITOR; settings DALs (profiles, payment methods, templates,
+  e-mail settings, data/backups, users, API keys, legal, e-invoicing) call `requireRole(actor,
+  "OWNER")`. `src/server/auth.ts` gains `requireRole(role)`; `requireOwner()` stays as the OWNER
+  shorthand and pages pass the lowest role that may open them. UI hides what the role cannot do;
+  the server is the boundary.
+- **Members:** Settings → **Users** (OWNER only): list members (avatar, name, e-mail, role,
+  last sign-in, status), **Invite** (e-mail + role → an `AllowedEmail` row; the sign-in hook
+  accepts an address when it is in the env allow-list *or* an active `AllowedEmail` row; an
+  invitation e-mail with the sign-in link is sent when SMTP is configured, otherwise the link is
+  shown to copy), change role, deactivate (sessions revoked, sign-in refused, rows kept for the
+  audit trail), reactivate. `AUTH_ALLOWED_EMAILS` keeps working as the bootstrap list.
+- **API keys** (E) inherit the creator's ceiling: a VIEWER can only mint read scopes, an EDITOR
+  can mint read and create scopes but never OWNER-only ones; keys are deactivated with their user.
+- Audit: `user.invited`, `user.role_changed`, `user.deactivated`, `user.reactivated`; every audit
+  event already records the actor and now also the actor's role.
+- Tests: integration role matrix (every mutating DAL function × three roles), last-owner guard,
+  invitation accepted through the sign-in hook; e2e: a VIEWER sees no "New invoice" and gets
+  403 pages on settings.
+
+## 9c. Sub-project I — Translated documents and non-Latin fonts
+
+Added to scope. Depends on F (catalogues) and C (template/font work).
+
+- **Document language:** `Invoice.documentLocale` and `CreditNote.documentLocale` (BCP-47,
+  snapshot at issue). Default order: the client's new `preferredLocale`, else the issuer
+  profile's `locale`, else `en-US`. The builder's display options get a "Document language"
+  select over the same 115-entry list as the UI picker.
+- **Strings:** the catalogues gain a `documents` namespace with the 29 `LABEL_KEYS`, the
+  automatic titles (TAX INVOICE, BILL OF SUPPLY, INVOICE, CREDIT NOTE), "Page {n} of {total}",
+  "Amount in words", "Original for recipient" and the void/draft watermarks. Template `labels`
+  overrides typed by the owner still win. Dates and numbers in the document follow the document
+  locale (Indian digit grouping for `en-IN`/`hi`, symbol placement per locale).
+- **Amount in words** stays English (international or Indian system by region); other locales
+  print the English words under a localised label. Stated in the UI and SPEC.
+- **Fonts by script:** `src/lib/documents/fonts/scripts.ts` maps Unicode ranges to scripts and
+  scripts to a Noto family: Devanagari, Bengali, Gurmukhi, Gujarati, Oriya, Tamil, Telugu,
+  Kannada, Malayalam, Sinhala, Thai, Lao, Myanmar, Khmer, Arabic (also Persian, Urdu, Pashto,
+  Kurdish Sorani), Hebrew, Georgian, Armenian, Ethiopic, Greek and Cyrillic (Noto Sans covers
+  both), Han/Kana/Hangul (Noto Sans SC/TC/JP/KR). Indic, Arabic, Hebrew, Thai, Lao, Myanmar,
+  Khmer, Georgian, Armenian, Ethiopic and Sinhala come from `@fontsource/noto-sans-<script>`
+  static WOFF files; the four CJK families are whole variable TTFs fetched by the vendor script
+  from `github.com/google/fonts` at a pinned commit (the Fontsource CJK packages are split into
+  unicode-range slices the PDF renderer cannot use). CJK renders in the regular weight only.
+- **Rendering:** a `<RunText>` helper splits every document string into script runs and nests
+  `<Text style={{ fontFamily }}>` per run, so mixed Latin/Devanagari lines render; react-pdf's
+  text engine does the OpenType shaping (fontkit) and bidi. RTL document locales set the
+  paragraph direction and right-align the table text columns.
+- Preview: `document-fonts.css` gains the same Noto faces so the HTML twin matches.
+- Tests: unit script detection and run splitting; render tests for Hindi, Arabic (RTL), Chinese
+  and mixed strings assert the PDF text layer round-trips through `pdf-parse`; snapshot of the
+  `documents` namespace keys per locale.
+
+## 9d. Sub-project J — DOCX output
+
+Added to scope. Depends on C (templates) and I (document language).
+
+- `docx` (MIT) builds a Word document from the same `DocumentViewModel` and template config:
+  paper and margins, heading/body font family names (Word substitutes when missing), accent and
+  text colours, header band colour (images are placed as pictures), logo, parties, items table,
+  totals, notes, terms, payment details, QR image, page numbers. The label sources (locale
+  catalogue, template overrides) apply exactly as in the PDF.
+- Stored as `Document` rows with `format = DOCX`, versioned and hashed like PDFs (DOCX output is
+  not byte-stable across runs, so the "adopt identical blob" rule does not apply to it); listed
+  on the verify page.
+- Entry points: "Download DOCX" on the invoice and credit-note pages, `GET /api/v1/…/{id}/docx`
+  (`documents:read`), the documents ZIP export gains `formats=pdf,docx`, and e-mail attachments
+  can pick DOCX.
+- Not encrypted and never used for e-invoicing or sharing.
+- Tests: unit (the generated package's `word/document.xml` contains the number, every line
+  description, the totals and the localised labels), integration (version rows and hashes),
+  e2e download.
+
+## 9e. Sub-project K — E-invoicing
+
+Added to scope. Depends on C (products/HSN), H (settings role) and I (locale). Three outputs
+share one `src/lib/einvoice/` module built from the issued invoice's snapshot (never from live
+rows), plus connectors.
+
+- **India (GST e-invoice, INV-01 schema v1.1):** `toGstEInvoice(invoice)` builds the JSON
+  (`Version`, `TranDtls`, `DocDtls`, `SellerDtls`, `BuyerDtls`, `ItemList`, `ValDtls`, optional
+  `ExpDtls` for exports under LUT) with a Zod schema mirroring the IRP's rules (GSTIN and PAN
+  patterns, 6-digit PIN, HSN 4–8 digits, state codes, totals reconciliation). "Download
+  e-invoice JSON" works for every issued invoice whose issuer has a GSTIN. **IRN registration**
+  goes through an `IrpConnector` interface: `manual` (the owner pastes or uploads the IRP's
+  response: `Irn`, `AckNo`, `AckDt`, `SignedQRCode`, `SignedInvoice`) and `nic` (the NIC IRP
+  REST API, sandbox and production base URLs, GSP credentials encrypted at rest; auth, generate,
+  cancel). The NIC connector is implemented against the published protocol and tested with
+  recorded fixtures only; it is marked *unverified against a live sandbox* until the owner
+  supplies sandbox credentials. On success the invoice stores `einvoice.{irn, ackNo, ackDate,
+  signedQr, status}`; the PDF prints "IRN", the Ack no/date and the **signed QR** (decoded from
+  the `SignedQRCode` JWT payload) in place of the okinvo QR; cancellation within 24 h records the
+  reason and prints "Cancelled". Status pill on the invoice page; the register gets an
+  "e-invoice" filter.
+- **EU (Factur-X / ZUGFeRD 2.3, profile EN 16931):** `toCii(invoice)` builds the CII XML
+  (`rsm:CrossIndustryInvoice`) with `xmlbuilder2`, deterministic ordering; `toFacturX(pdf, xml)`
+  turns the canonical PDF into a **PDF/A-3b** file with `pdf-lib`: embeds `factur-x.xml`
+  (`AFRelationship /Alternative`, MIME `text/xml`), writes the XMP packet (`pdfaid:part 3`,
+  `pdfaid:conformance B`, the Factur-X schema extension with `fx:ConformanceLevel EN 16931`),
+  adds an sRGB OutputIntent (ICC profile vendored under `src/lib/einvoice/icc/`), sets the
+  document ID and metadata. Stored as a `Document` with `format = PDF_A3` (enum extended),
+  versioned and hashed. Validation: an integration test runs veraPDF (`verapdf/cli` container,
+  PDF/A-3b profile) and skips when Docker is absent; CI runs it.
+- **UBL 2.1 (Peppol BIS Billing 3.0):** `toUbl(invoice)` for every invoice (download only; no
+  access-point integration). Tax category codes (S, Z, E, AE, K, G, O) are derived from the
+  regime, rate, exempt flag and reverse charge; unit codes map UN/ECE Rec 20 (HOUR→HUR,
+  DAY→DAY, FIXED/UNIT/MILESTONE→C62); payment means from the invoice's payment-method snapshot
+  (IBAN/BIC, UPI as a text instruction).
+- **Data additions:** `Client.buyerReference`, `Client.electronicAddress` + `scheme` (Peppol
+  EAS), `Client.preferredLocale` (from I); `IssuerProfile.electronicAddress` + `scheme`;
+  `Invoice.einvoice Json?` (Zod `EInvoiceStateSchema`). Settings → **E-invoicing** (OWNER):
+  per-profile enablement, EU identifiers, India connector selection and credentials.
+- Credit notes: CII/UBL credit-note variants (`TypeCode 381`) and the GST e-invoice `CRN`
+  document type use the same builders.
+- Tests: golden fixtures for the GST JSON, CII and UBL of the standard test invoice (compared
+  after canonicalisation), schema rejection cases (bad GSTIN, missing PIN, HSN length), signed-QR
+  decoding from a fixture JWT, Factur-X structure (attachment, XMP, OutputIntent) + veraPDF, NIC
+  connector request/response round-trip with recorded fixtures, manual connector happy path.
+
+## 10. Decisions (defaults confirmed by the owner on 2026-10-02)
 
 1. **Translation scope.** Default: all 115 languages selectable; `en-US`/`en-GB` hand-written,
    113 machine-generated and labelled as such (≈ 800 strings × 113 ≈ 90 000 strings; roughly
@@ -655,5 +788,5 @@ Not scheduled; listed so the owner can pick the next branch.
 
 ## 13. Non-goals in this branch
 
-Translated PDFs; non-Latin document fonts; publishing the SDK to npm; e-mail change flow;
-multi-user roles; payment integrations; e-invoicing; DOCX output; a hosted okinvo service.
+Publishing the SDK to npm; the e-mail change flow; payment integrations; a hosted okinvo service;
+Peppol access-point delivery; live NIC sandbox verification until the owner supplies credentials.
