@@ -81,7 +81,7 @@ async function main() {
       contactPerson: "Jonas Weber",
       email: "ap@contoso.example",
       billingAddress: {
-        line1: "Friedrichstraße 100",
+        line1: "Friedrichstrasse 100",
         city: "Berlin",
         postalCode: "10117",
         countryCode: "DE",

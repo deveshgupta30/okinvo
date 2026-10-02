@@ -63,7 +63,7 @@ describe("DEFAULT_TEMPLATE_CONFIG", () => {
         showRounding: true,
         amountInWords: "below-total",
       },
-      text: { draftWatermark: "DRAFT — not a tax invoice" },
+      text: { draftWatermark: "DRAFT - not a tax invoice" },
       qr: { position: "footer" },
       pageNumbers: true,
     });
@@ -223,7 +223,7 @@ describe("mergeTemplateConfig", () => {
       text: { footer: "Thanks" },
     });
     expect(merged.labels).toEqual({ billTo: "Invoice to" });
-    expect(merged.text).toEqual({ draftWatermark: "DRAFT — not a tax invoice", footer: "Thanks" });
+    expect(merged.text).toEqual({ draftWatermark: "DRAFT - not a tax invoice", footer: "Thanks" });
   });
 
   it("does not mutate the defaults", () => {

@@ -383,6 +383,16 @@ Machine endpoints: `/api/auth/*`, `/api/uploads`, `/api/assets/[...key]` (authen
 
 ---
 
+### 6.6 Input charset
+
+Every text field accepts only the characters on a standard keyboard:
+
+```
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()_-+=}]{["':;?/>.<,
+```
+
+plus space, tab and newline. Backslash and the pipe are not on the list. The shared text inputs drop anything else as it is typed or pasted, and every server boundary (server actions through `parseForm`/`parseObject`, route handlers, the sign-up display name) rejects a value containing any other character with the message "Only standard keyboard characters are allowed." — before a schema or the database sees it. Passwords and other credentials are exempt: they are hashed or encrypted and never rendered. Nothing typed into the app is ever interpreted: every database access goes through Prisma's parameterised queries (the only raw statement is the health check's constant `SELECT 1`), nothing shells out, and exported cells still pass the formula-injection guard.
+
 ## 7. Release phases
 
 | Phase | Scope |
