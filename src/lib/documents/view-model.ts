@@ -121,6 +121,8 @@ export interface DocumentViewModel {
   locale: string;
   labels: Record<LabelKey, string>;
   issuer: IssuerSnapshot & { logoUrl?: string; signatureUrl?: string; stampUrl?: string };
+  /** The template's header image (spec §5.4), when the header style is `image`. */
+  headerImageUrl?: string;
   client: ClientSnapshot;
   placeOfSupply?: string;
   supplyStatement?: string;
@@ -336,5 +338,7 @@ export function buildDocumentViewModel(input: RenderInput, o: ViewModelOptions):
   }
   if (o.config.text.headerNote?.trim()) vm.headerNote = o.config.text.headerNote.trim();
   if (o.config.text.footer?.trim()) vm.footer = o.config.text.footer.trim();
+  if (o.config.header.style === "image" && o.config.header.imageAssetId)
+    vm.headerImageUrl = o.assetUrl(o.config.header.imageAssetId);
   return vm;
 }

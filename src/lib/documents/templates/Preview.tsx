@@ -48,6 +48,17 @@ export function DocumentPreview({
       QR
     </div>
   ) : null;
+  const inBand = s.headerStyle !== "none";
+  const bandText = s.headerText === "light" ? "#ffffff" : s.text;
+  const logo =
+    vm.issuer.logoUrl && vm.showLogo ? (
+      // eslint-disable-next-line @next/next/no-img-element -- session-gated asset route
+      <img
+        src={vm.issuer.logoUrl}
+        alt=""
+        style={{ height: px(s.logoHeight), maxWidth: px(160), objectFit: "contain" }}
+      />
+    ) : null;
   const words = vm.totals.amountInWords ? (
     <div style={{ marginTop: px(8), ...base(s.base - 0.5) }}>
       <span style={muted}>{vm.labels.amountInWords}: </span>
@@ -70,6 +81,7 @@ export function DocumentPreview({
         width: px(s.paper.width),
         minHeight: px(s.paper.height),
         padding: px(s.margin),
+        paddingTop: px(inBand ? s.headerHeight + 14 : s.margin),
         paddingBottom: px(s.margin + 18),
         boxSizing: "border-box",
       }}
@@ -95,6 +107,77 @@ export function DocumentPreview({
         </div>
       ) : null}
 
+      {s.headerStyle === "band" ? (
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: px(s.headerHeight),
+            background: s.headerColor,
+          }}
+        />
+      ) : null}
+      {s.headerStyle === "image" && vm.headerImageUrl ? (
+        // eslint-disable-next-line @next/next/no-img-element -- session-gated asset route
+        <img
+          data-header-image
+          src={vm.headerImageUrl}
+          alt=""
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: px(s.headerHeight),
+            objectFit: "cover",
+            opacity: s.headerImageOpacity,
+          }}
+        />
+      ) : null}
+      {inBand ? (
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: px(s.margin),
+            right: px(s.margin),
+            height: px(s.headerHeight),
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            color: bandText,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: s.logoAlign === "right" ? "row-reverse" : "row",
+              gap: px(12),
+              alignItems: "center",
+            }}
+          >
+            {logo}
+            <div>
+              <div style={{ ...heading, ...base(s.base + 5) }}>{vm.issuer.legalName}</div>
+              {vm.issuer.tradeName ? (
+                <div style={{ opacity: 0.8 }}>{vm.issuer.tradeName}</div>
+              ) : null}
+            </div>
+          </div>
+          <div style={{ textAlign: "right" }}>
+            <div style={{ ...heading, fontSize: px(s.base * 2), letterSpacing: "-0.3px" }}>
+              {vm.title}
+            </div>
+            {vm.number ? (
+              <div style={{ ...heading, ...base(s.base + 2), marginTop: px(2) }}>{vm.number}</div>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
+
       <header
         style={{
           display: "flex",
@@ -112,17 +195,12 @@ export function DocumentPreview({
             justifyContent: s.logoAlign === "center" ? "center" : "flex-start",
           }}
         >
-          {vm.issuer.logoUrl && vm.showLogo ? (
-            // eslint-disable-next-line @next/next/no-img-element -- session-gated asset route
-            <img
-              src={vm.issuer.logoUrl}
-              alt=""
-              style={{ height: px(s.logoHeight), maxWidth: px(160), objectFit: "contain" }}
-            />
-          ) : null}
+          {inBand ? null : logo}
           <div>
-            <div style={{ ...heading, ...base(s.base + 3) }}>{vm.issuer.legalName}</div>
-            {vm.issuer.tradeName ? <div style={muted}>{vm.issuer.tradeName}</div> : null}
+            {inBand ? null : (
+              <div style={{ ...heading, ...base(s.base + 3) }}>{vm.issuer.legalName}</div>
+            )}
+            {vm.issuer.tradeName && !inBand ? <div style={muted}>{vm.issuer.tradeName}</div> : null}
             {vm.issuer.addressLines.map((l, i) => (
               <div key={i} style={muted}>
                 {l}
@@ -144,17 +222,19 @@ export function DocumentPreview({
           </div>
         </div>
         <div style={{ textAlign: "right" }}>
-          <div
-            style={{
-              ...heading,
-              fontSize: px(s.base * 2),
-              letterSpacing: "-0.3px",
-              color: s.variant === "ledger" ? s.accent : s.text,
-            }}
-          >
-            {vm.title}
-          </div>
-          {vm.number ? (
+          {inBand ? null : (
+            <div
+              style={{
+                ...heading,
+                fontSize: px(s.base * 2),
+                letterSpacing: "-0.3px",
+                color: s.variant === "ledger" ? s.accent : s.text,
+              }}
+            >
+              {vm.title}
+            </div>
+          )}
+          {vm.number && !inBand ? (
             <div style={{ ...heading, ...base(s.base + 2), marginTop: px(2) }}>{vm.number}</div>
           ) : null}
           {vm.replaces ? <div style={muted}>{vm.replaces}</div> : null}
@@ -199,7 +279,14 @@ export function DocumentPreview({
         }}
       />
 
-      <section style={{ display: "flex", gap: px(24), marginBottom: px(14) }}>
+      <section
+        style={{
+          display: "flex",
+          gap: px(24),
+          marginBottom: px(14),
+          ...(s.tinted ? { background: s.tint, padding: px(8), borderRadius: px(3) } : {}),
+        }}
+      >
         <div style={{ flex: 1 }}>
           <div
             style={{
@@ -300,8 +387,9 @@ export function DocumentPreview({
           <thead>
             <tr
               style={{
-                background: s.tableBorders ? "#f3f4f6" : "transparent",
+                background: s.tinted ? s.tint : s.tableBorders ? "#f3f4f6" : "transparent",
                 ...muted,
+                ...(s.tinted ? { color: s.accent } : {}),
                 ...base(s.base - 1),
                 fontWeight: 500,
                 borderBottom: `1px solid ${s.tableBorders ? s.hairline : s.accentRule ? s.accent : s.hairline}`,
@@ -375,6 +463,7 @@ export function DocumentPreview({
             width: "46%",
             border: s.boxedTotals ? `1px solid ${s.hairline}` : "none",
             padding: s.boxedTotals ? px(6) : 0,
+            ...(s.tinted ? { background: s.tint, padding: px(8), borderRadius: px(3) } : {}),
           }}
         >
           {vm.totals.rows.map((r) => (
@@ -386,7 +475,7 @@ export function DocumentPreview({
                 padding: `${px(2)} 0`,
                 ...(r.emphasis
                   ? {
-                      borderTop: `1px solid ${s.accentRule ? s.accent : s.text}`,
+                      borderTop: `1px solid ${s.accentRule ? s.accent : s.minimal ? s.hairline : s.text}`,
                       marginTop: px(3),
                       paddingTop: px(4),
                       fontWeight: 600,

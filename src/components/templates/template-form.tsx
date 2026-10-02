@@ -10,6 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
+import { AssetPicker } from "@/components/forms/asset-picker";
 import { Textarea } from "@/components/ui/textarea";
 import { DocumentPreview, PAPER, sampleViewModel } from "@/lib/documents";
 import { FONT_CATALOG } from "@/lib/documents/fonts/catalog";
@@ -70,6 +71,18 @@ const TEMPLATE_INFO: Record<TemplateId, { name: string; character: string }> = {
     name: "Compact",
     character: "Dense layout for long item lists; smaller type, fewer separators.",
   },
+  minimal: {
+    name: "Minimal",
+    character: "Quiet and spacious: no rules or boxes, light labels, plenty of air.",
+  },
+  letterhead: {
+    name: "Letterhead",
+    character: "Your logo and name on a colour band or image across the top of every page.",
+  },
+  modern: {
+    name: "Modern",
+    character: "Colour band header; parties, table header and totals on a pale accent tint.",
+  },
 };
 
 export function TemplateForm({
@@ -108,7 +121,7 @@ export function TemplateForm({
             <div>
               <CardTitle>Template</CardTitle>
               <CardDescription>
-                Three built-ins; the customisation below applies to whichever you pick.
+                Six built-ins; the customisation below applies to whichever you pick.
               </CardDescription>
             </div>
           </CardHeader>
@@ -356,6 +369,118 @@ export function TemplateForm({
                 onChange={(e) => set("pageNumbers", e.target.checked)}
               />
             </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <div>
+              <CardTitle>Header</CardTitle>
+              <CardDescription>
+                A colour band or an image across the top of every page. Letterhead and Modern show a
+                band unless you choose otherwise.
+              </CardDescription>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <FieldGroup>
+              <Field label="Header style" htmlFor="headerStyle">
+                <Select
+                  id="headerStyle"
+                  value={config.header.style}
+                  onChange={(e) =>
+                    set("header", {
+                      ...config.header,
+                      style: e.target.value as TemplateConfig["header"]["style"],
+                    })
+                  }
+                >
+                  <option value="none">None</option>
+                  <option value="band">Colour band</option>
+                  <option value="image">Image</option>
+                </Select>
+              </Field>
+              <Field label="Band colour" htmlFor="headerColor">
+                <div className="flex gap-2">
+                  <input
+                    id="headerColor"
+                    type="color"
+                    value={config.header.color}
+                    onChange={(e) => set("header", { ...config.header, color: e.target.value })}
+                    className="h-8 w-12 rounded-md border border-input bg-surface-1"
+                  />
+                  <Input
+                    value={config.header.color}
+                    className="font-mono"
+                    aria-label="Band colour (hex)"
+                    onChange={(e) => set("header", { ...config.header, color: e.target.value })}
+                  />
+                </div>
+              </Field>
+              <AssetPicker
+                name="headerImageAssetId"
+                kind="LETTERHEAD"
+                label="Header image"
+                assetId={config.header.imageAssetId ?? null}
+                hint="PNG, JPEG or WebP up to 2400 px wide; it spans the page width."
+                onChange={(assetId) =>
+                  set(
+                    "header",
+                    (() => {
+                      const { imageAssetId: _drop, ...rest } = config.header;
+                      return assetId ? { ...rest, imageAssetId: assetId, style: "image" } : rest;
+                    })(),
+                  )
+                }
+              />
+              <Field label="Image opacity" htmlFor="headerOpacity">
+                <div className="flex items-center gap-3">
+                  <input
+                    id="headerOpacity"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.05"
+                    value={config.header.imageOpacity}
+                    onChange={(e) =>
+                      set("header", { ...config.header, imageOpacity: Number(e.target.value) })
+                    }
+                    className="w-full accent-primary"
+                  />
+                  <span className="app-mono w-10 text-right text-app-caption text-ink-subtle">
+                    {Math.round(config.header.imageOpacity * 100)}%
+                  </span>
+                </div>
+              </Field>
+              <Field label="Header height (mm)" htmlFor="headerHeight">
+                <Input
+                  id="headerHeight"
+                  type="number"
+                  min="20"
+                  max="60"
+                  value={config.header.heightMm}
+                  onChange={(e) =>
+                    set("header", { ...config.header, heightMm: Number(e.target.value) || 32 })
+                  }
+                />
+              </Field>
+              <Field label="Text on the band" htmlFor="headerText">
+                <Select
+                  id="headerText"
+                  value={config.header.text}
+                  onChange={(e) =>
+                    set("header", {
+                      ...config.header,
+                      text: e.target.value as TemplateConfig["header"]["text"],
+                    })
+                  }
+                >
+                  <option value="auto">Automatic (from the band colour)</option>
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                </Select>
+              </Field>
+            </FieldGroup>
           </CardContent>
         </Card>
 

@@ -1,6 +1,6 @@
 import { fileTypeFromBuffer } from "file-type";
 
-export type UploadKind = "LOGO" | "SIGNATURE" | "STAMP" | "RECEIPT" | "AVATAR";
+export type UploadKind = "LOGO" | "SIGNATURE" | "STAMP" | "RECEIPT" | "AVATAR" | "LETTERHEAD";
 export type UploadContentType = "image/png" | "image/jpeg" | "image/webp" | "application/pdf";
 export type UploadErrorCode = "TOO_LARGE" | "UNSUPPORTED_TYPE";
 

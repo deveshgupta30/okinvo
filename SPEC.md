@@ -301,19 +301,23 @@ Append-only. Every create/update/archive of clients, services, profiles and paym
 
 ### 4.17 Document templates
 
-**The choice lives in Settings → Templates, never on the invoice form.** Three built-in templates ship in v1:
+**The choice lives in Settings → Templates, never on the invoice form.** Six built-in templates ship (three from v1, three added in v1.1):
 
 | Template | Character |
 |---|---|
 | `ledger` | Modern and airy, Linear-like; sans-serif; accent rule under the header |
 | `classic` | Traditional bordered table, serif headings, boxed totals |
 | `compact` | Dense layout for long item lists; smaller type, fewer separators |
+| `minimal` | Quiet and spacious; no rules or boxes, light labels, plenty of air |
+| `letterhead` | Logo and name on a full-width colour band or image at the top of every page |
+| `modern` | Colour band header; parties, table header and totals on a pale accent tint |
 
 **Customisation** (the "template config"), edited with a live preview on sample data and applied to invoices and credit notes alike:
 - Paper size (A4 / Letter) and margins preset (normal / narrow).
 - Accent colour, text colour, table style (ruled / zebra / plain).
 - Heading font and body font, each from a fixed catalogue of 100 Google families (50 sans, 50 serif) vendored into the app; v1 configs that stored a single pairing string are read as the equivalent pair.
 - Logo position (left / right / centre) and height.
+- Header: none, a colour band, or an uploaded image (PNG/JPEG/WebP, stored as PNG no wider than 2400 px) with an opacity (0–1) and height (20–60 mm); the band or image repeats on every page and carries the logo, name, title and number. Text on the band is light or dark automatically from the band colour (images default to dark) or as chosen. `letterhead` and `modern` show a band when the style is "none".
 - Document title (`TAX INVOICE`, `INVOICE`, `BILL OF SUPPLY`, or custom text) with a GST-appropriate automatic default.
 - Label overrides for the fixed strings (e.g. "Bill to", "Amount due", "Payment details"), length-limited.
 - Which totals rows print (subtotal, discount, per-tax-line, TDS expected, rounding) and where "amount in words" sits (below totals / footer / hidden).
