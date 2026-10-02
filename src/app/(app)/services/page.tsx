@@ -67,7 +67,7 @@ export default async function ServicesPage({
           }
         />
       ) : (
-        <Table>
+        <Table cards>
           <THead>
             <TR>
               <TH>Name</TH>
@@ -83,18 +83,26 @@ export default async function ServicesPage({
           <TBody>
             {services.map((s) => (
               <TR key={s.id}>
-                <TD className="font-medium">{s.name}</TD>
-                <TD>{UNIT_LABELS[s.unitType]}</TD>
-                <TD numeric>
+                <TD label="Name" className="font-medium">
+                  {s.name}
+                </TD>
+                <TD label="Unit">{UNIT_LABELS[s.unitType]}</TD>
+                <TD label="Rate" numeric>
                   <Amount>{formatAmount(s.defaultRate, s.currency, locale)}</Amount>
                 </TD>
-                <TD mono>{s.currency}</TD>
-                <TD mono>{s.sacHsnCode ?? "—"}</TD>
-                <TD numeric>{s.defaultTaxRate}%</TD>
-                <TD>
+                <TD label="Currency" mono>
+                  {s.currency}
+                </TD>
+                <TD label="SAC / HSN" mono>
+                  {s.sacHsnCode ?? "—"}
+                </TD>
+                <TD label="Tax" numeric>
+                  {s.defaultTaxRate}%
+                </TD>
+                <TD label="Status">
                   <ActivePill active={s.isActive} archived={Boolean(s.archivedAt)} />
                 </TD>
-                <TD className="text-right whitespace-nowrap">
+                <TD label="" className="text-right whitespace-nowrap">
                   <div className="flex justify-end gap-1">
                     <Button asChild variant="tertiary" size="sm">
                       <Link href={`/services/${s.id}/edit`}>Edit</Link>

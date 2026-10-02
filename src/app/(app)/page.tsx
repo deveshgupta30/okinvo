@@ -130,7 +130,7 @@ export default async function DashboardPage() {
                 {d.recent.length === 0 ? (
                   <p className="text-app-body text-ink-subtle">No invoices yet.</p>
                 ) : (
-                  <Table>
+                  <Table cards>
                     <THead>
                       <TR>
                         <TH>Number</TH>
@@ -143,17 +143,19 @@ export default async function DashboardPage() {
                     <TBody>
                       {d.recent.map((r) => (
                         <TR key={r.id}>
-                          <TD mono>
+                          <TD label="Number" mono>
                             <Link href={`/invoices/${r.id}`} className="hover:underline">
                               {r.number ?? <span className="text-ink-subtle">Draft</span>}
                             </Link>
                           </TD>
-                          <TD>{r.clientName}</TD>
-                          <TD mono>{formatDate(r.issueDate, r.locale)}</TD>
-                          <TD numeric>
+                          <TD label="Client">{r.clientName}</TD>
+                          <TD label="Issued" mono>
+                            {formatDate(r.issueDate, r.locale)}
+                          </TD>
+                          <TD label="Total" numeric>
                             <Amount>{formatMoney(r.total, r.currency, r.locale)}</Amount>
                           </TD>
-                          <TD>
+                          <TD label="Status">
                             <StatusPill status={r.displayStatus} />
                           </TD>
                         </TR>

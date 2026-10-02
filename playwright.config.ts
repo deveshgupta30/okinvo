@@ -16,7 +16,15 @@ export default defineConfig({
   // Dev compiles each route on first hit, so post-navigation assertions need headroom.
   expect: { timeout: 30_000 },
   use: { baseURL: origin, trace: "retain-on-failure" },
-  projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
+  projects: [
+    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+    // Phone layout: the specs that assert the shell, the smoke checks and the mobile pass.
+    {
+      name: "mobile",
+      use: { ...devices["Pixel 7"] },
+      testMatch: /(smoke|shell|mobile|onboarding)\.spec\.ts$/,
+    },
+  ],
   webServer: {
     command: process.env.CI ? "pnpm build && pnpm start" : "pnpm dev",
     url: `${origin}/api/health/live`,

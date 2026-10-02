@@ -5,7 +5,15 @@ test.setTimeout(300_000);
 
 const EMAIL = "smoke@example.com";
 
-test("sidebar collapses to a rail, persists across reload, and expands again", async ({ page }) => {
+// The sidebar only exists from md up; the phone project covers the drawer instead.
+const desktopOnly = (isMobile: boolean | undefined) =>
+  test.skip(!!isMobile, "desktop sidebar only");
+
+test("sidebar collapses to a rail, persists across reload, and expands again", async ({
+  page,
+  isMobile,
+}) => {
+  desktopOnly(isMobile);
   await signInAs(page, EMAIL, "Smoke Owner");
   const aside = page.locator("aside[data-sidebar]");
   await expect(aside).toHaveAttribute("data-sidebar", "expanded");
@@ -38,7 +46,9 @@ test("sidebar collapses to a rail, persists across reload, and expands again", a
 
 test("footer order: theme toggle, Settings, user menu with Profile and Log out", async ({
   page,
+  isMobile,
 }) => {
+  desktopOnly(isMobile);
   await signInAs(page, EMAIL, "Smoke Owner");
   const aside = page.locator("aside[data-sidebar]");
   const theme = aside.getByRole("radiogroup", { name: "Theme" });
@@ -94,7 +104,9 @@ test("mobile: the top bar's menu opens a drawer that navigates and closes", asyn
 
 test("dashboard greets by first name; Appearance switches the accent and it persists", async ({
   page,
+  isMobile,
 }) => {
+  desktopOnly(isMobile);
   await signInAs(page, EMAIL, "Smoke Owner");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(/^Hi, \S+/);
 

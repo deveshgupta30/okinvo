@@ -168,7 +168,7 @@ export default async function InvoicesPage({
         />
       ) : (
         <>
-          <Table>
+          <Table cards>
             <THead>
               <TR>
                 <TH>Number</TH>
@@ -187,26 +187,32 @@ export default async function InvoicesPage({
               ) : (
                 slice.map((r) => (
                   <TR key={r.id}>
-                    <TD mono>
+                    <TD label="Number" mono>
                       <Link href={`/invoices/${r.id}`} className="hover:underline">
                         {r.number ?? <span className="text-ink-subtle">Draft</span>}
                       </Link>
                     </TD>
-                    <TD>{r.clientName}</TD>
-                    <TD className="text-ink-subtle">{r.issuerLabel}</TD>
-                    <TD mono>{formatDate(r.issueDate, r.locale)}</TD>
-                    <TD mono>{formatDate(r.dueDate, r.locale)}</TD>
-                    <TD numeric>
+                    <TD label="Client">{r.clientName}</TD>
+                    <TD label="Issuer" className="text-ink-subtle">
+                      {r.issuerLabel}
+                    </TD>
+                    <TD label="Issue date" mono>
+                      {formatDate(r.issueDate, r.locale)}
+                    </TD>
+                    <TD label="Due" mono>
+                      {formatDate(r.dueDate, r.locale)}
+                    </TD>
+                    <TD label="Total" numeric>
                       <Amount>{formatMoney(r.total, r.currency, r.locale)}</Amount>
                     </TD>
-                    <TD numeric>
+                    <TD label="Balance" numeric>
                       <Amount>
                         {r.status === "ISSUED"
                           ? formatMoney(r.balanceDue, r.currency, r.locale)
                           : "—"}
                       </Amount>
                     </TD>
-                    <TD>
+                    <TD label="Status">
                       <StatusPill status={r.displayStatus} />
                     </TD>
                   </TR>

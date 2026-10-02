@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { shellVisible } from "./helpers";
 
 const bodyBackground = (page: Page) =>
   page.evaluate(() => getComputedStyle(document.body).backgroundColor);
@@ -99,7 +100,6 @@ test("anonymous visitors are sent to sign-in; the shell shows the primary naviga
   const email = "smoke@example.com";
   const password = "correct horse battery staple";
   const form = page.getByTestId("password-sign-in");
-  const nav = page.getByRole("navigation", { name: "Primary" });
   // The dashboard compiles on first hit in dev, and a click before hydration reloads the page:
   // give each attempt time to land, and the whole sign-in a generous budget.
   test.setTimeout(180_000);
@@ -108,9 +108,13 @@ test("anonymous visitors are sent to sign-in; the shell shows the primary naviga
     await form.getByLabel("Password").fill(password);
     await form.getByRole("button", { name: "Sign in" }).click();
     // Either the shell appears (signed in) or the form reports "Invalid email or password".
-    await expect(nav.or(form.getByRole("alert")).first()).toBeVisible({ timeout: 30_000 });
+    await expect
+      .poll(async () => (await shellVisible(page)) || (await form.getByRole("alert").isVisible()), {
+        timeout: 30_000,
+      })
+      .toBe(true);
   }).toPass({ timeout: 120_000 });
-  if (!(await nav.isVisible())) {
+  if (!(await shellVisible(page))) {
     await form.getByRole("button", { name: /First time here/ }).click();
     await form.getByLabel("Name").fill("Smoke Owner");
     await form.getByLabel("Email").fill(email);
@@ -118,6 +122,9 @@ test("anonymous visitors are sent to sign-in; the shell shows the primary naviga
     await form.getByRole("button", { name: "Create account" }).click();
   }
 
+  // Desktop: the sidebar; phones: the same navigation inside the drawer.
+  const nav = page.getByRole("navigation", { name: "Primary" });
+  if (!(await nav.isVisible())) await page.getByRole("button", { name: "Open menu" }).click();
   await expect(nav.getByRole("link", { name: "Invoices" })).toBeVisible();
   await expect(nav.getByRole("link", { name: "Dashboard" })).toHaveAttribute(
     "aria-current",
