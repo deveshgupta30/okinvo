@@ -85,7 +85,7 @@ export async function updateAccount(actor: Actor, input: AccountInput): Promise<
       data: {
         name: input.name,
         timezone: input.timezone,
-        theme: input.theme,
+        ...(input.theme !== undefined ? { theme: input.theme } : {}),
         ...(input.locale !== undefined ? { locale: input.locale } : {}),
         ...(input.countryCode !== undefined ? { countryCode: input.countryCode } : {}),
         ...(input.currency !== undefined ? { currency: input.currency } : {}),

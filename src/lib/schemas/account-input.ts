@@ -16,7 +16,7 @@ export type Usage = (typeof USAGES)[number];
 export const AccountInputSchema = z.object({
   name: z.string().trim().min(1, "required").max(120),
   timezone: z.string().refine(isValidTimeZone, { message: "unknown timezone" }),
-  theme: z.enum(THEME_MODES),
+  theme: z.enum(THEME_MODES).optional(),
   locale: z
     .string()
     .trim()

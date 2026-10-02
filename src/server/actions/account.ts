@@ -24,12 +24,14 @@ export async function saveAccount(_prev: ActionState, formData: FormData): Promi
     return failedWith(e, formData);
   }
   // Mirror the theme to the cookie so the next response renders it on the first byte.
-  (await cookies()).set(THEME_COOKIE, parsed.data.theme, {
-    path: "/",
-    maxAge: 60 * 60 * 24 * 365,
-    sameSite: "lax",
-    httpOnly: false, // the inline theme script reads it before hydration
-  });
+  if (parsed.data.theme !== undefined) {
+    (await cookies()).set(THEME_COOKIE, parsed.data.theme, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: "lax",
+      httpOnly: false, // the inline theme script reads it before hydration
+    });
+  }
   revalidatePath("/", "layout");
   redirect(withFlash(PAGE, { kind: "success", message: "Account preferences saved" }));
 }

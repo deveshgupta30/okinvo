@@ -8,16 +8,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
-import { THEME_MODES } from "@/lib/schemas/account-input";
-import type { ThemeMode } from "@/lib/theme";
 import { saveAccount } from "@/server/actions/account";
 import type { AccountDto } from "@/server/dal/users";
-
-const THEME_LABELS: Record<ThemeMode, string> = {
-  system: "Follow the system",
-  light: "Light",
-  dark: "Dark",
-};
 
 export function AccountForm({
   account,
@@ -74,29 +66,6 @@ export function AccountForm({
               </div>
             </Field>
           </FieldGroup>
-          <fieldset className="flex flex-col gap-2">
-            <legend className="mb-1 text-app-label text-ink-subtle">Theme</legend>
-            {THEME_MODES.map((mode) => (
-              <label
-                key={mode}
-                className="flex cursor-pointer items-center gap-2 text-app-body text-ink"
-              >
-                <input
-                  type="radio"
-                  name="theme"
-                  value={mode}
-                  defaultChecked={(state?.values?.theme ?? account.theme) === mode}
-                  className="size-4 accent-primary"
-                />
-                {THEME_LABELS[mode]}
-              </label>
-            ))}
-            {errors?.theme ? (
-              <p role="alert" className="text-app-caption text-semantic-danger">
-                {errors.theme.join(" ")}
-              </p>
-            ) : null}
-          </fieldset>
         </CardContent>
       </Card>
       <div>
