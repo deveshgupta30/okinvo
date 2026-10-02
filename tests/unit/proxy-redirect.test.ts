@@ -22,6 +22,7 @@ describe("shouldRedirectToSignIn", () => {
       "/apple-icon.png",
       "/manifest.webmanifest",
       "/icons/icon-192.png",
+      "/flags/in.svg",
     ]) {
       expect(shouldRedirectToSignIn(p, false)).toBe(false);
     }
