@@ -10,7 +10,7 @@ import { optionalUser, requireUser } from "@/server/auth";
 import { getAccount } from "@/server/dal/users";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
-  const { user } = await requireUser();
+  const { user } = await requireUser({ allowOnboarding: true });
   const [actor, cookieStore] = await Promise.all([optionalUser(), cookies()]);
   const account = actor ? await getAccount(actor) : null;
   const sidebar = parseSidebar(cookieStore.get(SIDEBAR_COOKIE)?.value);
@@ -20,6 +20,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       sidebar={sidebar}
       theme={parseThemeMode(account?.theme)}
       accent={parseAccent(account?.accent)}
+      minimal={account?.onboardedAt === null}
     >
       <TimezoneDetect current={user.timezone ?? null} />
       {children}

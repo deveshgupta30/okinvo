@@ -36,7 +36,7 @@ export default defineConfig({
       PORT: port,
       APP_URL: origin,
       AUTH_PASSWORD_SIGNIN: "true",
-      AUTH_ALLOWED_EMAILS: "e2e@example.com,smoke@example.com",
+      AUTH_ALLOWED_EMAILS: "e2e@example.com,smoke@example.com,e2e-onboard@example.com",
     },
   },
 });

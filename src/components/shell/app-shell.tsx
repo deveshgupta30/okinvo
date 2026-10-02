@@ -12,19 +12,22 @@ export function AppShell({
   sidebar,
   theme,
   accent,
+  minimal = false,
   children,
 }: {
   user: ShellUser;
   sidebar: SidebarState;
   theme: ThemeMode;
   accent: AccentId;
+  /** Before onboarding: no navigation, only the theme toggle and the user menu (log out). */
+  minimal?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <div className="flex min-h-dvh flex-col md:flex-row">
       <PreferenceSync theme={theme} accent={accent} />
-      <MobileTopbar user={user} theme={theme} />
-      <Sidebar user={user} initial={sidebar} theme={theme} accent={accent} />
+      <MobileTopbar user={user} theme={theme} minimal={minimal} />
+      <Sidebar user={user} initial={sidebar} theme={theme} accent={accent} minimal={minimal} />
       <div className="flex min-w-0 flex-1 flex-col">
         <main className="mx-auto w-full max-w-[1280px] p-4 md:p-6">{children}</main>
       </div>

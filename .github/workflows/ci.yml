@@ -115,7 +115,7 @@ jobs:
           CI: "true"
           E2E_PORT: "3100" # playwright.config.ts: the production server and baseURL use this port
           AUTH_PASSWORD_SIGNIN: "true"
-          AUTH_ALLOWED_EMAILS: e2e@example.com,smoke@example.com # password sign-up needs exact entries
+          AUTH_ALLOWED_EMAILS: e2e@example.com,smoke@example.com,e2e-onboard@example.com # password sign-up needs exact entries
       - uses: actions/upload-artifact@v7
         if: failure()
         with: { name: playwright-report, path: playwright-report }
