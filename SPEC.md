@@ -212,6 +212,11 @@ archived. The SKU prints under the line description when the display config's `s
 (default on). Exports: a `products` dataset and a `SKU` column on `invoice-items`; `data.json`
 includes `products`. A product referenced by an invoice line cannot be deleted, only archived.
 
+**Profile tags.** A service or product may be tagged to one or more issuer profiles. An item with
+no tags is offered to every profile; a tagged item only to the profiles it names. The builder's
+catalogue picker shows only items offered to the selected issuer and re-filters when the issuer
+changes. Tags never affect lines already on a document.
+
 ### 4.9 Credit notes
 
 - Issued **against one issued invoice**. Own gap-free sequence (`CN/{FY}/{SEQ:3}`). Same lifecycle as invoices (`DRAFT → ISSUED → VOID`), same immutability, own PDF and verification token.

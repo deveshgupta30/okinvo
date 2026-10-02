@@ -16,7 +16,41 @@ import { UNIT_LABELS, UNIT_TYPES } from "@/lib/schemas/service-input";
 import { saveProduct } from "@/server/actions/products";
 import type { ProductDto } from "@/server/dal/products";
 
-export function ProductForm({ product }: { product: ProductDto | null }) {
+/** Issuer profiles this item is offered to (spec §5.2). No tick = offered to every profile. */
+export function ProfileTags({
+  profiles,
+  selected,
+}: {
+  profiles: { id: string; label: string }[];
+  selected: readonly string[];
+}) {
+  if (profiles.length < 2) return null;
+  return (
+    <fieldset className="flex flex-col gap-2">
+      <legend className="mb-1 text-app-label text-ink-subtle">Profiles</legend>
+      <p className="text-app-caption text-ink-subtle">
+        Tick the issuer profiles that sell this. Leave all unticked to offer it to every profile.
+      </p>
+      {profiles.map((p) => (
+        <Checkbox
+          key={p.id}
+          name="issuerProfileIds"
+          value={p.id}
+          label={p.label}
+          defaultChecked={selected.includes(p.id)}
+        />
+      ))}
+    </fieldset>
+  );
+}
+
+export function ProductForm({
+  product,
+  profiles = [],
+}: {
+  product: ProductDto | null;
+  profiles?: { id: string; label: string }[] | undefined;
+}) {
   const [state, action] = useActionState(saveProduct.bind(null, product?.id ?? null), null);
   const values = state?.values;
   const errors = state?.fieldErrors;
@@ -123,6 +157,14 @@ export function ProductForm({ product }: { product: ProductDto | null }) {
               defaultValue={v("description", product?.description)}
             />
           </Field>
+          <ProfileTags
+            profiles={profiles}
+            selected={
+              values
+                ? (values.issuerProfileIds ?? "").split(",").filter(Boolean)
+                : (product?.issuerProfileIds ?? [])
+            }
+          />
           <Checkbox
             name="isActive"
             label="Active"

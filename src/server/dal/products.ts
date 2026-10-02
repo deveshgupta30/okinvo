@@ -10,7 +10,10 @@ import { diffForAudit } from "./audit-redact";
 import { requireWriter } from "./authz";
 import { ConflictError, InvariantError, NotFoundError } from "./errors";
 
-type Row = NonNullable<Awaited<ReturnType<typeof prisma.product.findUnique>>>;
+const TAGS = { issuerProfiles: { select: { id: true } } } as const;
+type Row = NonNullable<Awaited<ReturnType<typeof prisma.product.findUnique>>> & {
+  issuerProfiles: { id: string }[];
+};
 
 export interface ProductDto {
   id: string;
@@ -23,6 +26,7 @@ export interface ProductDto {
   hsnCode: string | null;
   defaultTaxRate: string;
   isActive: boolean;
+  issuerProfileIds: string[];
   archivedAt: string | null;
   createdAt: string;
   updatedAt: string;
@@ -40,6 +44,7 @@ function toDto(row: Row): ProductDto {
     hsnCode: row.hsnCode,
     defaultTaxRate: row.defaultTaxRate.toString(),
     isActive: row.isActive,
+    issuerProfileIds: row.issuerProfiles.map((p) => p.id),
     archivedAt: row.archivedAt?.toISOString() ?? null,
     createdAt: row.createdAt.toISOString(),
     updatedAt: row.updatedAt.toISOString(),
@@ -60,6 +65,12 @@ function toData(input: ProductInput) {
   };
 }
 
+/** Tag rows: `connect` on create, `set` on update (replaces the whole set). */
+function tags(input: { issuerProfileIds: string[] }, mode: "connect" | "set") {
+  const ids = input.issuerProfileIds.map((id) => ({ id }));
+  return mode === "connect" ? { connect: ids } : { set: ids };
+}
+
 function auditView(row: Row): Record<string, unknown> {
   return {
     sku: row.sku,
@@ -71,12 +82,13 @@ function auditView(row: Row): Record<string, unknown> {
     hsnCode: row.hsnCode,
     defaultTaxRate: row.defaultTaxRate.toString(),
     isActive: row.isActive,
+    issuerProfileIds: row.issuerProfiles.map((p) => p.id),
     archivedAt: row.archivedAt,
   };
 }
 
 async function load(tx: Tx, id: string): Promise<Row> {
-  const row = await tx.product.findUnique({ where: { id } });
+  const row = await tx.product.findUnique({ where: { id }, include: TAGS });
   if (!row) throw new NotFoundError("Product", id);
   return row;
 }
@@ -95,14 +107,23 @@ function mapUniqueSku<T>(p: Promise<T>): Promise<T> {
 
 export async function listProducts(
   _actor: Actor,
-  o: { includeArchived?: boolean; activeOnly?: boolean } = {},
+  o: { includeArchived?: boolean; activeOnly?: boolean; forIssuerProfileId?: string } = {},
 ): Promise<ProductDto[]> {
   const rows = await prisma.product.findMany({
     where: {
       ...(o.includeArchived ? { archivedAt: {} } : {}),
       ...(o.activeOnly ? { isActive: true } : {}),
+      ...(o.forIssuerProfileId
+        ? {
+            OR: [
+              { issuerProfiles: { none: {} } },
+              { issuerProfiles: { some: { id: o.forIssuerProfileId } } },
+            ],
+          }
+        : {}),
     },
     orderBy: { name: "asc" },
+    include: TAGS,
   });
   return rows.map(toDto);
 }
@@ -115,7 +136,10 @@ export async function createProduct(actor: Actor, input: ProductInput): Promise<
   requireWriter(actor);
   return mapUniqueSku(
     prisma.$transaction(async (tx) => {
-      const row = await tx.product.create({ data: toData(input) });
+      const row = await tx.product.create({
+        data: { ...toData(input), issuerProfiles: tags(input, "connect") },
+        include: TAGS,
+      });
       await audit(tx, actor, "product.created", "Product", row.id, {
         summary: `Created product ${row.sku} ${row.name}`,
         after: auditView(row),
@@ -134,7 +158,11 @@ export async function updateProduct(
   return mapUniqueSku(
     prisma.$transaction(async (tx) => {
       const before = await load(tx, id);
-      const row = await tx.product.update({ where: { id }, data: toData(input) });
+      const row = await tx.product.update({
+        where: { id },
+        data: { ...toData(input), issuerProfiles: tags(input, "set") },
+        include: TAGS,
+      });
       const diff = diffForAudit(auditView(before), auditView(row));
       await audit(tx, actor, "product.updated", "Product", id, {
         summary: `Updated product ${row.sku}`,
