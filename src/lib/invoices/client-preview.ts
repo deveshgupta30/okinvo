@@ -50,8 +50,32 @@ export interface BuilderValues {
   terms: string;
 }
 
+/**
+ * The issuer fields the builder and its live preview read. The builder is a client component, so
+ * this is what reaches the browser: decrypted identifiers (US tax id), e-mail templates, number
+ * formats and storage keys stay on the server.
+ */
+export type BuilderProfile = Omit<
+  ProfileDto,
+  | "usTaxId"
+  | "emailCc"
+  | "emailBcc"
+  | "emailInvoiceSubject"
+  | "emailInvoiceBody"
+  | "emailCreditNoteSubject"
+  | "emailCreditNoteBody"
+  | "templateConfigOverride"
+  | "invoiceNumberFormat"
+  | "creditNoteNumberFormat"
+  | "logoKey"
+  | "signatureKey"
+  | "stampKey"
+  | "createdAt"
+  | "updatedAt"
+> & { hasGstin: boolean };
+
 export interface PreviewContext {
-  profile: ProfileDto | null;
+  profile: BuilderProfile | null;
   client: ClientDto | null;
   methods: PaymentMethodDto[];
 }
