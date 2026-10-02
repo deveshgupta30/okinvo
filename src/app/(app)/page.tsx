@@ -12,6 +12,7 @@ import { formatDate, formatMoney } from "@/lib/format";
 import { firstNameOf } from "@/lib/names";
 import { cn } from "@/lib/utils";
 import { requireRole } from "@/server/auth";
+import { hasRole } from "@/server/dal/authz";
 import { dashboardData, type DashboardBucket } from "@/server/dal/dashboard";
 import { listProfiles } from "@/server/dal/profiles";
 
@@ -58,6 +59,7 @@ function bucketValue(b: DashboardBucket[], locale: string, fallback: string) {
 
 export default async function DashboardPage() {
   const actor = await requireRole("VIEWER");
+  const canEdit = hasRole(actor, "EDITOR");
   const [d, profiles] = await Promise.all([dashboardData(actor), listProfiles(actor)]);
   const count = (b: DashboardBucket[]) => b.reduce((n, x) => n + x.count, 0);
   return (
@@ -67,12 +69,16 @@ export default async function DashboardPage() {
         description={`Fiscal year ${d.fiscalYear}${d.profileLabel ? ` · base currency ${d.baseCurrency} (${d.profileLabel})` : ""}`}
         actions={
           <>
-            <Button asChild variant="secondary">
-              <Link href="/credit-notes/new">New credit note</Link>
-            </Button>
-            <Button asChild>
-              <Link href="/invoices/new">New invoice</Link>
-            </Button>
+            {canEdit ? (
+              <Button asChild variant="secondary">
+                <Link href="/credit-notes/new">New credit note</Link>
+              </Button>
+            ) : null}
+            {canEdit ? (
+              <Button asChild>
+                <Link href="/invoices/new">New invoice</Link>
+              </Button>
+            ) : null}
           </>
         }
       />

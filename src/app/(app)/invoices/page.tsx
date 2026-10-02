@@ -18,6 +18,7 @@ import { COMMON_CURRENCIES } from "@/lib/schemas";
 import { InvoiceFiltersSchema } from "@/lib/schemas/invoice-input";
 import { withFlash } from "@/lib/flash";
 import { requireRole } from "@/server/auth";
+import { hasRole } from "@/server/dal/authz";
 import { isDalError } from "@/server/dal/errors";
 import { listClients } from "@/server/dal/clients";
 import { INVOICE_PAGE_SIZE, invoiceFiscalYears, listInvoices } from "@/server/dal/invoices";
@@ -39,6 +40,7 @@ export default async function InvoicesPage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const actor = await requireRole("VIEWER");
+  const canEdit = hasRole(actor, "EDITOR");
   const params = await searchParams;
   const parsed = InvoiceFiltersSchema.safeParse(params);
   const filters = parsed.success ? parsed.data : { page: 1 };
@@ -73,9 +75,11 @@ export default async function InvoicesPage({
         actions={
           <>
             <ExportButton dataset="invoices" params={params} />
-            <Button asChild>
-              <Link href="/invoices/new">New invoice</Link>
-            </Button>
+            {canEdit ? (
+              <Button asChild>
+                <Link href="/invoices/new">New invoice</Link>
+              </Button>
+            ) : null}
           </>
         }
       />
@@ -161,9 +165,11 @@ export default async function InvoicesPage({
           title="No invoices yet"
           description="Build your first invoice: pick a client, add lines, watch the preview, then issue it."
           action={
-            <Button asChild variant="secondary">
-              <Link href="/invoices/new">New invoice</Link>
-            </Button>
+            canEdit ? (
+              <Button asChild variant="secondary">
+                <Link href="/invoices/new">New invoice</Link>
+              </Button>
+            ) : null
           }
         />
       ) : (

@@ -22,6 +22,7 @@ import {
   voidCreditNoteAction,
 } from "@/server/actions/credit-notes";
 import { requireRole } from "@/server/auth";
+import { hasRole } from "@/server/dal/authz";
 import { getCreditNote } from "@/server/dal/credit-notes";
 import { assetUrl, verificationQr } from "@/server/dal/documents";
 import { NotFoundError } from "@/server/dal/errors";
@@ -32,6 +33,7 @@ const PT_TO_PX = 96 / 72;
 
 export default async function CreditNotePage({ params }: { params: Promise<{ id: string }> }) {
   const actor = await requireRole("VIEWER");
+  const canEdit = hasRole(actor, "EDITOR");
   const { id } = await params;
   const cn = await getCreditNote(actor, id).catch((e: unknown) => {
     if (e instanceof NotFoundError) notFound();
@@ -84,7 +86,7 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
         }
         actions={
           <>
-            {isDraft ? (
+            {isDraft && canEdit ? (
               <>
                 <Button asChild variant="secondary">
                   <Link href={`/credit-notes/${id}/edit`}>Edit</Link>
@@ -130,7 +132,7 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
                     Download PDF
                   </a>
                 </Button>
-                {cn.status === "ISSUED" ? (
+                {cn.status === "ISSUED" && canEdit ? (
                   <>
                     <Button asChild variant="secondary">
                       <Link href={`/credit-notes/${id}/send`}>Send by email</Link>

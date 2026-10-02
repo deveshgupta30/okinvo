@@ -80,6 +80,19 @@ test("owner invites a viewer; the viewer is read-only and cannot open settings",
     await expect(viewer.page.getByText(/403|cannot do that/i).first()).toBeVisible();
     const res2 = await viewer.page.goto("/invoices/new");
     expect(res2?.status()).toBe(403);
+    // role-aware UI: no editing controls, no editor-only exports, only the personal settings tabs
+    await viewer.page.goto("/invoices");
+    await expect(viewer.page.getByRole("heading", { level: 1 })).toBeVisible();
+    await expect(viewer.page.getByRole("link", { name: "New invoice" })).toHaveCount(0);
+    await viewer.page.goto("/");
+    await expect(viewer.page.getByRole("link", { name: "New invoice" })).toHaveCount(0);
+    const payments = await viewer.page.request.get("/api/exports/payments?format=csv");
+    expect(payments.status()).toBe(403);
+    const invoicesCsv = await viewer.page.request.get("/api/exports/invoices?format=csv");
+    expect(invoicesCsv.status()).toBe(200);
+    await viewer.page.goto("/settings/account");
+    const tabs = viewer.page.getByRole("navigation", { name: "Settings" }).getByRole("link");
+    await expect(tabs).toHaveCount(2);
   } finally {
     await viewer.context.close();
   }

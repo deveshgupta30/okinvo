@@ -9,6 +9,7 @@ import { PageHeader } from "@/components/ui/page-header";
 import { Pill } from "@/components/ui/status-pill";
 import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/table";
 import { requireRole } from "@/server/auth";
+import { hasRole } from "@/server/dal/authz";
 import { listClients } from "@/server/dal/clients";
 
 export const metadata: Metadata = { title: "Clients" };
@@ -19,6 +20,7 @@ export default async function ClientsPage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const actor = await requireRole("VIEWER");
+  const canEdit = hasRole(actor, "EDITOR");
   const params = await searchParams;
   const q = typeof params.q === "string" ? params.q : "";
   const showArchived = params.archived === "1";
@@ -39,9 +41,11 @@ export default async function ClientsPage({
               </Link>
             </Button>
             <ExportButton dataset="clients" params={showArchived ? { archived: "1" } : {}} />
-            <Button asChild>
-              <Link href="/clients/new">New client</Link>
-            </Button>
+            {canEdit ? (
+              <Button asChild>
+                <Link href="/clients/new">New client</Link>
+              </Button>
+            ) : null}
           </>
         }
       />
@@ -58,9 +62,11 @@ export default async function ClientsPage({
           title="No clients yet"
           description="Add the people and companies you invoice; their currency and payment terms pre-fill each invoice."
           action={
-            <Button asChild variant="secondary">
-              <Link href="/clients/new">Add a client</Link>
-            </Button>
+            canEdit ? (
+              <Button asChild variant="secondary">
+                <Link href="/clients/new">Add a client</Link>
+              </Button>
+            ) : null
           }
         />
       ) : (

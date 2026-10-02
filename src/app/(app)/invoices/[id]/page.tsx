@@ -23,6 +23,7 @@ import {
   voidInvoiceAction,
 } from "@/server/actions/invoices";
 import { requireRole } from "@/server/auth";
+import { hasRole } from "@/server/dal/authz";
 import { assetUrl, renderInputFromInvoice, verificationQr } from "@/server/dal/documents";
 import { NotFoundError } from "@/server/dal/errors";
 import { getInvoice } from "@/server/dal/invoices";
@@ -33,6 +34,7 @@ const PT_TO_PX = 96 / 72;
 
 export default async function InvoicePage({ params }: { params: Promise<{ id: string }> }) {
   const actor = await requireRole("VIEWER");
+  const canEdit = hasRole(actor, "EDITOR");
   const { id } = await params;
   const inv = await getInvoice(actor, id).catch((e: unknown) => {
     if (e instanceof NotFoundError) notFound();
@@ -99,7 +101,7 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
         }
         actions={
           <>
-            {isDraft ? (
+            {isDraft && canEdit ? (
               <>
                 <Button asChild variant="secondary">
                   <Link href={`/invoices/${id}/edit`}>Edit</Link>
@@ -141,7 +143,7 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
                     Download PDF
                   </a>
                 </Button>
-                {isIssued ? (
+                {isIssued && canEdit ? (
                   <>
                     <Button asChild variant="secondary">
                       <Link href={`/invoices/${id}/send`}>Send by email</Link>

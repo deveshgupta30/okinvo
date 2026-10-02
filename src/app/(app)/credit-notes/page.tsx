@@ -15,6 +15,7 @@ import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/tab
 import { formatDate, formatMoney } from "@/lib/format";
 import { withFlash } from "@/lib/flash";
 import { requireRole } from "@/server/auth";
+import { hasRole } from "@/server/dal/authz";
 import { isDalError } from "@/server/dal/errors";
 import { listClients } from "@/server/dal/clients";
 import { listCreditNotes, type CreditNoteDisplayStatus } from "@/server/dal/credit-notes";
@@ -36,6 +37,7 @@ export default async function CreditNotesPage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const actor = await requireRole("VIEWER");
+  const canEdit = hasRole(actor, "EDITOR");
   const params = await searchParams;
   const s = (k: string) =>
     typeof params[k] === "string" && params[k] ? (params[k] as string) : undefined;
@@ -61,9 +63,11 @@ export default async function CreditNotesPage({
         actions={
           <>
             <ExportButton dataset="credit-notes" params={params} />
-            <Button asChild>
-              <Link href="/credit-notes/new">New credit note</Link>
-            </Button>
+            {canEdit ? (
+              <Button asChild>
+                <Link href="/credit-notes/new">New credit note</Link>
+              </Button>
+            ) : null}
           </>
         }
       />
