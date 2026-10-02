@@ -2,7 +2,7 @@
  * Convenience redirect for anonymous page navigations. Authorization itself lives in the DAL
  * (`requireUser` / `requireOwner`); this only spares a signed-out person a 403 page.
  */
-const PUBLIC_PREFIXES = ["/auth/", "/verify/", "/api/", "/_next/", "/icons/"];
+const PUBLIC_PREFIXES = ["/auth/", "/verify/", "/api/", "/_next/", "/icons/", "/flags/"];
 const PUBLIC_FILES = new Set([
   "/favicon.ico",
   "/robots.txt",
