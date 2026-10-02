@@ -91,8 +91,15 @@ export default async function VerifyPage({ params }: { params: Promise<{ token: 
                   </li>
                 ) : (
                   result.hashes.map((h) => (
-                    <li key={h.version} className="rounded-md bg-surface-2 px-3 py-2">
-                      <span className="text-app-caption text-ink-subtle">Version {h.version}</span>
+                    <li
+                      key={`${h.format}-${h.version}`}
+                      className="rounded-md bg-surface-2 px-3 py-2"
+                    >
+                      <span className="text-app-caption text-ink-subtle">
+                        {h.format === "PDF_PROTECTED"
+                          ? `Password-protected copy ${h.version}`
+                          : `Version ${h.version}`}
+                      </span>
                       <span className="block text-app-mono break-all text-ink">{h.sha256}</span>
                     </li>
                   ))

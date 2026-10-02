@@ -1,5 +1,5 @@
 import "server-only";
-import { Prisma } from "@/generated/prisma/client";
+import { Prisma, type DocumentFormat } from "@/generated/prisma/client";
 import { creditNoteTaxLines } from "@/lib/credit-notes/apportion";
 import { compareDates, fromDateString, todayIn, toDateString, type DateString } from "@/lib/dates";
 import { prisma, type Tx } from "@/lib/db";
@@ -75,6 +75,7 @@ export interface CreditNoteDto extends CreditNoteListRow {
   };
   documents: {
     id: string;
+    format: DocumentFormat;
     version: number;
     sha256: string;
     byteSize: number;
@@ -166,6 +167,7 @@ function toDto(row: Row): CreditNoteDto {
     },
     documents: row.documents.map((d) => ({
       id: d.id,
+      format: d.format,
       version: d.version,
       sha256: d.sha256,
       byteSize: d.byteSize,

@@ -1,6 +1,7 @@
 import { renderToBuffer } from "@react-pdf/renderer";
 import type { TemplateConfig } from "@/lib/schemas";
 import { registerFonts } from "./fonts";
+import type { ProtectOptions } from "./protect";
 import { qrDataUrl } from "./qr";
 import { DocumentPdf, type PdfImages } from "./templates/Pdf";
 import type { DocumentViewModel } from "./view-model";
@@ -10,6 +11,8 @@ export interface RenderOptions {
   assets: (assetId: string) => Promise<Buffer | null>;
   /** PDF creation/modification date. Fixed per document so identical input hashes identically. */
   createdAt?: Date;
+  /** Encrypt (AES-256) with a user password to open and an owner password for the rest. */
+  protect?: ProtectOptions | undefined;
 }
 
 async function dataUrl(
@@ -49,6 +52,7 @@ export async function renderPdf(
     config,
     images,
     createdAt: o.createdAt ?? new Date(0),
+    ...(o.protect ? { protect: o.protect } : {}),
   });
   return Buffer.from(await renderToBuffer(element));
 }

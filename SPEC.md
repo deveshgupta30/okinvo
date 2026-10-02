@@ -162,6 +162,8 @@ balanceDue        = total − Σ payments.amountApplied − Σ creditNotes.total
 
 **Documents fit A4 and Letter.** The items table repeats its header row on every page, the totals block (subtotal to amount in words) never splits across pages, section titles are never left alone at a page foot, and a footer band carrying the document number and "Page n of N" is reserved on every page. The builder's live preview shows the whole sheet and an approximate printed page count.
 
+**Protected copies.** A password-protected copy of an issued document is a separate stored version (`PDF_PROTECTED`, its own version sequence, suffix `-protected`) rendered from the same snapshot and AES-256 encrypted: it opens with the recipient's password, can be read, printed at full quality and read aloud, and cannot have text copied, be edited, annotated, form-filled or re-assembled (those need the owner password, generated per copy and never shown). The passphrase is six EFF-short-list words joined with hyphens, or a manual password with a strength hint. Every copy is audited (`document.protected`, never with the passwords); the canonical PDF's bytes and hash are unaffected, and the verification page lists protected copies separately.
+
 **Draft preview.** A draft can be previewed as a PDF at any time; it carries a diagonal "DRAFT — not a tax invoice" watermark, no number and no QR, and is never stored.
 
 **QR code.** Encodes `https://<host>/verify/<token>`. Optional per display config. The token is rotated at issue, so a QR from a draft preview never resolves.

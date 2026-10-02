@@ -1,5 +1,5 @@
 import "server-only";
-import { Prisma } from "@/generated/prisma/client";
+import { Prisma, type DocumentFormat } from "@/generated/prisma/client";
 import {
   addDays,
   compareDates,
@@ -139,6 +139,7 @@ export interface InvoiceDto extends InvoiceListRow {
   client: { id: string; displayName: string; email: string | null; paymentTermsDays: number };
   documents: {
     id: string;
+    format: DocumentFormat;
     version: number;
     sha256: string;
     byteSize: number;
@@ -288,6 +289,7 @@ function toDto(row: DetailRow, today: DateString): InvoiceDto {
     client: row.client,
     documents: row.documents.map((d) => ({
       id: d.id,
+      format: d.format,
       version: d.version,
       sha256: d.sha256,
       byteSize: d.byteSize,

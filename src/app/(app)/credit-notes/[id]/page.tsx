@@ -238,7 +238,9 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
                       >
                         <span>
                           <a href={`/api/documents/${d.id}`} className="text-link">
-                            Version {d.version}
+                            {d.format === "PDF_PROTECTED"
+                              ? `Password-protected copy ${d.version}`
+                              : `Version ${d.version}`}
                           </a>
                           <span className="text-ink-subtle">
                             {" "}
