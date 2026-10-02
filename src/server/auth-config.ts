@@ -72,6 +72,14 @@ function createAuth() {
       additionalFields: {
         role: { type: "string", defaultValue: "OWNER", input: false },
         timezone: { type: "string", required: false, input: true },
+        // Preferences are written through the audited DAL (src/server/dal/users.ts), never via
+        // Better Auth's update-user route: input: false keeps that route from touching them.
+        accent: { type: "string", defaultValue: "mint", input: false },
+        countryCode: { type: "string", required: false, input: false },
+        currency: { type: "string", required: false, input: false },
+        locale: { type: "string", defaultValue: "en-US", input: false },
+        usage: { type: "string", required: false, input: false },
+        onboardedAt: { type: "date", required: false, input: false },
       },
     },
     account: { accountLinking: { enabled: true, trustedProviders } },
