@@ -11,7 +11,11 @@ export const E2E_PASSWORD = "correct horse battery staple";
 export async function signInAs(page: Page, email: string, name = "E2E Owner"): Promise<void> {
   await page.goto("/auth/sign-in");
   const form = page.getByTestId("password-sign-in");
-  const shell = page.getByRole("navigation", { name: "Primary" });
+  // Desktop shows the sidebar navigation; phones show the top bar's menu button instead.
+  const shell = page
+    .getByRole("navigation", { name: "Primary" })
+    .or(page.getByRole("button", { name: "Open menu" }))
+    .first();
   await expect(async () => {
     await form.getByRole("button", { name: /First time here/ }).click();
     await expect(form.getByLabel("Name")).toBeVisible({ timeout: 1_000 });
@@ -35,8 +39,11 @@ export async function signInExisting(page: Page, email: string): Promise<void> {
     await form.getByLabel("Password").fill(E2E_PASSWORD);
     await form.getByRole("button", { name: "Sign in" }).click();
     // The dev server compiles "/" on first hit, which can take longer than a quick retry window.
-    await expect(page.getByRole("navigation", { name: "Primary" })).toBeVisible({
-      timeout: 30_000,
-    });
+    await expect(
+      page
+        .getByRole("navigation", { name: "Primary" })
+        .or(page.getByRole("button", { name: "Open menu" }))
+        .first(),
+    ).toBeVisible({ timeout: 30_000 });
   }).toPass({ timeout: 120_000 });
 }

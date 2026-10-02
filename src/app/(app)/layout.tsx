@@ -1,21 +1,31 @@
+import { cookies } from "next/headers";
 import { Suspense } from "react";
-import { AppSidebar } from "@/components/app-sidebar";
 import { FlashFromSearch } from "@/components/flash-from-search";
+import { AppShell } from "@/components/shell/app-shell";
 import { TimezoneDetect } from "@/components/timezone-detect";
-import { requireUser } from "@/server/auth";
+import { parseAccent } from "@/lib/accent";
+import { SIDEBAR_COOKIE, parseSidebar } from "@/lib/sidebar";
+import { parseThemeMode } from "@/lib/theme";
+import { optionalUser, requireUser } from "@/server/auth";
+import { getAccount } from "@/server/dal/users";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const { user } = await requireUser();
+  const [actor, cookieStore] = await Promise.all([optionalUser(), cookies()]);
+  const account = actor ? await getAccount(actor) : null;
+  const sidebar = parseSidebar(cookieStore.get(SIDEBAR_COOKIE)?.value);
   return (
-    <div className="flex min-h-dvh">
-      <AppSidebar user={{ name: user.name, email: user.email }} />
+    <AppShell
+      user={{ name: user.name, email: user.email, avatarKey: account?.avatarKey ?? null }}
+      sidebar={sidebar}
+      theme={parseThemeMode(account?.theme)}
+      accent={parseAccent(account?.accent)}
+    >
       <TimezoneDetect current={user.timezone ?? null} />
-      <div className="flex min-w-0 flex-1 flex-col">
-        <main className="mx-auto w-full max-w-[1280px] p-6">{children}</main>
-      </div>
+      {children}
       <Suspense fallback={null}>
         <FlashFromSearch />
       </Suspense>
-    </div>
+    </AppShell>
   );
 }

@@ -5,10 +5,11 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { withFlash } from "@/lib/flash";
 import { parseForm } from "@/lib/forms";
+import { ACCENT_COOKIE, parseAccent } from "@/lib/accent";
 import { AccountInputSchema } from "@/lib/schemas/account-input";
-import { THEME_COOKIE } from "@/lib/theme";
+import { THEME_COOKIE, parseThemeMode } from "@/lib/theme";
 import { requireOwner } from "@/server/auth";
-import { setAvatar, updateAccount } from "@/server/dal/users";
+import { setAccent, setAvatar, setTheme, updateAccount } from "@/server/dal/users";
 import { failedParse, failedWith, type ActionState } from "./shared";
 
 const PAGE = "/settings/account";
@@ -43,5 +44,34 @@ export async function setAvatarAction(assetId: string): Promise<void> {
 export async function removeAvatarAction(): Promise<void> {
   const actor = await requireOwner();
   await setAvatar(actor, null);
+  revalidatePath("/", "layout");
+}
+
+const YEAR = 60 * 60 * 24 * 365;
+
+/** Sidebar theme toggle (spec §3.3): persists the mode; the browser already set the cookie. */
+export async function setThemeAction(mode: unknown): Promise<void> {
+  const actor = await requireOwner();
+  const theme = parseThemeMode(typeof mode === "string" ? mode : undefined);
+  await setTheme(actor, theme);
+  (await cookies()).set(THEME_COOKIE, theme, {
+    path: "/",
+    maxAge: YEAR,
+    sameSite: "lax",
+    httpOnly: false,
+  });
+}
+
+/** Settings → Appearance accent swatches (spec §3.4). */
+export async function setAccentAction(id: unknown): Promise<void> {
+  const actor = await requireOwner();
+  const accent = parseAccent(id);
+  await setAccent(actor, accent);
+  (await cookies()).set(ACCENT_COOKIE, accent, {
+    path: "/",
+    maxAge: YEAR,
+    sameSite: "lax",
+    httpOnly: false,
+  });
   revalidatePath("/", "layout");
 }
