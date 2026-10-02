@@ -6,6 +6,8 @@ export type ImageKind = Exclude<UploadKind, "RECEIPT"> | "RECEIPT_IMAGE";
 
 export const MAX_IMAGE_DIMENSION = 1600;
 export const RECEIPT_JPEG_QUALITY = 85;
+/** Avatars are stored as one square: cover-cropped and scaled (up or down) to this edge. */
+export const AVATAR_EDGE = 512;
 
 export interface ProcessedImage {
   buffer: Buffer;
@@ -19,17 +21,23 @@ const WHITE = { r: 255, g: 255, b: 255 };
 /**
  * Re-encodes an upload through sharp (v2 §11.2): applies EXIF orientation, drops all metadata
  * (sharp strips it unless asked to keep it), fits the image inside 1600×1600 without enlarging,
- * and writes PNG for LOGO/SIGNATURE/STAMP (alpha preserved) or JPEG q85 for receipt images
+ * and writes PNG for LOGO/SIGNATURE/STAMP (alpha preserved), a 512-square PNG for AVATAR
+ * (cover-cropped, enlarged when needed) or JPEG q85 for receipt images
  * (transparency flattened onto white, since JPEG has no alpha). Rejects anything sharp cannot
  * decode, so a polyglot file never reaches storage unchanged.
  */
 export async function processImage(buf: Buffer, kind: ImageKind): Promise<ProcessedImage> {
-  const fitted = sharp(buf).rotate().resize({
-    width: MAX_IMAGE_DIMENSION,
-    height: MAX_IMAGE_DIMENSION,
-    fit: "inside",
-    withoutEnlargement: true,
-  });
+  const fitted =
+    kind === "AVATAR"
+      ? sharp(buf)
+          .rotate()
+          .resize({ width: AVATAR_EDGE, height: AVATAR_EDGE, fit: "cover", position: "attention" })
+      : sharp(buf).rotate().resize({
+          width: MAX_IMAGE_DIMENSION,
+          height: MAX_IMAGE_DIMENSION,
+          fit: "inside",
+          withoutEnlargement: true,
+        });
   const encoded =
     kind === "RECEIPT_IMAGE"
       ? fitted.flatten({ background: WHITE }).jpeg({ quality: RECEIPT_JPEG_QUALITY })

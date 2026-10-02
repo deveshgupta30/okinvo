@@ -8,7 +8,7 @@ import { parseForm } from "@/lib/forms";
 import { AccountInputSchema } from "@/lib/schemas/account-input";
 import { THEME_COOKIE } from "@/lib/theme";
 import { requireOwner } from "@/server/auth";
-import { updateAccount } from "@/server/dal/users";
+import { setAvatar, updateAccount } from "@/server/dal/users";
 import { failedParse, failedWith, type ActionState } from "./shared";
 
 const PAGE = "/settings/account";
@@ -31,4 +31,17 @@ export async function saveAccount(_prev: ActionState, formData: FormData): Promi
   });
   revalidatePath("/", "layout");
   redirect(withFlash(PAGE, { kind: "success", message: "Account preferences saved" }));
+}
+
+/** Links a freshly uploaded AVATAR asset to the signed-in account (spec §3.5). */
+export async function setAvatarAction(assetId: string): Promise<void> {
+  const actor = await requireOwner();
+  await setAvatar(actor, assetId);
+  revalidatePath("/", "layout");
+}
+
+export async function removeAvatarAction(): Promise<void> {
+  const actor = await requireOwner();
+  await setAvatar(actor, null);
+  revalidatePath("/", "layout");
 }

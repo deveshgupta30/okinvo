@@ -67,6 +67,12 @@ beforeAll(async () => {
 });
 
 describe("sniffAndValidate", () => {
+  it("treats AVATAR like the other image kinds: images only, image cap", async () => {
+    await expect(sniffAndValidate(webp, "AVATAR", limits)).resolves.toEqual({
+      contentType: "image/webp",
+    });
+    expect(await code(sniffAndValidate(pdf, "AVATAR", limits))).toBe("UNSUPPORTED_TYPE");
+  });
   it("accepts PNG, JPEG and WebP for the image kinds by magic bytes", async () => {
     for (const kind of ["LOGO", "SIGNATURE", "STAMP"] as const) {
       expect(await sniffAndValidate(png, kind, limits)).toEqual({ contentType: "image/png" });
@@ -155,6 +161,16 @@ describe("processImage", () => {
     const small = await makePng(100, 50);
     const out = await processImage(small, "LOGO");
     expect([out.width, out.height]).toEqual([100, 50]);
+  });
+  it("cover-crops avatars to a 512 square PNG, enlarging small photos", async () => {
+    for (const source of [png, await makePng(100, 50), jpeg]) {
+      const out = await processImage(source, "AVATAR");
+      expect(out.contentType).toBe("image/png");
+      expect([out.width, out.height]).toEqual([512, 512]);
+      const meta = await sharp(out.buffer).metadata();
+      expect(meta.format).toBe("png");
+      expect([meta.width, meta.height]).toEqual([512, 512]);
+    }
   });
   it("applies EXIF orientation and strips metadata", async () => {
     const rotated = await makeJpeg(200, 100, 6);
