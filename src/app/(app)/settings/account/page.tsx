@@ -14,7 +14,7 @@ export default async function AccountPage() {
   const account = await getAccount(actor);
   return (
     <>
-      <PageHeader title="Account" description="Your photo, name, timezone and theme." />
+      <PageHeader title="Account" description="Your photo, name and timezone." />
       <div className="flex flex-col gap-6">
         <Card>
           <CardHeader>

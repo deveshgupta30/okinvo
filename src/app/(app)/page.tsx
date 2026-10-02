@@ -9,6 +9,7 @@ import { PageHeader } from "@/components/ui/page-header";
 import { StatusPill } from "@/components/ui/status-pill";
 import { TBody, TD, TH, THead, TR, Table } from "@/components/ui/table";
 import { formatDate, formatMoney } from "@/lib/format";
+import { firstNameOf } from "@/lib/names";
 import { cn } from "@/lib/utils";
 import { requireOwner } from "@/server/auth";
 import { dashboardData, type DashboardBucket } from "@/server/dal/dashboard";
@@ -62,7 +63,7 @@ export default async function DashboardPage() {
   return (
     <>
       <PageHeader
-        title="Dashboard"
+        title={`Hi, ${firstNameOf(actor.name, actor.email)}`}
         description={`Fiscal year ${d.fiscalYear}${d.profileLabel ? ` · base currency ${d.baseCurrency} (${d.profileLabel})` : ""}`}
         actions={
           <>

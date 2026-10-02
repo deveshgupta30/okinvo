@@ -9,6 +9,9 @@ export default defineConfig({
   testDir: "tests/e2e",
   fullyParallel: true,
   retries: process.env.CI ? 1 : 0,
+  // One dev server and one small Postgres pool behind every spec: more than a few parallel
+  // sessions makes cold-route compiles and connection waits time out rather than run faster.
+  workers: process.env.CI ? 2 : 3,
   reporter: process.env.CI ? [["github"], ["html", { open: "never" }]] : "list",
   // Dev compiles each route on first hit, so post-navigation assertions need headroom.
   expect: { timeout: 30_000 },

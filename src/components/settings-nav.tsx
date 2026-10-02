@@ -12,6 +12,7 @@ const ITEMS = [
   { href: "/settings/security", label: "Security" },
   { href: "/settings/data", label: "Data" },
   { href: "/settings/account", label: "Account" },
+  { href: "/settings/appearance", label: "Appearance" },
 ] as const;
 
 /** Segmented sub-navigation shared by every /settings/* page. */

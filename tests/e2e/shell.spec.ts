@@ -91,3 +91,24 @@ test("mobile: the top bar's menu opens a drawer that navigates and closes", asyn
   await expect(page).toHaveURL(/\/invoices$/);
   await expect(drawer).toBeHidden();
 });
+
+test("dashboard greets by first name; Appearance switches the accent and it persists", async ({
+  page,
+}) => {
+  await signInAs(page, EMAIL, "Smoke Owner");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(/^Hi, \S+/);
+
+  await page.goto("/settings/appearance");
+  const swatches = page.getByRole("radiogroup", { name: "Accent colour" });
+  await expect(async () => {
+    await swatches.getByRole("radio", { name: "Rose" }).click();
+    await expect(page.locator("html")).toHaveAttribute("data-accent", "rose", { timeout: 2_000 });
+  }).toPass({ timeout: 60_000 });
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute("data-accent", "rose");
+  // back to the default so other runs start from mint
+  await expect(async () => {
+    await swatches.getByRole("radio", { name: "Mint" }).click();
+    await expect(page.locator("html")).toHaveAttribute("data-accent", "mint", { timeout: 2_000 });
+  }).toPass({ timeout: 60_000 });
+});

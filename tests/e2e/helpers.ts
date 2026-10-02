@@ -3,19 +3,21 @@ import { expect, type Page } from "@playwright/test";
 /** The fixed password every e2e owner uses (AUTH_PASSWORD_SIGNIN=true on the server under test). */
 export const E2E_PASSWORD = "correct horse battery staple";
 
+/** True once the signed-in frame is on screen: the sidebar navigation (desktop) or the top bar's menu button (phones). */
+async function shellVisible(page: Page): Promise<boolean> {
+  const nav = page.getByRole("navigation", { name: "Primary" });
+  const menu = page.getByRole("button", { name: "Open menu" });
+  return (await nav.isVisible()) || (await menu.isVisible());
+}
+
 /**
  * Signs `email` in through the password form: creates the account on the first run against a
  * database (the address must be an exact allow-list entry), signs in on later runs. Resolves once
- * the signed-in shell's primary navigation is visible.
+ * the signed-in shell is visible.
  */
 export async function signInAs(page: Page, email: string, name = "E2E Owner"): Promise<void> {
   await page.goto("/auth/sign-in");
   const form = page.getByTestId("password-sign-in");
-  // Desktop shows the sidebar navigation; phones show the top bar's menu button instead.
-  const shell = page
-    .getByRole("navigation", { name: "Primary" })
-    .or(page.getByRole("button", { name: "Open menu" }))
-    .first();
   await expect(async () => {
     await form.getByRole("button", { name: /First time here/ }).click();
     await expect(form.getByLabel("Name")).toBeVisible({ timeout: 1_000 });
@@ -25,9 +27,13 @@ export async function signInAs(page: Page, email: string, name = "E2E Owner"): P
   await form.getByLabel("Password").fill(E2E_PASSWORD);
   await form.getByRole("button", { name: "Create account" }).click();
   const exists = form.getByText(/user already exists|already exists/i);
-  await expect(shell.or(exists).first()).toBeVisible({ timeout: 30_000 });
-  if (!(await shell.isVisible())) await signInExisting(page, email);
-  await expect(shell).toBeVisible();
+  await expect
+    .poll(async () => (await shellVisible(page)) || (await exists.isVisible()), {
+      timeout: 60_000,
+    })
+    .toBe(true);
+  if (!(await shellVisible(page))) await signInExisting(page, email);
+  await expect.poll(() => shellVisible(page), { timeout: 30_000 }).toBe(true);
 }
 
 /** The existing account, through the sign-in (not sign-up) branch of the same form. */
@@ -39,11 +45,6 @@ export async function signInExisting(page: Page, email: string): Promise<void> {
     await form.getByLabel("Password").fill(E2E_PASSWORD);
     await form.getByRole("button", { name: "Sign in" }).click();
     // The dev server compiles "/" on first hit, which can take longer than a quick retry window.
-    await expect(
-      page
-        .getByRole("navigation", { name: "Primary" })
-        .or(page.getByRole("button", { name: "Open menu" }))
-        .first(),
-    ).toBeVisible({ timeout: 30_000 });
+    await expect.poll(() => shellVisible(page), { timeout: 30_000 }).toBe(true);
   }).toPass({ timeout: 120_000 });
 }
