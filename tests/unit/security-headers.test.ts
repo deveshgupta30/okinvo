@@ -52,5 +52,5 @@ describe("proxy", () => {
       /'nonce-([^']+)'/.exec(r.headers.get("Content-Security-Policy") ?? "")?.[1];
     expect(nonce(a)).toBeTruthy();
     expect(nonce(a)).not.toBe(nonce(b));
-  });
+  }, 30_000); // cold import of next/server under a full parallel run
 });
