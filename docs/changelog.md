@@ -15,7 +15,8 @@ went green on the development branch.
 - Catalogue: products with SKUs, printed on documents and exported; services and products tagged
   to issuer profiles, with the builder picker following the selected issuer.
 - Templates: heading and body fonts chosen from a 100-family Google font catalogue vendored from
-  Fontsource (`pnpm fonts:vendor`).
+  Fontsource (`pnpm fonts:vendor`); Minimal, Letterhead and Modern templates; a header band or
+  uploaded image with opacity and height across every page.
 
 ## Review follow-ups (2026-10-02)
 

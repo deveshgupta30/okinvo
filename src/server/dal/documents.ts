@@ -371,7 +371,7 @@ export async function renderDraftPreview(actor: Actor, invoiceId: string): Promi
 export async function renderSamplePdf(config: TemplateConfig): Promise<Buffer> {
   const vm = sampleViewModel(config);
   const withQr = vm.verifyUrl ? { ...vm, qrDataUrl: await qrDataUrl(vm.verifyUrl) } : vm;
-  return renderPdf(withQr, config, { assets: async () => null });
+  return renderPdf(withQr, config, { assets: readAssetBytes });
 }
 
 /** The QR for an issued invoice's on-screen preview. */

@@ -29,15 +29,17 @@ export async function renderPdf(
   o: RenderOptions,
 ): Promise<Buffer> {
   registerFonts();
-  const [logo, signature, stamp] = await Promise.all([
+  const [logo, signature, stamp, header] = await Promise.all([
     dataUrl(o.assets, vm.issuer.logoAssetId),
     dataUrl(o.assets, vm.issuer.signatureAssetId),
     dataUrl(o.assets, vm.issuer.stampAssetId),
+    dataUrl(o.assets, config.header.style === "image" ? config.header.imageAssetId : undefined),
   ]);
   const images: PdfImages = {};
   if (logo) images.logo = logo;
   if (signature) images.signature = signature;
   if (stamp) images.stamp = stamp;
+  if (header) images.header = header;
   const withQr: DocumentViewModel =
     vm.verifyUrl && !vm.qrDataUrl ? { ...vm, qrDataUrl: await qrDataUrl(vm.verifyUrl) } : vm;
   // DocumentPdf is a pure function of its props (no hooks), so it is called directly to obtain

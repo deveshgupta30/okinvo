@@ -1,4 +1,5 @@
 import { PDFParse } from "pdf-parse";
+import sharp from "sharp";
 import { describe, expect, it } from "vitest";
 import { sha256Hex } from "@/lib/crypto";
 import { renderPdf } from "@/lib/documents/render";
@@ -65,6 +66,40 @@ describe("renderPdf", () => {
       await parser.destroy();
     }
     expect(pdf.toString("latin1")).toMatch(/MediaBox \[0 0 612 792\]/);
+  }, 60_000);
+
+  it("inlines the letterhead header image as an image object on the page", async () => {
+    const png = await sharp({
+      create: {
+        width: 600,
+        height: 120,
+        channels: 3, // opaque: an alpha channel would add a soft-mask image object
+        background: { r: 20, g: 90, b: 160 },
+      },
+    })
+      .png()
+      .toBuffer();
+    const assets = async (id: string) => (id === "letterhead-1" ? png : null);
+    const count = (pdf: Buffer) =>
+      (pdf.toString("latin1").match(/\/Subtype\s*\/Image/g) ?? []).length;
+    const plain = await renderPdf(
+      sampleViewModel(mergeTemplateConfig({ templateId: "letterhead" })),
+      mergeTemplateConfig({ templateId: "letterhead" }),
+      { assets },
+    );
+    const config = mergeTemplateConfig({
+      templateId: "letterhead",
+      header: { style: "image", imageAssetId: "letterhead-1", imageOpacity: 0.5 },
+    });
+    const withImage = await renderPdf(sampleViewModel(config), config, { assets });
+    expect(count(withImage)).toBe(count(plain) + 1);
+    // a missing asset hides the image instead of failing the render
+    const missing = mergeTemplateConfig({
+      templateId: "letterhead",
+      header: { style: "image", imageAssetId: "gone" },
+    });
+    const without = await renderPdf(sampleViewModel(missing), missing, { assets });
+    expect(count(without)).toBe(count(plain));
   }, 60_000);
 
   it("embeds the chosen heading and body families from the catalogue", async () => {

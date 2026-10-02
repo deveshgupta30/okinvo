@@ -6,7 +6,14 @@ import { enforceRateLimit } from "@/server/rate-limit";
 
 export const runtime = "nodejs";
 
-const KINDS = new Set<UploadKind>(["LOGO", "SIGNATURE", "STAMP", "RECEIPT", "AVATAR"]);
+const KINDS = new Set<UploadKind>([
+  "LOGO",
+  "SIGNATURE",
+  "STAMP",
+  "RECEIPT",
+  "AVATAR",
+  "LETTERHEAD",
+]);
 
 /** Multipart `file` + `kind` → validated, normalised, stored asset (v2 §11.2). */
 export async function POST(request: Request): Promise<Response> {

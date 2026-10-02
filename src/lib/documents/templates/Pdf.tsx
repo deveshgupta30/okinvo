@@ -18,6 +18,8 @@ export interface PdfImages {
   logo?: string;
   signature?: string;
   stamp?: string;
+  /** Letterhead header image, spanning the page width on every page. */
+  header?: string;
 }
 
 interface Props {
@@ -49,7 +51,7 @@ function makeStyles(s: TemplateStyle) {
       fontFamily: s.body,
       fontSize: s.base,
       color: s.text,
-      paddingTop: s.margin,
+      paddingTop: s.headerStyle === "none" ? s.margin : s.headerHeight + 14,
       paddingBottom: s.margin + 18,
       paddingHorizontal: s.margin,
       lineHeight: 1.35,
@@ -59,6 +61,33 @@ function makeStyles(s: TemplateStyle) {
     small: { fontSize: s.base - 1.5 },
     mono: { fontFamily: s.body },
     header: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start" },
+    bandFill: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      height: s.headerHeight,
+      backgroundColor: s.headerColor,
+    },
+    bandImage: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: s.paper.width,
+      height: s.headerHeight,
+      objectFit: "cover",
+      opacity: s.headerImageOpacity,
+    },
+    band: {
+      position: "absolute",
+      top: 0,
+      left: s.margin,
+      right: s.margin,
+      height: s.headerHeight,
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
     headerRule: {
       marginTop: 10,
       marginBottom: 14,
@@ -74,7 +103,12 @@ function makeStyles(s: TemplateStyle) {
     },
     meta: { flexDirection: "row", gap: 14, marginTop: 6 },
     metaLabel: { color: s.muted, fontSize: s.base - 1 },
-    parties: { flexDirection: "row", gap: 24, marginBottom: 14 },
+    parties: {
+      flexDirection: "row",
+      gap: 24,
+      marginBottom: 14,
+      ...(s.tinted ? { backgroundColor: s.tint, padding: 8, borderRadius: 3 } : {}),
+    },
     party: { flex: 1 },
     eyebrow: {
       fontSize: s.base - 1.5,
@@ -90,13 +124,13 @@ function makeStyles(s: TemplateStyle) {
     },
     th: {
       flexDirection: "row",
-      backgroundColor: s.tableBorders ? "#f3f4f6" : "transparent",
+      backgroundColor: s.tinted ? s.tint : s.tableBorders ? "#f3f4f6" : "transparent",
       borderBottomWidth: 1,
       borderBottomColor: s.tableBorders ? s.hairline : s.accentRule ? s.accent : s.hairline,
       paddingVertical: pad,
       paddingHorizontal: pad,
       fontSize: s.base - 1,
-      color: s.muted,
+      color: s.tinted ? s.accent : s.muted,
       fontWeight: 500,
     },
     tr: {
@@ -115,11 +149,12 @@ function makeStyles(s: TemplateStyle) {
       borderWidth: s.boxedTotals ? 1 : 0,
       borderColor: s.hairline,
       padding: s.boxedTotals ? 6 : 0,
+      ...(s.tinted ? { backgroundColor: s.tint, padding: 8, borderRadius: 3 } : {}),
     },
     totalRow: { flexDirection: "row", justifyContent: "space-between", paddingVertical: 2 },
     totalEmphasis: {
       borderTopWidth: 1,
-      borderTopColor: s.accentRule ? s.accent : s.text,
+      borderTopColor: s.accentRule ? s.accent : s.minimal ? s.hairline : s.text,
       marginTop: 3,
       paddingTop: 4,
       fontWeight: 600,
@@ -216,6 +251,9 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
         style={{ height: s.logoHeight, objectFit: "contain", maxWidth: 160 }}
       />
     ) : null;
+  // With a band or image header the identity (logo, name, title, number) moves onto the band.
+  const inBand = s.headerStyle !== "none";
+  const bandText = s.headerText === "light" ? "#ffffff" : s.text;
 
   return (
     <Document
@@ -233,6 +271,40 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
           </Text>
         ) : null}
 
+        {s.headerStyle === "band" ? <View fixed style={st.bandFill} /> : null}
+        {s.headerStyle === "image" && images.header ? (
+          <Image fixed src={images.header} style={st.bandImage} />
+        ) : null}
+        {inBand ? (
+          <View style={st.band}>
+            <View
+              style={{
+                flexDirection: s.logoAlign === "right" ? "row-reverse" : "row",
+                gap: 12,
+                alignItems: "center",
+              }}
+            >
+              {logo}
+              <View>
+                <Text style={[st.heading, { fontSize: s.base + 5, color: bandText }]}>
+                  {vm.issuer.legalName}
+                </Text>
+                {vm.issuer.tradeName ? (
+                  <Text style={{ color: bandText, opacity: 0.8 }}>{vm.issuer.tradeName}</Text>
+                ) : null}
+              </View>
+            </View>
+            <View style={{ alignItems: "flex-end" }}>
+              <Text style={[st.title, { color: bandText }]}>{vm.title}</Text>
+              {vm.number ? (
+                <Text style={[st.heading, { fontSize: s.base + 2, marginTop: 2, color: bandText }]}>
+                  {vm.number}
+                </Text>
+              ) : null}
+            </View>
+          </View>
+        ) : null}
+
         {/* Header */}
         <View style={st.header}>
           <View
@@ -244,10 +316,14 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
               justifyContent: s.logoAlign === "center" ? "center" : "flex-start",
             }}
           >
-            {logo}
+            {inBand ? null : logo}
             <View>
-              <Text style={[st.heading, { fontSize: s.base + 3 }]}>{vm.issuer.legalName}</Text>
-              {vm.issuer.tradeName ? <Text style={st.muted}>{vm.issuer.tradeName}</Text> : null}
+              {inBand ? null : (
+                <Text style={[st.heading, { fontSize: s.base + 3 }]}>{vm.issuer.legalName}</Text>
+              )}
+              {vm.issuer.tradeName && !inBand ? (
+                <Text style={st.muted}>{vm.issuer.tradeName}</Text>
+              ) : null}
               {vm.issuer.addressLines.map((l, i) => (
                 <Text key={i} style={st.muted}>
                   {l}
@@ -269,8 +345,8 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
             </View>
           </View>
           <View style={{ alignItems: "flex-end" }}>
-            <Text style={st.title}>{vm.title}</Text>
-            {vm.number ? (
+            {inBand ? null : <Text style={st.title}>{vm.title}</Text>}
+            {vm.number && !inBand ? (
               <Text style={[st.heading, { fontSize: s.base + 2, marginTop: 2 }]}>{vm.number}</Text>
             ) : null}
             {vm.replaces ? <Text style={st.muted}>{vm.replaces}</Text> : null}

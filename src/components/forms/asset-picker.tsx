@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
-type Kind = "LOGO" | "SIGNATURE" | "STAMP" | "RECEIPT";
+type Kind = "LOGO" | "SIGNATURE" | "STAMP" | "RECEIPT" | "LETTERHEAD";
 
 /** Uploads through /api/uploads and keeps the asset id in a hidden field named `name`. */
 export function AssetPicker({
@@ -15,6 +15,7 @@ export function AssetPicker({
   assetId,
   assetKey,
   hint,
+  onChange,
 }: {
   name: string;
   kind: Kind;
@@ -22,6 +23,8 @@ export function AssetPicker({
   assetId?: string | null | undefined;
   assetKey?: string | null | undefined;
   hint?: string;
+  /** Called with the new asset id after an upload, or null on Remove (controlled consumers). */
+  onChange?: ((assetId: string | null) => void) | undefined;
 }) {
   const [id, setId] = useState(assetId ?? "");
   const [key, setKey] = useState(assetKey ?? "");
@@ -52,6 +55,7 @@ export function AssetPicker({
       }
       setId(json.assetId);
       setKey(json.storageKey);
+      onChange?.(json.assetId);
     } catch {
       setError("Upload failed.");
     } finally {
@@ -68,10 +72,10 @@ export function AssetPicker({
         <div className="flex size-16 items-center justify-center overflow-hidden rounded-md border border-hairline bg-surface-2">
           {key && key.endsWith(".pdf") ? (
             <FileText aria-hidden className="size-6 text-ink-subtle" strokeWidth={1.5} />
-          ) : key ? (
+          ) : key || id ? (
             // eslint-disable-next-line @next/next/no-img-element -- private, session-gated asset route
             <img
-              src={`/api/assets/${key}`}
+              src={key ? `/api/assets/${key}` : `/api/assets/id/${id}`}
               alt=""
               className="max-h-full max-w-full object-contain"
             />
@@ -83,6 +87,7 @@ export function AssetPicker({
           <input
             ref={fileRef}
             type="file"
+            data-kind={kind}
             accept={
               kind === "RECEIPT"
                 ? "image/png,image/jpeg,image/webp,application/pdf"
@@ -105,6 +110,7 @@ export function AssetPicker({
                 onClick={() => {
                   setId("");
                   setKey("");
+                  onChange?.(null);
                 }}
               >
                 <X className="size-3" strokeWidth={1.5} /> Remove

@@ -10,7 +10,14 @@ import { deepFreeze, mergeWithDefaults } from "./display-config";
  * is length-capped. Browser-safe: drives the live preview.
  */
 
-export const TEMPLATE_IDS = ["ledger", "classic", "compact"] as const;
+export const TEMPLATE_IDS = [
+  "ledger",
+  "classic",
+  "compact",
+  "minimal",
+  "letterhead",
+  "modern",
+] as const;
 export type TemplateId = (typeof TEMPLATE_IDS)[number];
 
 export const LABEL_KEYS = [
@@ -70,6 +77,19 @@ export const TemplateConfigSchema = z.object({
   paper: z.object({ size: z.enum(["A4", "LETTER"]), margins: z.enum(["normal", "narrow"]) }),
   colors: z.object({ accent: hexColor, text: hexColor }),
   font: FontPairSchema,
+  /**
+   * Header band or image across the top of every page (spec §5.4). `none` keeps the plain header;
+   * `letterhead` and `modern` render a band when the style is `none`. `text` picks the colour of
+   * the identity text printed on the band: `auto` derives it from the band colour (image: dark).
+   */
+  header: z.object({
+    style: z.enum(["none", "band", "image"]).default("none"),
+    color: hexColor.default("#5e6ad2"),
+    imageAssetId: z.string().min(1).max(64).optional(),
+    imageOpacity: z.number().min(0).max(1).default(1),
+    heightMm: z.number().min(20).max(60).default(32),
+    text: z.enum(["auto", "light", "dark"]).default("auto"),
+  }),
   logo: z.object({
     position: z.enum(["left", "right", "center"]),
     heightMm: z.number().min(8).max(40),
@@ -113,6 +133,7 @@ export const DEFAULT_TEMPLATE_CONFIG: TemplateConfig = deepFreeze({
   paper: { size: "A4", margins: "normal" },
   colors: { accent: "#5e6ad2", text: "#1a1a1a" },
   font: { heading: "inter", body: "inter" },
+  header: { style: "none", color: "#5e6ad2", imageOpacity: 1, heightMm: 32, text: "auto" },
   logo: { position: "left", heightMm: 16 },
   title: { mode: "auto" },
   labels: {},
