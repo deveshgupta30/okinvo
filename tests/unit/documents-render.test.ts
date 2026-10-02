@@ -66,4 +66,13 @@ describe("renderPdf", () => {
     }
     expect(pdf.toString("latin1")).toMatch(/MediaBox \[0 0 612 792\]/);
   }, 60_000);
+
+  it("embeds the chosen heading and body families from the catalogue", async () => {
+    const config = mergeTemplateConfig({ font: { heading: "playfair-display", body: "lato" } });
+    const pdf = await renderPdf(sampleViewModel(config), config, { assets: noAssets });
+    const raw = pdf.toString("latin1");
+    const baseFonts = [...raw.matchAll(/\/BaseFont\s*\/([A-Za-z0-9+_-]+)/g)].map((m) => m[1] ?? "");
+    expect(baseFonts.some((n) => /PlayfairDisplay/i.test(n))).toBe(true);
+    expect(baseFonts.some((n) => /Lato/i.test(n))).toBe(true);
+  }, 60_000);
 });

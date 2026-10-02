@@ -107,7 +107,7 @@ Pin exact versions in `package.json` + `pnpm-lock.yaml`; this table is the recor
 | `date-fns` / `@date-fns/tz` | `4.4.0` / `1.5.0` | Calendar-date helpers; timezone-aware "today" |
 | `@react-pdf/renderer` | `4.9.0` | PDF |
 | `@fontsource/inter` / `@fontsource/noto-sans` | `5.3.0` | Embedded fonts (Noto guarantees `₹`) |
-| `@fontsource/ibm-plex-sans` / `@fontsource/source-serif-4` | `5.3.0` | Template font pairings |
+| `@fontsource/<family>` ×100 | `5.3.0` | Document font catalogue (`src/lib/documents/fonts/catalog.ts`), vendored into `public/fonts` by `pnpm fonts:vendor` |
 | `@fontsource-variable/inter` / `@fontsource/jetbrains-mono` | `5.3.0` | UI fonts — DESIGN.md's own recommended substitutes for Linear Display/Text/Mono; mono carries amounts, numbers and dates |
 | `nodemailer` | `10.0.13` | SMTP transport (ships its own types) |
 | `qrcode` | `1.5.4` | QR as SVG for PDF and preview |

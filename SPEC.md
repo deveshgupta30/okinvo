@@ -312,7 +312,7 @@ Append-only. Every create/update/archive of clients, services, profiles and paym
 **Customisation** (the "template config"), edited with a live preview on sample data and applied to invoices and credit notes alike:
 - Paper size (A4 / Letter) and margins preset (normal / narrow).
 - Accent colour, text colour, table style (ruled / zebra / plain).
-- Font pairing: Inter; IBM Plex Sans; Source Serif 4 headings with Inter body.
+- Heading font and body font, each from a fixed catalogue of 100 Google families (50 sans, 50 serif) vendored into the app; v1 configs that stored a single pairing string are read as the equivalent pair.
 - Logo position (left / right / centre) and height.
 - Document title (`TAX INVOICE`, `INVOICE`, `BILL OF SUPPLY`, or custom text) with a GST-appropriate automatic default.
 - Label overrides for the fixed strings (e.g. "Bill to", "Amount due", "Payment details"), length-limited.
