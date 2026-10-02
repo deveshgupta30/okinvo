@@ -31,6 +31,7 @@ model User {
   locale        String    @default("en-US") // BCP-47 UI language (src/lib/i18n)
   usage         String?   // "PERSONAL" | "BUSINESS" from onboarding
   onboardedAt   DateTime? // null until the first-run wizard completes
+  deactivatedAt DateTime? // set by an owner (Settings → Users): no sign-in, sessions ended, rows kept
   avatarAssetId String?   @unique
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -41,6 +42,17 @@ model User {
   auditEvents   AuditEvent[]
 
   @@map("user")
+}
+
+/// An invitation (Settings → Users): the sign-in hook admits the address like the env allow-list.
+model AllowedEmail {
+  id          String   @id @default(uuid(7))
+  email       String   @unique
+  role        UserRole @default(EDITOR)
+  invitedById String?
+  invitedAt   DateTime @default(now())
+  acceptedAt  DateTime?
+  active      Boolean  @default(true)
 }
 
 model Session {

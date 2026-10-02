@@ -10,6 +10,7 @@ const ITEMS = [
   { href: "/settings/templates", label: "Templates" },
   { href: "/settings/email", label: "Email" },
   { href: "/settings/security", label: "Security" },
+  { href: "/settings/users", label: "Users" },
   { href: "/settings/data", label: "Data" },
   { href: "/settings/account", label: "Account" },
   { href: "/settings/appearance", label: "Appearance" },
