@@ -1,0 +1,68 @@
+name: pick-runner
+# Decides where the other workflows run their jobs: the repository's self-hosted runner when one
+# is online, otherwise GitHub's hosted Ubuntu runner. GitHub Actions has no "self-hosted if
+# available" setting, so this one small hosted job asks the Actions API and the callers use
+#   runs-on: ${{ fromJSON(needs.runner.outputs.labels) }}
+#
+# Inputs (set once in the repository, Settings → Secrets and variables → Actions):
+#   secret  RUNNER_PROBE_TOKEN  a fine-grained personal access token for this repository with
+#                               "Administration: read" (GITHUB_TOKEN cannot list runners).
+#                               Enables the automatic choice.
+#   variable CI_RUNNER          optional override: "self-hosted" always queues on the self-hosted
+#                               runner (jobs wait while it is offline), "github" always uses
+#                               ubuntu-latest. Unset means "automatic", which needs the secret.
+#
+# With neither configured every job runs on GitHub-hosted runners, exactly as before.
+on:
+  workflow_call:
+    outputs:
+      labels:
+        description: 'JSON array for runs-on: ["self-hosted"] or ["ubuntu-latest"]'
+        value: ${{ jobs.pick.outputs.labels }}
+      kind:
+        description: "self-hosted or github"
+        value: ${{ jobs.pick.outputs.kind }}
+
+permissions: {}
+
+jobs:
+  pick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      labels: ${{ steps.pick.outputs.labels }}
+      kind: ${{ steps.pick.outputs.kind }}
+    steps:
+      - id: pick
+        env:
+          PROBE_TOKEN: ${{ secrets.RUNNER_PROBE_TOKEN }}
+          CI_RUNNER: ${{ vars.CI_RUNNER }}
+        shell: bash
+        run: |
+          set -uo pipefail
+          kind=github
+          case "${CI_RUNNER:-}" in
+            self-hosted) kind=self-hosted; reason="CI_RUNNER variable is set to self-hosted" ;;
+            github) kind=github; reason="CI_RUNNER variable is set to github" ;;
+            "")
+              if [ -n "${PROBE_TOKEN:-}" ]; then
+                online=$(GH_TOKEN="$PROBE_TOKEN" gh api "repos/$GITHUB_REPOSITORY/actions/runners?per_page=100" \
+                  --jq '[.runners[] | select(.status == "online") | select(any(.labels[]; .name == "self-hosted"))] | length' \
+                  2>/dev/null || echo 0)
+                if [ "${online:-0}" -gt 0 ]; then
+                  kind=self-hosted; reason="$online self-hosted runner(s) online"
+                else
+                  reason="no self-hosted runner is online"
+                fi
+              else
+                reason="no RUNNER_PROBE_TOKEN secret and no CI_RUNNER variable"
+              fi ;;
+            *) reason="CI_RUNNER variable has an unknown value '${CI_RUNNER}', using GitHub-hosted" ;;
+          esac
+          if [ "$kind" = self-hosted ]; then labels='["self-hosted"]'; else labels='["ubuntu-latest"]'; fi
+          {
+            echo "kind=$kind"
+            echo "labels=$labels"
+          } >> "$GITHUB_OUTPUT"
+          echo "runner: $kind ($reason)"
+          echo "**Runner:** \`$kind\` — $reason" >> "$GITHUB_STEP_SUMMARY"

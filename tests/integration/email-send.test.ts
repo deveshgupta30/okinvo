@@ -126,7 +126,7 @@ describe.skipIf(!ready)("sending documents by email", () => {
   it("drafts from the templates, delivers with the stored PDF attached, logs it and sets sentAt once", async () => {
     await smtp.saveSmtpSettings(actor, {
       host: "127.0.0.1",
-      port: 2525,
+      port: Number(process.env.MAILPIT_SMTP_PORT ?? 2525), // compose.dev.yml DEV_SMTP_PORT
       security: "none",
       from: "okinvo@test.local",
       fromName: "okinvo test",
