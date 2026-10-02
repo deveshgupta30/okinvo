@@ -93,6 +93,13 @@ describe.skipIf(!url)("user preferences DAL", () => {
     expect(updated).toMatchObject({ locale: "de", countryCode: "GB", currency: "GBP" });
   });
 
+  it("the dashboard follows the account's currency and locale when no profile applies", async () => {
+    const { dashboardData } = await import("@/server/dal/dashboard");
+    const d = await dashboardData(actor, { issuerProfileId: "no-such-profile" });
+    expect(d.baseCurrency).toBe("GBP");
+    expect(d.locale).toBe("de");
+  });
+
   it("setAvatar links an AVATAR asset, refuses unknown ids, and clears", async () => {
     await expect(users.setAvatar(actor, "no-such-asset")).rejects.toBeInstanceOf(
       errors.NotFoundError,
