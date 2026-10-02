@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { FONT_IDS } from "@/lib/documents/fonts/catalog";
 import { deepFreeze, mergeWithDefaults } from "./display-config";
 
 /**
@@ -47,11 +48,28 @@ export type LabelKey = (typeof LABEL_KEYS)[number];
 
 const hexColor = z.string().regex(/^#[0-9a-fA-F]{6}$/, "must be a #rrggbb colour");
 
+export const FontIdSchema = z.enum(FONT_IDS);
+export type FontId = z.infer<typeof FontIdSchema>;
+
+/**
+ * Heading/body font pair. v1 stored a single string ("inter", "ibm-plex-sans",
+ * "source-serif-4+inter"); snapshots on issued documents still carry it, so a string maps to a
+ * pair: "a+b" is heading a + body b, "a" alone is both.
+ */
+export const FontPairSchema = z.preprocess(
+  (v) => {
+    if (typeof v !== "string") return v;
+    const [heading, body] = v.split("+");
+    return { heading, body: body ?? heading };
+  },
+  z.object({ heading: FontIdSchema, body: FontIdSchema }),
+);
+
 export const TemplateConfigSchema = z.object({
   templateId: z.enum(TEMPLATE_IDS),
   paper: z.object({ size: z.enum(["A4", "LETTER"]), margins: z.enum(["normal", "narrow"]) }),
   colors: z.object({ accent: hexColor, text: hexColor }),
-  font: z.enum(["inter", "ibm-plex-sans", "source-serif-4+inter"]),
+  font: FontPairSchema,
   logo: z.object({
     position: z.enum(["left", "right", "center"]),
     heightMm: z.number().min(8).max(40),
@@ -94,7 +112,7 @@ export const DEFAULT_TEMPLATE_CONFIG: TemplateConfig = deepFreeze({
   templateId: "ledger",
   paper: { size: "A4", margins: "normal" },
   colors: { accent: "#5e6ad2", text: "#1a1a1a" },
-  font: "inter",
+  font: { heading: "inter", body: "inter" },
   logo: { position: "left", heightMm: 16 },
   title: { mode: "auto" },
   labels: {},

@@ -42,7 +42,7 @@ describe("DEFAULT_TEMPLATE_CONFIG", () => {
       templateId: "ledger",
       paper: { size: "A4", margins: "normal" },
       colors: { accent: "#5e6ad2", text: "#1a1a1a" },
-      font: "inter",
+      font: { heading: "inter", body: "inter" },
       logo: { position: "left", heightMm: 16 },
       title: { mode: "auto" },
       labels: {},
@@ -72,7 +72,7 @@ describe("TemplateConfigSchema", () => {
     const full = withPatch((c) => {
       c.templateId = "classic";
       c.paper = { size: "LETTER", margins: "narrow" };
-      c.font = "source-serif-4+inter";
+      c.font = { heading: "source-serif-4", body: "inter" };
       c.logo = { position: "center", heightMm: 40 };
       c.title = { mode: "custom", custom: "BILL OF SUPPLY" };
       c.labels = { billTo: "Invoice to", amountDue: "Balance" };
@@ -112,7 +112,9 @@ describe("TemplateConfigSchema", () => {
     expect(issuePaths({ ...DEFAULT_TEMPLATE_CONFIG, templateId: "modern" })).toContain(
       "templateId",
     );
-    expect(issuePaths({ ...DEFAULT_TEMPLATE_CONFIG, font: "comic-sans" })).toContain("font");
+    expect(issuePaths({ ...DEFAULT_TEMPLATE_CONFIG, font: "comic-sans" })).toContain(
+      "font.heading",
+    );
     expect(issuePaths({ ...DEFAULT_TEMPLATE_CONFIG, table: { style: "grid" } })).toContain(
       "table.style",
     );

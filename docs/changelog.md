@@ -12,7 +12,10 @@ went green on the development branch.
   digits) that prefills the first issuer profile; Account region, currency and language.
 - Roles: EDITOR role, `requireRole` guards across DAL, pages, actions and API; Settings → Users with
   invitations (allow-list rows), role changes, deactivation; role-aware navigation and exports.
-- Catalogue: products with SKUs, printed on documents and exported.
+- Catalogue: products with SKUs, printed on documents and exported; services and products tagged
+  to issuer profiles, with the builder picker following the selected issuer.
+- Templates: heading and body fonts chosen from a 100-family Google font catalogue vendored from
+  Fontsource (`pnpm fonts:vendor`).
 
 ## Review follow-ups (2026-10-02)
 

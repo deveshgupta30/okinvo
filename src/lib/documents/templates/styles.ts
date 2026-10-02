@@ -1,4 +1,5 @@
 import type { TemplateConfig, TemplateId } from "@/lib/schemas";
+import { fontFamily } from "../fonts/catalog";
 
 /** Points per millimetre (PDF user units). */
 export const PT_PER_MM = 72 / 25.4;
@@ -7,12 +8,6 @@ export const PAPER: Record<TemplateConfig["paper"]["size"], { width: number; hei
   A4: { width: 595.28, height: 841.89 },
   LETTER: { width: 612, height: 792 },
 };
-
-export const FAMILIES = {
-  inter: { heading: "Inter", body: "Inter" },
-  "ibm-plex-sans": { heading: "IBM Plex Sans", body: "IBM Plex Sans" },
-  "source-serif-4+inter": { heading: "Source Serif 4", body: "Inter" },
-} as const;
 
 /** The face that carries ₹ and other currency symbols (Inter latin-ext). */
 export const SYMBOL_FAMILY = "Symbols";
@@ -44,7 +39,6 @@ export interface TemplateStyle {
 /** Derives every number and colour both renderers use from the template config (R2: variants). */
 export function templateStyle(config: TemplateConfig): TemplateStyle {
   const variant = config.templateId;
-  const fam = FAMILIES[config.font];
   return {
     variant,
     accent: config.colors.accent,
@@ -52,8 +46,8 @@ export function templateStyle(config: TemplateConfig): TemplateStyle {
     muted: "#6b7280",
     hairline: variant === "classic" ? "#9ca3af" : "#e5e7eb",
     zebra: "#f5f6f8",
-    heading: fam.heading,
-    body: fam.body,
+    heading: fontFamily(config.font.heading).family,
+    body: fontFamily(config.font.body).family,
     paper: PAPER[config.paper.size],
     margin: config.paper.margins === "narrow" ? 24 : 40,
     base: variant === "compact" ? 8 : variant === "classic" ? 9 : 9.5,

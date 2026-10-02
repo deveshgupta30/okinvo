@@ -12,10 +12,12 @@ import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { DocumentPreview, PAPER, sampleViewModel } from "@/lib/documents";
+import { FONT_CATALOG } from "@/lib/documents/fonts/catalog";
 import {
   DEFAULT_LABELS,
   LABEL_KEYS,
   TEMPLATE_IDS,
+  type FontId,
   type LabelKey,
   type TemplateConfig,
   type TemplateId,
@@ -24,6 +26,36 @@ import { cn } from "@/lib/utils";
 import { saveTemplateAction } from "@/server/actions/templates";
 
 const PT_TO_PX = 96 / 72;
+
+const FONTS_BY_CATEGORY = {
+  sans: FONT_CATALOG.filter((f) => f.category === "sans"),
+  serif: FONT_CATALOG.filter((f) => f.category === "serif"),
+};
+
+/** Native select (type to jump) grouped Sans/Serif; each family name is set in itself. */
+function FontPicker({
+  id,
+  value,
+  onChange,
+}: {
+  id: string;
+  value: FontId;
+  onChange: (id: FontId) => void;
+}) {
+  return (
+    <Select id={id} value={value} onChange={(e) => onChange(e.target.value as FontId)}>
+      {(["sans", "serif"] as const).map((category) => (
+        <optgroup key={category} label={category === "sans" ? "Sans" : "Serif"}>
+          {FONTS_BY_CATEGORY[category].map((f) => (
+            <option key={f.id} value={f.id} style={{ fontFamily: `"${f.family}"` }}>
+              {f.family}
+            </option>
+          ))}
+        </optgroup>
+      ))}
+    </Select>
+  );
+}
 
 const TEMPLATE_INFO: Record<TemplateId, { name: string; character: string }> = {
   ledger: {
@@ -140,16 +172,19 @@ export function TemplateForm({
                   <option value="narrow">Narrow</option>
                 </Select>
               </Field>
-              <Field label="Font pairing" htmlFor="font">
-                <Select
-                  id="font"
-                  value={config.font}
-                  onChange={(e) => set("font", e.target.value as TemplateConfig["font"])}
-                >
-                  <option value="inter">Inter</option>
-                  <option value="ibm-plex-sans">IBM Plex Sans</option>
-                  <option value="source-serif-4+inter">Source Serif 4 headings + Inter</option>
-                </Select>
+              <Field label="Heading font" htmlFor="fontHeading">
+                <FontPicker
+                  id="fontHeading"
+                  value={config.font.heading}
+                  onChange={(heading) => set("font", { ...config.font, heading })}
+                />
+              </Field>
+              <Field label="Body font" htmlFor="fontBody">
+                <FontPicker
+                  id="fontBody"
+                  value={config.font.body}
+                  onChange={(body) => set("font", { ...config.font, body })}
+                />
               </Field>
               <Field label="Table style" htmlFor="tableStyle">
                 <Select
