@@ -1,10 +1,11 @@
 import "server-only";
 import type { Readable } from "node:stream";
-import { Prisma } from "@/generated/prisma/client";
+import { Prisma, type DocumentFormat } from "@/generated/prisma/client";
 import { sha256Hex } from "@/lib/crypto";
 import { todayIn } from "@/lib/dates";
 import { prisma, type Tx } from "@/lib/db";
 import { qrDataUrl } from "@/lib/documents/qr";
+import type { ProtectOptions } from "@/lib/documents/protect";
 import { renderPdf } from "@/lib/documents/render";
 import { sampleViewModel } from "@/lib/documents/sample";
 import { buildDocumentViewModel, type RenderInput } from "@/lib/documents/view-model";
@@ -34,6 +35,8 @@ export type DocumentKind = "INVOICE" | "CREDIT_NOTE";
 export interface DocumentDto {
   id: string;
   kind: DocumentKind;
+  /** PDF is the canonical copy; PDF_PROTECTED copies are encrypted per request (spec §5.5). */
+  format: DocumentFormat;
   version: number;
   storageKey: string;
   sha256: string;
@@ -145,13 +148,22 @@ export async function renderInputForDraft(tx: Tx, inv: InvoiceDto): Promise<Rend
   };
 }
 
-function filenameFor(kind: DocumentKind, number: string | null, version: number): string {
+function filenameFor(
+  kind: DocumentKind,
+  number: string | null,
+  version: number,
+  format: DocumentFormat = "PDF",
+): string {
   const stem = number
     ? safeFileStem(number)
     : kind === "INVOICE"
       ? "invoice-draft"
       : "credit-note-draft";
-  return version > 1 ? `${stem}-v${version}.pdf` : `${stem}.pdf`;
+  const suffix = format === "PDF_PROTECTED" ? "-protected" : "";
+  const extension = format === "DOCX" ? "docx" : "pdf";
+  return version > 1
+    ? `${stem}-v${version}${suffix}.${extension}`
+    : `${stem}${suffix}.${extension}`;
 }
 
 type DocRow = Prisma.DocumentGetPayload<object>;
@@ -160,19 +172,24 @@ function toDto(row: DocRow, number: string | null): DocumentDto {
   return {
     id: row.id,
     kind: row.kind,
+    format: row.format,
     version: row.version,
     storageKey: row.storageKey,
     sha256: row.sha256,
     byteSize: row.byteSize,
     generatedAt: row.generatedAt.toISOString(),
-    filename: filenameFor(row.kind, number, row.version),
+    filename: filenameFor(row.kind, number, row.version, row.format),
   };
 }
 
-async function latestDocument(tx: Tx, kind: DocumentKind, id: string): Promise<DocRow | null> {
+async function latestDocument(
+  tx: Tx,
+  kind: DocumentKind,
+  id: string,
+  format: DocumentFormat = "PDF",
+): Promise<DocRow | null> {
   return tx.document.findFirst({
-    where:
-      kind === "INVOICE" ? { invoiceId: id, format: "PDF" } : { creditNoteId: id, format: "PDF" },
+    where: kind === "INVOICE" ? { invoiceId: id, format } : { creditNoteId: id, format },
     orderBy: { version: "desc" },
   });
 }
@@ -207,6 +224,7 @@ async function renderStored(
   kind: DocumentKind,
   id: string,
   version: number,
+  protect?: ProtectOptions,
 ): Promise<DocRow> {
   const today = todayIn("UTC");
   const doc = await loadIssued(tx, kind, id, today);
@@ -216,7 +234,11 @@ async function renderStored(
     config: doc.config,
     draft: false,
   });
-  const pdf = await renderPdf(vm, doc.config, { assets: readAssetBytes, createdAt: doc.issuedAt });
+  const pdf = await renderPdf(vm, doc.config, {
+    assets: readAssetBytes,
+    createdAt: doc.issuedAt,
+    ...(protect ? { protect } : {}),
+  });
   const sha256 = sha256Hex(pdf);
   const key = documentKey(
     kind,
@@ -224,20 +246,23 @@ async function renderStored(
     doc.fiscalYear.toLowerCase(),
     safeFileStem(doc.number ?? id).toLowerCase(),
     version,
+    protect ? { suffix: "protected" } : {},
   );
   // Stored documents are immutable: never overwrite a blob that already exists at this key. A
   // blob with no row (a crash between put and insert, or a concurrent first render) is adopted
   // when it is byte-identical to this render — renders are deterministic — else refused.
+  // Encrypted copies are never byte-identical (fresh encryption each time), so an existing blob
+  // at a protected key is always a refusal (R9).
   if (await storage.exists(key)) {
-    const existing = await bytesOf((await storage.get(key)).stream);
-    if (sha256Hex(existing) !== sha256) throw new DocumentExistsError(key);
+    const existing = protect ? null : await bytesOf((await storage.get(key)).stream);
+    if (!existing || sha256Hex(existing) !== sha256) throw new DocumentExistsError(key);
   } else {
     await storage.put(key, pdf, { contentType: "application/pdf", byteSize: pdf.length });
   }
   return tx.document.create({
     data: {
       kind,
-      format: "PDF",
+      format: protect ? "PDF_PROTECTED" : "PDF",
       version,
       ...(kind === "INVOICE" ? { invoiceId: id } : { creditNoteId: id }),
       templateId: doc.config.templateId,
@@ -279,6 +304,38 @@ export async function ensureDocument(kind: DocumentKind, id: string): Promise<Do
     }
     throw e;
   }
+}
+
+/**
+ * A password-protected copy (spec §5.5): a new PDF_PROTECTED version rendered from the same
+ * snapshot and AES-256 encrypted — opens with the user password, prints, nothing else. The
+ * canonical PDF is untouched; each call makes a fresh copy (and version) because the recipient's
+ * password differs. Passwords never reach the audit log.
+ */
+export async function ensureProtectedDocument(
+  actor: Actor,
+  kind: DocumentKind,
+  id: string,
+  protect: ProtectOptions,
+): Promise<DocumentDto> {
+  requireWriter(actor);
+  if (!protect.userPassword || !protect.ownerPassword) {
+    throw new InvariantError("A protected copy needs a user password and an owner password.");
+  }
+  const row = await prisma.$transaction(
+    async (tx) => {
+      const latest = await latestDocument(tx, kind, id, "PDF_PROTECTED");
+      const version = (latest?.version ?? 0) + 1;
+      const created = await renderStored(tx, kind, id, version, protect);
+      await audit(tx, actor, "document.protected", "Document", created.id, {
+        summary: `Password-protected ${kind.toLowerCase()} copy v${version}`,
+        after: { version, sha256: created.sha256, format: "PDF_PROTECTED" },
+      });
+      return created;
+    },
+    { maxWait: 15_000, timeout: 60_000 },
+  );
+  return toDto(row, await documentNumber(kind, id));
 }
 
 /** A new version (SPEC §4.6 "documents"): earlier versions stay, the verify page lists every hash. */

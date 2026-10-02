@@ -19,6 +19,8 @@ went green on the development branch.
   uploaded image with opacity and height across every page.
 - Input charset: every text field, on the client and at every server boundary, accepts only
   standard keyboard characters (SPEC §6.6).
+- Protected copies: AES-256 password-protected PDF versions (open + print only) with an EFF
+  passphrase generator and a password strength hint.
 - Documents: wider description column, tax rate under the tax amount, totals never split across
   pages, section titles kept with their text, the page footer restored on every page (react-pdf
   drops a bottom-anchored fixed box holding a page-number text), and an approximate page count

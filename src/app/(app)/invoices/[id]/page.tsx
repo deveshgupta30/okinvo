@@ -377,7 +377,9 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
                       >
                         <span>
                           <a href={`/api/documents/${d.id}`} className="text-link">
-                            Version {d.version}
+                            {d.format === "PDF_PROTECTED"
+                              ? `Password-protected copy ${d.version}`
+                              : `Version ${d.version}`}
                           </a>
                           <span className="text-ink-subtle">
                             {" "}

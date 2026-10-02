@@ -148,7 +148,7 @@ describe.skipIf(!url)("verification lookup", () => {
       total: "1180.00",
       status: "valid",
     });
-    expect(r?.hashes).toEqual([{ version: 1, sha256: doc.sha256 }]);
+    expect(r?.hashes).toEqual([{ version: 1, sha256: doc.sha256, format: "PDF" }]);
     expect(JSON.stringify(r)).not.toMatch(/balance|paid|amountPaid/i);
     await inv.voidInvoice(actor, d.id, "Test void");
     expect((await verification.lookupByToken(issued.verificationToken))?.status).toBe("void");

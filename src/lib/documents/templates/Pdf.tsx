@@ -11,6 +11,7 @@ import {
 } from "@react-pdf/renderer";
 import type { ReactElement } from "react";
 import type { TemplateConfig } from "@/lib/schemas";
+import { PROTECT_PERMISSIONS, type ProtectOptions } from "../protect";
 import type { DocumentViewModel, TotalsRow } from "../view-model";
 import { SYMBOL_FAMILY, splitCurrency, templateStyle, type TemplateStyle } from "./styles";
 
@@ -27,6 +28,8 @@ interface Props {
   config: TemplateConfig;
   images: PdfImages;
   createdAt: Date;
+  /** When set, the file is AES-256 encrypted: open with the user password, print only. */
+  protect?: ProtectOptions | undefined;
 }
 
 /** Currency strings: the symbol run goes to the face that has the glyph (₹ is not in latin). */
@@ -227,7 +230,13 @@ function widths(cols: DocumentViewModel["columns"]) {
   return w;
 }
 
-export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElement<DocumentProps> {
+export function DocumentPdf({
+  vm,
+  config,
+  images,
+  createdAt,
+  protect,
+}: Props): ReactElement<DocumentProps> {
   const s = templateStyle(config);
   const st = makeStyles(s);
   const w = widths(vm.columns);
@@ -265,6 +274,14 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
       producer="okinvo"
       creationDate={createdAt}
       modificationDate={createdAt}
+      {...(protect
+        ? {
+            pdfVersion: "1.7ext3" as const, // AES-256 (R10)
+            userPassword: protect.userPassword,
+            ownerPassword: protect.ownerPassword,
+            permissions: PROTECT_PERMISSIONS,
+          }
+        : {})}
     >
       <Page size={[s.paper.width, s.paper.height]} style={st.page}>
         {vm.watermark ? (

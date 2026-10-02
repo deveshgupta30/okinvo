@@ -6,7 +6,14 @@ import { NotFoundError } from "@/server/dal/errors";
 
 export const runtime = "nodejs";
 
-/** Authenticated download of a stored PDF, always the stored bytes (SPEC §4.6). */
+const CONTENT_TYPES = {
+  PDF: "application/pdf",
+  PDF_PROTECTED: "application/pdf",
+  PDF_A3: "application/pdf",
+  DOCX: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+} as const;
+
+/** Authenticated download of a stored document, always the stored bytes (SPEC §4.6). */
 export async function GET(
   request: Request,
   ctx: { params: Promise<{ id: string }> },
@@ -19,7 +26,7 @@ export async function GET(
     const { document, stream } = await getDocumentStream(actor, id);
     return new Response(Readable.toWeb(stream) as ReadableStream, {
       headers: {
-        "Content-Type": "application/pdf",
+        "Content-Type": CONTENT_TYPES[document.format],
         "Content-Length": String(document.byteSize),
         "Content-Disposition": `${inline ? "inline" : "attachment"}; filename="${document.filename}"`,
         "Cache-Control": "private, max-age=0, no-store",
