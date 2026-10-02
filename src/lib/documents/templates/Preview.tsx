@@ -395,26 +395,24 @@ export function DocumentPreview({
                 borderBottom: `1px solid ${s.tableBorders ? s.hairline : s.accentRule ? s.accent : s.hairline}`,
               }}
             >
-              <th style={{ textAlign: "left", padding: pad, width: "5%" }}>#</th>
+              <th style={{ textAlign: "left", padding: pad, width: "4%" }}>#</th>
               <th style={{ textAlign: "left", padding: pad }}>{vm.labels.description}</th>
               {vm.columns.sac ? (
-                <th style={{ textAlign: "left", padding: pad, width: "11%" }}>
-                  {vm.labels.sacHsn}
-                </th>
+                <th style={{ textAlign: "left", padding: pad, width: "9%" }}>{vm.labels.sacHsn}</th>
               ) : null}
               {vm.columns.qty ? (
-                <th style={{ ...num, padding: pad, width: "9%" }}>{vm.labels.qty}</th>
+                <th style={{ ...num, padding: pad, width: "7%" }}>{vm.labels.qty}</th>
               ) : null}
               {vm.columns.qty ? (
-                <th style={{ textAlign: "left", padding: pad, width: "8%" }}>{vm.labels.unit}</th>
+                <th style={{ textAlign: "left", padding: pad, width: "7%" }}>{vm.labels.unit}</th>
               ) : null}
               {vm.columns.rate ? (
-                <th style={{ ...num, padding: pad, width: "13%" }}>{vm.labels.rate}</th>
+                <th style={{ ...num, padding: pad, width: "12%" }}>{vm.labels.rate}</th>
               ) : null}
               {vm.columns.tax ? (
-                <th style={{ ...num, padding: pad, width: "15%" }}>{vm.labels.tax}</th>
+                <th style={{ ...num, padding: pad, width: "13%" }}>{vm.labels.tax}</th>
               ) : null}
-              <th style={{ ...num, padding: pad, width: "16%" }}>{vm.labels.amount}</th>
+              <th style={{ ...num, padding: pad, width: "14%" }}>{vm.labels.amount}</th>
             </tr>
           </thead>
           <tbody>
@@ -444,7 +442,8 @@ export function DocumentPreview({
                 ) : null}
                 {vm.columns.tax ? (
                   <td style={{ ...num, padding: pad, verticalAlign: "top" }}>
-                    {it.taxAmount} ({it.taxRate})
+                    {it.taxAmount}
+                    <div style={{ ...muted, ...base(s.base - 1.5) }}>{it.taxRate}</div>
                   </td>
                 ) : null}
                 <td style={{ ...num, padding: pad, verticalAlign: "top" }}>

@@ -160,6 +160,8 @@ balanceDue        = total − Σ payments.amountApplied − Σ creditNotes.total
 
 **Documents.** On issue the PDF is rendered, stored and hashed. Downloads always serve the stored file. If a rendering defect is later fixed, a *new document version* may be generated on demand; earlier versions are retained and the verification page lists all hashes. The template configuration in force (4.17) is snapshotted with the document at issue, so later template changes never alter an issued document; regenerated versions render from the snapshot.
 
+**Documents fit A4 and Letter.** The items table repeats its header row on every page, the totals block (subtotal to amount in words) never splits across pages, section titles are never left alone at a page foot, and a footer band carrying the document number and "Page n of N" is reserved on every page. The builder's live preview shows the whole sheet and an approximate printed page count.
+
 **Draft preview.** A draft can be previewed as a PDF at any time; it carries a diagonal "DRAFT — not a tax invoice" watermark, no number and no QR, and is never stored.
 
 **QR code.** Encodes `https://<host>/verify/<token>`. Optional per display config. The token is rotated at issue, so a QR from a draft preview never resolves.

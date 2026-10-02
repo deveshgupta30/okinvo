@@ -223,7 +223,12 @@ describe.skipIf(!url)("invoice DAL", () => {
     expect(issued.paymentMethodsSnapshot?.[0]?.lines.some((l) => l.value === "000111222333")).toBe(
       true,
     );
-    expect(issued.templateSnapshot?.templateId).toBe("ledger");
+    // the snapshot is whatever template is in force for the profile (the shared dev DB may hold
+    // a saved instance template from an e2e run), never a hard-coded default
+    const { resolveTemplateConfig } = await import("@/server/dal/templates");
+    expect(issued.templateSnapshot?.templateId).toBe(
+      (await resolveTemplateConfig(prisma, profileId)).templateId,
+    );
     expect(issued.placeOfSupply).toBe("Karnataka (29)");
     expect(issued.displayStatus).toBe("ISSUED");
     const events = await prisma.auditEvent.findMany({ where: { entityId: d.id } });

@@ -3,8 +3,14 @@ import sharp from "sharp";
 import { describe, expect, it } from "vitest";
 import { sha256Hex } from "@/lib/crypto";
 import { renderPdf } from "@/lib/documents/render";
-import { sampleViewModel } from "@/lib/documents/sample";
-import { DEFAULT_TEMPLATE_CONFIG, TEMPLATE_IDS, mergeTemplateConfig } from "@/lib/schemas";
+import { sampleRenderInput, sampleViewModel } from "@/lib/documents/sample";
+import { buildDocumentViewModel, type DocumentViewModel } from "@/lib/documents/view-model";
+import {
+  DEFAULT_TEMPLATE_CONFIG,
+  TEMPLATE_IDS,
+  mergeTemplateConfig,
+  type TemplateConfig,
+} from "@/lib/schemas";
 
 async function textOf(pdf: Buffer): Promise<string> {
   const parser = new PDFParse({ data: new Uint8Array(pdf) });
@@ -17,6 +23,33 @@ async function textOf(pdf: Buffer): Promise<string> {
 }
 
 const noAssets = async () => null;
+
+async function pagesOf(pdf: Buffer): Promise<string[]> {
+  const parser = new PDFParse({ data: new Uint8Array(pdf) });
+  try {
+    const r = await parser.getText();
+    return r.pages.map((p) => p.text);
+  } finally {
+    await parser.destroy();
+  }
+}
+
+/** The sample invoice stretched to `n` lines (totals are not recomputed; layout is the point). */
+function longViewModel(n: number, config: TemplateConfig): DocumentViewModel {
+  const input = sampleRenderInput();
+  const base = input.items;
+  input.items = Array.from({ length: n }, (_, i) => ({
+    ...base[i % base.length]!,
+    position: i + 1,
+    description: `${base[i % base.length]!.description} (line ${i + 1})`,
+  }));
+  return buildDocumentViewModel(input, {
+    appUrl: "https://okinvo.example",
+    assetUrl: (id) => `/api/assets/id/${id}`,
+    config,
+    draft: false,
+  });
+}
 
 describe("renderPdf", () => {
   it.each(TEMPLATE_IDS)(
@@ -110,4 +143,50 @@ describe("renderPdf", () => {
     expect(baseFonts.some((n) => /PlayfairDisplay/i.test(n))).toBe(true);
     expect(baseFonts.some((n) => /Lato/i.test(n))).toBe(true);
   }, 60_000);
+});
+
+/**
+ * Documents fit A4 and Letter (spec §4.6): the table header repeats on every page, the totals
+ * block never splits, and every page ends with the reserved footer band.
+ */
+describe("pagination", () => {
+  it.each(["A4", "LETTER"] as const)(
+    "a 60-line invoice on %s runs to several pages with the header repeated and totals whole",
+    async (size) => {
+      const config = mergeTemplateConfig({ paper: { size, margins: "normal" } });
+      const vm = longViewModel(60, config);
+      const pdf = await renderPdf(vm, config, { assets: noAssets });
+      const pages = await pagesOf(pdf);
+      expect(pages.length).toBeGreaterThanOrEqual(2);
+      for (const [i, text] of pages.entries()) {
+        // the table header repeats wherever the table continues; trailing pages hold the sections
+        if (/\(line \d+\)/.test(text)) {
+          expect(text, `page ${i + 1} header`).toContain(vm.labels.description);
+        }
+        expect(text, `page ${i + 1} footer`).toContain(`Page ${i + 1} of ${pages.length}`);
+      }
+      // the totals block is never split: one page carries total, subtotal and the words together,
+      // and it comes after the last item row
+      const totalLabel = new RegExp(`\\b${vm.labels.total}\\b`);
+      const totalPages = pages.map((t, i) => (totalLabel.test(t) ? i : -1)).filter((i) => i >= 0);
+      expect(totalPages).toHaveLength(1);
+      const totalsPage = pages[totalPages[0]!]!;
+      expect(totalsPage).toContain(vm.labels.subtotal);
+      expect(totalsPage).toContain(vm.totals.amountInWords ?? "");
+      const lastRowPage = pages.findIndex((t) => t.includes("(line 60)"));
+      expect(lastRowPage).toBeGreaterThanOrEqual(0);
+      expect(totalPages[0]).toBeGreaterThanOrEqual(lastRowPage);
+    },
+    90_000,
+  );
+
+  it("keeps the first page's items table header on a three-page document too", async () => {
+    const config = mergeTemplateConfig({ templateId: "compact" });
+    const vm = longViewModel(140, config);
+    const pages = await pagesOf(await renderPdf(vm, config, { assets: noAssets }));
+    expect(pages.length).toBeGreaterThanOrEqual(3);
+    for (const text of pages) {
+      if (/\(line \d+\)/.test(text)) expect(text).toContain(vm.labels.description);
+    }
+  }, 90_000);
 });
