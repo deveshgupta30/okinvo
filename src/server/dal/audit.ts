@@ -45,6 +45,7 @@ export async function audit(
       ...(after !== undefined ? { after } : {}),
       ipAddress: actor?.ip ?? null,
       userAgent: actor?.userAgent ?? null,
+      actorRole: actor?.role ?? null,
     },
   });
 }

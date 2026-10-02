@@ -3,7 +3,7 @@ import { after } from "next/server";
 import { todayIn } from "@/lib/dates";
 import { prisma } from "@/lib/db";
 import { zipStream } from "@/lib/exports/zip";
-import { isActor, requireOwnerApi } from "@/server/auth";
+import { isActor, requireActorApi } from "@/server/auth";
 import { audit } from "@/server/dal/audit";
 import { allDataEntries } from "@/server/exports/all-data";
 import { enforceRateLimit } from "@/server/rate-limit";
@@ -12,7 +12,7 @@ export const runtime = "nodejs";
 
 /** `GET /api/exports/all-data` → `okinvo-data-<date>.zip` (SPEC §4.11, Settings → Data). */
 export async function GET(request: Request): Promise<Response> {
-  const actor = await requireOwnerApi();
+  const actor = await requireActorApi("VIEWER");
   if (!isActor(actor)) return actor;
   const limited = await enforceRateLimit(request.headers, "exports", actor.userId);
   if (limited) return limited;

@@ -8,7 +8,7 @@ import { PageHeader } from "@/components/ui/page-header";
 import { Pill } from "@/components/ui/status-pill";
 import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/table";
 import { formatDateTime } from "@/lib/format";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { invoiceHistory } from "@/server/dal/audit-log";
 import { listEmailMessages } from "@/server/dal/emails";
 import { NotFoundError } from "@/server/dal/errors";
@@ -17,7 +17,7 @@ import { getInvoice } from "@/server/dal/invoices";
 export const metadata: Metadata = { title: "Invoice history" };
 
 export default async function InvoiceHistoryPage({ params }: { params: Promise<{ id: string }> }) {
-  const actor = await requireOwner();
+  const actor = await requireRole("VIEWER");
   const { id } = await params;
   const inv = await getInvoice(actor, id).catch((e: unknown) => {
     if (e instanceof NotFoundError) notFound();

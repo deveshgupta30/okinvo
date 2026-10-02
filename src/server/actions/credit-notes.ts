@@ -6,7 +6,7 @@ import { after } from "next/server";
 import { withFlash } from "@/lib/flash";
 import { parseForm } from "@/lib/forms";
 import { CreditNoteInputSchema } from "@/lib/schemas/credit-note-input";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import {
   createCreditNoteDraft,
   deleteCreditNoteDraft,
@@ -37,7 +37,7 @@ export async function saveCreditNoteDraft(
   _prev: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const parsed = parseForm(CreditNoteInputSchema, formData);
   if (!parsed.ok) return failedParse(parsed, formData);
   let savedId: string;
@@ -71,7 +71,7 @@ export async function saveCreditNoteDraft(
 }
 
 export async function issueCreditNoteAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const id = str(formData, "id");
   let number: string | null = null;
   try {
@@ -85,7 +85,7 @@ export async function issueCreditNoteAction(formData: FormData): Promise<void> {
 }
 
 export async function voidCreditNoteAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const id = str(formData, "id");
   try {
     await voidCreditNote(actor, id, str(formData, "reason"));
@@ -102,7 +102,7 @@ export async function voidCreditNoteAction(formData: FormData): Promise<void> {
 }
 
 export async function markCreditNoteSentAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const id = str(formData, "id");
   try {
     await markCreditNoteSent(actor, id);
@@ -113,7 +113,7 @@ export async function markCreditNoteSentAction(formData: FormData): Promise<void
 }
 
 export async function deleteCreditNoteDraftAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const id = str(formData, "id");
   let invoiceId = "";
   try {
@@ -128,7 +128,7 @@ export async function deleteCreditNoteDraftAction(formData: FormData): Promise<v
 }
 
 export async function regenerateCreditNoteDocumentAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const id = str(formData, "id");
   try {
     const doc = await regenerateDocument(actor, "CREDIT_NOTE", id);

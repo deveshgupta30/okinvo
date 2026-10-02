@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
 import { PageHeader } from "@/components/ui/page-header";
 import { FileText } from "lucide-react";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { builderContext } from "@/server/dal/invoice-builder";
 
 export const metadata: Metadata = { title: "New invoice" };
@@ -15,7 +15,7 @@ export default async function NewInvoicePage({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const params = await searchParams;
   const context = await builderContext(actor, {
     clientId: typeof params.client === "string" ? params.client : null,

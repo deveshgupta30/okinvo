@@ -5,7 +5,7 @@ import { prisma } from "@/lib/db";
 import { exportFilename } from "@/lib/exports/filenames";
 import { zipStream } from "@/lib/exports/zip";
 import { PeriodExportFiltersSchema } from "@/lib/schemas/export-filters";
-import { isActor, requireOwnerApi } from "@/server/auth";
+import { isActor, requireActorApi } from "@/server/auth";
 import { audit } from "@/server/dal/audit";
 import { documentsBundleEntries, documentsBundleRange } from "@/server/exports/documents-bundle";
 import { enforceRateLimit } from "@/server/rate-limit";
@@ -17,7 +17,7 @@ export const runtime = "nodejs";
  * of issued and voided PDFs named by number plus `index.csv` (SPEC §4.11, Settings → Data).
  */
 export async function GET(request: Request): Promise<Response> {
-  const actor = await requireOwnerApi();
+  const actor = await requireActorApi("VIEWER");
   if (!isActor(actor)) return actor;
   const limited = await enforceRateLimit(request.headers, "exports", actor.userId);
   if (limited) return limited;

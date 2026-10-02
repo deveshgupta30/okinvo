@@ -1,6 +1,6 @@
 import { Readable } from "node:stream";
 import { StorageNotFoundError } from "@/lib/storage";
-import { isActor, requireOwnerApi } from "@/server/auth";
+import { isActor, requireActorApi } from "@/server/auth";
 import { getAssetStream, getAssetStreamById } from "@/server/dal/assets";
 import { NotFoundError } from "@/server/dal/errors";
 
@@ -11,7 +11,7 @@ export async function GET(
   _request: Request,
   ctx: { params: Promise<{ key: string[] }> },
 ): Promise<Response> {
-  const actor = await requireOwnerApi();
+  const actor = await requireActorApi("VIEWER");
   if (!isActor(actor)) return actor;
   const { key } = await ctx.params;
   try {

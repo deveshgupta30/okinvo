@@ -1,5 +1,5 @@
 import { mergeTemplateConfig } from "@/lib/schemas";
-import { isActor, requireOwnerApi } from "@/server/auth";
+import { isActor, requireActorApi } from "@/server/auth";
 import {
   ensureDocument,
   renderCreditNoteDraftPreview,
@@ -29,7 +29,7 @@ function pdfResponse(pdf: Buffer, filename: string): Response {
  * `?sample=1[&config=<base64url JSON>]` → the Settings → Templates sample.
  */
 export async function GET(request: Request): Promise<Response> {
-  const actor = await requireOwnerApi();
+  const actor = await requireActorApi("VIEWER");
   if (!isActor(actor)) return actor;
   const url = new URL(request.url);
   try {

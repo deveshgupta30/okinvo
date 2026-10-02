@@ -16,7 +16,7 @@ import {
   deleteClientAction,
   unarchiveClientAction,
 } from "@/server/actions/clients";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { clientSummary, getClient } from "@/server/dal/clients";
 import { NotFoundError } from "@/server/dal/errors";
 import { listInvoices } from "@/server/dal/invoices";
@@ -25,7 +25,7 @@ import { getDefaultProfile } from "@/server/dal/profiles";
 export const metadata: Metadata = { title: "Client" };
 
 export default async function ClientPage({ params }: { params: Promise<{ id: string }> }) {
-  const actor = await requireOwner();
+  const actor = await requireRole("VIEWER");
   const { id } = await params;
   const client = await getClient(actor, id).catch((e: unknown) => {
     if (e instanceof NotFoundError) notFound();

@@ -4,7 +4,7 @@ import { CreditNoteBuilder } from "@/components/credit-notes/builder";
 import { PageHeader } from "@/components/ui/page-header";
 import { prisma } from "@/lib/db";
 import { withFlash } from "@/lib/flash";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { defaultCreditNoteDate, getCreditNote } from "@/server/dal/credit-notes";
 import { NotFoundError } from "@/server/dal/errors";
 import { getInvoice } from "@/server/dal/invoices";
@@ -13,7 +13,7 @@ import { resolveTemplateConfig } from "@/server/dal/templates";
 export const metadata: Metadata = { title: "Edit credit note" };
 
 export default async function EditCreditNotePage({ params }: { params: Promise<{ id: string }> }) {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const { id } = await params;
   const cn = await getCreditNote(actor, id).catch((e: unknown) => {
     if (e instanceof NotFoundError) notFound();
