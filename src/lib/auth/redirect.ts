@@ -2,8 +2,14 @@
  * Convenience redirect for anonymous page navigations. Authorization itself lives in the DAL
  * (`requireUser` / `requireOwner`); this only spares a signed-out person a 403 page.
  */
-const PUBLIC_PREFIXES = ["/auth/", "/verify/", "/api/", "/_next/"];
-const PUBLIC_FILES = new Set(["/favicon.ico", "/robots.txt"]);
+const PUBLIC_PREFIXES = ["/auth/", "/verify/", "/api/", "/_next/", "/icons/"];
+const PUBLIC_FILES = new Set([
+  "/favicon.ico",
+  "/robots.txt",
+  "/icon.svg",
+  "/apple-icon.png",
+  "/manifest.webmanifest",
+]);
 
 export function shouldRedirectToSignIn(pathname: string, hasSessionCookie: boolean): boolean {
   if (hasSessionCookie) return false;

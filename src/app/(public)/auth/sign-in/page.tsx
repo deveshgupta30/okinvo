@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Wordmark } from "@/components/brand/logo";
 import { PasswordSignInForm } from "@/components/password-sign-in-form";
 import { SignInButtons } from "@/components/sign-in-buttons";
 import { configuredProviders } from "@/lib/auth/providers";
@@ -23,15 +24,7 @@ export default async function SignInPage({
   return (
     <main className="flex min-h-dvh items-center justify-center bg-canvas p-6">
       <section className="w-full max-w-sm rounded-lg border border-hairline bg-surface-1 p-8">
-        <div className="mb-6 flex items-center gap-3">
-          <span
-            aria-hidden
-            className="flex size-8 items-center justify-center rounded-md bg-primary text-app-label font-semibold text-on-primary"
-          >
-            ok
-          </span>
-          <span className="text-app-section text-ink">okinvo</span>
-        </div>
+        <Wordmark title="okinvo" className="mb-6 h-9 w-auto text-ink" />
         <h1 className="text-display-md text-ink">Sign in</h1>
         <p className="mt-2 text-app-body text-ink-subtle">Only allow-listed accounts can enter.</p>
         {errorKey ? (

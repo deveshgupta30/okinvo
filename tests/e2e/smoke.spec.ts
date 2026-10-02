@@ -28,6 +28,27 @@ test("sign-in page renders with security headers", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 });
 
+test("brand assets: wordmark on sign-in, favicon and manifest reachable without a session", async ({
+  page,
+  request,
+}) => {
+  await page.goto("/auth/sign-in");
+  await expect(page.getByRole("img", { name: "okinvo" })).toBeVisible();
+  expect(await page.locator('link[rel="icon"]').count()).toBeGreaterThan(0);
+  for (const path of [
+    "/icon.svg",
+    "/apple-icon.png",
+    "/manifest.webmanifest",
+    "/icons/icon-192.png",
+  ]) {
+    const res = await request.get(path, { maxRedirects: 0 });
+    expect(res.status(), path).toBe(200);
+  }
+  const manifest = await (await request.get("/manifest.webmanifest")).json();
+  expect(manifest.name).toBe("okinvo");
+  expect(manifest.icons.length).toBeGreaterThanOrEqual(2);
+});
+
 test("theme: explicit cookies win over the OS, no cookie and garbage follow the OS", async ({
   page,
   context,
