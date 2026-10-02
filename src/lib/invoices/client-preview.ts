@@ -27,6 +27,8 @@ export interface BuilderItem {
   taxRate: string;
   taxExempt?: boolean;
   serviceItemId?: string;
+  productId?: string;
+  sku?: string;
 }
 
 export interface BuilderValues {
@@ -145,6 +147,7 @@ export function previewFromBuilder(values: BuilderValues, ctx: PreviewContext): 
     unitPrice: num(item.unitPrice, `Line ${position} rate`, warnings),
     taxRate: num(item.taxRate, `Line ${position} tax rate`, warnings),
     taxExempt: item.taxExempt ?? false,
+    sku: item.sku ?? null,
   }));
   const discountValue =
     values.discountType && values.discountValue.trim()
@@ -279,6 +282,7 @@ export function previewFromBuilder(values: BuilderValues, ctx: PreviewContext): 
         lineSubtotal: m(line?.lineSubtotal ?? "0"),
         taxRate: src?.taxRate ?? "0",
         taxExempt: src?.taxExempt ?? false,
+        sku: src?.sku ?? null,
         taxAmount: m(line?.taxAmount ?? "0"),
         lineTotal: m(line?.lineTotal ?? "0"),
       };

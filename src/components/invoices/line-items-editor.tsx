@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import type { FieldErrors } from "@/lib/forms";
 import type { BuilderItem } from "@/lib/invoices/client-preview";
 import { UNIT_LABELS, UNIT_TYPES } from "@/lib/schemas/service-input";
+import type { ProductDto } from "@/server/dal/products";
 import type { ServiceDto } from "@/server/dal/services";
 
 const EXEMPT = "__exempt";
@@ -25,6 +26,7 @@ const EMPTY: BuilderItem = {
 export function LineItemsEditor({
   items,
   services,
+  products = [],
   rates,
   allowExempt = false,
   errors,
@@ -32,6 +34,7 @@ export function LineItemsEditor({
 }: {
   items: BuilderItem[];
   services: ServiceDto[];
+  products?: ProductDto[] | undefined;
   rates: readonly string[] | null;
   /** UK VAT: offer "Exempt" beside the rates (SPEC §4.7). */
   allowExempt?: boolean | undefined;
@@ -63,6 +66,22 @@ export function LineItemsEditor({
     const base = items.length === 0 ? [] : rows;
     onChange([...base, row]);
   };
+  const addFromProduct = (id: string) => {
+    const p = products.find((x) => x.id === id);
+    if (!p) return;
+    const row: BuilderItem = {
+      description: p.description ? `${p.name}\n${p.description}` : p.name,
+      sacHsnCode: p.hsnCode ?? "",
+      unitType: p.unitType,
+      quantity: "1",
+      unitPrice: p.unitPrice,
+      taxRate: p.defaultTaxRate,
+      productId: p.id,
+      sku: p.sku,
+    };
+    const base = items.length === 0 ? [] : rows;
+    onChange([...base, row]);
+  };
   const err = (i: number, key: keyof BuilderItem) => errors?.[`items.${i}.${key}`];
   /**
    * Enter in a single-line field never submits the form (that would save or issue by accident):
@@ -83,22 +102,37 @@ export function LineItemsEditor({
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-wrap items-center gap-2">
-        {services.length > 0 ? (
+        {services.length > 0 || products.length > 0 ? (
           <Select
             aria-label="Add from catalogue"
             className="w-64"
             value=""
             onChange={(e) => {
-              addFromService(e.target.value);
+              const [kind, id] = e.target.value.split(":", 2);
+              if (kind === "svc" && id) addFromService(id);
+              if (kind === "prod" && id) addFromProduct(id);
               e.target.value = "";
             }}
           >
             <option value="">Add from catalogue…</option>
-            {services.map((s) => (
-              <option key={s.id} value={s.id}>
-                {s.name} · {s.defaultRate} {s.currency}/{UNIT_LABELS[s.unitType].toLowerCase()}
-              </option>
-            ))}
+            {services.length > 0 ? (
+              <optgroup label="Services">
+                {services.map((s) => (
+                  <option key={s.id} value={`svc:${s.id}`}>
+                    {s.name} · {s.defaultRate} {s.currency}/{UNIT_LABELS[s.unitType].toLowerCase()}
+                  </option>
+                ))}
+              </optgroup>
+            ) : null}
+            {products.length > 0 ? (
+              <optgroup label="Products">
+                {products.map((p) => (
+                  <option key={p.id} value={`prod:${p.id}`}>
+                    {p.sku} · {p.name} · {p.unitPrice} {p.currency}
+                  </option>
+                ))}
+              </optgroup>
+            ) : null}
           </Select>
         ) : null}
         <Button
@@ -135,6 +169,12 @@ export function LineItemsEditor({
                       value={row.serviceItemId}
                     />
                   ) : null}
+                  {row.productId ? (
+                    <input type="hidden" name={`items[${i}].productId`} value={row.productId} />
+                  ) : null}
+                  {row.sku ? (
+                    <input type="hidden" name={`items[${i}].sku`} value={row.sku} />
+                  ) : null}
                   <Textarea
                     name={`items[${i}].description`}
                     aria-label={`Line ${i + 1} description`}
@@ -150,6 +190,9 @@ export function LineItemsEditor({
                       }
                     }}
                   />
+                  {row.sku ? (
+                    <p className="mt-1 font-mono text-app-caption text-ink-subtle">SKU {row.sku}</p>
+                  ) : null}
                   {err(i, "description") ? (
                     <p role="alert" className="text-app-caption text-semantic-danger">
                       {err(i, "description")?.join(" ")}

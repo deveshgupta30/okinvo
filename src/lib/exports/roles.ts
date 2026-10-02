@@ -12,6 +12,7 @@ export const DATASET_MIN_ROLE: Record<DatasetId, Role> = {
   "credit-notes": "VIEWER",
   clients: "VIEWER",
   services: "VIEWER",
+  products: "VIEWER",
   "gst-summary": "EDITOR",
   "tds-summary": "EDITOR",
 };

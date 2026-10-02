@@ -7,6 +7,7 @@ export const ARCHIVABLE_MODELS: ReadonlySet<string> = new Set([
   "IssuerProfile",
   "Client",
   "ServiceItem",
+  "Product",
   "PaymentMethodProfile",
 ]);
 

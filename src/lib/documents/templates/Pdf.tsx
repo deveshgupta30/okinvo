@@ -388,7 +388,9 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
                 wrap={false}
               >
                 <Text style={[st.cell, { width: w.pos }]}>{it.position}</Text>
-                <Text style={[st.cell, { width: w.desc }]}>{it.description}</Text>
+                <Text style={[st.cell, { width: w.desc }]}>
+                  {it.sku ? `${it.description}\nSKU ${it.sku}` : it.description}
+                </Text>
                 {vm.columns.sac ? (
                   <Text style={[st.cell, { width: w.sac }]}>{it.sacHsnCode ?? ""}</Text>
                 ) : null}

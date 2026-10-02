@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { DateStringSchema, compareDates } from "@/lib/dates";
+import { SkuSchema } from "./product-input";
 import { fBool, fDecimal, fOptional } from "@/lib/forms";
 import { D, minorUnits } from "@/lib/money";
 import { GST_RATES, UK_VAT_RATES } from "@/lib/tax";
@@ -27,6 +28,8 @@ export const InvoiceItemInputSchema = z.object({
   /** UK VAT exempt supply: no VAT, shown as "Exempt" instead of a rate. Absent means taxable. */
   taxExempt: fBool.optional(),
   serviceItemId: fOptional(z.string().max(64)),
+  productId: z.string().max(64).optional(),
+  sku: fOptional(SkuSchema),
 });
 export type InvoiceItemInput = z.infer<typeof InvoiceItemInputSchema>;
 

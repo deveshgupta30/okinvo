@@ -49,6 +49,8 @@ export interface InvoiceItemDto {
   id: string;
   position: number;
   serviceItemId: string | null;
+  productId: string | null;
+  sku: string | null;
   description: string;
   sacHsnCode: string | null;
   unitType: "HOUR" | "DAY" | "FIXED" | "MILESTONE" | "UNIT";
@@ -265,6 +267,8 @@ function toDto(row: DetailRow, today: DateString): InvoiceDto {
       lineSubtotal: money(i.lineSubtotal, c),
       taxRate: D(i.taxRate.toString()).toString(),
       taxExempt: i.taxExempt,
+      productId: i.productId,
+      sku: i.sku,
       taxAmount: money(i.taxAmount, c),
       lineTotal: money(i.lineTotal, c),
     })),
@@ -335,6 +339,8 @@ function itemsCreate(input: InvoiceDraftInput, c: Computed) {
     return {
       position,
       serviceItemId: it.serviceItemId ?? null,
+      productId: it.productId ?? null,
+      sku: it.sku ?? null,
       description: it.description,
       sacHsnCode: it.sacHsnCode ?? null,
       unitType: it.unitType,

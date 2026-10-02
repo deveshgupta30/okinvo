@@ -236,6 +236,7 @@ export function InvoiceBuilder({
             <LineItemsEditor
               items={values.items}
               services={context.services}
+              products={context.products}
               rates={rates}
               allowExempt={values.taxRegime === "UK_VAT"}
               errors={errors}

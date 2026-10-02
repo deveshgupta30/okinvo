@@ -36,6 +36,7 @@ export interface RenderItem {
   lineSubtotal: string;
   taxRate: string;
   taxExempt?: boolean | undefined;
+  sku?: string | null | undefined;
   taxAmount: string;
   lineTotal: string;
 }
@@ -94,6 +95,8 @@ export interface TotalsRow {
 export interface ViewModelItem {
   position: number;
   description: string;
+  /** Printed under the description as "SKU …" when the display config allows. */
+  sku?: string;
   sacHsnCode?: string;
   qty: string;
   unit: string;
@@ -286,6 +289,7 @@ export function buildDocumentViewModel(input: RenderInput, o: ViewModelOptions):
       position: i.position,
       description: i.description,
       ...(i.sacHsnCode ? { sacHsnCode: i.sacHsnCode } : {}),
+      ...(i.sku && d.document.showSku ? { sku: i.sku } : {}),
       qty: formatQuantity(i.quantity, locale),
       unit: UNIT_LABELS[i.unitType] ?? i.unitType,
       rate: amount(i.unitPrice),

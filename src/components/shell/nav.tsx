@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FileText, LayoutDashboard, Receipt, Users, Wrench } from "lucide-react";
+import { FileText, LayoutDashboard, Package, Receipt, Users, Wrench } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
@@ -12,6 +12,7 @@ export const NAV = [
   { href: "/credit-notes", label: "Credit notes", icon: Receipt },
   { href: "/clients", label: "Clients", icon: Users },
   { href: "/services", label: "Services", icon: Wrench },
+  { href: "/products", label: "Products", icon: Package },
 ] as const;
 
 export function isActivePath(pathname: string, href: string): boolean {

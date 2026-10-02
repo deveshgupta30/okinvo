@@ -3,6 +3,17 @@
 Milestones of okinvo v1.0 (`IMPLEMENTATION_PLAN_v2.md` §22). Dates are when the milestone's tests
 went green on the development branch.
 
+## v1.1 (in progress, 2026-10-03)
+
+- Shell & identity: brand marks and favicons, selectable pastel accents (mint default), avatars with
+  a circular crop, collapsible sidebar with an icon rail, mobile drawer, theme toggle and user menu
+  in the sidebar footer, dashboard greeting, Settings → Appearance, phone layouts.
+- Onboarding: three-step first-run wizard (country guessed from the browser, GSTIN / UK VAT check
+  digits) that prefills the first issuer profile; Account region, currency and language.
+- Roles: EDITOR role, `requireRole` guards across DAL, pages, actions and API; Settings → Users with
+  invitations (allow-list rows), role changes, deactivation; role-aware navigation and exports.
+- Catalogue: products with SKUs, printed on documents and exported.
+
 ## Review follow-ups (2026-10-02)
 
 - Whole-branch review fixes: row locks on the issue, void, payment and credit-note

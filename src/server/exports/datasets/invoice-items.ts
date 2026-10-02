@@ -17,6 +17,7 @@ export interface InvoiceItemRow extends Record<string, string | null> {
   client: string;
   position: string;
   description: string;
+  sku: string | null;
   sacHsnCode: string | null;
   unit: string;
   quantity: string;
@@ -33,6 +34,7 @@ const COLUMNS: Column<InvoiceItemRow>[] = [
   { key: "client", header: "Client", type: "string" },
   { key: "position", header: "Position", type: "number", numFmt: "0", width: 9 },
   { key: "description", header: "Description", type: "string", width: 40 },
+  { key: "sku", header: "SKU", type: "string", width: 16 },
   { key: "sacHsnCode", header: "SAC/HSN", type: "string", width: 10 },
   { key: "unit", header: "Unit", type: "string", width: 10 },
   { key: "quantity", header: "Qty", type: "number", numFmt: "#,##0.000" },
@@ -65,6 +67,7 @@ export const invoiceItemsDataset = defineDataset<RegisterExportFilters, InvoiceI
           client: inv.client.displayName,
           position: int(it.position),
           description: it.description,
+          sku: it.sku,
           sacHsnCode: it.sacHsnCode,
           unit: it.unitType,
           quantity: qty(it.quantity),
