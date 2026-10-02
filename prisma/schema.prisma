@@ -12,6 +12,7 @@ datasource db {
 
 enum UserRole {
   OWNER
+  EDITOR
   VIEWER
 }
 
@@ -629,6 +630,7 @@ model AuditEvent {
   after      Json?
   ipAddress  String?
   userAgent  String?
+  actorRole  String?  // the actor's role at the time (OWNER | EDITOR | VIEWER)
   createdAt  DateTime @default(now())
 
   actor      User?    @relation(fields: [actorId], references: [id], onDelete: SetNull)

@@ -6,14 +6,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mono } from "@/components/ui/mono";
 import { PageHeader } from "@/components/ui/page-header";
 import { withFlash } from "@/lib/flash";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { composerDefaults, listEmailMessages } from "@/server/dal/emails";
 import { isDalError, NotFoundError } from "@/server/dal/errors";
 
 export const metadata: Metadata = { title: "Send credit note" };
 
 export default async function SendCreditNotePage({ params }: { params: Promise<{ id: string }> }) {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const { id } = await params;
   let defaults;
   try {

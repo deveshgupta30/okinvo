@@ -11,7 +11,7 @@ import { TBody, TD, TH, THead, TR, Table } from "@/components/ui/table";
 import { formatDate, formatMoney } from "@/lib/format";
 import { firstNameOf } from "@/lib/names";
 import { cn } from "@/lib/utils";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { dashboardData, type DashboardBucket } from "@/server/dal/dashboard";
 import { listProfiles } from "@/server/dal/profiles";
 
@@ -57,7 +57,7 @@ function bucketValue(b: DashboardBucket[], locale: string, fallback: string) {
 }
 
 export default async function DashboardPage() {
-  const actor = await requireOwner();
+  const actor = await requireRole("VIEWER");
   const [d, profiles] = await Promise.all([dashboardData(actor), listProfiles(actor)]);
   const count = (b: DashboardBucket[]) => b.reduce((n, x) => n + x.count, 0);
   return (

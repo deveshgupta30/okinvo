@@ -21,7 +21,7 @@ import {
   regenerateCreditNoteDocumentAction,
   voidCreditNoteAction,
 } from "@/server/actions/credit-notes";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { getCreditNote } from "@/server/dal/credit-notes";
 import { assetUrl, verificationQr } from "@/server/dal/documents";
 import { NotFoundError } from "@/server/dal/errors";
@@ -31,7 +31,7 @@ export const metadata: Metadata = { title: "Credit note" };
 const PT_TO_PX = 96 / 72;
 
 export default async function CreditNotePage({ params }: { params: Promise<{ id: string }> }) {
-  const actor = await requireOwner();
+  const actor = await requireRole("VIEWER");
   const { id } = await params;
   const cn = await getCreditNote(actor, id).catch((e: unknown) => {
     if (e instanceof NotFoundError) notFound();

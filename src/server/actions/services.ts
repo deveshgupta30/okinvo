@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { withFlash } from "@/lib/flash";
 import { parseForm } from "@/lib/forms";
 import { ServiceInputSchema } from "@/lib/schemas/service-input";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import {
   archiveService,
   createService,
@@ -23,7 +23,7 @@ export async function saveService(
   _prev: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const parsed = parseForm(ServiceInputSchema, formData);
   if (!parsed.ok) return failedParse(parsed, formData);
   let name: string;
@@ -51,17 +51,17 @@ async function simple(formData: FormData, fn: () => Promise<void>, success: stri
 }
 
 export async function archiveServiceAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   await simple(formData, () => archiveService(actor, str(formData, "id")), "Service archived");
 }
 
 export async function unarchiveServiceAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   await simple(formData, () => unarchiveService(actor, str(formData, "id")), "Service restored");
 }
 
 export async function toggleServiceAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const active = str(formData, "isActive") === "true";
   await simple(
     formData,
@@ -71,6 +71,6 @@ export async function toggleServiceAction(formData: FormData): Promise<void> {
 }
 
 export async function deleteServiceAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   await simple(formData, () => deleteService(actor, str(formData, "id")), "Service deleted");
 }

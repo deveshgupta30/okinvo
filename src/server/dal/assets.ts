@@ -25,7 +25,7 @@ export async function createAsset(
   kind: AssetKind,
   prepared: PreparedUpload,
 ): Promise<AssetDto> {
-  requireWriter(actor);
+  if (kind !== "AVATAR") requireWriter(actor); // a profile photo is the person's own
   const id = crypto.randomUUID();
   const key = assetKey(kind, id, prepared.ext);
   await storage.put(key, prepared.buffer, {

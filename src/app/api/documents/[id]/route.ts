@@ -1,6 +1,6 @@
 import { Readable } from "node:stream";
 import { StorageNotFoundError } from "@/lib/storage";
-import { isActor, requireOwnerApi } from "@/server/auth";
+import { isActor, requireActorApi } from "@/server/auth";
 import { getDocumentStream } from "@/server/dal/documents";
 import { NotFoundError } from "@/server/dal/errors";
 
@@ -11,7 +11,7 @@ export async function GET(
   request: Request,
   ctx: { params: Promise<{ id: string }> },
 ): Promise<Response> {
-  const actor = await requireOwnerApi();
+  const actor = await requireActorApi("VIEWER");
   if (!isActor(actor)) return actor;
   const { id } = await ctx.params;
   const inline = new URL(request.url).searchParams.get("inline") === "1";

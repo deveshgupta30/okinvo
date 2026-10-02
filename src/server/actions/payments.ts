@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { withFlash } from "@/lib/flash";
 import { parseForm } from "@/lib/forms";
 import { PaymentInputSchema } from "@/lib/schemas/payment-input";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { deletePayment, recordPayment, updatePayment } from "@/server/dal/payments";
 import { errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
 
@@ -17,7 +17,7 @@ export async function savePayment(
   _prev: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const parsed = parseForm(PaymentInputSchema, formData);
   if (!parsed.ok) return failedParse(parsed, formData);
   try {
@@ -37,7 +37,7 @@ export async function savePayment(
 }
 
 export async function deletePaymentAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const id = str(formData, "id");
   const invoiceId = str(formData, "invoiceId");
   try {

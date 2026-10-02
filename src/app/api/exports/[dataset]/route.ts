@@ -11,7 +11,7 @@ import {
 } from "@/lib/exports";
 import { ExportFormatSchema } from "@/lib/schemas/export-filters";
 import { APP_VERSION } from "@/lib/version";
-import { isActor, requireOwnerApi } from "@/server/auth";
+import { isActor, requireActorApi } from "@/server/auth";
 import { audit } from "@/server/dal/audit";
 import { getDataset } from "@/server/exports/datasets";
 import { enforceRateLimit } from "@/server/rate-limit";
@@ -33,7 +33,7 @@ export async function GET(
   request: Request,
   ctx: { params: Promise<{ dataset: string }> },
 ): Promise<Response> {
-  const actor = await requireOwnerApi();
+  const actor = await requireActorApi("VIEWER");
   if (!isActor(actor)) return actor;
   const limited = await enforceRateLimit(request.headers, "exports", actor.userId);
   if (limited) return limited;

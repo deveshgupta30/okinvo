@@ -6,7 +6,7 @@ import { after } from "next/server";
 import { withFlash } from "@/lib/flash";
 import { formToObject, parseObject, readDisplayConfigFromForm } from "@/lib/forms";
 import { InvoiceDraftInputSchema } from "@/lib/schemas/invoice-input";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { ensureDocument, regenerateDocument } from "@/server/dal/documents";
 import { isDalError } from "@/server/dal/errors";
 import {
@@ -62,7 +62,7 @@ export async function saveDraft(
   _prev: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const parsed = parseObject(InvoiceDraftInputSchema, draftInputFromForm(formData));
   if (!parsed.ok) return failedParse(parsed, formData);
   let savedId: string;
@@ -93,7 +93,7 @@ export async function saveDraft(
 }
 
 export async function issueInvoiceAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const id = str(formData, "id");
   let number: string | null = null;
   try {
@@ -107,7 +107,7 @@ export async function issueInvoiceAction(formData: FormData): Promise<void> {
 }
 
 export async function voidInvoiceAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const id = str(formData, "id");
   try {
     await voidInvoice(actor, id, str(formData, "reason"));
@@ -119,7 +119,7 @@ export async function voidInvoiceAction(formData: FormData): Promise<void> {
 }
 
 export async function voidAndReissueAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const id = str(formData, "id");
   let newId: string;
   try {
@@ -137,7 +137,7 @@ export async function voidAndReissueAction(formData: FormData): Promise<void> {
 }
 
 export async function markSentAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const id = str(formData, "id");
   try {
     await markSent(actor, id);
@@ -149,7 +149,7 @@ export async function markSentAction(formData: FormData): Promise<void> {
 }
 
 export async function deleteDraftAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const id = str(formData, "id");
   try {
     await deleteDraft(actor, id);
@@ -161,7 +161,7 @@ export async function deleteDraftAction(formData: FormData): Promise<void> {
 }
 
 export async function regenerateDocumentAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const id = str(formData, "id");
   try {
     const doc = await regenerateDocument(actor, "INVOICE", id);

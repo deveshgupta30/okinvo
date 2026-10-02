@@ -9,7 +9,7 @@ import {
   SendEmailInputSchema,
   SmtpSettingsInputSchema,
 } from "@/lib/schemas/email-input";
-import { requireOwner } from "@/server/auth";
+import { requireOwner, requireRole } from "@/server/auth";
 import type { DocumentKind } from "@/server/dal/documents";
 import { markSentManually, sendDocumentEmail } from "@/server/dal/emails";
 import { isDalError } from "@/server/dal/errors";
@@ -31,7 +31,7 @@ export async function sendEmailAction(
   _prev: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const parsed = parseForm(SendEmailInputSchema, formData);
   if (!parsed.ok) return failedParse(parsed, formData);
   let status: "SENT" | "FAILED" | "MANUAL";
@@ -61,7 +61,7 @@ export async function sendEmailAction(
 }
 
 export async function markSentManuallyAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const kind = (
     str(formData, "kind") === "CREDIT_NOTE" ? "CREDIT_NOTE" : "INVOICE"
   ) as DocumentKind;

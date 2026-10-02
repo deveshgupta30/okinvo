@@ -22,7 +22,7 @@ import {
   voidAndReissueAction,
   voidInvoiceAction,
 } from "@/server/actions/invoices";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { assetUrl, renderInputFromInvoice, verificationQr } from "@/server/dal/documents";
 import { NotFoundError } from "@/server/dal/errors";
 import { getInvoice } from "@/server/dal/invoices";
@@ -32,7 +32,7 @@ export const metadata: Metadata = { title: "Invoice" };
 const PT_TO_PX = 96 / 72;
 
 export default async function InvoicePage({ params }: { params: Promise<{ id: string }> }) {
-  const actor = await requireOwner();
+  const actor = await requireRole("VIEWER");
   const { id } = await params;
   const inv = await getInvoice(actor, id).catch((e: unknown) => {
     if (e instanceof NotFoundError) notFound();

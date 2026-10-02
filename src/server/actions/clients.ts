@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { withFlash } from "@/lib/flash";
 import { formToObject, parseObject } from "@/lib/forms";
 import { ClientInputSchema } from "@/lib/schemas/client-input";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import {
   archiveClient,
   createClient,
@@ -22,7 +22,7 @@ export async function saveClient(
   _prev: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const raw = formToObject(formData);
   // One country select serves the client and both address blocks; shipping is optional.
   const withCountry = (a: unknown) => ({
@@ -60,17 +60,17 @@ async function simple(formData: FormData, fn: () => Promise<void>, success: stri
 }
 
 export async function archiveClientAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   await simple(formData, () => archiveClient(actor, str(formData, "id")), "Client archived");
 }
 
 export async function unarchiveClientAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   await simple(formData, () => unarchiveClient(actor, str(formData, "id")), "Client restored");
 }
 
 export async function deleteClientAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const id = str(formData, "id");
   try {
     await deleteClient(actor, id);

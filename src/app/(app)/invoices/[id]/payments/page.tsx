@@ -13,7 +13,7 @@ import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/tab
 import { todayIn } from "@/lib/dates";
 import { formatDate, formatMoney } from "@/lib/format";
 import { deletePaymentAction } from "@/server/actions/payments";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { NotFoundError } from "@/server/dal/errors";
 import { listPaymentMethods } from "@/server/dal/payment-methods";
 import { getPayment, listPayments } from "@/server/dal/payments";
@@ -36,7 +36,7 @@ export default async function PaymentsPage({
   params: Promise<{ id: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const { id } = await params;
   const { edit } = await searchParams;
   const ledger = await listPayments(actor, id).catch((e: unknown) => {

@@ -3,13 +3,13 @@ import { AccentPicker } from "@/components/settings/accent-picker";
 import { ThemeChoice } from "@/components/settings/theme-choice";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageHeader } from "@/components/ui/page-header";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { getAccount } from "@/server/dal/users";
 
 export const metadata: Metadata = { title: "Appearance" };
 
 export default async function AppearancePage() {
-  const actor = await requireOwner();
+  const actor = await requireRole("VIEWER");
   const account = await getAccount(actor);
   return (
     <>

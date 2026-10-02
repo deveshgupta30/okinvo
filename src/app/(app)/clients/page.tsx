@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { PageHeader } from "@/components/ui/page-header";
 import { Pill } from "@/components/ui/status-pill";
 import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/table";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { listClients } from "@/server/dal/clients";
 
 export const metadata: Metadata = { title: "Clients" };
@@ -18,7 +18,7 @@ export default async function ClientsPage({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const actor = await requireOwner();
+  const actor = await requireRole("VIEWER");
   const params = await searchParams;
   const q = typeof params.q === "string" ? params.q : "";
   const showArchived = params.archived === "1";

@@ -17,7 +17,7 @@ import type { SmtpSettingsInput } from "@/lib/schemas/email-input";
 import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { InvariantError } from "./errors";
-import { requireWriter } from "./authz";
+import { requireRole } from "./authz";
 import { deleteSetting, getSetting, putSetting } from "./settings";
 
 export interface SmtpSettingsView {
@@ -101,7 +101,7 @@ export async function saveSmtpSettings(
   actor: Actor,
   input: Omit<SmtpSettingsInput, "port"> & { port: number },
 ): Promise<void> {
-  requireWriter(actor);
+  requireRole(actor, "OWNER");
   const existing = await getSetting(prisma, "smtp", SmtpConfigSchema);
   const config: SmtpConfig = SmtpConfigSchema.parse({
     host: input.host,
@@ -121,12 +121,12 @@ export async function saveSmtpSettings(
 }
 
 export async function clearSmtpSettings(actor: Actor): Promise<void> {
-  requireWriter(actor);
+  requireRole(actor, "OWNER");
   await prisma.$transaction((tx) => deleteSetting(tx, actor, "smtp"));
 }
 
 export async function saveEmailDefaults(actor: Actor, input: EmailDefaults): Promise<void> {
-  requireWriter(actor);
+  requireRole(actor, "OWNER");
   await prisma.$transaction((tx) =>
     putSetting(tx, actor, "emailDefaults", input, EmailDefaultsSchema),
   );
@@ -136,7 +136,7 @@ export async function saveEmailDefaults(actor: Actor, input: EmailDefaults): Pro
 export async function sendTestEmail(
   actor: Actor,
 ): Promise<{ ok: true } | { ok: false; error: string }> {
-  requireWriter(actor);
+  requireRole(actor, "OWNER");
   const r = await resolveSmtp();
   if (!r) throw new InvariantError("SMTP is not configured.");
   const verified = await verifyTransport(r);

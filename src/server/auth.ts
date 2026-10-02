@@ -5,7 +5,8 @@ import { forbidden, redirect } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { env } from "@/lib/env";
 import { isAllowedEmail } from "@/server/allow-list";
-import { actorFromSession, type Actor } from "@/server/actor";
+import { actorFromSession, type Actor, type Role } from "@/server/actor";
+import { hasRole } from "@/server/dal/authz";
 import { auth } from "@/server/auth-config";
 
 export type AuthSession = NonNullable<Awaited<ReturnType<typeof auth.api.getSession>>>;
@@ -39,11 +40,20 @@ function onboarded(s: AuthSession): boolean {
   return v !== null && v !== undefined;
 }
 
-/** The only way a server action or page obtains an Actor for the DAL. */
-export async function requireOwner(): Promise<Actor> {
+/**
+ * The only way a server action or page obtains an Actor for the DAL: the signed-in, onboarded
+ * person, at least `min` (spec §9b). Below it the page is a 403 (`forbidden()`).
+ */
+export async function requireRole(min: Role): Promise<Actor> {
   const s = await requireUser();
-  if (s.user.role !== "OWNER") forbidden();
-  return actorFromSession(s, await headers(), env.TRUST_PROXY);
+  const actor = actorFromSession(s, await headers(), env.TRUST_PROXY);
+  if (!hasRole(actor, min)) forbidden();
+  return actor;
+}
+
+/** OWNER-only pages and actions (settings). */
+export async function requireOwner(): Promise<Actor> {
+  return requireRole("OWNER");
 }
 
 /**
@@ -89,21 +99,27 @@ export async function actorFromBearer(
  * Route-handler variant: identical checks, but a 401/403 Response instead of a redirect. A bearer
  * token is honoured before the cookie session, so API clients never need cookies.
  */
-export async function requireOwnerApi(): Promise<Actor | Response> {
+export async function requireActorApi(min: Role = "OWNER"): Promise<Actor | Response> {
   const h = await headers();
   const authorization = h.get("authorization");
   if (authorization) {
     const actor = await actorFromBearer(authorization, h);
     if (!actor) return Response.json({ error: "unauthenticated" }, { status: 401 });
-    if (actor.role !== "OWNER") return Response.json({ error: "forbidden" }, { status: 403 });
+    if (!hasRole(actor, min)) return Response.json({ error: "forbidden" }, { status: 403 });
     return actor;
   }
   const s = await getSession();
   if (!s || !isAllowedEmail(s.user.email, env.allowList)) {
     return Response.json({ error: "unauthenticated" }, { status: 401 });
   }
-  if (s.user.role !== "OWNER") return Response.json({ error: "forbidden" }, { status: 403 });
-  return actorFromSession(s, h, env.TRUST_PROXY);
+  const actor = actorFromSession(s, h, env.TRUST_PROXY);
+  if (!hasRole(actor, min)) return Response.json({ error: "forbidden" }, { status: 403 });
+  return actor;
+}
+
+/** Back-compat name: OWNER-only API routes. */
+export async function requireOwnerApi(): Promise<Actor | Response> {
+  return requireActorApi("OWNER");
 }
 
 export async function optionalUser(): Promise<Actor | null> {

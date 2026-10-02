@@ -7,7 +7,7 @@ import { APP_COOKIES } from "@/lib/cookies";
 import { countryOptions } from "@/lib/geo/countries";
 import { CURRENCIES, currencyName, pinnedFirst } from "@/lib/geo/currencies";
 import { TIMEZONES } from "@/lib/timezones";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { getAccount } from "@/server/dal/users";
 
 export const metadata: Metadata = { title: "Account" };
@@ -19,7 +19,7 @@ const LANGUAGES = [
 ];
 
 export default async function AccountPage() {
-  const actor = await requireOwner();
+  const actor = await requireRole("VIEWER");
   const account = await getAccount(actor);
   const countries = countryOptions(["US", "GB", "IN"]);
   const currencies = pinnedFirst(CURRENCIES, ["USD", "GBP", "INR"]).map((c) => ({

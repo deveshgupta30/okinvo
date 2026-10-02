@@ -16,7 +16,7 @@ import {
   toggleServiceAction,
   unarchiveServiceAction,
 } from "@/server/actions/services";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { getDefaultProfile } from "@/server/dal/profiles";
 import { listServices } from "@/server/dal/services";
 
@@ -27,7 +27,7 @@ export default async function ServicesPage({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const actor = await requireOwner();
+  const actor = await requireRole("VIEWER");
   const params = await searchParams;
   const showArchived = params.archived === "1";
   const [services, profile] = await Promise.all([

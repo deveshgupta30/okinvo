@@ -3,14 +3,14 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { withFlash } from "@/lib/flash";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { revokeOtherSessions, revokeSessionById } from "@/server/dal/sessions";
 import { errorMessage, str } from "./shared";
 
 const PAGE = "/settings/security";
 
 export async function revokeSessionAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("VIEWER");
   try {
     await revokeSessionById(actor, str(formData, "id"));
   } catch (e) {
@@ -21,7 +21,7 @@ export async function revokeSessionAction(formData: FormData): Promise<void> {
 }
 
 export async function revokeOtherSessionsAction(): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("VIEWER");
   let count = 0;
   try {
     count = await revokeOtherSessions(actor);

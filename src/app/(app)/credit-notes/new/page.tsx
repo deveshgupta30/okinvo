@@ -13,7 +13,7 @@ import { prisma } from "@/lib/db";
 import { withFlash } from "@/lib/flash";
 import { formatMoney } from "@/lib/format";
 import { D } from "@/lib/money";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { defaultCreditNoteDate } from "@/server/dal/credit-notes";
 import { NotFoundError } from "@/server/dal/errors";
 import { getInvoice, listInvoices } from "@/server/dal/invoices";
@@ -26,7 +26,7 @@ export default async function NewCreditNotePage({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
   const { invoice: invoiceId } = await searchParams;
   if (typeof invoiceId !== "string") {
     // No invoice chosen yet: pick one of the issued invoices with something left to credit.
