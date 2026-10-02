@@ -98,6 +98,7 @@ function makeStyles(s: TemplateStyle) {
       fontFamily: s.heading,
       fontWeight: 600,
       fontSize: s.base * 2,
+      lineHeight: 1.2,
       letterSpacing: -0.3,
       color: s.variant === "ledger" ? s.accent : s.text,
     },
@@ -180,7 +181,8 @@ function makeStyles(s: TemplateStyle) {
     signatureBox: { alignItems: "flex-end", width: 170 },
     pageFooter: {
       position: "absolute",
-      bottom: s.margin / 2,
+      // anchored from the top edge: react-pdf 4.9 drops a fixed box anchored with `bottom` when it holds a render-prop Text
+      top: s.paper.height - s.margin / 2 - 12,
       left: s.margin,
       right: s.margin,
       flexDirection: "row",
@@ -208,14 +210,14 @@ function makeStyles(s: TemplateStyle) {
 
 function widths(cols: DocumentViewModel["columns"]) {
   const w = {
-    pos: "5%",
+    pos: "4%",
     desc: "0%",
-    sac: cols.sac ? "11%" : "0%",
-    qty: cols.qty ? "9%" : "0%",
-    unit: cols.qty ? "8%" : "0%",
-    rate: cols.rate ? "13%" : "0%",
-    tax: cols.tax ? "15%" : "0%",
-    amount: "16%",
+    sac: cols.sac ? "9%" : "0%",
+    qty: cols.qty ? "7%" : "0%",
+    unit: cols.qty ? "7%" : "0%",
+    rate: cols.rate ? "12%" : "0%",
+    tax: cols.tax ? "13%" : "0%",
+    amount: "14%",
   };
   const used = [w.pos, w.sac, w.qty, w.unit, w.rate, w.tax, w.amount].reduce(
     (n, x) => n + parseFloat(x),
@@ -480,9 +482,10 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
                   <Text style={[st.cell, st.num, { width: w.rate }]}>{it.rate}</Text>
                 ) : null}
                 {vm.columns.tax ? (
-                  <Text style={[st.cell, st.num, { width: w.tax }]}>
-                    {it.taxAmount} ({it.taxRate})
-                  </Text>
+                  <View style={[st.cell, { width: w.tax }]}>
+                    <Text style={st.num}>{it.taxAmount}</Text>
+                    <Text style={[st.num, st.small, st.muted]}>{it.taxRate}</Text>
+                  </View>
                 ) : null}
                 <Text style={[st.cell, st.num, { width: w.amount }]}>
                   {vm.columns.tax ? it.lineSubtotal : it.lineTotal}
@@ -493,21 +496,23 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
         ) : null}
 
         {/* Totals */}
-        <View style={st.totalsWrap}>
-          {s.qrPosition === "beside-totals" && qr ? <View style={{ flex: 1 }}>{qr}</View> : null}
-          <View style={st.totals}>{totalsRows(vm.totals.rows)}</View>
+        <View wrap={false}>
+          <View style={st.totalsWrap}>
+            {s.qrPosition === "beside-totals" && qr ? <View style={{ flex: 1 }}>{qr}</View> : null}
+            <View style={st.totals}>{totalsRows(vm.totals.rows)}</View>
+          </View>
+          {vm.totals.amountInWords && s.wordsPosition === "below-total" ? (
+            <Text style={st.words}>
+              <Text style={st.muted}>{vm.labels.amountInWords}: </Text>
+              {vm.totals.amountInWords}
+            </Text>
+          ) : null}
         </View>
-        {vm.totals.amountInWords && s.wordsPosition === "below-total" ? (
-          <Text style={st.words}>
-            <Text style={st.muted}>{vm.labels.amountInWords}: </Text>
-            {vm.totals.amountInWords}
-          </Text>
-        ) : null}
         {vm.supplyStatement ? <Text style={st.statement}>{vm.supplyStatement}</Text> : null}
 
         {/* Payment details */}
         {vm.paymentMethods.length > 0 ? (
-          <View style={st.section}>
+          <View style={st.section} minPresenceAhead={40}>
             <Text style={st.sectionTitle}>{vm.labels.paymentDetails}</Text>
             <View style={{ flexDirection: "row", gap: 18, flexWrap: "wrap" }}>
               {vm.paymentMethods.map((m, i) => (
@@ -529,13 +534,13 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
         ) : null}
 
         {vm.notes ? (
-          <View style={st.section}>
+          <View style={st.section} minPresenceAhead={30}>
             <Text style={st.sectionTitle}>{vm.labels.notes}</Text>
             <Text>{vm.notes}</Text>
           </View>
         ) : null}
         {vm.terms ? (
-          <View style={st.section}>
+          <View style={st.section} minPresenceAhead={30}>
             <Text style={st.sectionTitle}>{vm.labels.terms}</Text>
             <Text style={st.muted}>{vm.terms}</Text>
           </View>
