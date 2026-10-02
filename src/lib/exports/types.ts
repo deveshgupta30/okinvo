@@ -36,6 +36,7 @@ export const DATASET_IDS = [
   "credit-notes",
   "clients",
   "services",
+  "products",
   "gst-summary",
   "tds-summary",
 ] as const;

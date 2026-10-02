@@ -330,6 +330,28 @@ model ServiceItem {
   @@index([name])
 }
 
+/// Goods for sale (spec §5.1): like a service, with a unique SKU and an HSN code for GST.
+model Product {
+  id             String    @id @default(uuid(7))
+  sku            String    @unique
+  name           String
+  description    String?
+  unitType       UnitType  @default(UNIT)
+  unitPrice      Decimal   @db.Decimal(14, 2)
+  currency       String    @db.VarChar(3)
+  hsnCode        String?
+  defaultTaxRate Decimal   @default(0) @db.Decimal(5, 2)
+  isActive       Boolean   @default(true)
+
+  archivedAt     DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  invoiceItems   InvoiceItem[]
+
+  @@index([name])
+}
+
 model PaymentMethodProfile {
   id           String            @id @default(uuid(7))
   name         String
@@ -476,6 +498,8 @@ model InvoiceItem {
   invoiceId     String
   position      Int
   serviceItemId String?
+  productId     String?
+  sku           String?      // snapshot of the product's SKU when the line was added
   description   String
   sacHsnCode    String?
   unitType      UnitType     @default(HOUR)
@@ -489,6 +513,7 @@ model InvoiceItem {
 
   invoice       Invoice      @relation(fields: [invoiceId],     references: [id], onDelete: Cascade)
   service       ServiceItem? @relation(fields: [serviceItemId], references: [id], onDelete: SetNull)
+  product       Product?     @relation(fields: [productId],     references: [id], onDelete: SetNull)
 
   @@unique([invoiceId, position])
 }

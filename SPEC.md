@@ -201,6 +201,17 @@ Rules:
 - Recording, editing or deleting a payment recomputes the invoice balance in the same transaction and is audited.
 - The invoice's payments page is a ledger: running balance, totals by kind, TDS total.
 
+### 4.8a Products and SKUs
+
+Besides services, the catalogue holds **products**: goods with a unique SKU (letters, digits,
+`. _ / -`, up to 40 characters), a name, description, unit (default UNIT), unit price, currency,
+HSN code and default tax rate; active/inactive and archivable like services. Picking a product in
+the builder copies its values onto the line and snapshots the SKU on the invoice line
+(`InvoiceItem.sku`), so the printed document keeps it even after the product changes or is
+archived. The SKU prints under the line description when the display config's `showSku` is on
+(default on). Exports: a `products` dataset and a `SKU` column on `invoice-items`; `data.json`
+includes `products`. A product referenced by an invoice line cannot be deleted, only archived.
+
 ### 4.9 Credit notes
 
 - Issued **against one issued invoice**. Own gap-free sequence (`CN/{FY}/{SEQ:3}`). Same lifecycle as invoices (`DRAFT → ISSUED → VOID`), same immutability, own PDF and verification token.

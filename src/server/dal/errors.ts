@@ -38,3 +38,10 @@ export class ForbiddenError extends DalError {
 export function isDalError(e: unknown): e is DalError {
   return e instanceof DalError;
 }
+
+/** A unique constraint the person can resolve (duplicate SKU, …); carries the field error. */
+export class ConflictError extends DalError {
+  constructor(message: string, fieldErrors?: FieldErrors) {
+    super("CONFLICT", message, fieldErrors);
+  }
+}

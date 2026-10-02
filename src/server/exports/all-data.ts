@@ -105,6 +105,13 @@ const TABLES: Table[] = [
       ),
   },
   {
+    name: "products",
+    rows: () =>
+      paginate((cursor, take) =>
+        prisma.product.findMany({ ...everyRow, ...byId, take, ...cursorArgs(cursor) }),
+      ),
+  },
+  {
     name: "paymentMethodProfiles",
     rows: () =>
       paginate((cursor, take) =>

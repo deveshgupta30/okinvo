@@ -340,7 +340,7 @@ export function DocumentPreview({
               >
                 <td style={{ padding: pad, verticalAlign: "top" }}>{it.position}</td>
                 <td style={{ padding: pad, verticalAlign: "top", whiteSpace: "pre-wrap" }}>
-                  {it.description}
+                  {it.sku ? `${it.description}\nSKU ${it.sku}` : it.description}
                 </td>
                 {vm.columns.sac ? (
                   <td style={{ padding: pad, verticalAlign: "top" }}>{it.sacHsnCode ?? ""}</td>

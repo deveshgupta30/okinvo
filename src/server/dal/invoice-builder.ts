@@ -8,6 +8,7 @@ import { listClients, type ClientDto } from "./clients";
 import { getInvoice, type InvoiceDto } from "./invoices";
 import { listPaymentMethods, type PaymentMethodDto } from "./payment-methods";
 import { listProfiles, type ProfileDto } from "./profiles";
+import { listProducts, type ProductDto } from "./products";
 import { listServices, type ServiceDto } from "./services";
 import { resolveTemplateConfig } from "./templates";
 
@@ -41,6 +42,7 @@ export interface BuilderContext {
   profiles: BuilderProfile[];
   clients: ClientDto[];
   services: ServiceDto[];
+  products: ProductDto[];
   methods: PaymentMethodDto[];
   templateConfigs: Record<string, TemplateConfig>;
   initial: BuilderValues;
@@ -66,6 +68,8 @@ export function valuesFromInvoice(inv: InvoiceDto): BuilderValues {
       taxRate: i.taxRate,
       taxExempt: i.taxExempt,
       ...(i.serviceItemId ? { serviceItemId: i.serviceItemId } : {}),
+      ...(i.productId ? { productId: i.productId } : {}),
+      ...(i.sku ? { sku: i.sku } : {}),
     })),
     discountType: inv.discountType ?? "",
     discountValue: inv.discountValue ?? "",
@@ -86,10 +90,11 @@ export async function builderContext(
   actor: Actor,
   o: { invoiceId?: string | null; clientId?: string | null; issuerProfileId?: string | null },
 ): Promise<BuilderContext> {
-  const [fullProfiles, clients, services, methods] = await Promise.all([
+  const [fullProfiles, clients, services, products, methods] = await Promise.all([
     listProfiles(actor),
     listClients(actor),
     listServices(actor, { activeOnly: true }),
+    listProducts(actor, { activeOnly: true }),
     listPaymentMethods(actor, { activeOnly: true, decrypt: true }),
   ]);
   const profiles = fullProfiles.map(toBuilderProfile);
@@ -146,5 +151,5 @@ export async function builderContext(
       terms: profile?.defaultTerms ?? "",
     };
   }
-  return { profiles, clients, services, methods, templateConfigs, initial, today };
+  return { profiles, clients, services, products, methods, templateConfigs, initial, today };
 }

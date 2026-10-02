@@ -235,6 +235,7 @@ describe.skipIf(!url)("export datasets", () => {
       "credit-notes",
       "clients",
       "services",
+      "products",
       "gst-summary",
       "tds-summary",
     ]);

@@ -50,6 +50,7 @@ const DocumentDisplaySchema = z.object({
   showPlaceOfSupply: z.boolean(),
   showSupplyStatement: z.boolean(),
   showRoundingLine: z.boolean(),
+  showSku: z.boolean(),
 });
 
 export const DisplayConfigSchema = z.object({
@@ -154,6 +155,7 @@ export const DEFAULT_DISPLAY_CONFIG: DisplayConfig = deepFreeze({
     showPlaceOfSupply: true,
     showSupplyStatement: true,
     showRoundingLine: true,
+    showSku: true,
   },
 });
 
