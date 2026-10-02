@@ -1,3 +1,4 @@
+import { INPUT_CHARSET_MESSAGE, isKeyboardText } from "@/lib/input-charset";
 import "server-only";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
@@ -94,6 +95,10 @@ function createAuth() {
       user: {
         create: {
           before: async (user, ctx) => {
+            // The display name is user input like any other text field (SPEC.md §6.6).
+            if (!isKeyboardText(user.name ?? "")) {
+              throw new APIError("BAD_REQUEST", { message: INPUT_CHARSET_MESSAGE });
+            }
             // Admitted by the env list, or by an active invitation (Settings → Users).
             const invited = await invitedRole(user.email);
             if (!invited && !isAllowedEmail(user.email, env.allowList)) {

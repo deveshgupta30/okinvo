@@ -1,3 +1,4 @@
+import { findDisallowed } from "@/lib/input-charset";
 import { mergeTemplateConfig } from "@/lib/schemas";
 import { isActor, requireActorApi } from "@/server/auth";
 import {
@@ -35,9 +36,13 @@ export async function GET(request: Request): Promise<Response> {
   try {
     if (url.searchParams.get("sample") === "1") {
       const raw = url.searchParams.get("config");
-      const config = mergeTemplateConfig(
-        raw ? JSON.parse(Buffer.from(raw, "base64url").toString("utf8")) : null,
-      );
+      const partial: unknown = raw
+        ? JSON.parse(Buffer.from(raw, "base64url").toString("utf8"))
+        : null;
+      if (findDisallowed(partial).length) {
+        return Response.json({ error: "bad_charset" }, { status: 400 });
+      }
+      const config = mergeTemplateConfig(partial);
       return pdfResponse(await renderSamplePdf(config), "okinvo-sample.pdf");
     }
     const invoiceId = url.searchParams.get("invoice");

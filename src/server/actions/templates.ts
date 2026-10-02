@@ -11,17 +11,21 @@ import {
   saveProfileTemplateOverride,
   saveTemplateConfig,
 } from "@/server/dal/templates";
+import { assertKeyboardInput } from "@/lib/input-charset";
 import { errorMessage, str, type ActionState, valuesOf } from "./shared";
 
 const PAGE = "/settings/templates";
 
 function parseConfigJson(formData: FormData): unknown {
   const raw = str(formData, "configJson");
+  let parsed: unknown;
   try {
-    return JSON.parse(raw);
+    parsed = JSON.parse(raw);
   } catch {
     throw new Error("The template form sent invalid data.");
   }
+  assertKeyboardInput(parsed); // InputCharsetError carries the field message
+  return parsed;
 }
 
 /** Saves the instance template (scope "instance") or a profile's override (scope = profile id). */

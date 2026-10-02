@@ -17,6 +17,8 @@ went green on the development branch.
 - Templates: heading and body fonts chosen from a 100-family Google font catalogue vendored from
   Fontsource (`pnpm fonts:vendor`); Minimal, Letterhead and Modern templates; a header band or
   uploaded image with opacity and height across every page.
+- Input charset: every text field, on the client and at every server boundary, accepts only
+  standard keyboard characters (SPEC §6.6).
 - Documents: wider description column, tax rate under the tax amount, totals never split across
   pages, section titles kept with their text, the page footer restored on every page (react-pdf
   drops a bottom-anchored fixed box holding a page-number text), and an approximate page count

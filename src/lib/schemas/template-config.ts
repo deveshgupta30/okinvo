@@ -146,7 +146,7 @@ export const DEFAULT_TEMPLATE_CONFIG: TemplateConfig = deepFreeze({
     showRounding: true,
     amountInWords: "below-total",
   },
-  text: { draftWatermark: "DRAFT — not a tax invoice" },
+  text: { draftWatermark: "DRAFT - not a tax invoice" },
   qr: { position: "footer" },
   pageNumbers: true,
 });

@@ -1,3 +1,4 @@
+import { findDisallowed } from "@/lib/input-charset";
 import { Readable } from "node:stream";
 import { after } from "next/server";
 import { todayIn } from "@/lib/dates";
@@ -25,6 +26,9 @@ export async function GET(request: Request): Promise<Response> {
   const url = new URL(request.url);
   const raw: Record<string, string> = {};
   for (const [k, v] of url.searchParams) if (v) raw[k] = v;
+  if (findDisallowed(raw).length) {
+    return Response.json({ error: "bad_charset" }, { status: 400 });
+  }
   const filters = PeriodExportFiltersSchema.safeParse(raw);
   if (!filters.success) {
     return Response.json({ error: "bad_filters", issues: filters.error.issues }, { status: 400 });

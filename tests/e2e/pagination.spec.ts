@@ -16,10 +16,10 @@ test("a thirty-line invoice shows an estimate of two pages", async ({ page }) =>
   const badge = page.locator("[data-page-estimate]");
   await expect(badge).toHaveText(/approx\. 1 page/);
 
-  await page.getByLabel("Line 1 description").fill("Line 1 — consulting");
+  await page.getByLabel("Line 1 description").fill("Line 1 - consulting");
   for (let i = 2; i <= 30; i++) {
     await page.getByRole("button", { name: "Add line" }).click();
-    await page.getByLabel(`Line ${i} description`).fill(`Line ${i} — consulting`);
+    await page.getByLabel(`Line ${i} description`).fill(`Line ${i} - consulting`);
   }
   await expect(badge).toHaveText(/approx\. 2 pages/, { timeout: 30_000 });
   await expect(badge).toHaveAttribute("data-page-estimate", "2");
