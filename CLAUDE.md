@@ -22,7 +22,7 @@ Node 24 LTS · pnpm 10 · Next.js 16 (App Router, `proxy.ts` not `middleware.ts`
 ## Non-negotiable rules
 
 - **Money:** `Decimal` (decimal.js / Prisma Decimal) end to end. Never `number` for amounts. Round half-up to the currency's minor units (`roundMoney(v, currency)`, never a bare `toDecimalPlaces(2)`) only at the points `SPEC.md` §4.6 defines. All money math lives in `src/lib/money`.
-- **Dates:** document dates are calendar dates handled as `YYYY-MM-DD` strings at every boundary; instants are UTC `Date`s. Never construct a `Date` from a bare `YYYY-MM-DD` string. "Today" is `todayFor(user)` in the signed-in user's timezone — never the server's.
+- **Dates:** document dates are calendar dates handled as `YYYY-MM-DD` strings at every boundary; instants are UTC `Date`s. Never construct a `Date` from a bare `YYYY-MM-DD` string. "Today" is `todayIn(actor.timezone)` (`src/lib/dates.ts`) in the signed-in user's timezone — never the server's.
 - **Validation:** Zod at every boundary — env (`src/lib/env.ts`), server actions, route handlers, and every `Json` column (schemas in `src/lib/schemas`).
 - **Authorization:** every server action and route handler calls `requireUser()` / `requireOwner()` from `src/server/auth` — the only public exceptions are `/api/health/*` and `/verify/*`, which are public by design. `proxy.ts` is a convenience redirect, never the security boundary.
 - **Immutability:** an `ISSUED` invoice or credit note is never updated except for `sentAt`, void fields, payments and credit notes. Enforce in the DAL, not just the UI.

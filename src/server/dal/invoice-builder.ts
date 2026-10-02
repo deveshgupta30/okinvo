@@ -1,7 +1,7 @@
 import "server-only";
 import { addDays, todayIn } from "@/lib/dates";
 import { prisma } from "@/lib/db";
-import type { BuilderValues } from "@/lib/invoices/client-preview";
+import type { BuilderProfile, BuilderValues } from "@/lib/invoices/client-preview";
 import type { TemplateConfig } from "@/lib/schemas";
 import type { Actor } from "@/server/actor";
 import { listClients, type ClientDto } from "./clients";
@@ -11,9 +11,34 @@ import { listProfiles, type ProfileDto } from "./profiles";
 import { listServices, type ServiceDto } from "./services";
 import { resolveTemplateConfig } from "./templates";
 
+export type { BuilderProfile } from "@/lib/invoices/client-preview";
+
+/** Projects a profile onto what the browser may see (see `BuilderProfile`). */
+export function toBuilderProfile(p: ProfileDto): BuilderProfile {
+  const {
+    usTaxId: _usTaxId,
+    emailCc: _emailCc,
+    emailBcc: _emailBcc,
+    emailInvoiceSubject: _emailInvoiceSubject,
+    emailInvoiceBody: _emailInvoiceBody,
+    emailCreditNoteSubject: _emailCreditNoteSubject,
+    emailCreditNoteBody: _emailCreditNoteBody,
+    templateConfigOverride: _templateConfigOverride,
+    invoiceNumberFormat: _invoiceNumberFormat,
+    creditNoteNumberFormat: _creditNoteNumberFormat,
+    logoKey: _logoKey,
+    signatureKey: _signatureKey,
+    stampKey: _stampKey,
+    createdAt: _createdAt,
+    updatedAt: _updatedAt,
+    ...rest
+  } = p;
+  return { ...rest, hasGstin: p.gstin !== null && p.gstin !== "" };
+}
+
 /** Everything the builder needs in one serialisable object. */
 export interface BuilderContext {
-  profiles: ProfileDto[];
+  profiles: BuilderProfile[];
   clients: ClientDto[];
   services: ServiceDto[];
   methods: PaymentMethodDto[];
@@ -39,6 +64,7 @@ export function valuesFromInvoice(inv: InvoiceDto): BuilderValues {
       quantity: i.quantity.replace(/\.?0+$/, ""),
       unitPrice: i.unitPrice,
       taxRate: i.taxRate,
+      taxExempt: i.taxExempt,
       ...(i.serviceItemId ? { serviceItemId: i.serviceItemId } : {}),
     })),
     discountType: inv.discountType ?? "",
@@ -60,12 +86,13 @@ export async function builderContext(
   actor: Actor,
   o: { invoiceId?: string | null; clientId?: string | null; issuerProfileId?: string | null },
 ): Promise<BuilderContext> {
-  const [profiles, clients, services, methods] = await Promise.all([
+  const [fullProfiles, clients, services, methods] = await Promise.all([
     listProfiles(actor),
     listClients(actor),
     listServices(actor, { activeOnly: true }),
     listPaymentMethods(actor, { activeOnly: true, decrypt: true }),
   ]);
+  const profiles = fullProfiles.map(toBuilderProfile);
   const today = todayIn(actor.timezone);
   const templateConfigs: Record<string, TemplateConfig> = {};
   for (const p of profiles) templateConfigs[p.id] = await resolveTemplateConfig(prisma, p.id);
@@ -77,7 +104,7 @@ export async function builderContext(
     // An archived party still edits; make sure its row is present for the pickers.
     if (!profiles.some((p) => p.id === inv.issuerProfileId)) {
       const { getProfile } = await import("./profiles");
-      profiles.push(await getProfile(actor, inv.issuerProfileId));
+      profiles.push(toBuilderProfile(await getProfile(actor, inv.issuerProfileId)));
     }
     if (!clients.some((c) => c.id === inv.clientId)) {
       const { getClient } = await import("./clients");
