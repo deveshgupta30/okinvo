@@ -93,7 +93,41 @@ export function toTokensCss(dark: DesignTokens, light: DesignTokens): string {
   out.push("}", "", `:root[data-theme="light"] {`);
   for (const [k, v] of Object.entries(light.colors)) out.push(`  --color-${k}: ${v};`);
   out.push("}");
+  // Selectable accents: `accent-<id>-<token>` colours become per-accent overrides of the four
+  // primary tokens, applied through data-accent on <html> (src/lib/accent.ts, src/lib/theme.ts).
+  const darkAccents = accentGroups(dark.colors);
+  for (const [id, g] of darkAccents) {
+    for (const t of ACCENT_TOKENS) {
+      if (!(t in g))
+        throw new Error(`DESIGN.md accent-${id} lacks ${t} (colors.accent-${id}-${t})`);
+    }
+    out.push("", `:root[data-accent="${id}"] {`);
+    for (const t of ACCENT_TOKENS) out.push(`  --color-${t}: ${g[t]};`);
+    out.push("}");
+  }
+  for (const [id, g] of accentGroups(light.colors)) {
+    if (!darkAccents.has(id))
+      throw new Error(`DESIGN.light.md defines accent-${id}, which DESIGN.md does not`);
+    out.push("", `:root[data-accent="${id}"][data-theme="light"] {`);
+    for (const t of ACCENT_TOKENS) if (t in g) out.push(`  --color-${t}: ${g[t]};`);
+    out.push("}");
+  }
   return out.join("\n") + "\n";
+}
+
+const ACCENT_TOKENS = ["primary", "on-primary", "primary-hover", "primary-focus"] as const;
+const ACCENT_KEY = /^accent-([a-z]+)-(primary|on-primary|primary-hover|primary-focus)$/;
+
+function accentGroups(colors: Record<string, string>): Map<string, Record<string, string>> {
+  const groups = new Map<string, Record<string, string>>();
+  for (const [k, v] of Object.entries(colors)) {
+    const m = ACCENT_KEY.exec(k);
+    if (!m) continue;
+    const g = groups.get(m[1]!) ?? {};
+    g[m[2]!] = v;
+    groups.set(m[1]!, g);
+  }
+  return groups;
 }
 
 /**

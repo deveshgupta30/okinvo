@@ -29,4 +29,10 @@ describe("THEME_INIT_SCRIPT", () => {
     expect(THEME_INIT_SCRIPT).toContain("prefers-color-scheme: light");
     expect(THEME_INIT_SCRIPT).not.toContain("</script");
   });
+  it("applies the accent cookie to data-accent and ignores unknown values", () => {
+    expect(THEME_INIT_SCRIPT).toContain(
+      "okinvo\\.accent=(mint|lavender|sky|peach|butter|rose|sage|lilac)",
+    );
+    expect(THEME_INIT_SCRIPT).toContain('setAttribute("data-accent"');
+  });
 });

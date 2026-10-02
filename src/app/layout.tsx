@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { cookies, headers } from "next/headers";
 import "./globals.css";
+import { ACCENT_COOKIE, parseAccent } from "@/lib/accent";
 import { THEME_COOKIE, THEME_INIT_SCRIPT, initialTheme, parseThemeMode } from "@/lib/theme";
 
 export const metadata: Metadata = {
@@ -12,10 +13,11 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const [cookieStore, headerStore] = await Promise.all([cookies(), headers()]);
   const mode = parseThemeMode(cookieStore.get(THEME_COOKIE)?.value);
+  const accent = parseAccent(cookieStore.get(ACCENT_COOKIE)?.value);
   const nonce = headerStore.get("x-nonce") ?? undefined;
 
   return (
-    <html lang="en" data-theme={initialTheme(mode)} suppressHydrationWarning>
+    <html lang="en" data-theme={initialTheme(mode)} data-accent={accent} suppressHydrationWarning>
       <head>
         <script nonce={nonce} dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
