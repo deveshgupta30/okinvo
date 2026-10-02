@@ -134,3 +134,9 @@ export function readDisplayConfigFromForm(formData: FormData, prefix: string): D
   }
   return out as unknown as DisplayConfig;
 }
+
+/** Checkbox groups post one string, several strings, or nothing: always an array of ids. */
+export const fIdList = z.preprocess(
+  (v) => (v === undefined || v === null || v === "" ? [] : Array.isArray(v) ? v : [v]),
+  z.array(z.string().trim().min(1).max(64)).max(50),
+);

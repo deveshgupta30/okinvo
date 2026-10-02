@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { fBool, fDecimal, fOptional } from "@/lib/forms";
+import { fBool, fDecimal, fIdList, fOptional } from "@/lib/forms";
 import { CurrencySchema } from "./currency";
 import { UNIT_TYPES } from "./service-input";
 
@@ -23,7 +23,8 @@ export const ProductInputSchema = z.object({
     message: "must be between 0 and 100",
   }),
   isActive: fBool.default(true),
-  issuerProfileIds: z.array(z.string()).max(50).default([]),
+  /** Issuer profiles this item is offered to; empty = all (spec §5.2). */
+  issuerProfileIds: fIdList,
 });
 
 export type ProductInput = z.infer<typeof ProductInputSchema>;

@@ -36,6 +36,12 @@ const REGIME_LABELS: Record<(typeof TAX_REGIMES)[number], string> = {
 
 const PT_TO_PX = 96 / 72;
 
+/** Catalogue items with no tags are offered to every profile; tagged ones only to theirs (spec §5.2). */
+const offeredTo =
+  (issuerProfileId: string) =>
+  (item: { issuerProfileIds: string[] }): boolean =>
+    item.issuerProfileIds.length === 0 || item.issuerProfileIds.includes(issuerProfileId);
+
 export function InvoiceBuilder({
   context,
   invoiceId,
@@ -235,8 +241,8 @@ export function InvoiceBuilder({
           <CardContent>
             <LineItemsEditor
               items={values.items}
-              services={context.services}
-              products={context.products}
+              services={context.services.filter(offeredTo(values.issuerProfileId))}
+              products={context.products.filter(offeredTo(values.issuerProfileId))}
               rates={rates}
               allowExempt={values.taxRegime === "UK_VAT"}
               errors={errors}

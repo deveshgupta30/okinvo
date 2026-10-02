@@ -262,6 +262,8 @@ model IssuerProfile {
   invoices               Invoice[]
   creditNotes            CreditNote[]
   sequences              DocumentSequence[]
+  services       ServiceItem[]
+  products       Product[]
 
   @@index([archivedAt])
 }
@@ -326,6 +328,7 @@ model ServiceItem {
   updatedAt      DateTime  @updatedAt
 
   invoiceItems   InvoiceItem[]
+  issuerProfiles IssuerProfile[] // tags: empty = offered to every profile (spec §5.2)
 
   @@index([name])
 }
@@ -348,6 +351,7 @@ model Product {
   updatedAt      DateTime  @updatedAt
 
   invoiceItems   InvoiceItem[]
+  issuerProfiles IssuerProfile[] // tags: empty = offered to every profile (spec §5.2)
 
   @@index([name])
 }
