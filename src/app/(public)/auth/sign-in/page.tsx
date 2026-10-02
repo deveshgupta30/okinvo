@@ -8,7 +8,7 @@ import { env } from "@/lib/env";
 export const metadata: Metadata = { title: "Sign in" };
 
 const ERRORS: Record<string, string> = {
-  not_allowed: "That account is not on this instance's allow-list.",
+  not_allowed: "That account is not allowed on this instance, or has been deactivated.",
   signin: "Sign-in did not complete. Please try again.",
 };
 

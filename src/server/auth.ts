@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { forbidden, redirect } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { env } from "@/lib/env";
-import { isAllowedEmail } from "@/server/allow-list";
+import { isAdmitted } from "@/server/admission";
 import { actorFromSession, type Actor, type Role } from "@/server/actor";
 import { hasRole } from "@/server/dal/authz";
 import { auth } from "@/server/auth-config";
@@ -19,7 +19,7 @@ export const getSession = cache(async (): Promise<AuthSession | null> => {
 /** One allow-list-checked session per request; redirects to sign-in when anonymous. */
 const requireSession = cache(async (): Promise<AuthSession> => {
   const s = await getSession();
-  if (!s || !isAllowedEmail(s.user.email, env.allowList)) redirect("/auth/sign-in");
+  if (!s || !(await isAdmitted(s.user.email))) redirect("/auth/sign-in?error=not_allowed");
   return s;
 });
 
@@ -79,7 +79,7 @@ export async function actorFromBearer(
   const sub = payload && typeof payload.sub === "string" ? payload.sub : null;
   if (!sub) return null;
   const user = await prisma.user.findUnique({ where: { id: sub } });
-  if (!user || !isAllowedEmail(user.email, env.allowList)) return null;
+  if (!user || !(await isAdmitted(user.email))) return null;
   return actorFromSession(
     {
       user: {
@@ -109,7 +109,7 @@ export async function requireActorApi(min: Role = "OWNER"): Promise<Actor | Resp
     return actor;
   }
   const s = await getSession();
-  if (!s || !isAllowedEmail(s.user.email, env.allowList)) {
+  if (!s || !(await isAdmitted(s.user.email))) {
     return Response.json({ error: "unauthenticated" }, { status: 401 });
   }
   const actor = actorFromSession(s, h, env.TRUST_PROXY);
@@ -124,7 +124,7 @@ export async function requireOwnerApi(): Promise<Actor | Response> {
 
 export async function optionalUser(): Promise<Actor | null> {
   const s = await getSession();
-  if (!s || !isAllowedEmail(s.user.email, env.allowList)) return null;
+  if (!s || !(await isAdmitted(s.user.email))) return null;
   return actorFromSession(s, await headers(), env.TRUST_PROXY);
 }
 

@@ -7,6 +7,7 @@ import { genericOAuth, jwt, type GenericOAuthConfig } from "better-auth/plugins"
 import { prisma } from "@/lib/db";
 import { env } from "@/lib/env";
 import { lazyProxy } from "@/lib/lazy";
+import { invitedRole } from "@/server/admission";
 import { isAllowedEmail } from "@/server/allow-list";
 
 const SESSION_DAYS = 30;
@@ -80,6 +81,7 @@ function createAuth() {
         locale: { type: "string", defaultValue: "en-US", input: false },
         usage: { type: "string", required: false, input: false },
         onboardedAt: { type: "date", required: false, input: false },
+        deactivatedAt: { type: "date", required: false, input: false },
       },
     },
     account: { accountLinking: { enabled: true, trustedProviders } },
@@ -92,26 +94,44 @@ function createAuth() {
       user: {
         create: {
           before: async (user, ctx) => {
-            if (!isAllowedEmail(user.email, env.allowList)) {
+            // Admitted by the env list, or by an active invitation (Settings → Users).
+            const invited = await invitedRole(user.email);
+            if (!invited && !isAllowedEmail(user.email, env.allowList)) {
               throw new APIError("FORBIDDEN", {
                 message: "This email is not allowed to sign in.",
               });
             }
             // A password sign-up proves nothing about who owns the address, so a `*@domain`
             // pattern must not be enough: the address has to be listed exactly (review finding;
-            // identity-provider sign-ins still honour the pattern).
-            const exact = env.allowList.emails.has(user.email.trim().toLowerCase());
+            // identity-provider sign-ins still honour the pattern). An invitation is exact.
+            const exact =
+              invited !== null || env.allowList.emails.has(user.email.trim().toLowerCase());
             if (ctx?.path === "/sign-up/email" && !exact) {
               throw new APIError("FORBIDDEN", {
                 message: "Password sign-up needs this exact address on the allow-list.",
               });
             }
-            return { data: { ...user, role: "OWNER" } };
+            return { data: { ...user, role: invited ?? "OWNER" } };
+          },
+          after: async (user) => {
+            await prisma.allowedEmail.updateMany({
+              where: { email: user.email.trim().toLowerCase(), acceptedAt: null },
+              data: { acceptedAt: new Date() },
+            });
           },
         },
       },
       session: {
         create: {
+          before: async (session) => {
+            const user = await prisma.user.findUnique({
+              where: { id: session.userId },
+              select: { deactivatedAt: true },
+            });
+            if (user?.deactivatedAt) {
+              throw new APIError("FORBIDDEN", { message: "This account is deactivated." });
+            }
+          },
           after: async (session) => {
             await prisma.auditEvent.create({
               data: {
