@@ -86,6 +86,49 @@
   }
 }
 
+/* Data tables with `cards` (src/components/ui/table.tsx): one card per row on phones, each cell
+   led by its column name (TD `label` → data-label). The header row is for screen readers only. */
+@media (max-width: 767.98px) {
+  .table-cards,
+  .table-cards tbody,
+  .table-cards tr,
+  .table-cards td {
+    display: block;
+  }
+  .table-cards thead {
+    @apply sr-only;
+  }
+  .table-cards tbody {
+    @apply flex flex-col gap-3 divide-y-0;
+  }
+  .table-cards tr {
+    @apply h-auto rounded-lg border border-hairline bg-surface-1 p-2 hover:bg-surface-1;
+  }
+  .table-cards td {
+    @apply flex items-baseline justify-between gap-3 px-2 py-1 text-right;
+  }
+  .table-cards td[data-label]::before {
+    content: attr(data-label);
+    @apply shrink-0 text-app-caption text-ink-subtle;
+  }
+  .table-cards td[data-label=""]::before {
+    content: none;
+  }
+  .table-cards td:not([data-label]) {
+    @apply justify-end;
+  }
+}
+
+/* Touch devices: controls tall enough to hit (spec §3.8); desktop density is unchanged. */
+@media (pointer: coarse) {
+  .touch-target,
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+  select,
+  textarea {
+    min-height: 2.5rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,

@@ -4,7 +4,7 @@ import { expect, type Page } from "@playwright/test";
 export const E2E_PASSWORD = "correct horse battery staple";
 
 /** True once the signed-in frame is on screen: the sidebar navigation (desktop) or the top bar's menu button (phones). */
-async function shellVisible(page: Page): Promise<boolean> {
+export async function shellVisible(page: Page): Promise<boolean> {
   const nav = page.getByRole("navigation", { name: "Primary" });
   const menu = page.getByRole("button", { name: "Open menu" });
   return (await nav.isVisible()) || (await menu.isVisible());

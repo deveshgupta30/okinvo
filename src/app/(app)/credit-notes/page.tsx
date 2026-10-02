@@ -129,7 +129,7 @@ export default async function CreditNotesPage({
           description="Open an issued invoice and choose “Credit note” to reduce what it owes."
         />
       ) : (
-        <Table>
+        <Table cards>
           <THead>
             <TR>
               <TH>Number</TH>
@@ -147,23 +147,27 @@ export default async function CreditNotesPage({
             ) : (
               rows.map((r) => (
                 <TR key={r.id}>
-                  <TD mono>
+                  <TD label="Number" mono>
                     <Link href={`/credit-notes/${r.id}`} className="hover:underline">
                       {r.number ?? <span className="text-ink-subtle">Draft</span>}
                     </Link>
                   </TD>
-                  <TD mono>
+                  <TD label="Against" mono>
                     <Link href={`/invoices/${r.invoiceId}`} className="hover:underline">
                       {r.invoiceNumber}
                     </Link>
                   </TD>
-                  <TD>{r.clientName}</TD>
-                  <TD mono>{formatDate(r.issueDate, r.locale)}</TD>
-                  <TD className="max-w-xs truncate text-ink-subtle">{r.reason}</TD>
-                  <TD numeric>
+                  <TD label="Client">{r.clientName}</TD>
+                  <TD label="Issue date" mono>
+                    {formatDate(r.issueDate, r.locale)}
+                  </TD>
+                  <TD label="Reason" className="max-w-xs truncate text-ink-subtle">
+                    {r.reason}
+                  </TD>
+                  <TD label="Total" numeric>
                     <Amount>{formatMoney(r.total, r.currency, r.locale)}</Amount>
                   </TD>
-                  <TD>
+                  <TD label="Status">
                     <StatusPill status={r.displayStatus} />
                   </TD>
                 </TR>

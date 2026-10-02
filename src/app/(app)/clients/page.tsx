@@ -64,7 +64,7 @@ export default async function ClientsPage({
           }
         />
       ) : (
-        <Table>
+        <Table cards>
           <THead>
             <TR>
               <TH>Name</TH>
@@ -82,17 +82,23 @@ export default async function ClientsPage({
             ) : (
               clients.map((c) => (
                 <TR key={c.id}>
-                  <TD className="font-medium">
+                  <TD label="Name" className="font-medium">
                     <Link href={`/clients/${c.id}`} className="hover:underline">
                       {c.displayName}
                     </Link>
                   </TD>
-                  <TD>{c.contactPerson ?? "—"}</TD>
-                  <TD>{c.email ?? "—"}</TD>
-                  <TD mono>{c.countryCode}</TD>
-                  <TD mono>{c.currency}</TD>
-                  <TD numeric>{c.paymentTermsDays} d</TD>
-                  <TD>
+                  <TD label="Contact">{c.contactPerson ?? "—"}</TD>
+                  <TD label="Email">{c.email ?? "—"}</TD>
+                  <TD label="Country" mono>
+                    {c.countryCode}
+                  </TD>
+                  <TD label="Currency" mono>
+                    {c.currency}
+                  </TD>
+                  <TD label="Terms" numeric>
+                    {c.paymentTermsDays} d
+                  </TD>
+                  <TD label="Status">
                     {c.archivedAt ? <Pill>Archived</Pill> : <Pill tone="success">Active</Pill>}
                   </TD>
                 </TR>
