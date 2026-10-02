@@ -131,3 +131,51 @@ describe("toColorsTs", () => {
     expect(ts).toContain("} as const;");
   });
 });
+
+describe("accent blocks", () => {
+  const darkWithAccents = `---
+name: t
+colors:
+  primary: "#87d9a8"
+  on-primary: "#17191e"
+  primary-hover: "#79cf9b"
+  primary-focus: "#87d9a8"
+  accent-rose-primary: "#f2a7b8"
+  accent-rose-on-primary: "#17191e"
+  accent-rose-primary-hover: "#ea91a5"
+  accent-rose-primary-focus: "#f2a7b8"
+typography: {}
+---
+`;
+  const lightWithAccents = `---
+name: t-light
+colors:
+  accent-rose-primary: "#ea8ea3"
+---
+`;
+  it("emits one data-accent override per accent, with light inheriting what it does not set", () => {
+    const css = toTokensCss(parseFrontMatter(darkWithAccents), parseFrontMatter(lightWithAccents));
+    expect(css).toContain(
+      [
+        ':root[data-accent="rose"] {',
+        "  --color-primary: #f2a7b8;",
+        "  --color-on-primary: #17191e;",
+        "  --color-primary-hover: #ea91a5;",
+        "  --color-primary-focus: #f2a7b8;",
+        "}",
+      ].join("\n"),
+    );
+    expect(css).toContain(
+      [':root[data-accent="rose"][data-theme="light"] {', "  --color-primary: #ea8ea3;", "}"].join(
+        "\n",
+      ),
+    );
+    expect(css).toContain("--color-accent-rose-primary: #f2a7b8;"); // swatches can use the raw token
+  });
+  it("refuses an accent that lacks one of the four tokens", () => {
+    const broken = darkWithAccents.replace('  accent-rose-on-primary: "#17191e"\n', "");
+    expect(() => toTokensCss(parseFrontMatter(broken), parseFrontMatter(lightWithAccents))).toThrow(
+      /accent-rose.*on-primary/,
+    );
+  });
+});

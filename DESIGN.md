@@ -1,13 +1,13 @@
 ---
 version: alpha
 name: Linear-design-analysis
-description: "A near-black product-focused marketing canvas built around #010102 (the deepest dark surface of any tool in this collection), light gray text (#f7f8f8), and the signature Linear lavender-blue (#5e6ad2) used as the single chromatic accent. The system reads as software-craft documentation: dense, technical, and quietly luxurious. Display type is set in the Linear custom sans (SF Pro Display fallback) at 500–700 with measured negative tracking. Cards live as charcoal panels (#0f1011) with hairline borders. The accent lavender appears on the brand mark, focus rings, and a few intentional CTAs — never decoratively. Page rhythm leans on product UI screenshots framed in dark panels rather than atmospheric color."
+description: "A near-black product-focused marketing canvas built around #010102 (the deepest dark surface of any tool in this collection), light gray text (#f7f8f8), and one chromatic accent the person picks from eight pastels (Mint #87d9a8, the brand dot, by default; the `accent-<id>-*` colours below), always carrying dark ink text. The system reads as software-craft documentation: dense, technical, and quietly luxurious. Display type is set in the Linear custom sans (SF Pro Display fallback) at 500–700 with measured negative tracking. Cards live as charcoal panels (#0f1011) with hairline borders. The accent lavender appears on the brand mark, focus rings, and a few intentional CTAs — never decoratively. Page rhythm leans on product UI screenshots framed in dark panels rather than atmospheric color."
 
 colors:
-  primary: "#5e6ad2"
-  on-primary: "#ffffff"
-  primary-hover: "#525dc7"
-  primary-focus: "#5e69d1"
+  primary: "#87d9a8"
+  on-primary: "#17191e"
+  primary-hover: "#79cf9b"
+  primary-focus: "#87d9a8"
   ink: "#f7f8f8"
   ink-muted: "#d0d6e0"
   ink-subtle: "#8a8f98"
@@ -32,6 +32,38 @@ colors:
   semantic-danger-fill: "#c83a3a"
   link: "#828fff"
   brand-dot: "#87d9a8"
+  accent-mint-primary: "#87d9a8"
+  accent-mint-on-primary: "#17191e"
+  accent-mint-primary-hover: "#79cf9b"
+  accent-mint-primary-focus: "#87d9a8"
+  accent-lavender-primary: "#b9b7f2"
+  accent-lavender-on-primary: "#17191e"
+  accent-lavender-primary-hover: "#a9a6ee"
+  accent-lavender-primary-focus: "#b9b7f2"
+  accent-sky-primary: "#8ec5f2"
+  accent-sky-on-primary: "#17191e"
+  accent-sky-primary-hover: "#7ab9ee"
+  accent-sky-primary-focus: "#8ec5f2"
+  accent-peach-primary: "#f5b89a"
+  accent-peach-on-primary: "#17191e"
+  accent-peach-primary-hover: "#f2a985"
+  accent-peach-primary-focus: "#f5b89a"
+  accent-butter-primary: "#f2de8a"
+  accent-butter-on-primary: "#17191e"
+  accent-butter-primary-hover: "#ecd474"
+  accent-butter-primary-focus: "#f2de8a"
+  accent-rose-primary: "#f2a7b8"
+  accent-rose-on-primary: "#17191e"
+  accent-rose-primary-hover: "#ed95a9"
+  accent-rose-primary-focus: "#f2a7b8"
+  accent-sage-primary: "#b9d4a3"
+  accent-sage-on-primary: "#17191e"
+  accent-sage-primary-hover: "#abcb92"
+  accent-sage-primary-focus: "#b9d4a3"
+  accent-lilac-primary: "#d9b8f0"
+  accent-lilac-on-primary: "#17191e"
+  accent-lilac-primary-hover: "#ceaaea"
+  accent-lilac-primary-focus: "#d9b8f0"
 
 typography:
   display-xl:
@@ -197,6 +229,134 @@ components:
   button-primary-hover:
     backgroundColor: "{colors.primary-hover}"
     textColor: "{colors.on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-mint:
+    backgroundColor: "{colors.accent-mint-primary}"
+    textColor: "{colors.accent-mint-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+    padding: 8px 14px
+  button-primary-lavender:
+    backgroundColor: "{colors.accent-lavender-primary}"
+    textColor: "{colors.accent-lavender-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+    padding: 8px 14px
+  button-primary-sky:
+    backgroundColor: "{colors.accent-sky-primary}"
+    textColor: "{colors.accent-sky-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+    padding: 8px 14px
+  button-primary-peach:
+    backgroundColor: "{colors.accent-peach-primary}"
+    textColor: "{colors.accent-peach-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+    padding: 8px 14px
+  button-primary-butter:
+    backgroundColor: "{colors.accent-butter-primary}"
+    textColor: "{colors.accent-butter-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+    padding: 8px 14px
+  button-primary-rose:
+    backgroundColor: "{colors.accent-rose-primary}"
+    textColor: "{colors.accent-rose-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+    padding: 8px 14px
+  button-primary-sage:
+    backgroundColor: "{colors.accent-sage-primary}"
+    textColor: "{colors.accent-sage-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+    padding: 8px 14px
+  button-primary-lilac:
+    backgroundColor: "{colors.accent-lilac-primary}"
+    textColor: "{colors.accent-lilac-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+    padding: 8px 14px
+  button-primary-mint-hover:
+    backgroundColor: "{colors.accent-mint-primary-hover}"
+    textColor: "{colors.accent-mint-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-mint-pressed:
+    backgroundColor: "{colors.accent-mint-primary-focus}"
+    textColor: "{colors.accent-mint-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-lavender-hover:
+    backgroundColor: "{colors.accent-lavender-primary-hover}"
+    textColor: "{colors.accent-lavender-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-lavender-pressed:
+    backgroundColor: "{colors.accent-lavender-primary-focus}"
+    textColor: "{colors.accent-lavender-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-sky-hover:
+    backgroundColor: "{colors.accent-sky-primary-hover}"
+    textColor: "{colors.accent-sky-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-sky-pressed:
+    backgroundColor: "{colors.accent-sky-primary-focus}"
+    textColor: "{colors.accent-sky-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-peach-hover:
+    backgroundColor: "{colors.accent-peach-primary-hover}"
+    textColor: "{colors.accent-peach-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-peach-pressed:
+    backgroundColor: "{colors.accent-peach-primary-focus}"
+    textColor: "{colors.accent-peach-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-butter-hover:
+    backgroundColor: "{colors.accent-butter-primary-hover}"
+    textColor: "{colors.accent-butter-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-butter-pressed:
+    backgroundColor: "{colors.accent-butter-primary-focus}"
+    textColor: "{colors.accent-butter-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-rose-hover:
+    backgroundColor: "{colors.accent-rose-primary-hover}"
+    textColor: "{colors.accent-rose-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-rose-pressed:
+    backgroundColor: "{colors.accent-rose-primary-focus}"
+    textColor: "{colors.accent-rose-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-sage-hover:
+    backgroundColor: "{colors.accent-sage-primary-hover}"
+    textColor: "{colors.accent-sage-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-sage-pressed:
+    backgroundColor: "{colors.accent-sage-primary-focus}"
+    textColor: "{colors.accent-sage-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-lilac-hover:
+    backgroundColor: "{colors.accent-lilac-primary-hover}"
+    textColor: "{colors.accent-lilac-on-primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+  button-primary-lilac-pressed:
+    backgroundColor: "{colors.accent-lilac-primary-focus}"
+    textColor: "{colors.accent-lilac-on-primary}"
     typography: "{typography.button}"
     rounded: "{rounded.md}"
   button-secondary:
