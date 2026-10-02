@@ -31,6 +31,7 @@ colors:
   semantic-danger: "#eb5757"
   semantic-danger-fill: "#c83a3a"
   link: "#828fff"
+  brand-dot: "#87d9a8"
 
 typography:
   display-xl:

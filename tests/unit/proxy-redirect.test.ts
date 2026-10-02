@@ -18,6 +18,10 @@ describe("shouldRedirectToSignIn", () => {
       "/_next/static/x.js",
       "/favicon.ico",
       "/robots.txt",
+      "/icon.svg",
+      "/apple-icon.png",
+      "/manifest.webmanifest",
+      "/icons/icon-192.png",
     ]) {
       expect(shouldRedirectToSignIn(p, false)).toBe(false);
     }
