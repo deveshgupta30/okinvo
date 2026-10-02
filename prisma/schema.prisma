@@ -24,9 +24,17 @@ model User {
   role          UserRole  @default(OWNER)
   timezone      String?   // IANA zone; filled by the app shell on first render, editable in Settings → Account
   theme         String?   // "system" | "light" | "dark"; mirrored to the okinvo.theme cookie
+  accent        String    @default("mint") // src/lib/accent.ts ids; mirrored to the okinvo.accent cookie
+  countryCode   String?   // ISO 3166-1 alpha-2; default for new issuer profiles
+  currency      String?   // ISO 4217; default for new issuer profiles and the empty dashboard
+  locale        String    @default("en-US") // BCP-47 UI language (src/lib/i18n)
+  usage         String?   // "PERSONAL" | "BUSINESS" from onboarding
+  onboardedAt   DateTime? // null until the first-run wizard completes
+  avatarAssetId String?   @unique
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
+  avatar        Asset?    @relation("UserAvatar", fields: [avatarAssetId], references: [id], onDelete: SetNull)
   sessions      Session[]
   accounts      Account[]
   auditEvents   AuditEvent[]
@@ -172,6 +180,7 @@ enum AssetKind {
   SIGNATURE
   STAMP
   RECEIPT
+  AVATAR
 }
 
 enum EmailStatus {
@@ -347,6 +356,7 @@ model Asset {
   issuerSignature IssuerProfile? @relation("IssuerSignature")
   issuerStamp     IssuerProfile? @relation("IssuerStamp")
   paymentReceipt  Payment?
+  userAvatar      User?          @relation("UserAvatar")
 }
 
 model Document {

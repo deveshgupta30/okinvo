@@ -12,7 +12,7 @@ export const MAX_KEY_LENGTH = 512;
 /** The local driver's metadata sidecar; no key may end with it. */
 export const SIDECAR_SUFFIX = ".meta.json";
 
-export type AssetKind = "LOGO" | "SIGNATURE" | "STAMP" | "RECEIPT";
+export type AssetKind = "LOGO" | "SIGNATURE" | "STAMP" | "RECEIPT" | "AVATAR";
 export type DocumentKeyKind = "INVOICE" | "CREDIT_NOTE";
 export type StoredExtension = "png" | "jpg" | "webp" | "pdf";
 
