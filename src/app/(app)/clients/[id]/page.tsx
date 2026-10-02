@@ -17,6 +17,7 @@ import {
   unarchiveClientAction,
 } from "@/server/actions/clients";
 import { requireRole } from "@/server/auth";
+import { hasRole } from "@/server/dal/authz";
 import { clientSummary, getClient } from "@/server/dal/clients";
 import { NotFoundError } from "@/server/dal/errors";
 import { listInvoices } from "@/server/dal/invoices";
@@ -26,6 +27,7 @@ export const metadata: Metadata = { title: "Client" };
 
 export default async function ClientPage({ params }: { params: Promise<{ id: string }> }) {
   const actor = await requireRole("VIEWER");
+  const canEdit = hasRole(actor, "EDITOR");
   const { id } = await params;
   const client = await getClient(actor, id).catch((e: unknown) => {
     if (e instanceof NotFoundError) notFound();
@@ -50,45 +52,47 @@ export default async function ClientPage({ params }: { params: Promise<{ id: str
         }
         breadcrumb={[{ href: "/clients", label: "Clients" }]}
         actions={
-          <>
-            <Button asChild variant="secondary">
-              <Link href={`/invoices/new?client=${client.id}`}>New invoice</Link>
-            </Button>
-            <Button asChild variant="tertiary">
-              <Link href={`/clients/${client.id}/edit`}>Edit</Link>
-            </Button>
-            {client.archivedAt ? (
+          canEdit ? (
+            <>
+              <Button asChild variant="secondary">
+                <Link href={`/invoices/new?client=${client.id}`}>New invoice</Link>
+              </Button>
+              <Button asChild variant="tertiary">
+                <Link href={`/clients/${client.id}/edit`}>Edit</Link>
+              </Button>
+              {client.archivedAt ? (
+                <ConfirmAction
+                  action={unarchiveClientAction}
+                  title="Restore this client?"
+                  confirmLabel="Restore"
+                  hidden={{ id: client.id, returnTo }}
+                  trigger="Restore"
+                  triggerVariant="tertiary"
+                />
+              ) : (
+                <ConfirmAction
+                  action={archiveClientAction}
+                  title="Archive this client?"
+                  description="It leaves the pickers; invoices and history stay intact."
+                  confirmLabel="Archive"
+                  hidden={{ id: client.id, returnTo }}
+                  trigger="Archive"
+                  triggerVariant="tertiary"
+                  destructive
+                />
+              )}
               <ConfirmAction
-                action={unarchiveClientAction}
-                title="Restore this client?"
-                confirmLabel="Restore"
-                hidden={{ id: client.id, returnTo }}
-                trigger="Restore"
-                triggerVariant="tertiary"
-              />
-            ) : (
-              <ConfirmAction
-                action={archiveClientAction}
-                title="Archive this client?"
-                description="It leaves the pickers; invoices and history stay intact."
-                confirmLabel="Archive"
-                hidden={{ id: client.id, returnTo }}
-                trigger="Archive"
+                action={deleteClientAction}
+                title="Delete this client?"
+                description="Only possible while no invoice references the client."
+                confirmLabel="Delete"
+                hidden={{ id: client.id }}
+                trigger="Delete"
                 triggerVariant="tertiary"
                 destructive
               />
-            )}
-            <ConfirmAction
-              action={deleteClientAction}
-              title="Delete this client?"
-              description="Only possible while no invoice references the client."
-              confirmLabel="Delete"
-              hidden={{ id: client.id }}
-              trigger="Delete"
-              triggerVariant="tertiary"
-              destructive
-            />
-          </>
+            </>
+          ) : null
         }
       />
       <div className="grid gap-6 lg:grid-cols-2">

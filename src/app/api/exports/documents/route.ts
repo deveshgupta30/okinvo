@@ -17,7 +17,7 @@ export const runtime = "nodejs";
  * of issued and voided PDFs named by number plus `index.csv` (SPEC §4.11, Settings → Data).
  */
 export async function GET(request: Request): Promise<Response> {
-  const actor = await requireActorApi("VIEWER");
+  const actor = await requireActorApi("OWNER");
   if (!isActor(actor)) return actor;
   const limited = await enforceRateLimit(request.headers, "exports", actor.userId);
   if (limited) return limited;

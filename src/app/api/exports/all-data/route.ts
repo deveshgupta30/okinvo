@@ -12,7 +12,7 @@ export const runtime = "nodejs";
 
 /** `GET /api/exports/all-data` → `okinvo-data-<date>.zip` (SPEC §4.11, Settings → Data). */
 export async function GET(request: Request): Promise<Response> {
-  const actor = await requireActorApi("VIEWER");
+  const actor = await requireActorApi("OWNER");
   if (!isActor(actor)) return actor;
   const limited = await enforceRateLimit(request.headers, "exports", actor.userId);
   if (limited) return limited;

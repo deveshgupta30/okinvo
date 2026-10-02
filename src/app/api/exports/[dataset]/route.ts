@@ -13,6 +13,8 @@ import { ExportFormatSchema } from "@/lib/schemas/export-filters";
 import { APP_VERSION } from "@/lib/version";
 import { isActor, requireActorApi } from "@/server/auth";
 import { audit } from "@/server/dal/audit";
+import { DATASET_MIN_ROLE } from "@/lib/exports/roles";
+import { hasRole } from "@/server/dal/authz";
 import { getDataset } from "@/server/exports/datasets";
 import { enforceRateLimit } from "@/server/rate-limit";
 
@@ -40,6 +42,9 @@ export async function GET(
 
   const { dataset } = await ctx.params;
   const ds = getDataset(dataset);
+  if (ds && !hasRole(actor, DATASET_MIN_ROLE[ds.id])) {
+    return Response.json({ error: "forbidden" }, { status: 403 });
+  }
   if (!ds) return Response.json({ error: "not_found" }, { status: 404 });
 
   const url = new URL(request.url);

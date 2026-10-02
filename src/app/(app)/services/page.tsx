@@ -17,6 +17,7 @@ import {
   unarchiveServiceAction,
 } from "@/server/actions/services";
 import { requireRole } from "@/server/auth";
+import { hasRole } from "@/server/dal/authz";
 import { getDefaultProfile } from "@/server/dal/profiles";
 import { listServices } from "@/server/dal/services";
 
@@ -28,6 +29,7 @@ export default async function ServicesPage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const actor = await requireRole("VIEWER");
+  const canEdit = hasRole(actor, "EDITOR");
   const params = await searchParams;
   const showArchived = params.archived === "1";
   const [services, profile] = await Promise.all([
@@ -49,9 +51,11 @@ export default async function ServicesPage({
               </Link>
             </Button>
             <ExportButton dataset="services" params={showArchived ? { archived: "1" } : {}} />
-            <Button asChild>
-              <Link href="/services/new">New service</Link>
-            </Button>
+            {canEdit ? (
+              <Button asChild>
+                <Link href="/services/new">New service</Link>
+              </Button>
+            ) : null}
           </>
         }
       />
@@ -61,9 +65,11 @@ export default async function ServicesPage({
           title="No services yet"
           description="Add what you sell — hourly design, a fixed-fee milestone — with its SAC/HSN code and tax rate."
           action={
-            <Button asChild variant="secondary">
-              <Link href="/services/new">Add a service</Link>
-            </Button>
+            canEdit ? (
+              <Button asChild variant="secondary">
+                <Link href="/services/new">Add a service</Link>
+              </Button>
+            ) : null
           }
         />
       ) : (
@@ -103,48 +109,52 @@ export default async function ServicesPage({
                   <ActivePill active={s.isActive} archived={Boolean(s.archivedAt)} />
                 </TD>
                 <TD label="" className="text-right whitespace-nowrap">
-                  <div className="flex justify-end gap-1">
-                    <Button asChild variant="tertiary" size="sm">
-                      <Link href={`/services/${s.id}/edit`}>Edit</Link>
-                    </Button>
-                    {!s.archivedAt ? (
-                      <form action={toggleServiceAction}>
-                        <input type="hidden" name="id" value={s.id} />
-                        <input
-                          type="hidden"
-                          name="isActive"
-                          value={s.isActive ? "false" : "true"}
-                        />
-                        <input type="hidden" name="returnTo" value={returnTo} />
-                        <Button type="submit" variant="tertiary" size="sm">
-                          {s.isActive ? "Deactivate" : "Activate"}
+                  {canEdit ? (
+                    <>
+                      <div className="flex justify-end gap-1">
+                        <Button asChild variant="tertiary" size="sm">
+                          <Link href={`/services/${s.id}/edit`}>Edit</Link>
                         </Button>
-                      </form>
-                    ) : null}
-                    {s.archivedAt ? (
-                      <ConfirmAction
-                        action={unarchiveServiceAction}
-                        title={`Restore ${s.name}?`}
-                        confirmLabel="Restore"
-                        hidden={{ id: s.id, returnTo }}
-                        trigger="Restore"
-                        triggerVariant="tertiary"
-                        size="sm"
-                      />
-                    ) : (
-                      <ConfirmAction
-                        action={archiveServiceAction}
-                        title={`Archive ${s.name}?`}
-                        description="Existing invoice lines keep their copied values."
-                        confirmLabel="Archive"
-                        hidden={{ id: s.id, returnTo }}
-                        trigger="Archive"
-                        triggerVariant="tertiary"
-                        size="sm"
-                        destructive
-                      />
-                    )}
-                  </div>
+                        {!s.archivedAt ? (
+                          <form action={toggleServiceAction}>
+                            <input type="hidden" name="id" value={s.id} />
+                            <input
+                              type="hidden"
+                              name="isActive"
+                              value={s.isActive ? "false" : "true"}
+                            />
+                            <input type="hidden" name="returnTo" value={returnTo} />
+                            <Button type="submit" variant="tertiary" size="sm">
+                              {s.isActive ? "Deactivate" : "Activate"}
+                            </Button>
+                          </form>
+                        ) : null}
+                        {s.archivedAt ? (
+                          <ConfirmAction
+                            action={unarchiveServiceAction}
+                            title={`Restore ${s.name}?`}
+                            confirmLabel="Restore"
+                            hidden={{ id: s.id, returnTo }}
+                            trigger="Restore"
+                            triggerVariant="tertiary"
+                            size="sm"
+                          />
+                        ) : (
+                          <ConfirmAction
+                            action={archiveServiceAction}
+                            title={`Archive ${s.name}?`}
+                            description="Existing invoice lines keep their copied values."
+                            confirmLabel="Archive"
+                            hidden={{ id: s.id, returnTo }}
+                            trigger="Archive"
+                            triggerVariant="tertiary"
+                            size="sm"
+                            destructive
+                          />
+                        )}
+                      </div>
+                    </>
+                  ) : null}
                 </TD>
               </TR>
             ))}
