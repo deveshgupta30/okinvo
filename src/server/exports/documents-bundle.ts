@@ -81,6 +81,19 @@ export async function* documentsBundleEntries(
       sha256: doc.sha256,
     });
     yield { name: file, body: async () => (await storage.get(doc.storageKey)).stream };
+    if (f.docx) {
+      const docx = await ensureDocument("INVOICE", inv.id, { format: "DOCX" });
+      yield {
+        name: documentFileName(
+          "INVOICE",
+          inv.number,
+          docx.version,
+          folderFor(inv.issuerProfile.label),
+          "docx",
+        ),
+        body: async () => (await storage.get(docx.storageKey)).stream,
+      };
+    }
   }
 
   const creditNotes = paginate((cursor, take) =>
@@ -124,6 +137,19 @@ export async function* documentsBundleEntries(
       sha256: doc.sha256,
     });
     yield { name: file, body: async () => (await storage.get(doc.storageKey)).stream };
+    if (f.docx) {
+      const docx = await ensureDocument("CREDIT_NOTE", cn.id, { format: "DOCX" });
+      yield {
+        name: documentFileName(
+          "CREDIT_NOTE",
+          cn.number,
+          docx.version,
+          folderFor(cn.issuerProfile.label),
+          "docx",
+        ),
+        body: async () => (await storage.get(docx.storageKey)).stream,
+      };
+    }
   }
 
   yield { name: "index.csv", body: () => documentsIndexCsv(index) };

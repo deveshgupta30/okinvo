@@ -1,5 +1,5 @@
-import { expect, test, type Page } from "@playwright/test";
-import { signInAs } from "./helpers";
+import { expect, test } from "@playwright/test";
+import { issueSimpleInvoice, signInAs } from "./helpers";
 
 /**
  * Share links (spec §5.6): the owner creates a password-protected link with a generated
@@ -11,44 +11,12 @@ test.setTimeout(300_000);
 const EMAIL = "e2e@example.com";
 const stamp = Date.now().toString(36);
 
-async function issueInvoice(page: Page): Promise<string> {
-  const profileLabel = `Share ${stamp}`;
-  const clientName = `Share client ${stamp}`;
-  await page.goto("/settings/profiles/new");
-  await page.locator("#label").fill(profileLabel);
-  await page.locator("#legalName").fill("Share Legal Name");
-  await page.locator("#email").fill("issuer@example.com");
-  await page.locator("#stateCode").selectOption("KA");
-  await page.locator('[id="address.line1"]').fill("1 Test Street");
-  await page.locator('[id="address.city"]').fill("Bengaluru");
-  await page.getByRole("button", { name: "Save profile" }).click();
-  await expect(page).toHaveURL(/\/settings\/profiles/);
-
-  await page.goto("/clients/new");
-  await page.locator("#displayName").fill(clientName);
-  await page.locator("#stateCode").selectOption("KA");
-  await page.locator('[id="billingAddress.line1"]').fill("2 Client Road");
-  await page.locator('[id="billingAddress.city"]').fill("Bengaluru");
-  await page.getByRole("button", { name: "Save client" }).click();
-  await expect(page.getByRole("heading", { name: clientName })).toBeVisible();
-
-  await page.goto("/invoices/new");
-  await page.locator("#issuerProfileId").selectOption({ label: profileLabel });
-  await page.locator("#clientId").selectOption({ label: clientName });
-  await page.getByLabel("Line 1 description").fill("Shared work");
-  await page.getByLabel("Line 1 quantity").fill("1");
-  await page.getByLabel("Line 1 rate").fill("1000");
-  await page.getByRole("button", { name: "Save and issue" }).click();
-  await expect(page).toHaveURL(/\/invoices\/[^/]+$/);
-  return page.url();
-}
-
 test("a protected share link opens for a stranger with the passphrase", async ({
   page,
   browser,
 }) => {
   await signInAs(page, EMAIL, "E2E Owner");
-  await issueInvoice(page);
+  await issueSimpleInvoice(page, `Share ${stamp}`);
 
   await page.getByRole("button", { name: "Share" }).click();
   const dialog = page.getByRole("dialog");
@@ -66,7 +34,9 @@ test("a protected share link opens for a stranger with the passphrase", async ({
   const stranger = await browser.newContext();
   const view = await stranger.newPage();
   await view.goto(link);
-  await expect(view.getByRole("heading", { name: /Invoice from Share Legal Name/ })).toBeVisible();
+  await expect(
+    view.getByRole("heading", { name: /Invoice from Share .* Legal Name/ }),
+  ).toBeVisible();
   // Dev only: the first POST to a not-yet-compiled route handler triggers an HMR reload that
   // aborts the browser's form navigation, so compile it once with a throwaway request.
   await view.request.post(`${link}/password`, { form: { password: "" } });

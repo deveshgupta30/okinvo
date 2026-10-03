@@ -45,8 +45,22 @@ export async function GET(request: Request): Promise<Response> {
       const config = mergeTemplateConfig(partial);
       return pdfResponse(await renderSamplePdf(config), "okinvo-sample.pdf");
     }
+    const wantDocx = url.searchParams.get("format") === "docx";
+    const docxResponse = async (kind: "INVOICE" | "CREDIT_NOTE", id: string) => {
+      const doc = await ensureDocument(kind, id, { format: "DOCX" });
+      const { stream } = await getDocumentStream(actor, doc.id);
+      return new Response(Readable.toWeb(stream) as ReadableStream, {
+        headers: {
+          "Content-Type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "Content-Disposition": `attachment; filename="${doc.filename}"`,
+          "Cache-Control": "private, max-age=0, no-store",
+          "X-Content-Type-Options": "nosniff",
+        },
+      });
+    };
     const invoiceId = url.searchParams.get("invoice");
     if (invoiceId) {
+      if (wantDocx) return docxResponse("INVOICE", invoiceId);
       try {
         return pdfResponse(await renderDraftPreview(actor, invoiceId), "invoice-draft.pdf");
       } catch (e) {
@@ -66,6 +80,7 @@ export async function GET(request: Request): Promise<Response> {
     }
     const creditNoteId = url.searchParams.get("creditNote");
     if (creditNoteId) {
+      if (wantDocx) return docxResponse("CREDIT_NOTE", creditNoteId);
       try {
         return pdfResponse(
           await renderCreditNoteDraftPreview(actor, creditNoteId),

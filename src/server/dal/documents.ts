@@ -6,6 +6,7 @@ import { todayIn } from "@/lib/dates";
 import { prisma, type Tx } from "@/lib/db";
 import { qrDataUrl } from "@/lib/documents/qr";
 import type { ProtectOptions } from "@/lib/documents/protect";
+import { renderDocx } from "@/lib/documents/docx/render";
 import { renderPdf } from "@/lib/documents/render";
 import { sampleViewModel } from "@/lib/documents/sample";
 import {
@@ -229,6 +230,7 @@ async function renderStored(
   id: string,
   version: number,
   protect?: ProtectOptions,
+  format: "PDF" | "DOCX" = "PDF",
 ): Promise<DocRow> {
   const today = todayIn("UTC");
   const doc = await loadIssued(tx, kind, id, today);
@@ -238,11 +240,22 @@ async function renderStored(
     config: doc.config,
     draft: false,
   });
-  const pdf = await renderPdf(vm, doc.config, {
-    assets: readAssetBytes,
-    createdAt: doc.issuedAt,
-    ...(protect ? { protect } : {}),
-  });
+  const pdf =
+    format === "DOCX"
+      ? await renderDocx(
+          vm.verifyUrl ? { ...vm, qrDataUrl: await qrDataUrl(vm.verifyUrl) } : vm,
+          doc.config,
+          await docxImages(vm, doc.config),
+        )
+      : await renderPdf(vm, doc.config, {
+          assets: readAssetBytes,
+          createdAt: doc.issuedAt,
+          ...(protect ? { protect } : {}),
+        });
+  const contentType =
+    format === "DOCX"
+      ? "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+      : "application/pdf";
   const sha256 = sha256Hex(pdf);
   const key = documentKey(
     kind,
@@ -250,7 +263,10 @@ async function renderStored(
     doc.fiscalYear.toLowerCase(),
     safeFileStem(doc.number ?? id).toLowerCase(),
     version,
-    protect ? { suffix: "protected" } : {},
+    {
+      ...(protect ? { suffix: "protected" } : {}),
+      ...(format === "DOCX" ? { extension: "docx" } : {}),
+    },
   );
   // Stored documents are immutable: never overwrite a blob that already exists at this key. A
   // blob with no row (a crash between put and insert, or a concurrent first render) is adopted
@@ -261,12 +277,12 @@ async function renderStored(
     const existing = protect ? null : await bytesOf((await storage.get(key)).stream);
     if (!existing || sha256Hex(existing) !== sha256) throw new DocumentExistsError(key);
   } else {
-    await storage.put(key, pdf, { contentType: "application/pdf", byteSize: pdf.length });
+    await storage.put(key, pdf, { contentType, byteSize: pdf.length });
   }
   return tx.document.create({
     data: {
       kind,
-      format: protect ? "PDF_PROTECTED" : "PDF",
+      format: protect ? "PDF_PROTECTED" : format,
       version,
       ...(kind === "INVOICE" ? { invoiceId: id } : { creditNoteId: id }),
       templateId: doc.config.templateId,
@@ -277,13 +293,36 @@ async function renderStored(
   });
 }
 
+/** The issuer's images and the header image as bytes for the DOCX writer (missing = omitted). */
+async function docxImages(vm: DocumentViewModel, config: TemplateConfig) {
+  const read = async (assetId: string | undefined) =>
+    assetId ? ((await readAssetBytes(assetId)) ?? undefined) : undefined;
+  const [logo, signature, stamp, header] = await Promise.all([
+    read(vm.showLogo ? vm.issuer.logoAssetId : undefined),
+    read(vm.showSignature ? vm.issuer.signatureAssetId : undefined),
+    read(vm.showStamp ? vm.issuer.stampAssetId : undefined),
+    read(config.header.style === "image" ? config.header.imageAssetId : undefined),
+  ]);
+  return {
+    ...(logo ? { logo } : {}),
+    ...(signature ? { signature } : {}),
+    ...(stamp ? { stamp } : {}),
+    ...(header ? { header } : {}),
+  };
+}
+
 /**
- * Idempotent: returns the stored PDF for an issued/void document, rendering and storing it on
- * first call. Two concurrent first calls both render; the unique (invoiceId, format, version)
+ * Idempotent: returns the stored PDF (or, with `format: "DOCX"`, the DOCX copy) for an
+ * issued/void document, rendering and storing it on first call. Two concurrent first calls both render; the unique (invoiceId, format, version)
  * constraint makes the loser re-read the winner's row (v2 §12.3).
  */
-export async function ensureDocument(kind: DocumentKind, id: string): Promise<DocumentDto> {
-  const existing = await latestDocument(prisma, kind, id);
+export async function ensureDocument(
+  kind: DocumentKind,
+  id: string,
+  o: { format?: "PDF" | "DOCX" } = {},
+): Promise<DocumentDto> {
+  const format = o.format ?? "PDF";
+  const existing = await latestDocument(prisma, kind, id, format);
   const numberOf = async () =>
     kind === "INVOICE"
       ? ((await prisma.invoice.findUnique({ where: { id }, select: { number: true } }))?.number ??
@@ -292,7 +331,7 @@ export async function ensureDocument(kind: DocumentKind, id: string): Promise<Do
           ?.number ?? null);
   if (existing) return toDto(existing, await numberOf());
   try {
-    const row = await renderStored(prisma, kind, id, 1);
+    const row = await renderStored(prisma, kind, id, 1, undefined, format);
     return toDto(row, await numberOf());
   } catch (e) {
     const lostRace =
@@ -301,7 +340,7 @@ export async function ensureDocument(kind: DocumentKind, id: string): Promise<Do
     if (lostRace) {
       // The winner wrote the blob first and its row follows within milliseconds; wait for it.
       for (let attempt = 0; attempt < 25; attempt++) {
-        const row = await latestDocument(prisma, kind, id);
+        const row = await latestDocument(prisma, kind, id, format);
         if (row) return toDto(row, await numberOf());
         await sleep(200);
       }

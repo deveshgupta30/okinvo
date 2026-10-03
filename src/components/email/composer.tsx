@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Mono } from "@/components/ui/mono";
+import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { markSentManuallyAction, sendEmailAction } from "@/server/actions/email";
 import type { ComposerDefaults } from "@/server/dal/emails";
@@ -64,10 +65,21 @@ export function EmailComposer({
             >
               <Textarea id="body" name="body" rows={12} defaultValue={v("body", defaults.body)} />
             </Field>
-            <p className="text-app-body text-ink-subtle">
-              Attachment: <Mono className="text-ink">{defaults.attachmentName}</Mono> (the stored
-              PDF; cannot be changed)
-            </p>
+            <Field
+              label="Attachment"
+              htmlFor="attachment"
+              hint={
+                <>
+                  The stored copy, named <Mono className="text-ink">{defaults.attachmentName}</Mono>{" "}
+                  (or .docx); its content cannot be changed.
+                </>
+              }
+            >
+              <Select id="attachment" name="attachment" defaultValue={v("attachment", "pdf")}>
+                <option value="pdf">PDF</option>
+                <option value="docx">DOCX (Word)</option>
+              </Select>
+            </Field>
             <div className="flex flex-wrap items-center gap-2">
               {defaults.smtpAvailable ? (
                 <SubmitButton pendingLabel="Sending…">Send</SubmitButton>

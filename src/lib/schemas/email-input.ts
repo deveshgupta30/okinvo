@@ -12,6 +12,8 @@ export const SendEmailInputSchema = z
     bcc: fEmailList.default([]),
     subject: z.string().trim().min(1, "required").max(200),
     body: z.string().trim().min(1, "required").max(10_000),
+    /** Which stored copy to attach (spec §9d). */
+    attachment: z.enum(["pdf", "docx"]).optional(),
   })
   .superRefine((v, ctx) => {
     if (v.to.length === 0) {
