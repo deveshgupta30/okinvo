@@ -6,7 +6,10 @@ import { prisma } from "@/lib/db";
 import { env } from "@/lib/env";
 import { isAdmitted } from "@/server/admission";
 import { actorFromSession, type Actor, type Role } from "@/server/actor";
+import { scopesForRole, type Scope } from "@/lib/api/scopes";
+import { authenticateApiKey, type ApiKeyAuth } from "@/server/dal/api-keys";
 import { hasRole } from "@/server/dal/authz";
+import { enforceRateLimit } from "@/server/rate-limit";
 import { auth } from "@/server/auth-config";
 
 export type AuthSession = NonNullable<Awaited<ReturnType<typeof auth.api.getSession>>>;
@@ -61,6 +64,13 @@ export async function requireOwner(): Promise<Actor> {
  * verified against the JWT plugin's keys, then the user is re-read so a deleted user, a removed
  * allow-list entry or a changed role takes effect within the token's 15-minute life.
  */
+/** `Authorization: Bearer okv_…` → the key's user, else null. */
+async function actorFromApiKey(authorization: string | null): Promise<ApiKeyAuth | null> {
+  const token = /^Bearer\s+(okv_\S+)$/i.exec(authorization ?? "")?.[1];
+  if (!token) return null;
+  return authenticateApiKey(token);
+}
+
 export async function actorFromBearer(
   authorization: string | null,
   headers: Headers,
@@ -103,8 +113,17 @@ export async function requireActorApi(min: Role = "OWNER"): Promise<Actor | Resp
   const h = await headers();
   const authorization = h.get("authorization");
   if (authorization) {
-    const actor = await actorFromBearer(authorization, h);
+    const byKey = await actorFromApiKey(authorization);
+    const actor = byKey
+      ? byKey.actor
+      : /^Bearer\s+okv_/i.test(authorization)
+        ? null
+        : await actorFromBearer(authorization, h);
     if (!actor) return Response.json({ error: "unauthenticated" }, { status: 401 });
+    if (byKey) {
+      const limited = await enforceRateLimit(h, "api", byKey.actor.apiKeyId);
+      if (limited) return limited;
+    }
     if (!hasRole(actor, min)) return Response.json({ error: "forbidden" }, { status: 403 });
     return actor;
   }
@@ -114,6 +133,40 @@ export async function requireActorApi(min: Role = "OWNER"): Promise<Actor | Resp
   }
   const actor = actorFromSession(s, h, env.TRUST_PROXY);
   if (!hasRole(actor, min)) return Response.json({ error: "forbidden" }, { status: 403 });
+  return actor;
+}
+
+/**
+ * Scoped variant for the versioned API (spec §7.2): an API key must carry `scope` (403
+ * `insufficient_scope` otherwise); a JWT or a cookie session gets the scopes of its role.
+ */
+export async function requireApiActor(scope: Scope): Promise<Actor | Response> {
+  const h = await headers();
+  const authorization = h.get("authorization");
+  let actor: Actor | null = null;
+  let scopes: Scope[] = [];
+  if (authorization) {
+    const byKey = await actorFromApiKey(authorization);
+    if (byKey) {
+      const limited = await enforceRateLimit(h, "api", byKey.actor.apiKeyId);
+      if (limited) return limited;
+      actor = byKey.actor;
+      scopes = byKey.scopes;
+    } else if (!/^Bearer\s+okv_/i.test(authorization)) {
+      actor = await actorFromBearer(authorization, h);
+      if (actor) scopes = scopesForRole(actor.role);
+    }
+  } else {
+    const s = await getSession();
+    if (s && (await isAdmitted(s.user.email))) {
+      actor = actorFromSession(s, h, env.TRUST_PROXY);
+      scopes = scopesForRole(actor.role);
+    }
+  }
+  if (!actor) return Response.json({ error: "unauthenticated" }, { status: 401 });
+  if (!scopes.includes(scope)) {
+    return Response.json({ error: "insufficient_scope", scope }, { status: 403 });
+  }
   return actor;
 }
 

@@ -336,6 +336,10 @@ Append-only. Every create/update/archive of clients, services, profiles and paym
 
 ---
 
+### 4.18 API keys
+
+A signed-in user can create **API keys** (Settings → API): `okv_` + 43 random base64url characters, shown once, stored as a SHA-256 hash with a display prefix, a name, a chosen subset of scopes (`invoices:read`, `invoices:create`, `credit_notes:read`, `credit_notes:create`, `catalogue:read`, `documents:read`, `status:read`) and an optional expiry (30, 90 or 365 days). The user's role is a ceiling at creation and at every use: viewers may hold read scopes only; the effective scopes of a key are the stored set intersected with the role the user has now, so demoting a user narrows their keys at once. A key is sent as `Authorization: Bearer okv_…`; it is refused when revoked, expired, or when its user is deactivated or no longer admitted, and it is rate-limited to 120 requests per minute. Keys can be revoked by their owner or by any owner; deactivating a user revokes all of theirs. Creation and revocation are audited, and audit entries written through a key name it. The 15-minute JWT from `/api/auth/token` keeps working with the scopes of the user's role.
+
 ## 5. Route map
 
 ```

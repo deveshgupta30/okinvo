@@ -20,4 +20,6 @@ export const LIMITS = {
   share: { limit: 30, windowMs: 60_000 },
   /** Password guesses per link and address: five, then a quarter of an hour. */
   sharePassword: { limit: 5, windowMs: 900_000 },
+  /** Requests per API key. */
+  api: { limit: 120, windowMs: 60_000 },
 } as const;

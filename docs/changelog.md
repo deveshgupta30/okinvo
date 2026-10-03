@@ -19,6 +19,9 @@ went green on the development branch.
   uploaded image with opacity and height across every page.
 - Input charset: every text field, on the client and at every server boundary, accepts only
   standard keyboard characters (SPEC §6.6).
+- API keys: Settings → API creates scoped, hashed `okv_` keys shown once (role ceiling at creation
+  and use, expiry, revocation, 120 req/min), usable as bearer tokens on `/api/*`; audit entries
+  name the key.
 - Status: Settings → Status (every role) and `/api/health/status` with version and build
   provenance, database latency and last migration, a storage write/read/delete probe, rate-limit
   store, SMTP and last test, backup freshness and 24-hour e-mail counts.
