@@ -154,6 +154,9 @@ jobs:
           push: false
           load: true
           tags: okinvo:ci
+          build-args: |
+            BUILD_SHA=${{ github.sha }}
+            BUILD_DATE=${{ github.event.head_commit.timestamp || github.event.pull_request.updated_at || '' }}
       - if: runner.os == 'Linux'
         uses: aquasecurity/trivy-action@v0.36.0
         with:

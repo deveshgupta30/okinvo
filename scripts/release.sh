@@ -61,6 +61,8 @@ LABELS=(
   --label "org.opencontainers.image.version=$VERSION"
   --label "org.opencontainers.image.source=$SOURCE"
   --label "org.opencontainers.image.revision=$(git rev-parse HEAD)"
+  --build-arg "BUILD_SHA=$(git rev-parse HEAD)"
+  --build-arg "BUILD_DATE=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 )
 
 run docker buildx inspect okinvo >/dev/null 2>&1 || run docker buildx create --name okinvo --use

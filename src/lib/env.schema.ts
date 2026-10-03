@@ -83,6 +83,9 @@ const objectSchema = z
     SMTP_REPLY_TO: optional,
 
     RATE_LIMIT_STORE: z.enum(["memory", "postgres"]).default("memory"),
+    /** Build provenance baked into the image (docker/Dockerfile ARG → ENV); shown on Settings → Status. */
+    OKINVO_BUILD_SHA: optional,
+    OKINVO_BUILD_DATE: optional,
     UPLOAD_MAX_IMAGE_MB: z.coerce.number().positive().default(2),
     UPLOAD_MAX_RECEIPT_MB: z.coerce.number().positive().default(10),
   })

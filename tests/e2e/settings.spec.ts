@@ -41,3 +41,19 @@ test("Account: choosing a country suggests its currency; region and language per
   await page.getByRole("button", { name: "Save preferences" }).click();
   await expect(page.getByText("Account preferences saved")).toBeVisible();
 });
+
+test("Status: the database row is OK and the version is shown", async ({ page }) => {
+  await signInAs(page, EMAIL, "Smoke Owner");
+  await page.goto("/settings/status");
+  await expect(page.getByRole("heading", { name: "Status", level: 1 })).toBeVisible();
+  await expect(page.locator("[data-status-version]")).toHaveText(/^\d+\.\d+\.\d+/);
+  const db = page.locator('[data-status-row="Database"]');
+  await expect(db).toContainText("OK");
+  await expect(db).toContainText(/last migration/);
+  await expect(page.locator('[data-status-row="Storage"]')).toContainText("OK");
+  const res = await page.request.get("/api/health/status");
+  expect([200, 503]).toContain(res.status());
+  const json = (await res.json()) as { db: { health: string }; version: { app: string } };
+  expect(json.db.health).toBe("ok");
+  expect(json.version.app).toMatch(/^\d+\.\d+\.\d+/);
+});

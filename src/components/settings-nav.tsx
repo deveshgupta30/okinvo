@@ -16,6 +16,7 @@ const ITEMS = [
   { href: "/settings/legal", label: "Legal", minRole: "OWNER" },
   { href: "/settings/account", label: "Account", minRole: "VIEWER" },
   { href: "/settings/appearance", label: "Appearance", minRole: "VIEWER" },
+  { href: "/settings/status", label: "Status", minRole: "VIEWER" },
 ] as const;
 
 const RANK: Record<Role, number> = { VIEWER: 0, EDITOR: 1, OWNER: 2 };

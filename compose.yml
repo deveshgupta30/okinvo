@@ -17,7 +17,13 @@ services:
 
   app:
     image: docker.io/deveshgupta30/okinvo:${OKINVO_VERSION:-latest}
-    build: { context: ., dockerfile: docker/Dockerfile, target: runner }
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: runner
+      args: # shown on Settings → Status; `docker compose build` from a checkout fills them in
+        BUILD_SHA: ${BUILD_SHA:-}
+        BUILD_DATE: ${BUILD_DATE:-}
     restart: unless-stopped
     <<: *app-env
     environment: # container-specific values derived here so .env holds them once
