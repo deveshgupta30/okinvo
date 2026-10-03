@@ -141,6 +141,25 @@ export async function requireActorApi(min: Role = "OWNER"): Promise<Actor | Resp
  * `insufficient_scope` otherwise); a JWT or a cookie session gets the scopes of its role.
  */
 export async function requireApiActor(scope: Scope, given?: Headers): Promise<Actor | Response> {
+  const r = await requireApiScopes(given);
+  if (r instanceof Response) return r;
+  if (!r.scopes.includes(scope)) {
+    return Response.json(
+      { error: { code: "insufficient_scope", message: `This call needs the ${scope} scope.` } },
+      { status: 403 },
+    );
+  }
+  return r.actor;
+}
+
+/**
+ * The actor behind a bearer token or session together with its effective scopes (an API key's
+ * stored scopes narrowed by its user's role; a JWT or cookie session gets the scopes of its
+ * role). The MCP endpoint registers tools from this list.
+ */
+export async function requireApiScopes(
+  given?: Headers,
+): Promise<{ actor: Actor; scopes: Scope[] } | Response> {
   const h = given ?? (await headers());
   const authorization = h.get("authorization");
   let actor: Actor | null = null;
@@ -170,13 +189,7 @@ export async function requireApiActor(scope: Scope, given?: Headers): Promise<Ac
       { status: 401 },
     );
   }
-  if (!scopes.includes(scope)) {
-    return Response.json(
-      { error: { code: "insufficient_scope", message: `This call needs the ${scope} scope.` } },
-      { status: 403 },
-    );
-  }
-  return actor;
+  return { actor, scopes };
 }
 
 /** Back-compat name: OWNER-only API routes. */

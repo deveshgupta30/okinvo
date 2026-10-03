@@ -198,6 +198,9 @@ Compose-only variables (`compose.yml`, not read by the app): `APP_DOMAIN` (Caddy
 
 ## API, SDK and MCP
 
+See also `docs/mcp.md` for connecting Claude Code, Claude Desktop or any MCP client, and
+`skills/okinvo-invoicing/` for the agent skill.
+
 Create an API key at Settings → API (scoped, shown once) or mint a 15-minute JWT at
 `GET /api/auth/token`, then call the versioned API with `Authorization: Bearer <key>`:
 
@@ -213,8 +216,12 @@ curl -H "Authorization: Bearer $OKINVO_KEY" -o invoice.pdf https://invoices.exam
 Responses are `{ data }` or `{ data: [...], nextCursor }`; errors are `{ error: { code, message,
 issues? } }`. There is no delete or update over the API (405). Every instance serves its OpenAPI
 3.1 document at `/api/openapi.json`; `openapi/okinvo.json` is the committed copy and `sdk/` the
-generated TypeScript client (`sdk/README.md`). The MCP server follows in the v1.1 plan's
-sub-project E.
+generated TypeScript client (`sdk/README.md`). The MCP server at `POST /api/mcp` (Streamable
+HTTP, stateless) exposes the same operations as tools scoped by the key — `list_invoices`,
+`create_invoice`, `issue_invoice`, … and the issued PDFs as `okinvo://invoices/{id}/pdf`
+resources — with no delete, void, payment or settings tools; `docs/mcp.md` has the `.mcp.json`
+and Claude Desktop snippets and the `skills/okinvo-invoicing` skill teaches an agent the
+workflow.
 
 ## Documentation site
 

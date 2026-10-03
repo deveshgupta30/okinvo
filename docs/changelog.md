@@ -19,6 +19,9 @@ went green on the development branch.
   uploaded image with opacity and height across every page.
 - Input charset: every text field, on the client and at every server boundary, accepts only
   standard keyboard characters (SPEC §6.6).
+- MCP and skill: a stateless MCP server at `/api/mcp` whose tools follow the API key's scopes
+  (create/issue invoices and credit notes, catalogue, status, PDFs as resources; nothing
+  destructive), `docs/mcp.md` client snippets and the `skills/okinvo-invoicing` agent skill.
 - OpenAPI and SDK: `/api/openapi.json` (OpenAPI 3.1 from the Zod schemas, with scopes per
   operation), the committed `openapi/okinvo.json` and a generated TypeScript SDK in `sdk/`
   (`pnpm sdk:generate`, checked in CI).
