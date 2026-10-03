@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AvatarEditor } from "@/components/account/avatar-editor";
 import { AccountForm } from "@/components/forms/account-form";
+import { ShowCookieNoticeAgain } from "@/components/settings/show-cookie-notice";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageHeader } from "@/components/ui/page-header";
 import { APP_COOKIES } from "@/lib/cookies";
@@ -67,6 +68,12 @@ export default async function AccountPage() {
                 </div>
               ))}
             </dl>
+            <div className="mt-3 flex flex-wrap items-center gap-3 text-app-caption">
+              <a href="/legal/cookies" className="text-link underline-offset-4 hover:underline">
+                Cookie policy
+              </a>
+              <ShowCookieNoticeAgain />
+            </div>
           </CardContent>
         </Card>
       </div>
