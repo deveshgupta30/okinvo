@@ -19,6 +19,9 @@ went green on the development branch.
   uploaded image with opacity and height across every page.
 - Input charset: every text field, on the client and at every server boundary, accepts only
   standard keyboard characters (SPEC §6.6).
+- REST API v1: `/api/v1` invoices (list, get, draft, issue, pdf, docx), credit notes, clients,
+  profiles, services, products, payment methods and status with `{ data }` / `{ error }`
+  envelopes, cursor pagination, scope checks and 405 on DELETE/PUT/PATCH.
 - API keys: Settings → API creates scoped, hashed `okv_` keys shown once (role ceiling at creation
   and use, expiry, revocation, 120 req/min), usable as bearer tokens on `/api/*`; audit entries
   name the key.

@@ -1,4 +1,5 @@
 import { getSessionCookie } from "better-auth/cookies";
+import { ALLOW_HEADER, disallowedVerb } from "@/lib/api/methods";
 import { NextResponse, type NextRequest } from "next/server";
 import { idpFormActionOrigins } from "@/lib/auth/idp-origins";
 import { shouldRedirectToSignIn } from "@/lib/auth/redirect";
@@ -21,10 +22,22 @@ export function proxy(request: NextRequest): NextResponse {
   });
   const { pathname } = request.nextUrl;
 
+  // The versioned API and the MCP endpoint never delete or rewrite (SPEC §4.19).
+  if (disallowedVerb(request.method, pathname)) {
+    const denied = NextResponse.json(
+      { error: { code: "method_not_allowed", message: `${request.method} is not offered here.` } },
+      { status: 405, headers: { Allow: ALLOW_HEADER } },
+    );
+    for (const [key, value] of securityHeaders({ csp, https })) denied.headers.set(key, value);
+    return denied;
+  }
+
   // CSRF guard for the custom API routes (Better Auth checks its own; Server Actions are
   // same-origin by construction). `APP_URL` is validated at boot; here it is only compared.
+  // A request carrying an Authorization header is not cookie-authenticated, so CSRF does not apply.
   if (
     needsOriginCheck(request.method, pathname) &&
+    !request.headers.has("authorization") &&
     !originAllowed(request.headers, process.env.APP_URL ?? "")
   ) {
     const denied = NextResponse.json({ error: "bad_origin" }, { status: 403 });
