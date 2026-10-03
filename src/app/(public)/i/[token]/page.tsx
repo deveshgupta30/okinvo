@@ -9,6 +9,7 @@ import { shareCookieName, verifyShareCookie } from "@/lib/security/share-cookie"
 import { issuedDocumentView } from "@/server/dal/documents";
 import { lookupShare, recordShareView, shareCookieSecret } from "@/server/dal/share-links";
 import { enforceRateLimit } from "@/server/rate-limit";
+import { LegalFooter } from "@/components/legal/footer";
 import { PasswordForm } from "./password-form";
 
 export const metadata: Metadata = {
@@ -117,6 +118,7 @@ export default async function SharePage({
           </>
         )}
       </section>
+      <LegalFooter />
     </main>
   );
 }

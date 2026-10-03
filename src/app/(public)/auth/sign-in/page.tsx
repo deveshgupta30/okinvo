@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LegalFooter } from "@/components/legal/footer";
 import { Wordmark } from "@/components/brand/logo";
 import { PasswordSignInForm } from "@/components/password-sign-in-form";
 import { SignInButtons } from "@/components/sign-in-buttons";
@@ -56,6 +57,7 @@ export default async function SignInPage({
           ) : null}
         </div>
       </section>
+      <LegalFooter />
     </main>
   );
 }
