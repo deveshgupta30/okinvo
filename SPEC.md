@@ -236,7 +236,7 @@ changes. Tags never affect lines already on a document.
 - Fonts embedded; must include `₹`, `£`, `€` and Devanagari-free Latin coverage. Logo/signature/stamp embedded at print resolution.
 - Locale-aware formatting from the issuer profile: number grouping (`12,34,567.00` for `en-IN`), date format, currency display (`₹` / `INR` per config).
 - File naming: `INV-26-27-001.pdf`, `CN-26-27-002.pdf`.
-- DOCX (v1.1) mirrors the PDF layout using the same view-model.
+- **DOCX copies (v1.1).** Every issued or voided document can also be downloaded as a `.docx` rendered from the same view-model and template snapshot (page size and margins, header band, parties, an items table whose header row repeats on every page, totals, words, payment details, notes, terms, QR and signature block, footer with the number and page numbers). It is stored as its own `Document` version (`format DOCX`, own hash and filename) on first demand, never changes afterwards, can be attached to the e-mail composer instead of the PDF, and can be included in the documents ZIP. The DOCX is a convenience copy: the PDF stays the canonical, verifiable document.
 
 ### 4.11 Exports (CSV and XLSX)
 

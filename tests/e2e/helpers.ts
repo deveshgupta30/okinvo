@@ -93,6 +93,42 @@ export async function signInExisting(page: Page, email: string): Promise<void> {
 }
 
 /** The onboarding wizard marks itself hydrated; controlled inputs ignore clicks before that. */
+/**
+ * Creates an issuer profile, a client and a one-line invoice through the UI and issues it; returns
+ * the invoice page URL. Specs about documents reuse this instead of repeating the flow.
+ */
+export async function issueSimpleInvoice(page: Page, stamp: string): Promise<string> {
+  const profileLabel = `${stamp} profile`;
+  const clientName = `${stamp} client`;
+  await page.goto("/settings/profiles/new");
+  await page.locator("#label").fill(profileLabel);
+  await page.locator("#legalName").fill(`${stamp} Legal Name`);
+  await page.locator("#email").fill("issuer@example.com");
+  await page.locator("#stateCode").selectOption("KA");
+  await page.locator('[id="address.line1"]').fill("1 Test Street");
+  await page.locator('[id="address.city"]').fill("Bengaluru");
+  await page.getByRole("button", { name: "Save profile" }).click();
+  await expect(page).toHaveURL(/\/settings\/profiles/);
+
+  await page.goto("/clients/new");
+  await page.locator("#displayName").fill(clientName);
+  await page.locator("#stateCode").selectOption("KA");
+  await page.locator('[id="billingAddress.line1"]').fill("2 Client Road");
+  await page.locator('[id="billingAddress.city"]').fill("Bengaluru");
+  await page.getByRole("button", { name: "Save client" }).click();
+  await expect(page.getByRole("heading", { name: clientName })).toBeVisible();
+
+  await page.goto("/invoices/new");
+  await page.locator("#issuerProfileId").selectOption({ label: profileLabel });
+  await page.locator("#clientId").selectOption({ label: clientName });
+  await page.getByLabel("Line 1 description").fill("Shared work");
+  await page.getByLabel("Line 1 quantity").fill("1");
+  await page.getByLabel("Line 1 rate").fill("1000");
+  await page.getByRole("button", { name: "Save and issue" }).click();
+  await expect(page).toHaveURL(/\/invoices\/[^/]+$/);
+  return page.url();
+}
+
 export async function waitHydrated(page: Page): Promise<void> {
   await expect(page.locator('[data-hydrated="true"]')).toBeVisible({ timeout: 60_000 });
 }

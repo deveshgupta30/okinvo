@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
@@ -126,6 +127,7 @@ export default async function DataSettingsPage() {
             <CardContent>
               <form action="/api/exports/documents" method="get" className="flex flex-col gap-4">
                 <PeriodFields years={years} profiles={profiles} idPrefix="docs" />
+                <Checkbox name="docx" label="Also include a DOCX copy of every document" />
                 <div>
                   <Button type="submit" variant="secondary">
                     Download documents ZIP

@@ -134,6 +134,9 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
                     Download PDF
                   </a>
                 </Button>
+                <Button asChild variant="secondary">
+                  <a href={`/api/documents/preview?creditNote=${id}&format=docx`}>Download DOCX</a>
+                </Button>
                 {cn.status === "ISSUED" && canEdit ? (
                   <>
                     <ShareDialog
