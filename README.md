@@ -89,3 +89,7 @@ the SHA-256 of every stored PDF version, so a recipient can check an invoice wit
 
 Status: M0–M4 delivered (`docs/changelog.md`); M5 (hardening, release script, Kustomize) in
 progress — see `IMPLEMENTATION_PLAN_v2.md` §22.
+
+## License
+
+Apache License 2.0 — see `LICENSE` and `NOTICE`. Bundled third-party works and their licences are listed in `THIRD_PARTY_NOTICES.md` (`pnpm notices` regenerates it).
