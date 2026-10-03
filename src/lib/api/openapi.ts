@@ -54,7 +54,7 @@ const dateString = (description: string) =>
     .regex(/^\d{4}-\d{2}-\d{2}$/)
     .meta({ description, example: "2026-10-03" });
 
-const InvoiceItemBody = z
+export const InvoiceItemBody = z
   .object({
     description: z.string().min(1).max(500),
     sacHsnCode: z.string().max(20).optional(),
@@ -68,7 +68,7 @@ const InvoiceItemBody = z
   })
   .meta({ id: "InvoiceItemInput" });
 
-const InvoiceCreateBody = z
+export const InvoiceCreateBody = z
   .object({
     issuerProfileId: z.string(),
     clientId: z.string(),
@@ -96,7 +96,7 @@ const InvoiceCreateBody = z
       "A draft. The display configuration defaults from the issuer profile. Issue it with POST /invoices/{id}/issue.",
   });
 
-const CreditNoteCreateBody = z
+export const CreditNoteCreateBody = z
   .object({
     invoiceId: z.string(),
     subtotal: decimal("Credit amount excluding tax", "500.00"),

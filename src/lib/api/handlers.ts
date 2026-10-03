@@ -5,7 +5,13 @@ import { findDisallowed, InputCharsetError } from "@/lib/input-charset";
 import { StorageNotFoundError } from "@/lib/storage";
 import type { Actor } from "@/server/actor";
 import type { DocumentKind } from "@/generated/prisma/client";
-import { ensureDocument, getDocumentStream } from "@/server/dal/documents";
+import { todayIn } from "@/lib/dates";
+import { CreditNoteInputSchema } from "@/lib/schemas/credit-note-input";
+import { InvoiceDraftInputSchema } from "@/lib/schemas/invoice-input";
+import { createCreditNoteDraft, type CreditNoteDto } from "@/server/dal/credit-notes";
+import { ensureDocument, getDocumentStream, type DocumentDto } from "@/server/dal/documents";
+import { createDraft, type InvoiceDto } from "@/server/dal/invoices";
+import { getProfile } from "@/server/dal/profiles";
 import {
   ConflictError,
   ForbiddenError,
@@ -64,7 +70,7 @@ function issuesOf(e: { fieldErrors?: Record<string, string[]> | undefined }): Ap
   );
 }
 
-function zodIssues(error: z.ZodError): ApiIssue[] {
+export function zodIssues(error: z.ZodError): ApiIssue[] {
   return error.issues.map((i) => ({ path: i.path.map(String).join("."), message: i.message }));
 }
 
@@ -139,6 +145,52 @@ export function readQuery<T>(
     };
   }
   return { ok: true, data: parsed.data };
+}
+
+/**
+ * A draft invoice from an API payload: the display configuration defaults from the issuer
+ * profile and reverse charge from false before the full draft schema validates it.
+ */
+export async function draftInvoiceFromBody(
+  actor: Actor,
+  body: { issuerProfileId: string } & Record<string, unknown>,
+): Promise<{ ok: true; dto: InvoiceDto } | { ok: false; issues: ApiIssue[] }> {
+  const withDefaults: Record<string, unknown> = { ...body };
+  if (withDefaults.displayConfig === undefined) {
+    const profile = await getProfile(actor, body.issuerProfileId);
+    withDefaults.displayConfig = profile.defaultDisplayConfig;
+  }
+  withDefaults.isReverseCharge ??= false;
+  const parsed = InvoiceDraftInputSchema.safeParse(withDefaults);
+  if (!parsed.success) return { ok: false, issues: zodIssues(parsed.error) };
+  return { ok: true, dto: await createDraft(actor, parsed.data) };
+}
+
+/** A draft credit note from an API payload; the issue date defaults to the caller's today. */
+export async function draftCreditNoteFromBody(
+  actor: Actor,
+  body: { invoiceId: string; subtotal: string; reason: string; issueDate?: string | undefined },
+): Promise<{ ok: true; dto: CreditNoteDto } | { ok: false; issues: ApiIssue[] }> {
+  const parsed = CreditNoteInputSchema.safeParse({
+    ...body,
+    issueDate: body.issueDate ?? todayIn(actor.timezone),
+  });
+  if (!parsed.success) return { ok: false, issues: zodIssues(parsed.error) };
+  return { ok: true, dto: await createCreditNoteDraft(actor, parsed.data) };
+}
+
+/** The stored PDF or DOCX of an issued document as bytes (rendered on first demand). */
+export async function documentBytes(
+  actor: Actor,
+  kind: DocumentKind,
+  id: string,
+  format: "PDF" | "DOCX",
+): Promise<{ document: DocumentDto; bytes: Buffer }> {
+  const doc = await ensureDocument(kind, id, { format });
+  const { document, stream } = await getDocumentStream(actor, doc.id);
+  const chunks: Buffer[] = [];
+  for await (const chunk of stream) chunks.push(Buffer.from(chunk as Uint8Array));
+  return { document, bytes: Buffer.concat(chunks) };
 }
 
 const CONTENT_TYPES = {

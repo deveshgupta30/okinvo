@@ -5,13 +5,11 @@ import {
 } from "@/lib/api/dto";
 import { created, list } from "@/lib/api/envelope";
 import { apiError } from "@/lib/api/errors";
-import { readJson, readQuery, withApi } from "@/lib/api/handlers";
+import { draftCreditNoteFromBody, readJson, readQuery, withApi } from "@/lib/api/handlers";
 import { paginate } from "@/lib/api/pagination";
 import { CreditNoteListQuerySchema } from "@/lib/api/query";
-import { todayIn } from "@/lib/dates";
-import { CreditNoteInputSchema } from "@/lib/schemas/credit-note-input";
 import { isActor, requireApiActor } from "@/server/auth";
-import { createCreditNoteDraft, listCreditNotes } from "@/server/dal/credit-notes";
+import { listCreditNotes } from "@/server/dal/credit-notes";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -37,18 +35,7 @@ export const POST = withApi(async (request: Request) => {
   if (!isActor(actor)) return actor;
   const body = await readJson(request, CreateCreditNoteBodySchema);
   if (!body.ok) return body.response;
-  const parsed = CreditNoteInputSchema.safeParse({
-    ...body.data,
-    issueDate: body.data.issueDate ?? todayIn(actor.timezone),
-  });
-  if (!parsed.success) {
-    return apiError(
-      "validation",
-      "The body did not validate.",
-      400,
-      parsed.error.issues.map((i) => ({ path: i.path.map(String).join("."), message: i.message })),
-    );
-  }
-  const dto = await createCreditNoteDraft(actor, parsed.data);
-  return created(CreditNoteSchema.parse(dto), `/api/v1/credit-notes/${dto.id}`);
+  const draft = await draftCreditNoteFromBody(actor, body.data);
+  if (!draft.ok) return apiError("validation", "The body did not validate.", 400, draft.issues);
+  return created(CreditNoteSchema.parse(draft.dto), `/api/v1/credit-notes/${draft.dto.id}`);
 });
