@@ -53,6 +53,7 @@ jobs:
       - run: pnpm lint && pnpm typecheck && pnpm format:check
       - run: pnpm design:lint && pnpm design:tokens --check
       - run: pnpm fonts:check && pnpm notices:check && pnpm env:docs:check
+      - run: pnpm sdk:check # the committed OpenAPI document and SDK match the code
       - name: actionlint over the workflows
         run: |
           repo="${GITHUB_WORKSPACE//\\//}"

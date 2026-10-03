@@ -1,0 +1,4375 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "okinvo API",
+    "version": "0.0.0",
+    "description": "Invoices, credit notes, catalogue and status of one okinvo instance. Authenticate with an API key (Settings → API) or a short-lived JWT as `Authorization: Bearer …`. Every operation names the scope it needs. There is no delete or update: corrections are voids, re-issues and credit notes, as in the app."
+  },
+  "servers": [
+    {
+      "url": "https://okinvo.example/api/v1",
+      "description": "This instance"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Invoices"
+    },
+    {
+      "name": "Credit notes"
+    },
+    {
+      "name": "Catalogue"
+    },
+    {
+      "name": "Status"
+    }
+  ],
+  "paths": {
+    "/invoices": {
+      "get": {
+        "operationId": "listInvoices",
+        "summary": "List invoices",
+        "description": "Scope: `invoices:read`.",
+        "tags": [
+          "Invoices"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "invoices:read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The nextCursor of the previous page.",
+              "type": "string"
+            },
+            "description": "The nextCursor of the previous page."
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "description": "1–100, default 50.",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "description": "1–100, default 50."
+          },
+          {
+            "in": "query",
+            "name": "fy",
+            "schema": {
+              "description": "Fiscal year label, e.g. 2026-27 (wins over from/to).",
+              "type": "string"
+            },
+            "description": "Fiscal year label, e.g. 2026-27 (wins over from/to)."
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "description": "Issue date from",
+              "example": "2026-10-03"
+            }
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "description": "Issue date to",
+              "example": "2026-10-03"
+            }
+          },
+          {
+            "in": "query",
+            "name": "issuerProfileId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "clientId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "DRAFT",
+                "ISSUED",
+                "SENT",
+                "PARTIALLY_PAID",
+                "PAID",
+                "OVERDUE",
+                "VOID"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 3
+            }
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "description": "Number or client name contains.",
+              "type": "string",
+              "maxLength": 80
+            },
+            "description": "Number or client name contains."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvoiceList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createInvoice",
+        "summary": "Create a draft invoice",
+        "description": "Scope: `invoices:create`.",
+        "tags": [
+          "Invoices"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "invoices:create"
+            ]
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvoiceCreateInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The draft",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvoiceEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The record's state does not allow this",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Body too large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Send application/json",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/invoices/{id}": {
+      "get": {
+        "operationId": "getInvoice",
+        "summary": "Get an invoice",
+        "description": "Scope: `invoices:read`.",
+        "tags": [
+          "Invoices"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "invoices:read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string",
+              "description": "Record id",
+              "example": "0199…"
+            },
+            "required": true,
+            "description": "Record id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvoiceEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/invoices/{id}/issue": {
+      "post": {
+        "operationId": "issueInvoice",
+        "summary": "Issue a draft: allocate its number, freeze it, render the PDF",
+        "description": "Scope: `invoices:create`.",
+        "tags": [
+          "Invoices"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "invoices:create"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string",
+              "description": "Record id",
+              "example": "0199…"
+            },
+            "required": true,
+            "description": "Record id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvoiceEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The record's state does not allow this",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/invoices/{id}/pdf": {
+      "get": {
+        "operationId": "getInvoicePdf",
+        "summary": "Download the stored PDF",
+        "description": "Scope: `documents:read`.",
+        "tags": [
+          "Invoices"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "documents:read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string",
+              "description": "Record id",
+              "example": "0199…"
+            },
+            "required": true,
+            "description": "Record id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The file",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The record's state does not allow this",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/invoices/{id}/docx": {
+      "get": {
+        "operationId": "getInvoiceDocx",
+        "summary": "Download the DOCX copy",
+        "description": "Scope: `documents:read`.",
+        "tags": [
+          "Invoices"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "documents:read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string",
+              "description": "Record id",
+              "example": "0199…"
+            },
+            "required": true,
+            "description": "Record id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The file",
+            "content": {
+              "application/vnd.openxmlformats-officedocument.wordprocessingml.document": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The record's state does not allow this",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/credit-notes": {
+      "get": {
+        "operationId": "listCreditNotes",
+        "summary": "List credit notes",
+        "description": "Scope: `credit_notes:read`.",
+        "tags": [
+          "Credit notes"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "credit_notes:read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The nextCursor of the previous page.",
+              "type": "string"
+            },
+            "description": "The nextCursor of the previous page."
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "description": "1–100, default 50.",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "description": "1–100, default 50."
+          },
+          {
+            "in": "query",
+            "name": "fy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "description": "Issue date from",
+              "example": "2026-10-03"
+            }
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "description": "Issue date to",
+              "example": "2026-10-03"
+            }
+          },
+          {
+            "in": "query",
+            "name": "issuerProfileId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "clientId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "invoiceId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "DRAFT",
+                "ISSUED",
+                "VOID"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditNoteList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createCreditNote",
+        "summary": "Create a draft credit note against an issued invoice",
+        "description": "Scope: `credit_notes:create`.",
+        "tags": [
+          "Credit notes"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "credit_notes:create"
+            ]
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreditNoteCreateInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The draft",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditNoteEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The record's state does not allow this",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Body too large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Send application/json",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/credit-notes/{id}": {
+      "get": {
+        "operationId": "getCreditNote",
+        "summary": "Get a credit note",
+        "description": "Scope: `credit_notes:read`.",
+        "tags": [
+          "Credit notes"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "credit_notes:read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string",
+              "description": "Record id",
+              "example": "0199…"
+            },
+            "required": true,
+            "description": "Record id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditNoteEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/credit-notes/{id}/issue": {
+      "post": {
+        "operationId": "issueCreditNote",
+        "summary": "Issue a draft credit note",
+        "description": "Scope: `credit_notes:create`.",
+        "tags": [
+          "Credit notes"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "credit_notes:create"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string",
+              "description": "Record id",
+              "example": "0199…"
+            },
+            "required": true,
+            "description": "Record id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditNoteEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The record's state does not allow this",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/credit-notes/{id}/pdf": {
+      "get": {
+        "operationId": "getCreditNotePdf",
+        "summary": "Download the stored PDF",
+        "description": "Scope: `documents:read`.",
+        "tags": [
+          "Credit notes"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "documents:read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string",
+              "description": "Record id",
+              "example": "0199…"
+            },
+            "required": true,
+            "description": "Record id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The file",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The record's state does not allow this",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/credit-notes/{id}/docx": {
+      "get": {
+        "operationId": "getCreditNoteDocx",
+        "summary": "Download the DOCX copy",
+        "description": "Scope: `documents:read`.",
+        "tags": [
+          "Credit notes"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "documents:read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string",
+              "description": "Record id",
+              "example": "0199…"
+            },
+            "required": true,
+            "description": "Record id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The file",
+            "content": {
+              "application/vnd.openxmlformats-officedocument.wordprocessingml.document": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The record's state does not allow this",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/clients": {
+      "get": {
+        "operationId": "listClients",
+        "summary": "List clients",
+        "description": "Scope: `catalogue:read`.",
+        "tags": [
+          "Catalogue"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "catalogue:read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The nextCursor of the previous page.",
+              "type": "string"
+            },
+            "description": "The nextCursor of the previous page."
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "description": "1–100, default 50.",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "description": "1–100, default 50."
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "in": "query",
+            "name": "includeArchived",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "issuerProfileId",
+            "schema": {
+              "description": "Services and products offered to this issuer.",
+              "type": "string"
+            },
+            "description": "Services and products offered to this issuer."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/profiles": {
+      "get": {
+        "operationId": "listProfiles",
+        "summary": "List issuer profiles (public fields)",
+        "description": "Scope: `catalogue:read`.",
+        "tags": [
+          "Catalogue"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "catalogue:read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The nextCursor of the previous page.",
+              "type": "string"
+            },
+            "description": "The nextCursor of the previous page."
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "description": "1–100, default 50.",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "description": "1–100, default 50."
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "in": "query",
+            "name": "includeArchived",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "issuerProfileId",
+            "schema": {
+              "description": "Services and products offered to this issuer.",
+              "type": "string"
+            },
+            "description": "Services and products offered to this issuer."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services": {
+      "get": {
+        "operationId": "listServices",
+        "summary": "List services",
+        "description": "Scope: `catalogue:read`.",
+        "tags": [
+          "Catalogue"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "catalogue:read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The nextCursor of the previous page.",
+              "type": "string"
+            },
+            "description": "The nextCursor of the previous page."
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "description": "1–100, default 50.",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "description": "1–100, default 50."
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "in": "query",
+            "name": "includeArchived",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "issuerProfileId",
+            "schema": {
+              "description": "Services and products offered to this issuer.",
+              "type": "string"
+            },
+            "description": "Services and products offered to this issuer."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "operationId": "listProducts",
+        "summary": "List products",
+        "description": "Scope: `catalogue:read`.",
+        "tags": [
+          "Catalogue"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "catalogue:read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The nextCursor of the previous page.",
+              "type": "string"
+            },
+            "description": "The nextCursor of the previous page."
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "description": "1–100, default 50.",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "description": "1–100, default 50."
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "in": "query",
+            "name": "includeArchived",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "issuerProfileId",
+            "schema": {
+              "description": "Services and products offered to this issuer.",
+              "type": "string"
+            },
+            "description": "Services and products offered to this issuer."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment-methods": {
+      "get": {
+        "operationId": "listPaymentMethods",
+        "summary": "List payment methods (no details)",
+        "description": "Scope: `catalogue:read`.",
+        "tags": [
+          "Catalogue"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "catalogue:read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The nextCursor of the previous page.",
+              "type": "string"
+            },
+            "description": "The nextCursor of the previous page."
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "description": "1–100, default 50.",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "description": "1–100, default 50."
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "in": "query",
+            "name": "includeArchived",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "issuerProfileId",
+            "schema": {
+              "description": "Services and products offered to this issuer.",
+              "type": "string"
+            },
+            "description": "Services and products offered to this issuer."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentMethodList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/status": {
+      "get": {
+        "operationId": "getStatus",
+        "summary": "Instance status",
+        "description": "Scope: `status:read`.",
+        "tags": [
+          "Status"
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              "status:read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatusEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or charset failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing scope or forbidden by role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited; see Retry-After",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "InvoiceCreateInput": {
+        "type": "object",
+        "properties": {
+          "issuerProfileId": {
+            "type": "string"
+          },
+          "clientId": {
+            "type": "string"
+          },
+          "issueDate": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "Issue date",
+            "example": "2026-10-03"
+          },
+          "dueDate": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "Due date, not before the issue date",
+            "example": "2026-10-03"
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 3,
+            "example": "INR"
+          },
+          "taxRegime": {
+            "type": "string",
+            "enum": [
+              "INDIA_GST",
+              "UK_VAT",
+              "US_SALES_TAX",
+              "NONE"
+            ]
+          },
+          "isReverseCharge": {
+            "type": "boolean"
+          },
+          "fxRateToBase": {
+            "type": "string",
+            "pattern": "^-?\\d+(\\.\\d+)?$",
+            "description": "Rate to the issuer's base currency",
+            "example": "1"
+          },
+          "items": {
+            "minItems": 1,
+            "maxItems": 200,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InvoiceItemInput"
+            }
+          },
+          "discount": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "AMOUNT",
+                      "PERCENT"
+                    ]
+                  },
+                  "value": {
+                    "type": "string",
+                    "pattern": "^-?\\d+(\\.\\d+)?$",
+                    "description": "Discount",
+                    "example": "10"
+                  }
+                },
+                "required": [
+                  "type",
+                  "value"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "roundingAdjustment": {
+            "type": "string",
+            "pattern": "^-?\\d+(\\.\\d+)?$",
+            "description": "Less than one unit, may be negative",
+            "example": "0.40"
+          },
+          "tdsRate": {
+            "type": "string",
+            "pattern": "^-?\\d+(\\.\\d+)?$",
+            "description": "Expected TDS percent",
+            "example": "10"
+          },
+          "paymentMethodIds": {
+            "maxItems": 10,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "poReference": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "terms": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "issuerProfileId",
+          "clientId",
+          "issueDate",
+          "dueDate",
+          "currency",
+          "taxRegime",
+          "items"
+        ],
+        "description": "A draft. The display configuration defaults from the issuer profile. Issue it with POST /invoices/{id}/issue."
+      },
+      "InvoiceItemInput": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "sacHsnCode": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "unitType": {
+            "type": "string",
+            "enum": [
+              "HOUR",
+              "DAY",
+              "FIXED",
+              "MILESTONE",
+              "UNIT"
+            ]
+          },
+          "quantity": {
+            "type": "string",
+            "pattern": "^-?\\d+(\\.\\d+)?$",
+            "description": "Quantity, up to 3 decimals",
+            "example": "2.000"
+          },
+          "unitPrice": {
+            "type": "string",
+            "pattern": "^-?\\d+(\\.\\d+)?$",
+            "description": "Unit price in the invoice currency",
+            "example": "1500.00"
+          },
+          "taxRate": {
+            "type": "string",
+            "pattern": "^-?\\d+(\\.\\d+)?$",
+            "description": "Percent",
+            "example": "18"
+          },
+          "taxExempt": {
+            "type": "boolean"
+          },
+          "serviceItemId": {
+            "type": "string"
+          },
+          "productId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "description",
+          "quantity",
+          "unitPrice"
+        ]
+      },
+      "CreditNoteCreateInput": {
+        "type": "object",
+        "properties": {
+          "invoiceId": {
+            "type": "string"
+          },
+          "subtotal": {
+            "type": "string",
+            "pattern": "^-?\\d+(\\.\\d+)?$",
+            "description": "Credit amount excluding tax",
+            "example": "500.00"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "issueDate": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "Defaults to today in the caller's timezone",
+            "example": "2026-10-03"
+          }
+        },
+        "required": [
+          "invoiceId",
+          "subtotal",
+          "reason"
+        ]
+      },
+      "InvoiceList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InvoiceListItem"
+            }
+          },
+          "nextCursor": {
+            "description": "Pass as `cursor` for the next page.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "data",
+          "nextCursor"
+        ],
+        "additionalProperties": false
+      },
+      "InvoiceListItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "ISSUED",
+              "VOID"
+            ]
+          },
+          "displayStatus": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "ISSUED",
+              "SENT",
+              "PARTIALLY_PAID",
+              "PAID",
+              "OVERDUE",
+              "VOID"
+            ]
+          },
+          "number": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "issueDate": {
+            "type": "string"
+          },
+          "dueDate": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "total": {
+            "type": "string"
+          },
+          "balanceDue": {
+            "type": "string"
+          },
+          "clientId": {
+            "type": "string"
+          },
+          "clientName": {
+            "type": "string"
+          },
+          "issuerProfileId": {
+            "type": "string"
+          },
+          "issuerLabel": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "sentAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "displayStatus",
+          "number",
+          "issueDate",
+          "dueDate",
+          "currency",
+          "total",
+          "balanceDue",
+          "clientId",
+          "clientName",
+          "issuerProfileId",
+          "issuerLabel",
+          "locale",
+          "sentAt"
+        ],
+        "additionalProperties": false
+      },
+      "ErrorEnvelope": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "enum": [
+                  "unauthenticated",
+                  "forbidden",
+                  "insufficient_scope",
+                  "not_found",
+                  "validation",
+                  "bad_charset",
+                  "bad_request",
+                  "conflict",
+                  "invariant",
+                  "rate_limited",
+                  "method_not_allowed",
+                  "internal"
+                ]
+              },
+              "message": {
+                "type": "string"
+              },
+              "issues": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "message"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "error"
+        ],
+        "additionalProperties": false,
+        "description": "Every non-2xx response."
+      },
+      "InvoiceEnvelope": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Invoice"
+          }
+        },
+        "required": [
+          "data"
+        ],
+        "additionalProperties": false
+      },
+      "Invoice": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "ISSUED",
+              "VOID"
+            ]
+          },
+          "displayStatus": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "ISSUED",
+              "SENT",
+              "PARTIALLY_PAID",
+              "PAID",
+              "OVERDUE",
+              "VOID"
+            ]
+          },
+          "number": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "issueDate": {
+            "type": "string"
+          },
+          "dueDate": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "total": {
+            "type": "string"
+          },
+          "balanceDue": {
+            "type": "string"
+          },
+          "clientId": {
+            "type": "string"
+          },
+          "clientName": {
+            "type": "string"
+          },
+          "issuerProfileId": {
+            "type": "string"
+          },
+          "issuerLabel": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "sentAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fiscalYear": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sequenceNumber": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "issuedAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "voidedAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "voidReason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "replacesInvoiceId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "replacedById": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fxRateToBase": {
+            "type": "string"
+          },
+          "taxRegime": {
+            "type": "string",
+            "enum": [
+              "INDIA_GST",
+              "UK_VAT",
+              "US_SALES_TAX",
+              "NONE"
+            ]
+          },
+          "supplyType": {
+            "type": "string"
+          },
+          "placeOfSupply": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "isReverseCharge": {
+            "type": "boolean"
+          },
+          "lutNumber": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "subtotal": {
+            "type": "string"
+          },
+          "discountType": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "AMOUNT",
+                  "PERCENT"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "discountValue": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "discountAmount": {
+            "type": "string"
+          },
+          "taxableAmount": {
+            "type": "string"
+          },
+          "taxAmount": {
+            "type": "string"
+          },
+          "roundingAdjustment": {
+            "type": "string"
+          },
+          "tdsRate": {
+            "type": "string"
+          },
+          "tdsExpected": {
+            "type": "string"
+          },
+          "amountPaid": {
+            "type": "string"
+          },
+          "amountCredited": {
+            "type": "string"
+          },
+          "poReference": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "terms": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "position": {
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
+                },
+                "serviceItemId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "productId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "sku": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "description": {
+                  "type": "string"
+                },
+                "sacHsnCode": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "unitType": {
+                  "type": "string",
+                  "enum": [
+                    "HOUR",
+                    "DAY",
+                    "FIXED",
+                    "MILESTONE",
+                    "UNIT"
+                  ]
+                },
+                "quantity": {
+                  "type": "string"
+                },
+                "unitPrice": {
+                  "type": "string"
+                },
+                "lineSubtotal": {
+                  "type": "string"
+                },
+                "taxRate": {
+                  "type": "string"
+                },
+                "taxExempt": {
+                  "type": "boolean"
+                },
+                "taxAmount": {
+                  "type": "string"
+                },
+                "lineTotal": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "position",
+                "serviceItemId",
+                "productId",
+                "sku",
+                "description",
+                "sacHsnCode",
+                "unitType",
+                "quantity",
+                "unitPrice",
+                "lineSubtotal",
+                "taxRate",
+                "taxExempt",
+                "taxAmount",
+                "lineTotal"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "taxLines": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "taxType": {
+                  "type": "string",
+                  "enum": [
+                    "CGST",
+                    "SGST",
+                    "IGST",
+                    "VAT",
+                    "SALES_TAX",
+                    "OTHER"
+                  ]
+                },
+                "rate": {
+                  "type": "string"
+                },
+                "taxableAmount": {
+                  "type": "string"
+                },
+                "taxAmount": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "taxType",
+                "rate",
+                "taxableAmount",
+                "taxAmount"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "paymentMethodIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "enum": [
+                    "PDF",
+                    "DOCX",
+                    "PDF_PROTECTED",
+                    "PDF_A3"
+                  ]
+                },
+                "version": {
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "byteSize": {
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
+                },
+                "generatedAt": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "format",
+                "version",
+                "sha256",
+                "byteSize",
+                "generatedAt"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "displayStatus",
+          "number",
+          "issueDate",
+          "dueDate",
+          "currency",
+          "total",
+          "balanceDue",
+          "clientId",
+          "clientName",
+          "issuerProfileId",
+          "issuerLabel",
+          "locale",
+          "sentAt",
+          "fiscalYear",
+          "sequenceNumber",
+          "issuedAt",
+          "voidedAt",
+          "voidReason",
+          "replacesInvoiceId",
+          "replacedById",
+          "fxRateToBase",
+          "taxRegime",
+          "supplyType",
+          "placeOfSupply",
+          "isReverseCharge",
+          "lutNumber",
+          "subtotal",
+          "discountType",
+          "discountValue",
+          "discountAmount",
+          "taxableAmount",
+          "taxAmount",
+          "roundingAdjustment",
+          "tdsRate",
+          "tdsExpected",
+          "amountPaid",
+          "amountCredited",
+          "poReference",
+          "notes",
+          "terms",
+          "items",
+          "taxLines",
+          "paymentMethodIds",
+          "documents"
+        ],
+        "additionalProperties": false
+      },
+      "CreditNoteList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreditNoteListItem"
+            }
+          },
+          "nextCursor": {
+            "description": "Pass as `cursor` for the next page.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "data",
+          "nextCursor"
+        ],
+        "additionalProperties": false
+      },
+      "CreditNoteListItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "invoiceId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "ISSUED",
+              "VOID"
+            ]
+          },
+          "displayStatus": {
+            "type": "string"
+          },
+          "number": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "issueDate": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "subtotal": {
+            "type": "string"
+          },
+          "taxAmount": {
+            "type": "string"
+          },
+          "total": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "invoiceNumber": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "clientId": {
+            "type": "string"
+          },
+          "clientName": {
+            "type": "string"
+          },
+          "issuerProfileId": {
+            "type": "string"
+          },
+          "issuerLabel": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "invoiceId",
+          "status",
+          "displayStatus",
+          "number",
+          "issueDate",
+          "currency",
+          "locale",
+          "subtotal",
+          "taxAmount",
+          "total",
+          "reason",
+          "invoiceNumber",
+          "clientId",
+          "clientName",
+          "issuerProfileId",
+          "issuerLabel"
+        ],
+        "additionalProperties": false
+      },
+      "CreditNoteEnvelope": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CreditNote"
+          }
+        },
+        "required": [
+          "data"
+        ],
+        "additionalProperties": false
+      },
+      "CreditNote": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "invoiceId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "ISSUED",
+              "VOID"
+            ]
+          },
+          "displayStatus": {
+            "type": "string"
+          },
+          "number": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "issueDate": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "subtotal": {
+            "type": "string"
+          },
+          "taxAmount": {
+            "type": "string"
+          },
+          "total": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "invoiceNumber": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "clientId": {
+            "type": "string"
+          },
+          "clientName": {
+            "type": "string"
+          },
+          "issuerProfileId": {
+            "type": "string"
+          },
+          "issuerLabel": {
+            "type": "string"
+          },
+          "roundingAdjustment": {
+            "type": "string"
+          },
+          "fiscalYear": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sequenceNumber": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "issuedAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sentAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "voidedAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "voidReason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "supplyType": {
+            "type": "string"
+          },
+          "taxLines": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "taxType": {
+                  "type": "string",
+                  "enum": [
+                    "CGST",
+                    "SGST",
+                    "IGST",
+                    "VAT",
+                    "SALES_TAX",
+                    "OTHER"
+                  ]
+                },
+                "rate": {
+                  "type": "string"
+                },
+                "taxableAmount": {
+                  "type": "string"
+                },
+                "taxAmount": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "taxType",
+                "rate",
+                "taxableAmount",
+                "taxAmount"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "invoice": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "number": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "DRAFT",
+                  "ISSUED",
+                  "VOID"
+                ]
+              },
+              "issueDate": {
+                "type": "string"
+              },
+              "total": {
+                "type": "string"
+              },
+              "taxableAmount": {
+                "type": "string"
+              },
+              "balanceDue": {
+                "type": "string"
+              },
+              "amountCredited": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "number",
+              "status",
+              "issueDate",
+              "total",
+              "taxableAmount",
+              "balanceDue",
+              "amountCredited"
+            ],
+            "additionalProperties": false
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "enum": [
+                    "PDF",
+                    "DOCX",
+                    "PDF_PROTECTED",
+                    "PDF_A3"
+                  ]
+                },
+                "version": {
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "byteSize": {
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
+                },
+                "generatedAt": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "format",
+                "version",
+                "sha256",
+                "byteSize",
+                "generatedAt"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "invoiceId",
+          "status",
+          "displayStatus",
+          "number",
+          "issueDate",
+          "currency",
+          "locale",
+          "subtotal",
+          "taxAmount",
+          "total",
+          "reason",
+          "invoiceNumber",
+          "clientId",
+          "clientName",
+          "issuerProfileId",
+          "issuerLabel",
+          "roundingAdjustment",
+          "fiscalYear",
+          "sequenceNumber",
+          "issuedAt",
+          "sentAt",
+          "voidedAt",
+          "voidReason",
+          "supplyType",
+          "taxLines",
+          "invoice",
+          "documents",
+          "createdAt",
+          "updatedAt"
+        ],
+        "additionalProperties": false
+      },
+      "ClientList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Client"
+            }
+          },
+          "nextCursor": {
+            "description": "Pass as `cursor` for the next page.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "data",
+          "nextCursor"
+        ],
+        "additionalProperties": false
+      },
+      "Client": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "contactPerson": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "email": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "phone": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "billingAddress": {
+            "type": "object",
+            "properties": {
+              "line1": {
+                "type": "string"
+              },
+              "line2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "postalCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "countryCode": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "line1",
+              "city",
+              "countryCode"
+            ],
+            "additionalProperties": false
+          },
+          "shippingAddress": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "line1": {
+                    "type": "string"
+                  },
+                  "line2": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "postalCode": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "countryCode": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "line1",
+                  "city",
+                  "countryCode"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "stateCode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "gstStateCode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "taxIdType": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "GSTIN",
+                  "VAT",
+                  "EIN",
+                  "OTHER"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "taxId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "currency": {
+            "type": "string"
+          },
+          "paymentTermsDays": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "defaultTdsRate": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "archivedAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "displayName",
+          "contactPerson",
+          "email",
+          "phone",
+          "billingAddress",
+          "shippingAddress",
+          "countryCode",
+          "stateCode",
+          "gstStateCode",
+          "taxIdType",
+          "taxId",
+          "currency",
+          "paymentTermsDays",
+          "defaultTdsRate",
+          "notes",
+          "archivedAt",
+          "createdAt",
+          "updatedAt"
+        ],
+        "additionalProperties": false
+      },
+      "ProfileList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Profile"
+            }
+          },
+          "nextCursor": {
+            "description": "Pass as `cursor` for the next page.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "data",
+          "nextCursor"
+        ],
+        "additionalProperties": false
+      },
+      "Profile": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "INDIVIDUAL",
+              "COMPANY"
+            ]
+          },
+          "isDefault": {
+            "type": "boolean"
+          },
+          "label": {
+            "type": "string"
+          },
+          "legalName": {
+            "type": "string"
+          },
+          "tradeName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "website": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "address": {
+            "type": "object",
+            "properties": {
+              "line1": {
+                "type": "string"
+              },
+              "line2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "postalCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "countryCode": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "line1",
+              "city",
+              "countryCode"
+            ],
+            "additionalProperties": false
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "stateCode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "gstStateCode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "gstin": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "cinNumber": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ukVatNumber": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "lutNumber": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "lutFiscalYear": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "baseCurrency": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "fiscalYearStartMonth": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "invoiceNumberFormat": {
+            "type": "string"
+          },
+          "creditNoteNumberFormat": {
+            "type": "string"
+          },
+          "defaultTaxRegime": {
+            "type": "string",
+            "enum": [
+              "INDIA_GST",
+              "UK_VAT",
+              "US_SALES_TAX",
+              "NONE"
+            ]
+          },
+          "defaultTdsRate": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "defaultNotes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "defaultTerms": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "archivedAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "isDefault",
+          "label",
+          "legalName",
+          "tradeName",
+          "email",
+          "phone",
+          "website",
+          "address",
+          "countryCode",
+          "stateCode",
+          "gstStateCode",
+          "gstin",
+          "cinNumber",
+          "ukVatNumber",
+          "lutNumber",
+          "lutFiscalYear",
+          "baseCurrency",
+          "locale",
+          "fiscalYearStartMonth",
+          "invoiceNumberFormat",
+          "creditNoteNumberFormat",
+          "defaultTaxRegime",
+          "defaultTdsRate",
+          "defaultNotes",
+          "defaultTerms",
+          "archivedAt"
+        ],
+        "additionalProperties": false
+      },
+      "ServiceList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Service"
+            }
+          },
+          "nextCursor": {
+            "description": "Pass as `cursor` for the next page.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "data",
+          "nextCursor"
+        ],
+        "additionalProperties": false
+      },
+      "Service": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "unitType": {
+            "type": "string",
+            "enum": [
+              "HOUR",
+              "DAY",
+              "FIXED",
+              "MILESTONE",
+              "UNIT"
+            ]
+          },
+          "defaultRate": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "sacHsnCode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "defaultTaxRate": {
+            "type": "string"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "issuerProfileIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "archivedAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "description",
+          "unitType",
+          "defaultRate",
+          "currency",
+          "sacHsnCode",
+          "defaultTaxRate",
+          "isActive",
+          "issuerProfileIds",
+          "archivedAt",
+          "createdAt",
+          "updatedAt"
+        ],
+        "additionalProperties": false
+      },
+      "ProductList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
+          },
+          "nextCursor": {
+            "description": "Pass as `cursor` for the next page.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "data",
+          "nextCursor"
+        ],
+        "additionalProperties": false
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "unitType": {
+            "type": "string",
+            "enum": [
+              "HOUR",
+              "DAY",
+              "FIXED",
+              "MILESTONE",
+              "UNIT"
+            ]
+          },
+          "unitPrice": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "hsnCode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "defaultTaxRate": {
+            "type": "string"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "issuerProfileIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "archivedAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "sku",
+          "name",
+          "description",
+          "unitType",
+          "unitPrice",
+          "currency",
+          "hsnCode",
+          "defaultTaxRate",
+          "isActive",
+          "issuerProfileIds",
+          "archivedAt",
+          "createdAt",
+          "updatedAt"
+        ],
+        "additionalProperties": false
+      },
+      "PaymentMethodList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentMethod"
+            }
+          },
+          "nextCursor": {
+            "description": "Pass as `cursor` for the next page.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "data",
+          "nextCursor"
+        ],
+        "additionalProperties": false
+      },
+      "PaymentMethod": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "currency": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "isDefault": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "instructions": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "archivedAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "type",
+          "currency",
+          "isDefault",
+          "isActive",
+          "instructions",
+          "archivedAt",
+          "createdAt",
+          "updatedAt"
+        ],
+        "additionalProperties": false
+      },
+      "StatusEnvelope": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Status"
+          }
+        },
+        "required": [
+          "data"
+        ],
+        "additionalProperties": false
+      },
+      "Status": {
+        "type": "object",
+        "properties": {
+          "overall": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "degraded",
+              "failed"
+            ]
+          },
+          "checkedAt": {
+            "type": "string"
+          },
+          "version": {
+            "type": "object",
+            "properties": {
+              "app": {
+                "type": "string"
+              },
+              "sha": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "builtAt": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "node": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "app",
+              "sha",
+              "builtAt",
+              "node"
+            ],
+            "additionalProperties": false
+          },
+          "uptimeSeconds": {
+            "type": "number"
+          },
+          "db": {
+            "type": "object",
+            "properties": {
+              "health": {
+                "type": "string",
+                "enum": [
+                  "ok",
+                  "warning",
+                  "failed",
+                  "n/a"
+                ]
+              },
+              "latencyMs": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "lastMigration": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "finishedAt": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "finishedAt"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "pending": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": [
+              "health",
+              "latencyMs",
+              "lastMigration",
+              "pending"
+            ],
+            "additionalProperties": false
+          },
+          "storage": {
+            "type": "object",
+            "properties": {
+              "health": {
+                "type": "string",
+                "enum": [
+                  "ok",
+                  "warning",
+                  "failed",
+                  "n/a"
+                ]
+              },
+              "driver": {
+                "type": "string",
+                "enum": [
+                  "local",
+                  "s3"
+                ]
+              },
+              "latencyMs": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "health",
+              "driver",
+              "latencyMs"
+            ],
+            "additionalProperties": false
+          },
+          "rateLimitStore": {
+            "type": "string",
+            "enum": [
+              "memory",
+              "postgres"
+            ]
+          },
+          "smtp": {
+            "type": "object",
+            "properties": {
+              "health": {
+                "type": "string",
+                "enum": [
+                  "ok",
+                  "warning",
+                  "failed",
+                  "n/a"
+                ]
+              },
+              "configured": {
+                "type": "boolean"
+              },
+              "source": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "enum": [
+                      "settings",
+                      "env"
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "lastTestAt": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "health",
+              "configured",
+              "source",
+              "lastTestAt"
+            ],
+            "additionalProperties": false
+          },
+          "backups": {
+            "type": "object",
+            "properties": {
+              "health": {
+                "type": "string",
+                "enum": [
+                  "ok",
+                  "warning",
+                  "failed",
+                  "n/a"
+                ]
+              }
+            },
+            "required": [
+              "health"
+            ],
+            "additionalProperties": false
+          },
+          "email24h": {
+            "type": "object",
+            "properties": {
+              "sent": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              },
+              "failed": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": [
+              "sent",
+              "failed"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "overall",
+          "checkedAt",
+          "version",
+          "uptimeSeconds",
+          "db",
+          "storage",
+          "rateLimitStore",
+          "smtp",
+          "backups",
+          "email24h"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "okv_… API key or JWT",
+        "description": "Scopes: invoices:read, invoices:create, credit_notes:read, credit_notes:create, catalogue:read, documents:read, status:read."
+      }
+    }
+  }
+}
