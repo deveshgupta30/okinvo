@@ -19,6 +19,9 @@ went green on the development branch.
   uploaded image with opacity and height across every page.
 - Input charset: every text field, on the client and at every server boundary, accepts only
   standard keyboard characters (SPEC §6.6).
+- Privacy: a cookie notice on first visit (strictly necessary cookies only, one "Got it"), a
+  public cookie policy at `/legal/cookies` generated from the cookie registry, and "show the
+  notice again" under Account → Privacy.
 - DOCX copies: "Download DOCX" on issued documents, a DOCX attachment choice in the e-mail
   composer and optional DOCX copies in the documents ZIP, rendered from the same view-model.
 - Share links: public `/i/<token>` viewer with an optional password gate (generated passphrase

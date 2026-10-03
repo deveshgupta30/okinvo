@@ -21,6 +21,7 @@ export async function signInAs(
   name = "E2E Owner",
   opts: { completeOnboarding?: boolean } = {},
 ): Promise<void> {
+  await dismissCookieNotice(page);
   await page.goto("/auth/sign-in");
   const form = page.getByTestId("password-sign-in");
   await expect(async () => {
@@ -76,6 +77,15 @@ export async function finishOnboardingIfShown(page: Page, name: string): Promise
 }
 
 /** The existing account, through the sign-in (not sign-up) branch of the same form. */
+/**
+ * Specs that are not about the cookie notice start with it dismissed, so the fixed bottom bar
+ * never sits over a button they click (legal.spec.ts covers the notice itself).
+ */
+export async function dismissCookieNotice(page: Page): Promise<void> {
+  const origin = `http://127.0.0.1:${process.env.E2E_PORT ?? "3000"}`;
+  await page.context().addCookies([{ name: "okinvo.cookie-notice", value: "1", url: origin }]);
+}
+
 export async function signInExisting(page: Page, email: string): Promise<void> {
   await page.goto("/auth/sign-in");
   const form = page.getByTestId("password-sign-in");
