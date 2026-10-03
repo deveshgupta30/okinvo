@@ -19,6 +19,9 @@ went green on the development branch.
   uploaded image with opacity and height across every page.
 - Input charset: every text field, on the client and at every server boundary, accepts only
   standard keyboard characters (SPEC §6.6).
+- Status: Settings → Status (every role) and `/api/health/status` with version and build
+  provenance, database latency and last migration, a storage write/read/delete probe, rate-limit
+  store, SMTP and last test, backup freshness and 24-hour e-mail counts.
 - Legal: public Terms of Service, Acceptable Use, Privacy Policy, data retention schedule,
   security page and licences at `/legal/*`, driven by Settings → Legal (operator details with
   highlighted placeholders until filled); footer links on sign-in and share pages.

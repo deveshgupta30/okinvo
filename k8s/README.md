@@ -68,6 +68,10 @@ done
 docker run --rm -v /tmp:/m ghcr.io/yannh/kubeconform:v0.7.0 -strict -summary /m/compose-parity.yaml /m/with-seaweedfs.yaml
 ```
 
+Settings → Status shows the build's commit and date when the image was built with
+`--build-arg BUILD_SHA=… --build-arg BUILD_DATE=…` (scripts/release.sh and CI do this); images
+built without them show "(sha unknown)".
+
 Assumptions to adjust: the ingress controller lives in a namespace labelled
 `kubernetes.io/metadata.name=ingress-nginx` (NetworkPolicy `app`), certificates come from
 cert-manager's `letsencrypt` ClusterIssuer (Ingress annotation), and the namespace enforces the

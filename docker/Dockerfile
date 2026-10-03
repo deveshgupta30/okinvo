@@ -36,7 +36,10 @@ CMD ["pnpm", "prisma", "migrate", "deploy"]
 
 # ── Runtime image ──
 FROM ${NODE_IMAGE} AS runner
-ENV NODE_ENV=production PORT=3000 HOSTNAME=0.0.0.0 NEXT_TELEMETRY_DISABLED=1
+ARG BUILD_SHA=""
+ARG BUILD_DATE=""
+ENV NODE_ENV=production PORT=3000 HOSTNAME=0.0.0.0 NEXT_TELEMETRY_DISABLED=1 \
+    OKINVO_BUILD_SHA=$BUILD_SHA OKINVO_BUILD_DATE=$BUILD_DATE
 # The runtime only runs `node server.js`: npm, npx, corepack and yarn leave with their bundled
 # dependencies (Trivy flags npm's), which also keeps the image smaller.
 RUN apk add --no-cache tini && addgroup -S -g 1001 app && adduser -S -u 1001 -G app app \
