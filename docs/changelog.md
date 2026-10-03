@@ -19,6 +19,9 @@ went green on the development branch.
   uploaded image with opacity and height across every page.
 - Input charset: every text field, on the client and at every server boundary, accepts only
   standard keyboard characters (SPEC §6.6).
+- Share links: public `/i/<token>` viewer with an optional password gate (generated passphrase
+  or your own), expiry, revocation, view and download counts, rate limits and audit; a protected
+  link only ever serves its own protected copy.
 - Protected copies: AES-256 password-protected PDF versions (open + print only) with an EFF
   passphrase generator and a password strength hint.
 - Documents: wider description column, tax rate under the tax amount, totals never split across

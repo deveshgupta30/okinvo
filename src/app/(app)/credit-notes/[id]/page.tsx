@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ConfirmAction } from "@/components/confirm-action";
 import { ScaledPreview } from "@/components/documents/scaled-preview";
+import { ShareDialog } from "@/components/documents/share-dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { DescriptionList, Item } from "@/components/ui/description-list";
@@ -26,6 +27,7 @@ import { hasRole } from "@/server/dal/authz";
 import { getCreditNote } from "@/server/dal/credit-notes";
 import { assetUrl, verificationQr } from "@/server/dal/documents";
 import { NotFoundError } from "@/server/dal/errors";
+import { listShareLinks } from "@/server/dal/share-links";
 
 export const metadata: Metadata = { title: "Credit note" };
 
@@ -134,6 +136,11 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
                 </Button>
                 {cn.status === "ISSUED" && canEdit ? (
                   <>
+                    <ShareDialog
+                      kind="CREDIT_NOTE"
+                      id={id}
+                      links={await listShareLinks(actor, "CREDIT_NOTE", id)}
+                    />
                     <Button asChild variant="secondary">
                       <Link href={`/credit-notes/${id}/send`}>Send by email</Link>
                     </Button>

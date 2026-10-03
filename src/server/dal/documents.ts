@@ -8,7 +8,11 @@ import { qrDataUrl } from "@/lib/documents/qr";
 import type { ProtectOptions } from "@/lib/documents/protect";
 import { renderPdf } from "@/lib/documents/render";
 import { sampleViewModel } from "@/lib/documents/sample";
-import { buildDocumentViewModel, type RenderInput } from "@/lib/documents/view-model";
+import {
+  buildDocumentViewModel,
+  type DocumentViewModel,
+  type RenderInput,
+} from "@/lib/documents/view-model";
 import { env } from "@/lib/env";
 import { buildSnapshots } from "@/lib/invoices/snapshots";
 import { safeFileStem } from "@/lib/numbering";
@@ -422,6 +426,40 @@ export async function renderDraftPreview(actor: Actor, invoiceId: string): Promi
   const config = await resolveTemplateConfig(prisma, inv.issuerProfileId);
   const vm = buildDocumentViewModel(input, { appUrl: env.APP_URL, assetUrl, config, draft: true });
   return renderPdf(vm, config, { assets: readAssetBytes });
+}
+
+/**
+ * The HTML view of an issued document (view-model + the config it was issued with, QR filled).
+ * `inlineImages` embeds the issuer's images and the header image as data URLs for pages that
+ * cannot reach the session-gated asset route (the public share page).
+ */
+export async function issuedDocumentView(
+  kind: DocumentKind,
+  id: string,
+  o: { inlineImages?: boolean } = {},
+): Promise<{ vm: DocumentViewModel; config: TemplateConfig }> {
+  const doc = await loadIssued(prisma, kind, id, todayIn("UTC"));
+  const inline = new Map<string, string>();
+  if (o.inlineImages) {
+    const ids = [
+      doc.input.issuer.logoAssetId,
+      doc.input.issuer.signatureAssetId,
+      doc.input.issuer.stampAssetId,
+      doc.config.header.style === "image" ? doc.config.header.imageAssetId : undefined,
+    ].filter((x): x is string => typeof x === "string" && x.length > 0);
+    for (const assetId of ids) {
+      const bytes = await readAssetBytes(assetId);
+      if (bytes) inline.set(assetId, `data:image/png;base64,${bytes.toString("base64")}`);
+    }
+  }
+  const vm = buildDocumentViewModel(doc.input, {
+    appUrl: env.APP_URL,
+    assetUrl: (assetId) => inline.get(assetId) ?? assetUrl(assetId),
+    config: doc.config,
+    draft: false,
+  });
+  const withQr = vm.verifyUrl ? { ...vm, qrDataUrl: await qrDataUrl(vm.verifyUrl) } : vm;
+  return { vm: withQr, config: doc.config };
 }
 
 /** Settings → Templates sample PDF for any config (not necessarily the saved one). */
