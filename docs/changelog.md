@@ -19,6 +19,9 @@ went green on the development branch.
   uploaded image with opacity and height across every page.
 - Input charset: every text field, on the client and at every server boundary, accepts only
   standard keyboard characters (SPEC §6.6).
+- OpenAPI and SDK: `/api/openapi.json` (OpenAPI 3.1 from the Zod schemas, with scopes per
+  operation), the committed `openapi/okinvo.json` and a generated TypeScript SDK in `sdk/`
+  (`pnpm sdk:generate`, checked in CI).
 - REST API v1: `/api/v1` invoices (list, get, draft, issue, pdf, docx), credit notes, clients,
   profiles, services, products, payment methods and status with `{ data }` / `{ error }`
   envelopes, cursor pagination, scope checks and 405 on DELETE/PUT/PATCH.

@@ -211,8 +211,10 @@ curl -H "Authorization: Bearer $OKINVO_KEY" -o invoice.pdf https://invoices.exam
 ```
 
 Responses are `{ data }` or `{ data: [...], nextCursor }`; errors are `{ error: { code, message,
-issues? } }`. There is no delete or update over the API (405). The generated OpenAPI document,
-the TypeScript SDK and the MCP server follow in the v1.1 plan's sub-project E.
+issues? } }`. There is no delete or update over the API (405). Every instance serves its OpenAPI
+3.1 document at `/api/openapi.json`; `openapi/okinvo.json` is the committed copy and `sdk/` the
+generated TypeScript client (`sdk/README.md`). The MCP server follows in the v1.1 plan's
+sub-project E.
 
 ## Documentation site
 
