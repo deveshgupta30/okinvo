@@ -417,9 +417,41 @@ model Document {
   invoice      Invoice?       @relation(fields: [invoiceId],    references: [id])
   creditNote   CreditNote?    @relation(fields: [creditNoteId], references: [id])
   emails       EmailMessage[]
+  shareLinks   ShareLink[]
 
   @@unique([invoiceId, format, version])
   @@unique([creditNoteId, format, version])
+}
+
+/// A public link to an issued document (spec §5.6). The URL token is stored hashed (lookup) and
+/// encrypted (so the owner can copy the URL again); a password-protected link carries its own
+/// PDF_PROTECTED copy and never serves the canonical file.
+model ShareLink {
+  id                  String       @id @default(uuid(7))
+  kind                DocumentKind
+  invoiceId           String?
+  creditNoteId        String?
+  tokenHash           String       @unique
+  tokenEnc            String
+  passwordHash        String?
+  pdfPasswordEnc      String?
+  ownerPasswordEnc    String
+  protectedDocumentId String?
+  expiresAt           DateTime?
+  revokedAt           DateTime?
+  viewCount           Int          @default(0)
+  downloadCount       Int          @default(0)
+  lastViewedAt        DateTime?
+  createdById         String
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime     @updatedAt
+
+  invoice           Invoice?    @relation(fields: [invoiceId],           references: [id])
+  creditNote        CreditNote? @relation(fields: [creditNoteId],        references: [id])
+  protectedDocument Document?   @relation(fields: [protectedDocumentId], references: [id])
+
+  @@index([invoiceId])
+  @@index([creditNoteId])
 }
 
 // ───────────────────────── Invoices ─────────────────────────
@@ -492,6 +524,7 @@ model Invoice {
   creditNotes        CreditNote[]
   documents          Document[]
   emails             EmailMessage[]
+  shareLinks         ShareLink[]
 
   @@unique([issuerProfileId, number])
   @@index([issuerProfileId, fiscalYear])
@@ -614,6 +647,7 @@ model CreditNote {
   taxLines          CreditNoteTaxLine[]
   documents         Document[]
   emails            EmailMessage[]
+  shareLinks        ShareLink[]
 
   @@unique([issuerProfileId, number])
   @@index([invoiceId])

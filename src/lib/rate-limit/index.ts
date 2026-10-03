@@ -16,4 +16,8 @@ export const LIMITS = {
   uploads: { limit: 30, windowMs: 60_000 },
   exports: { limit: 10, windowMs: 60_000 },
   email: { limit: 30, windowMs: 3_600_000 },
+  /** Public share pages and downloads per address. */
+  share: { limit: 30, windowMs: 60_000 },
+  /** Password guesses per link and address: five, then a quarter of an hour. */
+  sharePassword: { limit: 5, windowMs: 900_000 },
 } as const;

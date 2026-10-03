@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ConfirmAction } from "@/components/confirm-action";
 import { ScaledPreview } from "@/components/documents/scaled-preview";
+import { ShareDialog } from "@/components/documents/share-dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { DescriptionList, Item } from "@/components/ui/description-list";
@@ -27,6 +28,7 @@ import { hasRole } from "@/server/dal/authz";
 import { assetUrl, renderInputFromInvoice, verificationQr } from "@/server/dal/documents";
 import { NotFoundError } from "@/server/dal/errors";
 import { getInvoice } from "@/server/dal/invoices";
+import { listShareLinks } from "@/server/dal/share-links";
 
 export const metadata: Metadata = { title: "Invoice" };
 
@@ -44,6 +46,7 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
   const isDraft = inv.status === "DRAFT";
   const isIssued = inv.status === "ISSUED";
   const latestDoc = inv.documents[inv.documents.length - 1] ?? null;
+  const shareLinks = !isDraft && canEdit ? await listShareLinks(actor, "INVOICE", id) : [];
 
   let preview: React.ReactNode = null;
   if (!isDraft && inv.issuerSnapshot && inv.clientSnapshot) {
@@ -145,6 +148,7 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
                 </Button>
                 {isIssued && canEdit ? (
                   <>
+                    <ShareDialog kind="INVOICE" id={id} links={shareLinks} />
                     <Button asChild variant="secondary">
                       <Link href={`/invoices/${id}/send`}>Send by email</Link>
                     </Button>
