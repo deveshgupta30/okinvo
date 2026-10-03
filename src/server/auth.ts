@@ -140,8 +140,8 @@ export async function requireActorApi(min: Role = "OWNER"): Promise<Actor | Resp
  * Scoped variant for the versioned API (spec §7.2): an API key must carry `scope` (403
  * `insufficient_scope` otherwise); a JWT or a cookie session gets the scopes of its role.
  */
-export async function requireApiActor(scope: Scope): Promise<Actor | Response> {
-  const h = await headers();
+export async function requireApiActor(scope: Scope, given?: Headers): Promise<Actor | Response> {
+  const h = given ?? (await headers());
   const authorization = h.get("authorization");
   let actor: Actor | null = null;
   let scopes: Scope[] = [];
@@ -157,15 +157,24 @@ export async function requireApiActor(scope: Scope): Promise<Actor | Response> {
       if (actor) scopes = scopesForRole(actor.role);
     }
   } else {
-    const s = await getSession();
+    // Outside a Next request scope (handlers called directly in tests) there is no cookie session.
+    const s = await getSession().catch(() => null);
     if (s && (await isAdmitted(s.user.email))) {
       actor = actorFromSession(s, h, env.TRUST_PROXY);
       scopes = scopesForRole(actor.role);
     }
   }
-  if (!actor) return Response.json({ error: "unauthenticated" }, { status: 401 });
+  if (!actor) {
+    return Response.json(
+      { error: { code: "unauthenticated", message: "Sign in or send a bearer token." } },
+      { status: 401 },
+    );
+  }
   if (!scopes.includes(scope)) {
-    return Response.json({ error: "insufficient_scope", scope }, { status: 403 });
+    return Response.json(
+      { error: { code: "insufficient_scope", message: `This call needs the ${scope} scope.` } },
+      { status: 403 },
+    );
   }
   return actor;
 }

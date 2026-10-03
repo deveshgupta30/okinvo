@@ -21,7 +21,11 @@ export function originAllowed(headers: Headers, appUrl: string): boolean {
 
 const UNSAFE = new Set(["POST", "PUT", "PATCH", "DELETE"]);
 
-/** Which requests the proxy checks: unsafe methods on `/api/*`, except Better Auth's own routes. */
+/**
+ * Which requests the proxy checks: unsafe methods on `/api/*`, except Better Auth's own routes.
+ * The proxy additionally skips requests that carry an Authorization header (bearer clients hold
+ * no cookies, so there is nothing for a cross-site page to ride on).
+ */
 export function needsOriginCheck(method: string, pathname: string): boolean {
   if (!UNSAFE.has(method.toUpperCase())) return false;
   if (!pathname.startsWith("/api/")) return false;

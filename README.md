@@ -198,11 +198,21 @@ Compose-only variables (`compose.yml`, not read by the app): `APP_DOMAIN` (Caddy
 
 ## API, SDK and MCP
 
-A signed-in owner can mint a 15-minute JWT at `GET /api/auth/token` (keys at
-`/api/auth/jwks`) and call the `/api/*` routes with `Authorization: Bearer <token>`. Long-lived
-API keys, the versioned REST API `/api/v1`, the generated OpenAPI document and TypeScript SDK,
-and the MCP server (view, draft and issue invoices and credit notes — never delete) arrive in
-the v1.1 plan's sub-project E; this section is completed with them.
+Create an API key at Settings → API (scoped, shown once) or mint a 15-minute JWT at
+`GET /api/auth/token`, then call the versioned API with `Authorization: Bearer <key>`:
+
+```bash
+curl -H "Authorization: Bearer $OKINVO_KEY" https://invoices.example.com/api/v1/invoices?limit=20
+curl -H "Authorization: Bearer $OKINVO_KEY" -H "Content-Type: application/json" \
+  -d '{"issuerProfileId":"…","clientId":"…","issueDate":"2026-10-03","dueDate":"2026-10-18","currency":"INR","taxRegime":"NONE","items":[{"description":"Work","unitType":"HOUR","quantity":"1","unitPrice":"1000","taxRate":"0"}]}' \
+  https://invoices.example.com/api/v1/invoices
+curl -X POST -H "Authorization: Bearer $OKINVO_KEY" https://invoices.example.com/api/v1/invoices/<id>/issue
+curl -H "Authorization: Bearer $OKINVO_KEY" -o invoice.pdf https://invoices.example.com/api/v1/invoices/<id>/pdf
+```
+
+Responses are `{ data }` or `{ data: [...], nextCursor }`; errors are `{ error: { code, message,
+issues? } }`. There is no delete or update over the API (405). The generated OpenAPI document,
+the TypeScript SDK and the MCP server follow in the v1.1 plan's sub-project E.
 
 ## Documentation site
 
