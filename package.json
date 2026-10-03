@@ -27,6 +27,8 @@
     "fonts:check": "tsx scripts/vendor-fonts.ts --check",
     "notices": "node scripts/third-party-notices.mjs",
     "notices:check": "node scripts/third-party-notices.mjs --check",
+    "env:docs": "node scripts/env-docs.mjs",
+    "env:docs:check": "node scripts/env-docs.mjs --check",
     "db:up": "docker compose -f compose.dev.yml up -d --wait postgres",
     "db:down": "docker compose -f compose.dev.yml down",
     "db:generate": "prisma generate",

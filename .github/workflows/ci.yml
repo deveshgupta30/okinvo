@@ -52,7 +52,7 @@ jobs:
       - run: pnpm db:generate # the Prisma client is a type dependency of typecheck and lint
       - run: pnpm lint && pnpm typecheck && pnpm format:check
       - run: pnpm design:lint && pnpm design:tokens --check
-      - run: pnpm fonts:check && pnpm notices:check
+      - run: pnpm fonts:check && pnpm notices:check && pnpm env:docs:check
       - name: actionlint over the workflows
         run: |
           repo="${GITHUB_WORKSPACE//\\//}"
