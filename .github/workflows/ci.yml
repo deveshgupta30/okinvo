@@ -38,8 +38,28 @@ jobs:
     uses: ./.github/workflows/pick-runner.yml
     secrets: inherit
 
-  test:
+  lint: # static checks and generated-file freshness; no database, no browser
     needs: runner
+    runs-on: ${{ fromJSON(needs.runner.outputs.labels) }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with: { version: "${{ env.PNPM_VERSION }}" }
+      - uses: actions/setup-node@v7
+        with: { node-version: "${{ env.NODE_VERSION }}", cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm db:generate # the Prisma client is a type dependency of typecheck and lint
+      - run: pnpm lint && pnpm typecheck && pnpm format:check
+      - run: pnpm design:lint && pnpm design:tokens --check
+      - run: pnpm fonts:check && pnpm notices:check
+      - name: actionlint over the workflows
+        run: |
+          repo="${GITHUB_WORKSPACE//\\//}"
+          docker run --rm -v "$repo:/repo" -w /repo rhysd/actionlint:1.7.7 -color
+
+  test:
+    needs: [runner, lint]
     runs-on: ${{ fromJSON(needs.runner.outputs.labels) }}
     steps:
       - uses: actions/checkout@v7
@@ -50,8 +70,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: docker compose -f compose.dev.yml up -d --wait postgres mailpit
       - run: pnpm db:generate
-      - run: pnpm lint && pnpm typecheck && pnpm format:check
-      - run: pnpm design:lint && pnpm design:tokens --check
       - run: pnpm db:migrate
       - run: pnpm db:check # migrations replayed into a shadow DB must equal schema.prisma
       - run: pnpm test -- --coverage
@@ -146,7 +164,7 @@ jobs:
       - if: runner.os != 'Linux'
         name: trivy through its container (the action's installer needs a Linux shell)
         run: |
-          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest \
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:0.70.0 \
             image --severity HIGH,CRITICAL --exit-code 1 --ignore-unfixed --skip-version-check --scanners vuln okinvo:ci
       - name: the runtime image ships no package manager (npm, npx, corepack, yarn)
         run: |
