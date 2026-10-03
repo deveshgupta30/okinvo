@@ -40,8 +40,29 @@ model User {
   sessions      Session[]
   accounts      Account[]
   auditEvents   AuditEvent[]
+  apiKeys       ApiKey[]
 
   @@map("user")
+}
+
+/// A long-lived bearer credential (spec §7.1): shown once, stored as its SHA-256, scoped, and
+/// capped by the owner's current role at every use. Revocation and deactivation end it at once.
+model ApiKey {
+  id         String    @id @default(uuid(7))
+  name       String
+  prefix     String    // "okv_" + 8 characters, for display
+  keyHash    String    @unique
+  scopes     String[]
+  expiresAt  DateTime?
+  lastUsedAt DateTime?
+  revokedAt  DateTime?
+  userId     String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
 
 /// An invitation (Settings → Users): the sign-in hook admits the address like the env allow-list.

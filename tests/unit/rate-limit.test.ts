@@ -117,6 +117,7 @@ describe("LIMITS", () => {
       email: { limit: 30, windowMs: 3_600_000 },
       share: { limit: 30, windowMs: 60_000 },
       sharePassword: { limit: 5, windowMs: 900_000 },
+      api: { limit: 120, windowMs: 60_000 },
     });
   });
 });

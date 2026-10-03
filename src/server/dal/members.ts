@@ -3,6 +3,7 @@ import { prisma } from "@/lib/db";
 import { textToHtml } from "@/lib/email/templates";
 import { env } from "@/lib/env";
 import type { Actor, Role } from "@/server/actor";
+import { revokeAllApiKeys } from "./api-keys";
 import { audit } from "./audit";
 import { requireRole } from "./authz";
 import { InvariantError, NotFoundError } from "./errors";
@@ -169,6 +170,7 @@ export async function deactivateMember(actor: Actor, userId: string): Promise<vo
     if (user.role === "OWNER") await assertNotLastOwner(tx, userId);
     await tx.user.update({ where: { id: userId }, data: { deactivatedAt: new Date() } });
     await tx.session.deleteMany({ where: { userId } });
+    await revokeAllApiKeys(tx, userId);
     await tx.allowedEmail.updateMany({ where: { email: user.email }, data: { active: false } });
     await audit(tx, actor, "user.deactivated", "User", userId, {
       summary: `Deactivated ${user.email}`,

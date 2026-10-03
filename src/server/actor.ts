@@ -17,6 +17,10 @@ export interface Actor {
   timezone: string;
   ip?: string;
   userAgent?: string;
+  /** How the actor authenticated; absent means the browser session. */
+  via?: "session" | "jwt" | "api-key";
+  apiKeyId?: string;
+  apiKeyName?: string;
 }
 
 export interface SessionLike {
