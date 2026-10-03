@@ -45,4 +45,9 @@ export default defineConfig([
       ],
     },
   },
+  {
+    // Legal prose: apostrophes and quotation marks are text, not markup.
+    files: ["src/app/(public)/legal/**/*.tsx"],
+    rules: { "react/no-unescaped-entities": "off" },
+  },
 ]);

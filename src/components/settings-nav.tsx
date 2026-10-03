@@ -13,6 +13,7 @@ const ITEMS = [
   { href: "/settings/security", label: "Security", minRole: "OWNER" },
   { href: "/settings/users", label: "Users", minRole: "OWNER" },
   { href: "/settings/data", label: "Data", minRole: "OWNER" },
+  { href: "/settings/legal", label: "Legal", minRole: "OWNER" },
   { href: "/settings/account", label: "Account", minRole: "VIEWER" },
   { href: "/settings/appearance", label: "Appearance", minRole: "VIEWER" },
 ] as const;
