@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { AccentPicker } from "@/components/settings/accent-picker";
 import { ThemeChoice } from "@/components/settings/theme-choice";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,23 +7,26 @@ import { PageHeader } from "@/components/ui/page-header";
 import { requireRole } from "@/server/auth";
 import { getAccount } from "@/server/dal/users";
 
-export const metadata: Metadata = { title: "Appearance" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("settings.appearance");
+  return { title: t("metaTitle") };
+}
 
 export default async function AppearancePage() {
   const actor = await requireRole("VIEWER");
-  const account = await getAccount(actor);
+  const [account, t] = await Promise.all([
+    getAccount(actor),
+    getTranslations("settings.appearance"),
+  ]);
   return (
     <>
-      <PageHeader
-        title="Appearance"
-        description="Theme and accent colour, saved to your account."
-      />
+      <PageHeader title={t("title")} description={t("description")} />
       <div className="flex flex-col gap-6">
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Theme</CardTitle>
-              <CardDescription>Follow the system, or pin light or dark.</CardDescription>
+              <CardTitle>{t("theme.title")}</CardTitle>
+              <CardDescription>{t("theme.description")}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
@@ -32,11 +36,8 @@ export default async function AppearancePage() {
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Accent</CardTitle>
-              <CardDescription>
-                Used for the primary button, focus rings and the active page marker. Mint matches
-                the brand mark.
-              </CardDescription>
+              <CardTitle>{t("accent.title")}</CardTitle>
+              <CardDescription>{t("accent.description")}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>

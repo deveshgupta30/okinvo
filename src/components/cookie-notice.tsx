@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cookieNoticeCookie } from "@/lib/cookie-notice";
@@ -10,21 +11,21 @@ import { cookieNoticeCookie } from "@/lib/cookie-notice";
  * a notice, not a consent choice: one button, one cookie that remembers it was seen.
  */
 export function CookieNotice({ initiallyDismissed }: { initiallyDismissed: boolean }) {
+  const t = useTranslations("legalChrome.cookieNotice");
   const [dismissed, setDismissed] = useState(initiallyDismissed);
   if (dismissed) return null;
   return (
     <aside
       role="region"
-      aria-label="Cookie notice"
+      aria-label={t("label")}
       data-cookie-notice
       className="fixed inset-x-0 bottom-0 z-40 border-t border-hairline bg-surface-2/95 px-4 py-3 backdrop-blur md:px-6"
     >
       <div className="mx-auto flex max-w-5xl flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <p className="text-app-body text-ink">
-          We use only strictly necessary cookies: your session and your display preferences. No
-          analytics, no tracking.{" "}
+          {t("body")}{" "}
           <Link href="/legal/cookies" className="text-link underline-offset-4 hover:underline">
-            Cookie policy
+            {t("policy")}
           </Link>
         </p>
         <Button
@@ -36,7 +37,7 @@ export function CookieNotice({ initiallyDismissed }: { initiallyDismissed: boole
             setDismissed(true);
           }}
         >
-          Got it
+          {t("gotIt")}
         </Button>
       </div>
     </aside>

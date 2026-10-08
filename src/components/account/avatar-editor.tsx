@@ -1,6 +1,7 @@
 "use client";
 
 import { Camera, Trash2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Cropper, { type Area } from "react-easy-crop";
 import { Avatar } from "@/components/ui/avatar";
@@ -48,6 +49,8 @@ export function AvatarEditor({
   email: string;
   avatarKey: string | null;
 }) {
+  const t = useTranslations("settings.avatar");
+  const tc = useTranslations("common");
   const fileRef = useRef<HTMLInputElement>(null);
   const [source, setSource] = useState<string | null>(null);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -80,13 +83,13 @@ export function AvatarEditor({
       const res = await fetch("/api/uploads", { method: "POST", body });
       const json = (await res.json()) as { assetId?: string; error?: string };
       if (!res.ok || !json.assetId) {
-        setError(json.error === "TOO_LARGE" ? "That photo is too large." : "Upload failed.");
+        setError(json.error === "TOO_LARGE" ? t("tooLarge") : t("uploadFailed"));
         return;
       }
       await setAvatarAction(json.assetId);
       setSource(null);
     } catch {
-      setError("Upload failed.");
+      setError(t("uploadFailed"));
     } finally {
       setBusy(false);
       if (fileRef.current) fileRef.current.value = "";
@@ -100,7 +103,7 @@ export function AvatarEditor({
         <div className="flex flex-wrap gap-2">
           <Button type="button" variant="secondary" onClick={() => fileRef.current?.click()}>
             <Camera className="size-4" strokeWidth={1.5} />
-            {avatarKey ? "Change photo" : "Add photo"}
+            {avatarKey ? t("changePhoto") : t("addPhoto")}
           </Button>
           {avatarKey ? (
             <Button
@@ -117,13 +120,11 @@ export function AvatarEditor({
               }}
             >
               <Trash2 className="size-4" strokeWidth={1.5} />
-              Remove
+              {tc("remove")}
             </Button>
           ) : null}
         </div>
-        <span className="text-app-caption text-ink-subtle">
-          PNG, JPEG or WebP. Shown as a circle everywhere; you can zoom and move it before saving.
-        </span>
+        <span className="text-app-caption text-ink-subtle">{t("hint")}</span>
         {error ? (
           <span role="alert" className="text-app-caption text-semantic-danger">
             {error}
@@ -134,17 +135,15 @@ export function AvatarEditor({
           type="file"
           accept="image/png,image/jpeg,image/webp"
           className="sr-only"
-          aria-label="Choose a profile photo"
+          aria-label={t("choose")}
           onChange={(e) => onPick(e.target.files?.[0])}
         />
       </div>
 
       <Dialog open={source !== null} onOpenChange={(open) => !open && !busy && setSource(null)}>
         <DialogContent className="max-w-lg">
-          <DialogTitle>Position your photo</DialogTitle>
-          <DialogDescription>
-            Drag to move, scroll or pinch to zoom. The circle is what everyone sees.
-          </DialogDescription>
+          <DialogTitle>{t("dialogTitle")}</DialogTitle>
+          <DialogDescription>{t("dialogDescription")}</DialogDescription>
           <div className="relative h-72 w-full overflow-hidden rounded-md bg-surface-3">
             {source ? (
               <Cropper
@@ -161,7 +160,7 @@ export function AvatarEditor({
             ) : null}
           </div>
           <label className="flex items-center gap-3 text-app-caption text-ink-subtle">
-            Zoom
+            {t("zoom")}
             <input
               type="range"
               min={1}
@@ -179,10 +178,10 @@ export function AvatarEditor({
               disabled={busy}
               onClick={() => setSource(null)}
             >
-              Cancel
+              {tc("cancel")}
             </Button>
             <Button type="button" disabled={busy || !area} onClick={() => void save()}>
-              {busy ? "Saving…" : "Save photo"}
+              {busy ? tc("saving") : t("save")}
             </Button>
           </DialogFooter>
         </DialogContent>

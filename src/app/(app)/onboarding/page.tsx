@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
+import { getTranslations } from "next-intl/server";
 import { OnboardingWizard } from "@/components/onboarding/wizard";
 import { env } from "@/lib/env";
 import { countryOptions } from "@/lib/geo/countries";
@@ -8,7 +9,10 @@ import { actorFromSession } from "@/server/actor";
 import { requireUser } from "@/server/auth";
 import { getOnboarding } from "@/server/dal/onboarding";
 
-export const metadata: Metadata = { title: "Welcome" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("onboarding");
+  return { title: t("metaTitle") };
+}
 
 export default async function OnboardingPage({
   searchParams,

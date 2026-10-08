@@ -1,8 +1,9 @@
 "use client";
 
 import { Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
-import { ACCENTS, ACCENT_COOKIE, ACCENT_LABELS, type AccentId } from "@/lib/accent";
+import { ACCENTS, ACCENT_COOKIE, type AccentId } from "@/lib/accent";
 import { cn } from "@/lib/utils";
 import { setAccentAction } from "@/server/actions/account";
 
@@ -26,6 +27,7 @@ function applyAccent(id: AccentId): void {
 
 /** Settings → Appearance (spec §3.4): eight pastel swatches with a live preview. */
 export function AccentPicker({ initial }: { initial: AccentId }) {
+  const t = useTranslations("settings.appearance");
   const [accent, setAccent] = useState<AccentId>(initial);
   const choose = (id: AccentId) => {
     setAccent(id);
@@ -33,14 +35,14 @@ export function AccentPicker({ initial }: { initial: AccentId }) {
     void setAccentAction(id);
   };
   return (
-    <div role="radiogroup" aria-label="Accent colour" className="flex flex-wrap gap-3">
+    <div role="radiogroup" aria-label={t("accent.label")} className="flex flex-wrap gap-3">
       {ACCENTS.map((id) => (
         <button
           key={id}
           type="button"
           role="radio"
           aria-checked={accent === id}
-          aria-label={ACCENT_LABELS[id]}
+          aria-label={t(`accents.${id}`)}
           onClick={() => choose(id)}
           className={cn(
             "flex flex-col items-center gap-1 rounded-md p-2 text-app-caption text-ink-subtle transition-colors duration-150 hover:bg-surface-1 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none",
@@ -57,7 +59,7 @@ export function AccentPicker({ initial }: { initial: AccentId }) {
           >
             {accent === id ? <Check className="size-4" strokeWidth={2} /> : null}
           </span>
-          {ACCENT_LABELS[id]}
+          {t(`accents.${id}`)}
         </button>
       ))}
     </div>

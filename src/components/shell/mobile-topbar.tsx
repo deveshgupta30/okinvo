@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Settings } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Mark, Wordmark } from "@/components/brand/logo";
 import { Sheet, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
@@ -26,6 +27,8 @@ export function MobileTopbar({
   theme: ThemeMode;
   minimal?: boolean;
 }) {
+  const t = useTranslations("shell");
+  const tc = useTranslations("common");
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const settingsActive = pathname.startsWith("/settings");
@@ -41,15 +44,15 @@ export function MobileTopbar({
     <header className="sticky top-0 z-40 flex h-12 items-center gap-3 border-b border-hairline bg-canvas px-3 md:hidden">
       <button
         type="button"
-        aria-label="Open menu"
+        aria-label={t("openMenu")}
         aria-expanded={open}
         onClick={() => setOpen(true)}
         className="flex size-9 items-center justify-center rounded-md text-ink-subtle hover:bg-surface-1 hover:text-ink focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none"
       >
         <Menu aria-hidden className="size-5" strokeWidth={1.5} />
       </button>
-      <Link href="/" aria-label="okinvo home" className="flex items-center text-ink">
-        <Mark title="okinvo" className="size-7" />
+      <Link href="/" aria-label={tc("home")} className="flex items-center text-ink">
+        <Mark title={tc("appName")} className="size-7" />
       </Link>
       <span className="ml-auto">
         <UserMenu user={user} collapsed side="top" />
@@ -57,10 +60,10 @@ export function MobileTopbar({
 
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent aria-describedby={undefined}>
-          <SheetTitle className="sr-only">Navigation</SheetTitle>
-          <SheetDescription className="sr-only">Pages and account</SheetDescription>
+          <SheetTitle className="sr-only">{t("navigation")}</SheetTitle>
+          <SheetDescription className="sr-only">{t("pagesAndAccount")}</SheetDescription>
           <div className="flex h-14 items-center px-4 text-ink">
-            <Wordmark title="okinvo" className="h-7 w-auto" />
+            <Wordmark title={tc("appName")} className="h-7 w-auto" />
           </div>
           <TooltipProvider>
             <div className="min-h-0 flex-1 overflow-y-auto px-2">
@@ -79,7 +82,7 @@ export function MobileTopbar({
                   )}
                 >
                   <Settings aria-hidden className="size-5" strokeWidth={1.5} />
-                  Settings
+                  {t("settings")}
                 </Link>
               )}
               <UserMenu user={user} collapsed={false} side="top" />

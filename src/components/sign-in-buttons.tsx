@@ -1,11 +1,13 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { authClient } from "@/lib/auth/client";
 import type { ProviderInfo } from "@/lib/auth/providers";
 
 export function SignInButtons({ providers }: { providers: ProviderInfo[] }) {
+  const t = useTranslations("auth.social");
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -14,7 +16,7 @@ export function SignInButtons({ providers }: { providers: ProviderInfo[] }) {
     setError(null);
     const { error: err } = await authClient.signIn.social({ provider: id, callbackURL: "/" });
     if (err) {
-      setError(err.message ?? "Sign-in could not start.");
+      setError(err.message ?? t("failed"));
       setBusy(null);
     }
   }
@@ -30,7 +32,7 @@ export function SignInButtons({ providers }: { providers: ProviderInfo[] }) {
           disabled={busy !== null}
           onClick={() => start(p.id)}
         >
-          {busy === p.id ? "Redirecting…" : `Continue with ${p.name}`}
+          {busy === p.id ? t("redirecting") : t("continueWith", { provider: p.name })}
         </Button>
       ))}
       {error ? (

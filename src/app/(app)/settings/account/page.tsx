@@ -1,41 +1,55 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { AvatarEditor } from "@/components/account/avatar-editor";
-import { AccountForm } from "@/components/forms/account-form";
+import { AccountForm, type LanguageGroup } from "@/components/forms/account-form";
 import { ShowCookieNoticeAgain } from "@/components/settings/show-cookie-notice";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageHeader } from "@/components/ui/page-header";
 import { APP_COOKIES } from "@/lib/cookies";
 import { countryOptions } from "@/lib/geo/countries";
 import { CURRENCIES, currencyName, pinnedFirst } from "@/lib/geo/currencies";
+import { languagesByRegion, type Region } from "@/lib/i18n/languages";
 import { TIMEZONES } from "@/lib/timezones";
 import { requireRole } from "@/server/auth";
 import { getAccount } from "@/server/dal/users";
 
-export const metadata: Metadata = { title: "Account" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("settings.account");
+  return { title: t("metaTitle") };
+}
 
-/** Until the localisation sub-project lands its 115-entry table, the app itself speaks English. */
-const LANGUAGES = [
-  { tag: "en-US", name: "English (US)", region: "Americas" },
-  { tag: "en-GB", name: "English (UK)", region: "Europe" },
-];
+const REGION_KEY = {
+  Africa: "Africa",
+  Americas: "Americas",
+  Asia: "Asia",
+  Europe: "Europe",
+  "Middle East": "MiddleEast",
+  Oceania: "Oceania",
+  Constructed: "Constructed",
+} as const satisfies Record<Region, string>;
 
 export default async function AccountPage() {
   const actor = await requireRole("VIEWER");
-  const account = await getAccount(actor);
+  const [account, t] = await Promise.all([getAccount(actor), getTranslations("settings.account")]);
   const countries = countryOptions(["US", "GB", "IN"]);
   const currencies = pinnedFirst(CURRENCIES, ["USD", "GBP", "INR"]).map((c) => ({
     code: c.code,
     name: currencyName(c.code),
   }));
+  // The picker groups the table by region and shows every language in its own name (spec §8.1).
+  const languages: LanguageGroup[] = languagesByRegion().map((g) => ({
+    label: t(`regions.${REGION_KEY[g.region]}`),
+    languages: g.languages.map((l) => ({ tag: l.tag, name: l.name })),
+  }));
   return (
     <>
-      <PageHeader title="Account" description="Your photo, name, region, language and timezone." />
+      <PageHeader title={t("title")} description={t("description")} />
       <div className="flex flex-col gap-6">
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Photo</CardTitle>
-              <CardDescription>Shown in the sidebar and the user menu.</CardDescription>
+              <CardTitle>{t("photo.title")}</CardTitle>
+              <CardDescription>{t("photo.description")}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
@@ -47,15 +61,13 @@ export default async function AccountPage() {
           timezones={TIMEZONES}
           countries={countries}
           currencies={currencies}
-          languages={LANGUAGES}
+          languages={languages}
         />
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Privacy</CardTitle>
-              <CardDescription>
-                okinvo sets only the cookies it needs to work. No analytics, no tracking.
-              </CardDescription>
+              <CardTitle>{t("privacy.title")}</CardTitle>
+              <CardDescription>{t("privacy.description")}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
@@ -70,7 +82,7 @@ export default async function AccountPage() {
             </dl>
             <div className="mt-3 flex flex-wrap items-center gap-3 text-app-caption">
               <a href="/legal/cookies" className="text-link underline-offset-4 hover:underline">
-                Cookie policy
+                {t("privacy.cookiePolicy")}
               </a>
               <ShowCookieNoticeAgain />
             </div>
