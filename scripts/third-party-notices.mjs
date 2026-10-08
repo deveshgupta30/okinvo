@@ -59,7 +59,7 @@ export function renderNotices(json) {
     for (const p of pkgs) {
       total += 1;
       const versions = (p.versions ?? (p.version ? [p.version] : [])).join(", ");
-      const author = p.author ? ` — ${String(p.author).replace(/\s+/g, " ").trim()}` : "";
+      const author = p.author ? ` - ${String(p.author).replace(/\s+/g, " ").trim()}` : "";
       const home = p.homepage ? ` (${p.homepage})` : "";
       lines.push(`- ${p.name} ${versions}${author}${home}`);
     }
@@ -88,7 +88,7 @@ if (invokedDirectly) {
   if (process.argv.includes("--check")) {
     const current = existsSync(OUT) ? readFileSync(OUT, "utf8") : "";
     if (current !== rendered) {
-      console.error("THIRD_PARTY_NOTICES.md is stale — run `pnpm notices`");
+      console.error("THIRD_PARTY_NOTICES.md is stale - run `pnpm notices`");
       process.exit(1);
     }
     console.log("notices:check ok");
