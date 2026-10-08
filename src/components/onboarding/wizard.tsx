@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, Briefcase, Check, UserRound } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useActionState, useEffect, useState, useSyncExternalStore } from "react";
 import { FormMessage } from "@/components/forms/form-message";
 import { SubmitButton } from "@/components/submit-button";
@@ -18,20 +19,21 @@ import {
 } from "@/server/actions/onboarding";
 import type { OnboardingState } from "@/server/dal/onboarding";
 
-const STEPS = ["About you", "How you'll use it", "All set"] as const;
+const STEPS = ["aboutYou", "howYouUse", "allSet"] as const;
 
 function Steps({ current }: { current: number }) {
+  const t = useTranslations("onboarding");
   return (
     <ol
       className="mb-6 flex items-center gap-3 text-app-caption text-ink-subtle"
-      aria-label="Progress"
+      aria-label={t("progress")}
     >
-      {STEPS.map((label, i) => {
+      {STEPS.map((key, i) => {
         const n = i + 1;
         const state = n < current ? "done" : n === current ? "current" : "todo";
         return (
           <li
-            key={label}
+            key={key}
             className="flex items-center gap-2"
             aria-current={state === "current" ? "step" : undefined}
           >
@@ -45,7 +47,7 @@ function Steps({ current }: { current: number }) {
             >
               {state === "done" ? <Check className="size-3.5" strokeWidth={2.5} /> : n}
             </span>
-            <span className={cn(state === "current" && "text-ink")}>{label}</span>
+            <span className={cn(state === "current" && "text-ink")}>{t(`steps.${key}`)}</span>
             {n < STEPS.length ? <span aria-hidden className="h-px w-6 bg-hairline" /> : null}
           </li>
         );
@@ -63,6 +65,8 @@ function Step1({
   state: OnboardingState;
   countries: { code: string; name: string; currency: string }[];
 }) {
+  const t = useTranslations("onboarding.step1");
+  const tc = useTranslations("common");
   const [result, action] = useActionState(onboardingStep1Action, null);
   const errors = result?.fieldErrors;
   const [country, setCountry] = useState(
@@ -95,15 +99,13 @@ function Step1({
     <form action={action} className="flex flex-col gap-6">
       <FormMessage state={result} />
       <div>
-        <h1 className="text-app-title text-ink">Tell us about you</h1>
-        <p className="mt-1 text-app-body text-ink-subtle">
-          This sets your defaults; every value can change later in Settings.
-        </p>
+        <h1 className="text-app-title text-ink">{t("title")}</h1>
+        <p className="mt-1 text-app-body text-ink-subtle">{t("subtitle")}</p>
       </div>
       <Card>
         <CardContent className="pt-6">
           <FieldGroup>
-            <Field label="Name" htmlFor="name" error={errors?.name} required>
+            <Field label={t("name")} htmlFor="name" error={errors?.name} required>
               <Input
                 id="name"
                 name="name"
@@ -111,21 +113,17 @@ function Step1({
                 autoFocus
               />
             </Field>
-            <Field
-              label="Email"
-              htmlFor="email"
-              hint="Your sign-in identity. It can be changed from Settings → Security later."
-            >
+            <Field label={t("email")} htmlFor="email" hint={t("emailHint")}>
               <Input id="email" name="emailDisplay" value={email} readOnly />
             </Field>
-            <Field label="Country" htmlFor="countryCode" error={errors?.countryCode} required>
+            <Field label={t("country")} htmlFor="countryCode" error={errors?.countryCode} required>
               <Select
                 id="countryCode"
                 name="countryCode"
                 value={country}
                 onChange={(e) => onCountry(e.target.value)}
               >
-                <option value="">Choose…</option>
+                <option value="">{tc("choose")}</option>
                 {countries.map((c) => (
                   <option key={c.code} value={c.code}>
                     {c.name}
@@ -134,10 +132,10 @@ function Step1({
               </Select>
             </Field>
             <Field
-              label="Preferred currency"
+              label={t("currency")}
               htmlFor="currency"
               error={errors?.currency}
-              hint="Used for new profiles and the dashboard until a profile exists."
+              hint={t("currencyHint")}
               required
             >
               <Select
@@ -149,7 +147,7 @@ function Step1({
                   setCurrency(e.target.value);
                 }}
               >
-                <option value="">Choose…</option>
+                <option value="">{tc("choose")}</option>
                 {currencies.map((c) => (
                   <option key={c.code} value={c.code}>
                     {c.code} · {currencyName(c.code)}
@@ -161,13 +159,15 @@ function Step1({
         </CardContent>
       </Card>
       <div>
-        <SubmitButton pendingLabel="Saving…">Continue</SubmitButton>
+        <SubmitButton pendingLabel={tc("saving")}>{tc("continue")}</SubmitButton>
       </div>
     </form>
   );
 }
 
 function Step2({ state }: { state: OnboardingState }) {
+  const t = useTranslations("onboarding.step2");
+  const tc = useTranslations("common");
   const [result, action] = useActionState(onboardingStep2Action, null);
   const errors = result?.fieldErrors;
   const country = state.step1.countryCode ?? "IN";
@@ -175,31 +175,22 @@ function Step2({ state }: { state: OnboardingState }) {
   // defaults come from the values the action handed back, so nothing the person chose is lost.
   const usage = result?.values?.usage ?? state.step2.usage ?? "PERSONAL";
   const hasTaxId = result?.values?.hasTaxId === "on";
-  const taxLabel =
-    country === "IN" ? "GSTIN" : country === "GB" ? "VAT number" : "Tax registration number";
-  const taxQuestion =
-    country === "IN"
-      ? "Do you have a GSTIN?"
-      : country === "GB"
-        ? "Are you VAT registered?"
-        : "Do you have a tax registration number to print on invoices?";
+  const taxKind = country === "IN" ? "IN" : country === "GB" ? "GB" : "other";
 
   return (
     <form action={action} className="flex flex-col gap-6">
       <FormMessage state={result} />
       <input type="hidden" name="countryCode" value={country} />
       <div>
-        <h1 className="text-app-title text-ink">How will you use okinvo?</h1>
-        <p className="mt-1 text-app-body text-ink-subtle">
-          Only the defaults change; nothing is locked in.
-        </p>
+        <h1 className="text-app-title text-ink">{t("title")}</h1>
+        <p className="mt-1 text-app-body text-ink-subtle">{t("subtitle")}</p>
       </div>
       <fieldset className="grid gap-3 sm:grid-cols-2">
-        <legend className="sr-only">Usage</legend>
+        <legend className="sr-only">{t("usage")}</legend>
         {(
           [
-            ["PERSONAL", "Personal invoicing", "Freelance work in your own name", UserRound],
-            ["BUSINESS", "Business invoicing", "Invoices from a registered business", Briefcase],
+            ["PERSONAL", "personal", "personalHint", UserRound],
+            ["BUSINESS", "business", "businessHint", Briefcase],
           ] as const
         ).map(([value, label, hint, Icon]) => (
           <label
@@ -219,8 +210,8 @@ function Step2({ state }: { state: OnboardingState }) {
               strokeWidth={1.5}
             />
             <span className="flex flex-col">
-              <span className="text-app-label text-ink">{label}</span>
-              <span className="text-app-caption text-ink-subtle">{hint}</span>
+              <span className="text-app-label text-ink">{t(label)}</span>
+              <span className="text-app-caption text-ink-subtle">{t(hint)}</span>
             </span>
           </label>
         ))}
@@ -229,7 +220,7 @@ function Step2({ state }: { state: OnboardingState }) {
         <CardContent className="pt-6">
           {/* The tax-id field shows while "Yes" is checked: a CSS :has() rule, no component state. */}
           <fieldset className="group/tax flex flex-col gap-3">
-            <legend className="text-app-label text-ink">{taxQuestion}</legend>
+            <legend className="text-app-label text-ink">{t(`taxQuestion.${taxKind}`)}</legend>
             <div className="flex gap-6">
               <label className="flex items-center gap-2 text-app-body text-ink">
                 <input
@@ -239,7 +230,7 @@ function Step2({ state }: { state: OnboardingState }) {
                   defaultChecked={hasTaxId}
                   className="size-4 accent-primary"
                 />
-                Yes
+                {tc("yes")}
               </label>
               <label className="flex items-center gap-2 text-app-body text-ink">
                 <input
@@ -249,11 +240,11 @@ function Step2({ state }: { state: OnboardingState }) {
                   defaultChecked={!hasTaxId}
                   className="size-4 accent-primary"
                 />
-                No
+                {tc("no")}
               </label>
             </div>
             <div className="hidden group-has-[input[value=on]:checked]/tax:block">
-              <Field label={taxLabel} htmlFor="taxId" error={errors?.taxId}>
+              <Field label={t(`taxLabel.${taxKind}`)} htmlFor="taxId" error={errors?.taxId}>
                 <Input
                   id="taxId"
                   name="taxId"
@@ -266,26 +257,24 @@ function Step2({ state }: { state: OnboardingState }) {
         </CardContent>
       </Card>
       <div>
-        <SubmitButton pendingLabel="Saving…">Continue</SubmitButton>
+        <SubmitButton pendingLabel={tc("saving")}>{tc("continue")}</SubmitButton>
       </div>
     </form>
   );
 }
 
 function Step3({ taxId }: { taxId: string }) {
+  const t = useTranslations("onboarding.step3");
   return (
     <form action={onboardingCompleteAction} className="flex flex-col gap-6">
       <input type="hidden" name="taxId" value={taxId} />
       <div>
-        <h1 className="text-app-title text-ink">You&apos;re set</h1>
-        <p className="mt-1 text-app-body text-ink-subtle">
-          Next, create your first issuer profile: the name, address and tax details that print on
-          your invoices. We have filled in what you told us.
-        </p>
+        <h1 className="text-app-title text-ink">{t("title")}</h1>
+        <p className="mt-1 text-app-body text-ink-subtle">{t("body")}</p>
       </div>
       <div>
-        <SubmitButton pendingLabel="Opening…">
-          Go to profiles
+        <SubmitButton pendingLabel={t("opening")}>
+          {t("go")}
           <ArrowRight aria-hidden strokeWidth={1.5} />
         </SubmitButton>
       </div>

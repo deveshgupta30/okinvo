@@ -2,32 +2,34 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import type { Role } from "@/server/actor";
 
 const ITEMS = [
-  { href: "/settings/profiles", label: "Profiles", minRole: "OWNER" },
-  { href: "/settings/payment-methods", label: "Payment methods", minRole: "OWNER" },
-  { href: "/settings/templates", label: "Templates", minRole: "OWNER" },
-  { href: "/settings/email", label: "Email", minRole: "OWNER" },
-  { href: "/settings/security", label: "Security", minRole: "OWNER" },
-  { href: "/settings/users", label: "Users", minRole: "OWNER" },
-  { href: "/settings/data", label: "Data", minRole: "OWNER" },
-  { href: "/settings/legal", label: "Legal", minRole: "OWNER" },
-  { href: "/settings/account", label: "Account", minRole: "VIEWER" },
-  { href: "/settings/appearance", label: "Appearance", minRole: "VIEWER" },
-  { href: "/settings/api", label: "API", minRole: "VIEWER" },
-  { href: "/settings/status", label: "Status", minRole: "VIEWER" },
+  { href: "/settings/profiles", key: "profiles", minRole: "OWNER" },
+  { href: "/settings/payment-methods", key: "paymentMethods", minRole: "OWNER" },
+  { href: "/settings/templates", key: "templates", minRole: "OWNER" },
+  { href: "/settings/email", key: "email", minRole: "OWNER" },
+  { href: "/settings/security", key: "security", minRole: "OWNER" },
+  { href: "/settings/users", key: "users", minRole: "OWNER" },
+  { href: "/settings/data", key: "data", minRole: "OWNER" },
+  { href: "/settings/legal", key: "legal", minRole: "OWNER" },
+  { href: "/settings/account", key: "account", minRole: "VIEWER" },
+  { href: "/settings/appearance", key: "appearance", minRole: "VIEWER" },
+  { href: "/settings/api", key: "api", minRole: "VIEWER" },
+  { href: "/settings/status", key: "status", minRole: "VIEWER" },
 ] as const;
 
 const RANK: Record<Role, number> = { VIEWER: 0, EDITOR: 1, OWNER: 2 };
 
 /** Segmented sub-navigation shared by every /settings/* page; tabs the role cannot open are hidden. */
 export function SettingsNav({ role }: { role: Role }) {
+  const t = useTranslations("settings.nav");
   const pathname = usePathname();
   const items = ITEMS.filter((item) => RANK[role] >= RANK[item.minRole]);
   return (
-    <nav aria-label="Settings" className="mb-6 flex flex-wrap gap-1 rounded-md bg-surface-2 p-1">
+    <nav aria-label={t("label")} className="mb-6 flex flex-wrap gap-1 rounded-md bg-surface-2 p-1">
       {items.map((item) => {
         const active = pathname.startsWith(item.href);
         return (
@@ -40,7 +42,7 @@ export function SettingsNav({ role }: { role: Role }) {
               active && "bg-surface-3 text-ink",
             )}
           >
-            {item.label}
+            {t(item.key)}
           </Link>
         );
       })}

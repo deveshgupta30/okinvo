@@ -19,6 +19,10 @@ went green on the development branch.
   uploaded image with opacity and height across every page.
 - Input charset: every text field, on the client and at every server boundary, accepts only
   standard keyboard characters (SPEC §6.6).
+- Localisation: next-intl with a 115-language table (Settings → Account → Language, grouped by
+  region, each named in itself), locale resolution user → cookie → Accept-Language → en-US,
+  `<html lang dir>` from the choice, hand-written en-US and en-GB catalogues for the shell,
+  sign-in, Settings, onboarding, legal chrome and error pages, and `pnpm i18n:check` in CI.
 - MCP and skill: a stateless MCP server at `/api/mcp` whose tools follow the API key's scopes
   (create/issue invoices and credit notes, catalogue, status, PDFs as resources; nothing
   destructive), `docs/mcp.md` client snippets and the `skills/okinvo-invoicing` agent skill.

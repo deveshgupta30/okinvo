@@ -3,16 +3,18 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FileText, LayoutDashboard, Package, Receipt, Users, Wrench } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
+/** The primary destinations; labels come from the `shell.nav` catalogue namespace. */
 export const NAV = [
-  { href: "/", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/invoices", label: "Invoices", icon: FileText },
-  { href: "/credit-notes", label: "Credit notes", icon: Receipt },
-  { href: "/clients", label: "Clients", icon: Users },
-  { href: "/services", label: "Services", icon: Wrench },
-  { href: "/products", label: "Products", icon: Package },
+  { href: "/", key: "dashboard", icon: LayoutDashboard },
+  { href: "/invoices", key: "invoices", icon: FileText },
+  { href: "/credit-notes", key: "creditNotes", icon: Receipt },
+  { href: "/clients", key: "clients", icon: Users },
+  { href: "/services", key: "services", icon: Wrench },
+  { href: "/products", key: "products", icon: Package },
 ] as const;
 
 export function isActivePath(pathname: string, href: string): boolean {
@@ -72,12 +74,15 @@ export function PrimaryNav({
   className?: string;
 }) {
   const pathname = usePathname();
+  const t = useTranslations("shell");
   return (
-    <nav aria-label="Primary" className={cn("flex flex-col gap-[2px]", className)}>
+    <nav aria-label={t("primaryNav")} className={cn("flex flex-col gap-[2px]", className)}>
       {NAV.map((item) => (
         <NavItem
           key={item.href}
-          {...item}
+          href={item.href}
+          icon={item.icon}
+          label={t(`nav.${item.key}`)}
           active={isActivePath(pathname, item.href)}
           collapsed={collapsed}
           onNavigate={onNavigate}

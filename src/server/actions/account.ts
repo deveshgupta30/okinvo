@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { withFlash } from "@/lib/flash";
 import { parseForm } from "@/lib/forms";
 import { ACCENT_COOKIE, parseAccent } from "@/lib/accent";
+import { LOCALE_COOKIE, LOCALE_COOKIE_MAX_AGE } from "@/lib/i18n/locale-cookie";
 import { AccountInputSchema } from "@/lib/schemas/account-input";
 import { THEME_COOKIE, parseThemeMode } from "@/lib/theme";
 import { requireRole } from "@/server/auth";
@@ -30,6 +31,15 @@ export async function saveAccount(_prev: ActionState, formData: FormData): Promi
       maxAge: 60 * 60 * 24 * 365,
       sameSite: "lax",
       httpOnly: false, // the inline theme script reads it before hydration
+    });
+  }
+  // The UI language cookie mirrors the stored choice so the redirect already renders in it.
+  if (parsed.data.locale !== undefined) {
+    (await cookies()).set(LOCALE_COOKIE, parsed.data.locale, {
+      path: "/",
+      maxAge: LOCALE_COOKIE_MAX_AGE,
+      sameSite: "lax",
+      httpOnly: true,
     });
   }
   revalidatePath("/", "layout");

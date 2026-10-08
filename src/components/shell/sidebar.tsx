@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PanelLeftClose, PanelLeftOpen, Settings } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { Mark, Wordmark } from "@/components/brand/logo";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -28,6 +29,8 @@ export interface SidebarProps {
  * server reads for the first paint; `[` toggles it from the keyboard.
  */
 export function Sidebar({ user, initial, theme, minimal = false }: SidebarProps) {
+  const t = useTranslations("shell");
+  const tc = useTranslations("common");
   const [state, setState] = useState<SidebarState>(initial);
   const collapsed = state === "collapsed";
   const pathname = usePathname();
@@ -41,9 +44,10 @@ export function Sidebar({ user, initial, theme, minimal = false }: SidebarProps)
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      const t = e.target as HTMLElement | null;
+      const target = e.target as HTMLElement | null;
       const typing =
-        t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
+        target &&
+        (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable);
       if (e.key === "[" && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) {
         e.preventDefault();
         toggle();
@@ -65,7 +69,7 @@ export function Sidebar({ user, initial, theme, minimal = false }: SidebarProps)
       )}
     >
       <Settings aria-hidden className="size-5 shrink-0" strokeWidth={1.5} />
-      <span className={cn("truncate", collapsed && "sr-only")}>Settings</span>
+      <span className={cn("truncate", collapsed && "sr-only")}>{t("settings")}</span>
     </Link>
   );
 
@@ -83,21 +87,21 @@ export function Sidebar({ user, initial, theme, minimal = false }: SidebarProps)
         >
           <Link
             href="/"
-            aria-label="okinvo home"
+            aria-label={tc("home")}
             className="flex min-w-0 items-center text-ink focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none"
           >
             {collapsed ? (
-              <Mark title="okinvo" className="size-8" />
+              <Mark title={tc("appName")} className="size-8" />
             ) : (
-              <Wordmark title="okinvo" className="h-7 w-auto" />
+              <Wordmark title={tc("appName")} className="h-7 w-auto" />
             )}
           </Link>
           {collapsed ? null : (
             <button
               type="button"
               onClick={toggle}
-              aria-label="Collapse sidebar"
-              title="Collapse sidebar ([)"
+              aria-label={t("collapseSidebar")}
+              title={t("collapseSidebarHint")}
               className="ml-auto flex size-8 items-center justify-center rounded-md text-ink-subtle transition-colors duration-150 hover:bg-surface-1 hover:text-ink focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none"
             >
               <PanelLeftClose aria-hidden className="size-5" strokeWidth={1.5} />
@@ -111,13 +115,13 @@ export function Sidebar({ user, initial, theme, minimal = false }: SidebarProps)
                 <button
                   type="button"
                   onClick={toggle}
-                  aria-label="Expand sidebar"
+                  aria-label={t("expandSidebar")}
                   className="flex size-8 items-center justify-center rounded-md text-ink-subtle transition-colors duration-150 hover:bg-surface-1 hover:text-ink focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none"
                 >
                   <PanelLeftOpen aria-hidden className="size-5" strokeWidth={1.5} />
                 </button>
               </TooltipTrigger>
-              <TooltipContent side="right">Expand sidebar ([)</TooltipContent>
+              <TooltipContent side="right">{t("expandSidebarHint")}</TooltipContent>
             </Tooltip>
           </div>
         ) : null}
@@ -136,7 +140,7 @@ export function Sidebar({ user, initial, theme, minimal = false }: SidebarProps)
           {minimal ? null : collapsed ? (
             <Tooltip>
               <TooltipTrigger asChild>{settingsLink}</TooltipTrigger>
-              <TooltipContent side="right">Settings</TooltipContent>
+              <TooltipContent side="right">{t("settings")}</TooltipContent>
             </Tooltip>
           ) : (
             settingsLink

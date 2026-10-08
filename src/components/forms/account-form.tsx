@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useActionState, useState } from "react";
 import { Flag, hasFlag } from "@/components/flags/flag";
 import { FormMessage } from "@/components/forms/form-message";
@@ -21,10 +22,10 @@ export interface CurrencyOption {
   code: string;
   name: string;
 }
-export interface LanguageOption {
-  tag: string;
-  name: string;
-  region: string;
+export interface LanguageGroup {
+  /** The region, already in the UI language. */
+  label: string;
+  languages: { tag: string; name: string }[];
 }
 
 /**
@@ -42,8 +43,10 @@ export function AccountForm({
   timezones: readonly string[];
   countries: CountryOption[];
   currencies: CurrencyOption[];
-  languages: LanguageOption[];
+  languages: LanguageGroup[];
 }) {
+  const t = useTranslations("settings.account.form");
+  const tc = useTranslations("common");
   const [state, action] = useActionState(saveAccount, null);
   const errors = state?.fieldErrors;
   const [tz, setTz] = useState(state?.values?.timezone ?? account.timezone ?? "UTC");
@@ -58,35 +61,29 @@ export function AccountForm({
     if (!currencyTouched && next) setCurrency(next);
   };
 
-  const regions = [...new Set(languages.map((l) => l.region))];
-
   return (
     <form action={action} className="flex flex-col gap-6">
       <FormMessage state={state} />
       <Card>
         <CardHeader>
           <div>
-            <CardTitle>Account</CardTitle>
-            <CardDescription>How you appear and when “today” is.</CardDescription>
+            <CardTitle>{t("title")}</CardTitle>
+            <CardDescription>{t("description")}</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
           <FieldGroup>
-            <Field label="Display name" htmlFor="name" error={errors?.name} required>
+            <Field label={t("displayName")} htmlFor="name" error={errors?.name} required>
               <Input id="name" name="name" defaultValue={state?.values?.name ?? account.name} />
             </Field>
-            <Field
-              label="Sign-in email"
-              htmlFor="emailDisplay"
-              hint="Your identity on this instance; it cannot be edited here."
-            >
+            <Field label={t("signInEmail")} htmlFor="emailDisplay" hint={t("signInEmailHint")}>
               <Input id="emailDisplay" name="emailDisplay" value={account.email} readOnly />
             </Field>
             <Field
-              label="Timezone"
+              label={t("timezone")}
               htmlFor="timezone"
               error={errors?.timezone}
-              hint="“Today” for issue dates, due dates and the dashboard"
+              hint={t("timezoneHint")}
               required
             >
               <div className="flex gap-2">
@@ -107,7 +104,7 @@ export function AccountForm({
                   variant="secondary"
                   onClick={() => setTz(Intl.DateTimeFormat().resolvedOptions().timeZone)}
                 >
-                  Detect
+                  {tc("detect")}
                 </Button>
               </div>
             </Field>
@@ -118,15 +115,13 @@ export function AccountForm({
       <Card>
         <CardHeader>
           <div>
-            <CardTitle>Region</CardTitle>
-            <CardDescription>
-              Defaults for new issuer profiles and for the dashboard until a profile exists.
-            </CardDescription>
+            <CardTitle>{t("regionTitle")}</CardTitle>
+            <CardDescription>{t("regionDescription")}</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
           <FieldGroup>
-            <Field label="Country" htmlFor="countryCode" error={errors?.countryCode}>
+            <Field label={t("country")} htmlFor="countryCode" error={errors?.countryCode}>
               <div className="flex items-center gap-3">
                 {hasFlag(country) ? <Flag code={country} /> : null}
                 <Select
@@ -144,13 +139,13 @@ export function AccountForm({
               </div>
             </Field>
             <Field
-              label="Currency"
+              label={t("currency")}
               htmlFor="currency"
               error={errors?.currency}
               hint={
                 suggested && suggested !== currency ? (
                   <>
-                    Suggested for this country: <span className="font-mono">{suggested}</span>
+                    {t("suggested")} <span className="font-mono">{suggested}</span>
                   </>
                 ) : undefined
               }
@@ -172,25 +167,23 @@ export function AccountForm({
               </Select>
             </Field>
             <Field
-              label="Language"
+              label={t("language")}
               htmlFor="locale"
               error={errors?.locale}
-              hint="The language of the app itself. Documents use each profile's own locale."
+              hint={t("languageHint")}
             >
               <Select
                 id="locale"
                 name="locale"
                 defaultValue={state?.values?.locale ?? account.locale}
               >
-                {regions.map((region) => (
-                  <optgroup key={region} label={region}>
-                    {languages
-                      .filter((l) => l.region === region)
-                      .map((l) => (
-                        <option key={l.tag} value={l.tag}>
-                          {l.name}
-                        </option>
-                      ))}
+                {languages.map((group) => (
+                  <optgroup key={group.label} label={group.label}>
+                    {group.languages.map((l) => (
+                      <option key={l.tag} value={l.tag} lang={l.tag}>
+                        {l.name}
+                      </option>
+                    ))}
                   </optgroup>
                 ))}
               </Select>
@@ -200,7 +193,7 @@ export function AccountForm({
       </Card>
 
       <div>
-        <SubmitButton pendingLabel="Saving…">Save preferences</SubmitButton>
+        <SubmitButton pendingLabel={tc("saving")}>{t("save")}</SubmitButton>
       </div>
     </form>
   );

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ChevronsUpDown, LogOut, UserRound } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Avatar } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -30,12 +31,13 @@ export function UserMenu({
   collapsed: boolean;
   side?: "right" | "top";
 }) {
+  const t = useTranslations("shell.userMenu");
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button
           type="button"
-          aria-label={`Account menu for ${user.name || user.email}`}
+          aria-label={t("label", { name: user.name || user.email })}
           className={cn(
             "flex w-full items-center gap-3 rounded-md p-1.5 text-left transition-colors duration-150 hover:bg-surface-1 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none",
             collapsed && "justify-center",
@@ -61,7 +63,7 @@ export function UserMenu({
         <DropdownMenuItem asChild>
           <Link href="/settings/account">
             <UserRound aria-hidden strokeWidth={1.5} />
-            Profile
+            {t("profile")}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
@@ -69,7 +71,7 @@ export function UserMenu({
           <DropdownMenuItem asChild>
             <button type="submit" className="w-full">
               <LogOut aria-hidden strokeWidth={1.5} />
-              Log out
+              {t("logOut")}
             </button>
           </DropdownMenuItem>
         </form>

@@ -1,16 +1,17 @@
 "use client";
 
 import { Monitor, Moon, Sun } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { THEME_COOKIE, type ThemeMode } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 import { setThemeAction } from "@/server/actions/account";
 
-const MODES: { mode: ThemeMode; label: string; icon: typeof Sun }[] = [
-  { mode: "system", label: "System", icon: Monitor },
-  { mode: "light", label: "Light", icon: Sun },
-  { mode: "dark", label: "Dark", icon: Moon },
+const MODES: { mode: ThemeMode; icon: typeof Sun }[] = [
+  { mode: "system", icon: Monitor },
+  { mode: "light", icon: Sun },
+  { mode: "dark", icon: Moon },
 ];
 
 /** Writes the cookie and the attribute immediately (no flash), then persists through the DAL. */
@@ -30,6 +31,7 @@ export function applyTheme(mode: ThemeMode): void {
  * cycling icon button when collapsed.
  */
 export function ThemeToggle({ initial, collapsed }: { initial: ThemeMode; collapsed: boolean }) {
+  const t = useTranslations("shell.theme");
   const [mode, setMode] = useState<ThemeMode>(initial);
 
   const choose = (next: ThemeMode) => {
@@ -47,14 +49,14 @@ export function ThemeToggle({ initial, collapsed }: { initial: ThemeMode; collap
         <TooltipTrigger asChild>
           <button
             type="button"
-            aria-label={`Theme: ${current.label}. Switch to ${next.label}`}
+            aria-label={t("switchTo", { mode: t(current.mode), next: t(next.mode) })}
             onClick={() => choose(next.mode)}
             className="flex size-9 items-center justify-center rounded-md text-ink-subtle transition-colors duration-150 hover:bg-surface-1 hover:text-ink focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none"
           >
             <Icon aria-hidden className="size-5" strokeWidth={1.5} />
           </button>
         </TooltipTrigger>
-        <TooltipContent side="right">Theme: {current.label}</TooltipContent>
+        <TooltipContent side="right">{t("current", { mode: t(current.mode) })}</TooltipContent>
       </Tooltip>
     );
   }
@@ -62,16 +64,16 @@ export function ThemeToggle({ initial, collapsed }: { initial: ThemeMode; collap
   return (
     <div
       role="radiogroup"
-      aria-label="Theme"
+      aria-label={t("label")}
       className="flex rounded-md border border-hairline bg-surface-2 p-[2px]"
     >
-      {MODES.map(({ mode: m, label, icon: Icon }) => (
+      {MODES.map(({ mode: m, icon: Icon }) => (
         <button
           key={m}
           type="button"
           role="radio"
           aria-checked={mode === m}
-          aria-label={label}
+          aria-label={t(m)}
           onClick={() => choose(m)}
           className={cn(
             "flex h-7 flex-1 items-center justify-center gap-1 rounded-sm text-app-caption text-ink-subtle transition-colors duration-150 hover:text-ink focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none",
@@ -79,7 +81,7 @@ export function ThemeToggle({ initial, collapsed }: { initial: ThemeMode; collap
           )}
         >
           <Icon aria-hidden className="size-4" strokeWidth={1.5} />
-          <span className="hidden xl:inline">{label}</span>
+          <span className="hidden xl:inline">{t(m)}</span>
         </button>
       ))}
     </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +13,7 @@ import { authClient } from "@/lib/auth/client";
  * creates the account; anyone else is refused by the server-side allow-list hook.
  */
 export function PasswordSignInForm() {
+  const t = useTranslations("auth.password");
   const router = useRouter();
   const [mode, setMode] = useState<"signIn" | "create">("signIn");
   const [busy, setBusy] = useState(false);
@@ -30,7 +32,7 @@ export function PasswordSignInForm() {
         ? await authClient.signUp.email({ email, password, name: name || email, callbackURL: "/" })
         : await authClient.signIn.email({ email, password, callbackURL: "/" });
     if (result.error) {
-      setError(result.error.message ?? "Sign-in failed.");
+      setError(result.error.message ?? t("failed"));
       setBusy(false);
       return;
     }
@@ -42,16 +44,16 @@ export function PasswordSignInForm() {
     <form onSubmit={submit} className="flex flex-col gap-3" data-testid="password-sign-in">
       {mode === "create" ? (
         <div className="flex flex-col gap-1">
-          <Label htmlFor="name">Name</Label>
+          <Label htmlFor="name">{t("name")}</Label>
           <Input id="name" name="name" autoComplete="name" />
         </div>
       ) : null}
       <div className="flex flex-col gap-1">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email">{t("email")}</Label>
         <Input id="email" name="email" type="email" autoComplete="email" required />
       </div>
       <div className="flex flex-col gap-1">
-        <Label htmlFor="password">Password</Label>
+        <Label htmlFor="password">{t("password")}</Label>
         <Input
           id="password"
           name="password"
@@ -67,14 +69,14 @@ export function PasswordSignInForm() {
         </p>
       ) : null}
       <Button type="submit" size="lg" disabled={busy}>
-        {busy ? "Signing in…" : mode === "create" ? "Create account" : "Sign in"}
+        {busy ? t("signingIn") : mode === "create" ? t("createAccount") : t("signIn")}
       </Button>
       <button
         type="button"
         className="text-app-caption text-link hover:underline"
         onClick={() => setMode(mode === "create" ? "signIn" : "create")}
       >
-        {mode === "create" ? "I already have a password" : "First time here? Set a password"}
+        {mode === "create" ? t("haveAPassword") : t("firstTime")}
       </button>
     </form>
   );

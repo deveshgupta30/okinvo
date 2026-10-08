@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 
 /**
@@ -16,25 +17,24 @@ export default function AppError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const t = useTranslations("errors.error");
+  const tc = useTranslations("common");
   useEffect(() => {
     console.error(error);
   }, [error]);
   return (
     <main className="mx-auto flex min-h-[60dvh] max-w-md flex-col items-center justify-center gap-4 p-6 text-center">
       <p className="font-mono text-app-caption text-ink-subtle">
-        {error.digest ? `error ${error.digest}` : "error"}
+        {error.digest ? t("digest", { digest: error.digest }) : t("generic")}
       </p>
-      <h1 className="text-app-title text-ink">Something went wrong</h1>
-      <p className="text-app-body text-ink-subtle">
-        Nothing was changed by this request. Try again; if it keeps happening, the server log has
-        the details.
-      </p>
+      <h1 className="text-app-title text-ink">{t("title")}</h1>
+      <p className="text-app-body text-ink-subtle">{t("body")}</p>
       <div className="flex gap-2">
         <Button type="button" onClick={reset}>
-          Try again
+          {tc("tryAgain")}
         </Button>
         <Button asChild variant="secondary">
-          <Link href="/">Dashboard</Link>
+          <Link href="/">{tc("dashboard")}</Link>
         </Button>
       </div>
     </main>
