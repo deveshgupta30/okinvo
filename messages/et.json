@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo avaleht",
+    "save": "Salvesta",
+    "cancel": "Tühista",
+    "continue": "Jätka",
+    "saving": "Salvestamine…",
+    "detect": "Tuvasta",
+    "yes": "Jah",
+    "no": "Ei",
+    "choose": "Vali…",
+    "remove": "Eemalda",
+    "tryAgain": "Proovi uuesti",
+    "dashboard": "Töölaud",
+    "goToDashboard": "Mine töölauale",
+    "or": "või",
+    "invoice": "Arve",
+    "creditNote": "Kreeditarve",
+    "downloadPdf": "Laadi alla PDF",
+    "edit": "Muuda",
+    "delete": "Kustuta",
+    "downloadDocx": "Laadi alla DOCX",
+    "none": "Puudub",
+    "dismiss": "Sulge",
+    "all": "Kõik",
+    "previous": "Eelmine",
+    "next": "Järgmine",
+    "go": "Mine",
+    "search": "Otsi",
+    "status": "Olek",
+    "total": "Kokku",
+    "currency": "Valuuta",
+    "from": "Alates",
+    "to": "Kuni",
+    "reason": "Põhjus",
+    "history": "Ajalugu",
+    "archive": "Arhiveeri",
+    "restore": "Taasta",
+    "showArchived": "Näita arhiveeritud",
+    "hideArchived": "Peida arhiveeritud",
+    "archived": "Arhiveeritud",
+    "default": "Vaikimisi",
+    "setDefault": "Määra vaikimisi",
+    "revoke": "Tühista",
+    "copy": "Kopeeri",
+    "copied": "Kopeeritud",
+    "active": "Aktiivne",
+    "pagination": "Lehekülgede vahel liikumine",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Töölaud",
+      "invoices": "Arved",
+      "creditNotes": "Kreeditarved",
+      "clients": "Kliendid",
+      "services": "Teenused",
+      "products": "Tooted"
+    },
+    "primaryNav": "Peamenüü",
+    "settings": "Seaded",
+    "openMenu": "Ava menüü",
+    "navigation": "Navigeerimine",
+    "pagesAndAccount": "Lehed ja konto",
+    "collapseSidebar": "Ahenda külgriba",
+    "collapseSidebarHint": "Ahenda külgriba ([)",
+    "expandSidebar": "Laienda külgriba",
+    "expandSidebarHint": "Laienda külgriba ([)",
+    "theme": {
+      "label": "Teema",
+      "system": "Süsteem",
+      "light": "Hele",
+      "dark": "Tume",
+      "current": "Teema: {mode}",
+      "switchTo": "Teema: {mode}. Lülitu teemale {next}"
+    },
+    "userMenu": {
+      "label": "Konto menüü: {name}",
+      "profile": "Profiil",
+      "logOut": "Logi välja"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Logi sisse",
+      "title": "Logi sisse",
+      "subtitle": "Sisse pääsevad ainult lubatud kontod.",
+      "failed": "Sisselogimine ebaõnnestus.",
+      "noMethod": "Ühtegi sisselogimisviisi pole seadistatud. Määrake failis <code>.env</code> teenusepakkuja paar, näiteks <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>, või <code>AUTH_PASSWORD_SIGNIN=true</code>.",
+      "errors": {
+        "not_allowed": "See konto ei ole selles instantsis lubatud või on desaktiveeritud.",
+        "signin": "Sisselogimine ei lõppenud. Proovige uuesti."
+      }
+    },
+    "password": {
+      "name": "Nimi",
+      "email": "E-post",
+      "password": "Parool",
+      "signingIn": "Sisselogimine…",
+      "createAccount": "Loo konto",
+      "signIn": "Logi sisse",
+      "haveAPassword": "Mul on parool juba olemas",
+      "firstTime": "Esimest korda siin? Määrake parool",
+      "failed": "Sisselogimine ebaõnnestus."
+    },
+    "social": {
+      "redirecting": "Suunamine…",
+      "continueWith": "Jätka teenusega {provider}",
+      "failed": "Sisselogimist ei õnnestunud alustada."
+    },
+    "error": {
+      "metaTitle": "Sisselogimise viga",
+      "title": "Sisselogimine ebaõnnestus",
+      "body": "Identiteedipakkuja tagastas väärtuse <code>{value}</code>. Kui teie aadress ei ole selle instantsi lubatud nimekirjas, paluge omanikul see lisada.",
+      "back": "Tagasi sisselogimise juurde"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Seaded",
+      "profiles": "Profiilid",
+      "paymentMethods": "Maksemeetodid",
+      "templates": "Mallid",
+      "email": "E-post",
+      "security": "Turvalisus",
+      "users": "Kasutajad",
+      "data": "Andmed",
+      "legal": "Õiguslik teave",
+      "account": "Konto",
+      "appearance": "Välimus",
+      "api": "API",
+      "status": "Olek"
+    },
+    "account": {
+      "metaTitle": "Konto",
+      "title": "Konto",
+      "description": "Teie foto, nimi, piirkond, keel ja ajavöönd.",
+      "photo": {
+        "title": "Foto",
+        "description": "Kuvatakse külgribal ja kasutajamenüüs."
+      },
+      "form": {
+        "title": "Konto",
+        "description": "Kuidas te ilmute ja millal on „täna“.",
+        "displayName": "Kuvatav nimi",
+        "signInEmail": "Sisselogimise e-post",
+        "signInEmailHint": "Teie identiteet selles instantsis; seda ei saa siin muuta.",
+        "timezone": "Ajavöönd",
+        "timezoneHint": "„Täna“ väljastamiskuupäevade, maksetähtaegade ja töölaua jaoks",
+        "regionTitle": "Piirkond",
+        "regionDescription": "Uute väljastajaprofiilide ja töölaua vaikeväärtused, kuni profiili pole.",
+        "country": "Riik",
+        "currency": "Valuuta",
+        "suggested": "Soovitatud selle riigi jaoks:",
+        "language": "Keel",
+        "languageHint": "Rakenduse enda keel. Dokumendid kasutavad iga profiili oma lokaati.",
+        "machineTranslated": "See keel on masintõlge. Parandused on teretulnud: <link>täiustage seda GitHubis</link>.",
+        "save": "Salvesta eelistused"
+      },
+      "regions": {
+        "Africa": "Aafrika",
+        "Americas": "Ameerika",
+        "Asia": "Aasia",
+        "Europe": "Euroopa",
+        "MiddleEast": "Lähis-Ida",
+        "Oceania": "Okeaania",
+        "Constructed": "Tehiskeeled"
+      },
+      "privacy": {
+        "title": "Privaatsus",
+        "description": "okinvo määrab ainult töö jaoks vajalikud küpsised. Ei mingit analüütikat ega jälgimist.",
+        "cookiePolicy": "Küpsiste poliitika",
+        "showNoticeAgain": "Näita küpsiste teadet uuesti"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Muuda fotot",
+      "addPhoto": "Lisa foto",
+      "hint": "PNG, JPEG või WebP. Kuvatakse igal pool ringina; enne salvestamist saate seda suumida ja liigutada.",
+      "tooLarge": "See foto on liiga suur.",
+      "uploadFailed": "Üleslaadimine ebaõnnestus.",
+      "choose": "Vali profiilifoto",
+      "dialogTitle": "Paiguta oma foto",
+      "dialogDescription": "Lohistage liigutamiseks, kerige või kasutage sõrmi suumimiseks. Ring on see, mida kõik näevad.",
+      "zoom": "Suum",
+      "save": "Salvesta foto"
+    },
+    "appearance": {
+      "metaTitle": "Välimus",
+      "title": "Välimus",
+      "description": "Teema ja aktsentvärv, salvestatakse teie kontole.",
+      "theme": {
+        "title": "Teema",
+        "description": "Järgi süsteemi või kinnita hele või tume.",
+        "label": "Teema",
+        "system": "Järgi süsteemi",
+        "systemHint": "Vahetub koos teie operatsioonisüsteemiga",
+        "light": "Hele",
+        "lightHint": "Valge taust",
+        "dark": "Tume",
+        "darkHint": "Peaaegu must taust"
+      },
+      "accent": {
+        "title": "Aktsent",
+        "description": "Kasutatakse põhinupu, fookuseraamide ja aktiivse lehe märgi jaoks. Piparmünt sobib kaubamärgiga.",
+        "label": "Aktsentvärv"
+      },
+      "accents": {
+        "mint": "Piparmünt",
+        "lavender": "Lavendel",
+        "sky": "Taevasinine",
+        "peach": "Virsik",
+        "butter": "Võikollane",
+        "rose": "Roosa",
+        "sage": "Salvei",
+        "lilac": "Sirel"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Väljastajaprofiilid",
+      "title": "Väljastajaprofiilid",
+      "description": "Juriidilised identiteedid, mille nimel arveid esitate. Vaikeprofiil täidab uued arved ette.",
+      "breadcrumb": "Profiilid",
+      "newProfile": "Uus profiil",
+      "emptyTitle": "Väljastajaprofiili veel pole",
+      "emptyDescription": "Looge identiteet, mille nimel arveid esitate: PAN-iga eraisik või teie ettevõte.",
+      "createProfile": "Loo profiil",
+      "columns": {
+        "label": "Silt",
+        "legalName": "Juriidiline nimi",
+        "type": "Tüüp",
+        "country": "Riik",
+        "currency": "Valuuta",
+        "regime": "Maksuseadus",
+        "status": "Olek"
+      },
+      "types": {
+        "company": "Ettevõte",
+        "individual": "Eraisik"
+      },
+      "makeDefaultTitle": "Kas määrata {label} vaikeprofiiliks?",
+      "makeDefaultDescription": "Uued arved algavad sellest profiilist.",
+      "restoreTitle": "Kas taastada {label}?",
+      "archiveTitle": "Kas arhiveerida {label}?",
+      "archiveDescription": "See kaob valijatest; olemasolevaid arveid see ei mõjuta.",
+      "new": {
+        "metaTitle": "Uus väljastajaprofiil",
+        "title": "Uus väljastajaprofiil",
+        "prefilled": "Täidetud teie vastuste põhjal; kontrollige aadressi ja maksuandmeid ning salvestage."
+      },
+      "edit": {
+        "metaTitle": "Muuda väljastajaprofiili",
+        "template": "Mall",
+        "deleteTitle": "Kas kustutada {label}?",
+        "deleteDescription": "Võimalik ainult siis, kui ükski arve ega kreeditarve sellele profiilile ei viita. Muidu arhiveerige see."
+      },
+      "template": {
+        "metaTitle": "Profiili mall",
+        "title": "Mall profiilile {label}",
+        "ownTemplate": "Oma mall",
+        "instanceTemplate": "Instantsi mall",
+        "resetTitle": "Kas kasutada uuesti instantsi malli?",
+        "resetDescription": "Selle profiili oma seadistus eemaldatakse; väljastatud dokumente see ei mõjuta.",
+        "useInstance": "Kasuta instantsi malli",
+        "usingInstanceTitle": "Kasutatakse instantsi malli",
+        "usingInstanceDescription": "Selle profiili dokumendid järgivad jaotist Seaded → Mallid. Valige eraldi kohandamiseks.",
+        "customise": "Kasuta selle profiili jaoks teist malli",
+        "openInstance": "Ava instantsi mall"
+      },
+      "form": {
+        "identityTitle": "Identiteet",
+        "identityDescription": "Kellelt arve pärineb.",
+        "type": "Tüüp",
+        "label": "Silt",
+        "labelHint": "Kuvatakse ainult valijates",
+        "legalName": "Juriidiline nimi",
+        "tradeName": "Kaubanduslik nimi",
+        "designation": "Ametinimetus",
+        "email": "E-post",
+        "phone": "Telefon",
+        "website": "Veebisait",
+        "addressTitle": "Aadress",
+        "taxTitle": "Maksutunnused",
+        "taxDescription": "Ainult need, mis teile kehtivad; printimist juhitakse arve kaupa.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Ühendkuningriigi käibemaksunumber",
+        "usTaxId": "USA EIN / SSN",
+        "usTaxIdHint": "Salvestatakse krüpteeritult",
+        "lutNumber": "LUT-number",
+        "lutNumberHint": "Ekspordiks ilma IGST-ta",
+        "lutFiscalYear": "LUT-i majandusaasta",
+        "lutFiscalYearHint": "nt 2026-27",
+        "defaultsTitle": "Vaikeväärtused",
+        "baseCurrency": "Baasvaluuta",
+        "locale": "Dokumendi lokaat",
+        "localeHint": "Arvude ja kuupäevade vorming dokumentidel",
+        "fiscalYearStart": "Majandusaasta algab kuus",
+        "months": {
+          "january": "Jaanuar",
+          "february": "Veebruar",
+          "march": "Märts",
+          "april": "Aprill",
+          "may": "Mai",
+          "june": "Juuni",
+          "july": "Juuli",
+          "august": "August",
+          "september": "September",
+          "october": "Oktoober",
+          "november": "November",
+          "december": "Detsember"
+        },
+        "taxRegime": "Vaikimisi maksuseadus",
+        "regimes": {
+          "indiaGst": "India GST",
+          "ukVat": "Ühendkuningriigi käibemaks",
+          "usSalesTax": "USA müügimaks",
+          "none": "Maksuta"
+        },
+        "invoiceNumberFormat": "Arve numbri vorming",
+        "invoiceNumberFormatHint": "Märgendid: {tokens}",
+        "creditNoteNumberFormat": "Kreeditarve numbri vorming",
+        "tdsRate": "Oodatav TDS-i määr (%)",
+        "tdsRateHint": "Informatiivne, prinditakse oodatava mahaarvamisena",
+        "defaultNotes": "Vaikimisi märkused",
+        "defaultTerms": "Vaikimisi tingimused",
+        "printTitle": "Mis prinditakse vaikimisi",
+        "printDescription": "Iga arve kopeerib need ja saab neid eraldi muuta.",
+        "emailTitle": "E-post",
+        "emailDescription": "Saatmisakna vaikeväärtused. Kohatäited: {placeholders}",
+        "emailCc": "Vaikimisi koopia (CC)",
+        "emailBcc": "Vaikimisi peidetud koopia (BCC)",
+        "commaSeparated": "Komadega eraldatud",
+        "invoiceSubject": "Arve teema",
+        "invoiceSubjectHint": "Tühi kasutab sisseehitatud malli",
+        "creditNoteSubject": "Kreeditarve teema",
+        "invoiceBody": "Arve tekst",
+        "creditNoteBody": "Kreeditarve tekst",
+        "artworkTitle": "Kujundus",
+        "artworkDescription": "PNG, JPEG või WebP kuni 2 MB; allkiri ja tempel säilitavad läbipaistvuse.",
+        "logo": "Logo",
+        "signature": "Allkiri",
+        "stamp": "Tempel",
+        "transparentPng": "Läbipaistev PNG",
+        "save": "Salvesta profiil"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Maksemeetodid",
+      "title": "Maksemeetodid",
+      "description": "Kuidas kliendid teile maksavad. Andmed on krüpteeritud ja külmutatakse väljastamisel igasse arvesse.",
+      "newMethod": "Uus meetod",
+      "emptyTitle": "Maksemeetodeid veel pole",
+      "emptyDescription": "Lisage pangakonto, UPI ID või rahakott, et arved ütleksid klientidele, kuhu maksta.",
+      "addMethod": "Lisa meetod",
+      "columns": {
+        "name": "Nimi",
+        "type": "Tüüp",
+        "currency": "Valuuta",
+        "status": "Olek"
+      },
+      "types": {
+        "bankTransfer": "Pangaülekanne",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Kohandatud"
+      },
+      "makeDefaultTitle": "Kas määrata {name} vaikimisi meetodiks?",
+      "restoreTitle": "Kas taastada {name}?",
+      "archiveTitle": "Kas arhiveerida {name}?",
+      "archiveDescription": "Väljastatud arved säilitavad prinditud hetktõmmise.",
+      "new": {
+        "metaTitle": "Uus maksemeetod",
+        "title": "Uus maksemeetod"
+      },
+      "edit": {
+        "metaTitle": "Muuda maksemeetodit",
+        "title": "Muuda: {name}",
+        "deleteTitle": "Kas kustutada {name}?",
+        "deleteDescription": "Võimalik ainult siis, kui ükski arve ega makse sellele ei viita. Muidu arhiveerige see."
+      },
+      "form": {
+        "name": "Nimi",
+        "nameHint": "Prinditakse makseploki pealkirjana",
+        "type": "Tüüp",
+        "currency": "Valuuta",
+        "currencyHint": "Valikuline; kuvatakse ainult taustainfona",
+        "anyCurrency": "Mis tahes",
+        "instructions": "Juhised",
+        "instructionsHint": "Prinditakse andmete alla",
+        "isDefault": "Vaikimisi meetod",
+        "isDefaultDescription": "Uutel arvetel eelvalitud",
+        "isActive": "Aktiivne",
+        "detailsTitle": "Andmed",
+        "detailsDescription": "Salvestatakse krüpteeritult; väljastamisel jäädvustatakse igasse arvesse.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "Saaja nimi",
+        "lines": "Read",
+        "linesHint": "Üks rida igas reas, prinditakse muutmata kujul",
+        "accountEmail": "Konto e-post / kasutajanimi",
+        "bank": {
+          "accountHolder": "Konto omanik",
+          "accountNumber": "Kontonumber",
+          "bankName": "Panga nimi",
+          "branch": "Filiaal",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Marsruutimis- / sorteerimiskood"
+        },
+        "save": "Salvesta maksemeetod"
+      }
+    },
+    "templates": {
+      "metaTitle": "Dokumendimallid",
+      "title": "Dokumendimallid",
+      "customised": "Kohandatud",
+      "builtIn": "Sisseehitatud vaikemall",
+      "description": "Kuidas arved ja kreeditarved välja näevad. Väljastatud dokumendid säilitavad malli, millega need väljastati.",
+      "resetTitle": "Kas lähtestada sisseehitatud vaikemallile?",
+      "resetDescription": "Teie kohandus eemaldatakse; juba väljastatud dokumente see ei mõjuta.",
+      "reset": "Lähtesta",
+      "resetTrigger": "Lähtesta vaikeväärtustele",
+      "importTitle": "Impordi",
+      "importDescription": "Taasta varem eksporditud seadistus.",
+      "overridesTitle": "Profiilipõhised erandid",
+      "overridesDescription": "Profiil saab oma muutmislehel valida endale eraldi malli.",
+      "noOverrides": "Kõik profiilid kasutavad instantsi malli.",
+      "import": {
+        "json": "Malli JSON",
+        "jsonHint": "Kleepige toiminguga Ekspordi JSON loodud fail; puuduvad võtmed taanduvad vaikeväärtustele",
+        "importing": "Importimine…",
+        "submit": "Impordi"
+      },
+      "form": {
+        "templateTitle": "Mall",
+        "templateDescription": "Kuus sisseehitatud malli; allolev kohandus kehtib valitud mallile.",
+        "templateGroup": "Mall",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Kaasaegne ja õhuline, seriifideta kirjatüüp, aktsentjoon päise all."
+          },
+          "classic": {
+            "name": "Klassikaline",
+            "character": "Traditsiooniline raamidega tabel, seriifidega pealkirjad, raamitud kogusummad."
+          },
+          "compact": {
+            "name": "Kompaktne",
+            "character": "Tihe küljendus pikkade rea-nimekirjade jaoks; väiksem kiri, vähem eraldajaid."
+          },
+          "minimal": {
+            "name": "Minimalistlik",
+            "character": "Rahulik ja avar: ei jooni ega raame, heledad sildid, palju õhku."
+          },
+          "letterhead": {
+            "name": "Kirjapea",
+            "character": "Teie logo ja nimi värviribal või pildil iga lehe ülaosas."
+          },
+          "modern": {
+            "name": "Kaasaegne",
+            "character": "Värviribaga päis; pooled, tabeli päis ja kogusummad kahvatul aktsenttoonil."
+          }
+        },
+        "paperTitle": "Paber ja kiri",
+        "paperSize": "Paberi suurus",
+        "paperLetter": "Letter",
+        "margins": "Veerised",
+        "marginsNormal": "Tavaline",
+        "marginsNarrow": "Kitsas",
+        "headingFont": "Pealkirja kirjatüüp",
+        "bodyFont": "Teksti kirjatüüp",
+        "fontSans": "Seriifideta",
+        "fontSerif": "Seriifidega",
+        "tableStyle": "Tabeli stiil",
+        "tableRuled": "Joonitud",
+        "tableZebra": "Sebra",
+        "tablePlain": "Lihtne",
+        "accentColour": "Aktsentvärv",
+        "textColour": "Teksti värv",
+        "logoPosition": "Logo asukoht",
+        "positionLeft": "Vasakul",
+        "positionCentre": "Keskel",
+        "positionRight": "Paremal",
+        "logoHeight": "Logo kõrgus (mm)",
+        "documentTitle": "Dokumendi pealkiri",
+        "titleAuto": "Automaatne (GST-teadlik)",
+        "titleCustom": "Kohandatud",
+        "titlePlaceholder": "nt PROFORMA ARVE",
+        "qrPosition": "QR-koodi asukoht",
+        "qrFooter": "Jalus",
+        "qrHeader": "Päis",
+        "qrBesideTotals": "Kogusummade kõrval",
+        "amountInWords": "Summa sõnadega",
+        "wordsBelowTotal": "Kogusummade all",
+        "wordsFooter": "Jalus",
+        "wordsHidden": "Peidetud",
+        "subtotalRow": "Vahesumma rida",
+        "discountRow": "Allahindluse rida",
+        "taxLines": "Maksuread",
+        "tdsExpected": "Oodatav TDS",
+        "roundingRow": "Ümardamise rida",
+        "pageNumbers": "Lehekülje numbrid",
+        "headerTitle": "Päis",
+        "headerDescription": "Värviriba või pilt iga lehe ülaosas. Kirjapea ja Kaasaegne näitavad riba, kui te ei vali teisiti.",
+        "headerStyle": "Päise stiil",
+        "headerNone": "Puudub",
+        "headerBand": "Värviriba",
+        "headerImage": "Pilt",
+        "bandColour": "Riba värv",
+        "bandColourHex": "Riba värv (hex)",
+        "headerImageLabel": "Päisepilt",
+        "headerImageHint": "PNG, JPEG või WebP kuni 2400 px laiusega; see katab lehe kogu laiuse.",
+        "imageOpacity": "Pildi läbipaistmatus",
+        "headerHeight": "Päise kõrgus (mm)",
+        "bandText": "Tekst ribal",
+        "bandTextAuto": "Automaatne (riba värvist)",
+        "bandTextLight": "Hele",
+        "bandTextDark": "Tume",
+        "textTitle": "Tekst",
+        "headerNote": "Päise märkus",
+        "footer": "Jalus",
+        "signatureCaption": "Allkirja allkiri",
+        "draftWatermark": "Mustandi vesimärk",
+        "labelsTitle": "Sildid",
+        "labelsDescription": "Jätke väli tühjaks, et säilitada vaikeformuleering.",
+        "save": "Salvesta mall",
+        "downloadSample": "Laadi alla näidis-PDF",
+        "exportJson": "Ekspordi JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "E-post",
+      "title": "E-post",
+      "configuredSettings": "Seadistatud seadetes",
+      "configuredEnv": "Seadistatud keskkonna kaudu",
+      "notConfigured": "Seadistamata: e-posti rakenduse voog",
+      "description": "Dokumendid saadetakse saatmisaknast koos salvestatud PDF-iga. Siinsed seaded alistavad keskkonna SMTP_* väärtused.",
+      "sendTest": "Saada testkiri aadressile {email}",
+      "removeTitle": "Kas eemaldada salvestatud SMTP-seaded?",
+      "removeEnvTakesOver": "Keskkonna SMTP_* väärtused võtavad üle.",
+      "removeFallsBack": "E-post taandub e-posti rakenduse vooule.",
+      "removeTrigger": "Eemalda salvestatud seaded",
+      "smtpTitle": "SMTP-server",
+      "smtpFromEnv": "Praegu võetakse keskkonnast; siin salvestamine alistab selle.",
+      "smtpPasswordNote": "Parool salvestatakse krüpteeritult ja seda ei näidata enam kunagi.",
+      "defaultsTitle": "Vaikimisi saajad",
+      "defaultsDescription": "Kogu instantsi CC/BCC; väljastajaprofiilid lisavad omad.",
+      "sentTitle": "Saadetud kirjad",
+      "sentDescription": "Viimased 50 katset, sh ebaõnnestumised ja käsitsi saatmised.",
+      "smtp": {
+        "host": "Host",
+        "port": "Port",
+        "security": "Turvalisus",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Puudub (kohtvõrgu releeserver)",
+        "user": "Kasutajanimi",
+        "password": "Parool",
+        "passwordStored": "Salvestatud ja krüpteeritud; jätke tühjaks, et see säilitada",
+        "passwordEncrypted": "Salvestatakse krüpteeritult",
+        "from": "Saatja aadress",
+        "fromName": "Saatja nimi",
+        "replyTo": "Vastusaadress",
+        "save": "Salvesta SMTP-seaded"
+      },
+      "defaults": {
+        "cc": "Vaikimisi koopia (CC)",
+        "ccHint": "Lisatakse igale saatmisaknale; komadega eraldatud",
+        "bcc": "Vaikimisi peidetud koopia (BCC)",
+        "save": "Salvesta vaikeväärtused"
+      }
+    },
+    "security": {
+      "metaTitle": "Turvalisus",
+      "title": "Turvalisus",
+      "description": "Kus olete sisse logitud ja kõik, mis on muutunud.",
+      "sessions": {
+        "title": "Aktiivsed seansid",
+        "description": "Seansi tühistamine logib selle seadme koheselt välja.",
+        "signOutOthers": {
+          "title": "Kas logida kõikjal mujal välja?",
+          "description": "Kõik seansid peale selle tühistatakse.",
+          "confirm": "Logi teised välja",
+          "trigger": "Logi kõikjal mujal välja"
+        },
+        "columns": {
+          "device": "Seade",
+          "ipAddress": "IP-aadress",
+          "signedIn": "Sisse logitud",
+          "lastSeen": "Viimati nähtud",
+          "expires": "Aegub"
+        },
+        "thisDevice": "See seade",
+        "revokeTitle": "Kas tühistada see seanss?",
+        "unknownDevice": "Tundmatu seade",
+        "unknownBrowser": "Tundmatu",
+        "agentOnOs": "{browser} süsteemis {os}"
+      },
+      "audit": {
+        "title": "Auditilogi",
+        "count": "{count, plural, one {# sündmus} other {# sündmust}}",
+        "entity": "Objekt",
+        "actionContains": "Toiming sisaldab",
+        "filter": "Filtreeri",
+        "reset": "Lähtesta",
+        "columns": {
+          "when": "Millal",
+          "who": "Kes",
+          "action": "Toiming",
+          "entity": "Objekt",
+          "summary": "Kokkuvõte"
+        },
+        "empty": "Ükski sündmus ei vasta neile filtritele.",
+        "system": "Süsteem",
+        "changes": "Muudatused",
+        "page": "Lehekülg {page} / {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Kasutajad",
+      "title": "Kasutajad",
+      "description": "Kes saab sellesse instantsi sisse logida ja mida nad tohivad teha.",
+      "roles": {
+        "owner": "Omanik",
+        "editor": "Toimetaja",
+        "viewer": "Vaataja"
+      },
+      "roleHints": {
+        "owner": "Kõik, sh seaded ja liikmed",
+        "editor": "Kliendid, kataloog, arved, kreeditarved, maksed, e-post",
+        "viewer": "Ainult lugemine"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Kasutaja {email} roll",
+      "invite": {
+        "title": "Kutsu keegi",
+        "description": "Nad logivad sisse kutsutud aadressiga (identiteedipakkuja või parooli kaudu) ja saavad teie valitud rolli.",
+        "sent": "Kutse saadeti e-postiga aadressile {email}.",
+        "readyWithError": "Kutse aadressile {email} on valmis. E-kirja ei õnnestunud saata ({error}); saatke neile see link:",
+        "readyNoSmtp": "Kutse aadressile {email} on valmis. SMTP-d pole seadistatud; saatke neile see link:",
+        "copyLink": "Kopeeri link",
+        "email": "E-post",
+        "emailPlaceholder": "person@example.com",
+        "role": "Roll",
+        "submit": "Kutsu",
+        "inviting": "Kutsumine…"
+      },
+      "members": {
+        "title": "Liikmed",
+        "description": "Alles jääb alati vähemalt üks aktiivne omanik.",
+        "columns": {
+          "person": "Isik",
+          "role": "Roll",
+          "lastSignIn": "Viimane sisselogimine",
+          "status": "Olek"
+        },
+        "nameYou": "{name} (teie)",
+        "deactivated": "Desaktiveeritud",
+        "reactivate": {
+          "title": "Kas aktiveerida {email} uuesti?",
+          "description": "Nad saavad uuesti sisse logida oma eelmise rolliga.",
+          "confirm": "Aktiveeri uuesti"
+        },
+        "deactivate": {
+          "title": "Kas desaktiveerida {email}?",
+          "description": "Kõik seansid lõpevad nüüd ja nad ei saa sisse logida enne uuesti aktiveerimist. Nende ajalugu säilib.",
+          "confirm": "Desaktiveeri"
+        }
+      },
+      "invitations": {
+        "title": "Ootel kutsed",
+        "description": "Aadressid, mis tohivad sisse logida, kuid pole seda veel teinud.",
+        "columns": {
+          "email": "E-post",
+          "role": "Roll",
+          "invited": "Kutsutud"
+        },
+        "empty": "Ootel kutseid pole.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Kas tühistada aadressi {email} kutse?"
+      }
+    },
+    "data": {
+      "metaTitle": "Andmed",
+      "title": "Andmed",
+      "description": "Kõik on teisaldatav: andmekogumid CSV- või Exceli-failina, täielik hetktõmmis migreerimiseks, PDF-id raamatupidajale ja testitud varundusrutiin.",
+      "period": {
+        "fiscalYear": "Majandusaasta",
+        "fiscalYearHint": "Alistab kuupäevad",
+        "issuer": "Väljastaja"
+      },
+      "exportAll": {
+        "title": "Ekspordi kõik andmed",
+        "description": "ZIP-fail, mis sisaldab iga andmekogumit CSV-na ning faili <mono>data.json</mono>, kõigi tabelite relatsioonilist hetktõmmist. Krüpteeritud väljad (maksemeetodi andmed, SMTP parool) jäetakse välja; sees olev README loetleb need.",
+        "download": "Laadi alla okinvo-data ZIP"
+      },
+      "exportDocuments": {
+        "title": "Ekspordi dokumendid",
+        "description": "Iga väljastatud ja tühistatud arve ning kreeditarve PDF perioodi kohta, nimetatud numbri järgi, koos failiga <mono>index.csv</mono>, mis sisaldab numbreid, kogusummasid ja räsisid. Puuduvad PDF-id luuakse käigu pealt.",
+        "docx": "Lisa ka iga dokumendi DOCX-koopia",
+        "download": "Laadi alla dokumentide ZIP"
+      },
+      "datasets": {
+        "title": "Andmekogumid",
+        "description": "Samad ekspordid, mida pakuvad indekslehed, kusjuures periood ja väljastaja rakenduvad neile kõigile. Maksed kasutavad kuupäevavahemikku; kliendid ja teenused ignoreerivad perioodi.",
+        "columns": {
+          "dataset": "Andmekogum",
+          "filters": "Rakendatud filtrid",
+          "download": "Laadi alla"
+        },
+        "names": {
+          "invoices": "Arvete register",
+          "invoiceItems": "Arve read",
+          "payments": "Maksete register",
+          "creditNotes": "Kreeditarvete register",
+          "clients": "Kliendid",
+          "services": "Teenused",
+          "gstSummary": "GST kokkuvõte",
+          "tdsSummary": "TDS kokkuvõte"
+        },
+        "filters": {
+          "periodIssuer": "periood, väljastaja",
+          "dateRangeIssuer": "kuupäevavahemik, väljastaja",
+          "includesArchived": "sisaldab arhiveeritud"
+        }
+      },
+      "backups": {
+        "title": "Varukoopiad",
+        "notWired": "Varundusteenust pole ühendatud",
+        "noRun": "Varundust pole veel tehtud",
+        "lastOk": "Viimane varundus õnnestus",
+        "lastFailed": "Viimane varundus ebaõnnestus",
+        "description": "Compose’i teenus <mono>backup</mono> teeb Postgresi tõmmise ja arhiveerib salvestusmahu ajakava <mono>BACKUP_CRON</mono> järgi, säilitab ajalugu <mono>BACKUP_RETENTION_DAYS</mono> päeva mahus <mono>backups</mono> ja kirjutab olekufaili, mida see leht loeb.",
+        "finished": "Lõpetatud",
+        "databaseDump": "Andmebaasi tõmmis",
+        "storageArchive": "Salvestusarhiiv",
+        "size": "Suurus",
+        "sizeMb": "{size} MB",
+        "error": "Viga",
+        "runNow": "Käivitage üks kohe või taastage failipaarist:",
+        "restoreDrill": "Taastamisprotseduuri harjutatakse CI-s skriptiga <mono>scripts/restore-drill.sh</mono>: algandmed, varundus, tühjendamine, taastamine, seejärel ridade arvu ja PDF-i räsi võrdlus."
+      }
+    },
+    "legal": {
+      "metaTitle": "Õiguslik teave",
+      "metaDescription": "Kes seda instantsi haldab: andmed, mis prinditakse avalikele õiguslikele lehtedele.",
+      "title": "Õiguslik teave",
+      "description": "Avalikud õiguslikud lehed prindivad need andmed. Kuni kõik väljad pole täidetud, näitavad lehed esiletõstetud kohatäiteid.",
+      "operator": {
+        "title": "Haldaja andmed",
+        "complete": "Täielik",
+        "missing": "Puudu on {count}: {fields}",
+        "description": "Teie, kui isik või ettevõte, kes seda instantsi haldab, olete haldaja, millele dokumendid viitavad. Siit ei saadeta midagi kuhugi; see prinditakse allolevatele lehtedele."
+      },
+      "fieldLabels": {
+        "legalName": "Haldaja juriidiline nimi",
+        "entityType": "Üksuse tüüp",
+        "address": "Haldaja aadress",
+        "country": "Haldaja riik",
+        "contactEmail": "Kontakt-e-post",
+        "privacyEmail": "Privaatsuse e-post",
+        "dpoEmail": "Andmekaitsespetsialisti e-post",
+        "governingLaw": "Kohaldatav õigus",
+        "venue": "Vaidluste lahendamise koht",
+        "effectiveDate": "Jõustumise kuupäev"
+      },
+      "publicPages": {
+        "title": "Avalikud lehed",
+        "description": "Lingitud sisselogimislehelt, jagamisvaatajast ja küpsiste teatest.",
+        "terms": "Teenusetingimused",
+        "acceptableUse": "Lubatud kasutuse poliitika",
+        "privacy": "Privaatsuspoliitika",
+        "cookies": "Küpsiste poliitika",
+        "dataRetention": "Andmete säilitamine",
+        "security": "Turvalisus",
+        "licenses": "Litsentsid ja kolmandate osapoolte teated"
+      },
+      "form": {
+        "legalName": "Juriidiline nimi",
+        "entityType": "Üksuse tüüp",
+        "individual": "Eraisik / füüsilisest isikust ettevõtja",
+        "company": "Ettevõte / registreeritud üksus",
+        "address": "Aadress",
+        "addressHint": "Prinditakse tingimustes ja privaatsuspoliitikas haldaja postiaadressina.",
+        "country": "Riik",
+        "effectiveDate": "Jõustumise kuupäev",
+        "contactEmail": "Kontakt-e-post",
+        "privacyEmail": "Privaatsuse e-post",
+        "privacyEmailHint": "Kuhu andmesubjekti taotlused lähevad; võib olla sama mis kontaktaadress.",
+        "dpoEmail": "Andmekaitsespetsialisti e-post",
+        "dpoEmailHint": "Ainult siis, kui olete selle määranud.",
+        "governingLaw": "Kohaldatav õigus",
+        "governingLawHint": "Näiteks \"India õigus\" või \"Inglismaa ja Walesi õigus\".",
+        "venue": "Vaidluste lahendamise koht",
+        "venueHint": "Näiteks \"Bengaluru kohtud, Karnataka\".",
+        "submit": "Salvesta haldaja andmed"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API võtmed skriptide, SDK ja MCP-klientide jaoks koos curl-i näidetega.",
+      "title": "API",
+      "description": "Võtmed skriptide, SDK ja MCP-klientide jaoks. Võti saab teha kõige rohkem seda, mida teie roll; seda näidatakse ainult üks kord.",
+      "create": {
+        "title": "Loo võti",
+        "description": "Saatke see kujul <mono>Authorization: Bearer okv_…</mono>. Hoidke see allikakoodist ja vestluslogidest eemal; tühistage see allpool, kui see lekib."
+      },
+      "keys": {
+        "title": "Võtmed",
+        "descriptionOwner": "Selle instantsi kõik võtmed; omanikud saavad tühistada mis tahes võtme.",
+        "descriptionOwn": "Teie võtmed.",
+        "columns": {
+          "name": "Nimi",
+          "prefix": "Prefiks",
+          "scopes": "Skoobid",
+          "owner": "Omanik",
+          "lastUsed": "Viimati kasutatud",
+          "expires": "Aegub",
+          "status": "Olek"
+        },
+        "empty": "API võtmeid veel pole.",
+        "never": "mitte kunagi",
+        "revoked": "Tühistatud",
+        "expired": "Aegunud",
+        "revokeTitle": "Kas tühistada {name}?",
+        "revokeDescription": "Seda võtit kasutavad kliendid lakkavad koheselt töötamast.",
+        "activeCount": "{count, plural, one {# aktiivne võti.} other {# aktiivset võtit.}}"
+      },
+      "examples": {
+        "title": "Näited",
+        "description": "Asendage <mono>$OKINVO_KEY</mono> võtmega. Versioonitud REST API, selle OpenAPI dokument (<mono>/api/openapi.json</mono>), TypeScripti SDK ja MCP-server tulevad v1.1 kava järgmiste ülesannetega; olekupäring töötab juba täna.",
+        "rateLimit": "Piirmäära ületavatele kutsetele vastatakse koodiga 429 ja päisega <mono>Retry-After</mono> (120 päringut minutis võtme kohta). Võtme skoobid on piiratud selle omaniku praeguse rolliga."
+      },
+      "form": {
+        "copyKey": "Kopeeri API võti",
+        "name": "Nimi",
+        "namePlaceholder": "nt raamatupidamisskript",
+        "expires": "Aegub",
+        "in30Days": "30 päeva pärast",
+        "in90Days": "90 päeva pärast",
+        "inAYear": "Aasta pärast",
+        "never": "Mitte kunagi",
+        "scopes": "Skoobid",
+        "submit": "Loo API võti",
+        "creating": "Loomine…"
+      },
+      "scopes": {
+        "invoicesRead": "Arvete lugemine",
+        "invoicesCreate": "Arvete loomine ja väljastamine",
+        "creditNotesRead": "Kreeditarvete lugemine",
+        "creditNotesCreate": "Kreeditarvete loomine ja väljastamine",
+        "catalogueRead": "Klientide, teenuste ja toodete lugemine",
+        "documentsRead": "Salvestatud PDF-ide ja DOCX-koopiate allalaadimine",
+        "statusRead": "Instantsi oleku lugemine"
+      }
+    },
+    "status": {
+      "metaTitle": "Olek",
+      "metaDescription": "Selle instantsi versioon, andmebaas, salvestusruum, e-post ja varunduse seisund.",
+      "title": "Olek",
+      "description": "Mida see instants käitab ja kas selle osad vastavad.",
+      "recheck": "Kontrolli uuesti",
+      "health": {
+        "ok": "OK",
+        "warning": "Hoiatus",
+        "failed": "Ebaõnnestus",
+        "na": "Seadistamata"
+      },
+      "overall": {
+        "ok": "Kõik korras",
+        "degraded": "Halvenenud",
+        "failed": "Ebaõnnestus"
+      },
+      "version": "Järk {hasSha, select, yes {<mono>{sha}</mono>} other {(sha teadmata)}} · ehitatud {built} · Node <mono>{node}</mono> · tööaeg {uptime} · kontrollitud {checked}",
+      "dateUnknown": "(kuupäev teadmata)",
+      "uptime": {
+        "days": "{d} p {h} t {m} min",
+        "hours": "{h} t {m} min",
+        "minutes": "{m} min"
+      },
+      "rows": {
+        "database": "Andmebaas",
+        "storage": "Salvestusruum",
+        "rateLimiting": "Kiiruspiirang",
+        "email": "E-post",
+        "backups": "Varukoopiad"
+      },
+      "db": {
+        "detail": "{latency} ms · viimane migratsioon <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # lõpetamata migratsiooni}}",
+        "noMigration": "puudub"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · testobjekti kirjutamine, lugemine ja kustutamine {latency} ms-ga",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> hoidla {store, select, memory {(üks replika)} other {(jagatud replikate vahel)}}",
+      "smtp": {
+        "configured": "SMTP allikast {source, select, settings {settings} env {env} other {}} · viimane test {lastTest} · viimased 24 t: {sent} saadetud, {failed} ebaõnnestunud",
+        "none": "SMTP-serverit pole; saatmisaken pakub valikut „Ava e-posti rakenduses“. <link>Seadista</link>"
+      },
+      "backups": {
+        "notWired": "Varundusteenust pole ühendatud (BACKUP_STATUS_FILE pole määratud).",
+        "noRun": "Varundusteenus on ühendatud; käivitusi pole veel registreeritud.",
+        "ok": "Viimane käivitus õnnestus kell {finishedAt}{days, plural, =0 {} one { · säilitus # päev} other { · säilitus # päeva}}",
+        "failed": "Viimane käivitus ebaõnnestus: {error} kell {finishedAt}{days, plural, =0 {} one { · säilitus # päev} other { · säilitus # päeva}}"
+      },
+      "footer": "Sama aruanne on jälgimiseks saadaval JSON-ina aadressil <mono>/api/health/status</mono> (sisse logitud seanss või API võti)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Tere tulemast",
+    "progress": "Edenemine",
+    "steps": {
+      "aboutYou": "Teist",
+      "howYouUse": "Kuidas kasutate",
+      "allSet": "Valmis"
+    },
+    "step1": {
+      "title": "Rääkige meile endast",
+      "subtitle": "See määrab teie vaikeväärtused; iga väärtust saab hiljem seadetes muuta.",
+      "name": "Nimi",
+      "email": "E-post",
+      "emailHint": "Teie sisselogimise identiteet. Seda saab hiljem muuta jaotises Seaded → Turvalisus.",
+      "country": "Riik",
+      "currency": "Eelistatud valuuta",
+      "currencyHint": "Kasutatakse uute profiilide ja töölaua jaoks, kuni profiili pole."
+    },
+    "step2": {
+      "title": "Kuidas te okinvot kasutate?",
+      "subtitle": "Muutuvad ainult vaikeväärtused; midagi ei lukustata.",
+      "usage": "Kasutus",
+      "personal": "Isiklik arvete esitamine",
+      "personalHint": "Vabakutseline töö oma nime all",
+      "business": "Ettevõtte arvete esitamine",
+      "businessHint": "Registreeritud ettevõtte arved",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Käibemaksunumber",
+        "other": "Maksukohustuslasena registreerimise number"
+      },
+      "taxQuestion": {
+        "IN": "Kas teil on GSTIN?",
+        "GB": "Kas olete käibemaksukohustuslane?",
+        "other": "Kas teil on maksukohustuslasena registreerimise number, mis tuleks arvetele printida?"
+      }
+    },
+    "step3": {
+      "title": "Kõik valmis",
+      "body": "Järgmiseks looge oma esimene väljastajaprofiil: nimi, aadress ja maksuandmed, mis prinditakse teie arvetele. Oleme täitnud selle, mida meile ütlesite.",
+      "go": "Mine profiilide juurde",
+      "opening": "Avamine…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Tingimused",
+      "privacy": "Privaatsus",
+      "cookies": "Küpsised",
+      "security": "Turvalisus"
+    },
+    "cookieNotice": {
+      "label": "Küpsiste teade",
+      "body": "Kasutame ainult rangelt vajalikke küpsiseid: teie seanssi ja kuvaeelistusi. Ei mingit analüütikat ega jälgimist.",
+      "policy": "Küpsiste poliitika",
+      "gotIt": "Selge"
+    },
+    "nav": {
+      "label": "Õiguslik teave",
+      "cookies": "Küpsised",
+      "privacy": "Privaatsus",
+      "terms": "Tingimused",
+      "acceptableUse": "Lubatud kasutus",
+      "retention": "Säilitamine",
+      "security": "Turvalisus",
+      "licences": "Litsentsid"
+    },
+    "operatorNotice": "okinvo on ise majutatav tarkvara; selle instantsi haldaja vastutab selle kasutamise eest.",
+    "doc": {
+      "effectiveOn": "Jõustub <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Sisukord"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Haldaja juriidiline nimi",
+        "entityType": "Üksuse tüüp",
+        "address": "Haldaja aadress",
+        "country": "Haldaja riik",
+        "contactEmail": "Kontakt-e-post",
+        "privacyEmail": "Privaatsuse e-post",
+        "dpoEmail": "Andmekaitsespetsialisti e-post",
+        "governingLaw": "Kohaldatav õigus",
+        "venue": "Vaidluste lahendamise koht",
+        "effectiveDate": "Jõustumise kuupäev"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Ei leitud",
+      "title": "Sellel aadressil pole midagi",
+      "body": "Link võib olla aegunud või dokument, millele see viitas, ei väljastatud kunagi."
+    },
+    "forbidden": {
+      "metaTitle": "Pole lubatud",
+      "title": "See konto ei saa seda teha",
+      "body": "Teie roll seda ei luba. Paluge omanikult juurdepääsu või logige sisse kontoga, millel see on."
+    },
+    "error": {
+      "title": "Midagi läks valesti",
+      "body": "See päring ei muutnud midagi. Proovige uuesti; kui probleem kordub, on üksikasjad serveri logis.",
+      "digest": "viga {digest}",
+      "generic": "viga"
+    },
+    "appNotFound": {
+      "title": "Ei leitud",
+      "body": "Seda kirjet ei ole olemas või see kustutati, kui te seda vaatasite.",
+      "back": "Tagasi töölauale"
+    },
+    "validation": {
+      "required": "kohustuslik",
+      "tooLong": "kuni {max} tähemärki",
+      "invalidEmail": "peab olema kehtiv e-posti aadress",
+      "invalidDate": "peab olema kalendrikuupäev kujul AAAA-KK-PP",
+      "invalidAmount": "peab olema arv",
+      "wholeNumber": "peab olema täisarv",
+      "greaterThanZero": "peab olema suurem kui null",
+      "fixFields": "Palun parandage esiletõstetud väljad.",
+      "charset": "Lubatud on ainult tavalised klaviatuurimärgid."
+    }
+  },
+  "verify": {
+    "metaTitle": "Kontrolli dokumenti",
+    "heading": "Dokumendi kontrollimine",
+    "rateLimited": "Sellelt aadressilt on liiga palju kontrolle. Proovige minuti pärast uuesti.",
+    "notFound": {
+      "title": "Sellist dokumenti pole",
+      "body": "See link ei vasta ühelegi väljastatud dokumendile. Kontrollige QR-koodi või saadud linki või võtke ühendust väljastajaga."
+    },
+    "status": {
+      "void": "Tühistatud",
+      "valid": "Kehtiv"
+    },
+    "issuedBy": "Väljastaja",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Väljastatud kellele",
+    "issueDate": "Väljastamise kuupäev",
+    "total": "Kokku",
+    "voided": "Väljastaja tühistas selle dokumendi ja see ei kehti enam.",
+    "storedCopies": {
+      "title": "Salvestatud koopiad",
+      "description": "Iga väljastaja käes oleva PDF-versiooni SHA-256. Valige oma koopia, et seda oma brauseris võrrelda: midagi ei laadita üles.",
+      "empty": "PDF-i pole veel loodud.",
+      "protectedVersion": "Parooliga kaitstud koopia {version}",
+      "version": "Versioon {version}"
+    },
+    "check": {
+      "label": "Kontrollige oma koopiat",
+      "hashing": "Räsi arvutamine…",
+      "match": "Teie koopia vastab täpselt versioonile {version}.",
+      "mismatch": "Teie koopia ei vasta ühelegi salvestatud versioonile."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Jagatud dokument",
+      "rateLimited": "Sellelt aadressilt on liiga palju päringuid. Proovige minuti pärast uuesti.",
+      "unavailable": {
+        "title": "See link ei ole saadaval",
+        "body": "See võib olla aegunud või väljastaja poolt tühistatud. Küsige uut."
+      },
+      "lockedTitleInvoice": "Arve, väljastaja {issuer}",
+      "lockedTitleCreditNote": "Kreeditarve, väljastaja {issuer}",
+      "lockedBody": "See dokument on parooliga kaitstud. Sisestage parool, mille väljastaja teile andis.",
+      "void": "Tühistatud",
+      "protectedPdf": "PDF avatakse sama parooliga. Seda saab lugeda ja printida; kopeerimine ja muutmine on lukustatud.",
+      "byline": "Väljastaja {issuer}, saaja {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Parool",
+      "limited": "Liiga palju katseid. Oodake viisteist minutit ja proovige uuesti.",
+      "wrong": "See parool ei ole õige.",
+      "submit": "Ava dokument"
+    },
+    "dialog": {
+      "trigger": "Jaga",
+      "title": "Jaga seda dokumenti",
+      "description": "Igaüks, kellel on link, saab seda vaadata ja alla laadida, kuni see aegub või te selle tühistate. Parool kaitseb ka PDF-i ennast: see avatakse parooliga ning seda saab lugeda ja printida, kuid mitte muuta ega kopeerida.",
+      "link": "Link",
+      "copyLink": "Kopeeri link",
+      "password": "Parool",
+      "copyPassword": "Kopeeri parool",
+      "sendSeparately": "Saatke parool lingist eraldi. Saate seda allolevast loendist uuesti näha.",
+      "copy": "Kopeeri",
+      "copied": "Kopeeritud",
+      "expires": "Aegub",
+      "expiry": {
+        "d7": "7 päeva pärast",
+        "d30": "30 päeva pärast",
+        "d90": "90 päeva pärast",
+        "never": "Mitte kunagi"
+      },
+      "protection": "Kaitse",
+      "protectionOptions": {
+        "auto": "Parool: genereeri paroolifraas",
+        "manual": "Parool: valin ise",
+        "none": "Parooli pole (avatud link)"
+      },
+      "passwordHint": "Vähemalt 8 tähemärki.",
+      "strength": "Tugevus: {label}",
+      "strengthLabels": {
+        "veryWeak": "väga nõrk",
+        "weak": "nõrk",
+        "fair": "keskmine",
+        "good": "hea",
+        "strong": "tugev"
+      },
+      "creating": "Loomine…",
+      "create": "Loo link",
+      "activeLinks": "Aktiivsed lingid",
+      "passwordProtected": "Parooliga kaitstud",
+      "openLink": "Ava link",
+      "linkExpires": "{kind} · aegub {date}",
+      "linkNeverExpires": "{kind} · ei aegu kunagi",
+      "revoke": {
+        "title": "Kas tühistada see link?",
+        "description": "Link lakkab koheselt töötamast kõigile, kellel see on.",
+        "label": "Tühista"
+      },
+      "linkPassword": "Parool: <code>{password}</code>",
+      "counts": "{views, plural, one {# vaatamine} other {# vaatamist}} · {downloads, plural, one {# allalaadimine} other {# allalaadimist}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Kreeditarved",
+      "title": "Kreeditarved",
+      "description": "Koostatud väljastatud arvete vastu; iga väljastatud kreeditarve vähendab oma arve saldot.",
+      "newCreditNote": "Uus kreeditarve",
+      "filters": {
+        "from": "Alates",
+        "to": "Kuni",
+        "issuer": "Väljastaja",
+        "client": "Klient",
+        "status": "Olek",
+        "search": "Otsi",
+        "all": "Kõik",
+        "searchPlaceholder": "Number, põhjus, klient",
+        "go": "Mine"
+      },
+      "statuses": {
+        "DRAFT": "Mustand",
+        "ISSUED": "Väljastatud",
+        "SENT": "Saadetud",
+        "VOID": "Tühistatud"
+      },
+      "empty": {
+        "title": "Kreeditarveid veel pole",
+        "description": "Avage väljastatud arve ja valige „Kreeditarve“, et vähendada selle võlgnevust."
+      },
+      "noMatch": "Ükski kreeditarve ei vasta neile filtritele.",
+      "columns": {
+        "number": "Number",
+        "against": "Arve",
+        "client": "Klient",
+        "issueDate": "Väljastamise kuupäev",
+        "reason": "Põhjus",
+        "total": "Kokku",
+        "status": "Olek"
+      },
+      "draft": "Mustand"
+    },
+    "new": {
+      "metaTitle": "Uus kreeditarve",
+      "title": "Uus kreeditarve",
+      "description": "Kreeditarve koostatakse väljastatud arve vastu ja see vähendab selle saldot.",
+      "nothingToCredit": {
+        "title": "Pole midagi kreediteerida",
+        "description": "Kreeditarved vajavad väljastatud arvet, millel on tasumata saldo.",
+        "openInvoices": "Ava arved"
+      },
+      "whichInvoice": "Milline arve?",
+      "invoice": "Arve",
+      "invoiceOption": "{number} · {client} · saldo {balance}",
+      "issuedOnly": "Kreeditarveid koostatakse ainult väljastatud arvete vastu.",
+      "invoiceFallback": "Arve"
+    },
+    "edit": {
+      "metaTitle": "Muuda kreeditarvet",
+      "title": "Muuda kreeditarve mustandit",
+      "immutable": "Väljastatud kreeditarved on muutumatud.",
+      "draft": "Mustand"
+    },
+    "detail": {
+      "metaTitle": "Kreeditarve",
+      "draftTitle": "Kreeditarve mustand",
+      "meta": "{client} · arve <invoice>{number}</invoice> vastu · väljastatud <mono>{date}</mono>",
+      "previewPdf": "Eelvaata PDF-i",
+      "issue": {
+        "title": "Kas väljastada see kreeditarve?",
+        "description": "Eraldatakse number, arve saldot vähendatakse ja dokument muutub muutumatuks.",
+        "label": "Väljasta"
+      },
+      "deleteDraft": {
+        "title": "Kas kustutada see mustand?"
+      },
+      "sendByEmail": "Saada e-postiga",
+      "markSent": {
+        "title": "Kas märkida saadetuks?",
+        "label": "Märgi saadetuks"
+      },
+      "void": {
+        "title": "Kas tühistada see kreeditarve?",
+        "description": "Arve saldo taastatakse; numbrit ei kasutata kunagi uuesti.",
+        "reason": "Põhjus",
+        "label": "Tühista"
+      },
+      "voided": "Tühistatud {date}: {reason}",
+      "amounts": {
+        "title": "Summad",
+        "reason": "Põhjus",
+        "creditAmount": "Kreeditsumma",
+        "total": "Kokku",
+        "balanceNow": "Arve saldo praegu",
+        "sent": "Saadetud"
+      },
+      "documents": {
+        "title": "Salvestatud dokumendid",
+        "description": "Iga versioon säilitatakse; kontrollileht loetleb kõik räsid.",
+        "regenerateTitle": "Kas luua uus PDF-versioon?",
+        "generate": "Loo",
+        "newVersion": "Uus versioon",
+        "renderedOnFirstDownload": "PDF luuakse esimesel allalaadimisel.",
+        "protectedCopy": "Parooliga kaitstud koopia {version}",
+        "version": "Versioon {version}",
+        "verificationLink": "Kontrolllink: <link>{path}…</link>"
+      },
+      "draftsPreview": "Mustandid kuvatakse otse redaktoris."
+    },
+    "send": {
+      "metaTitle": "Saada kreeditarve",
+      "title": "Saada <mono>{number}</mono>",
+      "previousSends": "Varasemad saatmised"
+    },
+    "builder": {
+      "against": "Arve <mono>{number}</mono> vastu",
+      "summary": "{client} · kokku {total} · saldo {balance} · maksustatav varu ≈ {headroom}",
+      "issueDate": "Väljastamise kuupäev",
+      "creditAmount": "Kreeditsumma (maksuta)",
+      "creditAmountHint": "Maks jaotatakse arve maksuridade alusel",
+      "reason": "Põhjus",
+      "picker": {
+        "title": "Arvuta arve ridade põhjal",
+        "description": "Märkige terved read või protsent; see täidab ainult ülaltoodud summa.",
+        "line": "Rida",
+        "subtotal": "Vahesumma",
+        "credit": "Kreedit",
+        "percent": "%",
+        "creditLine": "Kreediteeri rida {position}",
+        "percentOfLine": "Rea {position} protsent"
+      },
+      "saveDraft": "Salvesta mustand",
+      "issuing": "Väljastamine…",
+      "saveAndIssue": "Salvesta ja väljasta"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Laekunud makse",
+        "REFUND": "Väljastatud tagasimakse",
+        "WRITE_OFF": "Mahakandmine"
+      },
+      "editTitle": "Muuda kirjet",
+      "recordTitle": "Registreeri makse",
+      "description": "Summad on arve valuutas ({currency}); mahaarvatud TDS on osa rakendatud summast.",
+      "kind": "Liik",
+      "date": "Kuupäev",
+      "amountRefunded": "Tagastatud summa (negatiivne)",
+      "amountApplied": "Rakendatud summa",
+      "refundHint": "Sisestage negatiivne summa, nt -500",
+      "tdsDeducted": "Mahaarvatud TDS",
+      "tdsHint": "Kliendi kinnipeetud maks; loetakse rakendatud summa hulka",
+      "bankFees": "Pangatasud",
+      "receivedInto": "Laekus kontole",
+      "noMethod": "-",
+      "reference": "Viide",
+      "referenceHint": "UTR, tehingu ID, tšeki number",
+      "otherCurrency": "Laekus teises valuutas",
+      "amountReceived": "Laekunud summa",
+      "receivedCurrency": "Laekumise valuuta",
+      "exchangeRate": "Vahetuskurss",
+      "exchangeRateHint": "1 laekunud ühik = ? {currency}",
+      "notes": "Märkused",
+      "receipt": "Kviitung",
+      "receiptHint": "PNG, JPEG, WebP või PDF kuni 10 MB",
+      "saveChanges": "Salvesta muudatused",
+      "record": "Registreeri"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "ca {count, plural, one {# lehekülg} other {# lehekülge}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Sõnum",
+      "description": "Eeltäidetud väljastajaprofiili mallidest. Midagi ei saadeta enne, kui klõpsate nupul Saada.",
+      "to": "Kellele",
+      "toHint": "Komadega eraldatud",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Teema",
+      "body": "Tekst",
+      "bodyHint": "Lihttekst; lingid muutuvad klõpsatavaks",
+      "attachment": "Manus",
+      "attachmentHint": "Salvestatud koopia nimega <mono>{name}</mono> (või .docx); selle sisu ei saa muuta.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Saatmine…",
+      "send": "Saada",
+      "openInMailApp": "Ava e-posti rakenduses",
+      "noSmtp": "SMTP-serverit pole seadistatud (Seaded → E-post). Avage mustand oma e-posti rakenduses, lisage allalaaditud PDF manusena ja märkige see allpool saadetuks.",
+      "markAsSent": "Märgi saadetuks"
+    },
+    "sentLog": {
+      "when": "Millal",
+      "document": "Dokument",
+      "to": "Kellele",
+      "subject": "Teema",
+      "status": "Olek",
+      "empty": "Midagi pole veel saadetud.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "saadetud",
+        "FAILED": "ebaõnnestus",
+        "MANUAL": "käsitsi"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Tere, {name}",
+    "fiscalYear": "Majandusaasta {year}",
+    "fiscalYearWithBase": "Majandusaasta {year} · baasvaluuta {currency} ({profile})",
+    "newCreditNote": "Uus kreeditarve",
+    "welcomeTitle": "Tere tulemast rakendusse {appName}",
+    "welcomeDescription": "Alustage väljastajaprofiili loomisest, mille nimel arveid esitate, seejärel lisage klient ja oma esimene arve.",
+    "createProfile": "Loo oma profiil",
+    "tiles": {
+      "outstanding": "Tasumata",
+      "overdue": "Tähtaja ületanud",
+      "billedThisFy": "Arveldatud sel majandusaastal",
+      "receivedThisFy": "Laekunud sel majandusaastal",
+      "drafts": "Mustandid",
+      "invoiceCount": "{count, plural, one {# arve} other {# arvet}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Maksed miinus tagasimaksed, registreeritud kursiga",
+      "awaitingIssue": "ootab väljastamist",
+      "nothingPending": "midagi pole ootel"
+    },
+    "recentInvoices": "Viimased arved",
+    "allInvoices": "Kõik arved",
+    "noInvoicesYet": "Arveid veel pole.",
+    "columns": {
+      "number": "Number",
+      "client": "Klient",
+      "issued": "Väljastatud"
+    },
+    "topClients": "Suurimad kliendid tasumata summa järgi",
+    "nothingOutstanding": "Midagi pole tasumata."
+  },
+  "exports": {
+    "export": "Ekspordi",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Arved",
+      "newInvoice": "Uus arve",
+      "draft": "Mustand",
+      "aDraft": "mustand",
+      "statuses": {
+        "draft": "Mustand",
+        "issued": "Väljastatud",
+        "sent": "Saadetud",
+        "partiallyPaid": "Osaliselt tasutud",
+        "paid": "Tasutud",
+        "overdue": "Tähtaja ületanud",
+        "void": "Tühistatud"
+      },
+      "lifecycle": {
+        "draft": "mustand",
+        "issued": "väljastatud",
+        "void": "tühistatud"
+      },
+      "units": {
+        "hour": "Tund",
+        "day": "Päev",
+        "fixed": "Fikseeritud",
+        "milestone": "Verstapost",
+        "unit": "Ühik"
+      },
+      "unitsLower": {
+        "hour": "tund",
+        "day": "päev",
+        "fixed": "fikseeritud",
+        "milestone": "verstapost",
+        "unit": "ühik"
+      },
+      "supplyTypes": {
+        "intraState": "osariigisisene",
+        "interState": "osariikidevaheline",
+        "exportLut": "eksport LUT-iga",
+        "exportWithTax": "eksport maksuga",
+        "reverseCharge": "pöördmaksustamine",
+        "notApplicable": "ei kohaldu"
+      }
+    },
+    "list": {
+      "description": "Mustandid, väljastatud ja tühistatud arved; olekud tulenevad maksetest ja maksetähtaegadest.",
+      "fiscalYear": "Majandusaasta",
+      "issuer": "Väljastaja",
+      "client": "Klient",
+      "searchPlaceholder": "Number, tellimus, klient",
+      "emptyTitle": "Arveid veel pole",
+      "emptyDescription": "Koostage oma esimene arve: valige klient, lisage read, vaadake eelvaadet ja väljastage see.",
+      "columns": {
+        "number": "Number",
+        "client": "Klient",
+        "issuer": "Väljastaja",
+        "issueDate": "Väljastamise kuupäev",
+        "due": "Tähtaeg",
+        "balance": "Saldo"
+      },
+      "noMatches": "Ükski arve ei vasta neile filtritele.",
+      "count": "{count, plural, one {# arve} other {# arvet}}",
+      "countPaged": "{count, plural, one {# arve} other {# arvet}} · lehekülg {page} / {pages}",
+      "register": "register"
+    },
+    "new": {
+      "noProfileTitle": "Looge esmalt väljastajaprofiil",
+      "noProfileDescription": "Arve väljastatakse juriidilise identiteedi nimel: seadistage oma profiil koos maksutunnuste ja numeratsiooniga.",
+      "createProfile": "Loo profiil"
+    },
+    "edit": {
+      "metaTitle": "Muuda arvet",
+      "title": "Muuda mustandit",
+      "immutableFlash": "Väljastatud arved on muutumatud. Selle parandamiseks kasutage valikut „Tühista ja väljasta uuesti“."
+    },
+    "detail": {
+      "metaTitle": "Arve",
+      "draftInvoice": "Arve mustand",
+      "issuedDue": "Väljastatud <mono>{issued}</mono>, tähtaeg <mono>{due}</mono>",
+      "replaces": "Asendab arve {number}",
+      "replacedBy": "Asendatud arvega {number}",
+      "previewPdf": "Eelvaata PDF-i",
+      "issueTitle": "Kas väljastada see arve?",
+      "issueDescription": "Eraldatakse number ja dokument muutub muutumatuks.",
+      "issue": "Väljasta",
+      "deleteDraftTitle": "Kas kustutada see mustand?",
+      "sendByEmail": "Saada e-postiga",
+      "recordPayment": "Registreeri makse",
+      "creditNote": "Kreeditarve",
+      "markSentTitle": "Kas märkida saadetuks?",
+      "markSentDescription": "Registreerib, et klient on selle arve kätte saanud.",
+      "markSent": "Märgi saadetuks",
+      "voidReissueTitle": "Kas tühistada ja väljastada uuesti?",
+      "voidReissueDescription": "Originaal tühistatakse ja samasuguse sisuga seotud mustand avatakse muutmiseks.",
+      "voidReissue": "Tühista ja väljasta uuesti",
+      "voidTitle": "Kas tühistada see arve?",
+      "voidDescription": "Võimalik ainult siis, kui makseid pole registreeritud; numbrit ei kasutata kunagi uuesti.",
+      "void": "Tühista",
+      "voided": "Tühistatud {date}: {reason}",
+      "amounts": "Summad",
+      "subtotal": "Vahesumma",
+      "discount": "Allahindlus",
+      "discountPercent": "Allahindlus ({percent})",
+      "rounding": "Ümardamine",
+      "tdsExpected": "Oodatav TDS ({percent})",
+      "paid": "Tasutud",
+      "credited": "Kreediteeritud",
+      "balanceDue": "Tasumisele kuuluv saldo",
+      "supply": "Tarne",
+      "fxToBase": "Kurss baasvaluutasse",
+      "poReference": "Tellimuse viide",
+      "sent": "Saadetud",
+      "lineItems": "Arve read",
+      "columns": {
+        "description": "Kirjeldus",
+        "sacHsn": "SAC/HSN",
+        "qty": "Kogus",
+        "rate": "Hind",
+        "tax": "Maks",
+        "amount": "Summa"
+      },
+      "creditNotes": "Kreeditarved",
+      "storedDocuments": "Salvestatud dokumendid",
+      "storedDocumentsHint": "Iga versioon säilitatakse; kontrollileht loetleb kõik räsid.",
+      "regenerateTitle": "Kas luua uus PDF-versioon?",
+      "regenerateDescription": "Luuakse uuesti külmutatud hetktõmmisest (näiteks pärast renderdaja parandust). Varasemad versioonid säilivad.",
+      "regenerate": "Loo",
+      "newVersion": "Uus versioon",
+      "renderedOnFirstDownload": "PDF luuakse esimesel allalaadimisel.",
+      "protectedCopy": "Parooliga kaitstud koopia {version}",
+      "version": "Versioon {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Kontrolllink:",
+      "draftPreviewHint": "Mustandid kuvatakse otse redaktoris; lehe nägemiseks avage <link>vesimärgiga PDF</link>."
+    },
+    "history": {
+      "metaTitle": "Arve ajalugu",
+      "title": "Ajalugu <mono>{number}</mono>",
+      "reissueChain": "Uuesti väljastamise ahel",
+      "replaces": "Asendab arve <link>{number}</link>",
+      "replacedBy": "Asendatud arvega <link>{number}</link>",
+      "auditTrail": "Auditijälg",
+      "columns": {
+        "when": "Millal",
+        "who": "Kes",
+        "action": "Toiming",
+        "summary": "Kokkuvõte"
+      },
+      "noEvents": "Sündmusi veel pole.",
+      "system": "Süsteem",
+      "emails": "E-kirjad"
+    },
+    "payments": {
+      "title": "Maksed",
+      "description": "{client} · kokku {total}",
+      "backToInvoice": "Tagasi arve juurde",
+      "ledger": "Register",
+      "columns": {
+        "date": "Kuupäev",
+        "kind": "Liik",
+        "applied": "Rakendatud",
+        "tds": "TDS",
+        "received": "Laekunud",
+        "reference": "Viide",
+        "balance": "Saldo"
+      },
+      "noPayments": "Makseid pole veel registreeritud.",
+      "kinds": {
+        "payment": "Makse",
+        "refund": "Tagasimakse",
+        "writeOff": "Mahakandmine"
+      },
+      "receipt": "Kviitung",
+      "deleteEntryTitle": "Kas kustutada see kanne?",
+      "deleteEntryDescription": "Arve saldo arvutatakse uuesti.",
+      "totals": "Kogusummad",
+      "invoiceTotal": "Arve kogusumma",
+      "credited": "Kreediteeritud",
+      "refunds": "Tagasimaksed",
+      "writeOffs": "Mahakandmised",
+      "tdsDeducted": "Mahaarvatud TDS",
+      "bankFees": "Pangatasud",
+      "balanceDue": "Tasumisele kuuluv saldo",
+      "onlyIssued": "Makseid aktsepteerivad ainult väljastatud arved."
+    },
+    "send": {
+      "metaTitle": "Saada arve",
+      "title": "Saada <mono>{number}</mono>",
+      "alreadySent": "On juba märgitud saadetuks; uuesti saatmine lisab veel ühe logikirje.",
+      "previousSends": "Varasemad saatmised"
+    },
+    "builder": {
+      "parties": "Pooled",
+      "issuerProfile": "Väljastajaprofiil",
+      "client": "Klient",
+      "archivedOption": "{label} (arhiveeritud)",
+      "issueDate": "Väljastamise kuupäev",
+      "dueDate": "Maksetähtaeg",
+      "fxRate": "Kurss baasvaluutasse",
+      "fxHint": "1 {currency} = ? {base} (ainult aruandluseks)",
+      "poReference": "Tellimuse viide",
+      "lineItems": "Arve read",
+      "lineItemsHint": "Valige kataloogist, et selle väärtused kopeerida, või sisestage rida käsitsi.",
+      "taxDiscountTds": "Maks, allahindlus ja TDS",
+      "taxRegime": "Maksuseadus",
+      "regimes": {
+        "indiaGst": "India GST",
+        "ukVat": "Ühendkuningriigi käibemaks",
+        "usSalesTax": "USA müügimaks",
+        "none": "Maksuta"
+      },
+      "reverseCharge": "Pöördmaksustamine",
+      "reverseChargeHint": "Maksu tasub saaja",
+      "discount": "Allahindlus",
+      "percent": "Protsent",
+      "amount": "Summa",
+      "rounding": "Ümardamise korrigeerimine",
+      "roundingHint": "Valikuline, täisühikuni; peab olema alla 1",
+      "round": "Ümarda",
+      "tdsRate": "Oodatav TDS-i määr (%)",
+      "tdsRateHint": "Informatiivne; prinditakse, kui TDS-i jaotus on sisse lülitatud",
+      "paymentMethods": "Maksemeetodid",
+      "paymentMethodsHint": "Prinditakse märkimise järjekorras.",
+      "noPaymentMethods": "Aktiivseid maksemeetodeid pole. <link>Lisa üks</link>.",
+      "whatPrints": "Mis prinditakse",
+      "whatPrintsHint": "Algab väljastajaprofiili vaikeväärtustest.",
+      "notesAndTerms": "Märkused ja tingimused",
+      "notes": "Märkused",
+      "terms": "Tingimused",
+      "saveDraft": "Salvesta mustand",
+      "issuing": "Väljastamine…",
+      "saveAndIssue": "Salvesta ja väljasta",
+      "subtotal": "Vahesumma",
+      "tax": "Maks",
+      "tdsExpected": "Oodatav TDS",
+      "netExpected": "Oodatav netosumma"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Lisa kataloogist…",
+      "services": "Teenused",
+      "products": "Tooted",
+      "addLine": "Lisa rida",
+      "columns": {
+        "description": "Kirjeldus",
+        "sacHsn": "SAC/HSN",
+        "qty": "Kogus",
+        "unit": "Ühik",
+        "rate": "Hind",
+        "taxPercent": "Maks %"
+      },
+      "aria": {
+        "description": "Rea {line} kirjeldus",
+        "sacHsn": "Rea {line} SAC/HSN",
+        "quantity": "Rea {line} kogus",
+        "unit": "Rea {line} ühik",
+        "rate": "Rea {line} hind",
+        "taxRate": "Rea {line} maksumäär"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Vabastatud",
+      "moveUp": "Liiguta üles",
+      "moveDown": "Liiguta alla",
+      "removeLine": "Eemalda rida",
+      "shortcutHint": "Ctrl/⌘+Enter kirjelduses lisab rea.",
+      "addFromCatalogueAria": "Lisa kataloogist"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Väljastaja andmed",
+        "client": "Kliendi andmed",
+        "document": "Dokumendi jaotised"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Kaubanduslik nimi",
+        "showDesignation": "Ametinimetus",
+        "showEmail": "E-post",
+        "showPhone": "Telefon",
+        "showWebsite": "Veebisait",
+        "showFullAddress": "Täielik aadress",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Allkiri",
+        "showStamp": "Tempel",
+        "showContactPerson": "Kontaktisik",
+        "showBillingAddress": "Arveldusaadress",
+        "showShippingAddress": "Tarneaadress",
+        "showTaxIdentifier": "Maksutunnus",
+        "showPlaceOfSupply": "Tarnekoht",
+        "showDueDate": "Maksetähtaeg",
+        "showPaymentTerms": "Maksetingimused",
+        "showSacCodeColumn": "SAC-koodi veerg",
+        "showQuantityColumn": "Koguse veerg",
+        "showUnitPriceColumn": "Ühikuhinna veerg",
+        "showTaxColumn": "Maksu veerg",
+        "showTdsBreakdown": "TDS-i jaotus",
+        "showQrVerification": "QR-kontroll",
+        "showNotes": "Märkused",
+        "showTerms": "Tingimused",
+        "showReplacesReference": "Asendatava arve viide",
+        "showAmountInWords": "Summa sõnadega",
+        "showSupplyStatement": "Tarneavaldus",
+        "showRoundingLine": "Ümardamise rida",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Kliendid",
+      "description": "Kõik, kellele arveid esitate. Arvetega kliente arhiveeritakse, mitte kunagi ei kustutata.",
+      "newClient": "Uus klient",
+      "searchPlaceholder": "Otsi nime järgi",
+      "searchLabel": "Otsi kliente",
+      "emptyTitle": "Kliente veel pole",
+      "emptyDescription": "Lisage isikud ja ettevõtted, kellele arveid esitate; nende valuuta ja maksetingimused täidavad iga arve ette.",
+      "addClient": "Lisa klient",
+      "noMatch": "Ükski klient ei vasta päringule „{q}“.",
+      "termsDays": "{days} p",
+      "columns": {
+        "name": "Nimi",
+        "contact": "Kontakt",
+        "email": "E-post",
+        "country": "Riik",
+        "currency": "Valuuta",
+        "terms": "Tingimused",
+        "status": "Olek"
+      }
+    },
+    "new": {
+      "title": "Uus klient"
+    },
+    "edit": {
+      "metaTitle": "Muuda klienti",
+      "title": "Muuda: {name}"
+    },
+    "detail": {
+      "metaTitle": "Klient",
+      "newInvoice": "Uus arve",
+      "restoreTitle": "Kas taastada see klient?",
+      "archiveTitle": "Kas arhiveerida see klient?",
+      "archiveDescription": "See kaob valijatest; arved ja ajalugu jäävad puutumata.",
+      "deleteTitle": "Kas kustutada see klient?",
+      "deleteDescription": "Võimalik ainult siis, kui ükski arve kliendile ei viita.",
+      "details": "Andmed",
+      "contact": "Kontakt",
+      "email": "E-post",
+      "phone": "Telefon",
+      "country": "Riik",
+      "gstState": "GST {code}",
+      "taxId": "Maksutunnus",
+      "currency": "Valuuta",
+      "paymentTerms": "Maksetingimused",
+      "paymentTermsDays": "{days} päeva",
+      "expectedTds": "Oodatav TDS",
+      "notes": "Märkused",
+      "addresses": "Aadressid",
+      "billing": "Arveldus",
+      "shipping": "Tarne",
+      "lifetime": "Kogu aeg",
+      "openRegister": "Ava register",
+      "noIssued": "Väljastatud arveid veel pole.",
+      "noIssuedWithDrafts": "Väljastatud arveid veel pole ({drafts} mustand).",
+      "firstLatest": "Esimene arve <mono>{first}</mono>, viimane <mono>{latest}</mono>{drafts, plural, =0 {} one { · # mustand} other { · # mustandit}}",
+      "lifetimeColumns": {
+        "currency": "Valuuta",
+        "invoices": "Arved",
+        "billed": "Arveldatud",
+        "received": "Laekunud",
+        "credited": "Kreediteeritud",
+        "outstanding": "Tasumata",
+        "overdue": "Tähtaja ületanud"
+      },
+      "recentInvoices": "Viimased arved",
+      "noInvoices": "Sellel kliendil pole veel arveid.",
+      "recentColumns": {
+        "number": "Number",
+        "issueDate": "Väljastamise kuupäev",
+        "due": "Tähtaeg",
+        "total": "Kokku",
+        "balance": "Saldo",
+        "status": "Olek"
+      }
+    },
+    "form": {
+      "cardTitle": "Klient",
+      "displayName": "Kuvatav nimi",
+      "contactPerson": "Kontaktisik",
+      "email": "E-post",
+      "phone": "Telefon",
+      "taxIdType": "Maksutunnuse tüüp",
+      "taxIdTypeNone": "Puudub",
+      "taxId": "Maksutunnus",
+      "currency": "Valuuta",
+      "paymentTerms": "Maksetingimused (päevad)",
+      "expectedTdsRate": "Oodatav TDS-i määr (%)",
+      "notes": "Märkused",
+      "billingAddress": "Arveldusaadress",
+      "shippingAddress": "Tarneaadress",
+      "differentFromBilling": "Erineb arveldusaadressist",
+      "save": "Salvesta klient"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Tund",
+      "DAY": "Päev",
+      "FIXED": "Fikseeritud",
+      "MILESTONE": "Verstapost",
+      "UNIT": "Ühik"
+    },
+    "list": {
+      "activate": "Aktiveeri",
+      "deactivate": "Desaktiveeri",
+      "archiveDescription": "Olemasolevad arve read säilitavad oma kopeeritud väärtused.",
+      "deleteDescription": "Võimalik ainult siis, kui ükski arve rida sellele ei viita. Muidu arhiveerige see.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Nimi",
+        "unit": "Ühik",
+        "rate": "Hind",
+        "price": "Hind",
+        "currency": "Valuuta",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Maks",
+        "status": "Olek"
+      }
+    },
+    "services": {
+      "title": "Teenused",
+      "description": "Teie kataloog. Teenuse valimine kopeerib selle väärtused arve reale.",
+      "newService": "Uus teenus",
+      "emptyTitle": "Teenuseid veel pole",
+      "emptyDescription": "Lisage see, mida müüte - tunnipõhine disain, kindla hinnaga verstapost - koos SAC/HSN-koodi ja maksumääraga.",
+      "addService": "Lisa teenus",
+      "restoreTitle": "Kas taastada {name}?",
+      "archiveTitle": "Kas arhiveerida {name}?",
+      "deleteTitle": "Kas kustutada {name}?",
+      "editMetaTitle": "Muuda teenust",
+      "editTitle": "Muuda: {name}"
+    },
+    "products": {
+      "title": "Tooted",
+      "description": "Kaubad, mida müüte, igaühel SKU. Toote valimine kopeerib selle väärtused arve reale.",
+      "newProduct": "Uus toode",
+      "emptyTitle": "Tooteid veel pole",
+      "emptyDescription": "Lisage kaubad, mida müüte, koos SKU, HSN-koodi, ühikuhinna ja maksumääraga.",
+      "addProduct": "Lisa toode",
+      "restoreTitle": "Kas taastada {sku}?",
+      "archiveTitle": "Kas arhiveerida {sku}?",
+      "deleteTitle": "Kas kustutada {sku}?",
+      "editMetaTitle": "Muuda toodet",
+      "editTitle": "Muuda: {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Unikaalne kood, prinditakse rea kirjelduse alla",
+      "name": "Nimi",
+      "unit": "Ühik",
+      "defaultRate": "Vaikehind",
+      "unitPrice": "Ühikuhind",
+      "currency": "Valuuta",
+      "sacHsnCode": "SAC- / HSN-kood",
+      "sacHsnHint": "Nõutav GST arvetel",
+      "hsnCode": "HSN-kood",
+      "hsnHint": "Nõutav GST arvetel kaupade puhul",
+      "defaultTaxRate": "Vaikimisi maksumäär (%)",
+      "description": "Kirjeldus",
+      "descriptionHint": "Täidab rea kirjelduse ette",
+      "active": "Aktiivne",
+      "serviceInactiveHint": "Mitteaktiivsed teenused ei kuvata arve valijas",
+      "productInactiveHint": "Mitteaktiivsed tooted ei kuvata arve valijas",
+      "saveService": "Salvesta teenus",
+      "saveProduct": "Salvesta toode"
+    },
+    "tags": {
+      "legend": "Profiilid",
+      "hint": "Märkige väljastajaprofiilid, mis seda müüvad. Jätke kõik märkimata, et pakkuda seda igale profiilile."
+    }
+  },
+  "address": {
+    "line1": "Aadressirida 1",
+    "line2": "Aadressirida 2",
+    "city": "Linn",
+    "stateRegion": "Osariik / piirkond",
+    "postalCode": "Postiindeks",
+    "country": "Riik",
+    "state": "Osariik",
+    "gstStateCodeHint": "GST osariigi kood {code}",
+    "pickStateHint": "Valige osariik GST osariigi koodi jaoks",
+    "stateRegionCode": "Osariigi / piirkonna kood",
+    "stateRegionCodePlaceholder": "nt CA"
+  },
+  "assets": {
+    "tooLarge": "See fail on liiga suur.",
+    "unsupportedReceipt": "Kasutage PNG-, JPEG- või WebP-pilti või PDF-i.",
+    "unsupportedImage": "Kasutage PNG-, JPEG- või WebP-pilti.",
+    "uploadFailed": "Üleslaadimine ebaõnnestus.",
+    "uploading": "Üleslaadimine…"
+  },
+  "ui": {
+    "breadcrumb": "Leivapuru navigatsioon",
+    "close": "Sulge",
+    "closeMenu": "Sulge menüü",
+    "inputCharset": "Lubatud on ainult tavalised klaviatuurimärgid.",
+    "confirm": {
+      "working": "Töötlemine…"
+    },
+    "statusPill": {
+      "DRAFT": "Mustand",
+      "ISSUED": "Väljastatud",
+      "SENT": "Saadetud",
+      "PARTIALLY_PAID": "Osaliselt tasutud",
+      "PAID": "Tasutud",
+      "OVERDUE": "Tähtaja ületanud",
+      "VOID": "Tühistatud"
+    },
+    "activePill": {
+      "active": "Aktiivne",
+      "archived": "Arhiveeritud",
+      "inactive": "Mitteaktiivne"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Midagi läks valesti.",
+    "fixFields": "Palun parandage esiletõstetud väljad.",
+    "accountSaved": "Konto eelistused salvestatud",
+    "apiKeyCreated": "API võti loodud. Kopeerige see nüüd: seda näidatakse ainult üks kord.",
+    "saved": "{name} salvestatud",
+    "savedProfile": "Profiil {label} salvestatud",
+    "clientArchived": "Klient arhiveeritud",
+    "clientRestored": "Klient taastatud",
+    "clientDeleted": "Klient kustutatud",
+    "productArchived": "Toode arhiveeritud",
+    "productRestored": "Toode taastatud",
+    "productActivated": "Toode aktiveeritud",
+    "productDeactivated": "Toode desaktiveeritud",
+    "serviceArchived": "Teenus arhiveeritud",
+    "serviceRestored": "Teenus taastatud",
+    "serviceActivated": "Teenus aktiveeritud",
+    "serviceDeactivated": "Teenus desaktiveeritud",
+    "defaultProfileUpdated": "Vaikeprofiil uuendatud",
+    "profileArchived": "Profiil arhiveeritud",
+    "profileRestored": "Profiil taastatud",
+    "profileDeleted": "Profiil kustutatud",
+    "defaultPaymentMethodUpdated": "Vaikimisi maksemeetod uuendatud",
+    "paymentMethodArchived": "Maksemeetod arhiveeritud",
+    "paymentMethodRestored": "Maksemeetod taastatud",
+    "paymentMethodDeleted": "Maksemeetod kustutatud",
+    "issued": "{number} väljastatud",
+    "savedAsDraft": "Salvestatud mustandina. {reason}",
+    "draftSaved": "Mustand salvestatud",
+    "invoiceVoided": "Arve tühistatud",
+    "originalVoided": "Originaal tühistatud; muutke asendusmustandit",
+    "markedAsSent": "Märgitud saadetuks",
+    "draftDeleted": "Mustand kustutatud",
+    "generatedPdf": "PDF-versioon {version} loodud",
+    "creditNoteVoided": "Kreeditarve tühistatud; arve saldo on taastatud",
+    "draftCreditNoteDeleted": "Kreeditarve mustand kustutatud",
+    "mailRefused": "Meiliserver lükkas sõnumi tagasi: {error}. Katse logiti.",
+    "unknownError": "tundmatu viga",
+    "sentTo": "Saadetud: {recipients}",
+    "smtpSaved": "SMTP-seaded salvestatud",
+    "smtpRemoved": "Salvestatud SMTP-seaded eemaldatud",
+    "testEmailSent": "Testkiri saadetud aadressile {email}",
+    "testFailed": "Test ebaõnnestus: {error}",
+    "defaultRecipientsSaved": "Vaikimisi saajad salvestatud",
+    "invitationSent": "Kutse saadetud",
+    "invitationReady": "Kutse valmis",
+    "unknownRole": "Tundmatu roll",
+    "roleUpdated": "Roll uuendatud",
+    "accountDeactivated": "Konto desaktiveeritud",
+    "accountReactivated": "Konto aktiveeritud uuesti",
+    "invitationRevoked": "Kutse tühistatud",
+    "paymentUpdated": "Makse uuendatud",
+    "paymentRecorded": "Makse registreeritud",
+    "paymentDeleted": "Makse kustutatud",
+    "sessionRevoked": "Seanss tühistatud",
+    "noOtherSessions": "Muid seansse pole",
+    "signedOutOthers": "Välja logitud {count} muust seansist",
+    "sharePasswordRequired": "Sisestage parool või laske see genereerida.",
+    "shareLinkCreated": "Jagamislink loodud.",
+    "templateSaved": "Mall salvestatud; tulevased dokumendid kasutavad seda",
+    "templateReset": "Mall lähtestatud sisseehitatud vaikemallile",
+    "templateImported": "Mall imporditud",
+    "profileTemplateCleared": "Profiil kasutab taas instantsi malli",
+    "operatorSaved": "Haldaja andmed salvestatud. Õiguslikud lehed näitavad neid nüüd."
+  }
+}

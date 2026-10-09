@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Mwanzo wa okinvo",
+    "save": "Hifadhi",
+    "cancel": "Ghairi",
+    "continue": "Endelea",
+    "saving": "Inahifadhi…",
+    "detect": "Gundua",
+    "yes": "Ndiyo",
+    "no": "Hapana",
+    "choose": "Chagua…",
+    "remove": "Ondoa",
+    "tryAgain": "Jaribu tena",
+    "dashboard": "Dashibodi",
+    "goToDashboard": "Nenda kwenye dashibodi",
+    "or": "au",
+    "invoice": "Ankara",
+    "creditNote": "Hati ya mkopo",
+    "downloadPdf": "Pakua PDF",
+    "edit": "Hariri",
+    "delete": "Futa",
+    "downloadDocx": "Pakua DOCX",
+    "none": "Hakuna",
+    "dismiss": "Funga",
+    "all": "Zote",
+    "previous": "Iliyotangulia",
+    "next": "Inayofuata",
+    "go": "Nenda",
+    "search": "Tafuta",
+    "status": "Hali",
+    "total": "Jumla",
+    "currency": "Sarafu",
+    "from": "Kuanzia",
+    "to": "Hadi",
+    "reason": "Sababu",
+    "history": "Historia",
+    "archive": "Weka kwenye kumbukumbu",
+    "restore": "Rejesha",
+    "showArchived": "Onyesha zilizo kwenye kumbukumbu",
+    "hideArchived": "Ficha zilizo kwenye kumbukumbu",
+    "archived": "Iko kwenye kumbukumbu",
+    "default": "Chaguo-msingi",
+    "setDefault": "Weka kama chaguo-msingi",
+    "revoke": "Batilisha",
+    "copy": "Nakili",
+    "copied": "Imenakiliwa",
+    "active": "Inatumika",
+    "pagination": "Kurasa",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Dashibodi",
+      "invoices": "Ankara",
+      "creditNotes": "Hati za mkopo",
+      "clients": "Wateja",
+      "services": "Huduma",
+      "products": "Bidhaa"
+    },
+    "primaryNav": "Kuu",
+    "settings": "Mipangilio",
+    "openMenu": "Fungua menyu",
+    "navigation": "Urambazaji",
+    "pagesAndAccount": "Kurasa na akaunti",
+    "collapseSidebar": "Kunja upau wa pembeni",
+    "collapseSidebarHint": "Kunja upau wa pembeni ([)",
+    "expandSidebar": "Panua upau wa pembeni",
+    "expandSidebarHint": "Panua upau wa pembeni ([)",
+    "theme": {
+      "label": "Mandhari",
+      "system": "Mfumo",
+      "light": "Nyepesi",
+      "dark": "Nyeusi",
+      "current": "Mandhari: {mode}",
+      "switchTo": "Mandhari: {mode}. Badilisha kuwa {next}"
+    },
+    "userMenu": {
+      "label": "Menyu ya akaunti ya {name}",
+      "profile": "Wasifu",
+      "logOut": "Toka"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Ingia",
+      "title": "Ingia",
+      "subtitle": "Ni akaunti zilizoidhinishwa pekee zinazoweza kuingia.",
+      "failed": "Kuingia kumeshindikana.",
+      "noMethod": "Hakuna njia ya kuingia iliyosanidiwa. Weka jozi ya mtoa huduma kama <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>, au <code>AUTH_PASSWORD_SIGNIN=true</code>, ndani ya <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Akaunti hiyo haikubaliwi kwenye mfumo huu, au imezimwa.",
+        "signin": "Kuingia hakukukamilika. Tafadhali jaribu tena."
+      }
+    },
+    "password": {
+      "name": "Jina",
+      "email": "Barua pepe",
+      "password": "Nenosiri",
+      "signingIn": "Inaingia…",
+      "createAccount": "Fungua akaunti",
+      "signIn": "Ingia",
+      "haveAPassword": "Tayari nina nenosiri",
+      "firstTime": "Mara ya kwanza hapa? Weka nenosiri",
+      "failed": "Kuingia kumeshindikana."
+    },
+    "social": {
+      "redirecting": "Inaelekeza…",
+      "continueWith": "Endelea na {provider}",
+      "failed": "Kuingia hakukuweza kuanza."
+    },
+    "error": {
+      "metaTitle": "Hitilafu ya kuingia",
+      "title": "Kuingia kumeshindikana",
+      "body": "Mtoa huduma wa utambulisho amerudisha <code>{value}</code>. Ikiwa anwani yako haipo kwenye orodha ya walioruhusiwa ya mfumo huu, mwombe mmiliki aiongeze.",
+      "back": "Rudi kwenye kuingia"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Mipangilio",
+      "profiles": "Wasifu",
+      "paymentMethods": "Njia za malipo",
+      "templates": "Violezo",
+      "email": "Barua pepe",
+      "security": "Usalama",
+      "users": "Watumiaji",
+      "data": "Data",
+      "legal": "Kisheria",
+      "account": "Akaunti",
+      "appearance": "Mwonekano",
+      "api": "API",
+      "status": "Hali"
+    },
+    "account": {
+      "metaTitle": "Akaunti",
+      "title": "Akaunti",
+      "description": "Picha yako, jina, eneo, lugha na saa za eneo.",
+      "photo": {
+        "title": "Picha",
+        "description": "Inaonyeshwa kwenye upau wa pembeni na menyu ya mtumiaji."
+      },
+      "form": {
+        "title": "Akaunti",
+        "description": "Unavyoonekana na “leo” ni lini.",
+        "displayName": "Jina la kuonyesha",
+        "signInEmail": "Barua pepe ya kuingia",
+        "signInEmailHint": "Utambulisho wako kwenye mfumo huu; haiwezi kuhaririwa hapa.",
+        "timezone": "Saa za eneo",
+        "timezoneHint": "“Leo” kwa tarehe za kutoa, tarehe za mwisho wa malipo na dashibodi",
+        "regionTitle": "Eneo",
+        "regionDescription": "Chaguo-msingi za wasifu mpya wa mtoaji na za dashibodi hadi wasifu uwepo.",
+        "country": "Nchi",
+        "currency": "Sarafu",
+        "suggested": "Inapendekezwa kwa nchi hii:",
+        "language": "Lugha",
+        "languageHint": "Lugha ya programu yenyewe. Nyaraka hutumia lugha ya eneo ya kila wasifu.",
+        "machineTranslated": "Lugha hii imetafsiriwa kwa mashine. Marekebisho yanakaribishwa: <link>iboreshe kwenye GitHub</link>.",
+        "save": "Hifadhi mapendeleo"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerika",
+        "Asia": "Asia",
+        "Europe": "Ulaya",
+        "MiddleEast": "Mashariki ya Kati",
+        "Oceania": "Oceania",
+        "Constructed": "Lugha bunifu"
+      },
+      "privacy": {
+        "title": "Faragha",
+        "description": "okinvo huweka tu vidakuzi inavyohitaji kufanya kazi. Hakuna uchanganuzi, hakuna ufuatiliaji.",
+        "cookiePolicy": "Sera ya vidakuzi",
+        "showNoticeAgain": "Onyesha tena taarifa ya vidakuzi"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Badilisha picha",
+      "addPhoto": "Ongeza picha",
+      "hint": "PNG, JPEG au WebP. Huonyeshwa kama duara kila mahali; unaweza kuikuza na kuisogeza kabla ya kuhifadhi.",
+      "tooLarge": "Picha hiyo ni kubwa mno.",
+      "uploadFailed": "Upakiaji umeshindikana.",
+      "choose": "Chagua picha ya wasifu",
+      "dialogTitle": "Weka picha yako mahali pake",
+      "dialogDescription": "Buruta ili kusogeza, sogeza au bana ili kukuza. Duara ndilo wanaloona wote.",
+      "zoom": "Kuza",
+      "save": "Hifadhi picha"
+    },
+    "appearance": {
+      "metaTitle": "Mwonekano",
+      "title": "Mwonekano",
+      "description": "Mandhari na rangi ya msisitizo, vinahifadhiwa kwenye akaunti yako.",
+      "theme": {
+        "title": "Mandhari",
+        "description": "Fuata mfumo, au bandika nyepesi au nyeusi.",
+        "label": "Mandhari",
+        "system": "Fuata mfumo",
+        "systemHint": "Hubadilika na mfumo wako wa uendeshaji",
+        "light": "Nyepesi",
+        "lightHint": "Mandharinyuma meupe",
+        "dark": "Nyeusi",
+        "darkHint": "Mandharinyuma karibu meusi"
+      },
+      "accent": {
+        "title": "Msisitizo",
+        "description": "Hutumika kwa kitufe kikuu, pete za kulenga na alama ya ukurasa unaotumika. Mint inalingana na nembo ya chapa.",
+        "label": "Rangi ya msisitizo"
+      },
+      "accents": {
+        "mint": "Mint",
+        "lavender": "Lavenda",
+        "sky": "Anga",
+        "peach": "Pichi",
+        "butter": "Siagi",
+        "rose": "Waridi",
+        "sage": "Kijani kijivu",
+        "lilac": "Lilaki"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Wasifu wa watoaji",
+      "title": "Wasifu wa watoaji",
+      "description": "Utambulisho wa kisheria unaotumia kutoa ankara. Ule wa chaguo-msingi hujaza ankara mpya.",
+      "breadcrumb": "Wasifu",
+      "newProfile": "Wasifu mpya",
+      "emptyTitle": "Bado hakuna wasifu wa mtoaji",
+      "emptyDescription": "Unda utambulisho unaotoa ankara kutoka kwake: mtu binafsi mwenye PAN, au kampuni yako.",
+      "createProfile": "Unda wasifu",
+      "columns": {
+        "label": "Lebo",
+        "legalName": "Jina la kisheria",
+        "type": "Aina",
+        "country": "Nchi",
+        "currency": "Sarafu",
+        "regime": "Mfumo",
+        "status": "Hali"
+      },
+      "types": {
+        "company": "Kampuni",
+        "individual": "Mtu binafsi"
+      },
+      "makeDefaultTitle": "Fanya {label} kuwa chaguo-msingi?",
+      "makeDefaultDescription": "Ankara mpya zitaanzia kwenye wasifu huu.",
+      "restoreTitle": "Rejesha {label}?",
+      "archiveTitle": "Weka {label} kwenye kumbukumbu?",
+      "archiveDescription": "Itatoweka kwenye orodha za kuchagua; ankara zilizopo haziguswi.",
+      "new": {
+        "metaTitle": "Wasifu mpya wa mtoaji",
+        "title": "Wasifu mpya wa mtoaji",
+        "prefilled": "Umejazwa kutokana na majibu yako; kagua anwani na maelezo ya kodi, kisha hifadhi."
+      },
+      "edit": {
+        "metaTitle": "Hariri wasifu wa mtoaji",
+        "template": "Kiolezo",
+        "deleteTitle": "Futa {label}?",
+        "deleteDescription": "Inawezekana tu wakati hakuna ankara wala hati ya mkopo inayorejelea wasifu huu. Vinginevyo uweke kwenye kumbukumbu."
+      },
+      "template": {
+        "metaTitle": "Kiolezo cha wasifu",
+        "title": "Kiolezo cha {label}",
+        "ownTemplate": "Kiolezo chake",
+        "instanceTemplate": "Kiolezo cha mfumo",
+        "resetTitle": "Tumia tena kiolezo cha mfumo?",
+        "resetDescription": "Usanidi wa wasifu huu unaondolewa; nyaraka zilizotolewa hazibadiliki.",
+        "useInstance": "Tumia kiolezo cha mfumo",
+        "usingInstanceTitle": "Inatumia kiolezo cha mfumo",
+        "usingInstanceDescription": "Nyaraka za wasifu huu hufuata Mipangilio → Violezo. Chagua kuvibinafsisha kando.",
+        "customise": "Tumia kiolezo tofauti kwa wasifu huu",
+        "openInstance": "Fungua kiolezo cha mfumo"
+      },
+      "form": {
+        "identityTitle": "Utambulisho",
+        "identityDescription": "Ankara inatoka kwa nani.",
+        "type": "Aina",
+        "label": "Lebo",
+        "labelHint": "Huonyeshwa kwenye orodha za kuchagua pekee",
+        "legalName": "Jina la kisheria",
+        "tradeName": "Jina la biashara",
+        "designation": "Cheo",
+        "email": "Barua pepe",
+        "phone": "Simu",
+        "website": "Tovuti",
+        "addressTitle": "Anwani",
+        "taxTitle": "Vitambulisho vya kodi",
+        "taxDescription": "Vile vinavyokuhusu tu; uchapishaji hudhibitiwa kwa kila ankara.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Nambari ya VAT ya Uingereza",
+        "usTaxId": "EIN / SSN ya Marekani",
+        "usTaxIdHint": "Imesimbwa ikiwa imehifadhiwa",
+        "lutNumber": "Nambari ya LUT",
+        "lutNumberHint": "Kwa mauzo ya nje bila IGST",
+        "lutFiscalYear": "Mwaka wa fedha wa LUT",
+        "lutFiscalYearHint": "k.m. 2026-27",
+        "defaultsTitle": "Chaguo-msingi",
+        "baseCurrency": "Sarafu ya msingi",
+        "locale": "Lugha ya eneo ya hati",
+        "localeHint": "Umbizo la nambari na tarehe kwenye nyaraka",
+        "fiscalYearStart": "Mwaka wa fedha huanza mwezi wa",
+        "months": {
+          "january": "Januari",
+          "february": "Februari",
+          "march": "Machi",
+          "april": "Aprili",
+          "may": "Mei",
+          "june": "Juni",
+          "july": "Julai",
+          "august": "Agosti",
+          "september": "Septemba",
+          "october": "Oktoba",
+          "november": "Novemba",
+          "december": "Desemba"
+        },
+        "taxRegime": "Mfumo wa kodi wa chaguo-msingi",
+        "regimes": {
+          "indiaGst": "GST ya India",
+          "ukVat": "VAT ya Uingereza",
+          "usSalesTax": "Kodi ya mauzo ya Marekani",
+          "none": "Bila kodi"
+        },
+        "invoiceNumberFormat": "Umbizo la nambari ya ankara",
+        "invoiceNumberFormatHint": "Vialama: {tokens}",
+        "creditNoteNumberFormat": "Umbizo la nambari ya hati ya mkopo",
+        "tdsRate": "Kiwango cha TDS kinachotarajiwa (%)",
+        "tdsRateHint": "Kwa taarifa tu, huchapishwa kama makato yanayotarajiwa",
+        "defaultNotes": "Maelezo ya chaguo-msingi",
+        "defaultTerms": "Masharti ya chaguo-msingi",
+        "printTitle": "Kinachochapishwa kwa chaguo-msingi",
+        "printDescription": "Kila ankara hunakili haya na inaweza kuyabadilisha kila moja.",
+        "emailTitle": "Barua pepe",
+        "emailDescription": "Chaguo-msingi za kihariri cha kutuma. Vishika nafasi: {placeholders}",
+        "emailCc": "CC ya chaguo-msingi",
+        "emailBcc": "BCC ya chaguo-msingi",
+        "commaSeparated": "Tenganisha kwa koma",
+        "invoiceSubject": "Mada ya ankara",
+        "invoiceSubjectHint": "Ukiacha wazi hutumia kiolezo kilichojengewa ndani",
+        "creditNoteSubject": "Mada ya hati ya mkopo",
+        "invoiceBody": "Maudhui ya ankara",
+        "creditNoteBody": "Maudhui ya hati ya mkopo",
+        "artworkTitle": "Michoro",
+        "artworkDescription": "PNG, JPEG au WebP hadi MB 2; sahihi na muhuri huhifadhi uwazi.",
+        "logo": "Nembo",
+        "signature": "Sahihi",
+        "stamp": "Muhuri",
+        "transparentPng": "PNG yenye uwazi",
+        "save": "Hifadhi wasifu"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Njia za malipo",
+      "title": "Njia za malipo",
+      "description": "Jinsi wateja wanavyokulipa. Maelezo yamesimbwa na kugandishwa ndani ya kila ankara inapotolewa.",
+      "newMethod": "Njia mpya",
+      "emptyTitle": "Bado hakuna njia za malipo",
+      "emptyDescription": "Ongeza akaunti ya benki, kitambulisho cha UPI au pochi ili ankara ziwaambie wateja mahali pa kulipa.",
+      "addMethod": "Ongeza njia",
+      "columns": {
+        "name": "Jina",
+        "type": "Aina",
+        "currency": "Sarafu",
+        "status": "Hali"
+      },
+      "types": {
+        "bankTransfer": "Uhamisho wa benki",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Maalum"
+      },
+      "makeDefaultTitle": "Fanya {name} kuwa chaguo-msingi?",
+      "restoreTitle": "Rejesha {name}?",
+      "archiveTitle": "Weka {name} kwenye kumbukumbu?",
+      "archiveDescription": "Ankara zilizotolewa huhifadhi nakala iliyochapishwa.",
+      "new": {
+        "metaTitle": "Njia mpya ya malipo",
+        "title": "Njia mpya ya malipo"
+      },
+      "edit": {
+        "metaTitle": "Hariri njia ya malipo",
+        "title": "Hariri {name}",
+        "deleteTitle": "Futa {name}?",
+        "deleteDescription": "Inawezekana tu wakati hakuna ankara wala malipo yanayoirejelea. Vinginevyo iweke kwenye kumbukumbu."
+      },
+      "form": {
+        "name": "Jina",
+        "nameHint": "Huchapishwa kama kichwa cha kizuizi cha malipo",
+        "type": "Aina",
+        "currency": "Sarafu",
+        "currencyHint": "Hiari; huonyeshwa kwa muktadha tu",
+        "anyCurrency": "Yoyote",
+        "instructions": "Maelekezo",
+        "instructionsHint": "Huchapishwa chini ya maelezo",
+        "isDefault": "Njia ya chaguo-msingi",
+        "isDefaultDescription": "Huchaguliwa mapema kwenye ankara mpya",
+        "isActive": "Inatumika",
+        "detailsTitle": "Maelezo",
+        "detailsDescription": "Yamesimbwa yakihifadhiwa; hunakiliwa ndani ya kila ankara inapotolewa.",
+        "vpa": "Kitambulisho cha UPI (VPA)",
+        "payeeName": "Jina la mpokeaji",
+        "lines": "Mistari",
+        "linesHint": "Mstari mmoja kwa kila safu, huchapishwa kama ulivyo",
+        "accountEmail": "Barua pepe / jina la akaunti",
+        "bank": {
+          "accountHolder": "Mwenye akaunti",
+          "accountNumber": "Nambari ya akaunti",
+          "bankName": "Jina la benki",
+          "branch": "Tawi",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Msimbo wa uelekezaji / sort code"
+        },
+        "save": "Hifadhi njia ya malipo"
+      }
+    },
+    "templates": {
+      "metaTitle": "Violezo vya nyaraka",
+      "title": "Violezo vya nyaraka",
+      "customised": "Imebinafsishwa",
+      "builtIn": "Chaguo-msingi lililojengewa ndani",
+      "description": "Jinsi ankara na hati za mkopo zinavyoonekana. Nyaraka zilizotolewa huhifadhi kiolezo zilichotolewa nacho.",
+      "resetTitle": "Rudisha kwenye chaguo-msingi lililojengewa ndani?",
+      "resetDescription": "Ubinafsishaji wako unaondolewa; nyaraka zilizotolewa tayari hazibadiliki.",
+      "reset": "Rudisha",
+      "resetTrigger": "Rudisha chaguo-msingi",
+      "importTitle": "Ingiza",
+      "importDescription": "Rejesha usanidi uliosafirishwa awali.",
+      "overridesTitle": "Mbadala kwa kila wasifu",
+      "overridesDescription": "Wasifu unaweza kuchagua kiolezo chake kutoka ukurasa wake wa kuhariri.",
+      "noOverrides": "Kila wasifu unatumia kiolezo cha mfumo.",
+      "import": {
+        "json": "JSON ya kiolezo",
+        "jsonHint": "Bandika faili iliyotolewa na Safirisha JSON; funguo zinazokosekana hutumia chaguo-msingi",
+        "importing": "Inaingiza…",
+        "submit": "Ingiza"
+      },
+      "form": {
+        "templateTitle": "Kiolezo",
+        "templateDescription": "Violezo sita vilivyojengewa ndani; ubinafsishaji ulio hapa chini unatumika kwa kile utakachochagua.",
+        "templateGroup": "Kiolezo",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Cha kisasa na chenye nafasi, herufi zisizo na mkia, mstari wa msisitizo chini ya kichwa."
+          },
+          "classic": {
+            "name": "Kawaida",
+            "character": "Jedwali la kimapokeo lenye mipaka, vichwa vyenye mikia, jumla ndani ya visanduku."
+          },
+          "compact": {
+            "name": "Bana",
+            "character": "Mpangilio mnene kwa orodha ndefu; herufi ndogo, vitenganishi vichache."
+          },
+          "minimal": {
+            "name": "Rahisi",
+            "character": "Tulivu na pana: hakuna mistari wala visanduku, lebo nyepesi, nafasi nyingi."
+          },
+          "letterhead": {
+            "name": "Karatasi ya barua",
+            "character": "Nembo na jina lako kwenye utepe wa rangi au picha juu ya kila ukurasa."
+          },
+          "modern": {
+            "name": "Kisasa",
+            "character": "Kichwa cha utepe wa rangi; pande husika, kichwa cha jedwali na jumla juu ya rangi hafifu ya msisitizo."
+          }
+        },
+        "paperTitle": "Karatasi na herufi",
+        "paperSize": "Ukubwa wa karatasi",
+        "paperLetter": "Letter",
+        "margins": "Pembezoni",
+        "marginsNormal": "Kawaida",
+        "marginsNarrow": "Nyembamba",
+        "headingFont": "Herufi za vichwa",
+        "bodyFont": "Herufi za maandishi",
+        "fontSans": "Bila mikia",
+        "fontSerif": "Zenye mikia",
+        "tableStyle": "Mtindo wa jedwali",
+        "tableRuled": "Lenye mistari",
+        "tableZebra": "Zebra",
+        "tablePlain": "Rahisi",
+        "accentColour": "Rangi ya msisitizo",
+        "textColour": "Rangi ya maandishi",
+        "logoPosition": "Mahali pa nembo",
+        "positionLeft": "Kushoto",
+        "positionCentre": "Katikati",
+        "positionRight": "Kulia",
+        "logoHeight": "Urefu wa nembo (mm)",
+        "documentTitle": "Kichwa cha hati",
+        "titleAuto": "Kiotomatiki (kulingana na GST)",
+        "titleCustom": "Maalum",
+        "titlePlaceholder": "k.m. ANKARA YA AWALI",
+        "qrPosition": "Mahali pa QR",
+        "qrFooter": "Kijachini",
+        "qrHeader": "Kichwa",
+        "qrBesideTotals": "Kando ya jumla",
+        "amountInWords": "Kiasi kwa maneno",
+        "wordsBelowTotal": "Chini ya jumla",
+        "wordsFooter": "Kijachini",
+        "wordsHidden": "Imefichwa",
+        "subtotalRow": "Safu ya jumla ndogo",
+        "discountRow": "Safu ya punguzo",
+        "taxLines": "Mistari ya kodi",
+        "tdsExpected": "TDS inayotarajiwa",
+        "roundingRow": "Safu ya kukadiria",
+        "pageNumbers": "Nambari za kurasa",
+        "headerTitle": "Kichwa",
+        "headerDescription": "Utepe wa rangi au picha juu ya kila ukurasa. Karatasi ya barua na Kisasa huonyesha utepe isipokuwa ukichagua vinginevyo.",
+        "headerStyle": "Mtindo wa kichwa",
+        "headerNone": "Hakuna",
+        "headerBand": "Utepe wa rangi",
+        "headerImage": "Picha",
+        "bandColour": "Rangi ya utepe",
+        "bandColourHex": "Rangi ya utepe (hex)",
+        "headerImageLabel": "Picha ya kichwa",
+        "headerImageHint": "PNG, JPEG au WebP hadi upana wa px 2400; hujaza upana wa ukurasa.",
+        "imageOpacity": "Uwazi wa picha",
+        "headerHeight": "Urefu wa kichwa (mm)",
+        "bandText": "Maandishi kwenye utepe",
+        "bandTextAuto": "Kiotomatiki (kutoka rangi ya utepe)",
+        "bandTextLight": "Nyepesi",
+        "bandTextDark": "Nyeusi",
+        "textTitle": "Maandishi",
+        "headerNote": "Dokezo la kichwa",
+        "footer": "Kijachini",
+        "signatureCaption": "Maelezo ya sahihi",
+        "draftWatermark": "Alama ya maji ya rasimu",
+        "labelsTitle": "Lebo",
+        "labelsDescription": "Acha sehemu wazi ili kuhifadhi maneno ya chaguo-msingi.",
+        "save": "Hifadhi kiolezo",
+        "downloadSample": "Pakua PDF ya mfano",
+        "exportJson": "Safirisha JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Barua pepe",
+      "title": "Barua pepe",
+      "configuredSettings": "Imesanidiwa kwenye Mipangilio",
+      "configuredEnv": "Imesanidiwa na mazingira",
+      "notConfigured": "Haijasanidiwa: njia ya programu ya barua pepe",
+      "description": "Nyaraka hutumwa kutoka kihariri cha kutuma pamoja na PDF iliyohifadhiwa kama kiambatisho. Mipangilio ya hapa hubatilisha SMTP_* ya mazingira.",
+      "sendTest": "Tuma barua pepe ya majaribio kwa {email}",
+      "removeTitle": "Ondoa mipangilio ya SMTP iliyohifadhiwa?",
+      "removeEnvTakesOver": "Thamani za SMTP_* za mazingira zitachukua nafasi.",
+      "removeFallsBack": "Barua pepe itarudi kwenye njia ya programu ya barua pepe.",
+      "removeTrigger": "Ondoa mipangilio iliyohifadhiwa",
+      "smtpTitle": "Seva ya SMTP",
+      "smtpFromEnv": "Kwa sasa inachukuliwa kutoka mazingira; kuhifadhi hapa kunaibatilisha.",
+      "smtpPasswordNote": "Nenosiri limesimbwa likihifadhiwa na halitaonyeshwa tena.",
+      "defaultsTitle": "Wapokeaji wa chaguo-msingi",
+      "defaultsDescription": "CC/BCC za mfumo mzima; wasifu wa watoaji huongeza zao.",
+      "sentTitle": "Barua pepe zilizotumwa",
+      "sentDescription": "Majaribio 50 ya mwisho, ikiwemo yaliyoshindikana na yaliyotumwa kwa mkono.",
+      "smtp": {
+        "host": "Seva",
+        "port": "Mlango",
+        "security": "Usalama",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Hakuna (relay ya LAN)",
+        "user": "Jina la mtumiaji",
+        "password": "Nenosiri",
+        "passwordStored": "Imehifadhiwa na kusimbwa; acha wazi ili kuiweka",
+        "passwordEncrypted": "Imesimbwa ikiwa imehifadhiwa",
+        "from": "Anwani ya mtumaji",
+        "fromName": "Jina la mtumaji",
+        "replyTo": "Jibu kwa",
+        "save": "Hifadhi mipangilio ya SMTP"
+      },
+      "defaults": {
+        "cc": "CC ya chaguo-msingi",
+        "ccHint": "Huongezwa kwenye kila ujumbe; tenganisha kwa koma",
+        "bcc": "BCC ya chaguo-msingi",
+        "save": "Hifadhi chaguo-msingi"
+      }
+    },
+    "security": {
+      "metaTitle": "Usalama",
+      "title": "Usalama",
+      "description": "Mahali ulipoingia, na kila kilichobadilika.",
+      "sessions": {
+        "title": "Vipindi vinavyotumika",
+        "description": "Kubatilisha kipindi hutoa kifaa hicho mara moja.",
+        "signOutOthers": {
+          "title": "Toka kila mahali pengine?",
+          "description": "Kila kipindi isipokuwa hiki kinabatilishwa.",
+          "confirm": "Toa wengine",
+          "trigger": "Toka kila mahali pengine"
+        },
+        "columns": {
+          "device": "Kifaa",
+          "ipAddress": "Anwani ya IP",
+          "signedIn": "Aliingia",
+          "lastSeen": "Alionekana mwisho",
+          "expires": "Inakwisha"
+        },
+        "thisDevice": "Kifaa hiki",
+        "revokeTitle": "Batilisha kipindi hiki?",
+        "unknownDevice": "Kifaa kisichojulikana",
+        "unknownBrowser": "Haijulikani",
+        "agentOnOs": "{browser} kwenye {os}"
+      },
+      "audit": {
+        "title": "Kumbukumbu ya ukaguzi",
+        "count": "{count, plural, one {tukio #} other {matukio #}}",
+        "entity": "Kipengele",
+        "actionContains": "Kitendo kina",
+        "filter": "Chuja",
+        "reset": "Weka upya",
+        "columns": {
+          "when": "Lini",
+          "who": "Nani",
+          "action": "Kitendo",
+          "entity": "Kipengele",
+          "summary": "Muhtasari"
+        },
+        "empty": "Hakuna matukio yanayolingana na vichujio hivi.",
+        "system": "Mfumo",
+        "changes": "Mabadiliko",
+        "page": "Ukurasa wa {page} kati ya {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Watumiaji",
+      "title": "Watumiaji",
+      "description": "Nani anaweza kuingia kwenye mfumo huu na anaweza kufanya nini.",
+      "roles": {
+        "owner": "Mmiliki",
+        "editor": "Mhariri",
+        "viewer": "Mtazamaji"
+      },
+      "roleHints": {
+        "owner": "Kila kitu, ikiwemo mipangilio na wanachama",
+        "editor": "Wateja, katalogi, ankara, hati za mkopo, malipo, barua pepe",
+        "viewer": "Kusoma tu"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Jukumu la {email}",
+      "invite": {
+        "title": "Mwalike mtu",
+        "description": "Wanaingia kwa anwani iliyoalikwa (mtoa huduma wa utambulisho au nenosiri) na kupata jukumu utakalochagua.",
+        "sent": "Mwaliko umetumwa kwa barua pepe kwa {email}.",
+        "readyWithError": "Mwaliko uko tayari kwa {email}. Barua pepe haikuweza kutumwa ({error}); wapelekee kiungo hiki:",
+        "readyNoSmtp": "Mwaliko uko tayari kwa {email}. Hakuna SMTP iliyosanidiwa; wapelekee kiungo hiki:",
+        "copyLink": "Nakili kiungo",
+        "email": "Barua pepe",
+        "emailPlaceholder": "mtu@example.com",
+        "role": "Jukumu",
+        "submit": "Alika",
+        "inviting": "Inaalika…"
+      },
+      "members": {
+        "title": "Wanachama",
+        "description": "Angalau mmiliki mmoja anayetumika hubaki daima.",
+        "columns": {
+          "person": "Mtu",
+          "role": "Jukumu",
+          "lastSignIn": "Kuingia kwa mwisho",
+          "status": "Hali"
+        },
+        "nameYou": "{name} (wewe)",
+        "deactivated": "Imezimwa",
+        "reactivate": {
+          "title": "Washa tena {email}?",
+          "description": "Wataweza kuingia tena wakiwa na jukumu lao la awali.",
+          "confirm": "Washa tena"
+        },
+        "deactivate": {
+          "title": "Zima {email}?",
+          "description": "Kila kipindi kinaisha sasa na hawawezi kuingia hadi watakapowashwa tena. Historia yao inabaki.",
+          "confirm": "Zima"
+        }
+      },
+      "invitations": {
+        "title": "Mialiko inayosubiri",
+        "description": "Anwani zinazoweza kuingia lakini bado hazijaingia.",
+        "columns": {
+          "email": "Barua pepe",
+          "role": "Jukumu",
+          "invited": "Aliyealikwa"
+        },
+        "empty": "Hakuna mialiko inayosubiri.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Batilisha mwaliko wa {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Data",
+      "title": "Data",
+      "description": "Kila kitu kinaweza kuhamishwa: seti za data kama CSV au Excel, nakala kamili ya uhamisho, PDF za mhasibu wako, na utaratibu wa kuhifadhi nakala uliojaribiwa.",
+      "period": {
+        "fiscalYear": "Mwaka wa fedha",
+        "fiscalYearHint": "Hubatilisha tarehe",
+        "issuer": "Mtoaji"
+      },
+      "exportAll": {
+        "title": "Safirisha data yote",
+        "description": "ZIP yenye kila seti ya data kama CSV pamoja na <mono>data.json</mono>, nakala ya uhusiano ya jedwali zote. Sehemu zilizosimbwa (maelezo ya njia za malipo, nenosiri la SMTP) hazijumuishwi; README ndani inazitaja.",
+        "download": "Pakua ZIP ya okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "Safirisha nyaraka",
+        "description": "PDF zote za ankara na hati za mkopo zilizotolewa na zilizobatilishwa kwa kipindi, zimetajwa kwa nambari, pamoja na <mono>index.csv</mono> ya nambari, jumla na heshi. PDF zinazokosekana huundwa papo hapo.",
+        "docx": "Jumuisha pia nakala ya DOCX ya kila hati",
+        "download": "Pakua ZIP ya nyaraka"
+      },
+      "datasets": {
+        "title": "Seti za data",
+        "description": "Uhamishaji ule ule unaotolewa na kurasa za orodha, ukiwa na kipindi na mtoaji vinavyotumika kwa zote. Malipo hutumia kipindi cha tarehe; wateja na huduma hupuuza kipindi.",
+        "columns": {
+          "dataset": "Seti ya data",
+          "filters": "Vichujio vilivyotumika",
+          "download": "Pakua"
+        },
+        "names": {
+          "invoices": "Rejista ya ankara",
+          "invoiceItems": "Vipengele vya ankara",
+          "payments": "Leja ya malipo",
+          "creditNotes": "Rejista ya hati za mkopo",
+          "clients": "Wateja",
+          "services": "Huduma",
+          "gstSummary": "Muhtasari wa GST",
+          "tdsSummary": "Muhtasari wa TDS"
+        },
+        "filters": {
+          "periodIssuer": "kipindi, mtoaji",
+          "dateRangeIssuer": "kipindi cha tarehe, mtoaji",
+          "includesArchived": "inajumuisha zilizo kwenye kumbukumbu"
+        }
+      },
+      "backups": {
+        "title": "Nakala rudufu",
+        "notWired": "Hakuna huduma ya nakala rudufu iliyounganishwa",
+        "noRun": "Hakuna nakala rudufu iliyofanyika bado",
+        "lastOk": "Nakala rudufu ya mwisho ilifanikiwa",
+        "lastFailed": "Nakala rudufu ya mwisho imeshindikana",
+        "description": "Huduma ya Compose <mono>backup</mono> hutoa dampo la Postgres na kuhifadhi kwenye kumbukumbu diski ya hifadhi kulingana na <mono>BACKUP_CRON</mono>, huweka historia ya <mono>BACKUP_RETENTION_DAYS</mono> kwenye diski ya <mono>backups</mono>, na huandika faili ya hali ambayo ukurasa huu husoma.",
+        "finished": "Ilikamilika",
+        "databaseDump": "Dampo la hifadhidata",
+        "storageArchive": "Kumbukumbu ya hifadhi",
+        "size": "Ukubwa",
+        "sizeMb": "MB {size}",
+        "error": "Hitilafu",
+        "runNow": "Endesha moja sasa, au rejesha kutoka jozi ya faili:",
+        "restoreDrill": "Utaratibu wa kurejesha hujaribiwa kwenye CI na <mono>scripts/restore-drill.sh</mono>: seed, nakala rudufu, futa, rejesha, kisha linganisha idadi ya safu na heshi ya PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "Kisheria",
+      "metaDescription": "Nani anaendesha mfumo huu: maelezo yanayochapishwa kwenye kurasa za kisheria za umma.",
+      "title": "Kisheria",
+      "description": "Kurasa za kisheria za umma huchapisha maelezo haya. Hadi kila sehemu ijazwe, kurasa huonyesha vishika nafasi vilivyoangaziwa.",
+      "operator": {
+        "title": "Maelezo ya mwendeshaji",
+        "complete": "Kamili",
+        "missing": "{count} hazipo: {fields}",
+        "description": "Wewe, kama mtu au kampuni inayoendesha mfumo huu, ndiye mwendeshaji anayerejelewa na nyaraka. Hakuna kinachotumwa popote kutoka hapa; kinachapishwa kwenye kurasa zilizo hapa chini."
+      },
+      "fieldLabels": {
+        "legalName": "Jina la kisheria la mwendeshaji",
+        "entityType": "Aina ya kampuni au mtu",
+        "address": "Anwani ya mwendeshaji",
+        "country": "Nchi ya mwendeshaji",
+        "contactEmail": "Barua pepe ya mawasiliano",
+        "privacyEmail": "Barua pepe ya faragha",
+        "dpoEmail": "Barua pepe ya afisa wa ulinzi wa data",
+        "governingLaw": "Sheria inayotawala",
+        "venue": "Mahali pa kusuluhisha migogoro",
+        "effectiveDate": "Tarehe ya kuanza kutumika"
+      },
+      "publicPages": {
+        "title": "Kurasa za umma",
+        "description": "Zimeunganishwa kutoka ukurasa wa kuingia, kitazamaji cha kushiriki na taarifa ya vidakuzi.",
+        "terms": "Masharti ya Huduma",
+        "acceptableUse": "Sera ya Matumizi Yanayokubalika",
+        "privacy": "Sera ya Faragha",
+        "cookies": "Sera ya Vidakuzi",
+        "dataRetention": "Uhifadhi wa data",
+        "security": "Usalama",
+        "licenses": "Leseni na taarifa za wahusika wengine"
+      },
+      "form": {
+        "legalName": "Jina la kisheria",
+        "entityType": "Aina ya kampuni au mtu",
+        "individual": "Mtu binafsi / mmiliki pekee",
+        "company": "Kampuni / taasisi iliyosajiliwa",
+        "address": "Anwani",
+        "addressHint": "Huchapishwa kwenye Masharti na Sera ya Faragha kama anwani ya posta ya mwendeshaji.",
+        "country": "Nchi",
+        "effectiveDate": "Tarehe ya kuanza kutumika",
+        "contactEmail": "Barua pepe ya mawasiliano",
+        "privacyEmail": "Barua pepe ya faragha",
+        "privacyEmailHint": "Mahali maombi ya wenye data yanapoenda; inaweza kuwa anwani ya mawasiliano.",
+        "dpoEmail": "Barua pepe ya afisa wa ulinzi wa data",
+        "dpoEmailHint": "Tu ikiwa umemteua.",
+        "governingLaw": "Sheria inayotawala",
+        "governingLawHint": "Kwa mfano “sheria za India” au “sheria za Uingereza na Wales”.",
+        "venue": "Mahali pa kusuluhisha migogoro",
+        "venueHint": "Kwa mfano “mahakama za Bengaluru, Karnataka”.",
+        "submit": "Hifadhi maelezo ya mwendeshaji"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Funguo za API kwa hati, SDK na wateja wa MCP, pamoja na mifano ya curl.",
+      "title": "API",
+      "description": "Funguo za hati, SDK na wateja wa MCP. Ufunguo unaweza kufanya kiwango cha juu cha kile jukumu lako linaruhusu; unaonyeshwa mara moja tu.",
+      "create": {
+        "title": "Unda ufunguo",
+        "description": "Utume kama <mono>Authorization: Bearer okv_…</mono>. Usiuweke kwenye msimbo wa chanzo wala kumbukumbu za gumzo; ubatilishe hapa chini ukivuja."
+      },
+      "keys": {
+        "title": "Funguo",
+        "descriptionOwner": "Kila ufunguo wa mfumo huu; wamiliki wanaweza kubatilisha yoyote.",
+        "descriptionOwn": "Funguo zako.",
+        "columns": {
+          "name": "Jina",
+          "prefix": "Kiambishi awali",
+          "scopes": "Wigo",
+          "owner": "Mmiliki",
+          "lastUsed": "Ulitumika mwisho",
+          "expires": "Unakwisha",
+          "status": "Hali"
+        },
+        "empty": "Bado hakuna funguo za API.",
+        "never": "kamwe",
+        "revoked": "Umebatilishwa",
+        "expired": "Umekwisha muda",
+        "revokeTitle": "Batilisha {name}?",
+        "revokeDescription": "Wateja wanaotumia ufunguo huu huacha kufanya kazi mara moja.",
+        "activeCount": "{count, plural, one {Ufunguo # unaotumika.} other {Funguo # zinazotumika.}}"
+      },
+      "examples": {
+        "title": "Mifano",
+        "description": "Badilisha <mono>$OKINVO_KEY</mono> kwa ufunguo. REST API yenye matoleo, hati yake ya OpenAPI (<mono>/api/openapi.json</mono>), SDK ya TypeScript na seva ya MCP zinakuja na kazi zinazofuata za mpango wa v1.1; kiungo cha hali kinafanya kazi leo.",
+        "rateLimit": "Maombi yanayozidi kikomo hujibiwa na 429 pamoja na kichwa cha <mono>Retry-After</mono> (maombi 120 kwa dakika kwa kila ufunguo). Wigo wa ufunguo unabanwa na jukumu la sasa la mmiliki wake."
+      },
+      "form": {
+        "copyKey": "Nakili ufunguo wa API",
+        "name": "Jina",
+        "namePlaceholder": "k.m. hati ya uhasibu",
+        "expires": "Unakwisha",
+        "in30Days": "Baada ya siku 30",
+        "in90Days": "Baada ya siku 90",
+        "inAYear": "Baada ya mwaka mmoja",
+        "never": "Kamwe",
+        "scopes": "Wigo",
+        "submit": "Unda ufunguo wa API",
+        "creating": "Inaunda…"
+      },
+      "scopes": {
+        "invoicesRead": "Soma ankara",
+        "invoicesCreate": "Unda na toa ankara",
+        "creditNotesRead": "Soma hati za mkopo",
+        "creditNotesCreate": "Unda na toa hati za mkopo",
+        "catalogueRead": "Soma wateja, huduma na bidhaa",
+        "documentsRead": "Pakua PDF zilizohifadhiwa na nakala za DOCX",
+        "statusRead": "Soma hali ya mfumo"
+      }
+    },
+    "status": {
+      "metaTitle": "Hali",
+      "metaDescription": "Toleo, hifadhidata, hifadhi, barua pepe na afya ya nakala rudufu za mfumo huu.",
+      "title": "Hali",
+      "description": "Mfumo huu unaendesha nini na kama sehemu zake zinajibu.",
+      "recheck": "Kagua tena",
+      "health": {
+        "ok": "Sawa",
+        "warning": "Onyo",
+        "failed": "Imeshindikana",
+        "na": "Haijasanidiwa"
+      },
+      "overall": {
+        "ok": "Yote sawa",
+        "degraded": "Utendaji umepungua",
+        "failed": "Imeshindikana"
+      },
+      "version": "Toleo {hasSha, select, yes {<mono>{sha}</mono>} other {(sha haijulikani)}} · lilijengwa {built} · Node <mono>{node}</mono> · limewaka kwa {uptime} · lilikaguliwa {checked}",
+      "dateUnknown": "(tarehe haijulikani)",
+      "uptime": {
+        "days": "siku {d} saa {h} dak {m}",
+        "hours": "saa {h} dak {m}",
+        "minutes": "dak {m}"
+      },
+      "rows": {
+        "database": "Hifadhidata",
+        "storage": "Hifadhi",
+        "rateLimiting": "Kudhibiti kasi ya maombi",
+        "email": "Barua pepe",
+        "backups": "Nakala rudufu"
+      },
+      "db": {
+        "detail": "ms {latency} · uhamisho wa mwisho <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · uhamisho # ambao haujakamilika}}",
+        "noMigration": "hakuna"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · kuandika, kusoma na kufuta kitu cha majaribio kwa ms {latency}",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "hifadhi ya <mono>{store}</mono> {store, select, memory {(nakala moja)} other {(inashirikiwa kati ya nakala)}}",
+      "smtp": {
+        "configured": "SMTP kutoka {source, select, settings {settings} env {env} other {}} · jaribio la mwisho {lastTest} · saa 24 zilizopita: {sent} zimetumwa, {failed} zimeshindikana",
+        "none": "Hakuna seva ya SMTP; kihariri cha kutuma hutoa “Fungua kwenye programu ya barua pepe”. <link>Sanidi</link>"
+      },
+      "backups": {
+        "notWired": "Hakuna huduma ya nakala rudufu iliyounganishwa (BACKUP_STATUS_FILE haijawekwa).",
+        "noRun": "Huduma ya nakala rudufu imeunganishwa; hakuna uendeshaji ulioandikwa bado.",
+        "ok": "Uendeshaji wa mwisho ulifanikiwa saa {finishedAt}{days, plural, =0 {} one { · uhifadhi siku #} other { · uhifadhi siku #}}",
+        "failed": "Uendeshaji wa mwisho umeshindikana: {error} saa {finishedAt}{days, plural, =0 {} one { · uhifadhi siku #} other { · uhifadhi siku #}}"
+      },
+      "footer": "Ripoti hiyo hiyo inapatikana kama JSON kwenye <mono>/api/health/status</mono> kwa ufuatiliaji (kipindi kilichoingia au ufunguo wa API)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Karibu",
+    "progress": "Maendeleo",
+    "steps": {
+      "aboutYou": "Kukuhusu",
+      "howYouUse": "Jinsi utakavyoitumia",
+      "allSet": "Tayari"
+    },
+    "step1": {
+      "title": "Tueleze kukuhusu",
+      "subtitle": "Hii huweka chaguo-msingi zako; kila thamani inaweza kubadilishwa baadaye kwenye Mipangilio.",
+      "name": "Jina",
+      "email": "Barua pepe",
+      "emailHint": "Utambulisho wako wa kuingia. Unaweza kubadilishwa baadaye kutoka Mipangilio → Usalama.",
+      "country": "Nchi",
+      "currency": "Sarafu unayopendelea",
+      "currencyHint": "Hutumika kwa wasifu mpya na dashibodi hadi wasifu uwepo."
+    },
+    "step2": {
+      "title": "Utatumiaje okinvo?",
+      "subtitle": "Chaguo-msingi pekee ndizo hubadilika; hakuna kinachofungwa.",
+      "usage": "Matumizi",
+      "personal": "Ankara za binafsi",
+      "personalHint": "Kazi ya kujitegemea kwa jina lako",
+      "business": "Ankara za biashara",
+      "businessHint": "Ankara kutoka biashara iliyosajiliwa",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Nambari ya VAT",
+        "other": "Nambari ya usajili wa kodi"
+      },
+      "taxQuestion": {
+        "IN": "Je, una GSTIN?",
+        "GB": "Je, umesajiliwa kwa VAT?",
+        "other": "Je, una nambari ya usajili wa kodi ya kuchapisha kwenye ankara?"
+      }
+    },
+    "step3": {
+      "title": "Uko tayari",
+      "body": "Kisha, unda wasifu wako wa kwanza wa mtoaji: jina, anwani na maelezo ya kodi yanayochapishwa kwenye ankara zako. Tumejaza ulichotuambia.",
+      "go": "Nenda kwenye wasifu",
+      "opening": "Inafungua…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Masharti",
+      "privacy": "Faragha",
+      "cookies": "Vidakuzi",
+      "security": "Usalama"
+    },
+    "cookieNotice": {
+      "label": "Taarifa ya vidakuzi",
+      "body": "Tunatumia vidakuzi vya lazima kabisa tu: kipindi chako na mapendeleo yako ya maonyesho. Hakuna uchanganuzi, hakuna ufuatiliaji.",
+      "policy": "Sera ya vidakuzi",
+      "gotIt": "Nimeelewa"
+    },
+    "nav": {
+      "label": "Kisheria",
+      "cookies": "Vidakuzi",
+      "privacy": "Faragha",
+      "terms": "Masharti",
+      "acceptableUse": "Matumizi yanayokubalika",
+      "retention": "Uhifadhi",
+      "security": "Usalama",
+      "licences": "Leseni"
+    },
+    "operatorNotice": "okinvo ni programu inayojiendeshea mwenyewe; mwendeshaji wa mfumo huu anawajibika kwa matumizi yake.",
+    "doc": {
+      "effectiveOn": "Inaanza kutumika <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Yaliyomo"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Jina la kisheria la mwendeshaji",
+        "entityType": "Aina ya kampuni au mtu",
+        "address": "Anwani ya mwendeshaji",
+        "country": "Nchi ya mwendeshaji",
+        "contactEmail": "Barua pepe ya mawasiliano",
+        "privacyEmail": "Barua pepe ya faragha",
+        "dpoEmail": "Barua pepe ya afisa wa ulinzi wa data",
+        "governingLaw": "Sheria inayotawala",
+        "venue": "Mahali pa kusuluhisha migogoro",
+        "effectiveDate": "Tarehe ya kuanza kutumika"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Haijapatikana",
+      "title": "Hakuna kitu kwenye anwani hii",
+      "body": "Kiungo kinaweza kuwa cha zamani, au hati iliyoelekezwa haikutolewa kamwe."
+    },
+    "forbidden": {
+      "metaTitle": "Hairuhusiwi",
+      "title": "Akaunti hii haiwezi kufanya hivyo",
+      "body": "Jukumu lako haliruhusu hili. Mwombe mmiliki akupe ufikiaji, au ingia kwa akaunti inayo."
+    },
+    "error": {
+      "title": "Kuna tatizo limetokea",
+      "body": "Hakuna kilichobadilishwa na ombi hili. Jaribu tena; ikiendelea, kumbukumbu za seva zina maelezo.",
+      "digest": "hitilafu {digest}",
+      "generic": "hitilafu"
+    },
+    "appNotFound": {
+      "title": "Haijapatikana",
+      "body": "Rekodi hii haipo, au ilifutwa ulipokuwa ukiitazama.",
+      "back": "Rudi kwenye dashibodi"
+    },
+    "validation": {
+      "required": "inahitajika",
+      "tooLong": "herufi {max} kwa kiwango cha juu",
+      "invalidEmail": "lazima iwe barua pepe halali",
+      "invalidDate": "lazima iwe tarehe ya kalenda katika umbo la YYYY-MM-DD",
+      "invalidAmount": "lazima iwe nambari",
+      "wholeNumber": "lazima iwe nambari kamili",
+      "greaterThanZero": "lazima iwe kubwa kuliko sifuri",
+      "fixFields": "Tafadhali sahihisha sehemu zilizoangaziwa.",
+      "charset": "Herufi za kawaida za kibodi pekee ndizo zinazoruhusiwa."
+    }
+  },
+  "verify": {
+    "metaTitle": "Thibitisha hati",
+    "heading": "Uthibitishaji wa hati",
+    "rateLimited": "Ukaguzi mwingi mno kutoka anwani hii. Tafadhali jaribu tena baada ya dakika moja.",
+    "notFound": {
+      "title": "Hati hiyo haipo",
+      "body": "Kiungo hiki hakilingani na hati yoyote iliyotolewa. Kagua msimbo wa QR au kiungo ulichopewa, au wasiliana na mtoaji."
+    },
+    "status": {
+      "void": "Imebatilishwa",
+      "valid": "Halali"
+    },
+    "issuedBy": "Imetolewa na",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Imetolewa kwa",
+    "issueDate": "Tarehe ya kutoa",
+    "total": "Jumla",
+    "voided": "Hati hii ilibatilishwa na mtoaji na haitumiki tena.",
+    "storedCopies": {
+      "title": "Nakala zilizohifadhiwa",
+      "description": "SHA-256 ya kila toleo la PDF analoshikilia mtoaji. Chagua nakala yako ili kuilinganisha kwenye kivinjari chako: hakuna kinachopakiwa.",
+      "empty": "Hakuna PDF iliyoundwa bado.",
+      "protectedVersion": "Nakala iliyolindwa kwa nenosiri {version}",
+      "version": "Toleo {version}"
+    },
+    "check": {
+      "label": "Kagua nakala yako",
+      "hashing": "Inakokotoa heshi…",
+      "match": "Nakala yako inalingana kabisa na toleo {version}.",
+      "mismatch": "Nakala yako hailingani na toleo lolote lililohifadhiwa."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Hati iliyoshirikiwa",
+      "rateLimited": "Maombi mengi mno kutoka anwani hii. Tafadhali jaribu tena baada ya dakika moja.",
+      "unavailable": {
+        "title": "Kiungo hiki hakipatikani",
+        "body": "Huenda kimekwisha muda au kimebatilishwa na mtoaji. Mwombe akupe kipya."
+      },
+      "lockedTitleInvoice": "Ankara kutoka {issuer}",
+      "lockedTitleCreditNote": "Hati ya mkopo kutoka {issuer}",
+      "lockedBody": "Hati hii imelindwa kwa nenosiri. Weka nenosiri ulilopewa na mtoaji.",
+      "void": "Imebatilishwa",
+      "protectedPdf": "PDF hufunguka kwa nenosiri hilo hilo. Inaweza kusomwa na kuchapishwa; kunakili na kuhariri kumefungwa.",
+      "byline": "Kutoka {issuer} kwa {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Nenosiri",
+      "limited": "Majaribio mengi mno. Tafadhali subiri dakika kumi na tano kisha ujaribu tena.",
+      "wrong": "Nenosiri hilo si sahihi.",
+      "submit": "Fungua hati"
+    },
+    "dialog": {
+      "trigger": "Shiriki",
+      "title": "Shiriki hati hii",
+      "description": "Yeyote mwenye kiungo anaweza kuiona na kuipakua hadi ikwishe muda au uibatilishe. Nenosiri hulinda pia PDF yenyewe: hufunguka kwa nenosiri na inaweza kusomwa na kuchapishwa, si kuhaririwa wala kunakiliwa.",
+      "link": "Kiungo",
+      "copyLink": "Nakili kiungo",
+      "password": "Nenosiri",
+      "copyPassword": "Nakili nenosiri",
+      "sendSeparately": "Tuma nenosiri kando na kiungo. Unaweza kuliona tena kwenye orodha iliyo hapa chini.",
+      "copy": "Nakili",
+      "copied": "Imenakiliwa",
+      "expires": "Inakwisha",
+      "expiry": {
+        "d7": "Baada ya siku 7",
+        "d30": "Baada ya siku 30",
+        "d90": "Baada ya siku 90",
+        "never": "Kamwe"
+      },
+      "protection": "Ulinzi",
+      "protectionOptions": {
+        "auto": "Nenosiri: tengeneza kifungu cha siri",
+        "manual": "Nenosiri: nitachagua langu",
+        "none": "Bila nenosiri (kiungo wazi)"
+      },
+      "passwordHint": "Angalau herufi 8.",
+      "strength": "Nguvu: {label}",
+      "strengthLabels": {
+        "veryWeak": "dhaifu sana",
+        "weak": "dhaifu",
+        "fair": "wastani",
+        "good": "nzuri",
+        "strong": "imara"
+      },
+      "creating": "Inaunda…",
+      "create": "Unda kiungo",
+      "activeLinks": "Viungo vinavyotumika",
+      "passwordProtected": "Imelindwa kwa nenosiri",
+      "openLink": "Fungua kiungo",
+      "linkExpires": "{kind} · inakwisha {date}",
+      "linkNeverExpires": "{kind} · haikwishi kamwe",
+      "revoke": {
+        "title": "Batilisha kiungo hiki?",
+        "description": "Kiungo huacha kufanya kazi mara moja kwa kila mwenye nacho.",
+        "label": "Batilisha"
+      },
+      "linkPassword": "Nenosiri: <code>{password}</code>",
+      "counts": "{views, plural, other {Mionekano #}} · {downloads, plural, other {Upakuaji #}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Hati za mkopo",
+      "title": "Hati za mkopo",
+      "description": "Hutolewa dhidi ya ankara zilizotolewa; kila moja hupunguza salio la ankara yake inapotolewa.",
+      "newCreditNote": "Hati mpya ya mkopo",
+      "filters": {
+        "from": "Kuanzia",
+        "to": "Hadi",
+        "issuer": "Mtoaji",
+        "client": "Mteja",
+        "status": "Hali",
+        "search": "Tafuta",
+        "all": "Zote",
+        "searchPlaceholder": "Nambari, sababu, mteja",
+        "go": "Nenda"
+      },
+      "statuses": {
+        "DRAFT": "Rasimu",
+        "ISSUED": "Imetolewa",
+        "SENT": "Imetumwa",
+        "VOID": "Imebatilishwa"
+      },
+      "empty": {
+        "title": "Bado hakuna hati za mkopo",
+        "description": "Fungua ankara iliyotolewa na uchague “Hati ya mkopo” ili kupunguza deni lake."
+      },
+      "noMatch": "Hakuna hati za mkopo zinazolingana na vichujio hivi.",
+      "columns": {
+        "number": "Nambari",
+        "against": "Dhidi ya",
+        "client": "Mteja",
+        "issueDate": "Tarehe ya kutoa",
+        "reason": "Sababu",
+        "total": "Jumla",
+        "status": "Hali"
+      },
+      "draft": "Rasimu"
+    },
+    "new": {
+      "metaTitle": "Hati mpya ya mkopo",
+      "title": "Hati mpya ya mkopo",
+      "description": "Hati ya mkopo hutolewa dhidi ya ankara iliyotolewa na hupunguza salio lake.",
+      "nothingToCredit": {
+        "title": "Hakuna cha kukopesha",
+        "description": "Hati za mkopo zinahitaji ankara iliyotolewa yenye salio linalodaiwa.",
+        "openInvoices": "Fungua ankara"
+      },
+      "whichInvoice": "Ankara ipi?",
+      "invoice": "Ankara",
+      "invoiceOption": "{number} · {client} · salio {balance}",
+      "issuedOnly": "Hati za mkopo hutolewa dhidi ya ankara zilizotolewa tu.",
+      "invoiceFallback": "Ankara"
+    },
+    "edit": {
+      "metaTitle": "Hariri hati ya mkopo",
+      "title": "Hariri rasimu ya hati ya mkopo",
+      "immutable": "Hati za mkopo zilizotolewa haziwezi kubadilishwa.",
+      "draft": "Rasimu"
+    },
+    "detail": {
+      "metaTitle": "Hati ya mkopo",
+      "draftTitle": "Rasimu ya hati ya mkopo",
+      "meta": "{client} · dhidi ya <invoice>{number}</invoice> · imetolewa <mono>{date}</mono>",
+      "previewPdf": "Hakiki PDF",
+      "issue": {
+        "title": "Toa hati hii ya mkopo?",
+        "description": "Nambari inatolewa, salio la ankara linapunguzwa na hati haiwezi kubadilishwa tena.",
+        "label": "Toa"
+      },
+      "deleteDraft": {
+        "title": "Futa rasimu hii?"
+      },
+      "sendByEmail": "Tuma kwa barua pepe",
+      "markSent": {
+        "title": "Weka alama kuwa imetumwa?",
+        "label": "Weka alama kuwa imetumwa"
+      },
+      "void": {
+        "title": "Batilisha hati hii ya mkopo?",
+        "description": "Salio la ankara linarejeshwa; nambari haitumiki tena kamwe.",
+        "reason": "Sababu",
+        "label": "Batilisha"
+      },
+      "voided": "Imebatilishwa {date}: {reason}",
+      "amounts": {
+        "title": "Kiasi",
+        "reason": "Sababu",
+        "creditAmount": "Kiasi cha mkopo",
+        "total": "Jumla",
+        "balanceNow": "Salio la ankara sasa",
+        "sent": "Imetumwa"
+      },
+      "documents": {
+        "title": "Nyaraka zilizohifadhiwa",
+        "description": "Kila toleo huhifadhiwa; ukurasa wa uthibitishaji huorodhesha heshi zote.",
+        "regenerateTitle": "Unda toleo jipya la PDF?",
+        "generate": "Unda",
+        "newVersion": "Toleo jipya",
+        "renderedOnFirstDownload": "PDF huundwa wakati wa upakuaji wa kwanza.",
+        "protectedCopy": "Nakala iliyolindwa kwa nenosiri {version}",
+        "version": "Toleo {version}",
+        "verificationLink": "Kiungo cha uthibitishaji: <link>{path}…</link>"
+      },
+      "draftsPreview": "Hakiki ya rasimu inaonekana moja kwa moja kwenye kihariri."
+    },
+    "send": {
+      "metaTitle": "Tuma hati ya mkopo",
+      "title": "Tuma <mono>{number}</mono>",
+      "previousSends": "Utumaji wa awali"
+    },
+    "builder": {
+      "against": "Dhidi ya <mono>{number}</mono>",
+      "summary": "{client} · jumla {total} · salio {balance} · nafasi ya kodi ≈ {headroom}",
+      "issueDate": "Tarehe ya kutoa",
+      "creditAmount": "Kiasi cha mkopo (bila kodi)",
+      "creditAmountHint": "Kodi hugawanywa kutoka mistari ya kodi ya ankara",
+      "reason": "Sababu",
+      "picker": {
+        "title": "Kokotoa kutoka mistari ya ankara",
+        "description": "Chagua mistari mizima au asilimia; hii hujaza kiasi cha hapo juu tu.",
+        "line": "Mstari",
+        "subtotal": "Jumla ndogo",
+        "credit": "Mkopo",
+        "percent": "%",
+        "creditLine": "Kopesha mstari {position}",
+        "percentOfLine": "Asilimia ya mstari {position}"
+      },
+      "saveDraft": "Hifadhi rasimu",
+      "issuing": "Inatoa…",
+      "saveAndIssue": "Hifadhi na utoe"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Malipo yaliyopokelewa",
+        "REFUND": "Marejesho yaliyotolewa",
+        "WRITE_OFF": "Kufuta deni"
+      },
+      "editTitle": "Hariri rekodi",
+      "recordTitle": "Rekodi malipo",
+      "description": "Kiasi kiko katika sarafu ya ankara ({currency}); TDS iliyokatwa ni sehemu ya kiasi kilichotumika.",
+      "kind": "Aina",
+      "date": "Tarehe",
+      "amountRefunded": "Kiasi kilichorejeshwa (hasi)",
+      "amountApplied": "Kiasi kilichotumika",
+      "refundHint": "Weka kiasi hasi, k.m. -500",
+      "tdsDeducted": "TDS iliyokatwa",
+      "tdsHint": "Kodi iliyozuiwa na mteja; huhesabiwa katika kiasi kilichotumika",
+      "bankFees": "Ada za benki",
+      "receivedInto": "Imepokelewa kwenye",
+      "noMethod": "-",
+      "reference": "Rejeleo",
+      "referenceHint": "UTR, kitambulisho cha muamala, nambari ya hundi",
+      "otherCurrency": "Imepokelewa kwa sarafu nyingine",
+      "amountReceived": "Kiasi kilichopokelewa",
+      "receivedCurrency": "Sarafu iliyopokelewa",
+      "exchangeRate": "Kiwango cha ubadilishaji",
+      "exchangeRateHint": "Kipimo 1 kilichopokelewa = ? {currency}",
+      "notes": "Maelezo",
+      "receipt": "Risiti",
+      "receiptHint": "PNG, JPEG, WebP au PDF hadi MB 10",
+      "saveChanges": "Hifadhi mabadiliko",
+      "record": "Rekodi"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "takriban {count, plural, one {ukurasa #} other {kurasa #}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Ujumbe",
+      "description": "Umejazwa awali kutoka violezo vya wasifu wa mtoaji. Hakuna kinachotumwa hadi ubofye Tuma.",
+      "to": "Kwa",
+      "toHint": "Tenganisha kwa koma",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Mada",
+      "body": "Maudhui",
+      "bodyHint": "Maandishi matupu; viungo vinakuwa vya kubofya",
+      "attachment": "Kiambatisho",
+      "attachmentHint": "Nakala iliyohifadhiwa, iitwayo <mono>{name}</mono> (au .docx); maudhui yake hayawezi kubadilishwa.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Inatuma…",
+      "send": "Tuma",
+      "openInMailApp": "Fungua kwenye programu ya barua pepe",
+      "noSmtp": "Hakuna seva ya SMTP iliyosanidiwa (Mipangilio → Barua pepe). Fungua rasimu kwenye programu yako ya barua pepe, ambatisha PDF uliyopakua, kisha iweke alama kuwa imetumwa hapa chini.",
+      "markAsSent": "Weka alama kuwa imetumwa"
+    },
+    "sentLog": {
+      "when": "Lini",
+      "document": "Hati",
+      "to": "Kwa",
+      "subject": "Mada",
+      "status": "Hali",
+      "empty": "Hakuna kilichotumwa bado.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "imetumwa",
+        "FAILED": "imeshindikana",
+        "MANUAL": "kwa mkono"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Habari, {name}",
+    "fiscalYear": "Mwaka wa fedha {year}",
+    "fiscalYearWithBase": "Mwaka wa fedha {year} · sarafu ya msingi {currency} ({profile})",
+    "newCreditNote": "Hati mpya ya mkopo",
+    "welcomeTitle": "Karibu kwenye {appName}",
+    "welcomeDescription": "Anza kwa kuunda wasifu wa mtoaji unaotoa ankara kutoka kwake, kisha ongeza mteja na ankara yako ya kwanza.",
+    "createProfile": "Unda wasifu wako",
+    "tiles": {
+      "outstanding": "Zinazodaiwa",
+      "overdue": "Zilizochelewa",
+      "billedThisFy": "Zilizotozwa mwaka huu wa fedha",
+      "receivedThisFy": "Zilizopokelewa mwaka huu wa fedha",
+      "drafts": "Rasimu",
+      "invoiceCount": "{count, plural, one {ankara #} other {ankara #}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Malipo ukiondoa marejesho, kwa kiwango cha ubadilishaji kilichorekodiwa",
+      "awaitingIssue": "zinasubiri kutolewa",
+      "nothingPending": "hakuna kinachosubiri"
+    },
+    "recentInvoices": "Ankara za hivi karibuni",
+    "allInvoices": "Ankara zote",
+    "noInvoicesYet": "Bado hakuna ankara.",
+    "columns": {
+      "number": "Nambari",
+      "client": "Mteja",
+      "issued": "Ilitolewa"
+    },
+    "topClients": "Wateja wanaodaiwa zaidi",
+    "nothingOutstanding": "Hakuna kinachodaiwa."
+  },
+  "exports": {
+    "export": "Safirisha",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Ankara",
+      "newInvoice": "Ankara mpya",
+      "draft": "Rasimu",
+      "aDraft": "rasimu",
+      "statuses": {
+        "draft": "Rasimu",
+        "issued": "Imetolewa",
+        "sent": "Imetumwa",
+        "partiallyPaid": "Imelipwa kiasi",
+        "paid": "Imelipwa",
+        "overdue": "Imechelewa",
+        "void": "Imebatilishwa"
+      },
+      "lifecycle": {
+        "draft": "rasimu",
+        "issued": "imetolewa",
+        "void": "imebatilishwa"
+      },
+      "units": {
+        "hour": "Saa",
+        "day": "Siku",
+        "fixed": "Bei maalum",
+        "milestone": "Hatua muhimu",
+        "unit": "Kipimo"
+      },
+      "unitsLower": {
+        "hour": "saa",
+        "day": "siku",
+        "fixed": "bei maalum",
+        "milestone": "hatua muhimu",
+        "unit": "kipimo"
+      },
+      "supplyTypes": {
+        "intraState": "ndani ya jimbo",
+        "interState": "kati ya majimbo",
+        "exportLut": "mauzo ya nje ya LUT",
+        "exportWithTax": "mauzo ya nje yenye kodi",
+        "reverseCharge": "kodi inayolipwa na mpokeaji",
+        "notApplicable": "haihusiki"
+      }
+    },
+    "list": {
+      "description": "Ankara za rasimu, zilizotolewa na zilizobatilishwa; hali hutokana na malipo na tarehe za mwisho.",
+      "fiscalYear": "Mwaka wa fedha",
+      "issuer": "Mtoaji",
+      "client": "Mteja",
+      "searchPlaceholder": "Nambari, PO, mteja",
+      "emptyTitle": "Bado hakuna ankara",
+      "emptyDescription": "Tengeneza ankara yako ya kwanza: chagua mteja, ongeza mistari, tazama hakiki, kisha uitoe.",
+      "columns": {
+        "number": "Nambari",
+        "client": "Mteja",
+        "issuer": "Mtoaji",
+        "issueDate": "Tarehe ya kutoa",
+        "due": "Mwisho wa malipo",
+        "balance": "Salio"
+      },
+      "noMatches": "Hakuna ankara zinazolingana na vichujio hivi.",
+      "count": "{count, plural, one {ankara #} other {ankara #}}",
+      "countPaged": "{count, plural, one {ankara #} other {ankara #}} · ukurasa wa {page} kati ya {pages}",
+      "register": "rejista"
+    },
+    "new": {
+      "noProfileTitle": "Unda wasifu wa mtoaji kwanza",
+      "noProfileDescription": "Ankara hutolewa kutoka utambulisho wa kisheria: sanidi wasifu wako pamoja na vitambulisho vyake vya kodi na upangaji nambari.",
+      "createProfile": "Unda wasifu"
+    },
+    "edit": {
+      "metaTitle": "Hariri ankara",
+      "title": "Hariri rasimu",
+      "immutableFlash": "Ankara zilizotolewa haziwezi kubadilishwa. Tumia “Batilisha na utoe upya” kuirekebisha."
+    },
+    "detail": {
+      "metaTitle": "Ankara",
+      "draftInvoice": "Rasimu ya ankara",
+      "issuedDue": "Imetolewa <mono>{issued}</mono>, mwisho wa malipo <mono>{due}</mono>",
+      "replaces": "Inachukua nafasi ya {number}",
+      "replacedBy": "Imechukuliwa nafasi na {number}",
+      "previewPdf": "Hakiki PDF",
+      "issueTitle": "Toa ankara hii?",
+      "issueDescription": "Nambari inatolewa na hati haiwezi kubadilishwa tena.",
+      "issue": "Toa",
+      "deleteDraftTitle": "Futa rasimu hii?",
+      "sendByEmail": "Tuma kwa barua pepe",
+      "recordPayment": "Rekodi malipo",
+      "creditNote": "Hati ya mkopo",
+      "markSentTitle": "Weka alama kuwa imetumwa?",
+      "markSentDescription": "Inarekodi kwamba mteja amepokea ankara hii.",
+      "markSent": "Weka alama kuwa imetumwa",
+      "voidReissueTitle": "Batilisha na utoe upya?",
+      "voidReissueDescription": "Ya asili inabatilishwa na rasimu iliyounganishwa yenye maudhui yale yale inafunguka kwa kuhaririwa.",
+      "voidReissue": "Batilisha na utoe upya",
+      "voidTitle": "Batilisha ankara hii?",
+      "voidDescription": "Inawezekana tu bila malipo yaliyorekodiwa; nambari haitumiki tena kamwe.",
+      "void": "Batilisha",
+      "voided": "Imebatilishwa {date}: {reason}",
+      "amounts": "Kiasi",
+      "subtotal": "Jumla ndogo",
+      "discount": "Punguzo",
+      "discountPercent": "Punguzo ({percent})",
+      "rounding": "Kukadiria",
+      "tdsExpected": "TDS inayotarajiwa ({percent})",
+      "paid": "Iliyolipwa",
+      "credited": "Iliyokopeshwa",
+      "balanceDue": "Salio linalodaiwa",
+      "supply": "Ugavi",
+      "fxToBase": "Ubadilishaji hadi sarafu ya msingi",
+      "poReference": "Rejeleo la PO",
+      "sent": "Imetumwa",
+      "lineItems": "Vipengele vya mistari",
+      "columns": {
+        "description": "Maelezo",
+        "sacHsn": "SAC/HSN",
+        "qty": "Kiasi",
+        "rate": "Kiwango",
+        "tax": "Kodi",
+        "amount": "Kiasi cha fedha"
+      },
+      "creditNotes": "Hati za mkopo",
+      "storedDocuments": "Nyaraka zilizohifadhiwa",
+      "storedDocumentsHint": "Kila toleo huhifadhiwa; ukurasa wa uthibitishaji huorodhesha heshi zote.",
+      "regenerateTitle": "Unda toleo jipya la PDF?",
+      "regenerateDescription": "Inaundwa upya kutoka nakala iliyogandishwa (kwa mfano baada ya marekebisho ya kiunda PDF). Matoleo ya awali yanabaki.",
+      "regenerate": "Unda",
+      "newVersion": "Toleo jipya",
+      "renderedOnFirstDownload": "PDF huundwa wakati wa upakuaji wa kwanza.",
+      "protectedCopy": "Nakala iliyolindwa kwa nenosiri {version}",
+      "version": "Toleo {version}",
+      "sizeKb": "KB {size}",
+      "verificationLink": "Kiungo cha uthibitishaji:",
+      "draftPreviewHint": "Hakiki ya rasimu inaonekana moja kwa moja kwenye kihariri; fungua <link>PDF yenye alama ya maji</link> kuona ukurasa."
+    },
+    "history": {
+      "metaTitle": "Historia ya ankara",
+      "title": "Historia <mono>{number}</mono>",
+      "reissueChain": "Mnyororo wa kutoa upya",
+      "replaces": "Inachukua nafasi ya <link>{number}</link>",
+      "replacedBy": "Imechukuliwa nafasi na <link>{number}</link>",
+      "auditTrail": "Kumbukumbu ya ukaguzi",
+      "columns": {
+        "when": "Lini",
+        "who": "Nani",
+        "action": "Kitendo",
+        "summary": "Muhtasari"
+      },
+      "noEvents": "Bado hakuna matukio.",
+      "system": "Mfumo",
+      "emails": "Barua pepe"
+    },
+    "payments": {
+      "title": "Malipo",
+      "description": "{client} · jumla {total}",
+      "backToInvoice": "Rudi kwenye ankara",
+      "ledger": "Leja",
+      "columns": {
+        "date": "Tarehe",
+        "kind": "Aina",
+        "applied": "Iliyotumika",
+        "tds": "TDS",
+        "received": "Iliyopokelewa",
+        "reference": "Rejeleo",
+        "balance": "Salio"
+      },
+      "noPayments": "Bado hakuna malipo yaliyorekodiwa.",
+      "kinds": {
+        "payment": "Malipo",
+        "refund": "Marejesho",
+        "writeOff": "Kufuta deni"
+      },
+      "receipt": "Risiti",
+      "deleteEntryTitle": "Futa rekodi hii?",
+      "deleteEntryDescription": "Salio la ankara linakokotolewa upya.",
+      "totals": "Jumla",
+      "invoiceTotal": "Jumla ya ankara",
+      "credited": "Iliyokopeshwa",
+      "refunds": "Marejesho",
+      "writeOffs": "Madeni yaliyofutwa",
+      "tdsDeducted": "TDS iliyokatwa",
+      "bankFees": "Ada za benki",
+      "balanceDue": "Salio linalodaiwa",
+      "onlyIssued": "Ankara zilizotolewa tu ndizo zinazokubali malipo."
+    },
+    "send": {
+      "metaTitle": "Tuma ankara",
+      "title": "Tuma <mono>{number}</mono>",
+      "alreadySent": "Tayari imewekwa alama kuwa imetumwa; kutuma tena huongeza rekodi nyingine kwenye kumbukumbu.",
+      "previousSends": "Utumaji wa awali"
+    },
+    "builder": {
+      "parties": "Pande husika",
+      "issuerProfile": "Wasifu wa mtoaji",
+      "client": "Mteja",
+      "archivedOption": "{label} (iko kwenye kumbukumbu)",
+      "issueDate": "Tarehe ya kutoa",
+      "dueDate": "Tarehe ya mwisho wa malipo",
+      "fxRate": "Kiwango cha ubadilishaji hadi sarafu ya msingi",
+      "fxHint": "1 {currency} = ? {base} (kwa ripoti tu)",
+      "poReference": "Rejeleo la PO",
+      "lineItems": "Vipengele vya mistari",
+      "lineItemsHint": "Chagua kutoka katalogi ili kunakili thamani zake, au andika mstari.",
+      "taxDiscountTds": "Kodi, punguzo na TDS",
+      "taxRegime": "Mfumo wa kodi",
+      "regimes": {
+        "indiaGst": "GST ya India",
+        "ukVat": "VAT ya Uingereza",
+        "usSalesTax": "Kodi ya mauzo ya Marekani",
+        "none": "Bila kodi"
+      },
+      "reverseCharge": "Kodi inayolipwa na mpokeaji",
+      "reverseChargeHint": "Kodi inayolipwa na mpokeaji",
+      "discount": "Punguzo",
+      "percent": "Asilimia",
+      "amount": "Kiasi",
+      "rounding": "Marekebisho ya kukadiria",
+      "roundingHint": "Hiari, hadi kipimo kizima; lazima iwe chini ya 1",
+      "round": "Kadiria",
+      "tdsRate": "Kiwango cha TDS kinachotarajiwa (%)",
+      "tdsRateHint": "Kwa taarifa tu; huchapishwa wakati mchanganuo wa TDS umewashwa",
+      "paymentMethods": "Njia za malipo",
+      "paymentMethodsHint": "Huchapishwa kwa mpangilio wa uliochagua.",
+      "noPaymentMethods": "Hakuna njia za malipo zinazotumika. <link>Ongeza moja</link>.",
+      "whatPrints": "Kinachochapishwa",
+      "whatPrintsHint": "Huanzia kwenye chaguo-msingi za wasifu wa mtoaji.",
+      "notesAndTerms": "Maelezo na masharti",
+      "notes": "Maelezo",
+      "terms": "Masharti",
+      "saveDraft": "Hifadhi rasimu",
+      "issuing": "Inatoa…",
+      "saveAndIssue": "Hifadhi na utoe",
+      "subtotal": "Jumla ndogo",
+      "tax": "Kodi",
+      "tdsExpected": "TDS inayotarajiwa",
+      "netExpected": "Net inayotarajiwa"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Ongeza kutoka katalogi…",
+      "services": "Huduma",
+      "products": "Bidhaa",
+      "addLine": "Ongeza mstari",
+      "columns": {
+        "description": "Maelezo",
+        "sacHsn": "SAC/HSN",
+        "qty": "Kiasi",
+        "unit": "Kipimo",
+        "rate": "Kiwango",
+        "taxPercent": "Kodi %"
+      },
+      "aria": {
+        "description": "Maelezo ya mstari {line}",
+        "sacHsn": "SAC/HSN ya mstari {line}",
+        "quantity": "Kiasi cha mstari {line}",
+        "unit": "Kipimo cha mstari {line}",
+        "rate": "Kiwango cha mstari {line}",
+        "taxRate": "Kiwango cha kodi cha mstari {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Imesamehewa",
+      "moveUp": "Sogeza juu",
+      "moveDown": "Sogeza chini",
+      "removeLine": "Ondoa mstari",
+      "shortcutHint": "Ctrl/⌘+Enter kwenye maelezo huongeza mstari.",
+      "addFromCatalogueAria": "Ongeza kutoka katalogi"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Maelezo ya mtoaji",
+        "client": "Maelezo ya mteja",
+        "document": "Sehemu za hati"
+      },
+      "fields": {
+        "showLogo": "Nembo",
+        "showTradeName": "Jina la biashara",
+        "showDesignation": "Cheo",
+        "showEmail": "Barua pepe",
+        "showPhone": "Simu",
+        "showWebsite": "Tovuti",
+        "showFullAddress": "Anwani kamili",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Sahihi",
+        "showStamp": "Muhuri",
+        "showContactPerson": "Mtu wa mawasiliano",
+        "showBillingAddress": "Anwani ya kutoza",
+        "showShippingAddress": "Anwani ya kusafirishia",
+        "showTaxIdentifier": "Kitambulisho cha kodi",
+        "showPlaceOfSupply": "Mahali pa ugavi",
+        "showDueDate": "Tarehe ya mwisho wa malipo",
+        "showPaymentTerms": "Masharti ya malipo",
+        "showSacCodeColumn": "Safu ya msimbo wa SAC",
+        "showQuantityColumn": "Safu ya kiasi",
+        "showUnitPriceColumn": "Safu ya bei ya kipimo",
+        "showTaxColumn": "Safu ya kodi",
+        "showTdsBreakdown": "Mchanganuo wa TDS",
+        "showQrVerification": "Uthibitishaji wa QR",
+        "showNotes": "Maelezo",
+        "showTerms": "Masharti",
+        "showReplacesReference": "Rejeleo la inayobadilishwa",
+        "showAmountInWords": "Kiasi kwa maneno",
+        "showSupplyStatement": "Taarifa ya ugavi",
+        "showRoundingLine": "Mstari wa kukadiria",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Wateja",
+      "description": "Kila mtu unayemtozia. Wateja wenye ankara huwekwa kwenye kumbukumbu, hawafutwi kamwe.",
+      "newClient": "Mteja mpya",
+      "searchPlaceholder": "Tafuta kwa jina",
+      "searchLabel": "Tafuta wateja",
+      "emptyTitle": "Bado hakuna wateja",
+      "emptyDescription": "Ongeza watu na kampuni unazotoa ankara; sarafu na masharti yao ya malipo hujaza kila ankara.",
+      "addClient": "Ongeza mteja",
+      "noMatch": "Hakuna wateja wanaolingana na “{q}”.",
+      "termsDays": "siku {days}",
+      "columns": {
+        "name": "Jina",
+        "contact": "Mawasiliano",
+        "email": "Barua pepe",
+        "country": "Nchi",
+        "currency": "Sarafu",
+        "terms": "Masharti",
+        "status": "Hali"
+      }
+    },
+    "new": {
+      "title": "Mteja mpya"
+    },
+    "edit": {
+      "metaTitle": "Hariri mteja",
+      "title": "Hariri {name}"
+    },
+    "detail": {
+      "metaTitle": "Mteja",
+      "newInvoice": "Ankara mpya",
+      "restoreTitle": "Rejesha mteja huyu?",
+      "archiveTitle": "Weka mteja huyu kwenye kumbukumbu?",
+      "archiveDescription": "Anatoka kwenye orodha za kuchagua; ankara na historia vinabaki sawa.",
+      "deleteTitle": "Futa mteja huyu?",
+      "deleteDescription": "Inawezekana tu wakati hakuna ankara inayomrejelea mteja.",
+      "details": "Maelezo",
+      "contact": "Mawasiliano",
+      "email": "Barua pepe",
+      "phone": "Simu",
+      "country": "Nchi",
+      "gstState": "GST {code}",
+      "taxId": "Kitambulisho cha kodi",
+      "currency": "Sarafu",
+      "paymentTerms": "Masharti ya malipo",
+      "paymentTermsDays": "siku {days}",
+      "expectedTds": "TDS inayotarajiwa",
+      "notes": "Maelezo",
+      "addresses": "Anwani",
+      "billing": "Kutoza",
+      "shipping": "Kusafirisha",
+      "lifetime": "Tangu mwanzo",
+      "openRegister": "Fungua rejista",
+      "noIssued": "Bado hakuna ankara zilizotolewa.",
+      "noIssuedWithDrafts": "Bado hakuna ankara zilizotolewa (rasimu {drafts}).",
+      "firstLatest": "Ankara ya kwanza <mono>{first}</mono>, ya hivi karibuni <mono>{latest}</mono>{drafts, plural, =0 {} one { · rasimu #} other { · rasimu #}}",
+      "lifetimeColumns": {
+        "currency": "Sarafu",
+        "invoices": "Ankara",
+        "billed": "Iliyotozwa",
+        "received": "Iliyopokelewa",
+        "credited": "Iliyokopeshwa",
+        "outstanding": "Inayodaiwa",
+        "overdue": "Iliyochelewa"
+      },
+      "recentInvoices": "Ankara za hivi karibuni",
+      "noInvoices": "Bado hakuna ankara kwa mteja huyu.",
+      "recentColumns": {
+        "number": "Nambari",
+        "issueDate": "Tarehe ya kutoa",
+        "due": "Mwisho wa malipo",
+        "total": "Jumla",
+        "balance": "Salio",
+        "status": "Hali"
+      }
+    },
+    "form": {
+      "cardTitle": "Mteja",
+      "displayName": "Jina la kuonyesha",
+      "contactPerson": "Mtu wa mawasiliano",
+      "email": "Barua pepe",
+      "phone": "Simu",
+      "taxIdType": "Aina ya kitambulisho cha kodi",
+      "taxIdTypeNone": "Hakuna",
+      "taxId": "Kitambulisho cha kodi",
+      "currency": "Sarafu",
+      "paymentTerms": "Masharti ya malipo (siku)",
+      "expectedTdsRate": "Kiwango cha TDS kinachotarajiwa (%)",
+      "notes": "Maelezo",
+      "billingAddress": "Anwani ya kutoza",
+      "shippingAddress": "Anwani ya kusafirishia",
+      "differentFromBilling": "Tofauti na ya kutoza",
+      "save": "Hifadhi mteja"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Saa",
+      "DAY": "Siku",
+      "FIXED": "Bei maalum",
+      "MILESTONE": "Hatua muhimu",
+      "UNIT": "Kipimo"
+    },
+    "list": {
+      "activate": "Washa",
+      "deactivate": "Zima",
+      "archiveDescription": "Mistari ya ankara iliyopo huhifadhi thamani zilizonakiliwa.",
+      "deleteDescription": "Inawezekana tu wakati hakuna mstari wa ankara unaoirejelea. Vinginevyo iweke kwenye kumbukumbu.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Jina",
+        "unit": "Kipimo",
+        "rate": "Kiwango",
+        "price": "Bei",
+        "currency": "Sarafu",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Kodi",
+        "status": "Hali"
+      }
+    },
+    "services": {
+      "title": "Huduma",
+      "description": "Katalogi yako. Kuchagua huduma hunakili thamani zake kwenye mstari wa ankara.",
+      "newService": "Huduma mpya",
+      "emptyTitle": "Bado hakuna huduma",
+      "emptyDescription": "Ongeza unachouza - usanifu wa kila saa, hatua muhimu ya bei maalum - pamoja na msimbo wake wa SAC/HSN na kiwango cha kodi.",
+      "addService": "Ongeza huduma",
+      "restoreTitle": "Rejesha {name}?",
+      "archiveTitle": "Weka {name} kwenye kumbukumbu?",
+      "deleteTitle": "Futa {name}?",
+      "editMetaTitle": "Hariri huduma",
+      "editTitle": "Hariri {name}"
+    },
+    "products": {
+      "title": "Bidhaa",
+      "description": "Bidhaa unazouza, kila moja ikiwa na SKU. Kuchagua bidhaa hunakili thamani zake kwenye mstari wa ankara.",
+      "newProduct": "Bidhaa mpya",
+      "emptyTitle": "Bado hakuna bidhaa",
+      "emptyDescription": "Ongeza bidhaa unazouza pamoja na SKU, msimbo wa HSN, bei ya kipimo na kiwango cha kodi.",
+      "addProduct": "Ongeza bidhaa",
+      "restoreTitle": "Rejesha {sku}?",
+      "archiveTitle": "Weka {sku} kwenye kumbukumbu?",
+      "deleteTitle": "Futa {sku}?",
+      "editMetaTitle": "Hariri bidhaa",
+      "editTitle": "Hariri {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Msimbo wa kipekee unaochapishwa chini ya maelezo ya mstari",
+      "name": "Jina",
+      "unit": "Kipimo",
+      "defaultRate": "Kiwango cha chaguo-msingi",
+      "unitPrice": "Bei ya kipimo",
+      "currency": "Sarafu",
+      "sacHsnCode": "Msimbo wa SAC / HSN",
+      "sacHsnHint": "Unahitajika kwenye ankara za GST",
+      "hsnCode": "Msimbo wa HSN",
+      "hsnHint": "Unahitajika kwenye ankara za GST kwa bidhaa",
+      "defaultTaxRate": "Kiwango cha kodi cha chaguo-msingi (%)",
+      "description": "Maelezo",
+      "descriptionHint": "Hujaza maelezo ya mstari",
+      "active": "Inatumika",
+      "serviceInactiveHint": "Huduma zisizotumika hazionekani kwenye kichaguzi cha ankara",
+      "productInactiveHint": "Bidhaa zisizotumika hazionekani kwenye kichaguzi cha ankara",
+      "saveService": "Hifadhi huduma",
+      "saveProduct": "Hifadhi bidhaa"
+    },
+    "tags": {
+      "legend": "Wasifu",
+      "hint": "Chagua wasifu wa watoaji wanaouza hiki. Acha zote bila kuchagua ili kukitoa kwa kila wasifu."
+    }
+  },
+  "address": {
+    "line1": "Mstari wa anwani 1",
+    "line2": "Mstari wa anwani 2",
+    "city": "Jiji",
+    "stateRegion": "Jimbo / mkoa",
+    "postalCode": "Msimbo wa posta",
+    "country": "Nchi",
+    "state": "Jimbo",
+    "gstStateCodeHint": "Msimbo wa jimbo wa GST {code}",
+    "pickStateHint": "Chagua jimbo kwa msimbo wa jimbo wa GST",
+    "stateRegionCode": "Msimbo wa jimbo / mkoa",
+    "stateRegionCodePlaceholder": "k.m. CA"
+  },
+  "assets": {
+    "tooLarge": "Faili hiyo ni kubwa mno.",
+    "unsupportedReceipt": "Tumia picha ya PNG, JPEG, WebP au PDF.",
+    "unsupportedImage": "Tumia picha ya PNG, JPEG au WebP.",
+    "uploadFailed": "Upakiaji umeshindikana.",
+    "uploading": "Inapakia…"
+  },
+  "ui": {
+    "breadcrumb": "Njia ya urambazaji",
+    "close": "Funga",
+    "closeMenu": "Funga menyu",
+    "inputCharset": "Herufi za kawaida za kibodi pekee ndizo zinazoruhusiwa.",
+    "confirm": {
+      "working": "Inafanya kazi…"
+    },
+    "statusPill": {
+      "DRAFT": "Rasimu",
+      "ISSUED": "Imetolewa",
+      "SENT": "Imetumwa",
+      "PARTIALLY_PAID": "Imelipwa kiasi",
+      "PAID": "Imelipwa",
+      "OVERDUE": "Imechelewa",
+      "VOID": "Imebatilishwa"
+    },
+    "activePill": {
+      "active": "Inatumika",
+      "archived": "Iko kwenye kumbukumbu",
+      "inactive": "Haitumiki"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Kuna tatizo limetokea.",
+    "fixFields": "Tafadhali sahihisha sehemu zilizoangaziwa.",
+    "accountSaved": "Mapendeleo ya akaunti yamehifadhiwa",
+    "apiKeyCreated": "Ufunguo wa API umeundwa. Uunakili sasa: unaonyeshwa mara moja tu.",
+    "saved": "{name} imehifadhiwa",
+    "savedProfile": "Wasifu {label} umehifadhiwa",
+    "clientArchived": "Mteja amewekwa kwenye kumbukumbu",
+    "clientRestored": "Mteja amerejeshwa",
+    "clientDeleted": "Mteja amefutwa",
+    "productArchived": "Bidhaa imewekwa kwenye kumbukumbu",
+    "productRestored": "Bidhaa imerejeshwa",
+    "productActivated": "Bidhaa imewashwa",
+    "productDeactivated": "Bidhaa imezimwa",
+    "serviceArchived": "Huduma imewekwa kwenye kumbukumbu",
+    "serviceRestored": "Huduma imerejeshwa",
+    "serviceActivated": "Huduma imewashwa",
+    "serviceDeactivated": "Huduma imezimwa",
+    "defaultProfileUpdated": "Wasifu wa chaguo-msingi umesasishwa",
+    "profileArchived": "Wasifu umewekwa kwenye kumbukumbu",
+    "profileRestored": "Wasifu umerejeshwa",
+    "profileDeleted": "Wasifu umefutwa",
+    "defaultPaymentMethodUpdated": "Njia ya malipo ya chaguo-msingi imesasishwa",
+    "paymentMethodArchived": "Njia ya malipo imewekwa kwenye kumbukumbu",
+    "paymentMethodRestored": "Njia ya malipo imerejeshwa",
+    "paymentMethodDeleted": "Njia ya malipo imefutwa",
+    "issued": "{number} imetolewa",
+    "savedAsDraft": "Imehifadhiwa kama rasimu. {reason}",
+    "draftSaved": "Rasimu imehifadhiwa",
+    "invoiceVoided": "Ankara imebatilishwa",
+    "originalVoided": "Ya asili imebatilishwa; hariri rasimu mbadala",
+    "markedAsSent": "Imewekwa alama kuwa imetumwa",
+    "draftDeleted": "Rasimu imefutwa",
+    "generatedPdf": "Toleo la PDF {version} limeundwa",
+    "creditNoteVoided": "Hati ya mkopo imebatilishwa; salio la ankara limerejeshwa",
+    "draftCreditNoteDeleted": "Rasimu ya hati ya mkopo imefutwa",
+    "mailRefused": "Seva ya barua pepe imekataa ujumbe: {error}. Jaribio limerekodiwa.",
+    "unknownError": "hitilafu isiyojulikana",
+    "sentTo": "Imetumwa kwa {recipients}",
+    "smtpSaved": "Mipangilio ya SMTP imehifadhiwa",
+    "smtpRemoved": "Mipangilio ya SMTP iliyohifadhiwa imeondolewa",
+    "testEmailSent": "Barua pepe ya majaribio imetumwa kwa {email}",
+    "testFailed": "Jaribio limeshindikana: {error}",
+    "defaultRecipientsSaved": "Wapokeaji wa chaguo-msingi wamehifadhiwa",
+    "invitationSent": "Mwaliko umetumwa",
+    "invitationReady": "Mwaliko uko tayari",
+    "unknownRole": "Jukumu lisilojulikana",
+    "roleUpdated": "Jukumu limesasishwa",
+    "accountDeactivated": "Akaunti imezimwa",
+    "accountReactivated": "Akaunti imewashwa tena",
+    "invitationRevoked": "Mwaliko umebatilishwa",
+    "paymentUpdated": "Malipo yamesasishwa",
+    "paymentRecorded": "Malipo yamerekodiwa",
+    "paymentDeleted": "Malipo yamefutwa",
+    "sessionRevoked": "Kipindi kimebatilishwa",
+    "noOtherSessions": "Hakuna vipindi vingine",
+    "signedOutOthers": "Umetolewa kwenye vipindi vingine {count}",
+    "sharePasswordRequired": "Weka nenosiri, au acha litengenezwe.",
+    "shareLinkCreated": "Kiungo cha kushiriki kimeundwa.",
+    "templateSaved": "Kiolezo kimehifadhiwa; nyaraka za baadaye zitakitumia",
+    "templateReset": "Kiolezo kimerudishwa kwenye chaguo-msingi lililojengewa ndani",
+    "templateImported": "Kiolezo kimeingizwa",
+    "profileTemplateCleared": "Wasifu unatumia kiolezo cha mfumo tena",
+    "operatorSaved": "Maelezo ya mwendeshaji yamehifadhiwa. Kurasa za kisheria sasa zinayaonyesha."
+  }
+}

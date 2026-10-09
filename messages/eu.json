@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo hasiera",
+    "save": "Gorde",
+    "cancel": "Utzi",
+    "continue": "Jarraitu",
+    "saving": "Gordetzen…",
+    "detect": "Detektatu",
+    "yes": "Bai",
+    "no": "Ez",
+    "choose": "Aukeratu…",
+    "remove": "Kendu",
+    "tryAgain": "Saiatu berriro",
+    "dashboard": "Aginte-panela",
+    "goToDashboard": "Joan aginte-panelera",
+    "or": "edo",
+    "invoice": "Faktura",
+    "creditNote": "Kreditu-oharra",
+    "downloadPdf": "Deskargatu PDFa",
+    "edit": "Editatu",
+    "delete": "Ezabatu",
+    "downloadDocx": "Deskargatu DOCXa",
+    "none": "Bat ere ez",
+    "dismiss": "Baztertu",
+    "all": "Denak",
+    "previous": "Aurrekoa",
+    "next": "Hurrengoa",
+    "go": "Joan",
+    "search": "Bilatu",
+    "status": "Egoera",
+    "total": "Guztira",
+    "currency": "Moneta",
+    "from": "Noiztik",
+    "to": "Noiz arte",
+    "reason": "Arrazoia",
+    "history": "Historia",
+    "archive": "Artxibatu",
+    "restore": "Berreskuratu",
+    "showArchived": "Erakutsi artxibatuak",
+    "hideArchived": "Ezkutatu artxibatuak",
+    "archived": "Artxibatua",
+    "default": "Lehenetsia",
+    "setDefault": "Ezarri lehenetsi gisa",
+    "revoke": "Baliogabetu",
+    "copy": "Kopiatu",
+    "copied": "Kopiatuta",
+    "active": "Aktiboa",
+    "pagination": "Orrikatzea",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Aginte-panela",
+      "invoices": "Fakturak",
+      "creditNotes": "Kreditu-oharrak",
+      "clients": "Bezeroak",
+      "services": "Zerbitzuak",
+      "products": "Produktuak"
+    },
+    "primaryNav": "Nagusia",
+    "settings": "Ezarpenak",
+    "openMenu": "Ireki menua",
+    "navigation": "Nabigazioa",
+    "pagesAndAccount": "Orriak eta kontua",
+    "collapseSidebar": "Tolestu alboko barra",
+    "collapseSidebarHint": "Tolestu alboko barra ([)",
+    "expandSidebar": "Zabaldu alboko barra",
+    "expandSidebarHint": "Zabaldu alboko barra ([)",
+    "theme": {
+      "label": "Gaia",
+      "system": "Sistema",
+      "light": "Argia",
+      "dark": "Iluna",
+      "current": "Gaia: {mode}",
+      "switchTo": "Gaia: {mode}. Aldatu honetara: {next}"
+    },
+    "userMenu": {
+      "label": "{name} erabiltzailearen kontu-menua",
+      "profile": "Profila",
+      "logOut": "Saioa itxi"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Hasi saioa",
+      "title": "Hasi saioa",
+      "subtitle": "Baimendutako kontuek bakarrik sar daitezke.",
+      "failed": "Saio-hasierak huts egin du.",
+      "noMethod": "Ez dago saio-hasiera metodorik konfiguratuta. Ezarri hornitzaile-bikote bat, adibidez <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>, edo <code>AUTH_PASSWORD_SIGNIN=true</code>, <code>.env</code> fitxategian.",
+      "errors": {
+        "not_allowed": "Kontu hori ez dago baimendua instantzia honetan, edo desaktibatu egin da.",
+        "signin": "Saio-hasiera ez da amaitu. Saiatu berriro."
+      }
+    },
+    "password": {
+      "name": "Izena",
+      "email": "Posta elektronikoa",
+      "password": "Pasahitza",
+      "signingIn": "Saioa hasten…",
+      "createAccount": "Sortu kontua",
+      "signIn": "Hasi saioa",
+      "haveAPassword": "Badut pasahitza",
+      "firstTime": "Lehen aldia al da? Ezarri pasahitza",
+      "failed": "Saio-hasierak huts egin du."
+    },
+    "social": {
+      "redirecting": "Birbideratzen…",
+      "continueWith": "Jarraitu {provider} bidez",
+      "failed": "Ezin izan da saio-hasiera abiarazi."
+    },
+    "error": {
+      "metaTitle": "Saio-hasierako errorea",
+      "title": "Saio-hasierak huts egin du",
+      "body": "Identitate-hornitzaileak <code>{value}</code> itzuli du. Zure helbidea instantzia honen baimendutakoen zerrendan ez badago, eskatu jabeari gehitzeko.",
+      "back": "Itzuli saio-hasierara"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Ezarpenak",
+      "profiles": "Profilak",
+      "paymentMethods": "Ordainketa-moduak",
+      "templates": "Txantiloiak",
+      "email": "Posta elektronikoa",
+      "security": "Segurtasuna",
+      "users": "Erabiltzaileak",
+      "data": "Datuak",
+      "legal": "Lege-informazioa",
+      "account": "Kontua",
+      "appearance": "Itxura",
+      "api": "API",
+      "status": "Egoera"
+    },
+    "account": {
+      "metaTitle": "Kontua",
+      "title": "Kontua",
+      "description": "Zure argazkia, izena, eskualdea, hizkuntza eta ordu-zona.",
+      "photo": {
+        "title": "Argazkia",
+        "description": "Alboko barran eta erabiltzaile-menuan erakusten da."
+      },
+      "form": {
+        "title": "Kontua",
+        "description": "Nola agertzen zaren eta noiz den “gaur”.",
+        "displayName": "Bistaratzeko izena",
+        "signInEmail": "Saio-hasierako posta elektronikoa",
+        "signInEmailHint": "Zure identitatea instantzia honetan; hemen ezin da editatu.",
+        "timezone": "Ordu-zona",
+        "timezoneHint": "“Gaur” jaulkipen-datetarako, mugaeguneratarako eta aginte-panelerako",
+        "regionTitle": "Eskualdea",
+        "regionDescription": "Jaulkitzaile-profil berrien eta aginte-panelaren balio lehenetsiak, profilik egon arte.",
+        "country": "Herrialdea",
+        "currency": "Moneta",
+        "suggested": "Herrialde honetarako iradokia:",
+        "language": "Hizkuntza",
+        "languageHint": "Aplikazioaren beraren hizkuntza. Dokumentuek profil bakoitzaren lokalizazioa erabiltzen dute.",
+        "machineTranslated": "Hizkuntza hau automatikoki itzuli da. Zuzenketak ongi etorriak dira: <link>hobetu GitHub-en</link>.",
+        "save": "Gorde hobespenak"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerikak",
+        "Asia": "Asia",
+        "Europe": "Europa",
+        "MiddleEast": "Ekialde Hurbila",
+        "Oceania": "Ozeania",
+        "Constructed": "Eraikiak"
+      },
+      "privacy": {
+        "title": "Pribatutasuna",
+        "description": "okinvok funtzionatzeko behar dituen cookieak soilik ezartzen ditu. Analitikarik ez, jarraipenik ez.",
+        "cookiePolicy": "Cookie-politika",
+        "showNoticeAgain": "Erakutsi cookie-oharra berriro"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Aldatu argazkia",
+      "addPhoto": "Gehitu argazkia",
+      "hint": "PNG, JPEG edo WebP. Zirkulu gisa erakusten da toki guztietan; gorde aurretik zooma egin eta mugi dezakezu.",
+      "tooLarge": "Argazki hori handiegia da.",
+      "uploadFailed": "Igoerak huts egin du.",
+      "choose": "Aukeratu profileko argazkia",
+      "dialogTitle": "Kokatu zure argazkia",
+      "dialogDescription": "Arrastatu mugitzeko, egin korritu edo atximurkatu zooma egiteko. Zirkulua da guztiek ikusten dutena.",
+      "zoom": "Zooma",
+      "save": "Gorde argazkia"
+    },
+    "appearance": {
+      "metaTitle": "Itxura",
+      "title": "Itxura",
+      "description": "Gaia eta azentu-kolorea, zure kontuan gordeta.",
+      "theme": {
+        "title": "Gaia",
+        "description": "Jarraitu sistemari, edo finkatu argia edo iluna.",
+        "label": "Gaia",
+        "system": "Jarraitu sistemari",
+        "systemHint": "Zure sistema eragilearekin aldatzen da",
+        "light": "Argia",
+        "lightHint": "Mihise zuria",
+        "dark": "Iluna",
+        "darkHint": "Ia beltza den mihisea"
+      },
+      "accent": {
+        "title": "Azentua",
+        "description": "Botoi nagusirako, fokuaren eraztunetarako eta orri aktiboaren markarako erabiltzen da. Menta markarekin bat dator.",
+        "label": "Azentu-kolorea"
+      },
+      "accents": {
+        "mint": "Menta",
+        "lavender": "Izpiliku",
+        "sky": "Zerua",
+        "peach": "Muxika",
+        "butter": "Gurina",
+        "rose": "Arrosa",
+        "sage": "Salbia",
+        "lilac": "Lila"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Jaulkitzaile-profilak",
+      "title": "Jaulkitzaile-profilak",
+      "description": "Faktura egiteko erabiltzen dituzun lege-identitateak. Lehenetsiak faktura berriak aurrez betetzen ditu.",
+      "breadcrumb": "Profilak",
+      "newProfile": "Profil berria",
+      "emptyTitle": "Oraindik ez dago jaulkitzaile-profilik",
+      "emptyDescription": "Sortu faktura egiteko erabiliko duzun identitatea: PAN duen pertsona fisikoa edo zure enpresa.",
+      "createProfile": "Sortu profil bat",
+      "columns": {
+        "label": "Etiketa",
+        "legalName": "Izen juridikoa",
+        "type": "Mota",
+        "country": "Herrialdea",
+        "currency": "Moneta",
+        "regime": "Araubidea",
+        "status": "Egoera"
+      },
+      "types": {
+        "company": "Enpresa",
+        "individual": "Pertsona fisikoa"
+      },
+      "makeDefaultTitle": "{label} lehenetsi bihurtu?",
+      "makeDefaultDescription": "Faktura berriak profil honetatik abiatuko dira.",
+      "restoreTitle": "{label} berreskuratu?",
+      "archiveTitle": "{label} artxibatu?",
+      "archiveDescription": "Hautagailuetatik desagertzen da; lehendik dauden fakturei ez zaie eragiten.",
+      "new": {
+        "metaTitle": "Jaulkitzaile-profil berria",
+        "title": "Jaulkitzaile-profil berria",
+        "prefilled": "Zure erantzunekin beteta; egiaztatu helbidea eta zerga-datuak, eta gero gorde."
+      },
+      "edit": {
+        "metaTitle": "Editatu jaulkitzaile-profila",
+        "template": "Txantiloia",
+        "deleteTitle": "{label} ezabatu?",
+        "deleteDescription": "Soilik posible da faktura edo kreditu-oharrik profil honi erreferentziarik egiten ez dionean. Bestela, artxibatu."
+      },
+      "template": {
+        "metaTitle": "Profilaren txantiloia",
+        "title": "{label} profilaren txantiloia",
+        "ownTemplate": "Txantiloi propioa",
+        "instanceTemplate": "Instantziaren txantiloia",
+        "resetTitle": "Instantziaren txantiloia berriro erabili?",
+        "resetDescription": "Profil honen konfigurazio propioa kendu egiten da; jaulkitako dokumentuei ez zaie eragiten.",
+        "useInstance": "Erabili instantziaren txantiloia",
+        "usingInstanceTitle": "Instantziaren txantiloia erabiltzen",
+        "usingInstanceDescription": "Profil honetako dokumentuek Ezarpenak → Txantiloiak jarraitzen dute. Aukeratu bereizita pertsonalizatzeko.",
+        "customise": "Erabili beste txantiloi bat profil honetarako",
+        "openInstance": "Ireki instantziaren txantiloia"
+      },
+      "form": {
+        "identityTitle": "Identitatea",
+        "identityDescription": "Nork jaulkitzen duen faktura.",
+        "type": "Mota",
+        "label": "Etiketa",
+        "labelHint": "Hautagailuetan soilik erakusten da",
+        "legalName": "Izen juridikoa",
+        "tradeName": "Izen komertziala",
+        "designation": "Kargua",
+        "email": "Posta elektronikoa",
+        "phone": "Telefonoa",
+        "website": "Webgunea",
+        "addressTitle": "Helbidea",
+        "taxTitle": "Zerga-identifikatzaileak",
+        "taxDescription": "Zuri dagozkienak soilik; inprimatzea faktura bakoitzean kontrolatzen da.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Erresuma Batuko BEZ zenbakia",
+        "usTaxId": "AEBetako EIN / SSN",
+        "usTaxIdHint": "Atsedenean zifratuta",
+        "lutNumber": "LUT zenbakia",
+        "lutNumberHint": "IGST gabeko esportazioetarako",
+        "lutFiscalYear": "LUTaren ekitaldi fiskala",
+        "lutFiscalYearHint": "adib. 2026-27",
+        "defaultsTitle": "Balio lehenetsiak",
+        "baseCurrency": "Oinarrizko moneta",
+        "locale": "Dokumentuen lokalizazioa",
+        "localeHint": "Zenbakien eta datien formatua dokumentuetan",
+        "fiscalYearStart": "Ekitaldi fiskala hilabete honetan hasten da",
+        "months": {
+          "january": "Urtarrila",
+          "february": "Otsaila",
+          "march": "Martxoa",
+          "april": "Apirila",
+          "may": "Maiatza",
+          "june": "Ekaina",
+          "july": "Uztaila",
+          "august": "Abuztua",
+          "september": "Iraila",
+          "october": "Urria",
+          "november": "Azaroa",
+          "december": "Abendua"
+        },
+        "taxRegime": "Zerga-araubide lehenetsia",
+        "regimes": {
+          "indiaGst": "Indiako GST",
+          "ukVat": "Erresuma Batuko BEZ",
+          "usSalesTax": "AEBetako salmenta-zerga",
+          "none": "Zergarik gabe"
+        },
+        "invoiceNumberFormat": "Fakturaren zenbaki-formatua",
+        "invoiceNumberFormatHint": "Tokenak: {tokens}",
+        "creditNoteNumberFormat": "Kreditu-oharraren zenbaki-formatua",
+        "tdsRate": "Espero den TDS tasa (%)",
+        "tdsRateHint": "Informatiboa, espero den kenkari gisa inprimatzen da",
+        "defaultNotes": "Ohar lehenetsiak",
+        "defaultTerms": "Baldintza lehenetsiak",
+        "printTitle": "Lehenespenez zer inprimatzen den",
+        "printDescription": "Faktura bakoitzak hauek kopiatzen ditu eta banaka alda ditzake.",
+        "emailTitle": "Posta elektronikoa",
+        "emailDescription": "Bidalketa-editorearen balio lehenetsiak. Leku-markak: {placeholders}",
+        "emailCc": "CC lehenetsia",
+        "emailBcc": "BCC lehenetsia",
+        "commaSeparated": "Komaz bereizita",
+        "invoiceSubject": "Fakturaren gaia",
+        "invoiceSubjectHint": "Hutsik utziz gero, txantiloi integratua erabiltzen da",
+        "creditNoteSubject": "Kreditu-oharraren gaia",
+        "invoiceBody": "Fakturaren gorputza",
+        "creditNoteBody": "Kreditu-oharraren gorputza",
+        "artworkTitle": "Irudiak",
+        "artworkDescription": "PNG, JPEG edo WebP 2 MB arte; sinadurak eta zigiluak gardentasuna mantentzen dute.",
+        "logo": "Logotipoa",
+        "signature": "Sinadura",
+        "stamp": "Zigilua",
+        "transparentPng": "PNG gardena",
+        "save": "Gorde profila"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Ordainketa-moduak",
+      "title": "Ordainketa-moduak",
+      "description": "Bezeroek nola ordaintzen dizuten. Xehetasunak zifratuta daude eta faktura bakoitzean izoztuta geratzen dira jaulkitzean.",
+      "newMethod": "Modu berria",
+      "emptyTitle": "Oraindik ez dago ordainketa-modurik",
+      "emptyDescription": "Gehitu banku-kontu bat, UPI ID bat edo diru-zorro bat, fakturek bezeroei non ordaindu behar duten esan dezaten.",
+      "addMethod": "Gehitu modu bat",
+      "columns": {
+        "name": "Izena",
+        "type": "Mota",
+        "currency": "Moneta",
+        "status": "Egoera"
+      },
+      "types": {
+        "bankTransfer": "Banku-transferentzia",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Pertsonalizatua"
+      },
+      "makeDefaultTitle": "{name} lehenetsi bihurtu?",
+      "restoreTitle": "{name} berreskuratu?",
+      "archiveTitle": "{name} artxibatu?",
+      "archiveDescription": "Jaulkitako fakturek inprimatu zuten argazkia mantentzen dute.",
+      "new": {
+        "metaTitle": "Ordainketa-modu berria",
+        "title": "Ordainketa-modu berria"
+      },
+      "edit": {
+        "metaTitle": "Editatu ordainketa-modua",
+        "title": "Editatu {name}",
+        "deleteTitle": "{name} ezabatu?",
+        "deleteDescription": "Soilik posible da faktura edo ordainketarik berari erreferentziarik egiten ez dionean. Bestela, artxibatu."
+      },
+      "form": {
+        "name": "Izena",
+        "nameHint": "Ordainketa-blokearen izenburu gisa inprimatzen da",
+        "type": "Mota",
+        "currency": "Moneta",
+        "currencyHint": "Aukerakoa; testuinguru gisa soilik erakusten da",
+        "anyCurrency": "Edozein",
+        "instructions": "Jarraibideak",
+        "instructionsHint": "Xehetasunen azpian inprimatzen dira",
+        "isDefault": "Modu lehenetsia",
+        "isDefaultDescription": "Faktura berrietan aurrez hautatuta",
+        "isActive": "Aktiboa",
+        "detailsTitle": "Xehetasunak",
+        "detailsDescription": "Atsedenean zifratuta; faktura bakoitzean argazki gisa gordetzen dira jaulkitzean.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "Jasotzailearen izena",
+        "lines": "Lerroak",
+        "linesHint": "Lerro bat errenkada bakoitzeko, dagoen bezala inprimatuta",
+        "accountEmail": "Kontuaren posta / identifikatzailea",
+        "bank": {
+          "accountHolder": "Kontu-titularra",
+          "accountNumber": "Kontu-zenbakia",
+          "bankName": "Bankuaren izena",
+          "branch": "Sukurtsala",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Bideratze-kodea / sort code"
+        },
+        "save": "Gorde ordainketa-modua"
+      }
+    },
+    "templates": {
+      "metaTitle": "Dokumentu-txantiloiak",
+      "title": "Dokumentu-txantiloiak",
+      "customised": "Pertsonalizatua",
+      "builtIn": "Integratutako lehenetsia",
+      "description": "Fakturek eta kreditu-oharrek nolako itxura duten. Jaulkitako dokumentuek jaulkitzean erabili zuten txantiloia mantentzen dute.",
+      "resetTitle": "Integratutako lehenetsira berrezarri?",
+      "resetDescription": "Zure pertsonalizazioa kendu egiten da; jada jaulkitako dokumentuei ez zaie eragiten.",
+      "reset": "Berrezarri",
+      "resetTrigger": "Berrezarri lehenespenetara",
+      "importTitle": "Inportatu",
+      "importDescription": "Berreskuratu lehenago esportatutako konfigurazio bat.",
+      "overridesTitle": "Profil bakoitzeko gainidazketak",
+      "overridesDescription": "Profil batek bere txantiloi propioa aukeratu dezake bere edizio-orritik.",
+      "noOverrides": "Profil guztiek instantziaren txantiloia erabiltzen dute.",
+      "import": {
+        "json": "Txantiloiaren JSONa",
+        "jsonHint": "Itsatsi JSON esportatu aukerak sortutako fitxategi bat; falta diren gakoek balio lehenetsiak erabiltzen dituzte",
+        "importing": "Inportatzen…",
+        "submit": "Inportatu"
+      },
+      "form": {
+        "templateTitle": "Txantiloia",
+        "templateDescription": "Sei txantiloi integratu; beheko pertsonalizazioa aukeratzen duzunari aplikatzen zaio.",
+        "templateGroup": "Txantiloia",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Modernoa eta airetsua, sans-serif tipografia, goiburuaren azpian azentu-marra."
+          },
+          "classic": {
+            "name": "Klasikoa",
+            "character": "Ertzak dituen taula tradizionala, serif izenburuak, koadro barruko guztirakoak."
+          },
+          "compact": {
+            "name": "Trinkoa",
+            "character": "Elementu-zerrenda luzeetarako diseinu trinkoa; letra txikiagoa, bereizle gutxiago."
+          },
+          "minimal": {
+            "name": "Minimalista",
+            "character": "Lasaia eta zabala: marrarik eta koadrorik gabe, etiketa arinak, aire asko."
+          },
+          "letterhead": {
+            "name": "Gutun-papera",
+            "character": "Zure logotipoa eta izena kolore-banda edo irudi batean, orri bakoitzaren goialdean."
+          },
+          "modern": {
+            "name": "Modernoa",
+            "character": "Kolore-bandadun goiburua; alderdiak, taulako goiburua eta guztirakoak azentu-tonu zurbil baten gainean."
+          }
+        },
+        "paperTitle": "Papera eta tipografia",
+        "paperSize": "Paper-tamaina",
+        "paperLetter": "Letter",
+        "margins": "Marjinak",
+        "marginsNormal": "Normalak",
+        "marginsNarrow": "Estuak",
+        "headingFont": "Izenburuen letra-tipoa",
+        "bodyFont": "Gorputzaren letra-tipoa",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "Taularen estiloa",
+        "tableRuled": "Marradunak",
+        "tableZebra": "Zebra",
+        "tablePlain": "Soila",
+        "accentColour": "Azentu-kolorea",
+        "textColour": "Testu-kolorea",
+        "logoPosition": "Logotipoaren posizioa",
+        "positionLeft": "Ezkerra",
+        "positionCentre": "Erdia",
+        "positionRight": "Eskuina",
+        "logoHeight": "Logotipoaren altuera (mm)",
+        "documentTitle": "Dokumentuaren izenburua",
+        "titleAuto": "Automatikoa (GST kontuan hartuta)",
+        "titleCustom": "Pertsonalizatua",
+        "titlePlaceholder": "adib. FAKTURA PROFORMA",
+        "qrPosition": "QRaren posizioa",
+        "qrFooter": "Oina",
+        "qrHeader": "Goiburua",
+        "qrBesideTotals": "Guztirakoen ondoan",
+        "amountInWords": "Zenbatekoa letraz",
+        "wordsBelowTotal": "Guztirakoen azpian",
+        "wordsFooter": "Oina",
+        "wordsHidden": "Ezkutua",
+        "subtotalRow": "Azpitotal-errenkada",
+        "discountRow": "Deskontu-errenkada",
+        "taxLines": "Zerga-lerroak",
+        "tdsExpected": "Espero den TDS",
+        "roundingRow": "Biribilketa-errenkada",
+        "pageNumbers": "Orri-zenbakiak",
+        "headerTitle": "Goiburua",
+        "headerDescription": "Kolore-banda edo irudi bat orri bakoitzaren goialdean. Gutun-paperak eta Modernoak banda erakusten dute, bestela aukeratzen ez baduzu.",
+        "headerStyle": "Goiburuaren estiloa",
+        "headerNone": "Bat ere ez",
+        "headerBand": "Kolore-banda",
+        "headerImage": "Irudia",
+        "bandColour": "Bandaren kolorea",
+        "bandColourHex": "Bandaren kolorea (hex)",
+        "headerImageLabel": "Goiburuko irudia",
+        "headerImageHint": "PNG, JPEG edo WebP 2400 px zabalera arte; orriaren zabalera osoa hartzen du.",
+        "imageOpacity": "Irudiaren opakotasuna",
+        "headerHeight": "Goiburuaren altuera (mm)",
+        "bandText": "Bandako testua",
+        "bandTextAuto": "Automatikoa (bandaren koloretik abiatuta)",
+        "bandTextLight": "Argia",
+        "bandTextDark": "Iluna",
+        "textTitle": "Testua",
+        "headerNote": "Goiburuko oharra",
+        "footer": "Oina",
+        "signatureCaption": "Sinaduraren oina",
+        "draftWatermark": "Zirriborroaren ur-marka",
+        "labelsTitle": "Etiketak",
+        "labelsDescription": "Utzi eremu bat hutsik testu lehenetsia mantentzeko.",
+        "save": "Gorde txantiloia",
+        "downloadSample": "Deskargatu PDF eredua",
+        "exportJson": "Esportatu JSONa"
+      }
+    },
+    "email": {
+      "metaTitle": "Posta elektronikoa",
+      "title": "Posta elektronikoa",
+      "configuredSettings": "Ezarpenetan konfiguratuta",
+      "configuredEnv": "Ingurunean konfiguratuta",
+      "notConfigured": "Konfiguratu gabe: posta-aplikazioaren fluxua",
+      "description": "Dokumentuak editoretik bidaltzen dira, gordetako PDFa erantsita. Hemengo ezarpenek ingurunearen SMTP_* gainidazten dute.",
+      "sendTest": "Bidali probako mezua helbide honetara: {email}",
+      "removeTitle": "Gordetako SMTP ezarpenak kendu?",
+      "removeEnvTakesOver": "Ingurunearen SMTP_* balioak hartzen dute lekua.",
+      "removeFallsBack": "Posta elektronikoak posta-aplikazioaren fluxura itzultzen da.",
+      "removeTrigger": "Kendu gordetako ezarpenak",
+      "smtpTitle": "SMTP zerbitzaria",
+      "smtpFromEnv": "Gaur egun ingurunetik hartuta dago; hemen gordetzeak gainidazten du.",
+      "smtpPasswordNote": "Pasahitza atsedenean zifratuta dago eta ez da berriro erakusten.",
+      "defaultsTitle": "Hartzaile lehenetsiak",
+      "defaultsDescription": "Instantzia osorako CC/BCC; jaulkitzaile-profilek berena gehitzen dute.",
+      "sentTitle": "Bidalitako posta",
+      "sentDescription": "Azken 50 saiakerak, hutsegiteak eta eskuzko bidalketak barne.",
+      "smtp": {
+        "host": "Ostalaria",
+        "port": "Ataka",
+        "security": "Segurtasuna",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Bat ere ez (LAN erreleua)",
+        "user": "Erabiltzaile-izena",
+        "password": "Pasahitza",
+        "passwordStored": "Gordeta eta zifratuta; utzi hutsik mantentzeko",
+        "passwordEncrypted": "Atsedenean zifratuta",
+        "from": "Bidaltzailearen helbidea",
+        "fromName": "Bidaltzailearen izena",
+        "replyTo": "Erantzun helbidea",
+        "save": "Gorde SMTP ezarpenak"
+      },
+      "defaults": {
+        "cc": "CC lehenetsia",
+        "ccHint": "Editore bakoitzari gehitzen zaio; komaz bereizita",
+        "bcc": "BCC lehenetsia",
+        "save": "Gorde lehenespenak"
+      }
+    },
+    "security": {
+      "metaTitle": "Segurtasuna",
+      "title": "Segurtasuna",
+      "description": "Non hasi duzun saioa, eta aldatu den guztia.",
+      "sessions": {
+        "title": "Saio aktiboak",
+        "description": "Saio bat baliogabetzean, gailu horrek berehala ixten du saioa.",
+        "signOutOthers": {
+          "title": "Beste toki guztietan saioa itxi?",
+          "description": "Hau ez beste saio guztiak baliogabetzen dira.",
+          "confirm": "Itxi besteak",
+          "trigger": "Itxi saioa beste toki guztietan"
+        },
+        "columns": {
+          "device": "Gailua",
+          "ipAddress": "IP helbidea",
+          "signedIn": "Saioa hasi zen",
+          "lastSeen": "Azken aldiz ikusia",
+          "expires": "Iraungitzen da"
+        },
+        "thisDevice": "Gailu hau",
+        "revokeTitle": "Saio hau baliogabetu?",
+        "unknownDevice": "Gailu ezezaguna",
+        "unknownBrowser": "Ezezaguna",
+        "agentOnOs": "{browser} / {os}"
+      },
+      "audit": {
+        "title": "Auditoretza-erregistroa",
+        "count": "{count, plural, one {# gertaera} other {# gertaera}}",
+        "entity": "Entitatea",
+        "actionContains": "Ekintzak hau dauka",
+        "filter": "Iragazi",
+        "reset": "Berrezarri",
+        "columns": {
+          "when": "Noiz",
+          "who": "Nork",
+          "action": "Ekintza",
+          "entity": "Entitatea",
+          "summary": "Laburpena"
+        },
+        "empty": "Ez dago iragazki hauekin bat datorren gertaerarik.",
+        "system": "Sistema",
+        "changes": "Aldaketak",
+        "page": "{page}. orria, {pages} orritatik"
+      }
+    },
+    "users": {
+      "metaTitle": "Erabiltzaileak",
+      "title": "Erabiltzaileak",
+      "description": "Nork hasi dezakeen saioa instantzia honetan eta zer egin dezakeen.",
+      "roles": {
+        "owner": "Jabea",
+        "editor": "Editorea",
+        "viewer": "Ikuslea"
+      },
+      "roleHints": {
+        "owner": "Dena, ezarpenak eta kideak barne",
+        "editor": "Bezeroak, katalogoa, fakturak, kreditu-oharrak, ordainketak, posta elektronikoa",
+        "viewer": "Irakurtzeko soilik"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "{email} erabiltzailearen rola",
+      "invite": {
+        "title": "Gonbidatu norbait",
+        "description": "Gonbidatutako helbidearekin hasten dute saioa (identitate-hornitzaile batekin edo pasahitzarekin) eta aukeratzen duzun rola jasotzen dute.",
+        "sent": "Gonbidapena posta elektronikoz bidali da: {email}.",
+        "readyWithError": "Gonbidapena prest dago: {email}. Ezin izan da posta elektronikoa bidali ({error}); bidali esteka hau:",
+        "readyNoSmtp": "Gonbidapena prest dago: {email}. Ez dago SMTPrik konfiguratuta; bidali esteka hau:",
+        "copyLink": "Kopiatu esteka",
+        "email": "Posta elektronikoa",
+        "emailPlaceholder": "pertsona@adibidea.com",
+        "role": "Rola",
+        "submit": "Gonbidatu",
+        "inviting": "Gonbidatzen…"
+      },
+      "members": {
+        "title": "Kideak",
+        "description": "Gutxienez jabe aktibo bat geratzen da beti.",
+        "columns": {
+          "person": "Pertsona",
+          "role": "Rola",
+          "lastSignIn": "Azken saio-hasiera",
+          "status": "Egoera"
+        },
+        "nameYou": "{name} (zu)",
+        "deactivated": "Desaktibatuta",
+        "reactivate": {
+          "title": "{email} berriro aktibatu?",
+          "description": "Berriro hasi dezakete saioa aurreko rolarekin.",
+          "confirm": "Berriro aktibatu"
+        },
+        "deactivate": {
+          "title": "{email} desaktibatu?",
+          "description": "Saio guztiak orain amaitzen dira eta ezin dute saioa hasi berriro aktibatu arte. Historia mantentzen da.",
+          "confirm": "Desaktibatu"
+        }
+      },
+      "invitations": {
+        "title": "Zain dauden gonbidapenak",
+        "description": "Saioa hasteko baimena duten baina oraindik hasi ez duten helbideak.",
+        "columns": {
+          "email": "Posta elektronikoa",
+          "role": "Rola",
+          "invited": "Gonbidatua"
+        },
+        "empty": "Ez dago zain dagoen gonbidapenik.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "{email} helbidearen gonbidapena baliogabetu?"
+      }
+    },
+    "data": {
+      "metaTitle": "Datuak",
+      "title": "Datuak",
+      "description": "Dena eramangarria da: datu-multzoak CSV edo Excel formatuan, migraziorako argazki osoa, zure kontulariarentzako PDFak eta probatutako babeskopia-errutina.",
+      "period": {
+        "fiscalYear": "Ekitaldi fiskala",
+        "fiscalYearHint": "Datak gainidazten ditu",
+        "issuer": "Jaulkitzailea"
+      },
+      "exportAll": {
+        "title": "Esportatu datu guztiak",
+        "description": "ZIP bat datu-multzo bakoitzaren CSVarekin eta <mono>data.json</mono> fitxategiarekin, taula guztien argazki erlazionala. Eremu zifratuak (ordainketa-moduen xehetasunak, SMTP pasahitza) kanpoan geratzen dira; barruko README-an zerrendatuta daude.",
+        "download": "Deskargatu okinvo-data ZIPa"
+      },
+      "exportDocuments": {
+        "title": "Esportatu dokumentuak",
+        "description": "Aldi bateko jaulkitako eta indargabetutako faktura eta kreditu-ohar guztien PDFak, zenbakiaren arabera izendatuak, zenbakien, guztirakoen eta hashen <mono>index.csv</mono> batekin. Falta diren PDFak bidean sortzen dira.",
+        "docx": "Sartu dokumentu bakoitzaren DOCX kopia ere",
+        "download": "Deskargatu dokumentuen ZIPa"
+      },
+      "datasets": {
+        "title": "Datu-multzoak",
+        "description": "Aurkibide-orriek eskaintzen dituzten esportazio berberak, aldia eta jaulkitzailea guztiei aplikatuta. Ordainketek data-tartea erabiltzen dute; bezeroek eta zerbitzuek aldia alde batera uzten dute.",
+        "columns": {
+          "dataset": "Datu-multzoa",
+          "filters": "Aplikatutako iragazkiak",
+          "download": "Deskargatu"
+        },
+        "names": {
+          "invoices": "Fakturen erregistroa",
+          "invoiceItems": "Fakturen lerroak",
+          "payments": "Ordainketen liburua",
+          "creditNotes": "Kreditu-oharren erregistroa",
+          "clients": "Bezeroak",
+          "services": "Zerbitzuak",
+          "gstSummary": "GST laburpena",
+          "tdsSummary": "TDS laburpena"
+        },
+        "filters": {
+          "periodIssuer": "aldia, jaulkitzailea",
+          "dateRangeIssuer": "data-tartea, jaulkitzailea",
+          "includesArchived": "artxibatuak barne"
+        }
+      },
+      "backups": {
+        "title": "Babeskopiak",
+        "notWired": "Ez dago babeskopia-zerbitzurik konektatuta",
+        "noRun": "Oraindik ez da babeskopiarik egin",
+        "lastOk": "Azken babeskopia ondo",
+        "lastFailed": "Azken babeskopiak huts egin du",
+        "description": "Compose-ren <mono>backup</mono> zerbitzuak Postgres iraultzen du eta biltegiratze-bolumena artxibatzen du <mono>BACKUP_CRON</mono> arabera, <mono>BACKUP_RETENTION_DAYS</mono> eguneko historia gordetzen du <mono>backups</mono> bolumenean, eta orri honek irakurtzen duen egoera-fitxategi bat idazten du.",
+        "finished": "Amaitu zen",
+        "databaseDump": "Datu-basearen iraulketa",
+        "storageArchive": "Biltegiratzearen artxiboa",
+        "size": "Tamaina",
+        "sizeMb": "{size} MB",
+        "error": "Errorea",
+        "runNow": "Exekutatu bat orain, edo berreskuratu fitxategi-bikote batetik:",
+        "restoreDrill": "Berreskuratze-prozedura CIn lantzen da <mono>scripts/restore-drill.sh</mono> bidez: hazi, babeskopia egin, ezabatu, berreskuratu, eta gero errenkada-kopuruak eta PDF hash bat alderatu."
+      }
+    },
+    "legal": {
+      "metaTitle": "Lege-informazioa",
+      "metaDescription": "Nork darabilen instantzia hau: lege-orri publikoetan inprimatzen diren xehetasunak.",
+      "title": "Lege-informazioa",
+      "description": "Lege-orri publikoek xehetasun hauek inprimatzen dituzte. Eremu guztiak bete arte, orriek leku-marka nabarmenduak erakusten dituzte.",
+      "operator": {
+        "title": "Operadorearen xehetasunak",
+        "complete": "Osoa",
+        "missing": "{count} falta dira: {fields}",
+        "description": "Zu, instantzia hau darabilen pertsona edo enpresa gisa, dokumentuek aipatzen duten operadorea zara. Hemengo ezer ez da inora bidaltzen; beheko orrietan inprimatzen da."
+      },
+      "fieldLabels": {
+        "legalName": "Operadorearen izen juridikoa",
+        "entityType": "Entitate mota",
+        "address": "Operadorearen helbidea",
+        "country": "Operadorearen herrialdea",
+        "contactEmail": "Harremanetarako posta elektronikoa",
+        "privacyEmail": "Pribatutasunerako posta elektronikoa",
+        "dpoEmail": "Datuak babesteko ordezkariaren posta elektronikoa",
+        "governingLaw": "Aplikatzekoa den legea",
+        "venue": "Gatazketarako lekua",
+        "effectiveDate": "Indarrean jartzeko data"
+      },
+      "publicPages": {
+        "title": "Orri publikoak",
+        "description": "Saio-hasierako orritik, partekatze-ikustailetik eta cookie-oharretik estekatuta.",
+        "terms": "Zerbitzu-baldintzak",
+        "acceptableUse": "Erabilera onargarriaren politika",
+        "privacy": "Pribatutasun-politika",
+        "cookies": "Cookie-politika",
+        "dataRetention": "Datuen atxikipena",
+        "security": "Segurtasuna",
+        "licenses": "Lizentziak eta hirugarrenen oharrak"
+      },
+      "form": {
+        "legalName": "Izen juridikoa",
+        "entityType": "Entitate mota",
+        "individual": "Pertsona fisikoa / autonomoa",
+        "company": "Enpresa / erregistratutako entitatea",
+        "address": "Helbidea",
+        "addressHint": "Baldintzetan eta Pribatutasun-politikan inprimatzen da operadorearen posta-helbide gisa.",
+        "country": "Herrialdea",
+        "effectiveDate": "Indarrean jartzeko data",
+        "contactEmail": "Harremanetarako posta elektronikoa",
+        "privacyEmail": "Pribatutasunerako posta elektronikoa",
+        "privacyEmailHint": "Datu-subjektuen eskaerak nora doazen; harremanetarako helbidea izan daiteke.",
+        "dpoEmail": "Datuak babesteko ordezkariaren posta elektronikoa",
+        "dpoEmailHint": "Bat izendatu baduzu soilik.",
+        "governingLaw": "Aplikatzekoa den legea",
+        "governingLawHint": "Adibidez, “Indiako legeak” edo “Ingalaterra eta Galeseko legeak”.",
+        "venue": "Gatazketarako lekua",
+        "venueHint": "Adibidez, “Bengaluruko (Karnataka) epaitegiak”.",
+        "submit": "Gorde operadorearen xehetasunak"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API gakoak script-entzat, SDKrentzat eta MCP bezeroentzat, curl adibideekin.",
+      "title": "API",
+      "description": "Gakoak script-entzat, SDKrentzat eta MCP bezeroentzat. Gako batek zure rolak egin dezakeena egin dezake gehienez; behin soilik erakusten da.",
+      "create": {
+        "title": "Sortu gako bat",
+        "description": "Bidali <mono>Authorization: Bearer okv_…</mono> gisa. Ez utzi iturburu-kodean edo txat-erregistroetan; baliogabetu behean, ihes egiten badu."
+      },
+      "keys": {
+        "title": "Gakoak",
+        "descriptionOwner": "Instantzia honetako gako guztiak; jabeek edozein baliogabe dezakete.",
+        "descriptionOwn": "Zure gakoak.",
+        "columns": {
+          "name": "Izena",
+          "prefix": "Aurizkia",
+          "scopes": "Esparruak",
+          "owner": "Jabea",
+          "lastUsed": "Azken erabilera",
+          "expires": "Iraungitzen da",
+          "status": "Egoera"
+        },
+        "empty": "Oraindik ez dago API gakorik.",
+        "never": "inoiz ez",
+        "revoked": "Baliogabetua",
+        "expired": "Iraungita",
+        "revokeTitle": "{name} baliogabetu?",
+        "revokeDescription": "Gako hau erabiltzen duten bezeroek berehala uzten diote funtzionatzeari.",
+        "activeCount": "{count, plural, one {# gako aktibo.} other {# gako aktibo.}}"
+      },
+      "examples": {
+        "title": "Adibideak",
+        "description": "Ordezkatu <mono>$OKINVO_KEY</mono> gako batekin. REST API bertsionatua, bere OpenAPI dokumentua (<mono>/api/openapi.json</mono>), TypeScript SDKa eta MCP zerbitzaria v1.1 planaren hurrengo zereginekin iritsiko dira; egoera-amaiera-puntuak gaur egun funtzionatzen du.",
+        "rateLimit": "Muga gainditzen duten deiek 429 erantzuten dute <mono>Retry-After</mono> goiburuarekin (minutuko 120 eskaera gako bakoitzeko). Gako baten esparruak bere jabearen uneko rolak mugatzen ditu."
+      },
+      "form": {
+        "copyKey": "Kopiatu API gakoa",
+        "name": "Izena",
+        "namePlaceholder": "adib. kontabilitate-scripta",
+        "expires": "Iraungitzen da",
+        "in30Days": "30 egunetan",
+        "in90Days": "90 egunetan",
+        "inAYear": "Urte batean",
+        "never": "Inoiz ez",
+        "scopes": "Esparruak",
+        "submit": "Sortu API gakoa",
+        "creating": "Sortzen…"
+      },
+      "scopes": {
+        "invoicesRead": "Irakurri fakturak",
+        "invoicesCreate": "Sortu eta jaulki fakturak",
+        "creditNotesRead": "Irakurri kreditu-oharrak",
+        "creditNotesCreate": "Sortu eta jaulki kreditu-oharrak",
+        "catalogueRead": "Irakurri bezeroak, zerbitzuak eta produktuak",
+        "documentsRead": "Deskargatu gordetako PDFak eta DOCX kopiak",
+        "statusRead": "Irakurri instantziaren egoera"
+      }
+    },
+    "status": {
+      "metaTitle": "Egoera",
+      "metaDescription": "Instantzia honen bertsioa, datu-basea, biltegiratzea, posta elektronikoa eta babeskopien osasuna.",
+      "title": "Egoera",
+      "description": "Instantzia honek zer exekutatzen duen eta bere zatiek erantzuten duten.",
+      "recheck": "Egiaztatu berriro",
+      "health": {
+        "ok": "Ondo",
+        "warning": "Abisua",
+        "failed": "Huts egin du",
+        "na": "Konfiguratu gabe"
+      },
+      "overall": {
+        "ok": "Dena ondo",
+        "degraded": "Narriatua",
+        "failed": "Huts egin du"
+      },
+      "version": "Konpilazioa {hasSha, select, yes {<mono>{sha}</mono>} other {(sha ezezaguna)}} · konpilatua {built} · Node <mono>{node}</mono> · martxan {uptime} · egiaztatua {checked}",
+      "dateUnknown": "(data ezezaguna)",
+      "uptime": {
+        "days": "{d}e {h}o {m}m",
+        "hours": "{h}o {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Datu-basea",
+        "storage": "Biltegiratzea",
+        "rateLimiting": "Maiztasun-muga",
+        "email": "Posta elektronikoa",
+        "backups": "Babeskopiak"
+      },
+      "db": {
+        "detail": "{latency} ms · azken migrazioa <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # migrazio amaitu gabe}}",
+        "noMigration": "bat ere ez"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · probako objektu baten idazketa, irakurketa eta ezabaketa {latency} ms-tan",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> biltegia {store, select, memory {(erreplika bat)} other {(errepliken artean partekatua)}}",
+      "smtp": {
+        "configured": "SMTP: {source, select, settings {settings} env {env} other {}} · azken proba {lastTest} · azken 24 orduak: {sent} bidalita, {failed} huts eginda",
+        "none": "Ez dago SMTP zerbitzaririk; editoreak “Ireki posta-aplikazioan” eskaintzen du. <link>Konfiguratu</link>"
+      },
+      "backups": {
+        "notWired": "Ez dago babeskopia-zerbitzurik konektatuta (BACKUP_STATUS_FILE ezarri gabe).",
+        "noRun": "Babeskopia-zerbitzua konektatuta; oraindik ez da exekuziorik erregistratu.",
+        "ok": "Azken exekuzioa ondo joan zen: {finishedAt}{days, plural, =0 {} one { · atxikipena # egun} other { · atxikipena # egun}}",
+        "failed": "Azken exekuzioak huts egin du: {error}, {finishedAt}{days, plural, =0 {} one { · atxikipena # egun} other { · atxikipena # egun}}"
+      },
+      "footer": "Txosten bera JSON gisa dago eskuragarri <mono>/api/health/status</mono> helbidean, monitorizaziorako (saio hasia edo API gakoa)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Ongi etorri",
+    "progress": "Aurrerapena",
+    "steps": {
+      "aboutYou": "Zuri buruz",
+      "howYouUse": "Nola erabiliko duzun",
+      "allSet": "Dena prest"
+    },
+    "step1": {
+      "title": "Kontatu zeure burua",
+      "subtitle": "Honek zure balio lehenetsiak ezartzen ditu; balio bakoitza geroago alda daiteke Ezarpenetan.",
+      "name": "Izena",
+      "email": "Posta elektronikoa",
+      "emailHint": "Zure saio-hasierako identitatea. Geroago alda daiteke Ezarpenak → Segurtasuna atalean.",
+      "country": "Herrialdea",
+      "currency": "Moneta hobetsia",
+      "currencyHint": "Profil berrietarako eta aginte-panelerako erabiltzen da, profilik egon arte."
+    },
+    "step2": {
+      "title": "Nola erabiliko duzu okinvo?",
+      "subtitle": "Balio lehenetsiak soilik aldatzen dira; ezer ez da blokeatzen.",
+      "usage": "Erabilera",
+      "personal": "Faktura pertsonalak",
+      "personalHint": "Freelance lana zure izenean",
+      "business": "Enpresa-fakturak",
+      "businessHint": "Erregistratutako enpresa baten fakturak",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "BEZ zenbakia",
+        "other": "Zerga-erregistro zenbakia"
+      },
+      "taxQuestion": {
+        "IN": "GSTIN bat duzu?",
+        "GB": "BEZaren erregistroan zaude?",
+        "other": "Fakturetan inprimatzeko zerga-erregistro zenbakirik duzu?"
+      }
+    },
+    "step3": {
+      "title": "Dena prest",
+      "body": "Ondoren, sortu zure lehen jaulkitzaile-profila: fakturetan inprimatzen diren izena, helbidea eta zerga-datuak. Esandakoa bete dugu.",
+      "go": "Joan profiletara",
+      "opening": "Irekitzen…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Baldintzak",
+      "privacy": "Pribatutasuna",
+      "cookies": "Cookieak",
+      "security": "Segurtasuna"
+    },
+    "cookieNotice": {
+      "label": "Cookie-oharra",
+      "body": "Beharrezkoak diren cookieak soilik erabiltzen ditugu: zure saioa eta bistaratze-hobespenak. Analitikarik ez, jarraipenik ez.",
+      "policy": "Cookie-politika",
+      "gotIt": "Ulertuta"
+    },
+    "nav": {
+      "label": "Lege-informazioa",
+      "cookies": "Cookieak",
+      "privacy": "Pribatutasuna",
+      "terms": "Baldintzak",
+      "acceptableUse": "Erabilera onargarria",
+      "retention": "Atxikipena",
+      "security": "Segurtasuna",
+      "licences": "Lizentziak"
+    },
+    "operatorNotice": "okinvo auto-ostatatutako softwarea da; instantzia honen operadorea da haren erabileraren erantzule.",
+    "doc": {
+      "effectiveOn": "Indarrean: <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Edukia"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Operadorearen izen juridikoa",
+        "entityType": "Entitate mota",
+        "address": "Operadorearen helbidea",
+        "country": "Operadorearen herrialdea",
+        "contactEmail": "Harremanetarako posta elektronikoa",
+        "privacyEmail": "Pribatutasunerako posta elektronikoa",
+        "dpoEmail": "Datuak babesteko ordezkariaren posta elektronikoa",
+        "governingLaw": "Aplikatzekoa den legea",
+        "venue": "Gatazketarako lekua",
+        "effectiveDate": "Indarrean jartzeko data"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Ez da aurkitu",
+      "title": "Ez dago ezer helbide honetan",
+      "body": "Agian esteka zaharkituta dago, edo seinalatzen zuen dokumentua ez zen inoiz jaulki."
+    },
+    "forbidden": {
+      "metaTitle": "Ez dago baimenduta",
+      "title": "Kontu honek ezin du hori egin",
+      "body": "Zure rolak ez du hori baimentzen. Eskatu sarbidea jabe bati, edo hasi saioa sarbidea duen kontu batekin."
+    },
+    "error": {
+      "title": "Zerbait gaizki atera da",
+      "body": "Eskaera honek ez du ezer aldatu. Saiatu berriro; jarraitzen badu, zerbitzariaren erregistroak ditu xehetasunak.",
+      "digest": "errorea {digest}",
+      "generic": "errorea"
+    },
+    "appNotFound": {
+      "title": "Ez da aurkitu",
+      "body": "Erregistro hau ez dago, edo ikusten ari zinen bitartean ezabatu egin da.",
+      "back": "Itzuli aginte-panelera"
+    },
+    "validation": {
+      "required": "beharrezkoa",
+      "tooLong": "gehienez {max} karaktere",
+      "invalidEmail": "baliozko posta elektronikoa izan behar da",
+      "invalidDate": "UUUU-HH-EE formatuko egutegi-data izan behar da",
+      "invalidAmount": "zenbaki bat izan behar da",
+      "wholeNumber": "zenbaki oso bat izan behar da",
+      "greaterThanZero": "zero baino handiagoa izan behar da",
+      "fixFields": "Zuzendu nabarmendutako eremuak.",
+      "charset": "Teklatuko karaktere estandarrak soilik onartzen dira."
+    }
+  },
+  "verify": {
+    "metaTitle": "Egiaztatu dokumentua",
+    "heading": "Dokumentuaren egiaztapena",
+    "rateLimited": "Egiaztapen gehiegi helbide honetatik. Saiatu berriro minutu bat barru.",
+    "notFound": {
+      "title": "Ez dago horrelako dokumenturik",
+      "body": "Esteka honek ez dator bat jaulkitako ezein dokumenturekin. Egiaztatu jaso duzun QR kodea edo esteka, edo jarri harremanetan jaulkitzailearekin."
+    },
+    "status": {
+      "void": "Indargabetua",
+      "valid": "Baliozkoa"
+    },
+    "issuedBy": "Jaulkitzailea",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Hartzailea",
+    "issueDate": "Jaulkipen-data",
+    "total": "Guztira",
+    "voided": "Dokumentu hau jaulkitzaileak indargabetu du eta ez da jada baliozkoa.",
+    "storedCopies": {
+      "title": "Gordetako kopiak",
+      "description": "Jaulkitzaileak dituen PDF bertsio bakoitzaren SHA-256. Aukeratu zure kopia zure nabigatzailean alderatzeko: ez da ezer igotzen.",
+      "empty": "Oraindik ez da PDFrik sortu.",
+      "protectedVersion": "Pasahitzez babestutako kopia {version}",
+      "version": "{version}. bertsioa"
+    },
+    "check": {
+      "label": "Egiaztatu zure kopia",
+      "hashing": "Hash kalkulatzen…",
+      "match": "Zure kopia ({version}. bertsioa) guztiz bat dator.",
+      "mismatch": "Zure kopia ez dator bat gordetako ezein bertsiorekin."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Partekatutako dokumentua",
+      "rateLimited": "Eskaera gehiegi helbide honetatik. Saiatu berriro minutu bat barru.",
+      "unavailable": {
+        "title": "Esteka hau ez dago erabilgarri",
+        "body": "Agian iraungi egin da edo jaulkitzaileak baliogabetu du. Eskatu berri bat."
+      },
+      "lockedTitleInvoice": "{issuer} jaulkitzailearen faktura",
+      "lockedTitleCreditNote": "{issuer} jaulkitzailearen kreditu-oharra",
+      "lockedBody": "Dokumentu hau pasahitzez babestuta dago. Sartu jaulkitzaileak eman dizun pasahitza.",
+      "void": "Indargabetua",
+      "protectedPdf": "PDFa pasahitz berarekin irekitzen da. Irakurri eta inprimatu daiteke; kopiatzea eta editatzea blokeatuta daude.",
+      "byline": "{issuer} jaulkitzailea, {client} bezeroarentzat · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Pasahitza",
+      "limited": "Saiakera gehiegi. Itxaron hamabost minutu eta saiatu berriro.",
+      "wrong": "Pasahitz hori ez da zuzena.",
+      "submit": "Ireki dokumentua"
+    },
+    "dialog": {
+      "trigger": "Partekatu",
+      "title": "Partekatu dokumentu hau",
+      "description": "Esteka duen edonork ikusi eta deskarga dezake, iraungi arte edo zuk baliogabetu arte. Pasahitzak PDFa bera ere babesten du: pasahitzarekin irekitzen da eta irakurri eta inprimatu daiteke, baina ez editatu edo kopiatu.",
+      "link": "Esteka",
+      "copyLink": "Kopiatu esteka",
+      "password": "Pasahitza",
+      "copyPassword": "Kopiatu pasahitza",
+      "sendSeparately": "Bidali pasahitza estekatik bereizita. Berriro ikus dezakezu beheko zerrendan.",
+      "copy": "Kopiatu",
+      "copied": "Kopiatuta",
+      "expires": "Iraungitzen da",
+      "expiry": {
+        "d7": "7 egunetan",
+        "d30": "30 egunetan",
+        "d90": "90 egunetan",
+        "never": "Inoiz ez"
+      },
+      "protection": "Babesa",
+      "protectionOptions": {
+        "auto": "Pasahitza: sortu pasafrase bat",
+        "manual": "Pasahitza: aukeratu nirea",
+        "none": "Pasahitzik gabe (esteka irekia)"
+      },
+      "passwordHint": "8 karaktere gutxienez.",
+      "strength": "Sendotasuna: {label}",
+      "strengthLabels": {
+        "veryWeak": "oso ahula",
+        "weak": "ahula",
+        "fair": "onargarria",
+        "good": "ona",
+        "strong": "sendoa"
+      },
+      "creating": "Sortzen…",
+      "create": "Sortu esteka",
+      "activeLinks": "Esteka aktiboak",
+      "passwordProtected": "Pasahitzez babestua",
+      "openLink": "Ireki esteka",
+      "linkExpires": "{kind} · iraungitzen da: {date}",
+      "linkNeverExpires": "{kind} · ez da inoiz iraungitzen",
+      "revoke": {
+        "title": "Esteka hau baliogabetu?",
+        "description": "Esteka berehala uzten da funtzionatzeari duten guztientzat.",
+        "label": "Baliogabetu"
+      },
+      "linkPassword": "Pasahitza: <code>{password}</code>",
+      "counts": "{views, plural, other {# ikustaldi}} · {downloads, plural, other {# deskarga}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Kreditu-oharrak",
+      "title": "Kreditu-oharrak",
+      "description": "Jaulkitako fakturen aurka egindakoak; bakoitzak bere fakturaren saldoa murrizten du jaulkitzean.",
+      "newCreditNote": "Kreditu-ohar berria",
+      "filters": {
+        "from": "Noiztik",
+        "to": "Noiz arte",
+        "issuer": "Jaulkitzailea",
+        "client": "Bezeroa",
+        "status": "Egoera",
+        "search": "Bilatu",
+        "all": "Denak",
+        "searchPlaceholder": "Zenbakia, arrazoia, bezeroa",
+        "go": "Joan"
+      },
+      "statuses": {
+        "DRAFT": "Zirriborroa",
+        "ISSUED": "Jaulkia",
+        "SENT": "Bidalia",
+        "VOID": "Indargabetua"
+      },
+      "empty": {
+        "title": "Oraindik ez dago kreditu-oharrik",
+        "description": "Ireki jaulkitako faktura bat eta aukeratu “Kreditu-oharra” zor duena murrizteko."
+      },
+      "noMatch": "Ez dago iragazki hauekin bat datorren kreditu-oharrik.",
+      "columns": {
+        "number": "Zenbakia",
+        "against": "Honen aurka",
+        "client": "Bezeroa",
+        "issueDate": "Jaulkipen-data",
+        "reason": "Arrazoia",
+        "total": "Guztira",
+        "status": "Egoera"
+      },
+      "draft": "Zirriborroa"
+    },
+    "new": {
+      "metaTitle": "Kreditu-ohar berria",
+      "title": "Kreditu-ohar berria",
+      "description": "Kreditu-oharra jaulkitako faktura baten aurka egiten da eta haren saldoa murrizten du.",
+      "nothingToCredit": {
+        "title": "Ez dago kreditatzeko ezer",
+        "description": "Kreditu-oharrek ordaindu gabeko saldoa duen jaulkitako faktura bat behar dute.",
+        "openInvoices": "Ireki fakturak"
+      },
+      "whichInvoice": "Zein faktura?",
+      "invoice": "Faktura",
+      "invoiceOption": "{number} · {client} · saldoa {balance}",
+      "issuedOnly": "Kreditu-oharrak jaulkitako fakturen aurka soilik egiten dira.",
+      "invoiceFallback": "Faktura"
+    },
+    "edit": {
+      "metaTitle": "Editatu kreditu-oharra",
+      "title": "Editatu kreditu-ohar zirriborroa",
+      "immutable": "Jaulkitako kreditu-oharrak aldaezinak dira.",
+      "draft": "Zirriborroa"
+    },
+    "detail": {
+      "metaTitle": "Kreditu-oharra",
+      "draftTitle": "Kreditu-ohar zirriborroa",
+      "meta": "{client} · <invoice>{number}</invoice> fakturaren aurka · jaulkia <mono>{date}</mono>",
+      "previewPdf": "PDFaren aurrebista",
+      "issue": {
+        "title": "Kreditu-ohar hau jaulki?",
+        "description": "Zenbaki bat esleitzen da, fakturaren saldoa murrizten da eta dokumentua aldaezin bihurtzen da.",
+        "label": "Jaulki"
+      },
+      "deleteDraft": {
+        "title": "Zirriborro hau ezabatu?"
+      },
+      "sendByEmail": "Bidali posta elektronikoz",
+      "markSent": {
+        "title": "Bidalitzat markatu?",
+        "label": "Markatu bidalitzat"
+      },
+      "void": {
+        "title": "Kreditu-ohar hau indargabetu?",
+        "description": "Fakturaren saldoa berreskuratzen da; zenbakia ez da inoiz berrerabiltzen.",
+        "reason": "Arrazoia",
+        "label": "Indargabetu"
+      },
+      "voided": "Indargabetua: {date}. {reason}",
+      "amounts": {
+        "title": "Zenbatekoak",
+        "reason": "Arrazoia",
+        "creditAmount": "Kreditu-zenbatekoa",
+        "total": "Guztira",
+        "balanceNow": "Fakturaren uneko saldoa",
+        "sent": "Bidalia"
+      },
+      "documents": {
+        "title": "Gordetako dokumentuak",
+        "description": "Bertsio guztiak gordetzen dira; egiaztapen-orriak hash guztiak zerrendatzen ditu.",
+        "regenerateTitle": "PDF bertsio berri bat sortu?",
+        "generate": "Sortu",
+        "newVersion": "Bertsio berria",
+        "renderedOnFirstDownload": "PDFa lehen deskargan sortzen da.",
+        "protectedCopy": "Pasahitzez babestutako kopia {version}",
+        "version": "{version}. bertsioa",
+        "verificationLink": "Egiaztapen-esteka: <link>{path}…</link>"
+      },
+      "draftsPreview": "Zirriborroen aurrebista zuzenean ikusten da editorean."
+    },
+    "send": {
+      "metaTitle": "Bidali kreditu-oharra",
+      "title": "Bidali <mono>{number}</mono>",
+      "previousSends": "Aurreko bidalketak"
+    },
+    "builder": {
+      "against": "<mono>{number}</mono> fakturaren aurka",
+      "summary": "{client} · guztira {total} · saldoa {balance} · zerga-oinarri erabilgarria ≈ {headroom}",
+      "issueDate": "Jaulkipen-data",
+      "creditAmount": "Kreditu-zenbatekoa (zergarik gabe)",
+      "creditAmountHint": "Zerga fakturaren zerga-lerroen arabera banatzen da",
+      "reason": "Arrazoia",
+      "picker": {
+        "title": "Kalkulatu fakturaren lerroetatik",
+        "description": "Markatu lerro osoak edo ehuneko bat; honek goiko zenbatekoa soilik betetzen du.",
+        "line": "Lerroa",
+        "subtotal": "Azpitotala",
+        "credit": "Kreditua",
+        "percent": "%",
+        "creditLine": "{position}. lerroaren kreditua",
+        "percentOfLine": "{position}. lerroaren ehunekoa"
+      },
+      "saveDraft": "Gorde zirriborroa",
+      "issuing": "Jaulkitzen…",
+      "saveAndIssue": "Gorde eta jaulki"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Jasotako ordainketa",
+        "REFUND": "Egindako itzulketa",
+        "WRITE_OFF": "Zor-kitapena"
+      },
+      "editTitle": "Editatu sarrera",
+      "recordTitle": "Erregistratu ordainketa bat",
+      "description": "Zenbatekoak fakturaren monetan daude ({currency}); kendutako TDS aplikatutako zenbatekoaren parte da.",
+      "kind": "Mota",
+      "date": "Data",
+      "amountRefunded": "Itzulitako zenbatekoa (negatiboa)",
+      "amountApplied": "Aplikatutako zenbatekoa",
+      "refundHint": "Sartu zenbateko negatibo bat, adib. -500",
+      "tdsDeducted": "Kendutako TDS",
+      "tdsHint": "Bezeroak atxikitako zerga; aplikatutako zenbatekoan zenbatzen da",
+      "bankFees": "Banku-komisioak",
+      "receivedInto": "Hemen jasota",
+      "noMethod": "-",
+      "reference": "Erreferentzia",
+      "referenceHint": "UTR, transakzio-IDa, txeke-zenbakia",
+      "otherCurrency": "Beste moneta batean jasota",
+      "amountReceived": "Jasotako zenbatekoa",
+      "receivedCurrency": "Jasotako moneta",
+      "exchangeRate": "Truke-tasa",
+      "exchangeRateHint": "Jasotako unitate 1 = ? {currency}",
+      "notes": "Oharrak",
+      "receipt": "Ordainagiria",
+      "receiptHint": "PNG, JPEG, WebP edo PDF 10 MB arte",
+      "saveChanges": "Gorde aldaketak",
+      "record": "Erregistratu"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "gutxi gorabehera {count, plural, one {# orri} other {# orri}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Mezua",
+      "description": "Jaulkitzaile-profilaren txantiloietatik aurrez beteta. Ez da ezer bidaltzen Bidali sakatu arte.",
+      "to": "Nori",
+      "toHint": "Komaz bereizita",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Gaia",
+      "body": "Gorputza",
+      "bodyHint": "Testu soila; estekak klikagarri bihurtzen dira",
+      "attachment": "Eranskina",
+      "attachmentHint": "Gordetako kopia, <mono>{name}</mono> izenekoa (edo .docx); haren edukia ezin da aldatu.",
+      "pdf": "PDFa",
+      "docx": "DOCX (Word)",
+      "sending": "Bidaltzen…",
+      "send": "Bidali",
+      "openInMailApp": "Ireki posta-aplikazioan",
+      "noSmtp": "Ez dago SMTP zerbitzaririk konfiguratuta (Ezarpenak → Posta elektronikoa). Ireki zirriborroa zure posta-aplikazioan, erantsi deskargatutako PDFa eta markatu behean bidalitzat.",
+      "markAsSent": "Markatu bidalitzat"
+    },
+    "sentLog": {
+      "when": "Noiz",
+      "document": "Dokumentua",
+      "to": "Nori",
+      "subject": "Gaia",
+      "status": "Egoera",
+      "empty": "Oraindik ez da ezer bidali.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "bidalia",
+        "FAILED": "huts egin du",
+        "MANUAL": "eskuzkoa"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Kaixo, {name}",
+    "fiscalYear": "{year} ekitaldi fiskala",
+    "fiscalYearWithBase": "{year} ekitaldi fiskala · oinarrizko moneta {currency} ({profile})",
+    "newCreditNote": "Kreditu-ohar berria",
+    "welcomeTitle": "Ongi etorri {appName}-ra",
+    "welcomeDescription": "Hasi faktura egiteko erabiltzen duzun jaulkitzaile-profila sortzen; ondoren, gehitu bezero bat eta zure lehen faktura.",
+    "createProfile": "Sortu zure profila",
+    "tiles": {
+      "outstanding": "Ordaindu gabe",
+      "overdue": "Atzeratua",
+      "billedThisFy": "Fakturatua ekitaldi honetan",
+      "receivedThisFy": "Jasoa ekitaldi honetan",
+      "drafts": "Zirriborroak",
+      "invoiceCount": "{count, plural, one {# faktura} other {# faktura}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Ordainketak ken itzulketak, erregistratutako truke-tasan",
+      "awaitingIssue": "jaulkitzearen zain",
+      "nothingPending": "ez dago ezer zain"
+    },
+    "recentInvoices": "Azken fakturak",
+    "allInvoices": "Faktura guztiak",
+    "noInvoicesYet": "Oraindik ez dago fakturarik.",
+    "columns": {
+      "number": "Zenbakia",
+      "client": "Bezeroa",
+      "issued": "Jaulkia"
+    },
+    "topClients": "Ordaindu gabeko saldo handieneko bezeroak",
+    "nothingOutstanding": "Ez dago ordaindu gabeko ezer."
+  },
+  "exports": {
+    "export": "Esportatu",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Fakturak",
+      "newInvoice": "Faktura berria",
+      "draft": "Zirriborroa",
+      "aDraft": "zirriborro bat",
+      "statuses": {
+        "draft": "Zirriborroa",
+        "issued": "Jaulkia",
+        "sent": "Bidalia",
+        "partiallyPaid": "Partzialki ordainduta",
+        "paid": "Ordainduta",
+        "overdue": "Atzeratua",
+        "void": "Indargabetua"
+      },
+      "lifecycle": {
+        "draft": "zirriborroa",
+        "issued": "jaulkia",
+        "void": "indargabetua"
+      },
+      "units": {
+        "hour": "Ordua",
+        "day": "Eguna",
+        "fixed": "Finkoa",
+        "milestone": "Mugarria",
+        "unit": "Unitatea"
+      },
+      "unitsLower": {
+        "hour": "ordua",
+        "day": "eguna",
+        "fixed": "finkoa",
+        "milestone": "mugarria",
+        "unit": "unitatea"
+      },
+      "supplyTypes": {
+        "intraState": "estatu barruko",
+        "interState": "estatuen artekoa",
+        "exportLut": "esportazioa LUTekin",
+        "exportWithTax": "esportazioa zergarekin",
+        "reverseCharge": "alderantzizko karga",
+        "notApplicable": "ez da aplikagarria"
+      }
+    },
+    "list": {
+      "description": "Zirriborro, jaulkitako eta indargabetutako fakturak; egoerak ordainketetatik eta mugaeguneko datetatik eratortzen dira.",
+      "fiscalYear": "Ekitaldi fiskala",
+      "issuer": "Jaulkitzailea",
+      "client": "Bezeroa",
+      "searchPlaceholder": "Zenbakia, erosketa-agindua, bezeroa",
+      "emptyTitle": "Oraindik ez dago fakturarik",
+      "emptyDescription": "Sortu zure lehen faktura: aukeratu bezero bat, gehitu lerroak, begiratu aurrebista eta gero jaulki.",
+      "columns": {
+        "number": "Zenbakia",
+        "client": "Bezeroa",
+        "issuer": "Jaulkitzailea",
+        "issueDate": "Jaulkipen-data",
+        "due": "Muga-eguna",
+        "balance": "Saldoa"
+      },
+      "noMatches": "Ez dago iragazki hauekin bat datorren fakturarik.",
+      "count": "{count, plural, one {# faktura} other {# faktura}}",
+      "countPaged": "{count, plural, one {# faktura} other {# faktura}} · {page}. orria, {pages} orritatik",
+      "register": "erregistroa"
+    },
+    "new": {
+      "noProfileTitle": "Sortu lehenik jaulkitzaile-profil bat",
+      "noProfileDescription": "Faktura bat lege-identitate batetik jaulkitzen da: konfiguratu zure profila bere zerga-identifikatzaileekin eta zenbakikuntzarekin.",
+      "createProfile": "Sortu profil bat"
+    },
+    "edit": {
+      "metaTitle": "Editatu faktura",
+      "title": "Editatu zirriborroa",
+      "immutableFlash": "Jaulkitako fakturak aldaezinak dira. Erabili “Indargabetu eta berrjaulki” zuzentzeko."
+    },
+    "detail": {
+      "metaTitle": "Faktura",
+      "draftInvoice": "Faktura-zirriborroa",
+      "issuedDue": "Jaulkia <mono>{issued}</mono>, muga-eguna <mono>{due}</mono>",
+      "replaces": "Honen ordezkoa: {number}",
+      "replacedBy": "Honek ordezkatua: {number}",
+      "previewPdf": "PDFaren aurrebista",
+      "issueTitle": "Faktura hau jaulki?",
+      "issueDescription": "Zenbaki bat esleitzen da eta dokumentua aldaezin bihurtzen da.",
+      "issue": "Jaulki",
+      "deleteDraftTitle": "Zirriborro hau ezabatu?",
+      "sendByEmail": "Bidali posta elektronikoz",
+      "recordPayment": "Erregistratu ordainketa",
+      "creditNote": "Kreditu-oharra",
+      "markSentTitle": "Bidalitzat markatu?",
+      "markSentDescription": "Bezeroak faktura hau jaso duela erregistratzen du.",
+      "markSent": "Markatu bidalitzat",
+      "voidReissueTitle": "Indargabetu eta berrjaulki?",
+      "voidReissueDescription": "Jatorrizkoa indargabetzen da eta eduki bera duen zirriborro estekatu bat irekitzen da editatzeko.",
+      "voidReissue": "Indargabetu eta berrjaulki",
+      "voidTitle": "Faktura hau indargabetu?",
+      "voidDescription": "Erregistratutako ordainketarik gabe soilik posible da; zenbakia ez da inoiz berrerabiltzen.",
+      "void": "Indargabetu",
+      "voided": "Indargabetua: {date}. {reason}",
+      "amounts": "Zenbatekoak",
+      "subtotal": "Azpitotala",
+      "discount": "Deskontua",
+      "discountPercent": "Deskontua ({percent})",
+      "rounding": "Biribilketa",
+      "tdsExpected": "Espero den TDS ({percent})",
+      "paid": "Ordainduta",
+      "credited": "Kreditatuta",
+      "balanceDue": "Ordaintzeko saldoa",
+      "supply": "Hornidura",
+      "fxToBase": "Truke-tasa oinarrizko monetara",
+      "poReference": "Erosketa-aginduaren erreferentzia",
+      "sent": "Bidalia",
+      "lineItems": "Faktura-lerroak",
+      "columns": {
+        "description": "Deskribapena",
+        "sacHsn": "SAC/HSN",
+        "qty": "Kop.",
+        "rate": "Tarifa",
+        "tax": "Zerga",
+        "amount": "Zenbatekoa"
+      },
+      "creditNotes": "Kreditu-oharrak",
+      "storedDocuments": "Gordetako dokumentuak",
+      "storedDocumentsHint": "Bertsio guztiak gordetzen dira; egiaztapen-orriak hash guztiak zerrendatzen ditu.",
+      "regenerateTitle": "PDF bertsio berri bat sortu?",
+      "regenerateDescription": "Izoztutako argazkitik berriro sortzen da (adibidez, errendatzailearen zuzenketa baten ondoren). Aurreko bertsioak mantentzen dira.",
+      "regenerate": "Sortu",
+      "newVersion": "Bertsio berria",
+      "renderedOnFirstDownload": "PDFa lehen deskargan sortzen da.",
+      "protectedCopy": "Pasahitzez babestutako kopia {version}",
+      "version": "{version}. bertsioa",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Egiaztapen-esteka:",
+      "draftPreviewHint": "Zirriborroen aurrebista zuzenean ikusten da editorean; ireki <link>ur-markadun PDFa</link> orria ikusteko."
+    },
+    "history": {
+      "metaTitle": "Fakturaren historia",
+      "title": "Historia <mono>{number}</mono>",
+      "reissueChain": "Berrjaulkipen-katea",
+      "replaces": "Honen ordezkoa: <link>{number}</link>",
+      "replacedBy": "Honek ordezkatua: <link>{number}</link>",
+      "auditTrail": "Auditoretza-arrastoa",
+      "columns": {
+        "when": "Noiz",
+        "who": "Nork",
+        "action": "Ekintza",
+        "summary": "Laburpena"
+      },
+      "noEvents": "Oraindik ez dago gertaerarik.",
+      "system": "Sistema",
+      "emails": "Mezuak"
+    },
+    "payments": {
+      "title": "Ordainketak",
+      "description": "{client} · {total} guztira",
+      "backToInvoice": "Itzuli fakturara",
+      "ledger": "Liburua",
+      "columns": {
+        "date": "Data",
+        "kind": "Mota",
+        "applied": "Aplikatua",
+        "tds": "TDS",
+        "received": "Jasoa",
+        "reference": "Erreferentzia",
+        "balance": "Saldoa"
+      },
+      "noPayments": "Oraindik ez da ordainketarik erregistratu.",
+      "kinds": {
+        "payment": "Ordainketa",
+        "refund": "Itzulketa",
+        "writeOff": "Zor-kitapena"
+      },
+      "receipt": "Ordainagiria",
+      "deleteEntryTitle": "Sarrera hau ezabatu?",
+      "deleteEntryDescription": "Fakturaren saldoa berriro kalkulatzen da.",
+      "totals": "Guztirakoak",
+      "invoiceTotal": "Fakturaren guztira",
+      "credited": "Kreditatuta",
+      "refunds": "Itzulketak",
+      "writeOffs": "Zor-kitapenak",
+      "tdsDeducted": "Kendutako TDS",
+      "bankFees": "Banku-komisioak",
+      "balanceDue": "Ordaintzeko saldoa",
+      "onlyIssued": "Jaulkitako fakturek soilik onartzen dituzte ordainketak."
+    },
+    "send": {
+      "metaTitle": "Bidali faktura",
+      "title": "Bidali <mono>{number}</mono>",
+      "alreadySent": "Dagoeneko bidalitzat markatuta dago; berriro bidaltzeak beste erregistro-sarrera bat gehitzen du.",
+      "previousSends": "Aurreko bidalketak"
+    },
+    "builder": {
+      "parties": "Alderdiak",
+      "issuerProfile": "Jaulkitzaile-profila",
+      "client": "Bezeroa",
+      "archivedOption": "{label} (artxibatua)",
+      "issueDate": "Jaulkipen-data",
+      "dueDate": "Muga-eguna",
+      "fxRate": "Truke-tasa oinarrizko monetara",
+      "fxHint": "1 {currency} = ? {base} (txostenetarako soilik)",
+      "poReference": "Erosketa-aginduaren erreferentzia",
+      "lineItems": "Faktura-lerroak",
+      "lineItemsHint": "Aukeratu katalogotik haren balioak kopiatzeko, edo idatzi lerro bat.",
+      "taxDiscountTds": "Zerga, deskontua eta TDS",
+      "taxRegime": "Zerga-araubidea",
+      "regimes": {
+        "indiaGst": "Indiako GST",
+        "ukVat": "Erresuma Batuko BEZ",
+        "usSalesTax": "AEBetako salmenta-zerga",
+        "none": "Zergarik gabe"
+      },
+      "reverseCharge": "Alderantzizko karga",
+      "reverseChargeHint": "Hartzaileak ordaindu beharreko zerga",
+      "discount": "Deskontua",
+      "percent": "Ehunekoa",
+      "amount": "Zenbatekoa",
+      "rounding": "Biribilketa-doikuntza",
+      "roundingHint": "Aukerakoa, unitate osora; 1 baino txikiagoa izan behar da",
+      "round": "Biribildu",
+      "tdsRate": "Espero den TDS tasa (%)",
+      "tdsRateHint": "Informatiboa; TDS xehetasuna aktibatuta dagoenean inprimatzen da",
+      "paymentMethods": "Ordainketa-moduak",
+      "paymentMethodsHint": "Markatutako ordenan inprimatzen dira.",
+      "noPaymentMethods": "Ez dago ordainketa-modu aktiborik. <link>Gehitu bat</link>.",
+      "whatPrints": "Zer inprimatzen den",
+      "whatPrintsHint": "Jaulkitzaile-profilaren balio lehenetsietatik abiatzen da.",
+      "notesAndTerms": "Oharrak eta baldintzak",
+      "notes": "Oharrak",
+      "terms": "Baldintzak",
+      "saveDraft": "Gorde zirriborroa",
+      "issuing": "Jaulkitzen…",
+      "saveAndIssue": "Gorde eta jaulki",
+      "subtotal": "Azpitotala",
+      "tax": "Zerga",
+      "tdsExpected": "Espero den TDS",
+      "netExpected": "Espero den garbia"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Gehitu katalogotik…",
+      "services": "Zerbitzuak",
+      "products": "Produktuak",
+      "addLine": "Gehitu lerroa",
+      "columns": {
+        "description": "Deskribapena",
+        "sacHsn": "SAC/HSN",
+        "qty": "Kop.",
+        "unit": "Unitatea",
+        "rate": "Tarifa",
+        "taxPercent": "Zerga %"
+      },
+      "aria": {
+        "description": "{line}. lerroaren deskribapena",
+        "sacHsn": "{line}. lerroaren SAC/HSN",
+        "quantity": "{line}. lerroaren kopurua",
+        "unit": "{line}. lerroaren unitatea",
+        "rate": "{line}. lerroaren tarifa",
+        "taxRate": "{line}. lerroaren zerga-tasa"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Salbuetsia",
+      "moveUp": "Mugitu gora",
+      "moveDown": "Mugitu behera",
+      "removeLine": "Kendu lerroa",
+      "shortcutHint": "Deskribapen batean Ctrl/⌘+Sartu sakatzeak lerro bat gehitzen du.",
+      "addFromCatalogueAria": "Gehitu katalogotik"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Jaulkitzailearen xehetasunak",
+        "client": "Bezeroaren xehetasunak",
+        "document": "Dokumentuaren atalak"
+      },
+      "fields": {
+        "showLogo": "Logotipoa",
+        "showTradeName": "Izen komertziala",
+        "showDesignation": "Kargua",
+        "showEmail": "Posta elektronikoa",
+        "showPhone": "Telefonoa",
+        "showWebsite": "Webgunea",
+        "showFullAddress": "Helbide osoa",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Sinadura",
+        "showStamp": "Zigilua",
+        "showContactPerson": "Harremanetarako pertsona",
+        "showBillingAddress": "Fakturazio-helbidea",
+        "showShippingAddress": "Bidalketa-helbidea",
+        "showTaxIdentifier": "Zerga-identifikatzailea",
+        "showPlaceOfSupply": "Hornidura-lekua",
+        "showDueDate": "Muga-eguna",
+        "showPaymentTerms": "Ordainketa-baldintzak",
+        "showSacCodeColumn": "SAC kodearen zutabea",
+        "showQuantityColumn": "Kopuruaren zutabea",
+        "showUnitPriceColumn": "Unitate-prezioaren zutabea",
+        "showTaxColumn": "Zergaren zutabea",
+        "showTdsBreakdown": "TDS xehetasuna",
+        "showQrVerification": "QR egiaztapena",
+        "showNotes": "Oharrak",
+        "showTerms": "Baldintzak",
+        "showReplacesReference": "Ordezkapenaren erreferentzia",
+        "showAmountInWords": "Zenbatekoa letraz",
+        "showSupplyStatement": "Hornidura-adierazpena",
+        "showRoundingLine": "Biribilketa-lerroa",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Bezeroak",
+      "description": "Faktura egiten diezun guztiak. Fakturak dituzten bezeroak artxibatu egiten dira, ez dira inoiz ezabatzen.",
+      "newClient": "Bezero berria",
+      "searchPlaceholder": "Bilatu izenaren arabera",
+      "searchLabel": "Bilatu bezeroak",
+      "emptyTitle": "Oraindik ez dago bezerorik",
+      "emptyDescription": "Gehitu faktura egiten dizkiezun pertsonak eta enpresak; haien moneta eta ordainketa-baldintzak faktura bakoitzean aurrez betetzen dira.",
+      "addClient": "Gehitu bezero bat",
+      "noMatch": "Ez dago “{q}” bilaketarekin bat datorren bezerorik.",
+      "termsDays": "{days} e",
+      "columns": {
+        "name": "Izena",
+        "contact": "Kontaktua",
+        "email": "Posta elektronikoa",
+        "country": "Herrialdea",
+        "currency": "Moneta",
+        "terms": "Baldintzak",
+        "status": "Egoera"
+      }
+    },
+    "new": {
+      "title": "Bezero berria"
+    },
+    "edit": {
+      "metaTitle": "Editatu bezeroa",
+      "title": "Editatu {name}"
+    },
+    "detail": {
+      "metaTitle": "Bezeroa",
+      "newInvoice": "Faktura berria",
+      "restoreTitle": "Bezero hau berreskuratu?",
+      "archiveTitle": "Bezero hau artxibatu?",
+      "archiveDescription": "Hautagailuetatik kentzen da; fakturak eta historia mantentzen dira.",
+      "deleteTitle": "Bezero hau ezabatu?",
+      "deleteDescription": "Soilik posible da faktura batek ere bezeroari erreferentziarik egiten ez dionean.",
+      "details": "Xehetasunak",
+      "contact": "Kontaktua",
+      "email": "Posta elektronikoa",
+      "phone": "Telefonoa",
+      "country": "Herrialdea",
+      "gstState": "GST {code}",
+      "taxId": "Zerga-identifikatzailea",
+      "currency": "Moneta",
+      "paymentTerms": "Ordainketa-baldintzak",
+      "paymentTermsDays": "{days} egun",
+      "expectedTds": "Espero den TDS",
+      "notes": "Oharrak",
+      "addresses": "Helbideak",
+      "billing": "Fakturazioa",
+      "shipping": "Bidalketa",
+      "lifetime": "Guztira",
+      "openRegister": "Ireki erregistroa",
+      "noIssued": "Oraindik ez dago jaulkitako fakturarik.",
+      "noIssuedWithDrafts": "Oraindik ez dago jaulkitako fakturarik ({drafts} zirriborro).",
+      "firstLatest": "Lehen faktura <mono>{first}</mono>, azkena <mono>{latest}</mono>{drafts, plural, =0 {} one { · # zirriborro} other { · # zirriborro}}",
+      "lifetimeColumns": {
+        "currency": "Moneta",
+        "invoices": "Fakturak",
+        "billed": "Fakturatua",
+        "received": "Jasoa",
+        "credited": "Kreditatua",
+        "outstanding": "Ordaindu gabe",
+        "overdue": "Atzeratua"
+      },
+      "recentInvoices": "Azken fakturak",
+      "noInvoices": "Oraindik ez dago bezero honen fakturarik.",
+      "recentColumns": {
+        "number": "Zenbakia",
+        "issueDate": "Jaulkipen-data",
+        "due": "Muga-eguna",
+        "total": "Guztira",
+        "balance": "Saldoa",
+        "status": "Egoera"
+      }
+    },
+    "form": {
+      "cardTitle": "Bezeroa",
+      "displayName": "Bistaratzeko izena",
+      "contactPerson": "Harremanetarako pertsona",
+      "email": "Posta elektronikoa",
+      "phone": "Telefonoa",
+      "taxIdType": "Zerga-identifikatzaile mota",
+      "taxIdTypeNone": "Bat ere ez",
+      "taxId": "Zerga-identifikatzailea",
+      "currency": "Moneta",
+      "paymentTerms": "Ordainketa-baldintzak (egunak)",
+      "expectedTdsRate": "Espero den TDS tasa (%)",
+      "notes": "Oharrak",
+      "billingAddress": "Fakturazio-helbidea",
+      "shippingAddress": "Bidalketa-helbidea",
+      "differentFromBilling": "Fakturazio-helbidea ez bezalakoa",
+      "save": "Gorde bezeroa"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Ordua",
+      "DAY": "Eguna",
+      "FIXED": "Finkoa",
+      "MILESTONE": "Mugarria",
+      "UNIT": "Unitatea"
+    },
+    "list": {
+      "activate": "Aktibatu",
+      "deactivate": "Desaktibatu",
+      "archiveDescription": "Lehendik dauden faktura-lerroek kopiatutako balioak mantentzen dituzte.",
+      "deleteDescription": "Soilik posible da faktura-lerrorik honi erreferentziarik egiten ez dionean. Bestela, artxibatu.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Izena",
+        "unit": "Unitatea",
+        "rate": "Tarifa",
+        "price": "Prezioa",
+        "currency": "Moneta",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Zerga",
+        "status": "Egoera"
+      }
+    },
+    "services": {
+      "title": "Zerbitzuak",
+      "description": "Zure katalogoa. Zerbitzu bat aukeratzean haren balioak faktura-lerrora kopiatzen dira.",
+      "newService": "Zerbitzu berria",
+      "emptyTitle": "Oraindik ez dago zerbitzurik",
+      "emptyDescription": "Gehitu saltzen duzuna (orduko diseinua, prezio finkoko mugarria) bere SAC/HSN kodearekin eta zerga-tasarekin.",
+      "addService": "Gehitu zerbitzu bat",
+      "restoreTitle": "{name} berreskuratu?",
+      "archiveTitle": "{name} artxibatu?",
+      "deleteTitle": "{name} ezabatu?",
+      "editMetaTitle": "Editatu zerbitzua",
+      "editTitle": "Editatu {name}"
+    },
+    "products": {
+      "title": "Produktuak",
+      "description": "Saltzen dituzun salgaiak, bakoitza SKU batekin. Produktu bat aukeratzean haren balioak faktura-lerrora kopiatzen dira.",
+      "newProduct": "Produktu berria",
+      "emptyTitle": "Oraindik ez dago produkturik",
+      "emptyDescription": "Gehitu saltzen dituzun salgaiak SKU, HSN kode, unitate-prezio eta zerga-tasarekin.",
+      "addProduct": "Gehitu produktu bat",
+      "restoreTitle": "{sku} berreskuratu?",
+      "archiveTitle": "{sku} artxibatu?",
+      "deleteTitle": "{sku} ezabatu?",
+      "editMetaTitle": "Editatu produktua",
+      "editTitle": "Editatu {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Lerroaren deskribapenaren azpian inprimatzen den kode bakarra",
+      "name": "Izena",
+      "unit": "Unitatea",
+      "defaultRate": "Tarifa lehenetsia",
+      "unitPrice": "Unitate-prezioa",
+      "currency": "Moneta",
+      "sacHsnCode": "SAC / HSN kodea",
+      "sacHsnHint": "Beharrezkoa GST fakturetan",
+      "hsnCode": "HSN kodea",
+      "hsnHint": "Beharrezkoa GST fakturetan salgaietarako",
+      "defaultTaxRate": "Zerga-tasa lehenetsia (%)",
+      "description": "Deskribapena",
+      "descriptionHint": "Lerroaren deskribapena aurrez betetzen du",
+      "active": "Aktiboa",
+      "serviceInactiveHint": "Zerbitzu inaktiboak ez dira faktura-hautagailuan agertzen",
+      "productInactiveHint": "Produktu inaktiboak ez dira faktura-hautagailuan agertzen",
+      "saveService": "Gorde zerbitzua",
+      "saveProduct": "Gorde produktua"
+    },
+    "tags": {
+      "legend": "Profilak",
+      "hint": "Markatu hau saltzen duten jaulkitzaile-profilak. Utzi guztiak markatu gabe profil guztiei eskaintzeko."
+    }
+  },
+  "address": {
+    "line1": "Helbidearen 1. lerroa",
+    "line2": "Helbidearen 2. lerroa",
+    "city": "Hiria",
+    "stateRegion": "Estatua / eskualdea",
+    "postalCode": "Posta-kodea",
+    "country": "Herrialdea",
+    "state": "Estatua",
+    "gstStateCodeHint": "GST estatu-kodea {code}",
+    "pickStateHint": "Aukeratu estatua GST estatu-koderako",
+    "stateRegionCode": "Estatu / eskualde kodea",
+    "stateRegionCodePlaceholder": "adib. CA"
+  },
+  "assets": {
+    "tooLarge": "Fitxategi hori handiegia da.",
+    "unsupportedReceipt": "Erabili PNG, JPEG edo WebP irudi bat edo PDF bat.",
+    "unsupportedImage": "Erabili PNG, JPEG edo WebP irudi bat.",
+    "uploadFailed": "Igoerak huts egin du.",
+    "uploading": "Igotzen…"
+  },
+  "ui": {
+    "breadcrumb": "Nabigazio-bidea",
+    "close": "Itxi",
+    "closeMenu": "Itxi menua",
+    "inputCharset": "Teklatuko karaktere estandarrak soilik onartzen dira.",
+    "confirm": {
+      "working": "Lanean…"
+    },
+    "statusPill": {
+      "DRAFT": "Zirriborroa",
+      "ISSUED": "Jaulkia",
+      "SENT": "Bidalia",
+      "PARTIALLY_PAID": "Partzialki ordainduta",
+      "PAID": "Ordainduta",
+      "OVERDUE": "Atzeratua",
+      "VOID": "Indargabetua"
+    },
+    "activePill": {
+      "active": "Aktiboa",
+      "archived": "Artxibatua",
+      "inactive": "Inaktiboa"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Zerbait gaizki atera da.",
+    "fixFields": "Zuzendu nabarmendutako eremuak.",
+    "accountSaved": "Kontuaren hobespenak gordeta",
+    "apiKeyCreated": "API gakoa sortu da. Kopiatu orain: behin soilik erakusten da.",
+    "saved": "{name} gordeta",
+    "savedProfile": "{label} profila gordeta",
+    "clientArchived": "Bezeroa artxibatuta",
+    "clientRestored": "Bezeroa berreskuratuta",
+    "clientDeleted": "Bezeroa ezabatuta",
+    "productArchived": "Produktua artxibatuta",
+    "productRestored": "Produktua berreskuratuta",
+    "productActivated": "Produktua aktibatuta",
+    "productDeactivated": "Produktua desaktibatuta",
+    "serviceArchived": "Zerbitzua artxibatuta",
+    "serviceRestored": "Zerbitzua berreskuratuta",
+    "serviceActivated": "Zerbitzua aktibatuta",
+    "serviceDeactivated": "Zerbitzua desaktibatuta",
+    "defaultProfileUpdated": "Profil lehenetsia eguneratuta",
+    "profileArchived": "Profila artxibatuta",
+    "profileRestored": "Profila berreskuratuta",
+    "profileDeleted": "Profila ezabatuta",
+    "defaultPaymentMethodUpdated": "Ordainketa-modu lehenetsia eguneratuta",
+    "paymentMethodArchived": "Ordainketa-modua artxibatuta",
+    "paymentMethodRestored": "Ordainketa-modua berreskuratuta",
+    "paymentMethodDeleted": "Ordainketa-modua ezabatuta",
+    "issued": "{number} jaulkita",
+    "savedAsDraft": "Zirriborro gisa gordeta. {reason}",
+    "draftSaved": "Zirriborroa gordeta",
+    "invoiceVoided": "Faktura indargabetuta",
+    "originalVoided": "Jatorrizkoa indargabetuta; editatu ordezko zirriborroa",
+    "markedAsSent": "Bidalitzat markatuta",
+    "draftDeleted": "Zirriborroa ezabatuta",
+    "generatedPdf": "{version}. PDF bertsioa sortuta",
+    "creditNoteVoided": "Kreditu-oharra indargabetuta; fakturaren saldoa berreskuratu da",
+    "draftCreditNoteDeleted": "Kreditu-ohar zirriborroa ezabatuta",
+    "mailRefused": "Posta-zerbitzariak mezua baztertu du: {error}. Saiakera erregistratu da.",
+    "unknownError": "errore ezezaguna",
+    "sentTo": "Bidalita hona: {recipients}",
+    "smtpSaved": "SMTP ezarpenak gordeta",
+    "smtpRemoved": "Gordetako SMTP ezarpenak kenduta",
+    "testEmailSent": "Probako mezua bidali da: {email}",
+    "testFailed": "Probak huts egin du: {error}",
+    "defaultRecipientsSaved": "Hartzaile lehenetsiak gordeta",
+    "invitationSent": "Gonbidapena bidalita",
+    "invitationReady": "Gonbidapena prest",
+    "unknownRole": "Rol ezezaguna",
+    "roleUpdated": "Rola eguneratuta",
+    "accountDeactivated": "Kontua desaktibatuta",
+    "accountReactivated": "Kontua berriro aktibatuta",
+    "invitationRevoked": "Gonbidapena baliogabetuta",
+    "paymentUpdated": "Ordainketa eguneratuta",
+    "paymentRecorded": "Ordainketa erregistratuta",
+    "paymentDeleted": "Ordainketa ezabatuta",
+    "sessionRevoked": "Saioa baliogabetuta",
+    "noOtherSessions": "Ez dago beste saiorik",
+    "signedOutOthers": "Beste {count} saiotan saioa itxi da",
+    "sharePasswordRequired": "Sartu pasahitz bat, edo utzi sor dadin.",
+    "shareLinkCreated": "Partekatzeko esteka sortu da.",
+    "templateSaved": "Txantiloia gordeta; etorkizuneko dokumentuek erabiliko dute",
+    "templateReset": "Txantiloia integratutako lehenetsira berrezarrita",
+    "templateImported": "Txantiloia inportatuta",
+    "profileTemplateCleared": "Profilak berriro instantziaren txantiloia erabiltzen du",
+    "operatorSaved": "Operadorearen xehetasunak gordeta. Lege-orriek orain erakusten dituzte."
+  }
+}

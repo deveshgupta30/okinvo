@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Inici d’okinvo",
+    "save": "Desa",
+    "cancel": "Cancel·la",
+    "continue": "Continua",
+    "saving": "S’està desant…",
+    "detect": "Detecta",
+    "yes": "Sí",
+    "no": "No",
+    "choose": "Tria…",
+    "remove": "Elimina",
+    "tryAgain": "Torna-ho a provar",
+    "dashboard": "Tauler",
+    "goToDashboard": "Ves al tauler",
+    "or": "o",
+    "invoice": "Factura",
+    "creditNote": "Nota de crèdit",
+    "downloadPdf": "Baixa el PDF",
+    "edit": "Edita",
+    "delete": "Suprimeix",
+    "downloadDocx": "Baixa el DOCX",
+    "none": "Cap",
+    "dismiss": "Descarta",
+    "all": "Tot",
+    "previous": "Anterior",
+    "next": "Següent",
+    "go": "Aplica",
+    "search": "Cerca",
+    "status": "Estat",
+    "total": "Total",
+    "currency": "Moneda",
+    "from": "Des de",
+    "to": "Fins a",
+    "reason": "Motiu",
+    "history": "Historial",
+    "archive": "Arxiva",
+    "restore": "Restaura",
+    "showArchived": "Mostra els arxivats",
+    "hideArchived": "Amaga els arxivats",
+    "archived": "Arxivat",
+    "default": "Per defecte",
+    "setDefault": "Estableix per defecte",
+    "revoke": "Revoca",
+    "copy": "Copia",
+    "copied": "Copiat",
+    "active": "Actiu",
+    "pagination": "Paginació",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Tauler",
+      "invoices": "Factures",
+      "creditNotes": "Notes de crèdit",
+      "clients": "Clients",
+      "services": "Serveis",
+      "products": "Productes"
+    },
+    "primaryNav": "Principal",
+    "settings": "Configuració",
+    "openMenu": "Obre el menú",
+    "navigation": "Navegació",
+    "pagesAndAccount": "Pàgines i compte",
+    "collapseSidebar": "Replega la barra lateral",
+    "collapseSidebarHint": "Replega la barra lateral ([)",
+    "expandSidebar": "Desplega la barra lateral",
+    "expandSidebarHint": "Desplega la barra lateral ([)",
+    "theme": {
+      "label": "Tema",
+      "system": "Sistema",
+      "light": "Clar",
+      "dark": "Fosc",
+      "current": "Tema: {mode}",
+      "switchTo": "Tema: {mode}. Canvia a {next}"
+    },
+    "userMenu": {
+      "label": "Menú del compte de {name}",
+      "profile": "Perfil",
+      "logOut": "Tanca la sessió"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Inicia la sessió",
+      "title": "Inicia la sessió",
+      "subtitle": "Només hi poden entrar els comptes autoritzats.",
+      "failed": "No s’ha pogut iniciar la sessió.",
+      "noMethod": "No hi ha cap mètode d’inici de sessió configurat. Defineix una parella de proveïdor com <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>, o <code>AUTH_PASSWORD_SIGNIN=true</code>, a <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Aquest compte no està autoritzat en aquesta instància o s’ha desactivat.",
+        "signin": "L’inici de sessió no s’ha completat. Torna-ho a provar."
+      }
+    },
+    "password": {
+      "name": "Nom",
+      "email": "Correu electrònic",
+      "password": "Contrasenya",
+      "signingIn": "S’està iniciant la sessió…",
+      "createAccount": "Crea un compte",
+      "signIn": "Inicia la sessió",
+      "haveAPassword": "Ja tinc una contrasenya",
+      "firstTime": "És la primera vegada? Defineix una contrasenya",
+      "failed": "No s’ha pogut iniciar la sessió."
+    },
+    "social": {
+      "redirecting": "S’està redirigint…",
+      "continueWith": "Continua amb {provider}",
+      "failed": "No s’ha pogut iniciar la sessió."
+    },
+    "error": {
+      "metaTitle": "Error d’inici de sessió",
+      "title": "No s’ha pogut iniciar la sessió",
+      "body": "El proveïdor d’identitat ha retornat <code>{value}</code>. Si la teva adreça no és a la llista d’autoritzats d’aquesta instància, demana al propietari que l’afegeixi.",
+      "back": "Torna a l’inici de sessió"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Configuració",
+      "profiles": "Perfils",
+      "paymentMethods": "Mètodes de pagament",
+      "templates": "Plantilles",
+      "email": "Correu electrònic",
+      "security": "Seguretat",
+      "users": "Usuaris",
+      "data": "Dades",
+      "legal": "Informació legal",
+      "account": "Compte",
+      "appearance": "Aparença",
+      "api": "API",
+      "status": "Estat"
+    },
+    "account": {
+      "metaTitle": "Compte",
+      "title": "Compte",
+      "description": "La teva foto, nom, regió, idioma i zona horària.",
+      "photo": {
+        "title": "Foto",
+        "description": "Es mostra a la barra lateral i al menú d’usuari."
+      },
+      "form": {
+        "title": "Compte",
+        "description": "Com apareixes i quan és «avui».",
+        "displayName": "Nom visible",
+        "signInEmail": "Correu d’inici de sessió",
+        "signInEmailHint": "La teva identitat en aquesta instància; no es pot editar aquí.",
+        "timezone": "Zona horària",
+        "timezoneHint": "«Avui» per a les dates d’emissió, de venciment i el tauler",
+        "regionTitle": "Regió",
+        "regionDescription": "Valors per defecte dels perfils d’emissor nous i del tauler fins que hi hagi un perfil.",
+        "country": "País",
+        "currency": "Moneda",
+        "suggested": "Suggerit per a aquest país:",
+        "language": "Idioma",
+        "languageHint": "L’idioma de l’aplicació. Els documents usen la configuració regional de cada perfil.",
+        "machineTranslated": "Aquest idioma s’ha traduït automàticament. Les correccions són benvingudes: <link>millora’l a GitHub</link>.",
+        "save": "Desa les preferències"
+      },
+      "regions": {
+        "Africa": "Àfrica",
+        "Americas": "Amèrica",
+        "Asia": "Àsia",
+        "Europe": "Europa",
+        "MiddleEast": "Orient Mitjà",
+        "Oceania": "Oceania",
+        "Constructed": "Construïdes"
+      },
+      "privacy": {
+        "title": "Privadesa",
+        "description": "okinvo només estableix les galetes que necessita per funcionar. Sense analítica ni seguiment.",
+        "cookiePolicy": "Política de galetes",
+        "showNoticeAgain": "Mostra de nou l’avís de galetes"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Canvia la foto",
+      "addPhoto": "Afegeix una foto",
+      "hint": "PNG, JPEG o WebP. Es mostra com un cercle a tot arreu; pots fer zoom i moure-la abans de desar.",
+      "tooLarge": "Aquesta foto és massa gran.",
+      "uploadFailed": "No s’ha pogut pujar.",
+      "choose": "Tria una foto de perfil",
+      "dialogTitle": "Posiciona la teva foto",
+      "dialogDescription": "Arrossega per moure, desplaça o pessiga per fer zoom. El cercle és el que veu tothom.",
+      "zoom": "Zoom",
+      "save": "Desa la foto"
+    },
+    "appearance": {
+      "metaTitle": "Aparença",
+      "title": "Aparença",
+      "description": "Tema i color d’accent, desats al teu compte.",
+      "theme": {
+        "title": "Tema",
+        "description": "Segueix el sistema o fixa el clar o el fosc.",
+        "label": "Tema",
+        "system": "Segueix el sistema",
+        "systemHint": "Canvia amb el teu SO",
+        "light": "Clar",
+        "lightHint": "Fons blanc",
+        "dark": "Fosc",
+        "darkHint": "Fons gairebé negre"
+      },
+      "accent": {
+        "title": "Accent",
+        "description": "S’usa per al botó principal, els anells de focus i el marcador de la pàgina activa. La menta coincideix amb la marca.",
+        "label": "Color d’accent"
+      },
+      "accents": {
+        "mint": "Menta",
+        "lavender": "Lavanda",
+        "sky": "Cel",
+        "peach": "Préssec",
+        "butter": "Mantega",
+        "rose": "Rosa",
+        "sage": "Sàlvia",
+        "lilac": "Lila"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Perfils d’emissor",
+      "title": "Perfils d’emissor",
+      "description": "Les identitats legals des de les quals factures. La predeterminada emplena les factures noves.",
+      "breadcrumb": "Perfils",
+      "newProfile": "Perfil nou",
+      "emptyTitle": "Encara no hi ha cap perfil d’emissor",
+      "emptyDescription": "Crea la identitat des de la qual factures: una persona física amb un PAN o la teva empresa.",
+      "createProfile": "Crea un perfil",
+      "columns": {
+        "label": "Etiqueta",
+        "legalName": "Nom legal",
+        "type": "Tipus",
+        "country": "País",
+        "currency": "Moneda",
+        "regime": "Règim",
+        "status": "Estat"
+      },
+      "types": {
+        "company": "Empresa",
+        "individual": "Persona física"
+      },
+      "makeDefaultTitle": "Vols establir {label} com a predeterminat?",
+      "makeDefaultDescription": "Les factures noves partiran d’aquest perfil.",
+      "restoreTitle": "Vols restaurar {label}?",
+      "archiveTitle": "Vols arxivar {label}?",
+      "archiveDescription": "Desapareix dels selectors; les factures existents no es toquen.",
+      "new": {
+        "metaTitle": "Perfil d’emissor nou",
+        "title": "Perfil d’emissor nou",
+        "prefilled": "Emplenat a partir de les teves respostes; revisa l’adreça i les dades fiscals i després desa."
+      },
+      "edit": {
+        "metaTitle": "Edita el perfil d’emissor",
+        "template": "Plantilla",
+        "deleteTitle": "Vols suprimir {label}?",
+        "deleteDescription": "Només és possible mentre cap factura ni nota de crèdit faci referència a aquest perfil. Si no, arxiva’l."
+      },
+      "template": {
+        "metaTitle": "Plantilla del perfil",
+        "title": "Plantilla de {label}",
+        "ownTemplate": "Plantilla pròpia",
+        "instanceTemplate": "Plantilla de la instància",
+        "resetTitle": "Vols tornar a usar la plantilla de la instància?",
+        "resetDescription": "Se suprimeix la configuració pròpia d’aquest perfil; els documents emesos no es veuen afectats.",
+        "useInstance": "Usa la plantilla de la instància",
+        "usingInstanceTitle": "S’usa la plantilla de la instància",
+        "usingInstanceDescription": "Els documents d’aquest perfil segueixen Configuració → Plantilles. Activa-ho per personalitzar-los per separat.",
+        "customise": "Usa una plantilla diferent per a aquest perfil",
+        "openInstance": "Obre la plantilla de la instància"
+      },
+      "form": {
+        "identityTitle": "Identitat",
+        "identityDescription": "Qui emet la factura.",
+        "type": "Tipus",
+        "label": "Etiqueta",
+        "labelHint": "Només es mostra als selectors",
+        "legalName": "Nom legal",
+        "tradeName": "Nom comercial",
+        "designation": "Càrrec",
+        "email": "Correu electrònic",
+        "phone": "Telèfon",
+        "website": "Lloc web",
+        "addressTitle": "Adreça",
+        "taxTitle": "Identificadors fiscals",
+        "taxDescription": "Només els que t’apliquen; la impressió es controla per factura.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Número d’IVA del Regne Unit",
+        "usTaxId": "EIN / SSN dels EUA",
+        "usTaxIdHint": "Xifrat en repòs",
+        "lutNumber": "Número LUT",
+        "lutNumberHint": "Per a exportacions sense IGST",
+        "lutFiscalYear": "Exercici LUT",
+        "lutFiscalYearHint": "p. ex. 2026-27",
+        "defaultsTitle": "Valors per defecte",
+        "baseCurrency": "Moneda base",
+        "locale": "Configuració regional dels documents",
+        "localeHint": "Format de nombres i dates als documents",
+        "fiscalYearStart": "L’exercici fiscal comença al mes de",
+        "months": {
+          "january": "Gener",
+          "february": "Febrer",
+          "march": "Març",
+          "april": "Abril",
+          "may": "Maig",
+          "june": "Juny",
+          "july": "Juliol",
+          "august": "Agost",
+          "september": "Setembre",
+          "october": "Octubre",
+          "november": "Novembre",
+          "december": "Desembre"
+        },
+        "taxRegime": "Règim fiscal per defecte",
+        "regimes": {
+          "indiaGst": "GST de l’Índia",
+          "ukVat": "IVA del Regne Unit",
+          "usSalesTax": "Impost de vendes dels EUA",
+          "none": "Sense impost"
+        },
+        "invoiceNumberFormat": "Format del número de factura",
+        "invoiceNumberFormatHint": "Fitxes: {tokens}",
+        "creditNoteNumberFormat": "Format del número de nota de crèdit",
+        "tdsRate": "Taxa de TDS prevista (%)",
+        "tdsRateHint": "Informatiu, s’imprimeix com a deducció prevista",
+        "defaultNotes": "Notes per defecte",
+        "defaultTerms": "Condicions per defecte",
+        "printTitle": "Què s’imprimeix per defecte",
+        "printDescription": "Cada factura les copia i les pot canviar individualment.",
+        "emailTitle": "Correu electrònic",
+        "emailDescription": "Valors per defecte del redactor d’enviaments. Marcadors de posició: {placeholders}",
+        "emailCc": "CC per defecte",
+        "emailBcc": "CCO per defecte",
+        "commaSeparated": "Separats per comes",
+        "invoiceSubject": "Assumpte de la factura",
+        "invoiceSubjectHint": "En blanc s’usa la plantilla integrada",
+        "creditNoteSubject": "Assumpte de la nota de crèdit",
+        "invoiceBody": "Cos de la factura",
+        "creditNoteBody": "Cos de la nota de crèdit",
+        "artworkTitle": "Il·lustracions",
+        "artworkDescription": "PNG, JPEG o WebP de fins a 2 MB; la signatura i el segell conserven la transparència.",
+        "logo": "Logotip",
+        "signature": "Signatura",
+        "stamp": "Segell",
+        "transparentPng": "PNG transparent",
+        "save": "Desa el perfil"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Mètodes de pagament",
+      "title": "Mètodes de pagament",
+      "description": "Com et paguen els clients. Les dades es xifren i es congelen a cada factura en emetre-la.",
+      "newMethod": "Mètode nou",
+      "emptyTitle": "Encara no hi ha mètodes de pagament",
+      "emptyDescription": "Afegeix un compte bancari, un ID d’UPI o una cartera perquè les factures indiquin als clients on pagar.",
+      "addMethod": "Afegeix un mètode",
+      "columns": {
+        "name": "Nom",
+        "type": "Tipus",
+        "currency": "Moneda",
+        "status": "Estat"
+      },
+      "types": {
+        "bankTransfer": "Transferència bancària",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Personalitzat"
+      },
+      "makeDefaultTitle": "Vols establir {name} com a predeterminat?",
+      "restoreTitle": "Vols restaurar {name}?",
+      "archiveTitle": "Vols arxivar {name}?",
+      "archiveDescription": "Les factures emeses conserven la instantània que es va imprimir.",
+      "new": {
+        "metaTitle": "Mètode de pagament nou",
+        "title": "Mètode de pagament nou"
+      },
+      "edit": {
+        "metaTitle": "Edita el mètode de pagament",
+        "title": "Edita {name}",
+        "deleteTitle": "Vols suprimir {name}?",
+        "deleteDescription": "Només és possible mentre cap factura ni pagament hi faci referència. Si no, arxiva’l."
+      },
+      "form": {
+        "name": "Nom",
+        "nameHint": "S’imprimeix com a encapçalament del bloc de pagament",
+        "type": "Tipus",
+        "currency": "Moneda",
+        "currencyHint": "Opcional; només es mostra com a context",
+        "anyCurrency": "Qualsevol",
+        "instructions": "Instruccions",
+        "instructionsHint": "S’imprimeixen sota les dades",
+        "isDefault": "Mètode per defecte",
+        "isDefaultDescription": "Preseleccionat a les factures noves",
+        "isActive": "Actiu",
+        "detailsTitle": "Dades",
+        "detailsDescription": "Xifrades en repòs; es copien a cada factura en emetre-la.",
+        "vpa": "ID d’UPI (VPA)",
+        "payeeName": "Nom del beneficiari",
+        "lines": "Línies",
+        "linesHint": "Una línia per fila, s’imprimeix tal qual",
+        "accountEmail": "Correu / identificador del compte",
+        "bank": {
+          "accountHolder": "Titular del compte",
+          "accountNumber": "Número de compte",
+          "bankName": "Nom del banc",
+          "branch": "Sucursal",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Codi d’enrutament / sort code"
+        },
+        "save": "Desa el mètode de pagament"
+      }
+    },
+    "templates": {
+      "metaTitle": "Plantilles de documents",
+      "title": "Plantilles de documents",
+      "customised": "Personalitzada",
+      "builtIn": "Predeterminada integrada",
+      "description": "Com es veuen les factures i les notes de crèdit. Els documents emesos conserven la plantilla amb què es van emetre.",
+      "resetTitle": "Vols restablir la plantilla integrada per defecte?",
+      "resetDescription": "S’elimina la personalització; els documents ja emesos no es veuen afectats.",
+      "reset": "Restableix",
+      "resetTrigger": "Restableix els valors per defecte",
+      "importTitle": "Importa",
+      "importDescription": "Restaura una configuració exportada anteriorment.",
+      "overridesTitle": "Excepcions per perfil",
+      "overridesDescription": "Un perfil pot optar per una plantilla pròpia des de la seva pàgina d’edició.",
+      "noOverrides": "Tots els perfils usen la plantilla de la instància.",
+      "import": {
+        "json": "JSON de la plantilla",
+        "jsonHint": "Enganxa un fitxer produït per Exporta JSON; les claus que falten usen els valors per defecte",
+        "importing": "S’està important…",
+        "submit": "Importa"
+      },
+      "form": {
+        "templateTitle": "Plantilla",
+        "templateDescription": "Sis d’integrades; la personalització següent s’aplica a la que triïs.",
+        "templateGroup": "Plantilla",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Moderna i aireada, sense serif, amb una línia d’accent sota la capçalera."
+          },
+          "classic": {
+            "name": "Clàssica",
+            "character": "Taula tradicional amb vores, títols amb serif i totals emmarcats."
+          },
+          "compact": {
+            "name": "Compacta",
+            "character": "Disseny dens per a llistes llargues d’elements; lletra més petita, menys separadors."
+          },
+          "minimal": {
+            "name": "Minimalista",
+            "character": "Tranquil·la i espaiosa: sense línies ni requadres, etiquetes lleugeres, molt d’aire."
+          },
+          "letterhead": {
+            "name": "Paper de carta",
+            "character": "El teu logotip i nom en una franja de color o una imatge a dalt de cada pàgina."
+          },
+          "modern": {
+            "name": "Moderna",
+            "character": "Capçalera amb franja de color; parts, capçalera de la taula i totals sobre un to d’accent pàl·lid."
+          }
+        },
+        "paperTitle": "Paper i tipografia",
+        "paperSize": "Mida del paper",
+        "paperLetter": "Letter",
+        "margins": "Marges",
+        "marginsNormal": "Normals",
+        "marginsNarrow": "Estrets",
+        "headingFont": "Tipus de lletra dels títols",
+        "bodyFont": "Tipus de lletra del cos",
+        "fontSans": "Sense serif",
+        "fontSerif": "Amb serif",
+        "tableStyle": "Estil de la taula",
+        "tableRuled": "Amb línies",
+        "tableZebra": "Ratllada",
+        "tablePlain": "Simple",
+        "accentColour": "Color d’accent",
+        "textColour": "Color del text",
+        "logoPosition": "Posició del logotip",
+        "positionLeft": "Esquerra",
+        "positionCentre": "Centre",
+        "positionRight": "Dreta",
+        "logoHeight": "Alçada del logotip (mm)",
+        "documentTitle": "Títol del document",
+        "titleAuto": "Automàtic (segons GST)",
+        "titleCustom": "Personalitzat",
+        "titlePlaceholder": "p. ex. FACTURA PROFORMA",
+        "qrPosition": "Posició del QR",
+        "qrFooter": "Peu",
+        "qrHeader": "Capçalera",
+        "qrBesideTotals": "Al costat dels totals",
+        "amountInWords": "Import en lletres",
+        "wordsBelowTotal": "Sota els totals",
+        "wordsFooter": "Peu",
+        "wordsHidden": "Ocult",
+        "subtotalRow": "Fila de subtotal",
+        "discountRow": "Fila de descompte",
+        "taxLines": "Línies d’impost",
+        "tdsExpected": "TDS previst",
+        "roundingRow": "Fila d’arrodoniment",
+        "pageNumbers": "Números de pàgina",
+        "headerTitle": "Capçalera",
+        "headerDescription": "Una franja de color o una imatge a dalt de cada pàgina. Paper de carta i Moderna mostren una franja tret que triïs una altra cosa.",
+        "headerStyle": "Estil de la capçalera",
+        "headerNone": "Cap",
+        "headerBand": "Franja de color",
+        "headerImage": "Imatge",
+        "bandColour": "Color de la franja",
+        "bandColourHex": "Color de la franja (hex)",
+        "headerImageLabel": "Imatge de la capçalera",
+        "headerImageHint": "PNG, JPEG o WebP de fins a 2400 px d’amplada; ocupa tota l’amplada de la pàgina.",
+        "imageOpacity": "Opacitat de la imatge",
+        "headerHeight": "Alçada de la capçalera (mm)",
+        "bandText": "Text sobre la franja",
+        "bandTextAuto": "Automàtic (segons el color de la franja)",
+        "bandTextLight": "Clar",
+        "bandTextDark": "Fosc",
+        "textTitle": "Text",
+        "headerNote": "Nota de la capçalera",
+        "footer": "Peu",
+        "signatureCaption": "Llegenda de la signatura",
+        "draftWatermark": "Marca d’aigua d’esborrany",
+        "labelsTitle": "Etiquetes",
+        "labelsDescription": "Deixa un camp en blanc per mantenir el text per defecte.",
+        "save": "Desa la plantilla",
+        "downloadSample": "Baixa un PDF d’exemple",
+        "exportJson": "Exporta JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Correu electrònic",
+      "title": "Correu electrònic",
+      "configuredSettings": "Configurat a Configuració",
+      "configuredEnv": "Configurat per l’entorn",
+      "notConfigured": "No configurat: flux de l’aplicació de correu",
+      "description": "Els documents s’envien des del redactor amb el PDF desat adjunt. La configuració d’aquí substitueix SMTP_* de l’entorn.",
+      "sendTest": "Envia un correu de prova a {email}",
+      "removeTitle": "Vols eliminar la configuració SMTP desada?",
+      "removeEnvTakesOver": "Els valors SMTP_* de l’entorn passen a aplicar-se.",
+      "removeFallsBack": "El correu torna al flux de l’aplicació de correu.",
+      "removeTrigger": "Elimina la configuració desada",
+      "smtpTitle": "Servidor SMTP",
+      "smtpFromEnv": "Actualment pres de l’entorn; en desar aquí se substitueix.",
+      "smtpPasswordNote": "La contrasenya es xifra en repòs i no es torna a mostrar mai.",
+      "defaultsTitle": "Destinataris per defecte",
+      "defaultsDescription": "CC/CCO de tota la instància; els perfils d’emissor n’afegeixen de propis.",
+      "sentTitle": "Correu enviat",
+      "sentDescription": "Els últims 50 intents, incloent-hi errors i enviaments manuals.",
+      "smtp": {
+        "host": "Servidor",
+        "port": "Port",
+        "security": "Seguretat",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Cap (relé de LAN)",
+        "user": "Nom d’usuari",
+        "password": "Contrasenya",
+        "passwordStored": "Desada i xifrada; deixa-ho en blanc per mantenir-la",
+        "passwordEncrypted": "Xifrada en repòs",
+        "from": "Adreça del remitent",
+        "fromName": "Nom del remitent",
+        "replyTo": "Respon a",
+        "save": "Desa la configuració SMTP"
+      },
+      "defaults": {
+        "cc": "CC per defecte",
+        "ccHint": "S’afegeix a cada redactor; separats per comes",
+        "bcc": "CCO per defecte",
+        "save": "Desa els valors per defecte"
+      }
+    },
+    "security": {
+      "metaTitle": "Seguretat",
+      "title": "Seguretat",
+      "description": "On tens la sessió iniciada i tot el que ha canviat.",
+      "sessions": {
+        "title": "Sessions actives",
+        "description": "Revocar una sessió tanca immediatament la sessió d’aquell dispositiu.",
+        "signOutOthers": {
+          "title": "Vols tancar la sessió a tots els altres llocs?",
+          "description": "Es revoquen totes les sessions excepte aquesta.",
+          "confirm": "Tanca les altres sessions",
+          "trigger": "Tanca la sessió a tots els altres llocs"
+        },
+        "columns": {
+          "device": "Dispositiu",
+          "ipAddress": "Adreça IP",
+          "signedIn": "Inici de sessió",
+          "lastSeen": "Última activitat",
+          "expires": "Caduca"
+        },
+        "thisDevice": "Aquest dispositiu",
+        "revokeTitle": "Vols revocar aquesta sessió?",
+        "unknownDevice": "Dispositiu desconegut",
+        "unknownBrowser": "Desconegut",
+        "agentOnOs": "{browser} a {os}"
+      },
+      "audit": {
+        "title": "Registre d’auditoria",
+        "count": "{count, plural, one {# esdeveniment} other {# esdeveniments}}",
+        "entity": "Entitat",
+        "actionContains": "L’acció conté",
+        "filter": "Filtra",
+        "reset": "Restableix",
+        "columns": {
+          "when": "Quan",
+          "who": "Qui",
+          "action": "Acció",
+          "entity": "Entitat",
+          "summary": "Resum"
+        },
+        "empty": "Cap esdeveniment coincideix amb aquests filtres.",
+        "system": "Sistema",
+        "changes": "Canvis",
+        "page": "Pàgina {page} de {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Usuaris",
+      "title": "Usuaris",
+      "description": "Qui pot iniciar la sessió en aquesta instància i què hi pot fer.",
+      "roles": {
+        "owner": "Propietari",
+        "editor": "Editor",
+        "viewer": "Lector"
+      },
+      "roleHints": {
+        "owner": "Tot, incloent-hi la configuració i els membres",
+        "editor": "Clients, catàleg, factures, notes de crèdit, pagaments, correu",
+        "viewer": "Només lectura"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Rol de {email}",
+      "invite": {
+        "title": "Convida algú",
+        "description": "Inicia la sessió amb l’adreça convidada (un proveïdor d’identitat o una contrasenya) i obté el rol que triïs.",
+        "sent": "La invitació s’ha enviat per correu a {email}.",
+        "readyWithError": "La invitació per a {email} és a punt. No s’ha pogut enviar el correu ({error}); envia’ls aquest enllaç:",
+        "readyNoSmtp": "La invitació per a {email} és a punt. No hi ha cap SMTP configurat; envia’ls aquest enllaç:",
+        "copyLink": "Copia l’enllaç",
+        "email": "Correu electrònic",
+        "emailPlaceholder": "persona@example.com",
+        "role": "Rol",
+        "submit": "Convida",
+        "inviting": "S’està convidant…"
+      },
+      "members": {
+        "title": "Membres",
+        "description": "Sempre hi queda almenys un propietari actiu.",
+        "columns": {
+          "person": "Persona",
+          "role": "Rol",
+          "lastSignIn": "Últim inici de sessió",
+          "status": "Estat"
+        },
+        "nameYou": "{name} (tu)",
+        "deactivated": "Desactivat",
+        "reactivate": {
+          "title": "Vols reactivar {email}?",
+          "description": "Podrà tornar a iniciar la sessió amb el rol que tenia.",
+          "confirm": "Reactiva"
+        },
+        "deactivate": {
+          "title": "Vols desactivar {email}?",
+          "description": "Totes les sessions acaben ara i no podrà iniciar la sessió fins que es reactivi. El seu historial es conserva.",
+          "confirm": "Desactiva"
+        }
+      },
+      "invitations": {
+        "title": "Invitacions pendents",
+        "description": "Adreces que poden iniciar la sessió però encara no ho han fet.",
+        "columns": {
+          "email": "Correu electrònic",
+          "role": "Rol",
+          "invited": "Convidat"
+        },
+        "empty": "No hi ha invitacions pendents.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Vols revocar la invitació per a {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Dades",
+      "title": "Dades",
+      "description": "Tot és portable: conjunts de dades en CSV o Excel, una instantània completa per a migracions, els PDF per al teu comptable i una rutina de còpies de seguretat provada.",
+      "period": {
+        "fiscalYear": "Exercici fiscal",
+        "fiscalYearHint": "Substitueix les dates",
+        "issuer": "Emissor"
+      },
+      "exportAll": {
+        "title": "Exporta totes les dades",
+        "description": "Un ZIP amb tots els conjunts de dades en CSV més <mono>data.json</mono>, una instantània relacional de totes les taules. Els camps xifrats (dades dels mètodes de pagament, contrasenya SMTP) queden fora; el README de dins els llista.",
+        "download": "Baixa el ZIP d’okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "Exporta els documents",
+        "description": "Tots els PDF de factures i notes de crèdit emesos i anul·lats d’un període, amb el número com a nom, i un <mono>index.csv</mono> amb números, totals i empremtes. Els PDF que falten es generen pel camí.",
+        "docx": "Inclou també una còpia DOCX de cada document",
+        "download": "Baixa el ZIP de documents"
+      },
+      "datasets": {
+        "title": "Conjunts de dades",
+        "description": "Les mateixes exportacions que ofereixen les pàgines d’índex, amb un període i un emissor aplicats a totes. Els pagaments usen l’interval de dates; els clients i els serveis ignoren el període.",
+        "columns": {
+          "dataset": "Conjunt de dades",
+          "filters": "Filtres aplicats",
+          "download": "Baixa"
+        },
+        "names": {
+          "invoices": "Registre de factures",
+          "invoiceItems": "Línies de factura",
+          "payments": "Llibre de pagaments",
+          "creditNotes": "Registre de notes de crèdit",
+          "clients": "Clients",
+          "services": "Serveis",
+          "gstSummary": "Resum de GST",
+          "tdsSummary": "Resum de TDS"
+        },
+        "filters": {
+          "periodIssuer": "període, emissor",
+          "dateRangeIssuer": "interval de dates, emissor",
+          "includesArchived": "inclou els arxivats"
+        }
+      },
+      "backups": {
+        "title": "Còpies de seguretat",
+        "notWired": "Cap servei de còpies connectat",
+        "noRun": "Encara no s’ha fet cap còpia",
+        "lastOk": "Última còpia correcta",
+        "lastFailed": "Última còpia fallida",
+        "description": "El servei <mono>backup</mono> de Compose bolca Postgres i arxiva el volum d’emmagatzematge segons <mono>BACKUP_CRON</mono>, conserva <mono>BACKUP_RETENTION_DAYS</mono> d’historial al volum <mono>backups</mono> i escriu un fitxer d’estat que llegeix aquesta pàgina.",
+        "finished": "Finalitzada",
+        "databaseDump": "Bolcat de la base de dades",
+        "storageArchive": "Arxiu d’emmagatzematge",
+        "size": "Mida",
+        "sizeMb": "{size} MB",
+        "error": "Error",
+        "runNow": "Executa’n una ara o restaura des d’una parella de fitxers:",
+        "restoreDrill": "El procediment de restauració s’exercita a la CI amb <mono>scripts/restore-drill.sh</mono>: omple, fa còpia, esborra, restaura i compara el nombre de files i l’empremta d’un PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "Informació legal",
+      "metaDescription": "Qui opera aquesta instància: les dades que s’imprimeixen a les pàgines legals públiques.",
+      "title": "Informació legal",
+      "description": "Les pàgines legals públiques imprimeixen aquestes dades. Mentre no s’emplenin tots els camps, les pàgines mostren marcadors destacats.",
+      "operator": {
+        "title": "Dades de l’operador",
+        "complete": "Complet",
+        "missing": "Falten {count}: {fields}",
+        "description": "Tu, com a persona o empresa que executa aquesta instància, ets l’operador al qual es refereixen els documents. Res d’això s’envia enlloc; s’imprimeix a les pàgines següents."
+      },
+      "fieldLabels": {
+        "legalName": "Nom legal de l’operador",
+        "entityType": "Tipus d’entitat",
+        "address": "Adreça de l’operador",
+        "country": "País de l’operador",
+        "contactEmail": "Correu de contacte",
+        "privacyEmail": "Correu de privadesa",
+        "dpoEmail": "Correu del delegat de protecció de dades",
+        "governingLaw": "Llei aplicable",
+        "venue": "Jurisdicció per a disputes",
+        "effectiveDate": "Data d’entrada en vigor"
+      },
+      "publicPages": {
+        "title": "Pàgines públiques",
+        "description": "Enllaçades des de la pàgina d’inici de sessió, el visor de documents compartits i l’avís de galetes.",
+        "terms": "Condicions del servei",
+        "acceptableUse": "Política d’ús acceptable",
+        "privacy": "Política de privadesa",
+        "cookies": "Política de galetes",
+        "dataRetention": "Conservació de dades",
+        "security": "Seguretat",
+        "licenses": "Llicències i avisos de tercers"
+      },
+      "form": {
+        "legalName": "Nom legal",
+        "entityType": "Tipus d’entitat",
+        "individual": "Persona física / autònom",
+        "company": "Empresa / entitat registrada",
+        "address": "Adreça",
+        "addressHint": "S’imprimeix a les Condicions i a la Política de privadesa com a adreça postal de l’operador.",
+        "country": "País",
+        "effectiveDate": "Data d’entrada en vigor",
+        "contactEmail": "Correu de contacte",
+        "privacyEmail": "Correu de privadesa",
+        "privacyEmailHint": "On arriben les sol·licituds dels interessats; pot ser l’adreça de contacte.",
+        "dpoEmail": "Correu del delegat de protecció de dades",
+        "dpoEmailHint": "Només si n’has designat un.",
+        "governingLaw": "Llei aplicable",
+        "governingLawHint": "Per exemple «les lleis de l’Índia» o «les lleis d’Anglaterra i Gal·les».",
+        "venue": "Jurisdicció per a disputes",
+        "venueHint": "Per exemple «els tribunals de Bengaluru, Karnataka».",
+        "submit": "Desa les dades de l’operador"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Claus d’API per a scripts, l’SDK i clients MCP, amb exemples de curl.",
+      "title": "API",
+      "description": "Claus per a scripts, l’SDK i clients MCP. Una clau pot fer com a molt el que pot el teu rol; es mostra només una vegada.",
+      "create": {
+        "title": "Crea una clau",
+        "description": "Envia-la com a <mono>Authorization: Bearer okv_…</mono>. Mantén-la fora del codi font i dels registres de xat; revoca-la a sota si es filtra."
+      },
+      "keys": {
+        "title": "Claus",
+        "descriptionOwner": "Totes les claus d’aquesta instància; els propietaris en poden revocar qualsevol.",
+        "descriptionOwn": "Les teves claus.",
+        "columns": {
+          "name": "Nom",
+          "prefix": "Prefix",
+          "scopes": "Àmbits",
+          "owner": "Propietari",
+          "lastUsed": "Últim ús",
+          "expires": "Caduca",
+          "status": "Estat"
+        },
+        "empty": "Encara no hi ha claus d’API.",
+        "never": "mai",
+        "revoked": "Revocada",
+        "expired": "Caducada",
+        "revokeTitle": "Vols revocar {name}?",
+        "revokeDescription": "Els clients que usen aquesta clau deixen de funcionar immediatament.",
+        "activeCount": "{count, plural, one {# clau activa.} other {# claus actives.}}"
+      },
+      "examples": {
+        "title": "Exemples",
+        "description": "Substitueix <mono>$OKINVO_KEY</mono> per una clau. L’API REST versionada, el seu document OpenAPI (<mono>/api/openapi.json</mono>), l’SDK de TypeScript i el servidor MCP arriben amb les properes tasques del pla v1.1; el punt final d’estat funciona avui.",
+        "rateLimit": "Les crides que superen el límit responen 429 amb una capçalera <mono>Retry-After</mono> (120 peticions per minut per clau). Els àmbits d’una clau estan limitats pel rol actual del seu propietari."
+      },
+      "form": {
+        "copyKey": "Copia la clau d’API",
+        "name": "Nom",
+        "namePlaceholder": "p. ex. script de comptabilitat",
+        "expires": "Caduca",
+        "in30Days": "D’aquí a 30 dies",
+        "in90Days": "D’aquí a 90 dies",
+        "inAYear": "D’aquí a un any",
+        "never": "Mai",
+        "scopes": "Àmbits",
+        "submit": "Crea la clau d’API",
+        "creating": "S’està creant…"
+      },
+      "scopes": {
+        "invoicesRead": "Llegir factures",
+        "invoicesCreate": "Crear i emetre factures",
+        "creditNotesRead": "Llegir notes de crèdit",
+        "creditNotesCreate": "Crear i emetre notes de crèdit",
+        "catalogueRead": "Llegir clients, serveis i productes",
+        "documentsRead": "Baixar PDF desats i còpies DOCX",
+        "statusRead": "Llegir l’estat de la instància"
+      }
+    },
+    "status": {
+      "metaTitle": "Estat",
+      "metaDescription": "Versió, base de dades, emmagatzematge, correu i salut de les còpies d’aquesta instància.",
+      "title": "Estat",
+      "description": "Què executa aquesta instància i si les seves parts responen.",
+      "recheck": "Torna a comprovar",
+      "health": {
+        "ok": "Correcte",
+        "warning": "Advertència",
+        "failed": "Fallit",
+        "na": "No configurat"
+      },
+      "overall": {
+        "ok": "Tot correcte",
+        "degraded": "Degradat",
+        "failed": "Fallit"
+      },
+      "version": "Compilació {hasSha, select, yes {<mono>{sha}</mono>} other {(sha desconegut)}} · compilada {built} · Node <mono>{node}</mono> · en marxa des de fa {uptime} · comprovat {checked}",
+      "dateUnknown": "(data desconeguda)",
+      "uptime": {
+        "days": "{d} d {h} h {m} min",
+        "hours": "{h} h {m} min",
+        "minutes": "{m} min"
+      },
+      "rows": {
+        "database": "Base de dades",
+        "storage": "Emmagatzematge",
+        "rateLimiting": "Límit de peticions",
+        "email": "Correu",
+        "backups": "Còpies de seguretat"
+      },
+      "db": {
+        "detail": "{latency} ms · última migració <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # migració(ns) sense acabar}}",
+        "noMigration": "cap"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · escriptura, lectura i supressió d’un objecte de prova en {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "Magatzem <mono>{store}</mono> {store, select, memory {(una rèplica)} other {(compartit entre rèpliques)}}",
+      "smtp": {
+        "configured": "SMTP des de {source, select, settings {settings} env {env} other {}} · última prova {lastTest} · últimes 24 h: {sent} enviats, {failed} fallits",
+        "none": "Cap servidor SMTP; el redactor ofereix «Obre a l’aplicació de correu». <link>Configura</link>"
+      },
+      "backups": {
+        "notWired": "Cap servei de còpies connectat (BACKUP_STATUS_FILE sense definir).",
+        "noRun": "Servei de còpies connectat; encara no hi ha cap execució registrada.",
+        "ok": "L’última execució va tenir èxit a les {finishedAt}{days, plural, =0 {} one { · retenció # dia} other { · retenció # dies}}",
+        "failed": "L’última execució ha fallat: {error} a les {finishedAt}{days, plural, =0 {} one { · retenció # dia} other { · retenció # dies}}"
+      },
+      "footer": "El mateix informe està disponible en JSON a <mono>/api/health/status</mono> per al monitoratge (sessió iniciada o clau d’API)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Et donem la benvinguda",
+    "progress": "Progrés",
+    "steps": {
+      "aboutYou": "Sobre tu",
+      "howYouUse": "Com l’usaràs",
+      "allSet": "Tot a punt"
+    },
+    "step1": {
+      "title": "Explica’ns qui ets",
+      "subtitle": "Això defineix els teus valors per defecte; tots es poden canviar més endavant a Configuració.",
+      "name": "Nom",
+      "email": "Correu electrònic",
+      "emailHint": "La teva identitat d’inici de sessió. Es pot canviar més endavant a Configuració → Seguretat.",
+      "country": "País",
+      "currency": "Moneda preferida",
+      "currencyHint": "S’usa per als perfils nous i el tauler fins que hi hagi un perfil."
+    },
+    "step2": {
+      "title": "Com usaràs okinvo?",
+      "subtitle": "Només canvien els valors per defecte; res queda bloquejat.",
+      "usage": "Ús",
+      "personal": "Facturació personal",
+      "personalHint": "Feina d’autònom amb el teu nom",
+      "business": "Facturació empresarial",
+      "businessHint": "Factures d’una empresa registrada",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Número d’IVA",
+        "other": "Número de registre fiscal"
+      },
+      "taxQuestion": {
+        "IN": "Tens un GSTIN?",
+        "GB": "Estàs registrat a l’IVA?",
+        "other": "Tens un número de registre fiscal per imprimir a les factures?"
+      }
+    },
+    "step3": {
+      "title": "Tot a punt",
+      "body": "Ara crea el teu primer perfil d’emissor: el nom, l’adreça i les dades fiscals que s’imprimeixen a les teves factures. Hem emplenat el que ens has dit.",
+      "go": "Ves als perfils",
+      "opening": "S’està obrint…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Condicions",
+      "privacy": "Privadesa",
+      "cookies": "Galetes",
+      "security": "Seguretat"
+    },
+    "cookieNotice": {
+      "label": "Avís de galetes",
+      "body": "Només usem galetes estrictament necessàries: la teva sessió i les preferències de visualització. Sense analítica ni seguiment.",
+      "policy": "Política de galetes",
+      "gotIt": "Entesos"
+    },
+    "nav": {
+      "label": "Informació legal",
+      "cookies": "Galetes",
+      "privacy": "Privadesa",
+      "terms": "Condicions",
+      "acceptableUse": "Ús acceptable",
+      "retention": "Conservació",
+      "security": "Seguretat",
+      "licences": "Llicències"
+    },
+    "operatorNotice": "okinvo és programari autoallotjat; l’operador d’aquesta instància és responsable del seu ús.",
+    "doc": {
+      "effectiveOn": "En vigor des del <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Continguts"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Nom legal de l’operador",
+        "entityType": "Tipus d’entitat",
+        "address": "Adreça de l’operador",
+        "country": "País de l’operador",
+        "contactEmail": "Correu de contacte",
+        "privacyEmail": "Correu de privadesa",
+        "dpoEmail": "Correu del delegat de protecció de dades",
+        "governingLaw": "Llei aplicable",
+        "venue": "Jurisdicció per a disputes",
+        "effectiveDate": "Data d’entrada en vigor"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "No s’ha trobat",
+      "title": "No hi ha res en aquesta adreça",
+      "body": "L’enllaç pot estar obsolet o el document al qual apuntava no es va emetre mai."
+    },
+    "forbidden": {
+      "metaTitle": "No permès",
+      "title": "Aquest compte no ho pot fer",
+      "body": "El teu rol no ho permet. Demana accés a un propietari o inicia la sessió amb un compte que en tingui."
+    },
+    "error": {
+      "title": "Alguna cosa ha anat malament",
+      "body": "Aquesta petició no ha canviat res. Torna-ho a provar; si continua passant, el registre del servidor té els detalls.",
+      "digest": "error {digest}",
+      "generic": "error"
+    },
+    "appNotFound": {
+      "title": "No s’ha trobat",
+      "body": "Aquest registre no existeix o es va suprimir mentre el miraves.",
+      "back": "Torna al tauler"
+    },
+    "validation": {
+      "required": "obligatori",
+      "tooLong": "com a màxim {max} caràcters",
+      "invalidEmail": "ha de ser un correu vàlid",
+      "invalidDate": "ha de ser una data de calendari en format AAAA-MM-DD",
+      "invalidAmount": "ha de ser un nombre",
+      "wholeNumber": "ha de ser un nombre enter",
+      "greaterThanZero": "ha de ser més gran que zero",
+      "fixFields": "Corregeix els camps destacats.",
+      "charset": "Només es permeten caràcters estàndard del teclat."
+    }
+  },
+  "verify": {
+    "metaTitle": "Verifica el document",
+    "heading": "Verificació del document",
+    "rateLimited": "Massa comprovacions des d’aquesta adreça. Torna-ho a provar d’aquí a un minut.",
+    "notFound": {
+      "title": "No existeix aquest document",
+      "body": "Aquest enllaç no coincideix amb cap document emès. Comprova el codi QR o l’enllaç que t’han donat, o contacta amb l’emissor."
+    },
+    "status": {
+      "void": "Anul·lat",
+      "valid": "Vàlid"
+    },
+    "issuedBy": "Emès per",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Emès a",
+    "issueDate": "Data d’emissió",
+    "total": "Total",
+    "voided": "Aquest document ha estat anul·lat per l’emissor i ja no és vàlid.",
+    "storedCopies": {
+      "title": "Còpies desades",
+      "description": "SHA-256 de cada versió del PDF que conserva l’emissor. Tria la teva còpia per comparar-la al navegador: no es puja res.",
+      "empty": "Encara no s’ha generat cap PDF.",
+      "protectedVersion": "Còpia protegida amb contrasenya {version}",
+      "version": "Versió {version}"
+    },
+    "check": {
+      "label": "Comprova la teva còpia",
+      "hashing": "S’està calculant l’empremta…",
+      "match": "La teva còpia coincideix exactament amb la versió {version}.",
+      "mismatch": "La teva còpia no coincideix amb cap versió desada."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Document compartit",
+      "rateLimited": "Massa peticions des d’aquesta adreça. Torna-ho a provar d’aquí a un minut.",
+      "unavailable": {
+        "title": "Aquest enllaç no està disponible",
+        "body": "Pot haver caducat o haver estat revocat per l’emissor. Demana-li’n un de nou."
+      },
+      "lockedTitleInvoice": "Factura de {issuer}",
+      "lockedTitleCreditNote": "Nota de crèdit de {issuer}",
+      "lockedBody": "Aquest document està protegit amb contrasenya. Introdueix la contrasenya que t’ha donat l’emissor.",
+      "void": "Anul·lat",
+      "protectedPdf": "El PDF s’obre amb la mateixa contrasenya. Es pot llegir i imprimir; copiar i editar està bloquejat.",
+      "byline": "De {issuer} a {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Contrasenya",
+      "limited": "Massa intents. Espera quinze minuts i torna-ho a provar.",
+      "wrong": "Aquesta contrasenya no és correcta.",
+      "submit": "Obre el document"
+    },
+    "dialog": {
+      "trigger": "Comparteix",
+      "title": "Comparteix aquest document",
+      "description": "Qualsevol persona amb l’enllaç el pot veure i baixar fins que caduqui o el revoquis. Una contrasenya també protegeix el PDF: s’obre amb la contrasenya i es pot llegir i imprimir, però no editar ni copiar.",
+      "link": "Enllaç",
+      "copyLink": "Copia l’enllaç",
+      "password": "Contrasenya",
+      "copyPassword": "Copia la contrasenya",
+      "sendSeparately": "Envia la contrasenya per separat de l’enllaç. La pots tornar a veure a la llista següent.",
+      "copy": "Copia",
+      "copied": "Copiat",
+      "expires": "Caduca",
+      "expiry": {
+        "d7": "D’aquí a 7 dies",
+        "d30": "D’aquí a 30 dies",
+        "d90": "D’aquí a 90 dies",
+        "never": "Mai"
+      },
+      "protection": "Protecció",
+      "protectionOptions": {
+        "auto": "Contrasenya: genera una frase de pas",
+        "manual": "Contrasenya: en trio una",
+        "none": "Sense contrasenya (enllaç obert)"
+      },
+      "passwordHint": "Almenys 8 caràcters.",
+      "strength": "Fortalesa: {label}",
+      "strengthLabels": {
+        "veryWeak": "molt feble",
+        "weak": "feble",
+        "fair": "acceptable",
+        "good": "bona",
+        "strong": "forta"
+      },
+      "creating": "S’està creant…",
+      "create": "Crea l’enllaç",
+      "activeLinks": "Enllaços actius",
+      "passwordProtected": "Protegit amb contrasenya",
+      "openLink": "Obre l’enllaç",
+      "linkExpires": "{kind} · caduca {date}",
+      "linkNeverExpires": "{kind} · no caduca",
+      "revoke": {
+        "title": "Vols revocar aquest enllaç?",
+        "description": "L’enllaç deixa de funcionar immediatament per a tothom qui el tingui.",
+        "label": "Revoca"
+      },
+      "linkPassword": "Contrasenya: <code>{password}</code>",
+      "counts": "{views, plural, one {# visualització} other {# visualitzacions}} · {downloads, plural, one {# baixada} other {# baixades}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Notes de crèdit",
+      "title": "Notes de crèdit",
+      "description": "S’emeten contra factures emeses; cadascuna redueix el saldo de la seva factura quan s’emet.",
+      "newCreditNote": "Nota de crèdit nova",
+      "filters": {
+        "from": "Des de",
+        "to": "Fins a",
+        "issuer": "Emissor",
+        "client": "Client",
+        "status": "Estat",
+        "search": "Cerca",
+        "all": "Tots",
+        "searchPlaceholder": "Número, motiu, client",
+        "go": "Aplica"
+      },
+      "statuses": {
+        "DRAFT": "Esborrany",
+        "ISSUED": "Emesa",
+        "SENT": "Enviada",
+        "VOID": "Anul·lada"
+      },
+      "empty": {
+        "title": "Encara no hi ha notes de crèdit",
+        "description": "Obre una factura emesa i tria «Nota de crèdit» per reduir el que deu."
+      },
+      "noMatch": "Cap nota de crèdit coincideix amb aquests filtres.",
+      "columns": {
+        "number": "Número",
+        "against": "Contra",
+        "client": "Client",
+        "issueDate": "Data d’emissió",
+        "reason": "Motiu",
+        "total": "Total",
+        "status": "Estat"
+      },
+      "draft": "Esborrany"
+    },
+    "new": {
+      "metaTitle": "Nota de crèdit nova",
+      "title": "Nota de crèdit nova",
+      "description": "Una nota de crèdit s’emet contra una factura emesa i en redueix el saldo.",
+      "nothingToCredit": {
+        "title": "Res a abonar",
+        "description": "Les notes de crèdit necessiten una factura emesa amb saldo pendent.",
+        "openInvoices": "Obre les factures"
+      },
+      "whichInvoice": "Quina factura?",
+      "invoice": "Factura",
+      "invoiceOption": "{number} · {client} · saldo {balance}",
+      "issuedOnly": "Les notes de crèdit només s’emeten contra factures emeses.",
+      "invoiceFallback": "Factura"
+    },
+    "edit": {
+      "metaTitle": "Edita la nota de crèdit",
+      "title": "Edita l’esborrany de nota de crèdit",
+      "immutable": "Les notes de crèdit emeses són immutables.",
+      "draft": "Esborrany"
+    },
+    "detail": {
+      "metaTitle": "Nota de crèdit",
+      "draftTitle": "Esborrany de nota de crèdit",
+      "meta": "{client} · contra <invoice>{number}</invoice> · emesa el <mono>{date}</mono>",
+      "previewPdf": "Previsualitza el PDF",
+      "issue": {
+        "title": "Vols emetre aquesta nota de crèdit?",
+        "description": "S’assigna un número, es redueix el saldo de la factura i el document esdevé immutable.",
+        "label": "Emet"
+      },
+      "deleteDraft": {
+        "title": "Vols suprimir aquest esborrany?"
+      },
+      "sendByEmail": "Envia per correu",
+      "markSent": {
+        "title": "Vols marcar-la com a enviada?",
+        "label": "Marca com a enviada"
+      },
+      "void": {
+        "title": "Vols anul·lar aquesta nota de crèdit?",
+        "description": "Es restaura el saldo de la factura; el número no es reutilitza mai.",
+        "reason": "Motiu",
+        "label": "Anul·la"
+      },
+      "voided": "Anul·lada el {date}: {reason}",
+      "amounts": {
+        "title": "Imports",
+        "reason": "Motiu",
+        "creditAmount": "Import de l’abonament",
+        "total": "Total",
+        "balanceNow": "Saldo actual de la factura",
+        "sent": "Enviada"
+      },
+      "documents": {
+        "title": "Documents desats",
+        "description": "Es conserva cada versió; la pàgina de verificació llista totes les empremtes.",
+        "regenerateTitle": "Vols generar una versió nova del PDF?",
+        "generate": "Genera",
+        "newVersion": "Versió nova",
+        "renderedOnFirstDownload": "El PDF es genera en la primera baixada.",
+        "protectedCopy": "Còpia protegida amb contrasenya {version}",
+        "version": "Versió {version}",
+        "verificationLink": "Enllaç de verificació: <link>{path}…</link>"
+      },
+      "draftsPreview": "La previsualització dels esborranys és en directe a l’editor."
+    },
+    "send": {
+      "metaTitle": "Envia la nota de crèdit",
+      "title": "Envia <mono>{number}</mono>",
+      "previousSends": "Enviaments anteriors"
+    },
+    "builder": {
+      "against": "Contra <mono>{number}</mono>",
+      "summary": "{client} · total {total} · saldo {balance} · marge imposable ≈ {headroom}",
+      "issueDate": "Data d’emissió",
+      "creditAmount": "Import de l’abonament (sense impost)",
+      "creditAmountHint": "L’impost es reparteix a partir de les línies d’impost de la factura",
+      "reason": "Motiu",
+      "picker": {
+        "title": "Calcula a partir de les línies de la factura",
+        "description": "Marca línies senceres o un percentatge; això només omple l’import de dalt.",
+        "line": "Línia",
+        "subtotal": "Subtotal",
+        "credit": "Abonament",
+        "percent": "%",
+        "creditLine": "Abona la línia {position}",
+        "percentOfLine": "Percentatge de la línia {position}"
+      },
+      "saveDraft": "Desa l’esborrany",
+      "issuing": "S’està emetent…",
+      "saveAndIssue": "Desa i emet"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Pagament rebut",
+        "REFUND": "Reemborsament emès",
+        "WRITE_OFF": "Cancel·lació de deute"
+      },
+      "editTitle": "Edita l’entrada",
+      "recordTitle": "Registra un pagament",
+      "description": "Els imports són en la moneda de la factura ({currency}); el TDS deduït forma part de l’import aplicat.",
+      "kind": "Tipus",
+      "date": "Data",
+      "amountRefunded": "Import reemborsat (negatiu)",
+      "amountApplied": "Import aplicat",
+      "refundHint": "Introdueix un import negatiu, p. ex. -500",
+      "tdsDeducted": "TDS deduït",
+      "tdsHint": "Impost que el client ha retingut; compta cap a l’import aplicat",
+      "bankFees": "Comissions bancàries",
+      "receivedInto": "Rebut a",
+      "noMethod": "-",
+      "reference": "Referència",
+      "referenceHint": "UTR, identificador de transacció, número de xec",
+      "otherCurrency": "Rebut en una altra moneda",
+      "amountReceived": "Import rebut",
+      "receivedCurrency": "Moneda rebuda",
+      "exchangeRate": "Tipus de canvi",
+      "exchangeRateHint": "1 unitat rebuda = ? {currency}",
+      "notes": "Notes",
+      "receipt": "Rebut",
+      "receiptHint": "PNG, JPEG, WebP o PDF de fins a 10 MB",
+      "saveChanges": "Desa els canvis",
+      "record": "Registra"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "aprox. {count, plural, one {# pàgina} other {# pàgines}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Missatge",
+      "description": "Emplenat a partir de les plantilles del perfil d’emissor. No s’envia res fins que cliques Envia.",
+      "to": "Per a",
+      "toHint": "Separats per comes",
+      "cc": "CC",
+      "bcc": "CCO",
+      "subject": "Assumpte",
+      "body": "Cos",
+      "bodyHint": "Text pla; els enllaços es poden clicar",
+      "attachment": "Adjunt",
+      "attachmentHint": "La còpia desada, anomenada <mono>{name}</mono> (o .docx); el seu contingut no es pot canviar.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "S’està enviant…",
+      "send": "Envia",
+      "openInMailApp": "Obre a l’aplicació de correu",
+      "noSmtp": "No hi ha cap servidor SMTP configurat (Configuració → Correu electrònic). Obre l’esborrany a l’aplicació de correu, adjunta el PDF baixat i després marca’l com a enviat a sota.",
+      "markAsSent": "Marca com a enviat"
+    },
+    "sentLog": {
+      "when": "Quan",
+      "document": "Document",
+      "to": "Per a",
+      "subject": "Assumpte",
+      "status": "Estat",
+      "empty": "Encara no s’ha enviat res.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "enviat",
+        "FAILED": "fallit",
+        "MANUAL": "manual"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Hola, {name}",
+    "fiscalYear": "Exercici fiscal {year}",
+    "fiscalYearWithBase": "Exercici fiscal {year} · moneda base {currency} ({profile})",
+    "newCreditNote": "Nota de crèdit nova",
+    "welcomeTitle": "Et donem la benvinguda a {appName}",
+    "welcomeDescription": "Comença creant el perfil d’emissor des del qual factures; després afegeix un client i la primera factura.",
+    "createProfile": "Crea el teu perfil",
+    "tiles": {
+      "outstanding": "Pendent",
+      "overdue": "Vençut",
+      "billedThisFy": "Facturat aquest exercici",
+      "receivedThisFy": "Cobrat aquest exercici",
+      "drafts": "Esborranys",
+      "invoiceCount": "{count, plural, one {# factura} other {# factures}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Pagaments menys reemborsaments, al canvi registrat",
+      "awaitingIssue": "pendents d’emetre",
+      "nothingPending": "res pendent"
+    },
+    "recentInvoices": "Factures recents",
+    "allInvoices": "Totes les factures",
+    "noInvoicesYet": "Encara no hi ha factures.",
+    "columns": {
+      "number": "Número",
+      "client": "Client",
+      "issued": "Emesa"
+    },
+    "topClients": "Clients amb més saldo pendent",
+    "nothingOutstanding": "Res pendent."
+  },
+  "exports": {
+    "export": "Exporta",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Factures",
+      "newInvoice": "Factura nova",
+      "draft": "Esborrany",
+      "aDraft": "un esborrany",
+      "statuses": {
+        "draft": "Esborrany",
+        "issued": "Emesa",
+        "sent": "Enviada",
+        "partiallyPaid": "Parcialment pagada",
+        "paid": "Pagada",
+        "overdue": "Vençuda",
+        "void": "Anul·lada"
+      },
+      "lifecycle": {
+        "draft": "esborrany",
+        "issued": "emesa",
+        "void": "anul·lada"
+      },
+      "units": {
+        "hour": "Hora",
+        "day": "Dia",
+        "fixed": "Fix",
+        "milestone": "Fita",
+        "unit": "Unitat"
+      },
+      "unitsLower": {
+        "hour": "hora",
+        "day": "dia",
+        "fixed": "fix",
+        "milestone": "fita",
+        "unit": "unitat"
+      },
+      "supplyTypes": {
+        "intraState": "intraestatal",
+        "interState": "interestatal",
+        "exportLut": "exportació lut",
+        "exportWithTax": "exportació amb impost",
+        "reverseCharge": "inversió del subjecte passiu",
+        "notApplicable": "no aplicable"
+      }
+    },
+    "list": {
+      "description": "Esborranys, factures emeses i anul·lades; els estats es dedueixen dels pagaments i les dates de venciment.",
+      "fiscalYear": "Exercici fiscal",
+      "issuer": "Emissor",
+      "client": "Client",
+      "searchPlaceholder": "Número, comanda, client",
+      "emptyTitle": "Encara no hi ha factures",
+      "emptyDescription": "Crea la primera factura: tria un client, afegeix línies, mira la previsualització i després emet-la.",
+      "columns": {
+        "number": "Número",
+        "client": "Client",
+        "issuer": "Emissor",
+        "issueDate": "Data d’emissió",
+        "due": "Venciment",
+        "balance": "Saldo"
+      },
+      "noMatches": "Cap factura coincideix amb aquests filtres.",
+      "count": "{count, plural, one {# factura} other {# factures}}",
+      "countPaged": "{count, plural, one {# factura} other {# factures}} · pàgina {page} de {pages}",
+      "register": "registre"
+    },
+    "new": {
+      "noProfileTitle": "Crea primer un perfil d’emissor",
+      "noProfileDescription": "Una factura s’emet des d’una identitat legal: configura el teu perfil amb els identificadors fiscals i la numeració.",
+      "createProfile": "Crea un perfil"
+    },
+    "edit": {
+      "metaTitle": "Edita la factura",
+      "title": "Edita l’esborrany",
+      "immutableFlash": "Les factures emeses són immutables. Usa «Anul·la i reemet» per corregir-la."
+    },
+    "detail": {
+      "metaTitle": "Factura",
+      "draftInvoice": "Esborrany de factura",
+      "issuedDue": "Emesa el <mono>{issued}</mono>, venciment el <mono>{due}</mono>",
+      "replaces": "Substitueix {number}",
+      "replacedBy": "Substituïda per {number}",
+      "previewPdf": "Previsualitza el PDF",
+      "issueTitle": "Vols emetre aquesta factura?",
+      "issueDescription": "S’assigna un número i el document esdevé immutable.",
+      "issue": "Emet",
+      "deleteDraftTitle": "Vols suprimir aquest esborrany?",
+      "sendByEmail": "Envia per correu",
+      "recordPayment": "Registra un pagament",
+      "creditNote": "Nota de crèdit",
+      "markSentTitle": "Vols marcar-la com a enviada?",
+      "markSentDescription": "Registra que el client ha rebut aquesta factura.",
+      "markSent": "Marca com a enviada",
+      "voidReissueTitle": "Vols anul·lar i reemetre?",
+      "voidReissueDescription": "L’original s’anul·la i s’obre per editar un esborrany enllaçat amb el mateix contingut.",
+      "voidReissue": "Anul·la i reemet",
+      "voidTitle": "Vols anul·lar aquesta factura?",
+      "voidDescription": "Només és possible sense pagaments registrats; el número no es reutilitza mai.",
+      "void": "Anul·la",
+      "voided": "Anul·lada el {date}: {reason}",
+      "amounts": "Imports",
+      "subtotal": "Subtotal",
+      "discount": "Descompte",
+      "discountPercent": "Descompte ({percent})",
+      "rounding": "Arrodoniment",
+      "tdsExpected": "TDS previst ({percent})",
+      "paid": "Pagat",
+      "credited": "Abonat",
+      "balanceDue": "Saldo pendent",
+      "supply": "Operació",
+      "fxToBase": "Canvi a la moneda base",
+      "poReference": "Referència de comanda",
+      "sent": "Enviada",
+      "lineItems": "Línies",
+      "columns": {
+        "description": "Descripció",
+        "sacHsn": "SAC/HSN",
+        "qty": "Quant.",
+        "rate": "Tarifa",
+        "tax": "Impost",
+        "amount": "Import"
+      },
+      "creditNotes": "Notes de crèdit",
+      "storedDocuments": "Documents desats",
+      "storedDocumentsHint": "Es conserva cada versió; la pàgina de verificació llista totes les empremtes.",
+      "regenerateTitle": "Vols generar una versió nova del PDF?",
+      "regenerateDescription": "Es torna a generar a partir de la instantània congelada (per exemple després d’una correcció del generador). Les versions anteriors es mantenen.",
+      "regenerate": "Genera",
+      "newVersion": "Versió nova",
+      "renderedOnFirstDownload": "El PDF es genera en la primera baixada.",
+      "protectedCopy": "Còpia protegida amb contrasenya {version}",
+      "version": "Versió {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Enllaç de verificació:",
+      "draftPreviewHint": "La previsualització dels esborranys és en directe a l’editor; obre <link>el PDF amb marca d’aigua</link> per veure la pàgina."
+    },
+    "history": {
+      "metaTitle": "Historial de la factura",
+      "title": "Historial <mono>{number}</mono>",
+      "reissueChain": "Cadena de reemissions",
+      "replaces": "Substitueix <link>{number}</link>",
+      "replacedBy": "Substituïda per <link>{number}</link>",
+      "auditTrail": "Rastre d’auditoria",
+      "columns": {
+        "when": "Quan",
+        "who": "Qui",
+        "action": "Acció",
+        "summary": "Resum"
+      },
+      "noEvents": "Encara no hi ha esdeveniments.",
+      "system": "Sistema",
+      "emails": "Correus"
+    },
+    "payments": {
+      "title": "Pagaments",
+      "description": "{client} · {total} en total",
+      "backToInvoice": "Torna a la factura",
+      "ledger": "Llibre",
+      "columns": {
+        "date": "Data",
+        "kind": "Tipus",
+        "applied": "Aplicat",
+        "tds": "TDS",
+        "received": "Rebut",
+        "reference": "Referència",
+        "balance": "Saldo"
+      },
+      "noPayments": "Encara no s’ha registrat cap pagament.",
+      "kinds": {
+        "payment": "Pagament",
+        "refund": "Reemborsament",
+        "writeOff": "Cancel·lació de deute"
+      },
+      "receipt": "Rebut",
+      "deleteEntryTitle": "Vols suprimir aquesta entrada?",
+      "deleteEntryDescription": "El saldo de la factura es torna a calcular.",
+      "totals": "Totals",
+      "invoiceTotal": "Total de la factura",
+      "credited": "Abonat",
+      "refunds": "Reemborsaments",
+      "writeOffs": "Cancel·lacions de deute",
+      "tdsDeducted": "TDS deduït",
+      "bankFees": "Comissions bancàries",
+      "balanceDue": "Saldo pendent",
+      "onlyIssued": "Només les factures emeses accepten pagaments."
+    },
+    "send": {
+      "metaTitle": "Envia la factura",
+      "title": "Envia <mono>{number}</mono>",
+      "alreadySent": "Ja marcada com a enviada; tornar-la a enviar afegeix una altra entrada al registre.",
+      "previousSends": "Enviaments anteriors"
+    },
+    "builder": {
+      "parties": "Parts",
+      "issuerProfile": "Perfil d’emissor",
+      "client": "Client",
+      "archivedOption": "{label} (arxivat)",
+      "issueDate": "Data d’emissió",
+      "dueDate": "Data de venciment",
+      "fxRate": "Tipus de canvi a la moneda base",
+      "fxHint": "1 {currency} = ? {base} (només per a informes)",
+      "poReference": "Referència de comanda",
+      "lineItems": "Línies",
+      "lineItemsHint": "Tria del catàleg per copiar-ne els valors o escriu una línia.",
+      "taxDiscountTds": "Impost, descompte i TDS",
+      "taxRegime": "Règim fiscal",
+      "regimes": {
+        "indiaGst": "GST de l’Índia",
+        "ukVat": "IVA del Regne Unit",
+        "usSalesTax": "Impost de vendes dels EUA",
+        "none": "Sense impost"
+      },
+      "reverseCharge": "Inversió del subjecte passiu",
+      "reverseChargeHint": "Impost a pagar pel destinatari",
+      "discount": "Descompte",
+      "percent": "Percentatge",
+      "amount": "Import",
+      "rounding": "Ajust d’arrodoniment",
+      "roundingHint": "Opcional, a una unitat sencera; ha de ser inferior a 1",
+      "round": "Arrodoneix",
+      "tdsRate": "Taxa de TDS prevista (%)",
+      "tdsRateHint": "Informatiu; s’imprimeix quan el desglossament de TDS és activat",
+      "paymentMethods": "Mètodes de pagament",
+      "paymentMethodsHint": "S’imprimeixen en l’ordre marcat.",
+      "noPaymentMethods": "No hi ha mètodes de pagament actius. <link>Afegeix-ne un</link>.",
+      "whatPrints": "Què s’imprimeix",
+      "whatPrintsHint": "Parteix dels valors per defecte del perfil d’emissor.",
+      "notesAndTerms": "Notes i condicions",
+      "notes": "Notes",
+      "terms": "Condicions",
+      "saveDraft": "Desa l’esborrany",
+      "issuing": "S’està emetent…",
+      "saveAndIssue": "Desa i emet",
+      "subtotal": "Subtotal",
+      "tax": "Impost",
+      "tdsExpected": "TDS previst",
+      "netExpected": "Net previst"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Afegeix del catàleg…",
+      "services": "Serveis",
+      "products": "Productes",
+      "addLine": "Afegeix una línia",
+      "columns": {
+        "description": "Descripció",
+        "sacHsn": "SAC/HSN",
+        "qty": "Quant.",
+        "unit": "Unitat",
+        "rate": "Tarifa",
+        "taxPercent": "Impost %"
+      },
+      "aria": {
+        "description": "Descripció de la línia {line}",
+        "sacHsn": "SAC/HSN de la línia {line}",
+        "quantity": "Quantitat de la línia {line}",
+        "unit": "Unitat de la línia {line}",
+        "rate": "Tarifa de la línia {line}",
+        "taxRate": "Tipus d’impost de la línia {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Exempt",
+      "moveUp": "Mou amunt",
+      "moveDown": "Mou avall",
+      "removeLine": "Elimina la línia",
+      "shortcutHint": "Ctrl/⌘+Intro en una descripció afegeix una línia.",
+      "addFromCatalogueAria": "Afegeix del catàleg"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Dades de l’emissor",
+        "client": "Dades del client",
+        "document": "Seccions del document"
+      },
+      "fields": {
+        "showLogo": "Logotip",
+        "showTradeName": "Nom comercial",
+        "showDesignation": "Càrrec",
+        "showEmail": "Correu electrònic",
+        "showPhone": "Telèfon",
+        "showWebsite": "Lloc web",
+        "showFullAddress": "Adreça completa",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Signatura",
+        "showStamp": "Segell",
+        "showContactPerson": "Persona de contacte",
+        "showBillingAddress": "Adreça de facturació",
+        "showShippingAddress": "Adreça d’enviament",
+        "showTaxIdentifier": "Identificador fiscal",
+        "showPlaceOfSupply": "Lloc de subministrament",
+        "showDueDate": "Data de venciment",
+        "showPaymentTerms": "Condicions de pagament",
+        "showSacCodeColumn": "Columna del codi SAC",
+        "showQuantityColumn": "Columna de quantitat",
+        "showUnitPriceColumn": "Columna de preu unitari",
+        "showTaxColumn": "Columna d’impost",
+        "showTdsBreakdown": "Desglossament de TDS",
+        "showQrVerification": "Verificació amb QR",
+        "showNotes": "Notes",
+        "showTerms": "Condicions",
+        "showReplacesReference": "Referència del document substituït",
+        "showAmountInWords": "Import en lletres",
+        "showSupplyStatement": "Declaració de subministrament",
+        "showRoundingLine": "Línia d’arrodoniment",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Clients",
+      "description": "Tothom a qui factures. Els clients amb factures s’arxiven, mai se suprimeixen.",
+      "newClient": "Client nou",
+      "searchPlaceholder": "Cerca per nom",
+      "searchLabel": "Cerca clients",
+      "emptyTitle": "Encara no hi ha clients",
+      "emptyDescription": "Afegeix les persones i empreses a qui factures; la seva moneda i condicions de pagament emplenen cada factura.",
+      "addClient": "Afegeix un client",
+      "noMatch": "Cap client coincideix amb «{q}».",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Nom",
+        "contact": "Contacte",
+        "email": "Correu electrònic",
+        "country": "País",
+        "currency": "Moneda",
+        "terms": "Condicions",
+        "status": "Estat"
+      }
+    },
+    "new": {
+      "title": "Client nou"
+    },
+    "edit": {
+      "metaTitle": "Edita el client",
+      "title": "Edita {name}"
+    },
+    "detail": {
+      "metaTitle": "Client",
+      "newInvoice": "Factura nova",
+      "restoreTitle": "Vols restaurar aquest client?",
+      "archiveTitle": "Vols arxivar aquest client?",
+      "archiveDescription": "Desapareix dels selectors; les factures i l’historial es mantenen intactes.",
+      "deleteTitle": "Vols suprimir aquest client?",
+      "deleteDescription": "Només és possible mentre cap factura faci referència al client.",
+      "details": "Detalls",
+      "contact": "Contacte",
+      "email": "Correu electrònic",
+      "phone": "Telèfon",
+      "country": "País",
+      "gstState": "GST {code}",
+      "taxId": "ID fiscal",
+      "currency": "Moneda",
+      "paymentTerms": "Condicions de pagament",
+      "paymentTermsDays": "{days} dies",
+      "expectedTds": "TDS previst",
+      "notes": "Notes",
+      "addresses": "Adreces",
+      "billing": "Facturació",
+      "shipping": "Enviament",
+      "lifetime": "Acumulat",
+      "openRegister": "Obre el registre",
+      "noIssued": "Encara no hi ha factures emeses.",
+      "noIssuedWithDrafts": "Encara no hi ha factures emeses ({drafts} esborrany).",
+      "firstLatest": "Primera factura <mono>{first}</mono>, última <mono>{latest}</mono>{drafts, plural, =0 {} one { · # esborrany} other { · # esborranys}}",
+      "lifetimeColumns": {
+        "currency": "Moneda",
+        "invoices": "Factures",
+        "billed": "Facturat",
+        "received": "Cobrat",
+        "credited": "Abonat",
+        "outstanding": "Pendent",
+        "overdue": "Vençut"
+      },
+      "recentInvoices": "Factures recents",
+      "noInvoices": "Encara no hi ha factures per a aquest client.",
+      "recentColumns": {
+        "number": "Número",
+        "issueDate": "Data d’emissió",
+        "due": "Venciment",
+        "total": "Total",
+        "balance": "Saldo",
+        "status": "Estat"
+      }
+    },
+    "form": {
+      "cardTitle": "Client",
+      "displayName": "Nom visible",
+      "contactPerson": "Persona de contacte",
+      "email": "Correu electrònic",
+      "phone": "Telèfon",
+      "taxIdType": "Tipus d’ID fiscal",
+      "taxIdTypeNone": "Cap",
+      "taxId": "ID fiscal",
+      "currency": "Moneda",
+      "paymentTerms": "Condicions de pagament (dies)",
+      "expectedTdsRate": "Taxa de TDS prevista (%)",
+      "notes": "Notes",
+      "billingAddress": "Adreça de facturació",
+      "shippingAddress": "Adreça d’enviament",
+      "differentFromBilling": "Diferent de la facturació",
+      "save": "Desa el client"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Hora",
+      "DAY": "Dia",
+      "FIXED": "Fix",
+      "MILESTONE": "Fita",
+      "UNIT": "Unitat"
+    },
+    "list": {
+      "activate": "Activa",
+      "deactivate": "Desactiva",
+      "archiveDescription": "Les línies de factura existents conserven els valors copiats.",
+      "deleteDescription": "Només és possible mentre cap línia de factura hi faci referència. Si no, arxiva’l.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Nom",
+        "unit": "Unitat",
+        "rate": "Tarifa",
+        "price": "Preu",
+        "currency": "Moneda",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Impost",
+        "status": "Estat"
+      }
+    },
+    "services": {
+      "title": "Serveis",
+      "description": "El teu catàleg. Triar un servei en copia els valors a la línia de factura.",
+      "newService": "Servei nou",
+      "emptyTitle": "Encara no hi ha serveis",
+      "emptyDescription": "Afegeix el que vens - disseny per hores, una fita de preu fix - amb el seu codi SAC/HSN i tipus d’impost.",
+      "addService": "Afegeix un servei",
+      "restoreTitle": "Vols restaurar {name}?",
+      "archiveTitle": "Vols arxivar {name}?",
+      "deleteTitle": "Vols suprimir {name}?",
+      "editMetaTitle": "Edita el servei",
+      "editTitle": "Edita {name}"
+    },
+    "products": {
+      "title": "Productes",
+      "description": "Béns que vens, cadascun amb un SKU. Triar un producte en copia els valors a la línia de factura.",
+      "newProduct": "Producte nou",
+      "emptyTitle": "Encara no hi ha productes",
+      "emptyDescription": "Afegeix els béns que vens amb un SKU, un codi HSN, un preu unitari i un tipus d’impost.",
+      "addProduct": "Afegeix un producte",
+      "restoreTitle": "Vols restaurar {sku}?",
+      "archiveTitle": "Vols arxivar {sku}?",
+      "deleteTitle": "Vols suprimir {sku}?",
+      "editMetaTitle": "Edita el producte",
+      "editTitle": "Edita {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Codi únic que s’imprimeix sota la descripció de la línia",
+      "name": "Nom",
+      "unit": "Unitat",
+      "defaultRate": "Tarifa per defecte",
+      "unitPrice": "Preu unitari",
+      "currency": "Moneda",
+      "sacHsnCode": "Codi SAC / HSN",
+      "sacHsnHint": "Obligatori a les factures GST",
+      "hsnCode": "Codi HSN",
+      "hsnHint": "Obligatori a les factures GST per a béns",
+      "defaultTaxRate": "Tipus d’impost per defecte (%)",
+      "description": "Descripció",
+      "descriptionHint": "Emplena la descripció de la línia",
+      "active": "Actiu",
+      "serviceInactiveHint": "Els serveis inactius no apareixen al selector de factures",
+      "productInactiveHint": "Els productes inactius no apareixen al selector de factures",
+      "saveService": "Desa el servei",
+      "saveProduct": "Desa el producte"
+    },
+    "tags": {
+      "legend": "Perfils",
+      "hint": "Marca els perfils d’emissor que ho venen. Deixa’ls tots sense marcar per oferir-ho a tots els perfils."
+    }
+  },
+  "address": {
+    "line1": "Adreça, línia 1",
+    "line2": "Adreça, línia 2",
+    "city": "Ciutat",
+    "stateRegion": "Estat / regió",
+    "postalCode": "Codi postal",
+    "country": "País",
+    "state": "Estat",
+    "gstStateCodeHint": "Codi d’estat GST {code}",
+    "pickStateHint": "Tria l’estat per al codi d’estat GST",
+    "stateRegionCode": "Codi d’estat / regió",
+    "stateRegionCodePlaceholder": "p. ex. CA"
+  },
+  "assets": {
+    "tooLarge": "Aquest fitxer és massa gran.",
+    "unsupportedReceipt": "Usa una imatge PNG, JPEG, WebP o un PDF.",
+    "unsupportedImage": "Usa una imatge PNG, JPEG o WebP.",
+    "uploadFailed": "No s’ha pogut pujar.",
+    "uploading": "S’està pujant…"
+  },
+  "ui": {
+    "breadcrumb": "Ruta de navegació",
+    "close": "Tanca",
+    "closeMenu": "Tanca el menú",
+    "inputCharset": "Només es permeten caràcters estàndard del teclat.",
+    "confirm": {
+      "working": "S’està processant…"
+    },
+    "statusPill": {
+      "DRAFT": "Esborrany",
+      "ISSUED": "Emesa",
+      "SENT": "Enviada",
+      "PARTIALLY_PAID": "Parcialment pagada",
+      "PAID": "Pagada",
+      "OVERDUE": "Vençuda",
+      "VOID": "Anul·lada"
+    },
+    "activePill": {
+      "active": "Actiu",
+      "archived": "Arxivat",
+      "inactive": "Inactiu"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Alguna cosa ha anat malament.",
+    "fixFields": "Corregeix els camps destacats.",
+    "accountSaved": "S’han desat les preferències del compte",
+    "apiKeyCreated": "Clau d’API creada. Copia-la ara: només es mostra una vegada.",
+    "saved": "S’ha desat {name}",
+    "savedProfile": "S’ha desat el perfil {label}",
+    "clientArchived": "Client arxivat",
+    "clientRestored": "Client restaurat",
+    "clientDeleted": "Client suprimit",
+    "productArchived": "Producte arxivat",
+    "productRestored": "Producte restaurat",
+    "productActivated": "Producte activat",
+    "productDeactivated": "Producte desactivat",
+    "serviceArchived": "Servei arxivat",
+    "serviceRestored": "Servei restaurat",
+    "serviceActivated": "Servei activat",
+    "serviceDeactivated": "Servei desactivat",
+    "defaultProfileUpdated": "Perfil per defecte actualitzat",
+    "profileArchived": "Perfil arxivat",
+    "profileRestored": "Perfil restaurat",
+    "profileDeleted": "Perfil suprimit",
+    "defaultPaymentMethodUpdated": "Mètode de pagament per defecte actualitzat",
+    "paymentMethodArchived": "Mètode de pagament arxivat",
+    "paymentMethodRestored": "Mètode de pagament restaurat",
+    "paymentMethodDeleted": "Mètode de pagament suprimit",
+    "issued": "Emesa {number}",
+    "savedAsDraft": "Desada com a esborrany. {reason}",
+    "draftSaved": "Esborrany desat",
+    "invoiceVoided": "Factura anul·lada",
+    "originalVoided": "Original anul·lat; edita l’esborrany de substitució",
+    "markedAsSent": "Marcada com a enviada",
+    "draftDeleted": "Esborrany suprimit",
+    "generatedPdf": "S’ha generat la versió {version} del PDF",
+    "creditNoteVoided": "Nota de crèdit anul·lada; el saldo de la factura es restaura",
+    "draftCreditNoteDeleted": "Esborrany de nota de crèdit suprimit",
+    "mailRefused": "El servidor de correu ha rebutjat el missatge: {error}. L’intent s’ha registrat.",
+    "unknownError": "error desconegut",
+    "sentTo": "Enviat a {recipients}",
+    "smtpSaved": "S’ha desat la configuració SMTP",
+    "smtpRemoved": "S’ha eliminat la configuració SMTP desada",
+    "testEmailSent": "Correu de prova enviat a {email}",
+    "testFailed": "La prova ha fallat: {error}",
+    "defaultRecipientsSaved": "S’han desat els destinataris per defecte",
+    "invitationSent": "Invitació enviada",
+    "invitationReady": "Invitació a punt",
+    "unknownRole": "Rol desconegut",
+    "roleUpdated": "Rol actualitzat",
+    "accountDeactivated": "Compte desactivat",
+    "accountReactivated": "Compte reactivat",
+    "invitationRevoked": "Invitació revocada",
+    "paymentUpdated": "Pagament actualitzat",
+    "paymentRecorded": "Pagament registrat",
+    "paymentDeleted": "Pagament suprimit",
+    "sessionRevoked": "Sessió revocada",
+    "noOtherSessions": "No hi ha altres sessions",
+    "signedOutOthers": "S’ha tancat la sessió en {count} altra(es) sessió(ns)",
+    "sharePasswordRequired": "Introdueix una contrasenya o deixa que se’n generi una.",
+    "shareLinkCreated": "Enllaç per compartir creat.",
+    "templateSaved": "Plantilla desada; els documents futurs l’usaran",
+    "templateReset": "Plantilla restablerta al valor integrat per defecte",
+    "templateImported": "Plantilla importada",
+    "profileTemplateCleared": "El perfil torna a usar la plantilla de la instància",
+    "operatorSaved": "S’han desat les dades de l’operador. Les pàgines legals ja les mostren."
+  }
+}

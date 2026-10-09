@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Beranda okinvo",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "continue": "Lanjutkan",
+    "saving": "Menyimpan…",
+    "detect": "Deteksi",
+    "yes": "Ya",
+    "no": "Tidak",
+    "choose": "Pilih…",
+    "remove": "Hapus",
+    "tryAgain": "Coba lagi",
+    "dashboard": "Dasbor",
+    "goToDashboard": "Buka dasbor",
+    "or": "atau",
+    "invoice": "Faktur",
+    "creditNote": "Nota kredit",
+    "downloadPdf": "Unduh PDF",
+    "edit": "Ubah",
+    "delete": "Hapus",
+    "downloadDocx": "Unduh DOCX",
+    "none": "Tidak ada",
+    "dismiss": "Tutup",
+    "all": "Semua",
+    "previous": "Sebelumnya",
+    "next": "Berikutnya",
+    "go": "Buka",
+    "search": "Cari",
+    "status": "Status",
+    "total": "Total",
+    "currency": "Mata uang",
+    "from": "Dari",
+    "to": "Hingga",
+    "reason": "Alasan",
+    "history": "Riwayat",
+    "archive": "Arsipkan",
+    "restore": "Pulihkan",
+    "showArchived": "Tampilkan yang diarsipkan",
+    "hideArchived": "Sembunyikan yang diarsipkan",
+    "archived": "Diarsipkan",
+    "default": "Bawaan",
+    "setDefault": "Jadikan bawaan",
+    "revoke": "Cabut",
+    "copy": "Salin",
+    "copied": "Tersalin",
+    "active": "Aktif",
+    "pagination": "Penomoran halaman",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Dasbor",
+      "invoices": "Faktur",
+      "creditNotes": "Nota kredit",
+      "clients": "Klien",
+      "services": "Jasa",
+      "products": "Produk"
+    },
+    "primaryNav": "Utama",
+    "settings": "Pengaturan",
+    "openMenu": "Buka menu",
+    "navigation": "Navigasi",
+    "pagesAndAccount": "Halaman dan akun",
+    "collapseSidebar": "Ciutkan bilah samping",
+    "collapseSidebarHint": "Ciutkan bilah samping ([)",
+    "expandSidebar": "Perluas bilah samping",
+    "expandSidebarHint": "Perluas bilah samping ([)",
+    "theme": {
+      "label": "Tema",
+      "system": "Sistem",
+      "light": "Terang",
+      "dark": "Gelap",
+      "current": "Tema: {mode}",
+      "switchTo": "Tema: {mode}. Beralih ke {next}"
+    },
+    "userMenu": {
+      "label": "Menu akun untuk {name}",
+      "profile": "Profil",
+      "logOut": "Keluar"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Masuk",
+      "title": "Masuk",
+      "subtitle": "Hanya akun dalam daftar izin yang dapat masuk.",
+      "failed": "Gagal masuk.",
+      "noMethod": "Belum ada metode masuk yang dikonfigurasi. Setel pasangan penyedia seperti <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>, atau <code>AUTH_PASSWORD_SIGNIN=true</code>, di <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Akun tersebut tidak diizinkan pada instans ini, atau telah dinonaktifkan.",
+        "signin": "Proses masuk tidak selesai. Silakan coba lagi."
+      }
+    },
+    "password": {
+      "name": "Nama",
+      "email": "Email",
+      "password": "Kata sandi",
+      "signingIn": "Sedang masuk…",
+      "createAccount": "Buat akun",
+      "signIn": "Masuk",
+      "haveAPassword": "Saya sudah memiliki kata sandi",
+      "firstTime": "Pertama kali di sini? Tetapkan kata sandi",
+      "failed": "Gagal masuk."
+    },
+    "social": {
+      "redirecting": "Mengalihkan…",
+      "continueWith": "Lanjutkan dengan {provider}",
+      "failed": "Proses masuk tidak dapat dimulai."
+    },
+    "error": {
+      "metaTitle": "Kesalahan masuk",
+      "title": "Gagal masuk",
+      "body": "Penyedia identitas mengembalikan <code>{value}</code>. Jika alamat Anda tidak ada dalam daftar izin instans ini, minta pemilik untuk menambahkannya.",
+      "back": "Kembali ke halaman masuk"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Pengaturan",
+      "profiles": "Profil",
+      "paymentMethods": "Metode pembayaran",
+      "templates": "Templat",
+      "email": "Email",
+      "security": "Keamanan",
+      "users": "Pengguna",
+      "data": "Data",
+      "legal": "Hukum",
+      "account": "Akun",
+      "appearance": "Tampilan",
+      "api": "API",
+      "status": "Status"
+    },
+    "account": {
+      "metaTitle": "Akun",
+      "title": "Akun",
+      "description": "Foto, nama, wilayah, bahasa, dan zona waktu Anda.",
+      "photo": {
+        "title": "Foto",
+        "description": "Ditampilkan di bilah samping dan menu pengguna."
+      },
+      "form": {
+        "title": "Akun",
+        "description": "Bagaimana Anda ditampilkan dan kapan “hari ini” berlaku.",
+        "displayName": "Nama tampilan",
+        "signInEmail": "Email untuk masuk",
+        "signInEmailHint": "Identitas Anda pada instans ini; tidak dapat diubah di sini.",
+        "timezone": "Zona waktu",
+        "timezoneHint": "“Hari ini” untuk tanggal terbit, tanggal jatuh tempo, dan dasbor",
+        "regionTitle": "Wilayah",
+        "regionDescription": "Bawaan untuk profil penerbit baru dan untuk dasbor hingga profil dibuat.",
+        "country": "Negara",
+        "currency": "Mata uang",
+        "suggested": "Disarankan untuk negara ini:",
+        "language": "Bahasa",
+        "languageHint": "Bahasa aplikasi itu sendiri. Dokumen menggunakan lokal masing-masing profil.",
+        "machineTranslated": "Bahasa ini diterjemahkan secara otomatis. Koreksi sangat kami hargai: <link>perbaiki di GitHub</link>.",
+        "save": "Simpan preferensi"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerika",
+        "Asia": "Asia",
+        "Europe": "Eropa",
+        "MiddleEast": "Timur Tengah",
+        "Oceania": "Oseania",
+        "Constructed": "Bahasa buatan"
+      },
+      "privacy": {
+        "title": "Privasi",
+        "description": "okinvo hanya menyetel cookie yang diperlukan agar berfungsi. Tanpa analitik, tanpa pelacakan.",
+        "cookiePolicy": "Kebijakan cookie",
+        "showNoticeAgain": "Tampilkan lagi pemberitahuan cookie"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Ganti foto",
+      "addPhoto": "Tambah foto",
+      "hint": "PNG, JPEG, atau WebP. Ditampilkan berbentuk lingkaran di mana pun; Anda dapat memperbesar dan menggeser sebelum menyimpan.",
+      "tooLarge": "Foto tersebut terlalu besar.",
+      "uploadFailed": "Gagal mengunggah.",
+      "choose": "Pilih foto profil",
+      "dialogTitle": "Atur posisi foto Anda",
+      "dialogDescription": "Seret untuk menggeser, gulir atau cubit untuk memperbesar. Lingkaran adalah yang dilihat semua orang.",
+      "zoom": "Perbesar",
+      "save": "Simpan foto"
+    },
+    "appearance": {
+      "metaTitle": "Tampilan",
+      "title": "Tampilan",
+      "description": "Tema dan warna aksen, disimpan di akun Anda.",
+      "theme": {
+        "title": "Tema",
+        "description": "Ikuti sistem, atau tetapkan terang atau gelap.",
+        "label": "Tema",
+        "system": "Ikuti sistem",
+        "systemHint": "Berganti mengikuti OS Anda",
+        "light": "Terang",
+        "lightHint": "Kanvas putih",
+        "dark": "Gelap",
+        "darkHint": "Kanvas hampir hitam"
+      },
+      "accent": {
+        "title": "Aksen",
+        "description": "Digunakan untuk tombol utama, cincin fokus, dan penanda halaman aktif. Mint sesuai dengan tanda merek.",
+        "label": "Warna aksen"
+      },
+      "accents": {
+        "mint": "Mint",
+        "lavender": "Lavender",
+        "sky": "Langit",
+        "peach": "Persik",
+        "butter": "Mentega",
+        "rose": "Mawar",
+        "sage": "Sage",
+        "lilac": "Lilac"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Profil penerbit",
+      "title": "Profil penerbit",
+      "description": "Identitas hukum yang Anda gunakan untuk menagih. Yang bawaan mengisi otomatis faktur baru.",
+      "breadcrumb": "Profil",
+      "newProfile": "Profil baru",
+      "emptyTitle": "Belum ada profil penerbit",
+      "emptyDescription": "Buat identitas yang Anda gunakan untuk menerbitkan faktur: perorangan dengan PAN, atau perusahaan Anda.",
+      "createProfile": "Buat profil",
+      "columns": {
+        "label": "Label",
+        "legalName": "Nama hukum",
+        "type": "Jenis",
+        "country": "Negara",
+        "currency": "Mata uang",
+        "regime": "Rezim",
+        "status": "Status"
+      },
+      "types": {
+        "company": "Perusahaan",
+        "individual": "Perorangan"
+      },
+      "makeDefaultTitle": "Jadikan {label} sebagai bawaan?",
+      "makeDefaultDescription": "Faktur baru akan dimulai dari profil ini.",
+      "restoreTitle": "Pulihkan {label}?",
+      "archiveTitle": "Arsipkan {label}?",
+      "archiveDescription": "Profil hilang dari daftar pilihan; faktur yang ada tidak berubah.",
+      "new": {
+        "metaTitle": "Profil penerbit baru",
+        "title": "Profil penerbit baru",
+        "prefilled": "Diisi dari jawaban Anda; periksa alamat dan rincian pajak, lalu simpan."
+      },
+      "edit": {
+        "metaTitle": "Ubah profil penerbit",
+        "template": "Templat",
+        "deleteTitle": "Hapus {label}?",
+        "deleteDescription": "Hanya mungkin selama tidak ada faktur atau nota kredit yang merujuk profil ini. Jika tidak, arsipkan."
+      },
+      "template": {
+        "metaTitle": "Templat profil",
+        "title": "Templat untuk {label}",
+        "ownTemplate": "Templat sendiri",
+        "instanceTemplate": "Templat instans",
+        "resetTitle": "Gunakan kembali templat instans?",
+        "resetDescription": "Konfigurasi milik profil ini dihapus; dokumen yang sudah terbit tidak terpengaruh.",
+        "useInstance": "Gunakan templat instans",
+        "usingInstanceTitle": "Menggunakan templat instans",
+        "usingInstanceDescription": "Dokumen dari profil ini mengikuti Pengaturan → Templat. Aktifkan untuk menyesuaikannya secara terpisah.",
+        "customise": "Gunakan templat berbeda untuk profil ini",
+        "openInstance": "Buka templat instans"
+      },
+      "form": {
+        "identityTitle": "Identitas",
+        "identityDescription": "Pihak yang menerbitkan faktur.",
+        "type": "Jenis",
+        "label": "Label",
+        "labelHint": "Hanya ditampilkan di daftar pilihan",
+        "legalName": "Nama hukum",
+        "tradeName": "Nama dagang",
+        "designation": "Jabatan",
+        "email": "Email",
+        "phone": "Telepon",
+        "website": "Situs web",
+        "addressTitle": "Alamat",
+        "taxTitle": "Pengenal pajak",
+        "taxDescription": "Hanya yang berlaku bagi Anda; pencetakan diatur per faktur.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Nomor PPN Inggris",
+        "usTaxId": "EIN / SSN AS",
+        "usTaxIdHint": "Dienkripsi saat disimpan",
+        "lutNumber": "Nomor LUT",
+        "lutNumberHint": "Untuk ekspor tanpa IGST",
+        "lutFiscalYear": "Tahun keuangan LUT",
+        "lutFiscalYearHint": "mis. 2026-27",
+        "defaultsTitle": "Bawaan",
+        "baseCurrency": "Mata uang dasar",
+        "locale": "Lokal dokumen",
+        "localeHint": "Format angka dan tanggal pada dokumen",
+        "fiscalYearStart": "Tahun fiskal dimulai pada",
+        "months": {
+          "january": "Januari",
+          "february": "Februari",
+          "march": "Maret",
+          "april": "April",
+          "may": "Mei",
+          "june": "Juni",
+          "july": "Juli",
+          "august": "Agustus",
+          "september": "September",
+          "october": "Oktober",
+          "november": "November",
+          "december": "Desember"
+        },
+        "taxRegime": "Rezim pajak bawaan",
+        "regimes": {
+          "indiaGst": "GST India",
+          "ukVat": "PPN Inggris",
+          "usSalesTax": "Pajak penjualan AS",
+          "none": "Tanpa pajak"
+        },
+        "invoiceNumberFormat": "Format nomor faktur",
+        "invoiceNumberFormatHint": "Token: {tokens}",
+        "creditNoteNumberFormat": "Format nomor nota kredit",
+        "tdsRate": "Tarif TDS yang diharapkan (%)",
+        "tdsRateHint": "Bersifat informasi, dicetak sebagai potongan yang diharapkan",
+        "defaultNotes": "Catatan bawaan",
+        "defaultTerms": "Ketentuan bawaan",
+        "printTitle": "Yang dicetak secara bawaan",
+        "printDescription": "Setiap faktur menyalin pengaturan ini dan dapat mengubahnya secara individual.",
+        "emailTitle": "Email",
+        "emailDescription": "Bawaan untuk penyusun pesan. Placeholder: {placeholders}",
+        "emailCc": "CC bawaan",
+        "emailBcc": "BCC bawaan",
+        "commaSeparated": "Dipisahkan koma",
+        "invoiceSubject": "Subjek faktur",
+        "invoiceSubjectHint": "Jika kosong, templat bawaan sistem digunakan",
+        "creditNoteSubject": "Subjek nota kredit",
+        "invoiceBody": "Isi pesan faktur",
+        "creditNoteBody": "Isi pesan nota kredit",
+        "artworkTitle": "Gambar",
+        "artworkDescription": "PNG, JPEG, atau WebP hingga 2 MB; tanda tangan dan stempel mempertahankan transparansi.",
+        "logo": "Logo",
+        "signature": "Tanda tangan",
+        "stamp": "Stempel",
+        "transparentPng": "PNG transparan",
+        "save": "Simpan profil"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Metode pembayaran",
+      "title": "Metode pembayaran",
+      "description": "Cara klien membayar Anda. Rincian dienkripsi dan dibekukan ke dalam setiap faktur saat diterbitkan.",
+      "newMethod": "Metode baru",
+      "emptyTitle": "Belum ada metode pembayaran",
+      "emptyDescription": "Tambahkan rekening bank, ID UPI, atau dompet agar faktur dapat memberi tahu klien tempat membayar.",
+      "addMethod": "Tambah metode",
+      "columns": {
+        "name": "Nama",
+        "type": "Jenis",
+        "currency": "Mata uang",
+        "status": "Status"
+      },
+      "types": {
+        "bankTransfer": "Transfer bank",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Khusus"
+      },
+      "makeDefaultTitle": "Jadikan {name} sebagai bawaan?",
+      "restoreTitle": "Pulihkan {name}?",
+      "archiveTitle": "Arsipkan {name}?",
+      "archiveDescription": "Faktur yang sudah terbit mempertahankan salinan yang dicetak.",
+      "new": {
+        "metaTitle": "Metode pembayaran baru",
+        "title": "Metode pembayaran baru"
+      },
+      "edit": {
+        "metaTitle": "Ubah metode pembayaran",
+        "title": "Ubah {name}",
+        "deleteTitle": "Hapus {name}?",
+        "deleteDescription": "Hanya mungkin selama tidak ada faktur atau pembayaran yang merujuknya. Jika tidak, arsipkan."
+      },
+      "form": {
+        "name": "Nama",
+        "nameHint": "Dicetak sebagai judul blok pembayaran",
+        "type": "Jenis",
+        "currency": "Mata uang",
+        "currencyHint": "Opsional; hanya ditampilkan sebagai konteks",
+        "anyCurrency": "Apa saja",
+        "instructions": "Petunjuk",
+        "instructionsHint": "Dicetak di bawah rincian",
+        "isDefault": "Metode bawaan",
+        "isDefaultDescription": "Dipilih otomatis pada faktur baru",
+        "isActive": "Aktif",
+        "detailsTitle": "Rincian",
+        "detailsDescription": "Dienkripsi saat disimpan; disalin ke dalam setiap faktur saat diterbitkan.",
+        "vpa": "ID UPI (VPA)",
+        "payeeName": "Nama penerima",
+        "lines": "Baris",
+        "linesHint": "Satu baris per baris, dicetak apa adanya",
+        "accountEmail": "Email / nama akun",
+        "bank": {
+          "accountHolder": "Pemilik rekening",
+          "accountNumber": "Nomor rekening",
+          "bankName": "Nama bank",
+          "branch": "Cabang",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Kode routing / sort"
+        },
+        "save": "Simpan metode pembayaran"
+      }
+    },
+    "templates": {
+      "metaTitle": "Templat dokumen",
+      "title": "Templat dokumen",
+      "customised": "Disesuaikan",
+      "builtIn": "Bawaan sistem",
+      "description": "Tampilan faktur dan nota kredit. Dokumen yang sudah terbit mempertahankan templat saat diterbitkan.",
+      "resetTitle": "Setel ulang ke bawaan sistem?",
+      "resetDescription": "Penyesuaian Anda dihapus; dokumen yang sudah terbit tidak terpengaruh.",
+      "reset": "Setel ulang",
+      "resetTrigger": "Setel ulang ke bawaan",
+      "importTitle": "Impor",
+      "importDescription": "Pulihkan konfigurasi yang diekspor sebelumnya.",
+      "overridesTitle": "Penggantian per profil",
+      "overridesDescription": "Sebuah profil dapat memilih templatnya sendiri dari halaman ubahnya.",
+      "noOverrides": "Setiap profil menggunakan templat instans.",
+      "import": {
+        "json": "JSON templat",
+        "jsonHint": "Tempel berkas hasil Ekspor JSON; kunci yang hilang kembali ke bawaan",
+        "importing": "Mengimpor…",
+        "submit": "Impor"
+      },
+      "form": {
+        "templateTitle": "Templat",
+        "templateDescription": "Enam bawaan sistem; penyesuaian di bawah berlaku untuk templat mana pun yang Anda pilih.",
+        "templateGroup": "Templat",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Modern dan lapang, sans-serif, garis aksen di bawah kepala dokumen."
+          },
+          "classic": {
+            "name": "Klasik",
+            "character": "Tabel berbingkai tradisional, judul serif, total dalam kotak."
+          },
+          "compact": {
+            "name": "Ringkas",
+            "character": "Tata letak padat untuk daftar item yang panjang; huruf lebih kecil, pemisah lebih sedikit."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "Tenang dan lega: tanpa garis atau kotak, label tipis, banyak ruang kosong."
+          },
+          "letterhead": {
+            "name": "Kop surat",
+            "character": "Logo dan nama Anda pada pita warna atau gambar di bagian atas setiap halaman."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Kepala dokumen berpita warna; pihak, kepala tabel, dan total pada nuansa aksen pucat."
+          }
+        },
+        "paperTitle": "Kertas dan huruf",
+        "paperSize": "Ukuran kertas",
+        "paperLetter": "Letter",
+        "margins": "Margin",
+        "marginsNormal": "Normal",
+        "marginsNarrow": "Sempit",
+        "headingFont": "Huruf judul",
+        "bodyFont": "Huruf isi",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "Gaya tabel",
+        "tableRuled": "Bergaris",
+        "tableZebra": "Zebra",
+        "tablePlain": "Polos",
+        "accentColour": "Warna aksen",
+        "textColour": "Warna teks",
+        "logoPosition": "Posisi logo",
+        "positionLeft": "Kiri",
+        "positionCentre": "Tengah",
+        "positionRight": "Kanan",
+        "logoHeight": "Tinggi logo (mm)",
+        "documentTitle": "Judul dokumen",
+        "titleAuto": "Otomatis (sesuai GST)",
+        "titleCustom": "Khusus",
+        "titlePlaceholder": "mis. FAKTUR PROFORMA",
+        "qrPosition": "Posisi QR",
+        "qrFooter": "Kaki",
+        "qrHeader": "Kepala",
+        "qrBesideTotals": "Di samping total",
+        "amountInWords": "Jumlah dengan huruf",
+        "wordsBelowTotal": "Di bawah total",
+        "wordsFooter": "Kaki",
+        "wordsHidden": "Disembunyikan",
+        "subtotalRow": "Baris subtotal",
+        "discountRow": "Baris diskon",
+        "taxLines": "Baris pajak",
+        "tdsExpected": "TDS yang diharapkan",
+        "roundingRow": "Baris pembulatan",
+        "pageNumbers": "Nomor halaman",
+        "headerTitle": "Kepala dokumen",
+        "headerDescription": "Pita warna atau gambar di bagian atas setiap halaman. Kop surat dan Modern menampilkan pita kecuali Anda memilih lain.",
+        "headerStyle": "Gaya kepala dokumen",
+        "headerNone": "Tidak ada",
+        "headerBand": "Pita warna",
+        "headerImage": "Gambar",
+        "bandColour": "Warna pita",
+        "bandColourHex": "Warna pita (hex)",
+        "headerImageLabel": "Gambar kepala dokumen",
+        "headerImageHint": "PNG, JPEG, atau WebP selebar hingga 2400 px; membentang selebar halaman.",
+        "imageOpacity": "Opasitas gambar",
+        "headerHeight": "Tinggi kepala dokumen (mm)",
+        "bandText": "Teks pada pita",
+        "bandTextAuto": "Otomatis (dari warna pita)",
+        "bandTextLight": "Terang",
+        "bandTextDark": "Gelap",
+        "textTitle": "Teks",
+        "headerNote": "Catatan kepala dokumen",
+        "footer": "Kaki dokumen",
+        "signatureCaption": "Keterangan tanda tangan",
+        "draftWatermark": "Tanda air draf",
+        "labelsTitle": "Label",
+        "labelsDescription": "Biarkan kolom kosong untuk mempertahankan kata bawaan.",
+        "save": "Simpan templat",
+        "downloadSample": "Unduh PDF contoh",
+        "exportJson": "Ekspor JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Email",
+      "title": "Email",
+      "configuredSettings": "Dikonfigurasi di Pengaturan",
+      "configuredEnv": "Dikonfigurasi melalui lingkungan",
+      "notConfigured": "Belum dikonfigurasi: alur aplikasi email",
+      "description": "Dokumen dikirim dari penyusun pesan dengan PDF tersimpan terlampir. Pengaturan di sini menggantikan SMTP_* pada lingkungan.",
+      "sendTest": "Kirim email uji ke {email}",
+      "removeTitle": "Hapus pengaturan SMTP tersimpan?",
+      "removeEnvTakesOver": "Nilai SMTP_* dari lingkungan akan digunakan.",
+      "removeFallsBack": "Email kembali ke alur aplikasi email.",
+      "removeTrigger": "Hapus pengaturan tersimpan",
+      "smtpTitle": "Server SMTP",
+      "smtpFromEnv": "Saat ini diambil dari lingkungan; menyimpan di sini akan menggantikannya.",
+      "smtpPasswordNote": "Kata sandi dienkripsi saat disimpan dan tidak pernah ditampilkan lagi.",
+      "defaultsTitle": "Penerima bawaan",
+      "defaultsDescription": "CC/BCC untuk seluruh instans; profil penerbit menambahkan miliknya sendiri.",
+      "sentTitle": "Email terkirim",
+      "sentDescription": "50 percobaan terakhir, termasuk kegagalan dan pengiriman manual.",
+      "smtp": {
+        "host": "Host",
+        "port": "Port",
+        "security": "Keamanan",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Tidak ada (relai LAN)",
+        "user": "Nama pengguna",
+        "password": "Kata sandi",
+        "passwordStored": "Tersimpan dan terenkripsi; biarkan kosong untuk mempertahankannya",
+        "passwordEncrypted": "Dienkripsi saat disimpan",
+        "from": "Alamat pengirim",
+        "fromName": "Nama pengirim",
+        "replyTo": "Balas ke",
+        "save": "Simpan pengaturan SMTP"
+      },
+      "defaults": {
+        "cc": "CC bawaan",
+        "ccHint": "Ditambahkan ke setiap penyusun pesan; dipisahkan koma",
+        "bcc": "BCC bawaan",
+        "save": "Simpan bawaan"
+      }
+    },
+    "security": {
+      "metaTitle": "Keamanan",
+      "title": "Keamanan",
+      "description": "Tempat Anda masuk, dan semua yang telah berubah.",
+      "sessions": {
+        "title": "Sesi aktif",
+        "description": "Mencabut sesi akan langsung mengeluarkan perangkat tersebut.",
+        "signOutOthers": {
+          "title": "Keluar dari semua tempat lain?",
+          "description": "Semua sesi kecuali yang ini akan dicabut.",
+          "confirm": "Keluarkan yang lain",
+          "trigger": "Keluar dari semua tempat lain"
+        },
+        "columns": {
+          "device": "Perangkat",
+          "ipAddress": "Alamat IP",
+          "signedIn": "Masuk",
+          "lastSeen": "Terakhir terlihat",
+          "expires": "Kedaluwarsa"
+        },
+        "thisDevice": "Perangkat ini",
+        "revokeTitle": "Cabut sesi ini?",
+        "unknownDevice": "Perangkat tidak dikenal",
+        "unknownBrowser": "Tidak dikenal",
+        "agentOnOs": "{browser} di {os}"
+      },
+      "audit": {
+        "title": "Log audit",
+        "count": "{count, plural, other {# peristiwa}}",
+        "entity": "Entitas",
+        "actionContains": "Tindakan mengandung",
+        "filter": "Filter",
+        "reset": "Setel ulang",
+        "columns": {
+          "when": "Kapan",
+          "who": "Siapa",
+          "action": "Tindakan",
+          "entity": "Entitas",
+          "summary": "Ringkasan"
+        },
+        "empty": "Tidak ada peristiwa yang cocok dengan filter ini.",
+        "system": "Sistem",
+        "changes": "Perubahan",
+        "page": "Halaman {page} dari {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Pengguna",
+      "title": "Pengguna",
+      "description": "Siapa yang dapat masuk ke instans ini dan apa yang boleh mereka lakukan.",
+      "roles": {
+        "owner": "Pemilik",
+        "editor": "Editor",
+        "viewer": "Pembaca"
+      },
+      "roleHints": {
+        "owner": "Segalanya, termasuk pengaturan dan anggota",
+        "editor": "Klien, katalog, faktur, nota kredit, pembayaran, email",
+        "viewer": "Hanya baca"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Peran {email}",
+      "invite": {
+        "title": "Undang seseorang",
+        "description": "Mereka masuk dengan alamat yang diundang (penyedia identitas atau kata sandi) dan mendapat peran yang Anda pilih.",
+        "sent": "Undangan dikirim lewat email ke {email}.",
+        "readyWithError": "Undangan untuk {email} siap. Email tidak dapat dikirim ({error}); kirimkan tautan ini kepada mereka:",
+        "readyNoSmtp": "Undangan untuk {email} siap. SMTP belum dikonfigurasi; kirimkan tautan ini kepada mereka:",
+        "copyLink": "Salin tautan",
+        "email": "Email",
+        "emailPlaceholder": "orang@example.com",
+        "role": "Peran",
+        "submit": "Undang",
+        "inviting": "Mengundang…"
+      },
+      "members": {
+        "title": "Anggota",
+        "description": "Setidaknya satu pemilik aktif selalu tersisa.",
+        "columns": {
+          "person": "Orang",
+          "role": "Peran",
+          "lastSignIn": "Terakhir masuk",
+          "status": "Status"
+        },
+        "nameYou": "{name} (Anda)",
+        "deactivated": "Dinonaktifkan",
+        "reactivate": {
+          "title": "Aktifkan kembali {email}?",
+          "description": "Mereka dapat masuk lagi dengan peran sebelumnya.",
+          "confirm": "Aktifkan kembali"
+        },
+        "deactivate": {
+          "title": "Nonaktifkan {email}?",
+          "description": "Semua sesi berakhir sekarang dan mereka tidak dapat masuk hingga diaktifkan kembali. Riwayatnya tetap ada.",
+          "confirm": "Nonaktifkan"
+        }
+      },
+      "invitations": {
+        "title": "Undangan tertunda",
+        "description": "Alamat yang boleh masuk tetapi belum melakukannya.",
+        "columns": {
+          "email": "Email",
+          "role": "Peran",
+          "invited": "Diundang"
+        },
+        "empty": "Tidak ada undangan tertunda.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Cabut undangan untuk {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Data",
+      "title": "Data",
+      "description": "Semuanya portabel: kumpulan data sebagai CSV atau Excel, snapshot lengkap untuk migrasi, PDF untuk akuntan Anda, dan rutinitas pencadangan yang teruji.",
+      "period": {
+        "fiscalYear": "Tahun fiskal",
+        "fiscalYearHint": "Menggantikan tanggal",
+        "issuer": "Penerbit"
+      },
+      "exportAll": {
+        "title": "Ekspor semua data",
+        "description": "Sebuah ZIP berisi setiap kumpulan data sebagai CSV beserta <mono>data.json</mono>, snapshot relasional seluruh tabel. Kolom terenkripsi (rincian metode pembayaran, kata sandi SMTP) tidak disertakan; README di dalamnya mencantumkannya.",
+        "download": "Unduh ZIP okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "Ekspor dokumen",
+        "description": "Setiap PDF faktur dan nota kredit yang terbit dan dibatalkan untuk suatu periode, dinamai menurut nomor, dengan <mono>index.csv</mono> berisi nomor, total, dan hash. PDF yang belum ada dibuat saat proses berjalan.",
+        "docx": "Sertakan juga salinan DOCX setiap dokumen",
+        "download": "Unduh ZIP dokumen"
+      },
+      "datasets": {
+        "title": "Kumpulan data",
+        "description": "Ekspor yang sama seperti pada halaman indeks, dengan periode dan penerbit yang berlaku untuk semuanya. Pembayaran menggunakan rentang tanggal; klien dan jasa mengabaikan periode.",
+        "columns": {
+          "dataset": "Kumpulan data",
+          "filters": "Filter yang diterapkan",
+          "download": "Unduh"
+        },
+        "names": {
+          "invoices": "Register faktur",
+          "invoiceItems": "Item baris faktur",
+          "payments": "Buku besar pembayaran",
+          "creditNotes": "Register nota kredit",
+          "clients": "Klien",
+          "services": "Jasa",
+          "gstSummary": "Ringkasan GST",
+          "tdsSummary": "Ringkasan TDS"
+        },
+        "filters": {
+          "periodIssuer": "periode, penerbit",
+          "dateRangeIssuer": "rentang tanggal, penerbit",
+          "includesArchived": "termasuk yang diarsipkan"
+        }
+      },
+      "backups": {
+        "title": "Cadangan",
+        "notWired": "Layanan cadangan belum terhubung",
+        "noRun": "Belum ada cadangan yang berjalan",
+        "lastOk": "Cadangan terakhir berhasil",
+        "lastFailed": "Cadangan terakhir gagal",
+        "description": "Layanan Compose <mono>backup</mono> membuat dump Postgres dan mengarsipkan volume penyimpanan sesuai <mono>BACKUP_CRON</mono>, menyimpan riwayat <mono>BACKUP_RETENTION_DAYS</mono> di volume <mono>backups</mono>, dan menulis berkas status yang dibaca halaman ini.",
+        "finished": "Selesai",
+        "databaseDump": "Dump basis data",
+        "storageArchive": "Arsip penyimpanan",
+        "size": "Ukuran",
+        "sizeMb": "{size} MB",
+        "error": "Kesalahan",
+        "runNow": "Jalankan satu sekarang, atau pulihkan dari sepasang berkas:",
+        "restoreDrill": "Prosedur pemulihan diuji di CI oleh <mono>scripts/restore-drill.sh</mono>: seed, cadangkan, hapus, pulihkan, lalu bandingkan jumlah baris dan hash PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "Hukum",
+      "metaDescription": "Siapa yang mengoperasikan instans ini: rincian yang dicetak pada halaman hukum publik.",
+      "title": "Hukum",
+      "description": "Halaman hukum publik mencetak rincian ini. Hingga setiap kolom terisi, halaman menampilkan placeholder yang disorot.",
+      "operator": {
+        "title": "Rincian operator",
+        "complete": "Lengkap",
+        "missing": "{count} belum diisi: {fields}",
+        "description": "Anda, sebagai orang atau perusahaan yang menjalankan instans ini, adalah operator yang dimaksud dalam dokumen. Tidak ada yang dikirim ke mana pun; rincian ini dicetak pada halaman di bawah."
+      },
+      "fieldLabels": {
+        "legalName": "Nama hukum operator",
+        "entityType": "Jenis entitas",
+        "address": "Alamat operator",
+        "country": "Negara operator",
+        "contactEmail": "Email kontak",
+        "privacyEmail": "Email privasi",
+        "dpoEmail": "Email petugas perlindungan data",
+        "governingLaw": "Hukum yang berlaku",
+        "venue": "Tempat penyelesaian sengketa",
+        "effectiveDate": "Tanggal berlaku"
+      },
+      "publicPages": {
+        "title": "Halaman publik",
+        "description": "Ditautkan dari halaman masuk, penampil berbagi, dan pemberitahuan cookie.",
+        "terms": "Ketentuan Layanan",
+        "acceptableUse": "Kebijakan Penggunaan yang Dapat Diterima",
+        "privacy": "Kebijakan Privasi",
+        "cookies": "Kebijakan Cookie",
+        "dataRetention": "Retensi data",
+        "security": "Keamanan",
+        "licenses": "Lisensi dan pemberitahuan pihak ketiga"
+      },
+      "form": {
+        "legalName": "Nama hukum",
+        "entityType": "Jenis entitas",
+        "individual": "Perorangan / pemilik usaha tunggal",
+        "company": "Perusahaan / badan terdaftar",
+        "address": "Alamat",
+        "addressHint": "Dicetak dalam Ketentuan dan Kebijakan Privasi sebagai alamat pos operator.",
+        "country": "Negara",
+        "effectiveDate": "Tanggal berlaku",
+        "contactEmail": "Email kontak",
+        "privacyEmail": "Email privasi",
+        "privacyEmailHint": "Tujuan permintaan subjek data; boleh sama dengan alamat kontak.",
+        "dpoEmail": "Email petugas perlindungan data",
+        "dpoEmailHint": "Hanya jika Anda telah menunjuk satu.",
+        "governingLaw": "Hukum yang berlaku",
+        "governingLawHint": "Misalnya \"hukum India\" atau \"hukum Inggris dan Wales\".",
+        "venue": "Tempat penyelesaian sengketa",
+        "venueHint": "Misalnya \"pengadilan Bengaluru, Karnataka\".",
+        "submit": "Simpan rincian operator"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Kunci API untuk skrip, SDK, dan klien MCP, beserta contoh curl.",
+      "title": "API",
+      "description": "Kunci untuk skrip, SDK, dan klien MCP. Sebuah kunci paling banyak dapat melakukan apa yang dapat dilakukan peran Anda; kunci hanya ditampilkan sekali.",
+      "create": {
+        "title": "Buat kunci",
+        "description": "Kirim sebagai <mono>Authorization: Bearer okv_…</mono>. Jauhkan dari kode sumber dan log obrolan; cabut di bawah jika bocor."
+      },
+      "keys": {
+        "title": "Kunci",
+        "descriptionOwner": "Setiap kunci pada instans ini; pemilik dapat mencabut kunci mana pun.",
+        "descriptionOwn": "Kunci Anda.",
+        "columns": {
+          "name": "Nama",
+          "prefix": "Awalan",
+          "scopes": "Cakupan",
+          "owner": "Pemilik",
+          "lastUsed": "Terakhir digunakan",
+          "expires": "Kedaluwarsa",
+          "status": "Status"
+        },
+        "empty": "Belum ada kunci API.",
+        "never": "tidak pernah",
+        "revoked": "Dicabut",
+        "expired": "Kedaluwarsa",
+        "revokeTitle": "Cabut {name}?",
+        "revokeDescription": "Klien yang menggunakan kunci ini langsung berhenti berfungsi.",
+        "activeCount": "{count, plural, other {# kunci aktif.}}"
+      },
+      "examples": {
+        "title": "Contoh",
+        "description": "Ganti <mono>$OKINVO_KEY</mono> dengan sebuah kunci. REST API berversi, dokumen OpenAPI-nya (<mono>/api/openapi.json</mono>), SDK TypeScript, dan server MCP hadir pada tugas berikutnya dalam rencana v1.1; endpoint status berfungsi saat ini.",
+        "rateLimit": "Panggilan yang melebihi batas dijawab 429 dengan header <mono>Retry-After</mono> (120 permintaan per menit per kunci). Cakupan sebuah kunci dibatasi oleh peran pemiliknya saat ini."
+      },
+      "form": {
+        "copyKey": "Salin kunci API",
+        "name": "Nama",
+        "namePlaceholder": "mis. skrip akuntansi",
+        "expires": "Kedaluwarsa",
+        "in30Days": "Dalam 30 hari",
+        "in90Days": "Dalam 90 hari",
+        "inAYear": "Dalam setahun",
+        "never": "Tidak pernah",
+        "scopes": "Cakupan",
+        "submit": "Buat kunci API",
+        "creating": "Membuat…"
+      },
+      "scopes": {
+        "invoicesRead": "Membaca faktur",
+        "invoicesCreate": "Membuat dan menerbitkan faktur",
+        "creditNotesRead": "Membaca nota kredit",
+        "creditNotesCreate": "Membuat dan menerbitkan nota kredit",
+        "catalogueRead": "Membaca klien, jasa, dan produk",
+        "documentsRead": "Mengunduh PDF tersimpan dan salinan DOCX",
+        "statusRead": "Membaca status instans"
+      }
+    },
+    "status": {
+      "metaTitle": "Status",
+      "metaDescription": "Versi, basis data, penyimpanan, email, dan kesehatan cadangan instans ini.",
+      "title": "Status",
+      "description": "Apa yang dijalankan instans ini dan apakah bagian-bagiannya merespons.",
+      "recheck": "Periksa ulang",
+      "health": {
+        "ok": "OK",
+        "warning": "Peringatan",
+        "failed": "Gagal",
+        "na": "Belum dikonfigurasi"
+      },
+      "overall": {
+        "ok": "Semua baik",
+        "degraded": "Menurun",
+        "failed": "Gagal"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(sha tidak diketahui)}} · dibuat {built} · Node <mono>{node}</mono> · aktif {uptime} · diperiksa {checked}",
+      "dateUnknown": "(tanggal tidak diketahui)",
+      "uptime": {
+        "days": "{d}h {h}j {m}m",
+        "hours": "{h}j {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Basis data",
+        "storage": "Penyimpanan",
+        "rateLimiting": "Pembatasan laju",
+        "email": "Email",
+        "backups": "Cadangan"
+      },
+      "db": {
+        "detail": "{latency} ms · migrasi terakhir <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # migrasi belum selesai}}",
+        "noMigration": "tidak ada"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · tulis, baca, dan hapus objek uji dalam {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "Penyimpanan <mono>{store}</mono> {store, select, memory {(satu replika)} other {(dibagi antar replika)}}",
+      "smtp": {
+        "configured": "SMTP dari {source, select, settings {settings} env {env} other {}} · uji terakhir {lastTest} · 24 jam terakhir: {sent} terkirim, {failed} gagal",
+        "none": "Tidak ada server SMTP; penyusun pesan menawarkan “Buka di aplikasi email”. <link>Konfigurasikan</link>"
+      },
+      "backups": {
+        "notWired": "Layanan cadangan belum terhubung (BACKUP_STATUS_FILE belum disetel).",
+        "noRun": "Layanan cadangan terhubung; belum ada proses yang tercatat.",
+        "ok": "Proses terakhir berhasil pada {finishedAt}{days, plural, =0 {} other { · retensi # hari}}",
+        "failed": "Proses terakhir gagal: {error} pada {finishedAt}{days, plural, =0 {} other { · retensi # hari}}"
+      },
+      "footer": "Laporan yang sama tersedia sebagai JSON di <mono>/api/health/status</mono> untuk pemantauan (sesi masuk atau kunci API)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Selamat datang",
+    "progress": "Kemajuan",
+    "steps": {
+      "aboutYou": "Tentang Anda",
+      "howYouUse": "Cara Anda menggunakannya",
+      "allSet": "Siap"
+    },
+    "step1": {
+      "title": "Ceritakan tentang Anda",
+      "subtitle": "Ini menetapkan bawaan Anda; setiap nilai dapat diubah nanti di Pengaturan.",
+      "name": "Nama",
+      "email": "Email",
+      "emailHint": "Identitas masuk Anda. Dapat diubah nanti dari Pengaturan → Keamanan.",
+      "country": "Negara",
+      "currency": "Mata uang pilihan",
+      "currencyHint": "Digunakan untuk profil baru dan dasbor hingga profil dibuat."
+    },
+    "step2": {
+      "title": "Bagaimana Anda akan menggunakan okinvo?",
+      "subtitle": "Hanya bawaan yang berubah; tidak ada yang terkunci.",
+      "usage": "Penggunaan",
+      "personal": "Penagihan pribadi",
+      "personalHint": "Pekerjaan lepas atas nama Anda sendiri",
+      "business": "Penagihan bisnis",
+      "businessHint": "Faktur dari bisnis terdaftar",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Nomor PPN",
+        "other": "Nomor registrasi pajak"
+      },
+      "taxQuestion": {
+        "IN": "Apakah Anda memiliki GSTIN?",
+        "GB": "Apakah Anda terdaftar PPN?",
+        "other": "Apakah Anda memiliki nomor registrasi pajak untuk dicetak pada faktur?"
+      }
+    },
+    "step3": {
+      "title": "Anda sudah siap",
+      "body": "Selanjutnya, buat profil penerbit pertama Anda: nama, alamat, dan rincian pajak yang dicetak pada faktur Anda. Kami telah mengisi apa yang Anda sampaikan.",
+      "go": "Buka profil",
+      "opening": "Membuka…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Ketentuan",
+      "privacy": "Privasi",
+      "cookies": "Cookie",
+      "security": "Keamanan"
+    },
+    "cookieNotice": {
+      "label": "Pemberitahuan cookie",
+      "body": "Kami hanya menggunakan cookie yang benar-benar diperlukan: sesi dan preferensi tampilan Anda. Tanpa analitik, tanpa pelacakan.",
+      "policy": "Kebijakan cookie",
+      "gotIt": "Mengerti"
+    },
+    "nav": {
+      "label": "Hukum",
+      "cookies": "Cookie",
+      "privacy": "Privasi",
+      "terms": "Ketentuan",
+      "acceptableUse": "Penggunaan yang dapat diterima",
+      "retention": "Retensi",
+      "security": "Keamanan",
+      "licences": "Lisensi"
+    },
+    "operatorNotice": "okinvo adalah perangkat lunak yang di-host sendiri; operator instans ini bertanggung jawab atas penggunaannya.",
+    "doc": {
+      "effectiveOn": "Berlaku <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Daftar isi"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Nama hukum operator",
+        "entityType": "Jenis entitas",
+        "address": "Alamat operator",
+        "country": "Negara operator",
+        "contactEmail": "Email kontak",
+        "privacyEmail": "Email privasi",
+        "dpoEmail": "Email petugas perlindungan data",
+        "governingLaw": "Hukum yang berlaku",
+        "venue": "Tempat penyelesaian sengketa",
+        "effectiveDate": "Tanggal berlaku"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Tidak ditemukan",
+      "title": "Tidak ada apa pun di alamat ini",
+      "body": "Tautan mungkin sudah usang, atau dokumen yang dituju tidak pernah diterbitkan."
+    },
+    "forbidden": {
+      "metaTitle": "Tidak diizinkan",
+      "title": "Akun ini tidak dapat melakukannya",
+      "body": "Peran Anda tidak mengizinkan ini. Minta akses kepada pemilik, atau masuk dengan akun yang memilikinya."
+    },
+    "error": {
+      "title": "Terjadi kesalahan",
+      "body": "Permintaan ini tidak mengubah apa pun. Coba lagi; jika terus terjadi, log server berisi rinciannya.",
+      "digest": "kesalahan {digest}",
+      "generic": "kesalahan"
+    },
+    "appNotFound": {
+      "title": "Tidak ditemukan",
+      "body": "Data ini tidak ada, atau dihapus saat Anda sedang melihatnya.",
+      "back": "Kembali ke dasbor"
+    },
+    "validation": {
+      "required": "wajib diisi",
+      "tooLong": "paling banyak {max} karakter",
+      "invalidEmail": "harus berupa email yang valid",
+      "invalidDate": "harus berupa tanggal kalender dalam format YYYY-MM-DD",
+      "invalidAmount": "harus berupa angka",
+      "wholeNumber": "harus berupa bilangan bulat",
+      "greaterThanZero": "harus lebih besar dari nol",
+      "fixFields": "Harap perbaiki kolom yang disorot.",
+      "charset": "Hanya karakter keyboard standar yang diizinkan."
+    }
+  },
+  "verify": {
+    "metaTitle": "Verifikasi dokumen",
+    "heading": "Verifikasi dokumen",
+    "rateLimited": "Terlalu banyak pemeriksaan dari alamat ini. Silakan coba lagi dalam semenit.",
+    "notFound": {
+      "title": "Dokumen tidak ditemukan",
+      "body": "Tautan ini tidak cocok dengan dokumen terbit mana pun. Periksa kode QR atau tautan yang Anda terima, atau hubungi penerbit."
+    },
+    "status": {
+      "void": "Batal",
+      "valid": "Valid"
+    },
+    "issuedBy": "Diterbitkan oleh",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Diterbitkan kepada",
+    "issueDate": "Tanggal terbit",
+    "total": "Total",
+    "voided": "Dokumen ini dibatalkan oleh penerbit dan tidak lagi berlaku.",
+    "storedCopies": {
+      "title": "Salinan tersimpan",
+      "description": "SHA-256 dari setiap versi PDF yang dimiliki penerbit. Pilih salinan Anda untuk membandingkannya di peramban: tidak ada yang diunggah.",
+      "empty": "Belum ada PDF yang dibuat.",
+      "protectedVersion": "Salinan berkata sandi {version}",
+      "version": "Versi {version}"
+    },
+    "check": {
+      "label": "Periksa salinan Anda",
+      "hashing": "Menghitung hash…",
+      "match": "Salinan Anda persis sama dengan versi {version}.",
+      "mismatch": "Salinan Anda tidak cocok dengan versi tersimpan mana pun."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Dokumen dibagikan",
+      "rateLimited": "Terlalu banyak permintaan dari alamat ini. Silakan coba lagi dalam semenit.",
+      "unavailable": {
+        "title": "Tautan ini tidak tersedia",
+        "body": "Mungkin telah kedaluwarsa atau dicabut oleh penerbit. Minta tautan baru kepada mereka."
+      },
+      "lockedTitleInvoice": "Faktur dari {issuer}",
+      "lockedTitleCreditNote": "Nota kredit dari {issuer}",
+      "lockedBody": "Dokumen ini dilindungi kata sandi. Masukkan kata sandi yang diberikan penerbit.",
+      "void": "Batal",
+      "protectedPdf": "PDF dibuka dengan kata sandi yang sama. Dapat dibaca dan dicetak; menyalin dan mengubah dikunci.",
+      "byline": "Dari {issuer} kepada {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Kata sandi",
+      "limited": "Terlalu banyak percobaan. Harap tunggu lima belas menit lalu coba lagi.",
+      "wrong": "Kata sandi tersebut salah.",
+      "submit": "Buka dokumen"
+    },
+    "dialog": {
+      "trigger": "Bagikan",
+      "title": "Bagikan dokumen ini",
+      "description": "Siapa pun yang memiliki tautan dapat melihat dan mengunduhnya hingga kedaluwarsa atau Anda mencabutnya. Kata sandi juga melindungi PDF itu sendiri: PDF dibuka dengan kata sandi dan dapat dibaca serta dicetak, tidak dapat diubah atau disalin.",
+      "link": "Tautan",
+      "copyLink": "Salin tautan",
+      "password": "Kata sandi",
+      "copyPassword": "Salin kata sandi",
+      "sendSeparately": "Kirim kata sandi secara terpisah dari tautan. Anda dapat melihatnya lagi di daftar di bawah.",
+      "copy": "Salin",
+      "copied": "Tersalin",
+      "expires": "Kedaluwarsa",
+      "expiry": {
+        "d7": "Dalam 7 hari",
+        "d30": "Dalam 30 hari",
+        "d90": "Dalam 90 hari",
+        "never": "Tidak pernah"
+      },
+      "protection": "Perlindungan",
+      "protectionOptions": {
+        "auto": "Kata sandi: buat frasa sandi",
+        "manual": "Kata sandi: pilih sendiri",
+        "none": "Tanpa kata sandi (tautan terbuka)"
+      },
+      "passwordHint": "Minimal 8 karakter.",
+      "strength": "Kekuatan: {label}",
+      "strengthLabels": {
+        "veryWeak": "sangat lemah",
+        "weak": "lemah",
+        "fair": "cukup",
+        "good": "baik",
+        "strong": "kuat"
+      },
+      "creating": "Membuat…",
+      "create": "Buat tautan",
+      "activeLinks": "Tautan aktif",
+      "passwordProtected": "Dilindungi kata sandi",
+      "openLink": "Buka tautan",
+      "linkExpires": "{kind} · kedaluwarsa {date}",
+      "linkNeverExpires": "{kind} · tidak pernah kedaluwarsa",
+      "revoke": {
+        "title": "Cabut tautan ini?",
+        "description": "Tautan langsung berhenti berfungsi bagi semua orang yang memilikinya.",
+        "label": "Cabut"
+      },
+      "linkPassword": "Kata sandi: <code>{password}</code>",
+      "counts": "{views, plural, other {# tayangan}} · {downloads, plural, other {# unduhan}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Nota kredit",
+      "title": "Nota kredit",
+      "description": "Diterbitkan atas faktur yang sudah terbit; masing-masing mengurangi saldo fakturnya saat diterbitkan.",
+      "newCreditNote": "Nota kredit baru",
+      "filters": {
+        "from": "Dari",
+        "to": "Hingga",
+        "issuer": "Penerbit",
+        "client": "Klien",
+        "status": "Status",
+        "search": "Cari",
+        "all": "Semua",
+        "searchPlaceholder": "Nomor, alasan, klien",
+        "go": "Buka"
+      },
+      "statuses": {
+        "DRAFT": "Draf",
+        "ISSUED": "Terbit",
+        "SENT": "Terkirim",
+        "VOID": "Batal"
+      },
+      "empty": {
+        "title": "Belum ada nota kredit",
+        "description": "Buka faktur yang sudah terbit dan pilih “Nota kredit” untuk mengurangi jumlah yang terutang."
+      },
+      "noMatch": "Tidak ada nota kredit yang cocok dengan filter ini.",
+      "columns": {
+        "number": "Nomor",
+        "against": "Atas faktur",
+        "client": "Klien",
+        "issueDate": "Tanggal terbit",
+        "reason": "Alasan",
+        "total": "Total",
+        "status": "Status"
+      },
+      "draft": "Draf"
+    },
+    "new": {
+      "metaTitle": "Nota kredit baru",
+      "title": "Nota kredit baru",
+      "description": "Nota kredit diterbitkan atas faktur yang sudah terbit dan mengurangi saldonya.",
+      "nothingToCredit": {
+        "title": "Tidak ada yang dikreditkan",
+        "description": "Nota kredit memerlukan faktur terbit dengan saldo terutang.",
+        "openInvoices": "Buka faktur"
+      },
+      "whichInvoice": "Faktur yang mana?",
+      "invoice": "Faktur",
+      "invoiceOption": "{number} · {client} · saldo {balance}",
+      "issuedOnly": "Nota kredit hanya diterbitkan atas faktur yang sudah terbit.",
+      "invoiceFallback": "Faktur"
+    },
+    "edit": {
+      "metaTitle": "Ubah nota kredit",
+      "title": "Ubah draf nota kredit",
+      "immutable": "Nota kredit yang sudah terbit tidak dapat diubah.",
+      "draft": "Draf"
+    },
+    "detail": {
+      "metaTitle": "Nota kredit",
+      "draftTitle": "Draf nota kredit",
+      "meta": "{client} · atas <invoice>{number}</invoice> · terbit <mono>{date}</mono>",
+      "previewPdf": "Pratinjau PDF",
+      "issue": {
+        "title": "Terbitkan nota kredit ini?",
+        "description": "Nomor dialokasikan, saldo faktur dikurangi, dan dokumen menjadi tidak dapat diubah.",
+        "label": "Terbitkan"
+      },
+      "deleteDraft": {
+        "title": "Hapus draf ini?"
+      },
+      "sendByEmail": "Kirim lewat email",
+      "markSent": {
+        "title": "Tandai sebagai terkirim?",
+        "label": "Tandai terkirim"
+      },
+      "void": {
+        "title": "Batalkan nota kredit ini?",
+        "description": "Saldo faktur dipulihkan; nomor tidak pernah digunakan kembali.",
+        "reason": "Alasan",
+        "label": "Batalkan"
+      },
+      "voided": "Dibatalkan {date}: {reason}",
+      "amounts": {
+        "title": "Jumlah",
+        "reason": "Alasan",
+        "creditAmount": "Jumlah kredit",
+        "total": "Total",
+        "balanceNow": "Saldo faktur saat ini",
+        "sent": "Terkirim"
+      },
+      "documents": {
+        "title": "Dokumen tersimpan",
+        "description": "Setiap versi disimpan; halaman verifikasi mencantumkan semua hash.",
+        "regenerateTitle": "Buat versi PDF baru?",
+        "generate": "Buat",
+        "newVersion": "Versi baru",
+        "renderedOnFirstDownload": "PDF dibuat saat pertama kali diunduh.",
+        "protectedCopy": "Salinan berkata sandi {version}",
+        "version": "Versi {version}",
+        "verificationLink": "Tautan verifikasi: <link>{path}…</link>"
+      },
+      "draftsPreview": "Pratinjau draf tampil langsung di editor."
+    },
+    "send": {
+      "metaTitle": "Kirim nota kredit",
+      "title": "Kirim <mono>{number}</mono>",
+      "previousSends": "Pengiriman sebelumnya"
+    },
+    "builder": {
+      "against": "Atas <mono>{number}</mono>",
+      "summary": "{client} · total {total} · saldo {balance} · ruang kena pajak ≈ {headroom}",
+      "issueDate": "Tanggal terbit",
+      "creditAmount": "Jumlah kredit (tidak termasuk pajak)",
+      "creditAmountHint": "Pajak dibagi secara proporsional dari baris pajak faktur",
+      "reason": "Alasan",
+      "picker": {
+        "title": "Hitung dari baris faktur",
+        "description": "Centang baris penuh atau persentase; ini hanya mengisi jumlah di atas.",
+        "line": "Baris",
+        "subtotal": "Subtotal",
+        "credit": "Kredit",
+        "percent": "%",
+        "creditLine": "Kreditkan baris {position}",
+        "percentOfLine": "Persentase baris {position}"
+      },
+      "saveDraft": "Simpan draf",
+      "issuing": "Menerbitkan…",
+      "saveAndIssue": "Simpan dan terbitkan"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Pembayaran diterima",
+        "REFUND": "Pengembalian dana diberikan",
+        "WRITE_OFF": "Penghapusan piutang"
+      },
+      "editTitle": "Ubah entri",
+      "recordTitle": "Catat pembayaran",
+      "description": "Jumlah dalam mata uang faktur ({currency}); TDS yang dipotong termasuk dalam jumlah yang diterapkan.",
+      "kind": "Jenis",
+      "date": "Tanggal",
+      "amountRefunded": "Jumlah dikembalikan (negatif)",
+      "amountApplied": "Jumlah diterapkan",
+      "refundHint": "Masukkan jumlah negatif, mis. -500",
+      "tdsDeducted": "TDS dipotong",
+      "tdsHint": "Pajak yang ditahan klien; dihitung dalam jumlah yang diterapkan",
+      "bankFees": "Biaya bank",
+      "receivedInto": "Diterima ke",
+      "noMethod": "-",
+      "reference": "Referensi",
+      "referenceHint": "UTR, ID transaksi, nomor cek",
+      "otherCurrency": "Diterima dalam mata uang lain",
+      "amountReceived": "Jumlah diterima",
+      "receivedCurrency": "Mata uang diterima",
+      "exchangeRate": "Kurs",
+      "exchangeRateHint": "1 unit diterima = ? {currency}",
+      "notes": "Catatan",
+      "receipt": "Tanda terima",
+      "receiptHint": "PNG, JPEG, WebP, atau PDF hingga 10 MB",
+      "saveChanges": "Simpan perubahan",
+      "record": "Catat"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "kira-kira {count, plural, other {# halaman}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Pesan",
+      "description": "Diisi otomatis dari templat profil penerbit. Tidak ada yang dikirim sampai Anda mengeklik Kirim.",
+      "to": "Kepada",
+      "toHint": "Dipisahkan koma",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Subjek",
+      "body": "Isi",
+      "bodyHint": "Teks biasa; tautan menjadi dapat diklik",
+      "attachment": "Lampiran",
+      "attachmentHint": "Salinan tersimpan, bernama <mono>{name}</mono> (atau .docx); isinya tidak dapat diubah.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Mengirim…",
+      "send": "Kirim",
+      "openInMailApp": "Buka di aplikasi email",
+      "noSmtp": "Server SMTP belum dikonfigurasi (Pengaturan → Email). Buka draf di aplikasi email Anda, lampirkan PDF yang diunduh, lalu tandai sebagai terkirim di bawah.",
+      "markAsSent": "Tandai terkirim"
+    },
+    "sentLog": {
+      "when": "Kapan",
+      "document": "Dokumen",
+      "to": "Kepada",
+      "subject": "Subjek",
+      "status": "Status",
+      "empty": "Belum ada yang terkirim.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "terkirim",
+        "FAILED": "gagal",
+        "MANUAL": "manual"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Halo, {name}",
+    "fiscalYear": "Tahun fiskal {year}",
+    "fiscalYearWithBase": "Tahun fiskal {year} · mata uang dasar {currency} ({profile})",
+    "newCreditNote": "Nota kredit baru",
+    "welcomeTitle": "Selamat datang di {appName}",
+    "welcomeDescription": "Mulailah dengan membuat profil penerbit yang Anda gunakan untuk menagih, lalu tambahkan klien dan faktur pertama Anda.",
+    "createProfile": "Buat profil Anda",
+    "tiles": {
+      "outstanding": "Belum dibayar",
+      "overdue": "Lewat jatuh tempo",
+      "billedThisFy": "Ditagihkan tahun fiskal ini",
+      "receivedThisFy": "Diterima tahun fiskal ini",
+      "drafts": "Draf",
+      "invoiceCount": "{count, plural, other {# faktur}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Pembayaran dikurangi pengembalian dana, pada kurs tercatat",
+      "awaitingIssue": "menunggu diterbitkan",
+      "nothingPending": "tidak ada yang tertunda"
+    },
+    "recentInvoices": "Faktur terbaru",
+    "allInvoices": "Semua faktur",
+    "noInvoicesYet": "Belum ada faktur.",
+    "columns": {
+      "number": "Nomor",
+      "client": "Klien",
+      "issued": "Terbit"
+    },
+    "topClients": "Klien teratas menurut saldo belum dibayar",
+    "nothingOutstanding": "Tidak ada yang belum dibayar."
+  },
+  "exports": {
+    "export": "Ekspor",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Faktur",
+      "newInvoice": "Faktur baru",
+      "draft": "Draf",
+      "aDraft": "sebuah draf",
+      "statuses": {
+        "draft": "Draf",
+        "issued": "Terbit",
+        "sent": "Terkirim",
+        "partiallyPaid": "Dibayar sebagian",
+        "paid": "Lunas",
+        "overdue": "Lewat jatuh tempo",
+        "void": "Batal"
+      },
+      "lifecycle": {
+        "draft": "draf",
+        "issued": "terbit",
+        "void": "batal"
+      },
+      "units": {
+        "hour": "Jam",
+        "day": "Hari",
+        "fixed": "Tetap",
+        "milestone": "Tonggak",
+        "unit": "Unit"
+      },
+      "unitsLower": {
+        "hour": "jam",
+        "day": "hari",
+        "fixed": "tetap",
+        "milestone": "tonggak",
+        "unit": "unit"
+      },
+      "supplyTypes": {
+        "intraState": "dalam negara bagian",
+        "interState": "antar negara bagian",
+        "exportLut": "ekspor lut",
+        "exportWithTax": "ekspor dengan pajak",
+        "reverseCharge": "pembebanan balik",
+        "notApplicable": "tidak berlaku"
+      }
+    },
+    "list": {
+      "description": "Faktur draf, terbit, dan batal; status diturunkan dari pembayaran dan tanggal jatuh tempo.",
+      "fiscalYear": "Tahun fiskal",
+      "issuer": "Penerbit",
+      "client": "Klien",
+      "searchPlaceholder": "Nomor, PO, klien",
+      "emptyTitle": "Belum ada faktur",
+      "emptyDescription": "Buat faktur pertama Anda: pilih klien, tambahkan baris, lihat pratinjau, lalu terbitkan.",
+      "columns": {
+        "number": "Nomor",
+        "client": "Klien",
+        "issuer": "Penerbit",
+        "issueDate": "Tanggal terbit",
+        "due": "Jatuh tempo",
+        "balance": "Saldo"
+      },
+      "noMatches": "Tidak ada faktur yang cocok dengan filter ini.",
+      "count": "{count, plural, other {# faktur}}",
+      "countPaged": "{count, plural, other {# faktur}} · halaman {page} dari {pages}",
+      "register": "register"
+    },
+    "new": {
+      "noProfileTitle": "Buat profil penerbit terlebih dahulu",
+      "noProfileDescription": "Faktur diterbitkan dari identitas hukum: siapkan profil Anda beserta ID pajak dan penomorannya.",
+      "createProfile": "Buat profil"
+    },
+    "edit": {
+      "metaTitle": "Ubah faktur",
+      "title": "Ubah draf",
+      "immutableFlash": "Faktur yang sudah terbit tidak dapat diubah. Gunakan “Batalkan & terbitkan ulang” untuk mengoreksinya."
+    },
+    "detail": {
+      "metaTitle": "Faktur",
+      "draftInvoice": "Draf faktur",
+      "issuedDue": "Terbit <mono>{issued}</mono>, jatuh tempo <mono>{due}</mono>",
+      "replaces": "Menggantikan {number}",
+      "replacedBy": "Digantikan oleh {number}",
+      "previewPdf": "Pratinjau PDF",
+      "issueTitle": "Terbitkan faktur ini?",
+      "issueDescription": "Nomor dialokasikan dan dokumen menjadi tidak dapat diubah.",
+      "issue": "Terbitkan",
+      "deleteDraftTitle": "Hapus draf ini?",
+      "sendByEmail": "Kirim lewat email",
+      "recordPayment": "Catat pembayaran",
+      "creditNote": "Nota kredit",
+      "markSentTitle": "Tandai sebagai terkirim?",
+      "markSentDescription": "Mencatat bahwa klien telah menerima faktur ini.",
+      "markSent": "Tandai terkirim",
+      "voidReissueTitle": "Batalkan dan terbitkan ulang?",
+      "voidReissueDescription": "Faktur asli dibatalkan dan draf tertaut dengan isi yang sama dibuka untuk diubah.",
+      "voidReissue": "Batalkan & terbitkan ulang",
+      "voidTitle": "Batalkan faktur ini?",
+      "voidDescription": "Hanya mungkin tanpa pembayaran tercatat; nomor tidak pernah digunakan kembali.",
+      "void": "Batalkan",
+      "voided": "Dibatalkan {date}: {reason}",
+      "amounts": "Jumlah",
+      "subtotal": "Subtotal",
+      "discount": "Diskon",
+      "discountPercent": "Diskon ({percent})",
+      "rounding": "Pembulatan",
+      "tdsExpected": "TDS yang diharapkan ({percent})",
+      "paid": "Dibayar",
+      "credited": "Dikreditkan",
+      "balanceDue": "Saldo terutang",
+      "supply": "Penyerahan",
+      "fxToBase": "Kurs ke mata uang dasar",
+      "poReference": "Referensi PO",
+      "sent": "Terkirim",
+      "lineItems": "Item baris",
+      "columns": {
+        "description": "Deskripsi",
+        "sacHsn": "SAC/HSN",
+        "qty": "Jml",
+        "rate": "Tarif",
+        "tax": "Pajak",
+        "amount": "Jumlah"
+      },
+      "creditNotes": "Nota kredit",
+      "storedDocuments": "Dokumen tersimpan",
+      "storedDocumentsHint": "Setiap versi disimpan; halaman verifikasi mencantumkan semua hash.",
+      "regenerateTitle": "Buat versi PDF baru?",
+      "regenerateDescription": "Dibuat ulang dari snapshot beku (misalnya setelah perbaikan perender). Versi sebelumnya tetap ada.",
+      "regenerate": "Buat",
+      "newVersion": "Versi baru",
+      "renderedOnFirstDownload": "PDF dibuat saat pertama kali diunduh.",
+      "protectedCopy": "Salinan berkata sandi {version}",
+      "version": "Versi {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Tautan verifikasi:",
+      "draftPreviewHint": "Pratinjau draf tampil langsung di editor; buka <link>PDF bertanda air</link> untuk melihat halamannya."
+    },
+    "history": {
+      "metaTitle": "Riwayat faktur",
+      "title": "Riwayat <mono>{number}</mono>",
+      "reissueChain": "Rantai penerbitan ulang",
+      "replaces": "Menggantikan <link>{number}</link>",
+      "replacedBy": "Digantikan oleh <link>{number}</link>",
+      "auditTrail": "Jejak audit",
+      "columns": {
+        "when": "Kapan",
+        "who": "Siapa",
+        "action": "Tindakan",
+        "summary": "Ringkasan"
+      },
+      "noEvents": "Belum ada peristiwa.",
+      "system": "Sistem",
+      "emails": "Email"
+    },
+    "payments": {
+      "title": "Pembayaran",
+      "description": "{client} · total {total}",
+      "backToInvoice": "Kembali ke faktur",
+      "ledger": "Buku besar",
+      "columns": {
+        "date": "Tanggal",
+        "kind": "Jenis",
+        "applied": "Diterapkan",
+        "tds": "TDS",
+        "received": "Diterima",
+        "reference": "Referensi",
+        "balance": "Saldo"
+      },
+      "noPayments": "Belum ada pembayaran tercatat.",
+      "kinds": {
+        "payment": "Pembayaran",
+        "refund": "Pengembalian dana",
+        "writeOff": "Penghapusan piutang"
+      },
+      "receipt": "Tanda terima",
+      "deleteEntryTitle": "Hapus entri ini?",
+      "deleteEntryDescription": "Saldo faktur dihitung ulang.",
+      "totals": "Total",
+      "invoiceTotal": "Total faktur",
+      "credited": "Dikreditkan",
+      "refunds": "Pengembalian dana",
+      "writeOffs": "Penghapusan piutang",
+      "tdsDeducted": "TDS dipotong",
+      "bankFees": "Biaya bank",
+      "balanceDue": "Saldo terutang",
+      "onlyIssued": "Hanya faktur yang sudah terbit yang menerima pembayaran."
+    },
+    "send": {
+      "metaTitle": "Kirim faktur",
+      "title": "Kirim <mono>{number}</mono>",
+      "alreadySent": "Sudah ditandai terkirim; mengirim lagi menambah entri log baru.",
+      "previousSends": "Pengiriman sebelumnya"
+    },
+    "builder": {
+      "parties": "Pihak",
+      "issuerProfile": "Profil penerbit",
+      "client": "Klien",
+      "archivedOption": "{label} (diarsipkan)",
+      "issueDate": "Tanggal terbit",
+      "dueDate": "Tanggal jatuh tempo",
+      "fxRate": "Kurs ke mata uang dasar",
+      "fxHint": "1 {currency} = ? {base} (hanya untuk pelaporan)",
+      "poReference": "Referensi PO",
+      "lineItems": "Item baris",
+      "lineItemsHint": "Pilih dari katalog untuk menyalin nilainya, atau ketik sebuah baris.",
+      "taxDiscountTds": "Pajak, diskon, dan TDS",
+      "taxRegime": "Rezim pajak",
+      "regimes": {
+        "indiaGst": "GST India",
+        "ukVat": "PPN Inggris",
+        "usSalesTax": "Pajak penjualan AS",
+        "none": "Tanpa pajak"
+      },
+      "reverseCharge": "Pembebanan balik",
+      "reverseChargeHint": "Pajak dibayar oleh penerima",
+      "discount": "Diskon",
+      "percent": "Persen",
+      "amount": "Jumlah",
+      "rounding": "Penyesuaian pembulatan",
+      "roundingHint": "Opsional, ke satuan penuh; harus di bawah 1",
+      "round": "Bulatkan",
+      "tdsRate": "Tarif TDS yang diharapkan (%)",
+      "tdsRateHint": "Bersifat informasi; dicetak saat rincian TDS diaktifkan",
+      "paymentMethods": "Metode pembayaran",
+      "paymentMethodsHint": "Dicetak sesuai urutan pencentangan.",
+      "noPaymentMethods": "Tidak ada metode pembayaran aktif. <link>Tambahkan</link>.",
+      "whatPrints": "Yang dicetak",
+      "whatPrintsHint": "Dimulai dari bawaan profil penerbit.",
+      "notesAndTerms": "Catatan dan ketentuan",
+      "notes": "Catatan",
+      "terms": "Ketentuan",
+      "saveDraft": "Simpan draf",
+      "issuing": "Menerbitkan…",
+      "saveAndIssue": "Simpan dan terbitkan",
+      "subtotal": "Subtotal",
+      "tax": "Pajak",
+      "tdsExpected": "TDS yang diharapkan",
+      "netExpected": "Bersih yang diharapkan"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Tambah dari katalog…",
+      "services": "Jasa",
+      "products": "Produk",
+      "addLine": "Tambah baris",
+      "columns": {
+        "description": "Deskripsi",
+        "sacHsn": "SAC/HSN",
+        "qty": "Jml",
+        "unit": "Satuan",
+        "rate": "Tarif",
+        "taxPercent": "Pajak %"
+      },
+      "aria": {
+        "description": "Deskripsi baris {line}",
+        "sacHsn": "SAC/HSN baris {line}",
+        "quantity": "Jumlah baris {line}",
+        "unit": "Satuan baris {line}",
+        "rate": "Tarif baris {line}",
+        "taxRate": "Tarif pajak baris {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Bebas pajak",
+      "moveUp": "Naikkan",
+      "moveDown": "Turunkan",
+      "removeLine": "Hapus baris",
+      "shortcutHint": "Ctrl/⌘+Enter pada deskripsi menambah baris.",
+      "addFromCatalogueAria": "Tambah dari katalog"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Rincian penerbit",
+        "client": "Rincian klien",
+        "document": "Bagian dokumen"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Nama dagang",
+        "showDesignation": "Jabatan",
+        "showEmail": "Email",
+        "showPhone": "Telepon",
+        "showWebsite": "Situs web",
+        "showFullAddress": "Alamat lengkap",
+        "showPan": "Pan",
+        "showGstin": "Gstin",
+        "showCin": "Cin",
+        "showLut": "Lut",
+        "showSignature": "Tanda tangan",
+        "showStamp": "Stempel",
+        "showContactPerson": "Narahubung",
+        "showBillingAddress": "Alamat penagihan",
+        "showShippingAddress": "Alamat pengiriman",
+        "showTaxIdentifier": "Pengenal pajak",
+        "showPlaceOfSupply": "Tempat penyerahan",
+        "showDueDate": "Tanggal jatuh tempo",
+        "showPaymentTerms": "Ketentuan pembayaran",
+        "showSacCodeColumn": "Kolom kode SAC",
+        "showQuantityColumn": "Kolom jumlah",
+        "showUnitPriceColumn": "Kolom harga satuan",
+        "showTaxColumn": "Kolom pajak",
+        "showTdsBreakdown": "Rincian TDS",
+        "showQrVerification": "Verifikasi QR",
+        "showNotes": "Catatan",
+        "showTerms": "Ketentuan",
+        "showReplacesReference": "Referensi penggantian",
+        "showAmountInWords": "Jumlah dengan huruf",
+        "showSupplyStatement": "Pernyataan penyerahan",
+        "showRoundingLine": "Baris pembulatan",
+        "showSku": "Sku"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Klien",
+      "description": "Semua pihak yang Anda tagih. Klien yang memiliki faktur diarsipkan, tidak pernah dihapus.",
+      "newClient": "Klien baru",
+      "searchPlaceholder": "Cari berdasarkan nama",
+      "searchLabel": "Cari klien",
+      "emptyTitle": "Belum ada klien",
+      "emptyDescription": "Tambahkan orang dan perusahaan yang Anda tagih; mata uang dan ketentuan pembayaran mereka mengisi otomatis setiap faktur.",
+      "addClient": "Tambah klien",
+      "noMatch": "Tidak ada klien yang cocok dengan “{q}”.",
+      "termsDays": "{days} h",
+      "columns": {
+        "name": "Nama",
+        "contact": "Kontak",
+        "email": "Email",
+        "country": "Negara",
+        "currency": "Mata uang",
+        "terms": "Ketentuan",
+        "status": "Status"
+      }
+    },
+    "new": {
+      "title": "Klien baru"
+    },
+    "edit": {
+      "metaTitle": "Ubah klien",
+      "title": "Ubah {name}"
+    },
+    "detail": {
+      "metaTitle": "Klien",
+      "newInvoice": "Faktur baru",
+      "restoreTitle": "Pulihkan klien ini?",
+      "archiveTitle": "Arsipkan klien ini?",
+      "archiveDescription": "Klien keluar dari daftar pilihan; faktur dan riwayat tetap utuh.",
+      "deleteTitle": "Hapus klien ini?",
+      "deleteDescription": "Hanya mungkin selama tidak ada faktur yang merujuk klien ini.",
+      "details": "Rincian",
+      "contact": "Kontak",
+      "email": "Email",
+      "phone": "Telepon",
+      "country": "Negara",
+      "gstState": "GST {code}",
+      "taxId": "ID pajak",
+      "currency": "Mata uang",
+      "paymentTerms": "Ketentuan pembayaran",
+      "paymentTermsDays": "{days} hari",
+      "expectedTds": "TDS yang diharapkan",
+      "notes": "Catatan",
+      "addresses": "Alamat",
+      "billing": "Penagihan",
+      "shipping": "Pengiriman",
+      "lifetime": "Sepanjang waktu",
+      "openRegister": "Buka register",
+      "noIssued": "Belum ada faktur terbit.",
+      "noIssuedWithDrafts": "Belum ada faktur terbit ({drafts} draf).",
+      "firstLatest": "Faktur pertama <mono>{first}</mono>, terbaru <mono>{latest}</mono>{drafts, plural, =0 {} other { · # draf}}",
+      "lifetimeColumns": {
+        "currency": "Mata uang",
+        "invoices": "Faktur",
+        "billed": "Ditagihkan",
+        "received": "Diterima",
+        "credited": "Dikreditkan",
+        "outstanding": "Belum dibayar",
+        "overdue": "Lewat jatuh tempo"
+      },
+      "recentInvoices": "Faktur terbaru",
+      "noInvoices": "Belum ada faktur untuk klien ini.",
+      "recentColumns": {
+        "number": "Nomor",
+        "issueDate": "Tanggal terbit",
+        "due": "Jatuh tempo",
+        "total": "Total",
+        "balance": "Saldo",
+        "status": "Status"
+      }
+    },
+    "form": {
+      "cardTitle": "Klien",
+      "displayName": "Nama tampilan",
+      "contactPerson": "Narahubung",
+      "email": "Email",
+      "phone": "Telepon",
+      "taxIdType": "Jenis ID pajak",
+      "taxIdTypeNone": "Tidak ada",
+      "taxId": "ID pajak",
+      "currency": "Mata uang",
+      "paymentTerms": "Ketentuan pembayaran (hari)",
+      "expectedTdsRate": "Tarif TDS yang diharapkan (%)",
+      "notes": "Catatan",
+      "billingAddress": "Alamat penagihan",
+      "shippingAddress": "Alamat pengiriman",
+      "differentFromBilling": "Berbeda dari alamat penagihan",
+      "save": "Simpan klien"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Jam",
+      "DAY": "Hari",
+      "FIXED": "Tetap",
+      "MILESTONE": "Tonggak",
+      "UNIT": "Unit"
+    },
+    "list": {
+      "activate": "Aktifkan",
+      "deactivate": "Nonaktifkan",
+      "archiveDescription": "Baris faktur yang ada mempertahankan nilai yang disalin.",
+      "deleteDescription": "Hanya mungkin selama tidak ada baris faktur yang merujuknya. Jika tidak, arsipkan.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Nama",
+        "unit": "Satuan",
+        "rate": "Tarif",
+        "price": "Harga",
+        "currency": "Mata uang",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Pajak",
+        "status": "Status"
+      }
+    },
+    "services": {
+      "title": "Jasa",
+      "description": "Katalog Anda. Memilih jasa menyalin nilainya ke baris faktur.",
+      "newService": "Jasa baru",
+      "emptyTitle": "Belum ada jasa",
+      "emptyDescription": "Tambahkan apa yang Anda jual - desain per jam, tonggak dengan biaya tetap - beserta kode SAC/HSN dan tarif pajaknya.",
+      "addService": "Tambah jasa",
+      "restoreTitle": "Pulihkan {name}?",
+      "archiveTitle": "Arsipkan {name}?",
+      "deleteTitle": "Hapus {name}?",
+      "editMetaTitle": "Ubah jasa",
+      "editTitle": "Ubah {name}"
+    },
+    "products": {
+      "title": "Produk",
+      "description": "Barang yang Anda jual, masing-masing dengan SKU. Memilih produk menyalin nilainya ke baris faktur.",
+      "newProduct": "Produk baru",
+      "emptyTitle": "Belum ada produk",
+      "emptyDescription": "Tambahkan barang yang Anda jual dengan SKU, kode HSN, harga satuan, dan tarif pajak.",
+      "addProduct": "Tambah produk",
+      "restoreTitle": "Pulihkan {sku}?",
+      "archiveTitle": "Arsipkan {sku}?",
+      "deleteTitle": "Hapus {sku}?",
+      "editMetaTitle": "Ubah produk",
+      "editTitle": "Ubah {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Kode unik yang dicetak di bawah deskripsi baris",
+      "name": "Nama",
+      "unit": "Satuan",
+      "defaultRate": "Tarif bawaan",
+      "unitPrice": "Harga satuan",
+      "currency": "Mata uang",
+      "sacHsnCode": "Kode SAC / HSN",
+      "sacHsnHint": "Wajib pada faktur GST",
+      "hsnCode": "Kode HSN",
+      "hsnHint": "Wajib pada faktur GST untuk barang",
+      "defaultTaxRate": "Tarif pajak bawaan (%)",
+      "description": "Deskripsi",
+      "descriptionHint": "Mengisi otomatis deskripsi baris",
+      "active": "Aktif",
+      "serviceInactiveHint": "Jasa nonaktif tidak muncul di pemilih faktur",
+      "productInactiveHint": "Produk nonaktif tidak muncul di pemilih faktur",
+      "saveService": "Simpan jasa",
+      "saveProduct": "Simpan produk"
+    },
+    "tags": {
+      "legend": "Profil",
+      "hint": "Centang profil penerbit yang menjual ini. Biarkan semua tidak dicentang untuk menawarkannya ke setiap profil."
+    }
+  },
+  "address": {
+    "line1": "Baris alamat 1",
+    "line2": "Baris alamat 2",
+    "city": "Kota",
+    "stateRegion": "Provinsi / wilayah",
+    "postalCode": "Kode pos",
+    "country": "Negara",
+    "state": "Negara bagian",
+    "gstStateCodeHint": "Kode negara bagian GST {code}",
+    "pickStateHint": "Pilih negara bagian untuk kode negara bagian GST",
+    "stateRegionCode": "Kode provinsi / wilayah",
+    "stateRegionCodePlaceholder": "mis. CA"
+  },
+  "assets": {
+    "tooLarge": "Berkas tersebut terlalu besar.",
+    "unsupportedReceipt": "Gunakan gambar PNG, JPEG, WebP, atau PDF.",
+    "unsupportedImage": "Gunakan gambar PNG, JPEG, atau WebP.",
+    "uploadFailed": "Gagal mengunggah.",
+    "uploading": "Mengunggah…"
+  },
+  "ui": {
+    "breadcrumb": "Navigasi remah roti",
+    "close": "Tutup",
+    "closeMenu": "Tutup menu",
+    "inputCharset": "Hanya karakter keyboard standar yang diizinkan.",
+    "confirm": {
+      "working": "Memproses…"
+    },
+    "statusPill": {
+      "DRAFT": "Draf",
+      "ISSUED": "Terbit",
+      "SENT": "Terkirim",
+      "PARTIALLY_PAID": "Dibayar sebagian",
+      "PAID": "Lunas",
+      "OVERDUE": "Lewat jatuh tempo",
+      "VOID": "Batal"
+    },
+    "activePill": {
+      "active": "Aktif",
+      "archived": "Diarsipkan",
+      "inactive": "Nonaktif"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Terjadi kesalahan.",
+    "fixFields": "Harap perbaiki kolom yang disorot.",
+    "accountSaved": "Preferensi akun disimpan",
+    "apiKeyCreated": "Kunci API dibuat. Salin sekarang: kunci hanya ditampilkan sekali.",
+    "saved": "{name} disimpan",
+    "savedProfile": "Profil {label} disimpan",
+    "clientArchived": "Klien diarsipkan",
+    "clientRestored": "Klien dipulihkan",
+    "clientDeleted": "Klien dihapus",
+    "productArchived": "Produk diarsipkan",
+    "productRestored": "Produk dipulihkan",
+    "productActivated": "Produk diaktifkan",
+    "productDeactivated": "Produk dinonaktifkan",
+    "serviceArchived": "Jasa diarsipkan",
+    "serviceRestored": "Jasa dipulihkan",
+    "serviceActivated": "Jasa diaktifkan",
+    "serviceDeactivated": "Jasa dinonaktifkan",
+    "defaultProfileUpdated": "Profil bawaan diperbarui",
+    "profileArchived": "Profil diarsipkan",
+    "profileRestored": "Profil dipulihkan",
+    "profileDeleted": "Profil dihapus",
+    "defaultPaymentMethodUpdated": "Metode pembayaran bawaan diperbarui",
+    "paymentMethodArchived": "Metode pembayaran diarsipkan",
+    "paymentMethodRestored": "Metode pembayaran dipulihkan",
+    "paymentMethodDeleted": "Metode pembayaran dihapus",
+    "issued": "{number} diterbitkan",
+    "savedAsDraft": "Disimpan sebagai draf. {reason}",
+    "draftSaved": "Draf disimpan",
+    "invoiceVoided": "Faktur dibatalkan",
+    "originalVoided": "Faktur asli dibatalkan; ubah draf penggantinya",
+    "markedAsSent": "Ditandai terkirim",
+    "draftDeleted": "Draf dihapus",
+    "generatedPdf": "Versi PDF {version} dibuat",
+    "creditNoteVoided": "Nota kredit dibatalkan; saldo faktur dipulihkan",
+    "draftCreditNoteDeleted": "Draf nota kredit dihapus",
+    "mailRefused": "Server email menolak pesan: {error}. Percobaan telah dicatat.",
+    "unknownError": "kesalahan tidak dikenal",
+    "sentTo": "Dikirim ke {recipients}",
+    "smtpSaved": "Pengaturan SMTP disimpan",
+    "smtpRemoved": "Pengaturan SMTP tersimpan dihapus",
+    "testEmailSent": "Email uji dikirim ke {email}",
+    "testFailed": "Uji gagal: {error}",
+    "defaultRecipientsSaved": "Penerima bawaan disimpan",
+    "invitationSent": "Undangan dikirim",
+    "invitationReady": "Undangan siap",
+    "unknownRole": "Peran tidak dikenal",
+    "roleUpdated": "Peran diperbarui",
+    "accountDeactivated": "Akun dinonaktifkan",
+    "accountReactivated": "Akun diaktifkan kembali",
+    "invitationRevoked": "Undangan dicabut",
+    "paymentUpdated": "Pembayaran diperbarui",
+    "paymentRecorded": "Pembayaran dicatat",
+    "paymentDeleted": "Pembayaran dihapus",
+    "sessionRevoked": "Sesi dicabut",
+    "noOtherSessions": "Tidak ada sesi lain",
+    "signedOutOthers": "Keluar dari {count} sesi lain",
+    "sharePasswordRequired": "Masukkan kata sandi, atau biarkan dibuatkan.",
+    "shareLinkCreated": "Tautan berbagi dibuat.",
+    "templateSaved": "Templat disimpan; dokumen berikutnya menggunakannya",
+    "templateReset": "Templat disetel ulang ke bawaan sistem",
+    "templateImported": "Templat diimpor",
+    "profileTemplateCleared": "Profil kembali menggunakan templat instans",
+    "operatorSaved": "Rincian operator disimpan. Halaman hukum kini menampilkannya."
+  }
+}
