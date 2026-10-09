@@ -52,6 +52,7 @@ describe.skipIf(!url)("REST API v1", () => {
     name: "Editor",
     role: "EDITOR",
     timezone: "UTC",
+    locale: "en-US",
   };
   const viewer: Actor = {
     userId: viewerId,
@@ -59,6 +60,7 @@ describe.skipIf(!url)("REST API v1", () => {
     name: "Viewer",
     role: "VIEWER",
     timezone: "UTC",
+    locale: "en-US",
   };
 
   const req = (path: string, init: RequestInit & { key?: string | null; json?: unknown } = {}) => {

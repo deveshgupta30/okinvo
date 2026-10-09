@@ -19,6 +19,7 @@ const actor: Actor = {
   name: "O",
   role: "OWNER",
   timezone: "UTC",
+  locale: "en-US",
 };
 const tag = `tags-${Date.now()}`;
 const address = { line1: "1 Street", city: "Town", postalCode: "560001", countryCode: "IN" };

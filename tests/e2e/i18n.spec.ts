@@ -33,11 +33,22 @@ test("choosing a language sets html[lang] and persists; English (US) restores it
   await expect(page.locator("html")).toHaveAttribute("lang", "de");
   await expect(page.getByLabel("Language")).toHaveValue("de");
 
+  // instants follow the UI language: German dates read dd.mm.yyyy on the sessions page
+  await page.goto("/settings/security");
+  await expect(page.getByText(/\b\d{2}\.\d{2}\.\d{4}\b/).first()).toBeVisible();
+  await page.goto("/settings/account");
+
   // a right-to-left language flips the document direction
   await page.getByLabel("Language").selectOption("ar");
   await page.getByRole("button", { name: "Save preferences" }).click();
   await expect(page.getByText("Account preferences saved")).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
+  // the shell mirrors: the sidebar sits on the right half of the viewport
+  const aside = page.locator("aside[data-sidebar]");
+  await expect(aside).toBeVisible();
+  const box = await aside.boundingBox();
+  const width = page.viewportSize()?.width ?? 0;
+  expect(box!.x).toBeGreaterThan(width / 2);
 
   // a fresh load before the last change, so the earlier flash cannot satisfy the next assertion
   await page.goto("/settings/account");

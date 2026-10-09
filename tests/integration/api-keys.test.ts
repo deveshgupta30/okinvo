@@ -19,6 +19,7 @@ const actorFor = (userId: string, email: string, role: Actor["role"]): Actor => 
   name: role,
   role,
   timezone: "UTC",
+  locale: "en-US",
 });
 
 describe.skipIf(!url)("API keys", () => {

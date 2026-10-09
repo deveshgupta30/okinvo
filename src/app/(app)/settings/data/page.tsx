@@ -209,7 +209,11 @@ export default async function DataSettingsPage() {
                 <dt className="text-ink-subtle">{t("backups.finished")}</dt>
                 <dd>
                   <Mono>
-                    {formatDateTime(new Date(backup.status.finishedAt), "en-GB", actor.timezone)}
+                    {formatDateTime(
+                      new Date(backup.status.finishedAt),
+                      actor.locale,
+                      actor.timezone,
+                    )}
                   </Mono>
                 </dd>
                 <dt className="text-ink-subtle">{t("backups.databaseDump")}</dt>

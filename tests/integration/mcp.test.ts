@@ -49,6 +49,7 @@ describe.skipIf(!url)("MCP server", () => {
     name: "Editor",
     role: "EDITOR",
     timezone: "UTC",
+    locale: "en-US",
   };
   const viewer: Actor = {
     userId: viewerId,
@@ -56,6 +57,7 @@ describe.skipIf(!url)("MCP server", () => {
     name: "Viewer",
     role: "VIEWER",
     timezone: "UTC",
+    locale: "en-US",
   };
 
   const post = (key: string | null, body: unknown, init: RequestInit = {}) => {

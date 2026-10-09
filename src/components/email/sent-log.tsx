@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Mono } from "@/components/ui/mono";
 import { Pill } from "@/components/ui/status-pill";
 import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/table";
@@ -17,6 +17,7 @@ export function SentLog({
   showDocument?: boolean;
 }) {
   const t = useTranslations("email.sentLog");
+  const locale = useLocale();
   return (
     <Table>
       <THead>
@@ -35,7 +36,7 @@ export function SentLog({
           rows.map((m) => (
             <TR key={m.id}>
               <TD mono className="whitespace-nowrap">
-                {formatDateTime(new Date(m.createdAt), "en-GB", timeZone)}
+                {formatDateTime(new Date(m.createdAt), locale, timeZone)}
               </TD>
               {showDocument ? <TD mono>{m.documentNumber ?? t("noDocument")}</TD> : null}
               <TD>

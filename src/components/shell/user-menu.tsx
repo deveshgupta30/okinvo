@@ -29,7 +29,7 @@ export function UserMenu({
 }: {
   user: ShellUser;
   collapsed: boolean;
-  side?: "right" | "top";
+  side?: "right" | "left" | "top";
 }) {
   const t = useTranslations("shell.userMenu");
   return (
@@ -39,7 +39,7 @@ export function UserMenu({
           type="button"
           aria-label={t("label", { name: user.name || user.email })}
           className={cn(
-            "flex w-full items-center gap-3 rounded-md p-1.5 text-left transition-colors duration-150 hover:bg-surface-1 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none",
+            "flex w-full items-center gap-3 rounded-md p-1.5 text-start transition-colors duration-150 hover:bg-surface-1 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none",
             collapsed && "justify-center",
           )}
         >

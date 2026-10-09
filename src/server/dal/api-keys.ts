@@ -1,4 +1,5 @@
 import "server-only";
+import { canonicalLocale, DEFAULT_LOCALE } from "@/lib/i18n/languages";
 import { generateApiKey, hashApiKey, isApiKey } from "@/lib/api/keys";
 import { effectiveScopes, isScope, scopesForRole, type Scope } from "@/lib/api/scopes";
 import { prisma } from "@/lib/db";
@@ -166,6 +167,7 @@ export async function authenticateApiKey(plain: string): Promise<ApiKeyAuth | nu
       name: row.user.name,
       role,
       timezone: row.user.timezone || "UTC",
+      locale: canonicalLocale(row.user.locale) ?? DEFAULT_LOCALE,
       via: "api-key",
       apiKeyId: row.id,
       apiKeyName: row.name,

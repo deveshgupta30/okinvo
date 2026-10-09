@@ -332,6 +332,7 @@ export async function shareDocumentStream(
     name: "share link",
     role: "VIEWER",
     timezone: "UTC",
+    locale: "en-US",
   };
   if (row.passwordHash) {
     if (!row.protectedDocumentId) throw new NotFoundError("Document", linkId);

@@ -17,6 +17,7 @@ describe.skipIf(!url)("onboarding DAL", () => {
     name: "New Person",
     role: "OWNER",
     timezone: "Asia/Kolkata",
+    locale: "en-US",
   };
   let prisma: typeof import("@/lib/db").prisma;
   let onboarding: typeof import("@/server/dal/onboarding");

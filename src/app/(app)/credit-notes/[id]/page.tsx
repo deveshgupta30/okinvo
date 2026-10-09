@@ -193,7 +193,9 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
       {cn.status === "VOID" ? (
         <p className="mb-6 rounded-md border border-semantic-danger/40 bg-surface-2 px-4 py-3 text-app-body text-semantic-danger">
           {t("voided", {
-            date: cn.voidedAt ? formatDateTime(new Date(cn.voidedAt), "en-GB", actor.timezone) : "",
+            date: cn.voidedAt
+              ? formatDateTime(new Date(cn.voidedAt), actor.locale, actor.timezone)
+              : "",
             reason: cn.voidReason ?? "",
           })}
         </p>
@@ -226,7 +228,7 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
                 </Item>
                 {cn.sentAt ? (
                   <Item label={t("amounts.sent")} mono>
-                    {formatDateTime(new Date(cn.sentAt), "en-GB", actor.timezone)}
+                    {formatDateTime(new Date(cn.sentAt), actor.locale, actor.timezone)}
                   </Item>
                 ) : null}
               </DescriptionList>
@@ -269,7 +271,8 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
                           </a>
                           <span className="text-ink-subtle">
                             {" "}
-                            · {formatDateTime(new Date(d.generatedAt), "en-GB", actor.timezone)}
+                            ·{" "}
+                            {formatDateTime(new Date(d.generatedAt), actor.locale, actor.timezone)}
                           </span>
                         </span>
                         <Mono className="break-all text-ink-subtle">{d.sha256}</Mono>

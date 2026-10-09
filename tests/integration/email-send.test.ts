@@ -26,6 +26,7 @@ const actor: Actor = {
   name: "O",
   role: "OWNER",
   timezone: "UTC",
+  locale: "en-US",
 };
 const tag = `mail-${Date.now()}`;
 const address = {

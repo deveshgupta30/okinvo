@@ -20,6 +20,7 @@ const actor = (role: Actor["role"]): Actor => ({
   name: role,
   role,
   timezone: "UTC",
+  locale: "en-US",
 });
 
 type Outcome = "ok" | "forbidden";

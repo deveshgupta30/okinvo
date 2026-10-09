@@ -117,7 +117,7 @@ export default async function InvoiceHistoryPage({ params }: { params: Promise<{
                   events.map((e) => (
                     <TR key={e.id}>
                       <TD mono className="whitespace-nowrap">
-                        {formatDateTime(new Date(e.createdAt), "en-GB", actor.timezone)}
+                        {formatDateTime(new Date(e.createdAt), actor.locale, actor.timezone)}
                       </TD>
                       <TD>{e.actorName ?? e.actorEmail ?? t("system")}</TD>
                       <TD mono>{e.action}</TD>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Check, Copy, Link2 } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import * as React from "react";
 import { useActionState } from "react";
 import { ConfirmAction } from "@/components/confirm-action";
@@ -32,6 +32,7 @@ const STRENGTH_KEY = {
 
 function CopyButton({ value, label }: { value: string; label: string }) {
   const t = useTranslations("share.dialog");
+  const locale = useLocale();
   const [done, setDone] = React.useState(false);
   return (
     <Button
@@ -74,6 +75,7 @@ export function ShareDialog({
   links: ShareLinkDto[];
 }) {
   const t = useTranslations("share.dialog");
+  const locale = useLocale();
   const [state, action] = useActionState(createShareLinkAction, null);
   const [protection, setProtection] = React.useState<"none" | "auto" | "manual">("auto");
   const [password, setPassword] = React.useState("");
@@ -190,7 +192,7 @@ export function ShareDialog({
                       {l.expiresAt
                         ? t("linkExpires", {
                             kind: l.protected ? t("passwordProtected") : t("openLink"),
-                            date: new Date(l.expiresAt).toLocaleDateString("en-GB"),
+                            date: new Date(l.expiresAt).toLocaleDateString(locale),
                           })
                         : t("linkNeverExpires", {
                             kind: l.protected ? t("passwordProtected") : t("openLink"),

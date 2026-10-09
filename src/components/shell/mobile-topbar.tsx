@@ -54,7 +54,7 @@ export function MobileTopbar({
       <Link href="/" aria-label={tc("home")} className="flex items-center text-ink">
         <Mark title={tc("appName")} className="size-7" />
       </Link>
-      <span className="ml-auto">
+      <span className="ms-auto">
         <UserMenu user={user} collapsed side="top" />
       </span>
 

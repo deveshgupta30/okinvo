@@ -14,7 +14,7 @@ export function Table({
   return (
     <div
       className={cn(
-        "w-full overflow-x-auto rounded-lg border border-hairline",
+        "rounded-sg w-full overflow-x-auto border border-hairline",
         cards && "max-md:overflow-visible max-md:rounded-none max-md:border-0",
       )}
     >
@@ -52,8 +52,8 @@ export function TH({
     <th
       scope="col"
       className={cn(
-        "h-10 px-3 text-left text-app-label font-medium whitespace-nowrap text-ink-subtle",
-        numeric && "text-right",
+        "h-10 px-3 text-start text-app-label font-medium whitespace-nowrap text-ink-subtle",
+        numeric && "text-end",
         className,
       )}
       {...props}
@@ -73,7 +73,7 @@ export function TD({
       {...(label !== undefined ? { "data-label": label } : {})}
       className={cn(
         "px-3 py-2 align-middle text-ink",
-        numeric && "text-right text-app-amount tabular-nums",
+        numeric && "text-end text-app-amount tabular-nums",
         mono && "text-app-mono",
         className,
       )}

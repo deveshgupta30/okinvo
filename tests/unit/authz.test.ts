@@ -9,6 +9,7 @@ const actor = (role: Actor["role"]): Actor => ({
   name: "U",
   role,
   timezone: "UTC",
+  locale: "en-US",
 });
 
 describe("roles", () => {

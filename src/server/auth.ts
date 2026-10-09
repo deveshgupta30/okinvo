@@ -98,6 +98,7 @@ export async function actorFromBearer(
         name: user.name,
         role: user.role,
         timezone: user.timezone,
+        locale: user.locale,
       },
     },
     headers,
