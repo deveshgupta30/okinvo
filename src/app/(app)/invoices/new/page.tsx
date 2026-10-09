@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { InvoiceBuilder } from "@/components/invoices/builder";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -8,7 +9,10 @@ import { FileText } from "lucide-react";
 import { requireRole } from "@/server/auth";
 import { builderContext } from "@/server/dal/invoice-builder";
 
-export const metadata: Metadata = { title: "New invoice" };
+export async function generateMetadata(): Promise<Metadata> {
+  const ts = await getTranslations("invoices.shared");
+  return { title: ts("newInvoice") };
+}
 
 export default async function NewInvoicePage({
   searchParams,
@@ -21,17 +25,22 @@ export default async function NewInvoicePage({
     clientId: typeof params.client === "string" ? params.client : null,
     issuerProfileId: typeof params.issuer === "string" ? params.issuer : null,
   });
+  const t = await getTranslations("invoices.new");
+  const ts = await getTranslations("invoices.shared");
   return (
     <>
-      <PageHeader title="New invoice" breadcrumb={[{ href: "/invoices", label: "Invoices" }]} />
+      <PageHeader
+        title={ts("newInvoice")}
+        breadcrumb={[{ href: "/invoices", label: ts("invoices") }]}
+      />
       {context.profiles.length === 0 ? (
         <EmptyState
           icon={FileText}
-          title="Create an issuer profile first"
-          description="An invoice is issued from a legal identity: set up your profile with its tax IDs and numbering."
+          title={t("noProfileTitle")}
+          description={t("noProfileDescription")}
           action={
             <Button asChild variant="secondary">
-              <Link href="/settings/profiles/new">Create a profile</Link>
+              <Link href="/settings/profiles/new">{t("createProfile")}</Link>
             </Button>
           }
         />

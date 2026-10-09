@@ -14,7 +14,40 @@
     "tryAgain": "Try again",
     "dashboard": "Dashboard",
     "goToDashboard": "Go to the dashboard",
-    "or": "or"
+    "or": "or",
+    "invoice": "Invoice",
+    "creditNote": "Credit note",
+    "downloadPdf": "Download PDF",
+    "edit": "Edit",
+    "delete": "Delete",
+    "downloadDocx": "Download DOCX",
+    "none": "None",
+    "dismiss": "Dismiss",
+    "all": "All",
+    "previous": "Previous",
+    "next": "Next",
+    "go": "Go",
+    "search": "Search",
+    "status": "Status",
+    "total": "Total",
+    "currency": "Currency",
+    "from": "From",
+    "to": "To",
+    "reason": "Reason",
+    "history": "History",
+    "archive": "Archive",
+    "restore": "Restore",
+    "showArchived": "Show archived",
+    "hideArchived": "Hide archived",
+    "archived": "Archived",
+    "default": "Default",
+    "setDefault": "Set default",
+    "revoke": "Revoke",
+    "copy": "Copy",
+    "copied": "Copied",
+    "active": "Active",
+    "pagination": "Pagination",
+    "emptyValue": "-"
   },
   "shell": {
     "nav": {
@@ -182,6 +215,700 @@
         "sage": "Sage",
         "lilac": "Lilac"
       }
+    },
+    "profiles": {
+      "metaTitle": "Issuer profiles",
+      "title": "Issuer profiles",
+      "description": "The legal identities you bill from. The default one pre-fills new invoices.",
+      "breadcrumb": "Profiles",
+      "newProfile": "New profile",
+      "emptyTitle": "No issuer profile yet",
+      "emptyDescription": "Create the identity you invoice from: an individual with a PAN, or your company.",
+      "createProfile": "Create a profile",
+      "columns": {
+        "label": "Label",
+        "legalName": "Legal name",
+        "type": "Type",
+        "country": "Country",
+        "currency": "Currency",
+        "regime": "Regime",
+        "status": "Status"
+      },
+      "types": {
+        "company": "Company",
+        "individual": "Individual"
+      },
+      "makeDefaultTitle": "Make {label} the default?",
+      "makeDefaultDescription": "New invoices will start from this profile.",
+      "restoreTitle": "Restore {label}?",
+      "archiveTitle": "Archive {label}?",
+      "archiveDescription": "It disappears from pickers; existing invoices are untouched.",
+      "new": {
+        "metaTitle": "New issuer profile",
+        "title": "New issuer profile",
+        "prefilled": "Filled in from your answers; check the address and tax details, then save."
+      },
+      "edit": {
+        "metaTitle": "Edit issuer profile",
+        "template": "Template",
+        "deleteTitle": "Delete {label}?",
+        "deleteDescription": "Only possible while no invoice or credit note references this profile. Otherwise archive it."
+      },
+      "template": {
+        "metaTitle": "Profile template",
+        "title": "Template for {label}",
+        "ownTemplate": "Own template",
+        "instanceTemplate": "Instance template",
+        "resetTitle": "Use the instance template again?",
+        "resetDescription": "This profile's own configuration is removed; issued documents are unaffected.",
+        "useInstance": "Use instance template",
+        "usingInstanceTitle": "Using the instance template",
+        "usingInstanceDescription": "Documents from this profile follow Settings → Templates. Opt in to customise them separately.",
+        "customise": "Use a different template for this profile",
+        "openInstance": "Open instance template"
+      },
+      "form": {
+        "identityTitle": "Identity",
+        "identityDescription": "Who the invoice is from.",
+        "type": "Type",
+        "label": "Label",
+        "labelHint": "Shown in pickers only",
+        "legalName": "Legal name",
+        "tradeName": "Trade name",
+        "designation": "Designation",
+        "email": "Email",
+        "phone": "Phone",
+        "website": "Website",
+        "addressTitle": "Address",
+        "taxTitle": "Tax identifiers",
+        "taxDescription": "Only the ones that apply to you; printing is controlled per invoice.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "UK VAT number",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "Encrypted at rest",
+        "lutNumber": "LUT number",
+        "lutNumberHint": "For exports without IGST",
+        "lutFiscalYear": "LUT financial year",
+        "lutFiscalYearHint": "e.g. 2026-27",
+        "defaultsTitle": "Defaults",
+        "baseCurrency": "Base currency",
+        "locale": "Document locale",
+        "localeHint": "Number and date formatting on documents",
+        "fiscalYearStart": "Fiscal year starts in",
+        "months": {
+          "january": "January",
+          "february": "February",
+          "march": "March",
+          "april": "April",
+          "may": "May",
+          "june": "June",
+          "july": "July",
+          "august": "August",
+          "september": "September",
+          "october": "October",
+          "november": "November",
+          "december": "December"
+        },
+        "taxRegime": "Default tax regime",
+        "regimes": {
+          "indiaGst": "India GST",
+          "ukVat": "UK VAT",
+          "usSalesTax": "US sales tax",
+          "none": "No tax"
+        },
+        "invoiceNumberFormat": "Invoice number format",
+        "invoiceNumberFormatHint": "Tokens: {tokens}",
+        "creditNoteNumberFormat": "Credit note number format",
+        "tdsRate": "Expected TDS rate (%)",
+        "tdsRateHint": "Informational, printed as expected deduction",
+        "defaultNotes": "Default notes",
+        "defaultTerms": "Default terms",
+        "printTitle": "What prints by default",
+        "printDescription": "Each invoice copies these and can change them individually.",
+        "emailTitle": "Email",
+        "emailDescription": "Defaults for the send composer. Placeholders: {placeholders}",
+        "emailCc": "Default CC",
+        "emailBcc": "Default BCC",
+        "commaSeparated": "Comma-separated",
+        "invoiceSubject": "Invoice subject",
+        "invoiceSubjectHint": "Blank uses the built-in template",
+        "creditNoteSubject": "Credit note subject",
+        "invoiceBody": "Invoice body",
+        "creditNoteBody": "Credit note body",
+        "artworkTitle": "Artwork",
+        "artworkDescription": "PNG, JPEG or WebP up to 2 MB; signature and stamp keep transparency.",
+        "logo": "Logo",
+        "signature": "Signature",
+        "stamp": "Stamp",
+        "transparentPng": "Transparent PNG",
+        "save": "Save profile"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Payment methods",
+      "title": "Payment methods",
+      "description": "How clients pay you. Details are encrypted and frozen into each invoice at issue.",
+      "newMethod": "New method",
+      "emptyTitle": "No payment methods yet",
+      "emptyDescription": "Add a bank account, UPI ID or wallet so invoices can tell clients where to pay.",
+      "addMethod": "Add a method",
+      "columns": {
+        "name": "Name",
+        "type": "Type",
+        "currency": "Currency",
+        "status": "Status"
+      },
+      "types": {
+        "bankTransfer": "Bank transfer",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Custom"
+      },
+      "makeDefaultTitle": "Make {name} the default?",
+      "restoreTitle": "Restore {name}?",
+      "archiveTitle": "Archive {name}?",
+      "archiveDescription": "Issued invoices keep the snapshot they printed.",
+      "new": {
+        "metaTitle": "New payment method",
+        "title": "New payment method"
+      },
+      "edit": {
+        "metaTitle": "Edit payment method",
+        "title": "Edit {name}",
+        "deleteTitle": "Delete {name}?",
+        "deleteDescription": "Only possible while no invoice or payment references it. Otherwise archive it."
+      },
+      "form": {
+        "name": "Name",
+        "nameHint": "Printed as the heading of the payment block",
+        "type": "Type",
+        "currency": "Currency",
+        "currencyHint": "Optional; shown for context only",
+        "anyCurrency": "Any",
+        "instructions": "Instructions",
+        "instructionsHint": "Printed under the details",
+        "isDefault": "Default method",
+        "isDefaultDescription": "Pre-selected on new invoices",
+        "isActive": "Active",
+        "detailsTitle": "Details",
+        "detailsDescription": "Encrypted at rest; snapshotted into each invoice when it is issued.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "Payee name",
+        "lines": "Lines",
+        "linesHint": "One line per row, printed as-is",
+        "accountEmail": "Account email / handle",
+        "bank": {
+          "accountHolder": "Account holder",
+          "accountNumber": "Account number",
+          "bankName": "Bank name",
+          "branch": "Branch",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Routing / sort code"
+        },
+        "save": "Save payment method"
+      }
+    },
+    "templates": {
+      "metaTitle": "Document templates",
+      "title": "Document templates",
+      "customised": "Customised",
+      "builtIn": "Built-in default",
+      "description": "How invoices and credit notes look. Issued documents keep the template they were issued with.",
+      "resetTitle": "Reset to the built-in default?",
+      "resetDescription": "Your customisation is removed; already issued documents are unaffected.",
+      "reset": "Reset",
+      "resetTrigger": "Reset to defaults",
+      "importTitle": "Import",
+      "importDescription": "Restore a configuration exported earlier.",
+      "overridesTitle": "Per-profile overrides",
+      "overridesDescription": "A profile can opt into its own template from its edit page.",
+      "noOverrides": "Every profile uses the instance template.",
+      "import": {
+        "json": "Template JSON",
+        "jsonHint": "Paste a file produced by Export JSON; missing keys fall back to defaults",
+        "importing": "Importing…",
+        "submit": "Import"
+      },
+      "form": {
+        "templateTitle": "Template",
+        "templateDescription": "Six built-ins; the customisation below applies to whichever you pick.",
+        "templateGroup": "Template",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Modern and airy, sans-serif, accent rule under the header."
+          },
+          "classic": {
+            "name": "Classic",
+            "character": "Traditional bordered table, serif headings, boxed totals."
+          },
+          "compact": {
+            "name": "Compact",
+            "character": "Dense layout for long item lists; smaller type, fewer separators."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "Quiet and spacious: no rules or boxes, light labels, plenty of air."
+          },
+          "letterhead": {
+            "name": "Letterhead",
+            "character": "Your logo and name on a colour band or image across the top of every page."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Colour band header; parties, table header and totals on a pale accent tint."
+          }
+        },
+        "paperTitle": "Paper and type",
+        "paperSize": "Paper size",
+        "paperLetter": "Letter",
+        "margins": "Margins",
+        "marginsNormal": "Normal",
+        "marginsNarrow": "Narrow",
+        "headingFont": "Heading font",
+        "bodyFont": "Body font",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "Table style",
+        "tableRuled": "Ruled",
+        "tableZebra": "Zebra",
+        "tablePlain": "Plain",
+        "accentColour": "Accent colour",
+        "textColour": "Text colour",
+        "logoPosition": "Logo position",
+        "positionLeft": "Left",
+        "positionCentre": "Centre",
+        "positionRight": "Right",
+        "logoHeight": "Logo height (mm)",
+        "documentTitle": "Document title",
+        "titleAuto": "Automatic (GST-aware)",
+        "titleCustom": "Custom",
+        "titlePlaceholder": "e.g. PROFORMA INVOICE",
+        "qrPosition": "QR position",
+        "qrFooter": "Footer",
+        "qrHeader": "Header",
+        "qrBesideTotals": "Beside totals",
+        "amountInWords": "Amount in words",
+        "wordsBelowTotal": "Below totals",
+        "wordsFooter": "Footer",
+        "wordsHidden": "Hidden",
+        "subtotalRow": "Subtotal row",
+        "discountRow": "Discount row",
+        "taxLines": "Tax lines",
+        "tdsExpected": "TDS expected",
+        "roundingRow": "Rounding row",
+        "pageNumbers": "Page numbers",
+        "headerTitle": "Header",
+        "headerDescription": "A colour band or an image across the top of every page. Letterhead and Modern show a band unless you choose otherwise.",
+        "headerStyle": "Header style",
+        "headerNone": "None",
+        "headerBand": "Colour band",
+        "headerImage": "Image",
+        "bandColour": "Band colour",
+        "bandColourHex": "Band colour (hex)",
+        "headerImageLabel": "Header image",
+        "headerImageHint": "PNG, JPEG or WebP up to 2400 px wide; it spans the page width.",
+        "imageOpacity": "Image opacity",
+        "headerHeight": "Header height (mm)",
+        "bandText": "Text on the band",
+        "bandTextAuto": "Automatic (from the band colour)",
+        "bandTextLight": "Light",
+        "bandTextDark": "Dark",
+        "textTitle": "Text",
+        "headerNote": "Header note",
+        "footer": "Footer",
+        "signatureCaption": "Signature caption",
+        "draftWatermark": "Draft watermark",
+        "labelsTitle": "Labels",
+        "labelsDescription": "Leave a field blank to keep the default wording.",
+        "save": "Save template",
+        "downloadSample": "Download sample PDF",
+        "exportJson": "Export JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Email",
+      "title": "Email",
+      "configuredSettings": "Configured in Settings",
+      "configuredEnv": "Configured by environment",
+      "notConfigured": "Not configured: mail-app flow",
+      "description": "Documents are sent from the composer with the stored PDF attached. Settings here override SMTP_* in the environment.",
+      "sendTest": "Send test email to {email}",
+      "removeTitle": "Remove the stored SMTP settings?",
+      "removeEnvTakesOver": "The environment's SMTP_* values take over.",
+      "removeFallsBack": "Email falls back to the mail-app flow.",
+      "removeTrigger": "Remove stored settings",
+      "smtpTitle": "SMTP server",
+      "smtpFromEnv": "Currently taken from the environment; saving here overrides it.",
+      "smtpPasswordNote": "The password is encrypted at rest and never shown again.",
+      "defaultsTitle": "Default recipients",
+      "defaultsDescription": "Instance-wide CC/BCC; issuer profiles add their own.",
+      "sentTitle": "Sent mail",
+      "sentDescription": "The last 50 attempts, including failures and manual sends.",
+      "smtp": {
+        "host": "Host",
+        "port": "Port",
+        "security": "Security",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "None (LAN relay)",
+        "user": "Username",
+        "password": "Password",
+        "passwordStored": "Stored and encrypted; leave blank to keep it",
+        "passwordEncrypted": "Encrypted at rest",
+        "from": "From address",
+        "fromName": "From name",
+        "replyTo": "Reply-to",
+        "save": "Save SMTP settings"
+      },
+      "defaults": {
+        "cc": "Default CC",
+        "ccHint": "Added to every composer; comma-separated",
+        "bcc": "Default BCC",
+        "save": "Save defaults"
+      }
+    },
+    "security": {
+      "metaTitle": "Security",
+      "title": "Security",
+      "description": "Where you are signed in, and everything that changed.",
+      "sessions": {
+        "title": "Active sessions",
+        "description": "Revoking a session signs that device out immediately.",
+        "signOutOthers": {
+          "title": "Sign out everywhere else?",
+          "description": "Every session except this one is revoked.",
+          "confirm": "Sign out others",
+          "trigger": "Sign out everywhere else"
+        },
+        "columns": {
+          "device": "Device",
+          "ipAddress": "IP address",
+          "signedIn": "Signed in",
+          "lastSeen": "Last seen",
+          "expires": "Expires"
+        },
+        "thisDevice": "This device",
+        "revokeTitle": "Revoke this session?",
+        "unknownDevice": "Unknown device",
+        "unknownBrowser": "Unknown",
+        "agentOnOs": "{browser} on {os}"
+      },
+      "audit": {
+        "title": "Audit log",
+        "count": "{count, plural, one {# event} other {# events}}",
+        "entity": "Entity",
+        "actionContains": "Action contains",
+        "filter": "Filter",
+        "reset": "Reset",
+        "columns": {
+          "when": "When",
+          "who": "Who",
+          "action": "Action",
+          "entity": "Entity",
+          "summary": "Summary"
+        },
+        "empty": "No events match these filters.",
+        "system": "System",
+        "changes": "Changes",
+        "page": "Page {page} of {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Users",
+      "title": "Users",
+      "description": "Who can sign in to this instance and what they may do.",
+      "roles": {
+        "owner": "Owner",
+        "editor": "Editor",
+        "viewer": "Viewer"
+      },
+      "roleHints": {
+        "owner": "Everything, including settings and members",
+        "editor": "Clients, catalogue, invoices, credit notes, payments, e-mail",
+        "viewer": "Read-only"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Role of {email}",
+      "invite": {
+        "title": "Invite someone",
+        "description": "They sign in with the invited address (an identity provider or a password) and get the role you choose.",
+        "sent": "Invitation e-mailed to {email}.",
+        "readyWithError": "Invitation ready for {email}. The e-mail could not be sent ({error}); send them this link:",
+        "readyNoSmtp": "Invitation ready for {email}. No SMTP is configured; send them this link:",
+        "copyLink": "Copy link",
+        "email": "Email",
+        "emailPlaceholder": "person@example.com",
+        "role": "Role",
+        "submit": "Invite",
+        "inviting": "Inviting…"
+      },
+      "members": {
+        "title": "Members",
+        "description": "At least one active owner always remains.",
+        "columns": {
+          "person": "Person",
+          "role": "Role",
+          "lastSignIn": "Last sign-in",
+          "status": "Status"
+        },
+        "nameYou": "{name} (you)",
+        "deactivated": "Deactivated",
+        "reactivate": {
+          "title": "Reactivate {email}?",
+          "description": "They can sign in again with their previous role.",
+          "confirm": "Reactivate"
+        },
+        "deactivate": {
+          "title": "Deactivate {email}?",
+          "description": "Every session ends now and they cannot sign in until reactivated. Their history stays.",
+          "confirm": "Deactivate"
+        }
+      },
+      "invitations": {
+        "title": "Pending invitations",
+        "description": "Addresses that may sign in but have not yet.",
+        "columns": {
+          "email": "Email",
+          "role": "Role",
+          "invited": "Invited"
+        },
+        "empty": "No pending invitations.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Revoke the invitation for {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Data",
+      "title": "Data",
+      "description": "Everything is portable: datasets as CSV or Excel, a full snapshot for migration, the PDFs for your accountant, and a tested backup routine.",
+      "period": {
+        "fiscalYear": "Fiscal year",
+        "fiscalYearHint": "Overrides the dates",
+        "issuer": "Issuer"
+      },
+      "exportAll": {
+        "title": "Export all data",
+        "description": "A ZIP with every dataset as CSV plus <mono>data.json</mono>, a relational snapshot of all tables. Encrypted fields (payment-method details, SMTP password) stay out; the README inside lists them.",
+        "download": "Download okinvo-data ZIP"
+      },
+      "exportDocuments": {
+        "title": "Export documents",
+        "description": "Every issued and voided invoice and credit-note PDF for a period, named by number, with an <mono>index.csv</mono> of numbers, totals and hashes. Missing PDFs are rendered on the way.",
+        "docx": "Also include a DOCX copy of every document",
+        "download": "Download documents ZIP"
+      },
+      "datasets": {
+        "title": "Datasets",
+        "description": "The same exports the index pages offer, with a period and issuer applied to all of them. Payments use the date range; clients and services ignore the period.",
+        "columns": {
+          "dataset": "Dataset",
+          "filters": "Filters applied",
+          "download": "Download"
+        },
+        "names": {
+          "invoices": "Invoices register",
+          "invoiceItems": "Invoice line items",
+          "payments": "Payments ledger",
+          "creditNotes": "Credit notes register",
+          "clients": "Clients",
+          "services": "Services",
+          "gstSummary": "GST summary",
+          "tdsSummary": "TDS summary"
+        },
+        "filters": {
+          "periodIssuer": "period, issuer",
+          "dateRangeIssuer": "date range, issuer",
+          "includesArchived": "includes archived"
+        }
+      },
+      "backups": {
+        "title": "Backups",
+        "notWired": "No backup service wired",
+        "noRun": "No backup has run yet",
+        "lastOk": "Last backup OK",
+        "lastFailed": "Last backup failed",
+        "description": "The Compose <mono>backup</mono> service dumps Postgres and archives the storage volume on <mono>BACKUP_CRON</mono>, keeps <mono>BACKUP_RETENTION_DAYS</mono> of history in the <mono>backups</mono> volume, and writes a status file this page reads.",
+        "finished": "Finished",
+        "databaseDump": "Database dump",
+        "storageArchive": "Storage archive",
+        "size": "Size",
+        "sizeMb": "{size} MB",
+        "error": "Error",
+        "runNow": "Run one now, or restore from a pair of files:",
+        "restoreDrill": "The restore procedure is exercised in CI by <mono>scripts/restore-drill.sh</mono>: seed, back up, wipe, restore, then compare row counts and a PDF hash."
+      }
+    },
+    "legal": {
+      "metaTitle": "Legal",
+      "metaDescription": "Who operates this instance: the details printed on the public legal pages.",
+      "title": "Legal",
+      "description": "The public legal pages print these details. Until every field is filled, the pages show highlighted placeholders.",
+      "operator": {
+        "title": "Operator details",
+        "complete": "Complete",
+        "missing": "{count} missing: {fields}",
+        "description": "You, as the person or company running this instance, are the operator the documents refer to. Nothing here is sent anywhere; it is printed on the pages below."
+      },
+      "fieldLabels": {
+        "legalName": "Operator legal name",
+        "entityType": "Entity type",
+        "address": "Operator address",
+        "country": "Operator country",
+        "contactEmail": "Contact e-mail",
+        "privacyEmail": "Privacy e-mail",
+        "dpoEmail": "Data protection officer e-mail",
+        "governingLaw": "Governing law",
+        "venue": "Venue for disputes",
+        "effectiveDate": "Effective date"
+      },
+      "publicPages": {
+        "title": "Public pages",
+        "description": "Linked from the sign-in page, the share viewer and the cookie notice.",
+        "terms": "Terms of Service",
+        "acceptableUse": "Acceptable Use Policy",
+        "privacy": "Privacy Policy",
+        "cookies": "Cookie Policy",
+        "dataRetention": "Data retention",
+        "security": "Security",
+        "licenses": "Licences and third-party notices"
+      },
+      "form": {
+        "legalName": "Legal name",
+        "entityType": "Entity type",
+        "individual": "Individual / sole proprietor",
+        "company": "Company / registered entity",
+        "address": "Address",
+        "addressHint": "Printed in the Terms and the Privacy Policy as the operator's postal address.",
+        "country": "Country",
+        "effectiveDate": "Effective date",
+        "contactEmail": "Contact e-mail",
+        "privacyEmail": "Privacy e-mail",
+        "privacyEmailHint": "Where data-subject requests go; may be the contact address.",
+        "dpoEmail": "Data protection officer e-mail",
+        "dpoEmailHint": "Only if you have appointed one.",
+        "governingLaw": "Governing law",
+        "governingLawHint": "For example \"the laws of India\" or \"the laws of England and Wales\".",
+        "venue": "Venue for disputes",
+        "venueHint": "For example \"the courts of Bengaluru, Karnataka\".",
+        "submit": "Save operator details"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API keys for scripts, the SDK and MCP clients, with curl examples.",
+      "title": "API",
+      "description": "Keys for scripts, the SDK and MCP clients. A key can do at most what your role can; it is shown once.",
+      "create": {
+        "title": "Create a key",
+        "description": "Send it as <mono>Authorization: Bearer okv_…</mono>. Keep it out of source code and chat logs; revoke it below if it leaks."
+      },
+      "keys": {
+        "title": "Keys",
+        "descriptionOwner": "Every key of this instance; owners can revoke any of them.",
+        "descriptionOwn": "Your keys.",
+        "columns": {
+          "name": "Name",
+          "prefix": "Prefix",
+          "scopes": "Scopes",
+          "owner": "Owner",
+          "lastUsed": "Last used",
+          "expires": "Expires",
+          "status": "Status"
+        },
+        "empty": "No API keys yet.",
+        "never": "never",
+        "revoked": "Revoked",
+        "expired": "Expired",
+        "revokeTitle": "Revoke {name}?",
+        "revokeDescription": "Clients using this key stop working immediately.",
+        "activeCount": "{count, plural, one {# active key.} other {# active keys.}}"
+      },
+      "examples": {
+        "title": "Examples",
+        "description": "Replace <mono>$OKINVO_KEY</mono> with a key. The versioned REST API, its OpenAPI document (<mono>/api/openapi.json</mono>), the TypeScript SDK and the MCP server arrive with the next tasks of the v1.1 plan; the status endpoint works today.",
+        "rateLimit": "Over-limit calls answer 429 with a <mono>Retry-After</mono> header (120 requests per minute per key). A key's scopes are capped by its owner's current role."
+      },
+      "form": {
+        "copyKey": "Copy API key",
+        "name": "Name",
+        "namePlaceholder": "e.g. accounting script",
+        "expires": "Expires",
+        "in30Days": "In 30 days",
+        "in90Days": "In 90 days",
+        "inAYear": "In a year",
+        "never": "Never",
+        "scopes": "Scopes",
+        "submit": "Create API key",
+        "creating": "Creating…"
+      },
+      "scopes": {
+        "invoicesRead": "Read invoices",
+        "invoicesCreate": "Create and issue invoices",
+        "creditNotesRead": "Read credit notes",
+        "creditNotesCreate": "Create and issue credit notes",
+        "catalogueRead": "Read clients, services and products",
+        "documentsRead": "Download stored PDFs and DOCX copies",
+        "statusRead": "Read the instance status"
+      }
+    },
+    "status": {
+      "metaTitle": "Status",
+      "metaDescription": "Version, database, storage, e-mail and backup health of this instance.",
+      "title": "Status",
+      "description": "What this instance is running and whether its parts answer.",
+      "recheck": "Re-check",
+      "health": {
+        "ok": "OK",
+        "warning": "Warning",
+        "failed": "Failed",
+        "na": "Not configured"
+      },
+      "overall": {
+        "ok": "All good",
+        "degraded": "Degraded",
+        "failed": "Failed"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(sha unknown)}} · built {built} · Node <mono>{node}</mono> · up {uptime} · checked {checked}",
+      "dateUnknown": "(date unknown)",
+      "uptime": {
+        "days": "{d}d {h}h {m}m",
+        "hours": "{h}h {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Database",
+        "storage": "Storage",
+        "rateLimiting": "Rate limiting",
+        "email": "E-mail",
+        "backups": "Backups"
+      },
+      "db": {
+        "detail": "{latency} ms · last migration <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # unfinished migration(s)}}",
+        "noMigration": "none"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · write, read and delete of a probe object in {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> store {store, select, memory {(one replica)} other {(shared across replicas)}}",
+      "smtp": {
+        "configured": "SMTP from {source, select, settings {settings} env {env} other {}} · last test {lastTest} · last 24 h: {sent} sent, {failed} failed",
+        "none": "No SMTP server; the composer offers “Open in mail app”. <link>Configure</link>"
+      },
+      "backups": {
+        "notWired": "No backup service wired (BACKUP_STATUS_FILE unset).",
+        "noRun": "Backup service wired; no run recorded yet.",
+        "ok": "Last run succeeded at {finishedAt}{days, plural, =0 {} one { · retention # day} other { · retention # days}}",
+        "failed": "Last run failed: {error} at {finishedAt}{days, plural, =0 {} one { · retention # day} other { · retention # days}}"
+      },
+      "footer": "The same report is available as JSON at <mono>/api/health/status</mono> for monitoring (signed-in session or API key)."
     }
   },
   "onboarding": {
@@ -240,6 +967,37 @@
       "body": "We use only strictly necessary cookies: your session and your display preferences. No analytics, no tracking.",
       "policy": "Cookie policy",
       "gotIt": "Got it"
+    },
+    "nav": {
+      "label": "Legal",
+      "cookies": "Cookies",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "acceptableUse": "Acceptable use",
+      "retention": "Retention",
+      "security": "Security",
+      "licences": "Licences"
+    },
+    "operatorNotice": "okinvo is self-hosted software; the operator of this instance is responsible for its use.",
+    "doc": {
+      "effectiveOn": "Effective <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Contents"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Operator legal name",
+        "entityType": "Entity type",
+        "address": "Operator address",
+        "country": "Operator country",
+        "contactEmail": "Contact e-mail",
+        "privacyEmail": "Privacy e-mail",
+        "dpoEmail": "Data protection officer e-mail",
+        "governingLaw": "Governing law",
+        "venue": "Venue for disputes",
+        "effectiveDate": "Effective date"
+      }
     }
   },
   "errors": {
@@ -258,6 +1016,959 @@
       "body": "Nothing was changed by this request. Try again; if it keeps happening, the server log has the details.",
       "digest": "error {digest}",
       "generic": "error"
+    },
+    "appNotFound": {
+      "title": "Not found",
+      "body": "This record does not exist, or it was deleted while you were looking at it.",
+      "back": "Back to the dashboard"
+    },
+    "validation": {
+      "required": "required",
+      "tooLong": "at most {max} characters",
+      "invalidEmail": "must be a valid email",
+      "invalidDate": "must be a calendar date in YYYY-MM-DD form",
+      "invalidAmount": "must be a number",
+      "wholeNumber": "must be a whole number",
+      "greaterThanZero": "must be greater than zero",
+      "fixFields": "Please correct the highlighted fields.",
+      "charset": "Only standard keyboard characters are allowed."
     }
+  },
+  "verify": {
+    "metaTitle": "Verify document",
+    "heading": "Document verification",
+    "rateLimited": "Too many checks from this address. Please try again in a minute.",
+    "notFound": {
+      "title": "No such document",
+      "body": "This link does not match any issued document. Check the QR code or the link you were given, or contact the issuer."
+    },
+    "status": {
+      "void": "Void",
+      "valid": "Valid"
+    },
+    "issuedBy": "Issued by",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Issued to",
+    "issueDate": "Issue date",
+    "total": "Total",
+    "voided": "This document was voided by the issuer and is no longer valid.",
+    "storedCopies": {
+      "title": "Stored copies",
+      "description": "SHA-256 of every PDF version the issuer holds. Pick your copy to compare it in your browser: nothing is uploaded.",
+      "empty": "No PDF has been generated yet.",
+      "protectedVersion": "Password-protected copy {version}",
+      "version": "Version {version}"
+    },
+    "check": {
+      "label": "Check your copy",
+      "hashing": "Hashing…",
+      "match": "Your copy matches version {version} exactly.",
+      "mismatch": "Your copy does not match any stored version."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Shared document",
+      "rateLimited": "Too many requests from this address. Please try again in a minute.",
+      "unavailable": {
+        "title": "This link is not available",
+        "body": "It may have expired or been revoked by the issuer. Ask them for a new one."
+      },
+      "lockedTitleInvoice": "Invoice from {issuer}",
+      "lockedTitleCreditNote": "Credit note from {issuer}",
+      "lockedBody": "This document is password-protected. Enter the password the issuer gave you.",
+      "void": "Void",
+      "protectedPdf": "The PDF opens with the same password. It can be read and printed; copying and editing are locked.",
+      "byline": "From {issuer} to {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Password",
+      "limited": "Too many attempts. Please wait fifteen minutes and try again.",
+      "wrong": "That password is not right.",
+      "submit": "Open document"
+    },
+    "dialog": {
+      "trigger": "Share",
+      "title": "Share this document",
+      "description": "Anyone with the link can view and download it until it expires or you revoke it. A password also protects the PDF itself: it opens with the password and can be read and printed, not edited or copied.",
+      "link": "Link",
+      "copyLink": "Copy link",
+      "password": "Password",
+      "copyPassword": "Copy password",
+      "sendSeparately": "Send the password separately from the link. You can see it again in the list below.",
+      "copy": "Copy",
+      "copied": "Copied",
+      "expires": "Expires",
+      "expiry": {
+        "d7": "In 7 days",
+        "d30": "In 30 days",
+        "d90": "In 90 days",
+        "never": "Never"
+      },
+      "protection": "Protection",
+      "protectionOptions": {
+        "auto": "Password: generate a passphrase",
+        "manual": "Password: choose my own",
+        "none": "No password (open link)"
+      },
+      "passwordHint": "At least 8 characters.",
+      "strength": "Strength: {label}",
+      "strengthLabels": {
+        "veryWeak": "very weak",
+        "weak": "weak",
+        "fair": "fair",
+        "good": "good",
+        "strong": "strong"
+      },
+      "creating": "Creating…",
+      "create": "Create link",
+      "activeLinks": "Active links",
+      "passwordProtected": "Password-protected",
+      "openLink": "Open link",
+      "linkExpires": "{kind} · expires {date}",
+      "linkNeverExpires": "{kind} · never expires",
+      "revoke": {
+        "title": "Revoke this link?",
+        "description": "The link stops working immediately for everyone who has it.",
+        "label": "Revoke"
+      },
+      "linkPassword": "Password: <code>{password}</code>",
+      "counts": "{views, plural, other {# views}} · {downloads, plural, other {# downloads}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Credit notes",
+      "title": "Credit notes",
+      "description": "Raised against issued invoices; each reduces its invoice balance when issued.",
+      "newCreditNote": "New credit note",
+      "filters": {
+        "from": "From",
+        "to": "To",
+        "issuer": "Issuer",
+        "client": "Client",
+        "status": "Status",
+        "search": "Search",
+        "all": "All",
+        "searchPlaceholder": "Number, reason, client",
+        "go": "Go"
+      },
+      "statuses": {
+        "DRAFT": "Draft",
+        "ISSUED": "Issued",
+        "SENT": "Sent",
+        "VOID": "Void"
+      },
+      "empty": {
+        "title": "No credit notes yet",
+        "description": "Open an issued invoice and choose “Credit note” to reduce what it owes."
+      },
+      "noMatch": "No credit notes match these filters.",
+      "columns": {
+        "number": "Number",
+        "against": "Against",
+        "client": "Client",
+        "issueDate": "Issue date",
+        "reason": "Reason",
+        "total": "Total",
+        "status": "Status"
+      },
+      "draft": "Draft"
+    },
+    "new": {
+      "metaTitle": "New credit note",
+      "title": "New credit note",
+      "description": "A credit note is raised against an issued invoice and reduces its balance.",
+      "nothingToCredit": {
+        "title": "Nothing to credit",
+        "description": "Credit notes need an issued invoice with an outstanding balance.",
+        "openInvoices": "Open the invoices"
+      },
+      "whichInvoice": "Which invoice?",
+      "invoice": "Invoice",
+      "invoiceOption": "{number} · {client} · balance {balance}",
+      "issuedOnly": "Credit notes are raised against issued invoices only.",
+      "invoiceFallback": "Invoice"
+    },
+    "edit": {
+      "metaTitle": "Edit credit note",
+      "title": "Edit draft credit note",
+      "immutable": "Issued credit notes are immutable.",
+      "draft": "Draft"
+    },
+    "detail": {
+      "metaTitle": "Credit note",
+      "draftTitle": "Draft credit note",
+      "meta": "{client} · against <invoice>{number}</invoice> · issued <mono>{date}</mono>",
+      "previewPdf": "Preview PDF",
+      "issue": {
+        "title": "Issue this credit note?",
+        "description": "A number is allocated, the invoice balance is reduced and the document becomes immutable.",
+        "label": "Issue"
+      },
+      "deleteDraft": {
+        "title": "Delete this draft?"
+      },
+      "sendByEmail": "Send by email",
+      "markSent": {
+        "title": "Mark as sent?",
+        "label": "Mark as sent"
+      },
+      "void": {
+        "title": "Void this credit note?",
+        "description": "The invoice balance is restored; the number is never reused.",
+        "reason": "Reason",
+        "label": "Void"
+      },
+      "voided": "Voided {date}: {reason}",
+      "amounts": {
+        "title": "Amounts",
+        "reason": "Reason",
+        "creditAmount": "Credit amount",
+        "total": "Total",
+        "balanceNow": "Invoice balance now",
+        "sent": "Sent"
+      },
+      "documents": {
+        "title": "Stored documents",
+        "description": "Every version is kept; the verify page lists all hashes.",
+        "regenerateTitle": "Generate a new PDF version?",
+        "generate": "Generate",
+        "newVersion": "New version",
+        "renderedOnFirstDownload": "The PDF is rendered on first download.",
+        "protectedCopy": "Password-protected copy {version}",
+        "version": "Version {version}",
+        "verificationLink": "Verification link: <link>{path}…</link>"
+      },
+      "draftsPreview": "Drafts preview live in the editor."
+    },
+    "send": {
+      "metaTitle": "Send credit note",
+      "title": "Send <mono>{number}</mono>",
+      "previousSends": "Previous sends"
+    },
+    "builder": {
+      "against": "Against <mono>{number}</mono>",
+      "summary": "{client} · total {total} · balance {balance} · taxable headroom ≈ {headroom}",
+      "issueDate": "Issue date",
+      "creditAmount": "Credit amount (excluding tax)",
+      "creditAmountHint": "Tax is apportioned from the invoice's tax lines",
+      "reason": "Reason",
+      "picker": {
+        "title": "Compute from invoice lines",
+        "description": "Tick whole lines or a percentage; this only fills the amount above.",
+        "line": "Line",
+        "subtotal": "Subtotal",
+        "credit": "Credit",
+        "percent": "%",
+        "creditLine": "Credit line {position}",
+        "percentOfLine": "Percent of line {position}"
+      },
+      "saveDraft": "Save draft",
+      "issuing": "Issuing…",
+      "saveAndIssue": "Save and issue"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Payment received",
+        "REFUND": "Refund issued",
+        "WRITE_OFF": "Write-off"
+      },
+      "editTitle": "Edit entry",
+      "recordTitle": "Record a payment",
+      "description": "Amounts are in the invoice currency ({currency}); TDS deducted is part of the amount applied.",
+      "kind": "Kind",
+      "date": "Date",
+      "amountRefunded": "Amount refunded (negative)",
+      "amountApplied": "Amount applied",
+      "refundHint": "Enter a negative amount, e.g. -500",
+      "tdsDeducted": "TDS deducted",
+      "tdsHint": "Tax the client withheld; counts towards the amount applied",
+      "bankFees": "Bank fees",
+      "receivedInto": "Received into",
+      "noMethod": "-",
+      "reference": "Reference",
+      "referenceHint": "UTR, transaction id, cheque number",
+      "otherCurrency": "Received in another currency",
+      "amountReceived": "Amount received",
+      "receivedCurrency": "Received currency",
+      "exchangeRate": "Exchange rate",
+      "exchangeRateHint": "1 unit received = ? {currency}",
+      "notes": "Notes",
+      "receipt": "Receipt",
+      "receiptHint": "PNG, JPEG, WebP or PDF up to 10 MB",
+      "saveChanges": "Save changes",
+      "record": "Record"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "approx. {count, plural, one {# page} other {# pages}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Message",
+      "description": "Pre-filled from the issuer profile's templates. Nothing is sent until you click Send.",
+      "to": "To",
+      "toHint": "Comma-separated",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Subject",
+      "body": "Body",
+      "bodyHint": "Plain text; links become clickable",
+      "attachment": "Attachment",
+      "attachmentHint": "The stored copy, named <mono>{name}</mono> (or .docx); its content cannot be changed.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Sending…",
+      "send": "Send",
+      "openInMailApp": "Open in mail app",
+      "noSmtp": "No SMTP server is configured (Settings → Email). Open the draft in your mail app, attach the downloaded PDF, then mark it as sent below.",
+      "markAsSent": "Mark as sent"
+    },
+    "sentLog": {
+      "when": "When",
+      "document": "Document",
+      "to": "To",
+      "subject": "Subject",
+      "status": "Status",
+      "empty": "Nothing sent yet.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "sent",
+        "FAILED": "failed",
+        "MANUAL": "manual"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Hi, {name}",
+    "fiscalYear": "Fiscal year {year}",
+    "fiscalYearWithBase": "Fiscal year {year} · base currency {currency} ({profile})",
+    "newCreditNote": "New credit note",
+    "welcomeTitle": "Welcome to {appName}",
+    "welcomeDescription": "Start by creating the issuer profile you bill from, then add a client and your first invoice.",
+    "createProfile": "Create your profile",
+    "tiles": {
+      "outstanding": "Outstanding",
+      "overdue": "Overdue",
+      "billedThisFy": "Billed this FY",
+      "receivedThisFy": "Received this FY",
+      "drafts": "Drafts",
+      "invoiceCount": "{count, plural, one {# invoice} other {# invoices}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Payments less refunds, at recorded FX",
+      "awaitingIssue": "awaiting issue",
+      "nothingPending": "nothing pending"
+    },
+    "recentInvoices": "Recent invoices",
+    "allInvoices": "All invoices",
+    "noInvoicesYet": "No invoices yet.",
+    "columns": {
+      "number": "Number",
+      "client": "Client",
+      "issued": "Issued"
+    },
+    "topClients": "Top clients by outstanding",
+    "nothingOutstanding": "Nothing outstanding."
+  },
+  "exports": {
+    "export": "Export",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Invoices",
+      "newInvoice": "New invoice",
+      "draft": "Draft",
+      "aDraft": "a draft",
+      "statuses": {
+        "draft": "Draft",
+        "issued": "Issued",
+        "sent": "Sent",
+        "partiallyPaid": "Partially paid",
+        "paid": "Paid",
+        "overdue": "Overdue",
+        "void": "Void"
+      },
+      "lifecycle": {
+        "draft": "draft",
+        "issued": "issued",
+        "void": "void"
+      },
+      "units": {
+        "hour": "Hour",
+        "day": "Day",
+        "fixed": "Fixed",
+        "milestone": "Milestone",
+        "unit": "Unit"
+      },
+      "unitsLower": {
+        "hour": "hour",
+        "day": "day",
+        "fixed": "fixed",
+        "milestone": "milestone",
+        "unit": "unit"
+      },
+      "supplyTypes": {
+        "intraState": "intra state",
+        "interState": "inter state",
+        "exportLut": "export lut",
+        "exportWithTax": "export with tax",
+        "reverseCharge": "reverse charge",
+        "notApplicable": "not applicable"
+      }
+    },
+    "list": {
+      "description": "Drafts, issued and voided invoices; statuses derive from payments and due dates.",
+      "fiscalYear": "Fiscal year",
+      "issuer": "Issuer",
+      "client": "Client",
+      "searchPlaceholder": "Number, PO, client",
+      "emptyTitle": "No invoices yet",
+      "emptyDescription": "Build your first invoice: pick a client, add lines, watch the preview, then issue it.",
+      "columns": {
+        "number": "Number",
+        "client": "Client",
+        "issuer": "Issuer",
+        "issueDate": "Issue date",
+        "due": "Due",
+        "balance": "Balance"
+      },
+      "noMatches": "No invoices match these filters.",
+      "count": "{count, plural, one {# invoice} other {# invoices}}",
+      "countPaged": "{count, plural, one {# invoice} other {# invoices}} · page {page} of {pages}",
+      "register": "register"
+    },
+    "new": {
+      "noProfileTitle": "Create an issuer profile first",
+      "noProfileDescription": "An invoice is issued from a legal identity: set up your profile with its tax IDs and numbering.",
+      "createProfile": "Create a profile"
+    },
+    "edit": {
+      "metaTitle": "Edit invoice",
+      "title": "Edit draft",
+      "immutableFlash": "Issued invoices are immutable. Use “Void & reissue” to correct it."
+    },
+    "detail": {
+      "metaTitle": "Invoice",
+      "draftInvoice": "Draft invoice",
+      "issuedDue": "Issued <mono>{issued}</mono>, due <mono>{due}</mono>",
+      "replaces": "Replaces {number}",
+      "replacedBy": "Replaced by {number}",
+      "previewPdf": "Preview PDF",
+      "issueTitle": "Issue this invoice?",
+      "issueDescription": "A number is allocated and the document becomes immutable.",
+      "issue": "Issue",
+      "deleteDraftTitle": "Delete this draft?",
+      "sendByEmail": "Send by email",
+      "recordPayment": "Record payment",
+      "creditNote": "Credit note",
+      "markSentTitle": "Mark as sent?",
+      "markSentDescription": "Records that the client has received this invoice.",
+      "markSent": "Mark as sent",
+      "voidReissueTitle": "Void and reissue?",
+      "voidReissueDescription": "The original is voided and a linked draft with the same content opens for editing.",
+      "voidReissue": "Void & reissue",
+      "voidTitle": "Void this invoice?",
+      "voidDescription": "Only possible without recorded payments; the number is never reused.",
+      "void": "Void",
+      "voided": "Voided {date}: {reason}",
+      "amounts": "Amounts",
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "discountPercent": "Discount ({percent})",
+      "rounding": "Rounding",
+      "tdsExpected": "TDS expected ({percent})",
+      "paid": "Paid",
+      "credited": "Credited",
+      "balanceDue": "Balance due",
+      "supply": "Supply",
+      "fxToBase": "FX to base",
+      "poReference": "PO reference",
+      "sent": "Sent",
+      "lineItems": "Line items",
+      "columns": {
+        "description": "Description",
+        "sacHsn": "SAC/HSN",
+        "qty": "Qty",
+        "rate": "Rate",
+        "tax": "Tax",
+        "amount": "Amount"
+      },
+      "creditNotes": "Credit notes",
+      "storedDocuments": "Stored documents",
+      "storedDocumentsHint": "Every version is kept; the verify page lists all hashes.",
+      "regenerateTitle": "Generate a new PDF version?",
+      "regenerateDescription": "Renders again from the frozen snapshot (for example after a renderer fix). Earlier versions stay.",
+      "regenerate": "Generate",
+      "newVersion": "New version",
+      "renderedOnFirstDownload": "The PDF is rendered on first download.",
+      "protectedCopy": "Password-protected copy {version}",
+      "version": "Version {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Verification link:",
+      "draftPreviewHint": "Drafts preview live in the editor; open <link>the watermarked PDF</link> to see the page."
+    },
+    "history": {
+      "metaTitle": "Invoice history",
+      "title": "History <mono>{number}</mono>",
+      "reissueChain": "Reissue chain",
+      "replaces": "Replaces <link>{number}</link>",
+      "replacedBy": "Replaced by <link>{number}</link>",
+      "auditTrail": "Audit trail",
+      "columns": {
+        "when": "When",
+        "who": "Who",
+        "action": "Action",
+        "summary": "Summary"
+      },
+      "noEvents": "No events yet.",
+      "system": "System",
+      "emails": "Emails"
+    },
+    "payments": {
+      "title": "Payments",
+      "description": "{client} · {total} total",
+      "backToInvoice": "Back to invoice",
+      "ledger": "Ledger",
+      "columns": {
+        "date": "Date",
+        "kind": "Kind",
+        "applied": "Applied",
+        "tds": "TDS",
+        "received": "Received",
+        "reference": "Reference",
+        "balance": "Balance"
+      },
+      "noPayments": "No payments recorded yet.",
+      "kinds": {
+        "payment": "Payment",
+        "refund": "Refund",
+        "writeOff": "Write-off"
+      },
+      "receipt": "Receipt",
+      "deleteEntryTitle": "Delete this entry?",
+      "deleteEntryDescription": "The invoice balance is recomputed.",
+      "totals": "Totals",
+      "invoiceTotal": "Invoice total",
+      "credited": "Credited",
+      "refunds": "Refunds",
+      "writeOffs": "Write-offs",
+      "tdsDeducted": "TDS deducted",
+      "bankFees": "Bank fees",
+      "balanceDue": "Balance due",
+      "onlyIssued": "Only issued invoices accept payments."
+    },
+    "send": {
+      "metaTitle": "Send invoice",
+      "title": "Send <mono>{number}</mono>",
+      "alreadySent": "Already marked as sent; sending again adds another log entry.",
+      "previousSends": "Previous sends"
+    },
+    "builder": {
+      "parties": "Parties",
+      "issuerProfile": "Issuer profile",
+      "client": "Client",
+      "archivedOption": "{label} (archived)",
+      "issueDate": "Issue date",
+      "dueDate": "Due date",
+      "fxRate": "FX rate to base currency",
+      "fxHint": "1 {currency} = ? {base} (reporting only)",
+      "poReference": "PO reference",
+      "lineItems": "Line items",
+      "lineItemsHint": "Pick from the catalogue to copy its values, or type a line.",
+      "taxDiscountTds": "Tax, discount and TDS",
+      "taxRegime": "Tax regime",
+      "regimes": {
+        "indiaGst": "India GST",
+        "ukVat": "UK VAT",
+        "usSalesTax": "US sales tax",
+        "none": "No tax"
+      },
+      "reverseCharge": "Reverse charge",
+      "reverseChargeHint": "Tax payable by the recipient",
+      "discount": "Discount",
+      "percent": "Percent",
+      "amount": "Amount",
+      "rounding": "Rounding adjustment",
+      "roundingHint": "Optional, to a whole unit; must be under 1",
+      "round": "Round",
+      "tdsRate": "Expected TDS rate (%)",
+      "tdsRateHint": "Informational; printed when the TDS breakdown is on",
+      "paymentMethods": "Payment methods",
+      "paymentMethodsHint": "Printed in the order ticked.",
+      "noPaymentMethods": "No active payment methods. <link>Add one</link>.",
+      "whatPrints": "What prints",
+      "whatPrintsHint": "Starts from the issuer profile's defaults.",
+      "notesAndTerms": "Notes and terms",
+      "notes": "Notes",
+      "terms": "Terms",
+      "saveDraft": "Save draft",
+      "issuing": "Issuing…",
+      "saveAndIssue": "Save and issue",
+      "subtotal": "Subtotal",
+      "tax": "Tax",
+      "tdsExpected": "TDS expected",
+      "netExpected": "Net expected"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Add from catalogue…",
+      "services": "Services",
+      "products": "Products",
+      "addLine": "Add line",
+      "columns": {
+        "description": "Description",
+        "sacHsn": "SAC/HSN",
+        "qty": "Qty",
+        "unit": "Unit",
+        "rate": "Rate",
+        "taxPercent": "Tax %"
+      },
+      "aria": {
+        "description": "Line {line} description",
+        "sacHsn": "Line {line} SAC/HSN",
+        "quantity": "Line {line} quantity",
+        "unit": "Line {line} unit",
+        "rate": "Line {line} rate",
+        "taxRate": "Line {line} tax rate"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Exempt",
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "removeLine": "Remove line",
+      "shortcutHint": "Ctrl/⌘+Enter in a description adds a line.",
+      "addFromCatalogueAria": "Add from catalogue"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Issuer details",
+        "client": "Client details",
+        "document": "Document sections"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Trade name",
+        "showDesignation": "Designation",
+        "showEmail": "Email",
+        "showPhone": "Phone",
+        "showWebsite": "Website",
+        "showFullAddress": "Full address",
+        "showPan": "Pan",
+        "showGstin": "Gstin",
+        "showCin": "Cin",
+        "showLut": "Lut",
+        "showSignature": "Signature",
+        "showStamp": "Stamp",
+        "showContactPerson": "Contact person",
+        "showBillingAddress": "Billing address",
+        "showShippingAddress": "Shipping address",
+        "showTaxIdentifier": "Tax identifier",
+        "showPlaceOfSupply": "Place of supply",
+        "showDueDate": "Due date",
+        "showPaymentTerms": "Payment terms",
+        "showSacCodeColumn": "Sac code column",
+        "showQuantityColumn": "Quantity column",
+        "showUnitPriceColumn": "Unit price column",
+        "showTaxColumn": "Tax column",
+        "showTdsBreakdown": "Tds breakdown",
+        "showQrVerification": "Qr verification",
+        "showNotes": "Notes",
+        "showTerms": "Terms",
+        "showReplacesReference": "Replaces reference",
+        "showAmountInWords": "Amount in words",
+        "showSupplyStatement": "Supply statement",
+        "showRoundingLine": "Rounding line",
+        "showSku": "Sku"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Clients",
+      "description": "Everyone you bill. Clients with invoices are archived, never deleted.",
+      "newClient": "New client",
+      "searchPlaceholder": "Search by name",
+      "searchLabel": "Search clients",
+      "emptyTitle": "No clients yet",
+      "emptyDescription": "Add the people and companies you invoice; their currency and payment terms pre-fill each invoice.",
+      "addClient": "Add a client",
+      "noMatch": "No clients match “{q}”.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Name",
+        "contact": "Contact",
+        "email": "Email",
+        "country": "Country",
+        "currency": "Currency",
+        "terms": "Terms",
+        "status": "Status"
+      }
+    },
+    "new": {
+      "title": "New client"
+    },
+    "edit": {
+      "metaTitle": "Edit client",
+      "title": "Edit {name}"
+    },
+    "detail": {
+      "metaTitle": "Client",
+      "newInvoice": "New invoice",
+      "restoreTitle": "Restore this client?",
+      "archiveTitle": "Archive this client?",
+      "archiveDescription": "It leaves the pickers; invoices and history stay intact.",
+      "deleteTitle": "Delete this client?",
+      "deleteDescription": "Only possible while no invoice references the client.",
+      "details": "Details",
+      "contact": "Contact",
+      "email": "Email",
+      "phone": "Phone",
+      "country": "Country",
+      "gstState": "GST {code}",
+      "taxId": "Tax ID",
+      "currency": "Currency",
+      "paymentTerms": "Payment terms",
+      "paymentTermsDays": "{days} days",
+      "expectedTds": "Expected TDS",
+      "notes": "Notes",
+      "addresses": "Addresses",
+      "billing": "Billing",
+      "shipping": "Shipping",
+      "lifetime": "Lifetime",
+      "openRegister": "Open the register",
+      "noIssued": "No issued invoices yet.",
+      "noIssuedWithDrafts": "No issued invoices yet ({drafts} draft).",
+      "firstLatest": "First invoice <mono>{first}</mono>, latest <mono>{latest}</mono>{drafts, plural, =0 {} one { · # draft} other { · # drafts}}",
+      "lifetimeColumns": {
+        "currency": "Currency",
+        "invoices": "Invoices",
+        "billed": "Billed",
+        "received": "Received",
+        "credited": "Credited",
+        "outstanding": "Outstanding",
+        "overdue": "Overdue"
+      },
+      "recentInvoices": "Recent invoices",
+      "noInvoices": "No invoices for this client yet.",
+      "recentColumns": {
+        "number": "Number",
+        "issueDate": "Issue date",
+        "due": "Due",
+        "total": "Total",
+        "balance": "Balance",
+        "status": "Status"
+      }
+    },
+    "form": {
+      "cardTitle": "Client",
+      "displayName": "Display name",
+      "contactPerson": "Contact person",
+      "email": "Email",
+      "phone": "Phone",
+      "taxIdType": "Tax ID type",
+      "taxIdTypeNone": "None",
+      "taxId": "Tax ID",
+      "currency": "Currency",
+      "paymentTerms": "Payment terms (days)",
+      "expectedTdsRate": "Expected TDS rate (%)",
+      "notes": "Notes",
+      "billingAddress": "Billing address",
+      "shippingAddress": "Shipping address",
+      "differentFromBilling": "Different from billing",
+      "save": "Save client"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Hour",
+      "DAY": "Day",
+      "FIXED": "Fixed",
+      "MILESTONE": "Milestone",
+      "UNIT": "Unit"
+    },
+    "list": {
+      "activate": "Activate",
+      "deactivate": "Deactivate",
+      "archiveDescription": "Existing invoice lines keep their copied values.",
+      "deleteDescription": "Only possible while no invoice line references it. Otherwise archive it.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Name",
+        "unit": "Unit",
+        "rate": "Rate",
+        "price": "Price",
+        "currency": "Currency",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Tax",
+        "status": "Status"
+      }
+    },
+    "services": {
+      "title": "Services",
+      "description": "Your catalogue. Picking a service copies its values onto the invoice line.",
+      "newService": "New service",
+      "emptyTitle": "No services yet",
+      "emptyDescription": "Add what you sell - hourly design, a fixed-fee milestone - with its SAC/HSN code and tax rate.",
+      "addService": "Add a service",
+      "restoreTitle": "Restore {name}?",
+      "archiveTitle": "Archive {name}?",
+      "deleteTitle": "Delete {name}?",
+      "editMetaTitle": "Edit service",
+      "editTitle": "Edit {name}"
+    },
+    "products": {
+      "title": "Products",
+      "description": "Goods you sell, each with a SKU. Picking a product copies its values onto the invoice line.",
+      "newProduct": "New product",
+      "emptyTitle": "No products yet",
+      "emptyDescription": "Add the goods you sell with a SKU, HSN code, unit price and tax rate.",
+      "addProduct": "Add a product",
+      "restoreTitle": "Restore {sku}?",
+      "archiveTitle": "Archive {sku}?",
+      "deleteTitle": "Delete {sku}?",
+      "editMetaTitle": "Edit product",
+      "editTitle": "Edit {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Unique code printed under the line description",
+      "name": "Name",
+      "unit": "Unit",
+      "defaultRate": "Default rate",
+      "unitPrice": "Unit price",
+      "currency": "Currency",
+      "sacHsnCode": "SAC / HSN code",
+      "sacHsnHint": "Required on GST invoices",
+      "hsnCode": "HSN code",
+      "hsnHint": "Required on GST invoices for goods",
+      "defaultTaxRate": "Default tax rate (%)",
+      "description": "Description",
+      "descriptionHint": "Pre-fills the line description",
+      "active": "Active",
+      "serviceInactiveHint": "Inactive services stay out of the invoice picker",
+      "productInactiveHint": "Inactive products stay out of the invoice picker",
+      "saveService": "Save service",
+      "saveProduct": "Save product"
+    },
+    "tags": {
+      "legend": "Profiles",
+      "hint": "Tick the issuer profiles that sell this. Leave all unticked to offer it to every profile."
+    }
+  },
+  "address": {
+    "line1": "Address line 1",
+    "line2": "Address line 2",
+    "city": "City",
+    "stateRegion": "State / region",
+    "postalCode": "Postal code",
+    "country": "Country",
+    "state": "State",
+    "gstStateCodeHint": "GST state code {code}",
+    "pickStateHint": "Pick the state for the GST state code",
+    "stateRegionCode": "State / region code",
+    "stateRegionCodePlaceholder": "e.g. CA"
+  },
+  "assets": {
+    "tooLarge": "That file is too large.",
+    "unsupportedReceipt": "Use a PNG, JPEG, WebP image or a PDF.",
+    "unsupportedImage": "Use a PNG, JPEG or WebP image.",
+    "uploadFailed": "Upload failed.",
+    "uploading": "Uploading…"
+  },
+  "ui": {
+    "breadcrumb": "Breadcrumb",
+    "close": "Close",
+    "closeMenu": "Close menu",
+    "inputCharset": "Only standard keyboard characters are allowed.",
+    "confirm": {
+      "working": "Working…"
+    },
+    "statusPill": {
+      "DRAFT": "Draft",
+      "ISSUED": "Issued",
+      "SENT": "Sent",
+      "PARTIALLY_PAID": "Partially paid",
+      "PAID": "Paid",
+      "OVERDUE": "Overdue",
+      "VOID": "Void"
+    },
+    "activePill": {
+      "active": "Active",
+      "archived": "Archived",
+      "inactive": "Inactive"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Something went wrong.",
+    "fixFields": "Please correct the highlighted fields.",
+    "accountSaved": "Account preferences saved",
+    "apiKeyCreated": "API key created. Copy it now: it is shown only once.",
+    "saved": "Saved {name}",
+    "savedProfile": "Saved profile {label}",
+    "clientArchived": "Client archived",
+    "clientRestored": "Client restored",
+    "clientDeleted": "Client deleted",
+    "productArchived": "Product archived",
+    "productRestored": "Product restored",
+    "productActivated": "Product activated",
+    "productDeactivated": "Product deactivated",
+    "serviceArchived": "Service archived",
+    "serviceRestored": "Service restored",
+    "serviceActivated": "Service activated",
+    "serviceDeactivated": "Service deactivated",
+    "defaultProfileUpdated": "Default profile updated",
+    "profileArchived": "Profile archived",
+    "profileRestored": "Profile restored",
+    "profileDeleted": "Profile deleted",
+    "defaultPaymentMethodUpdated": "Default payment method updated",
+    "paymentMethodArchived": "Payment method archived",
+    "paymentMethodRestored": "Payment method restored",
+    "paymentMethodDeleted": "Payment method deleted",
+    "issued": "Issued {number}",
+    "savedAsDraft": "Saved as draft. {reason}",
+    "draftSaved": "Draft saved",
+    "invoiceVoided": "Invoice voided",
+    "originalVoided": "Original voided; edit the replacement draft",
+    "markedAsSent": "Marked as sent",
+    "draftDeleted": "Draft deleted",
+    "generatedPdf": "Generated PDF version {version}",
+    "creditNoteVoided": "Credit note voided; the invoice balance is restored",
+    "draftCreditNoteDeleted": "Draft credit note deleted",
+    "mailRefused": "The mail server refused the message: {error}. The attempt was logged.",
+    "unknownError": "unknown error",
+    "sentTo": "Sent to {recipients}",
+    "smtpSaved": "SMTP settings saved",
+    "smtpRemoved": "Stored SMTP settings removed",
+    "testEmailSent": "Test email sent to {email}",
+    "testFailed": "Test failed: {error}",
+    "defaultRecipientsSaved": "Default recipients saved",
+    "invitationSent": "Invitation sent",
+    "invitationReady": "Invitation ready",
+    "unknownRole": "Unknown role",
+    "roleUpdated": "Role updated",
+    "accountDeactivated": "Account deactivated",
+    "accountReactivated": "Account reactivated",
+    "invitationRevoked": "Invitation revoked",
+    "paymentUpdated": "Payment updated",
+    "paymentRecorded": "Payment recorded",
+    "paymentDeleted": "Payment deleted",
+    "sessionRevoked": "Session revoked",
+    "noOtherSessions": "No other sessions",
+    "signedOutOthers": "Signed out of {count} other session(s)",
+    "sharePasswordRequired": "Enter a password, or let one be generated.",
+    "shareLinkCreated": "Share link created.",
+    "templateSaved": "Template saved; future documents use it",
+    "templateReset": "Template reset to the built-in default",
+    "templateImported": "Template imported",
+    "profileTemplateCleared": "Profile uses the instance template again",
+    "operatorSaved": "Operator details saved. The legal pages now show them."
   }
 }

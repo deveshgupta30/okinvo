@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import { getTranslations } from "next-intl/server";
 import { ProfileForm } from "@/components/forms/profile-form";
 import { PageHeader } from "@/components/ui/page-header";
 import { env } from "@/lib/env";
@@ -8,7 +9,10 @@ import { actorFromSession } from "@/server/actor";
 import { requireOwner, requireUser } from "@/server/auth";
 import { getAccount } from "@/server/dal/users";
 
-export const metadata: Metadata = { title: "New issuer profile" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("settings.profiles.new");
+  return { title: t("metaTitle") };
+}
 
 export default async function NewProfilePage({
   searchParams,
@@ -16,6 +20,7 @@ export default async function NewProfilePage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   await requireOwner();
+  const t = await getTranslations("settings.profiles");
   const params = await searchParams;
   let prefill: Record<string, string> | undefined;
   if (params.from === "onboarding") {
@@ -27,13 +32,9 @@ export default async function NewProfilePage({
   return (
     <>
       <PageHeader
-        title="New issuer profile"
-        description={
-          prefill
-            ? "Filled in from your answers; check the address and tax details, then save."
-            : undefined
-        }
-        breadcrumb={[{ href: "/settings/profiles", label: "Profiles" }]}
+        title={t("new.title")}
+        description={prefill ? t("new.prefilled") : undefined}
+        breadcrumb={[{ href: "/settings/profiles", label: t("breadcrumb") }]}
       />
       <ProfileForm profile={null} prefill={prefill} />
     </>

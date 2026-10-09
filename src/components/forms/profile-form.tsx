@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useActionState } from "react";
 import { AddressFields } from "@/components/forms/address-fields";
 import { AssetPicker } from "@/components/forms/asset-picker";
@@ -21,26 +22,26 @@ import { saveProfile } from "@/server/actions/profiles";
 import type { ProfileDto } from "@/server/dal/profiles";
 
 const MONTHS = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+  "january",
+  "february",
+  "march",
+  "april",
+  "may",
+  "june",
+  "july",
+  "august",
+  "september",
+  "october",
+  "november",
+  "december",
+] as const;
 
-const REGIME_LABELS: Record<(typeof TAX_REGIMES)[number], string> = {
-  INDIA_GST: "India GST",
-  UK_VAT: "UK VAT",
-  US_SALES_TAX: "US sales tax",
-  NONE: "No tax",
-};
+const REGIME_KEYS = {
+  INDIA_GST: "indiaGst",
+  UK_VAT: "ukVat",
+  US_SALES_TAX: "usSalesTax",
+  NONE: "none",
+} as const satisfies Record<(typeof TAX_REGIMES)[number], string>;
 
 export function ProfileForm({
   profile,
@@ -50,6 +51,9 @@ export function ProfileForm({
   /** First-run defaults from onboarding (spec §4.2); only used for a new profile. */
   prefill?: Partial<Record<string, string>> | undefined;
 }) {
+  const t = useTranslations("settings.profiles.form");
+  const tp = useTranslations("settings.profiles");
+  const tc = useTranslations("common");
   const [state, action] = useActionState(saveProfile.bind(null, profile?.id ?? null), null);
   const values = state?.values;
   const errors = state?.fieldErrors;
@@ -63,49 +67,49 @@ export function ProfileForm({
       <Card>
         <CardHeader>
           <div>
-            <CardTitle>Identity</CardTitle>
-            <CardDescription>Who the invoice is from.</CardDescription>
+            <CardTitle>{t("identityTitle")}</CardTitle>
+            <CardDescription>{t("identityDescription")}</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
           <FieldGroup>
-            <Field label="Type" htmlFor="type" error={errors?.type} required>
+            <Field label={t("type")} htmlFor="type" error={errors?.type} required>
               <Select id="type" name="type" defaultValue={v("type", profile?.type ?? "INDIVIDUAL")}>
-                <option value="INDIVIDUAL">Individual</option>
-                <option value="COMPANY">Company</option>
+                <option value="INDIVIDUAL">{tp("types.individual")}</option>
+                <option value="COMPANY">{tp("types.company")}</option>
               </Select>
             </Field>
             <Field
-              label="Label"
+              label={t("label")}
               htmlFor="label"
               error={errors?.label}
-              hint="Shown in pickers only"
+              hint={t("labelHint")}
               required
             >
               <Input id="label" name="label" defaultValue={v("label", profile?.label)} />
             </Field>
-            <Field label="Legal name" htmlFor="legalName" error={errors?.legalName} required>
+            <Field label={t("legalName")} htmlFor="legalName" error={errors?.legalName} required>
               <Input
                 id="legalName"
                 name="legalName"
                 defaultValue={v("legalName", profile?.legalName)}
               />
             </Field>
-            <Field label="Trade name" htmlFor="tradeName" error={errors?.tradeName}>
+            <Field label={t("tradeName")} htmlFor="tradeName" error={errors?.tradeName}>
               <Input
                 id="tradeName"
                 name="tradeName"
                 defaultValue={v("tradeName", profile?.tradeName)}
               />
             </Field>
-            <Field label="Designation" htmlFor="designation" error={errors?.designation}>
+            <Field label={t("designation")} htmlFor="designation" error={errors?.designation}>
               <Input
                 id="designation"
                 name="designation"
                 defaultValue={v("designation", profile?.designation)}
               />
             </Field>
-            <Field label="Email" htmlFor="email" error={errors?.email} required>
+            <Field label={t("email")} htmlFor="email" error={errors?.email} required>
               <Input
                 id="email"
                 name="email"
@@ -113,10 +117,10 @@ export function ProfileForm({
                 defaultValue={v("email", profile?.email)}
               />
             </Field>
-            <Field label="Phone" htmlFor="phone" error={errors?.phone}>
+            <Field label={t("phone")} htmlFor="phone" error={errors?.phone}>
               <Input id="phone" name="phone" defaultValue={v("phone", profile?.phone)} />
             </Field>
-            <Field label="Website" htmlFor="website" error={errors?.website}>
+            <Field label={t("website")} htmlFor="website" error={errors?.website}>
               <Input id="website" name="website" defaultValue={v("website", profile?.website)} />
             </Field>
           </FieldGroup>
@@ -125,7 +129,7 @@ export function ProfileForm({
 
       <Card>
         <CardHeader>
-          <CardTitle>Address</CardTitle>
+          <CardTitle>{t("addressTitle")}</CardTitle>
         </CardHeader>
         <CardContent>
           <FieldGroup>
@@ -149,15 +153,13 @@ export function ProfileForm({
       <Card>
         <CardHeader>
           <div>
-            <CardTitle>Tax identifiers</CardTitle>
-            <CardDescription>
-              Only the ones that apply to you; printing is controlled per invoice.
-            </CardDescription>
+            <CardTitle>{t("taxTitle")}</CardTitle>
+            <CardDescription>{t("taxDescription")}</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
           <FieldGroup>
-            <Field label="PAN" htmlFor="panNumber" error={errors?.panNumber}>
+            <Field label={t("pan")} htmlFor="panNumber" error={errors?.panNumber}>
               <Input
                 id="panNumber"
                 name="panNumber"
@@ -165,7 +167,7 @@ export function ProfileForm({
                 defaultValue={v("panNumber", profile?.panNumber)}
               />
             </Field>
-            <Field label="GSTIN" htmlFor="gstin" error={errors?.gstin}>
+            <Field label={t("gstin")} htmlFor="gstin" error={errors?.gstin}>
               <Input
                 id="gstin"
                 name="gstin"
@@ -173,7 +175,7 @@ export function ProfileForm({
                 defaultValue={v("gstin", profile?.gstin)}
               />
             </Field>
-            <Field label="CIN" htmlFor="cinNumber" error={errors?.cinNumber}>
+            <Field label={t("cin")} htmlFor="cinNumber" error={errors?.cinNumber}>
               <Input
                 id="cinNumber"
                 name="cinNumber"
@@ -181,7 +183,7 @@ export function ProfileForm({
                 defaultValue={v("cinNumber", profile?.cinNumber)}
               />
             </Field>
-            <Field label="UK VAT number" htmlFor="ukVatNumber" error={errors?.ukVatNumber}>
+            <Field label={t("ukVatNumber")} htmlFor="ukVatNumber" error={errors?.ukVatNumber}>
               <Input
                 id="ukVatNumber"
                 name="ukVatNumber"
@@ -190,10 +192,10 @@ export function ProfileForm({
               />
             </Field>
             <Field
-              label="US EIN / SSN"
+              label={t("usTaxId")}
               htmlFor="usTaxId"
               error={errors?.usTaxId}
-              hint="Encrypted at rest"
+              hint={t("usTaxIdHint")}
             >
               <Input
                 id="usTaxId"
@@ -203,10 +205,10 @@ export function ProfileForm({
               />
             </Field>
             <Field
-              label="LUT number"
+              label={t("lutNumber")}
               htmlFor="lutNumber"
               error={errors?.lutNumber}
-              hint="For exports without IGST"
+              hint={t("lutNumberHint")}
             >
               <Input
                 id="lutNumber"
@@ -216,10 +218,10 @@ export function ProfileForm({
               />
             </Field>
             <Field
-              label="LUT financial year"
+              label={t("lutFiscalYear")}
               htmlFor="lutFiscalYear"
               error={errors?.lutFiscalYear}
-              hint="e.g. 2026-27"
+              hint={t("lutFiscalYearHint")}
             >
               <Input
                 id="lutFiscalYear"
@@ -234,12 +236,12 @@ export function ProfileForm({
 
       <Card>
         <CardHeader>
-          <CardTitle>Defaults</CardTitle>
+          <CardTitle>{t("defaultsTitle")}</CardTitle>
         </CardHeader>
         <CardContent>
           <FieldGroup>
             <Field
-              label="Base currency"
+              label={t("baseCurrency")}
               htmlFor="baseCurrency"
               error={errors?.baseCurrency}
               required
@@ -257,10 +259,10 @@ export function ProfileForm({
               </Select>
             </Field>
             <Field
-              label="Document locale"
+              label={t("locale")}
               htmlFor="locale"
               error={errors?.locale}
-              hint="Number and date formatting on documents"
+              hint={t("localeHint")}
               required
             >
               <Select
@@ -276,7 +278,7 @@ export function ProfileForm({
               </Select>
             </Field>
             <Field
-              label="Fiscal year starts in"
+              label={t("fiscalYearStart")}
               htmlFor="fiscalYearStartMonth"
               error={errors?.fiscalYearStartMonth}
               required
@@ -288,13 +290,13 @@ export function ProfileForm({
               >
                 {MONTHS.map((m, i) => (
                   <option key={m} value={i + 1}>
-                    {m}
+                    {t(`months.${m}`)}
                   </option>
                 ))}
               </Select>
             </Field>
             <Field
-              label="Default tax regime"
+              label={t("taxRegime")}
               htmlFor="defaultTaxRegime"
               error={errors?.defaultTaxRegime}
               required
@@ -306,16 +308,18 @@ export function ProfileForm({
               >
                 {TAX_REGIMES.map((r) => (
                   <option key={r} value={r}>
-                    {REGIME_LABELS[r]}
+                    {t(`regimes.${REGIME_KEYS[r]}`)}
                   </option>
                 ))}
               </Select>
             </Field>
             <Field
-              label="Invoice number format"
+              label={t("invoiceNumberFormat")}
               htmlFor="invoiceNumberFormat"
               error={errors?.invoiceNumberFormat}
-              hint="Tokens: {FY} {FYYYY} {YYYY} {YY} {MM} {SEQ} {SEQ:n}"
+              hint={t("invoiceNumberFormatHint", {
+                tokens: "{FY} {FYYYY} {YYYY} {YY} {MM} {SEQ} {SEQ:n}",
+              })}
               required
             >
               <Input
@@ -329,7 +333,7 @@ export function ProfileForm({
               />
             </Field>
             <Field
-              label="Credit note number format"
+              label={t("creditNoteNumberFormat")}
               htmlFor="creditNoteNumberFormat"
               error={errors?.creditNoteNumberFormat}
               required
@@ -345,10 +349,10 @@ export function ProfileForm({
               />
             </Field>
             <Field
-              label="Expected TDS rate (%)"
+              label={t("tdsRate")}
               htmlFor="defaultTdsRate"
               error={errors?.defaultTdsRate}
-              hint="Informational, printed as expected deduction"
+              hint={t("tdsRateHint")}
             >
               <Input
                 id="defaultTdsRate"
@@ -361,14 +365,14 @@ export function ProfileForm({
               />
             </Field>
           </FieldGroup>
-          <Field label="Default notes" htmlFor="defaultNotes" error={errors?.defaultNotes}>
+          <Field label={t("defaultNotes")} htmlFor="defaultNotes" error={errors?.defaultNotes}>
             <Textarea
               id="defaultNotes"
               name="defaultNotes"
               defaultValue={v("defaultNotes", profile?.defaultNotes)}
             />
           </Field>
-          <Field label="Default terms" htmlFor="defaultTerms" error={errors?.defaultTerms}>
+          <Field label={t("defaultTerms")} htmlFor="defaultTerms" error={errors?.defaultTerms}>
             <Textarea
               id="defaultTerms"
               name="defaultTerms"
@@ -381,10 +385,8 @@ export function ProfileForm({
       <Card>
         <CardHeader>
           <div>
-            <CardTitle>What prints by default</CardTitle>
-            <CardDescription>
-              Each invoice copies these and can change them individually.
-            </CardDescription>
+            <CardTitle>{t("printTitle")}</CardTitle>
+            <CardDescription>{t("printDescription")}</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
@@ -398,20 +400,21 @@ export function ProfileForm({
       <Card>
         <CardHeader>
           <div>
-            <CardTitle>Email</CardTitle>
+            <CardTitle>{t("emailTitle")}</CardTitle>
             <CardDescription>
-              Defaults for the send composer. Placeholders:{" "}
-              {PLACEHOLDER_HELP.map((p) => p.token).join(" ")}
+              {t("emailDescription", {
+                placeholders: PLACEHOLDER_HELP.map((p) => p.token).join(" "),
+              })}
             </CardDescription>
           </div>
         </CardHeader>
         <CardContent>
           <FieldGroup>
             <Field
-              label="Default CC"
+              label={t("emailCc")}
               htmlFor="emailCc"
               error={errors?.emailCc}
-              hint="Comma-separated"
+              hint={t("commaSeparated")}
             >
               <Input
                 id="emailCc"
@@ -420,10 +423,10 @@ export function ProfileForm({
               />
             </Field>
             <Field
-              label="Default BCC"
+              label={t("emailBcc")}
               htmlFor="emailBcc"
               error={errors?.emailBcc}
-              hint="Comma-separated"
+              hint={t("commaSeparated")}
             >
               <Input
                 id="emailBcc"
@@ -432,10 +435,10 @@ export function ProfileForm({
               />
             </Field>
             <Field
-              label="Invoice subject"
+              label={t("invoiceSubject")}
               htmlFor="emailInvoiceSubject"
               error={errors?.emailInvoiceSubject}
-              hint="Blank uses the built-in template"
+              hint={t("invoiceSubjectHint")}
             >
               <Input
                 id="emailInvoiceSubject"
@@ -444,7 +447,7 @@ export function ProfileForm({
               />
             </Field>
             <Field
-              label="Credit note subject"
+              label={t("creditNoteSubject")}
               htmlFor="emailCreditNoteSubject"
               error={errors?.emailCreditNoteSubject}
             >
@@ -454,7 +457,11 @@ export function ProfileForm({
                 defaultValue={v("emailCreditNoteSubject", profile?.emailCreditNoteSubject)}
               />
             </Field>
-            <Field label="Invoice body" htmlFor="emailInvoiceBody" error={errors?.emailInvoiceBody}>
+            <Field
+              label={t("invoiceBody")}
+              htmlFor="emailInvoiceBody"
+              error={errors?.emailInvoiceBody}
+            >
               <Textarea
                 id="emailInvoiceBody"
                 name="emailInvoiceBody"
@@ -463,7 +470,7 @@ export function ProfileForm({
               />
             </Field>
             <Field
-              label="Credit note body"
+              label={t("creditNoteBody")}
               htmlFor="emailCreditNoteBody"
               error={errors?.emailCreditNoteBody}
             >
@@ -481,10 +488,8 @@ export function ProfileForm({
       <Card>
         <CardHeader>
           <div>
-            <CardTitle>Artwork</CardTitle>
-            <CardDescription>
-              PNG, JPEG or WebP up to 2 MB; signature and stamp keep transparency.
-            </CardDescription>
+            <CardTitle>{t("artworkTitle")}</CardTitle>
+            <CardDescription>{t("artworkDescription")}</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
@@ -492,25 +497,25 @@ export function ProfileForm({
             <AssetPicker
               name="logoAssetId"
               kind="LOGO"
-              label="Logo"
+              label={t("logo")}
               assetId={profile?.logoAssetId}
               assetKey={profile?.logoKey}
             />
             <AssetPicker
               name="signatureAssetId"
               kind="SIGNATURE"
-              label="Signature"
+              label={t("signature")}
               assetId={profile?.signatureAssetId}
               assetKey={profile?.signatureKey}
-              hint="Transparent PNG"
+              hint={t("transparentPng")}
             />
             <AssetPicker
               name="stampAssetId"
               kind="STAMP"
-              label="Stamp"
+              label={t("stamp")}
               assetId={profile?.stampAssetId}
               assetKey={profile?.stampKey}
-              hint="Transparent PNG"
+              hint={t("transparentPng")}
             />
           </div>
         </CardContent>
@@ -526,9 +531,9 @@ export function ProfileForm({
       />
 
       <div className="flex items-center gap-2">
-        <SubmitButton pendingLabel="Saving…">Save profile</SubmitButton>
+        <SubmitButton pendingLabel={tc("saving")}>{t("save")}</SubmitButton>
         <Button asChild variant="tertiary">
-          <Link href="/settings/profiles">Cancel</Link>
+          <Link href="/settings/profiles">{tc("cancel")}</Link>
         </Button>
       </div>
     </form>

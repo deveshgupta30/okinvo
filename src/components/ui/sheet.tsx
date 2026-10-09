@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Dialog as Radix } from "radix-ui";
 import { cn } from "@/lib/utils";
 
@@ -17,6 +18,7 @@ export function SheetContent({
   children,
   ...props
 }: React.ComponentProps<typeof Radix.Content>) {
+  const t = useTranslations("ui");
   return (
     <Radix.Portal>
       <Radix.Overlay className="fixed inset-0 z-50 bg-semantic-overlay/70 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0 motion-reduce:animate-none" />
@@ -30,7 +32,7 @@ export function SheetContent({
         {children}
         <Radix.Close
           className="absolute top-3 right-3 rounded-sm p-1 text-ink-subtle hover:text-ink focus-visible:ring-2 focus-visible:ring-ring/50"
-          aria-label="Close menu"
+          aria-label={t("closeMenu")}
         >
           <X className="size-4" strokeWidth={1.5} />
         </Radix.Close>

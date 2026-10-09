@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mono } from "@/components/ui/mono";
@@ -9,10 +10,10 @@ import { formatDateTime } from "@/lib/format";
 import { requireRole } from "@/server/auth";
 import { collectStatus, type Health } from "@/server/status";
 
-export const metadata: Metadata = {
-  title: "Status",
-  description: "Version, database, storage, e-mail and backup health of this instance.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("settings.status");
+  return { title: t("metaTitle"), description: t("metaDescription") };
+}
 
 export const dynamic = "force-dynamic";
 
@@ -22,50 +23,72 @@ const TONE: Record<Health, Tone> = {
   failed: "danger",
   "n/a": "muted",
 };
-const LABEL: Record<Health, string> = {
-  ok: "OK",
-  warning: "Warning",
-  failed: "Failed",
-  "n/a": "Not configured",
-};
+/** Health value to the catalogue key of its label under `health`. */
+const HEALTH_KEY = {
+  ok: "ok",
+  warning: "warning",
+  failed: "failed",
+  "n/a": "na",
+} as const satisfies Record<Health, string>;
 
-function Row({ name, health, detail }: { name: string; health: Health; detail: React.ReactNode }) {
+/** `name` is the stable `data-status-row` id; `label` is what the row shows. */
+function Row({
+  name,
+  label,
+  healthLabel,
+  health,
+  detail,
+}: {
+  name: string;
+  label: string;
+  healthLabel: string;
+  health: Health;
+  detail: React.ReactNode;
+}) {
   return (
     <div
       data-status-row={name}
       className="grid gap-1 border-b border-hairline py-3 last:border-0 sm:grid-cols-[10rem_8rem_1fr] sm:items-start sm:gap-4"
     >
-      <span className="text-app-label text-ink">{name}</span>
+      <span className="text-app-label text-ink">{label}</span>
       <span>
-        <Pill tone={TONE[health]}>{LABEL[health]}</Pill>
+        <Pill tone={TONE[health]}>{healthLabel}</Pill>
       </span>
       <span className="text-app-caption text-ink-subtle">{detail}</span>
     </div>
   );
 }
 
-function uptime(seconds: number): string {
-  const d = Math.floor(seconds / 86_400);
-  const h = Math.floor((seconds % 86_400) / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  return d > 0 ? `${d}d ${h}h ${m}m` : h > 0 ? `${h}h ${m}m` : `${m}m`;
-}
-
 export default async function StatusPage() {
   const actor = await requireRole("VIEWER");
+  const t = await getTranslations("settings.status");
+  const tc = await getTranslations("common");
   const s = await collectStatus();
   const when = (iso: string | null) =>
-    iso ? formatDateTime(new Date(iso), "en-GB", actor.timezone) : "—";
+    iso ? formatDateTime(new Date(iso), "en-GB", actor.timezone) : tc("emptyValue");
+  const uptime = (seconds: number): string => {
+    const d = Math.floor(seconds / 86_400);
+    const h = Math.floor((seconds % 86_400) / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    return d > 0
+      ? t("uptime.days", { d, h, m })
+      : h > 0
+        ? t("uptime.hours", { h, m })
+        : t("uptime.minutes", { m });
+  };
+  const healthLabel = (health: Health) => t(`health.${HEALTH_KEY[health]}`);
+  const mono = (chunks: React.ReactNode) => <Mono>{chunks}</Mono>;
   const overallTone: Tone =
     s.overall === "ok" ? "success" : s.overall === "degraded" ? "warning" : "danger";
+  const backupStatus = s.backups.view.status;
   return (
     <>
       <PageHeader
-        title="Status"
-        description="What this instance is running and whether its parts answer."
+        title={t("title")}
+        description={t("description")}
         actions={
           <Button asChild variant="secondary">
-            <Link href="/settings/status">Re-check</Link>
+            <Link href="/settings/status">{t("recheck")}</Link>
           </Button>
         }
       />
@@ -73,108 +96,118 @@ export default async function StatusPage() {
         <CardHeader>
           <div className="flex flex-wrap items-center gap-3">
             <CardTitle>
-              okinvo <Mono data-status-version>{s.version.app}</Mono>
+              {tc("appName")} <Mono data-status-version>{s.version.app}</Mono>
             </CardTitle>
             <Pill tone={overallTone}>
-              {s.overall === "ok" ? "All good" : s.overall === "degraded" ? "Degraded" : "Failed"}
+              {s.overall === "ok"
+                ? t("overall.ok")
+                : s.overall === "degraded"
+                  ? t("overall.degraded")
+                  : t("overall.failed")}
             </Pill>
           </div>
           <CardDescription>
-            Build {s.version.sha ? <Mono>{s.version.sha.slice(0, 12)}</Mono> : "(sha unknown)"} ·
-            built {s.version.builtAt ? when(s.version.builtAt) : "(date unknown)"} · Node{" "}
-            <Mono>{s.version.node}</Mono> · up {uptime(s.uptimeSeconds)} · checked{" "}
-            {when(s.checkedAt)}
+            {t.rich("version", {
+              hasSha: s.version.sha ? "yes" : "no",
+              sha: s.version.sha ? s.version.sha.slice(0, 12) : "",
+              built: s.version.builtAt ? when(s.version.builtAt) : t("dateUnknown"),
+              node: s.version.node,
+              uptime: uptime(s.uptimeSeconds),
+              checked: when(s.checkedAt),
+              mono,
+            })}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Row
             name="Database"
+            label={t("rows.database")}
+            healthLabel={healthLabel(s.db.health)}
             health={s.db.health}
             detail={
-              s.db.health === "failed" ? (
-                s.db.error
-              ) : (
-                <>
-                  {s.db.latencyMs} ms · last migration{" "}
-                  <Mono>{s.db.lastMigration?.name ?? "none"}</Mono>
-                  {s.db.lastMigration ? ` (${when(s.db.lastMigration.finishedAt)})` : ""}
-                  {s.db.pending > 0 ? ` · ${s.db.pending} unfinished migration(s)` : ""}
-                </>
-              )
+              s.db.health === "failed"
+                ? s.db.error
+                : t.rich("db.detail", {
+                    latency: s.db.latencyMs ?? "",
+                    migration: s.db.lastMigration?.name ?? t("db.noMigration"),
+                    hasDate: s.db.lastMigration ? "yes" : "no",
+                    finishedAt: s.db.lastMigration ? when(s.db.lastMigration.finishedAt) : "",
+                    pending: s.db.pending,
+                    mono,
+                  })
             }
           />
           <Row
             name="Storage"
+            label={t("rows.storage")}
+            healthLabel={healthLabel(s.storage.health)}
             health={s.storage.health}
             detail={
-              s.storage.health === "failed" ? (
-                `${s.storage.driver}: ${s.storage.error}`
-              ) : (
-                <>
-                  <Mono>{s.storage.driver}</Mono> · write, read and delete of a probe object in{" "}
-                  {s.storage.latencyMs} ms
-                </>
-              )
+              s.storage.health === "failed"
+                ? t("storage.failed", { driver: s.storage.driver, error: s.storage.error ?? "" })
+                : t.rich("storage.detail", {
+                    driver: s.storage.driver,
+                    latency: s.storage.latencyMs ?? "",
+                    mono,
+                  })
             }
           />
           <Row
             name="Rate limiting"
+            label={t("rows.rateLimiting")}
+            healthLabel={healthLabel("ok")}
             health="ok"
-            detail={
-              <>
-                <Mono>{s.rateLimitStore}</Mono> store
-                {s.rateLimitStore === "memory" ? " (one replica)" : " (shared across replicas)"}
-              </>
-            }
+            detail={t.rich("rateLimit", { store: s.rateLimitStore, mono })}
           />
           <Row
             name="E-mail"
+            label={t("rows.email")}
+            healthLabel={healthLabel(s.smtp.health)}
             health={s.smtp.health}
             detail={
-              s.smtp.configured ? (
-                <>
-                  SMTP from {s.smtp.source} · last test {when(s.smtp.lastTestAt)} · last 24 h:{" "}
-                  {s.email24h.sent} sent, {s.email24h.failed} failed
-                </>
-              ) : (
-                <>
-                  No SMTP server; the composer offers &ldquo;Open in mail app&rdquo;.{" "}
-                  <Link href="/settings/email" className="text-link">
-                    Configure
-                  </Link>
-                </>
-              )
+              s.smtp.configured
+                ? t("smtp.configured", {
+                    source: s.smtp.source ?? "none",
+                    lastTest: when(s.smtp.lastTestAt),
+                    sent: s.email24h.sent,
+                    failed: s.email24h.failed,
+                  })
+                : t.rich("smtp.none", {
+                    link: (chunks) => (
+                      <Link href="/settings/email" className="text-link">
+                        {chunks}
+                      </Link>
+                    ),
+                  })
             }
           />
           <Row
             name="Backups"
+            label={t("rows.backups")}
+            healthLabel={healthLabel(s.backups.health)}
             health={s.backups.health}
             detail={
-              !s.backups.view.configured ? (
-                "No backup service wired (BACKUP_STATUS_FILE unset)."
-              ) : s.backups.view.problem ? (
-                s.backups.view.problem
-              ) : !s.backups.view.status ? (
-                "Backup service wired; no run recorded yet."
-              ) : (
-                <>
-                  {s.backups.view.status.ok
-                    ? "Last run succeeded"
-                    : `Last run failed: ${s.backups.view.status.error}`}{" "}
-                  at {when(s.backups.view.status.finishedAt)}
-                  {s.backups.view.status.retentionDays
-                    ? ` · retention ${s.backups.view.status.retentionDays} days`
-                    : ""}
-                </>
-              )
+              !s.backups.view.configured
+                ? t("backups.notWired")
+                : s.backups.view.problem
+                  ? s.backups.view.problem
+                  : !backupStatus
+                    ? t("backups.noRun")
+                    : backupStatus.ok
+                      ? t("backups.ok", {
+                          finishedAt: when(backupStatus.finishedAt),
+                          days: backupStatus.retentionDays ?? 0,
+                        })
+                      : t("backups.failed", {
+                          error: backupStatus.error ?? "",
+                          finishedAt: when(backupStatus.finishedAt),
+                          days: backupStatus.retentionDays ?? 0,
+                        })
             }
           />
         </CardContent>
       </Card>
-      <p className="mt-4 text-app-caption text-ink-tertiary">
-        The same report is available as JSON at <Mono>/api/health/status</Mono> for monitoring
-        (signed-in session or API key).
-      </p>
+      <p className="mt-4 text-app-caption text-ink-tertiary">{t.rich("footer", { mono })}</p>
     </>
   );
 }

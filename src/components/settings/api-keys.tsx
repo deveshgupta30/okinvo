@@ -1,6 +1,7 @@
 "use client";
 
 import { Check, Copy } from "lucide-react";
+import { useTranslations } from "next-intl";
 import * as React from "react";
 import { useActionState } from "react";
 import { FormMessage } from "@/components/forms/form-message";
@@ -10,17 +11,30 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
-import { SCOPE_LABELS, type Scope } from "@/lib/api/scopes";
+import type { Scope } from "@/lib/api/scopes";
 import { createApiKeyAction } from "@/server/actions/api-keys";
 
+/** Scope id (data, shown as the description) to the catalogue key of its label under `scopes`. */
+const SCOPE_KEYS = {
+  "invoices:read": "invoicesRead",
+  "invoices:create": "invoicesCreate",
+  "credit_notes:read": "creditNotesRead",
+  "credit_notes:create": "creditNotesCreate",
+  "catalogue:read": "catalogueRead",
+  "documents:read": "documentsRead",
+  "status:read": "statusRead",
+} as const satisfies Record<Scope, string>;
+
 function CopyKey({ value }: { value: string }) {
+  const t = useTranslations("settings.api.form");
+  const tc = useTranslations("common");
   const [done, setDone] = React.useState(false);
   return (
     <Button
       type="button"
       variant="secondary"
       size="sm"
-      aria-label="Copy API key"
+      aria-label={t("copyKey")}
       onClick={async () => {
         try {
           await navigator.clipboard.writeText(value);
@@ -36,13 +50,14 @@ function CopyKey({ value }: { value: string }) {
       ) : (
         <Copy className="size-3.5" strokeWidth={1.5} />
       )}
-      {done ? "Copied" : "Copy"}
+      {done ? tc("copied") : tc("copy")}
     </Button>
   );
 }
 
 /** Create form with scope checkboxes limited to the role's ceiling; the key is revealed once. */
 export function CreateApiKeyForm({ allowed }: { allowed: Scope[] }) {
+  const t = useTranslations("settings.api");
   const [state, action] = useActionState(createApiKeyAction, null);
   const errors = state && !state.ok ? state.fieldErrors : undefined;
   return (
@@ -66,25 +81,25 @@ export function CreateApiKeyForm({ allowed }: { allowed: Scope[] }) {
       <form action={action} className="flex flex-col gap-4">
         <FormMessage state={state && !state.ok ? state : null} />
         <FieldGroup>
-          <Field label="Name" htmlFor="api-key-name" error={errors?.name} required>
+          <Field label={t("form.name")} htmlFor="api-key-name" error={errors?.name} required>
             <Input
               id="api-key-name"
               name="name"
               maxLength={60}
-              placeholder="e.g. accounting script"
+              placeholder={t("form.namePlaceholder")}
             />
           </Field>
-          <Field label="Expires" htmlFor="api-key-expires">
+          <Field label={t("form.expires")} htmlFor="api-key-expires">
             <Select id="api-key-expires" name="expires" defaultValue="90">
-              <option value="30">In 30 days</option>
-              <option value="90">In 90 days</option>
-              <option value="365">In a year</option>
-              <option value="never">Never</option>
+              <option value="30">{t("form.in30Days")}</option>
+              <option value="90">{t("form.in90Days")}</option>
+              <option value="365">{t("form.inAYear")}</option>
+              <option value="never">{t("form.never")}</option>
             </Select>
           </Field>
         </FieldGroup>
-        <fieldset className="flex flex-col gap-2" aria-label="Scopes">
-          <legend className="mb-1 text-app-label text-ink-subtle">Scopes</legend>
+        <fieldset className="flex flex-col gap-2" aria-label={t("form.scopes")}>
+          <legend className="mb-1 text-app-label text-ink-subtle">{t("form.scopes")}</legend>
           {errors?.scopes ? (
             <p role="alert" className="text-app-caption text-semantic-danger">
               {errors.scopes.join(" ")}
@@ -95,14 +110,14 @@ export function CreateApiKeyForm({ allowed }: { allowed: Scope[] }) {
               key={s}
               name="scopes"
               value={s}
-              label={SCOPE_LABELS[s]}
+              label={t(`scopes.${SCOPE_KEYS[s]}`)}
               description={s}
               defaultChecked={s.endsWith(":read")}
             />
           ))}
         </fieldset>
         <div>
-          <SubmitButton pendingLabel="Creating…">Create API key</SubmitButton>
+          <SubmitButton pendingLabel={t("form.creating")}>{t("form.submit")}</SubmitButton>
         </div>
       </form>
     </div>

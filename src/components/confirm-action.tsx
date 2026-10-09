@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import * as React from "react";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import {
@@ -41,6 +42,8 @@ export function ConfirmAction({
   triggerVariant?: ButtonProps["variant"];
   size?: ButtonProps["size"];
 }) {
+  const tc = useTranslations("common");
+  const t = useTranslations("ui.confirm");
   const [open, setOpen] = React.useState(false);
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -68,9 +71,12 @@ export function ConfirmAction({
           ) : null}
           <DialogFooter>
             <Button type="button" variant="tertiary" onClick={() => setOpen(false)}>
-              Cancel
+              {tc("cancel")}
             </Button>
-            <SubmitButton variant={destructive ? "destructive" : "primary"} pendingLabel="Working…">
+            <SubmitButton
+              variant={destructive ? "destructive" : "primary"}
+              pendingLabel={t("working")}
+            >
               {confirmLabel}
             </SubmitButton>
           </DialogFooter>

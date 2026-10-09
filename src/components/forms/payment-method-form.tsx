@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useActionState, useState } from "react";
 import { FormMessage } from "@/components/forms/form-message";
 import { SubmitButton } from "@/components/submit-button";
@@ -12,22 +13,33 @@ import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { COMMON_CURRENCIES, PAYMENT_METHOD_TYPES, type PaymentMethodType } from "@/lib/schemas";
-import { PAYMENT_METHOD_LABELS } from "@/lib/schemas/payment-method-input";
 import { savePaymentMethod } from "@/server/actions/payment-methods";
 import type { PaymentMethodDto } from "@/server/dal/payment-methods";
 
-const BANK_FIELDS: { key: string; label: string }[] = [
-  { key: "accountHolder", label: "Account holder" },
-  { key: "accountNumber", label: "Account number" },
-  { key: "bankName", label: "Bank name" },
-  { key: "branch", label: "Branch" },
-  { key: "ifsc", label: "IFSC" },
-  { key: "swift", label: "SWIFT / BIC" },
-  { key: "iban", label: "IBAN" },
-  { key: "routingCode", label: "Routing / sort code" },
-];
+const BANK_FIELDS = [
+  "accountHolder",
+  "accountNumber",
+  "bankName",
+  "branch",
+  "ifsc",
+  "swift",
+  "iban",
+  "routingCode",
+] as const;
+
+const TYPE_KEYS = {
+  BANK_TRANSFER: "bankTransfer",
+  UPI: "upi",
+  WISE: "wise",
+  REVOLUT: "revolut",
+  PAYPAL: "paypal",
+  CUSTOM: "custom",
+} as const satisfies Record<PaymentMethodType, string>;
 
 export function PaymentMethodForm({ method }: { method: PaymentMethodDto | null }) {
+  const t = useTranslations("settings.paymentMethods.form");
+  const tm = useTranslations("settings.paymentMethods");
+  const tc = useTranslations("common");
   const [state, action] = useActionState(savePaymentMethod.bind(null, method?.id ?? null), null);
   const values = state?.values;
   const errors = state?.fieldErrors;
@@ -50,36 +62,36 @@ export function PaymentMethodForm({ method }: { method: PaymentMethodDto | null 
         <CardContent>
           <FieldGroup>
             <Field
-              label="Name"
+              label={t("name")}
               htmlFor="name"
               error={errors?.name}
-              hint="Printed as the heading of the payment block"
+              hint={t("nameHint")}
               required
             >
               <Input id="name" name="name" defaultValue={v("name", method?.name)} />
             </Field>
-            <Field label="Type" htmlFor="type" error={errors?.type} required>
+            <Field label={t("type")} htmlFor="type" error={errors?.type} required>
               <Select
                 id="type"
                 name="type"
                 value={type}
                 onChange={(e) => setType(e.target.value as PaymentMethodType)}
               >
-                {PAYMENT_METHOD_TYPES.map((t) => (
-                  <option key={t} value={t}>
-                    {PAYMENT_METHOD_LABELS[t]}
+                {PAYMENT_METHOD_TYPES.map((pt) => (
+                  <option key={pt} value={pt}>
+                    {tm(`types.${TYPE_KEYS[pt]}`)}
                   </option>
                 ))}
               </Select>
             </Field>
             <Field
-              label="Currency"
+              label={t("currency")}
               htmlFor="currency"
               error={errors?.currency}
-              hint="Optional; shown for context only"
+              hint={t("currencyHint")}
             >
               <Select id="currency" name="currency" defaultValue={v("currency", method?.currency)}>
-                <option value="">Any</option>
+                <option value="">{t("anyCurrency")}</option>
                 {COMMON_CURRENCIES.map((c) => (
                   <option key={c} value={c}>
                     {c}
@@ -89,10 +101,10 @@ export function PaymentMethodForm({ method }: { method: PaymentMethodDto | null 
             </Field>
           </FieldGroup>
           <Field
-            label="Instructions"
+            label={t("instructions")}
             htmlFor="instructions"
             error={errors?.instructions}
-            hint="Printed under the details"
+            hint={t("instructionsHint")}
           >
             <Textarea
               id="instructions"
@@ -103,13 +115,13 @@ export function PaymentMethodForm({ method }: { method: PaymentMethodDto | null 
           <div className="flex flex-col gap-2">
             <Checkbox
               name="isDefault"
-              label="Default method"
-              description="Pre-selected on new invoices"
+              label={t("isDefault")}
+              description={t("isDefaultDescription")}
               defaultChecked={values ? values.isDefault === "on" : (method?.isDefault ?? false)}
             />
             <Checkbox
               name="isActive"
-              label="Active"
+              label={t("isActive")}
               defaultChecked={values ? values.isActive === "on" : (method?.isActive ?? true)}
             />
           </div>
@@ -119,10 +131,8 @@ export function PaymentMethodForm({ method }: { method: PaymentMethodDto | null 
       <Card>
         <CardHeader>
           <div>
-            <CardTitle>Details</CardTitle>
-            <CardDescription>
-              Encrypted at rest; snapshotted into each invoice when it is issued.
-            </CardDescription>
+            <CardTitle>{t("detailsTitle")}</CardTitle>
+            <CardDescription>{t("detailsDescription")}</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
@@ -134,7 +144,7 @@ export function PaymentMethodForm({ method }: { method: PaymentMethodDto | null 
           {type === "UPI" ? (
             <FieldGroup>
               <Field
-                label="UPI ID (VPA)"
+                label={t("vpa")}
                 htmlFor="details.vpa"
                 error={errors?.["details.vpa"]}
                 required
@@ -147,7 +157,7 @@ export function PaymentMethodForm({ method }: { method: PaymentMethodDto | null 
                 />
               </Field>
               <Field
-                label="Payee name"
+                label={t("payeeName")}
                 htmlFor="details.payeeName"
                 error={errors?.["details.payeeName"]}
               >
@@ -160,10 +170,10 @@ export function PaymentMethodForm({ method }: { method: PaymentMethodDto | null 
             </FieldGroup>
           ) : type === "CUSTOM" ? (
             <Field
-              label="Lines"
+              label={t("lines")}
               htmlFor="details.linesText"
               error={errors?.["details.lines"]}
-              hint="One line per row, printed as-is"
+              hint={t("linesHint")}
               required
             >
               <Textarea
@@ -177,7 +187,7 @@ export function PaymentMethodForm({ method }: { method: PaymentMethodDto | null 
             <FieldGroup>
               {type !== "BANK_TRANSFER" ? (
                 <Field
-                  label="Account email / handle"
+                  label={t("accountEmail")}
                   htmlFor="details.accountEmail"
                   error={errors?.["details.accountEmail"]}
                 >
@@ -188,18 +198,18 @@ export function PaymentMethodForm({ method }: { method: PaymentMethodDto | null 
                   />
                 </Field>
               ) : null}
-              {BANK_FIELDS.map((f) => (
+              {BANK_FIELDS.map((key) => (
                 <Field
-                  key={f.key}
-                  label={f.label}
-                  htmlFor={`details.${f.key}`}
-                  error={errors?.[`details.${f.key}`]}
+                  key={key}
+                  label={t(`bank.${key}`)}
+                  htmlFor={`details.${key}`}
+                  error={errors?.[`details.${key}`]}
                 >
                   <Input
-                    id={`details.${f.key}`}
-                    name={`details.${f.key}`}
+                    id={`details.${key}`}
+                    name={`details.${key}`}
                     className="font-mono"
-                    defaultValue={d(f.key)}
+                    defaultValue={d(key)}
                   />
                 </Field>
               ))}
@@ -209,9 +219,9 @@ export function PaymentMethodForm({ method }: { method: PaymentMethodDto | null 
       </Card>
 
       <div className="flex items-center gap-2">
-        <SubmitButton pendingLabel="Saving…">Save payment method</SubmitButton>
+        <SubmitButton pendingLabel={tc("saving")}>{t("save")}</SubmitButton>
         <Button asChild variant="tertiary">
-          <Link href="/settings/payment-methods">Cancel</Link>
+          <Link href="/settings/payment-methods">{tc("cancel")}</Link>
         </Button>
       </div>
     </form>

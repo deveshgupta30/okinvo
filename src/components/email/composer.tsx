@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useActionState } from "react";
 import { FormMessage } from "@/components/forms/form-message";
 import { SubmitButton } from "@/components/submit-button";
@@ -21,6 +22,8 @@ export function EmailComposer({
   defaults: ComposerDefaults;
   downloadHref: string;
 }) {
+  const t = useTranslations("email.composer");
+  const tc = useTranslations("common");
   const [state, action] = useActionState(
     sendEmailAction.bind(null, defaults.kind, defaults.id),
     null,
@@ -33,73 +36,65 @@ export function EmailComposer({
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Message</CardTitle>
-              <CardDescription>
-                Pre-filled from the issuer profile&apos;s templates. Nothing is sent until you click
-                Send.
-              </CardDescription>
+              <CardTitle>{t("title")}</CardTitle>
+              <CardDescription>{t("description")}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
             <FormMessage state={state} />
             <FieldGroup>
-              <Field label="To" htmlFor="to" error={errors?.to} hint="Comma-separated" required>
+              <Field label={t("to")} htmlFor="to" error={errors?.to} hint={t("toHint")} required>
                 <Input id="to" name="to" defaultValue={v("to", defaults.to.join(", "))} />
               </Field>
-              <Field label="CC" htmlFor="cc" error={errors?.cc}>
+              <Field label={t("cc")} htmlFor="cc" error={errors?.cc}>
                 <Input id="cc" name="cc" defaultValue={v("cc", defaults.cc.join(", "))} />
               </Field>
-              <Field label="BCC" htmlFor="bcc" error={errors?.bcc}>
+              <Field label={t("bcc")} htmlFor="bcc" error={errors?.bcc}>
                 <Input id="bcc" name="bcc" defaultValue={v("bcc", defaults.bcc.join(", "))} />
               </Field>
             </FieldGroup>
-            <Field label="Subject" htmlFor="subject" error={errors?.subject} required>
+            <Field label={t("subject")} htmlFor="subject" error={errors?.subject} required>
               <Input id="subject" name="subject" defaultValue={v("subject", defaults.subject)} />
             </Field>
             <Field
-              label="Body"
+              label={t("body")}
               htmlFor="body"
               error={errors?.body}
-              hint="Plain text; links become clickable"
+              hint={t("bodyHint")}
               required
             >
               <Textarea id="body" name="body" rows={12} defaultValue={v("body", defaults.body)} />
             </Field>
             <Field
-              label="Attachment"
+              label={t("attachment")}
               htmlFor="attachment"
-              hint={
-                <>
-                  The stored copy, named <Mono className="text-ink">{defaults.attachmentName}</Mono>{" "}
-                  (or .docx); its content cannot be changed.
-                </>
-              }
+              hint={t.rich("attachmentHint", {
+                name: defaults.attachmentName,
+                mono: (chunks) => <Mono className="text-ink">{chunks}</Mono>,
+              })}
             >
               <Select id="attachment" name="attachment" defaultValue={v("attachment", "pdf")}>
-                <option value="pdf">PDF</option>
-                <option value="docx">DOCX (Word)</option>
+                <option value="pdf">{t("pdf")}</option>
+                <option value="docx">{t("docx")}</option>
               </Select>
             </Field>
             <div className="flex flex-wrap items-center gap-2">
               {defaults.smtpAvailable ? (
-                <SubmitButton pendingLabel="Sending…">Send</SubmitButton>
+                <SubmitButton pendingLabel={t("sending")}>{t("send")}</SubmitButton>
               ) : (
                 <Button asChild>
-                  <a href={defaults.mailto}>Open in mail app</a>
+                  <a href={defaults.mailto}>{t("openInMailApp")}</a>
                 </Button>
               )}
               <Button asChild variant="secondary">
-                <a href={downloadHref}>Download PDF</a>
+                <a href={downloadHref}>{tc("downloadPdf")}</a>
               </Button>
               <Button asChild variant="tertiary">
-                <Link href={defaults.backHref}>Cancel</Link>
+                <Link href={defaults.backHref}>{tc("cancel")}</Link>
               </Button>
             </div>
             {!defaults.smtpAvailable ? (
-              <p className="text-app-caption text-ink-subtle">
-                No SMTP server is configured (Settings → Email). Open the draft in your mail app,
-                attach the downloaded PDF, then mark it as sent below.
-              </p>
+              <p className="text-app-caption text-ink-subtle">{t("noSmtp")}</p>
             ) : null}
           </CardContent>
         </Card>
@@ -109,7 +104,7 @@ export function EmailComposer({
           <input type="hidden" name="kind" value={defaults.kind} />
           <input type="hidden" name="id" value={defaults.id} />
           <Button type="submit" variant="secondary">
-            Mark as sent
+            {t("markAsSent")}
           </Button>
         </form>
       ) : null}

@@ -35,7 +35,10 @@ test("letterhead with an uploaded header image at half opacity", async ({ page }
   await expect(preview.locator("img[data-header-image]")).toBeVisible({ timeout: 30_000 });
 
   await page.locator("#headerOpacity").fill("0.5");
-  await expect(preview.locator("img[data-header-image]")).toHaveAttribute("style", /opacity: 0\.5/);
+  await expect(preview.locator("img[data-header-image]")).toHaveAttribute(
+    "style",
+    /opacity:\s*0\.5/,
+  );
 
   const href = await page.getByRole("link", { name: /sample pdf/i }).getAttribute("href");
   const res = await page.request.get(href!);

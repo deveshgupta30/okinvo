@@ -14,8 +14,8 @@ describe("renderNotices", () => {
   it("sorts licences and packages and counts them", () => {
     const out = renderNotices(fixture);
     expect(out.indexOf("### Apache-2.0 (1)")).toBeLessThan(out.indexOf("### MIT (2)"));
-    expect(out.indexOf("- alpha 2.1.0, 2.2.0 — A Person")).toBeLessThan(
-      out.indexOf("- zeta 1.0.0 — Z (https://z.example)"),
+    expect(out.indexOf("- alpha 2.1.0, 2.2.0 - A Person")).toBeLessThan(
+      out.indexOf("- zeta 1.0.0 - Z (https://z.example)"),
     );
     expect(out).toContain("- mid 3.0.0");
     expect(out).toContain("_3 packages under 2 licences._");

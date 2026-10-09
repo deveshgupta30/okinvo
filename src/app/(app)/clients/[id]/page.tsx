@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { ConfirmAction } from "@/components/confirm-action";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -23,10 +24,17 @@ import { NotFoundError } from "@/server/dal/errors";
 import { listInvoices } from "@/server/dal/invoices";
 import { getDefaultProfile } from "@/server/dal/profiles";
 
-export const metadata: Metadata = { title: "Client" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("clients.detail");
+  return { title: t("metaTitle") };
+}
 
 export default async function ClientPage({ params }: { params: Promise<{ id: string }> }) {
   const actor = await requireRole("VIEWER");
+  const t = await getTranslations("clients.detail");
+  const tl = await getTranslations("clients.list");
+  const tc = await getTranslations("common");
+  const tu = await getTranslations("ui");
   const canEdit = hasRole(actor, "EDITOR");
   const { id } = await params;
   const client = await getClient(actor, id).catch((e: unknown) => {
@@ -47,47 +55,47 @@ export default async function ClientPage({ params }: { params: Promise<{ id: str
         title={
           <>
             {client.displayName}
-            {client.archivedAt ? <Pill>Archived</Pill> : null}
+            {client.archivedAt ? <Pill>{tu("activePill.archived")}</Pill> : null}
           </>
         }
-        breadcrumb={[{ href: "/clients", label: "Clients" }]}
+        breadcrumb={[{ href: "/clients", label: tl("title") }]}
         actions={
           canEdit ? (
             <>
               <Button asChild variant="secondary">
-                <Link href={`/invoices/new?client=${client.id}`}>New invoice</Link>
+                <Link href={`/invoices/new?client=${client.id}`}>{t("newInvoice")}</Link>
               </Button>
               <Button asChild variant="tertiary">
-                <Link href={`/clients/${client.id}/edit`}>Edit</Link>
+                <Link href={`/clients/${client.id}/edit`}>{tc("edit")}</Link>
               </Button>
               {client.archivedAt ? (
                 <ConfirmAction
                   action={unarchiveClientAction}
-                  title="Restore this client?"
-                  confirmLabel="Restore"
+                  title={t("restoreTitle")}
+                  confirmLabel={tc("restore")}
                   hidden={{ id: client.id, returnTo }}
-                  trigger="Restore"
+                  trigger={tc("restore")}
                   triggerVariant="tertiary"
                 />
               ) : (
                 <ConfirmAction
                   action={archiveClientAction}
-                  title="Archive this client?"
-                  description="It leaves the pickers; invoices and history stay intact."
-                  confirmLabel="Archive"
+                  title={t("archiveTitle")}
+                  description={t("archiveDescription")}
+                  confirmLabel={tc("archive")}
                   hidden={{ id: client.id, returnTo }}
-                  trigger="Archive"
+                  trigger={tc("archive")}
                   triggerVariant="tertiary"
                   destructive
                 />
               )}
               <ConfirmAction
                 action={deleteClientAction}
-                title="Delete this client?"
-                description="Only possible while no invoice references the client."
-                confirmLabel="Delete"
+                title={t("deleteTitle")}
+                description={t("deleteDescription")}
+                confirmLabel={tc("delete")}
                 hidden={{ id: client.id }}
-                trigger="Delete"
+                trigger={tc("delete")}
                 triggerVariant="tertiary"
                 destructive
               />
@@ -98,46 +106,48 @@ export default async function ClientPage({ params }: { params: Promise<{ id: str
       <div className="grid gap-6 lg:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Details</CardTitle>
+            <CardTitle>{t("details")}</CardTitle>
           </CardHeader>
           <CardContent>
             <DescriptionList>
-              <Item label="Contact">{client.contactPerson}</Item>
-              <Item label="Email">{client.email}</Item>
-              <Item label="Phone">{client.phone}</Item>
-              <Item label="Country" mono>
+              <Item label={t("contact")}>{client.contactPerson}</Item>
+              <Item label={t("email")}>{client.email}</Item>
+              <Item label={t("phone")}>{client.phone}</Item>
+              <Item label={t("country")} mono>
                 {client.countryCode}
                 {client.stateCode ? ` · ${client.stateCode}` : ""}
-                {client.gstStateCode ? ` · GST ${client.gstStateCode}` : ""}
+                {client.gstStateCode ? ` · ${t("gstState", { code: client.gstStateCode })}` : ""}
               </Item>
-              <Item label="Tax ID" mono>
+              <Item label={t("taxId")} mono>
                 {client.taxId ? `${client.taxIdType ?? ""} ${client.taxId}`.trim() : null}
               </Item>
-              <Item label="Currency" mono>
+              <Item label={t("currency")} mono>
                 {client.currency}
               </Item>
-              <Item label="Payment terms">{client.paymentTermsDays} days</Item>
-              <Item label="Expected TDS">
+              <Item label={t("paymentTerms")}>
+                {t("paymentTermsDays", { days: client.paymentTermsDays })}
+              </Item>
+              <Item label={t("expectedTds")}>
                 {client.defaultTdsRate ? `${client.defaultTdsRate}%` : null}
               </Item>
-              <Item label="Notes">{client.notes}</Item>
+              <Item label={t("notes")}>{client.notes}</Item>
             </DescriptionList>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Addresses</CardTitle>
+            <CardTitle>{t("addresses")}</CardTitle>
           </CardHeader>
           <CardContent>
             <DescriptionList>
-              <Item label="Billing">
+              <Item label={t("billing")}>
                 {formatAddressLines(client.billingAddress).map((l) => (
                   <span key={l} className="block">
                     {l}
                   </span>
                 ))}
               </Item>
-              <Item label="Shipping">
+              <Item label={t("shipping")}>
                 {client.shippingAddress
                   ? formatAddressLines(client.shippingAddress).map((l) => (
                       <span key={l} className="block">
@@ -151,28 +161,30 @@ export default async function ClientPage({ params }: { params: Promise<{ id: str
         </Card>
         <Card className="lg:col-span-2">
           <CardHeader>
-            <CardTitle>Lifetime</CardTitle>
+            <CardTitle>{t("lifetime")}</CardTitle>
             <Button asChild variant="link">
-              <Link href={`/invoices?clientId=${client.id}`}>Open the register</Link>
+              <Link href={`/invoices?clientId=${client.id}`}>{t("openRegister")}</Link>
             </Button>
           </CardHeader>
           <CardContent>
             {summary.currencies.length === 0 ? (
               <p className="text-app-body text-ink-subtle">
-                No issued invoices yet{summary.drafts > 0 ? ` (${summary.drafts} draft)` : ""}.
+                {summary.drafts > 0
+                  ? t("noIssuedWithDrafts", { drafts: summary.drafts })
+                  : t("noIssued")}
               </p>
             ) : (
               <div className="flex flex-col gap-4">
                 <Table>
                   <THead>
                     <TR>
-                      <TH>Currency</TH>
-                      <TH numeric>Invoices</TH>
-                      <TH numeric>Billed</TH>
-                      <TH numeric>Received</TH>
-                      <TH numeric>Credited</TH>
-                      <TH numeric>Outstanding</TH>
-                      <TH numeric>Overdue</TH>
+                      <TH>{t("lifetimeColumns.currency")}</TH>
+                      <TH numeric>{t("lifetimeColumns.invoices")}</TH>
+                      <TH numeric>{t("lifetimeColumns.billed")}</TH>
+                      <TH numeric>{t("lifetimeColumns.received")}</TH>
+                      <TH numeric>{t("lifetimeColumns.credited")}</TH>
+                      <TH numeric>{t("lifetimeColumns.outstanding")}</TH>
+                      <TH numeric>{t("lifetimeColumns.overdue")}</TH>
                     </TR>
                   </THead>
                   <TBody>
@@ -206,17 +218,16 @@ export default async function ClientPage({ params }: { params: Promise<{ id: str
                   </TBody>
                 </Table>
                 <p className="text-app-caption text-ink-subtle">
-                  First invoice{" "}
-                  <Mono>
-                    {summary.firstInvoiceDate ? formatDate(summary.firstInvoiceDate, locale) : "—"}
-                  </Mono>
-                  , latest{" "}
-                  <Mono>
-                    {summary.lastInvoiceDate ? formatDate(summary.lastInvoiceDate, locale) : "—"}
-                  </Mono>
-                  {summary.drafts > 0
-                    ? ` · ${summary.drafts} draft${summary.drafts === 1 ? "" : "s"}`
-                    : ""}
+                  {t.rich("firstLatest", {
+                    first: summary.firstInvoiceDate
+                      ? formatDate(summary.firstInvoiceDate, locale)
+                      : tc("emptyValue"),
+                    latest: summary.lastInvoiceDate
+                      ? formatDate(summary.lastInvoiceDate, locale)
+                      : tc("emptyValue"),
+                    drafts: summary.drafts,
+                    mono: (chunks) => <Mono>{chunks}</Mono>,
+                  })}
                 </p>
               </div>
             )}
@@ -224,29 +235,31 @@ export default async function ClientPage({ params }: { params: Promise<{ id: str
         </Card>
         <Card className="lg:col-span-2">
           <CardHeader>
-            <CardTitle>Recent invoices</CardTitle>
+            <CardTitle>{t("recentInvoices")}</CardTitle>
           </CardHeader>
           <CardContent>
             <Table>
               <THead>
                 <TR>
-                  <TH>Number</TH>
-                  <TH>Issue date</TH>
-                  <TH>Due</TH>
-                  <TH numeric>Total</TH>
-                  <TH numeric>Balance</TH>
-                  <TH>Status</TH>
+                  <TH>{t("recentColumns.number")}</TH>
+                  <TH>{t("recentColumns.issueDate")}</TH>
+                  <TH>{t("recentColumns.due")}</TH>
+                  <TH numeric>{t("recentColumns.total")}</TH>
+                  <TH numeric>{t("recentColumns.balance")}</TH>
+                  <TH>{t("recentColumns.status")}</TH>
                 </TR>
               </THead>
               <TBody>
                 {recent.length === 0 ? (
-                  <TableEmpty colSpan={6}>No invoices for this client yet.</TableEmpty>
+                  <TableEmpty colSpan={6}>{t("noInvoices")}</TableEmpty>
                 ) : (
                   recent.map((r) => (
                     <TR key={r.id}>
                       <TD mono>
                         <Link href={`/invoices/${r.id}`} className="hover:underline">
-                          {r.number ?? <span className="text-ink-subtle">Draft</span>}
+                          {r.number ?? (
+                            <span className="text-ink-subtle">{tu("statusPill.DRAFT")}</span>
+                          )}
                         </Link>
                       </TD>
                       <TD mono>{formatDate(r.issueDate, r.locale)}</TD>
@@ -258,7 +271,7 @@ export default async function ClientPage({ params }: { params: Promise<{ id: str
                         <Amount>
                           {r.status === "ISSUED"
                             ? formatMoney(r.balanceDue, r.currency, r.locale)
-                            : "—"}
+                            : tc("emptyValue")}
                         </Amount>
                       </TD>
                       <TD>

@@ -1,7 +1,8 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { estimatePages, pageEstimateLabel } from "./page-estimate";
+import { estimatePages } from "./page-estimate";
 
 /**
  * Fits a paper-sized preview into its container by scaling, keeping the page proportions. The
@@ -17,6 +18,7 @@ export function ScaledPreview({
   pageHeightPx: number;
   children: ReactNode;
 }) {
+  const t = useTranslations("documents.ui");
   const ref = useRef<HTMLDivElement>(null);
   const sheetRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
@@ -45,7 +47,7 @@ export function ScaledPreview({
         data-page-estimate={pages}
         className="absolute top-2 right-2 z-10 rounded-md border border-hairline bg-surface-2/90 px-2 py-0.5 text-app-caption text-ink-subtle"
       >
-        {pageEstimateLabel(pages)}
+        {t("pageEstimate", { count: pages })}
       </span>
       <div style={{ height: Math.max(pageHeightPx, contentHeight) * scale }}>
         <div

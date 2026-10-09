@@ -1,6 +1,7 @@
 "use client";
 
 import { FileText, ImagePlus, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -26,6 +27,8 @@ export function AssetPicker({
   /** Called with the new asset id after an upload, or null on Remove (controlled consumers). */
   onChange?: ((assetId: string | null) => void) | undefined;
 }) {
+  const t = useTranslations("assets");
+  const tc = useTranslations("common");
   const [id, setId] = useState(assetId ?? "");
   const [key, setKey] = useState(assetKey ?? "");
   const [busy, setBusy] = useState(false);
@@ -44,12 +47,12 @@ export function AssetPicker({
       if (!res.ok || !json.assetId || !json.storageKey) {
         setError(
           json.error === "TOO_LARGE"
-            ? "That file is too large."
+            ? t("tooLarge")
             : json.error === "UNSUPPORTED_TYPE"
               ? kind === "RECEIPT"
-                ? "Use a PNG, JPEG, WebP image or a PDF."
-                : "Use a PNG, JPEG or WebP image."
-              : "Upload failed.",
+                ? t("unsupportedReceipt")
+                : t("unsupportedImage")
+              : t("uploadFailed"),
         );
         return;
       }
@@ -57,7 +60,7 @@ export function AssetPicker({
       setKey(json.storageKey);
       onChange?.(json.assetId);
     } catch {
-      setError("Upload failed.");
+      setError(t("uploadFailed"));
     } finally {
       setBusy(false);
       if (fileRef.current) fileRef.current.value = "";
@@ -113,11 +116,11 @@ export function AssetPicker({
                   onChange?.(null);
                 }}
               >
-                <X className="size-3" strokeWidth={1.5} /> Remove
+                <X className="size-3" strokeWidth={1.5} /> {tc("remove")}
               </Button>
             ) : null}
           </div>
-          {busy ? <span className="text-app-caption text-ink-subtle">Uploading…</span> : null}
+          {busy ? <span className="text-app-caption text-ink-subtle">{t("uploading")}</span> : null}
           {error ? (
             <span role="alert" className="text-app-caption text-semantic-danger">
               {error}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { ConfirmAction } from "@/components/confirm-action";
 import { CreateApiKeyForm } from "@/components/settings/api-keys";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,33 +14,30 @@ import { revokeApiKeyAction } from "@/server/actions/api-keys";
 import { requireRole } from "@/server/auth";
 import { listApiKeys } from "@/server/dal/api-keys";
 
-export const metadata: Metadata = {
-  title: "API",
-  description: "API keys for scripts, the SDK and MCP clients, with curl examples.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("settings.api");
+  return { title: t("metaTitle"), description: t("metaDescription") };
+}
 
 export default async function ApiSettingsPage() {
   const actor = await requireRole("VIEWER");
+  const t = await getTranslations("settings.api");
+  const tc = await getTranslations("common");
   const keys = await listApiKeys(actor);
   const base = env.APP_URL.replace(/\/$/, "");
   const when = (iso: string | null) =>
-    iso ? formatDateTime(new Date(iso), "en-GB", actor.timezone) : "—";
+    iso ? formatDateTime(new Date(iso), "en-GB", actor.timezone) : tc("emptyValue");
   const live = keys.filter((k) => !k.revokedAt);
+  const mono = (chunks: React.ReactNode) => <Mono>{chunks}</Mono>;
   return (
     <>
-      <PageHeader
-        title="API"
-        description="Keys for scripts, the SDK and MCP clients. A key can do at most what your role can; it is shown once."
-      />
+      <PageHeader title={t("title")} description={t("description")} />
       <div className="flex flex-col gap-6">
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Create a key</CardTitle>
-              <CardDescription>
-                Send it as <Mono>Authorization: Bearer okv_…</Mono>. Keep it out of source code and
-                chat logs; revoke it below if it leaks.
-              </CardDescription>
+              <CardTitle>{t("create.title")}</CardTitle>
+              <CardDescription>{t.rich("create.description", { mono })}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
@@ -50,11 +48,9 @@ export default async function ApiSettingsPage() {
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Keys</CardTitle>
+              <CardTitle>{t("keys.title")}</CardTitle>
               <CardDescription>
-                {actor.role === "OWNER"
-                  ? "Every key of this instance; owners can revoke any of them."
-                  : "Your keys."}
+                {actor.role === "OWNER" ? t("keys.descriptionOwner") : t("keys.descriptionOwn")}
               </CardDescription>
             </div>
           </CardHeader>
@@ -62,50 +58,52 @@ export default async function ApiSettingsPage() {
             <Table cards>
               <THead>
                 <TR>
-                  <TH>Name</TH>
-                  <TH>Prefix</TH>
-                  <TH>Scopes</TH>
-                  <TH>Owner</TH>
-                  <TH>Last used</TH>
-                  <TH>Expires</TH>
-                  <TH>Status</TH>
+                  <TH>{t("keys.columns.name")}</TH>
+                  <TH>{t("keys.columns.prefix")}</TH>
+                  <TH>{t("keys.columns.scopes")}</TH>
+                  <TH>{t("keys.columns.owner")}</TH>
+                  <TH>{t("keys.columns.lastUsed")}</TH>
+                  <TH>{t("keys.columns.expires")}</TH>
+                  <TH>{t("keys.columns.status")}</TH>
                   <TH />
                 </TR>
               </THead>
               <TBody>
                 {keys.length === 0 ? (
-                  <TableEmpty colSpan={8}>No API keys yet.</TableEmpty>
+                  <TableEmpty colSpan={8}>{t("keys.empty")}</TableEmpty>
                 ) : (
                   keys.map((k) => (
                     <TR key={k.id}>
-                      <TD label="Name">{k.name}</TD>
-                      <TD label="Prefix">
+                      <TD label={t("keys.columns.name")}>{k.name}</TD>
+                      <TD label={t("keys.columns.prefix")}>
                         <Mono>{k.prefix}…</Mono>
                       </TD>
-                      <TD label="Scopes">
+                      <TD label={t("keys.columns.scopes")}>
                         <span className="app-mono text-app-caption">{k.scopes.join(", ")}</span>
                       </TD>
-                      <TD label="Owner">{k.userName}</TD>
-                      <TD label="Last used">{when(k.lastUsedAt)}</TD>
-                      <TD label="Expires">{k.expiresAt ? when(k.expiresAt) : "never"}</TD>
-                      <TD label="Status">
+                      <TD label={t("keys.columns.owner")}>{k.userName}</TD>
+                      <TD label={t("keys.columns.lastUsed")}>{when(k.lastUsedAt)}</TD>
+                      <TD label={t("keys.columns.expires")}>
+                        {k.expiresAt ? when(k.expiresAt) : t("keys.never")}
+                      </TD>
+                      <TD label={t("keys.columns.status")}>
                         {k.revokedAt ? (
-                          <Pill tone="muted">Revoked</Pill>
+                          <Pill tone="muted">{t("keys.revoked")}</Pill>
                         ) : k.expiresAt && new Date(k.expiresAt) < new Date() ? (
-                          <Pill tone="warning">Expired</Pill>
+                          <Pill tone="warning">{t("keys.expired")}</Pill>
                         ) : (
-                          <Pill tone="success">Active</Pill>
+                          <Pill tone="success">{tc("active")}</Pill>
                         )}
                       </TD>
                       <TD label="">
                         {!k.revokedAt ? (
                           <ConfirmAction
                             action={revokeApiKeyAction}
-                            title={`Revoke ${k.name}?`}
-                            description="Clients using this key stop working immediately."
-                            confirmLabel="Revoke"
+                            title={t("keys.revokeTitle", { name: k.name })}
+                            description={t("keys.revokeDescription")}
+                            confirmLabel={tc("revoke")}
                             hidden={{ id: k.id }}
-                            trigger="Revoke"
+                            trigger={tc("revoke")}
                             triggerVariant="tertiary"
                             size="sm"
                             destructive
@@ -119,7 +117,7 @@ export default async function ApiSettingsPage() {
             </Table>
             {live.length > 0 ? (
               <p className="mt-3 text-app-caption text-ink-subtle">
-                {live.length} active key{live.length === 1 ? "" : "s"}.
+                {t("keys.activeCount", { count: live.length })}
               </p>
             ) : null}
           </CardContent>
@@ -128,12 +126,8 @@ export default async function ApiSettingsPage() {
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Examples</CardTitle>
-              <CardDescription>
-                Replace <Mono>$OKINVO_KEY</Mono> with a key. The versioned REST API, its OpenAPI
-                document (<Mono>/api/openapi.json</Mono>), the TypeScript SDK and the MCP server
-                arrive with the next tasks of the v1.1 plan; the status endpoint works today.
-              </CardDescription>
+              <CardTitle>{t("examples.title")}</CardTitle>
+              <CardDescription>{t.rich("examples.description", { mono })}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
@@ -149,8 +143,7 @@ curl -H "Authorization: Bearer $OKINVO_KEY" -H "Content-Type: application/json" 
 curl -H "Authorization: Bearer $OKINVO_KEY" -o invoice.pdf ${base}/api/v1/invoices/<id>/pdf`}</code>
             </pre>
             <p className="mt-3 text-app-caption text-ink-subtle">
-              Over-limit calls answer 429 with a <Mono>Retry-After</Mono> header (120 requests per
-              minute per key). A key&apos;s scopes are capped by its owner&apos;s current role.
+              {t.rich("examples.rateLimit", { mono })}
             </p>
           </CardContent>
         </Card>

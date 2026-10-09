@@ -111,7 +111,7 @@ test("dashboard greets by first name; Appearance switches the accent and it pers
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(/^Hi, \S+/);
 
   await page.goto("/settings/appearance");
-  const swatches = page.getByRole("radiogroup", { name: "Accent colour" });
+  const swatches = page.getByRole("radiogroup", { name: /Accent colou?r/ });
   await expect(async () => {
     await swatches.getByRole("radio", { name: "Rose" }).click();
     await expect(page.locator("html")).toHaveAttribute("data-accent", "rose", { timeout: 2_000 });

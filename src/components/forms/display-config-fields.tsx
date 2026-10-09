@@ -1,19 +1,11 @@
+import { useTranslations } from "next-intl";
 import { Checkbox } from "@/components/ui/checkbox";
 import type { DisplayConfig } from "@/lib/schemas";
 
-const GROUP_LABELS: Record<keyof DisplayConfig, string> = {
-  issuer: "Issuer details",
-  client: "Client details",
-  document: "Document sections",
-};
-
-export function labelForDisplayKey(key: string): string {
-  const words = key
-    .replace(/^show/, "")
-    .replace(/([A-Z])/g, " $1")
-    .trim();
-  return words.charAt(0).toUpperCase() + words.slice(1).toLowerCase();
-}
+/** Every display toggle name; its label is `invoices.display.fields.<key>` in the catalogue. */
+type DisplayKey = {
+  [G in keyof DisplayConfig]: keyof DisplayConfig[G];
+}[keyof DisplayConfig];
 
 /**
  * Checkbox matrix over the display config; names are `<prefix>.<group>.<key>`. Uncontrolled by
@@ -28,16 +20,17 @@ export function DisplayConfigFields({
   config: DisplayConfig;
   onChange?: (config: DisplayConfig) => void;
 }) {
+  const t = useTranslations("invoices.display");
   return (
     <div className="grid gap-6 md:grid-cols-3">
       {(Object.keys(config) as (keyof DisplayConfig)[]).map((group) => (
         <fieldset key={group} className="flex flex-col gap-2">
-          <legend className="mb-2 text-app-label text-ink-subtle">{GROUP_LABELS[group]}</legend>
+          <legend className="mb-2 text-app-label text-ink-subtle">{t(`groups.${group}`)}</legend>
           {Object.entries(config[group]).map(([key, on]) => (
             <Checkbox
               key={key}
               name={`${prefix}.${group}.${key}`}
-              label={labelForDisplayKey(key)}
+              label={t(`fields.${key as DisplayKey}`)}
               {...(onChange
                 ? {
                     checked: on,

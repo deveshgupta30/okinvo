@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
@@ -21,11 +22,12 @@ export function Item({
   mono?: boolean;
   className?: string;
 }) {
+  const tc = useTranslations("common");
   return (
     <>
       <dt className="text-app-label text-ink-subtle">{label}</dt>
       <dd className={cn("min-w-0 text-ink", mono && "text-app-mono", className)}>
-        {children ?? <span className="text-ink-tertiary">—</span>}
+        {children ?? <span className="text-ink-tertiary">{tc("emptyValue")}</span>}
       </dd>
     </>
   );

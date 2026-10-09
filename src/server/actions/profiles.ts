@@ -14,7 +14,7 @@ import {
   unarchiveProfile,
   updateProfile,
 } from "@/server/dal/profiles";
-import { errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
+import { actionT, errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
 
 const LIST = "/settings/profiles";
 
@@ -24,6 +24,7 @@ export async function saveProfile(
   formData: FormData,
 ): Promise<ActionState> {
   const actor = await requireOwner();
+  const t = await actionT();
   const raw = formToObject(formData);
   // One country select serves the profile and its address block.
   raw.address = { ...((raw.address as object | undefined) ?? {}), countryCode: raw.countryCode };
@@ -45,7 +46,7 @@ export async function saveProfile(
     return failedWith(e, formData);
   }
   revalidatePath(LIST);
-  redirect(withFlash(LIST, { kind: "success", message: `Saved profile ${label}` }));
+  redirect(withFlash(LIST, { kind: "success", message: t("savedProfile", { label }) }));
 }
 
 async function simple(
@@ -57,7 +58,7 @@ async function simple(
   try {
     await fn(actor.userId);
   } catch (e) {
-    redirect(withFlash(LIST, { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(LIST, { kind: "error", message: await errorMessage(e) }));
   }
   revalidatePath(LIST);
   redirect(withFlash(str(formData, "returnTo") || LIST, { kind: "success", message: success }));
@@ -65,24 +66,28 @@ async function simple(
 
 export async function setDefaultProfileAction(formData: FormData): Promise<void> {
   const actor = await requireOwner();
+  const t = await actionT();
   await simple(
     formData,
     () => setDefaultProfile(actor, str(formData, "id")),
-    "Default profile updated",
+    t("defaultProfileUpdated"),
   );
 }
 
 export async function archiveProfileAction(formData: FormData): Promise<void> {
   const actor = await requireOwner();
-  await simple(formData, () => archiveProfile(actor, str(formData, "id")), "Profile archived");
+  const t = await actionT();
+  await simple(formData, () => archiveProfile(actor, str(formData, "id")), t("profileArchived"));
 }
 
 export async function unarchiveProfileAction(formData: FormData): Promise<void> {
   const actor = await requireOwner();
-  await simple(formData, () => unarchiveProfile(actor, str(formData, "id")), "Profile restored");
+  const t = await actionT();
+  await simple(formData, () => unarchiveProfile(actor, str(formData, "id")), t("profileRestored"));
 }
 
 export async function deleteProfileAction(formData: FormData): Promise<void> {
   const actor = await requireOwner();
-  await simple(formData, () => deleteProfile(actor, str(formData, "id")), "Profile deleted");
+  const t = await actionT();
+  await simple(formData, () => deleteProfile(actor, str(formData, "id")), t("profileDeleted"));
 }

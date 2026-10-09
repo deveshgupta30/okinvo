@@ -71,6 +71,24 @@ export function usedKeys(source, file) {
   return out;
 }
 
+/**
+ * `[line, text]` for every bare JSX text node that reads like an English phrase: a capitalised
+ * word followed by a space and a lower-case word, directly after a `>` and before `<` or `{`.
+ * Comments and strings inside braces are not JSX text and are left alone.
+ */
+export function jsxLiterals(source) {
+  const out = [];
+  const re = />\s*([A-Z][a-z]+ [a-z][^<{\n]*)/g;
+  for (const m of source.matchAll(re)) {
+    const before = source.slice(0, m.index);
+    // skip `=>` arrows and generics (`Promise<Foo>`): a JSX tag closes with `>` after `"` or a word
+    if (/(=|-)$/.test(before)) continue;
+    const line = before.split("\n").length;
+    out.push([line, m[1].trim()]);
+  }
+  return out;
+}
+
 function* walk(dir) {
   for (const entry of readdirSync(dir)) {
     const full = path.join(dir, entry);
@@ -117,6 +135,20 @@ function main() {
   for (const [key, where] of used) {
     const exists = baseKeys.has(key) || [...baseKeys.keys()].some((k) => k.startsWith(`${key}.`));
     if (!exists) problems.push(`${where}: key "${key}" is not in ${BASE}.json`);
+  }
+
+  // --strict: no English sentence left as a bare JSX literal in the app and component folders
+  // (legal prose pages are documents, not UI, and keep their text).
+  if (strict) {
+    for (const dir of ["src/app", "src/components"]) {
+      for (const file of walk(path.join(ROOT, dir))) {
+        const rel = path.relative(ROOT, file).replace(/\\/g, "/");
+        if (/^src\/app\/\(public\)\/legal\/[^/]+\/page\.tsx$/.test(rel)) continue;
+        for (const [line, text] of jsxLiterals(readFileSync(file, "utf8"))) {
+          problems.push(`${rel}:${line}: untranslated JSX text "${text}"`);
+        }
+      }
+    }
   }
 
   if (problems.length) {

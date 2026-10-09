@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useActionState } from "react";
 import { FormMessage } from "@/components/forms/form-message";
 import { SubmitButton } from "@/components/submit-button";
@@ -12,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { COMMON_CURRENCIES } from "@/lib/schemas";
-import { UNIT_LABELS, UNIT_TYPES } from "@/lib/schemas/service-input";
+import { UNIT_TYPES } from "@/lib/schemas/service-input";
 import { saveService } from "@/server/actions/services";
 import type { ServiceDto } from "@/server/dal/services";
 
@@ -24,13 +25,12 @@ export function ProfileTags({
   profiles: { id: string; label: string }[];
   selected: readonly string[];
 }) {
+  const t = useTranslations("catalogue.tags");
   if (profiles.length < 2) return null;
   return (
     <fieldset className="flex flex-col gap-2">
-      <legend className="mb-1 text-app-label text-ink-subtle">Profiles</legend>
-      <p className="text-app-caption text-ink-subtle">
-        Tick the issuer profiles that sell this. Leave all unticked to offer it to every profile.
-      </p>
+      <legend className="mb-1 text-app-label text-ink-subtle">{t("legend")}</legend>
+      <p className="text-app-caption text-ink-subtle">{t("hint")}</p>
       {profiles.map((p) => (
         <Checkbox
           key={p.id}
@@ -51,6 +51,8 @@ export function ServiceForm({
   service: ServiceDto | null;
   profiles?: { id: string; label: string }[] | undefined;
 }) {
+  const t = useTranslations("catalogue");
+  const tc = useTranslations("common");
   const [state, action] = useActionState(saveService.bind(null, service?.id ?? null), null);
   const values = state?.values;
   const errors = state?.fieldErrors;
@@ -62,10 +64,10 @@ export function ServiceForm({
       <Card>
         <CardContent>
           <FieldGroup>
-            <Field label="Name" htmlFor="name" error={errors?.name} required>
+            <Field label={t("forms.name")} htmlFor="name" error={errors?.name} required>
               <Input id="name" name="name" defaultValue={v("name", service?.name)} />
             </Field>
-            <Field label="Unit" htmlFor="unitType" error={errors?.unitType} required>
+            <Field label={t("forms.unit")} htmlFor="unitType" error={errors?.unitType} required>
               <Select
                 id="unitType"
                 name="unitType"
@@ -73,12 +75,17 @@ export function ServiceForm({
               >
                 {UNIT_TYPES.map((u) => (
                   <option key={u} value={u}>
-                    {UNIT_LABELS[u]}
+                    {t(`units.${u}`)}
                   </option>
                 ))}
               </Select>
             </Field>
-            <Field label="Default rate" htmlFor="defaultRate" error={errors?.defaultRate} required>
+            <Field
+              label={t("forms.defaultRate")}
+              htmlFor="defaultRate"
+              error={errors?.defaultRate}
+              required
+            >
               <Input
                 id="defaultRate"
                 name="defaultRate"
@@ -88,7 +95,7 @@ export function ServiceForm({
                 defaultValue={v("defaultRate", service?.defaultRate)}
               />
             </Field>
-            <Field label="Currency" htmlFor="currency" error={errors?.currency} required>
+            <Field label={t("forms.currency")} htmlFor="currency" error={errors?.currency} required>
               <Select
                 id="currency"
                 name="currency"
@@ -102,10 +109,10 @@ export function ServiceForm({
               </Select>
             </Field>
             <Field
-              label="SAC / HSN code"
+              label={t("forms.sacHsnCode")}
               htmlFor="sacHsnCode"
               error={errors?.sacHsnCode}
-              hint="Required on GST invoices"
+              hint={t("forms.sacHsnHint")}
             >
               <Input
                 id="sacHsnCode"
@@ -115,7 +122,7 @@ export function ServiceForm({
               />
             </Field>
             <Field
-              label="Default tax rate (%)"
+              label={t("forms.defaultTaxRate")}
               htmlFor="defaultTaxRate"
               error={errors?.defaultTaxRate}
               required
@@ -132,10 +139,10 @@ export function ServiceForm({
             </Field>
           </FieldGroup>
           <Field
-            label="Description"
+            label={t("forms.description")}
             htmlFor="description"
             error={errors?.description}
-            hint="Pre-fills the line description"
+            hint={t("forms.descriptionHint")}
           >
             <Textarea
               id="description"
@@ -153,16 +160,16 @@ export function ServiceForm({
           />
           <Checkbox
             name="isActive"
-            label="Active"
-            description="Inactive services stay out of the invoice picker"
+            label={t("forms.active")}
+            description={t("forms.serviceInactiveHint")}
             defaultChecked={values ? values.isActive === "on" : (service?.isActive ?? true)}
           />
         </CardContent>
       </Card>
       <div className="flex items-center gap-2">
-        <SubmitButton pendingLabel="Saving…">Save service</SubmitButton>
+        <SubmitButton pendingLabel={tc("saving")}>{t("forms.saveService")}</SubmitButton>
         <Button asChild variant="tertiary">
-          <Link href="/services">Cancel</Link>
+          <Link href="/services">{tc("cancel")}</Link>
         </Button>
       </div>
     </form>

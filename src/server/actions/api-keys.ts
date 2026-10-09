@@ -7,7 +7,7 @@ import { fIdList, parseForm } from "@/lib/forms";
 import { requireRole } from "@/server/auth";
 import { createApiKey, revokeApiKey } from "@/server/dal/api-keys";
 import { isDalError } from "@/server/dal/errors";
-import { failedParse, str, type ActionState } from "./shared";
+import { actionT, failedParse, str, type ActionState } from "./shared";
 
 const PAGE = "/settings/api";
 
@@ -26,6 +26,7 @@ export async function createApiKeyAction(
   formData: FormData,
 ): Promise<ApiKeyState> {
   const actor = await requireRole("VIEWER");
+  const t = await actionT();
   const parsed = parseForm(CreateSchema, formData);
   if (!parsed.ok) return failedParse(parsed, formData);
   try {
@@ -38,7 +39,7 @@ export async function createApiKeyAction(
     revalidatePath(PAGE);
     return {
       ok: true,
-      message: "API key created. Copy it now — it is shown only once.",
+      message: t("apiKeyCreated"),
       created: { key, name: dto.name, prefix: dto.prefix },
     };
   } catch (e) {

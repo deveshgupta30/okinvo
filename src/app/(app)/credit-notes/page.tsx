@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Receipt } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import { ExportButton } from "@/components/export-button";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -27,7 +28,10 @@ function rejectBadFilters(e: unknown): never {
   throw e;
 }
 
-export const metadata: Metadata = { title: "Credit notes" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("creditNotes.list");
+  return { title: t("metaTitle") };
+}
 
 const STATUSES: CreditNoteDisplayStatus[] = ["DRAFT", "ISSUED", "SENT", "VOID"];
 
@@ -38,6 +42,7 @@ export default async function CreditNotesPage({
 }) {
   const actor = await requireRole("VIEWER");
   const canEdit = hasRole(actor, "EDITOR");
+  const t = await getTranslations("creditNotes.list");
   const params = await searchParams;
   const s = (k: string) =>
     typeof params[k] === "string" && params[k] ? (params[k] as string) : undefined;
@@ -58,33 +63,33 @@ export default async function CreditNotesPage({
   return (
     <>
       <PageHeader
-        title="Credit notes"
-        description="Raised against issued invoices; each reduces its invoice balance when issued."
+        title={t("title")}
+        description={t("description")}
         actions={
           <>
             <ExportButton dataset="credit-notes" params={params} />
             {canEdit ? (
               <Button asChild>
-                <Link href="/credit-notes/new">New credit note</Link>
+                <Link href="/credit-notes/new">{t("newCreditNote")}</Link>
               </Button>
             ) : null}
           </>
         }
       />
       <form className="mb-4 grid gap-3 md:grid-cols-3 xl:grid-cols-6" role="search">
-        <Field label="From" htmlFor="from">
+        <Field label={t("filters.from")} htmlFor="from">
           <Input id="from" name="from" type="date" defaultValue={s("from") ?? ""} />
         </Field>
-        <Field label="To" htmlFor="to">
+        <Field label={t("filters.to")} htmlFor="to">
           <Input id="to" name="to" type="date" defaultValue={s("to") ?? ""} />
         </Field>
-        <Field label="Issuer" htmlFor="issuerProfileId">
+        <Field label={t("filters.issuer")} htmlFor="issuerProfileId">
           <Select
             id="issuerProfileId"
             name="issuerProfileId"
             defaultValue={s("issuerProfileId") ?? ""}
           >
-            <option value="">All</option>
+            <option value="">{t("filters.all")}</option>
             {profiles.map((p) => (
               <option key={p.id} value={p.id}>
                 {p.label}
@@ -92,9 +97,9 @@ export default async function CreditNotesPage({
             ))}
           </Select>
         </Field>
-        <Field label="Client" htmlFor="clientId">
+        <Field label={t("filters.client")} htmlFor="clientId">
           <Select id="clientId" name="clientId" defaultValue={s("clientId") ?? ""}>
-            <option value="">All</option>
+            <option value="">{t("filters.all")}</option>
             {clients.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.displayName}
@@ -102,76 +107,72 @@ export default async function CreditNotesPage({
             ))}
           </Select>
         </Field>
-        <Field label="Status" htmlFor="status">
+        <Field label={t("filters.status")} htmlFor="status">
           <Select id="status" name="status" defaultValue={status ?? ""}>
-            <option value="">All</option>
+            <option value="">{t("filters.all")}</option>
             {STATUSES.map((x) => (
               <option key={x} value={x}>
-                {x.charAt(0) + x.slice(1).toLowerCase()}
+                {t(`statuses.${x}`)}
               </option>
             ))}
           </Select>
         </Field>
-        <Field label="Search" htmlFor="q">
+        <Field label={t("filters.search")} htmlFor="q">
           <div className="flex gap-2">
             <Input
               id="q"
               name="q"
               defaultValue={s("q") ?? ""}
-              placeholder="Number, reason, client"
+              placeholder={t("filters.searchPlaceholder")}
             />
             <Button type="submit" variant="secondary">
-              Go
+              {t("filters.go")}
             </Button>
           </div>
         </Field>
       </form>
       {rows.length === 0 && !filtered ? (
-        <EmptyState
-          icon={Receipt}
-          title="No credit notes yet"
-          description="Open an issued invoice and choose “Credit note” to reduce what it owes."
-        />
+        <EmptyState icon={Receipt} title={t("empty.title")} description={t("empty.description")} />
       ) : (
         <Table cards>
           <THead>
             <TR>
-              <TH>Number</TH>
-              <TH>Against</TH>
-              <TH>Client</TH>
-              <TH>Issue date</TH>
-              <TH>Reason</TH>
-              <TH numeric>Total</TH>
-              <TH>Status</TH>
+              <TH>{t("columns.number")}</TH>
+              <TH>{t("columns.against")}</TH>
+              <TH>{t("columns.client")}</TH>
+              <TH>{t("columns.issueDate")}</TH>
+              <TH>{t("columns.reason")}</TH>
+              <TH numeric>{t("columns.total")}</TH>
+              <TH>{t("columns.status")}</TH>
             </TR>
           </THead>
           <TBody>
             {rows.length === 0 ? (
-              <TableEmpty colSpan={7}>No credit notes match these filters.</TableEmpty>
+              <TableEmpty colSpan={7}>{t("noMatch")}</TableEmpty>
             ) : (
               rows.map((r) => (
                 <TR key={r.id}>
-                  <TD label="Number" mono>
+                  <TD label={t("columns.number")} mono>
                     <Link href={`/credit-notes/${r.id}`} className="hover:underline">
-                      {r.number ?? <span className="text-ink-subtle">Draft</span>}
+                      {r.number ?? <span className="text-ink-subtle">{t("draft")}</span>}
                     </Link>
                   </TD>
-                  <TD label="Against" mono>
+                  <TD label={t("columns.against")} mono>
                     <Link href={`/invoices/${r.invoiceId}`} className="hover:underline">
                       {r.invoiceNumber}
                     </Link>
                   </TD>
-                  <TD label="Client">{r.clientName}</TD>
-                  <TD label="Issue date" mono>
+                  <TD label={t("columns.client")}>{r.clientName}</TD>
+                  <TD label={t("columns.issueDate")} mono>
                     {formatDate(r.issueDate, r.locale)}
                   </TD>
-                  <TD label="Reason" className="max-w-xs truncate text-ink-subtle">
+                  <TD label={t("columns.reason")} className="max-w-xs truncate text-ink-subtle">
                     {r.reason}
                   </TD>
-                  <TD label="Total" numeric>
+                  <TD label={t("columns.total")} numeric>
                     <Amount>{formatMoney(r.total, r.currency, r.locale)}</Amount>
                   </TD>
-                  <TD label="Status">
+                  <TD label={t("columns.status")}>
                     <StatusPill status={r.displayStatus} />
                   </TD>
                 </TR>
