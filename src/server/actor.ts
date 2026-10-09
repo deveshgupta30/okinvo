@@ -1,3 +1,4 @@
+import { canonicalLocale, DEFAULT_LOCALE } from "@/lib/i18n/languages";
 import { clientIp } from "@/lib/rate-limit/memory-ip";
 
 export type Role = "OWNER" | "EDITOR" | "VIEWER";
@@ -15,6 +16,8 @@ export interface Actor {
   role: Role;
   /** IANA zone used for "today"; "UTC" until the app shell has detected the browser zone. */
   timezone: string;
+  /** UI language (a tag from the language table); instants in the app are formatted with it. */
+  locale: string;
   ip?: string;
   userAgent?: string;
   /** How the actor authenticated; absent means the browser session. */
@@ -30,6 +33,7 @@ export interface SessionLike {
     name: string;
     role?: string | null | undefined;
     timezone?: string | null | undefined;
+    locale?: string | null | undefined;
   };
 }
 
@@ -42,6 +46,7 @@ export function actorFromSession(s: SessionLike, headers: Headers, trustProxy: b
     name: s.user.name,
     role: parseRole(s.user.role),
     timezone: s.user.timezone || "UTC",
+    locale: (s.user.locale && canonicalLocale(s.user.locale)) || DEFAULT_LOCALE,
     ...(ip ? { ip } : {}),
     ...(userAgent ? { userAgent } : {}),
   };

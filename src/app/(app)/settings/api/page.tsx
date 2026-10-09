@@ -26,7 +26,7 @@ export default async function ApiSettingsPage() {
   const keys = await listApiKeys(actor);
   const base = env.APP_URL.replace(/\/$/, "");
   const when = (iso: string | null) =>
-    iso ? formatDateTime(new Date(iso), "en-GB", actor.timezone) : tc("emptyValue");
+    iso ? formatDateTime(new Date(iso), actor.locale, actor.timezone) : tc("emptyValue");
   const live = keys.filter((k) => !k.revokedAt);
   const mono = (chunks: React.ReactNode) => <Mono>{chunks}</Mono>;
   return (

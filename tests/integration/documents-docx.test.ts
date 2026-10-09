@@ -21,6 +21,7 @@ const actor: Actor = {
   name: "Owner",
   role: "OWNER",
   timezone: "Asia/Kolkata",
+  locale: "en-US",
 };
 const tag = `docx-${Date.now()}`;
 const address = {

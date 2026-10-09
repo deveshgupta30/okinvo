@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PanelLeftClose, PanelLeftOpen, Settings } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { Mark, Wordmark } from "@/components/brand/logo";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import type { AccentId } from "@/lib/accent";
+import { isRtl } from "@/lib/i18n/languages";
 import { sidebarCookie, type SidebarState } from "@/lib/sidebar";
 import type { ThemeMode } from "@/lib/theme";
 import { cn } from "@/lib/utils";
@@ -31,6 +32,7 @@ export interface SidebarProps {
 export function Sidebar({ user, initial, theme, minimal = false }: SidebarProps) {
   const t = useTranslations("shell");
   const tc = useTranslations("common");
+  const tipSide = isRtl(useLocale()) ? "left" : "right";
   const [state, setState] = useState<SidebarState>(initial);
   const collapsed = state === "collapsed";
   const pathname = usePathname();
@@ -65,7 +67,7 @@ export function Sidebar({ user, initial, theme, minimal = false }: SidebarProps)
         "relative flex h-9 items-center gap-3 rounded-md px-3 text-app-body text-ink-subtle transition-colors duration-150 hover:bg-surface-1 hover:text-ink focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none",
         collapsed && "justify-center px-0",
         settingsActive &&
-          "bg-sidebar-accent text-ink before:absolute before:top-1 before:bottom-1 before:left-0 before:w-[2px] before:rounded-full before:bg-primary",
+          "bg-sidebar-accent text-ink before:absolute before:start-0 before:top-1 before:bottom-1 before:w-[2px] before:rounded-full before:bg-primary",
       )}
     >
       <Settings aria-hidden className="size-5 shrink-0" strokeWidth={1.5} />
@@ -78,7 +80,7 @@ export function Sidebar({ user, initial, theme, minimal = false }: SidebarProps)
       <aside
         data-sidebar={state}
         className={cn(
-          "sticky top-0 hidden h-dvh shrink-0 flex-col border-r border-sidebar-border bg-sidebar transition-[width] duration-200 ease-out motion-reduce:transition-none md:flex",
+          "sticky top-0 hidden h-dvh shrink-0 flex-col border-e border-sidebar-border bg-sidebar transition-[width] duration-200 ease-out motion-reduce:transition-none md:flex",
           collapsed ? "w-16" : "w-60",
         )}
       >
@@ -102,7 +104,7 @@ export function Sidebar({ user, initial, theme, minimal = false }: SidebarProps)
               onClick={toggle}
               aria-label={t("collapseSidebar")}
               title={t("collapseSidebarHint")}
-              className="ml-auto flex size-8 items-center justify-center rounded-md text-ink-subtle transition-colors duration-150 hover:bg-surface-1 hover:text-ink focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none"
+              className="ms-auto flex size-8 items-center justify-center rounded-md text-ink-subtle transition-colors duration-150 hover:bg-surface-1 hover:text-ink focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none"
             >
               <PanelLeftClose aria-hidden className="size-5" strokeWidth={1.5} />
             </button>
@@ -121,7 +123,7 @@ export function Sidebar({ user, initial, theme, minimal = false }: SidebarProps)
                   <PanelLeftOpen aria-hidden className="size-5" strokeWidth={1.5} />
                 </button>
               </TooltipTrigger>
-              <TooltipContent side="right">{t("expandSidebarHint")}</TooltipContent>
+              <TooltipContent side={tipSide}>{t("expandSidebarHint")}</TooltipContent>
             </Tooltip>
           </div>
         ) : null}
@@ -140,12 +142,12 @@ export function Sidebar({ user, initial, theme, minimal = false }: SidebarProps)
           {minimal ? null : collapsed ? (
             <Tooltip>
               <TooltipTrigger asChild>{settingsLink}</TooltipTrigger>
-              <TooltipContent side="right">{t("settings")}</TooltipContent>
+              <TooltipContent side={tipSide}>{t("settings")}</TooltipContent>
             </Tooltip>
           ) : (
             settingsLink
           )}
-          <UserMenu user={user} collapsed={collapsed} side="right" />
+          <UserMenu user={user} collapsed={collapsed} side={tipSide} />
         </div>
       </aside>
     </TooltipProvider>

@@ -15,6 +15,7 @@ const actor: Actor = {
   name: "O",
   role: "OWNER",
   timezone: "UTC",
+  locale: "en-US",
 };
 const tag = `verify-${Date.now()}`;
 const address = {

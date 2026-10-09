@@ -21,6 +21,7 @@ describe.skipIf(!url)("members", () => {
     name: "Owner",
     role: "OWNER",
     timezone: "UTC",
+    locale: "en-US",
   };
   let prisma: typeof import("@/lib/db").prisma;
   let members: typeof import("@/server/dal/members");

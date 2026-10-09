@@ -128,9 +128,9 @@ export default async function SecurityPage({
                       </span>
                     </TD>
                     <TD mono>{s.ipAddress ?? tc("emptyValue")}</TD>
-                    <TD mono>{formatDateTime(new Date(s.createdAt), "en-GB", tz)}</TD>
-                    <TD mono>{formatDateTime(new Date(s.updatedAt), "en-GB", tz)}</TD>
-                    <TD mono>{formatDateTime(new Date(s.expiresAt), "en-GB", tz)}</TD>
+                    <TD mono>{formatDateTime(new Date(s.createdAt), actor.locale, tz)}</TD>
+                    <TD mono>{formatDateTime(new Date(s.updatedAt), actor.locale, tz)}</TD>
+                    <TD mono>{formatDateTime(new Date(s.expiresAt), actor.locale, tz)}</TD>
                     <TD className="text-right">
                       {s.current ? null : (
                         <ConfirmAction
@@ -211,7 +211,7 @@ export default async function SecurityPage({
                   log.rows.map((e) => (
                     <TR key={e.id}>
                       <TD mono className="whitespace-nowrap">
-                        {formatDateTime(new Date(e.createdAt), "en-GB", tz)}
+                        {formatDateTime(new Date(e.createdAt), actor.locale, tz)}
                       </TD>
                       <TD>{e.actorName ?? e.actorEmail ?? t("audit.system")}</TD>
                       <TD mono>{e.action}</TD>

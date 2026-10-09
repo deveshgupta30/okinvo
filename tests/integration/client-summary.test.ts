@@ -17,6 +17,7 @@ const actor: Actor = {
   name: "O",
   role: "OWNER",
   timezone: "UTC",
+  locale: "en-US",
 };
 const tag = `csum-${Date.now()}`;
 const address = {

@@ -243,7 +243,7 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
         <p className="mb-6 rounded-md border border-semantic-danger/40 bg-surface-2 px-4 py-3 text-app-body text-semantic-danger">
           {t("voided", {
             date: inv.voidedAt
-              ? formatDateTime(new Date(inv.voidedAt), "en-GB", actor.timezone)
+              ? formatDateTime(new Date(inv.voidedAt), actor.locale, actor.timezone)
               : "",
             reason: inv.voidReason ?? "",
           })}
@@ -318,7 +318,7 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
                 {inv.poReference ? <Item label={t("poReference")}>{inv.poReference}</Item> : null}
                 {inv.sentAt ? (
                   <Item label={t("sent")} mono>
-                    {formatDateTime(new Date(inv.sentAt), "en-GB", actor.timezone)}
+                    {formatDateTime(new Date(inv.sentAt), actor.locale, actor.timezone)}
                   </Item>
                 ) : null}
               </DescriptionList>
@@ -428,11 +428,13 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
                           </a>
                           <span className="text-ink-subtle">
                             {" "}
-                            · {formatDateTime(
+                            ·{" "}
+                            {formatDateTime(
                               new Date(d.generatedAt),
-                              "en-GB",
+                              actor.locale,
                               actor.timezone,
-                            )} · {t("sizeKb", { size: String(Math.round(d.byteSize / 1024)) })}
+                            )}{" "}
+                            · {t("sizeKb", { size: String(Math.round(d.byteSize / 1024)) })}
                           </span>
                         </span>
                         <Mono className="break-all text-ink-subtle">{d.sha256}</Mono>

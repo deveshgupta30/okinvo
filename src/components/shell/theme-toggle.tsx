@@ -1,9 +1,10 @@
 "use client";
 
 import { Monitor, Moon, Sun } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { isRtl } from "@/lib/i18n/languages";
 import { THEME_COOKIE, type ThemeMode } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 import { setThemeAction } from "@/server/actions/account";
@@ -32,6 +33,7 @@ export function applyTheme(mode: ThemeMode): void {
  */
 export function ThemeToggle({ initial, collapsed }: { initial: ThemeMode; collapsed: boolean }) {
   const t = useTranslations("shell.theme");
+  const tipSide = isRtl(useLocale()) ? "left" : "right";
   const [mode, setMode] = useState<ThemeMode>(initial);
 
   const choose = (next: ThemeMode) => {
@@ -56,7 +58,7 @@ export function ThemeToggle({ initial, collapsed }: { initial: ThemeMode; collap
             <Icon aria-hidden className="size-5" strokeWidth={1.5} />
           </button>
         </TooltipTrigger>
-        <TooltipContent side="right">{t("current", { mode: t(current.mode) })}</TooltipContent>
+        <TooltipContent side={tipSide}>{t("current", { mode: t(current.mode) })}</TooltipContent>
       </Tooltip>
     );
   }

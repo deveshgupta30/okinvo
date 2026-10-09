@@ -65,7 +65,7 @@ export default async function StatusPage() {
   const tc = await getTranslations("common");
   const s = await collectStatus();
   const when = (iso: string | null) =>
-    iso ? formatDateTime(new Date(iso), "en-GB", actor.timezone) : tc("emptyValue");
+    iso ? formatDateTime(new Date(iso), actor.locale, actor.timezone) : tc("emptyValue");
   const uptime = (seconds: number): string => {
     const d = Math.floor(seconds / 86_400);
     const h = Math.floor((seconds % 86_400) / 3600);

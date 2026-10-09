@@ -11,6 +11,7 @@ const actor: Actor = {
   name: "A",
   role: "OWNER",
   timezone: "UTC",
+  locale: "en-US",
   ip: "203.0.113.1",
   userAgent: "vitest",
 };

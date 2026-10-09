@@ -16,6 +16,7 @@ const actor: Actor = {
   name: "Owner",
   role: "OWNER",
   timezone: "Asia/Kolkata",
+  locale: "en-US",
 };
 const tag = `inv-${Date.now()}`;
 const address = {

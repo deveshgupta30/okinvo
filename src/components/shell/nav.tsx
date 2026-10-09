@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FileText, LayoutDashboard, Package, Receipt, Users, Wrench } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { isRtl } from "@/lib/i18n/languages";
 import { cn } from "@/lib/utils";
 
 /** The primary destinations; labels come from the `shell.nav` catalogue namespace. */
@@ -39,6 +40,7 @@ export function NavItem({
   collapsed: boolean;
   onNavigate?: (() => void) | undefined;
 }) {
+  const locale = useLocale();
   const link = (
     <Link
       href={href}
@@ -48,7 +50,7 @@ export function NavItem({
         "relative flex h-9 items-center gap-3 rounded-md px-3 text-app-body text-ink-subtle transition-colors duration-150 hover:bg-surface-1 hover:text-ink focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none",
         collapsed && "justify-center px-0",
         active &&
-          "bg-sidebar-accent text-ink before:absolute before:top-1 before:bottom-1 before:left-0 before:w-[2px] before:rounded-full before:bg-primary",
+          "bg-sidebar-accent text-ink before:absolute before:start-0 before:top-1 before:bottom-1 before:w-[2px] before:rounded-full before:bg-primary",
       )}
     >
       <Icon aria-hidden className="size-5 shrink-0" strokeWidth={1.5} />
@@ -59,7 +61,7 @@ export function NavItem({
   return (
     <Tooltip>
       <TooltipTrigger asChild>{link}</TooltipTrigger>
-      <TooltipContent side="right">{label}</TooltipContent>
+      <TooltipContent side={isRtl(locale) ? "left" : "right"}>{label}</TooltipContent>
     </Tooltip>
   );
 }

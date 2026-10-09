@@ -18,6 +18,7 @@ describe.skipIf(!url)("user preferences DAL", () => {
     name: "Prefs",
     role: "OWNER",
     timezone: "UTC",
+    locale: "en-US",
   };
   let prisma: typeof import("@/lib/db").prisma;
   let users: typeof import("@/server/dal/users");
