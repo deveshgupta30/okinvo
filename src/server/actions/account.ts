@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { getTranslations } from "next-intl/server";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { withFlash } from "@/lib/flash";
@@ -44,7 +45,12 @@ export async function saveAccount(_prev: ActionState, formData: FormData): Promi
     });
   }
   revalidatePath("/", "layout");
-  redirect(withFlash(PAGE, { kind: "success", message: t("accountSaved") }));
+  // The flash reads in the language just chosen, not the one the request came in with.
+  const flashT =
+    parsed.data.locale !== undefined
+      ? await getTranslations({ locale: parsed.data.locale, namespace: "actions" })
+      : t;
+  redirect(withFlash(PAGE, { kind: "success", message: flashT("accountSaved") }));
 }
 
 /** Links a freshly uploaded AVATAR asset to the signed-in account (spec §3.5). */

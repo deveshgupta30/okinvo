@@ -18,8 +18,10 @@ describe("settings.status.smtp.configured", () => {
   });
   it("names the source for each select branch", () => {
     const args = { lastTest: "never", sent: 2, failed: 0 };
-    expect(t("smtp.configured", { source: "settings", ...args })).toContain("SMTP from settings");
-    expect(t("smtp.configured", { source: "env", ...args })).toContain("SMTP from env");
+    expect(t("smtp.configured", { source: "settings", ...args })).toContain(
+      "SMTP from the settings page",
+    );
+    expect(t("smtp.configured", { source: "env", ...args })).toContain("SMTP from the environment");
     expect(t("smtp.configured", { source: "none", ...args })).toContain("SMTP from  ·");
   });
 });
