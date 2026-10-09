@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo-heim",
+    "save": "Lagre",
+    "cancel": "Avbryt",
+    "continue": "Hald fram",
+    "saving": "Lagrar…",
+    "detect": "Registrer",
+    "yes": "Ja",
+    "no": "Nei",
+    "choose": "Vel…",
+    "remove": "Fjern",
+    "tryAgain": "Prøv igjen",
+    "dashboard": "Dashbord",
+    "goToDashboard": "Gå til dashbordet",
+    "or": "eller",
+    "invoice": "Faktura",
+    "creditNote": "Kreditnota",
+    "downloadPdf": "Last ned PDF",
+    "edit": "Rediger",
+    "delete": "Slett",
+    "downloadDocx": "Last ned DOCX",
+    "none": "Ingen",
+    "dismiss": "Lukk",
+    "all": "Alle",
+    "previous": "Førre",
+    "next": "Neste",
+    "go": "Gå",
+    "search": "Søk",
+    "status": "Status",
+    "total": "Totalt",
+    "currency": "Valuta",
+    "from": "Frå",
+    "to": "Til",
+    "reason": "Årsak",
+    "history": "Historikk",
+    "archive": "Arkiver",
+    "restore": "Gjenopprett",
+    "showArchived": "Vis arkiverte",
+    "hideArchived": "Skjul arkiverte",
+    "archived": "Arkivert",
+    "default": "Standard",
+    "setDefault": "Vel som standard",
+    "revoke": "Tilbakekall",
+    "copy": "Kopier",
+    "copied": "Kopiert",
+    "active": "Aktiv",
+    "pagination": "Sideinndeling",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Dashbord",
+      "invoices": "Fakturaer",
+      "creditNotes": "Kreditnotaer",
+      "clients": "Kundar",
+      "services": "Tenester",
+      "products": "Produkt"
+    },
+    "primaryNav": "Hovudnavigasjon",
+    "settings": "Innstillingar",
+    "openMenu": "Opne meny",
+    "navigation": "Navigasjon",
+    "pagesAndAccount": "Sider og konto",
+    "collapseSidebar": "Skjul sidefelt",
+    "collapseSidebarHint": "Skjul sidefelt ([)",
+    "expandSidebar": "Vis sidefelt",
+    "expandSidebarHint": "Vis sidefelt ([)",
+    "theme": {
+      "label": "Tema",
+      "system": "System",
+      "light": "Lyst",
+      "dark": "Mørkt",
+      "current": "Tema: {mode}",
+      "switchTo": "Tema: {mode}. Byt til {next}"
+    },
+    "userMenu": {
+      "label": "Kontomeny for {name}",
+      "profile": "Profil",
+      "logOut": "Logg ut"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Logg inn",
+      "title": "Logg inn",
+      "subtitle": "Berre kontoar på godkjenningslista har tilgang.",
+      "failed": "Innlogginga mislukkast.",
+      "noMethod": "Ingen innloggingsmetode er konfigurert. Set eit leverandørpar som <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>, eller <code>AUTH_PASSWORD_SIGNIN=true</code>, i <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Denne kontoen er ikkje tillaten på denne instansen, eller han er deaktivert.",
+        "signin": "Innlogginga vart ikkje fullført. Prøv igjen."
+      }
+    },
+    "password": {
+      "name": "Namn",
+      "email": "E-post",
+      "password": "Passord",
+      "signingIn": "Loggar inn…",
+      "createAccount": "Opprett konto",
+      "signIn": "Logg inn",
+      "haveAPassword": "Eg har allereie eit passord",
+      "firstTime": "Første gongen her? Set eit passord",
+      "failed": "Innlogginga mislukkast."
+    },
+    "social": {
+      "redirecting": "Omdirigerer…",
+      "continueWith": "Hald fram med {provider}",
+      "failed": "Innlogginga kunne ikkje startast."
+    },
+    "error": {
+      "metaTitle": "Innloggingsfeil",
+      "title": "Innlogginga mislukkast",
+      "body": "Identitetsleverandøren returnerte <code>{value}</code>. Viss adressa di ikkje står på godkjenningslista for denne instansen, be eigaren leggje henne til.",
+      "back": "Tilbake til innlogging"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Innstillingar",
+      "profiles": "Profilar",
+      "paymentMethods": "Betalingsmåtar",
+      "templates": "Malar",
+      "email": "E-post",
+      "security": "Tryggleik",
+      "users": "Brukarar",
+      "data": "Data",
+      "legal": "Juridisk",
+      "account": "Konto",
+      "appearance": "Utsjånad",
+      "api": "API",
+      "status": "Status"
+    },
+    "account": {
+      "metaTitle": "Konto",
+      "title": "Konto",
+      "description": "Bildet, namnet, regionen, språket og tidssona di.",
+      "photo": {
+        "title": "Bilde",
+        "description": "Vert vist i sidefeltet og brukarmenyen."
+      },
+      "form": {
+        "title": "Konto",
+        "description": "Korleis du vert vist og når «i dag» er.",
+        "displayName": "Visingsnamn",
+        "signInEmail": "Innloggings-e-post",
+        "signInEmailHint": "Identiteten din på denne instansen; ho kan ikkje redigerast her.",
+        "timezone": "Tidssone",
+        "timezoneHint": "«I dag» for utstedingsdatoar, forfallsdatoar og dashbordet",
+        "regionTitle": "Region",
+        "regionDescription": "Standardverdiar for nye utstedarprofilar og for dashbordet til ein profil finst.",
+        "country": "Land",
+        "currency": "Valuta",
+        "suggested": "Føreslått for dette landet:",
+        "language": "Språk",
+        "languageHint": "Språket i sjølve appen. Dokument brukar kvar profil sin eigen språkinnstilling.",
+        "machineTranslated": "Dette språket er maskinomsett. Rettingar er velkomne: <link>forbetre det på GitHub</link>.",
+        "save": "Lagre innstillingar"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerika",
+        "Asia": "Asia",
+        "Europe": "Europa",
+        "MiddleEast": "Midtausten",
+        "Oceania": "Oseania",
+        "Constructed": "Konstruerte språk"
+      },
+      "privacy": {
+        "title": "Personvern",
+        "description": "okinvo set berre dei infokapslane som trengst for å fungere. Ingen analyse, inga sporing.",
+        "cookiePolicy": "Retningslinjer for infokapslar",
+        "showNoticeAgain": "Vis varselet om infokapslar igjen"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Endre bilde",
+      "addPhoto": "Legg til bilde",
+      "hint": "PNG, JPEG eller WebP. Vert vist som ein sirkel overalt; du kan zoome og flytte det før du lagrar.",
+      "tooLarge": "Bildet er for stort.",
+      "uploadFailed": "Opplastinga mislukkast.",
+      "choose": "Vel eit profilbilde",
+      "dialogTitle": "Plasser bildet ditt",
+      "dialogDescription": "Dra for å flytte, rull eller knip for å zoome. Sirkelen er det alle ser.",
+      "zoom": "Zoom",
+      "save": "Lagre bilde"
+    },
+    "appearance": {
+      "metaTitle": "Utsjånad",
+      "title": "Utsjånad",
+      "description": "Tema og aksentfarge, lagra på kontoen din.",
+      "theme": {
+        "title": "Tema",
+        "description": "Følg systemet, eller vel fast lyst eller mørkt.",
+        "label": "Tema",
+        "system": "Følg systemet",
+        "systemHint": "Byter saman med operativsystemet",
+        "light": "Lyst",
+        "lightHint": "Kvitt lerret",
+        "dark": "Mørkt",
+        "darkHint": "Nesten svart lerret"
+      },
+      "accent": {
+        "title": "Aksent",
+        "description": "Vert brukt til primærknappen, fokusringar og markøren for aktiv side. Mynte passar til merkesymbolet.",
+        "label": "Aksentfarge"
+      },
+      "accents": {
+        "mint": "Mynte",
+        "lavender": "Lavendel",
+        "sky": "Himmelblå",
+        "peach": "Fersken",
+        "butter": "Smørgul",
+        "rose": "Rosa",
+        "sage": "Salvie",
+        "lilac": "Lilla"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Utstedarprofilar",
+      "title": "Utstedarprofilar",
+      "description": "Dei juridiske identitetane du fakturerer frå. Standardprofilen førehandsutfyller nye fakturaer.",
+      "breadcrumb": "Profilar",
+      "newProfile": "Ny profil",
+      "emptyTitle": "Ingen utstedarprofil enno",
+      "emptyDescription": "Opprett identiteten du fakturerer frå: ein privatperson med PAN, eller selskapet ditt.",
+      "createProfile": "Opprett ein profil",
+      "columns": {
+        "label": "Etikett",
+        "legalName": "Juridisk namn",
+        "type": "Type",
+        "country": "Land",
+        "currency": "Valuta",
+        "regime": "Regime",
+        "status": "Status"
+      },
+      "types": {
+        "company": "Selskap",
+        "individual": "Privatperson"
+      },
+      "makeDefaultTitle": "Gjere {label} til standard?",
+      "makeDefaultDescription": "Nye fakturaer startar frå denne profilen.",
+      "restoreTitle": "Gjenopprette {label}?",
+      "archiveTitle": "Arkivere {label}?",
+      "archiveDescription": "Ho forsvinn frå vallistene; eksisterande fakturaer vert ikkje råka.",
+      "new": {
+        "metaTitle": "Ny utstedarprofil",
+        "title": "Ny utstedarprofil",
+        "prefilled": "Utfylt frå svara dine; kontroller adressa og skatteopplysningane, og lagre deretter."
+      },
+      "edit": {
+        "metaTitle": "Rediger utstedarprofil",
+        "template": "Mal",
+        "deleteTitle": "Slette {label}?",
+        "deleteDescription": "Berre mogleg så lenge inga faktura eller kreditnota refererer til denne profilen. Arkiver ho elles."
+      },
+      "template": {
+        "metaTitle": "Profilmal",
+        "title": "Mal for {label}",
+        "ownTemplate": "Eigen mal",
+        "instanceTemplate": "Instansmal",
+        "resetTitle": "Bruke instansmalen igjen?",
+        "resetDescription": "Denne profilen si eiga konfigurasjon vert fjerna; utstedde dokument vert ikkje råka.",
+        "useInstance": "Bruk instansmalen",
+        "usingInstanceTitle": "Brukar instansmalen",
+        "usingInstanceDescription": "Dokument frå denne profilen følgjer Innstillingar → Malar. Vel bort for å tilpasse dei separat.",
+        "customise": "Bruk ein annan mal for denne profilen",
+        "openInstance": "Opne instansmalen"
+      },
+      "form": {
+        "identityTitle": "Identitet",
+        "identityDescription": "Kven fakturaen kjem frå.",
+        "type": "Type",
+        "label": "Etikett",
+        "labelHint": "Vert berre vist i vallister",
+        "legalName": "Juridisk namn",
+        "tradeName": "Handelsnamn",
+        "designation": "Stilling",
+        "email": "E-post",
+        "phone": "Telefon",
+        "website": "Nettstad",
+        "addressTitle": "Adresse",
+        "taxTitle": "Skatte-ID-ar",
+        "taxDescription": "Berre dei som gjeld deg; kva som vert skrive ut, styrer du per faktura.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Britisk MVA-nummer",
+        "usTaxId": "Amerikansk EIN / SSN",
+        "usTaxIdHint": "Kryptert i lagring",
+        "lutNumber": "LUT-nummer",
+        "lutNumberHint": "For eksport utan IGST",
+        "lutFiscalYear": "LUT-rekneskapsår",
+        "lutFiscalYearHint": "t.d. 2026-27",
+        "defaultsTitle": "Standardverdiar",
+        "baseCurrency": "Basisvaluta",
+        "locale": "Språkinnstilling for dokument",
+        "localeHint": "Formatering av tal og datoar på dokument",
+        "fiscalYearStart": "Rekneskapsåret startar i",
+        "months": {
+          "january": "januar",
+          "february": "februar",
+          "march": "mars",
+          "april": "april",
+          "may": "mai",
+          "june": "juni",
+          "july": "juli",
+          "august": "august",
+          "september": "september",
+          "october": "oktober",
+          "november": "november",
+          "december": "desember"
+        },
+        "taxRegime": "Standard skatteregime",
+        "regimes": {
+          "indiaGst": "Indisk GST",
+          "ukVat": "Britisk MVA",
+          "usSalesTax": "Amerikansk salsskatt",
+          "none": "Ingen skatt"
+        },
+        "invoiceNumberFormat": "Format for fakturanummer",
+        "invoiceNumberFormatHint": "Tokens: {tokens}",
+        "creditNoteNumberFormat": "Format for kreditnotanummer",
+        "tdsRate": "Venta TDS-sats (%)",
+        "tdsRateHint": "Berre til informasjon, vert skrive ut som venta trekk",
+        "defaultNotes": "Standardmerknader",
+        "defaultTerms": "Standardvilkår",
+        "printTitle": "Kva som vert skrive ut som standard",
+        "printDescription": "Kvar faktura kopierer desse og kan endre dei individuelt.",
+        "emailTitle": "E-post",
+        "emailDescription": "Standardverdiar for sendevindauget. Plasshaldarar: {placeholders}",
+        "emailCc": "Standard CC",
+        "emailBcc": "Standard BCC",
+        "commaSeparated": "Kommaseparert",
+        "invoiceSubject": "Emne for faktura",
+        "invoiceSubjectHint": "Tomt brukar den innebygde malen",
+        "creditNoteSubject": "Emne for kreditnota",
+        "invoiceBody": "Tekst for faktura",
+        "creditNoteBody": "Tekst for kreditnota",
+        "artworkTitle": "Grafikk",
+        "artworkDescription": "PNG, JPEG eller WebP opptil 2 MB; signatur og stempel held på gjennomsikta.",
+        "logo": "Logo",
+        "signature": "Signatur",
+        "stamp": "Stempel",
+        "transparentPng": "Gjennomsiktig PNG",
+        "save": "Lagre profil"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Betalingsmåtar",
+      "title": "Betalingsmåtar",
+      "description": "Korleis kundane betaler deg. Detaljane er krypterte og vert frosne inn i kvar faktura ved utstedinga.",
+      "newMethod": "Ny måte",
+      "emptyTitle": "Ingen betalingsmåtar enno",
+      "emptyDescription": "Legg til ein bankkonto, UPI-ID eller lommebok slik at fakturaer kan fortelje kundane kvar dei skal betale.",
+      "addMethod": "Legg til ein måte",
+      "columns": {
+        "name": "Namn",
+        "type": "Type",
+        "currency": "Valuta",
+        "status": "Status"
+      },
+      "types": {
+        "bankTransfer": "Bankoverføring",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Eigendefinert"
+      },
+      "makeDefaultTitle": "Gjere {name} til standard?",
+      "restoreTitle": "Gjenopprette {name}?",
+      "archiveTitle": "Arkivere {name}?",
+      "archiveDescription": "Utstedde fakturaer held på augneblinksbildet dei skreiv ut.",
+      "new": {
+        "metaTitle": "Ny betalingsmåte",
+        "title": "Ny betalingsmåte"
+      },
+      "edit": {
+        "metaTitle": "Rediger betalingsmåte",
+        "title": "Rediger {name}",
+        "deleteTitle": "Slette {name}?",
+        "deleteDescription": "Berre mogleg så lenge inga faktura eller betaling refererer til ho. Arkiver ho elles."
+      },
+      "form": {
+        "name": "Namn",
+        "nameHint": "Vert skrive ut som overskrift for betalingsblokka",
+        "type": "Type",
+        "currency": "Valuta",
+        "currencyHint": "Valfritt; vert berre vist som kontekst",
+        "anyCurrency": "Alle",
+        "instructions": "Instruksjonar",
+        "instructionsHint": "Vert skrive ut under detaljane",
+        "isDefault": "Standardmåte",
+        "isDefaultDescription": "Førehandsvald på nye fakturaer",
+        "isActive": "Aktiv",
+        "detailsTitle": "Detaljar",
+        "detailsDescription": "Kryptert i lagring; vert lagra som augneblinksbilde i kvar faktura når han vert utstedd.",
+        "vpa": "UPI-ID (VPA)",
+        "payeeName": "Namn på mottakar",
+        "lines": "Liner",
+        "linesHint": "Éi line per rad, vert skrive ut slik ho står",
+        "accountEmail": "Konto-e-post / brukarnamn",
+        "bank": {
+          "accountHolder": "Kontoinnehavar",
+          "accountNumber": "Kontonummer",
+          "bankName": "Banknamn",
+          "branch": "Filial",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Rutings- / sorteringskode"
+        },
+        "save": "Lagre betalingsmåte"
+      }
+    },
+    "templates": {
+      "metaTitle": "Dokumentmalar",
+      "title": "Dokumentmalar",
+      "customised": "Tilpassa",
+      "builtIn": "Innebygd standard",
+      "description": "Korleis fakturaer og kreditnotaer ser ut. Utstedde dokument held på malen dei vart utstedde med.",
+      "resetTitle": "Tilbakestille til innebygd standard?",
+      "resetDescription": "Tilpassinga di vert fjerna; allereie utstedde dokument vert ikkje råka.",
+      "reset": "Tilbakestill",
+      "resetTrigger": "Tilbakestill til standard",
+      "importTitle": "Importer",
+      "importDescription": "Gjenopprett ein konfigurasjon som vart eksportert tidlegare.",
+      "overridesTitle": "Overstyringar per profil",
+      "overridesDescription": "Ein profil kan velje si eiga mal frå redigeringssida.",
+      "noOverrides": "Alle profilar brukar instansmalen.",
+      "import": {
+        "json": "Mal-JSON",
+        "jsonHint": "Lim inn ei fil laga med Eksporter JSON; manglande nøklar fell tilbake til standardverdiar",
+        "importing": "Importerer…",
+        "submit": "Importer"
+      },
+      "form": {
+        "templateTitle": "Mal",
+        "templateDescription": "Seks innebygde; tilpassinga under gjeld for den du vel.",
+        "templateGroup": "Mal",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Moderne og luftig, utan seriffar, aksentline under toppteksten."
+          },
+          "classic": {
+            "name": "Classic",
+            "character": "Tradisjonell tabell med rammer, overskrifter med seriffar, innramma summar."
+          },
+          "compact": {
+            "name": "Compact",
+            "character": "Tett oppsett for lange varelister; mindre skrift, færre skiljelinjer."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "Roleg og romsleg: ingen linjer eller boksar, lyse etikettar, mykje luft."
+          },
+          "letterhead": {
+            "name": "Letterhead",
+            "character": "Logoen og namnet ditt på eit fargeband eller bilde øvst på kvar side."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Topptekst med fargeband; partar, tabellhovud og summar på ein lys aksenttone."
+          }
+        },
+        "paperTitle": "Papir og skrift",
+        "paperSize": "Papirstorleik",
+        "paperLetter": "Letter",
+        "margins": "Marger",
+        "marginsNormal": "Normal",
+        "marginsNarrow": "Smal",
+        "headingFont": "Skrift for overskrifter",
+        "bodyFont": "Skrift for brødtekst",
+        "fontSans": "Utan seriffar",
+        "fontSerif": "Med seriffar",
+        "tableStyle": "Tabellstil",
+        "tableRuled": "Med linjer",
+        "tableZebra": "Sebra",
+        "tablePlain": "Enkel",
+        "accentColour": "Aksentfarge",
+        "textColour": "Tekstfarge",
+        "logoPosition": "Plassering av logo",
+        "positionLeft": "Venstre",
+        "positionCentre": "Midten",
+        "positionRight": "Høgre",
+        "logoHeight": "Logohøgd (mm)",
+        "documentTitle": "Dokumenttittel",
+        "titleAuto": "Automatisk (GST-medviten)",
+        "titleCustom": "Eigendefinert",
+        "titlePlaceholder": "t.d. PROFORMAFAKTURA",
+        "qrPosition": "Plassering av QR-kode",
+        "qrFooter": "Botntekst",
+        "qrHeader": "Topptekst",
+        "qrBesideTotals": "Ved sida av summane",
+        "amountInWords": "Beløp med ord",
+        "wordsBelowTotal": "Under summane",
+        "wordsFooter": "Botntekst",
+        "wordsHidden": "Skjult",
+        "subtotalRow": "Rad for delsum",
+        "discountRow": "Rad for rabatt",
+        "taxLines": "Skatteliner",
+        "tdsExpected": "Venta TDS",
+        "roundingRow": "Rad for avrunding",
+        "pageNumbers": "Sidetal",
+        "headerTitle": "Topptekst",
+        "headerDescription": "Eit fargeband eller eit bilde øvst på kvar side. Letterhead og Modern viser eit band med mindre du vel noko anna.",
+        "headerStyle": "Stil for topptekst",
+        "headerNone": "Ingen",
+        "headerBand": "Fargeband",
+        "headerImage": "Bilde",
+        "bandColour": "Bandfarge",
+        "bandColourHex": "Bandfarge (hex)",
+        "headerImageLabel": "Topptekstbilde",
+        "headerImageHint": "PNG, JPEG eller WebP opptil 2400 px breitt; det dekkjer breidda på sida.",
+        "imageOpacity": "Dekkjeevne for bildet",
+        "headerHeight": "Høgd på topptekst (mm)",
+        "bandText": "Tekst på bandet",
+        "bandTextAuto": "Automatisk (frå bandfargen)",
+        "bandTextLight": "Lys",
+        "bandTextDark": "Mørk",
+        "textTitle": "Tekst",
+        "headerNote": "Merknad i topptekst",
+        "footer": "Botntekst",
+        "signatureCaption": "Signaturtekst",
+        "draftWatermark": "Vassmerke for utkast",
+        "labelsTitle": "Etikettar",
+        "labelsDescription": "La eit felt stå tomt for å behalde standardordlyden.",
+        "save": "Lagre mal",
+        "downloadSample": "Last ned eksempel-PDF",
+        "exportJson": "Eksporter JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "E-post",
+      "title": "E-post",
+      "configuredSettings": "Konfigurert i Innstillingar",
+      "configuredEnv": "Konfigurert av miljøet",
+      "notConfigured": "Ikkje konfigurert: e-postapp-flyt",
+      "description": "Dokument vert sende frå sendevindauget med den lagra PDF-en vedlagd. Innstillingane her overstyrer SMTP_* i miljøet.",
+      "sendTest": "Send test-e-post til {email}",
+      "removeTitle": "Fjerne dei lagra SMTP-innstillingane?",
+      "removeEnvTakesOver": "SMTP_*-verdiane i miljøet tek over.",
+      "removeFallsBack": "E-post fell tilbake til e-postapp-flyten.",
+      "removeTrigger": "Fjern lagra innstillingar",
+      "smtpTitle": "SMTP-tenar",
+      "smtpFromEnv": "Vert for augneblinken henta frå miljøet; lagring her overstyrer det.",
+      "smtpPasswordNote": "Passordet er kryptert i lagring og vert aldri vist igjen.",
+      "defaultsTitle": "Standardmottakarar",
+      "defaultsDescription": "CC/BCC for heile instansen; utstedarprofilar legg til sine eigne.",
+      "sentTitle": "Sendt e-post",
+      "sentDescription": "Dei siste 50 forsøka, medrekna mislukka og manuelle utsendingar.",
+      "smtp": {
+        "host": "Vert",
+        "port": "Port",
+        "security": "Tryggleik",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Ingen (LAN-relé)",
+        "user": "Brukarnamn",
+        "password": "Passord",
+        "passwordStored": "Lagra og kryptert; la stå tomt for å behalde det",
+        "passwordEncrypted": "Kryptert i lagring",
+        "from": "Avsendaradresse",
+        "fromName": "Avsendarnamn",
+        "replyTo": "Svar til",
+        "save": "Lagre SMTP-innstillingar"
+      },
+      "defaults": {
+        "cc": "Standard CC",
+        "ccHint": "Vert lagt til i kvart sendevindauge; kommaseparert",
+        "bcc": "Standard BCC",
+        "save": "Lagre standardverdiar"
+      }
+    },
+    "security": {
+      "metaTitle": "Tryggleik",
+      "title": "Tryggleik",
+      "description": "Kvar du er logga inn, og alt som har endra seg.",
+      "sessions": {
+        "title": "Aktive øktar",
+        "description": "Når du tilbakekallar ei økt, vert den eininga logga ut med ein gong.",
+        "signOutOthers": {
+          "title": "Logge ut overalt elles?",
+          "description": "Alle øktar utanom denne vert tilbakekalla.",
+          "confirm": "Logg ut andre",
+          "trigger": "Logg ut overalt elles"
+        },
+        "columns": {
+          "device": "Eining",
+          "ipAddress": "IP-adresse",
+          "signedIn": "Logga inn",
+          "lastSeen": "Sist sett",
+          "expires": "Går ut"
+        },
+        "thisDevice": "Denne eininga",
+        "revokeTitle": "Tilbakekalle denne økta?",
+        "unknownDevice": "Ukjend eining",
+        "unknownBrowser": "Ukjend",
+        "agentOnOs": "{browser} på {os}"
+      },
+      "audit": {
+        "title": "Revisjonslogg",
+        "count": "{count, plural, one {# hending} other {# hendingar}}",
+        "entity": "Eining",
+        "actionContains": "Handling inneheld",
+        "filter": "Filtrer",
+        "reset": "Tilbakestill",
+        "columns": {
+          "when": "Når",
+          "who": "Kven",
+          "action": "Handling",
+          "entity": "Eining",
+          "summary": "Samandrag"
+        },
+        "empty": "Ingen hendingar samsvarer med desse filtra.",
+        "system": "System",
+        "changes": "Endringar",
+        "page": "Side {page} av {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Brukarar",
+      "title": "Brukarar",
+      "description": "Kven som kan logge inn på denne instansen og kva dei kan gjere.",
+      "roles": {
+        "owner": "Eigar",
+        "editor": "Redaktør",
+        "viewer": "Lesar"
+      },
+      "roleHints": {
+        "owner": "Alt, medrekna innstillingar og medlemmer",
+        "editor": "Kundar, katalog, fakturaer, kreditnotaer, betalingar, e-post",
+        "viewer": "Skrivebeskytta"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Rolle for {email}",
+      "invite": {
+        "title": "Inviter nokon",
+        "description": "Dei loggar inn med den inviterte adressa (ein identitetsleverandør eller eit passord) og får rolla du vel.",
+        "sent": "Invitasjon send på e-post til {email}.",
+        "readyWithError": "Invitasjon klar for {email}. E-posten kunne ikkje sendast ({error}); send dei denne lenkja:",
+        "readyNoSmtp": "Invitasjon klar for {email}. Ingen SMTP er konfigurert; send dei denne lenkja:",
+        "copyLink": "Kopier lenkje",
+        "email": "E-post",
+        "emailPlaceholder": "person@example.com",
+        "role": "Rolle",
+        "submit": "Inviter",
+        "inviting": "Inviterer…"
+      },
+      "members": {
+        "title": "Medlemmer",
+        "description": "Minst éin aktiv eigar står alltid att.",
+        "columns": {
+          "person": "Person",
+          "role": "Rolle",
+          "lastSignIn": "Siste innlogging",
+          "status": "Status"
+        },
+        "nameYou": "{name} (deg)",
+        "deactivated": "Deaktivert",
+        "reactivate": {
+          "title": "Reaktivere {email}?",
+          "description": "Dei kan logge inn igjen med den førre rolla si.",
+          "confirm": "Reaktiver"
+        },
+        "deactivate": {
+          "title": "Deaktivere {email}?",
+          "description": "Alle øktar vert avslutta no, og dei kan ikkje logge inn før dei vert reaktiverte. Historikken vert behalden.",
+          "confirm": "Deaktiver"
+        }
+      },
+      "invitations": {
+        "title": "Ventande invitasjonar",
+        "description": "Adresser som kan logge inn, men ikkje har gjort det enno.",
+        "columns": {
+          "email": "E-post",
+          "role": "Rolle",
+          "invited": "Invitert"
+        },
+        "empty": "Ingen ventande invitasjonar.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Tilbakekalle invitasjonen for {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Data",
+      "title": "Data",
+      "description": "Alt er portabelt: datasett som CSV eller Excel, eit fullt augneblinksbilde for migrering, PDF-ane til rekneskapsføraren din og ei testa tryggingskopirutine.",
+      "period": {
+        "fiscalYear": "Rekneskapsår",
+        "fiscalYearHint": "Overstyrer datoane",
+        "issuer": "Utstedar"
+      },
+      "exportAll": {
+        "title": "Eksporter alle data",
+        "description": "Ein ZIP med kvart datasett som CSV pluss <mono>data.json</mono>, eit relasjonelt augneblinksbilde av alle tabellar. Krypterte felt (detaljar om betalingsmåtar, SMTP-passord) er utelatne; README-fila inni listar dei.",
+        "download": "Last ned okinvo-data-ZIP"
+      },
+      "exportDocuments": {
+        "title": "Eksporter dokument",
+        "description": "Kvar utstedde og annullerte faktura- og kreditnota-PDF for ein periode, namngjeven etter nummer, med ein <mono>index.csv</mono> med nummer, summar og hashar. Manglande PDF-ar vert genererte undervegs.",
+        "docx": "Ta også med ein DOCX-kopi av kvart dokument",
+        "download": "Last ned dokument-ZIP"
+      },
+      "datasets": {
+        "title": "Datasett",
+        "description": "Dei same eksportane som indekssidene tilbyr, med ein periode og utstedar brukt på alle. Betalingar brukar datoområdet; kundar og tenester ignorerer perioden.",
+        "columns": {
+          "dataset": "Datasett",
+          "filters": "Brukte filter",
+          "download": "Last ned"
+        },
+        "names": {
+          "invoices": "Fakturaregister",
+          "invoiceItems": "Fakturaliner",
+          "payments": "Betalingsjournal",
+          "creditNotes": "Kreditnotaregister",
+          "clients": "Kundar",
+          "services": "Tenester",
+          "gstSummary": "GST-oppsummering",
+          "tdsSummary": "TDS-oppsummering"
+        },
+        "filters": {
+          "periodIssuer": "periode, utstedar",
+          "dateRangeIssuer": "datoområde, utstedar",
+          "includesArchived": "inkluderer arkiverte"
+        }
+      },
+      "backups": {
+        "title": "Tryggingskopiar",
+        "notWired": "Inga tryggingskopiteneste er kopla til",
+        "noRun": "Ingen tryggingskopi har køyrt enno",
+        "lastOk": "Siste tryggingskopi OK",
+        "lastFailed": "Siste tryggingskopi mislukkast",
+        "description": "Compose-tenesta <mono>backup</mono> tek ein dump av Postgres og arkiverer lagringsvolumet etter <mono>BACKUP_CRON</mono>, held på <mono>BACKUP_RETENTION_DAYS</mono> med historikk i volumet <mono>backups</mono> og skriv ei statusfil som denne sida les.",
+        "finished": "Fullført",
+        "databaseDump": "Databasedump",
+        "storageArchive": "Lagringsarkiv",
+        "size": "Storleik",
+        "sizeMb": "{size} MB",
+        "error": "Feil",
+        "runNow": "Køyr ein no, eller gjenopprett frå eit filpar:",
+        "restoreDrill": "Gjenopprettingsprosedyren vert øvd i CI av <mono>scripts/restore-drill.sh</mono>: fyll med data, ta tryggingskopi, slett, gjenopprett, og samanlikn deretter radtal og ein PDF-hash."
+      }
+    },
+    "legal": {
+      "metaTitle": "Juridisk",
+      "metaDescription": "Kven som driv denne instansen: opplysningane som vert skrivne ut på dei offentlege juridiske sidene.",
+      "title": "Juridisk",
+      "description": "Dei offentlege juridiske sidene skriv ut desse opplysningane. Til alle felt er fylte ut, viser sidene utheva plasshaldarar.",
+      "operator": {
+        "title": "Opplysningar om drivaren",
+        "complete": "Fullstendig",
+        "missing": "{count} manglar: {fields}",
+        "description": "Du, som personen eller selskapet som driv denne instansen, er drivaren dokumenta viser til. Ingenting her vert sendt nokon stad; det vert skrive ut på sidene nedanfor."
+      },
+      "fieldLabels": {
+        "legalName": "Juridisk namn på drivaren",
+        "entityType": "Eningstype",
+        "address": "Adressa til drivaren",
+        "country": "Landet til drivaren",
+        "contactEmail": "Kontakt-e-post",
+        "privacyEmail": "Personvern-e-post",
+        "dpoEmail": "E-post til personvernombod",
+        "governingLaw": "Gjeldande lov",
+        "venue": "Verneting for tvistar",
+        "effectiveDate": "Ikraftsetjingsdato"
+      },
+      "publicPages": {
+        "title": "Offentlege sider",
+        "description": "Lenkja frå innloggingssida, delingsvisinga og varselet om infokapslar.",
+        "terms": "Tenestevilkår",
+        "acceptableUse": "Retningslinjer for akseptabel bruk",
+        "privacy": "Personvernerklæring",
+        "cookies": "Retningslinjer for infokapslar",
+        "dataRetention": "Lagringstid for data",
+        "security": "Tryggleik",
+        "licenses": "Lisensar og varsel om tredjepart"
+      },
+      "form": {
+        "legalName": "Juridisk namn",
+        "entityType": "Eningstype",
+        "individual": "Privatperson / enkeltpersonføretak",
+        "company": "Selskap / registrert eining",
+        "address": "Adresse",
+        "addressHint": "Vert skrive ut i Tenestevilkåra og Personvernerklæringa som postadressa til drivaren.",
+        "country": "Land",
+        "effectiveDate": "Ikraftsetjingsdato",
+        "contactEmail": "Kontakt-e-post",
+        "privacyEmail": "Personvern-e-post",
+        "privacyEmailHint": "Adressa som førespurnader frå registrerte går til; kan vere kontaktadressa.",
+        "dpoEmail": "E-post til personvernombod",
+        "dpoEmailHint": "Berre viss du har utnemnt eitt.",
+        "governingLaw": "Gjeldande lov",
+        "governingLawHint": "Til dømes \"indisk rett\" eller \"engelsk og walisisk rett\".",
+        "venue": "Verneting for tvistar",
+        "venueHint": "Til dømes \"domstolane i Bengaluru, Karnataka\".",
+        "submit": "Lagre opplysningar om drivaren"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API-nøklar for skript, SDK-en og MCP-klientar, med curl-eksempel.",
+      "title": "API",
+      "description": "Nøklar for skript, SDK-en og MCP-klientar. Ein nøkkel kan på det meste gjere det rolla di kan; han vert vist éin gong.",
+      "create": {
+        "title": "Opprett ein nøkkel",
+        "description": "Send han som <mono>Authorization: Bearer okv_…</mono>. Hald han utanfor kjeldekode og chatloggar; tilbakekall han nedanfor viss han lekk."
+      },
+      "keys": {
+        "title": "Nøklar",
+        "descriptionOwner": "Alle nøklar på denne instansen; eigarar kan tilbakekalle kva som helst.",
+        "descriptionOwn": "Nøklane dine.",
+        "columns": {
+          "name": "Namn",
+          "prefix": "Prefiks",
+          "scopes": "Scopes",
+          "owner": "Eigar",
+          "lastUsed": "Sist brukt",
+          "expires": "Går ut",
+          "status": "Status"
+        },
+        "empty": "Ingen API-nøklar enno.",
+        "never": "aldri",
+        "revoked": "Tilbakekalla",
+        "expired": "Utgått",
+        "revokeTitle": "Tilbakekalle {name}?",
+        "revokeDescription": "Klientar som brukar denne nøkkelen sluttar å fungere med ein gong.",
+        "activeCount": "{count, plural, one {# aktiv nøkkel.} other {# aktive nøklar.}}"
+      },
+      "examples": {
+        "title": "Eksempel",
+        "description": "Erstatt <mono>$OKINVO_KEY</mono> med ein nøkkel. Den versjonerte REST-API-en, OpenAPI-dokumentet (<mono>/api/openapi.json</mono>), TypeScript-SDK-en og MCP-tenaren kjem med dei neste oppgåvene i v1.1-planen; statusendepunktet fungerer i dag.",
+        "rateLimit": "Kall over grensa får svar 429 med ein <mono>Retry-After</mono>-header (120 førespurnader per minutt per nøkkel). Scopes til ein nøkkel vert avgrensa av noverande rolle hos eigaren."
+      },
+      "form": {
+        "copyKey": "Kopier API-nøkkel",
+        "name": "Namn",
+        "namePlaceholder": "t.d. rekneskapsskript",
+        "expires": "Går ut",
+        "in30Days": "Om 30 dagar",
+        "in90Days": "Om 90 dagar",
+        "inAYear": "Om eit år",
+        "never": "Aldri",
+        "scopes": "Scopes",
+        "submit": "Opprett API-nøkkel",
+        "creating": "Opprettar…"
+      },
+      "scopes": {
+        "invoicesRead": "Lese fakturaer",
+        "invoicesCreate": "Opprette og utstede fakturaer",
+        "creditNotesRead": "Lese kreditnotaer",
+        "creditNotesCreate": "Opprette og utstede kreditnotaer",
+        "catalogueRead": "Lese kundar, tenester og produkt",
+        "documentsRead": "Laste ned lagra PDF-ar og DOCX-kopiar",
+        "statusRead": "Lese status for instansen"
+      }
+    },
+    "status": {
+      "metaTitle": "Status",
+      "metaDescription": "Versjon, database, lagring, e-post og tryggingskopistatus for denne instansen.",
+      "title": "Status",
+      "description": "Kva denne instansen køyrer og om delane svarar.",
+      "recheck": "Sjekk på nytt",
+      "health": {
+        "ok": "OK",
+        "warning": "Åtvaring",
+        "failed": "Mislukkast",
+        "na": "Ikkje konfigurert"
+      },
+      "overall": {
+        "ok": "Alt er bra",
+        "degraded": "Redusert",
+        "failed": "Mislukkast"
+      },
+      "version": "Bygg {hasSha, select, yes {<mono>{sha}</mono>} other {(sha ukjend)}} · bygd {built} · Node <mono>{node}</mono> · oppe {uptime} · sjekka {checked}",
+      "dateUnknown": "(dato ukjend)",
+      "uptime": {
+        "days": "{d}d {h}t {m}m",
+        "hours": "{h}t {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Database",
+        "storage": "Lagring",
+        "rateLimiting": "Fartsavgrensing",
+        "email": "E-post",
+        "backups": "Tryggingskopiar"
+      },
+      "db": {
+        "detail": "{latency} ms · siste migrering <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # uferdig(e) migrering(ar)}}",
+        "noMigration": "ingen"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · skriving, lesing og sletting av eit testobjekt på {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono>-lager {store, select, memory {(éin replika)} other {(delt mellom replikaar)}}",
+      "smtp": {
+        "configured": "SMTP frå {source, select, settings {the settings page} env {the environment} other {}} · siste test {lastTest} · siste 24 t: {sent} sendt, {failed} mislukkast",
+        "none": "Ingen SMTP-tenar; sendevindauget tilbyr «Opne i e-postapp». <link>Konfigurer</link>"
+      },
+      "backups": {
+        "notWired": "Inga tryggingskopiteneste er kopla til (BACKUP_STATUS_FILE er ikkje sett).",
+        "noRun": "Tryggingskopiteneste kopla til; inga køyring registrert enno.",
+        "ok": "Siste køyring lukkast {finishedAt}{days, plural, =0 {} one { · oppbevaring # dag} other { · oppbevaring # dagar}}",
+        "failed": "Siste køyring mislukkast: {error} {finishedAt}{days, plural, =0 {} one { · oppbevaring # dag} other { · oppbevaring # dagar}}"
+      },
+      "footer": "Den same rapporten er tilgjengeleg som JSON på <mono>/api/health/status</mono> for overvaking (innlogga økt eller API-nøkkel)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Velkomen",
+    "progress": "Framdrift",
+    "steps": {
+      "aboutYou": "Om deg",
+      "howYouUse": "Korleis du brukar det",
+      "allSet": "Alt klart"
+    },
+    "step1": {
+      "title": "Fortel oss om deg sjølv",
+      "subtitle": "Dette set standardverdiane dine; kvar verdi kan endrast seinare i Innstillingar.",
+      "name": "Namn",
+      "email": "E-post",
+      "emailHint": "Innloggingsidentiteten din. Ho kan endrast seinare frå Innstillingar → Tryggleik.",
+      "country": "Land",
+      "currency": "Føretrekt valuta",
+      "currencyHint": "Vert brukt til nye profilar og dashbordet til ein profil finst."
+    },
+    "step2": {
+      "title": "Korleis skal du bruke okinvo?",
+      "subtitle": "Berre standardverdiane endrar seg; ingenting vert låst.",
+      "usage": "Bruk",
+      "personal": "Personleg fakturering",
+      "personalHint": "Frilansarbeid i eige namn",
+      "business": "Bedriftsfakturering",
+      "businessHint": "Fakturaer frå ei registrert verksemd",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "MVA-nummer",
+        "other": "Skatteregistreringsnummer"
+      },
+      "taxQuestion": {
+        "IN": "Har du eit GSTIN?",
+        "GB": "Er du MVA-registrert?",
+        "other": "Har du eit skatteregistreringsnummer som skal skrivast ut på fakturaer?"
+      }
+    },
+    "step3": {
+      "title": "Alt er klart",
+      "body": "Opprett no di første utstedarprofil: namnet, adressa og skatteopplysningane som vert skrivne ut på fakturaene dine. Vi har fylt ut det du fortalde oss.",
+      "go": "Gå til profilar",
+      "opening": "Opnar…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Vilkår",
+      "privacy": "Personvern",
+      "cookies": "Infokapslar",
+      "security": "Tryggleik"
+    },
+    "cookieNotice": {
+      "label": "Varsel om infokapslar",
+      "body": "Vi brukar berre strengt nødvendige infokapslar: økta di og visingsinnstillingane dine. Ingen analyse, inga sporing.",
+      "policy": "Retningslinjer for infokapslar",
+      "gotIt": "Forstått"
+    },
+    "nav": {
+      "label": "Juridisk",
+      "cookies": "Infokapslar",
+      "privacy": "Personvern",
+      "terms": "Vilkår",
+      "acceptableUse": "Akseptabel bruk",
+      "retention": "Lagringstid",
+      "security": "Tryggleik",
+      "licences": "Lisensar"
+    },
+    "operatorNotice": "okinvo er sjølvhosta programvare; drivaren av denne instansen er ansvarleg for bruken av han.",
+    "doc": {
+      "effectiveOn": "Gjeld frå <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Innhald"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Juridisk namn på drivaren",
+        "entityType": "Eningstype",
+        "address": "Adressa til drivaren",
+        "country": "Landet til drivaren",
+        "contactEmail": "Kontakt-e-post",
+        "privacyEmail": "Personvern-e-post",
+        "dpoEmail": "E-post til personvernombod",
+        "governingLaw": "Gjeldande lov",
+        "venue": "Verneting for tvistar",
+        "effectiveDate": "Ikraftsetjingsdato"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Ikkje funne",
+      "title": "Det er ingenting på denne adressa",
+      "body": "Lenkja kan vere utdatert, eller dokumentet ho peikte til vart aldri utstedd."
+    },
+    "forbidden": {
+      "metaTitle": "Ikkje tillate",
+      "title": "Denne kontoen kan ikkje gjere det",
+      "body": "Rolla di tillèt ikkje dette. Be ein eigar om tilgang, eller logg inn med ein konto som har han."
+    },
+    "error": {
+      "title": "Noko gjekk gale",
+      "body": "Ingenting vart endra av denne førespurnaden. Prøv igjen; viss det held fram, finst detaljane i tenarloggen.",
+      "digest": "feil {digest}",
+      "generic": "feil"
+    },
+    "appNotFound": {
+      "title": "Ikkje funne",
+      "body": "Denne posten finst ikkje, eller han vart sletta medan du såg på han.",
+      "back": "Tilbake til dashbordet"
+    },
+    "validation": {
+      "required": "påkravd",
+      "tooLong": "høgst {max} teikn",
+      "invalidEmail": "må vere ei gyldig e-postadresse",
+      "invalidDate": "må vere ein kalenderdato i formatet ÅÅÅÅ-MM-DD",
+      "invalidAmount": "må vere eit tal",
+      "wholeNumber": "må vere eit heiltal",
+      "greaterThanZero": "må vere større enn null",
+      "fixFields": "Rett opp dei utheva felta.",
+      "charset": "Berre standard tastaturteikn er tillatne."
+    }
+  },
+  "verify": {
+    "metaTitle": "Verifiser dokument",
+    "heading": "Dokumentverifisering",
+    "rateLimited": "For mange kontrollar frå denne adressa. Prøv igjen om eitt minutt.",
+    "notFound": {
+      "title": "Dokumentet finst ikkje",
+      "body": "Denne lenkja samsvarer ikkje med noko utstedd dokument. Kontroller QR-koden eller lenkja du fekk, eller kontakt utstedaren."
+    },
+    "status": {
+      "void": "Annullert",
+      "valid": "Gyldig"
+    },
+    "issuedBy": "Utstedd av",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Utstedd til",
+    "issueDate": "Utstedingsdato",
+    "total": "Totalt",
+    "voided": "Dette dokumentet vart annullert av utstedaren og er ikkje lenger gyldig.",
+    "storedCopies": {
+      "title": "Lagra kopiar",
+      "description": "SHA-256 av kvar PDF-versjon utstedaren har. Vel kopien din for å samanlikne han i nettlesaren: ingenting vert lasta opp.",
+      "empty": "Ingen PDF er generert enno.",
+      "protectedVersion": "Passordverna kopi {version}",
+      "version": "Versjon {version}"
+    },
+    "check": {
+      "label": "Kontroller kopien din",
+      "hashing": "Reknar ut hash…",
+      "match": "Kopien din samsvarer nøyaktig med versjon {version}.",
+      "mismatch": "Kopien din samsvarer ikkje med nokon lagra versjon."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Delt dokument",
+      "rateLimited": "For mange førespurnader frå denne adressa. Prøv igjen om eitt minutt.",
+      "unavailable": {
+        "title": "Denne lenkja er ikkje tilgjengeleg",
+        "body": "Ho kan ha gått ut eller vorte tilbakekalla av utstedaren. Be om ei ny."
+      },
+      "lockedTitleInvoice": "Faktura frå {issuer}",
+      "lockedTitleCreditNote": "Kreditnota frå {issuer}",
+      "lockedBody": "Dette dokumentet er passordverna. Skriv inn passordet utstedaren gav deg.",
+      "void": "Annullert",
+      "protectedPdf": "PDF-en vert open med det same passordet. Han kan lesast og skrivast ut; kopiering og redigering er låst.",
+      "byline": "Frå {issuer} til {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Passord",
+      "limited": "For mange forsøk. Vent femten minutt og prøv igjen.",
+      "wrong": "Passordet er feil.",
+      "submit": "Opne dokument"
+    },
+    "dialog": {
+      "trigger": "Del",
+      "title": "Del dette dokumentet",
+      "description": "Alle med lenkja kan sjå og laste ned dokumentet til det går ut eller du tilbakekallar det. Eit passord vernar også sjølve PDF-en: han vert open med passordet og kan lesast og skrivast ut, ikkje redigerast eller kopierast.",
+      "link": "Lenkje",
+      "copyLink": "Kopier lenkje",
+      "password": "Passord",
+      "copyPassword": "Kopier passord",
+      "sendSeparately": "Send passordet separat frå lenkja. Du kan sjå det igjen i lista nedanfor.",
+      "copy": "Kopier",
+      "copied": "Kopiert",
+      "expires": "Går ut",
+      "expiry": {
+        "d7": "Om 7 dagar",
+        "d30": "Om 30 dagar",
+        "d90": "Om 90 dagar",
+        "never": "Aldri"
+      },
+      "protection": "Vern",
+      "protectionOptions": {
+        "auto": "Passord: generer ei passfrase",
+        "manual": "Passord: vel mitt eige",
+        "none": "Utan passord (open lenkje)"
+      },
+      "passwordHint": "Minst 8 teikn.",
+      "strength": "Styrke: {label}",
+      "strengthLabels": {
+        "veryWeak": "svært svakt",
+        "weak": "svakt",
+        "fair": "middels",
+        "good": "bra",
+        "strong": "sterkt"
+      },
+      "creating": "Opprettar…",
+      "create": "Opprett lenkje",
+      "activeLinks": "Aktive lenkjer",
+      "passwordProtected": "Passordverna",
+      "openLink": "Opne lenkje",
+      "linkExpires": "{kind} · går ut {date}",
+      "linkNeverExpires": "{kind} · går aldri ut",
+      "revoke": {
+        "title": "Tilbakekalle denne lenkja?",
+        "description": "Lenkja sluttar med ein gong å fungere for alle som har ho.",
+        "label": "Tilbakekall"
+      },
+      "linkPassword": "Passord: <code>{password}</code>",
+      "counts": "{views, plural, one {# vising} other {# visingar}} · {downloads, plural, one {# nedlasting} other {# nedlastingar}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Kreditnotaer",
+      "title": "Kreditnotaer",
+      "description": "Utstedde mot utstedde fakturaer; kvar reduserer saldoen til fakturaen når ho vert utstedd.",
+      "newCreditNote": "Ny kreditnota",
+      "filters": {
+        "from": "Frå",
+        "to": "Til",
+        "issuer": "Utstedar",
+        "client": "Kunde",
+        "status": "Status",
+        "search": "Søk",
+        "all": "Alle",
+        "searchPlaceholder": "Nummer, årsak, kunde",
+        "go": "Gå"
+      },
+      "statuses": {
+        "DRAFT": "Utkast",
+        "ISSUED": "Utstedd",
+        "SENT": "Sendt",
+        "VOID": "Annullert"
+      },
+      "empty": {
+        "title": "Ingen kreditnotaer enno",
+        "description": "Opne ei utstedd faktura og vel «Kreditnota» for å redusere det ho skuldar."
+      },
+      "noMatch": "Ingen kreditnotaer samsvarer med desse filtra.",
+      "columns": {
+        "number": "Nummer",
+        "against": "Mot",
+        "client": "Kunde",
+        "issueDate": "Utstedingsdato",
+        "reason": "Årsak",
+        "total": "Totalt",
+        "status": "Status"
+      },
+      "draft": "Utkast"
+    },
+    "new": {
+      "metaTitle": "Ny kreditnota",
+      "title": "Ny kreditnota",
+      "description": "Ei kreditnota vert utstedd mot ei utstedd faktura og reduserer saldoen.",
+      "nothingToCredit": {
+        "title": "Ingenting å kreditere",
+        "description": "Kreditnotaer krev ei utstedd faktura med utestående saldo.",
+        "openInvoices": "Opne fakturaene"
+      },
+      "whichInvoice": "Kva faktura?",
+      "invoice": "Faktura",
+      "invoiceOption": "{number} · {client} · saldo {balance}",
+      "issuedOnly": "Kreditnotaer vert berre utstedde mot utstedde fakturaer.",
+      "invoiceFallback": "Faktura"
+    },
+    "edit": {
+      "metaTitle": "Rediger kreditnota",
+      "title": "Rediger utkast til kreditnota",
+      "immutable": "Utstedde kreditnotaer kan ikkje endrast.",
+      "draft": "Utkast"
+    },
+    "detail": {
+      "metaTitle": "Kreditnota",
+      "draftTitle": "Utkast til kreditnota",
+      "meta": "{client} · mot <invoice>{number}</invoice> · utstedd <mono>{date}</mono>",
+      "previewPdf": "Førehandsvis PDF",
+      "issue": {
+        "title": "Utstede denne kreditnotaen?",
+        "description": "Eit nummer vert tildelt, fakturasaldoen vert redusert og dokumentet kan ikkje lenger endrast.",
+        "label": "Utsted"
+      },
+      "deleteDraft": {
+        "title": "Slette dette utkastet?"
+      },
+      "sendByEmail": "Send på e-post",
+      "markSent": {
+        "title": "Merke som sendt?",
+        "label": "Merk som sendt"
+      },
+      "void": {
+        "title": "Annullere denne kreditnotaen?",
+        "description": "Fakturasaldoen vert gjenoppretta; nummeret vert aldri brukt om att.",
+        "reason": "Årsak",
+        "label": "Annuller"
+      },
+      "voided": "Annullert {date}: {reason}",
+      "amounts": {
+        "title": "Beløp",
+        "reason": "Årsak",
+        "creditAmount": "Kreditbeløp",
+        "total": "Totalt",
+        "balanceNow": "Fakturasaldo no",
+        "sent": "Sendt"
+      },
+      "documents": {
+        "title": "Lagra dokument",
+        "description": "Kvar versjon vert behalden; verifiseringssida viser alle hashar.",
+        "regenerateTitle": "Generere ein ny PDF-versjon?",
+        "generate": "Generer",
+        "newVersion": "Ny versjon",
+        "renderedOnFirstDownload": "PDF-en vert generert ved første nedlasting.",
+        "protectedCopy": "Passordverna kopi {version}",
+        "version": "Versjon {version}",
+        "verificationLink": "Verifiseringslenkje: <link>{path}…</link>"
+      },
+      "draftsPreview": "Førehandsvising av utkast vert vist direkte i redigeringsprogrammet."
+    },
+    "send": {
+      "metaTitle": "Send kreditnota",
+      "title": "Send <mono>{number}</mono>",
+      "previousSends": "Tidlegare utsendingar"
+    },
+    "builder": {
+      "against": "Mot <mono>{number}</mono>",
+      "summary": "{client} · totalt {total} · saldo {balance} · skattepliktig rom ≈ {headroom}",
+      "issueDate": "Utstedingsdato",
+      "creditAmount": "Kreditbeløp (eksklusive skatt)",
+      "creditAmountHint": "Skatten vert fordelt frå skatteline til fakturaen",
+      "reason": "Årsak",
+      "picker": {
+        "title": "Rekn ut frå fakturaliner",
+        "description": "Kryss av heile liner eller ein prosentdel; dette fyller berre ut beløpet ovanfor.",
+        "line": "Line",
+        "subtotal": "Delsum",
+        "credit": "Kreditt",
+        "percent": "%",
+        "creditLine": "Kreditline {position}",
+        "percentOfLine": "Prosent av line {position}"
+      },
+      "saveDraft": "Lagre utkast",
+      "issuing": "Utstedar…",
+      "saveAndIssue": "Lagre og utsted"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Betaling motteken",
+        "REFUND": "Refusjon utbetalt",
+        "WRITE_OFF": "Avskriving"
+      },
+      "editTitle": "Rediger postering",
+      "recordTitle": "Registrer ei betaling",
+      "description": "Beløp er i fakturavalutaen ({currency}); fråtrekt TDS er ein del av det nytta beløpet.",
+      "kind": "Type",
+      "date": "Dato",
+      "amountRefunded": "Refundert beløp (negativt)",
+      "amountApplied": "Nytta beløp",
+      "refundHint": "Skriv inn eit negativt beløp, t.d. -500",
+      "tdsDeducted": "Fråtrekt TDS",
+      "tdsHint": "Skatt kunden har halde tilbake; tel med i det nytta beløpet",
+      "bankFees": "Bankgebyr",
+      "receivedInto": "Motteken på",
+      "noMethod": "-",
+      "reference": "Referanse",
+      "referenceHint": "UTR, transaksjons-ID, sjekknummer",
+      "otherCurrency": "Motteken i ein annan valuta",
+      "amountReceived": "Motteke beløp",
+      "receivedCurrency": "Motteken valuta",
+      "exchangeRate": "Vekslingskurs",
+      "exchangeRateHint": "1 motteken eining = ? {currency}",
+      "notes": "Merknader",
+      "receipt": "Kvittering",
+      "receiptHint": "PNG, JPEG, WebP eller PDF opptil 10 MB",
+      "saveChanges": "Lagre endringar",
+      "record": "Registrer"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "ca. {count, plural, one {# side} other {# sider}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Melding",
+      "description": "Førehandsutfylt frå malane til utstedarprofilen. Ingenting vert sendt før du klikkar Send.",
+      "to": "Til",
+      "toHint": "Kommaseparert",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Emne",
+      "body": "Tekst",
+      "bodyHint": "Rein tekst; lenkjer vert klikkbare",
+      "attachment": "Vedlegg",
+      "attachmentHint": "Den lagra kopien, kalla <mono>{name}</mono> (eller .docx); innhaldet kan ikkje endrast.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Sender…",
+      "send": "Send",
+      "openInMailApp": "Opne i e-postapp",
+      "noSmtp": "Ingen SMTP-tenar er konfigurert (Innstillingar → E-post). Opne utkastet i e-postappen din, legg ved den nedlasta PDF-en, og merk det deretter som sendt nedanfor.",
+      "markAsSent": "Merk som sendt"
+    },
+    "sentLog": {
+      "when": "Når",
+      "document": "Dokument",
+      "to": "Til",
+      "subject": "Emne",
+      "status": "Status",
+      "empty": "Ingenting sendt enno.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "sendt",
+        "FAILED": "mislukkast",
+        "MANUAL": "manuell"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Hei, {name}",
+    "fiscalYear": "Rekneskapsår {year}",
+    "fiscalYearWithBase": "Rekneskapsår {year} · basisvaluta {currency} ({profile})",
+    "newCreditNote": "Ny kreditnota",
+    "welcomeTitle": "Velkomen til {appName}",
+    "welcomeDescription": "Byrj med å opprette utstedarprofilen du fakturerer frå, og legg deretter til ein kunde og di første faktura.",
+    "createProfile": "Opprett profilen din",
+    "tiles": {
+      "outstanding": "Utestående",
+      "overdue": "Forfalle",
+      "billedThisFy": "Fakturert dette rekneskapsåret",
+      "receivedThisFy": "Motteke dette rekneskapsåret",
+      "drafts": "Utkast",
+      "invoiceCount": "{count, plural, one {# faktura} other {# fakturaer}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Betalingar minus refusjonar, til registrert valutakurs",
+      "awaitingIssue": "ventar på utsteding",
+      "nothingPending": "ingenting ventar"
+    },
+    "recentInvoices": "Siste fakturaer",
+    "allInvoices": "Alle fakturaer",
+    "noInvoicesYet": "Ingen fakturaer enno.",
+    "columns": {
+      "number": "Nummer",
+      "client": "Kunde",
+      "issued": "Utstedd"
+    },
+    "topClients": "Største kundar etter utestående",
+    "nothingOutstanding": "Ingenting utestående."
+  },
+  "exports": {
+    "export": "Eksporter",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Fakturaer",
+      "newInvoice": "Ny faktura",
+      "draft": "Utkast",
+      "aDraft": "eit utkast",
+      "statuses": {
+        "draft": "Utkast",
+        "issued": "Utstedd",
+        "sent": "Sendt",
+        "partiallyPaid": "Delvis betalt",
+        "paid": "Betalt",
+        "overdue": "Forfalle",
+        "void": "Annullert"
+      },
+      "lifecycle": {
+        "draft": "utkast",
+        "issued": "utstedd",
+        "void": "annullert"
+      },
+      "units": {
+        "hour": "Time",
+        "day": "Dag",
+        "fixed": "Fast",
+        "milestone": "Milepæl",
+        "unit": "Eining"
+      },
+      "unitsLower": {
+        "hour": "time",
+        "day": "dag",
+        "fixed": "fast",
+        "milestone": "milepæl",
+        "unit": "eining"
+      },
+      "supplyTypes": {
+        "intraState": "innanfor delstaten",
+        "interState": "mellom delstatar",
+        "exportLut": "eksport lut",
+        "exportWithTax": "eksport med skatt",
+        "reverseCharge": "omvend avgiftsplikt",
+        "notApplicable": "ikkje aktuelt"
+      }
+    },
+    "list": {
+      "description": "Utkast, utstedde og annullerte fakturaer; statusar vert leidde av betalingar og forfallsdatoar.",
+      "fiscalYear": "Rekneskapsår",
+      "issuer": "Utstedar",
+      "client": "Kunde",
+      "searchPlaceholder": "Nummer, PO, kunde",
+      "emptyTitle": "Ingen fakturaer enno",
+      "emptyDescription": "Lag di første faktura: vel ein kunde, legg til liner, sjå førehandsvisinga og utsted ho.",
+      "columns": {
+        "number": "Nummer",
+        "client": "Kunde",
+        "issuer": "Utstedar",
+        "issueDate": "Utstedingsdato",
+        "due": "Forfall",
+        "balance": "Saldo"
+      },
+      "noMatches": "Ingen fakturaer samsvarer med desse filtra.",
+      "count": "{count, plural, one {# faktura} other {# fakturaer}}",
+      "countPaged": "{count, plural, one {# faktura} other {# fakturaer}} · side {page} av {pages}",
+      "register": "register"
+    },
+    "new": {
+      "noProfileTitle": "Opprett ein utstedarprofil først",
+      "noProfileDescription": "Ei faktura vert utstedd frå ein juridisk identitet: set opp profilen din med skatte-ID-ar og nummerering.",
+      "createProfile": "Opprett ein profil"
+    },
+    "edit": {
+      "metaTitle": "Rediger faktura",
+      "title": "Rediger utkast",
+      "immutableFlash": "Utstedde fakturaer kan ikkje endrast. Bruk «Annuller og utsted på nytt» for å korrigere ho."
+    },
+    "detail": {
+      "metaTitle": "Faktura",
+      "draftInvoice": "Utkast til faktura",
+      "issuedDue": "Utstedd <mono>{issued}</mono>, forfell <mono>{due}</mono>",
+      "replaces": "Erstattar {number}",
+      "replacedBy": "Erstatta av {number}",
+      "previewPdf": "Førehandsvis PDF",
+      "issueTitle": "Utstede denne fakturaen?",
+      "issueDescription": "Eit nummer vert tildelt og dokumentet kan ikkje lenger endrast.",
+      "issue": "Utsted",
+      "deleteDraftTitle": "Slette dette utkastet?",
+      "sendByEmail": "Send på e-post",
+      "recordPayment": "Registrer betaling",
+      "creditNote": "Kreditnota",
+      "markSentTitle": "Merke som sendt?",
+      "markSentDescription": "Registrerer at kunden har motteke denne fakturaen.",
+      "markSent": "Merk som sendt",
+      "voidReissueTitle": "Annullere og utstede på nytt?",
+      "voidReissueDescription": "Originalen vert annullert, og eit kopla utkast med same innhald vert opna for redigering.",
+      "voidReissue": "Annuller og utsted på nytt",
+      "voidTitle": "Annullere denne fakturaen?",
+      "voidDescription": "Berre mogleg utan registrerte betalingar; nummeret vert aldri brukt om att.",
+      "void": "Annuller",
+      "voided": "Annullert {date}: {reason}",
+      "amounts": "Beløp",
+      "subtotal": "Delsum",
+      "discount": "Rabatt",
+      "discountPercent": "Rabatt ({percent})",
+      "rounding": "Avrunding",
+      "tdsExpected": "Venta TDS ({percent})",
+      "paid": "Betalt",
+      "credited": "Kreditert",
+      "balanceDue": "Utestående saldo",
+      "supply": "Levering",
+      "fxToBase": "Valutakurs til basis",
+      "poReference": "PO-referanse",
+      "sent": "Sendt",
+      "lineItems": "Fakturaliner",
+      "columns": {
+        "description": "Skildring",
+        "sacHsn": "SAC/HSN",
+        "qty": "Tal",
+        "rate": "Sats",
+        "tax": "Skatt",
+        "amount": "Beløp"
+      },
+      "creditNotes": "Kreditnotaer",
+      "storedDocuments": "Lagra dokument",
+      "storedDocumentsHint": "Kvar versjon vert behalden; verifiseringssida viser alle hashar.",
+      "regenerateTitle": "Generere ein ny PDF-versjon?",
+      "regenerateDescription": "Vert generert på nytt frå det frosne augneblinksbildet (til dømes etter ei retting i gjevaren). Tidlegare versjonar vert behaldne.",
+      "regenerate": "Generer",
+      "newVersion": "Ny versjon",
+      "renderedOnFirstDownload": "PDF-en vert generert ved første nedlasting.",
+      "protectedCopy": "Passordverna kopi {version}",
+      "version": "Versjon {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Verifiseringslenkje:",
+      "draftPreviewHint": "Førehandsvising av utkast vert vist direkte i redigeringsprogrammet; opne <link>PDF-en med vassmerke</link> for å sjå sida."
+    },
+    "history": {
+      "metaTitle": "Fakturahistorikk",
+      "title": "Historikk <mono>{number}</mono>",
+      "reissueChain": "Kjede av nyutstedingar",
+      "replaces": "Erstattar <link>{number}</link>",
+      "replacedBy": "Erstatta av <link>{number}</link>",
+      "auditTrail": "Revisjonsspor",
+      "columns": {
+        "when": "Når",
+        "who": "Kven",
+        "action": "Handling",
+        "summary": "Samandrag"
+      },
+      "noEvents": "Ingen hendingar enno.",
+      "system": "System",
+      "emails": "E-postar"
+    },
+    "payments": {
+      "title": "Betalingar",
+      "description": "{client} · {total} totalt",
+      "backToInvoice": "Tilbake til fakturaen",
+      "ledger": "Journal",
+      "columns": {
+        "date": "Dato",
+        "kind": "Type",
+        "applied": "Nytta",
+        "tds": "TDS",
+        "received": "Motteke",
+        "reference": "Referanse",
+        "balance": "Saldo"
+      },
+      "noPayments": "Ingen betalingar registrerte enno.",
+      "kinds": {
+        "payment": "Betaling",
+        "refund": "Refusjon",
+        "writeOff": "Avskriving"
+      },
+      "receipt": "Kvittering",
+      "deleteEntryTitle": "Slette denne posteringa?",
+      "deleteEntryDescription": "Fakturasaldoen vert rekna ut på nytt.",
+      "totals": "Summar",
+      "invoiceTotal": "Fakturatotal",
+      "credited": "Kreditert",
+      "refunds": "Refusjonar",
+      "writeOffs": "Avskrivingar",
+      "tdsDeducted": "Fråtrekt TDS",
+      "bankFees": "Bankgebyr",
+      "balanceDue": "Utestående saldo",
+      "onlyIssued": "Berre utstedde fakturaer tek imot betalingar."
+    },
+    "send": {
+      "metaTitle": "Send faktura",
+      "title": "Send <mono>{number}</mono>",
+      "alreadySent": "Allereie merkt som sendt; å sende på nytt legg til ei ny loggføring.",
+      "previousSends": "Tidlegare utsendingar"
+    },
+    "builder": {
+      "parties": "Partar",
+      "issuerProfile": "Utstedarprofil",
+      "client": "Kunde",
+      "archivedOption": "{label} (arkivert)",
+      "issueDate": "Utstedingsdato",
+      "dueDate": "Forfallsdato",
+      "fxRate": "Valutakurs til basisvaluta",
+      "fxHint": "1 {currency} = ? {base} (berre for rapportering)",
+      "poReference": "PO-referanse",
+      "lineItems": "Fakturaliner",
+      "lineItemsHint": "Vel frå katalogen for å kopiere verdiane, eller skriv ei line.",
+      "taxDiscountTds": "Skatt, rabatt og TDS",
+      "taxRegime": "Skatteregime",
+      "regimes": {
+        "indiaGst": "Indisk GST",
+        "ukVat": "Britisk MVA",
+        "usSalesTax": "Amerikansk salsskatt",
+        "none": "Ingen skatt"
+      },
+      "reverseCharge": "Omvend avgiftsplikt",
+      "reverseChargeHint": "Skatt som vert betalt av mottakaren",
+      "discount": "Rabatt",
+      "percent": "Prosent",
+      "amount": "Beløp",
+      "rounding": "Avrundingsjustering",
+      "roundingHint": "Valfritt, til ei heil eining; må vere under 1",
+      "round": "Avrund",
+      "tdsRate": "Venta TDS-sats (%)",
+      "tdsRateHint": "Berre til informasjon; vert skrive ut når TDS-oppdelinga er på",
+      "paymentMethods": "Betalingsmåtar",
+      "paymentMethodsHint": "Vert skrive ut i rekkjefølgja dei er kryssa av.",
+      "noPaymentMethods": "Ingen aktive betalingsmåtar. <link>Legg til ein</link>.",
+      "whatPrints": "Kva som vert skrive ut",
+      "whatPrintsHint": "Startar frå standardverdiane til utstedarprofilen.",
+      "notesAndTerms": "Merknader og vilkår",
+      "notes": "Merknader",
+      "terms": "Vilkår",
+      "saveDraft": "Lagre utkast",
+      "issuing": "Utstedar…",
+      "saveAndIssue": "Lagre og utsted",
+      "subtotal": "Delsum",
+      "tax": "Skatt",
+      "tdsExpected": "Venta TDS",
+      "netExpected": "Venta netto"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Legg til frå katalog…",
+      "services": "Tenester",
+      "products": "Produkt",
+      "addLine": "Legg til line",
+      "columns": {
+        "description": "Skildring",
+        "sacHsn": "SAC/HSN",
+        "qty": "Tal",
+        "unit": "Eining",
+        "rate": "Sats",
+        "taxPercent": "Skatt %"
+      },
+      "aria": {
+        "description": "Skildring for line {line}",
+        "sacHsn": "SAC/HSN for line {line}",
+        "quantity": "Tal for line {line}",
+        "unit": "Eining for line {line}",
+        "rate": "Sats for line {line}",
+        "taxRate": "Skattesats for line {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Fritatt",
+      "moveUp": "Flytt opp",
+      "moveDown": "Flytt ned",
+      "removeLine": "Fjern line",
+      "shortcutHint": "Ctrl/⌘+Enter i ei skildring legg til ei line.",
+      "addFromCatalogueAria": "Legg til frå katalog"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Opplysningar om utstedar",
+        "client": "Kundeopplysningar",
+        "document": "Dokumentseksjonar"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Handelsnamn",
+        "showDesignation": "Stilling",
+        "showEmail": "E-post",
+        "showPhone": "Telefon",
+        "showWebsite": "Nettstad",
+        "showFullAddress": "Full adresse",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Signatur",
+        "showStamp": "Stempel",
+        "showContactPerson": "Kontaktperson",
+        "showBillingAddress": "Fakturaadresse",
+        "showShippingAddress": "Leveringsadresse",
+        "showTaxIdentifier": "Skatte-ID",
+        "showPlaceOfSupply": "Leveringsstad",
+        "showDueDate": "Forfallsdato",
+        "showPaymentTerms": "Betalingsvilkår",
+        "showSacCodeColumn": "Kolonne for SAC-kode",
+        "showQuantityColumn": "Kolonne for tal",
+        "showUnitPriceColumn": "Kolonne for einingspris",
+        "showTaxColumn": "Kolonne for skatt",
+        "showTdsBreakdown": "TDS-oppdeling",
+        "showQrVerification": "QR-verifisering",
+        "showNotes": "Merknader",
+        "showTerms": "Vilkår",
+        "showReplacesReference": "Referanse til erstatta faktura",
+        "showAmountInWords": "Beløp med ord",
+        "showSupplyStatement": "Leveringserklæring",
+        "showRoundingLine": "Avrundingsline",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Kundar",
+      "description": "Alle du fakturerer. Kundar med fakturaer vert arkiverte, aldri sletta.",
+      "newClient": "Ny kunde",
+      "searchPlaceholder": "Søk etter namn",
+      "searchLabel": "Søk i kundar",
+      "emptyTitle": "Ingen kundar enno",
+      "emptyDescription": "Legg til personane og selskapa du fakturerer; valutaen og betalingsvilkåra deira førehandsutfyller kvar faktura.",
+      "addClient": "Legg til ein kunde",
+      "noMatch": "Ingen kundar samsvarer med «{q}».",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Namn",
+        "contact": "Kontakt",
+        "email": "E-post",
+        "country": "Land",
+        "currency": "Valuta",
+        "terms": "Vilkår",
+        "status": "Status"
+      }
+    },
+    "new": {
+      "title": "Ny kunde"
+    },
+    "edit": {
+      "metaTitle": "Rediger kunde",
+      "title": "Rediger {name}"
+    },
+    "detail": {
+      "metaTitle": "Kunde",
+      "newInvoice": "Ny faktura",
+      "restoreTitle": "Gjenopprette denne kunden?",
+      "archiveTitle": "Arkivere denne kunden?",
+      "archiveDescription": "Ho forsvinn frå vallistene; fakturaer og historikk vert ståande uendra.",
+      "deleteTitle": "Slette denne kunden?",
+      "deleteDescription": "Berre mogleg så lenge inga faktura refererer til kunden.",
+      "details": "Detaljar",
+      "contact": "Kontakt",
+      "email": "E-post",
+      "phone": "Telefon",
+      "country": "Land",
+      "gstState": "GST {code}",
+      "taxId": "Skatte-ID",
+      "currency": "Valuta",
+      "paymentTerms": "Betalingsvilkår",
+      "paymentTermsDays": "{days} dagar",
+      "expectedTds": "Venta TDS",
+      "notes": "Merknader",
+      "addresses": "Adresser",
+      "billing": "Fakturering",
+      "shipping": "Levering",
+      "lifetime": "Totalt",
+      "openRegister": "Opne registeret",
+      "noIssued": "Ingen utstedde fakturaer enno.",
+      "noIssuedWithDrafts": "Ingen utstedde fakturaer enno ({drafts} utkast).",
+      "firstLatest": "Første faktura <mono>{first}</mono>, siste <mono>{latest}</mono>{drafts, plural, =0 {} one { · # utkast} other { · # utkast}}",
+      "lifetimeColumns": {
+        "currency": "Valuta",
+        "invoices": "Fakturaer",
+        "billed": "Fakturert",
+        "received": "Motteke",
+        "credited": "Kreditert",
+        "outstanding": "Utestående",
+        "overdue": "Forfalle"
+      },
+      "recentInvoices": "Siste fakturaer",
+      "noInvoices": "Ingen fakturaer for denne kunden enno.",
+      "recentColumns": {
+        "number": "Nummer",
+        "issueDate": "Utstedingsdato",
+        "due": "Forfall",
+        "total": "Totalt",
+        "balance": "Saldo",
+        "status": "Status"
+      }
+    },
+    "form": {
+      "cardTitle": "Kunde",
+      "displayName": "Visingsnamn",
+      "contactPerson": "Kontaktperson",
+      "email": "E-post",
+      "phone": "Telefon",
+      "taxIdType": "Type skatte-ID",
+      "taxIdTypeNone": "Ingen",
+      "taxId": "Skatte-ID",
+      "currency": "Valuta",
+      "paymentTerms": "Betalingsvilkår (dagar)",
+      "expectedTdsRate": "Venta TDS-sats (%)",
+      "notes": "Merknader",
+      "billingAddress": "Fakturaadresse",
+      "shippingAddress": "Leveringsadresse",
+      "differentFromBilling": "Annleis enn fakturaadressa",
+      "save": "Lagre kunde"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Time",
+      "DAY": "Dag",
+      "FIXED": "Fast",
+      "MILESTONE": "Milepæl",
+      "UNIT": "Eining"
+    },
+    "list": {
+      "activate": "Aktiver",
+      "deactivate": "Deaktiver",
+      "archiveDescription": "Eksisterande fakturaliner held på verdiane som vart kopierte.",
+      "deleteDescription": "Berre mogleg så lenge inga fakturaline refererer til han. Arkiver han elles.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Namn",
+        "unit": "Eining",
+        "rate": "Sats",
+        "price": "Pris",
+        "currency": "Valuta",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Skatt",
+        "status": "Status"
+      }
+    },
+    "services": {
+      "title": "Tenester",
+      "description": "Katalogen din. Når du vel ei teneste, vert verdiane kopierte til fakturalina.",
+      "newService": "Ny teneste",
+      "emptyTitle": "Ingen tenester enno",
+      "emptyDescription": "Legg til det du sel - design per time, ein milepæl med fast pris - med SAC/HSN-kode og skattesats.",
+      "addService": "Legg til ei teneste",
+      "restoreTitle": "Gjenopprette {name}?",
+      "archiveTitle": "Arkivere {name}?",
+      "deleteTitle": "Slette {name}?",
+      "editMetaTitle": "Rediger teneste",
+      "editTitle": "Rediger {name}"
+    },
+    "products": {
+      "title": "Produkt",
+      "description": "Varer du sel, kvar med ein SKU. Når du vel eit produkt, vert verdiane kopierte til fakturalina.",
+      "newProduct": "Nytt produkt",
+      "emptyTitle": "Ingen produkt enno",
+      "emptyDescription": "Legg til varene du sel med SKU, HSN-kode, einingspris og skattesats.",
+      "addProduct": "Legg til eit produkt",
+      "restoreTitle": "Gjenopprette {sku}?",
+      "archiveTitle": "Arkivere {sku}?",
+      "deleteTitle": "Slette {sku}?",
+      "editMetaTitle": "Rediger produkt",
+      "editTitle": "Rediger {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Unik kode som vert skriven ut under linjeskildringa",
+      "name": "Namn",
+      "unit": "Eining",
+      "defaultRate": "Standardsats",
+      "unitPrice": "Einingspris",
+      "currency": "Valuta",
+      "sacHsnCode": "SAC / HSN-kode",
+      "sacHsnHint": "Påkravd på GST-fakturaer",
+      "hsnCode": "HSN-kode",
+      "hsnHint": "Påkravd på GST-fakturaer for varer",
+      "defaultTaxRate": "Standard skattesats (%)",
+      "description": "Skildring",
+      "descriptionHint": "Førehandsutfyller linjeskildringa",
+      "active": "Aktiv",
+      "serviceInactiveHint": "Inaktive tenester vert ikkje viste i fakturaveljaren",
+      "productInactiveHint": "Inaktive produkt vert ikkje viste i fakturaveljaren",
+      "saveService": "Lagre teneste",
+      "saveProduct": "Lagre produkt"
+    },
+    "tags": {
+      "legend": "Profilar",
+      "hint": "Kryss av utstedarprofilane som sel dette. La alle stå utan kryss for å tilby det til alle profilar."
+    }
+  },
+  "address": {
+    "line1": "Adresseline 1",
+    "line2": "Adresseline 2",
+    "city": "Stad",
+    "stateRegion": "Delstat / region",
+    "postalCode": "Postnummer",
+    "country": "Land",
+    "state": "Delstat",
+    "gstStateCodeHint": "GST-delstatskode {code}",
+    "pickStateHint": "Vel delstaten for GST-delstatskoden",
+    "stateRegionCode": "Delstats- / regionkode",
+    "stateRegionCodePlaceholder": "t.d. CA"
+  },
+  "assets": {
+    "tooLarge": "Fila er for stor.",
+    "unsupportedReceipt": "Bruk eit PNG-, JPEG- eller WebP-bilde eller ein PDF.",
+    "unsupportedImage": "Bruk eit PNG-, JPEG- eller WebP-bilde.",
+    "uploadFailed": "Opplastinga mislukkast.",
+    "uploading": "Lastar opp…"
+  },
+  "ui": {
+    "breadcrumb": "Brødsmulesti",
+    "close": "Lukk",
+    "closeMenu": "Lukk meny",
+    "inputCharset": "Berre standard tastaturteikn er tillatne.",
+    "confirm": {
+      "working": "Jobbar…"
+    },
+    "statusPill": {
+      "DRAFT": "Utkast",
+      "ISSUED": "Utstedd",
+      "SENT": "Sendt",
+      "PARTIALLY_PAID": "Delvis betalt",
+      "PAID": "Betalt",
+      "OVERDUE": "Forfalle",
+      "VOID": "Annullert"
+    },
+    "activePill": {
+      "active": "Aktiv",
+      "archived": "Arkivert",
+      "inactive": "Inaktiv"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Noko gjekk gale.",
+    "fixFields": "Rett opp dei utheva felta.",
+    "accountSaved": "Kontoinnstillingar lagra",
+    "apiKeyCreated": "API-nøkkel oppretta. Kopier han no: han vert berre vist éin gong.",
+    "saved": "Lagra {name}",
+    "savedProfile": "Lagra profilen {label}",
+    "clientArchived": "Kunde arkivert",
+    "clientRestored": "Kunde gjenoppretta",
+    "clientDeleted": "Kunde sletta",
+    "productArchived": "Produkt arkivert",
+    "productRestored": "Produkt gjenoppretta",
+    "productActivated": "Produkt aktivert",
+    "productDeactivated": "Produkt deaktivert",
+    "serviceArchived": "Teneste arkivert",
+    "serviceRestored": "Teneste gjenoppretta",
+    "serviceActivated": "Teneste aktivert",
+    "serviceDeactivated": "Teneste deaktivert",
+    "defaultProfileUpdated": "Standardprofil oppdatert",
+    "profileArchived": "Profil arkivert",
+    "profileRestored": "Profil gjenoppretta",
+    "profileDeleted": "Profil sletta",
+    "defaultPaymentMethodUpdated": "Standard betalingsmåte oppdatert",
+    "paymentMethodArchived": "Betalingsmåte arkivert",
+    "paymentMethodRestored": "Betalingsmåte gjenoppretta",
+    "paymentMethodDeleted": "Betalingsmåte sletta",
+    "issued": "Utstedde {number}",
+    "savedAsDraft": "Lagra som utkast. {reason}",
+    "draftSaved": "Utkast lagra",
+    "invoiceVoided": "Faktura annullert",
+    "originalVoided": "Originalen er annullert; rediger erstatningsutkastet",
+    "markedAsSent": "Merkt som sendt",
+    "draftDeleted": "Utkast sletta",
+    "generatedPdf": "Genererte PDF-versjon {version}",
+    "creditNoteVoided": "Kreditnota annullert; fakturasaldoen er gjenoppretta",
+    "draftCreditNoteDeleted": "Utkast til kreditnota sletta",
+    "mailRefused": "E-posttenaren avviste meldinga: {error}. Forsøket vart logga.",
+    "unknownError": "ukjend feil",
+    "sentTo": "Sendt til {recipients}",
+    "smtpSaved": "SMTP-innstillingar lagra",
+    "smtpRemoved": "Lagra SMTP-innstillingar fjerna",
+    "testEmailSent": "Test-e-post sendt til {email}",
+    "testFailed": "Testen mislukkast: {error}",
+    "defaultRecipientsSaved": "Standardmottakarar lagra",
+    "invitationSent": "Invitasjon send",
+    "invitationReady": "Invitasjon klar",
+    "unknownRole": "Ukjend rolle",
+    "roleUpdated": "Rolle oppdatert",
+    "accountDeactivated": "Konto deaktivert",
+    "accountReactivated": "Konto reaktivert",
+    "invitationRevoked": "Invitasjon tilbakekalla",
+    "paymentUpdated": "Betaling oppdatert",
+    "paymentRecorded": "Betaling registrert",
+    "paymentDeleted": "Betaling sletta",
+    "sessionRevoked": "Økt tilbakekalla",
+    "noOtherSessions": "Ingen andre øktar",
+    "signedOutOthers": "Logga ut av {count} andre økt(er)",
+    "sharePasswordRequired": "Skriv inn eit passord, eller la eit verte generert.",
+    "shareLinkCreated": "Delingslenkje oppretta.",
+    "templateSaved": "Mal lagra; framtidige dokument brukar ho",
+    "templateReset": "Mal tilbakestilt til innebygd standard",
+    "templateImported": "Mal importert",
+    "profileTemplateCleared": "Profilen brukar instansmalen igjen",
+    "operatorSaved": "Opplysningar om drivaren lagra. Dei juridiske sidene viser dei no."
+  }
+}

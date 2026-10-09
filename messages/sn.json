@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Peji huru ye okinvo",
+    "save": "Chengetedza",
+    "cancel": "Kanzura",
+    "continue": "Enderera mberi",
+    "saving": "Kuchengetedza…",
+    "detect": "Ona",
+    "yes": "Hongu",
+    "no": "Kwete",
+    "choose": "Sarudza…",
+    "remove": "Bvisa",
+    "tryAgain": "Edzazve",
+    "dashboard": "Dashboard",
+    "goToDashboard": "Enda kudashboard",
+    "or": "kana",
+    "invoice": "Invoice",
+    "creditNote": "Credit note",
+    "downloadPdf": "Dhawunirodha PDF",
+    "edit": "Gadzirisa",
+    "delete": "Dzima",
+    "downloadDocx": "Dhawunirodha DOCX",
+    "none": "Hapana",
+    "dismiss": "Vhara",
+    "all": "Zvose",
+    "previous": "Zvakapfuura",
+    "next": "Zvinotevera",
+    "go": "Enda",
+    "search": "Tsvaga",
+    "status": "Mamiriro",
+    "total": "Chiverengero",
+    "currency": "Mari",
+    "from": "Kubva",
+    "to": "Kusvika",
+    "reason": "Chikonzero",
+    "history": "Nhoroondo",
+    "archive": "Archive",
+    "restore": "Dzorera",
+    "showArchived": "Ratidza zvakaarchivwa",
+    "hideArchived": "Voya zvakaarchivwa",
+    "archived": "Zvakaarchivwa",
+    "default": "Default",
+    "setDefault": "Isa sedefault",
+    "revoke": "Bvisa mvumo",
+    "copy": "Kopa",
+    "copied": "Yakopwa",
+    "active": "Inoshanda",
+    "pagination": "Kupeja",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "invoices": "Invoices",
+      "creditNotes": "Credit notes",
+      "clients": "Vatengi",
+      "services": "Masevhisi",
+      "products": "Zvinhu zvinotengeswa"
+    },
+    "primaryNav": "Huru",
+    "settings": "Zvirongwa",
+    "openMenu": "Vhura menu",
+    "navigation": "Kufamba muapp",
+    "pagesAndAccount": "Mapeji neakaundi",
+    "collapseSidebar": "Pfupisa sidebar",
+    "collapseSidebarHint": "Pfupisa sidebar ([)",
+    "expandSidebar": "Wedzera sidebar",
+    "expandSidebarHint": "Wedzera sidebar ([)",
+    "theme": {
+      "label": "Theme",
+      "system": "Sisitimu",
+      "light": "Yakajeka",
+      "dark": "Yakasviba",
+      "current": "Theme: {mode}",
+      "switchTo": "Theme: {mode}. Chinjira ku{next}"
+    },
+    "userMenu": {
+      "label": "Menu yeakaundi ya{name}",
+      "profile": "Profile",
+      "logOut": "Buda"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Pinda",
+      "title": "Pinda",
+      "subtitle": "Maakaundi akabvumidzwa chete ndiwo anogona kupinda.",
+      "failed": "Kupinda hakuna kubudirira.",
+      "noMethod": "Hapana nzira yekupinda yakagadzirwa. Isa provider pair senge <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>, kana <code>AUTH_PASSWORD_SIGNIN=true</code>, mu<code>.env</code>.",
+      "errors": {
+        "not_allowed": "Akaundi iyi haibvumirwi painstance iyi, kana yakadzimwa.",
+        "signin": "Kupinda hakuna kupera. Edzazve."
+      }
+    },
+    "password": {
+      "name": "Zita",
+      "email": "Email",
+      "password": "Password",
+      "signingIn": "Kupinda…",
+      "createAccount": "Gadzira akaundi",
+      "signIn": "Pinda",
+      "haveAPassword": "Ndine password kare",
+      "firstTime": "Ndiyo nguva yekutanga here? Isa password",
+      "failed": "Kupinda hakuna kubudirira."
+    },
+    "social": {
+      "redirecting": "Kutumira kumwe…",
+      "continueWith": "Enderera ne{provider}",
+      "failed": "Kupinda hakuna kutanga."
+    },
+    "error": {
+      "metaTitle": "Kukanganisa kupinda",
+      "title": "Kupinda hakuna kubudirira",
+      "body": "Identity provider yadzorera <code>{value}</code>. Kana email yako isiri paallow-list yeinstance iyi, kumbira muridzi ainyatsoiwedzera.",
+      "back": "Dzokera kupinda"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Zvirongwa",
+      "profiles": "Maprofile",
+      "paymentMethods": "Nzira dzekubhadhara",
+      "templates": "Matemplate",
+      "email": "Email",
+      "security": "Kuchengetedzeka",
+      "users": "Vashandisi",
+      "data": "Data",
+      "legal": "Zvemutemo",
+      "account": "Akaundi",
+      "appearance": "Maitiro ekuonekwa",
+      "api": "API",
+      "status": "Mamiriro"
+    },
+    "account": {
+      "metaTitle": "Akaundi",
+      "title": "Akaundi",
+      "description": "Mufananidzo wako, zita, nharaunda, mutauro nenguva.",
+      "photo": {
+        "title": "Mufananidzo",
+        "description": "Unoratidzwa musidebar nemumenu yemushandisi."
+      },
+      "form": {
+        "title": "Akaundi",
+        "description": "Kuti unoonekwa sei uye kuti “nhasi” ndiyo ipi.",
+        "displayName": "Zita rinoratidzwa",
+        "signInEmail": "Email yekupinda",
+        "signInEmailHint": "Kuzivikanwa kwako paninstance iyi; hakugadziriswi pano.",
+        "timezone": "Timezone",
+        "timezoneHint": "“Nhasi” yemazuva ekupa, mazuva ekubhadhara nedashboard",
+        "regionTitle": "Nharaunda",
+        "regionDescription": "Zvinosarudzwa kare zveissuer profiles itsva uye dashboard kusvika profile yagadzirwa.",
+        "country": "Nyika",
+        "currency": "Mari",
+        "suggested": "Inokurudzirwa panyika iyi:",
+        "language": "Mutauro",
+        "languageHint": "Mutauro weapp pachayo. Zvinyorwa zvinoshandisa locale yeprofile imwe neimwe.",
+        "machineTranslated": "Mutauro uyu wakadudzirwa nemachine. Kururamisa kunodiwa: <link>unatsiro paGitHub</link>.",
+        "save": "Chengetedza zvaunofarira"
+      },
+      "regions": {
+        "Africa": "Africa",
+        "Americas": "Amerika",
+        "Asia": "Asia",
+        "Europe": "Europe",
+        "MiddleEast": "Middle East",
+        "Oceania": "Oceania",
+        "Constructed": "Dzakagadzirwa"
+      },
+      "privacy": {
+        "title": "Kuvanzika",
+        "description": "okinvo inoisa chete macookies anodiwa kuti ishande. Hapana analytics, hapana kuteedzera.",
+        "cookiePolicy": "Mutemo wemacookies",
+        "showNoticeAgain": "Ratidza zvakare chiziviso chemacookies"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Chinja mufananidzo",
+      "addPhoto": "Wedzera mufananidzo",
+      "hint": "PNG, JPEG kana WebP. Unoratidzwa sedenderedzwa kwose; unogona kuuwedzera kana kuuendesa usati wachengetedza.",
+      "tooLarge": "Mufananidzo uyu mukuru zvakanyanya.",
+      "uploadFailed": "Kuuploader hakuna kubudirira.",
+      "choose": "Sarudza mufananidzo weprofile",
+      "dialogTitle": "Isa mufananidzo wako",
+      "dialogDescription": "Dhonza kuti uuendese, scroll kana pinch kuti uuwedzere. Denderedzwa ndiro rinoonekwa nemunhu wose.",
+      "zoom": "Zoom",
+      "save": "Chengetedza mufananidzo"
+    },
+    "appearance": {
+      "metaTitle": "Maitiro ekuonekwa",
+      "title": "Maitiro ekuonekwa",
+      "description": "Theme nekarari yeaccent, zvinochengetedzwa muakaundi yako.",
+      "theme": {
+        "title": "Theme",
+        "description": "Teverera sisitimu, kana sarudza yakajeka kana yakasviba.",
+        "label": "Theme",
+        "system": "Teverera sisitimu",
+        "systemHint": "Inochinja neOS yako",
+        "light": "Yakajeka",
+        "lightHint": "Canvas chena",
+        "dark": "Yakasviba",
+        "darkHint": "Canvas yakangotsvaira"
+      },
+      "accent": {
+        "title": "Accent",
+        "description": "Inoshandiswa pabhatani huru, mavhiri efocus nechiratidzo chepeji iri kushanda. Mint inofanana nechiratidzo chebrand.",
+        "label": "Karari yeaccent"
+      },
+      "accents": {
+        "mint": "Mint",
+        "lavender": "Lavender",
+        "sky": "Denga",
+        "peach": "Peach",
+        "butter": "Bhata",
+        "rose": "Rozi",
+        "sage": "Sage",
+        "lilac": "Lilac"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Maissuer profile",
+      "title": "Maissuer profile",
+      "description": "Kuzivikanwa kwemutemo kwaunobhadharisa kubva. Iri default rinozadza maInvoice matsva.",
+      "breadcrumb": "Maprofile",
+      "newProfile": "Profile itsva",
+      "emptyTitle": "Hapana issuer profile parizvino",
+      "emptyDescription": "Gadzira kuzivikanwa kwaunoita invoice kubva: munhu ane PAN, kana kambani yako.",
+      "createProfile": "Gadzira profile",
+      "columns": {
+        "label": "Label",
+        "legalName": "Zita remutemo",
+        "type": "Rudzi",
+        "country": "Nyika",
+        "currency": "Mari",
+        "regime": "Regime",
+        "status": "Mamiriro"
+      },
+      "types": {
+        "company": "Kambani",
+        "individual": "Munhu mumwe"
+      },
+      "makeDefaultTitle": "Isa {label} sedefault here?",
+      "makeDefaultDescription": "Maivoisi matsva achatanga neprofile iyi.",
+      "restoreTitle": "Dzorera {label} here?",
+      "archiveTitle": "Archive {label} here?",
+      "archiveDescription": "Inobuda mumasarudzo; maivoisi aripo haatsvairwi.",
+      "new": {
+        "metaTitle": "Issuer profile itsva",
+        "title": "Issuer profile itsva",
+        "prefilled": "Yazadzwa kubva mumhinduro dzako; tarisa kero nemashoko ematax, wozochengetedza."
+      },
+      "edit": {
+        "metaTitle": "Gadzirisa issuer profile",
+        "template": "Template",
+        "deleteTitle": "Dzima {label} here?",
+        "deleteDescription": "Zvinogoneka chete kana pasina invoice kana credit note inoreva profile iyi. Kana zvisina, i-archive."
+      },
+      "template": {
+        "metaTitle": "Template yeprofile",
+        "title": "Template ye{label}",
+        "ownTemplate": "Template yayo pachayo",
+        "instanceTemplate": "Template yeinstance",
+        "resetTitle": "Shandisa zvakare template yeinstance here?",
+        "resetDescription": "Kugadzirwa kweprofile iyi kunobviswa; zvinyorwa zvakatopiwa hazvikanganiswi.",
+        "useInstance": "Shandisa template yeinstance",
+        "usingInstanceTitle": "Kushandisa template yeinstance",
+        "usingInstanceDescription": "Zvinyorwa zveprofile iyi zvinoteedzera Zvirongwa → Matemplate. Sarudza kuzvigadzirisa zvega.",
+        "customise": "Shandisa template yakasiyana paprofile iyi",
+        "openInstance": "Vhura template yeinstance"
+      },
+      "form": {
+        "identityTitle": "Kuzivikanwa",
+        "identityDescription": "Ndiani anopa invoice.",
+        "type": "Rudzi",
+        "label": "Label",
+        "labelHint": "Inoratidzwa chete mumasarudzo",
+        "legalName": "Zita remutemo",
+        "tradeName": "Zita rebhizinesi",
+        "designation": "Basa",
+        "email": "Email",
+        "phone": "Runhare",
+        "website": "Webhusaiti",
+        "addressTitle": "Kero",
+        "taxTitle": "Zvizivikanwo zvetax",
+        "taxDescription": "Zvinokukwanira chete; kudhindwa kunodzorwa paivoisi imwe neimwe.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Nhamba yeUK VAT",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "Yakavanzwa nemucrypto ichisaishandiswa",
+        "lutNumber": "Nhamba yeLUT",
+        "lutNumberHint": "Yekutengesa kunze kwenyika pasina IGST",
+        "lutFiscalYear": "Gore remari reLUT",
+        "lutFiscalYearHint": "semuenzaniso 2026-27",
+        "defaultsTitle": "Zvinosarudzwa kare",
+        "baseCurrency": "Mari huru",
+        "locale": "Locale yezvinyorwa",
+        "localeHint": "Kuumbwa kwenhamba nemazuva pazvinyorwa",
+        "fiscalYearStart": "Gore remari rinotanga muna",
+        "months": {
+          "january": "Ndira",
+          "february": "Kukadzi",
+          "march": "Kurume",
+          "april": "Kubvumbi",
+          "may": "Chivabvu",
+          "june": "Chikumi",
+          "july": "Chikunguru",
+          "august": "Nyamavhuvhu",
+          "september": "Gunyana",
+          "october": "Gumiguru",
+          "november": "Mbudzi",
+          "december": "Zvita"
+        },
+        "taxRegime": "Tax regime yedefault",
+        "regimes": {
+          "indiaGst": "India GST",
+          "ukVat": "UK VAT",
+          "usSalesTax": "US sales tax",
+          "none": "Hapana tax"
+        },
+        "invoiceNumberFormat": "Kuumbwa kwenhamba yeinvoice",
+        "invoiceNumberFormatHint": "Matokens: {tokens}",
+        "creditNoteNumberFormat": "Kuumbwa kwenhamba yecredit note",
+        "tdsRate": "Mwero weTDS unotarisirwa (%)",
+        "tdsRateHint": "Ruzivo chete, runodhindwa sekubviswa kunotarisirwa",
+        "defaultNotes": "Manotsi edefault",
+        "defaultTerms": "Mitemo yedefault",
+        "printTitle": "Zvinodhindwa nedefault",
+        "printDescription": "Invoice imwe neimwe inozvikopa uye inogona kuzvichinja yega.",
+        "emailTitle": "Email",
+        "emailDescription": "Zvinosarudzwa kare zvekomposa yekutumira. Placeholders: {placeholders}",
+        "emailCc": "CC yedefault",
+        "emailBcc": "BCC yedefault",
+        "commaSeparated": "Dzakaparadzaniswa nekoma",
+        "invoiceSubject": "Subject yeinvoice",
+        "invoiceSubjectHint": "Kana yasiiwa isina chinhu, inoshandisa template yakavakirwa",
+        "creditNoteSubject": "Subject yecredit note",
+        "invoiceBody": "Muviri weinvoice",
+        "creditNoteBody": "Muviri wecredit note",
+        "artworkTitle": "Mifananidzo",
+        "artworkDescription": "PNG, JPEG kana WebP kusvika ku2 MB; chisainwa nestamp zvinochengeta transparency.",
+        "logo": "Logo",
+        "signature": "Chisainwa",
+        "stamp": "Stamp",
+        "transparentPng": "PNG ine transparency",
+        "save": "Chengetedza profile"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Nzira dzekubhadhara",
+      "title": "Nzira dzekubhadhara",
+      "description": "Maitiro anokubhadhara vatengi. Zvikamu zvakavanzwa nemucrypto uye zvinosungirirwa paivoisi imwe neimwe painopiwa.",
+      "newMethod": "Nzira itsva",
+      "emptyTitle": "Hapana nzira dzekubhadhara parizvino",
+      "emptyDescription": "Wedzera akaundi yebhanga, UPI ID kana wallet kuti maivoisi azivise vatengi kwekubhadhara.",
+      "addMethod": "Wedzera nzira",
+      "columns": {
+        "name": "Zita",
+        "type": "Rudzi",
+        "currency": "Mari",
+        "status": "Mamiriro"
+      },
+      "types": {
+        "bankTransfer": "Bank transfer",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Yakasarudzwa"
+      },
+      "makeDefaultTitle": "Isa {name} sedefault here?",
+      "restoreTitle": "Dzorera {name} here?",
+      "archiveTitle": "Archive {name} here?",
+      "archiveDescription": "Maivoisi akapiwa anochengeta snapshot yaakadhindwa.",
+      "new": {
+        "metaTitle": "Nzira itsva yekubhadhara",
+        "title": "Nzira itsva yekubhadhara"
+      },
+      "edit": {
+        "metaTitle": "Gadzirisa nzira yekubhadhara",
+        "title": "Gadzirisa {name}",
+        "deleteTitle": "Dzima {name} here?",
+        "deleteDescription": "Zvinogoneka chete kana pasina invoice kana kubhadhara kunoireva. Kana zvisina, i-archive."
+      },
+      "form": {
+        "name": "Zita",
+        "nameHint": "Rinodhindwa sechiyero chechikamu chekubhadhara",
+        "type": "Rudzi",
+        "currency": "Mari",
+        "currencyHint": "Hazvisi tarisiro; zvinoratidzwa kuti zvizivikanwe chete",
+        "anyCurrency": "Chero ipi",
+        "instructions": "Mirairo",
+        "instructionsHint": "Inodhindwa pazasi pezvikamu",
+        "isDefault": "Nzira yedefault",
+        "isDefaultDescription": "Inosarudzwa kare paivoisi itsva",
+        "isActive": "Inoshanda",
+        "detailsTitle": "Zvikamu",
+        "detailsDescription": "Zvakavanzwa nemucrypto; zvinotorwa snapshot paivoisi imwe neimwe painopiwa.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "Zita remutori",
+        "lines": "Mitsara",
+        "linesHint": "Mutsara mumwe pamutsetse, unodhindwa sezvawakaunyora",
+        "accountEmail": "Email / handle yeakaundi",
+        "bank": {
+          "accountHolder": "Muridzi weakaundi",
+          "accountNumber": "Nhamba yeakaundi",
+          "bankName": "Zita rebhanga",
+          "branch": "Bazi",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Routing / sort code"
+        },
+        "save": "Chengetedza nzira yekubhadhara"
+      }
+    },
+    "templates": {
+      "metaTitle": "Matemplate ezvinyorwa",
+      "title": "Matemplate ezvinyorwa",
+      "customised": "Yakagadziriswa",
+      "builtIn": "Default yakavakirwa",
+      "description": "Maitiro anoonekwa maivoisi nemacredit notes. Zvinyorwa zvakapiwa zvinochengeta template yazvakapiwa nayo.",
+      "resetTitle": "Dzoka kudefault yakavakirwa here?",
+      "resetDescription": "Kugadziriswa kwako kunobviswa; zvinyorwa zvakatopiwa hazvikanganiswi.",
+      "reset": "Dzorera",
+      "resetTrigger": "Dzorera kumadefault",
+      "importTitle": "Importa",
+      "importDescription": "Dzorera configuration yakatumirwa kunze kare.",
+      "overridesTitle": "Zvakasiyana neprofile",
+      "overridesDescription": "Profile inogona kusarudza template yayo kubva papeji yayo yekugadzirisa.",
+      "noOverrides": "Profile yose inoshandisa template yeinstance.",
+      "import": {
+        "json": "Template JSON",
+        "jsonHint": "Namira faira rakagadzirwa neExport JSON; makeys asipo anodzokera kumadefault",
+        "importing": "Kuimporta…",
+        "submit": "Importa"
+      },
+      "form": {
+        "templateTitle": "Template",
+        "templateDescription": "Matemplate matanhatu akavakirwa; kugadziriswa kuri pazasi kunoshanda pane yaunosarudza.",
+        "templateGroup": "Template",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Yemazuva ano uye ine nzvimbo, sans-serif, mutsetse weaccent pazasi peheader."
+          },
+          "classic": {
+            "name": "Classic",
+            "character": "Tafura yechinyakare ine mipendero, serif headings, totals dzakaiswa mubhokisi."
+          },
+          "compact": {
+            "name": "Compact",
+            "character": "Kurongwa kwakasvinwa kwemazita mazhinji; mavara madiki, zvipatsanuro zvishoma."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "Yakanyarara uye ine nzvimbo: pasina mitsetse kana mabhokisi, malabels akareruka, nzvimbo yakawanda."
+          },
+          "letterhead": {
+            "name": "Letterhead",
+            "character": "Logo nezita rako pakaband yekarari kana mufananidzo pamusoro pepeji rimwe nerimwe."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Header yeband yekarari; vanhu, header yetafura netotals pane tint yeaccent yakareruka."
+          }
+        },
+        "paperTitle": "Bepa nemavara",
+        "paperSize": "Kukura kwebepa",
+        "paperLetter": "Letter",
+        "margins": "Margins",
+        "marginsNormal": "Zvakajairika",
+        "marginsNarrow": "Zvishoma",
+        "headingFont": "Font yezvikwangwani",
+        "bodyFont": "Font yemuviri",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "Maitiro etafura",
+        "tableRuled": "Ine mitsetse",
+        "tableZebra": "Zebra",
+        "tablePlain": "Yakajairika",
+        "accentColour": "Karari yeaccent",
+        "textColour": "Karari yemavara",
+        "logoPosition": "Nzvimbo yelogo",
+        "positionLeft": "Kuruboshwe",
+        "positionCentre": "Pakati",
+        "positionRight": "Kurudyi",
+        "logoHeight": "Kureba kwelogo (mm)",
+        "documentTitle": "Musoro wechinyorwa",
+        "titleAuto": "Otomatiki (inoziva GST)",
+        "titleCustom": "Yakasarudzwa",
+        "titlePlaceholder": "semuenzaniso PROFORMA INVOICE",
+        "qrPosition": "Nzvimbo yeQR",
+        "qrFooter": "Footer",
+        "qrHeader": "Header",
+        "qrBesideTotals": "Padivi petotals",
+        "amountInWords": "Mari mumashoko",
+        "wordsBelowTotal": "Pazasi petotals",
+        "wordsFooter": "Footer",
+        "wordsHidden": "Yakavanzwa",
+        "subtotalRow": "Mutsara wesubtotal",
+        "discountRow": "Mutsara wediscount",
+        "taxLines": "Mitsara yetax",
+        "tdsExpected": "TDS inotarisirwa",
+        "roundingRow": "Mutsara werounding",
+        "pageNumbers": "Nhamba dzemapeji",
+        "headerTitle": "Header",
+        "headerDescription": "Band yekarari kana mufananidzo pamusoro pepeji rimwe nerimwe. Letterhead neModern zvinoratidza band kunze kwekunge wasarudza zvimwe.",
+        "headerStyle": "Maitiro eheader",
+        "headerNone": "Hapana",
+        "headerBand": "Band yekarari",
+        "headerImage": "Mufananidzo",
+        "bandColour": "Karari yeband",
+        "bandColourHex": "Karari yeband (hex)",
+        "headerImageLabel": "Mufananidzo weheader",
+        "headerImageHint": "PNG, JPEG kana WebP kusvika ku2400 px kufara; unotora upamhi hwepeji rose.",
+        "imageOpacity": "Opacity yemufananidzo",
+        "headerHeight": "Kureba kweheader (mm)",
+        "bandText": "Mavara paband",
+        "bandTextAuto": "Otomatiki (kubva pakarari yeband)",
+        "bandTextLight": "Akajeka",
+        "bandTextDark": "Asviba",
+        "textTitle": "Mavara",
+        "headerNote": "Nyorwa yeheader",
+        "footer": "Footer",
+        "signatureCaption": "Caption yechisainwa",
+        "draftWatermark": "Watermark yedraft",
+        "labelsTitle": "Malabels",
+        "labelsDescription": "Siya munda usina chinhu kuti uchengete mashoko edefault.",
+        "save": "Chengetedza template",
+        "downloadSample": "Dhawunirodha sample PDF",
+        "exportJson": "Export JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Email",
+      "title": "Email",
+      "configuredSettings": "Yakagadzirwa muZvirongwa",
+      "configuredEnv": "Yakagadzirwa neenvironment",
+      "notConfigured": "Haina kugadzirwa: nzira yemail app",
+      "description": "Zvinyorwa zvinotumirwa kubva mucomposer nePDF yakachengetwa yakabatanidzwa. Zvirongwa zvepano zvinodarika SMTP_* mu environment.",
+      "sendTest": "Tumira test email ku{email}",
+      "removeTitle": "Bvisa zvirongwa zveSMTP zvakachengetwa here?",
+      "removeEnvTakesOver": "Zvakakosha zveSMTP_* zveenvironment zvinotora nzvimbo.",
+      "removeFallsBack": "Email inodzokera kunzira yemail app.",
+      "removeTrigger": "Bvisa zvirongwa zvakachengetwa",
+      "smtpTitle": "SMTP server",
+      "smtpFromEnv": "Parizvino zvinotorwa kubva kuenvironment; kuchengetedza pano kunozvidarika.",
+      "smtpPasswordNote": "Password yakavanzwa nemucrypto uye hairatidzwizve.",
+      "defaultsTitle": "Vanowana zvedefault",
+      "defaultsDescription": "CC/BCC yeinstance yose; maissuer profiles anowedzera dzawo.",
+      "sentTitle": "Mail yakatumirwa",
+      "sentDescription": "Kuedza kwekupedzisira 50, kusanganisira kukundikana nekutumira nemaoko.",
+      "smtp": {
+        "host": "Host",
+        "port": "Port",
+        "security": "Kuchengetedzeka",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Hapana (LAN relay)",
+        "user": "Zita remushandisi",
+        "password": "Password",
+        "passwordStored": "Yakachengetwa uye yakavanzwa nemucrypto; siya isina chinhu kuti uichengete",
+        "passwordEncrypted": "Yakavanzwa nemucrypto ichisaishandiswa",
+        "from": "Kero yemutumi",
+        "fromName": "Zita remutumi",
+        "replyTo": "Reply-to",
+        "save": "Chengetedza zvirongwa zveSMTP"
+      },
+      "defaults": {
+        "cc": "CC yedefault",
+        "ccHint": "Inowedzerwa pacomposer yose; dzakaparadzaniswa nekoma",
+        "bcc": "BCC yedefault",
+        "save": "Chengetedza zvedefault"
+      }
+    },
+    "security": {
+      "metaTitle": "Kuchengetedzeka",
+      "title": "Kuchengetedzeka",
+      "description": "Kwauri wapinda, nezvose zvakachinja.",
+      "sessions": {
+        "title": "Masession anoshanda",
+        "description": "Kubvisa session kunobudisa chishandiso ichocho pakarepo.",
+        "signOutOthers": {
+          "title": "Budisa kwose kumwe here?",
+          "description": "Masession ose kunze kweiri anobviswa.",
+          "confirm": "Budisa vamwe",
+          "trigger": "Budisa kwose kumwe"
+        },
+        "columns": {
+          "device": "Chishandiso",
+          "ipAddress": "IP address",
+          "signedIn": "Wakapinda",
+          "lastSeen": "Wakaonekwa kupedzisira",
+          "expires": "Inopera"
+        },
+        "thisDevice": "Chishandiso ichi",
+        "revokeTitle": "Bvisa session iyi here?",
+        "unknownDevice": "Chishandiso chisingazivikanwi",
+        "unknownBrowser": "Hazvizivikanwi",
+        "agentOnOs": "{browser} paOS {os}"
+      },
+      "audit": {
+        "title": "Audit log",
+        "count": "{count, plural, one {# chiitiko} other {# zviitiko}}",
+        "entity": "Entity",
+        "actionContains": "Action ine",
+        "filter": "Filter",
+        "reset": "Dzorera",
+        "columns": {
+          "when": "Rini",
+          "who": "Ndiani",
+          "action": "Action",
+          "entity": "Entity",
+          "summary": "Pfupiso"
+        },
+        "empty": "Hapana zviitiko zvinofanana nemafilter aya.",
+        "system": "Sisitimu",
+        "changes": "Kuchinja",
+        "page": "Peji {page} ye{pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Vashandisi",
+      "title": "Vashandisi",
+      "description": "Vanogona kupinda paninstance iyi uye zvavanotenderwa kuita.",
+      "roles": {
+        "owner": "Muridzi",
+        "editor": "Mugadziri",
+        "viewer": "Muoni"
+      },
+      "roleHints": {
+        "owner": "Zvose, kusanganisira zvirongwa nenhengo",
+        "editor": "Vatengi, catalogue, maivoisi, macredit notes, kubhadhara, email",
+        "viewer": "Kuverenga chete"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Basa ra{email}",
+      "invite": {
+        "title": "Kokai munhu",
+        "description": "Vanopinda nekero yakakokwa (identity provider kana password) uye vanowana basa raunosarudza.",
+        "sent": "Kokero yatumirwa neemail ku{email}.",
+        "readyWithError": "Kokero yakagadzirira {email}. Email haina kukwanisa kutumirwa ({error}); varatidze link iyi:",
+        "readyNoSmtp": "Kokero yakagadzirira {email}. Hapana SMTP yakagadzirwa; varatidze link iyi:",
+        "copyLink": "Kopa link",
+        "email": "Email",
+        "emailPlaceholder": "munhu@example.com",
+        "role": "Basa",
+        "submit": "Koka",
+        "inviting": "Kukoka…"
+      },
+      "members": {
+        "title": "Nhengo",
+        "description": "Panogara paine muridzi mumwe anoshanda.",
+        "columns": {
+          "person": "Munhu",
+          "role": "Basa",
+          "lastSignIn": "Kupinda kwekupedzisira",
+          "status": "Mamiriro"
+        },
+        "nameYou": "{name} (iwe)",
+        "deactivated": "Wakadzimwa",
+        "reactivate": {
+          "title": "Tangidzirazve {email} here?",
+          "description": "Vanogona kupinda zvakare nebasa ravo rekare.",
+          "confirm": "Tangidzirazve"
+        },
+        "deactivate": {
+          "title": "Dzima {email} here?",
+          "description": "Masession ose anopera ikozvino uye havagoni kupinda kusvika vamutangidzirwazve. Nhoroondo yavo inogara.",
+          "confirm": "Dzima"
+        }
+      },
+      "invitations": {
+        "title": "Makokero ari kumirira",
+        "description": "Kero dzinogona kupinda asi hadzisati dzapinda.",
+        "columns": {
+          "email": "Email",
+          "role": "Basa",
+          "invited": "Wakakokwa"
+        },
+        "empty": "Hapana makokero ari kumirira.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Bvisa kokero ya{email} here?"
+      }
+    },
+    "data": {
+      "metaTitle": "Data",
+      "title": "Data",
+      "description": "Zvose zvinotakurika: datasets seCSV kana Excel, snapshot yakazara yekutamisa, maPDF emuverengi wemari, uye nzira yebackup yakaedzwa.",
+      "period": {
+        "fiscalYear": "Gore remari",
+        "fiscalYearHint": "Inodarika mazuva",
+        "issuer": "Issuer"
+      },
+      "exportAll": {
+        "title": "Export data yose",
+        "description": "ZIP ine dataset imwe neimwe seCSV pamwe ne<mono>data.json</mono>, snapshot yematafura ose. Minda yakavanzwa nemucrypto (zvikamu zvenzira dzekubhadhara, password yeSMTP) haiendi; README mukati inozvinyora.",
+        "download": "Dhawunirodha okinvo-data ZIP"
+      },
+      "exportDocuments": {
+        "title": "Export zvinyorwa",
+        "description": "Invoice nePDF yecredit note imwe neimwe yakapiwa kana yakabviswa mukati menguva, yakatumidzwa nenhamba, ine <mono>index.csv</mono> yenhamba, totals nema hashes. MaPDF asipo anogadzirwa panzira.",
+        "docx": "Wedzerawo kopi yeDOCX yechinyorwa chimwe nechimwe",
+        "download": "Dhawunirodha documents ZIP"
+      },
+      "datasets": {
+        "title": "Datasets",
+        "description": "Maexport akafanana nawo anopiwa nemapeji eindex, nenguva neissuer zvakashandiswa kuzvose. Kubhadhara kunoshandisa nguva yemazuva; vatengi nemasevhisi havaiti hanya nenguva.",
+        "columns": {
+          "dataset": "Dataset",
+          "filters": "Mafilter akashandiswa",
+          "download": "Dhawunirodha"
+        },
+        "names": {
+          "invoices": "Rejista yemaivoisi",
+          "invoiceItems": "Mitsara yemaivoisi",
+          "payments": "Ledger yekubhadhara",
+          "creditNotes": "Rejista yemacredit notes",
+          "clients": "Vatengi",
+          "services": "Masevhisi",
+          "gstSummary": "Pfupiso yeGST",
+          "tdsSummary": "Pfupiso yeTDS"
+        },
+        "filters": {
+          "periodIssuer": "nguva, issuer",
+          "dateRangeIssuer": "nguva yemazuva, issuer",
+          "includesArchived": "inosanganisira zvakaarchivwa"
+        }
+      },
+      "backups": {
+        "title": "Mabackup",
+        "notWired": "Hapana backup service yakabatanidzwa",
+        "noRun": "Hapana backup yakatanga kuitwa",
+        "lastOk": "Backup yekupedzisira yakabudirira",
+        "lastFailed": "Backup yekupedzisira yakundikana",
+        "description": "Compose <mono>backup</mono> service inotora dump yePostgres uye inoarchive storage volume pa<mono>BACKUP_CRON</mono>, inochengeta <mono>BACKUP_RETENTION_DAYS</mono> enhoroondo mu<mono>backups</mono> volume, uye inyora status file yainoverenga peji iri.",
+        "finished": "Yapera",
+        "databaseDump": "Database dump",
+        "storageArchive": "Storage archive",
+        "size": "Kukura",
+        "sizeMb": "{size} MB",
+        "error": "Kukanganisa",
+        "runNow": "Ita imwe ikozvino, kana udzorere kubva pazviri zviviri zvemafaira:",
+        "restoreDrill": "Nzira yekudzorera inoedzwa muCI ne<mono>scripts/restore-drill.sh</mono>: seed, backup, dzima, dzorera, wozofananidza huwandu hwemitsara nePDF hash."
+      }
+    },
+    "legal": {
+      "metaTitle": "Zvemutemo",
+      "metaDescription": "Anoshandisa instance iyi: zvikamu zvinodhindwa pamapeji emutemo epachena.",
+      "title": "Zvemutemo",
+      "description": "Mapeji emutemo epachena anodhinda zvikamu izvi. Kusvikira munda wose wazadzwa, mapeji anoratidza placeholders dzakasarudzwa.",
+      "operator": {
+        "title": "Zvikamu zveoperator",
+        "complete": "Zvakakwana",
+        "missing": "{count} hadzisipo: {fields}",
+        "description": "Iwe, semunhu kana kambani inoshandisa instance iyi, ndiye operator anorehwa nezvinyorwa. Hapana chinotumirwa kupi zvako pano; chinodhindwa pamapeji ari pazasi."
+      },
+      "fieldLabels": {
+        "legalName": "Zita remutemo reoperator",
+        "entityType": "Rudzi rweentity",
+        "address": "Kero yeoperator",
+        "country": "Nyika yeoperator",
+        "contactEmail": "Email yekubata",
+        "privacyEmail": "Email yekuvanzika",
+        "dpoEmail": "Email yemukuru wekudzivirira data",
+        "governingLaw": "Mutemo unotonga",
+        "venue": "Nzvimbo yezvinopokana",
+        "effectiveDate": "Zuva rekutanga kushanda"
+      },
+      "publicPages": {
+        "title": "Mapeji epachena",
+        "description": "Akabatanidzwa kubva papeji yekupinda, share viewer nechiziviso chemacookies.",
+        "terms": "Mitemo yeSevhisi",
+        "acceptableUse": "Mutemo wekushandisa unobvumidzwa",
+        "privacy": "Mutemo wekuvanzika",
+        "cookies": "Mutemo wemacookies",
+        "dataRetention": "Kuchengetwa kwedata",
+        "security": "Kuchengetedzeka",
+        "licenses": "Malicense nezviziviso zvevamwe"
+      },
+      "form": {
+        "legalName": "Zita remutemo",
+        "entityType": "Rudzi rweentity",
+        "individual": "Munhu mumwe / muridzi wega webhizinesi",
+        "company": "Kambani / entity yakanyoreswa",
+        "address": "Kero",
+        "addressHint": "Inodhindwa muMitemo nemuMutemo wekuvanzika sekero yeposvo yeoperator.",
+        "country": "Nyika",
+        "effectiveDate": "Zuva rekutanga kushanda",
+        "contactEmail": "Email yekubata",
+        "privacyEmail": "Email yekuvanzika",
+        "privacyEmailHint": "Kunoenda zvikumbiro zvevaridzi vedata; inogona kuva kero yekubata.",
+        "dpoEmail": "Email yemukuru wekudzivirira data",
+        "dpoEmailHint": "Kana wakagadza mumwe chete.",
+        "governingLaw": "Mutemo unotonga",
+        "governingLawHint": "Semuenzaniso “mitemo yeIndia” kana “mitemo yeEngland neWales”.",
+        "venue": "Nzvimbo yezvinopokana",
+        "venueHint": "Semuenzaniso “makhoti eBengaluru, Karnataka”.",
+        "submit": "Chengetedza zvikamu zveoperator"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API keys dzemascripts, SDK nemaMCP clients, ane mienzaniso yecurl.",
+      "title": "API",
+      "description": "Makey emascripts, SDK nemaMCP clients. Key inogona kuita zvakawanda sebasa rako; inoratidzwa kamwe chete.",
+      "create": {
+        "title": "Gadzira key",
+        "description": "Itumire se<mono>Authorization: Bearer okv_…</mono>. Ichengete kunze kwesource code nemachat logs; ibvise pazasi kana ikabuda."
+      },
+      "keys": {
+        "title": "Makey",
+        "descriptionOwner": "Key imwe neimwe yeinstance iyi; varidzi vanogona kubvisa chero ipi.",
+        "descriptionOwn": "Makey ako.",
+        "columns": {
+          "name": "Zita",
+          "prefix": "Prefix",
+          "scopes": "Scopes",
+          "owner": "Muridzi",
+          "lastUsed": "Yakashandiswa kupedzisira",
+          "expires": "Inopera",
+          "status": "Mamiriro"
+        },
+        "empty": "Hapana API keys parizvino.",
+        "never": "haipere",
+        "revoked": "Yabviswa",
+        "expired": "Yapera",
+        "revokeTitle": "Bvisa {name} here?",
+        "revokeDescription": "Vatengi vanoshandisa key iyi vanomira pakarepo.",
+        "activeCount": "{count, plural, one {# key inoshanda.} other {# keys dzinoshanda.}}"
+      },
+      "examples": {
+        "title": "Mienzaniso",
+        "description": "Sinthira <mono>$OKINVO_KEY</mono> nekey. REST API ine version, chinyorwa chayo cheOpenAPI (<mono>/api/openapi.json</mono>), TypeScript SDK neMCP server zvinouya nemabasa anotevera epurani yev1.1; status endpoint inoshanda nhasi.",
+        "rateLimit": "Mafoni anodarika muganho anopindura 429 ne<mono>Retry-After</mono> header (zvikumbiro 120 paminiti pakey). Scopes dzekey dzinogumira nebasa ramuridzi wayo parizvino."
+      },
+      "form": {
+        "copyKey": "Kopa API key",
+        "name": "Zita",
+        "namePlaceholder": "semuenzaniso accounting script",
+        "expires": "Inopera",
+        "in30Days": "Mumazuva makumi matatu",
+        "in90Days": "Mumazuva makumi mapfumbamwe",
+        "inAYear": "Mugore",
+        "never": "Haipere",
+        "scopes": "Scopes",
+        "submit": "Gadzira API key",
+        "creating": "Kugadzira…"
+      },
+      "scopes": {
+        "invoicesRead": "Verenga maivoisi",
+        "invoicesCreate": "Gadzira uye ipa maivoisi",
+        "creditNotesRead": "Verenga macredit notes",
+        "creditNotesCreate": "Gadzira uye ipa macredit notes",
+        "catalogueRead": "Verenga vatengi, masevhisi nezvinhu",
+        "documentsRead": "Dhawunirodha maPDF akachengetwa nekopi dzeDOCX",
+        "statusRead": "Verenga mamiriro einstance"
+      }
+    },
+    "status": {
+      "metaTitle": "Mamiriro",
+      "metaDescription": "Version, database, storage, email nemamiriro ebackup einstance iyi.",
+      "title": "Mamiriro",
+      "description": "Zvinomhanyiswa neinstance iyi uye kana zvikamu zvayo zvichipindura.",
+      "recheck": "Tarisazve",
+      "health": {
+        "ok": "OK",
+        "warning": "Yambiro",
+        "failed": "Yakundikana",
+        "na": "Haina kugadzirwa"
+      },
+      "overall": {
+        "ok": "Zvose zvakanaka",
+        "degraded": "Yaderera",
+        "failed": "Yakundikana"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(sha haizivikanwi)}} · yakavakwa {built} · Node <mono>{node}</mono> · yamuka {uptime} · yatariswa {checked}",
+      "dateUnknown": "(zuva harizivikanwi)",
+      "uptime": {
+        "days": "{d}d {h}h {m}m",
+        "hours": "{h}h {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Database",
+        "storage": "Storage",
+        "rateLimiting": "Rate limiting",
+        "email": "Email",
+        "backups": "Mabackup"
+      },
+      "db": {
+        "detail": "{latency} ms · migration yekupedzisira <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # migrations dzisati dzapera}}",
+        "noMigration": "hapana"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · kunyora, kuverenga nekudzima chinhu chekuedza mu{latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> store {store, select, memory {(replica imwe)} other {(inogoverwa pakati pemareplica)}}",
+      "smtp": {
+        "configured": "SMTP kubva ku{source, select, settings {the settings page} env {the environment} other {}} · test yekupedzisira {lastTest} · maawa 24 apfuura: {sent} dzakatumirwa, {failed} dzakundikana",
+        "none": "Hapana SMTP server; composer inopa “Vhura mumail app”. <link>Gadzira</link>"
+      },
+      "backups": {
+        "notWired": "Hapana backup service yakabatanidzwa (BACKUP_STATUS_FILE haina kuiswa).",
+        "noRun": "Backup service yakabatanidzwa; hapana run yakanyorwa parizvino.",
+        "ok": "Run yekupedzisira yakabudirira pa{finishedAt}{days, plural, =0 {} one { · retention zuva #} other { · retention mazuva #}}",
+        "failed": "Run yekupedzisira yakundikana: {error} pa{finishedAt}{days, plural, =0 {} one { · retention zuva #} other { · retention mazuva #}}"
+      },
+      "footer": "Report imwecheteyo inowanikwa seJSON pa<mono>/api/health/status</mono> yekutarisa (session yakapinda kana API key)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Titambire",
+    "progress": "Kufambira mberi",
+    "steps": {
+      "aboutYou": "Pamusoro pako",
+      "howYouUse": "Maitiro aunoshandisa",
+      "allSet": "Zvose zvakagadzirira"
+    },
+    "step1": {
+      "title": "Tiudze pamusoro pako",
+      "subtitle": "Izvi zvinogadzira madefault ako; kukosha kwose kunogona kuchinjwa gare gare muZvirongwa.",
+      "name": "Zita",
+      "email": "Email",
+      "emailHint": "Kuzivikanwa kwako kwekupinda. Kunogona kuchinjwa gare gare kubva muZvirongwa → Kuchengetedzeka.",
+      "country": "Nyika",
+      "currency": "Mari yaunofarira",
+      "currencyHint": "Inoshandiswa paprofiles itsva nedashboard kusvika profile yagadzirwa."
+    },
+    "step2": {
+      "title": "Uchashandisa okinvo sei?",
+      "subtitle": "Madefault chete ndiwo anochinja; hapana chakavharirwa.",
+      "usage": "Kushandisa",
+      "personal": "Kuita invoice yega",
+      "personalHint": "Basa rekuzvishandira nezita rako",
+      "business": "Kuita invoice yebhizinesi",
+      "businessHint": "Maivoisi kubva kubhizinesi rakanyoreswa",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Nhamba yeVAT",
+        "other": "Nhamba yekunyoresa tax"
+      },
+      "taxQuestion": {
+        "IN": "Une GSTIN here?",
+        "GB": "Wakanyoreswa VAT here?",
+        "other": "Une nhamba yekunyoresa tax yekudhinda pamaivoisi here?"
+      }
+    },
+    "step3": {
+      "title": "Wagadzirira",
+      "body": "Zvino, gadzira issuer profile yako yekutanga: zita, kero nezvikamu zvetax zvinodhindwa pamaivoisi ako. Tazadza zvawakatiudza.",
+      "go": "Enda kumaprofile",
+      "opening": "Kuvhura…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Mitemo",
+      "privacy": "Kuvanzika",
+      "cookies": "Macookies",
+      "security": "Kuchengetedzeka"
+    },
+    "cookieNotice": {
+      "label": "Chiziviso chemacookies",
+      "body": "Tinoshandisa chete macookies anodiwa chaizvo: session yako nezvaunofarira pakuona. Hapana analytics, hapana kuteedzera.",
+      "policy": "Mutemo wemacookies",
+      "gotIt": "Ndazvinzwisisa"
+    },
+    "nav": {
+      "label": "Zvemutemo",
+      "cookies": "Macookies",
+      "privacy": "Kuvanzika",
+      "terms": "Mitemo",
+      "acceptableUse": "Kushandisa kunobvumidzwa",
+      "retention": "Kuchengetwa",
+      "security": "Kuchengetedzeka",
+      "licences": "Malicense"
+    },
+    "operatorNotice": "okinvo i-software inozvimirira yega; operator weinstance iyi ndiye ane mutoro wekuishandisa.",
+    "doc": {
+      "effectiveOn": "Inoshanda kubva <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Zviri mukati"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Zita remutemo reoperator",
+        "entityType": "Rudzi rweentity",
+        "address": "Kero yeoperator",
+        "country": "Nyika yeoperator",
+        "contactEmail": "Email yekubata",
+        "privacyEmail": "Email yekuvanzika",
+        "dpoEmail": "Email yemukuru wekudzivirira data",
+        "governingLaw": "Mutemo unotonga",
+        "venue": "Nzvimbo yezvinopokana",
+        "effectiveDate": "Zuva rekutanga kushanda"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Hazvina kuwanikwa",
+      "title": "Hapana chiri pakero iyi",
+      "body": "Link inogona kunge yakwegura, kana chinyorwa chaichiratidza chisina kupiwa."
+    },
+    "forbidden": {
+      "metaTitle": "Hazvibvumirwi",
+      "title": "Akaundi iyi haigoni kuita izvozvo",
+      "body": "Basa rako harizvibvumidzi. Kumbira muridzi mvumo, kana pinda neakaundi iyo ine mvumo."
+    },
+    "error": {
+      "title": "Pane chakaenda zvisiri izvo",
+      "body": "Hapana chakachinjwa nechikumbiro ichi. Edzazve; kana zvichingoitika, server log ine zvikamu.",
+      "digest": "kukanganisa {digest}",
+      "generic": "kukanganisa"
+    },
+    "appNotFound": {
+      "title": "Hazvina kuwanikwa",
+      "body": "Rekodhi iyi haipo, kana yakadzimwa uchiri kuitarisa.",
+      "back": "Dzokera kudashboard"
+    },
+    "validation": {
+      "required": "inodiwa",
+      "tooLong": "mavara {max} pamusoro",
+      "invalidEmail": "inofanira kuva email chaiyo",
+      "invalidDate": "inofanira kuva zuva rekarenda muchimiro cheYYYY-MM-DD",
+      "invalidAmount": "inofanira kuva nhamba",
+      "wholeNumber": "inofanira kuva nhamba yakazara",
+      "greaterThanZero": "inofanira kudarika zero",
+      "fixFields": "Ruramisa minda yakasarudzwa.",
+      "charset": "Mavara akajairika ekiyibhodhi chete ndiwo anobvumidzwa."
+    }
+  },
+  "verify": {
+    "metaTitle": "Tarisa chinyorwa",
+    "heading": "Kutarisa chinyorwa",
+    "rateLimited": "Kutarisa kwakawanda kubva pakero iyi. Edzazve mushure meminiti.",
+    "notFound": {
+      "title": "Hapana chinyorwa chakadaro",
+      "body": "Link iyi haienderani nechinyorwa chakapiwa. Tarisa QR code kana link yawakapiwa, kana bata issuer."
+    },
+    "status": {
+      "void": "Yabviswa",
+      "valid": "Inoshanda"
+    },
+    "issuedBy": "Yakapiwa ne",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Yakapiwa ku",
+    "issueDate": "Zuva rekupa",
+    "total": "Chiverengero",
+    "voided": "Chinyorwa ichi chakabviswa neissuer uye hachisi kushanda.",
+    "storedCopies": {
+      "title": "Makopi akachengetwa",
+      "description": "SHA-256 yePDF version imwe neimwe yaasiya issuer. Sarudza kopi yako kuti uyienzanise mubrowser yako: hapana chinoiswa pamhepo.",
+      "empty": "Hapana PDF yakatogadzirwa.",
+      "protectedVersion": "Kopi ine password {version}",
+      "version": "Version {version}"
+    },
+    "check": {
+      "label": "Tarisa kopi yako",
+      "hashing": "Kuita hash…",
+      "match": "Kopi yako inofanana chaizvo neversion {version}.",
+      "mismatch": "Kopi yako haienderani neversion ipi neipi yakachengetwa."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Chinyorwa chakagoverwa",
+      "rateLimited": "Zvikumbiro zvakawanda kubva pakero iyi. Edzazve mushure meminiti.",
+      "unavailable": {
+        "title": "Link iyi haisipo",
+        "body": "Inogona kunge yapera kana yakabviswa neissuer. Vakumbire imwe itsva."
+      },
+      "lockedTitleInvoice": "Invoice kubva ku{issuer}",
+      "lockedTitleCreditNote": "Credit note kubva ku{issuer}",
+      "lockedBody": "Chinyorwa ichi chakachengetedzwa nepassword. Isa password yawakapiwa neissuer.",
+      "void": "Yabviswa",
+      "protectedPdf": "PDF inovhurwa nepassword imwechete. Inogona kuverengwa nekudhindwa; kukopa nekugadzirisa zvakavharirwa.",
+      "byline": "Kubva ku{issuer} kuenda ku{client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Password",
+      "limited": "Kuedza kwakawanda. Mirira maminiti gumi nemashanu woedzazve.",
+      "wrong": "Password iyi haina kunaka.",
+      "submit": "Vhura chinyorwa"
+    },
+    "dialog": {
+      "trigger": "Govera",
+      "title": "Govera chinyorwa ichi",
+      "description": "Munhu wose ane link anogona kuchiona nekuchidhawunirodha kusvika chapera kana wachibvisa. Password inochengetedzawo PDF pachayo: inovhurwa nepassword uye inogona kuverengwa nekudhindwa, kwete kugadziriswa kana kukopwa.",
+      "link": "Link",
+      "copyLink": "Kopa link",
+      "password": "Password",
+      "copyPassword": "Kopa password",
+      "sendSeparately": "Tumira password isiri pamwe nelink. Unogona kuiona zvakare mulist iri pazasi.",
+      "copy": "Kopa",
+      "copied": "Yakopwa",
+      "expires": "Inopera",
+      "expiry": {
+        "d7": "Mumazuva 7",
+        "d30": "Mumazuva 30",
+        "d90": "Mumazuva 90",
+        "never": "Haipere"
+      },
+      "protection": "Kuchengetedza",
+      "protectionOptions": {
+        "auto": "Password: gadzira passphrase",
+        "manual": "Password: ndichasarudza yangu",
+        "none": "Hapana password (link yakavhurika)"
+      },
+      "passwordHint": "Mavara masere kana kupfuura.",
+      "strength": "Simba: {label}",
+      "strengthLabels": {
+        "veryWeak": "isina simba zvakanyanya",
+        "weak": "isina simba",
+        "fair": "yakadzikama",
+        "good": "yakanaka",
+        "strong": "ine simba"
+      },
+      "creating": "Kugadzira…",
+      "create": "Gadzira link",
+      "activeLinks": "Malink anoshanda",
+      "passwordProtected": "Ine password",
+      "openLink": "Vhura link",
+      "linkExpires": "{kind} · inopera {date}",
+      "linkNeverExpires": "{kind} · haipere",
+      "revoke": {
+        "title": "Bvisa link iyi here?",
+        "description": "Link inomira kushanda pakarepo kune wose ane yo.",
+        "label": "Bvisa"
+      },
+      "linkPassword": "Password: <code>{password}</code>",
+      "counts": "{views, plural, one {# kuona} other {# kuona}} · {downloads, plural, one {# dhawunirodha} other {# madhawunirodha}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Credit notes",
+      "title": "Credit notes",
+      "description": "Dzinopiwa pamusoro pemaivoisi akapiwa; imwe neimwe inoderedza balance yeinvoice yayo painopiwa.",
+      "newCreditNote": "Credit note itsva",
+      "filters": {
+        "from": "Kubva",
+        "to": "Kusvika",
+        "issuer": "Issuer",
+        "client": "Mutengi",
+        "status": "Mamiriro",
+        "search": "Tsvaga",
+        "all": "Zvose",
+        "searchPlaceholder": "Nhamba, chikonzero, mutengi",
+        "go": "Enda"
+      },
+      "statuses": {
+        "DRAFT": "Draft",
+        "ISSUED": "Yakapiwa",
+        "SENT": "Yakatumirwa",
+        "VOID": "Yabviswa"
+      },
+      "empty": {
+        "title": "Hapana credit notes parizvino",
+        "description": "Vhura invoice yakapiwa wosarudza “Credit note” kuderedza zvaunokwereta."
+      },
+      "noMatch": "Hapana credit notes dzinofanana nemafilter aya.",
+      "columns": {
+        "number": "Nhamba",
+        "against": "Pamusoro pe",
+        "client": "Mutengi",
+        "issueDate": "Zuva rekupa",
+        "reason": "Chikonzero",
+        "total": "Chiverengero",
+        "status": "Mamiriro"
+      },
+      "draft": "Draft"
+    },
+    "new": {
+      "metaTitle": "Credit note itsva",
+      "title": "Credit note itsva",
+      "description": "Credit note inopiwa pamusoro peinvoice yakapiwa uye inoderedza balance yayo.",
+      "nothingToCredit": {
+        "title": "Hapana chekupa credit",
+        "description": "Macredit notes anoda invoice yakapiwa ine balance yasara.",
+        "openInvoices": "Vhura maivoisi"
+      },
+      "whichInvoice": "Invoice ipi?",
+      "invoice": "Invoice",
+      "invoiceOption": "{number} · {client} · balance {balance}",
+      "issuedOnly": "Macredit notes anopiwa chete pamusoro pemaivoisi akapiwa.",
+      "invoiceFallback": "Invoice"
+    },
+    "edit": {
+      "metaTitle": "Gadzirisa credit note",
+      "title": "Gadzirisa draft credit note",
+      "immutable": "Macredit notes akapiwa haachinjwi.",
+      "draft": "Draft"
+    },
+    "detail": {
+      "metaTitle": "Credit note",
+      "draftTitle": "Draft credit note",
+      "meta": "{client} · pamusoro pe<invoice>{number}</invoice> · yakapiwa <mono>{date}</mono>",
+      "previewPdf": "Tarisira PDF",
+      "issue": {
+        "title": "Ipa credit note iyi here?",
+        "description": "Nhamba inopiwa, balance yeinvoice inoderedzwa uye chinyorwa chinova chisingachinjwi.",
+        "label": "Ipa"
+      },
+      "deleteDraft": {
+        "title": "Dzima draft iyi here?"
+      },
+      "sendByEmail": "Tumira neemail",
+      "markSent": {
+        "title": "Isa sekutumirwa here?",
+        "label": "Isa sekutumirwa"
+      },
+      "void": {
+        "title": "Bvisa credit note iyi here?",
+        "description": "Balance yeinvoice inodzoreredzwa; nhamba haishandiswizve.",
+        "reason": "Chikonzero",
+        "label": "Bvisa"
+      },
+      "voided": "Yabviswa {date}: {reason}",
+      "amounts": {
+        "title": "Mari",
+        "reason": "Chikonzero",
+        "creditAmount": "Mari yecredit",
+        "total": "Chiverengero",
+        "balanceNow": "Balance yeinvoice ikozvino",
+        "sent": "Yakatumirwa"
+      },
+      "documents": {
+        "title": "Zvinyorwa zvakachengetwa",
+        "description": "Version imwe neimwe inochengetwa; peji rekuverenga rinoratidza ma hashes ose.",
+        "regenerateTitle": "Gadzira PDF version itsva here?",
+        "generate": "Gadzira",
+        "newVersion": "Version itsva",
+        "renderedOnFirstDownload": "PDF inogadzirwa pakutanga kudhawunirodha.",
+        "protectedCopy": "Kopi ine password {version}",
+        "version": "Version {version}",
+        "verificationLink": "Link yekutarisa: <link>{path}…</link>"
+      },
+      "draftsPreview": "Madraft anoonekwa zvakananga mueditor."
+    },
+    "send": {
+      "metaTitle": "Tumira credit note",
+      "title": "Tumira <mono>{number}</mono>",
+      "previousSends": "Kutumira kwakapfuura"
+    },
+    "builder": {
+      "against": "Pamusoro pe<mono>{number}</mono>",
+      "summary": "{client} · chiverengero {total} · balance {balance} · taxable headroom ≈ {headroom}",
+      "issueDate": "Zuva rekupa",
+      "creditAmount": "Mari yecredit (isina tax)",
+      "creditAmountHint": "Tax inogoverwa kubva mumitsara yetax yeinvoice",
+      "reason": "Chikonzero",
+      "picker": {
+        "title": "Verenga kubva mumitsara yeinvoice",
+        "description": "Maka mitsara yakazara kana chikamu; izvi zvinozadza mari iri pamusoro chete.",
+        "line": "Mutsara",
+        "subtotal": "Subtotal",
+        "credit": "Credit",
+        "percent": "%",
+        "creditLine": "Credit mutsara {position}",
+        "percentOfLine": "Chikamu chemutsara {position}"
+      },
+      "saveDraft": "Chengetedza draft",
+      "issuing": "Kupa…",
+      "saveAndIssue": "Chengetedza uye ipa"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Kubhadhara kwatambirwa",
+        "REFUND": "Refund yakapiwa",
+        "WRITE_OFF": "Write-off"
+      },
+      "editTitle": "Gadzirisa chinyorwa",
+      "recordTitle": "Nyora kubhadhara",
+      "description": "Mari iri mumari yeinvoice ({currency}); TDS yakabviswa iri muchikamu chemari yakashandiswa.",
+      "kind": "Rudzi",
+      "date": "Zuva",
+      "amountRefunded": "Mari yadzoserwa (negative)",
+      "amountApplied": "Mari yakashandiswa",
+      "refundHint": "Isa mari ine negative, semuenzaniso -500",
+      "tdsDeducted": "TDS yakabviswa",
+      "tdsHint": "Tax yakabatwa nemutengi; inoverengwa mumari yakashandiswa",
+      "bankFees": "Mari dzebhanga",
+      "receivedInto": "Yakatambirwa muna",
+      "noMethod": "-",
+      "reference": "Reference",
+      "referenceHint": "UTR, transaction id, nhamba yecheque",
+      "otherCurrency": "Yakatambirwa mune imwe mari",
+      "amountReceived": "Mari yakatambirwa",
+      "receivedCurrency": "Mari yakatambirwa",
+      "exchangeRate": "Exchange rate",
+      "exchangeRateHint": "1 unit yakatambirwa = ? {currency}",
+      "notes": "Manotsi",
+      "receipt": "Risiti",
+      "receiptHint": "PNG, JPEG, WebP kana PDF kusvika ku10 MB",
+      "saveChanges": "Chengetedza shanduko",
+      "record": "Nyora"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "anenge {count, plural, one {peji #} other {mapeji #}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Meseji",
+      "description": "Yazadzwa kubva mumatemplate eissuer profile. Hapana chinotumirwa kusvika wadzvanya Tumira.",
+      "to": "Kuna",
+      "toHint": "Dzakaparadzaniswa nekoma",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Subject",
+      "body": "Muviri",
+      "bodyHint": "Mavara akajairika; malinks anodzvinyirika",
+      "attachment": "Attachment",
+      "attachmentHint": "Kopi yakachengetwa, yakatumidzwa <mono>{name}</mono> (kana .docx); zvirimo hazvichinjwi.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Kutumira…",
+      "send": "Tumira",
+      "openInMailApp": "Vhura mumail app",
+      "noSmtp": "Hapana SMTP server yakagadzirwa (Zvirongwa → Email). Vhura draft mumail app yako, batanidza PDF yawakadhawunirodha, wozoimaka sekutumirwa pazasi.",
+      "markAsSent": "Maka sekutumirwa"
+    },
+    "sentLog": {
+      "when": "Rini",
+      "document": "Chinyorwa",
+      "to": "Kuna",
+      "subject": "Subject",
+      "status": "Mamiriro",
+      "empty": "Hapana chakatumirwa parizvino.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "yakatumirwa",
+        "FAILED": "yakundikana",
+        "MANUAL": "nemaoko"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Mhoro, {name}",
+    "fiscalYear": "Gore remari {year}",
+    "fiscalYearWithBase": "Gore remari {year} · mari huru {currency} ({profile})",
+    "newCreditNote": "Credit note itsva",
+    "welcomeTitle": "Titambire ku{appName}",
+    "welcomeDescription": "Tanga nekugadzira issuer profile yaunobhadharisa kubva, wozowedzera mutengi neinvoice yako yekutanga.",
+    "createProfile": "Gadzira profile yako",
+    "tiles": {
+      "outstanding": "Zvisati zvabhadharwa",
+      "overdue": "Zvapfuura nguva",
+      "billedThisFy": "Zvabhadharisirwa gore rino",
+      "receivedThisFy": "Zvatambirwa gore rino",
+      "drafts": "Madraft",
+      "invoiceCount": "{count, plural, one {# invoice} other {# maivoisi}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Kubhadhara kubvisa marefund, paFX yakanyorwa",
+      "awaitingIssue": "zvichimirira kupiwa",
+      "nothingPending": "hapana chakamirira"
+    },
+    "recentInvoices": "Maivoisi achangoitwa",
+    "allInvoices": "Maivoisi ose",
+    "noInvoicesYet": "Hapana maivoisi parizvino.",
+    "columns": {
+      "number": "Nhamba",
+      "client": "Mutengi",
+      "issued": "Yakapiwa"
+    },
+    "topClients": "Vatengi vepamusoro nezvisati zvabhadharwa",
+    "nothingOutstanding": "Hapana chisati chabhadharwa."
+  },
+  "exports": {
+    "export": "Export",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Invoices",
+      "newInvoice": "Invoice itsva",
+      "draft": "Draft",
+      "aDraft": "draft",
+      "statuses": {
+        "draft": "Draft",
+        "issued": "Yakapiwa",
+        "sent": "Yakatumirwa",
+        "partiallyPaid": "Yabhadharwa chikamu",
+        "paid": "Yabhadharwa",
+        "overdue": "Yapfuura nguva",
+        "void": "Yabviswa"
+      },
+      "lifecycle": {
+        "draft": "draft",
+        "issued": "yakapiwa",
+        "void": "yabviswa"
+      },
+      "units": {
+        "hour": "Awa",
+        "day": "Zuva",
+        "fixed": "Yakatarwa",
+        "milestone": "Milestone",
+        "unit": "Unit"
+      },
+      "unitsLower": {
+        "hour": "awa",
+        "day": "zuva",
+        "fixed": "yakatarwa",
+        "milestone": "milestone",
+        "unit": "unit"
+      },
+      "supplyTypes": {
+        "intraState": "mukati mestate",
+        "interState": "pakati pemastate",
+        "exportLut": "export lut",
+        "exportWithTax": "export ine tax",
+        "reverseCharge": "reverse charge",
+        "notApplicable": "hazvishande"
+      }
+    },
+    "list": {
+      "description": "Madraft, maivoisi akapiwa nakabviswa; mamiriro anobva pakubhadhara nemazuva ekubhadhara.",
+      "fiscalYear": "Gore remari",
+      "issuer": "Issuer",
+      "client": "Mutengi",
+      "searchPlaceholder": "Nhamba, PO, mutengi",
+      "emptyTitle": "Hapana maivoisi parizvino",
+      "emptyDescription": "Vaka invoice yako yekutanga: sarudza mutengi, wedzera mitsara, tarisa preview, wozoipa.",
+      "columns": {
+        "number": "Nhamba",
+        "client": "Mutengi",
+        "issuer": "Issuer",
+        "issueDate": "Zuva rekupa",
+        "due": "Zuva rekubhadhara",
+        "balance": "Balance"
+      },
+      "noMatches": "Hapana maivoisi anofanana nemafilter aya.",
+      "count": "{count, plural, one {# invoice} other {# maivoisi}}",
+      "countPaged": "{count, plural, one {# invoice} other {# maivoisi}} · peji {page} ye{pages}",
+      "register": "rejista"
+    },
+    "new": {
+      "noProfileTitle": "Gadzira issuer profile kutanga",
+      "noProfileDescription": "Invoice inopiwa kubva pakuzivikanwa kwemutemo: gadzira profile yako nema tax ID nekuverengwa.",
+      "createProfile": "Gadzira profile"
+    },
+    "edit": {
+      "metaTitle": "Gadzirisa invoice",
+      "title": "Gadzirisa draft",
+      "immutableFlash": "Maivoisi akapiwa haachinjwi. Shandisa “Void & reissue” kuiruramisa."
+    },
+    "detail": {
+      "metaTitle": "Invoice",
+      "draftInvoice": "Draft invoice",
+      "issuedDue": "Yakapiwa <mono>{issued}</mono>, inobhadharwa <mono>{due}</mono>",
+      "replaces": "Inotsiva {number}",
+      "replacedBy": "Yakatsivwa ne{number}",
+      "previewPdf": "Tarisira PDF",
+      "issueTitle": "Ipa invoice iyi here?",
+      "issueDescription": "Nhamba inopiwa uye chinyorwa chinova chisingachinjwi.",
+      "issue": "Ipa",
+      "deleteDraftTitle": "Dzima draft iyi here?",
+      "sendByEmail": "Tumira neemail",
+      "recordPayment": "Nyora kubhadhara",
+      "creditNote": "Credit note",
+      "markSentTitle": "Isa sekutumirwa here?",
+      "markSentDescription": "Inonyora kuti mutengi atambira invoice iyi.",
+      "markSent": "Isa sekutumirwa",
+      "voidReissueTitle": "Bvisa uye upezve here?",
+      "voidReissueDescription": "Yekutanga inobviswa uye draft yakabatanidzwa ine zvirimo zvimwechete inovhurwa kuti igadziriswe.",
+      "voidReissue": "Void & reissue",
+      "voidTitle": "Bvisa invoice iyi here?",
+      "voidDescription": "Zvinogoneka pasina kubhadhara kwakanyorwa; nhamba haishandiswizve.",
+      "void": "Bvisa",
+      "voided": "Yabviswa {date}: {reason}",
+      "amounts": "Mari",
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "discountPercent": "Discount ({percent})",
+      "rounding": "Rounding",
+      "tdsExpected": "TDS inotarisirwa ({percent})",
+      "paid": "Yabhadharwa",
+      "credited": "Yakapiwa credit",
+      "balanceDue": "Balance inodiwa",
+      "supply": "Supply",
+      "fxToBase": "FX kumari huru",
+      "poReference": "PO reference",
+      "sent": "Yakatumirwa",
+      "lineItems": "Mitsara yeinvoice",
+      "columns": {
+        "description": "Tsananguro",
+        "sacHsn": "SAC/HSN",
+        "qty": "Huwandu",
+        "rate": "Mutengo",
+        "tax": "Tax",
+        "amount": "Mari"
+      },
+      "creditNotes": "Credit notes",
+      "storedDocuments": "Zvinyorwa zvakachengetwa",
+      "storedDocumentsHint": "Version imwe neimwe inochengetwa; peji rekuverenga rinoratidza ma hashes ose.",
+      "regenerateTitle": "Gadzira PDF version itsva here?",
+      "regenerateDescription": "Inogadzirwa zvakare kubva pasnapshot yakasungirirwa (semuenzaniso mushure mekugadziriswa kwerenderer). Maversion akapfuura anogara.",
+      "regenerate": "Gadzira",
+      "newVersion": "Version itsva",
+      "renderedOnFirstDownload": "PDF inogadzirwa pakutanga kudhawunirodha.",
+      "protectedCopy": "Kopi ine password {version}",
+      "version": "Version {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Link yekutarisa:",
+      "draftPreviewHint": "Madraft anoonekwa mueditor; vhura <link>PDF ine watermark</link> kuti uone peji."
+    },
+    "history": {
+      "metaTitle": "Nhoroondo yeinvoice",
+      "title": "Nhoroondo <mono>{number}</mono>",
+      "reissueChain": "Cheni yekupa zvakare",
+      "replaces": "Inotsiva <link>{number}</link>",
+      "replacedBy": "Yakatsivwa ne<link>{number}</link>",
+      "auditTrail": "Audit trail",
+      "columns": {
+        "when": "Rini",
+        "who": "Ndiani",
+        "action": "Action",
+        "summary": "Pfupiso"
+      },
+      "noEvents": "Hapana zviitiko parizvino.",
+      "system": "Sisitimu",
+      "emails": "Maemail"
+    },
+    "payments": {
+      "title": "Kubhadhara",
+      "description": "{client} · {total} yose",
+      "backToInvoice": "Dzokera kuinvoice",
+      "ledger": "Ledger",
+      "columns": {
+        "date": "Zuva",
+        "kind": "Rudzi",
+        "applied": "Yakashandiswa",
+        "tds": "TDS",
+        "received": "Yakatambirwa",
+        "reference": "Reference",
+        "balance": "Balance"
+      },
+      "noPayments": "Hapana kubhadhara kwakanyorwa parizvino.",
+      "kinds": {
+        "payment": "Kubhadhara",
+        "refund": "Refund",
+        "writeOff": "Write-off"
+      },
+      "receipt": "Risiti",
+      "deleteEntryTitle": "Dzima chinyorwa ichi here?",
+      "deleteEntryDescription": "Balance yeinvoice inoverengwa zvakare.",
+      "totals": "Totals",
+      "invoiceTotal": "Chiverengero cheinvoice",
+      "credited": "Yakapiwa credit",
+      "refunds": "Marefund",
+      "writeOffs": "Mawrite-off",
+      "tdsDeducted": "TDS yakabviswa",
+      "bankFees": "Mari dzebhanga",
+      "balanceDue": "Balance inodiwa",
+      "onlyIssued": "Maivoisi akapiwa chete ndiwo anogamuchira kubhadhara."
+    },
+    "send": {
+      "metaTitle": "Tumira invoice",
+      "title": "Tumira <mono>{number}</mono>",
+      "alreadySent": "Yakatomakwa sekutumirwa; kutumira zvakare kunowedzera chimwe chinyorwa mulog.",
+      "previousSends": "Kutumira kwakapfuura"
+    },
+    "builder": {
+      "parties": "Vanhu vanobatanidzwa",
+      "issuerProfile": "Issuer profile",
+      "client": "Mutengi",
+      "archivedOption": "{label} (yakaarchivwa)",
+      "issueDate": "Zuva rekupa",
+      "dueDate": "Zuva rekubhadhara",
+      "fxRate": "FX rate kumari huru",
+      "fxHint": "1 {currency} = ? {base} (kuita report chete)",
+      "poReference": "PO reference",
+      "lineItems": "Mitsara yeinvoice",
+      "lineItemsHint": "Sarudza kubva mucatalogue kuti ukope zvinokosha, kana nyora mutsara.",
+      "taxDiscountTds": "Tax, discount neTDS",
+      "taxRegime": "Tax regime",
+      "regimes": {
+        "indiaGst": "India GST",
+        "ukVat": "UK VAT",
+        "usSalesTax": "US sales tax",
+        "none": "Hapana tax"
+      },
+      "reverseCharge": "Reverse charge",
+      "reverseChargeHint": "Tax inobhadharwa nemutambi",
+      "discount": "Discount",
+      "percent": "Percent",
+      "amount": "Mari",
+      "rounding": "Rounding adjustment",
+      "roundingHint": "Hazvisi tarisiro, kunhamba yakazara; inofanira kunge iri pasi pe1",
+      "round": "Round",
+      "tdsRate": "Mwero weTDS unotarisirwa (%)",
+      "tdsRateHint": "Ruzivo chete; inodhindwa kana TDS breakdown yakavhurwa",
+      "paymentMethods": "Nzira dzekubhadhara",
+      "paymentMethodsHint": "Dzinodhindwa nenhevedzano yadzakasarudzwa.",
+      "noPaymentMethods": "Hapana nzira dzekubhadhara dzinoshanda. <link>Wedzera imwe</link>.",
+      "whatPrints": "Zvinodhindwa",
+      "whatPrintsHint": "Inotanga namadefault eissuer profile.",
+      "notesAndTerms": "Manotsi nemitemo",
+      "notes": "Manotsi",
+      "terms": "Mitemo",
+      "saveDraft": "Chengetedza draft",
+      "issuing": "Kupa…",
+      "saveAndIssue": "Chengetedza uye ipa",
+      "subtotal": "Subtotal",
+      "tax": "Tax",
+      "tdsExpected": "TDS inotarisirwa",
+      "netExpected": "Net inotarisirwa"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Wedzera kubva mucatalogue…",
+      "services": "Masevhisi",
+      "products": "Zvinhu zvinotengeswa",
+      "addLine": "Wedzera mutsara",
+      "columns": {
+        "description": "Tsananguro",
+        "sacHsn": "SAC/HSN",
+        "qty": "Huwandu",
+        "unit": "Unit",
+        "rate": "Mutengo",
+        "taxPercent": "Tax %"
+      },
+      "aria": {
+        "description": "Tsananguro yemutsara {line}",
+        "sacHsn": "SAC/HSN yemutsara {line}",
+        "quantity": "Huwandu hwemutsara {line}",
+        "unit": "Unit yemutsara {line}",
+        "rate": "Mutengo wemutsara {line}",
+        "taxRate": "Tax rate yemutsara {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Haibhadhariswi",
+      "moveUp": "Kwidza",
+      "moveDown": "Dzikisa",
+      "removeLine": "Bvisa mutsara",
+      "shortcutHint": "Ctrl/⌘+Enter mutsananguro inowedzera mutsara.",
+      "addFromCatalogueAria": "Wedzera kubva mucatalogue"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Zvikamu zveissuer",
+        "client": "Zvikamu zvemutengi",
+        "document": "Zvikamu zvechinyorwa"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Zita rebhizinesi",
+        "showDesignation": "Basa",
+        "showEmail": "Email",
+        "showPhone": "Runhare",
+        "showWebsite": "Webhusaiti",
+        "showFullAddress": "Kero yakazara",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Chisainwa",
+        "showStamp": "Stamp",
+        "showContactPerson": "Munhu wekubata",
+        "showBillingAddress": "Kero yekubhadharisa",
+        "showShippingAddress": "Kero yekutumira",
+        "showTaxIdentifier": "Tax identifier",
+        "showPlaceOfSupply": "Nzvimbo yesupply",
+        "showDueDate": "Zuva rekubhadhara",
+        "showPaymentTerms": "Mitemo yekubhadhara",
+        "showSacCodeColumn": "Column yeSAC code",
+        "showQuantityColumn": "Column yehuwandu",
+        "showUnitPriceColumn": "Column yemutengo weunit",
+        "showTaxColumn": "Column yetax",
+        "showTdsBreakdown": "TDS breakdown",
+        "showQrVerification": "QR verification",
+        "showNotes": "Manotsi",
+        "showTerms": "Mitemo",
+        "showReplacesReference": "Replaces reference",
+        "showAmountInWords": "Mari mumashoko",
+        "showSupplyStatement": "Supply statement",
+        "showRoundingLine": "Mutsara werounding",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Vatengi",
+      "description": "Vose vaunobhadharisa. Vatengi vane maivoisi vanoarchivwa, havadzimwi.",
+      "newClient": "Mutengi mutsva",
+      "searchPlaceholder": "Tsvaga nezita",
+      "searchLabel": "Tsvaga vatengi",
+      "emptyTitle": "Hapana vatengi parizvino",
+      "emptyDescription": "Wedzera vanhu nemakambani aunobhadharisa; mari yavo nemitemo yekubhadhara zvinozadza invoice imwe neimwe.",
+      "addClient": "Wedzera mutengi",
+      "noMatch": "Hapana vatengi vanofanana ne“{q}”.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Zita",
+        "contact": "Kubata",
+        "email": "Email",
+        "country": "Nyika",
+        "currency": "Mari",
+        "terms": "Mitemo",
+        "status": "Mamiriro"
+      }
+    },
+    "new": {
+      "title": "Mutengi mutsva"
+    },
+    "edit": {
+      "metaTitle": "Gadzirisa mutengi",
+      "title": "Gadzirisa {name}"
+    },
+    "detail": {
+      "metaTitle": "Mutengi",
+      "newInvoice": "Invoice itsva",
+      "restoreTitle": "Dzorera mutengi uyu here?",
+      "archiveTitle": "Archive mutengi uyu here?",
+      "archiveDescription": "Anobuda mumasarudzo; maivoisi nenhoroondo zvinogara zvakadaro.",
+      "deleteTitle": "Dzima mutengi uyu here?",
+      "deleteDescription": "Zvinogoneka chete kana pasina invoice inoreva mutengi.",
+      "details": "Zvikamu",
+      "contact": "Kubata",
+      "email": "Email",
+      "phone": "Runhare",
+      "country": "Nyika",
+      "gstState": "GST {code}",
+      "taxId": "Tax ID",
+      "currency": "Mari",
+      "paymentTerms": "Mitemo yekubhadhara",
+      "paymentTermsDays": "mazuva {days}",
+      "expectedTds": "TDS inotarisirwa",
+      "notes": "Manotsi",
+      "addresses": "Kero",
+      "billing": "Kubhadharisa",
+      "shipping": "Kutumira",
+      "lifetime": "Hupenyu hwose",
+      "openRegister": "Vhura rejista",
+      "noIssued": "Hapana maivoisi akapiwa parizvino.",
+      "noIssuedWithDrafts": "Hapana maivoisi akapiwa parizvino (draft {drafts}).",
+      "firstLatest": "Invoice yekutanga <mono>{first}</mono>, yazvino <mono>{latest}</mono>{drafts, plural, =0 {} one { · draft #} other { · madraft #}}",
+      "lifetimeColumns": {
+        "currency": "Mari",
+        "invoices": "Maivoisi",
+        "billed": "Zvabhadharisirwa",
+        "received": "Zvatambirwa",
+        "credited": "Zvakapiwa credit",
+        "outstanding": "Zvisati zvabhadharwa",
+        "overdue": "Zvapfuura nguva"
+      },
+      "recentInvoices": "Maivoisi achangoitwa",
+      "noInvoices": "Hapana maivoisi emutengi uyu parizvino.",
+      "recentColumns": {
+        "number": "Nhamba",
+        "issueDate": "Zuva rekupa",
+        "due": "Zuva rekubhadhara",
+        "total": "Chiverengero",
+        "balance": "Balance",
+        "status": "Mamiriro"
+      }
+    },
+    "form": {
+      "cardTitle": "Mutengi",
+      "displayName": "Zita rinoratidzwa",
+      "contactPerson": "Munhu wekubata",
+      "email": "Email",
+      "phone": "Runhare",
+      "taxIdType": "Rudzi rweTax ID",
+      "taxIdTypeNone": "Hapana",
+      "taxId": "Tax ID",
+      "currency": "Mari",
+      "paymentTerms": "Mitemo yekubhadhara (mazuva)",
+      "expectedTdsRate": "Mwero weTDS unotarisirwa (%)",
+      "notes": "Manotsi",
+      "billingAddress": "Kero yekubhadharisa",
+      "shippingAddress": "Kero yekutumira",
+      "differentFromBilling": "Yakasiyana nekubhadharisa",
+      "save": "Chengetedza mutengi"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Awa",
+      "DAY": "Zuva",
+      "FIXED": "Yakatarwa",
+      "MILESTONE": "Milestone",
+      "UNIT": "Unit"
+    },
+    "list": {
+      "activate": "Mutangidzira",
+      "deactivate": "Dzima",
+      "archiveDescription": "Mitsara yemaivoisi aripo inochengeta zvakakopwa.",
+      "deleteDescription": "Zvinogoneka chete kana pasina mutsara weinvoice unoireva. Kana zvisina, i-archive.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Zita",
+        "unit": "Unit",
+        "rate": "Mutengo",
+        "price": "Mutengo",
+        "currency": "Mari",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Tax",
+        "status": "Mamiriro"
+      }
+    },
+    "services": {
+      "title": "Masevhisi",
+      "description": "Catalogue yako. Kusarudza sevhisi kunokopa zvinokosha zvayo pamutsara weinvoice.",
+      "newService": "Sevhisi itsva",
+      "emptyTitle": "Hapana masevhisi parizvino",
+      "emptyDescription": "Wedzera zvaunotengesa - dhizaini yeawa, milestone yemutengo wakatarwa - pamwe neSAC/HSN code netax rate.",
+      "addService": "Wedzera sevhisi",
+      "restoreTitle": "Dzorera {name} here?",
+      "archiveTitle": "Archive {name} here?",
+      "deleteTitle": "Dzima {name} here?",
+      "editMetaTitle": "Gadzirisa sevhisi",
+      "editTitle": "Gadzirisa {name}"
+    },
+    "products": {
+      "title": "Zvinhu zvinotengeswa",
+      "description": "Zvinhu zvaunotengesa, chimwe nechimwe chine SKU. Kusarudza chinhu kunokopa zvinokosha zvacho pamutsara weinvoice.",
+      "newProduct": "Chinhu chitsva",
+      "emptyTitle": "Hapana zvinhu zvinotengeswa parizvino",
+      "emptyDescription": "Wedzera zvinhu zvaunotengesa zvine SKU, HSN code, mutengo weunit netax rate.",
+      "addProduct": "Wedzera chinhu",
+      "restoreTitle": "Dzorera {sku} here?",
+      "archiveTitle": "Archive {sku} here?",
+      "deleteTitle": "Dzima {sku} here?",
+      "editMetaTitle": "Gadzirisa chinhu",
+      "editTitle": "Gadzirisa {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Code yakasiyana inodhindwa pazasi petsananguro yemutsara",
+      "name": "Zita",
+      "unit": "Unit",
+      "defaultRate": "Mutengo wedefault",
+      "unitPrice": "Mutengo weunit",
+      "currency": "Mari",
+      "sacHsnCode": "SAC / HSN code",
+      "sacHsnHint": "Inodiwa pamaivoisi eGST",
+      "hsnCode": "HSN code",
+      "hsnHint": "Inodiwa pamaivoisi eGST ezvinhu",
+      "defaultTaxRate": "Tax rate yedefault (%)",
+      "description": "Tsananguro",
+      "descriptionHint": "Inozadza tsananguro yemutsara",
+      "active": "Inoshanda",
+      "serviceInactiveHint": "Masevhisi asingashandi haaoneki musarudzo yeinvoice",
+      "productInactiveHint": "Zvinhu zvisingashandi hazvioneki musarudzo yeinvoice",
+      "saveService": "Chengetedza sevhisi",
+      "saveProduct": "Chengetedza chinhu"
+    },
+    "tags": {
+      "legend": "Maprofile",
+      "hint": "Maka maissuer profiles anotengesa izvi. Siya ose asina kumakwa kuti zvipiwe profile yose."
+    }
+  },
+  "address": {
+    "line1": "Kero mutsara 1",
+    "line2": "Kero mutsara 2",
+    "city": "Guta",
+    "stateRegion": "Province / nharaunda",
+    "postalCode": "Postal code",
+    "country": "Nyika",
+    "state": "Province",
+    "gstStateCodeHint": "GST state code {code}",
+    "pickStateHint": "Sarudza province yeGST state code",
+    "stateRegionCode": "Code yeprovince / nharaunda",
+    "stateRegionCodePlaceholder": "semuenzaniso CA"
+  },
+  "assets": {
+    "tooLarge": "Faira iri guru zvakanyanya.",
+    "unsupportedReceipt": "Shandisa mufananidzo wePNG, JPEG, WebP kana PDF.",
+    "unsupportedImage": "Shandisa mufananidzo wePNG, JPEG kana WebP.",
+    "uploadFailed": "Kuuploader hakuna kubudirira.",
+    "uploading": "Kuuploader…"
+  },
+  "ui": {
+    "breadcrumb": "Breadcrumb",
+    "close": "Vhara",
+    "closeMenu": "Vhara menu",
+    "inputCharset": "Mavara akajairika ekiyibhodhi chete ndiwo anobvumidzwa.",
+    "confirm": {
+      "working": "Kushanda…"
+    },
+    "statusPill": {
+      "DRAFT": "Draft",
+      "ISSUED": "Yakapiwa",
+      "SENT": "Yakatumirwa",
+      "PARTIALLY_PAID": "Yabhadharwa chikamu",
+      "PAID": "Yabhadharwa",
+      "OVERDUE": "Yapfuura nguva",
+      "VOID": "Yabviswa"
+    },
+    "activePill": {
+      "active": "Inoshanda",
+      "archived": "Yakaarchivwa",
+      "inactive": "Haishande"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Pane chakaenda zvisiri izvo.",
+    "fixFields": "Ruramisa minda yakasarudzwa.",
+    "accountSaved": "Zvaunofarira muakaundi zvachengetedzwa",
+    "apiKeyCreated": "API key yagadzirwa. Ikope izvozvi: inoratidzwa kamwe chete.",
+    "saved": "{name} yachengetedzwa",
+    "savedProfile": "Profile {label} yachengetedzwa",
+    "clientArchived": "Mutengi akaarchivwa",
+    "clientRestored": "Mutengi akadzorerwa",
+    "clientDeleted": "Mutengi akadzimwa",
+    "productArchived": "Chinhu chakaarchivwa",
+    "productRestored": "Chinhu chakadzorerwa",
+    "productActivated": "Chinhu chakatangidzirwa",
+    "productDeactivated": "Chinhu chakadzimwa",
+    "serviceArchived": "Sevhisi yakaarchivwa",
+    "serviceRestored": "Sevhisi yakadzorerwa",
+    "serviceActivated": "Sevhisi yakatangidzirwa",
+    "serviceDeactivated": "Sevhisi yakadzimwa",
+    "defaultProfileUpdated": "Default profile yagadziriswa",
+    "profileArchived": "Profile yakaarchivwa",
+    "profileRestored": "Profile yakadzorerwa",
+    "profileDeleted": "Profile yakadzimwa",
+    "defaultPaymentMethodUpdated": "Nzira yedefault yekubhadhara yagadziriswa",
+    "paymentMethodArchived": "Nzira yekubhadhara yakaarchivwa",
+    "paymentMethodRestored": "Nzira yekubhadhara yakadzorerwa",
+    "paymentMethodDeleted": "Nzira yekubhadhara yakadzimwa",
+    "issued": "{number} yakapiwa",
+    "savedAsDraft": "Yachengetedzwa sedraft. {reason}",
+    "draftSaved": "Draft yachengetedzwa",
+    "invoiceVoided": "Invoice yabviswa",
+    "originalVoided": "Yekutanga yabviswa; gadzirisa draft inotsiva",
+    "markedAsSent": "Yamakwa sekutumirwa",
+    "draftDeleted": "Draft yadzimwa",
+    "generatedPdf": "PDF version {version} yagadzirwa",
+    "creditNoteVoided": "Credit note yabviswa; balance yeinvoice yadzoreredzwa",
+    "draftCreditNoteDeleted": "Draft credit note yadzimwa",
+    "mailRefused": "Mail server yaramba meseji: {error}. Kuedza kwakanyorwa.",
+    "unknownError": "kukanganisa kusingazivikanwi",
+    "sentTo": "Yakatumirwa ku{recipients}",
+    "smtpSaved": "Zvirongwa zveSMTP zvachengetedzwa",
+    "smtpRemoved": "Zvirongwa zveSMTP zvakachengetwa zvabviswa",
+    "testEmailSent": "Test email yakatumirwa ku{email}",
+    "testFailed": "Test yakundikana: {error}",
+    "defaultRecipientsSaved": "Vanowana zvedefault vachengetedzwa",
+    "invitationSent": "Kokero yatumirwa",
+    "invitationReady": "Kokero yakagadzirira",
+    "unknownRole": "Basa risingazivikanwi",
+    "roleUpdated": "Basa ragadziriswa",
+    "accountDeactivated": "Akaundi yadzimwa",
+    "accountReactivated": "Akaundi yatangidzirwazve",
+    "invitationRevoked": "Kokero yabviswa",
+    "paymentUpdated": "Kubhadhara kwagadziriswa",
+    "paymentRecorded": "Kubhadhara kwanyorwa",
+    "paymentDeleted": "Kubhadhara kwadzimwa",
+    "sessionRevoked": "Session yabviswa",
+    "noOtherSessions": "Hapana mamwe masession",
+    "signedOutOthers": "Wabuda mumasession {count} mamwe",
+    "sharePasswordRequired": "Isa password, kana uregedze kuti igadzirwe.",
+    "shareLinkCreated": "Link yekugovera yagadzirwa.",
+    "templateSaved": "Template yachengetedzwa; zvinyorwa zvinotevera zvichaishandisa",
+    "templateReset": "Template yadzoserwa kudefault yakavakirwa",
+    "templateImported": "Template yaimportwa",
+    "profileTemplateCleared": "Profile inoshandisa template yeinstance zvakare",
+    "operatorSaved": "Zvikamu zveoperator zvachengetedzwa. Mapeji emutemo ava kuzviratidza."
+  }
+}

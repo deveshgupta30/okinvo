@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo ana sayfa",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "continue": "Devam",
+    "saving": "Kaydediliyor…",
+    "detect": "Algıla",
+    "yes": "Evet",
+    "no": "Hayır",
+    "choose": "Seçin…",
+    "remove": "Kaldır",
+    "tryAgain": "Tekrar dene",
+    "dashboard": "Panel",
+    "goToDashboard": "Panele git",
+    "or": "veya",
+    "invoice": "Fatura",
+    "creditNote": "Alacak dekontu",
+    "downloadPdf": "PDF indir",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "downloadDocx": "DOCX indir",
+    "none": "Yok",
+    "dismiss": "Kapat",
+    "all": "Tümü",
+    "previous": "Önceki",
+    "next": "Sonraki",
+    "go": "Git",
+    "search": "Ara",
+    "status": "Durum",
+    "total": "Toplam",
+    "currency": "Para birimi",
+    "from": "Başlangıç",
+    "to": "Bitiş",
+    "reason": "Neden",
+    "history": "Geçmiş",
+    "archive": "Arşivle",
+    "restore": "Geri yükle",
+    "showArchived": "Arşivlenenleri göster",
+    "hideArchived": "Arşivlenenleri gizle",
+    "archived": "Arşivlendi",
+    "default": "Varsayılan",
+    "setDefault": "Varsayılan yap",
+    "revoke": "İptal et",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı",
+    "active": "Etkin",
+    "pagination": "Sayfalama",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Panel",
+      "invoices": "Faturalar",
+      "creditNotes": "Alacak dekontları",
+      "clients": "Müşteriler",
+      "services": "Hizmetler",
+      "products": "Ürünler"
+    },
+    "primaryNav": "Ana menü",
+    "settings": "Ayarlar",
+    "openMenu": "Menüyü aç",
+    "navigation": "Gezinme",
+    "pagesAndAccount": "Sayfalar ve hesap",
+    "collapseSidebar": "Kenar çubuğunu daralt",
+    "collapseSidebarHint": "Kenar çubuğunu daralt ([)",
+    "expandSidebar": "Kenar çubuğunu genişlet",
+    "expandSidebarHint": "Kenar çubuğunu genişlet ([)",
+    "theme": {
+      "label": "Tema",
+      "system": "Sistem",
+      "light": "Açık",
+      "dark": "Koyu",
+      "current": "Tema: {mode}",
+      "switchTo": "Tema: {mode}. {next} temasına geç"
+    },
+    "userMenu": {
+      "label": "{name} hesap menüsü",
+      "profile": "Profil",
+      "logOut": "Çıkış yap"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Giriş yap",
+      "title": "Giriş yap",
+      "subtitle": "Yalnızca izin verilenler listesindeki hesaplar girebilir.",
+      "failed": "Giriş başarısız oldu.",
+      "noMethod": "Yapılandırılmış bir giriş yöntemi yok. <code>.env</code> dosyasında <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code> gibi bir sağlayıcı çifti veya <code>AUTH_PASSWORD_SIGNIN=true</code> ayarlayın.",
+      "errors": {
+        "not_allowed": "Bu hesaba bu örnekte izin verilmiyor veya hesap devre dışı bırakıldı.",
+        "signin": "Giriş tamamlanamadı. Lütfen tekrar deneyin."
+      }
+    },
+    "password": {
+      "name": "Ad",
+      "email": "E-posta",
+      "password": "Parola",
+      "signingIn": "Giriş yapılıyor…",
+      "createAccount": "Hesap oluştur",
+      "signIn": "Giriş yap",
+      "haveAPassword": "Zaten bir parolam var",
+      "firstTime": "İlk kez mi buradasınız? Bir parola belirleyin",
+      "failed": "Giriş başarısız oldu."
+    },
+    "social": {
+      "redirecting": "Yönlendiriliyor…",
+      "continueWith": "{provider} ile devam et",
+      "failed": "Giriş başlatılamadı."
+    },
+    "error": {
+      "metaTitle": "Giriş hatası",
+      "title": "Giriş başarısız oldu",
+      "body": "Kimlik sağlayıcı <code>{value}</code> döndürdü. Adresiniz bu örneğin izin verilenler listesinde değilse, sahibinden eklemesini isteyin.",
+      "back": "Girişe dön"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Ayarlar",
+      "profiles": "Profiller",
+      "paymentMethods": "Ödeme yöntemleri",
+      "templates": "Şablonlar",
+      "email": "E-posta",
+      "security": "Güvenlik",
+      "users": "Kullanıcılar",
+      "data": "Veri",
+      "legal": "Hukuki",
+      "account": "Hesap",
+      "appearance": "Görünüm",
+      "api": "API",
+      "status": "Durum"
+    },
+    "account": {
+      "metaTitle": "Hesap",
+      "title": "Hesap",
+      "description": "Fotoğrafınız, adınız, bölgeniz, diliniz ve saat dilimiz.",
+      "photo": {
+        "title": "Fotoğraf",
+        "description": "Kenar çubuğunda ve kullanıcı menüsünde gösterilir."
+      },
+      "form": {
+        "title": "Hesap",
+        "description": "Nasıl göründüğünüz ve “bugün”ün ne zaman olduğu.",
+        "displayName": "Görünen ad",
+        "signInEmail": "Giriş e-postası",
+        "signInEmailHint": "Bu örnekteki kimliğiniz; burada düzenlenemez.",
+        "timezone": "Saat dilimi",
+        "timezoneHint": "Düzenleme tarihleri, vade tarihleri ve panel için “bugün”",
+        "regionTitle": "Bölge",
+        "regionDescription": "Yeni düzenleyen profilleri ve bir profil oluşturulana kadar panel için varsayılanlar.",
+        "country": "Ülke",
+        "currency": "Para birimi",
+        "suggested": "Bu ülke için önerilen:",
+        "language": "Dil",
+        "languageHint": "Uygulamanın kendi dili. Belgeler her profilin kendi yerel ayarını kullanır.",
+        "machineTranslated": "Bu dil makine çevirisiyle hazırlandı. Düzeltmeler memnuniyetle karşılanır: <link>GitHub’da iyileştirin</link>.",
+        "save": "Tercihleri kaydet"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerika",
+        "Asia": "Asya",
+        "Europe": "Avrupa",
+        "MiddleEast": "Orta Doğu",
+        "Oceania": "Okyanusya",
+        "Constructed": "Yapay diller"
+      },
+      "privacy": {
+        "title": "Gizlilik",
+        "description": "okinvo yalnızca çalışması için gereken çerezleri ayarlar. Analiz yok, izleme yok.",
+        "cookiePolicy": "Çerez politikası",
+        "showNoticeAgain": "Çerez bildirimini tekrar göster"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Fotoğrafı değiştir",
+      "addPhoto": "Fotoğraf ekle",
+      "hint": "PNG, JPEG veya WebP. Her yerde daire olarak gösterilir; kaydetmeden önce yakınlaştırıp taşıyabilirsiniz.",
+      "tooLarge": "Bu fotoğraf çok büyük.",
+      "uploadFailed": "Yükleme başarısız oldu.",
+      "choose": "Bir profil fotoğrafı seçin",
+      "dialogTitle": "Fotoğrafınızı konumlandırın",
+      "dialogDescription": "Taşımak için sürükleyin, yakınlaştırmak için kaydırın veya sıkıştırın. Herkesin gördüğü kısım dairedir.",
+      "zoom": "Yakınlaştır",
+      "save": "Fotoğrafı kaydet"
+    },
+    "appearance": {
+      "metaTitle": "Görünüm",
+      "title": "Görünüm",
+      "description": "Tema ve vurgu rengi, hesabınıza kaydedilir.",
+      "theme": {
+        "title": "Tema",
+        "description": "Sistemi izleyin ya da açık veya koyu temayı sabitleyin.",
+        "label": "Tema",
+        "system": "Sistemi izle",
+        "systemHint": "İşletim sisteminizle birlikte değişir",
+        "light": "Açık",
+        "lightHint": "Beyaz zemin",
+        "dark": "Koyu",
+        "darkHint": "Siyaha yakın zemin"
+      },
+      "accent": {
+        "title": "Vurgu",
+        "description": "Birincil düğme, odak halkaları ve etkin sayfa işaretçisi için kullanılır. Nane, marka simgesiyle uyumludur.",
+        "label": "Vurgu rengi"
+      },
+      "accents": {
+        "mint": "Nane",
+        "lavender": "Lavanta",
+        "sky": "Gökyüzü",
+        "peach": "Şeftali",
+        "butter": "Tereyağı",
+        "rose": "Gül",
+        "sage": "Adaçayı",
+        "lilac": "Eflatun"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Düzenleyen profilleri",
+      "title": "Düzenleyen profilleri",
+      "description": "Fatura kestiğiniz hukuki kimlikler. Varsayılan olan, yeni faturaları önceden doldurur.",
+      "breadcrumb": "Profiller",
+      "newProfile": "Yeni profil",
+      "emptyTitle": "Henüz düzenleyen profili yok",
+      "emptyDescription": "Fatura kestiğiniz kimliği oluşturun: PAN numaralı bir birey veya şirketiniz.",
+      "createProfile": "Profil oluştur",
+      "columns": {
+        "label": "Etiket",
+        "legalName": "Yasal ad",
+        "type": "Tür",
+        "country": "Ülke",
+        "currency": "Para birimi",
+        "regime": "Vergi rejimi",
+        "status": "Durum"
+      },
+      "types": {
+        "company": "Şirket",
+        "individual": "Birey"
+      },
+      "makeDefaultTitle": "{label} varsayılan yapılsın mı?",
+      "makeDefaultDescription": "Yeni faturalar bu profille başlayacak.",
+      "restoreTitle": "{label} geri yüklensin mi?",
+      "archiveTitle": "{label} arşivlensin mi?",
+      "archiveDescription": "Seçicilerden kaybolur; mevcut faturalar etkilenmez.",
+      "new": {
+        "metaTitle": "Yeni düzenleyen profili",
+        "title": "Yeni düzenleyen profili",
+        "prefilled": "Yanıtlarınızdan dolduruldu; adresi ve vergi bilgilerini kontrol edip kaydedin."
+      },
+      "edit": {
+        "metaTitle": "Düzenleyen profilini düzenle",
+        "template": "Şablon",
+        "deleteTitle": "{label} silinsin mi?",
+        "deleteDescription": "Yalnızca hiçbir fatura veya alacak dekontu bu profile başvurmuyorsa mümkündür. Aksi halde arşivleyin."
+      },
+      "template": {
+        "metaTitle": "Profil şablonu",
+        "title": "{label} için şablon",
+        "ownTemplate": "Kendi şablonu",
+        "instanceTemplate": "Örnek şablonu",
+        "resetTitle": "Örnek şablonu yeniden kullanılsın mı?",
+        "resetDescription": "Bu profilin kendi yapılandırması kaldırılır; düzenlenmiş belgeler etkilenmez.",
+        "useInstance": "Örnek şablonunu kullan",
+        "usingInstanceTitle": "Örnek şablonu kullanılıyor",
+        "usingInstanceDescription": "Bu profildeki belgeler Ayarlar → Şablonlar bölümünü izler. Ayrı olarak özelleştirmek için seçin.",
+        "customise": "Bu profil için farklı bir şablon kullan",
+        "openInstance": "Örnek şablonunu aç"
+      },
+      "form": {
+        "identityTitle": "Kimlik",
+        "identityDescription": "Faturanın kimden olduğu.",
+        "type": "Tür",
+        "label": "Etiket",
+        "labelHint": "Yalnızca seçicilerde gösterilir",
+        "legalName": "Yasal ad",
+        "tradeName": "Ticari ad",
+        "designation": "Unvan",
+        "email": "E-posta",
+        "phone": "Telefon",
+        "website": "Web sitesi",
+        "addressTitle": "Adres",
+        "taxTitle": "Vergi kimlikleri",
+        "taxDescription": "Yalnızca sizin için geçerli olanlar; yazdırma her faturada ayrı denetlenir.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Birleşik Krallık KDV numarası",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "Depolamada şifrelenir",
+        "lutNumber": "LUT numarası",
+        "lutNumberHint": "IGST’siz ihracat için",
+        "lutFiscalYear": "LUT mali yılı",
+        "lutFiscalYearHint": "örn. 2026-27",
+        "defaultsTitle": "Varsayılanlar",
+        "baseCurrency": "Ana para birimi",
+        "locale": "Belge yerel ayarı",
+        "localeHint": "Belgelerde sayı ve tarih biçimi",
+        "fiscalYearStart": "Mali yıl başlangıcı",
+        "months": {
+          "january": "Ocak",
+          "february": "Şubat",
+          "march": "Mart",
+          "april": "Nisan",
+          "may": "Mayıs",
+          "june": "Haziran",
+          "july": "Temmuz",
+          "august": "Ağustos",
+          "september": "Eylül",
+          "october": "Ekim",
+          "november": "Kasım",
+          "december": "Aralık"
+        },
+        "taxRegime": "Varsayılan vergi rejimi",
+        "regimes": {
+          "indiaGst": "Hindistan GST",
+          "ukVat": "Birleşik Krallık KDV",
+          "usSalesTax": "ABD satış vergisi",
+          "none": "Vergisiz"
+        },
+        "invoiceNumberFormat": "Fatura numarası biçimi",
+        "invoiceNumberFormatHint": "Belirteçler: {tokens}",
+        "creditNoteNumberFormat": "Alacak dekontu numarası biçimi",
+        "tdsRate": "Beklenen TDS oranı (%)",
+        "tdsRateHint": "Bilgilendirme amaçlıdır, beklenen kesinti olarak yazdırılır",
+        "defaultNotes": "Varsayılan notlar",
+        "defaultTerms": "Varsayılan koşullar",
+        "printTitle": "Varsayılan olarak yazdırılanlar",
+        "printDescription": "Her fatura bunları kopyalar ve tek tek değiştirebilir.",
+        "emailTitle": "E-posta",
+        "emailDescription": "Gönderim penceresi için varsayılanlar. Yer tutucular: {placeholders}",
+        "emailCc": "Varsayılan CC",
+        "emailBcc": "Varsayılan BCC",
+        "commaSeparated": "Virgülle ayrılmış",
+        "invoiceSubject": "Fatura konusu",
+        "invoiceSubjectHint": "Boş bırakılırsa yerleşik şablon kullanılır",
+        "creditNoteSubject": "Alacak dekontu konusu",
+        "invoiceBody": "Fatura metni",
+        "creditNoteBody": "Alacak dekontu metni",
+        "artworkTitle": "Görseller",
+        "artworkDescription": "2 MB’a kadar PNG, JPEG veya WebP; imza ve kaşe saydamlığı korur.",
+        "logo": "Logo",
+        "signature": "İmza",
+        "stamp": "Kaşe",
+        "transparentPng": "Saydam PNG",
+        "save": "Profili kaydet"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Ödeme yöntemleri",
+      "title": "Ödeme yöntemleri",
+      "description": "Müşterilerin size nasıl ödeme yaptığı. Ayrıntılar şifrelenir ve düzenleme anında her faturaya sabitlenir.",
+      "newMethod": "Yeni yöntem",
+      "emptyTitle": "Henüz ödeme yöntemi yok",
+      "emptyDescription": "Faturaların müşterilere nereye ödeme yapacaklarını söyleyebilmesi için bir banka hesabı, UPI kimliği veya cüzdan ekleyin.",
+      "addMethod": "Yöntem ekle",
+      "columns": {
+        "name": "Ad",
+        "type": "Tür",
+        "currency": "Para birimi",
+        "status": "Durum"
+      },
+      "types": {
+        "bankTransfer": "Banka havalesi",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Özel"
+      },
+      "makeDefaultTitle": "{name} varsayılan yapılsın mı?",
+      "restoreTitle": "{name} geri yüklensin mi?",
+      "archiveTitle": "{name} arşivlensin mi?",
+      "archiveDescription": "Düzenlenmiş faturalar, yazdırdıkları anlık görüntüyü korur.",
+      "new": {
+        "metaTitle": "Yeni ödeme yöntemi",
+        "title": "Yeni ödeme yöntemi"
+      },
+      "edit": {
+        "metaTitle": "Ödeme yöntemini düzenle",
+        "title": "{name} düzenle",
+        "deleteTitle": "{name} silinsin mi?",
+        "deleteDescription": "Yalnızca hiçbir fatura veya ödeme buna başvurmuyorsa mümkündür. Aksi halde arşivleyin."
+      },
+      "form": {
+        "name": "Ad",
+        "nameHint": "Ödeme bloğunun başlığı olarak yazdırılır",
+        "type": "Tür",
+        "currency": "Para birimi",
+        "currencyHint": "İsteğe bağlı; yalnızca bağlam için gösterilir",
+        "anyCurrency": "Herhangi",
+        "instructions": "Talimatlar",
+        "instructionsHint": "Ayrıntıların altına yazdırılır",
+        "isDefault": "Varsayılan yöntem",
+        "isDefaultDescription": "Yeni faturalarda önceden seçilir",
+        "isActive": "Etkin",
+        "detailsTitle": "Ayrıntılar",
+        "detailsDescription": "Depolamada şifrelenir; düzenlendiğinde her faturaya anlık görüntü olarak alınır.",
+        "vpa": "UPI kimliği (VPA)",
+        "payeeName": "Alıcı adı",
+        "lines": "Satırlar",
+        "linesHint": "Her satıra bir satır, olduğu gibi yazdırılır",
+        "accountEmail": "Hesap e-postası / kullanıcı adı",
+        "bank": {
+          "accountHolder": "Hesap sahibi",
+          "accountNumber": "Hesap numarası",
+          "bankName": "Banka adı",
+          "branch": "Şube",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Yönlendirme / sıralama kodu"
+        },
+        "save": "Ödeme yöntemini kaydet"
+      }
+    },
+    "templates": {
+      "metaTitle": "Belge şablonları",
+      "title": "Belge şablonları",
+      "customised": "Özelleştirildi",
+      "builtIn": "Yerleşik varsayılan",
+      "description": "Faturaların ve alacak dekontlarının görünümü. Düzenlenmiş belgeler, düzenlendikleri şablonu korur.",
+      "resetTitle": "Yerleşik varsayılana sıfırlansın mı?",
+      "resetDescription": "Özelleştirmeniz kaldırılır; daha önce düzenlenmiş belgeler etkilenmez.",
+      "reset": "Sıfırla",
+      "resetTrigger": "Varsayılanlara sıfırla",
+      "importTitle": "İçe aktar",
+      "importDescription": "Daha önce dışa aktarılmış bir yapılandırmayı geri yükleyin.",
+      "overridesTitle": "Profil bazında geçersiz kılmalar",
+      "overridesDescription": "Bir profil, düzenleme sayfasından kendi şablonunu kullanmayı seçebilir.",
+      "noOverrides": "Her profil örnek şablonunu kullanıyor.",
+      "import": {
+        "json": "Şablon JSON’u",
+        "jsonHint": "JSON’u dışa aktar ile üretilen bir dosyayı yapıştırın; eksik anahtarlar varsayılanlara döner",
+        "importing": "İçe aktarılıyor…",
+        "submit": "İçe aktar"
+      },
+      "form": {
+        "templateTitle": "Şablon",
+        "templateDescription": "Altı yerleşik şablon; aşağıdaki özelleştirme seçtiğiniz şablona uygulanır.",
+        "templateGroup": "Şablon",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Modern ve ferah, tırnaksız yazı tipi, üst bilginin altında vurgu çizgisi."
+          },
+          "classic": {
+            "name": "Klasik",
+            "character": "Geleneksel çerçeveli tablo, tırnaklı başlıklar, kutulu toplamlar."
+          },
+          "compact": {
+            "name": "Kompakt",
+            "character": "Uzun kalem listeleri için yoğun düzen; daha küçük yazı, daha az ayırıcı."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "Sakin ve geniş: çizgi veya kutu yok, açık etiketler, bolca boşluk."
+          },
+          "letterhead": {
+            "name": "Antetli",
+            "character": "Logonuz ve adınız, her sayfanın üstünde bir renk bandı veya görsel üzerinde."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Renk bandı üst bilgi; taraflar, tablo başlığı ve toplamlar açık vurgu tonunda."
+          }
+        },
+        "paperTitle": "Kâğıt ve yazı tipi",
+        "paperSize": "Kâğıt boyutu",
+        "paperLetter": "Letter",
+        "margins": "Kenar boşlukları",
+        "marginsNormal": "Normal",
+        "marginsNarrow": "Dar",
+        "headingFont": "Başlık yazı tipi",
+        "bodyFont": "Gövde yazı tipi",
+        "fontSans": "Tırnaksız",
+        "fontSerif": "Tırnaklı",
+        "tableStyle": "Tablo stili",
+        "tableRuled": "Çizgili",
+        "tableZebra": "Zebra",
+        "tablePlain": "Düz",
+        "accentColour": "Vurgu rengi",
+        "textColour": "Metin rengi",
+        "logoPosition": "Logo konumu",
+        "positionLeft": "Sol",
+        "positionCentre": "Orta",
+        "positionRight": "Sağ",
+        "logoHeight": "Logo yüksekliği (mm)",
+        "documentTitle": "Belge başlığı",
+        "titleAuto": "Otomatik (GST uyumlu)",
+        "titleCustom": "Özel",
+        "titlePlaceholder": "örn. PROFORMA FATURA",
+        "qrPosition": "QR konumu",
+        "qrFooter": "Alt bilgi",
+        "qrHeader": "Üst bilgi",
+        "qrBesideTotals": "Toplamların yanında",
+        "amountInWords": "Yazıyla tutar",
+        "wordsBelowTotal": "Toplamların altında",
+        "wordsFooter": "Alt bilgi",
+        "wordsHidden": "Gizli",
+        "subtotalRow": "Ara toplam satırı",
+        "discountRow": "İndirim satırı",
+        "taxLines": "Vergi satırları",
+        "tdsExpected": "Beklenen TDS",
+        "roundingRow": "Yuvarlama satırı",
+        "pageNumbers": "Sayfa numaraları",
+        "headerTitle": "Üst bilgi",
+        "headerDescription": "Her sayfanın üstünde bir renk bandı veya görsel. Antetli ve Modern, aksini seçmezseniz bir bant gösterir.",
+        "headerStyle": "Üst bilgi stili",
+        "headerNone": "Yok",
+        "headerBand": "Renk bandı",
+        "headerImage": "Görsel",
+        "bandColour": "Bant rengi",
+        "bandColourHex": "Bant rengi (hex)",
+        "headerImageLabel": "Üst bilgi görseli",
+        "headerImageHint": "2400 piksel genişliğe kadar PNG, JPEG veya WebP; sayfa genişliğini kaplar.",
+        "imageOpacity": "Görsel opaklığı",
+        "headerHeight": "Üst bilgi yüksekliği (mm)",
+        "bandText": "Banttaki metin",
+        "bandTextAuto": "Otomatik (bant renginden)",
+        "bandTextLight": "Açık",
+        "bandTextDark": "Koyu",
+        "textTitle": "Metin",
+        "headerNote": "Üst bilgi notu",
+        "footer": "Alt bilgi",
+        "signatureCaption": "İmza açıklaması",
+        "draftWatermark": "Taslak filigranı",
+        "labelsTitle": "Etiketler",
+        "labelsDescription": "Varsayılan ifadeyi korumak için bir alanı boş bırakın.",
+        "save": "Şablonu kaydet",
+        "downloadSample": "Örnek PDF indir",
+        "exportJson": "JSON’u dışa aktar"
+      }
+    },
+    "email": {
+      "metaTitle": "E-posta",
+      "title": "E-posta",
+      "configuredSettings": "Ayarlar’da yapılandırıldı",
+      "configuredEnv": "Ortam tarafından yapılandırıldı",
+      "notConfigured": "Yapılandırılmadı: posta uygulaması akışı",
+      "description": "Belgeler, saklanan PDF eklenerek gönderim penceresinden gönderilir. Buradaki ayarlar ortamdaki SMTP_* değerlerini geçersiz kılar.",
+      "sendTest": "{email} adresine test e-postası gönder",
+      "removeTitle": "Saklanan SMTP ayarları kaldırılsın mı?",
+      "removeEnvTakesOver": "Ortamın SMTP_* değerleri devreye girer.",
+      "removeFallsBack": "E-posta, posta uygulaması akışına döner.",
+      "removeTrigger": "Saklanan ayarları kaldır",
+      "smtpTitle": "SMTP sunucusu",
+      "smtpFromEnv": "Şu anda ortamdan alınıyor; burada kaydetmek bunu geçersiz kılar.",
+      "smtpPasswordNote": "Parola depolamada şifrelenir ve bir daha gösterilmez.",
+      "defaultsTitle": "Varsayılan alıcılar",
+      "defaultsDescription": "Örnek genelinde CC/BCC; düzenleyen profilleri kendilerininkini ekler.",
+      "sentTitle": "Gönderilen postalar",
+      "sentDescription": "Başarısızlıklar ve elle gönderimler dahil son 50 deneme.",
+      "smtp": {
+        "host": "Sunucu",
+        "port": "Bağlantı noktası",
+        "security": "Güvenlik",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Yok (yerel ağ aktarıcısı)",
+        "user": "Kullanıcı adı",
+        "password": "Parola",
+        "passwordStored": "Saklandı ve şifrelendi; korumak için boş bırakın",
+        "passwordEncrypted": "Depolamada şifrelenir",
+        "from": "Gönderen adresi",
+        "fromName": "Gönderen adı",
+        "replyTo": "Yanıt adresi",
+        "save": "SMTP ayarlarını kaydet"
+      },
+      "defaults": {
+        "cc": "Varsayılan CC",
+        "ccHint": "Her gönderime eklenir; virgülle ayrılmış",
+        "bcc": "Varsayılan BCC",
+        "save": "Varsayılanları kaydet"
+      }
+    },
+    "security": {
+      "metaTitle": "Güvenlik",
+      "title": "Güvenlik",
+      "description": "Nerede oturum açtığınız ve değişen her şey.",
+      "sessions": {
+        "title": "Etkin oturumlar",
+        "description": "Bir oturumu iptal etmek o cihazın oturumunu hemen kapatır.",
+        "signOutOthers": {
+          "title": "Diğer her yerde oturum kapatılsın mı?",
+          "description": "Bu oturum dışındaki tüm oturumlar iptal edilir.",
+          "confirm": "Diğerlerini kapat",
+          "trigger": "Diğer her yerde oturumu kapat"
+        },
+        "columns": {
+          "device": "Cihaz",
+          "ipAddress": "IP adresi",
+          "signedIn": "Oturum açıldı",
+          "lastSeen": "Son görülme",
+          "expires": "Sona erer"
+        },
+        "thisDevice": "Bu cihaz",
+        "revokeTitle": "Bu oturum iptal edilsin mi?",
+        "unknownDevice": "Bilinmeyen cihaz",
+        "unknownBrowser": "Bilinmeyen",
+        "agentOnOs": "{os} üzerinde {browser}"
+      },
+      "audit": {
+        "title": "Denetim günlüğü",
+        "count": "{count, plural, one {# olay} other {# olay}}",
+        "entity": "Varlık",
+        "actionContains": "Eylem şunu içerir",
+        "filter": "Filtrele",
+        "reset": "Sıfırla",
+        "columns": {
+          "when": "Ne zaman",
+          "who": "Kim",
+          "action": "Eylem",
+          "entity": "Varlık",
+          "summary": "Özet"
+        },
+        "empty": "Bu filtrelerle eşleşen olay yok.",
+        "system": "Sistem",
+        "changes": "Değişiklikler",
+        "page": "Sayfa {page} / {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Kullanıcılar",
+      "title": "Kullanıcılar",
+      "description": "Bu örneğe kimlerin giriş yapabileceği ve neler yapabilecekleri.",
+      "roles": {
+        "owner": "Sahip",
+        "editor": "Düzenleyici",
+        "viewer": "Görüntüleyici"
+      },
+      "roleHints": {
+        "owner": "Ayarlar ve üyeler dahil her şey",
+        "editor": "Müşteriler, katalog, faturalar, alacak dekontları, ödemeler, e-posta",
+        "viewer": "Salt okunur"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "{email} rolü",
+      "invite": {
+        "title": "Birini davet et",
+        "description": "Davet edilen adresle (bir kimlik sağlayıcı veya parola) giriş yaparlar ve sizin seçtiğiniz rolü alırlar.",
+        "sent": "Davet {email} adresine e-posta ile gönderildi.",
+        "readyWithError": "{email} için davet hazır. E-posta gönderilemedi ({error}); onlara bu bağlantıyı gönderin:",
+        "readyNoSmtp": "{email} için davet hazır. SMTP yapılandırılmamış; onlara bu bağlantıyı gönderin:",
+        "copyLink": "Bağlantıyı kopyala",
+        "email": "E-posta",
+        "emailPlaceholder": "kisi@example.com",
+        "role": "Rol",
+        "submit": "Davet et",
+        "inviting": "Davet ediliyor…"
+      },
+      "members": {
+        "title": "Üyeler",
+        "description": "Her zaman en az bir etkin sahip kalır.",
+        "columns": {
+          "person": "Kişi",
+          "role": "Rol",
+          "lastSignIn": "Son giriş",
+          "status": "Durum"
+        },
+        "nameYou": "{name} (siz)",
+        "deactivated": "Devre dışı",
+        "reactivate": {
+          "title": "{email} yeniden etkinleştirilsin mi?",
+          "description": "Önceki rolleriyle yeniden giriş yapabilirler.",
+          "confirm": "Yeniden etkinleştir"
+        },
+        "deactivate": {
+          "title": "{email} devre dışı bırakılsın mı?",
+          "description": "Tüm oturumlar şimdi sona erer ve yeniden etkinleştirilene kadar giriş yapamazlar. Geçmişleri korunur.",
+          "confirm": "Devre dışı bırak"
+        }
+      },
+      "invitations": {
+        "title": "Bekleyen davetler",
+        "description": "Giriş yapmasına izin verilen ama henüz yapmamış adresler.",
+        "columns": {
+          "email": "E-posta",
+          "role": "Rol",
+          "invited": "Davet tarihi"
+        },
+        "empty": "Bekleyen davet yok.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "{email} için davet iptal edilsin mi?"
+      }
+    },
+    "data": {
+      "metaTitle": "Veri",
+      "title": "Veri",
+      "description": "Her şey taşınabilirdir: CSV veya Excel olarak veri kümeleri, taşıma için tam bir anlık görüntü, muhasebeciniz için PDF’ler ve test edilmiş bir yedekleme rutini.",
+      "period": {
+        "fiscalYear": "Mali yıl",
+        "fiscalYearHint": "Tarihleri geçersiz kılar",
+        "issuer": "Düzenleyen"
+      },
+      "exportAll": {
+        "title": "Tüm verileri dışa aktar",
+        "description": "Her veri kümesini CSV olarak ve tüm tabloların ilişkisel anlık görüntüsü olan <mono>data.json</mono> dosyasını içeren bir ZIP. Şifrelenmiş alanlar (ödeme yöntemi ayrıntıları, SMTP parolası) dışarıda kalır; içindeki README bunları listeler.",
+        "download": "okinvo-data ZIP indir"
+      },
+      "exportDocuments": {
+        "title": "Belgeleri dışa aktar",
+        "description": "Bir dönemdeki düzenlenmiş ve iptal edilmiş tüm fatura ve alacak dekontu PDF’leri, numaraya göre adlandırılmış olarak; numaraları, toplamları ve özetleri içeren bir <mono>index.csv</mono> ile birlikte. Eksik PDF’ler sırasında oluşturulur.",
+        "docx": "Her belgenin DOCX kopyasını da ekle",
+        "download": "Belgeler ZIP indir"
+      },
+      "datasets": {
+        "title": "Veri kümeleri",
+        "description": "Dizin sayfalarının sunduğu aynı dışa aktarmalar; hepsine bir dönem ve düzenleyen uygulanır. Ödemeler tarih aralığını kullanır; müşteriler ve hizmetler dönemi yok sayar.",
+        "columns": {
+          "dataset": "Veri kümesi",
+          "filters": "Uygulanan filtreler",
+          "download": "İndir"
+        },
+        "names": {
+          "invoices": "Fatura kaydı",
+          "invoiceItems": "Fatura kalemleri",
+          "payments": "Ödeme defteri",
+          "creditNotes": "Alacak dekontu kaydı",
+          "clients": "Müşteriler",
+          "services": "Hizmetler",
+          "gstSummary": "GST özeti",
+          "tdsSummary": "TDS özeti"
+        },
+        "filters": {
+          "periodIssuer": "dönem, düzenleyen",
+          "dateRangeIssuer": "tarih aralığı, düzenleyen",
+          "includesArchived": "arşivlenenleri içerir"
+        }
+      },
+      "backups": {
+        "title": "Yedekler",
+        "notWired": "Bağlı bir yedekleme hizmeti yok",
+        "noRun": "Henüz yedekleme çalışmadı",
+        "lastOk": "Son yedekleme başarılı",
+        "lastFailed": "Son yedekleme başarısız",
+        "description": "Compose <mono>backup</mono> hizmeti, <mono>BACKUP_CRON</mono> zamanlamasında Postgres’i döker ve depolama birimini arşivler, <mono>backups</mono> biriminde <mono>BACKUP_RETENTION_DAYS</mono> günlük geçmişi tutar ve bu sayfanın okuduğu bir durum dosyası yazar.",
+        "finished": "Tamamlandı",
+        "databaseDump": "Veritabanı dökümü",
+        "storageArchive": "Depolama arşivi",
+        "size": "Boyut",
+        "sizeMb": "{size} MB",
+        "error": "Hata",
+        "runNow": "Şimdi bir tane çalıştırın veya bir dosya çiftinden geri yükleyin:",
+        "restoreDrill": "Geri yükleme prosedürü CI’da <mono>scripts/restore-drill.sh</mono> ile denenir: tohumla, yedekle, sil, geri yükle, ardından satır sayılarını ve bir PDF özetini karşılaştır."
+      }
+    },
+    "legal": {
+      "metaTitle": "Hukuki",
+      "metaDescription": "Bu örneği kimin işlettiği: herkese açık hukuki sayfalarda yazdırılan bilgiler.",
+      "title": "Hukuki",
+      "description": "Herkese açık hukuki sayfalar bu bilgileri yazdırır. Her alan doldurulana kadar sayfalar vurgulanmış yer tutucular gösterir.",
+      "operator": {
+        "title": "İşletmeci bilgileri",
+        "complete": "Tamamlandı",
+        "missing": "{count} eksik: {fields}",
+        "description": "Bu örneği işleten kişi veya şirket olarak siz, belgelerin atıfta bulunduğu işletmecisiniz. Buradaki hiçbir şey herhangi bir yere gönderilmez; aşağıdaki sayfalarda yazdırılır."
+      },
+      "fieldLabels": {
+        "legalName": "İşletmecinin yasal adı",
+        "entityType": "Kuruluş türü",
+        "address": "İşletmecinin adresi",
+        "country": "İşletmecinin ülkesi",
+        "contactEmail": "İletişim e-postası",
+        "privacyEmail": "Gizlilik e-postası",
+        "dpoEmail": "Veri koruma görevlisi e-postası",
+        "governingLaw": "Uygulanacak hukuk",
+        "venue": "Uyuşmazlık yeri",
+        "effectiveDate": "Yürürlük tarihi"
+      },
+      "publicPages": {
+        "title": "Herkese açık sayfalar",
+        "description": "Giriş sayfasından, paylaşım görüntüleyicisinden ve çerez bildiriminden bağlanır.",
+        "terms": "Hizmet Şartları",
+        "acceptableUse": "Kabul Edilebilir Kullanım Politikası",
+        "privacy": "Gizlilik Politikası",
+        "cookies": "Çerez Politikası",
+        "dataRetention": "Veri saklama",
+        "security": "Güvenlik",
+        "licenses": "Lisanslar ve üçüncü taraf bildirimleri"
+      },
+      "form": {
+        "legalName": "Yasal ad",
+        "entityType": "Kuruluş türü",
+        "individual": "Birey / şahıs işletmesi",
+        "company": "Şirket / tescilli kuruluş",
+        "address": "Adres",
+        "addressHint": "Şartlar’da ve Gizlilik Politikası’nda işletmecinin posta adresi olarak yazdırılır.",
+        "country": "Ülke",
+        "effectiveDate": "Yürürlük tarihi",
+        "contactEmail": "İletişim e-postası",
+        "privacyEmail": "Gizlilik e-postası",
+        "privacyEmailHint": "İlgili kişi taleplerinin gittiği yer; iletişim adresi olabilir.",
+        "dpoEmail": "Veri koruma görevlisi e-postası",
+        "dpoEmailHint": "Yalnızca bir görevli atadıysanız.",
+        "governingLaw": "Uygulanacak hukuk",
+        "governingLawHint": "Örneğin \"Hindistan hukuku\" veya \"İngiltere ve Galler hukuku\".",
+        "venue": "Uyuşmazlık yeri",
+        "venueHint": "Örneğin \"Bengaluru, Karnataka mahkemeleri\".",
+        "submit": "İşletmeci bilgilerini kaydet"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Komut dosyaları, SDK ve MCP istemcileri için API anahtarları, curl örnekleriyle.",
+      "title": "API",
+      "description": "Komut dosyaları, SDK ve MCP istemcileri için anahtarlar. Bir anahtar en fazla rolünüzün yapabildiğini yapabilir; bir kez gösterilir.",
+      "create": {
+        "title": "Anahtar oluştur",
+        "description": "<mono>Authorization: Bearer okv_…</mono> olarak gönderin. Kaynak koduna ve sohbet günlüklerine koymayın; sızarsa aşağıdan iptal edin."
+      },
+      "keys": {
+        "title": "Anahtarlar",
+        "descriptionOwner": "Bu örnekteki tüm anahtarlar; sahipler herhangi birini iptal edebilir.",
+        "descriptionOwn": "Anahtarlarınız.",
+        "columns": {
+          "name": "Ad",
+          "prefix": "Ön ek",
+          "scopes": "Kapsamlar",
+          "owner": "Sahip",
+          "lastUsed": "Son kullanım",
+          "expires": "Sona erer",
+          "status": "Durum"
+        },
+        "empty": "Henüz API anahtarı yok.",
+        "never": "hiçbir zaman",
+        "revoked": "İptal edildi",
+        "expired": "Süresi doldu",
+        "revokeTitle": "{name} iptal edilsin mi?",
+        "revokeDescription": "Bu anahtarı kullanan istemciler hemen çalışmayı bırakır.",
+        "activeCount": "{count, plural, one {# etkin anahtar.} other {# etkin anahtar.}}"
+      },
+      "examples": {
+        "title": "Örnekler",
+        "description": "<mono>$OKINVO_KEY</mono> yerine bir anahtar yazın. Sürümlü REST API, OpenAPI belgesi (<mono>/api/openapi.json</mono>), TypeScript SDK ve MCP sunucusu v1.1 planının sonraki görevleriyle gelir; durum uç noktası bugün çalışıyor.",
+        "rateLimit": "Sınırı aşan çağrılar, <mono>Retry-After</mono> başlığıyla 429 yanıtı alır (anahtar başına dakikada 120 istek). Bir anahtarın kapsamları, sahibinin geçerli rolüyle sınırlıdır."
+      },
+      "form": {
+        "copyKey": "API anahtarını kopyala",
+        "name": "Ad",
+        "namePlaceholder": "örn. muhasebe betiği",
+        "expires": "Sona erer",
+        "in30Days": "30 gün içinde",
+        "in90Days": "90 gün içinde",
+        "inAYear": "Bir yıl içinde",
+        "never": "Hiçbir zaman",
+        "scopes": "Kapsamlar",
+        "submit": "API anahtarı oluştur",
+        "creating": "Oluşturuluyor…"
+      },
+      "scopes": {
+        "invoicesRead": "Faturaları oku",
+        "invoicesCreate": "Fatura oluştur ve düzenle",
+        "creditNotesRead": "Alacak dekontlarını oku",
+        "creditNotesCreate": "Alacak dekontu oluştur ve düzenle",
+        "catalogueRead": "Müşterileri, hizmetleri ve ürünleri oku",
+        "documentsRead": "Saklanan PDF’leri ve DOCX kopyalarını indir",
+        "statusRead": "Örnek durumunu oku"
+      }
+    },
+    "status": {
+      "metaTitle": "Durum",
+      "metaDescription": "Bu örneğin sürümü, veritabanı, depolama, e-posta ve yedekleme sağlığı.",
+      "title": "Durum",
+      "description": "Bu örneğin neyi çalıştırdığı ve parçalarının yanıt verip vermediği.",
+      "recheck": "Yeniden kontrol et",
+      "health": {
+        "ok": "Tamam",
+        "warning": "Uyarı",
+        "failed": "Başarısız",
+        "na": "Yapılandırılmadı"
+      },
+      "overall": {
+        "ok": "Her şey yolunda",
+        "degraded": "Düşük performans",
+        "failed": "Başarısız"
+      },
+      "version": "Derleme {hasSha, select, yes {<mono>{sha}</mono>} other {(sha bilinmiyor)}} · derlenme {built} · Node <mono>{node}</mono> · çalışma süresi {uptime} · kontrol {checked}",
+      "dateUnknown": "(tarih bilinmiyor)",
+      "uptime": {
+        "days": "{d}g {h}sa {m}dk",
+        "hours": "{h}sa {m}dk",
+        "minutes": "{m}dk"
+      },
+      "rows": {
+        "database": "Veritabanı",
+        "storage": "Depolama",
+        "rateLimiting": "Hız sınırlama",
+        "email": "E-posta",
+        "backups": "Yedekler"
+      },
+      "db": {
+        "detail": "{latency} ms · son geçiş <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # tamamlanmamış geçiş}}",
+        "noMigration": "yok"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · bir sınama nesnesinin yazılması, okunması ve silinmesi {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> deposu {store, select, memory {(tek kopya)} other {(kopyalar arasında paylaşılan)}}",
+      "smtp": {
+        "configured": "SMTP kaynağı: {source, select, settings {the settings page} env {the environment} other {}} · son test {lastTest} · son 24 sa: {sent} gönderildi, {failed} başarısız",
+        "none": "SMTP sunucusu yok; gönderim penceresi “Posta uygulamasında aç” seçeneğini sunar. <link>Yapılandır</link>"
+      },
+      "backups": {
+        "notWired": "Bağlı bir yedekleme hizmeti yok (BACKUP_STATUS_FILE ayarlanmamış).",
+        "noRun": "Yedekleme hizmeti bağlı; henüz kayıtlı bir çalışma yok.",
+        "ok": "Son çalışma {finishedAt} tarihinde başarılı oldu{days, plural, =0 {} one { · saklama # gün} other { · saklama # gün}}",
+        "failed": "Son çalışma {finishedAt} tarihinde başarısız oldu: {error}{days, plural, =0 {} one { · saklama # gün} other { · saklama # gün}}"
+      },
+      "footer": "Aynı rapor, izleme için <mono>/api/health/status</mono> adresinde JSON olarak da mevcuttur (oturum açılmış oturum veya API anahtarı)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Hoş geldiniz",
+    "progress": "İlerleme",
+    "steps": {
+      "aboutYou": "Sizin hakkınızda",
+      "howYouUse": "Nasıl kullanacaksınız",
+      "allSet": "Hazır"
+    },
+    "step1": {
+      "title": "Bize kendinizden bahsedin",
+      "subtitle": "Bu, varsayılanlarınızı belirler; her değer sonradan Ayarlar’dan değiştirilebilir.",
+      "name": "Ad",
+      "email": "E-posta",
+      "emailHint": "Giriş kimliğiniz. Daha sonra Ayarlar → Güvenlik bölümünden değiştirilebilir.",
+      "country": "Ülke",
+      "currency": "Tercih edilen para birimi",
+      "currencyHint": "Yeni profiller ve bir profil oluşturulana kadar panel için kullanılır."
+    },
+    "step2": {
+      "title": "okinvo’yu nasıl kullanacaksınız?",
+      "subtitle": "Yalnızca varsayılanlar değişir; hiçbir şey kilitlenmez.",
+      "usage": "Kullanım",
+      "personal": "Kişisel faturalama",
+      "personalHint": "Kendi adınıza serbest çalışma",
+      "business": "Ticari faturalama",
+      "businessHint": "Tescilli bir işletmeden faturalar",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "KDV numarası",
+        "other": "Vergi kayıt numarası"
+      },
+      "taxQuestion": {
+        "IN": "GSTIN’iniz var mı?",
+        "GB": "KDV’ye kayıtlı mısınız?",
+        "other": "Faturalara yazdırılacak bir vergi kayıt numaranız var mı?"
+      }
+    },
+    "step3": {
+      "title": "Hazırsınız",
+      "body": "Şimdi ilk düzenleyen profilinizi oluşturun: faturalarınıza yazdırılan ad, adres ve vergi bilgileri. Bize söylediklerinizi doldurduk.",
+      "go": "Profillere git",
+      "opening": "Açılıyor…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Şartlar",
+      "privacy": "Gizlilik",
+      "cookies": "Çerezler",
+      "security": "Güvenlik"
+    },
+    "cookieNotice": {
+      "label": "Çerez bildirimi",
+      "body": "Yalnızca kesinlikle gerekli çerezleri kullanıyoruz: oturumunuz ve görüntüleme tercihleriniz. Analiz yok, izleme yok.",
+      "policy": "Çerez politikası",
+      "gotIt": "Anladım"
+    },
+    "nav": {
+      "label": "Hukuki",
+      "cookies": "Çerezler",
+      "privacy": "Gizlilik",
+      "terms": "Şartlar",
+      "acceptableUse": "Kabul edilebilir kullanım",
+      "retention": "Saklama",
+      "security": "Güvenlik",
+      "licences": "Lisanslar"
+    },
+    "operatorNotice": "okinvo kendi sunucunuzda barındırılan bir yazılımdır; bu örneğin işletmecisi kullanımından sorumludur.",
+    "doc": {
+      "effectiveOn": "Yürürlük <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "İçindekiler"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "İşletmecinin yasal adı",
+        "entityType": "Kuruluş türü",
+        "address": "İşletmecinin adresi",
+        "country": "İşletmecinin ülkesi",
+        "contactEmail": "İletişim e-postası",
+        "privacyEmail": "Gizlilik e-postası",
+        "dpoEmail": "Veri koruma görevlisi e-postası",
+        "governingLaw": "Uygulanacak hukuk",
+        "venue": "Uyuşmazlık yeri",
+        "effectiveDate": "Yürürlük tarihi"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Bulunamadı",
+      "title": "Bu adreste hiçbir şey yok",
+      "body": "Bağlantı eskimiş olabilir veya işaret ettiği belge hiç düzenlenmemiş olabilir."
+    },
+    "forbidden": {
+      "metaTitle": "İzin verilmiyor",
+      "title": "Bu hesap bunu yapamaz",
+      "body": "Rolünüz buna izin vermiyor. Bir sahipten erişim isteyin veya erişimi olan bir hesapla giriş yapın."
+    },
+    "error": {
+      "title": "Bir şeyler ters gitti",
+      "body": "Bu istekle hiçbir şey değişmedi. Tekrar deneyin; sürerse ayrıntılar sunucu günlüğündedir.",
+      "digest": "hata {digest}",
+      "generic": "hata"
+    },
+    "appNotFound": {
+      "title": "Bulunamadı",
+      "body": "Bu kayıt mevcut değil veya siz bakarken silindi.",
+      "back": "Panele dön"
+    },
+    "validation": {
+      "required": "zorunlu",
+      "tooLong": "en fazla {max} karakter",
+      "invalidEmail": "geçerli bir e-posta olmalı",
+      "invalidDate": "YYYY-AA-GG biçiminde bir takvim tarihi olmalı",
+      "invalidAmount": "bir sayı olmalı",
+      "wholeNumber": "tam sayı olmalı",
+      "greaterThanZero": "sıfırdan büyük olmalı",
+      "fixFields": "Lütfen vurgulanan alanları düzeltin.",
+      "charset": "Yalnızca standart klavye karakterlerine izin verilir."
+    }
+  },
+  "verify": {
+    "metaTitle": "Belgeyi doğrula",
+    "heading": "Belge doğrulama",
+    "rateLimited": "Bu adresten çok fazla kontrol yapıldı. Lütfen bir dakika sonra tekrar deneyin.",
+    "notFound": {
+      "title": "Böyle bir belge yok",
+      "body": "Bu bağlantı düzenlenmiş hiçbir belgeyle eşleşmiyor. QR kodunu veya size verilen bağlantıyı kontrol edin ya da düzenleyenle iletişime geçin."
+    },
+    "status": {
+      "void": "İptal",
+      "valid": "Geçerli"
+    },
+    "issuedBy": "Düzenleyen",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Düzenlenen kişi",
+    "issueDate": "Düzenleme tarihi",
+    "total": "Toplam",
+    "voided": "Bu belge düzenleyen tarafından iptal edildi ve artık geçerli değil.",
+    "storedCopies": {
+      "title": "Saklanan kopyalar",
+      "description": "Düzenleyenin elindeki her PDF sürümünün SHA-256 değeri. Tarayıcınızda karşılaştırmak için kopyanızı seçin: hiçbir şey yüklenmez.",
+      "empty": "Henüz PDF oluşturulmadı.",
+      "protectedVersion": "Parola korumalı kopya {version}",
+      "version": "Sürüm {version}"
+    },
+    "check": {
+      "label": "Kopyanızı kontrol edin",
+      "hashing": "Özet hesaplanıyor…",
+      "match": "Kopyanız {version} sürümüyle tam olarak eşleşiyor.",
+      "mismatch": "Kopyanız saklanan hiçbir sürümle eşleşmiyor."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Paylaşılan belge",
+      "rateLimited": "Bu adresten çok fazla istek geldi. Lütfen bir dakika sonra tekrar deneyin.",
+      "unavailable": {
+        "title": "Bu bağlantı kullanılamıyor",
+        "body": "Süresi dolmuş veya düzenleyen tarafından iptal edilmiş olabilir. Onlardan yenisini isteyin."
+      },
+      "lockedTitleInvoice": "{issuer} tarafından fatura",
+      "lockedTitleCreditNote": "{issuer} tarafından alacak dekontu",
+      "lockedBody": "Bu belge parola korumalıdır. Düzenleyenin size verdiği parolayı girin.",
+      "void": "İptal",
+      "protectedPdf": "PDF aynı parolayla açılır. Okunabilir ve yazdırılabilir; kopyalama ve düzenleme kilitlidir.",
+      "byline": "{issuer} tarafından {client} için · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Parola",
+      "limited": "Çok fazla deneme. Lütfen on beş dakika bekleyip tekrar deneyin.",
+      "wrong": "Bu parola doğru değil.",
+      "submit": "Belgeyi aç"
+    },
+    "dialog": {
+      "trigger": "Paylaş",
+      "title": "Bu belgeyi paylaş",
+      "description": "Bağlantıya sahip olan herkes, süresi dolana veya siz iptal edene kadar belgeyi görüntüleyip indirebilir. Bir parola PDF’in kendisini de korur: parolayla açılır, okunabilir ve yazdırılabilir; düzenlenemez veya kopyalanamaz.",
+      "link": "Bağlantı",
+      "copyLink": "Bağlantıyı kopyala",
+      "password": "Parola",
+      "copyPassword": "Parolayı kopyala",
+      "sendSeparately": "Parolayı bağlantıdan ayrı gönderin. Aşağıdaki listede tekrar görebilirsiniz.",
+      "copy": "Kopyala",
+      "copied": "Kopyalandı",
+      "expires": "Sona erer",
+      "expiry": {
+        "d7": "7 gün içinde",
+        "d30": "30 gün içinde",
+        "d90": "90 gün içinde",
+        "never": "Hiçbir zaman"
+      },
+      "protection": "Koruma",
+      "protectionOptions": {
+        "auto": "Parola: bir parola cümlesi oluştur",
+        "manual": "Parola: kendim seçeyim",
+        "none": "Parolasız (açık bağlantı)"
+      },
+      "passwordHint": "En az 8 karakter.",
+      "strength": "Güç: {label}",
+      "strengthLabels": {
+        "veryWeak": "çok zayıf",
+        "weak": "zayıf",
+        "fair": "orta",
+        "good": "iyi",
+        "strong": "güçlü"
+      },
+      "creating": "Oluşturuluyor…",
+      "create": "Bağlantı oluştur",
+      "activeLinks": "Etkin bağlantılar",
+      "passwordProtected": "Parola korumalı",
+      "openLink": "Bağlantıyı aç",
+      "linkExpires": "{kind} · {date} tarihinde sona erer",
+      "linkNeverExpires": "{kind} · hiç sona ermez",
+      "revoke": {
+        "title": "Bu bağlantı iptal edilsin mi?",
+        "description": "Bağlantı, ona sahip olan herkes için hemen çalışmayı bırakır.",
+        "label": "İptal et"
+      },
+      "linkPassword": "Parola: <code>{password}</code>",
+      "counts": "{views, plural, one {# görüntüleme} other {# görüntüleme}} · {downloads, plural, one {# indirme} other {# indirme}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Alacak dekontları",
+      "title": "Alacak dekontları",
+      "description": "Düzenlenmiş faturalara karşı kesilir; her biri düzenlendiğinde faturanın bakiyesini azaltır.",
+      "newCreditNote": "Yeni alacak dekontu",
+      "filters": {
+        "from": "Başlangıç",
+        "to": "Bitiş",
+        "issuer": "Düzenleyen",
+        "client": "Müşteri",
+        "status": "Durum",
+        "search": "Ara",
+        "all": "Tümü",
+        "searchPlaceholder": "Numara, neden, müşteri",
+        "go": "Git"
+      },
+      "statuses": {
+        "DRAFT": "Taslak",
+        "ISSUED": "Düzenlendi",
+        "SENT": "Gönderildi",
+        "VOID": "İptal"
+      },
+      "empty": {
+        "title": "Henüz alacak dekontu yok",
+        "description": "Düzenlenmiş bir faturayı açın ve borcunu azaltmak için “Alacak dekontu”nu seçin."
+      },
+      "noMatch": "Bu filtrelerle eşleşen alacak dekontu yok.",
+      "columns": {
+        "number": "Numara",
+        "against": "İlgili fatura",
+        "client": "Müşteri",
+        "issueDate": "Düzenleme tarihi",
+        "reason": "Neden",
+        "total": "Toplam",
+        "status": "Durum"
+      },
+      "draft": "Taslak"
+    },
+    "new": {
+      "metaTitle": "Yeni alacak dekontu",
+      "title": "Yeni alacak dekontu",
+      "description": "Alacak dekontu, düzenlenmiş bir faturaya karşı kesilir ve bakiyesini azaltır.",
+      "nothingToCredit": {
+        "title": "Alacaklandırılacak bir şey yok",
+        "description": "Alacak dekontları, bakiyesi kalan düzenlenmiş bir fatura gerektirir.",
+        "openInvoices": "Faturaları aç"
+      },
+      "whichInvoice": "Hangi fatura?",
+      "invoice": "Fatura",
+      "invoiceOption": "{number} · {client} · bakiye {balance}",
+      "issuedOnly": "Alacak dekontları yalnızca düzenlenmiş faturalara karşı kesilir.",
+      "invoiceFallback": "Fatura"
+    },
+    "edit": {
+      "metaTitle": "Alacak dekontunu düzenle",
+      "title": "Taslak alacak dekontunu düzenle",
+      "immutable": "Düzenlenmiş alacak dekontları değiştirilemez.",
+      "draft": "Taslak"
+    },
+    "detail": {
+      "metaTitle": "Alacak dekontu",
+      "draftTitle": "Taslak alacak dekontu",
+      "meta": "{client} · <invoice>{number}</invoice> faturasına karşı · düzenlenme <mono>{date}</mono>",
+      "previewPdf": "PDF önizleme",
+      "issue": {
+        "title": "Bu alacak dekontu düzenlensin mi?",
+        "description": "Bir numara atanır, fatura bakiyesi azaltılır ve belge değiştirilemez hale gelir.",
+        "label": "Düzenle"
+      },
+      "deleteDraft": {
+        "title": "Bu taslak silinsin mi?"
+      },
+      "sendByEmail": "E-posta ile gönder",
+      "markSent": {
+        "title": "Gönderildi olarak işaretlensin mi?",
+        "label": "Gönderildi olarak işaretle"
+      },
+      "void": {
+        "title": "Bu alacak dekontu iptal edilsin mi?",
+        "description": "Fatura bakiyesi geri yüklenir; numara asla yeniden kullanılmaz.",
+        "reason": "Neden",
+        "label": "İptal et"
+      },
+      "voided": "{date} tarihinde iptal edildi: {reason}",
+      "amounts": {
+        "title": "Tutarlar",
+        "reason": "Neden",
+        "creditAmount": "Alacak tutarı",
+        "total": "Toplam",
+        "balanceNow": "Faturanın güncel bakiyesi",
+        "sent": "Gönderildi"
+      },
+      "documents": {
+        "title": "Saklanan belgeler",
+        "description": "Her sürüm saklanır; doğrulama sayfası tüm özetleri listeler.",
+        "regenerateTitle": "Yeni bir PDF sürümü oluşturulsun mu?",
+        "generate": "Oluştur",
+        "newVersion": "Yeni sürüm",
+        "renderedOnFirstDownload": "PDF ilk indirmede oluşturulur.",
+        "protectedCopy": "Parola korumalı kopya {version}",
+        "version": "Sürüm {version}",
+        "verificationLink": "Doğrulama bağlantısı: <link>{path}…</link>"
+      },
+      "draftsPreview": "Taslaklar düzenleyicide canlı önizlenir."
+    },
+    "send": {
+      "metaTitle": "Alacak dekontunu gönder",
+      "title": "<mono>{number}</mono> gönder",
+      "previousSends": "Önceki gönderimler"
+    },
+    "builder": {
+      "against": "<mono>{number}</mono> faturasına karşı",
+      "summary": "{client} · toplam {total} · bakiye {balance} · vergilendirilebilir üst sınır ≈ {headroom}",
+      "issueDate": "Düzenleme tarihi",
+      "creditAmount": "Alacak tutarı (vergi hariç)",
+      "creditAmountHint": "Vergi, faturanın vergi satırlarından orantılanır",
+      "reason": "Neden",
+      "picker": {
+        "title": "Fatura satırlarından hesapla",
+        "description": "Satırların tamamını veya bir yüzdeyi işaretleyin; bu yalnızca yukarıdaki tutarı doldurur.",
+        "line": "Satır",
+        "subtotal": "Ara toplam",
+        "credit": "Alacak",
+        "percent": "%",
+        "creditLine": "{position}. satırı alacaklandır",
+        "percentOfLine": "{position}. satırın yüzdesi"
+      },
+      "saveDraft": "Taslağı kaydet",
+      "issuing": "Düzenleniyor…",
+      "saveAndIssue": "Kaydet ve düzenle"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Alınan ödeme",
+        "REFUND": "Yapılan iade",
+        "WRITE_OFF": "Silme"
+      },
+      "editTitle": "Kaydı düzenle",
+      "recordTitle": "Ödeme kaydet",
+      "description": "Tutarlar fatura para biriminde ({currency}); kesilen TDS uygulanan tutarın bir parçasıdır.",
+      "kind": "Tür",
+      "date": "Tarih",
+      "amountRefunded": "İade edilen tutar (negatif)",
+      "amountApplied": "Uygulanan tutar",
+      "refundHint": "Negatif bir tutar girin, örn. -500",
+      "tdsDeducted": "Kesilen TDS",
+      "tdsHint": "Müşterinin stopaj olarak kestiği vergi; uygulanan tutara dahildir",
+      "bankFees": "Banka masrafları",
+      "receivedInto": "Alındığı hesap",
+      "noMethod": "-",
+      "reference": "Referans",
+      "referenceHint": "UTR, işlem kimliği, çek numarası",
+      "otherCurrency": "Başka bir para biriminde alındı",
+      "amountReceived": "Alınan tutar",
+      "receivedCurrency": "Alınan para birimi",
+      "exchangeRate": "Döviz kuru",
+      "exchangeRateHint": "1 birim alınan = ? {currency}",
+      "notes": "Notlar",
+      "receipt": "Makbuz",
+      "receiptHint": "10 MB’a kadar PNG, JPEG, WebP veya PDF",
+      "saveChanges": "Değişiklikleri kaydet",
+      "record": "Kaydet"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "yaklaşık {count, plural, one {# sayfa} other {# sayfa}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "İleti",
+      "description": "Düzenleyen profilinin şablonlarından önceden doldurulur. Gönder’e tıklayana kadar hiçbir şey gönderilmez.",
+      "to": "Kime",
+      "toHint": "Virgülle ayrılmış",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Konu",
+      "body": "Metin",
+      "bodyHint": "Düz metin; bağlantılar tıklanabilir olur",
+      "attachment": "Ek",
+      "attachmentHint": "Saklanan kopya, adı <mono>{name}</mono> (veya .docx); içeriği değiştirilemez.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Gönderiliyor…",
+      "send": "Gönder",
+      "openInMailApp": "Posta uygulamasında aç",
+      "noSmtp": "Yapılandırılmış bir SMTP sunucusu yok (Ayarlar → E-posta). Taslağı posta uygulamanızda açın, indirilen PDF’i ekleyin, ardından aşağıdan gönderildi olarak işaretleyin.",
+      "markAsSent": "Gönderildi olarak işaretle"
+    },
+    "sentLog": {
+      "when": "Ne zaman",
+      "document": "Belge",
+      "to": "Kime",
+      "subject": "Konu",
+      "status": "Durum",
+      "empty": "Henüz bir şey gönderilmedi.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "gönderildi",
+        "FAILED": "başarısız",
+        "MANUAL": "elle"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Merhaba, {name}",
+    "fiscalYear": "{year} mali yılı",
+    "fiscalYearWithBase": "{year} mali yılı · ana para birimi {currency} ({profile})",
+    "newCreditNote": "Yeni alacak dekontu",
+    "welcomeTitle": "{appName} uygulamasına hoş geldiniz",
+    "welcomeDescription": "Fatura kestiğiniz düzenleyen profilini oluşturarak başlayın, ardından bir müşteri ve ilk faturanızı ekleyin.",
+    "createProfile": "Profilinizi oluşturun",
+    "tiles": {
+      "outstanding": "Ödenmemiş",
+      "overdue": "Vadesi geçmiş",
+      "billedThisFy": "Bu mali yıl faturalanan",
+      "receivedThisFy": "Bu mali yıl alınan",
+      "drafts": "Taslaklar",
+      "invoiceCount": "{count, plural, one {# fatura} other {# fatura}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Ödemeler eksi iadeler, kaydedilen kurla",
+      "awaitingIssue": "düzenlenmeyi bekliyor",
+      "nothingPending": "bekleyen yok"
+    },
+    "recentInvoices": "Son faturalar",
+    "allInvoices": "Tüm faturalar",
+    "noInvoicesYet": "Henüz fatura yok.",
+    "columns": {
+      "number": "Numara",
+      "client": "Müşteri",
+      "issued": "Düzenlendi"
+    },
+    "topClients": "Ödenmemiş tutara göre en çok müşteriler",
+    "nothingOutstanding": "Ödenmemiş bir şey yok."
+  },
+  "exports": {
+    "export": "Dışa aktar",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Faturalar",
+      "newInvoice": "Yeni fatura",
+      "draft": "Taslak",
+      "aDraft": "bir taslak",
+      "statuses": {
+        "draft": "Taslak",
+        "issued": "Düzenlendi",
+        "sent": "Gönderildi",
+        "partiallyPaid": "Kısmen ödendi",
+        "paid": "Ödendi",
+        "overdue": "Vadesi geçmiş",
+        "void": "İptal"
+      },
+      "lifecycle": {
+        "draft": "taslak",
+        "issued": "düzenlendi",
+        "void": "iptal"
+      },
+      "units": {
+        "hour": "Saat",
+        "day": "Gün",
+        "fixed": "Sabit",
+        "milestone": "Aşama",
+        "unit": "Birim"
+      },
+      "unitsLower": {
+        "hour": "saat",
+        "day": "gün",
+        "fixed": "sabit",
+        "milestone": "aşama",
+        "unit": "birim"
+      },
+      "supplyTypes": {
+        "intraState": "eyalet içi",
+        "interState": "eyaletler arası",
+        "exportLut": "ihracat lut",
+        "exportWithTax": "vergili ihracat",
+        "reverseCharge": "ters tahsilat",
+        "notApplicable": "uygulanamaz"
+      }
+    },
+    "list": {
+      "description": "Taslak, düzenlenmiş ve iptal edilmiş faturalar; durumlar ödemelerden ve vade tarihlerinden türetilir.",
+      "fiscalYear": "Mali yıl",
+      "issuer": "Düzenleyen",
+      "client": "Müşteri",
+      "searchPlaceholder": "Numara, PO, müşteri",
+      "emptyTitle": "Henüz fatura yok",
+      "emptyDescription": "İlk faturanızı oluşturun: bir müşteri seçin, satır ekleyin, önizlemeyi izleyin, ardından düzenleyin.",
+      "columns": {
+        "number": "Numara",
+        "client": "Müşteri",
+        "issuer": "Düzenleyen",
+        "issueDate": "Düzenleme tarihi",
+        "due": "Vade",
+        "balance": "Bakiye"
+      },
+      "noMatches": "Bu filtrelerle eşleşen fatura yok.",
+      "count": "{count, plural, one {# fatura} other {# fatura}}",
+      "countPaged": "{count, plural, one {# fatura} other {# fatura}} · sayfa {page} / {pages}",
+      "register": "kayıt"
+    },
+    "new": {
+      "noProfileTitle": "Önce bir düzenleyen profili oluşturun",
+      "noProfileDescription": "Fatura bir hukuki kimlikten düzenlenir: profilinizi vergi kimlikleri ve numaralandırmasıyla birlikte ayarlayın.",
+      "createProfile": "Profil oluştur"
+    },
+    "edit": {
+      "metaTitle": "Faturayı düzenle",
+      "title": "Taslağı düzenle",
+      "immutableFlash": "Düzenlenmiş faturalar değiştirilemez. Düzeltmek için “İptal et ve yeniden düzenle”yi kullanın."
+    },
+    "detail": {
+      "metaTitle": "Fatura",
+      "draftInvoice": "Taslak fatura",
+      "issuedDue": "Düzenlenme <mono>{issued}</mono>, vade <mono>{due}</mono>",
+      "replaces": "{number} yerine geçer",
+      "replacedBy": "Yerine geçen: {number}",
+      "previewPdf": "PDF önizleme",
+      "issueTitle": "Bu fatura düzenlensin mi?",
+      "issueDescription": "Bir numara atanır ve belge değiştirilemez hale gelir.",
+      "issue": "Düzenle",
+      "deleteDraftTitle": "Bu taslak silinsin mi?",
+      "sendByEmail": "E-posta ile gönder",
+      "recordPayment": "Ödeme kaydet",
+      "creditNote": "Alacak dekontu",
+      "markSentTitle": "Gönderildi olarak işaretlensin mi?",
+      "markSentDescription": "Müşterinin bu faturayı aldığını kaydeder.",
+      "markSent": "Gönderildi olarak işaretle",
+      "voidReissueTitle": "İptal edilip yeniden düzenlensin mi?",
+      "voidReissueDescription": "Asıl fatura iptal edilir ve aynı içeriğe sahip bağlantılı bir taslak düzenleme için açılır.",
+      "voidReissue": "İptal et ve yeniden düzenle",
+      "voidTitle": "Bu fatura iptal edilsin mi?",
+      "voidDescription": "Yalnızca kayıtlı ödeme yoksa mümkündür; numara asla yeniden kullanılmaz.",
+      "void": "İptal et",
+      "voided": "{date} tarihinde iptal edildi: {reason}",
+      "amounts": "Tutarlar",
+      "subtotal": "Ara toplam",
+      "discount": "İndirim",
+      "discountPercent": "İndirim ({percent})",
+      "rounding": "Yuvarlama",
+      "tdsExpected": "Beklenen TDS ({percent})",
+      "paid": "Ödenen",
+      "credited": "Alacaklandırılan",
+      "balanceDue": "Ödenecek bakiye",
+      "supply": "Tedarik",
+      "fxToBase": "Ana para birimine kur",
+      "poReference": "PO referansı",
+      "sent": "Gönderildi",
+      "lineItems": "Kalemler",
+      "columns": {
+        "description": "Açıklama",
+        "sacHsn": "SAC/HSN",
+        "qty": "Adet",
+        "rate": "Birim fiyat",
+        "tax": "Vergi",
+        "amount": "Tutar"
+      },
+      "creditNotes": "Alacak dekontları",
+      "storedDocuments": "Saklanan belgeler",
+      "storedDocumentsHint": "Her sürüm saklanır; doğrulama sayfası tüm özetleri listeler.",
+      "regenerateTitle": "Yeni bir PDF sürümü oluşturulsun mu?",
+      "regenerateDescription": "Dondurulmuş anlık görüntüden yeniden oluşturulur (örneğin bir oluşturucu düzeltmesinden sonra). Önceki sürümler kalır.",
+      "regenerate": "Oluştur",
+      "newVersion": "Yeni sürüm",
+      "renderedOnFirstDownload": "PDF ilk indirmede oluşturulur.",
+      "protectedCopy": "Parola korumalı kopya {version}",
+      "version": "Sürüm {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Doğrulama bağlantısı:",
+      "draftPreviewHint": "Taslaklar düzenleyicide canlı önizlenir; sayfayı görmek için <link>filigranlı PDF</link>’i açın."
+    },
+    "history": {
+      "metaTitle": "Fatura geçmişi",
+      "title": "Geçmiş <mono>{number}</mono>",
+      "reissueChain": "Yeniden düzenleme zinciri",
+      "replaces": "<link>{number}</link> yerine geçer",
+      "replacedBy": "Yerine geçen: <link>{number}</link>",
+      "auditTrail": "Denetim izi",
+      "columns": {
+        "when": "Ne zaman",
+        "who": "Kim",
+        "action": "Eylem",
+        "summary": "Özet"
+      },
+      "noEvents": "Henüz olay yok.",
+      "system": "Sistem",
+      "emails": "E-postalar"
+    },
+    "payments": {
+      "title": "Ödemeler",
+      "description": "{client} · toplam {total}",
+      "backToInvoice": "Faturaya dön",
+      "ledger": "Defter",
+      "columns": {
+        "date": "Tarih",
+        "kind": "Tür",
+        "applied": "Uygulanan",
+        "tds": "TDS",
+        "received": "Alınan",
+        "reference": "Referans",
+        "balance": "Bakiye"
+      },
+      "noPayments": "Henüz kayıtlı ödeme yok.",
+      "kinds": {
+        "payment": "Ödeme",
+        "refund": "İade",
+        "writeOff": "Silme"
+      },
+      "receipt": "Makbuz",
+      "deleteEntryTitle": "Bu kayıt silinsin mi?",
+      "deleteEntryDescription": "Fatura bakiyesi yeniden hesaplanır.",
+      "totals": "Toplamlar",
+      "invoiceTotal": "Fatura toplamı",
+      "credited": "Alacaklandırılan",
+      "refunds": "İadeler",
+      "writeOffs": "Silmeler",
+      "tdsDeducted": "Kesilen TDS",
+      "bankFees": "Banka masrafları",
+      "balanceDue": "Ödenecek bakiye",
+      "onlyIssued": "Yalnızca düzenlenmiş faturalar ödeme kabul eder."
+    },
+    "send": {
+      "metaTitle": "Faturayı gönder",
+      "title": "<mono>{number}</mono> gönder",
+      "alreadySent": "Zaten gönderildi olarak işaretlenmiş; yeniden göndermek bir günlük kaydı daha ekler.",
+      "previousSends": "Önceki gönderimler"
+    },
+    "builder": {
+      "parties": "Taraflar",
+      "issuerProfile": "Düzenleyen profili",
+      "client": "Müşteri",
+      "archivedOption": "{label} (arşivlendi)",
+      "issueDate": "Düzenleme tarihi",
+      "dueDate": "Vade tarihi",
+      "fxRate": "Ana para birimine kur",
+      "fxHint": "1 {currency} = ? {base} (yalnızca raporlama için)",
+      "poReference": "PO referansı",
+      "lineItems": "Kalemler",
+      "lineItemsHint": "Değerlerini kopyalamak için katalogdan seçin veya bir satır yazın.",
+      "taxDiscountTds": "Vergi, indirim ve TDS",
+      "taxRegime": "Vergi rejimi",
+      "regimes": {
+        "indiaGst": "Hindistan GST",
+        "ukVat": "Birleşik Krallık KDV",
+        "usSalesTax": "ABD satış vergisi",
+        "none": "Vergisiz"
+      },
+      "reverseCharge": "Ters tahsilat",
+      "reverseChargeHint": "Vergiyi alıcı öder",
+      "discount": "İndirim",
+      "percent": "Yüzde",
+      "amount": "Tutar",
+      "rounding": "Yuvarlama ayarı",
+      "roundingHint": "İsteğe bağlı, tam birime; 1’den küçük olmalı",
+      "round": "Yuvarla",
+      "tdsRate": "Beklenen TDS oranı (%)",
+      "tdsRateHint": "Bilgilendirme amaçlı; TDS dökümü açıkken yazdırılır",
+      "paymentMethods": "Ödeme yöntemleri",
+      "paymentMethodsHint": "İşaretlenme sırasına göre yazdırılır.",
+      "noPaymentMethods": "Etkin ödeme yöntemi yok. <link>Bir tane ekleyin</link>.",
+      "whatPrints": "Neler yazdırılır",
+      "whatPrintsHint": "Düzenleyen profilinin varsayılanlarından başlar.",
+      "notesAndTerms": "Notlar ve koşullar",
+      "notes": "Notlar",
+      "terms": "Koşullar",
+      "saveDraft": "Taslağı kaydet",
+      "issuing": "Düzenleniyor…",
+      "saveAndIssue": "Kaydet ve düzenle",
+      "subtotal": "Ara toplam",
+      "tax": "Vergi",
+      "tdsExpected": "Beklenen TDS",
+      "netExpected": "Beklenen net"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Katalogdan ekle…",
+      "services": "Hizmetler",
+      "products": "Ürünler",
+      "addLine": "Satır ekle",
+      "columns": {
+        "description": "Açıklama",
+        "sacHsn": "SAC/HSN",
+        "qty": "Adet",
+        "unit": "Birim",
+        "rate": "Birim fiyat",
+        "taxPercent": "Vergi %"
+      },
+      "aria": {
+        "description": "{line}. satır açıklaması",
+        "sacHsn": "{line}. satır SAC/HSN",
+        "quantity": "{line}. satır adedi",
+        "unit": "{line}. satır birimi",
+        "rate": "{line}. satır birim fiyatı",
+        "taxRate": "{line}. satır vergi oranı"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Muaf",
+      "moveUp": "Yukarı taşı",
+      "moveDown": "Aşağı taşı",
+      "removeLine": "Satırı kaldır",
+      "shortcutHint": "Bir açıklamada Ctrl/⌘+Enter yeni satır ekler.",
+      "addFromCatalogueAria": "Katalogdan ekle"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Düzenleyen bilgileri",
+        "client": "Müşteri bilgileri",
+        "document": "Belge bölümleri"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Ticari ad",
+        "showDesignation": "Unvan",
+        "showEmail": "E-posta",
+        "showPhone": "Telefon",
+        "showWebsite": "Web sitesi",
+        "showFullAddress": "Tam adres",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "İmza",
+        "showStamp": "Kaşe",
+        "showContactPerson": "İlgili kişi",
+        "showBillingAddress": "Fatura adresi",
+        "showShippingAddress": "Teslimat adresi",
+        "showTaxIdentifier": "Vergi kimliği",
+        "showPlaceOfSupply": "Tedarik yeri",
+        "showDueDate": "Vade tarihi",
+        "showPaymentTerms": "Ödeme koşulları",
+        "showSacCodeColumn": "SAC kodu sütunu",
+        "showQuantityColumn": "Adet sütunu",
+        "showUnitPriceColumn": "Birim fiyat sütunu",
+        "showTaxColumn": "Vergi sütunu",
+        "showTdsBreakdown": "TDS dökümü",
+        "showQrVerification": "QR doğrulama",
+        "showNotes": "Notlar",
+        "showTerms": "Koşullar",
+        "showReplacesReference": "Yerine geçilen referans",
+        "showAmountInWords": "Yazıyla tutar",
+        "showSupplyStatement": "Tedarik beyanı",
+        "showRoundingLine": "Yuvarlama satırı",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Müşteriler",
+      "description": "Fatura kestiğiniz herkes. Faturası olan müşteriler arşivlenir, asla silinmez.",
+      "newClient": "Yeni müşteri",
+      "searchPlaceholder": "Ada göre ara",
+      "searchLabel": "Müşteri ara",
+      "emptyTitle": "Henüz müşteri yok",
+      "emptyDescription": "Fatura kestiğiniz kişi ve şirketleri ekleyin; para birimleri ve ödeme koşulları her faturayı önceden doldurur.",
+      "addClient": "Müşteri ekle",
+      "noMatch": "“{q}” ile eşleşen müşteri yok.",
+      "termsDays": "{days} g",
+      "columns": {
+        "name": "Ad",
+        "contact": "İlgili kişi",
+        "email": "E-posta",
+        "country": "Ülke",
+        "currency": "Para birimi",
+        "terms": "Koşullar",
+        "status": "Durum"
+      }
+    },
+    "new": {
+      "title": "Yeni müşteri"
+    },
+    "edit": {
+      "metaTitle": "Müşteriyi düzenle",
+      "title": "{name} düzenle"
+    },
+    "detail": {
+      "metaTitle": "Müşteri",
+      "newInvoice": "Yeni fatura",
+      "restoreTitle": "Bu müşteri geri yüklensin mi?",
+      "archiveTitle": "Bu müşteri arşivlensin mi?",
+      "archiveDescription": "Seçicilerden çıkar; faturalar ve geçmiş olduğu gibi kalır.",
+      "deleteTitle": "Bu müşteri silinsin mi?",
+      "deleteDescription": "Yalnızca hiçbir fatura müşteriye başvurmuyorsa mümkündür.",
+      "details": "Ayrıntılar",
+      "contact": "İlgili kişi",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "country": "Ülke",
+      "gstState": "GST {code}",
+      "taxId": "Vergi kimliği",
+      "currency": "Para birimi",
+      "paymentTerms": "Ödeme koşulları",
+      "paymentTermsDays": "{days} gün",
+      "expectedTds": "Beklenen TDS",
+      "notes": "Notlar",
+      "addresses": "Adresler",
+      "billing": "Fatura",
+      "shipping": "Teslimat",
+      "lifetime": "Toplam",
+      "openRegister": "Kaydı aç",
+      "noIssued": "Henüz düzenlenmiş fatura yok.",
+      "noIssuedWithDrafts": "Henüz düzenlenmiş fatura yok ({drafts} taslak).",
+      "firstLatest": "İlk fatura <mono>{first}</mono>, son <mono>{latest}</mono>{drafts, plural, =0 {} one { · # taslak} other { · # taslak}}",
+      "lifetimeColumns": {
+        "currency": "Para birimi",
+        "invoices": "Faturalar",
+        "billed": "Faturalanan",
+        "received": "Alınan",
+        "credited": "Alacaklandırılan",
+        "outstanding": "Ödenmemiş",
+        "overdue": "Vadesi geçmiş"
+      },
+      "recentInvoices": "Son faturalar",
+      "noInvoices": "Bu müşteri için henüz fatura yok.",
+      "recentColumns": {
+        "number": "Numara",
+        "issueDate": "Düzenleme tarihi",
+        "due": "Vade",
+        "total": "Toplam",
+        "balance": "Bakiye",
+        "status": "Durum"
+      }
+    },
+    "form": {
+      "cardTitle": "Müşteri",
+      "displayName": "Görünen ad",
+      "contactPerson": "İlgili kişi",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "taxIdType": "Vergi kimliği türü",
+      "taxIdTypeNone": "Yok",
+      "taxId": "Vergi kimliği",
+      "currency": "Para birimi",
+      "paymentTerms": "Ödeme koşulları (gün)",
+      "expectedTdsRate": "Beklenen TDS oranı (%)",
+      "notes": "Notlar",
+      "billingAddress": "Fatura adresi",
+      "shippingAddress": "Teslimat adresi",
+      "differentFromBilling": "Fatura adresinden farklı",
+      "save": "Müşteriyi kaydet"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Saat",
+      "DAY": "Gün",
+      "FIXED": "Sabit",
+      "MILESTONE": "Aşama",
+      "UNIT": "Birim"
+    },
+    "list": {
+      "activate": "Etkinleştir",
+      "deactivate": "Devre dışı bırak",
+      "archiveDescription": "Mevcut fatura satırları kopyalanan değerlerini korur.",
+      "deleteDescription": "Yalnızca hiçbir fatura satırı buna başvurmuyorsa mümkündür. Aksi halde arşivleyin.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Ad",
+        "unit": "Birim",
+        "rate": "Birim fiyat",
+        "price": "Fiyat",
+        "currency": "Para birimi",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Vergi",
+        "status": "Durum"
+      }
+    },
+    "services": {
+      "title": "Hizmetler",
+      "description": "Kataloğunuz. Bir hizmeti seçmek değerlerini fatura satırına kopyalar.",
+      "newService": "Yeni hizmet",
+      "emptyTitle": "Henüz hizmet yok",
+      "emptyDescription": "Sattıklarınızı ekleyin - saatlik tasarım, sabit ücretli bir aşama - SAC/HSN kodu ve vergi oranıyla birlikte.",
+      "addService": "Hizmet ekle",
+      "restoreTitle": "{name} geri yüklensin mi?",
+      "archiveTitle": "{name} arşivlensin mi?",
+      "deleteTitle": "{name} silinsin mi?",
+      "editMetaTitle": "Hizmeti düzenle",
+      "editTitle": "{name} düzenle"
+    },
+    "products": {
+      "title": "Ürünler",
+      "description": "Sattığınız mallar, her biri bir SKU ile. Bir ürünü seçmek değerlerini fatura satırına kopyalar.",
+      "newProduct": "Yeni ürün",
+      "emptyTitle": "Henüz ürün yok",
+      "emptyDescription": "Sattığınız malları SKU, HSN kodu, birim fiyat ve vergi oranıyla ekleyin.",
+      "addProduct": "Ürün ekle",
+      "restoreTitle": "{sku} geri yüklensin mi?",
+      "archiveTitle": "{sku} arşivlensin mi?",
+      "deleteTitle": "{sku} silinsin mi?",
+      "editMetaTitle": "Ürünü düzenle",
+      "editTitle": "{sku} düzenle"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Satır açıklamasının altına yazdırılan benzersiz kod",
+      "name": "Ad",
+      "unit": "Birim",
+      "defaultRate": "Varsayılan birim fiyat",
+      "unitPrice": "Birim fiyat",
+      "currency": "Para birimi",
+      "sacHsnCode": "SAC / HSN kodu",
+      "sacHsnHint": "GST faturalarında zorunlu",
+      "hsnCode": "HSN kodu",
+      "hsnHint": "Mallar için GST faturalarında zorunlu",
+      "defaultTaxRate": "Varsayılan vergi oranı (%)",
+      "description": "Açıklama",
+      "descriptionHint": "Satır açıklamasını önceden doldurur",
+      "active": "Etkin",
+      "serviceInactiveHint": "Etkin olmayan hizmetler fatura seçicisinde görünmez",
+      "productInactiveHint": "Etkin olmayan ürünler fatura seçicisinde görünmez",
+      "saveService": "Hizmeti kaydet",
+      "saveProduct": "Ürünü kaydet"
+    },
+    "tags": {
+      "legend": "Profiller",
+      "hint": "Bunu satan düzenleyen profillerini işaretleyin. Her profile sunmak için hepsini işaretsiz bırakın."
+    }
+  },
+  "address": {
+    "line1": "Adres satırı 1",
+    "line2": "Adres satırı 2",
+    "city": "Şehir",
+    "stateRegion": "Eyalet / bölge",
+    "postalCode": "Posta kodu",
+    "country": "Ülke",
+    "state": "Eyalet",
+    "gstStateCodeHint": "GST eyalet kodu {code}",
+    "pickStateHint": "GST eyalet kodu için eyaleti seçin",
+    "stateRegionCode": "Eyalet / bölge kodu",
+    "stateRegionCodePlaceholder": "örn. CA"
+  },
+  "assets": {
+    "tooLarge": "Bu dosya çok büyük.",
+    "unsupportedReceipt": "Bir PNG, JPEG, WebP görseli veya PDF kullanın.",
+    "unsupportedImage": "Bir PNG, JPEG veya WebP görseli kullanın.",
+    "uploadFailed": "Yükleme başarısız oldu.",
+    "uploading": "Yükleniyor…"
+  },
+  "ui": {
+    "breadcrumb": "Gezinti yolu",
+    "close": "Kapat",
+    "closeMenu": "Menüyü kapat",
+    "inputCharset": "Yalnızca standart klavye karakterlerine izin verilir.",
+    "confirm": {
+      "working": "İşleniyor…"
+    },
+    "statusPill": {
+      "DRAFT": "Taslak",
+      "ISSUED": "Düzenlendi",
+      "SENT": "Gönderildi",
+      "PARTIALLY_PAID": "Kısmen ödendi",
+      "PAID": "Ödendi",
+      "OVERDUE": "Vadesi geçmiş",
+      "VOID": "İptal"
+    },
+    "activePill": {
+      "active": "Etkin",
+      "archived": "Arşivlendi",
+      "inactive": "Etkin değil"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Bir şeyler ters gitti.",
+    "fixFields": "Lütfen vurgulanan alanları düzeltin.",
+    "accountSaved": "Hesap tercihleri kaydedildi",
+    "apiKeyCreated": "API anahtarı oluşturuldu. Şimdi kopyalayın: yalnızca bir kez gösterilir.",
+    "saved": "{name} kaydedildi",
+    "savedProfile": "{label} profili kaydedildi",
+    "clientArchived": "Müşteri arşivlendi",
+    "clientRestored": "Müşteri geri yüklendi",
+    "clientDeleted": "Müşteri silindi",
+    "productArchived": "Ürün arşivlendi",
+    "productRestored": "Ürün geri yüklendi",
+    "productActivated": "Ürün etkinleştirildi",
+    "productDeactivated": "Ürün devre dışı bırakıldı",
+    "serviceArchived": "Hizmet arşivlendi",
+    "serviceRestored": "Hizmet geri yüklendi",
+    "serviceActivated": "Hizmet etkinleştirildi",
+    "serviceDeactivated": "Hizmet devre dışı bırakıldı",
+    "defaultProfileUpdated": "Varsayılan profil güncellendi",
+    "profileArchived": "Profil arşivlendi",
+    "profileRestored": "Profil geri yüklendi",
+    "profileDeleted": "Profil silindi",
+    "defaultPaymentMethodUpdated": "Varsayılan ödeme yöntemi güncellendi",
+    "paymentMethodArchived": "Ödeme yöntemi arşivlendi",
+    "paymentMethodRestored": "Ödeme yöntemi geri yüklendi",
+    "paymentMethodDeleted": "Ödeme yöntemi silindi",
+    "issued": "{number} düzenlendi",
+    "savedAsDraft": "Taslak olarak kaydedildi. {reason}",
+    "draftSaved": "Taslak kaydedildi",
+    "invoiceVoided": "Fatura iptal edildi",
+    "originalVoided": "Asıl fatura iptal edildi; yerine geçen taslağı düzenleyin",
+    "markedAsSent": "Gönderildi olarak işaretlendi",
+    "draftDeleted": "Taslak silindi",
+    "generatedPdf": "PDF sürümü {version} oluşturuldu",
+    "creditNoteVoided": "Alacak dekontu iptal edildi; fatura bakiyesi geri yüklendi",
+    "draftCreditNoteDeleted": "Taslak alacak dekontu silindi",
+    "mailRefused": "Posta sunucusu iletiyi reddetti: {error}. Deneme günlüğe kaydedildi.",
+    "unknownError": "bilinmeyen hata",
+    "sentTo": "{recipients} alıcısına gönderildi",
+    "smtpSaved": "SMTP ayarları kaydedildi",
+    "smtpRemoved": "Saklanan SMTP ayarları kaldırıldı",
+    "testEmailSent": "Test e-postası {email} adresine gönderildi",
+    "testFailed": "Test başarısız oldu: {error}",
+    "defaultRecipientsSaved": "Varsayılan alıcılar kaydedildi",
+    "invitationSent": "Davet gönderildi",
+    "invitationReady": "Davet hazır",
+    "unknownRole": "Bilinmeyen rol",
+    "roleUpdated": "Rol güncellendi",
+    "accountDeactivated": "Hesap devre dışı bırakıldı",
+    "accountReactivated": "Hesap yeniden etkinleştirildi",
+    "invitationRevoked": "Davet iptal edildi",
+    "paymentUpdated": "Ödeme güncellendi",
+    "paymentRecorded": "Ödeme kaydedildi",
+    "paymentDeleted": "Ödeme silindi",
+    "sessionRevoked": "Oturum iptal edildi",
+    "noOtherSessions": "Başka oturum yok",
+    "signedOutOthers": "Diğer {count} oturum kapatıldı",
+    "sharePasswordRequired": "Bir parola girin veya otomatik oluşturulmasına izin verin.",
+    "shareLinkCreated": "Paylaşım bağlantısı oluşturuldu.",
+    "templateSaved": "Şablon kaydedildi; gelecekteki belgeler bunu kullanır",
+    "templateReset": "Şablon yerleşik varsayılana sıfırlandı",
+    "templateImported": "Şablon içe aktarıldı",
+    "profileTemplateCleared": "Profil yeniden örnek şablonunu kullanıyor",
+    "operatorSaved": "İşletmeci bilgileri kaydedildi. Hukuki sayfalar artık bunları gösteriyor."
+  }
+}

@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo کور پاڼه",
+    "save": "خوندي کړئ",
+    "cancel": "لغوه کړئ",
+    "continue": "دوام ورکړئ",
+    "saving": "خوندي کیږي…",
+    "detect": "کشف کړئ",
+    "yes": "هو",
+    "no": "نه",
+    "choose": "وټاکئ…",
+    "remove": "لرې کړئ",
+    "tryAgain": "بیا هڅه وکړئ",
+    "dashboard": "ډشبورډ",
+    "goToDashboard": "ډشبورډ ته لاړ شئ",
+    "or": "یا",
+    "invoice": "بیل",
+    "creditNote": "کریډیټ نوټ",
+    "downloadPdf": "PDF ډاونلوډ کړئ",
+    "edit": "سمون",
+    "delete": "ړنګ کړئ",
+    "downloadDocx": "DOCX ډاونلوډ کړئ",
+    "none": "هیڅ",
+    "dismiss": "بندول",
+    "all": "ټول",
+    "previous": "مخکینی",
+    "next": "راتلونکی",
+    "go": "لاړ شئ",
+    "search": "لټون",
+    "status": "حالت",
+    "total": "ټولټال",
+    "currency": "اسعار",
+    "from": "له",
+    "to": "تر",
+    "reason": "دلیل",
+    "history": "تاریخچه",
+    "archive": "آرشیف کړئ",
+    "restore": "بحال کړئ",
+    "showArchived": "آرشیف شوي وښایاست",
+    "hideArchived": "آرشیف شوي پټ کړئ",
+    "archived": "آرشیف شوی",
+    "default": "ډیفالټ",
+    "setDefault": "ډیفالټ یې کړئ",
+    "revoke": "لغوه کړئ",
+    "copy": "کاپي",
+    "copied": "کاپي شو",
+    "active": "فعال",
+    "pagination": "پاڼه بندي",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "ډشبورډ",
+      "invoices": "بیلونه",
+      "creditNotes": "کریډیټ نوټونه",
+      "clients": "پېرېدونکي",
+      "services": "خدمتونه",
+      "products": "محصولات"
+    },
+    "primaryNav": "اصلي",
+    "settings": "تنظیمات",
+    "openMenu": "مینو پرانیزئ",
+    "navigation": "لارښوونه",
+    "pagesAndAccount": "پاڼې او حساب",
+    "collapseSidebar": "ګاونډی پټه راټوله کړئ",
+    "collapseSidebarHint": "ګاونډی پټه راټوله کړئ ([)",
+    "expandSidebar": "ګاونډی پټه خوشې کړئ",
+    "expandSidebarHint": "ګاونډی پټه خوشې کړئ ([)",
+    "theme": {
+      "label": "تیم",
+      "system": "سیسټم",
+      "light": "روښانه",
+      "dark": "تیاره",
+      "current": "تیم: {mode}",
+      "switchTo": "تیم: {mode}. {next} ته بدل کړئ"
+    },
+    "userMenu": {
+      "label": "د {name} د حساب مینو",
+      "profile": "پروفایل",
+      "logOut": "وتل"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "ننوتل",
+      "title": "ننوتل",
+      "subtitle": "یوازې د اجازه لرونکو لیست حسابونه داخلېدای شي.",
+      "failed": "ننوتل ناکام شو.",
+      "noMethod": "د ننوتلو هېڅ طریقه نه ده تنظیم شوې. په <code>.env</code> کې د چمتو کوونکي یو جوړه تنظیم کړئ، لکه <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>، یا <code>AUTH_PASSWORD_SIGNIN=true</code>.",
+      "errors": {
+        "not_allowed": "دا حساب پر دې انسټانس اجازه نه لري، یا غیر فعال شوی دی.",
+        "signin": "ننوتل بشپړ نه شو. مهرباني وکړئ بیا هڅه وکړئ."
+      }
+    },
+    "password": {
+      "name": "نوم",
+      "email": "برېښنالیک",
+      "password": "پټنوم",
+      "signingIn": "ننوځي…",
+      "createAccount": "حساب جوړ کړئ",
+      "signIn": "ننوتل",
+      "haveAPassword": "زه لا دمخه پټنوم لرم",
+      "firstTime": "لومړی ځل دی؟ یو پټنوم وټاکئ",
+      "failed": "ننوتل ناکام شو."
+    },
+    "social": {
+      "redirecting": "بیا لارښوونه کیږي…",
+      "continueWith": "د {provider} سره دوام ورکړئ",
+      "failed": "ننوتل پیل نه شو."
+    },
+    "error": {
+      "metaTitle": "د ننوتلو تېروتنه",
+      "title": "ننوتل ناکام شو",
+      "body": "د پېژندنې چمتو کوونکي <code>{value}</code> بېرته راستون کړ. که ستاسو پته د دې انسټانس د اجازې په لیست کې نه وي، له مالک وغواړئ چې یې اضافه کړي.",
+      "back": "ننوتلو ته بېرته"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "تنظیمات",
+      "profiles": "پروفایلونه",
+      "paymentMethods": "د تادیې طریقې",
+      "templates": "کينډې",
+      "email": "برېښنالیک",
+      "security": "امنیت",
+      "users": "کاروونکي",
+      "data": "ډاټا",
+      "legal": "قانوني",
+      "account": "حساب",
+      "appearance": "بڼه",
+      "api": "API",
+      "status": "حالت"
+    },
+    "account": {
+      "metaTitle": "حساب",
+      "title": "حساب",
+      "description": "ستاسو انځور، نوم، سیمه، ژبه او وخت سیمه.",
+      "photo": {
+        "title": "انځور",
+        "description": "په ګاونډۍ پټه او د کاروونکي په مینو کې ښودل کیږي."
+      },
+      "form": {
+        "title": "حساب",
+        "description": "تاسو څنګه ښکارئ او «نن» کوم نیټه ده.",
+        "displayName": "ښودل شوی نوم",
+        "signInEmail": "د ننوتلو برېښنالیک",
+        "signInEmailHint": "پر دې انسټانس ستاسو پېژند؛ دلته نه سمېدای شي.",
+        "timezone": "وخت سیمه",
+        "timezoneHint": "«نن» د صدور نیټو، د سررسید نیټو او ډشبورډ لپاره",
+        "regionTitle": "سیمه",
+        "regionDescription": "د نویو صادرونکو پروفایلونو او ډشبورډ لپاره ډیفالټونه تر هغه چې پروفایل جوړ شي.",
+        "country": "هېواد",
+        "currency": "اسعار",
+        "suggested": "د دې هېواد لپاره وړاندیز شوی:",
+        "language": "ژبه",
+        "languageHint": "د اپ خپله ژبه. سندونه د هر پروفایل خپل locale کاروي.",
+        "machineTranslated": "دا ژبه په ماشیني ډول ژباړل شوې ده. سمونونه هرکلی دي: <link>په GitHub کې یې ښه کړئ</link>.",
+        "save": "غوره توبونه خوندي کړئ"
+      },
+      "regions": {
+        "Africa": "افریقا",
+        "Americas": "امریکاوې",
+        "Asia": "اسیا",
+        "Europe": "اروپا",
+        "MiddleEast": "منځنی ختیځ",
+        "Oceania": "اوقیانوسیا",
+        "Constructed": "جوړ شوي"
+      },
+      "privacy": {
+        "title": "محرمیت",
+        "description": "okinvo یوازې هغه کوکیز ټاکي چې د کار لپاره یې اړتیا لري. هېڅ تحلیل نشته، هېڅ تعقیب نشته.",
+        "cookiePolicy": "د کوکي پالیسي",
+        "showNoticeAgain": "د کوکي خبرتیا بیا وښایاست"
+      }
+    },
+    "avatar": {
+      "changePhoto": "انځور بدل کړئ",
+      "addPhoto": "انځور اضافه کړئ",
+      "hint": "PNG، JPEG یا WebP. هر چیرې د دایرې په شکل ښودل کیږي؛ د خوندي کولو دمخه یې کولای شئ لوی او حرکت کړئ.",
+      "tooLarge": "دا انځور ډېر لوی دی.",
+      "uploadFailed": "پورته کول ناکام شو.",
+      "choose": "د پروفایل انځور وټاکئ",
+      "dialogTitle": "خپل انځور برابر کړئ",
+      "dialogDescription": "د حرکت لپاره کش کړئ، د لوی کولو لپاره سکرول یا پنچ کړئ. دایره هغه څه دي چې ټول یې ګوري.",
+      "zoom": "لوی کول",
+      "save": "انځور خوندي کړئ"
+    },
+    "appearance": {
+      "metaTitle": "بڼه",
+      "title": "بڼه",
+      "description": "تیم او ټاکلی رنګ، چې ستاسو په حساب کې خوندي کیږي.",
+      "theme": {
+        "title": "تیم",
+        "description": "د سیسټم پیروي وکړئ، یا روښانه یا تیاره ټاکئ.",
+        "label": "تیم",
+        "system": "د سیسټم پیروي",
+        "systemHint": "ستاسو له OS سره بدلیږي",
+        "light": "روښانه",
+        "lightHint": "سپین شاليد",
+        "dark": "تیاره",
+        "darkHint": "نږدې توره شاليد"
+      },
+      "accent": {
+        "title": "ټاکلی رنګ",
+        "description": "د اصلي تڼۍ، د تمرکز کړیو او د فعالې پاڼې نښې لپاره کارول کیږي. نعناعي رنګ د برانډ له نښې سره سمون لري.",
+        "label": "ټاکلی رنګ"
+      },
+      "accents": {
+        "mint": "نعناعي",
+        "lavender": "لیوانډري",
+        "sky": "اسماني",
+        "peach": "شفتالو رنګ",
+        "butter": "کوچنی ژېړ",
+        "rose": "ګلابي",
+        "sage": "شنه خړ",
+        "lilac": "بنفشي روښانه"
+      }
+    },
+    "profiles": {
+      "metaTitle": "د صادرونکي پروفایلونه",
+      "title": "د صادرونکي پروفایلونه",
+      "description": "هغه قانوني هویتونه چې له هغو بیلونه صادروئ. ډیفالټ پروفایل نوي بیلونه مخکې ډکوي.",
+      "breadcrumb": "پروفایلونه",
+      "newProfile": "نوی پروفایل",
+      "emptyTitle": "تر اوسه د صادرونکي پروفایل نشته",
+      "emptyDescription": "هغه هویت جوړ کړئ چې له هغه بیلونه صادروئ: د PAN لرونکی فرد، یا ستاسو شرکت.",
+      "createProfile": "پروفایل جوړ کړئ",
+      "columns": {
+        "label": "لیبل",
+        "legalName": "قانوني نوم",
+        "type": "ډول",
+        "country": "هېواد",
+        "currency": "اسعار",
+        "regime": "مالیاتي نظام",
+        "status": "حالت"
+      },
+      "types": {
+        "company": "شرکت",
+        "individual": "فرد"
+      },
+      "makeDefaultTitle": "{label} ډیفالټ کړئ؟",
+      "makeDefaultDescription": "نوي بیلونه به له دې پروفایل پیل شي.",
+      "restoreTitle": "{label} بحال کړئ؟",
+      "archiveTitle": "{label} آرشیف کړئ؟",
+      "archiveDescription": "د انتخاب له لیستونو ورکیږي؛ موجود بیلونه نه بدلیږي.",
+      "new": {
+        "metaTitle": "د صادرونکي نوی پروفایل",
+        "title": "د صادرونکي نوی پروفایل",
+        "prefilled": "ستاسو له ځوابونو ډک شوی؛ پته او د مالیې توضیحات وګورئ، بیا خوندي کړئ."
+      },
+      "edit": {
+        "metaTitle": "د صادرونکي پروفایل سمون",
+        "template": "کينډه",
+        "deleteTitle": "{label} ړنګ کړئ؟",
+        "deleteDescription": "یوازې هغه وخت شونی دی چې هېڅ بیل یا کریډیټ نوټ دې پروفایل ته اشاره نه کوي. که نه، آرشیف یې کړئ."
+      },
+      "template": {
+        "metaTitle": "د پروفایل کينډه",
+        "title": "د {label} کينډه",
+        "ownTemplate": "خپله کينډه",
+        "instanceTemplate": "د انسټانس کينډه",
+        "resetTitle": "بیا د انسټانس کينډه وکاروئ؟",
+        "resetDescription": "د دې پروفایل خپله تنظیم لرې کیږي؛ صادر شوي سندونه نه اغېزمن کیږي.",
+        "useInstance": "د انسټانس کينډه وکاروئ",
+        "usingInstanceTitle": "د انسټانس کينډه کارول کیږي",
+        "usingInstanceDescription": "د دې پروفایل سندونه تنظیمات ← کينډې تعقیبوي. د جلا دودیزولو لپاره یې غوره کړئ.",
+        "customise": "د دې پروفایل لپاره بله کينډه وکاروئ",
+        "openInstance": "د انسټانس کينډه پرانیزئ"
+      },
+      "form": {
+        "identityTitle": "هویت",
+        "identityDescription": "بیل له چا لخوا دی.",
+        "type": "ډول",
+        "label": "لیبل",
+        "labelHint": "یوازې د انتخاب په لیستونو کې ښودل کیږي",
+        "legalName": "قانوني نوم",
+        "tradeName": "سوداګریز نوم",
+        "designation": "عهده",
+        "email": "برېښنالیک",
+        "phone": "تلیفون",
+        "website": "ویب پاڼه",
+        "addressTitle": "پته",
+        "taxTitle": "د مالیې پېژندګوتي",
+        "taxDescription": "یوازې هغه چې پر تاسو پلي کیږي؛ چاپ د هر بیل لپاره جلا کنټرولیږي.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "UK VAT شمېره",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "په ذخیره کې کوډ شوی",
+        "lutNumber": "LUT شمېره",
+        "lutNumberHint": "پرته له IGST صادراتو لپاره",
+        "lutFiscalYear": "LUT مالي کال",
+        "lutFiscalYearHint": "مثلاً 2026-27",
+        "defaultsTitle": "ډیفالټونه",
+        "baseCurrency": "بنسټیز اسعار",
+        "locale": "د سند locale",
+        "localeHint": "په سندونو کې د شمېرو او نیټې بڼه",
+        "fiscalYearStart": "مالي کال پیلیږي په",
+        "months": {
+          "january": "جنوري",
+          "february": "فبروري",
+          "march": "مارچ",
+          "april": "اپریل",
+          "may": "مۍ",
+          "june": "جون",
+          "july": "جولای",
+          "august": "اګست",
+          "september": "سپتمبر",
+          "october": "اکتوبر",
+          "november": "نومبر",
+          "december": "دسمبر"
+        },
+        "taxRegime": "ډیفالټ مالیاتي نظام",
+        "regimes": {
+          "indiaGst": "هند GST",
+          "ukVat": "UK VAT",
+          "usSalesTax": "US د پلور مالیه",
+          "none": "بې مالیې"
+        },
+        "invoiceNumberFormat": "د بیل شمېرې بڼه",
+        "invoiceNumberFormatHint": "ټوکنونه: {tokens}",
+        "creditNoteNumberFormat": "د کریډیټ نوټ شمېرې بڼه",
+        "tdsRate": "متوقع TDS نرخ (%)",
+        "tdsRateHint": "معلوماتي، د متوقع کسر په توګه چاپیږي",
+        "defaultNotes": "ډیفالټ یادښتونه",
+        "defaultTerms": "ډیفالټ شرطونه",
+        "printTitle": "په ډیفالټ څه چاپیږي",
+        "printDescription": "هر بیل دا کاپي کوي او کولای شي په جلا ډول یې بدل کړي.",
+        "emailTitle": "برېښنالیک",
+        "emailDescription": "د لیږلو کمپوزر لپاره ډیفالټونه. ځای ناستي: {placeholders}",
+        "emailCc": "ډیفالټ CC",
+        "emailBcc": "ډیفالټ BCC",
+        "commaSeparated": "په کوما بېل شوي",
+        "invoiceSubject": "د بیل موضوع",
+        "invoiceSubjectHint": "خالي پریښودل داخلي کينډه کاروي",
+        "creditNoteSubject": "د کریډیټ نوټ موضوع",
+        "invoiceBody": "د بیل متن",
+        "creditNoteBody": "د کریډیټ نوټ متن",
+        "artworkTitle": "هنري توکي",
+        "artworkDescription": "PNG، JPEG یا WebP تر 2 MB؛ لاسلیک او مهر شفافیت ساتي.",
+        "logo": "لوګو",
+        "signature": "لاسلیک",
+        "stamp": "مهر",
+        "transparentPng": "شفاف PNG",
+        "save": "پروفایل خوندي کړئ"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "د تادیې طریقې",
+      "title": "د تادیې طریقې",
+      "description": "پېرېدونکي تاسو ته څنګه تادیه کوي. توضیحات کوډ شوي دي او د صدور پر مهال په هر بیل کې ثابتیږي.",
+      "newMethod": "نوې طریقه",
+      "emptyTitle": "تر اوسه د تادیې طریقې نشته",
+      "emptyDescription": "بانکي حساب، UPI ID یا والټ اضافه کړئ ترڅو بیلونه پېرېدونکو ته ووايي چې چیرته تادیه وکړي.",
+      "addMethod": "طریقه اضافه کړئ",
+      "columns": {
+        "name": "نوم",
+        "type": "ډول",
+        "currency": "اسعار",
+        "status": "حالت"
+      },
+      "types": {
+        "bankTransfer": "بانکي لېږد",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "دودیز"
+      },
+      "makeDefaultTitle": "{name} ډیفالټ کړئ؟",
+      "restoreTitle": "{name} بحال کړئ؟",
+      "archiveTitle": "{name} آرشیف کړئ؟",
+      "archiveDescription": "صادر شوي بیلونه هغه سنیپ شاټ ساتي چې چاپ شوی و.",
+      "new": {
+        "metaTitle": "د تادیې نوې طریقه",
+        "title": "د تادیې نوې طریقه"
+      },
+      "edit": {
+        "metaTitle": "د تادیې طریقې سمون",
+        "title": "د {name} سمون",
+        "deleteTitle": "{name} ړنګ کړئ؟",
+        "deleteDescription": "یوازې هغه وخت شونی دی چې هېڅ بیل یا تادیه ورته اشاره نه کوي. که نه، آرشیف یې کړئ."
+      },
+      "form": {
+        "name": "نوم",
+        "nameHint": "د تادیې بلاک د سرلیک په توګه چاپیږي",
+        "type": "ډول",
+        "currency": "اسعار",
+        "currencyHint": "اختیاري؛ یوازې د شرایطو لپاره ښودل کیږي",
+        "anyCurrency": "هر یو",
+        "instructions": "لارښوونې",
+        "instructionsHint": "د توضیحاتو لاندې چاپیږي",
+        "isDefault": "ډیفالټ طریقه",
+        "isDefaultDescription": "په نویو بیلونو کې له مخکې ټاکل شوې",
+        "isActive": "فعاله",
+        "detailsTitle": "توضیحات",
+        "detailsDescription": "په ذخیره کې کوډ شوي؛ د صدور پر مهال په هر بیل کې سنیپ شاټ کیږي.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "د ترلاسه کوونکي نوم",
+        "lines": "کرښې",
+        "linesHint": "په هره قطار کې یوه کرښه، لکه څنګه چې ده چاپیږي",
+        "accountEmail": "د حساب برېښنالیک / هینډل",
+        "bank": {
+          "accountHolder": "د حساب خاوند",
+          "accountNumber": "د حساب شمېره",
+          "bankName": "د بانک نوم",
+          "branch": "څانګه",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "د لارښوونې / sort کوډ"
+        },
+        "save": "د تادیې طریقه خوندي کړئ"
+      }
+    },
+    "templates": {
+      "metaTitle": "د سند کينډې",
+      "title": "د سند کينډې",
+      "customised": "دودیز شوی",
+      "builtIn": "داخلي ډیفالټ",
+      "description": "بیلونه او کریډیټ نوټونه څنګه ښکاري. صادر شوي سندونه هغه کينډه ساتي چې له هغې سره صادر شوي.",
+      "resetTitle": "داخلي ډیفالټ ته بېرته ټاکئ؟",
+      "resetDescription": "ستاسو دودیز تنظیم لرې کیږي؛ لا دمخه صادر شوي سندونه نه اغېزمن کیږي.",
+      "reset": "بېرته ټاکل",
+      "resetTrigger": "ډیفالټ ته بېرته ټاکئ",
+      "importTitle": "واردول",
+      "importDescription": "هغه تنظیم بحال کړئ چې مخکې صادر شوی و.",
+      "overridesTitle": "د هر پروفایل بدلونونه",
+      "overridesDescription": "یو پروفایل کولای شي د خپلې سمون پاڼې څخه خپله کينډه غوره کړي.",
+      "noOverrides": "هر پروفایل د انسټانس کينډه کاروي.",
+      "import": {
+        "json": "د کينډې JSON",
+        "jsonHint": "هغه فایل پیسټ کړئ چې د JSON صادرولو څخه جوړ شوی؛ ورکې کلیدونه ډیفالټ ته ورګرځي",
+        "importing": "وارديږي…",
+        "submit": "واردول"
+      },
+      "form": {
+        "templateTitle": "کينډه",
+        "templateDescription": "شپږ داخلي؛ لاندې دودیزول پر هغه کينډه پلي کیږي چې تاسو یې غوره کوئ.",
+        "templateGroup": "کينډه",
+        "templates": {
+          "ledger": {
+            "name": "کتاب",
+            "character": "عصري او پراخ، sans-serif، د سرلیک لاندې ټاکلې رنګ کرښه."
+          },
+          "classic": {
+            "name": "کلاسیک",
+            "character": "دودیز کنار لرونکی جدول، serif سرلیکونه، په چوکاټ کې ټولټال."
+          },
+          "compact": {
+            "name": "فشرده",
+            "character": "د اوږدو توکو لیستونو لپاره ګنډ ترتیب؛ کوچنی ټایپ، لږ بېلوونکي."
+          },
+          "minimal": {
+            "name": "ساده",
+            "character": "آرام او پراخ: بې کرښو او چوکاټونو، سپکې لیبلونه، ډېره خالي ځای."
+          },
+          "letterhead": {
+            "name": "لیټرهېډ",
+            "character": "ستاسو لوګو او نوم د هرې پاڼې په سر کې په رنګي پټۍ یا انځور."
+          },
+          "modern": {
+            "name": "عصري",
+            "character": "رنګي پټۍ سرلیک؛ اړخونه، د جدول سر او ټولټال په روښانه ټاکلي رنګ شاليد."
+          }
+        },
+        "paperTitle": "کاغذ او ټایپ",
+        "paperSize": "د کاغذ اندازه",
+        "paperLetter": "Letter",
+        "margins": "حاشیې",
+        "marginsNormal": "عادي",
+        "marginsNarrow": "تنګې",
+        "headingFont": "د سرلیک فونټ",
+        "bodyFont": "د متن فونټ",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "د جدول بڼه",
+        "tableRuled": "کرښه لرونکی",
+        "tableZebra": "زیبرا",
+        "tablePlain": "ساده",
+        "accentColour": "ټاکلی رنګ",
+        "textColour": "د متن رنګ",
+        "logoPosition": "د لوګو ځای",
+        "positionLeft": "کیڼ",
+        "positionCentre": "مرکز",
+        "positionRight": "ښي",
+        "logoHeight": "د لوګو لوړوالی (mm)",
+        "documentTitle": "د سند سرلیک",
+        "titleAuto": "اتوماتیک (GST پوه)",
+        "titleCustom": "دودیز",
+        "titlePlaceholder": "مثلاً PROFORMA INVOICE",
+        "qrPosition": "د QR ځای",
+        "qrFooter": "فوټر",
+        "qrHeader": "سرلیک",
+        "qrBesideTotals": "د ټولټال تر څنګ",
+        "amountInWords": "مبلغ په الفاظو",
+        "wordsBelowTotal": "د ټولټال لاندې",
+        "wordsFooter": "فوټر",
+        "wordsHidden": "پټ",
+        "subtotalRow": "د فرعي ټولټال قطار",
+        "discountRow": "د تخفیف قطار",
+        "taxLines": "د مالیې کرښې",
+        "tdsExpected": "متوقع TDS",
+        "roundingRow": "د ګردولو قطار",
+        "pageNumbers": "د پاڼو شمېرې",
+        "headerTitle": "سرلیک",
+        "headerDescription": "د هرې پاڼې په سر کې رنګي پټۍ یا انځور. لیټرهېډ او عصري پټۍ ښیي مګر دا چې تاسو بل څه وټاکئ.",
+        "headerStyle": "د سرلیک بڼه",
+        "headerNone": "هیڅ",
+        "headerBand": "رنګي پټۍ",
+        "headerImage": "انځور",
+        "bandColour": "د پټۍ رنګ",
+        "bandColourHex": "د پټۍ رنګ (hex)",
+        "headerImageLabel": "د سرلیک انځور",
+        "headerImageHint": "PNG، JPEG یا WebP تر 2400 px پراخوالي؛ د پاڼې ټول عرض نیسي.",
+        "imageOpacity": "د انځور تیاره والی",
+        "headerHeight": "د سرلیک لوړوالی (mm)",
+        "bandText": "په پټۍ متن",
+        "bandTextAuto": "اتوماتیک (د پټۍ له رنګ څخه)",
+        "bandTextLight": "روښانه",
+        "bandTextDark": "تیاره",
+        "textTitle": "متن",
+        "headerNote": "د سرلیک یادښت",
+        "footer": "فوټر",
+        "signatureCaption": "د لاسلیک سرلیک",
+        "draftWatermark": "د مسودې واټرمارک",
+        "labelsTitle": "لیبلونه",
+        "labelsDescription": "د ډیفالټ الفاظو ساتلو لپاره ساحه خالي پرېږدئ.",
+        "save": "کينډه خوندي کړئ",
+        "downloadSample": "نمونه PDF ډاونلوډ کړئ",
+        "exportJson": "JSON صادر کړئ"
+      }
+    },
+    "email": {
+      "metaTitle": "برېښنالیک",
+      "title": "برېښنالیک",
+      "configuredSettings": "په تنظیماتو کې تنظیم شوی",
+      "configuredEnv": "د چاپېریال له لارې تنظیم شوی",
+      "notConfigured": "تنظیم شوی نه دی: د میل اپ طریقه",
+      "description": "سندونه د کمپوزر څخه د خوندي شوي PDF په ضمیمه سره لیږل کیږي. دلته تنظیمات په چاپېریال کې SMTP_* پر ځای کوي.",
+      "sendTest": "{email} ته ازموینه برېښنالیک ولېږئ",
+      "removeTitle": "خوندي شوي SMTP تنظیمات لرې کړئ؟",
+      "removeEnvTakesOver": "د چاپېریال SMTP_* ارزښتونه نیسي.",
+      "removeFallsBack": "برېښنالیک د میل اپ طریقې ته بېرته ځي.",
+      "removeTrigger": "خوندي تنظیمات لرې کړئ",
+      "smtpTitle": "SMTP سرور",
+      "smtpFromEnv": "اوس مهال له چاپېریال څخه اخیستل شوی؛ دلته خوندي کول یې پر ځای کوي.",
+      "smtpPasswordNote": "پټنوم په ذخیره کې کوډ کیږي او بیا هېڅکله نه ښودل کیږي.",
+      "defaultsTitle": "ډیفالټ ترلاسه کوونکي",
+      "defaultsDescription": "د ټول انسټانس CC/BCC؛ د صادرونکي پروفایلونه خپل اضافه کوي.",
+      "sentTitle": "لیږل شوی میل",
+      "sentDescription": "وروستۍ 50 هڅې، په شمول د ناکامیو او لاسي لیږلو.",
+      "smtp": {
+        "host": "کوربه",
+        "port": "پورټ",
+        "security": "امنیت",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "هیڅ (LAN ریلې)",
+        "user": "کارن نوم",
+        "password": "پټنوم",
+        "passwordStored": "خوندي او کوډ شوی؛ د ساتلو لپاره خالي پرېږدئ",
+        "passwordEncrypted": "په ذخیره کې کوډ شوی",
+        "from": "د لیږونکي پته",
+        "fromName": "د لیږونکي نوم",
+        "replyTo": "د ځواب پته",
+        "save": "SMTP تنظیمات خوندي کړئ"
+      },
+      "defaults": {
+        "cc": "ډیفالټ CC",
+        "ccHint": "هر کمپوزر ته اضافه کیږي؛ په کوما بېل",
+        "bcc": "ډیفالټ BCC",
+        "save": "ډیفالټونه خوندي کړئ"
+      }
+    },
+    "security": {
+      "metaTitle": "امنیت",
+      "title": "امنیت",
+      "description": "چیرته ننوتي یاست، او هر هغه څه چې بدل شوي.",
+      "sessions": {
+        "title": "فعالې ناستې",
+        "description": "د ناستې لغوه کول هغه وسیله سمدستي وباسي.",
+        "signOutOthers": {
+          "title": "له نورو ټولو ځایونو وځئ؟",
+          "description": "د دې پرته ټولې ناستې لغوه کیږي.",
+          "confirm": "نور وباسئ",
+          "trigger": "له نورو ټولو ځایونو وځئ"
+        },
+        "columns": {
+          "device": "وسیله",
+          "ipAddress": "IP پته",
+          "signedIn": "ننوتلی",
+          "lastSeen": "وروستی ځل لیدل شوی",
+          "expires": "پای ته رسیږي"
+        },
+        "thisDevice": "دا وسیله",
+        "revokeTitle": "دا ناسته لغوه کړئ؟",
+        "unknownDevice": "نامعلومه وسیله",
+        "unknownBrowser": "نامعلوم",
+        "agentOnOs": "{browser} پر {os}"
+      },
+      "audit": {
+        "title": "د پلټنې لاګ",
+        "count": "{count, plural, one {# پېښه} other {# پېښې}}",
+        "entity": "وجود",
+        "actionContains": "عمل لري",
+        "filter": "فلټر",
+        "reset": "بېرته ټاکل",
+        "columns": {
+          "when": "کله",
+          "who": "څوک",
+          "action": "عمل",
+          "entity": "وجود",
+          "summary": "لنډیز"
+        },
+        "empty": "هېڅ پېښه له دې فلټرونو سره سمون نه لري.",
+        "system": "سیسټم",
+        "changes": "بدلونونه",
+        "page": "پاڼه {page} له {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "کاروونکي",
+      "title": "کاروونکي",
+      "description": "څوک کولای شي دې انسټانس ته ننوځي او څه کولای شي.",
+      "roles": {
+        "owner": "مالک",
+        "editor": "سمونګر",
+        "viewer": "کتونکی"
+      },
+      "roleHints": {
+        "owner": "هر څه، په شمول د تنظیماتو او غړو",
+        "editor": "پېرېدونکي، کتلاګ، بیلونه، کریډیټ نوټونه، تادیې، برېښنالیک",
+        "viewer": "یوازې لوستل"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "د {email} رول",
+      "invite": {
+        "title": "یو څوک بلنه ورکړئ",
+        "description": "هغوی د بلل شوي پتې سره ننوځي (د پېژندنې چمتو کوونکي یا پټنوم له لارې) او هغه رول ترلاسه کوي چې تاسو یې غوره کوئ.",
+        "sent": "بلنه {email} ته برېښنالیک شوه.",
+        "readyWithError": "د {email} لپاره بلنه چمتو ده. برېښنالیک نه شو لېږل کېدای ({error})؛ دا لینک ورولېږئ:",
+        "readyNoSmtp": "د {email} لپاره بلنه چمتو ده. هېڅ SMTP نه دی تنظیم شوی؛ دا لینک ورولېږئ:",
+        "copyLink": "لینک کاپي کړئ",
+        "email": "برېښنالیک",
+        "emailPlaceholder": "person@example.com",
+        "role": "رول",
+        "submit": "بلنه ورکړئ",
+        "inviting": "بلنه ورکول کیږي…"
+      },
+      "members": {
+        "title": "غړي",
+        "description": "تل لږ تر لږه یو فعال مالک پاتې کیږي.",
+        "columns": {
+          "person": "کس",
+          "role": "رول",
+          "lastSignIn": "وروستی ننوتل",
+          "status": "حالت"
+        },
+        "nameYou": "{name} (تاسو)",
+        "deactivated": "غیر فعال شوی",
+        "reactivate": {
+          "title": "{email} بیا فعال کړئ؟",
+          "description": "هغوی کولای شي له خپل مخکني رول سره بیا ننوځي.",
+          "confirm": "بیا فعالول"
+        },
+        "deactivate": {
+          "title": "{email} غیر فعال کړئ؟",
+          "description": "هره ناسته اوس پای ته رسیږي او تر بیا فعالولو پورې نه شي ننوتلی. تاریخچه یې پاتې کیږي.",
+          "confirm": "غیر فعالول"
+        }
+      },
+      "invitations": {
+        "title": "په انتظار کې بلنې",
+        "description": "هغه پتې چې کولای شي ننوځي خو تر اوسه یې نه دي ننوتي.",
+        "columns": {
+          "email": "برېښنالیک",
+          "role": "رول",
+          "invited": "بلل شوی"
+        },
+        "empty": "په انتظار کې هېڅ بلنه نشته.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "د {email} بلنه لغوه کړئ؟"
+      }
+    },
+    "data": {
+      "metaTitle": "ډاټا",
+      "title": "ډاټا",
+      "description": "هر څه د لېږد وړ دي: ډاټاسېټونه په CSV یا Excel کې، د مهاجرت لپاره بشپړ سنیپ شاټ، ستاسو د محاسب لپاره PDFs، او یو ازمول شوی بیک اپ ترتیب.",
+      "period": {
+        "fiscalYear": "مالي کال",
+        "fiscalYearHint": "نیټې پر ځای کوي",
+        "issuer": "صادرونکی"
+      },
+      "exportAll": {
+        "title": "ټول ډاټا صادر کړئ",
+        "description": "یو ZIP چې هر ډاټاسېټ په CSV کې او <mono>data.json</mono> لري، د ټولو جدولونو اړونده سنیپ شاټ. کوډ شوې ساحې (د تادیې طریقې توضیحات، SMTP پټنوم) پکې نه شاملیږي؛ دننه README یې لیست کوي.",
+        "download": "okinvo-data ZIP ډاونلوډ کړئ"
+      },
+      "exportDocuments": {
+        "title": "سندونه صادر کړئ",
+        "description": "د یوې دورې د هر صادر شوي او باطل شوي بیل او کریډیټ نوټ PDF، د شمېرې په نوم، له <mono>index.csv</mono> سره چې شمېرې، ټولټالونه او هشونه لري. ورک PDFs په لار کې جوړیږي.",
+        "docx": "د هر سند DOCX کاپي هم شامل کړئ",
+        "download": "د سندونو ZIP ډاونلوډ کړئ"
+      },
+      "datasets": {
+        "title": "ډاټاسېټونه",
+        "description": "هماغه صادرات چې د انډکس پاڼې وړاندې کوي، په ټولو د دورې او صادرونکي پلي کولو سره. تادیې د نیټې لړۍ کاروي؛ پېرېدونکي او خدمتونه دوره له پامه غورځوي.",
+        "columns": {
+          "dataset": "ډاټاسېټ",
+          "filters": "پلي شوي فلټرونه",
+          "download": "ډاونلوډ"
+        },
+        "names": {
+          "invoices": "د بیلونو راجستر",
+          "invoiceItems": "د بیل کرښې توکي",
+          "payments": "د تادیو کتاب",
+          "creditNotes": "د کریډیټ نوټونو راجستر",
+          "clients": "پېرېدونکي",
+          "services": "خدمتونه",
+          "gstSummary": "GST لنډیز",
+          "tdsSummary": "TDS لنډیز"
+        },
+        "filters": {
+          "periodIssuer": "دوره، صادرونکی",
+          "dateRangeIssuer": "د نیټې لړۍ، صادرونکی",
+          "includesArchived": "آرشیف شوي هم شامل"
+        }
+      },
+      "backups": {
+        "title": "بیک اپونه",
+        "notWired": "هېڅ د بیک اپ خدمت نه دی نښلول شوی",
+        "noRun": "تر اوسه هېڅ بیک اپ نه دی چلول شوی",
+        "lastOk": "وروستی بیک اپ سم و",
+        "lastFailed": "وروستی بیک اپ ناکام شو",
+        "description": "د Compose <mono>backup</mono> خدمت په <mono>BACKUP_CRON</mono> د Postgres ډمپ اخلي او د ذخیرې حجم آرشیف کوي، د <mono>BACKUP_RETENTION_DAYS</mono> تاریخچه د <mono>backups</mono> حجم کې ساتي، او یو حالت فایل لیکي چې دا پاڼه یې لولي.",
+        "finished": "پای ته ورسید",
+        "databaseDump": "د ډیټابیس ډمپ",
+        "storageArchive": "د ذخیرې آرشیف",
+        "size": "اندازه",
+        "sizeMb": "{size} MB",
+        "error": "تېروتنه",
+        "runNow": "اوس یو وچلوئ، یا د فایلونو له جوړې بحال کړئ:",
+        "restoreDrill": "د بحالۍ بهیر په CI کې د <mono>scripts/restore-drill.sh</mono> په واسطه ازمول کیږي: بیج، بیک اپ، پاکول، بحالي، بیا د قطارونو شمېر او د PDF هش پرتله کول."
+      }
+    },
+    "legal": {
+      "metaTitle": "قانوني",
+      "metaDescription": "دا انسټانس څوک چلوي: هغه توضیحات چې په عامه قانوني پاڼو کې چاپیږي.",
+      "title": "قانوني",
+      "description": "عامې قانوني پاڼې دا توضیحات چاپوي. تر هغه چې هره ساحه ډکه نه شي، پاڼې روښانه ځای ناستي ښیي.",
+      "operator": {
+        "title": "د چلوونکي توضیحات",
+        "complete": "بشپړ",
+        "missing": "{count} ورک: {fields}",
+        "description": "تاسو، د هغه کس یا شرکت په توګه چې دا انسټانس چلوي، هغه چلوونکی یاست چې سندونه ورته اشاره کوي. دلته هېڅ څه چېرته نه لیږل کیږي؛ دا په لاندې پاڼو کې چاپیږي."
+      },
+      "fieldLabels": {
+        "legalName": "د چلوونکي قانوني نوم",
+        "entityType": "د وجود ډول",
+        "address": "د چلوونکي پته",
+        "country": "د چلوونکي هېواد",
+        "contactEmail": "د اړیکې برېښنالیک",
+        "privacyEmail": "د محرمیت برېښنالیک",
+        "dpoEmail": "د ډاټا ساتنې افسر برېښنالیک",
+        "governingLaw": "حاکم قانون",
+        "venue": "د شخړو ځای",
+        "effectiveDate": "د نافذېدو نیټه"
+      },
+      "publicPages": {
+        "title": "عامې پاڼې",
+        "description": "د ننوتلو پاڼې، د شریکولو کتونکي او د کوکي خبرتیا څخه تړل شوي.",
+        "terms": "د خدمت شرطونه",
+        "acceptableUse": "د منلو وړ کارولو پالیسي",
+        "privacy": "د محرمیت پالیسي",
+        "cookies": "د کوکي پالیسي",
+        "dataRetention": "د ډاټا ساتل",
+        "security": "امنیت",
+        "licenses": "جوازونه او د درېیمې ډلې خبرتیاوې"
+      },
+      "form": {
+        "legalName": "قانوني نوم",
+        "entityType": "د وجود ډول",
+        "individual": "فرد / یوازینی مالک",
+        "company": "شرکت / ثبت شوی وجود",
+        "address": "پته",
+        "addressHint": "په شرطونو او د محرمیت پالیسي کې د چلوونکي د پوستې پتې په توګه چاپیږي.",
+        "country": "هېواد",
+        "effectiveDate": "د نافذېدو نیټه",
+        "contactEmail": "د اړیکې برېښنالیک",
+        "privacyEmail": "د محرمیت برېښنالیک",
+        "privacyEmailHint": "چیرته چې د ډاټا څښتنانو غوښتنې ځي؛ کېدای شي د اړیکې پته وي.",
+        "dpoEmail": "د ډاټا ساتنې افسر برېښنالیک",
+        "dpoEmailHint": "یوازې که تاسو یو ټاکلی وي.",
+        "governingLaw": "حاکم قانون",
+        "governingLawHint": "د بېلګې په توګه «د هند قوانین» یا «د انګلستان او ویلز قوانین».",
+        "venue": "د شخړو ځای",
+        "venueHint": "د بېلګې په توګه «د بنګلور، کرناټکا محکمې».",
+        "submit": "د چلوونکي توضیحات خوندي کړئ"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "د سکریپټونو، SDK او MCP پېرېدونکو لپاره API کلیدونه، له curl بېلګو سره.",
+      "title": "API",
+      "description": "د سکریپټونو، SDK او MCP پېرېدونکو لپاره کلیدونه. یو کلیدي ډېر تر ډېره هغه څه کولای شي چې ستاسو رول یې کولای شي؛ یو ځل ښودل کیږي.",
+      "create": {
+        "title": "کلیدي جوړ کړئ",
+        "description": "دا د <mono>Authorization: Bearer okv_…</mono> په توګه ولېږئ. دا له سرچینې کوډ او چټ لاګونو لرې وساتئ؛ که لیک شو، لاندې یې لغوه کړئ."
+      },
+      "keys": {
+        "title": "کلیدونه",
+        "descriptionOwner": "د دې انسټانس هر کلیدي؛ مالکان کولای شي هر یو لغوه کړي.",
+        "descriptionOwn": "ستاسو کلیدونه.",
+        "columns": {
+          "name": "نوم",
+          "prefix": "مختاړی",
+          "scopes": "ساحې",
+          "owner": "مالک",
+          "lastUsed": "وروستی کارول",
+          "expires": "پای ته رسیږي",
+          "status": "حالت"
+        },
+        "empty": "تر اوسه API کلیدونه نشته.",
+        "never": "هېڅکله",
+        "revoked": "لغوه شوی",
+        "expired": "پای ته رسېدلی",
+        "revokeTitle": "{name} لغوه کړئ؟",
+        "revokeDescription": "هغه پېرېدونکي چې دا کلیدي کاروي سمدستي کار بندوي.",
+        "activeCount": "{count, plural, one {# فعال کلیدي.} other {# فعال کلیدونه.}}"
+      },
+      "examples": {
+        "title": "بېلګې",
+        "description": "<mono>$OKINVO_KEY</mono> په یو کلیدي بدل کړئ. نسخه لرونکی REST API، د هغه OpenAPI سند (<mono>/api/openapi.json</mono>)، TypeScript SDK او MCP سرور د v1.1 پلان له راتلونکو کارونو سره رسیږي؛ د حالت پای نقطه نن کار کوي.",
+        "rateLimit": "له حد وتلي زنګونه په 429 او د <mono>Retry-After</mono> سرلیک ځواب ورکوي (د هر کلیدي لپاره په یوه دقیقه کې 120 غوښتنې). د کلیدي ساحې د مالک اوسني رول لخوا محدودیږي."
+      },
+      "form": {
+        "copyKey": "API کلیدي کاپي کړئ",
+        "name": "نوم",
+        "namePlaceholder": "مثلاً د محاسبې سکریپټ",
+        "expires": "پای ته رسیږي",
+        "in30Days": "په 30 ورځو کې",
+        "in90Days": "په 90 ورځو کې",
+        "inAYear": "په یو کال کې",
+        "never": "هېڅکله",
+        "scopes": "ساحې",
+        "submit": "API کلیدي جوړ کړئ",
+        "creating": "جوړیږي…"
+      },
+      "scopes": {
+        "invoicesRead": "بیلونه ولولئ",
+        "invoicesCreate": "بیلونه جوړ او صادر کړئ",
+        "creditNotesRead": "کریډیټ نوټونه ولولئ",
+        "creditNotesCreate": "کریډیټ نوټونه جوړ او صادر کړئ",
+        "catalogueRead": "پېرېدونکي، خدمتونه او محصولات ولولئ",
+        "documentsRead": "خوندي PDFs او DOCX کاپي ډاونلوډ کړئ",
+        "statusRead": "د انسټانس حالت ولولئ"
+      }
+    },
+    "status": {
+      "metaTitle": "حالت",
+      "metaDescription": "د دې انسټانس نسخه، ډیټابیس، ذخیره، برېښنالیک او د بیک اپ روغتیا.",
+      "title": "حالت",
+      "description": "دا انسټانس څه چلوي او ایا د هغه برخې ځواب ورکوي.",
+      "recheck": "بیا وګورئ",
+      "health": {
+        "ok": "سم",
+        "warning": "خبرداری",
+        "failed": "ناکام",
+        "na": "تنظیم شوی نه دی"
+      },
+      "overall": {
+        "ok": "هر څه سم دي",
+        "degraded": "کمزوری شوی",
+        "failed": "ناکام"
+      },
+      "version": "جوړښت {hasSha, select, yes {<mono>{sha}</mono>} other {(sha نامعلوم)}} · جوړ شوی {built} · Node <mono>{node}</mono> · فعال {uptime} · کتل شوی {checked}",
+      "dateUnknown": "(نیټه نامعلومه)",
+      "uptime": {
+        "days": "{d}d {h}h {m}m",
+        "hours": "{h}h {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "ډیټابیس",
+        "storage": "ذخیره",
+        "rateLimiting": "د نرخ محدودول",
+        "email": "برېښنالیک",
+        "backups": "بیک اپونه"
+      },
+      "db": {
+        "detail": "{latency} ms · وروستۍ مهاجرت <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # ناتمامه مهاجرت}}",
+        "noMigration": "هیڅ"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · د یو آزموینې څیز لیکل، لوستل او ړنګول په {latency} ms کې",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> ذخیره {store, select, memory {(یو ریپلیکا)} other {(د ریپلیکاګانو ترمنځ شریک)}}",
+      "smtp": {
+        "configured": "SMTP له {source, select, settings {د تنظیماتو پاڼې} env {چاپېریال} other {}} · وروستۍ ازموینه {lastTest} · وروستي 24 ساعتونه: {sent} لېږل شوي، {failed} ناکام",
+        "none": "هېڅ SMTP سرور نشته؛ کمپوزر «په میل اپ کې پرانیزئ» وړاندې کوي. <link>تنظیم کړئ</link>"
+      },
+      "backups": {
+        "notWired": "هېڅ د بیک اپ خدمت نه دی نښلول شوی (BACKUP_STATUS_FILE نه دی ټاکل شوی).",
+        "noRun": "د بیک اپ خدمت نښلول شوی؛ تر اوسه هېڅ چلېدنه نه ده ثبت شوې.",
+        "ok": "وروستۍ چلېدنه په {finishedAt} کې بریالۍ وه{days, plural, =0 {} one { · ساتل # ورځ} other { · ساتل # ورځې}}",
+        "failed": "وروستۍ چلېدنه ناکامه شوه: {error} په {finishedAt}{days, plural, =0 {} one { · ساتل # ورځ} other { · ساتل # ورځې}}"
+      },
+      "footer": "همدا راپور د څارنې لپاره په <mono>/api/health/status</mono> کې د JSON په توګه شته (د ننوتلې ناستې یا API کلیدي سره)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "هرکلی",
+    "progress": "پرمختګ",
+    "steps": {
+      "aboutYou": "ستاسو په اړه",
+      "howYouUse": "تاسو به یې څنګه کاروئ",
+      "allSet": "ټول چمتو دي"
+    },
+    "step1": {
+      "title": "موږ ته خپل ځان معرفي کړئ",
+      "subtitle": "دا ستاسو ډیفالټونه ټاکي؛ هر ارزښت وروسته په تنظیماتو کې بدلېدای شي.",
+      "name": "نوم",
+      "email": "برېښنالیک",
+      "emailHint": "ستاسو د ننوتلو پېژند. وروسته د تنظیمات ← امنیت څخه بدلېدای شي.",
+      "country": "هېواد",
+      "currency": "غوره اسعار",
+      "currencyHint": "د نویو پروفایلونو او ډشبورډ لپاره کارول کیږي تر هغه چې پروفایل جوړ شي."
+    },
+    "step2": {
+      "title": "تاسو به okinvo څنګه کاروئ؟",
+      "subtitle": "یوازې ډیفالټونه بدلیږي؛ هېڅ څه نه تړل کیږي.",
+      "usage": "کارول",
+      "personal": "شخصي بیلونه",
+      "personalHint": "په خپل نوم فریلانس کار",
+      "business": "سوداګریز بیلونه",
+      "businessHint": "له ثبت شوي سوداګرۍ څخه بیلونه",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "VAT شمېره",
+        "other": "د مالیې د ثبت شمېره"
+      },
+      "taxQuestion": {
+        "IN": "ایا تاسو GSTIN لرئ؟",
+        "GB": "ایا تاسو VAT ثبت شوي یاست؟",
+        "other": "ایا تاسو د مالیې د ثبت شمېره لرئ چې په بیلونو یې چاپ کړئ؟"
+      }
+    },
+    "step3": {
+      "title": "تاسو چمتو یاست",
+      "body": "بیا، خپل لومړی د صادرونکي پروفایل جوړ کړئ: نوم، پته او د مالیې توضیحات چې ستاسو په بیلونو چاپیږي. هغه څه چې تاسو راته ووې موږ ډک کړي دي.",
+      "go": "پروفایلونو ته لاړ شئ",
+      "opening": "پرانیستل کیږي…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "شرطونه",
+      "privacy": "محرمیت",
+      "cookies": "کوکیز",
+      "security": "امنیت"
+    },
+    "cookieNotice": {
+      "label": "د کوکي خبرتیا",
+      "body": "موږ یوازې سخت اړین کوکیز کاروو: ستاسو ناسته او ستاسو د ښودلو غوره توبونه. هېڅ تحلیل نشته، هېڅ تعقیب نشته.",
+      "policy": "د کوکي پالیسي",
+      "gotIt": "پوه شوم"
+    },
+    "nav": {
+      "label": "قانوني",
+      "cookies": "کوکیز",
+      "privacy": "محرمیت",
+      "terms": "شرطونه",
+      "acceptableUse": "د منلو وړ کارول",
+      "retention": "ساتل",
+      "security": "امنیت",
+      "licences": "جوازونه"
+    },
+    "operatorNotice": "okinvo ځان-کوربه شوی سافټویر دی؛ د دې انسټانس چلوونکی د هغه د کارولو مسؤل دی.",
+    "doc": {
+      "effectiveOn": "نافذ له <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "منځپانګه"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "د چلوونکي قانوني نوم",
+        "entityType": "د وجود ډول",
+        "address": "د چلوونکي پته",
+        "country": "د چلوونکي هېواد",
+        "contactEmail": "د اړیکې برېښنالیک",
+        "privacyEmail": "د محرمیت برېښنالیک",
+        "dpoEmail": "د ډاټا ساتنې افسر برېښنالیک",
+        "governingLaw": "حاکم قانون",
+        "venue": "د شخړو ځای",
+        "effectiveDate": "د نافذېدو نیټه"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "ونه موندل شو",
+      "title": "په دې پته کې هېڅ څه نشته",
+      "body": "لینک شاید زوړ وي، یا هغه سند چې ورته اشاره کوله هېڅکله نه و صادر شوی."
+    },
+    "forbidden": {
+      "metaTitle": "اجازه نشته",
+      "title": "دا حساب دا نه شي کولای",
+      "body": "ستاسو رول دا اجازه نه ورکوي. له مالک څخه د لاسرسي غوښتنه وکړئ، یا له داسې حساب سره ننوځئ چې لاسرسی لري."
+    },
+    "error": {
+      "title": "یو څه ناسم شول",
+      "body": "دې غوښتنې هېڅ څه نه دي بدل کړي. بیا هڅه وکړئ؛ که دوام وکړي، د سرور لاګ توضیحات لري.",
+      "digest": "تېروتنه {digest}",
+      "generic": "تېروتنه"
+    },
+    "appNotFound": {
+      "title": "ونه موندل شو",
+      "body": "دا ریکارډ نشته، یا هغه مهال ړنګ شو چې تاسو یې کتل.",
+      "back": "ډشبورډ ته بېرته"
+    },
+    "validation": {
+      "required": "اړین",
+      "tooLong": "تر ډېره {max} توري",
+      "invalidEmail": "باید یو معتبر برېښنالیک وي",
+      "invalidDate": "باید د YYYY-MM-DD په بڼه کلنڅېر نیټه وي",
+      "invalidAmount": "باید شمېره وي",
+      "wholeNumber": "باید بشپړه شمېره وي",
+      "greaterThanZero": "باید له صفر څخه لوی وي",
+      "fixFields": "مهرباني وکړئ روښانه شوې ساحې سمې کړئ.",
+      "charset": "یوازې معیاري کیبورډ توري اجازه لري."
+    }
+  },
+  "verify": {
+    "metaTitle": "سند تایید کړئ",
+    "heading": "د سند تایید",
+    "rateLimited": "له دې پتې ډېرې څېړنې شوې. مهرباني وکړئ یوه دقیقه وروسته بیا هڅه وکړئ.",
+    "notFound": {
+      "title": "داسې سند نشته",
+      "body": "دا لینک له هېڅ صادر شوي سند سره نه سمون خوري. QR کوډ یا هغه لینک وګورئ چې تاسو ته درکړل شوی، یا له صادرونکي سره اړیکه ونیسئ."
+    },
+    "status": {
+      "void": "باطل",
+      "valid": "معتبر"
+    },
+    "issuedBy": "صادر شوی د",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "صادر شوی ته",
+    "issueDate": "د صدور نیټه",
+    "total": "ټولټال",
+    "voided": "دا سند د صادرونکي لخوا باطل شوی او نور معتبر نه دی.",
+    "storedCopies": {
+      "title": "خوندي کاپي",
+      "description": "د هر PDF نسخې SHA-256 چې صادرونکی یې لري. خپله کاپي وټاکئ ترڅو په خپل براوزر کې یې پرتله کړئ: هېڅ څه نه پورته کیږي.",
+      "empty": "تر اوسه هېڅ PDF نه دی جوړ شوی.",
+      "protectedVersion": "په پټنوم خوندي کاپي {version}",
+      "version": "نسخه {version}"
+    },
+    "check": {
+      "label": "خپله کاپي وګورئ",
+      "hashing": "هش کیږي…",
+      "match": "ستاسو کاپي له {version} نسخې سره بشپړ سمون لري.",
+      "mismatch": "ستاسو کاپي له هېڅ خوندي نسخې سره نه سمون خوري."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "شریک شوی سند",
+      "rateLimited": "له دې پتې ډېرې غوښتنې شوې. مهرباني وکړئ یوه دقیقه وروسته بیا هڅه وکړئ.",
+      "unavailable": {
+        "title": "دا لینک شتون نه لري",
+        "body": "کېدای شي میعاد یې پای ته رسېدلی وي یا صادرونکي لغوه کړی وي. له هغه نوی لینک وغواړئ."
+      },
+      "lockedTitleInvoice": "د {issuer} بیل",
+      "lockedTitleCreditNote": "د {issuer} کریډیټ نوټ",
+      "lockedBody": "دا سند په پټنوم خوندي دی. هغه پټنوم ولیکئ چې صادرونکي درکړی.",
+      "void": "باطل",
+      "protectedPdf": "PDF په همدې پټنوم پرانیستل کیږي. لوستل او چاپ کېدای شي؛ کاپي او سمون بند دي.",
+      "byline": "له {issuer} څخه {client} ته · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "پټنوم",
+      "limited": "ډېرې هڅې. مهرباني وکړئ پنځلس دقیقې انتظار وکړئ او بیا هڅه وکړئ.",
+      "wrong": "دا پټنوم سم نه دی.",
+      "submit": "سند پرانیزئ"
+    },
+    "dialog": {
+      "trigger": "شریک کړئ",
+      "title": "دا سند شریک کړئ",
+      "description": "هر هغه څوک چې لینک لري کولای شي یې وګوري او ډاونلوډ کړي تر هغه چې میعاد یې پای ته رسیږي یا تاسو یې لغوه کړئ. پټنوم خپله PDF هم ساتي: په پټنوم پرانیستل کیږي او لوستل او چاپ کېدای شي، نه سمون یا کاپي.",
+      "link": "لینک",
+      "copyLink": "لینک کاپي کړئ",
+      "password": "پټنوم",
+      "copyPassword": "پټنوم کاپي کړئ",
+      "sendSeparately": "پټنوم له لینک څخه جلا ولېږئ. تاسو کولای شئ په لاندې لیست کې یې بیا وګورئ.",
+      "copy": "کاپي",
+      "copied": "کاپي شو",
+      "expires": "پای ته رسیږي",
+      "expiry": {
+        "d7": "په 7 ورځو کې",
+        "d30": "په 30 ورځو کې",
+        "d90": "په 90 ورځو کې",
+        "never": "هېڅکله"
+      },
+      "protection": "ساتنه",
+      "protectionOptions": {
+        "auto": "پټنوم: یو پټ جمله جوړ کړئ",
+        "manual": "پټنوم: خپل غوره کوم",
+        "none": "بې پټنوم (خلاص لینک)"
+      },
+      "passwordHint": "لږ تر لږه 8 توري.",
+      "strength": "ځواک: {label}",
+      "strengthLabels": {
+        "veryWeak": "ډېر کمزوری",
+        "weak": "کمزوری",
+        "fair": "منځنی",
+        "good": "ښه",
+        "strong": "پیاوړی"
+      },
+      "creating": "جوړیږي…",
+      "create": "لینک جوړ کړئ",
+      "activeLinks": "فعال لینکونه",
+      "passwordProtected": "په پټنوم خوندي",
+      "openLink": "لینک پرانیزئ",
+      "linkExpires": "{kind} · پای ته رسیږي {date}",
+      "linkNeverExpires": "{kind} · هېڅکله پای ته نه رسیږي",
+      "revoke": {
+        "title": "دا لینک لغوه کړئ؟",
+        "description": "لینک د هغه چا لپاره سمدستي کار بندوي چا چې دا لري.",
+        "label": "لغوه کړئ"
+      },
+      "linkPassword": "پټنوم: <code>{password}</code>",
+      "counts": "{views, plural, other {# کتنې}} · {downloads, plural, other {# ډاونلوډونه}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "کریډیټ نوټونه",
+      "title": "کریډیټ نوټونه",
+      "description": "د صادر شوو بیلونو پر وړاندې جوړیږي؛ هر یو د صدور پر مهال د خپل بیل پاتې کموي.",
+      "newCreditNote": "نوی کریډیټ نوټ",
+      "filters": {
+        "from": "له",
+        "to": "تر",
+        "issuer": "صادرونکی",
+        "client": "پېرېدونکی",
+        "status": "حالت",
+        "search": "لټون",
+        "all": "ټول",
+        "searchPlaceholder": "شمېره، دلیل، پېرېدونکی",
+        "go": "لاړ شئ"
+      },
+      "statuses": {
+        "DRAFT": "مسوده",
+        "ISSUED": "صادر شوی",
+        "SENT": "لېږل شوی",
+        "VOID": "باطل"
+      },
+      "empty": {
+        "title": "تر اوسه کریډیټ نوټ نشته",
+        "description": "یو صادر شوی بیل پرانیزئ او د هغه د پوروړتیا د کمولو لپاره «کریډیټ نوټ» وټاکئ."
+      },
+      "noMatch": "هېڅ کریډیټ نوټ له دې فلټرونو سره سمون نه لري.",
+      "columns": {
+        "number": "شمېره",
+        "against": "پر وړاندې",
+        "client": "پېرېدونکی",
+        "issueDate": "د صدور نیټه",
+        "reason": "دلیل",
+        "total": "ټولټال",
+        "status": "حالت"
+      },
+      "draft": "مسوده"
+    },
+    "new": {
+      "metaTitle": "نوی کریډیټ نوټ",
+      "title": "نوی کریډیټ نوټ",
+      "description": "کریډیټ نوټ د صادر شوي بیل پر وړاندې جوړیږي او د هغه پاتې کموي.",
+      "nothingToCredit": {
+        "title": "د کریډیټ لپاره هېڅ نشته",
+        "description": "کریډیټ نوټونه د پاتې لرونکي صادر شوي بیل ته اړتیا لري.",
+        "openInvoices": "بیلونه پرانیزئ"
+      },
+      "whichInvoice": "کوم بیل؟",
+      "invoice": "بیل",
+      "invoiceOption": "{number} · {client} · پاتې {balance}",
+      "issuedOnly": "کریډیټ نوټونه یوازې د صادر شوو بیلونو پر وړاندې جوړیږي.",
+      "invoiceFallback": "بیل"
+    },
+    "edit": {
+      "metaTitle": "د کریډیټ نوټ سمون",
+      "title": "د مسودې کریډیټ نوټ سمون",
+      "immutable": "صادر شوي کریډیټ نوټونه نه بدلیږي.",
+      "draft": "مسوده"
+    },
+    "detail": {
+      "metaTitle": "کریډیټ نوټ",
+      "draftTitle": "د مسودې کریډیټ نوټ",
+      "meta": "{client} · د <invoice>{number}</invoice> پر وړاندې · صادر شوی <mono>{date}</mono>",
+      "previewPdf": "PDF مخکتنه",
+      "issue": {
+        "title": "دا کریډیټ نوټ صادر کړئ؟",
+        "description": "شمېره ټاکل کیږي، د بیل پاتې کمیږي او سند نه بدلېدونکی کیږي.",
+        "label": "صادر کړئ"
+      },
+      "deleteDraft": {
+        "title": "دا مسوده ړنګه کړئ؟"
+      },
+      "sendByEmail": "په برېښنالیک ولېږئ",
+      "markSent": {
+        "title": "د لېږل شوي په توګه نښه کړئ؟",
+        "label": "د لېږل شوي په توګه نښه کړئ"
+      },
+      "void": {
+        "title": "دا کریډیټ نوټ باطل کړئ؟",
+        "description": "د بیل پاتې بېرته راځي؛ شمېره هېڅکله بیا نه کارول کیږي.",
+        "reason": "دلیل",
+        "label": "باطل کړئ"
+      },
+      "voided": "باطل شوی {date}: {reason}",
+      "amounts": {
+        "title": "مبالغ",
+        "reason": "دلیل",
+        "creditAmount": "د کریډیټ مبلغ",
+        "total": "ټولټال",
+        "balanceNow": "د بیل اوسنی پاتې",
+        "sent": "لېږل شوی"
+      },
+      "documents": {
+        "title": "خوندي سندونه",
+        "description": "هره نسخه ساتل کیږي؛ د تایید پاڼه ټول هشونه لیست کوي.",
+        "regenerateTitle": "د PDF نوې نسخه جوړه کړئ؟",
+        "generate": "جوړ کړئ",
+        "newVersion": "نوې نسخه",
+        "renderedOnFirstDownload": "PDF د لومړي ډاونلوډ پر مهال جوړیږي.",
+        "protectedCopy": "په پټنوم خوندي کاپي {version}",
+        "version": "نسخه {version}",
+        "verificationLink": "د تایید لینک: <link>{path}…</link>"
+      },
+      "draftsPreview": "د مسودو مخکتنه په مدیر کې ژوندۍ ښودل کیږي."
+    },
+    "send": {
+      "metaTitle": "کریډیټ نوټ ولېږئ",
+      "title": "<mono>{number}</mono> ولېږئ",
+      "previousSends": "مخکني لیږنې"
+    },
+    "builder": {
+      "against": "د <mono>{number}</mono> پر وړاندې",
+      "summary": "{client} · ټولټال {total} · پاتې {balance} · د مالیې وړ ګنجایش ≈ {headroom}",
+      "issueDate": "د صدور نیټه",
+      "creditAmount": "د کریډیټ مبلغ (پرته له مالیې)",
+      "creditAmountHint": "مالیه د بیل د مالیې کرښو له مخې وېشل کیږي",
+      "reason": "دلیل",
+      "picker": {
+        "title": "د بیل له کرښو محاسبه کړئ",
+        "description": "بشپړې کرښې یا سلنه نښه کړئ؛ دا یوازې پورتنی مبلغ ډکوي.",
+        "line": "کرښه",
+        "subtotal": "فرعي ټولټال",
+        "credit": "کریډیټ",
+        "percent": "%",
+        "creditLine": "د کریډیټ کرښه {position}",
+        "percentOfLine": "د {position} کرښې سلنه"
+      },
+      "saveDraft": "مسوده خوندي کړئ",
+      "issuing": "صادریږي…",
+      "saveAndIssue": "خوندي کړئ او صادر کړئ"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "تادیه ترلاسه شوه",
+        "REFUND": "بېرته ورکړه صادره شوه",
+        "WRITE_OFF": "ړنګ شوی ګټه"
+      },
+      "editTitle": "ثبت سمون",
+      "recordTitle": "تادیه ثبت کړئ",
+      "description": "مبالغ د بیل په اسعارو ({currency}) دي؛ کسر شوی TDS د پلي شوي مبلغ برخه ده.",
+      "kind": "ډول",
+      "date": "نیټه",
+      "amountRefunded": "بېرته ورکړل شوی مبلغ (منفي)",
+      "amountApplied": "پلي شوی مبلغ",
+      "refundHint": "منفي مبلغ ولیکئ، لکه -500",
+      "tdsDeducted": "کسر شوی TDS",
+      "tdsHint": "هغه مالیه چې پېرېدونکي ساتلې؛ د پلي شوي مبلغ برخه ګڼل کیږي",
+      "bankFees": "بانکي فیسونه",
+      "receivedInto": "ترلاسه شوی په",
+      "noMethod": "-",
+      "reference": "حواله",
+      "referenceHint": "UTR، د معاملې ID، د چک شمېره",
+      "otherCurrency": "په بل اسعارو ترلاسه شوی",
+      "amountReceived": "ترلاسه شوی مبلغ",
+      "receivedCurrency": "ترلاسه شوی اسعار",
+      "exchangeRate": "د تبادلې نرخ",
+      "exchangeRateHint": "1 ترلاسه شوې واحد = ؟ {currency}",
+      "notes": "یادښتونه",
+      "receipt": "رسید",
+      "receiptHint": "PNG، JPEG، WebP یا PDF تر 10 MB",
+      "saveChanges": "بدلونونه خوندي کړئ",
+      "record": "ثبت کړئ"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "نږدې {count, plural, one {# پاڼه} other {# پاڼې}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "پیغام",
+      "description": "د صادرونکي پروفایل له کينډو مخکې ډک شوی. تر هغه چې تاسو لېږل کلیک نه کړئ هېڅ نه لیږل کیږي.",
+      "to": "ته",
+      "toHint": "په کوما بېل",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "موضوع",
+      "body": "متن",
+      "bodyHint": "ساده متن؛ لینکونه کلیک وړ کیږي",
+      "attachment": "ضمیمه",
+      "attachmentHint": "خوندي کاپي، چې نوم یې <mono>{name}</mono> دی (یا .docx)؛ منځپانګه یې نه بدلېدای شي.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "لیږل کیږي…",
+      "send": "ولېږئ",
+      "openInMailApp": "په میل اپ کې پرانیزئ",
+      "noSmtp": "هېڅ SMTP سرور نه دی تنظیم شوی (تنظیمات ← برېښنالیک). مسوده په خپل میل اپ کې پرانیزئ، ډاونلوډ شوی PDF ضمیمه کړئ، بیا لاندې د لېږل شوي په توګه نښه کړئ.",
+      "markAsSent": "د لېږل شوي په توګه نښه کړئ"
+    },
+    "sentLog": {
+      "when": "کله",
+      "document": "سند",
+      "to": "ته",
+      "subject": "موضوع",
+      "status": "حالت",
+      "empty": "تر اوسه هېڅ نه دي لېږل شوي.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "لېږل شوی",
+        "FAILED": "ناکام",
+        "MANUAL": "لاسي"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "سلام، {name}",
+    "fiscalYear": "مالي کال {year}",
+    "fiscalYearWithBase": "مالي کال {year} · بنسټیز اسعار {currency} ({profile})",
+    "newCreditNote": "نوی کریډیټ نوټ",
+    "welcomeTitle": "{appName} ته ښه راغلاست",
+    "welcomeDescription": "د هغه صادرونکي پروفایل په جوړولو پیل وکړئ چې له هغه بیل کوئ، بیا یو پېرېدونکی او خپل لومړی بیل اضافه کړئ.",
+    "createProfile": "خپل پروفایل جوړ کړئ",
+    "tiles": {
+      "outstanding": "پاتې",
+      "overdue": "ځنډېدلی",
+      "billedThisFy": "پدې مالي کال کې بیل شوی",
+      "receivedThisFy": "پدې مالي کال کې ترلاسه شوی",
+      "drafts": "مسودې",
+      "invoiceCount": "{count, plural, one {# بیل} other {# بیلونه}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "تادیې منفي بېرته ورکړې، په ثبت شوي FX",
+      "awaitingIssue": "د صدور په انتظار",
+      "nothingPending": "هېڅ په انتظار کې نشته"
+    },
+    "recentInvoices": "وروستي بیلونه",
+    "allInvoices": "ټول بیلونه",
+    "noInvoicesYet": "تر اوسه بیل نشته.",
+    "columns": {
+      "number": "شمېره",
+      "client": "پېرېدونکی",
+      "issued": "صادر شوی"
+    },
+    "topClients": "د پاتې له مخې غوره پېرېدونکي",
+    "nothingOutstanding": "هېڅ پاتې نشته."
+  },
+  "exports": {
+    "export": "صادرول",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "بیلونه",
+      "newInvoice": "نوی بیل",
+      "draft": "مسوده",
+      "aDraft": "یوه مسوده",
+      "statuses": {
+        "draft": "مسوده",
+        "issued": "صادر شوی",
+        "sent": "لېږل شوی",
+        "partiallyPaid": "په جزوي ډول تادیه شوی",
+        "paid": "تادیه شوی",
+        "overdue": "ځنډېدلی",
+        "void": "باطل"
+      },
+      "lifecycle": {
+        "draft": "مسوده",
+        "issued": "صادر شوی",
+        "void": "باطل"
+      },
+      "units": {
+        "hour": "ساعت",
+        "day": "ورځ",
+        "fixed": "ټاکلی",
+        "milestone": "پړاو",
+        "unit": "واحد"
+      },
+      "unitsLower": {
+        "hour": "ساعت",
+        "day": "ورځ",
+        "fixed": "ټاکلی",
+        "milestone": "پړاو",
+        "unit": "واحد"
+      },
+      "supplyTypes": {
+        "intraState": "د ایالت دننه",
+        "interState": "د ایالتونو ترمنځ",
+        "exportLut": "LUT صادرات",
+        "exportWithTax": "د مالیې سره صادرات",
+        "reverseCharge": "معکوس چارج",
+        "notApplicable": "نه پلي کیږي"
+      }
+    },
+    "list": {
+      "description": "مسودې، صادر شوي او باطل شوي بیلونه؛ حالتونه له تادیو او سرسیدو نیټو اخیستل کیږي.",
+      "fiscalYear": "مالي کال",
+      "issuer": "صادرونکی",
+      "client": "پېرېدونکی",
+      "searchPlaceholder": "شمېره، PO، پېرېدونکی",
+      "emptyTitle": "تر اوسه بیل نشته",
+      "emptyDescription": "خپل لومړی بیل جوړ کړئ: پېرېدونکی وټاکئ، کرښې اضافه کړئ، مخکتنه وګورئ، بیا یې صادر کړئ.",
+      "columns": {
+        "number": "شمېره",
+        "client": "پېرېدونکی",
+        "issuer": "صادرونکی",
+        "issueDate": "د صدور نیټه",
+        "due": "سرسید",
+        "balance": "پاتې"
+      },
+      "noMatches": "هېڅ بیل له دې فلټرونو سره سمون نه لري.",
+      "count": "{count, plural, one {# بیل} other {# بیلونه}}",
+      "countPaged": "{count, plural, one {# بیل} other {# بیلونه}} · پاڼه {page} له {pages}",
+      "register": "راجستر"
+    },
+    "new": {
+      "noProfileTitle": "لومړی د صادرونکي پروفایل جوړ کړئ",
+      "noProfileDescription": "بیل له یو قانوني هویت څخه صادریږي: خپل پروفایل د مالیې ID او شمېرولو سره تنظیم کړئ.",
+      "createProfile": "پروفایل جوړ کړئ"
+    },
+    "edit": {
+      "metaTitle": "د بیل سمون",
+      "title": "د مسودې سمون",
+      "immutableFlash": "صادر شوي بیلونه نه بدلیږي. د سمولو لپاره «باطل کړئ او بیا صادر کړئ» وکاروئ."
+    },
+    "detail": {
+      "metaTitle": "بیل",
+      "draftInvoice": "د مسودې بیل",
+      "issuedDue": "صادر شوی <mono>{issued}</mono>، سرسید <mono>{due}</mono>",
+      "replaces": "د {number} ځای نیسي",
+      "replacedBy": "د {number} په واسطه ځای نیول شوی",
+      "previewPdf": "PDF مخکتنه",
+      "issueTitle": "دا بیل صادر کړئ؟",
+      "issueDescription": "شمېره ټاکل کیږي او سند نه بدلېدونکی کیږي.",
+      "issue": "صادر کړئ",
+      "deleteDraftTitle": "دا مسوده ړنګه کړئ؟",
+      "sendByEmail": "په برېښنالیک ولېږئ",
+      "recordPayment": "تادیه ثبت کړئ",
+      "creditNote": "کریډیټ نوټ",
+      "markSentTitle": "د لېږل شوي په توګه نښه کړئ؟",
+      "markSentDescription": "ثبتوي چې پېرېدونکي دا بیل ترلاسه کړی.",
+      "markSent": "د لېږل شوي په توګه نښه کړئ",
+      "voidReissueTitle": "باطل کړئ او بیا صادر کړئ؟",
+      "voidReissueDescription": "اصلي باطلیږي او د ورته منځپانګې سره یوه تړلې مسوده د سمون لپاره پرانیستل کیږي.",
+      "voidReissue": "باطل کړئ او بیا صادر کړئ",
+      "voidTitle": "دا بیل باطل کړئ؟",
+      "voidDescription": "یوازې پرته له ثبت شویو تادیو شونی دی؛ شمېره هېڅکله بیا نه کارول کیږي.",
+      "void": "باطل کړئ",
+      "voided": "باطل شوی {date}: {reason}",
+      "amounts": "مبالغ",
+      "subtotal": "فرعي ټولټال",
+      "discount": "تخفیف",
+      "discountPercent": "تخفیف ({percent})",
+      "rounding": "ګردول",
+      "tdsExpected": "متوقع TDS ({percent})",
+      "paid": "تادیه شوی",
+      "credited": "کریډیټ شوی",
+      "balanceDue": "پاتې پور",
+      "supply": "عرضه",
+      "fxToBase": "بنسټیز ته FX",
+      "poReference": "PO حواله",
+      "sent": "لېږل شوی",
+      "lineItems": "د کرښو توکي",
+      "columns": {
+        "description": "توضیح",
+        "sacHsn": "SAC/HSN",
+        "qty": "مقدار",
+        "rate": "نرخ",
+        "tax": "مالیه",
+        "amount": "مبلغ"
+      },
+      "creditNotes": "کریډیټ نوټونه",
+      "storedDocuments": "خوندي سندونه",
+      "storedDocumentsHint": "هره نسخه ساتل کیږي؛ د تایید پاڼه ټول هشونه لیست کوي.",
+      "regenerateTitle": "د PDF نوې نسخه جوړه کړئ؟",
+      "regenerateDescription": "له کنګل شوي سنیپ شاټ څخه بیا جوړیږي (مثلاً د رېنډرر له سمون وروسته). مخکنۍ نسخې پاتې کیږي.",
+      "regenerate": "جوړ کړئ",
+      "newVersion": "نوې نسخه",
+      "renderedOnFirstDownload": "PDF د لومړي ډاونلوډ پر مهال جوړیږي.",
+      "protectedCopy": "په پټنوم خوندي کاپي {version}",
+      "version": "نسخه {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "د تایید لینک:",
+      "draftPreviewHint": "د مسودو مخکتنه په مدیر کې ژوندۍ ښودل کیږي؛ د پاڼې لیدلو لپاره <link>د واټرمارک لرونکی PDF</link> پرانیزئ."
+    },
+    "history": {
+      "metaTitle": "د بیل تاریخچه",
+      "title": "تاریخچه <mono>{number}</mono>",
+      "reissueChain": "د بیا صدور زنځیر",
+      "replaces": "د <link>{number}</link> ځای نیسي",
+      "replacedBy": "د <link>{number}</link> په واسطه ځای نیول شوی",
+      "auditTrail": "د پلټنې لړۍ",
+      "columns": {
+        "when": "کله",
+        "who": "څوک",
+        "action": "عمل",
+        "summary": "لنډیز"
+      },
+      "noEvents": "تر اوسه پېښې نشته.",
+      "system": "سیسټم",
+      "emails": "برېښنالیکونه"
+    },
+    "payments": {
+      "title": "تادیې",
+      "description": "{client} · ټولټال {total}",
+      "backToInvoice": "بیل ته بېرته",
+      "ledger": "کتاب",
+      "columns": {
+        "date": "نیټه",
+        "kind": "ډول",
+        "applied": "پلي شوی",
+        "tds": "TDS",
+        "received": "ترلاسه شوی",
+        "reference": "حواله",
+        "balance": "پاتې"
+      },
+      "noPayments": "تر اوسه هېڅ تادیه نه ده ثبت شوې.",
+      "kinds": {
+        "payment": "تادیه",
+        "refund": "بېرته ورکړه",
+        "writeOff": "ړنګ شوی ګټه"
+      },
+      "receipt": "رسید",
+      "deleteEntryTitle": "دا ثبت ړنګ کړئ؟",
+      "deleteEntryDescription": "د بیل پاتې بیا محاسبه کیږي.",
+      "totals": "ټولټالونه",
+      "invoiceTotal": "د بیل ټولټال",
+      "credited": "کریډیټ شوی",
+      "refunds": "بېرته ورکړې",
+      "writeOffs": "ړنګ شوې ګټې",
+      "tdsDeducted": "کسر شوی TDS",
+      "bankFees": "بانکي فیسونه",
+      "balanceDue": "پاتې پور",
+      "onlyIssued": "یوازې صادر شوي بیلونه تادیې مني."
+    },
+    "send": {
+      "metaTitle": "بیل ولېږئ",
+      "title": "<mono>{number}</mono> ولېږئ",
+      "alreadySent": "لا دمخه د لېږل شوي په توګه نښه شوی؛ بیا لېږل یو بل د لاګ ثبت اضافه کوي.",
+      "previousSends": "مخکني لیږنې"
+    },
+    "builder": {
+      "parties": "اړخونه",
+      "issuerProfile": "د صادرونکي پروفایل",
+      "client": "پېرېدونکی",
+      "archivedOption": "{label} (آرشیف شوی)",
+      "issueDate": "د صدور نیټه",
+      "dueDate": "د سرسید نیټه",
+      "fxRate": "بنسټیز اسعارو ته FX نرخ",
+      "fxHint": "1 {currency} = ؟ {base} (یوازې د راپور لپاره)",
+      "poReference": "PO حواله",
+      "lineItems": "د کرښو توکي",
+      "lineItemsHint": "د ارزښتونو کاپي کولو لپاره له کتلاګ څخه وټاکئ، یا یوه کرښه ولیکئ.",
+      "taxDiscountTds": "مالیه، تخفیف او TDS",
+      "taxRegime": "مالیاتي نظام",
+      "regimes": {
+        "indiaGst": "هند GST",
+        "ukVat": "UK VAT",
+        "usSalesTax": "US د پلور مالیه",
+        "none": "بې مالیې"
+      },
+      "reverseCharge": "معکوس چارج",
+      "reverseChargeHint": "مالیه د ترلاسه کوونکي لخوا د تادیې وړ ده",
+      "discount": "تخفیف",
+      "percent": "سلنه",
+      "amount": "مبلغ",
+      "rounding": "د ګردولو سمون",
+      "roundingHint": "اختیاري، بشپړ واحد ته؛ باید له 1 ټیټ وي",
+      "round": "ګرد کړئ",
+      "tdsRate": "متوقع TDS نرخ (%)",
+      "tdsRateHint": "معلوماتي؛ کله چې د TDS تفصیل روښانه وي چاپیږي",
+      "paymentMethods": "د تادیې طریقې",
+      "paymentMethodsHint": "د نښه کولو په ترتیب چاپیږي.",
+      "noPaymentMethods": "هېڅ فعاله د تادیې طریقه نشته. <link>یوه اضافه کړئ</link>.",
+      "whatPrints": "څه چاپیږي",
+      "whatPrintsHint": "د صادرونکي پروفایل له ډیفالټونو پیلیږي.",
+      "notesAndTerms": "یادښتونه او شرطونه",
+      "notes": "یادښتونه",
+      "terms": "شرطونه",
+      "saveDraft": "مسوده خوندي کړئ",
+      "issuing": "صادریږي…",
+      "saveAndIssue": "خوندي کړئ او صادر کړئ",
+      "subtotal": "فرعي ټولټال",
+      "tax": "مالیه",
+      "tdsExpected": "متوقع TDS",
+      "netExpected": "متوقع خالص"
+    },
+    "lineItems": {
+      "addFromCatalogue": "له کتلاګ څخه اضافه کړئ…",
+      "services": "خدمتونه",
+      "products": "محصولات",
+      "addLine": "کرښه اضافه کړئ",
+      "columns": {
+        "description": "توضیح",
+        "sacHsn": "SAC/HSN",
+        "qty": "مقدار",
+        "unit": "واحد",
+        "rate": "نرخ",
+        "taxPercent": "مالیه %"
+      },
+      "aria": {
+        "description": "د {line} کرښې توضیح",
+        "sacHsn": "د {line} کرښې SAC/HSN",
+        "quantity": "د {line} کرښې مقدار",
+        "unit": "د {line} کرښې واحد",
+        "rate": "د {line} کرښې نرخ",
+        "taxRate": "د {line} کرښې د مالیې نرخ"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "معاف",
+      "moveUp": "پورته ولېږئ",
+      "moveDown": "ښکته ولېږئ",
+      "removeLine": "کرښه لرې کړئ",
+      "shortcutHint": "په توضیح کې Ctrl/⌘+Enter یوه کرښه اضافه کوي.",
+      "addFromCatalogueAria": "له کتلاګ څخه اضافه کړئ"
+    },
+    "display": {
+      "groups": {
+        "issuer": "د صادرونکي توضیحات",
+        "client": "د پېرېدونکي توضیحات",
+        "document": "د سند برخې"
+      },
+      "fields": {
+        "showLogo": "لوګو",
+        "showTradeName": "سوداګریز نوم",
+        "showDesignation": "عهده",
+        "showEmail": "برېښنالیک",
+        "showPhone": "تلیفون",
+        "showWebsite": "ویب پاڼه",
+        "showFullAddress": "بشپړه پته",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "لاسلیک",
+        "showStamp": "مهر",
+        "showContactPerson": "د اړیکې کس",
+        "showBillingAddress": "د بیل پته",
+        "showShippingAddress": "د لېږد پته",
+        "showTaxIdentifier": "د مالیې پېژندګوټی",
+        "showPlaceOfSupply": "د عرضې ځای",
+        "showDueDate": "د سرسید نیټه",
+        "showPaymentTerms": "د تادیې شرطونه",
+        "showSacCodeColumn": "د SAC کوډ ستون",
+        "showQuantityColumn": "د مقدار ستون",
+        "showUnitPriceColumn": "د واحد بیې ستون",
+        "showTaxColumn": "د مالیې ستون",
+        "showTdsBreakdown": "د TDS تفصیل",
+        "showQrVerification": "QR تایید",
+        "showNotes": "یادښتونه",
+        "showTerms": "شرطونه",
+        "showReplacesReference": "د ځای نیولو حواله",
+        "showAmountInWords": "مبلغ په الفاظو",
+        "showSupplyStatement": "د عرضې بیان",
+        "showRoundingLine": "د ګردولو کرښه",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "پېرېدونکي",
+      "description": "هر هغه څوک چې تاسو ورته بیل کوئ. هغه پېرېدونکي چې بیلونه لري آرشیف کیږي، هېڅکله نه ړنګیږي.",
+      "newClient": "نوی پېرېدونکی",
+      "searchPlaceholder": "په نوم لټون",
+      "searchLabel": "پېرېدونکي ولټوئ",
+      "emptyTitle": "تر اوسه پېرېدونکي نشته",
+      "emptyDescription": "هغه کسان او شرکتونه اضافه کړئ چې بیل ورته صادروئ؛ د هغوی اسعار او د تادیې شرطونه هر بیل مخکې ډکوي.",
+      "addClient": "پېرېدونکی اضافه کړئ",
+      "noMatch": "هېڅ پېرېدونکی له «{q}» سره سمون نه لري.",
+      "termsDays": "{days} ورځ",
+      "columns": {
+        "name": "نوم",
+        "contact": "اړیکه",
+        "email": "برېښنالیک",
+        "country": "هېواد",
+        "currency": "اسعار",
+        "terms": "شرطونه",
+        "status": "حالت"
+      }
+    },
+    "new": {
+      "title": "نوی پېرېدونکی"
+    },
+    "edit": {
+      "metaTitle": "د پېرېدونکي سمون",
+      "title": "د {name} سمون"
+    },
+    "detail": {
+      "metaTitle": "پېرېدونکی",
+      "newInvoice": "نوی بیل",
+      "restoreTitle": "دا پېرېدونکی بحال کړئ؟",
+      "archiveTitle": "دا پېرېدونکی آرشیف کړئ؟",
+      "archiveDescription": "د انتخاب له لیستونو وځي؛ بیلونه او تاریخچه پاتې کیږي.",
+      "deleteTitle": "دا پېرېدونکی ړنګ کړئ؟",
+      "deleteDescription": "یوازې هغه وخت شونی دی چې هېڅ بیل پېرېدونکي ته اشاره نه کوي.",
+      "details": "توضیحات",
+      "contact": "اړیکه",
+      "email": "برېښنالیک",
+      "phone": "تلیفون",
+      "country": "هېواد",
+      "gstState": "GST {code}",
+      "taxId": "د مالیې ID",
+      "currency": "اسعار",
+      "paymentTerms": "د تادیې شرطونه",
+      "paymentTermsDays": "{days} ورځې",
+      "expectedTds": "متوقع TDS",
+      "notes": "یادښتونه",
+      "addresses": "پتې",
+      "billing": "بیل کول",
+      "shipping": "لېږد",
+      "lifetime": "ټوله دوره",
+      "openRegister": "راجستر پرانیزئ",
+      "noIssued": "تر اوسه صادر شوي بیلونه نشته.",
+      "noIssuedWithDrafts": "تر اوسه صادر شوي بیلونه نشته ({drafts} مسوده).",
+      "firstLatest": "لومړی بیل <mono>{first}</mono>، وروستی <mono>{latest}</mono>{drafts, plural, =0 {} one { · # مسوده} other { · # مسودې}}",
+      "lifetimeColumns": {
+        "currency": "اسعار",
+        "invoices": "بیلونه",
+        "billed": "بیل شوی",
+        "received": "ترلاسه شوی",
+        "credited": "کریډیټ شوی",
+        "outstanding": "پاتې",
+        "overdue": "ځنډېدلی"
+      },
+      "recentInvoices": "وروستي بیلونه",
+      "noInvoices": "تر اوسه د دې پېرېدونکي لپاره بیل نشته.",
+      "recentColumns": {
+        "number": "شمېره",
+        "issueDate": "د صدور نیټه",
+        "due": "سرسید",
+        "total": "ټولټال",
+        "balance": "پاتې",
+        "status": "حالت"
+      }
+    },
+    "form": {
+      "cardTitle": "پېرېدونکی",
+      "displayName": "ښودل شوی نوم",
+      "contactPerson": "د اړیکې کس",
+      "email": "برېښنالیک",
+      "phone": "تلیفون",
+      "taxIdType": "د مالیې ID ډول",
+      "taxIdTypeNone": "هیڅ",
+      "taxId": "د مالیې ID",
+      "currency": "اسعار",
+      "paymentTerms": "د تادیې شرطونه (ورځې)",
+      "expectedTdsRate": "متوقع TDS نرخ (%)",
+      "notes": "یادښتونه",
+      "billingAddress": "د بیل پته",
+      "shippingAddress": "د لېږد پته",
+      "differentFromBilling": "د بیل له پتې توپیر لري",
+      "save": "پېرېدونکی خوندي کړئ"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "ساعت",
+      "DAY": "ورځ",
+      "FIXED": "ټاکلی",
+      "MILESTONE": "پړاو",
+      "UNIT": "واحد"
+    },
+    "list": {
+      "activate": "فعال کړئ",
+      "deactivate": "غیر فعال کړئ",
+      "archiveDescription": "موجود بیل کرښې خپل کاپي شوي ارزښتونه ساتي.",
+      "deleteDescription": "یوازې هغه وخت شونی دی چې هېڅ بیل کرښه ورته اشاره نه کوي. که نه، آرشیف یې کړئ.",
+      "columns": {
+        "sku": "SKU",
+        "name": "نوم",
+        "unit": "واحد",
+        "rate": "نرخ",
+        "price": "بیه",
+        "currency": "اسعار",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "مالیه",
+        "status": "حالت"
+      }
+    },
+    "services": {
+      "title": "خدمتونه",
+      "description": "ستاسو کتلاګ. د خدمت غوره کول د هغه ارزښتونه د بیل کرښې ته کاپي کوي.",
+      "newService": "نوی خدمت",
+      "emptyTitle": "تر اوسه خدمتونه نشته",
+      "emptyDescription": "هغه څه اضافه کړئ چې پلورئ - ساعتي ډیزاین، ټاکلې فیس پړاو - د هغه د SAC/HSN کوډ او د مالیې نرخ سره.",
+      "addService": "خدمت اضافه کړئ",
+      "restoreTitle": "{name} بحال کړئ؟",
+      "archiveTitle": "{name} آرشیف کړئ؟",
+      "deleteTitle": "{name} ړنګ کړئ؟",
+      "editMetaTitle": "د خدمت سمون",
+      "editTitle": "د {name} سمون"
+    },
+    "products": {
+      "title": "محصولات",
+      "description": "هغه توکي چې پلورئ، هر یو له SKU سره. د محصول غوره کول د هغه ارزښتونه د بیل کرښې ته کاپي کوي.",
+      "newProduct": "نوی محصول",
+      "emptyTitle": "تر اوسه محصولات نشته",
+      "emptyDescription": "هغه توکي اضافه کړئ چې پلورئ، له SKU، HSN کوډ، د واحد بیې او د مالیې نرخ سره.",
+      "addProduct": "محصول اضافه کړئ",
+      "restoreTitle": "{sku} بحال کړئ؟",
+      "archiveTitle": "{sku} آرشیف کړئ؟",
+      "deleteTitle": "{sku} ړنګ کړئ؟",
+      "editMetaTitle": "د محصول سمون",
+      "editTitle": "د {sku} سمون"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "ځانګړی کوډ چې د کرښې د توضیح لاندې چاپیږي",
+      "name": "نوم",
+      "unit": "واحد",
+      "defaultRate": "ډیفالټ نرخ",
+      "unitPrice": "د واحد بیه",
+      "currency": "اسعار",
+      "sacHsnCode": "SAC / HSN کوډ",
+      "sacHsnHint": "په GST بیلونو کې اړین",
+      "hsnCode": "HSN کوډ",
+      "hsnHint": "د توکو لپاره په GST بیلونو کې اړین",
+      "defaultTaxRate": "ډیفالټ د مالیې نرخ (%)",
+      "description": "توضیح",
+      "descriptionHint": "د کرښې توضیح مخکې ډکوي",
+      "active": "فعال",
+      "serviceInactiveHint": "غیر فعال خدمتونه د بیل له انتخاب څخه بهر پاتې کیږي",
+      "productInactiveHint": "غیر فعال محصولات د بیل له انتخاب څخه بهر پاتې کیږي",
+      "saveService": "خدمت خوندي کړئ",
+      "saveProduct": "محصول خوندي کړئ"
+    },
+    "tags": {
+      "legend": "پروفایلونه",
+      "hint": "هغه د صادرونکي پروفایلونه نښه کړئ چې دا پلوري. د هر پروفایل لپاره د وړاندې کولو لپاره ټول بې نښې پرېږدئ."
+    }
+  },
+  "address": {
+    "line1": "د پتې لومړۍ کرښه",
+    "line2": "د پتې دویمه کرښه",
+    "city": "ښار",
+    "stateRegion": "ایالت / سیمه",
+    "postalCode": "پوستی کوډ",
+    "country": "هېواد",
+    "state": "ایالت",
+    "gstStateCodeHint": "د GST د ایالت کوډ {code}",
+    "pickStateHint": "د GST د ایالت کوډ لپاره ایالت وټاکئ",
+    "stateRegionCode": "د ایالت / سیمې کوډ",
+    "stateRegionCodePlaceholder": "مثلاً CA"
+  },
+  "assets": {
+    "tooLarge": "دا فایل ډېر لوی دی.",
+    "unsupportedReceipt": "PNG، JPEG، WebP انځور یا PDF وکاروئ.",
+    "unsupportedImage": "PNG، JPEG یا WebP انځور وکاروئ.",
+    "uploadFailed": "پورته کول ناکام شو.",
+    "uploading": "پورته کیږي…"
+  },
+  "ui": {
+    "breadcrumb": "د لارې نښه",
+    "close": "بندول",
+    "closeMenu": "مینو بنده کړئ",
+    "inputCharset": "یوازې معیاري کیبورډ توري اجازه لري.",
+    "confirm": {
+      "working": "کار روان دی…"
+    },
+    "statusPill": {
+      "DRAFT": "مسوده",
+      "ISSUED": "صادر شوی",
+      "SENT": "لېږل شوی",
+      "PARTIALLY_PAID": "په جزوي ډول تادیه شوی",
+      "PAID": "تادیه شوی",
+      "OVERDUE": "ځنډېدلی",
+      "VOID": "باطل"
+    },
+    "activePill": {
+      "active": "فعال",
+      "archived": "آرشیف شوی",
+      "inactive": "غیر فعال"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "یو څه ناسم شول.",
+    "fixFields": "مهرباني وکړئ روښانه شوې ساحې سمې کړئ.",
+    "accountSaved": "د حساب غوره توبونه خوندي شول",
+    "apiKeyCreated": "API کلیدي جوړ شو. همدا اوس یې کاپي کړئ: یوازې یو ځل ښودل کیږي.",
+    "saved": "{name} خوندي شو",
+    "savedProfile": "پروفایل {label} خوندي شو",
+    "clientArchived": "پېرېدونکی آرشیف شو",
+    "clientRestored": "پېرېدونکی بحال شو",
+    "clientDeleted": "پېرېدونکی ړنګ شو",
+    "productArchived": "محصول آرشیف شو",
+    "productRestored": "محصول بحال شو",
+    "productActivated": "محصول فعال شو",
+    "productDeactivated": "محصول غیر فعال شو",
+    "serviceArchived": "خدمت آرشیف شو",
+    "serviceRestored": "خدمت بحال شو",
+    "serviceActivated": "خدمت فعال شو",
+    "serviceDeactivated": "خدمت غیر فعال شو",
+    "defaultProfileUpdated": "ډیفالټ پروفایل تازه شو",
+    "profileArchived": "پروفایل آرشیف شو",
+    "profileRestored": "پروفایل بحال شو",
+    "profileDeleted": "پروفایل ړنګ شو",
+    "defaultPaymentMethodUpdated": "ډیفالټ د تادیې طریقه تازه شوه",
+    "paymentMethodArchived": "د تادیې طریقه آرشیف شوه",
+    "paymentMethodRestored": "د تادیې طریقه بحال شوه",
+    "paymentMethodDeleted": "د تادیې طریقه ړنګه شوه",
+    "issued": "{number} صادر شو",
+    "savedAsDraft": "د مسودې په توګه خوندي شو. {reason}",
+    "draftSaved": "مسوده خوندي شوه",
+    "invoiceVoided": "بیل باطل شو",
+    "originalVoided": "اصلي باطل شو؛ بدیل مسوده سمه کړئ",
+    "markedAsSent": "د لېږل شوي په توګه نښه شو",
+    "draftDeleted": "مسوده ړنګه شوه",
+    "generatedPdf": "د PDF {version} نسخه جوړه شوه",
+    "creditNoteVoided": "کریډیټ نوټ باطل شو؛ د بیل پاتې بېرته راغی",
+    "draftCreditNoteDeleted": "د مسودې کریډیټ نوټ ړنګ شو",
+    "mailRefused": "د میل سرور پیغام رد کړ: {error}. هڅه ثبت شوه.",
+    "unknownError": "نامعلومه تېروتنه",
+    "sentTo": "{recipients} ته ولېږل شو",
+    "smtpSaved": "SMTP تنظیمات خوندي شول",
+    "smtpRemoved": "خوندي SMTP تنظیمات لرې شول",
+    "testEmailSent": "ازموینه برېښنالیک {email} ته ولېږل شو",
+    "testFailed": "ازموینه ناکامه شوه: {error}",
+    "defaultRecipientsSaved": "ډیفالټ ترلاسه کوونکي خوندي شول",
+    "invitationSent": "بلنه ولېږل شوه",
+    "invitationReady": "بلنه چمتو ده",
+    "unknownRole": "نامعلوم رول",
+    "roleUpdated": "رول تازه شو",
+    "accountDeactivated": "حساب غیر فعال شو",
+    "accountReactivated": "حساب بیا فعال شو",
+    "invitationRevoked": "بلنه لغوه شوه",
+    "paymentUpdated": "تادیه تازه شوه",
+    "paymentRecorded": "تادیه ثبت شوه",
+    "paymentDeleted": "تادیه ړنګه شوه",
+    "sessionRevoked": "ناسته لغوه شوه",
+    "noOtherSessions": "نورې ناستې نشته",
+    "signedOutOthers": "له {count} نورو ناستو ووتل",
+    "sharePasswordRequired": "پټنوم ولیکئ، یا پرېږدئ چې جوړ شي.",
+    "shareLinkCreated": "د شریکولو لینک جوړ شو.",
+    "templateSaved": "کينډه خوندي شوه؛ راتلونکي سندونه یې کاروي",
+    "templateReset": "کينډه داخلي ډیفالټ ته بېرته وټاکل شوه",
+    "templateImported": "کينډه وارده شوه",
+    "profileTemplateCleared": "پروفایل بیا د انسټانس کينډه کاروي",
+    "operatorSaved": "د چلوونکي توضیحات خوندي شول. قانوني پاڼې اوس دا ښیي."
+  }
+}

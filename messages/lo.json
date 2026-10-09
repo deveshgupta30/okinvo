@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "ໜ້າຫຼັກ okinvo",
+    "save": "ບັນທຶກ",
+    "cancel": "ຍົກເລີກ",
+    "continue": "ສືບຕໍ່",
+    "saving": "ກຳລັງບັນທຶກ…",
+    "detect": "ກວດຫາ",
+    "yes": "ແມ່ນ",
+    "no": "ບໍ່",
+    "choose": "ເລືອກ…",
+    "remove": "ລຶບອອກ",
+    "tryAgain": "ລອງໃໝ່",
+    "dashboard": "ແດຊບອດ",
+    "goToDashboard": "ໄປທີ່ແດຊບອດ",
+    "or": "ຫຼື",
+    "invoice": "ໃບແຈ້ງໜີ້",
+    "creditNote": "ໃບຫັກໜີ້",
+    "downloadPdf": "ດາວໂຫຼດ PDF",
+    "edit": "ແກ້ໄຂ",
+    "delete": "ລຶບ",
+    "downloadDocx": "ດາວໂຫຼດ DOCX",
+    "none": "ບໍ່ມີ",
+    "dismiss": "ປິດ",
+    "all": "ທັງໝົດ",
+    "previous": "ກ່ອນໜ້າ",
+    "next": "ຖັດໄປ",
+    "go": "ໄປ",
+    "search": "ຄົ້ນຫາ",
+    "status": "ສະຖານະ",
+    "total": "ລວມ",
+    "currency": "ສະກຸນເງິນ",
+    "from": "ຈາກ",
+    "to": "ເຖິງ",
+    "reason": "ເຫດຜົນ",
+    "history": "ປະຫວັດ",
+    "archive": "ເກັບເຂົ້າຄັງ",
+    "restore": "ກູ້ຄືນ",
+    "showArchived": "ສະແດງລາຍການໃນຄັງ",
+    "hideArchived": "ເຊື່ອງລາຍການໃນຄັງ",
+    "archived": "ຢູ່ໃນຄັງ",
+    "default": "ຄ່າເລີ່ມຕົ້ນ",
+    "setDefault": "ຕັ້ງເປັນຄ່າເລີ່ມຕົ້ນ",
+    "revoke": "ຖອນ",
+    "copy": "ສຳເນົາ",
+    "copied": "ສຳເນົາແລ້ວ",
+    "active": "ໃຊ້ງານຢູ່",
+    "pagination": "ການແບ່ງໜ້າ",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "ແດຊບອດ",
+      "invoices": "ໃບແຈ້ງໜີ້",
+      "creditNotes": "ໃບຫັກໜີ້",
+      "clients": "ລູກຄ້າ",
+      "services": "ບໍລິການ",
+      "products": "ຜະລິດຕະພັນ"
+    },
+    "primaryNav": "ເມນູຫຼັກ",
+    "settings": "ການຕັ້ງຄ່າ",
+    "openMenu": "ເປີດເມນູ",
+    "navigation": "ການນຳທາງ",
+    "pagesAndAccount": "ໜ້າ ແລະ ບັນຊີ",
+    "collapseSidebar": "ຫຍໍ້ແຖບດ້ານຂ້າງ",
+    "collapseSidebarHint": "ຫຍໍ້ແຖບດ້ານຂ້າງ ([)",
+    "expandSidebar": "ຂະຫຍາຍແຖບດ້ານຂ້າງ",
+    "expandSidebarHint": "ຂະຫຍາຍແຖບດ້ານຂ້າງ ([)",
+    "theme": {
+      "label": "ຮູບແບບ",
+      "system": "ຕາມລະບົບ",
+      "light": "ສະຫວ່າງ",
+      "dark": "ມືດ",
+      "current": "ຮູບແບບ: {mode}",
+      "switchTo": "ຮູບແບບ: {mode}. ປ່ຽນເປັນ {next}"
+    },
+    "userMenu": {
+      "label": "ເມນູບັນຊີຂອງ {name}",
+      "profile": "ໂປຣໄຟລ໌",
+      "logOut": "ອອກຈາກລະບົບ"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "ເຂົ້າສູ່ລະບົບ",
+      "title": "ເຂົ້າສູ່ລະບົບ",
+      "subtitle": "ສະເພາະບັນຊີທີ່ຢູ່ໃນລາຍຊື່ອະນຸຍາດເທົ່ານັ້ນທີ່ເຂົ້າໄດ້.",
+      "failed": "ການເຂົ້າສູ່ລະບົບບໍ່ສຳເລັດ.",
+      "noMethod": "ຍັງບໍ່ໄດ້ຕັ້ງຄ່າວິທີເຂົ້າສູ່ລະບົບ. ກະລຸນາຕັ້ງຄູ່ຜູ້ໃຫ້ບໍລິການ ເຊັ່ນ <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code> ຫຼື <code>AUTH_PASSWORD_SIGNIN=true</code> ໃນ <code>.env</code>.",
+      "errors": {
+        "not_allowed": "ບັນຊີນັ້ນບໍ່ໄດ້ຮັບອະນຸຍາດໃນ instance ນີ້ ຫຼື ຖືກປິດການໃຊ້ງານແລ້ວ.",
+        "signin": "ການເຂົ້າສູ່ລະບົບບໍ່ສຳເລັດ. ກະລຸນາລອງໃໝ່."
+      }
+    },
+    "password": {
+      "name": "ຊື່",
+      "email": "ອີເມວ",
+      "password": "ລະຫັດຜ່ານ",
+      "signingIn": "ກຳລັງເຂົ້າສູ່ລະບົບ…",
+      "createAccount": "ສ້າງບັນຊີ",
+      "signIn": "ເຂົ້າສູ່ລະບົບ",
+      "haveAPassword": "ຂ້ອຍມີລະຫັດຜ່ານແລ້ວ",
+      "firstTime": "ມາຄັ້ງທຳອິດບໍ? ຕັ້ງລະຫັດຜ່ານ",
+      "failed": "ການເຂົ້າສູ່ລະບົບບໍ່ສຳເລັດ."
+    },
+    "social": {
+      "redirecting": "ກຳລັງປ່ຽນເສັ້ນທາງ…",
+      "continueWith": "ສືບຕໍ່ດ້ວຍ {provider}",
+      "failed": "ບໍ່ສາມາດເລີ່ມການເຂົ້າສູ່ລະບົບໄດ້."
+    },
+    "error": {
+      "metaTitle": "ຂໍ້ຜິດພາດການເຂົ້າສູ່ລະບົບ",
+      "title": "ການເຂົ້າສູ່ລະບົບບໍ່ສຳເລັດ",
+      "body": "ຜູ້ໃຫ້ບໍລິການຢືນຢັນຕົວຕົນສົ່ງຄ່າ <code>{value}</code> ກັບມາ. ຖ້າທີ່ຢູ່ຂອງທ່ານບໍ່ຢູ່ໃນລາຍຊື່ອະນຸຍາດຂອງ instance ນີ້ ກະລຸນາຂໍໃຫ້ເຈົ້າຂອງເພີ່ມໃຫ້.",
+      "back": "ກັບໄປໜ້າເຂົ້າສູ່ລະບົບ"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "ການຕັ້ງຄ່າ",
+      "profiles": "ໂປຣໄຟລ໌",
+      "paymentMethods": "ວິທີຊຳລະເງິນ",
+      "templates": "ແມ່ແບບ",
+      "email": "ອີເມວ",
+      "security": "ຄວາມປອດໄພ",
+      "users": "ຜູ້ໃຊ້",
+      "data": "ຂໍ້ມູນ",
+      "legal": "ກົດໝາຍ",
+      "account": "ບັນຊີ",
+      "appearance": "ຮູບລັກສະນະ",
+      "api": "API",
+      "status": "ສະຖານະ"
+    },
+    "account": {
+      "metaTitle": "ບັນຊີ",
+      "title": "ບັນຊີ",
+      "description": "ຮູບ ຊື່ ພາກພື້ນ ພາສາ ແລະ ເຂດເວລາຂອງທ່ານ.",
+      "photo": {
+        "title": "ຮູບພາບ",
+        "description": "ສະແດງໃນແຖບດ້ານຂ້າງ ແລະ ເມນູຜູ້ໃຊ້."
+      },
+      "form": {
+        "title": "ບັນຊີ",
+        "description": "ທ່ານປາກົດແນວໃດ ແລະ “ມື້ນີ້” ແມ່ນມື້ໃດ.",
+        "displayName": "ຊື່ທີ່ສະແດງ",
+        "signInEmail": "ອີເມວເຂົ້າສູ່ລະບົບ",
+        "signInEmailHint": "ຕົວຕົນຂອງທ່ານໃນ instance ນີ້; ແກ້ໄຂຢູ່ບ່ອນນີ້ບໍ່ໄດ້.",
+        "timezone": "ເຂດເວລາ",
+        "timezoneHint": "“ມື້ນີ້” ສຳລັບວັນອອກເອກະສານ ວັນຄົບກຳນົດ ແລະ ແດຊບອດ",
+        "regionTitle": "ພາກພື້ນ",
+        "regionDescription": "ຄ່າເລີ່ມຕົ້ນສຳລັບໂປຣໄຟລ໌ຜູ້ອອກເອກະສານໃໝ່ ແລະ ແດຊບອດ ຈົນກວ່າຈະມີໂປຣໄຟລ໌.",
+        "country": "ປະເທດ",
+        "currency": "ສະກຸນເງິນ",
+        "suggested": "ແນະນຳສຳລັບປະເທດນີ້:",
+        "language": "ພາສາ",
+        "languageHint": "ພາສາຂອງແອັບເອງ. ເອກະສານໃຊ້ locale ຂອງແຕ່ລະໂປຣໄຟລ໌.",
+        "machineTranslated": "ພາສານີ້ແປດ້ວຍເຄື່ອງ. ຍິນດີຮັບການແກ້ໄຂ: <link>ປັບປຸງໃນ GitHub</link>.",
+        "save": "ບັນທຶກຄ່າທີ່ຕັ້ງໄວ້"
+      },
+      "regions": {
+        "Africa": "ອາຟຣິກາ",
+        "Americas": "ອາເມຣິກາ",
+        "Asia": "ເອເຊຍ",
+        "Europe": "ເອີຣົບ",
+        "MiddleEast": "ຕາເວັນອອກກາງ",
+        "Oceania": "ໂອເຊຍເນຍ",
+        "Constructed": "ພາສາສ້າງຂຶ້ນ"
+      },
+      "privacy": {
+        "title": "ຄວາມເປັນສ່ວນຕົວ",
+        "description": "okinvo ຕັ້ງສະເພາະຄຸກກີ້ທີ່ຈຳເປັນຕໍ່ການເຮັດວຽກເທົ່ານັ້ນ. ບໍ່ມີການວິເຄາະ ບໍ່ມີການຕິດຕາມ.",
+        "cookiePolicy": "ນະໂຍບາຍຄຸກກີ້",
+        "showNoticeAgain": "ສະແດງແຈ້ງການຄຸກກີ້ອີກຄັ້ງ"
+      }
+    },
+    "avatar": {
+      "changePhoto": "ປ່ຽນຮູບ",
+      "addPhoto": "ເພີ່ມຮູບ",
+      "hint": "PNG, JPEG ຫຼື WebP. ສະແດງເປັນວົງມົນທຸກບ່ອນ; ທ່ານຂະຫຍາຍ ແລະ ຍ້າຍໄດ້ກ່ອນບັນທຶກ.",
+      "tooLarge": "ຮູບນັ້ນໃຫຍ່ເກີນໄປ.",
+      "uploadFailed": "ອັບໂຫຼດບໍ່ສຳເລັດ.",
+      "choose": "ເລືອກຮູບໂປຣໄຟລ໌",
+      "dialogTitle": "ຈັດຕຳແໜ່ງຮູບຂອງທ່ານ",
+      "dialogDescription": "ລາກເພື່ອຍ້າຍ ເລື່ອນ ຫຼື ຫຍິກນິ້ວເພື່ອຂະຫຍາຍ. ວົງມົນແມ່ນສິ່ງທີ່ທຸກຄົນເຫັນ.",
+      "zoom": "ຂະຫຍາຍ",
+      "save": "ບັນທຶກຮູບ"
+    },
+    "appearance": {
+      "metaTitle": "ຮູບລັກສະນະ",
+      "title": "ຮູບລັກສະນະ",
+      "description": "ຮູບແບບ ແລະ ສີເນັ້ນ ບັນທຶກໃນບັນຊີຂອງທ່ານ.",
+      "theme": {
+        "title": "ຮູບແບບ",
+        "description": "ຕາມລະບົບ ຫຼື ກຳນົດເປັນສະຫວ່າງ ຫຼື ມືດ.",
+        "label": "ຮູບແບບ",
+        "system": "ຕາມລະບົບ",
+        "systemHint": "ປ່ຽນຕາມລະບົບປະຕິບັດການຂອງທ່ານ",
+        "light": "ສະຫວ່າງ",
+        "lightHint": "ພື້ນຫຼັງສີຂາວ",
+        "dark": "ມືດ",
+        "darkHint": "ພື້ນຫຼັງເກືອບດຳ"
+      },
+      "accent": {
+        "title": "ສີເນັ້ນ",
+        "description": "ໃຊ້ກັບປຸ່ມຫຼັກ ວົງໂຟກັສ ແລະ ເຄື່ອງໝາຍໜ້າທີ່ໃຊ້ຢູ່. ສີມິ້ນຕ໌ກົງກັບເຄື່ອງໝາຍແບຣນ.",
+        "label": "ສີເນັ້ນ"
+      },
+      "accents": {
+        "mint": "ມິ້ນຕ໌",
+        "lavender": "ລາເວນເດີ",
+        "sky": "ຟ້າ",
+        "peach": "ສີພີຊ",
+        "butter": "ສີເນີຍ",
+        "rose": "ສີກຸຫຼາບ",
+        "sage": "ສີເຊຈ",
+        "lilac": "ສີມ່ວງອ່ອນ"
+      }
+    },
+    "profiles": {
+      "metaTitle": "ໂປຣໄຟລ໌ຜູ້ອອກເອກະສານ",
+      "title": "ໂປຣໄຟລ໌ຜູ້ອອກເອກະສານ",
+      "description": "ຕົວຕົນທາງກົດໝາຍທີ່ທ່ານອອກໃບແຈ້ງໜີ້. ໂປຣໄຟລ໌ເລີ່ມຕົ້ນຈະຖືກຕື່ມໃສ່ໃບແຈ້ງໜີ້ໃໝ່ລ່ວງໜ້າ.",
+      "breadcrumb": "ໂປຣໄຟລ໌",
+      "newProfile": "ໂປຣໄຟລ໌ໃໝ່",
+      "emptyTitle": "ຍັງບໍ່ມີໂປຣໄຟລ໌ຜູ້ອອກເອກະສານ",
+      "emptyDescription": "ສ້າງຕົວຕົນທີ່ທ່ານອອກໃບແຈ້ງໜີ້: ບຸກຄົນທີ່ມີ PAN ຫຼື ບໍລິສັດຂອງທ່ານ.",
+      "createProfile": "ສ້າງໂປຣໄຟລ໌",
+      "columns": {
+        "label": "ປ້າຍ",
+        "legalName": "ຊື່ທາງກົດໝາຍ",
+        "type": "ປະເພດ",
+        "country": "ປະເທດ",
+        "currency": "ສະກຸນເງິນ",
+        "regime": "ລະບອບພາສີ",
+        "status": "ສະຖານະ"
+      },
+      "types": {
+        "company": "ບໍລິສັດ",
+        "individual": "ບຸກຄົນ"
+      },
+      "makeDefaultTitle": "ຕັ້ງ {label} ເປັນຄ່າເລີ່ມຕົ້ນບໍ?",
+      "makeDefaultDescription": "ໃບແຈ້ງໜີ້ໃໝ່ຈະເລີ່ມຈາກໂປຣໄຟລ໌ນີ້.",
+      "restoreTitle": "ກູ້ຄືນ {label} ບໍ?",
+      "archiveTitle": "ເກັບ {label} ເຂົ້າຄັງບໍ?",
+      "archiveDescription": "ມັນຈະຫາຍໄປຈາກລາຍການເລືອກ; ໃບແຈ້ງໜີ້ທີ່ມີຢູ່ບໍ່ຖືກກະທົບ.",
+      "new": {
+        "metaTitle": "ໂປຣໄຟລ໌ຜູ້ອອກເອກະສານໃໝ່",
+        "title": "ໂປຣໄຟລ໌ຜູ້ອອກເອກະສານໃໝ່",
+        "prefilled": "ຕື່ມຈາກຄຳຕອບຂອງທ່ານ; ກວດທີ່ຢູ່ ແລະ ຂໍ້ມູນພາສີ ແລ້ວບັນທຶກ."
+      },
+      "edit": {
+        "metaTitle": "ແກ້ໄຂໂປຣໄຟລ໌ຜູ້ອອກເອກະສານ",
+        "template": "ແມ່ແບບ",
+        "deleteTitle": "ລຶບ {label} ບໍ?",
+        "deleteDescription": "ເຮັດໄດ້ສະເພາະເມື່ອບໍ່ມີໃບແຈ້ງໜີ້ ຫຼື ໃບຫັກໜີ້ອ້າງເຖິງໂປຣໄຟລ໌ນີ້. ຖ້າບໍ່ດັ່ງນັ້ນ ໃຫ້ເກັບເຂົ້າຄັງ."
+      },
+      "template": {
+        "metaTitle": "ແມ່ແບບໂປຣໄຟລ໌",
+        "title": "ແມ່ແບບສຳລັບ {label}",
+        "ownTemplate": "ແມ່ແບບຂອງຕົນເອງ",
+        "instanceTemplate": "ແມ່ແບບຂອງ instance",
+        "resetTitle": "ໃຊ້ແມ່ແບບຂອງ instance ອີກຄັ້ງບໍ?",
+        "resetDescription": "ການຕັ້ງຄ່າຂອງຕົນເອງຂອງໂປຣໄຟລ໌ນີ້ຖືກລຶບ; ເອກະສານທີ່ອອກແລ້ວບໍ່ຖືກກະທົບ.",
+        "useInstance": "ໃຊ້ແມ່ແບບຂອງ instance",
+        "usingInstanceTitle": "ກຳລັງໃຊ້ແມ່ແບບຂອງ instance",
+        "usingInstanceDescription": "ເອກະສານຈາກໂປຣໄຟລ໌ນີ້ເປັນໄປຕາມ ການຕັ້ງຄ່າ → ແມ່ແບບ. ເລືອກເພື່ອປັບແຕ່ງແຍກຕ່າງຫາກ.",
+        "customise": "ໃຊ້ແມ່ແບບອື່ນສຳລັບໂປຣໄຟລ໌ນີ້",
+        "openInstance": "ເປີດແມ່ແບບຂອງ instance"
+      },
+      "form": {
+        "identityTitle": "ຕົວຕົນ",
+        "identityDescription": "ໃບແຈ້ງໜີ້ນີ້ມາຈາກໃຜ.",
+        "type": "ປະເພດ",
+        "label": "ປ້າຍ",
+        "labelHint": "ສະແດງໃນລາຍການເລືອກເທົ່ານັ້ນ",
+        "legalName": "ຊື່ທາງກົດໝາຍ",
+        "tradeName": "ຊື່ການຄ້າ",
+        "designation": "ຕຳແໜ່ງ",
+        "email": "ອີເມວ",
+        "phone": "ໂທລະສັບ",
+        "website": "ເວັບໄຊ",
+        "addressTitle": "ທີ່ຢູ່",
+        "taxTitle": "ເລກປະຈຳຕົວພາສີ",
+        "taxDescription": "ສະເພາະອັນທີ່ໃຊ້ກັບທ່ານ; ການພິມຄວບຄຸມຕາມແຕ່ລະໃບແຈ້ງໜີ້.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "ເລກ VAT ສະຫະລາຊະອານາຈັກ",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "ເຂົ້າລະຫັດເວລາເກັບ",
+        "lutNumber": "ເລກ LUT",
+        "lutNumberHint": "ສຳລັບການສົ່ງອອກທີ່ບໍ່ມີ IGST",
+        "lutFiscalYear": "ປີງົບປະມານ LUT",
+        "lutFiscalYearHint": "ເຊັ່ນ 2026-27",
+        "defaultsTitle": "ຄ່າເລີ່ມຕົ້ນ",
+        "baseCurrency": "ສະກຸນເງິນຫຼັກ",
+        "locale": "locale ຂອງເອກະສານ",
+        "localeHint": "ຮູບແບບຕົວເລກ ແລະ ວັນທີໃນເອກະສານ",
+        "fiscalYearStart": "ປີງົບປະມານເລີ່ມໃນເດືອນ",
+        "months": {
+          "january": "ມັງກອນ",
+          "february": "ກຸມພາ",
+          "march": "ມີນາ",
+          "april": "ເມສາ",
+          "may": "ພຶດສະພາ",
+          "june": "ມິຖຸນາ",
+          "july": "ກໍລະກົດ",
+          "august": "ສິງຫາ",
+          "september": "ກັນຍາ",
+          "october": "ຕຸລາ",
+          "november": "ພະຈິກ",
+          "december": "ທັນວາ"
+        },
+        "taxRegime": "ລະບອບພາສີເລີ່ມຕົ້ນ",
+        "regimes": {
+          "indiaGst": "GST ອິນເດຍ",
+          "ukVat": "VAT ສະຫະລາຊະອານາຈັກ",
+          "usSalesTax": "ພາສີການຂາຍ ສະຫະລັດ",
+          "none": "ບໍ່ມີພາສີ"
+        },
+        "invoiceNumberFormat": "ຮູບແບບເລກໃບແຈ້ງໜີ້",
+        "invoiceNumberFormatHint": "ໂທເຄັນ: {tokens}",
+        "creditNoteNumberFormat": "ຮູບແບບເລກໃບຫັກໜີ້",
+        "tdsRate": "ອັດຕາ TDS ທີ່ຄາດໄວ້ (%)",
+        "tdsRateHint": "ເພື່ອຂໍ້ມູນ ພິມເປັນຍອດຫັກທີ່ຄາດໄວ້",
+        "defaultNotes": "ໝາຍເຫດເລີ່ມຕົ້ນ",
+        "defaultTerms": "ເງື່ອນໄຂເລີ່ມຕົ້ນ",
+        "printTitle": "ສິ່ງທີ່ພິມຕາມຄ່າເລີ່ມຕົ້ນ",
+        "printDescription": "ແຕ່ລະໃບແຈ້ງໜີ້ສຳເນົາຄ່າເຫຼົ່ານີ້ ແລະ ປ່ຽນແຍກກັນໄດ້.",
+        "emailTitle": "ອີເມວ",
+        "emailDescription": "ຄ່າເລີ່ມຕົ້ນສຳລັບຕົວຂຽນຂໍ້ຄວາມສົ່ງ. ຕົວແທນ: {placeholders}",
+        "emailCc": "CC ເລີ່ມຕົ້ນ",
+        "emailBcc": "BCC ເລີ່ມຕົ້ນ",
+        "commaSeparated": "ແຍກດ້ວຍເຄື່ອງໝາຍຈຸດ",
+        "invoiceSubject": "ຫົວຂໍ້ໃບແຈ້ງໜີ້",
+        "invoiceSubjectHint": "ປ່ອຍຫວ່າງເພື່ອໃຊ້ແມ່ແບບທີ່ມີມາໃຫ້",
+        "creditNoteSubject": "ຫົວຂໍ້ໃບຫັກໜີ້",
+        "invoiceBody": "ເນື້ອຫາໃບແຈ້ງໜີ້",
+        "creditNoteBody": "ເນື້ອຫາໃບຫັກໜີ້",
+        "artworkTitle": "ຮູບພາບ",
+        "artworkDescription": "PNG, JPEG ຫຼື WebP ບໍ່ເກີນ 2 MB; ລາຍເຊັນ ແລະ ຕາປະທັບຮັກສາຄວາມໂປ່ງໃສ.",
+        "logo": "ໂລໂກ້",
+        "signature": "ລາຍເຊັນ",
+        "stamp": "ຕາປະທັບ",
+        "transparentPng": "PNG ໂປ່ງໃສ",
+        "save": "ບັນທຶກໂປຣໄຟລ໌"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "ວິທີຊຳລະເງິນ",
+      "title": "ວິທີຊຳລະເງິນ",
+      "description": "ວິທີທີ່ລູກຄ້າຈ່າຍເງິນໃຫ້ທ່ານ. ລາຍລະອຽດຖືກເຂົ້າລະຫັດ ແລະ ຕິດຢູ່ໃນແຕ່ລະໃບແຈ້ງໜີ້ເມື່ອອອກ.",
+      "newMethod": "ວິທີໃໝ່",
+      "emptyTitle": "ຍັງບໍ່ມີວິທີຊຳລະເງິນ",
+      "emptyDescription": "ເພີ່ມບັນຊີທະນາຄານ UPI ID ຫຼື ກະເປົາເງິນ ເພື່ອໃຫ້ໃບແຈ້ງໜີ້ບອກລູກຄ້າວ່າຈ່າຍບ່ອນໃດ.",
+      "addMethod": "ເພີ່ມວິທີ",
+      "columns": {
+        "name": "ຊື່",
+        "type": "ປະເພດ",
+        "currency": "ສະກຸນເງິນ",
+        "status": "ສະຖານະ"
+      },
+      "types": {
+        "bankTransfer": "ໂອນເງິນທະນາຄານ",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "ກຳນົດເອງ"
+      },
+      "makeDefaultTitle": "ຕັ້ງ {name} ເປັນຄ່າເລີ່ມຕົ້ນບໍ?",
+      "restoreTitle": "ກູ້ຄືນ {name} ບໍ?",
+      "archiveTitle": "ເກັບ {name} ເຂົ້າຄັງບໍ?",
+      "archiveDescription": "ໃບແຈ້ງໜີ້ທີ່ອອກແລ້ວຍັງຮັກສາພາບບັນທຶກທີ່ພິມໄວ້.",
+      "new": {
+        "metaTitle": "ວິທີຊຳລະເງິນໃໝ່",
+        "title": "ວິທີຊຳລະເງິນໃໝ່"
+      },
+      "edit": {
+        "metaTitle": "ແກ້ໄຂວິທີຊຳລະເງິນ",
+        "title": "ແກ້ໄຂ {name}",
+        "deleteTitle": "ລຶບ {name} ບໍ?",
+        "deleteDescription": "ເຮັດໄດ້ສະເພາະເມື່ອບໍ່ມີໃບແຈ້ງໜີ້ ຫຼື ການຊຳລະອ້າງເຖິງ. ຖ້າບໍ່ດັ່ງນັ້ນ ໃຫ້ເກັບເຂົ້າຄັງ."
+      },
+      "form": {
+        "name": "ຊື່",
+        "nameHint": "ພິມເປັນຫົວຂໍ້ຂອງບລັອກການຊຳລະເງິນ",
+        "type": "ປະເພດ",
+        "currency": "ສະກຸນເງິນ",
+        "currencyHint": "ບໍ່ບັງຄັບ; ສະແດງເພື່ອອ້າງອີງເທົ່ານັ້ນ",
+        "anyCurrency": "ໃດກໍໄດ້",
+        "instructions": "ຄຳແນະນຳ",
+        "instructionsHint": "ພິມໃຕ້ລາຍລະອຽດ",
+        "isDefault": "ວິທີເລີ່ມຕົ້ນ",
+        "isDefaultDescription": "ເລືອກໄວ້ລ່ວງໜ້າໃນໃບແຈ້ງໜີ້ໃໝ່",
+        "isActive": "ໃຊ້ງານຢູ່",
+        "detailsTitle": "ລາຍລະອຽດ",
+        "detailsDescription": "ເຂົ້າລະຫັດເວລາເກັບ; ບັນທຶກພາບໄວ້ໃນແຕ່ລະໃບແຈ້ງໜີ້ເມື່ອອອກ.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "ຊື່ຜູ້ຮັບເງິນ",
+        "lines": "ແຖວ",
+        "linesHint": "ໜຶ່ງແຖວຕໍ່ໜຶ່ງລາຍການ ພິມຕາມທີ່ໃສ່",
+        "accountEmail": "ອີເມວ / ຊື່ບັນຊີ",
+        "bank": {
+          "accountHolder": "ເຈົ້າຂອງບັນຊີ",
+          "accountNumber": "ເລກບັນຊີ",
+          "bankName": "ຊື່ທະນາຄານ",
+          "branch": "ສາຂາ",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "ລະຫັດ routing / sort"
+        },
+        "save": "ບັນທຶກວິທີຊຳລະເງິນ"
+      }
+    },
+    "templates": {
+      "metaTitle": "ແມ່ແບບເອກະສານ",
+      "title": "ແມ່ແບບເອກະສານ",
+      "customised": "ປັບແຕ່ງແລ້ວ",
+      "builtIn": "ຄ່າເລີ່ມຕົ້ນທີ່ມີມາໃຫ້",
+      "description": "ໃບແຈ້ງໜີ້ ແລະ ໃບຫັກໜີ້ມີລັກສະນະແນວໃດ. ເອກະສານທີ່ອອກແລ້ວຍັງໃຊ້ແມ່ແບບທີ່ໃຊ້ຕອນອອກ.",
+      "resetTitle": "ຣີເຊັດເປັນຄ່າເລີ່ມຕົ້ນທີ່ມີມາໃຫ້ບໍ?",
+      "resetDescription": "ການປັບແຕ່ງຂອງທ່ານຖືກລຶບ; ເອກະສານທີ່ອອກແລ້ວບໍ່ຖືກກະທົບ.",
+      "reset": "ຣີເຊັດ",
+      "resetTrigger": "ຣີເຊັດເປັນຄ່າເລີ່ມຕົ້ນ",
+      "importTitle": "ນຳເຂົ້າ",
+      "importDescription": "ກູ້ຄືນການຕັ້ງຄ່າທີ່ສົ່ງອອກກ່ອນໜ້ານີ້.",
+      "overridesTitle": "ການແທນທີ່ຕາມໂປຣໄຟລ໌",
+      "overridesDescription": "ໂປຣໄຟລ໌ເລືອກໃຊ້ແມ່ແບບຂອງຕົນເອງໄດ້ຈາກໜ້າແກ້ໄຂຂອງມັນ.",
+      "noOverrides": "ທຸກໂປຣໄຟລ໌ໃຊ້ແມ່ແບບຂອງ instance.",
+      "import": {
+        "json": "JSON ແມ່ແບບ",
+        "jsonHint": "ວາງໄຟລ໌ທີ່ສ້າງຈາກ ສົ່ງອອກ JSON; ຄີທີ່ຂາດຈະໃຊ້ຄ່າເລີ່ມຕົ້ນ",
+        "importing": "ກຳລັງນຳເຂົ້າ…",
+        "submit": "ນຳເຂົ້າ"
+      },
+      "form": {
+        "templateTitle": "ແມ່ແບບ",
+        "templateDescription": "ມີແມ່ແບບໃນຕົວ 6 ແບບ; ການປັບແຕ່ງລຸ່ມນີ້ໃຊ້ກັບແບບທີ່ທ່ານເລືອກ.",
+        "templateGroup": "ແມ່ແບບ",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "ທັນສະໄໝ ໂປ່ງສະບາຍ ຕົວອັກສອນບໍ່ມີຫາງ ມີເສັ້ນສີເນັ້ນໃຕ້ສ່ວນຫົວ."
+          },
+          "classic": {
+            "name": "Classic",
+            "character": "ຕາຕະລາງມີກອບແບບດັ້ງເດີມ ຫົວຂໍ້ຕົວອັກສອນມີຫາງ ແລະ ຍອດລວມໃນກ່ອງ."
+          },
+          "compact": {
+            "name": "Compact",
+            "character": "ຮູບແບບແໜ້ນສຳລັບລາຍການຍາວ; ຕົວອັກສອນນ້ອຍກວ່າ ແລະ ມີເສັ້ນແບ່ງໜ້ອຍ."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "ງຽບສະຫງົບ ແລະ ກວ້າງຂວາງ: ບໍ່ມີເສັ້ນ ຫຼື ກ່ອງ ປ້າຍບາງ ແລະ ມີບ່ອນວ່າງຫຼາຍ."
+          },
+          "letterhead": {
+            "name": "Letterhead",
+            "character": "ໂລໂກ້ ແລະ ຊື່ຂອງທ່ານເທິງແຖບສີ ຫຼື ຮູບທີ່ຢູ່ເທິງສຸດຂອງທຸກໜ້າ."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "ສ່ວນຫົວເປັນແຖບສີ; ຄູ່ສັນຍາ ຫົວຕາຕະລາງ ແລະ ຍອດລວມເທິງພື້ນສີເນັ້ນອ່ອນ."
+          }
+        },
+        "paperTitle": "ກະດາດ ແລະ ຕົວອັກສອນ",
+        "paperSize": "ຂະໜາດກະດາດ",
+        "paperLetter": "Letter",
+        "margins": "ຂອບ",
+        "marginsNormal": "ປົກກະຕິ",
+        "marginsNarrow": "ແຄບ",
+        "headingFont": "ຟອນຕ໌ຫົວຂໍ້",
+        "bodyFont": "ຟອນຕ໌ເນື້ອຫາ",
+        "fontSans": "ບໍ່ມີຫາງ",
+        "fontSerif": "ມີຫາງ",
+        "tableStyle": "ຮູບແບບຕາຕະລາງ",
+        "tableRuled": "ມີເສັ້ນ",
+        "tableZebra": "ແຖບສະຫຼັບ",
+        "tablePlain": "ທຳມະດາ",
+        "accentColour": "ສີເນັ້ນ",
+        "textColour": "ສີຕົວອັກສອນ",
+        "logoPosition": "ຕຳແໜ່ງໂລໂກ້",
+        "positionLeft": "ຊ້າຍ",
+        "positionCentre": "ກາງ",
+        "positionRight": "ຂວາ",
+        "logoHeight": "ຄວາມສູງໂລໂກ້ (mm)",
+        "documentTitle": "ຫົວຂໍ້ເອກະສານ",
+        "titleAuto": "ອັດຕະໂນມັດ (ຕາມ GST)",
+        "titleCustom": "ກຳນົດເອງ",
+        "titlePlaceholder": "ເຊັ່ນ PROFORMA INVOICE",
+        "qrPosition": "ຕຳແໜ່ງ QR",
+        "qrFooter": "ສ່ວນທ້າຍ",
+        "qrHeader": "ສ່ວນຫົວ",
+        "qrBesideTotals": "ຂ້າງຍອດລວມ",
+        "amountInWords": "ຈຳນວນເງິນເປັນຕົວໜັງສື",
+        "wordsBelowTotal": "ໃຕ້ຍອດລວມ",
+        "wordsFooter": "ສ່ວນທ້າຍ",
+        "wordsHidden": "ເຊື່ອງ",
+        "subtotalRow": "ແຖວຍອດລວມຍ່ອຍ",
+        "discountRow": "ແຖວສ່ວນຫຼຸດ",
+        "taxLines": "ແຖວພາສີ",
+        "tdsExpected": "TDS ທີ່ຄາດໄວ້",
+        "roundingRow": "ແຖວການປັດເສດ",
+        "pageNumbers": "ເລກໜ້າ",
+        "headerTitle": "ສ່ວນຫົວ",
+        "headerDescription": "ແຖບສີ ຫຼື ຮູບທີ່ຢູ່ເທິງສຸດຂອງທຸກໜ້າ. Letterhead ແລະ Modern ສະແດງແຖບ ເວັ້ນແຕ່ທ່ານເລືອກຢ່າງອື່ນ.",
+        "headerStyle": "ຮູບແບບສ່ວນຫົວ",
+        "headerNone": "ບໍ່ມີ",
+        "headerBand": "ແຖບສີ",
+        "headerImage": "ຮູບພາບ",
+        "bandColour": "ສີແຖບ",
+        "bandColourHex": "ສີແຖບ (hex)",
+        "headerImageLabel": "ຮູບສ່ວນຫົວ",
+        "headerImageHint": "PNG, JPEG ຫຼື WebP ກວ້າງບໍ່ເກີນ 2400 px; ກວມເຕັມຄວາມກວ້າງໜ້າ.",
+        "imageOpacity": "ຄວາມທຶບຂອງຮູບ",
+        "headerHeight": "ຄວາມສູງສ່ວນຫົວ (mm)",
+        "bandText": "ຂໍ້ຄວາມເທິງແຖບ",
+        "bandTextAuto": "ອັດຕະໂນມັດ (ຕາມສີແຖບ)",
+        "bandTextLight": "ສະຫວ່າງ",
+        "bandTextDark": "ມືດ",
+        "textTitle": "ຂໍ້ຄວາມ",
+        "headerNote": "ໝາຍເຫດສ່ວນຫົວ",
+        "footer": "ສ່ວນທ້າຍ",
+        "signatureCaption": "ຄຳອະທິບາຍລາຍເຊັນ",
+        "draftWatermark": "ລາຍນ້ຳສະບັບຮ່າງ",
+        "labelsTitle": "ປ້າຍ",
+        "labelsDescription": "ປ່ອຍຊ່ອງໃດໜຶ່ງຫວ່າງເພື່ອຮັກສາຖ້ອຍຄຳເລີ່ມຕົ້ນ.",
+        "save": "ບັນທຶກແມ່ແບບ",
+        "downloadSample": "ດາວໂຫຼດ PDF ຕົວຢ່າງ",
+        "exportJson": "ສົ່ງອອກ JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "ອີເມວ",
+      "title": "ອີເມວ",
+      "configuredSettings": "ຕັ້ງຄ່າໃນການຕັ້ງຄ່າ",
+      "configuredEnv": "ຕັ້ງຄ່າໂດຍສະພາບແວດລ້ອມ",
+      "notConfigured": "ຍັງບໍ່ໄດ້ຕັ້ງຄ່າ: ໃຊ້ແອັບອີເມວ",
+      "description": "ເອກະສານຖືກສົ່ງຈາກຕົວຂຽນຂໍ້ຄວາມພ້ອມແນບ PDF ທີ່ເກັບໄວ້. ການຕັ້ງຄ່າຢູ່ນີ້ແທນທີ່ SMTP_* ໃນສະພາບແວດລ້ອມ.",
+      "sendTest": "ສົ່ງອີເມວທົດສອບໄປ {email}",
+      "removeTitle": "ລຶບການຕັ້ງຄ່າ SMTP ທີ່ເກັບໄວ້ບໍ?",
+      "removeEnvTakesOver": "ຄ່າ SMTP_* ຂອງສະພາບແວດລ້ອມຈະເຂົ້າມາແທນ.",
+      "removeFallsBack": "ອີເມວຈະກັບໄປໃຊ້ແອັບອີເມວ.",
+      "removeTrigger": "ລຶບການຕັ້ງຄ່າທີ່ເກັບໄວ້",
+      "smtpTitle": "ເຊີບເວີ SMTP",
+      "smtpFromEnv": "ປັດຈຸບັນເອົາຈາກສະພາບແວດລ້ອມ; ການບັນທຶກຢູ່ນີ້ຈະແທນທີ່ມັນ.",
+      "smtpPasswordNote": "ລະຫັດຜ່ານຖືກເຂົ້າລະຫັດເວລາເກັບ ແລະ ຈະບໍ່ສະແດງອີກ.",
+      "defaultsTitle": "ຜູ້ຮັບເລີ່ມຕົ້ນ",
+      "defaultsDescription": "CC/BCC ທັງ instance; ໂປຣໄຟລ໌ຜູ້ອອກເອກະສານເພີ່ມຂອງຕົນເອງ.",
+      "sentTitle": "ອີເມວທີ່ສົ່ງແລ້ວ",
+      "sentDescription": "50 ຄັ້ງລ່າສຸດ ລວມທັງຄັ້ງທີ່ບໍ່ສຳເລັດ ແລະ ການສົ່ງດ້ວຍມື.",
+      "smtp": {
+        "host": "ໂຮສ",
+        "port": "ພອດ",
+        "security": "ຄວາມປອດໄພ",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "ບໍ່ມີ (LAN relay)",
+        "user": "ຊື່ຜູ້ໃຊ້",
+        "password": "ລະຫັດຜ່ານ",
+        "passwordStored": "ເກັບ ແລະ ເຂົ້າລະຫັດແລ້ວ; ປ່ອຍຫວ່າງເພື່ອຮັກສາໄວ້",
+        "passwordEncrypted": "ເຂົ້າລະຫັດເວລາເກັບ",
+        "from": "ທີ່ຢູ່ຜູ້ສົ່ງ",
+        "fromName": "ຊື່ຜູ້ສົ່ງ",
+        "replyTo": "ທີ່ຢູ່ຕອບກັບ",
+        "save": "ບັນທຶກການຕັ້ງຄ່າ SMTP"
+      },
+      "defaults": {
+        "cc": "CC ເລີ່ມຕົ້ນ",
+        "ccHint": "ເພີ່ມໃສ່ທຸກຕົວຂຽນຂໍ້ຄວາມ; ແຍກດ້ວຍເຄື່ອງໝາຍຈຸດ",
+        "bcc": "BCC ເລີ່ມຕົ້ນ",
+        "save": "ບັນທຶກຄ່າເລີ່ມຕົ້ນ"
+      }
+    },
+    "security": {
+      "metaTitle": "ຄວາມປອດໄພ",
+      "title": "ຄວາມປອດໄພ",
+      "description": "ບ່ອນທີ່ທ່ານເຂົ້າສູ່ລະບົບ ແລະ ທຸກສິ່ງທີ່ປ່ຽນແປງ.",
+      "sessions": {
+        "title": "ເຊດຊັນທີ່ໃຊ້ງານຢູ່",
+        "description": "ການຖອນເຊດຊັນຈະອອກຈາກລະບົບອຸປະກອນນັ້ນທັນທີ.",
+        "signOutOthers": {
+          "title": "ອອກຈາກລະບົບບ່ອນອື່ນທັງໝົດບໍ?",
+          "description": "ທຸກເຊດຊັນຍົກເວັ້ນອັນນີ້ຖືກຖອນ.",
+          "confirm": "ອອກຈາກລະບົບເຊດຊັນອື່ນ",
+          "trigger": "ອອກຈາກລະບົບບ່ອນອື່ນທັງໝົດ"
+        },
+        "columns": {
+          "device": "ອຸປະກອນ",
+          "ipAddress": "ທີ່ຢູ່ IP",
+          "signedIn": "ເຂົ້າສູ່ລະບົບເມື່ອ",
+          "lastSeen": "ເຫັນຫຼ້າສຸດ",
+          "expires": "ໝົດອາຍຸ"
+        },
+        "thisDevice": "ອຸປະກອນນີ້",
+        "revokeTitle": "ຖອນເຊດຊັນນີ້ບໍ?",
+        "unknownDevice": "ອຸປະກອນທີ່ບໍ່ຮູ້ຈັກ",
+        "unknownBrowser": "ບໍ່ຮູ້ຈັກ",
+        "agentOnOs": "{browser} ໃນ {os}"
+      },
+      "audit": {
+        "title": "ບັນທຶກການກວດສອບ",
+        "count": "{count, plural, other {# ເຫດການ}}",
+        "entity": "ເອນທິຕີ",
+        "actionContains": "ການກະທຳມີຄຳວ່າ",
+        "filter": "ກັ່ນຕອງ",
+        "reset": "ຣີເຊັດ",
+        "columns": {
+          "when": "ເວລາ",
+          "who": "ໃຜ",
+          "action": "ການກະທຳ",
+          "entity": "ເອນທິຕີ",
+          "summary": "ສະຫຼຸບ"
+        },
+        "empty": "ບໍ່ມີເຫດການທີ່ກົງກັບຕົວກັ່ນຕອງເຫຼົ່ານີ້.",
+        "system": "ລະບົບ",
+        "changes": "ການປ່ຽນແປງ",
+        "page": "ໜ້າ {page} ຈາກ {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "ຜູ້ໃຊ້",
+      "title": "ຜູ້ໃຊ້",
+      "description": "ໃຜສາມາດເຂົ້າສູ່ລະບົບ instance ນີ້ ແລະ ເຂົາເຈົ້າເຮັດຫຍັງໄດ້.",
+      "roles": {
+        "owner": "ເຈົ້າຂອງ",
+        "editor": "ຜູ້ແກ້ໄຂ",
+        "viewer": "ຜູ້ເບິ່ງ"
+      },
+      "roleHints": {
+        "owner": "ທຸກຢ່າງ ລວມທັງການຕັ້ງຄ່າ ແລະ ສະມາຊິກ",
+        "editor": "ລູກຄ້າ ລາຍການສິນຄ້າ ໃບແຈ້ງໜີ້ ໃບຫັກໜີ້ ການຊຳລະ ອີເມວ",
+        "viewer": "ອ່ານໄດ້ຢ່າງດຽວ"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "ບົດບາດຂອງ {email}",
+      "invite": {
+        "title": "ເຊີນຄົນ",
+        "description": "ເຂົາເຈົ້າເຂົ້າສູ່ລະບົບດ້ວຍທີ່ຢູ່ທີ່ຖືກເຊີນ (ຜູ້ໃຫ້ບໍລິການຢືນຢັນຕົວຕົນ ຫຼື ລະຫັດຜ່ານ) ແລະ ໄດ້ຮັບບົດບາດທີ່ທ່ານເລືອກ.",
+        "sent": "ສົ່ງຄຳເຊີນໄປ {email} ທາງອີເມວແລ້ວ.",
+        "readyWithError": "ຄຳເຊີນສຳລັບ {email} ພ້ອມແລ້ວ. ສົ່ງອີເມວບໍ່ໄດ້ ({error}); ສົ່ງລິ້ງນີ້ໃຫ້ເຂົາເຈົ້າ:",
+        "readyNoSmtp": "ຄຳເຊີນສຳລັບ {email} ພ້ອມແລ້ວ. ຍັງບໍ່ໄດ້ຕັ້ງຄ່າ SMTP; ສົ່ງລິ້ງນີ້ໃຫ້ເຂົາເຈົ້າ:",
+        "copyLink": "ສຳເນົາລິ້ງ",
+        "email": "ອີເມວ",
+        "emailPlaceholder": "person@example.com",
+        "role": "ບົດບາດ",
+        "submit": "ເຊີນ",
+        "inviting": "ກຳລັງເຊີນ…"
+      },
+      "members": {
+        "title": "ສະມາຊິກ",
+        "description": "ຈະມີເຈົ້າຂອງທີ່ໃຊ້ງານຢູ່ຢ່າງໜ້ອຍໜຶ່ງຄົນສະເໝີ.",
+        "columns": {
+          "person": "ບຸກຄົນ",
+          "role": "ບົດບາດ",
+          "lastSignIn": "ເຂົ້າສູ່ລະບົບຫຼ້າສຸດ",
+          "status": "ສະຖານະ"
+        },
+        "nameYou": "{name} (ທ່ານ)",
+        "deactivated": "ປິດການໃຊ້ງານແລ້ວ",
+        "reactivate": {
+          "title": "ເປີດໃຊ້ງານ {email} ອີກຄັ້ງບໍ?",
+          "description": "ເຂົາເຈົ້າເຂົ້າສູ່ລະບົບໄດ້ອີກດ້ວຍບົດບາດເດີມ.",
+          "confirm": "ເປີດໃຊ້ງານອີກຄັ້ງ"
+        },
+        "deactivate": {
+          "title": "ປິດການໃຊ້ງານ {email} ບໍ?",
+          "description": "ທຸກເຊດຊັນສິ້ນສຸດດຽວນີ້ ແລະ ເຂົາເຈົ້າເຂົ້າສູ່ລະບົບບໍ່ໄດ້ຈົນກວ່າຈະເປີດໃຊ້ງານອີກ. ປະຫວັດຍັງຢູ່.",
+          "confirm": "ປິດການໃຊ້ງານ"
+        }
+      },
+      "invitations": {
+        "title": "ຄຳເຊີນທີ່ລໍຖ້າ",
+        "description": "ທີ່ຢູ່ທີ່ເຂົ້າສູ່ລະບົບໄດ້ ແຕ່ຍັງບໍ່ໄດ້ເຂົ້າ.",
+        "columns": {
+          "email": "ອີເມວ",
+          "role": "ບົດບາດ",
+          "invited": "ເຊີນເມື່ອ"
+        },
+        "empty": "ບໍ່ມີຄຳເຊີນທີ່ລໍຖ້າ.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "ຖອນຄຳເຊີນສຳລັບ {email} ບໍ?"
+      }
+    },
+    "data": {
+      "metaTitle": "ຂໍ້ມູນ",
+      "title": "ຂໍ້ມູນ",
+      "description": "ທຸກຢ່າງຍ້າຍໄດ້: ຊຸດຂໍ້ມູນເປັນ CSV ຫຼື Excel ສຳເນົາເຕັມສຳລັບການຍ້າຍ PDF ສຳລັບນັກບັນຊີຂອງທ່ານ ແລະ ຂັ້ນຕອນສຳຮອງຂໍ້ມູນທີ່ທົດສອບແລ້ວ.",
+      "period": {
+        "fiscalYear": "ປີງົບປະມານ",
+        "fiscalYearHint": "ແທນທີ່ວັນທີ",
+        "issuer": "ຜູ້ອອກເອກະສານ"
+      },
+      "exportAll": {
+        "title": "ສົ່ງອອກຂໍ້ມູນທັງໝົດ",
+        "description": "ZIP ທີ່ມີທຸກຊຸດຂໍ້ມູນເປັນ CSV ພ້ອມ <mono>data.json</mono> ເປັນພາບບັນທຶກແບບຄວາມສຳພັນຂອງທຸກຕາຕະລາງ. ຊ່ອງທີ່ເຂົ້າລະຫັດ (ລາຍລະອຽດວິທີຊຳລະເງິນ ລະຫັດຜ່ານ SMTP) ບໍ່ລວມ; README ພາຍໃນລະບຸລາຍການ.",
+        "download": "ດາວໂຫຼດ okinvo-data ZIP"
+      },
+      "exportDocuments": {
+        "title": "ສົ່ງອອກເອກະສານ",
+        "description": "PDF ໃບແຈ້ງໜີ້ ແລະ ໃບຫັກໜີ້ທີ່ອອກ ແລະ ຍົກເລີກທັງໝົດສຳລັບໄລຍະໜຶ່ງ ຕັ້ງຊື່ຕາມເລກ ພ້ອມ <mono>index.csv</mono> ຂອງເລກ ຍອດລວມ ແລະ hash. PDF ທີ່ຂາດຈະຖືກສ້າງຕາມທາງ.",
+        "docx": "ລວມສຳເນົາ DOCX ຂອງທຸກເອກະສານດ້ວຍ",
+        "download": "ດາວໂຫຼດ ZIP ເອກະສານ"
+      },
+      "datasets": {
+        "title": "ຊຸດຂໍ້ມູນ",
+        "description": "ການສົ່ງອອກດຽວກັບທີ່ໜ້າລາຍການມີໃຫ້ ໂດຍໃຊ້ໄລຍະເວລາ ແລະ ຜູ້ອອກເອກະສານກັບທັງໝົດ. ການຊຳລະໃຊ້ຂອບເຂດວັນທີ; ລູກຄ້າ ແລະ ບໍລິການບໍ່ສົນໄລຍະເວລາ.",
+        "columns": {
+          "dataset": "ຊຸດຂໍ້ມູນ",
+          "filters": "ຕົວກັ່ນຕອງທີ່ໃຊ້",
+          "download": "ດາວໂຫຼດ"
+        },
+        "names": {
+          "invoices": "ທະບຽນໃບແຈ້ງໜີ້",
+          "invoiceItems": "ລາຍການໃນໃບແຈ້ງໜີ້",
+          "payments": "ບັນຊີການຊຳລະ",
+          "creditNotes": "ທະບຽນໃບຫັກໜີ້",
+          "clients": "ລູກຄ້າ",
+          "services": "ບໍລິການ",
+          "gstSummary": "ສະຫຼຸບ GST",
+          "tdsSummary": "ສະຫຼຸບ TDS"
+        },
+        "filters": {
+          "periodIssuer": "ໄລຍະເວລາ ຜູ້ອອກເອກະສານ",
+          "dateRangeIssuer": "ຂອບເຂດວັນທີ ຜູ້ອອກເອກະສານ",
+          "includesArchived": "ລວມລາຍການໃນຄັງ"
+        }
+      },
+      "backups": {
+        "title": "ການສຳຮອງຂໍ້ມູນ",
+        "notWired": "ບໍ່ໄດ້ເຊື່ອມຕໍ່ບໍລິການສຳຮອງຂໍ້ມູນ",
+        "noRun": "ຍັງບໍ່ມີການສຳຮອງຂໍ້ມູນທີ່ເຮັດວຽກ",
+        "lastOk": "ການສຳຮອງຂໍ້ມູນຄັ້ງຫຼ້າສຸດສຳເລັດ",
+        "lastFailed": "ການສຳຮອງຂໍ້ມູນຄັ້ງຫຼ້າສຸດບໍ່ສຳເລັດ",
+        "description": "ບໍລິການ <mono>backup</mono> ຂອງ Compose ດຳ Postgres ແລະ ເກັບ volume ການຈັດເກັບຕາມ <mono>BACKUP_CRON</mono> ເກັບປະຫວັດ <mono>BACKUP_RETENTION_DAYS</mono> ໃນ volume <mono>backups</mono> ແລະ ຂຽນໄຟລ໌ສະຖານະທີ່ໜ້ານີ້ອ່ານ.",
+        "finished": "ສຳເລັດເມື່ອ",
+        "databaseDump": "ໄຟລ໌ດຳຖານຂໍ້ມູນ",
+        "storageArchive": "ຄັງການຈັດເກັບ",
+        "size": "ຂະໜາດ",
+        "sizeMb": "{size} MB",
+        "error": "ຂໍ້ຜິດພາດ",
+        "runNow": "ເຮັດໜຶ່ງຄັ້ງດຽວນີ້ ຫຼື ກູ້ຄືນຈາກຄູ່ໄຟລ໌:",
+        "restoreDrill": "ຂັ້ນຕອນການກູ້ຄືນຖືກທົດສອບໃນ CI ໂດຍ <mono>scripts/restore-drill.sh</mono>: ໃສ່ຂໍ້ມູນ ສຳຮອງ ລຶບ ກູ້ຄືນ ແລ້ວປຽບທຽບຈຳນວນແຖວ ແລະ hash ຂອງ PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "ກົດໝາຍ",
+      "metaDescription": "ຜູ້ດຳເນີນງານ instance ນີ້: ລາຍລະອຽດທີ່ພິມໃນໜ້າກົດໝາຍສາທາລະນະ.",
+      "title": "ກົດໝາຍ",
+      "description": "ໜ້າກົດໝາຍສາທາລະນະພິມລາຍລະອຽດເຫຼົ່ານີ້. ຈົນກວ່າຈະຕື່ມທຸກຊ່ອງ ໜ້າຈະສະແດງຕົວແທນທີ່ໄຮໄລຕ໌.",
+      "operator": {
+        "title": "ລາຍລະອຽດຜູ້ດຳເນີນງານ",
+        "complete": "ຄົບຖ້ວນ",
+        "missing": "ຂາດ {count}: {fields}",
+        "description": "ທ່ານ ໃນຖານະບຸກຄົນ ຫຼື ບໍລິສັດທີ່ດຳເນີນງານ instance ນີ້ ແມ່ນຜູ້ດຳເນີນງານທີ່ເອກະສານອ້າງເຖິງ. ບໍ່ມີຫຍັງຢູ່ນີ້ຖືກສົ່ງໄປບ່ອນໃດ; ມັນຖືກພິມໃນໜ້າລຸ່ມນີ້."
+      },
+      "fieldLabels": {
+        "legalName": "ຊື່ທາງກົດໝາຍຂອງຜູ້ດຳເນີນງານ",
+        "entityType": "ປະເພດນິຕິບຸກຄົນ",
+        "address": "ທີ່ຢູ່ຜູ້ດຳເນີນງານ",
+        "country": "ປະເທດຂອງຜູ້ດຳເນີນງານ",
+        "contactEmail": "ອີເມວຕິດຕໍ່",
+        "privacyEmail": "ອີເມວຄວາມເປັນສ່ວນຕົວ",
+        "dpoEmail": "ອີເມວເຈົ້າໜ້າທີ່ປົກປ້ອງຂໍ້ມູນ",
+        "governingLaw": "ກົດໝາຍທີ່ໃຊ້ບັງຄັບ",
+        "venue": "ສະຖານທີ່ແກ້ຂໍ້ຂັດແຍ່ງ",
+        "effectiveDate": "ວັນທີມີຜົນ"
+      },
+      "publicPages": {
+        "title": "ໜ້າສາທາລະນະ",
+        "description": "ລິ້ງຈາກໜ້າເຂົ້າສູ່ລະບົບ ຕົວເບິ່ງການແບ່ງປັນ ແລະ ແຈ້ງການຄຸກກີ້.",
+        "terms": "ເງື່ອນໄຂການໃຫ້ບໍລິການ",
+        "acceptableUse": "ນະໂຍບາຍການໃຊ້ງານທີ່ຍອມຮັບໄດ້",
+        "privacy": "ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ",
+        "cookies": "ນະໂຍບາຍຄຸກກີ້",
+        "dataRetention": "ການເກັບຮັກສາຂໍ້ມູນ",
+        "security": "ຄວາມປອດໄພ",
+        "licenses": "ໃບອະນຸຍາດ ແລະ ແຈ້ງການຂອງບຸກຄົນທີສາມ"
+      },
+      "form": {
+        "legalName": "ຊື່ທາງກົດໝາຍ",
+        "entityType": "ປະເພດນິຕິບຸກຄົນ",
+        "individual": "ບຸກຄົນ / ເຈົ້າຂອງກິດຈະການຄົນດຽວ",
+        "company": "ບໍລິສັດ / ນິຕິບຸກຄົນທີ່ຈົດທະບຽນ",
+        "address": "ທີ່ຢູ່",
+        "addressHint": "ພິມໃນເງື່ອນໄຂ ແລະ ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວເປັນທີ່ຢູ່ໄປສະນີຂອງຜູ້ດຳເນີນງານ.",
+        "country": "ປະເທດ",
+        "effectiveDate": "ວັນທີມີຜົນ",
+        "contactEmail": "ອີເມວຕິດຕໍ່",
+        "privacyEmail": "ອີເມວຄວາມເປັນສ່ວນຕົວ",
+        "privacyEmailHint": "ບ່ອນທີ່ຄຳຮ້ອງຂອງເຈົ້າຂອງຂໍ້ມູນໄປເຖິງ; ອາດເປັນທີ່ຢູ່ຕິດຕໍ່.",
+        "dpoEmail": "ອີເມວເຈົ້າໜ້າທີ່ປົກປ້ອງຂໍ້ມູນ",
+        "dpoEmailHint": "ສະເພາະເມື່ອທ່ານແຕ່ງຕັ້ງແລ້ວ.",
+        "governingLaw": "ກົດໝາຍທີ່ໃຊ້ບັງຄັບ",
+        "governingLawHint": "ຕົວຢ່າງ “ກົດໝາຍຂອງອິນເດຍ” ຫຼື “ກົດໝາຍຂອງອັງກິດ ແລະ ເວວສ໌”.",
+        "venue": "ສະຖານທີ່ແກ້ຂໍ້ຂັດແຍ່ງ",
+        "venueHint": "ຕົວຢ່າງ “ສານຂອງ Bengaluru, Karnataka”.",
+        "submit": "ບັນທຶກລາຍລະອຽດຜູ້ດຳເນີນງານ"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "ກະແຈ API ສຳລັບສະຄຣິບ SDK ແລະ ໄຄລເອັນ MCP ພ້ອມຕົວຢ່າງ curl.",
+      "title": "API",
+      "description": "ກະແຈສຳລັບສະຄຣິບ SDK ແລະ ໄຄລເອັນ MCP. ກະແຈເຮັດໄດ້ຫຼາຍສຸດເທົ່າທີ່ບົດບາດຂອງທ່ານເຮັດໄດ້; ສະແດງຄັ້ງດຽວເທົ່ານັ້ນ.",
+      "create": {
+        "title": "ສ້າງກະແຈ",
+        "description": "ສົ່ງເປັນ <mono>Authorization: Bearer okv_…</mono>. ຢ່າໃສ່ໃນໂຄດຕົ້ນສະບັບ ແລະ ບັນທຶກການສົນທະນາ; ຖອນມັນຂ້າງລຸ່ມຖ້າຮົ່ວໄຫຼ."
+      },
+      "keys": {
+        "title": "ກະແຈ",
+        "descriptionOwner": "ທຸກກະແຈຂອງ instance ນີ້; ເຈົ້າຂອງຖອນກະແຈໃດກໍໄດ້.",
+        "descriptionOwn": "ກະແຈຂອງທ່ານ.",
+        "columns": {
+          "name": "ຊື່",
+          "prefix": "ຄຳນຳໜ້າ",
+          "scopes": "ຂອບເຂດ",
+          "owner": "ເຈົ້າຂອງ",
+          "lastUsed": "ໃຊ້ຫຼ້າສຸດ",
+          "expires": "ໝົດອາຍຸ",
+          "status": "ສະຖານະ"
+        },
+        "empty": "ຍັງບໍ່ມີກະແຈ API.",
+        "never": "ບໍ່ເຄີຍ",
+        "revoked": "ຖອນແລ້ວ",
+        "expired": "ໝົດອາຍຸແລ້ວ",
+        "revokeTitle": "ຖອນ {name} ບໍ?",
+        "revokeDescription": "ໄຄລເອັນທີ່ໃຊ້ກະແຈນີ້ຈະຢຸດເຮັດວຽກທັນທີ.",
+        "activeCount": "{count, plural, other {ກະແຈທີ່ໃຊ້ງານຢູ່ #.}}"
+      },
+      "examples": {
+        "title": "ຕົວຢ່າງ",
+        "description": "ແທນ <mono>$OKINVO_KEY</mono> ດ້ວຍກະແຈ. REST API ທີ່ມີເວີຊັນ ເອກະສານ OpenAPI (<mono>/api/openapi.json</mono>) TypeScript SDK ແລະ ເຊີບເວີ MCP ຈະມາພ້ອມກັບວຽກຖັດໄປຂອງແຜນ v1.1; ຈຸດເຊື່ອມຕໍ່ສະຖານະໃຊ້ໄດ້ແລ້ວ.",
+        "rateLimit": "ການເອີ້ນທີ່ເກີນຂີດຈຳກັດຕອບ 429 ພ້ອມສ່ວນຫົວ <mono>Retry-After</mono> (120 ຄຳຂໍຕໍ່ນາທີຕໍ່ກະແຈ). ຂອບເຂດຂອງກະແຈຖືກຈຳກັດດ້ວຍບົດບາດປັດຈຸບັນຂອງເຈົ້າຂອງ."
+      },
+      "form": {
+        "copyKey": "ສຳເນົາກະແຈ API",
+        "name": "ຊື່",
+        "namePlaceholder": "ເຊັ່ນ ສະຄຣິບບັນຊີ",
+        "expires": "ໝົດອາຍຸ",
+        "in30Days": "ໃນ 30 ວັນ",
+        "in90Days": "ໃນ 90 ວັນ",
+        "inAYear": "ໃນໜຶ່ງປີ",
+        "never": "ບໍ່ເຄີຍ",
+        "scopes": "ຂອບເຂດ",
+        "submit": "ສ້າງກະແຈ API",
+        "creating": "ກຳລັງສ້າງ…"
+      },
+      "scopes": {
+        "invoicesRead": "ອ່ານໃບແຈ້ງໜີ້",
+        "invoicesCreate": "ສ້າງ ແລະ ອອກໃບແຈ້ງໜີ້",
+        "creditNotesRead": "ອ່ານໃບຫັກໜີ້",
+        "creditNotesCreate": "ສ້າງ ແລະ ອອກໃບຫັກໜີ້",
+        "catalogueRead": "ອ່ານລູກຄ້າ ບໍລິການ ແລະ ຜະລິດຕະພັນ",
+        "documentsRead": "ດາວໂຫຼດ PDF ແລະ ສຳເນົາ DOCX ທີ່ເກັບໄວ້",
+        "statusRead": "ອ່ານສະຖານະຂອງ instance"
+      }
+    },
+    "status": {
+      "metaTitle": "ສະຖານະ",
+      "metaDescription": "ເວີຊັນ ຖານຂໍ້ມູນ ບ່ອນເກັບຂໍ້ມູນ ອີເມວ ແລະ ສຸຂະພາບການສຳຮອງຂໍ້ມູນຂອງ instance ນີ້.",
+      "title": "ສະຖານະ",
+      "description": "instance ນີ້ກຳລັງເຮັດຫຍັງ ແລະ ແຕ່ລະສ່ວນຕອບສະໜອງຫຼືບໍ່.",
+      "recheck": "ກວດຄືນ",
+      "health": {
+        "ok": "ປົກກະຕິ",
+        "warning": "ຄຳເຕືອນ",
+        "failed": "ບໍ່ສຳເລັດ",
+        "na": "ຍັງບໍ່ໄດ້ຕັ້ງຄ່າ"
+      },
+      "overall": {
+        "ok": "ດີທັງໝົດ",
+        "degraded": "ປະສິດທິພາບຕ່ຳລົງ",
+        "failed": "ບໍ່ສຳເລັດ"
+      },
+      "version": "ບິວ {hasSha, select, yes {<mono>{sha}</mono>} other {(ບໍ່ຮູ້ sha)}} · ບິວເມື່ອ {built} · Node <mono>{node}</mono> · ເຮັດວຽກມາ {uptime} · ກວດເມື່ອ {checked}",
+      "dateUnknown": "(ບໍ່ຮູ້ວັນທີ)",
+      "uptime": {
+        "days": "{d}ມື້ {h}ຊມ {m}ນທ",
+        "hours": "{h}ຊມ {m}ນທ",
+        "minutes": "{m}ນທ"
+      },
+      "rows": {
+        "database": "ຖານຂໍ້ມູນ",
+        "storage": "ບ່ອນເກັບຂໍ້ມູນ",
+        "rateLimiting": "ການຈຳກັດອັດຕາ",
+        "email": "ອີເມວ",
+        "backups": "ການສຳຮອງຂໍ້ມູນ"
+      },
+      "db": {
+        "detail": "{latency} ms · ການຍ້າຍຖານຂໍ້ມູນຄັ້ງຫຼ້າສຸດ <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · ການຍ້າຍຖານຂໍ້ມູນທີ່ຍັງບໍ່ສຳເລັດ #}}",
+        "noMigration": "ບໍ່ມີ"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · ຂຽນ ອ່ານ ແລະ ລຶບວັດຖຸທົດລອງໃນ {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "ບ່ອນເກັບ <mono>{store}</mono> {store, select, memory {(ໜຶ່ງ replica)} other {(ແບ່ງປັນລະຫວ່າງ replica)}}",
+      "smtp": {
+        "configured": "SMTP ຈາກ {source, select, settings {ໜ້າການຕັ້ງຄ່າ} env {ສະພາບແວດລ້ອມ} other {}} · ທົດສອບຄັ້ງຫຼ້າສຸດ {lastTest} · 24 ຊົ່ວໂມງຫຼ້າສຸດ: ສົ່ງແລ້ວ {sent} ບໍ່ສຳເລັດ {failed}",
+        "none": "ບໍ່ມີເຊີບເວີ SMTP; ຕົວຂຽນຂໍ້ຄວາມມີ “ເປີດໃນແອັບອີເມວ”. <link>ຕັ້ງຄ່າ</link>"
+      },
+      "backups": {
+        "notWired": "ບໍ່ໄດ້ເຊື່ອມຕໍ່ບໍລິການສຳຮອງຂໍ້ມູນ (ບໍ່ໄດ້ຕັ້ງ BACKUP_STATUS_FILE).",
+        "noRun": "ເຊື່ອມຕໍ່ບໍລິການສຳຮອງຂໍ້ມູນແລ້ວ; ຍັງບໍ່ມີການບັນທຶກການເຮັດວຽກ.",
+        "ok": "ການເຮັດວຽກຄັ້ງຫຼ້າສຸດສຳເລັດເມື່ອ {finishedAt}{days, plural, =0 {} other { · ເກັບໄວ້ # ມື້}}",
+        "failed": "ການເຮັດວຽກຄັ້ງຫຼ້າສຸດບໍ່ສຳເລັດ: {error} ເມື່ອ {finishedAt}{days, plural, =0 {} other { · ເກັບໄວ້ # ມື້}}"
+      },
+      "footer": "ລາຍງານດຽວກັນມີເປັນ JSON ທີ່ <mono>/api/health/status</mono> ສຳລັບການຕິດຕາມ (ເຊດຊັນທີ່ເຂົ້າສູ່ລະບົບ ຫຼື ກະແຈ API)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "ຍິນດີຕ້ອນຮັບ",
+    "progress": "ຄວາມຄືບໜ້າ",
+    "steps": {
+      "aboutYou": "ກ່ຽວກັບທ່ານ",
+      "howYouUse": "ທ່ານຈະໃຊ້ແນວໃດ",
+      "allSet": "ພ້ອມແລ້ວ"
+    },
+    "step1": {
+      "title": "ບອກເຮົາກ່ຽວກັບທ່ານ",
+      "subtitle": "ນີ້ຕັ້ງຄ່າເລີ່ມຕົ້ນຂອງທ່ານ; ທຸກຄ່າປ່ຽນໄດ້ພາຍຫຼັງໃນການຕັ້ງຄ່າ.",
+      "name": "ຊື່",
+      "email": "ອີເມວ",
+      "emailHint": "ຕົວຕົນເຂົ້າສູ່ລະບົບຂອງທ່ານ. ປ່ຽນໄດ້ພາຍຫຼັງຈາກ ການຕັ້ງຄ່າ → ຄວາມປອດໄພ.",
+      "country": "ປະເທດ",
+      "currency": "ສະກຸນເງິນທີ່ຕ້ອງການ",
+      "currencyHint": "ໃຊ້ສຳລັບໂປຣໄຟລ໌ໃໝ່ ແລະ ແດຊບອດ ຈົນກວ່າຈະມີໂປຣໄຟລ໌."
+    },
+    "step2": {
+      "title": "ທ່ານຈະໃຊ້ okinvo ແນວໃດ?",
+      "subtitle": "ມີແຕ່ຄ່າເລີ່ມຕົ້ນທີ່ປ່ຽນ; ບໍ່ມີຫຍັງຖືກລັອກ.",
+      "usage": "ການນຳໃຊ້",
+      "personal": "ອອກໃບແຈ້ງໜີ້ສ່ວນຕົວ",
+      "personalHint": "ງານອິດສະຣະໃນນາມຂອງທ່ານເອງ",
+      "business": "ອອກໃບແຈ້ງໜີ້ທຸລະກິດ",
+      "businessHint": "ໃບແຈ້ງໜີ້ຈາກທຸລະກິດທີ່ຈົດທະບຽນ",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "ເລກ VAT",
+        "other": "ເລກທະບຽນພາສີ"
+      },
+      "taxQuestion": {
+        "IN": "ທ່ານມີ GSTIN ບໍ?",
+        "GB": "ທ່ານຈົດທະບຽນ VAT ບໍ?",
+        "other": "ທ່ານມີເລກທະບຽນພາສີເພື່ອພິມໃນໃບແຈ້ງໜີ້ບໍ?"
+      }
+    },
+    "step3": {
+      "title": "ທ່ານພ້ອມແລ້ວ",
+      "body": "ຕໍ່ໄປ ສ້າງໂປຣໄຟລ໌ຜູ້ອອກເອກະສານທຳອິດຂອງທ່ານ: ຊື່ ທີ່ຢູ່ ແລະ ຂໍ້ມູນພາສີທີ່ພິມໃນໃບແຈ້ງໜີ້. ພວກເຮົາໄດ້ຕື່ມສິ່ງທີ່ທ່ານບອກແລ້ວ.",
+      "go": "ໄປທີ່ໂປຣໄຟລ໌",
+      "opening": "ກຳລັງເປີດ…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "ເງື່ອນໄຂ",
+      "privacy": "ຄວາມເປັນສ່ວນຕົວ",
+      "cookies": "ຄຸກກີ້",
+      "security": "ຄວາມປອດໄພ"
+    },
+    "cookieNotice": {
+      "label": "ແຈ້ງການຄຸກກີ້",
+      "body": "ພວກເຮົາໃຊ້ສະເພາະຄຸກກີ້ທີ່ຈຳເປັນຢ່າງຍິ່ງ: ເຊດຊັນຂອງທ່ານ ແລະ ຄ່າການສະແດງຜົນ. ບໍ່ມີການວິເຄາະ ບໍ່ມີການຕິດຕາມ.",
+      "policy": "ນະໂຍບາຍຄຸກກີ້",
+      "gotIt": "ເຂົ້າໃຈແລ້ວ"
+    },
+    "nav": {
+      "label": "ກົດໝາຍ",
+      "cookies": "ຄຸກກີ້",
+      "privacy": "ຄວາມເປັນສ່ວນຕົວ",
+      "terms": "ເງື່ອນໄຂ",
+      "acceptableUse": "ການໃຊ້ງານທີ່ຍອມຮັບໄດ້",
+      "retention": "ການເກັບຮັກສາ",
+      "security": "ຄວາມປອດໄພ",
+      "licences": "ໃບອະນຸຍາດ"
+    },
+    "operatorNotice": "okinvo ເປັນຊອບແວທີ່ໂຮສເອງ; ຜູ້ດຳເນີນງານຂອງ instance ນີ້ຮັບຜິດຊອບຕໍ່ການນຳໃຊ້ມັນ.",
+    "doc": {
+      "effectiveOn": "ມີຜົນ <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "ສາລະບານ"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "ຊື່ທາງກົດໝາຍຂອງຜູ້ດຳເນີນງານ",
+        "entityType": "ປະເພດນິຕິບຸກຄົນ",
+        "address": "ທີ່ຢູ່ຜູ້ດຳເນີນງານ",
+        "country": "ປະເທດຂອງຜູ້ດຳເນີນງານ",
+        "contactEmail": "ອີເມວຕິດຕໍ່",
+        "privacyEmail": "ອີເມວຄວາມເປັນສ່ວນຕົວ",
+        "dpoEmail": "ອີເມວເຈົ້າໜ້າທີ່ປົກປ້ອງຂໍ້ມູນ",
+        "governingLaw": "ກົດໝາຍທີ່ໃຊ້ບັງຄັບ",
+        "venue": "ສະຖານທີ່ແກ້ຂໍ້ຂັດແຍ່ງ",
+        "effectiveDate": "ວັນທີມີຜົນ"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "ບໍ່ພົບ",
+      "title": "ບໍ່ມີຫຍັງຢູ່ທີ່ຢູ່ນີ້",
+      "body": "ລິ້ງອາດເກົ່າແລ້ວ ຫຼື ເອກະສານທີ່ມັນຊີ້ໄປຫາບໍ່ເຄີຍຖືກອອກ."
+    },
+    "forbidden": {
+      "metaTitle": "ບໍ່ອະນຸຍາດ",
+      "title": "ບັນຊີນີ້ເຮັດສິ່ງນັ້ນບໍ່ໄດ້",
+      "body": "ບົດບາດຂອງທ່ານບໍ່ອະນຸຍາດສິ່ງນີ້. ຂໍສິດຈາກເຈົ້າຂອງ ຫຼື ເຂົ້າສູ່ລະບົບດ້ວຍບັນຊີທີ່ມີສິດ."
+    },
+    "error": {
+      "title": "ມີບາງຢ່າງຜິດພາດ",
+      "body": "ຄຳຂໍນີ້ບໍ່ໄດ້ປ່ຽນແປງຫຍັງ. ລອງໃໝ່; ຖ້າຍັງເກີດຂຶ້ນອີກ ບັນທຶກຂອງເຊີບເວີມີລາຍລະອຽດ.",
+      "digest": "ຂໍ້ຜິດພາດ {digest}",
+      "generic": "ຂໍ້ຜິດພາດ"
+    },
+    "appNotFound": {
+      "title": "ບໍ່ພົບ",
+      "body": "ບັນທຶກນີ້ບໍ່ມີຢູ່ ຫຼື ຖືກລຶບໃນຂະນະທີ່ທ່ານກຳລັງເບິ່ງ.",
+      "back": "ກັບໄປແດຊບອດ"
+    },
+    "validation": {
+      "required": "ຈຳເປັນ",
+      "tooLong": "ສູງສຸດ {max} ຕົວອັກສອນ",
+      "invalidEmail": "ຕ້ອງເປັນອີເມວທີ່ຖືກຕ້ອງ",
+      "invalidDate": "ຕ້ອງເປັນວັນທີໃນຮູບແບບ YYYY-MM-DD",
+      "invalidAmount": "ຕ້ອງເປັນຕົວເລກ",
+      "wholeNumber": "ຕ້ອງເປັນຈຳນວນເຕັມ",
+      "greaterThanZero": "ຕ້ອງໃຫຍ່ກວ່າສູນ",
+      "fixFields": "ກະລຸນາແກ້ໄຂຊ່ອງທີ່ໄຮໄລຕ໌.",
+      "charset": "ອະນຸຍາດສະເພາະຕົວອັກສອນແປ້ນພິມມາດຕະຖານເທົ່ານັ້ນ."
+    }
+  },
+  "verify": {
+    "metaTitle": "ກວດສອບເອກະສານ",
+    "heading": "ການກວດສອບເອກະສານ",
+    "rateLimited": "ກວດຫຼາຍເກີນໄປຈາກທີ່ຢູ່ນີ້. ກະລຸນາລອງໃໝ່ໃນອີກໜຶ່ງນາທີ.",
+    "notFound": {
+      "title": "ບໍ່ມີເອກະສານດັ່ງກ່າວ",
+      "body": "ລິ້ງນີ້ບໍ່ກົງກັບເອກະສານທີ່ອອກແລ້ວສະບັບໃດ. ກວດ QR code ຫຼື ລິ້ງທີ່ທ່ານໄດ້ຮັບ ຫຼື ຕິດຕໍ່ຜູ້ອອກເອກະສານ."
+    },
+    "status": {
+      "void": "ຍົກເລີກ",
+      "valid": "ຖືກຕ້ອງ"
+    },
+    "issuedBy": "ອອກໂດຍ",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "ອອກໃຫ້",
+    "issueDate": "ວັນທີອອກ",
+    "total": "ລວມ",
+    "voided": "ເອກະສານນີ້ຖືກຜູ້ອອກຍົກເລີກແລ້ວ ແລະ ບໍ່ຖືກຕ້ອງອີກຕໍ່ໄປ.",
+    "storedCopies": {
+      "title": "ສຳເນົາທີ່ເກັບໄວ້",
+      "description": "SHA-256 ຂອງທຸກເວີຊັນ PDF ທີ່ຜູ້ອອກເອກະສານເກັບໄວ້. ເລືອກສຳເນົາຂອງທ່ານເພື່ອປຽບທຽບໃນບຣາວເຊີຂອງທ່ານ: ບໍ່ມີຫຍັງຖືກອັບໂຫຼດ.",
+      "empty": "ຍັງບໍ່ໄດ້ສ້າງ PDF.",
+      "protectedVersion": "ສຳເນົາທີ່ປ້ອງກັນດ້ວຍລະຫັດຜ່ານ {version}",
+      "version": "ເວີຊັນ {version}"
+    },
+    "check": {
+      "label": "ກວດສຳເນົາຂອງທ່ານ",
+      "hashing": "ກຳລັງຄຳນວນ hash…",
+      "match": "ສຳເນົາຂອງທ່ານກົງກັບເວີຊັນ {version} ທຸກຢ່າງ.",
+      "mismatch": "ສຳເນົາຂອງທ່ານບໍ່ກົງກັບເວີຊັນທີ່ເກັບໄວ້ເວີຊັນໃດ."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "ເອກະສານທີ່ແບ່ງປັນ",
+      "rateLimited": "ຄຳຂໍຫຼາຍເກີນໄປຈາກທີ່ຢູ່ນີ້. ກະລຸນາລອງໃໝ່ໃນອີກໜຶ່ງນາທີ.",
+      "unavailable": {
+        "title": "ລິ້ງນີ້ໃຊ້ບໍ່ໄດ້",
+        "body": "ມັນອາດໝົດອາຍຸ ຫຼື ຖືກຜູ້ອອກເອກະສານຖອນແລ້ວ. ຂໍລິ້ງໃໝ່ຈາກເຂົາເຈົ້າ."
+      },
+      "lockedTitleInvoice": "ໃບແຈ້ງໜີ້ຈາກ {issuer}",
+      "lockedTitleCreditNote": "ໃບຫັກໜີ້ຈາກ {issuer}",
+      "lockedBody": "ເອກະສານນີ້ປ້ອງກັນດ້ວຍລະຫັດຜ່ານ. ໃສ່ລະຫັດຜ່ານທີ່ຜູ້ອອກເອກະສານໃຫ້ທ່ານ.",
+      "void": "ຍົກເລີກ",
+      "protectedPdf": "PDF ເປີດດ້ວຍລະຫັດຜ່ານດຽວກັນ. ອ່ານ ແລະ ພິມໄດ້; ການສຳເນົາ ແລະ ແກ້ໄຂຖືກລັອກ.",
+      "byline": "ຈາກ {issuer} ເຖິງ {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "ລະຫັດຜ່ານ",
+      "limited": "ລອງຫຼາຍເກີນໄປ. ກະລຸນາລໍຖ້າສິບຫ້ານາທີ ແລ້ວລອງໃໝ່.",
+      "wrong": "ລະຫັດຜ່ານນັ້ນບໍ່ຖືກຕ້ອງ.",
+      "submit": "ເປີດເອກະສານ"
+    },
+    "dialog": {
+      "trigger": "ແບ່ງປັນ",
+      "title": "ແບ່ງປັນເອກະສານນີ້",
+      "description": "ທຸກຄົນທີ່ມີລິ້ງເບິ່ງ ແລະ ດາວໂຫຼດໄດ້ຈົນກວ່າຈະໝົດອາຍຸ ຫຼື ທ່ານຖອນ. ລະຫັດຜ່ານຍັງປ້ອງກັນ PDF ເອງ: ເປີດດ້ວຍລະຫັດຜ່ານ ແລະ ອ່ານ ພິມໄດ້ ແຕ່ແກ້ໄຂ ຫຼື ສຳເນົາບໍ່ໄດ້.",
+      "link": "ລິ້ງ",
+      "copyLink": "ສຳເນົາລິ້ງ",
+      "password": "ລະຫັດຜ່ານ",
+      "copyPassword": "ສຳເນົາລະຫັດຜ່ານ",
+      "sendSeparately": "ສົ່ງລະຫັດຜ່ານແຍກຈາກລິ້ງ. ທ່ານເບິ່ງມັນອີກໄດ້ໃນລາຍການລຸ່ມນີ້.",
+      "copy": "ສຳເນົາ",
+      "copied": "ສຳເນົາແລ້ວ",
+      "expires": "ໝົດອາຍຸ",
+      "expiry": {
+        "d7": "ໃນ 7 ວັນ",
+        "d30": "ໃນ 30 ວັນ",
+        "d90": "ໃນ 90 ວັນ",
+        "never": "ບໍ່ເຄີຍ"
+      },
+      "protection": "ການປ້ອງກັນ",
+      "protectionOptions": {
+        "auto": "ລະຫັດຜ່ານ: ສ້າງປະໂຫຍກລະຫັດຜ່ານ",
+        "manual": "ລະຫັດຜ່ານ: ເລືອກເອງ",
+        "none": "ບໍ່ມີລະຫັດຜ່ານ (ລິ້ງເປີດ)"
+      },
+      "passwordHint": "ຢ່າງໜ້ອຍ 8 ຕົວອັກສອນ.",
+      "strength": "ຄວາມແຂງແຮງ: {label}",
+      "strengthLabels": {
+        "veryWeak": "ອ່ອນຫຼາຍ",
+        "weak": "ອ່ອນ",
+        "fair": "ປານກາງ",
+        "good": "ດີ",
+        "strong": "ແຂງແຮງ"
+      },
+      "creating": "ກຳລັງສ້າງ…",
+      "create": "ສ້າງລິ້ງ",
+      "activeLinks": "ລິ້ງທີ່ໃຊ້ງານຢູ່",
+      "passwordProtected": "ປ້ອງກັນດ້ວຍລະຫັດຜ່ານ",
+      "openLink": "ເປີດລິ້ງ",
+      "linkExpires": "{kind} · ໝົດອາຍຸ {date}",
+      "linkNeverExpires": "{kind} · ບໍ່ໝົດອາຍຸ",
+      "revoke": {
+        "title": "ຖອນລິ້ງນີ້ບໍ?",
+        "description": "ລິ້ງຈະຢຸດເຮັດວຽກທັນທີສຳລັບທຸກຄົນທີ່ມີມັນ.",
+        "label": "ຖອນ"
+      },
+      "linkPassword": "ລະຫັດຜ່ານ: <code>{password}</code>",
+      "counts": "{views, plural, other {# ການເບິ່ງ}} · {downloads, plural, other {# ການດາວໂຫຼດ}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "ໃບຫັກໜີ້",
+      "title": "ໃບຫັກໜີ້",
+      "description": "ອອກຕໍ່ໃບແຈ້ງໜີ້ທີ່ອອກແລ້ວ; ແຕ່ລະໃບຫຼຸດຍອດຄ້າງຂອງໃບແຈ້ງໜີ້ເມື່ອອອກ.",
+      "newCreditNote": "ໃບຫັກໜີ້ໃໝ່",
+      "filters": {
+        "from": "ຈາກ",
+        "to": "ເຖິງ",
+        "issuer": "ຜູ້ອອກເອກະສານ",
+        "client": "ລູກຄ້າ",
+        "status": "ສະຖານະ",
+        "search": "ຄົ້ນຫາ",
+        "all": "ທັງໝົດ",
+        "searchPlaceholder": "ເລກ ເຫດຜົນ ລູກຄ້າ",
+        "go": "ໄປ"
+      },
+      "statuses": {
+        "DRAFT": "ສະບັບຮ່າງ",
+        "ISSUED": "ອອກແລ້ວ",
+        "SENT": "ສົ່ງແລ້ວ",
+        "VOID": "ຍົກເລີກ"
+      },
+      "empty": {
+        "title": "ຍັງບໍ່ມີໃບຫັກໜີ້",
+        "description": "ເປີດໃບແຈ້ງໜີ້ທີ່ອອກແລ້ວ ແລະ ເລືອກ “ໃບຫັກໜີ້” ເພື່ອຫຼຸດຍອດທີ່ຄ້າງ."
+      },
+      "noMatch": "ບໍ່ມີໃບຫັກໜີ້ທີ່ກົງກັບຕົວກັ່ນຕອງເຫຼົ່ານີ້.",
+      "columns": {
+        "number": "ເລກ",
+        "against": "ຕໍ່",
+        "client": "ລູກຄ້າ",
+        "issueDate": "ວັນທີອອກ",
+        "reason": "ເຫດຜົນ",
+        "total": "ລວມ",
+        "status": "ສະຖານະ"
+      },
+      "draft": "ສະບັບຮ່າງ"
+    },
+    "new": {
+      "metaTitle": "ໃບຫັກໜີ້ໃໝ່",
+      "title": "ໃບຫັກໜີ້ໃໝ່",
+      "description": "ໃບຫັກໜີ້ຖືກອອກຕໍ່ໃບແຈ້ງໜີ້ທີ່ອອກແລ້ວ ແລະ ຫຼຸດຍອດຄ້າງຂອງມັນ.",
+      "nothingToCredit": {
+        "title": "ບໍ່ມີຫຍັງໃຫ້ຫັກ",
+        "description": "ໃບຫັກໜີ້ຕ້ອງມີໃບແຈ້ງໜີ້ທີ່ອອກແລ້ວທີ່ມີຍອດຄ້າງ.",
+        "openInvoices": "ເປີດໃບແຈ້ງໜີ້"
+      },
+      "whichInvoice": "ໃບແຈ້ງໜີ້ໃດ?",
+      "invoice": "ໃບແຈ້ງໜີ້",
+      "invoiceOption": "{number} · {client} · ຍອດຄ້າງ {balance}",
+      "issuedOnly": "ໃບຫັກໜີ້ອອກຕໍ່ໃບແຈ້ງໜີ້ທີ່ອອກແລ້ວເທົ່ານັ້ນ.",
+      "invoiceFallback": "ໃບແຈ້ງໜີ້"
+    },
+    "edit": {
+      "metaTitle": "ແກ້ໄຂໃບຫັກໜີ້",
+      "title": "ແກ້ໄຂໃບຫັກໜີ້ສະບັບຮ່າງ",
+      "immutable": "ໃບຫັກໜີ້ທີ່ອອກແລ້ວແກ້ໄຂບໍ່ໄດ້.",
+      "draft": "ສະບັບຮ່າງ"
+    },
+    "detail": {
+      "metaTitle": "ໃບຫັກໜີ້",
+      "draftTitle": "ໃບຫັກໜີ້ສະບັບຮ່າງ",
+      "meta": "{client} · ຕໍ່ <invoice>{number}</invoice> · ອອກເມື່ອ <mono>{date}</mono>",
+      "previewPdf": "ເບິ່ງ PDF ຕົວຢ່າງ",
+      "issue": {
+        "title": "ອອກໃບຫັກໜີ້ນີ້ບໍ?",
+        "description": "ຈະກຳນົດເລກ ຍອດຄ້າງຂອງໃບແຈ້ງໜີ້ຈະຫຼຸດ ແລະ ເອກະສານຈະແກ້ໄຂບໍ່ໄດ້.",
+        "label": "ອອກ"
+      },
+      "deleteDraft": {
+        "title": "ລຶບສະບັບຮ່າງນີ້ບໍ?"
+      },
+      "sendByEmail": "ສົ່ງທາງອີເມວ",
+      "markSent": {
+        "title": "ໝາຍວ່າສົ່ງແລ້ວບໍ?",
+        "label": "ໝາຍວ່າສົ່ງແລ້ວ"
+      },
+      "void": {
+        "title": "ຍົກເລີກໃບຫັກໜີ້ນີ້ບໍ?",
+        "description": "ຍອດຄ້າງຂອງໃບແຈ້ງໜີ້ຖືກກູ້ຄືນ; ເລກຈະບໍ່ຖືກໃຊ້ຊ້ຳ.",
+        "reason": "ເຫດຜົນ",
+        "label": "ຍົກເລີກ"
+      },
+      "voided": "ຍົກເລີກເມື່ອ {date}: {reason}",
+      "amounts": {
+        "title": "ຈຳນວນເງິນ",
+        "reason": "ເຫດຜົນ",
+        "creditAmount": "ຈຳນວນເງິນທີ່ຫັກ",
+        "total": "ລວມ",
+        "balanceNow": "ຍອດຄ້າງຂອງໃບແຈ້ງໜີ້ດຽວນີ້",
+        "sent": "ສົ່ງແລ້ວ"
+      },
+      "documents": {
+        "title": "ເອກະສານທີ່ເກັບໄວ້",
+        "description": "ທຸກເວີຊັນຖືກເກັບໄວ້; ໜ້າກວດສອບລະບຸ hash ທັງໝົດ.",
+        "regenerateTitle": "ສ້າງ PDF ເວີຊັນໃໝ່ບໍ?",
+        "generate": "ສ້າງ",
+        "newVersion": "ເວີຊັນໃໝ່",
+        "renderedOnFirstDownload": "PDF ຖືກສ້າງເມື່ອດາວໂຫຼດຄັ້ງທຳອິດ.",
+        "protectedCopy": "ສຳເນົາທີ່ປ້ອງກັນດ້ວຍລະຫັດຜ່ານ {version}",
+        "version": "ເວີຊັນ {version}",
+        "verificationLink": "ລິ້ງກວດສອບ: <link>{path}…</link>"
+      },
+      "draftsPreview": "ສະບັບຮ່າງເບິ່ງຕົວຢ່າງສົດໃນຕົວແກ້ໄຂ."
+    },
+    "send": {
+      "metaTitle": "ສົ່ງໃບຫັກໜີ້",
+      "title": "ສົ່ງ <mono>{number}</mono>",
+      "previousSends": "ການສົ່ງກ່ອນໜ້າ"
+    },
+    "builder": {
+      "against": "ຕໍ່ <mono>{number}</mono>",
+      "summary": "{client} · ລວມ {total} · ຍອດຄ້າງ {balance} · ວົງເງິນທີ່ເສຍພາສີໄດ້ ≈ {headroom}",
+      "issueDate": "ວັນທີອອກ",
+      "creditAmount": "ຈຳນວນເງິນທີ່ຫັກ (ບໍ່ລວມພາສີ)",
+      "creditAmountHint": "ພາສີຖືກແບ່ງຕາມສັດສ່ວນຈາກແຖວພາສີຂອງໃບແຈ້ງໜີ້",
+      "reason": "ເຫດຜົນ",
+      "picker": {
+        "title": "ຄຳນວນຈາກແຖວໃບແຈ້ງໜີ້",
+        "description": "ຕິກທັງແຖວ ຫຼື ເປີເຊັນ; ນີ້ເປັນພຽງການຕື່ມຈຳນວນເງິນຂ້າງເທິງ.",
+        "line": "ແຖວ",
+        "subtotal": "ຍອດລວມຍ່ອຍ",
+        "credit": "ຫັກ",
+        "percent": "%",
+        "creditLine": "ຫັກແຖວ {position}",
+        "percentOfLine": "ເປີເຊັນຂອງແຖວ {position}"
+      },
+      "saveDraft": "ບັນທຶກສະບັບຮ່າງ",
+      "issuing": "ກຳລັງອອກ…",
+      "saveAndIssue": "ບັນທຶກ ແລະ ອອກ"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "ຮັບການຊຳລະແລ້ວ",
+        "REFUND": "ອອກການຄືນເງິນແລ້ວ",
+        "WRITE_OFF": "ຕັດໜີ້"
+      },
+      "editTitle": "ແກ້ໄຂລາຍການ",
+      "recordTitle": "ບັນທຶກການຊຳລະ",
+      "description": "ຈຳນວນເງິນເປັນສະກຸນເງິນຂອງໃບແຈ້ງໜີ້ ({currency}); TDS ທີ່ຫັກແມ່ນສ່ວນໜຶ່ງຂອງຈຳນວນທີ່ນຳໃຊ້.",
+      "kind": "ປະເພດ",
+      "date": "ວັນທີ",
+      "amountRefunded": "ຈຳນວນເງິນຄືນ (ຕິດລົບ)",
+      "amountApplied": "ຈຳນວນເງິນທີ່ນຳໃຊ້",
+      "refundHint": "ໃສ່ຈຳນວນຕິດລົບ ເຊັ່ນ -500",
+      "tdsDeducted": "TDS ທີ່ຫັກ",
+      "tdsHint": "ພາສີທີ່ລູກຄ້າຫັກໄວ້; ນັບລວມໃນຈຳນວນທີ່ນຳໃຊ້",
+      "bankFees": "ຄ່າທຳນຽມທະນາຄານ",
+      "receivedInto": "ຮັບເຂົ້າ",
+      "noMethod": "-",
+      "reference": "ເລກອ້າງອີງ",
+      "referenceHint": "UTR ເລກທຸລະກຳ ເລກເຊັກ",
+      "otherCurrency": "ຮັບເປັນສະກຸນເງິນອື່ນ",
+      "amountReceived": "ຈຳນວນເງິນທີ່ໄດ້ຮັບ",
+      "receivedCurrency": "ສະກຸນເງິນທີ່ໄດ້ຮັບ",
+      "exchangeRate": "ອັດຕາແລກປ່ຽນ",
+      "exchangeRateHint": "ໜຶ່ງຫົວໜ່ວຍທີ່ໄດ້ຮັບ = ? {currency}",
+      "notes": "ໝາຍເຫດ",
+      "receipt": "ໃບຮັບເງິນ",
+      "receiptHint": "PNG, JPEG, WebP ຫຼື PDF ບໍ່ເກີນ 10 MB",
+      "saveChanges": "ບັນທຶກການປ່ຽນແປງ",
+      "record": "ບັນທຶກ"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "ປະມານ {count, plural, other {# ໜ້າ}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "ຂໍ້ຄວາມ",
+      "description": "ຕື່ມລ່ວງໜ້າຈາກແມ່ແບບຂອງໂປຣໄຟລ໌ຜູ້ອອກເອກະສານ. ບໍ່ມີຫຍັງຖືກສົ່ງຈົນກວ່າທ່ານຈະກົດສົ່ງ.",
+      "to": "ເຖິງ",
+      "toHint": "ແຍກດ້ວຍເຄື່ອງໝາຍຈຸດ",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "ຫົວຂໍ້",
+      "body": "ເນື້ອຫາ",
+      "bodyHint": "ຂໍ້ຄວາມທຳມະດາ; ລິ້ງຈະກົດໄດ້",
+      "attachment": "ໄຟລ໌ແນບ",
+      "attachmentHint": "ສຳເນົາທີ່ເກັບໄວ້ ຊື່ <mono>{name}</mono> (ຫຼື .docx); ປ່ຽນເນື້ອຫາບໍ່ໄດ້.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "ກຳລັງສົ່ງ…",
+      "send": "ສົ່ງ",
+      "openInMailApp": "ເປີດໃນແອັບອີເມວ",
+      "noSmtp": "ຍັງບໍ່ໄດ້ຕັ້ງຄ່າເຊີບເວີ SMTP (ການຕັ້ງຄ່າ → ອີເມວ). ເປີດສະບັບຮ່າງໃນແອັບອີເມວຂອງທ່ານ ແນບ PDF ທີ່ດາວໂຫຼດ ແລ້ວໝາຍວ່າສົ່ງແລ້ວຂ້າງລຸ່ມ.",
+      "markAsSent": "ໝາຍວ່າສົ່ງແລ້ວ"
+    },
+    "sentLog": {
+      "when": "ເວລາ",
+      "document": "ເອກະສານ",
+      "to": "ເຖິງ",
+      "subject": "ຫົວຂໍ້",
+      "status": "ສະຖານະ",
+      "empty": "ຍັງບໍ່ມີການສົ່ງ.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "ສົ່ງແລ້ວ",
+        "FAILED": "ບໍ່ສຳເລັດ",
+        "MANUAL": "ດ້ວຍມື"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "ສະບາຍດີ, {name}",
+    "fiscalYear": "ປີງົບປະມານ {year}",
+    "fiscalYearWithBase": "ປີງົບປະມານ {year} · ສະກຸນເງິນຫຼັກ {currency} ({profile})",
+    "newCreditNote": "ໃບຫັກໜີ້ໃໝ່",
+    "welcomeTitle": "ຍິນດີຕ້ອນຮັບສູ່ {appName}",
+    "welcomeDescription": "ເລີ່ມດ້ວຍການສ້າງໂປຣໄຟລ໌ຜູ້ອອກເອກະສານທີ່ທ່ານອອກໃບແຈ້ງໜີ້ ແລ້ວເພີ່ມລູກຄ້າ ແລະ ໃບແຈ້ງໜີ້ທຳອິດຂອງທ່ານ.",
+    "createProfile": "ສ້າງໂປຣໄຟລ໌ຂອງທ່ານ",
+    "tiles": {
+      "outstanding": "ຄ້າງຊຳລະ",
+      "overdue": "ເກີນກຳນົດ",
+      "billedThisFy": "ເກັບເງິນໃນ FY ນີ້",
+      "receivedThisFy": "ໄດ້ຮັບໃນ FY ນີ້",
+      "drafts": "ສະບັບຮ່າງ",
+      "invoiceCount": "{count, plural, other {# ໃບແຈ້ງໜີ້}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "ການຊຳລະລົບການຄືນເງິນ ຕາມອັດຕາແລກປ່ຽນທີ່ບັນທຶກ",
+      "awaitingIssue": "ລໍຖ້າອອກ",
+      "nothingPending": "ບໍ່ມີຫຍັງລໍຖ້າ"
+    },
+    "recentInvoices": "ໃບແຈ້ງໜີ້ຫຼ້າສຸດ",
+    "allInvoices": "ໃບແຈ້ງໜີ້ທັງໝົດ",
+    "noInvoicesYet": "ຍັງບໍ່ມີໃບແຈ້ງໜີ້.",
+    "columns": {
+      "number": "ເລກ",
+      "client": "ລູກຄ້າ",
+      "issued": "ອອກເມື່ອ"
+    },
+    "topClients": "ລູກຄ້າອັນດັບຕົ້ນຕາມຍອດຄ້າງຊຳລະ",
+    "nothingOutstanding": "ບໍ່ມີຍອດຄ້າງຊຳລະ."
+  },
+  "exports": {
+    "export": "ສົ່ງອອກ",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "ໃບແຈ້ງໜີ້",
+      "newInvoice": "ໃບແຈ້ງໜີ້ໃໝ່",
+      "draft": "ສະບັບຮ່າງ",
+      "aDraft": "ສະບັບຮ່າງ",
+      "statuses": {
+        "draft": "ສະບັບຮ່າງ",
+        "issued": "ອອກແລ້ວ",
+        "sent": "ສົ່ງແລ້ວ",
+        "partiallyPaid": "ຈ່າຍບາງສ່ວນ",
+        "paid": "ຈ່າຍແລ້ວ",
+        "overdue": "ເກີນກຳນົດ",
+        "void": "ຍົກເລີກ"
+      },
+      "lifecycle": {
+        "draft": "ສະບັບຮ່າງ",
+        "issued": "ອອກແລ້ວ",
+        "void": "ຍົກເລີກ"
+      },
+      "units": {
+        "hour": "ຊົ່ວໂມງ",
+        "day": "ມື້",
+        "fixed": "ຄົງທີ່",
+        "milestone": "ຂັ້ນຕອນສຳຄັນ",
+        "unit": "ຫົວໜ່ວຍ"
+      },
+      "unitsLower": {
+        "hour": "ຊົ່ວໂມງ",
+        "day": "ມື້",
+        "fixed": "ຄົງທີ່",
+        "milestone": "ຂັ້ນຕອນສຳຄັນ",
+        "unit": "ຫົວໜ່ວຍ"
+      },
+      "supplyTypes": {
+        "intraState": "ພາຍໃນລັດ",
+        "interState": "ລະຫວ່າງລັດ",
+        "exportLut": "ສົ່ງອອກ lut",
+        "exportWithTax": "ສົ່ງອອກພ້ອມພາສີ",
+        "reverseCharge": "ເກັບພາສີກັບຄືນ",
+        "notApplicable": "ບໍ່ນຳໃຊ້"
+      }
+    },
+    "list": {
+      "description": "ໃບແຈ້ງໜີ້ສະບັບຮ່າງ ທີ່ອອກແລ້ວ ແລະ ທີ່ຍົກເລີກ; ສະຖານະມາຈາກການຊຳລະ ແລະ ວັນຄົບກຳນົດ.",
+      "fiscalYear": "ປີງົບປະມານ",
+      "issuer": "ຜູ້ອອກເອກະສານ",
+      "client": "ລູກຄ້າ",
+      "searchPlaceholder": "ເລກ PO ລູກຄ້າ",
+      "emptyTitle": "ຍັງບໍ່ມີໃບແຈ້ງໜີ້",
+      "emptyDescription": "ສ້າງໃບແຈ້ງໜີ້ທຳອິດ: ເລືອກລູກຄ້າ ເພີ່ມແຖວ ເບິ່ງຕົວຢ່າງ ແລ້ວອອກ.",
+      "columns": {
+        "number": "ເລກ",
+        "client": "ລູກຄ້າ",
+        "issuer": "ຜູ້ອອກເອກະສານ",
+        "issueDate": "ວັນທີອອກ",
+        "due": "ຄົບກຳນົດ",
+        "balance": "ຍອດຄ້າງ"
+      },
+      "noMatches": "ບໍ່ມີໃບແຈ້ງໜີ້ທີ່ກົງກັບຕົວກັ່ນຕອງເຫຼົ່ານີ້.",
+      "count": "{count, plural, other {# ໃບແຈ້ງໜີ້}}",
+      "countPaged": "{count, plural, other {# ໃບແຈ້ງໜີ້}} · ໜ້າ {page} ຈາກ {pages}",
+      "register": "ທະບຽນ"
+    },
+    "new": {
+      "noProfileTitle": "ສ້າງໂປຣໄຟລ໌ຜູ້ອອກເອກະສານກ່ອນ",
+      "noProfileDescription": "ໃບແຈ້ງໜີ້ຖືກອອກຈາກຕົວຕົນທາງກົດໝາຍ: ຕັ້ງຄ່າໂປຣໄຟລ໌ຂອງທ່ານພ້ອມເລກພາສີ ແລະ ການໃສ່ເລກ.",
+      "createProfile": "ສ້າງໂປຣໄຟລ໌"
+    },
+    "edit": {
+      "metaTitle": "ແກ້ໄຂໃບແຈ້ງໜີ້",
+      "title": "ແກ້ໄຂສະບັບຮ່າງ",
+      "immutableFlash": "ໃບແຈ້ງໜີ້ທີ່ອອກແລ້ວແກ້ໄຂບໍ່ໄດ້. ໃຊ້ “ຍົກເລີກ ແລະ ອອກໃໝ່” ເພື່ອແກ້ໃຫ້ຖືກຕ້ອງ."
+    },
+    "detail": {
+      "metaTitle": "ໃບແຈ້ງໜີ້",
+      "draftInvoice": "ໃບແຈ້ງໜີ້ສະບັບຮ່າງ",
+      "issuedDue": "ອອກເມື່ອ <mono>{issued}</mono> ຄົບກຳນົດ <mono>{due}</mono>",
+      "replaces": "ແທນທີ່ {number}",
+      "replacedBy": "ຖືກແທນທີ່ໂດຍ {number}",
+      "previewPdf": "ເບິ່ງ PDF ຕົວຢ່າງ",
+      "issueTitle": "ອອກໃບແຈ້ງໜີ້ນີ້ບໍ?",
+      "issueDescription": "ຈະກຳນົດເລກ ແລະ ເອກະສານຈະແກ້ໄຂບໍ່ໄດ້.",
+      "issue": "ອອກ",
+      "deleteDraftTitle": "ລຶບສະບັບຮ່າງນີ້ບໍ?",
+      "sendByEmail": "ສົ່ງທາງອີເມວ",
+      "recordPayment": "ບັນທຶກການຊຳລະ",
+      "creditNote": "ໃບຫັກໜີ້",
+      "markSentTitle": "ໝາຍວ່າສົ່ງແລ້ວບໍ?",
+      "markSentDescription": "ບັນທຶກວ່າລູກຄ້າໄດ້ຮັບໃບແຈ້ງໜີ້ນີ້ແລ້ວ.",
+      "markSent": "ໝາຍວ່າສົ່ງແລ້ວ",
+      "voidReissueTitle": "ຍົກເລີກ ແລະ ອອກໃໝ່ບໍ?",
+      "voidReissueDescription": "ສະບັບເດີມຖືກຍົກເລີກ ແລະ ສະບັບຮ່າງທີ່ເຊື່ອມໂຍງພ້ອມເນື້ອຫາດຽວກັນເປີດໃຫ້ແກ້ໄຂ.",
+      "voidReissue": "ຍົກເລີກ ແລະ ອອກໃໝ່",
+      "voidTitle": "ຍົກເລີກໃບແຈ້ງໜີ້ນີ້ບໍ?",
+      "voidDescription": "ເຮັດໄດ້ສະເພາະເມື່ອບໍ່ມີການຊຳລະທີ່ບັນທຶກ; ເລກຈະບໍ່ຖືກໃຊ້ຊ້ຳ.",
+      "void": "ຍົກເລີກ",
+      "voided": "ຍົກເລີກເມື່ອ {date}: {reason}",
+      "amounts": "ຈຳນວນເງິນ",
+      "subtotal": "ຍອດລວມຍ່ອຍ",
+      "discount": "ສ່ວນຫຼຸດ",
+      "discountPercent": "ສ່ວນຫຼຸດ ({percent})",
+      "rounding": "ການປັດເສດ",
+      "tdsExpected": "TDS ທີ່ຄາດໄວ້ ({percent})",
+      "paid": "ຈ່າຍແລ້ວ",
+      "credited": "ຫັກແລ້ວ",
+      "balanceDue": "ຍອດທີ່ຕ້ອງຈ່າຍ",
+      "supply": "ການສະໜອງ",
+      "fxToBase": "ອັດຕາແລກປ່ຽນເປັນສະກຸນຫຼັກ",
+      "poReference": "ເລກອ້າງອີງ PO",
+      "sent": "ສົ່ງແລ້ວ",
+      "lineItems": "ລາຍການແຖວ",
+      "columns": {
+        "description": "ລາຍລະອຽດ",
+        "sacHsn": "SAC/HSN",
+        "qty": "ຈຳນວນ",
+        "rate": "ອັດຕາ",
+        "tax": "ພາສີ",
+        "amount": "ຈຳນວນເງິນ"
+      },
+      "creditNotes": "ໃບຫັກໜີ້",
+      "storedDocuments": "ເອກະສານທີ່ເກັບໄວ້",
+      "storedDocumentsHint": "ທຸກເວີຊັນຖືກເກັບໄວ້; ໜ້າກວດສອບລະບຸ hash ທັງໝົດ.",
+      "regenerateTitle": "ສ້າງ PDF ເວີຊັນໃໝ່ບໍ?",
+      "regenerateDescription": "ສ້າງອີກຄັ້ງຈາກພາບບັນທຶກທີ່ແຊ່ແຂງ (ເຊັ່ນ ຫຼັງແກ້ຕົວສ້າງ). ເວີຊັນກ່ອນໜ້າຍັງຢູ່.",
+      "regenerate": "ສ້າງ",
+      "newVersion": "ເວີຊັນໃໝ່",
+      "renderedOnFirstDownload": "PDF ຖືກສ້າງເມື່ອດາວໂຫຼດຄັ້ງທຳອິດ.",
+      "protectedCopy": "ສຳເນົາທີ່ປ້ອງກັນດ້ວຍລະຫັດຜ່ານ {version}",
+      "version": "ເວີຊັນ {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "ລິ້ງກວດສອບ:",
+      "draftPreviewHint": "ສະບັບຮ່າງເບິ່ງຕົວຢ່າງສົດໃນຕົວແກ້ໄຂ; ເປີດ <link>PDF ທີ່ມີລາຍນ້ຳ</link> ເພື່ອເບິ່ງໜ້າ."
+    },
+    "history": {
+      "metaTitle": "ປະຫວັດໃບແຈ້ງໜີ້",
+      "title": "ປະຫວັດ <mono>{number}</mono>",
+      "reissueChain": "ລະບົບຕ່ອງໂສ້ການອອກໃໝ່",
+      "replaces": "ແທນທີ່ <link>{number}</link>",
+      "replacedBy": "ຖືກແທນທີ່ໂດຍ <link>{number}</link>",
+      "auditTrail": "ຮ່ອງຮອຍການກວດສອບ",
+      "columns": {
+        "when": "ເວລາ",
+        "who": "ໃຜ",
+        "action": "ການກະທຳ",
+        "summary": "ສະຫຼຸບ"
+      },
+      "noEvents": "ຍັງບໍ່ມີເຫດການ.",
+      "system": "ລະບົບ",
+      "emails": "ອີເມວ"
+    },
+    "payments": {
+      "title": "ການຊຳລະ",
+      "description": "{client} · ລວມ {total}",
+      "backToInvoice": "ກັບໄປໃບແຈ້ງໜີ້",
+      "ledger": "ບັນຊີແຍກປະເພດ",
+      "columns": {
+        "date": "ວັນທີ",
+        "kind": "ປະເພດ",
+        "applied": "ນຳໃຊ້",
+        "tds": "TDS",
+        "received": "ໄດ້ຮັບ",
+        "reference": "ເລກອ້າງອີງ",
+        "balance": "ຍອດຄ້າງ"
+      },
+      "noPayments": "ຍັງບໍ່ມີການຊຳລະທີ່ບັນທຶກ.",
+      "kinds": {
+        "payment": "ການຊຳລະ",
+        "refund": "ການຄືນເງິນ",
+        "writeOff": "ຕັດໜີ້"
+      },
+      "receipt": "ໃບຮັບເງິນ",
+      "deleteEntryTitle": "ລຶບລາຍການນີ້ບໍ?",
+      "deleteEntryDescription": "ຍອດຄ້າງຂອງໃບແຈ້ງໜີ້ຖືກຄຳນວນໃໝ່.",
+      "totals": "ຍອດລວມ",
+      "invoiceTotal": "ຍອດລວມໃບແຈ້ງໜີ້",
+      "credited": "ຫັກແລ້ວ",
+      "refunds": "ການຄືນເງິນ",
+      "writeOffs": "ການຕັດໜີ້",
+      "tdsDeducted": "TDS ທີ່ຫັກ",
+      "bankFees": "ຄ່າທຳນຽມທະນາຄານ",
+      "balanceDue": "ຍອດທີ່ຕ້ອງຈ່າຍ",
+      "onlyIssued": "ສະເພາະໃບແຈ້ງໜີ້ທີ່ອອກແລ້ວຮັບການຊຳລະໄດ້."
+    },
+    "send": {
+      "metaTitle": "ສົ່ງໃບແຈ້ງໜີ້",
+      "title": "ສົ່ງ <mono>{number}</mono>",
+      "alreadySent": "ໝາຍວ່າສົ່ງແລ້ວ; ການສົ່ງອີກຈະເພີ່ມບັນທຶກອີກລາຍການ.",
+      "previousSends": "ການສົ່ງກ່ອນໜ້າ"
+    },
+    "builder": {
+      "parties": "ຄູ່ສັນຍາ",
+      "issuerProfile": "ໂປຣໄຟລ໌ຜູ້ອອກເອກະສານ",
+      "client": "ລູກຄ້າ",
+      "archivedOption": "{label} (ຢູ່ໃນຄັງ)",
+      "issueDate": "ວັນທີອອກ",
+      "dueDate": "ວັນຄົບກຳນົດ",
+      "fxRate": "ອັດຕາແລກປ່ຽນເປັນສະກຸນເງິນຫຼັກ",
+      "fxHint": "1 {currency} = ? {base} (ເພື່ອລາຍງານເທົ່ານັ້ນ)",
+      "poReference": "ເລກອ້າງອີງ PO",
+      "lineItems": "ລາຍການແຖວ",
+      "lineItemsHint": "ເລືອກຈາກລາຍການສິນຄ້າເພື່ອສຳເນົາຄ່າ ຫຼື ພິມແຖວເອງ.",
+      "taxDiscountTds": "ພາສີ ສ່ວນຫຼຸດ ແລະ TDS",
+      "taxRegime": "ລະບອບພາສີ",
+      "regimes": {
+        "indiaGst": "GST ອິນເດຍ",
+        "ukVat": "VAT ສະຫະລາຊະອານາຈັກ",
+        "usSalesTax": "ພາສີການຂາຍ ສະຫະລັດ",
+        "none": "ບໍ່ມີພາສີ"
+      },
+      "reverseCharge": "ເກັບພາສີກັບຄືນ",
+      "reverseChargeHint": "ພາສີທີ່ຜູ້ຮັບຕ້ອງຈ່າຍ",
+      "discount": "ສ່ວນຫຼຸດ",
+      "percent": "ເປີເຊັນ",
+      "amount": "ຈຳນວນເງິນ",
+      "rounding": "ການປັບການປັດເສດ",
+      "roundingHint": "ບໍ່ບັງຄັບ ປັດເປັນຫົວໜ່ວຍເຕັມ; ຕ້ອງນ້ອຍກວ່າ 1",
+      "round": "ປັດເສດ",
+      "tdsRate": "ອັດຕາ TDS ທີ່ຄາດໄວ້ (%)",
+      "tdsRateHint": "ເພື່ອຂໍ້ມູນ; ພິມເມື່ອເປີດການແຍກລາຍການ TDS",
+      "paymentMethods": "ວິທີຊຳລະເງິນ",
+      "paymentMethodsHint": "ພິມຕາມລຳດັບທີ່ຕິກ.",
+      "noPaymentMethods": "ບໍ່ມີວິທີຊຳລະເງິນທີ່ໃຊ້ງານຢູ່. <link>ເພີ່ມໜຶ່ງວິທີ</link>.",
+      "whatPrints": "ສິ່ງທີ່ພິມ",
+      "whatPrintsHint": "ເລີ່ມຈາກຄ່າເລີ່ມຕົ້ນຂອງໂປຣໄຟລ໌ຜູ້ອອກເອກະສານ.",
+      "notesAndTerms": "ໝາຍເຫດ ແລະ ເງື່ອນໄຂ",
+      "notes": "ໝາຍເຫດ",
+      "terms": "ເງື່ອນໄຂ",
+      "saveDraft": "ບັນທຶກສະບັບຮ່າງ",
+      "issuing": "ກຳລັງອອກ…",
+      "saveAndIssue": "ບັນທຶກ ແລະ ອອກ",
+      "subtotal": "ຍອດລວມຍ່ອຍ",
+      "tax": "ພາສີ",
+      "tdsExpected": "TDS ທີ່ຄາດໄວ້",
+      "netExpected": "ຍອດສຸດທິທີ່ຄາດໄວ້"
+    },
+    "lineItems": {
+      "addFromCatalogue": "ເພີ່ມຈາກລາຍການສິນຄ້າ…",
+      "services": "ບໍລິການ",
+      "products": "ຜະລິດຕະພັນ",
+      "addLine": "ເພີ່ມແຖວ",
+      "columns": {
+        "description": "ລາຍລະອຽດ",
+        "sacHsn": "SAC/HSN",
+        "qty": "ຈຳນວນ",
+        "unit": "ຫົວໜ່ວຍ",
+        "rate": "ອັດຕາ",
+        "taxPercent": "ພາສີ %"
+      },
+      "aria": {
+        "description": "ລາຍລະອຽດແຖວ {line}",
+        "sacHsn": "SAC/HSN ແຖວ {line}",
+        "quantity": "ຈຳນວນແຖວ {line}",
+        "unit": "ຫົວໜ່ວຍແຖວ {line}",
+        "rate": "ອັດຕາແຖວ {line}",
+        "taxRate": "ອັດຕາພາສີແຖວ {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "ຍົກເວັ້ນ",
+      "moveUp": "ຍ້າຍຂຶ້ນ",
+      "moveDown": "ຍ້າຍລົງ",
+      "removeLine": "ລຶບແຖວ",
+      "shortcutHint": "Ctrl/⌘+Enter ໃນລາຍລະອຽດເພື່ອເພີ່ມແຖວ.",
+      "addFromCatalogueAria": "ເພີ່ມຈາກລາຍການສິນຄ້າ"
+    },
+    "display": {
+      "groups": {
+        "issuer": "ລາຍລະອຽດຜູ້ອອກເອກະສານ",
+        "client": "ລາຍລະອຽດລູກຄ້າ",
+        "document": "ສ່ວນຂອງເອກະສານ"
+      },
+      "fields": {
+        "showLogo": "ໂລໂກ້",
+        "showTradeName": "ຊື່ການຄ້າ",
+        "showDesignation": "ຕຳແໜ່ງ",
+        "showEmail": "ອີເມວ",
+        "showPhone": "ໂທລະສັບ",
+        "showWebsite": "ເວັບໄຊ",
+        "showFullAddress": "ທີ່ຢູ່ເຕັມ",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "ລາຍເຊັນ",
+        "showStamp": "ຕາປະທັບ",
+        "showContactPerson": "ຜູ້ຕິດຕໍ່",
+        "showBillingAddress": "ທີ່ຢູ່ເກັບເງິນ",
+        "showShippingAddress": "ທີ່ຢູ່ຈັດສົ່ງ",
+        "showTaxIdentifier": "ເລກປະຈຳຕົວພາສີ",
+        "showPlaceOfSupply": "ສະຖານທີ່ສະໜອງ",
+        "showDueDate": "ວັນຄົບກຳນົດ",
+        "showPaymentTerms": "ເງື່ອນໄຂການຊຳລະ",
+        "showSacCodeColumn": "ຖັນລະຫັດ SAC",
+        "showQuantityColumn": "ຖັນຈຳນວນ",
+        "showUnitPriceColumn": "ຖັນລາຄາຕໍ່ຫົວໜ່ວຍ",
+        "showTaxColumn": "ຖັນພາສີ",
+        "showTdsBreakdown": "ການແຍກລາຍການ TDS",
+        "showQrVerification": "ການກວດສອບ QR",
+        "showNotes": "ໝາຍເຫດ",
+        "showTerms": "ເງື່ອນໄຂ",
+        "showReplacesReference": "ເລກອ້າງອີງການແທນທີ່",
+        "showAmountInWords": "ຈຳນວນເງິນເປັນຕົວໜັງສື",
+        "showSupplyStatement": "ຂໍ້ຄວາມການສະໜອງ",
+        "showRoundingLine": "ແຖວການປັດເສດ",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "ລູກຄ້າ",
+      "description": "ທຸກຄົນທີ່ທ່ານອອກໃບແຈ້ງໜີ້ໃຫ້. ລູກຄ້າທີ່ມີໃບແຈ້ງໜີ້ຖືກເກັບເຂົ້າຄັງ ບໍ່ເຄີຍຖືກລຶບ.",
+      "newClient": "ລູກຄ້າໃໝ່",
+      "searchPlaceholder": "ຄົ້ນຫາຕາມຊື່",
+      "searchLabel": "ຄົ້ນຫາລູກຄ້າ",
+      "emptyTitle": "ຍັງບໍ່ມີລູກຄ້າ",
+      "emptyDescription": "ເພີ່ມບຸກຄົນ ແລະ ບໍລິສັດທີ່ທ່ານອອກໃບແຈ້ງໜີ້ໃຫ້; ສະກຸນເງິນ ແລະ ເງື່ອນໄຂການຊຳລະຂອງເຂົາເຈົ້າຈະຕື່ມໃສ່ແຕ່ລະໃບແຈ້ງໜີ້ລ່ວງໜ້າ.",
+      "addClient": "ເພີ່ມລູກຄ້າ",
+      "noMatch": "ບໍ່ມີລູກຄ້າທີ່ກົງກັບ “{q}”.",
+      "termsDays": "{days} ວັນ",
+      "columns": {
+        "name": "ຊື່",
+        "contact": "ຜູ້ຕິດຕໍ່",
+        "email": "ອີເມວ",
+        "country": "ປະເທດ",
+        "currency": "ສະກຸນເງິນ",
+        "terms": "ເງື່ອນໄຂ",
+        "status": "ສະຖານະ"
+      }
+    },
+    "new": {
+      "title": "ລູກຄ້າໃໝ່"
+    },
+    "edit": {
+      "metaTitle": "ແກ້ໄຂລູກຄ້າ",
+      "title": "ແກ້ໄຂ {name}"
+    },
+    "detail": {
+      "metaTitle": "ລູກຄ້າ",
+      "newInvoice": "ໃບແຈ້ງໜີ້ໃໝ່",
+      "restoreTitle": "ກູ້ຄືນລູກຄ້ານີ້ບໍ?",
+      "archiveTitle": "ເກັບລູກຄ້ານີ້ເຂົ້າຄັງບໍ?",
+      "archiveDescription": "ມັນອອກຈາກລາຍການເລືອກ; ໃບແຈ້ງໜີ້ ແລະ ປະຫວັດຍັງຢູ່ຄືເກົ່າ.",
+      "deleteTitle": "ລຶບລູກຄ້ານີ້ບໍ?",
+      "deleteDescription": "ເຮັດໄດ້ສະເພາະເມື່ອບໍ່ມີໃບແຈ້ງໜີ້ອ້າງເຖິງລູກຄ້ານີ້.",
+      "details": "ລາຍລະອຽດ",
+      "contact": "ຜູ້ຕິດຕໍ່",
+      "email": "ອີເມວ",
+      "phone": "ໂທລະສັບ",
+      "country": "ປະເທດ",
+      "gstState": "GST {code}",
+      "taxId": "ເລກປະຈຳຕົວພາສີ",
+      "currency": "ສະກຸນເງິນ",
+      "paymentTerms": "ເງື່ອນໄຂການຊຳລະ",
+      "paymentTermsDays": "{days} ວັນ",
+      "expectedTds": "TDS ທີ່ຄາດໄວ້",
+      "notes": "ໝາຍເຫດ",
+      "addresses": "ທີ່ຢູ່",
+      "billing": "ເກັບເງິນ",
+      "shipping": "ຈັດສົ່ງ",
+      "lifetime": "ຕະຫຼອດເວລາ",
+      "openRegister": "ເປີດທະບຽນ",
+      "noIssued": "ຍັງບໍ່ມີໃບແຈ້ງໜີ້ທີ່ອອກແລ້ວ.",
+      "noIssuedWithDrafts": "ຍັງບໍ່ມີໃບແຈ້ງໜີ້ທີ່ອອກແລ້ວ (ສະບັບຮ່າງ {drafts}).",
+      "firstLatest": "ໃບແຈ້ງໜີ້ທຳອິດ <mono>{first}</mono> ຫຼ້າສຸດ <mono>{latest}</mono>{drafts, plural, =0 {} other { · ສະບັບຮ່າງ #}}",
+      "lifetimeColumns": {
+        "currency": "ສະກຸນເງິນ",
+        "invoices": "ໃບແຈ້ງໜີ້",
+        "billed": "ເກັບເງິນແລ້ວ",
+        "received": "ໄດ້ຮັບ",
+        "credited": "ຫັກແລ້ວ",
+        "outstanding": "ຄ້າງຊຳລະ",
+        "overdue": "ເກີນກຳນົດ"
+      },
+      "recentInvoices": "ໃບແຈ້ງໜີ້ຫຼ້າສຸດ",
+      "noInvoices": "ຍັງບໍ່ມີໃບແຈ້ງໜີ້ສຳລັບລູກຄ້ານີ້.",
+      "recentColumns": {
+        "number": "ເລກ",
+        "issueDate": "ວັນທີອອກ",
+        "due": "ຄົບກຳນົດ",
+        "total": "ລວມ",
+        "balance": "ຍອດຄ້າງ",
+        "status": "ສະຖານະ"
+      }
+    },
+    "form": {
+      "cardTitle": "ລູກຄ້າ",
+      "displayName": "ຊື່ທີ່ສະແດງ",
+      "contactPerson": "ຜູ້ຕິດຕໍ່",
+      "email": "ອີເມວ",
+      "phone": "ໂທລະສັບ",
+      "taxIdType": "ປະເພດເລກປະຈຳຕົວພາສີ",
+      "taxIdTypeNone": "ບໍ່ມີ",
+      "taxId": "ເລກປະຈຳຕົວພາສີ",
+      "currency": "ສະກຸນເງິນ",
+      "paymentTerms": "ເງື່ອນໄຂການຊຳລະ (ວັນ)",
+      "expectedTdsRate": "ອັດຕາ TDS ທີ່ຄາດໄວ້ (%)",
+      "notes": "ໝາຍເຫດ",
+      "billingAddress": "ທີ່ຢູ່ເກັບເງິນ",
+      "shippingAddress": "ທີ່ຢູ່ຈັດສົ່ງ",
+      "differentFromBilling": "ແຕກຕ່າງຈາກທີ່ຢູ່ເກັບເງິນ",
+      "save": "ບັນທຶກລູກຄ້າ"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "ຊົ່ວໂມງ",
+      "DAY": "ມື້",
+      "FIXED": "ຄົງທີ່",
+      "MILESTONE": "ຂັ້ນຕອນສຳຄັນ",
+      "UNIT": "ຫົວໜ່ວຍ"
+    },
+    "list": {
+      "activate": "ເປີດໃຊ້ງານ",
+      "deactivate": "ປິດການໃຊ້ງານ",
+      "archiveDescription": "ແຖວໃບແຈ້ງໜີ້ທີ່ມີຢູ່ຍັງຮັກສາຄ່າທີ່ສຳເນົາໄວ້.",
+      "deleteDescription": "ເຮັດໄດ້ສະເພາະເມື່ອບໍ່ມີແຖວໃບແຈ້ງໜີ້ອ້າງເຖິງ. ຖ້າບໍ່ດັ່ງນັ້ນ ໃຫ້ເກັບເຂົ້າຄັງ.",
+      "columns": {
+        "sku": "SKU",
+        "name": "ຊື່",
+        "unit": "ຫົວໜ່ວຍ",
+        "rate": "ອັດຕາ",
+        "price": "ລາຄາ",
+        "currency": "ສະກຸນເງິນ",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "ພາສີ",
+        "status": "ສະຖານະ"
+      }
+    },
+    "services": {
+      "title": "ບໍລິການ",
+      "description": "ລາຍການສິນຄ້າຂອງທ່ານ. ການເລືອກບໍລິການຈະສຳເນົາຄ່າຂອງມັນໃສ່ແຖວໃບແຈ້ງໜີ້.",
+      "newService": "ບໍລິການໃໝ່",
+      "emptyTitle": "ຍັງບໍ່ມີບໍລິການ",
+      "emptyDescription": "ເພີ່ມສິ່ງທີ່ທ່ານຂາຍ - ການອອກແບບລາຍຊົ່ວໂມງ ຂັ້ນຕອນສຳຄັນຄ່າທຳນຽມຄົງທີ່ - ພ້ອມລະຫັດ SAC/HSN ແລະ ອັດຕາພາສີ.",
+      "addService": "ເພີ່ມບໍລິການ",
+      "restoreTitle": "ກູ້ຄືນ {name} ບໍ?",
+      "archiveTitle": "ເກັບ {name} ເຂົ້າຄັງບໍ?",
+      "deleteTitle": "ລຶບ {name} ບໍ?",
+      "editMetaTitle": "ແກ້ໄຂບໍລິການ",
+      "editTitle": "ແກ້ໄຂ {name}"
+    },
+    "products": {
+      "title": "ຜະລິດຕະພັນ",
+      "description": "ສິນຄ້າທີ່ທ່ານຂາຍ ແຕ່ລະຊະນິດມີ SKU. ການເລືອກຜະລິດຕະພັນຈະສຳເນົາຄ່າຂອງມັນໃສ່ແຖວໃບແຈ້ງໜີ້.",
+      "newProduct": "ຜະລິດຕະພັນໃໝ່",
+      "emptyTitle": "ຍັງບໍ່ມີຜະລິດຕະພັນ",
+      "emptyDescription": "ເພີ່ມສິນຄ້າທີ່ທ່ານຂາຍພ້ອມ SKU ລະຫັດ HSN ລາຄາຕໍ່ຫົວໜ່ວຍ ແລະ ອັດຕາພາສີ.",
+      "addProduct": "ເພີ່ມຜະລິດຕະພັນ",
+      "restoreTitle": "ກູ້ຄືນ {sku} ບໍ?",
+      "archiveTitle": "ເກັບ {sku} ເຂົ້າຄັງບໍ?",
+      "deleteTitle": "ລຶບ {sku} ບໍ?",
+      "editMetaTitle": "ແກ້ໄຂຜະລິດຕະພັນ",
+      "editTitle": "ແກ້ໄຂ {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "ລະຫັດທີ່ບໍ່ຊ້ຳກັນທີ່ພິມໃຕ້ລາຍລະອຽດແຖວ",
+      "name": "ຊື່",
+      "unit": "ຫົວໜ່ວຍ",
+      "defaultRate": "ອັດຕາເລີ່ມຕົ້ນ",
+      "unitPrice": "ລາຄາຕໍ່ຫົວໜ່ວຍ",
+      "currency": "ສະກຸນເງິນ",
+      "sacHsnCode": "ລະຫັດ SAC / HSN",
+      "sacHsnHint": "ຈຳເປັນໃນໃບແຈ້ງໜີ້ GST",
+      "hsnCode": "ລະຫັດ HSN",
+      "hsnHint": "ຈຳເປັນໃນໃບແຈ້ງໜີ້ GST ສຳລັບສິນຄ້າ",
+      "defaultTaxRate": "ອັດຕາພາສີເລີ່ມຕົ້ນ (%)",
+      "description": "ລາຍລະອຽດ",
+      "descriptionHint": "ຕື່ມລາຍລະອຽດແຖວລ່ວງໜ້າ",
+      "active": "ໃຊ້ງານຢູ່",
+      "serviceInactiveHint": "ບໍລິການທີ່ບໍ່ໃຊ້ງານຈະບໍ່ຢູ່ໃນລາຍການເລືອກຂອງໃບແຈ້ງໜີ້",
+      "productInactiveHint": "ຜະລິດຕະພັນທີ່ບໍ່ໃຊ້ງານຈະບໍ່ຢູ່ໃນລາຍການເລືອກຂອງໃບແຈ້ງໜີ້",
+      "saveService": "ບັນທຶກບໍລິການ",
+      "saveProduct": "ບັນທຶກຜະລິດຕະພັນ"
+    },
+    "tags": {
+      "legend": "ໂປຣໄຟລ໌",
+      "hint": "ຕິກໂປຣໄຟລ໌ຜູ້ອອກເອກະສານທີ່ຂາຍສິ່ງນີ້. ປ່ອຍທັງໝົດບໍ່ຕິກເພື່ອສະເໜີໃຫ້ທຸກໂປຣໄຟລ໌."
+    }
+  },
+  "address": {
+    "line1": "ທີ່ຢູ່ແຖວ 1",
+    "line2": "ທີ່ຢູ່ແຖວ 2",
+    "city": "ເມືອງ",
+    "stateRegion": "ລັດ / ພາກພື້ນ",
+    "postalCode": "ລະຫັດໄປສະນີ",
+    "country": "ປະເທດ",
+    "state": "ລັດ",
+    "gstStateCodeHint": "ລະຫັດລັດ GST {code}",
+    "pickStateHint": "ເລືອກລັດສຳລັບລະຫັດລັດ GST",
+    "stateRegionCode": "ລະຫັດລັດ / ພາກພື້ນ",
+    "stateRegionCodePlaceholder": "ເຊັ່ນ CA"
+  },
+  "assets": {
+    "tooLarge": "ໄຟລ໌ນັ້ນໃຫຍ່ເກີນໄປ.",
+    "unsupportedReceipt": "ໃຊ້ຮູບ PNG, JPEG, WebP ຫຼື PDF.",
+    "unsupportedImage": "ໃຊ້ຮູບ PNG, JPEG ຫຼື WebP.",
+    "uploadFailed": "ອັບໂຫຼດບໍ່ສຳເລັດ.",
+    "uploading": "ກຳລັງອັບໂຫຼດ…"
+  },
+  "ui": {
+    "breadcrumb": "ເສັ້ນທາງນຳທາງ",
+    "close": "ປິດ",
+    "closeMenu": "ປິດເມນູ",
+    "inputCharset": "ອະນຸຍາດສະເພາະຕົວອັກສອນແປ້ນພິມມາດຕະຖານເທົ່ານັ້ນ.",
+    "confirm": {
+      "working": "ກຳລັງດຳເນີນການ…"
+    },
+    "statusPill": {
+      "DRAFT": "ສະບັບຮ່າງ",
+      "ISSUED": "ອອກແລ້ວ",
+      "SENT": "ສົ່ງແລ້ວ",
+      "PARTIALLY_PAID": "ຈ່າຍບາງສ່ວນ",
+      "PAID": "ຈ່າຍແລ້ວ",
+      "OVERDUE": "ເກີນກຳນົດ",
+      "VOID": "ຍົກເລີກ"
+    },
+    "activePill": {
+      "active": "ໃຊ້ງານຢູ່",
+      "archived": "ຢູ່ໃນຄັງ",
+      "inactive": "ບໍ່ໃຊ້ງານ"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "ມີບາງຢ່າງຜິດພາດ.",
+    "fixFields": "ກະລຸນາແກ້ໄຂຊ່ອງທີ່ໄຮໄລຕ໌.",
+    "accountSaved": "ບັນທຶກຄ່າທີ່ຕັ້ງໄວ້ຂອງບັນຊີແລ້ວ",
+    "apiKeyCreated": "ສ້າງກະແຈ API ແລ້ວ. ສຳເນົາດຽວນີ້: ສະແດງຄັ້ງດຽວເທົ່ານັ້ນ.",
+    "saved": "ບັນທຶກ {name} ແລ້ວ",
+    "savedProfile": "ບັນທຶກໂປຣໄຟລ໌ {label} ແລ້ວ",
+    "clientArchived": "ເກັບລູກຄ້າເຂົ້າຄັງແລ້ວ",
+    "clientRestored": "ກູ້ຄືນລູກຄ້າແລ້ວ",
+    "clientDeleted": "ລຶບລູກຄ້າແລ້ວ",
+    "productArchived": "ເກັບຜະລິດຕະພັນເຂົ້າຄັງແລ້ວ",
+    "productRestored": "ກູ້ຄືນຜະລິດຕະພັນແລ້ວ",
+    "productActivated": "ເປີດໃຊ້ງານຜະລິດຕະພັນແລ້ວ",
+    "productDeactivated": "ປິດການໃຊ້ງານຜະລິດຕະພັນແລ້ວ",
+    "serviceArchived": "ເກັບບໍລິການເຂົ້າຄັງແລ້ວ",
+    "serviceRestored": "ກູ້ຄືນບໍລິການແລ້ວ",
+    "serviceActivated": "ເປີດໃຊ້ງານບໍລິການແລ້ວ",
+    "serviceDeactivated": "ປິດການໃຊ້ງານບໍລິການແລ້ວ",
+    "defaultProfileUpdated": "ອັບເດດໂປຣໄຟລ໌ເລີ່ມຕົ້ນແລ້ວ",
+    "profileArchived": "ເກັບໂປຣໄຟລ໌ເຂົ້າຄັງແລ້ວ",
+    "profileRestored": "ກູ້ຄືນໂປຣໄຟລ໌ແລ້ວ",
+    "profileDeleted": "ລຶບໂປຣໄຟລ໌ແລ້ວ",
+    "defaultPaymentMethodUpdated": "ອັບເດດວິທີຊຳລະເງິນເລີ່ມຕົ້ນແລ້ວ",
+    "paymentMethodArchived": "ເກັບວິທີຊຳລະເງິນເຂົ້າຄັງແລ້ວ",
+    "paymentMethodRestored": "ກູ້ຄືນວິທີຊຳລະເງິນແລ້ວ",
+    "paymentMethodDeleted": "ລຶບວິທີຊຳລະເງິນແລ້ວ",
+    "issued": "ອອກ {number} ແລ້ວ",
+    "savedAsDraft": "ບັນທຶກເປັນສະບັບຮ່າງແລ້ວ. {reason}",
+    "draftSaved": "ບັນທຶກສະບັບຮ່າງແລ້ວ",
+    "invoiceVoided": "ຍົກເລີກໃບແຈ້ງໜີ້ແລ້ວ",
+    "originalVoided": "ຍົກເລີກສະບັບເດີມແລ້ວ; ແກ້ໄຂສະບັບຮ່າງທີ່ມາແທນ",
+    "markedAsSent": "ໝາຍວ່າສົ່ງແລ້ວ",
+    "draftDeleted": "ລຶບສະບັບຮ່າງແລ້ວ",
+    "generatedPdf": "ສ້າງ PDF ເວີຊັນ {version} ແລ້ວ",
+    "creditNoteVoided": "ຍົກເລີກໃບຫັກໜີ້ແລ້ວ; ຍອດຄ້າງຂອງໃບແຈ້ງໜີ້ຖືກກູ້ຄືນ",
+    "draftCreditNoteDeleted": "ລຶບໃບຫັກໜີ້ສະບັບຮ່າງແລ້ວ",
+    "mailRefused": "ເຊີບເວີອີເມວປະຕິເສດຂໍ້ຄວາມ: {error}. ການພະຍາຍາມຖືກບັນທຶກແລ້ວ.",
+    "unknownError": "ຂໍ້ຜິດພາດທີ່ບໍ່ຮູ້ຈັກ",
+    "sentTo": "ສົ່ງໄປ {recipients} ແລ້ວ",
+    "smtpSaved": "ບັນທຶກການຕັ້ງຄ່າ SMTP ແລ້ວ",
+    "smtpRemoved": "ລຶບການຕັ້ງຄ່າ SMTP ທີ່ເກັບໄວ້ແລ້ວ",
+    "testEmailSent": "ສົ່ງອີເມວທົດສອບໄປ {email} ແລ້ວ",
+    "testFailed": "ການທົດສອບບໍ່ສຳເລັດ: {error}",
+    "defaultRecipientsSaved": "ບັນທຶກຜູ້ຮັບເລີ່ມຕົ້ນແລ້ວ",
+    "invitationSent": "ສົ່ງຄຳເຊີນແລ້ວ",
+    "invitationReady": "ຄຳເຊີນພ້ອມແລ້ວ",
+    "unknownRole": "ບົດບາດທີ່ບໍ່ຮູ້ຈັກ",
+    "roleUpdated": "ອັບເດດບົດບາດແລ້ວ",
+    "accountDeactivated": "ປິດການໃຊ້ງານບັນຊີແລ້ວ",
+    "accountReactivated": "ເປີດໃຊ້ງານບັນຊີອີກຄັ້ງແລ້ວ",
+    "invitationRevoked": "ຖອນຄຳເຊີນແລ້ວ",
+    "paymentUpdated": "ອັບເດດການຊຳລະແລ້ວ",
+    "paymentRecorded": "ບັນທຶກການຊຳລະແລ້ວ",
+    "paymentDeleted": "ລຶບການຊຳລະແລ້ວ",
+    "sessionRevoked": "ຖອນເຊດຊັນແລ້ວ",
+    "noOtherSessions": "ບໍ່ມີເຊດຊັນອື່ນ",
+    "signedOutOthers": "ອອກຈາກລະບົບ {count} ເຊດຊັນອື່ນແລ້ວ",
+    "sharePasswordRequired": "ໃສ່ລະຫັດຜ່ານ ຫຼື ໃຫ້ລະບົບສ້າງໃຫ້.",
+    "shareLinkCreated": "ສ້າງລິ້ງແບ່ງປັນແລ້ວ.",
+    "templateSaved": "ບັນທຶກແມ່ແບບແລ້ວ; ເອກະສານໃນອະນາຄົດຈະໃຊ້ມັນ",
+    "templateReset": "ຣີເຊັດແມ່ແບບເປັນຄ່າເລີ່ມຕົ້ນທີ່ມີມາໃຫ້ແລ້ວ",
+    "templateImported": "ນຳເຂົ້າແມ່ແບບແລ້ວ",
+    "profileTemplateCleared": "ໂປຣໄຟລ໌ໃຊ້ແມ່ແບບຂອງ instance ອີກຄັ້ງ",
+    "operatorSaved": "ບັນທຶກລາຍລະອຽດຜູ້ດຳເນີນງານແລ້ວ. ໜ້າກົດໝາຍສະແດງມັນດຽວນີ້."
+  }
+}

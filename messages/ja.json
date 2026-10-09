@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo ホーム",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "continue": "続行",
+    "saving": "保存中…",
+    "detect": "検出",
+    "yes": "はい",
+    "no": "いいえ",
+    "choose": "選択…",
+    "remove": "削除",
+    "tryAgain": "もう一度試す",
+    "dashboard": "ダッシュボード",
+    "goToDashboard": "ダッシュボードへ移動",
+    "or": "または",
+    "invoice": "請求書",
+    "creditNote": "クレジットノート",
+    "downloadPdf": "PDF をダウンロード",
+    "edit": "編集",
+    "delete": "削除",
+    "downloadDocx": "DOCX をダウンロード",
+    "none": "なし",
+    "dismiss": "閉じる",
+    "all": "すべて",
+    "previous": "前へ",
+    "next": "次へ",
+    "go": "移動",
+    "search": "検索",
+    "status": "ステータス",
+    "total": "合計",
+    "currency": "通貨",
+    "from": "開始",
+    "to": "終了",
+    "reason": "理由",
+    "history": "履歴",
+    "archive": "アーカイブ",
+    "restore": "復元",
+    "showArchived": "アーカイブ済みを表示",
+    "hideArchived": "アーカイブ済みを非表示",
+    "archived": "アーカイブ済み",
+    "default": "既定",
+    "setDefault": "既定に設定",
+    "revoke": "取り消す",
+    "copy": "コピー",
+    "copied": "コピーしました",
+    "active": "有効",
+    "pagination": "ページ送り",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "ダッシュボード",
+      "invoices": "請求書",
+      "creditNotes": "クレジットノート",
+      "clients": "取引先",
+      "services": "サービス",
+      "products": "商品"
+    },
+    "primaryNav": "メインナビゲーション",
+    "settings": "設定",
+    "openMenu": "メニューを開く",
+    "navigation": "ナビゲーション",
+    "pagesAndAccount": "ページとアカウント",
+    "collapseSidebar": "サイドバーを折りたたむ",
+    "collapseSidebarHint": "サイドバーを折りたたむ ([)",
+    "expandSidebar": "サイドバーを展開",
+    "expandSidebarHint": "サイドバーを展開 ([)",
+    "theme": {
+      "label": "テーマ",
+      "system": "システム",
+      "light": "ライト",
+      "dark": "ダーク",
+      "current": "テーマ: {mode}",
+      "switchTo": "テーマ: {mode}。{next}に切り替え"
+    },
+    "userMenu": {
+      "label": "{name} のアカウントメニュー",
+      "profile": "プロフィール",
+      "logOut": "ログアウト"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "サインイン",
+      "title": "サインイン",
+      "subtitle": "許可リストに登録されたアカウントのみ利用できます。",
+      "failed": "サインインに失敗しました。",
+      "noMethod": "サインイン方法が設定されていません。<code>.env</code> にプロバイダーの組（例: <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>）、または <code>AUTH_PASSWORD_SIGNIN=true</code> を設定してください。",
+      "errors": {
+        "not_allowed": "このアカウントはこのインスタンスでは許可されていないか、無効化されています。",
+        "signin": "サインインが完了しませんでした。もう一度お試しください。"
+      }
+    },
+    "password": {
+      "name": "名前",
+      "email": "メールアドレス",
+      "password": "パスワード",
+      "signingIn": "サインイン中…",
+      "createAccount": "アカウントを作成",
+      "signIn": "サインイン",
+      "haveAPassword": "パスワードを持っています",
+      "firstTime": "初めてですか？パスワードを設定する",
+      "failed": "サインインに失敗しました。"
+    },
+    "social": {
+      "redirecting": "リダイレクト中…",
+      "continueWith": "{provider} で続行",
+      "failed": "サインインを開始できませんでした。"
+    },
+    "error": {
+      "metaTitle": "サインインエラー",
+      "title": "サインインに失敗しました",
+      "body": "IDプロバイダーが <code>{value}</code> を返しました。お使いのアドレスがこのインスタンスの許可リストにない場合は、オーナーに追加を依頼してください。",
+      "back": "サインインに戻る"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "設定",
+      "profiles": "プロフィール",
+      "paymentMethods": "支払い方法",
+      "templates": "テンプレート",
+      "email": "メール",
+      "security": "セキュリティ",
+      "users": "ユーザー",
+      "data": "データ",
+      "legal": "法的情報",
+      "account": "アカウント",
+      "appearance": "外観",
+      "api": "API",
+      "status": "ステータス"
+    },
+    "account": {
+      "metaTitle": "アカウント",
+      "title": "アカウント",
+      "description": "写真、名前、地域、言語、タイムゾーン。",
+      "photo": {
+        "title": "写真",
+        "description": "サイドバーとユーザーメニューに表示されます。"
+      },
+      "form": {
+        "title": "アカウント",
+        "description": "表示のされ方と、「今日」の基準。",
+        "displayName": "表示名",
+        "signInEmail": "サインイン用メールアドレス",
+        "signInEmailHint": "このインスタンスでのあなたのIDです。ここでは編集できません。",
+        "timezone": "タイムゾーン",
+        "timezoneHint": "発行日、支払期日、ダッシュボードでの「今日」",
+        "regionTitle": "地域",
+        "regionDescription": "新しい発行者プロフィールの既定値。プロフィールが作成されるまではダッシュボードにも使われます。",
+        "country": "国",
+        "currency": "通貨",
+        "suggested": "この国のおすすめ:",
+        "language": "言語",
+        "languageHint": "アプリ自体の言語です。書類は各プロフィールのロケールを使用します。",
+        "machineTranslated": "この言語は機械翻訳です。修正をお待ちしています: <link>GitHub で改善する</link>。",
+        "save": "設定を保存"
+      },
+      "regions": {
+        "Africa": "アフリカ",
+        "Americas": "アメリカ",
+        "Asia": "アジア",
+        "Europe": "ヨーロッパ",
+        "MiddleEast": "中東",
+        "Oceania": "オセアニア",
+        "Constructed": "人工言語"
+      },
+      "privacy": {
+        "title": "プライバシー",
+        "description": "okinvo は動作に必要な Cookie のみを設定します。分析もトラッキングも行いません。",
+        "cookiePolicy": "Cookie ポリシー",
+        "showNoticeAgain": "Cookie の通知をもう一度表示"
+      }
+    },
+    "avatar": {
+      "changePhoto": "写真を変更",
+      "addPhoto": "写真を追加",
+      "hint": "PNG、JPEG、WebP。常に円形で表示されます。保存前に拡大や移動ができます。",
+      "tooLarge": "写真のサイズが大きすぎます。",
+      "uploadFailed": "アップロードに失敗しました。",
+      "choose": "プロフィール写真を選択",
+      "dialogTitle": "写真の位置を調整",
+      "dialogDescription": "ドラッグで移動、スクロールまたはピンチで拡大縮小します。円の内側が全員に表示されます。",
+      "zoom": "拡大",
+      "save": "写真を保存"
+    },
+    "appearance": {
+      "metaTitle": "外観",
+      "title": "外観",
+      "description": "テーマとアクセントカラー。アカウントに保存されます。",
+      "theme": {
+        "title": "テーマ",
+        "description": "システムに合わせるか、ライトまたはダークに固定します。",
+        "label": "テーマ",
+        "system": "システムに合わせる",
+        "systemHint": "OS の設定に連動します",
+        "light": "ライト",
+        "lightHint": "白いキャンバス",
+        "dark": "ダーク",
+        "darkHint": "黒に近いキャンバス"
+      },
+      "accent": {
+        "title": "アクセント",
+        "description": "メインボタン、フォーカスリング、現在のページの印に使われます。ミントはブランドマークと同じ色です。",
+        "label": "アクセントカラー"
+      },
+      "accents": {
+        "mint": "ミント",
+        "lavender": "ラベンダー",
+        "sky": "スカイ",
+        "peach": "ピーチ",
+        "butter": "バター",
+        "rose": "ローズ",
+        "sage": "セージ",
+        "lilac": "ライラック"
+      }
+    },
+    "profiles": {
+      "metaTitle": "発行者プロフィール",
+      "title": "発行者プロフィール",
+      "description": "請求書を発行する法的な主体です。既定のプロフィールが新しい請求書に事前入力されます。",
+      "breadcrumb": "プロフィール",
+      "newProfile": "新規プロフィール",
+      "emptyTitle": "発行者プロフィールがまだありません",
+      "emptyDescription": "請求書を発行する主体を作成してください。PAN を持つ個人、または会社です。",
+      "createProfile": "プロフィールを作成",
+      "columns": {
+        "label": "ラベル",
+        "legalName": "法的名称",
+        "type": "種類",
+        "country": "国",
+        "currency": "通貨",
+        "regime": "税制",
+        "status": "ステータス"
+      },
+      "types": {
+        "company": "法人",
+        "individual": "個人"
+      },
+      "makeDefaultTitle": "{label} を既定にしますか？",
+      "makeDefaultDescription": "新しい請求書はこのプロフィールを基に作成されます。",
+      "restoreTitle": "{label} を復元しますか？",
+      "archiveTitle": "{label} をアーカイブしますか？",
+      "archiveDescription": "選択肢から表示されなくなります。既存の請求書には影響しません。",
+      "new": {
+        "metaTitle": "新規発行者プロフィール",
+        "title": "新規発行者プロフィール",
+        "prefilled": "回答内容を入力済みです。住所と税務情報を確認してから保存してください。"
+      },
+      "edit": {
+        "metaTitle": "発行者プロフィールを編集",
+        "template": "テンプレート",
+        "deleteTitle": "{label} を削除しますか？",
+        "deleteDescription": "このプロフィールを参照する請求書やクレジットノートがない場合のみ削除できます。それ以外はアーカイブしてください。"
+      },
+      "template": {
+        "metaTitle": "プロフィールのテンプレート",
+        "title": "{label} のテンプレート",
+        "ownTemplate": "専用テンプレート",
+        "instanceTemplate": "インスタンスのテンプレート",
+        "resetTitle": "インスタンスのテンプレートに戻しますか？",
+        "resetDescription": "このプロフィール専用の設定は削除されます。発行済みの書類には影響しません。",
+        "useInstance": "インスタンスのテンプレートを使用",
+        "usingInstanceTitle": "インスタンスのテンプレートを使用中",
+        "usingInstanceDescription": "このプロフィールの書類は「設定 → テンプレート」に従います。個別にカスタマイズするには有効にしてください。",
+        "customise": "このプロフィールに別のテンプレートを使用",
+        "openInstance": "インスタンスのテンプレートを開く"
+      },
+      "form": {
+        "identityTitle": "ID情報",
+        "identityDescription": "請求書の発行元です。",
+        "type": "種類",
+        "label": "ラベル",
+        "labelHint": "選択肢にのみ表示されます",
+        "legalName": "法的名称",
+        "tradeName": "屋号",
+        "designation": "役職",
+        "email": "メールアドレス",
+        "phone": "電話番号",
+        "website": "ウェブサイト",
+        "addressTitle": "住所",
+        "taxTitle": "税務ID",
+        "taxDescription": "該当するものだけを入力してください。印刷の有無は請求書ごとに設定します。",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "英国 VAT 番号",
+        "usTaxId": "米国 EIN / SSN",
+        "usTaxIdHint": "保存時に暗号化されます",
+        "lutNumber": "LUT 番号",
+        "lutNumberHint": "IGST なしの輸出用",
+        "lutFiscalYear": "LUT 会計年度",
+        "lutFiscalYearHint": "例: 2026-27",
+        "defaultsTitle": "既定値",
+        "baseCurrency": "基準通貨",
+        "locale": "書類のロケール",
+        "localeHint": "書類の数値と日付の書式",
+        "fiscalYearStart": "会計年度の開始月",
+        "months": {
+          "january": "1月",
+          "february": "2月",
+          "march": "3月",
+          "april": "4月",
+          "may": "5月",
+          "june": "6月",
+          "july": "7月",
+          "august": "8月",
+          "september": "9月",
+          "october": "10月",
+          "november": "11月",
+          "december": "12月"
+        },
+        "taxRegime": "既定の税制",
+        "regimes": {
+          "indiaGst": "インド GST",
+          "ukVat": "英国 VAT",
+          "usSalesTax": "米国売上税",
+          "none": "課税なし"
+        },
+        "invoiceNumberFormat": "請求書番号の書式",
+        "invoiceNumberFormatHint": "トークン: {tokens}",
+        "creditNoteNumberFormat": "クレジットノート番号の書式",
+        "tdsRate": "予想 TDS 率 (%)",
+        "tdsRateHint": "参考情報です。予想控除額として印刷されます",
+        "defaultNotes": "既定の備考",
+        "defaultTerms": "既定の条件",
+        "printTitle": "既定で印刷する内容",
+        "printDescription": "各請求書にこれらがコピーされ、個別に変更できます。",
+        "emailTitle": "メール",
+        "emailDescription": "送信画面の既定値です。プレースホルダー: {placeholders}",
+        "emailCc": "既定の CC",
+        "emailBcc": "既定の BCC",
+        "commaSeparated": "カンマ区切り",
+        "invoiceSubject": "請求書の件名",
+        "invoiceSubjectHint": "空欄の場合は組み込みのテンプレートを使用します",
+        "creditNoteSubject": "クレジットノートの件名",
+        "invoiceBody": "請求書の本文",
+        "creditNoteBody": "クレジットノートの本文",
+        "artworkTitle": "画像",
+        "artworkDescription": "PNG、JPEG、WebP（2 MB まで）。署名と印影は透過が保持されます。",
+        "logo": "ロゴ",
+        "signature": "署名",
+        "stamp": "印影",
+        "transparentPng": "透過 PNG",
+        "save": "プロフィールを保存"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "支払い方法",
+      "title": "支払い方法",
+      "description": "取引先からの支払いを受ける方法です。詳細は暗号化され、発行時に各請求書へ固定されます。",
+      "newMethod": "新規支払い方法",
+      "emptyTitle": "支払い方法がまだありません",
+      "emptyDescription": "銀行口座、UPI ID、ウォレットを追加すると、請求書で支払い先を案内できます。",
+      "addMethod": "支払い方法を追加",
+      "columns": {
+        "name": "名前",
+        "type": "種類",
+        "currency": "通貨",
+        "status": "ステータス"
+      },
+      "types": {
+        "bankTransfer": "銀行振込",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "カスタム"
+      },
+      "makeDefaultTitle": "{name} を既定にしますか？",
+      "restoreTitle": "{name} を復元しますか？",
+      "archiveTitle": "{name} をアーカイブしますか？",
+      "archiveDescription": "発行済みの請求書には、印刷時のスナップショットが残ります。",
+      "new": {
+        "metaTitle": "新規支払い方法",
+        "title": "新規支払い方法"
+      },
+      "edit": {
+        "metaTitle": "支払い方法を編集",
+        "title": "{name} を編集",
+        "deleteTitle": "{name} を削除しますか？",
+        "deleteDescription": "参照する請求書や支払いがない場合のみ削除できます。それ以外はアーカイブしてください。"
+      },
+      "form": {
+        "name": "名前",
+        "nameHint": "支払いブロックの見出しとして印刷されます",
+        "type": "種類",
+        "currency": "通貨",
+        "currencyHint": "任意。参考表示のみです",
+        "anyCurrency": "指定なし",
+        "instructions": "案内文",
+        "instructionsHint": "詳細の下に印刷されます",
+        "isDefault": "既定の支払い方法",
+        "isDefaultDescription": "新しい請求書で事前に選択されます",
+        "isActive": "有効",
+        "detailsTitle": "詳細",
+        "detailsDescription": "保存時に暗号化され、請求書の発行時にスナップショットとして記録されます。",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "受取人名",
+        "lines": "行",
+        "linesHint": "1行ずつ入力し、そのまま印刷されます",
+        "accountEmail": "アカウントのメールアドレス / ハンドル",
+        "bank": {
+          "accountHolder": "口座名義",
+          "accountNumber": "口座番号",
+          "bankName": "銀行名",
+          "branch": "支店",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "ルーティング番号 / ソートコード"
+        },
+        "save": "支払い方法を保存"
+      }
+    },
+    "templates": {
+      "metaTitle": "書類テンプレート",
+      "title": "書類テンプレート",
+      "customised": "カスタマイズ済み",
+      "builtIn": "組み込みの既定",
+      "description": "請求書とクレジットノートの見た目です。発行済みの書類は発行時のテンプレートを保持します。",
+      "resetTitle": "組み込みの既定に戻しますか？",
+      "resetDescription": "カスタマイズ内容は削除されます。発行済みの書類には影響しません。",
+      "reset": "リセット",
+      "resetTrigger": "既定に戻す",
+      "importTitle": "インポート",
+      "importDescription": "以前にエクスポートした設定を復元します。",
+      "overridesTitle": "プロフィールごとの上書き",
+      "overridesDescription": "プロフィールの編集ページから、専用のテンプレートを使うよう設定できます。",
+      "noOverrides": "すべてのプロフィールがインスタンスのテンプレートを使用しています。",
+      "import": {
+        "json": "テンプレート JSON",
+        "jsonHint": "「JSON をエクスポート」で作成したファイルを貼り付けます。不足しているキーは既定値になります",
+        "importing": "インポート中…",
+        "submit": "インポート"
+      },
+      "form": {
+        "templateTitle": "テンプレート",
+        "templateDescription": "組み込みは6種類です。下のカスタマイズは選んだテンプレートに適用されます。",
+        "templateGroup": "テンプレート",
+        "templates": {
+          "ledger": {
+            "name": "レジャー",
+            "character": "現代的でゆとりのあるサンセリフ体。ヘッダーの下にアクセントの罫線があります。"
+          },
+          "classic": {
+            "name": "クラシック",
+            "character": "伝統的な枠線付きの表、セリフ体の見出し、枠で囲んだ合計。"
+          },
+          "compact": {
+            "name": "コンパクト",
+            "character": "長い明細向けの高密度レイアウト。文字は小さめで、区切り線は少なめです。"
+          },
+          "minimal": {
+            "name": "ミニマル",
+            "character": "静かで余白の多い構成。罫線や枠がなく、ラベルは軽く、余白がたっぷりあります。"
+          },
+          "letterhead": {
+            "name": "レターヘッド",
+            "character": "各ページの上部に、ロゴと名称をカラー帯または画像の上に配置します。"
+          },
+          "modern": {
+            "name": "モダン",
+            "character": "カラー帯のヘッダー。当事者、表の見出し、合計に淡いアクセント色の背景を使います。"
+          }
+        },
+        "paperTitle": "用紙と書体",
+        "paperSize": "用紙サイズ",
+        "paperLetter": "Letter",
+        "margins": "余白",
+        "marginsNormal": "標準",
+        "marginsNarrow": "狭い",
+        "headingFont": "見出しのフォント",
+        "bodyFont": "本文のフォント",
+        "fontSans": "サンセリフ",
+        "fontSerif": "セリフ",
+        "tableStyle": "表のスタイル",
+        "tableRuled": "罫線",
+        "tableZebra": "ゼブラ",
+        "tablePlain": "プレーン",
+        "accentColour": "アクセントカラー",
+        "textColour": "文字色",
+        "logoPosition": "ロゴの位置",
+        "positionLeft": "左",
+        "positionCentre": "中央",
+        "positionRight": "右",
+        "logoHeight": "ロゴの高さ (mm)",
+        "documentTitle": "書類のタイトル",
+        "titleAuto": "自動（GST 対応）",
+        "titleCustom": "カスタム",
+        "titlePlaceholder": "例: PROFORMA INVOICE",
+        "qrPosition": "QR コードの位置",
+        "qrFooter": "フッター",
+        "qrHeader": "ヘッダー",
+        "qrBesideTotals": "合計の横",
+        "amountInWords": "金額の文字表記",
+        "wordsBelowTotal": "合計の下",
+        "wordsFooter": "フッター",
+        "wordsHidden": "非表示",
+        "subtotalRow": "小計の行",
+        "discountRow": "割引の行",
+        "taxLines": "税額の行",
+        "tdsExpected": "予想 TDS",
+        "roundingRow": "端数調整の行",
+        "pageNumbers": "ページ番号",
+        "headerTitle": "ヘッダー",
+        "headerDescription": "各ページの上部に表示するカラー帯または画像です。レターヘッドとモダンは、別途選択しない限りカラー帯を表示します。",
+        "headerStyle": "ヘッダーのスタイル",
+        "headerNone": "なし",
+        "headerBand": "カラー帯",
+        "headerImage": "画像",
+        "bandColour": "帯の色",
+        "bandColourHex": "帯の色（16進数）",
+        "headerImageLabel": "ヘッダー画像",
+        "headerImageHint": "PNG、JPEG、WebP（幅 2400 px まで）。ページ幅いっぱいに表示されます。",
+        "imageOpacity": "画像の不透明度",
+        "headerHeight": "ヘッダーの高さ (mm)",
+        "bandText": "帯の上の文字",
+        "bandTextAuto": "自動（帯の色に合わせる）",
+        "bandTextLight": "明るい色",
+        "bandTextDark": "暗い色",
+        "textTitle": "文言",
+        "headerNote": "ヘッダーの注記",
+        "footer": "フッター",
+        "signatureCaption": "署名のキャプション",
+        "draftWatermark": "下書きの透かし",
+        "labelsTitle": "ラベル",
+        "labelsDescription": "空欄にすると既定の文言になります。",
+        "save": "テンプレートを保存",
+        "downloadSample": "サンプル PDF をダウンロード",
+        "exportJson": "JSON をエクスポート"
+      }
+    },
+    "email": {
+      "metaTitle": "メール",
+      "title": "メール",
+      "configuredSettings": "設定で構成済み",
+      "configuredEnv": "環境変数で構成済み",
+      "notConfigured": "未構成: メールアプリを使用",
+      "description": "書類は、保存済みの PDF を添付して送信画面から送られます。ここでの設定は環境の SMTP_* より優先されます。",
+      "sendTest": "{email} にテストメールを送信",
+      "removeTitle": "保存済みの SMTP 設定を削除しますか？",
+      "removeEnvTakesOver": "環境の SMTP_* の値が使われるようになります。",
+      "removeFallsBack": "メールはメールアプリを使う方式に戻ります。",
+      "removeTrigger": "保存済みの設定を削除",
+      "smtpTitle": "SMTP サーバー",
+      "smtpFromEnv": "現在は環境から取得しています。ここで保存すると上書きされます。",
+      "smtpPasswordNote": "パスワードは保存時に暗号化され、再表示されません。",
+      "defaultsTitle": "既定の宛先",
+      "defaultsDescription": "インスタンス全体の CC/BCC です。発行者プロフィールで追加できます。",
+      "sentTitle": "送信済みメール",
+      "sentDescription": "失敗や手動送信を含む、直近 50 件の送信です。",
+      "smtp": {
+        "host": "ホスト",
+        "port": "ポート",
+        "security": "セキュリティ",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "なし（LAN 内リレー）",
+        "user": "ユーザー名",
+        "password": "パスワード",
+        "passwordStored": "保存済みで暗号化されています。空欄のままにすると維持されます",
+        "passwordEncrypted": "保存時に暗号化されます",
+        "from": "送信元アドレス",
+        "fromName": "送信者名",
+        "replyTo": "返信先",
+        "save": "SMTP 設定を保存"
+      },
+      "defaults": {
+        "cc": "既定の CC",
+        "ccHint": "すべての送信画面に追加されます。カンマ区切り",
+        "bcc": "既定の BCC",
+        "save": "既定値を保存"
+      }
+    },
+    "security": {
+      "metaTitle": "セキュリティ",
+      "title": "セキュリティ",
+      "description": "サインインしている場所と、すべての変更。",
+      "sessions": {
+        "title": "有効なセッション",
+        "description": "セッションを取り消すと、そのデバイスはただちにサインアウトされます。",
+        "signOutOthers": {
+          "title": "他のすべてのデバイスからサインアウトしますか？",
+          "description": "このセッション以外はすべて取り消されます。",
+          "confirm": "他をサインアウト",
+          "trigger": "他のすべてのデバイスからサインアウト"
+        },
+        "columns": {
+          "device": "デバイス",
+          "ipAddress": "IP アドレス",
+          "signedIn": "サインイン日時",
+          "lastSeen": "最終アクセス",
+          "expires": "有効期限"
+        },
+        "thisDevice": "このデバイス",
+        "revokeTitle": "このセッションを取り消しますか？",
+        "unknownDevice": "不明なデバイス",
+        "unknownBrowser": "不明",
+        "agentOnOs": "{os} 上の {browser}"
+      },
+      "audit": {
+        "title": "監査ログ",
+        "count": "{count, plural, other {# 件のイベント}}",
+        "entity": "対象",
+        "actionContains": "操作に含まれる語",
+        "filter": "絞り込み",
+        "reset": "リセット",
+        "columns": {
+          "when": "日時",
+          "who": "実行者",
+          "action": "操作",
+          "entity": "対象",
+          "summary": "概要"
+        },
+        "empty": "この条件に一致するイベントはありません。",
+        "system": "システム",
+        "changes": "変更内容",
+        "page": "{page} / {pages} ページ"
+      }
+    },
+    "users": {
+      "metaTitle": "ユーザー",
+      "title": "ユーザー",
+      "description": "このインスタンスにサインインできる人と、その権限。",
+      "roles": {
+        "owner": "オーナー",
+        "editor": "編集者",
+        "viewer": "閲覧者"
+      },
+      "roleHints": {
+        "owner": "設定とメンバー管理を含むすべての操作",
+        "editor": "取引先、カタログ、請求書、クレジットノート、支払い、メール",
+        "viewer": "閲覧のみ"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "{email} のロール",
+      "invite": {
+        "title": "メンバーを招待",
+        "description": "招待されたアドレス（IDプロバイダーまたはパスワード）でサインインし、選択したロールが付与されます。",
+        "sent": "{email} に招待メールを送信しました。",
+        "readyWithError": "{email} への招待を準備しました。メールを送信できませんでした（{error}）。次のリンクをお送りください:",
+        "readyNoSmtp": "{email} への招待を準備しました。SMTP が構成されていません。次のリンクをお送りください:",
+        "copyLink": "リンクをコピー",
+        "email": "メールアドレス",
+        "emailPlaceholder": "person@example.com",
+        "role": "ロール",
+        "submit": "招待",
+        "inviting": "招待中…"
+      },
+      "members": {
+        "title": "メンバー",
+        "description": "有効なオーナーが常に1人以上残ります。",
+        "columns": {
+          "person": "メンバー",
+          "role": "ロール",
+          "lastSignIn": "最終サインイン",
+          "status": "ステータス"
+        },
+        "nameYou": "{name}（あなた）",
+        "deactivated": "無効化済み",
+        "reactivate": {
+          "title": "{email} を再有効化しますか？",
+          "description": "以前のロールで再びサインインできます。",
+          "confirm": "再有効化"
+        },
+        "deactivate": {
+          "title": "{email} を無効化しますか？",
+          "description": "すべてのセッションがただちに終了し、再有効化するまでサインインできません。履歴は残ります。",
+          "confirm": "無効化"
+        }
+      },
+      "invitations": {
+        "title": "保留中の招待",
+        "description": "サインイン可能ですが、まだサインインしていないアドレスです。",
+        "columns": {
+          "email": "メールアドレス",
+          "role": "ロール",
+          "invited": "招待日"
+        },
+        "empty": "保留中の招待はありません。",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "{email} への招待を取り消しますか？"
+      }
+    },
+    "data": {
+      "metaTitle": "データ",
+      "title": "データ",
+      "description": "すべてポータブルです。データセットは CSV または Excel、移行用の完全なスナップショット、会計士向けの PDF、そして検証済みのバックアップ手順を用意しています。",
+      "period": {
+        "fiscalYear": "会計年度",
+        "fiscalYearHint": "日付より優先されます",
+        "issuer": "発行者"
+      },
+      "exportAll": {
+        "title": "すべてのデータをエクスポート",
+        "description": "各データセットの CSV と、全テーブルのリレーショナルなスナップショットである <mono>data.json</mono> を含む ZIP です。暗号化されたフィールド（支払い方法の詳細、SMTP パスワード）は含まれません。内部の README に一覧があります。",
+        "download": "okinvo-data ZIP をダウンロード"
+      },
+      "exportDocuments": {
+        "title": "書類をエクスポート",
+        "description": "指定期間の発行済みおよび無効化済みの請求書とクレジットノートの PDF を、番号を名前にして出力します。番号、合計、ハッシュを記した <mono>index.csv</mono> が付きます。不足している PDF は途中で生成されます。",
+        "docx": "すべての書類の DOCX コピーも含める",
+        "download": "書類 ZIP をダウンロード"
+      },
+      "datasets": {
+        "title": "データセット",
+        "description": "一覧ページと同じエクスポートで、期間と発行者がすべてに適用されます。支払いは日付範囲を使用し、取引先とサービスは期間を無視します。",
+        "columns": {
+          "dataset": "データセット",
+          "filters": "適用される条件",
+          "download": "ダウンロード"
+        },
+        "names": {
+          "invoices": "請求書台帳",
+          "invoiceItems": "請求書の明細行",
+          "payments": "入金元帳",
+          "creditNotes": "クレジットノート台帳",
+          "clients": "取引先",
+          "services": "サービス",
+          "gstSummary": "GST サマリー",
+          "tdsSummary": "TDS サマリー"
+        },
+        "filters": {
+          "periodIssuer": "期間、発行者",
+          "dateRangeIssuer": "日付範囲、発行者",
+          "includesArchived": "アーカイブ済みを含む"
+        }
+      },
+      "backups": {
+        "title": "バックアップ",
+        "notWired": "バックアップサービスが接続されていません",
+        "noRun": "まだバックアップが実行されていません",
+        "lastOk": "前回のバックアップは成功",
+        "lastFailed": "前回のバックアップは失敗",
+        "description": "Compose の <mono>backup</mono> サービスは、<mono>BACKUP_CRON</mono> に従って Postgres をダンプしストレージボリュームをアーカイブし、<mono>backups</mono> ボリュームに <mono>BACKUP_RETENTION_DAYS</mono> 日分の履歴を保持して、このページが読み取るステータスファイルを書き出します。",
+        "finished": "完了日時",
+        "databaseDump": "データベースダンプ",
+        "storageArchive": "ストレージアーカイブ",
+        "size": "サイズ",
+        "sizeMb": "{size} MB",
+        "error": "エラー",
+        "runNow": "今すぐ実行するか、ファイルの組から復元します:",
+        "restoreDrill": "復元手順は CI で <mono>scripts/restore-drill.sh</mono> により演習されます。データ投入、バックアップ、消去、復元を行い、行数と PDF のハッシュを比較します。"
+      }
+    },
+    "legal": {
+      "metaTitle": "法的情報",
+      "metaDescription": "このインスタンスの運営者: 公開の法的ページに印刷される情報です。",
+      "title": "法的情報",
+      "description": "公開の法的ページにはこれらの情報が印刷されます。すべての項目を入力するまで、ページには強調表示されたプレースホルダーが表示されます。",
+      "operator": {
+        "title": "運営者の情報",
+        "complete": "入力済み",
+        "missing": "{count} 件が未入力: {fields}",
+        "description": "このインスタンスを運営する個人または会社であるあなたが、各文書でいう運営者です。ここに入力した内容はどこにも送信されず、下記のページに印刷されるだけです。"
+      },
+      "fieldLabels": {
+        "legalName": "運営者の法的名称",
+        "entityType": "主体の種類",
+        "address": "運営者の住所",
+        "country": "運営者の所在国",
+        "contactEmail": "連絡先メールアドレス",
+        "privacyEmail": "プライバシー窓口のメールアドレス",
+        "dpoEmail": "データ保護責任者のメールアドレス",
+        "governingLaw": "準拠法",
+        "venue": "紛争の管轄",
+        "effectiveDate": "施行日"
+      },
+      "publicPages": {
+        "title": "公開ページ",
+        "description": "サインインページ、共有ビューア、Cookie の通知からリンクされます。",
+        "terms": "利用規約",
+        "acceptableUse": "許容される利用に関するポリシー",
+        "privacy": "プライバシーポリシー",
+        "cookies": "Cookie ポリシー",
+        "dataRetention": "データの保持",
+        "security": "セキュリティ",
+        "licenses": "ライセンスとサードパーティの表示"
+      },
+      "form": {
+        "legalName": "法的名称",
+        "entityType": "主体の種類",
+        "individual": "個人 / 個人事業主",
+        "company": "法人 / 登記された主体",
+        "address": "住所",
+        "addressHint": "利用規約とプライバシーポリシーに、運営者の郵送先住所として印刷されます。",
+        "country": "国",
+        "effectiveDate": "施行日",
+        "contactEmail": "連絡先メールアドレス",
+        "privacyEmail": "プライバシー窓口のメールアドレス",
+        "privacyEmailHint": "データ主体からの請求の送り先です。連絡先アドレスと同じでも構いません。",
+        "dpoEmail": "データ保護責任者のメールアドレス",
+        "dpoEmailHint": "任命している場合のみ入力してください。",
+        "governingLaw": "準拠法",
+        "governingLawHint": "例:「インドの法律」「イングランドおよびウェールズの法律」。",
+        "venue": "紛争の管轄",
+        "venueHint": "例:「カルナータカ州ベンガルールの裁判所」。",
+        "submit": "運営者の情報を保存"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "スクリプト、SDK、MCP クライアント用の API キーと curl の例。",
+      "title": "API",
+      "description": "スクリプト、SDK、MCP クライアント用のキーです。キーはあなたのロールの範囲内の操作のみ可能で、一度だけ表示されます。",
+      "create": {
+        "title": "キーを作成",
+        "description": "<mono>Authorization: Bearer okv_…</mono> として送信します。ソースコードやチャットログには残さないでください。漏えいした場合は下で取り消してください。"
+      },
+      "keys": {
+        "title": "キー",
+        "descriptionOwner": "このインスタンスのすべてのキーです。オーナーはどのキーも取り消せます。",
+        "descriptionOwn": "あなたのキーです。",
+        "columns": {
+          "name": "名前",
+          "prefix": "プレフィックス",
+          "scopes": "スコープ",
+          "owner": "所有者",
+          "lastUsed": "最終使用",
+          "expires": "有効期限",
+          "status": "ステータス"
+        },
+        "empty": "API キーはまだありません。",
+        "never": "なし",
+        "revoked": "取り消し済み",
+        "expired": "期限切れ",
+        "revokeTitle": "{name} を取り消しますか？",
+        "revokeDescription": "このキーを使用しているクライアントはただちに動作しなくなります。",
+        "activeCount": "{count, plural, other {有効なキーは # 件です。}}"
+      },
+      "examples": {
+        "title": "例",
+        "description": "<mono>$OKINVO_KEY</mono> をキーに置き換えてください。バージョン付きの REST API、その OpenAPI ドキュメント (<mono>/api/openapi.json</mono>)、TypeScript SDK、MCP サーバーは v1.1 計画の次のタスクで提供されます。ステータスのエンドポイントは現在利用できます。",
+        "rateLimit": "制限を超えた呼び出しは 429 と <mono>Retry-After</mono> ヘッダーで応答します（キーごとに 1 分あたり 120 リクエスト）。キーのスコープは、所有者の現在のロールが上限になります。"
+      },
+      "form": {
+        "copyKey": "API キーをコピー",
+        "name": "名前",
+        "namePlaceholder": "例: 経理スクリプト",
+        "expires": "有効期限",
+        "in30Days": "30 日後",
+        "in90Days": "90 日後",
+        "inAYear": "1 年後",
+        "never": "なし",
+        "scopes": "スコープ",
+        "submit": "API キーを作成",
+        "creating": "作成中…"
+      },
+      "scopes": {
+        "invoicesRead": "請求書の読み取り",
+        "invoicesCreate": "請求書の作成と発行",
+        "creditNotesRead": "クレジットノートの読み取り",
+        "creditNotesCreate": "クレジットノートの作成と発行",
+        "catalogueRead": "取引先、サービス、商品の読み取り",
+        "documentsRead": "保存済みの PDF と DOCX コピーのダウンロード",
+        "statusRead": "インスタンスのステータスの読み取り"
+      }
+    },
+    "status": {
+      "metaTitle": "ステータス",
+      "metaDescription": "このインスタンスのバージョン、データベース、ストレージ、メール、バックアップの状態。",
+      "title": "ステータス",
+      "description": "このインスタンスの稼働内容と、各部分が応答しているかどうか。",
+      "recheck": "再確認",
+      "health": {
+        "ok": "正常",
+        "warning": "警告",
+        "failed": "失敗",
+        "na": "未構成"
+      },
+      "overall": {
+        "ok": "すべて正常",
+        "degraded": "性能低下",
+        "failed": "失敗"
+      },
+      "version": "ビルド {hasSha, select, yes {<mono>{sha}</mono>} other {（sha 不明）}} · ビルド日時 {built} · Node <mono>{node}</mono> · 稼働時間 {uptime} · 確認日時 {checked}",
+      "dateUnknown": "（日付不明）",
+      "uptime": {
+        "days": "{d}日 {h}時間 {m}分",
+        "hours": "{h}時間 {m}分",
+        "minutes": "{m}分"
+      },
+      "rows": {
+        "database": "データベース",
+        "storage": "ストレージ",
+        "rateLimiting": "レート制限",
+        "email": "メール",
+        "backups": "バックアップ"
+      },
+      "db": {
+        "detail": "{latency} ms · 最後のマイグレーション <mono>{migration}</mono>{hasDate, select, yes {（{finishedAt}）} other {}}{pending, plural, =0 {} other { · 未完了のマイグレーション # 件}}",
+        "noMigration": "なし"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · テスト用オブジェクトの書き込み、読み取り、削除を {latency} ms で完了",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> ストア {store, select, memory {（単一レプリカ）} other {（レプリカ間で共有）}}",
+      "smtp": {
+        "configured": "SMTP の取得元: {source, select, settings {設定} env {環境変数} other {}} · 前回のテスト {lastTest} · 過去 24 時間: 送信 {sent} 件、失敗 {failed} 件",
+        "none": "SMTP サーバーがありません。送信画面には「メールアプリで開く」が表示されます。<link>設定する</link>"
+      },
+      "backups": {
+        "notWired": "バックアップサービスが接続されていません（BACKUP_STATUS_FILE が未設定）。",
+        "noRun": "バックアップサービスは接続済みですが、実行記録はまだありません。",
+        "ok": "前回の実行は {finishedAt} に成功{days, plural, =0 {} other { · 保持期間 # 日}}",
+        "failed": "前回の実行は {finishedAt} に失敗: {error}{days, plural, =0 {} other { · 保持期間 # 日}}"
+      },
+      "footer": "同じレポートを監視用に <mono>/api/health/status</mono> で JSON として取得できます（サインイン済みセッションまたは API キーが必要）。"
+    }
+  },
+  "onboarding": {
+    "metaTitle": "ようこそ",
+    "progress": "進行状況",
+    "steps": {
+      "aboutYou": "あなたについて",
+      "howYouUse": "使い方",
+      "allSet": "準備完了"
+    },
+    "step1": {
+      "title": "あなたについて教えてください",
+      "subtitle": "既定値が設定されます。どの値も後から設定で変更できます。",
+      "name": "名前",
+      "email": "メールアドレス",
+      "emailHint": "サインイン用のIDです。後から「設定 → セキュリティ」で変更できます。",
+      "country": "国",
+      "currency": "優先する通貨",
+      "currencyHint": "新しいプロフィールに使われます。プロフィールが作成されるまではダッシュボードにも使われます。"
+    },
+    "step2": {
+      "title": "okinvo をどのように使いますか？",
+      "subtitle": "変わるのは既定値だけで、何かが固定されることはありません。",
+      "usage": "用途",
+      "personal": "個人での請求",
+      "personalHint": "ご自身の名前で行うフリーランスの仕事",
+      "business": "事業での請求",
+      "businessHint": "登録済みの事業者としての請求書",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "VAT 番号",
+        "other": "税務登録番号"
+      },
+      "taxQuestion": {
+        "IN": "GSTIN をお持ちですか？",
+        "GB": "VAT に登録していますか？",
+        "other": "請求書に印刷する税務登録番号をお持ちですか？"
+      }
+    },
+    "step3": {
+      "title": "準備ができました",
+      "body": "次に、最初の発行者プロフィールを作成します。請求書に印刷される名称、住所、税務情報です。お答えいただいた内容は入力済みです。",
+      "go": "プロフィールへ移動",
+      "opening": "開いています…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "規約",
+      "privacy": "プライバシー",
+      "cookies": "Cookie",
+      "security": "セキュリティ"
+    },
+    "cookieNotice": {
+      "label": "Cookie の通知",
+      "body": "使用するのは、セッションと表示設定という厳密に必要な Cookie のみです。分析もトラッキングも行いません。",
+      "policy": "Cookie ポリシー",
+      "gotIt": "了解しました"
+    },
+    "nav": {
+      "label": "法的情報",
+      "cookies": "Cookie",
+      "privacy": "プライバシー",
+      "terms": "規約",
+      "acceptableUse": "許容される利用",
+      "retention": "保持",
+      "security": "セキュリティ",
+      "licences": "ライセンス"
+    },
+    "operatorNotice": "okinvo はセルフホスト型のソフトウェアです。このインスタンスの運営者がその利用に責任を負います。",
+    "doc": {
+      "effectiveOn": "施行日 <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "目次"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "運営者の法的名称",
+        "entityType": "主体の種類",
+        "address": "運営者の住所",
+        "country": "運営者の所在国",
+        "contactEmail": "連絡先メールアドレス",
+        "privacyEmail": "プライバシー窓口のメールアドレス",
+        "dpoEmail": "データ保護責任者のメールアドレス",
+        "governingLaw": "準拠法",
+        "venue": "紛争の管轄",
+        "effectiveDate": "施行日"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "見つかりません",
+      "title": "このアドレスには何もありません",
+      "body": "リンクが古いか、指し示していた書類が発行されていない可能性があります。"
+    },
+    "forbidden": {
+      "metaTitle": "許可されていません",
+      "title": "このアカウントではその操作はできません",
+      "body": "お使いのロールでは許可されていません。オーナーにアクセスを依頼するか、権限のあるアカウントでサインインしてください。"
+    },
+    "error": {
+      "title": "問題が発生しました",
+      "body": "このリクエストでは何も変更されていません。もう一度お試しください。繰り返し発生する場合は、サーバーログに詳細があります。",
+      "digest": "エラー {digest}",
+      "generic": "エラー"
+    },
+    "appNotFound": {
+      "title": "見つかりません",
+      "body": "このレコードは存在しないか、閲覧中に削除されました。",
+      "back": "ダッシュボードに戻る"
+    },
+    "validation": {
+      "required": "必須です",
+      "tooLong": "{max} 文字以内で入力してください",
+      "invalidEmail": "有効なメールアドレスを入力してください",
+      "invalidDate": "YYYY-MM-DD 形式の暦日で入力してください",
+      "invalidAmount": "数値で入力してください",
+      "wholeNumber": "整数で入力してください",
+      "greaterThanZero": "0 より大きい値にしてください",
+      "fixFields": "強調表示された項目を修正してください。",
+      "charset": "標準的なキーボード文字のみ使用できます。"
+    }
+  },
+  "verify": {
+    "metaTitle": "書類の検証",
+    "heading": "書類の検証",
+    "rateLimited": "このアドレスからの確認が多すぎます。1分後にもう一度お試しください。",
+    "notFound": {
+      "title": "該当する書類がありません",
+      "body": "このリンクは、発行済みのどの書類とも一致しません。QR コードや受け取ったリンクを確認するか、発行者にお問い合わせください。"
+    },
+    "status": {
+      "void": "無効",
+      "valid": "有効"
+    },
+    "issuedBy": "発行者",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "宛先",
+    "issueDate": "発行日",
+    "total": "合計",
+    "voided": "この書類は発行者によって無効化されており、有効ではありません。",
+    "storedCopies": {
+      "title": "保存済みのコピー",
+      "description": "発行者が保持するすべての PDF バージョンの SHA-256 です。お手元のコピーを選ぶと、ブラウザー内で比較できます。何もアップロードされません。",
+      "empty": "PDF はまだ生成されていません。",
+      "protectedVersion": "パスワード保護されたコピー {version}",
+      "version": "バージョン {version}"
+    },
+    "check": {
+      "label": "お手元のコピーを確認",
+      "hashing": "ハッシュを計算中…",
+      "match": "お手元のコピーはバージョン {version} と完全に一致します。",
+      "mismatch": "お手元のコピーは、保存済みのどのバージョンとも一致しません。"
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "共有された書類",
+      "rateLimited": "このアドレスからのリクエストが多すぎます。1分後にもう一度お試しください。",
+      "unavailable": {
+        "title": "このリンクは利用できません",
+        "body": "有効期限が切れたか、発行者によって取り消された可能性があります。新しいリンクを発行者に依頼してください。"
+      },
+      "lockedTitleInvoice": "{issuer} からの請求書",
+      "lockedTitleCreditNote": "{issuer} からのクレジットノート",
+      "lockedBody": "この書類はパスワードで保護されています。発行者から伝えられたパスワードを入力してください。",
+      "void": "無効",
+      "protectedPdf": "PDF も同じパスワードで開けます。閲覧と印刷は可能で、コピーと編集はロックされています。",
+      "byline": "{issuer} から {client} 宛 · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "パスワード",
+      "limited": "試行回数が多すぎます。15分ほど待ってからもう一度お試しください。",
+      "wrong": "パスワードが正しくありません。",
+      "submit": "書類を開く"
+    },
+    "dialog": {
+      "trigger": "共有",
+      "title": "この書類を共有",
+      "description": "リンクを知っている人は、有効期限が切れるか取り消すまで、表示とダウンロードができます。パスワードは PDF 自体も保護します。パスワードで開き、閲覧と印刷はできますが、編集とコピーはできません。",
+      "link": "リンク",
+      "copyLink": "リンクをコピー",
+      "password": "パスワード",
+      "copyPassword": "パスワードをコピー",
+      "sendSeparately": "パスワードはリンクとは別に送ってください。下の一覧でもう一度確認できます。",
+      "copy": "コピー",
+      "copied": "コピーしました",
+      "expires": "有効期限",
+      "expiry": {
+        "d7": "7 日後",
+        "d30": "30 日後",
+        "d90": "90 日後",
+        "never": "なし"
+      },
+      "protection": "保護",
+      "protectionOptions": {
+        "auto": "パスワード: パスフレーズを自動生成",
+        "manual": "パスワード: 自分で設定",
+        "none": "パスワードなし（公開リンク）"
+      },
+      "passwordHint": "8 文字以上。",
+      "strength": "強度: {label}",
+      "strengthLabels": {
+        "veryWeak": "非常に弱い",
+        "weak": "弱い",
+        "fair": "普通",
+        "good": "良い",
+        "strong": "強い"
+      },
+      "creating": "作成中…",
+      "create": "リンクを作成",
+      "activeLinks": "有効なリンク",
+      "passwordProtected": "パスワード保護",
+      "openLink": "リンクを開く",
+      "linkExpires": "{kind} · 有効期限 {date}",
+      "linkNeverExpires": "{kind} · 期限なし",
+      "revoke": {
+        "title": "このリンクを取り消しますか？",
+        "description": "リンクを持つ全員が、ただちに利用できなくなります。",
+        "label": "取り消す"
+      },
+      "linkPassword": "パスワード: <code>{password}</code>",
+      "counts": "{views, plural, other {# 回表示}} · {downloads, plural, other {# 回ダウンロード}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "クレジットノート",
+      "title": "クレジットノート",
+      "description": "発行済みの請求書に対して作成します。発行すると、それぞれの請求書の残高が減ります。",
+      "newCreditNote": "新規クレジットノート",
+      "filters": {
+        "from": "開始",
+        "to": "終了",
+        "issuer": "発行者",
+        "client": "取引先",
+        "status": "ステータス",
+        "search": "検索",
+        "all": "すべて",
+        "searchPlaceholder": "番号、理由、取引先",
+        "go": "移動"
+      },
+      "statuses": {
+        "DRAFT": "下書き",
+        "ISSUED": "発行済み",
+        "SENT": "送信済み",
+        "VOID": "無効"
+      },
+      "empty": {
+        "title": "クレジットノートはまだありません",
+        "description": "発行済みの請求書を開き、「クレジットノート」を選ぶと、請求額を減らせます。"
+      },
+      "noMatch": "この条件に一致するクレジットノートはありません。",
+      "columns": {
+        "number": "番号",
+        "against": "対象の請求書",
+        "client": "取引先",
+        "issueDate": "発行日",
+        "reason": "理由",
+        "total": "合計",
+        "status": "ステータス"
+      },
+      "draft": "下書き"
+    },
+    "new": {
+      "metaTitle": "新規クレジットノート",
+      "title": "新規クレジットノート",
+      "description": "クレジットノートは発行済みの請求書に対して作成し、その残高を減らします。",
+      "nothingToCredit": {
+        "title": "クレジットの対象がありません",
+        "description": "クレジットノートには、未払い残高のある発行済みの請求書が必要です。",
+        "openInvoices": "請求書を開く"
+      },
+      "whichInvoice": "どの請求書ですか？",
+      "invoice": "請求書",
+      "invoiceOption": "{number} · {client} · 残高 {balance}",
+      "issuedOnly": "クレジットノートは発行済みの請求書に対してのみ作成できます。",
+      "invoiceFallback": "請求書"
+    },
+    "edit": {
+      "metaTitle": "クレジットノートを編集",
+      "title": "下書きのクレジットノートを編集",
+      "immutable": "発行済みのクレジットノートは変更できません。",
+      "draft": "下書き"
+    },
+    "detail": {
+      "metaTitle": "クレジットノート",
+      "draftTitle": "下書きのクレジットノート",
+      "meta": "{client} · 対象 <invoice>{number}</invoice> · 発行日 <mono>{date}</mono>",
+      "previewPdf": "PDF をプレビュー",
+      "issue": {
+        "title": "このクレジットノートを発行しますか？",
+        "description": "番号が割り当てられ、請求書の残高が減り、書類は変更できなくなります。",
+        "label": "発行"
+      },
+      "deleteDraft": {
+        "title": "この下書きを削除しますか？"
+      },
+      "sendByEmail": "メールで送信",
+      "markSent": {
+        "title": "送信済みにしますか？",
+        "label": "送信済みにする"
+      },
+      "void": {
+        "title": "このクレジットノートを無効化しますか？",
+        "description": "請求書の残高は元に戻ります。番号が再利用されることはありません。",
+        "reason": "理由",
+        "label": "無効化"
+      },
+      "voided": "{date} に無効化: {reason}",
+      "amounts": {
+        "title": "金額",
+        "reason": "理由",
+        "creditAmount": "クレジット額",
+        "total": "合計",
+        "balanceNow": "現在の請求書残高",
+        "sent": "送信日"
+      },
+      "documents": {
+        "title": "保存済みの書類",
+        "description": "すべてのバージョンが保持され、検証ページにすべてのハッシュが表示されます。",
+        "regenerateTitle": "新しい PDF バージョンを生成しますか？",
+        "generate": "生成",
+        "newVersion": "新バージョン",
+        "renderedOnFirstDownload": "PDF は最初のダウンロード時に生成されます。",
+        "protectedCopy": "パスワード保護されたコピー {version}",
+        "version": "バージョン {version}",
+        "verificationLink": "検証リンク: <link>{path}…</link>"
+      },
+      "draftsPreview": "下書きはエディターでリアルタイムにプレビューされます。"
+    },
+    "send": {
+      "metaTitle": "クレジットノートを送信",
+      "title": "<mono>{number}</mono> を送信",
+      "previousSends": "過去の送信"
+    },
+    "builder": {
+      "against": "対象 <mono>{number}</mono>",
+      "summary": "{client} · 合計 {total} · 残高 {balance} · 課税対象の上限 約 {headroom}",
+      "issueDate": "発行日",
+      "creditAmount": "クレジット額（税抜）",
+      "creditAmountHint": "税額は請求書の税額の行に応じて按分されます",
+      "reason": "理由",
+      "picker": {
+        "title": "請求書の明細から計算",
+        "description": "行全体にチェックを入れるか、割合を入力します。上の金額が入力されるだけです。",
+        "line": "行",
+        "subtotal": "小計",
+        "credit": "クレジット",
+        "percent": "%",
+        "creditLine": "{position} 行目のクレジット",
+        "percentOfLine": "{position} 行目の割合"
+      },
+      "saveDraft": "下書きを保存",
+      "issuing": "発行中…",
+      "saveAndIssue": "保存して発行"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "入金",
+        "REFUND": "返金",
+        "WRITE_OFF": "償却"
+      },
+      "editTitle": "記録を編集",
+      "recordTitle": "支払いを記録",
+      "description": "金額は請求書の通貨（{currency}）です。控除された TDS は充当額に含まれます。",
+      "kind": "種別",
+      "date": "日付",
+      "amountRefunded": "返金額（負の値）",
+      "amountApplied": "充当額",
+      "refundHint": "負の値を入力してください（例: -500）",
+      "tdsDeducted": "控除された TDS",
+      "tdsHint": "取引先が源泉徴収した税額です。充当額に含まれます",
+      "bankFees": "銀行手数料",
+      "receivedInto": "入金先",
+      "noMethod": "-",
+      "reference": "参照番号",
+      "referenceHint": "UTR、取引 ID、小切手番号",
+      "otherCurrency": "別の通貨で受け取った",
+      "amountReceived": "受取額",
+      "receivedCurrency": "受取通貨",
+      "exchangeRate": "為替レート",
+      "exchangeRateHint": "受取通貨 1 単位 = ? {currency}",
+      "notes": "備考",
+      "receipt": "領収書",
+      "receiptHint": "PNG、JPEG、WebP、PDF（10 MB まで）",
+      "saveChanges": "変更を保存",
+      "record": "記録"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "約 {count, plural, other {# ページ}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "メッセージ",
+      "description": "発行者プロフィールのテンプレートから事前入力されています。送信をクリックするまで何も送信されません。",
+      "to": "宛先",
+      "toHint": "カンマ区切り",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "件名",
+      "body": "本文",
+      "bodyHint": "プレーンテキストです。リンクはクリックできるようになります",
+      "attachment": "添付ファイル",
+      "attachmentHint": "保存済みのコピーで、ファイル名は <mono>{name}</mono>（または .docx）です。内容は変更できません。",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "送信中…",
+      "send": "送信",
+      "openInMailApp": "メールアプリで開く",
+      "noSmtp": "SMTP サーバーが構成されていません（設定 → メール）。メールアプリで下書きを開き、ダウンロードした PDF を添付してから、下で送信済みにしてください。",
+      "markAsSent": "送信済みにする"
+    },
+    "sentLog": {
+      "when": "日時",
+      "document": "書類",
+      "to": "宛先",
+      "subject": "件名",
+      "status": "ステータス",
+      "empty": "まだ何も送信されていません。",
+      "noDocument": "-",
+      "cc": "CC {list}",
+      "statuses": {
+        "SENT": "送信済み",
+        "FAILED": "失敗",
+        "MANUAL": "手動"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "{name} さん、こんにちは",
+    "fiscalYear": "{year} 会計年度",
+    "fiscalYearWithBase": "{year} 会計年度 · 基準通貨 {currency}（{profile}）",
+    "newCreditNote": "新規クレジットノート",
+    "welcomeTitle": "{appName} へようこそ",
+    "welcomeDescription": "まず請求書を発行する発行者プロフィールを作成し、次に取引先と最初の請求書を追加してください。",
+    "createProfile": "プロフィールを作成",
+    "tiles": {
+      "outstanding": "未回収",
+      "overdue": "期限超過",
+      "billedThisFy": "今期の請求額",
+      "receivedThisFy": "今期の入金額",
+      "drafts": "下書き",
+      "invoiceCount": "{count, plural, other {# 件の請求書}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "入金から返金を差し引いた額（記録された為替レート）",
+      "awaitingIssue": "発行待ち",
+      "nothingPending": "保留中のものはありません"
+    },
+    "recentInvoices": "最近の請求書",
+    "allInvoices": "すべての請求書",
+    "noInvoicesYet": "請求書はまだありません。",
+    "columns": {
+      "number": "番号",
+      "client": "取引先",
+      "issued": "発行日"
+    },
+    "topClients": "未回収額の多い取引先",
+    "nothingOutstanding": "未回収のものはありません。"
+  },
+  "exports": {
+    "export": "エクスポート",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "請求書",
+      "newInvoice": "新規請求書",
+      "draft": "下書き",
+      "aDraft": "下書き",
+      "statuses": {
+        "draft": "下書き",
+        "issued": "発行済み",
+        "sent": "送信済み",
+        "partiallyPaid": "一部支払い済み",
+        "paid": "支払い済み",
+        "overdue": "期限超過",
+        "void": "無効"
+      },
+      "lifecycle": {
+        "draft": "下書き",
+        "issued": "発行済み",
+        "void": "無効"
+      },
+      "units": {
+        "hour": "時間",
+        "day": "日",
+        "fixed": "固定",
+        "milestone": "マイルストーン",
+        "unit": "単位"
+      },
+      "unitsLower": {
+        "hour": "時間",
+        "day": "日",
+        "fixed": "固定",
+        "milestone": "マイルストーン",
+        "unit": "単位"
+      },
+      "supplyTypes": {
+        "intraState": "州内供給",
+        "interState": "州間供給",
+        "exportLut": "輸出（LUT）",
+        "exportWithTax": "輸出（課税あり）",
+        "reverseCharge": "リバースチャージ",
+        "notApplicable": "該当なし"
+      }
+    },
+    "list": {
+      "description": "下書き、発行済み、無効化済みの請求書です。ステータスは入金と支払期日から導かれます。",
+      "fiscalYear": "会計年度",
+      "issuer": "発行者",
+      "client": "取引先",
+      "searchPlaceholder": "番号、発注書、取引先",
+      "emptyTitle": "請求書はまだありません",
+      "emptyDescription": "最初の請求書を作成しましょう。取引先を選び、明細を追加し、プレビューを確認してから発行します。",
+      "columns": {
+        "number": "番号",
+        "client": "取引先",
+        "issuer": "発行者",
+        "issueDate": "発行日",
+        "due": "支払期日",
+        "balance": "残高"
+      },
+      "noMatches": "この条件に一致する請求書はありません。",
+      "count": "{count, plural, other {# 件の請求書}}",
+      "countPaged": "{count, plural, other {# 件の請求書}} · {page} / {pages} ページ",
+      "register": "台帳"
+    },
+    "new": {
+      "noProfileTitle": "先に発行者プロフィールを作成してください",
+      "noProfileDescription": "請求書は法的な主体から発行されます。税務IDと採番を含むプロフィールを設定してください。",
+      "createProfile": "プロフィールを作成"
+    },
+    "edit": {
+      "metaTitle": "請求書を編集",
+      "title": "下書きを編集",
+      "immutableFlash": "発行済みの請求書は変更できません。訂正するには「無効化して再発行」を使用してください。"
+    },
+    "detail": {
+      "metaTitle": "請求書",
+      "draftInvoice": "下書きの請求書",
+      "issuedDue": "発行日 <mono>{issued}</mono>、支払期日 <mono>{due}</mono>",
+      "replaces": "{number} を置き換え",
+      "replacedBy": "{number} に置き換え済み",
+      "previewPdf": "PDF をプレビュー",
+      "issueTitle": "この請求書を発行しますか？",
+      "issueDescription": "番号が割り当てられ、書類は変更できなくなります。",
+      "issue": "発行",
+      "deleteDraftTitle": "この下書きを削除しますか？",
+      "sendByEmail": "メールで送信",
+      "recordPayment": "支払いを記録",
+      "creditNote": "クレジットノート",
+      "markSentTitle": "送信済みにしますか？",
+      "markSentDescription": "取引先がこの請求書を受け取ったことを記録します。",
+      "markSent": "送信済みにする",
+      "voidReissueTitle": "無効化して再発行しますか？",
+      "voidReissueDescription": "元の請求書は無効化され、同じ内容でリンクされた下書きが編集用に開きます。",
+      "voidReissue": "無効化して再発行",
+      "voidTitle": "この請求書を無効化しますか？",
+      "voidDescription": "入金が記録されていない場合のみ可能です。番号が再利用されることはありません。",
+      "void": "無効化",
+      "voided": "{date} に無効化: {reason}",
+      "amounts": "金額",
+      "subtotal": "小計",
+      "discount": "割引",
+      "discountPercent": "割引 ({percent})",
+      "rounding": "端数調整",
+      "tdsExpected": "予想 TDS ({percent})",
+      "paid": "支払い済み",
+      "credited": "クレジット済み",
+      "balanceDue": "請求残高",
+      "supply": "供給区分",
+      "fxToBase": "基準通貨への為替レート",
+      "poReference": "発注書番号",
+      "sent": "送信日",
+      "lineItems": "明細",
+      "columns": {
+        "description": "内容",
+        "sacHsn": "SAC/HSN",
+        "qty": "数量",
+        "rate": "単価",
+        "tax": "税",
+        "amount": "金額"
+      },
+      "creditNotes": "クレジットノート",
+      "storedDocuments": "保存済みの書類",
+      "storedDocumentsHint": "すべてのバージョンが保持され、検証ページにすべてのハッシュが表示されます。",
+      "regenerateTitle": "新しい PDF バージョンを生成しますか？",
+      "regenerateDescription": "固定されたスナップショットから再度生成します（レンダラーの修正後など）。以前のバージョンは残ります。",
+      "regenerate": "生成",
+      "newVersion": "新バージョン",
+      "renderedOnFirstDownload": "PDF は最初のダウンロード時に生成されます。",
+      "protectedCopy": "パスワード保護されたコピー {version}",
+      "version": "バージョン {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "検証リンク:",
+      "draftPreviewHint": "下書きはエディターでリアルタイムにプレビューされます。ページを確認するには<link>透かし入りの PDF</link>を開いてください。"
+    },
+    "history": {
+      "metaTitle": "請求書の履歴",
+      "title": "<mono>{number}</mono> の履歴",
+      "reissueChain": "再発行の連鎖",
+      "replaces": "<link>{number}</link> を置き換え",
+      "replacedBy": "<link>{number}</link> に置き換え済み",
+      "auditTrail": "監査証跡",
+      "columns": {
+        "when": "日時",
+        "who": "実行者",
+        "action": "操作",
+        "summary": "概要"
+      },
+      "noEvents": "イベントはまだありません。",
+      "system": "システム",
+      "emails": "メール"
+    },
+    "payments": {
+      "title": "支払い",
+      "description": "{client} · 合計 {total}",
+      "backToInvoice": "請求書に戻る",
+      "ledger": "元帳",
+      "columns": {
+        "date": "日付",
+        "kind": "種別",
+        "applied": "充当額",
+        "tds": "TDS",
+        "received": "受取額",
+        "reference": "参照番号",
+        "balance": "残高"
+      },
+      "noPayments": "支払いはまだ記録されていません。",
+      "kinds": {
+        "payment": "入金",
+        "refund": "返金",
+        "writeOff": "償却"
+      },
+      "receipt": "領収書",
+      "deleteEntryTitle": "この記録を削除しますか？",
+      "deleteEntryDescription": "請求書の残高が再計算されます。",
+      "totals": "合計",
+      "invoiceTotal": "請求書の合計",
+      "credited": "クレジット済み",
+      "refunds": "返金",
+      "writeOffs": "償却",
+      "tdsDeducted": "控除された TDS",
+      "bankFees": "銀行手数料",
+      "balanceDue": "請求残高",
+      "onlyIssued": "支払いを受け付けるのは発行済みの請求書のみです。"
+    },
+    "send": {
+      "metaTitle": "請求書を送信",
+      "title": "<mono>{number}</mono> を送信",
+      "alreadySent": "すでに送信済みにしてあります。再度送信すると、ログに別の記録が追加されます。",
+      "previousSends": "過去の送信"
+    },
+    "builder": {
+      "parties": "当事者",
+      "issuerProfile": "発行者プロフィール",
+      "client": "取引先",
+      "archivedOption": "{label}（アーカイブ済み）",
+      "issueDate": "発行日",
+      "dueDate": "支払期日",
+      "fxRate": "基準通貨への為替レート",
+      "fxHint": "1 {currency} = ? {base}（報告用のみ）",
+      "poReference": "発注書番号",
+      "lineItems": "明細",
+      "lineItemsHint": "カタログから選ぶと値がコピーされます。または行を直接入力してください。",
+      "taxDiscountTds": "税、割引、TDS",
+      "taxRegime": "税制",
+      "regimes": {
+        "indiaGst": "インド GST",
+        "ukVat": "英国 VAT",
+        "usSalesTax": "米国売上税",
+        "none": "課税なし"
+      },
+      "reverseCharge": "リバースチャージ",
+      "reverseChargeHint": "税は受領者が納付します",
+      "discount": "割引",
+      "percent": "割合",
+      "amount": "金額",
+      "rounding": "端数調整",
+      "roundingHint": "任意。整数単位に丸めます。1 未満である必要があります",
+      "round": "丸める",
+      "tdsRate": "予想 TDS 率 (%)",
+      "tdsRateHint": "参考情報です。TDS の内訳が有効な場合に印刷されます",
+      "paymentMethods": "支払い方法",
+      "paymentMethodsHint": "チェックした順に印刷されます。",
+      "noPaymentMethods": "有効な支払い方法がありません。<link>追加する</link>。",
+      "whatPrints": "印刷内容",
+      "whatPrintsHint": "発行者プロフィールの既定値から始まります。",
+      "notesAndTerms": "備考と条件",
+      "notes": "備考",
+      "terms": "条件",
+      "saveDraft": "下書きを保存",
+      "issuing": "発行中…",
+      "saveAndIssue": "保存して発行",
+      "subtotal": "小計",
+      "tax": "税",
+      "tdsExpected": "予想 TDS",
+      "netExpected": "予想手取り額"
+    },
+    "lineItems": {
+      "addFromCatalogue": "カタログから追加…",
+      "services": "サービス",
+      "products": "商品",
+      "addLine": "行を追加",
+      "columns": {
+        "description": "内容",
+        "sacHsn": "SAC/HSN",
+        "qty": "数量",
+        "unit": "単位",
+        "rate": "単価",
+        "taxPercent": "税率 %"
+      },
+      "aria": {
+        "description": "{line} 行目の内容",
+        "sacHsn": "{line} 行目の SAC/HSN",
+        "quantity": "{line} 行目の数量",
+        "unit": "{line} 行目の単位",
+        "rate": "{line} 行目の単価",
+        "taxRate": "{line} 行目の税率"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "非課税",
+      "moveUp": "上へ移動",
+      "moveDown": "下へ移動",
+      "removeLine": "行を削除",
+      "shortcutHint": "内容欄で Ctrl/⌘+Enter を押すと行を追加します。",
+      "addFromCatalogueAria": "カタログから追加"
+    },
+    "display": {
+      "groups": {
+        "issuer": "発行者の情報",
+        "client": "取引先の情報",
+        "document": "書類のセクション"
+      },
+      "fields": {
+        "showLogo": "ロゴ",
+        "showTradeName": "屋号",
+        "showDesignation": "役職",
+        "showEmail": "メールアドレス",
+        "showPhone": "電話番号",
+        "showWebsite": "ウェブサイト",
+        "showFullAddress": "住所全体",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "署名",
+        "showStamp": "印影",
+        "showContactPerson": "担当者",
+        "showBillingAddress": "請求先住所",
+        "showShippingAddress": "配送先住所",
+        "showTaxIdentifier": "税務ID",
+        "showPlaceOfSupply": "供給地",
+        "showDueDate": "支払期日",
+        "showPaymentTerms": "支払条件",
+        "showSacCodeColumn": "SAC コード列",
+        "showQuantityColumn": "数量列",
+        "showUnitPriceColumn": "単価列",
+        "showTaxColumn": "税列",
+        "showTdsBreakdown": "TDS の内訳",
+        "showQrVerification": "QR 検証",
+        "showNotes": "備考",
+        "showTerms": "条件",
+        "showReplacesReference": "置き換え元の参照",
+        "showAmountInWords": "金額の文字表記",
+        "showSupplyStatement": "供給に関する記載",
+        "showRoundingLine": "端数調整の行",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "取引先",
+      "description": "請求先のすべてです。請求書のある取引先は削除されず、アーカイブされます。",
+      "newClient": "新規取引先",
+      "searchPlaceholder": "名前で検索",
+      "searchLabel": "取引先を検索",
+      "emptyTitle": "取引先はまだありません",
+      "emptyDescription": "請求する個人や会社を追加してください。通貨と支払条件が各請求書に事前入力されます。",
+      "addClient": "取引先を追加",
+      "noMatch": "「{q}」に一致する取引先はありません。",
+      "termsDays": "{days} 日",
+      "columns": {
+        "name": "名前",
+        "contact": "担当者",
+        "email": "メールアドレス",
+        "country": "国",
+        "currency": "通貨",
+        "terms": "条件",
+        "status": "ステータス"
+      }
+    },
+    "new": {
+      "title": "新規取引先"
+    },
+    "edit": {
+      "metaTitle": "取引先を編集",
+      "title": "{name} を編集"
+    },
+    "detail": {
+      "metaTitle": "取引先",
+      "newInvoice": "新規請求書",
+      "restoreTitle": "この取引先を復元しますか？",
+      "archiveTitle": "この取引先をアーカイブしますか？",
+      "archiveDescription": "選択肢から表示されなくなります。請求書と履歴はそのまま残ります。",
+      "deleteTitle": "この取引先を削除しますか？",
+      "deleteDescription": "この取引先を参照する請求書がない場合のみ削除できます。",
+      "details": "詳細",
+      "contact": "担当者",
+      "email": "メールアドレス",
+      "phone": "電話番号",
+      "country": "国",
+      "gstState": "GST {code}",
+      "taxId": "税務ID",
+      "currency": "通貨",
+      "paymentTerms": "支払条件",
+      "paymentTermsDays": "{days} 日",
+      "expectedTds": "予想 TDS",
+      "notes": "備考",
+      "addresses": "住所",
+      "billing": "請求先",
+      "shipping": "配送先",
+      "lifetime": "累計",
+      "openRegister": "台帳を開く",
+      "noIssued": "発行済みの請求書はまだありません。",
+      "noIssuedWithDrafts": "発行済みの請求書はまだありません（下書き {drafts} 件）。",
+      "firstLatest": "最初の請求書 <mono>{first}</mono>、最新 <mono>{latest}</mono>{drafts, plural, =0 {} other { · 下書き # 件}}",
+      "lifetimeColumns": {
+        "currency": "通貨",
+        "invoices": "請求書",
+        "billed": "請求額",
+        "received": "入金額",
+        "credited": "クレジット額",
+        "outstanding": "未回収",
+        "overdue": "期限超過"
+      },
+      "recentInvoices": "最近の請求書",
+      "noInvoices": "この取引先の請求書はまだありません。",
+      "recentColumns": {
+        "number": "番号",
+        "issueDate": "発行日",
+        "due": "支払期日",
+        "total": "合計",
+        "balance": "残高",
+        "status": "ステータス"
+      }
+    },
+    "form": {
+      "cardTitle": "取引先",
+      "displayName": "表示名",
+      "contactPerson": "担当者",
+      "email": "メールアドレス",
+      "phone": "電話番号",
+      "taxIdType": "税務IDの種類",
+      "taxIdTypeNone": "なし",
+      "taxId": "税務ID",
+      "currency": "通貨",
+      "paymentTerms": "支払条件（日数）",
+      "expectedTdsRate": "予想 TDS 率 (%)",
+      "notes": "備考",
+      "billingAddress": "請求先住所",
+      "shippingAddress": "配送先住所",
+      "differentFromBilling": "請求先と異なる",
+      "save": "取引先を保存"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "時間",
+      "DAY": "日",
+      "FIXED": "固定",
+      "MILESTONE": "マイルストーン",
+      "UNIT": "単位"
+    },
+    "list": {
+      "activate": "有効化",
+      "deactivate": "無効化",
+      "archiveDescription": "既存の請求書の明細には、コピー済みの値が残ります。",
+      "deleteDescription": "参照する請求書の明細がない場合のみ削除できます。それ以外はアーカイブしてください。",
+      "columns": {
+        "sku": "SKU",
+        "name": "名前",
+        "unit": "単位",
+        "rate": "単価",
+        "price": "価格",
+        "currency": "通貨",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "税",
+        "status": "ステータス"
+      }
+    },
+    "services": {
+      "title": "サービス",
+      "description": "あなたのカタログです。サービスを選ぶと、その値が請求書の明細にコピーされます。",
+      "newService": "新規サービス",
+      "emptyTitle": "サービスはまだありません",
+      "emptyDescription": "販売するもの（時間単位のデザイン、固定報酬のマイルストーンなど）を、SAC/HSN コードと税率とともに追加してください。",
+      "addService": "サービスを追加",
+      "restoreTitle": "{name} を復元しますか？",
+      "archiveTitle": "{name} をアーカイブしますか？",
+      "deleteTitle": "{name} を削除しますか？",
+      "editMetaTitle": "サービスを編集",
+      "editTitle": "{name} を編集"
+    },
+    "products": {
+      "title": "商品",
+      "description": "販売する商品で、それぞれに SKU があります。商品を選ぶと、その値が請求書の明細にコピーされます。",
+      "newProduct": "新規商品",
+      "emptyTitle": "商品はまだありません",
+      "emptyDescription": "販売する商品を、SKU、HSN コード、単価、税率とともに追加してください。",
+      "addProduct": "商品を追加",
+      "restoreTitle": "{sku} を復元しますか？",
+      "archiveTitle": "{sku} をアーカイブしますか？",
+      "deleteTitle": "{sku} を削除しますか？",
+      "editMetaTitle": "商品を編集",
+      "editTitle": "{sku} を編集"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "明細の内容の下に印刷される一意のコード",
+      "name": "名前",
+      "unit": "単位",
+      "defaultRate": "既定の単価",
+      "unitPrice": "単価",
+      "currency": "通貨",
+      "sacHsnCode": "SAC / HSN コード",
+      "sacHsnHint": "GST の請求書では必須です",
+      "hsnCode": "HSN コード",
+      "hsnHint": "商品の GST 請求書では必須です",
+      "defaultTaxRate": "既定の税率 (%)",
+      "description": "内容",
+      "descriptionHint": "明細の内容に事前入力されます",
+      "active": "有効",
+      "serviceInactiveHint": "無効なサービスは請求書の選択肢に表示されません",
+      "productInactiveHint": "無効な商品は請求書の選択肢に表示されません",
+      "saveService": "サービスを保存",
+      "saveProduct": "商品を保存"
+    },
+    "tags": {
+      "legend": "プロフィール",
+      "hint": "これを販売する発行者プロフィールにチェックを入れてください。すべて未選択の場合は、すべてのプロフィールで利用できます。"
+    }
+  },
+  "address": {
+    "line1": "住所 1 行目",
+    "line2": "住所 2 行目",
+    "city": "市区町村",
+    "stateRegion": "州 / 都道府県 / 地域",
+    "postalCode": "郵便番号",
+    "country": "国",
+    "state": "州",
+    "gstStateCodeHint": "GST 州コード {code}",
+    "pickStateHint": "GST 州コードに対応する州を選択してください",
+    "stateRegionCode": "州 / 都道府県 / 地域のコード",
+    "stateRegionCodePlaceholder": "例: CA"
+  },
+  "assets": {
+    "tooLarge": "ファイルのサイズが大きすぎます。",
+    "unsupportedReceipt": "PNG、JPEG、WebP の画像または PDF を使用してください。",
+    "unsupportedImage": "PNG、JPEG、WebP の画像を使用してください。",
+    "uploadFailed": "アップロードに失敗しました。",
+    "uploading": "アップロード中…"
+  },
+  "ui": {
+    "breadcrumb": "パンくずリスト",
+    "close": "閉じる",
+    "closeMenu": "メニューを閉じる",
+    "inputCharset": "標準的なキーボード文字のみ使用できます。",
+    "confirm": {
+      "working": "処理中…"
+    },
+    "statusPill": {
+      "DRAFT": "下書き",
+      "ISSUED": "発行済み",
+      "SENT": "送信済み",
+      "PARTIALLY_PAID": "一部支払い済み",
+      "PAID": "支払い済み",
+      "OVERDUE": "期限超過",
+      "VOID": "無効"
+    },
+    "activePill": {
+      "active": "有効",
+      "archived": "アーカイブ済み",
+      "inactive": "無効"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "問題が発生しました。",
+    "fixFields": "強調表示された項目を修正してください。",
+    "accountSaved": "アカウントの設定を保存しました",
+    "apiKeyCreated": "API キーを作成しました。今すぐコピーしてください。表示されるのは一度だけです。",
+    "saved": "{name} を保存しました",
+    "savedProfile": "プロフィール {label} を保存しました",
+    "clientArchived": "取引先をアーカイブしました",
+    "clientRestored": "取引先を復元しました",
+    "clientDeleted": "取引先を削除しました",
+    "productArchived": "商品をアーカイブしました",
+    "productRestored": "商品を復元しました",
+    "productActivated": "商品を有効化しました",
+    "productDeactivated": "商品を無効化しました",
+    "serviceArchived": "サービスをアーカイブしました",
+    "serviceRestored": "サービスを復元しました",
+    "serviceActivated": "サービスを有効化しました",
+    "serviceDeactivated": "サービスを無効化しました",
+    "defaultProfileUpdated": "既定のプロフィールを更新しました",
+    "profileArchived": "プロフィールをアーカイブしました",
+    "profileRestored": "プロフィールを復元しました",
+    "profileDeleted": "プロフィールを削除しました",
+    "defaultPaymentMethodUpdated": "既定の支払い方法を更新しました",
+    "paymentMethodArchived": "支払い方法をアーカイブしました",
+    "paymentMethodRestored": "支払い方法を復元しました",
+    "paymentMethodDeleted": "支払い方法を削除しました",
+    "issued": "{number} を発行しました",
+    "savedAsDraft": "下書きとして保存しました。{reason}",
+    "draftSaved": "下書きを保存しました",
+    "invoiceVoided": "請求書を無効化しました",
+    "originalVoided": "元の請求書を無効化しました。置き換え用の下書きを編集してください",
+    "markedAsSent": "送信済みにしました",
+    "draftDeleted": "下書きを削除しました",
+    "generatedPdf": "PDF バージョン {version} を生成しました",
+    "creditNoteVoided": "クレジットノートを無効化しました。請求書の残高は元に戻りました",
+    "draftCreditNoteDeleted": "下書きのクレジットノートを削除しました",
+    "mailRefused": "メールサーバーがメッセージを拒否しました: {error}。この試行は記録されました。",
+    "unknownError": "不明なエラー",
+    "sentTo": "{recipients} に送信しました",
+    "smtpSaved": "SMTP 設定を保存しました",
+    "smtpRemoved": "保存済みの SMTP 設定を削除しました",
+    "testEmailSent": "{email} にテストメールを送信しました",
+    "testFailed": "テストに失敗しました: {error}",
+    "defaultRecipientsSaved": "既定の宛先を保存しました",
+    "invitationSent": "招待を送信しました",
+    "invitationReady": "招待の準備ができました",
+    "unknownRole": "不明なロール",
+    "roleUpdated": "ロールを更新しました",
+    "accountDeactivated": "アカウントを無効化しました",
+    "accountReactivated": "アカウントを再有効化しました",
+    "invitationRevoked": "招待を取り消しました",
+    "paymentUpdated": "支払いを更新しました",
+    "paymentRecorded": "支払いを記録しました",
+    "paymentDeleted": "支払いを削除しました",
+    "sessionRevoked": "セッションを取り消しました",
+    "noOtherSessions": "他のセッションはありません",
+    "signedOutOthers": "他の {count} 件のセッションからサインアウトしました",
+    "sharePasswordRequired": "パスワードを入力するか、自動生成にしてください。",
+    "shareLinkCreated": "共有リンクを作成しました。",
+    "templateSaved": "テンプレートを保存しました。今後の書類で使用されます",
+    "templateReset": "テンプレートを組み込みの既定に戻しました",
+    "templateImported": "テンプレートをインポートしました",
+    "profileTemplateCleared": "プロフィールはインスタンスのテンプレートに戻りました",
+    "operatorSaved": "運営者の情報を保存しました。法的ページに表示されるようになります。"
+  }
+}
