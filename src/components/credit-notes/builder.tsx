@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useActionState, useMemo, useState } from "react";
 import { ScaledPreview } from "@/components/documents/scaled-preview";
 import { FormMessage } from "@/components/forms/form-message";
@@ -34,6 +35,8 @@ export function CreditNoteBuilder({
   creditNote: CreditNoteDto | null;
   today: string;
 }) {
+  const t = useTranslations("creditNotes.builder");
+  const tc = useTranslations("common");
   const [state, action] = useActionState(
     saveCreditNoteDraft.bind(null, creditNote?.id ?? null),
     null,
@@ -96,18 +99,24 @@ export function CreditNoteBuilder({
           <CardHeader>
             <div>
               <CardTitle>
-                Against <Mono>{invoice.number}</Mono>
+                {t.rich("against", {
+                  number: invoice.number ?? "",
+                  mono: (chunks) => <Mono>{chunks}</Mono>,
+                })}
               </CardTitle>
               <CardDescription>
-                {invoice.clientName} · total {money(invoice.total)} · balance{" "}
-                {money(invoice.balanceDue)} · taxable headroom ≈{" "}
-                {money(outstandingTaxable.toFixed(2))}
+                {t("summary", {
+                  client: invoice.clientName,
+                  total: money(invoice.total),
+                  balance: money(invoice.balanceDue),
+                  headroom: money(outstandingTaxable.toFixed(2)),
+                })}
               </CardDescription>
             </div>
           </CardHeader>
           <CardContent>
             <FieldGroup>
-              <Field label="Issue date" htmlFor="issueDate" error={errors?.issueDate} required>
+              <Field label={t("issueDate")} htmlFor="issueDate" error={errors?.issueDate} required>
                 <Input
                   id="issueDate"
                   name="issueDate"
@@ -118,10 +127,10 @@ export function CreditNoteBuilder({
                 />
               </Field>
               <Field
-                label="Credit amount (excluding tax)"
+                label={t("creditAmount")}
                 htmlFor="subtotal"
                 error={errors?.subtotal}
-                hint="Tax is apportioned from the invoice's tax lines"
+                hint={t("creditAmountHint")}
                 required
               >
                 <Input
@@ -138,7 +147,7 @@ export function CreditNoteBuilder({
                 />
               </Field>
             </FieldGroup>
-            <Field label="Reason" htmlFor="reason" error={errors?.reason} required>
+            <Field label={t("reason")} htmlFor="reason" error={errors?.reason} required>
               <Textarea
                 id="reason"
                 name="reason"
@@ -152,10 +161,8 @@ export function CreditNoteBuilder({
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Compute from invoice lines</CardTitle>
-              <CardDescription>
-                Tick whole lines or a percentage; this only fills the amount above.
-              </CardDescription>
+              <CardTitle>{t("picker.title")}</CardTitle>
+              <CardDescription>{t("picker.description")}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
@@ -163,10 +170,10 @@ export function CreditNoteBuilder({
               <table className="w-full border-collapse text-app-table">
                 <thead className="bg-surface-2 text-app-label text-ink-subtle">
                   <tr>
-                    <th className="px-2 py-2 text-left font-medium">Line</th>
-                    <th className="px-2 py-2 text-right font-medium">Subtotal</th>
-                    <th className="px-2 py-2 text-left font-medium">Credit</th>
-                    <th className="px-2 py-2 text-left font-medium">%</th>
+                    <th className="px-2 py-2 text-left font-medium">{t("picker.line")}</th>
+                    <th className="px-2 py-2 text-right font-medium">{t("picker.subtotal")}</th>
+                    <th className="px-2 py-2 text-left font-medium">{t("picker.credit")}</th>
+                    <th className="px-2 py-2 text-left font-medium">{t("picker.percent")}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-hairline">
@@ -184,7 +191,7 @@ export function CreditNoteBuilder({
                           <input
                             type="checkbox"
                             className="size-4 accent-primary"
-                            aria-label={`Credit line ${it.position}`}
+                            aria-label={t("picker.creditLine", { position: it.position })}
                             checked={Boolean(sel)}
                             onChange={(e) =>
                               applyPicker(
@@ -203,7 +210,7 @@ export function CreditNoteBuilder({
                             type="number"
                             min="0"
                             max="100"
-                            aria-label={`Percent of line ${it.position}`}
+                            aria-label={t("picker.percentOfLine", { position: it.position })}
                             className="w-20"
                             disabled={!sel}
                             value={sel?.mode === "percent" ? sel.percent : sel ? "100" : ""}
@@ -232,15 +239,15 @@ export function CreditNoteBuilder({
         </Card>
 
         <div className="flex flex-wrap items-center gap-2">
-          <SubmitButton name="intent" value="save" variant="secondary" pendingLabel="Saving…">
-            Save draft
+          <SubmitButton name="intent" value="save" variant="secondary" pendingLabel={tc("saving")}>
+            {t("saveDraft")}
           </SubmitButton>
-          <SubmitButton name="intent" value="issue" pendingLabel="Issuing…">
-            Save and issue
+          <SubmitButton name="intent" value="issue" pendingLabel={t("issuing")}>
+            {t("saveAndIssue")}
           </SubmitButton>
           <Button asChild variant="tertiary">
             <Link href={creditNote ? `/credit-notes/${creditNote.id}` : `/invoices/${invoice.id}`}>
-              Cancel
+              {tc("cancel")}
             </Link>
           </Button>
         </div>

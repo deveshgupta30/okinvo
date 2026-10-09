@@ -19,6 +19,10 @@ went green on the development branch.
   uploaded image with opacity and height across every page.
 - Input charset: every text field, on the client and at every server boundary, accepts only
   standard keyboard characters (SPEC §6.6).
+- Localisation (all screens): every page, component, flash message and the common
+  validation messages read from the catalogues (`actions`, `errors.validation`, one namespace per
+  area); `pnpm i18n:check --strict` also refuses a bare English phrase left in JSX. The keyboard
+  guarded `Input`/`Textarea` are now client components (server pages with a text field crashed).
 - Localisation: next-intl with a 115-language table (Settings → Account → Language, grouped by
   region, each named in itself), locale resolution user → cookie → Accept-Language → en-US,
   `<html lang dir>` from the choice, hand-written en-US and en-GB catalogues for the shell,

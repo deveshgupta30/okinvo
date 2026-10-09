@@ -14,7 +14,7 @@ import {
   revokeInvitation,
   setMemberRole,
 } from "@/server/dal/members";
-import { errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
+import { actionT, errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
 
 const PAGE = "/settings/users";
 
@@ -36,6 +36,7 @@ export async function inviteMemberAction(
   formData: FormData,
 ): Promise<InviteState> {
   const actor = await requireOwner();
+  const t = await actionT();
   const parsed = parseForm(InviteSchema, formData);
   if (!parsed.ok) return failedParse(parsed, formData);
   try {
@@ -43,7 +44,7 @@ export async function inviteMemberAction(
     revalidatePath(PAGE);
     return {
       ok: true,
-      message: result.sent ? "Invitation sent" : "Invitation ready",
+      message: result.sent ? t("invitationSent") : t("invitationReady"),
       invited: { email: parsed.data.email, ...result },
     };
   } catch (e) {
@@ -53,48 +54,52 @@ export async function inviteMemberAction(
 
 export async function setMemberRoleAction(formData: FormData): Promise<void> {
   const actor = await requireOwner();
+  const t = await actionT();
   const role = str(formData, "role");
   if (!(ROLES as readonly string[]).includes(role)) {
-    redirect(withFlash(PAGE, { kind: "error", message: "Unknown role" }));
+    redirect(withFlash(PAGE, { kind: "error", message: t("unknownRole") }));
   }
   try {
     await setMemberRole(actor, str(formData, "userId"), role as (typeof ROLES)[number]);
   } catch (e) {
-    redirect(withFlash(PAGE, { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(PAGE, { kind: "error", message: await errorMessage(e) }));
   }
   revalidatePath(PAGE);
-  redirect(withFlash(PAGE, { kind: "success", message: "Role updated" }));
+  redirect(withFlash(PAGE, { kind: "success", message: t("roleUpdated") }));
 }
 
 export async function deactivateMemberAction(formData: FormData): Promise<void> {
   const actor = await requireOwner();
+  const t = await actionT();
   try {
     await deactivateMember(actor, str(formData, "userId"));
   } catch (e) {
-    redirect(withFlash(PAGE, { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(PAGE, { kind: "error", message: await errorMessage(e) }));
   }
   revalidatePath(PAGE);
-  redirect(withFlash(PAGE, { kind: "success", message: "Account deactivated" }));
+  redirect(withFlash(PAGE, { kind: "success", message: t("accountDeactivated") }));
 }
 
 export async function reactivateMemberAction(formData: FormData): Promise<void> {
   const actor = await requireOwner();
+  const t = await actionT();
   try {
     await reactivateMember(actor, str(formData, "userId"));
   } catch (e) {
-    redirect(withFlash(PAGE, { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(PAGE, { kind: "error", message: await errorMessage(e) }));
   }
   revalidatePath(PAGE);
-  redirect(withFlash(PAGE, { kind: "success", message: "Account reactivated" }));
+  redirect(withFlash(PAGE, { kind: "success", message: t("accountReactivated") }));
 }
 
 export async function revokeInvitationAction(formData: FormData): Promise<void> {
   const actor = await requireOwner();
+  const t = await actionT();
   try {
     await revokeInvitation(actor, str(formData, "email"));
   } catch (e) {
-    redirect(withFlash(PAGE, { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(PAGE, { kind: "error", message: await errorMessage(e) }));
   }
   revalidatePath(PAGE);
-  redirect(withFlash(PAGE, { kind: "success", message: "Invitation revoked" }));
+  redirect(withFlash(PAGE, { kind: "success", message: t("invitationRevoked") }));
 }

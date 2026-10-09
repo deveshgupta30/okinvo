@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { ConfirmAction } from "@/components/confirm-action";
 import { ServiceForm } from "@/components/forms/service-form";
 import { PageHeader } from "@/components/ui/page-header";
@@ -9,10 +10,15 @@ import { listProfiles } from "@/server/dal/profiles";
 import { NotFoundError } from "@/server/dal/errors";
 import { getService } from "@/server/dal/services";
 
-export const metadata: Metadata = { title: "Edit service" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("catalogue.services");
+  return { title: t("editMetaTitle") };
+}
 
 export default async function EditServicePage({ params }: { params: Promise<{ id: string }> }) {
   const actor = await requireRole("EDITOR");
+  const t = await getTranslations("catalogue");
+  const tc = await getTranslations("common");
   const { id } = await params;
   const service = await getService(actor, id).catch((e: unknown) => {
     if (e instanceof NotFoundError) notFound();
@@ -22,16 +28,16 @@ export default async function EditServicePage({ params }: { params: Promise<{ id
   return (
     <>
       <PageHeader
-        title={`Edit ${service.name}`}
-        breadcrumb={[{ href: "/services", label: "Services" }]}
+        title={t("services.editTitle", { name: service.name })}
+        breadcrumb={[{ href: "/services", label: t("services.title") }]}
         actions={
           <ConfirmAction
             action={deleteServiceAction}
-            title={`Delete ${service.name}?`}
-            description="Only possible while no invoice line references it. Otherwise archive it."
-            confirmLabel="Delete"
+            title={t("services.deleteTitle", { name: service.name })}
+            description={t("list.deleteDescription")}
+            confirmLabel={tc("delete")}
             hidden={{ id: service.id }}
-            trigger="Delete"
+            trigger={tc("delete")}
             triggerVariant="tertiary"
             destructive
           />

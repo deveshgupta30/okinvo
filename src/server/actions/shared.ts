@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import type { FieldErrors, ParseResult } from "@/lib/forms";
 import { isDalError } from "@/server/dal/errors";
 
@@ -43,8 +44,13 @@ export function failedWith(error: unknown, formData: FormData): ActionState {
   throw error;
 }
 
-export function errorMessage(error: unknown): string {
-  return isDalError(error) ? error.message : "Something went wrong.";
+/** The `actions` catalogue namespace for the current request (flash messages, action results). */
+export const actionT = () => getTranslations("actions");
+
+/** A DAL error's own message (English in this branch); anything else a generic, translated line. */
+export async function errorMessage(error: unknown): Promise<string> {
+  if (isDalError(error)) return error.message;
+  return (await actionT())("somethingWentWrong");
 }
 
 export function str(formData: FormData, key: string): string {

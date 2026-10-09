@@ -1,11 +1,13 @@
+import { useTranslations } from "next-intl";
 import { COUNTRIES } from "@/lib/countries";
-import { LEGAL_FIELD_LABELS, type LegalOperator } from "@/lib/schemas/legal-operator";
+import type { LegalOperator } from "@/lib/schemas/legal-operator";
 
 /**
  * An operator value inside a legal text, or a highlighted chip naming the missing field so a
  * reader (and the owner) can see the document is not finished (spec §6.4).
  */
 export function Placeholder({ op, field }: { op: LegalOperator; field: keyof LegalOperator }) {
+  const t = useTranslations("legalChrome.placeholder.fields");
   const raw = op[field];
   const value =
     field === "country" && raw
@@ -21,7 +23,7 @@ export function Placeholder({ op, field }: { op: LegalOperator; field: keyof Leg
       data-placeholder={field}
       className="rounded-sm bg-semantic-warning/15 px-1 font-mono text-app-caption text-semantic-warning"
     >
-      [{LEGAL_FIELD_LABELS[field]}]
+      [{t(field)}]
     </mark>
   );
 }

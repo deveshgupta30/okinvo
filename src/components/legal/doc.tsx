@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
+import { useTranslations } from "next-intl";
 
 /**
- * Typography for the legal pages (spec §6.3–6.4): a titled document with an effective date, a
+ * Typography for the legal pages (spec §6.3-6.4): a titled document with an effective date, a
  * table of contents built from the sections, numbered sections, and print-friendly spacing.
  */
 export interface LegalSectionDef {
@@ -22,13 +23,17 @@ export function LegalDoc({
   sections: LegalSectionDef[];
   children: ReactNode;
 }) {
+  const t = useTranslations("legalChrome.doc");
   return (
     <article className="legal-doc mx-auto w-full max-w-3xl">
       <header className="mb-8">
         <h1 className="text-app-title text-ink">{title}</h1>
         {effectiveDate ? (
           <p className="mt-1 text-app-caption text-ink-subtle">
-            Effective <span className="app-mono">{effectiveDate}</span>
+            {t.rich("effectiveOn", {
+              date: effectiveDate,
+              mono: (chunks) => <span className="app-mono">{chunks}</span>,
+            })}
           </p>
         ) : null}
         {summary ? <p className="mt-4 text-app-body text-ink-subtle">{summary}</p> : null}
@@ -40,10 +45,11 @@ export function LegalDoc({
 }
 
 export function Toc({ sections }: { sections: LegalSectionDef[] }) {
+  const t = useTranslations("legalChrome.toc");
   if (sections.length === 0) return null;
   return (
     <nav
-      aria-label="Contents"
+      aria-label={t("label")}
       className="mb-8 rounded-lg border border-hairline bg-surface-1 p-4 print:hidden"
     >
       <ol className="grid gap-1 text-app-body sm:grid-cols-2">

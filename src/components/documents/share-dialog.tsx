@@ -1,6 +1,7 @@
 "use client";
 
 import { Check, Copy, Link2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import * as React from "react";
 import { useActionState } from "react";
 import { ConfirmAction } from "@/components/confirm-action";
@@ -17,11 +18,20 @@ import {
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
-import { passwordStrength } from "@/lib/security/password-strength";
+import { passwordStrength, type PasswordStrength } from "@/lib/security/password-strength";
 import { createShareLinkAction, revokeShareLinkAction } from "@/server/actions/share-links";
 import type { ShareLinkDto } from "@/server/dal/share-links";
 
+const STRENGTH_KEY = {
+  "very weak": "veryWeak",
+  weak: "weak",
+  fair: "fair",
+  good: "good",
+  strong: "strong",
+} as const satisfies Record<PasswordStrength["label"], string>;
+
 function CopyButton({ value, label }: { value: string; label: string }) {
+  const t = useTranslations("share.dialog");
   const [done, setDone] = React.useState(false);
   return (
     <Button
@@ -44,7 +54,7 @@ function CopyButton({ value, label }: { value: string; label: string }) {
       ) : (
         <Copy className="size-3.5" strokeWidth={1.5} />
       )}
-      {done ? "Copied" : "Copy"}
+      {done ? t("copied") : t("copy")}
     </Button>
   );
 }
@@ -63,6 +73,7 @@ export function ShareDialog({
   id: string;
   links: ShareLinkDto[];
 }) {
+  const t = useTranslations("share.dialog");
   const [state, action] = useActionState(createShareLinkAction, null);
   const [protection, setProtection] = React.useState<"none" | "auto" | "manual">("auto");
   const [password, setPassword] = React.useState("");
@@ -74,16 +85,12 @@ export function ShareDialog({
     <Dialog>
       <DialogTrigger asChild>
         <Button type="button" variant="secondary">
-          <Link2 className="size-4" strokeWidth={1.5} /> Share
+          <Link2 className="size-4" strokeWidth={1.5} /> {t("trigger")}
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-lg">
-        <DialogTitle>Share this document</DialogTitle>
-        <DialogDescription>
-          Anyone with the link can view and download it until it expires or you revoke it. A
-          password also protects the PDF itself: it opens with the password and can be read and
-          printed, not edited or copied.
-        </DialogDescription>
+        <DialogTitle>{t("title")}</DialogTitle>
+        <DialogDescription>{t("description")}</DialogDescription>
 
         {created ? (
           <div className="flex flex-col gap-3 rounded-md border border-hairline bg-surface-1 p-3">
@@ -91,8 +98,8 @@ export function ShareDialog({
               {state?.ok ? state.message : null}
             </p>
             <div className="flex items-center justify-between gap-2">
-              <span className="text-app-label text-ink">Link</span>
-              <CopyButton value={created.url} label="Copy link" />
+              <span className="text-app-label text-ink">{t("link")}</span>
+              <CopyButton value={created.url} label={t("copyLink")} />
             </div>
             <code className="app-mono text-app-caption break-all text-ink select-all">
               {created.url}
@@ -100,8 +107,8 @@ export function ShareDialog({
             {created.password ? (
               <>
                 <div className="flex items-center justify-between gap-2">
-                  <span className="text-app-label text-ink">Password</span>
-                  <CopyButton value={created.password} label="Copy password" />
+                  <span className="text-app-label text-ink">{t("password")}</span>
+                  <CopyButton value={created.password} label={t("copyPassword")} />
                 </div>
                 <code
                   data-share-password
@@ -109,10 +116,7 @@ export function ShareDialog({
                 >
                   {created.password}
                 </code>
-                <p className="text-app-caption text-ink-subtle">
-                  Send the password separately from the link. You can see it again in the list
-                  below.
-                </p>
+                <p className="text-app-caption text-ink-subtle">{t("sendSeparately")}</p>
               </>
             ) : null}
           </div>
@@ -123,31 +127,35 @@ export function ShareDialog({
           <input type="hidden" name="id" value={id} />
           <FormMessage state={state && !state.ok ? state : null} />
           <FieldGroup>
-            <Field label="Expires" htmlFor="share-expires">
+            <Field label={t("expires")} htmlFor="share-expires">
               <Select id="share-expires" name="expires" defaultValue="30">
-                <option value="7">In 7 days</option>
-                <option value="30">In 30 days</option>
-                <option value="90">In 90 days</option>
-                <option value="never">Never</option>
+                <option value="7">{t("expiry.d7")}</option>
+                <option value="30">{t("expiry.d30")}</option>
+                <option value="90">{t("expiry.d90")}</option>
+                <option value="never">{t("expiry.never")}</option>
               </Select>
             </Field>
-            <Field label="Protection" htmlFor="share-protection">
+            <Field label={t("protection")} htmlFor="share-protection">
               <Select
                 id="share-protection"
                 name="protection"
                 value={protection}
                 onChange={(e) => setProtection(e.target.value as typeof protection)}
               >
-                <option value="auto">Password: generate a passphrase</option>
-                <option value="manual">Password: choose my own</option>
-                <option value="none">No password (open link)</option>
+                <option value="auto">{t("protectionOptions.auto")}</option>
+                <option value="manual">{t("protectionOptions.manual")}</option>
+                <option value="none">{t("protectionOptions.none")}</option>
               </Select>
             </Field>
             {protection === "manual" ? (
               <Field
-                label="Password"
+                label={t("password")}
                 htmlFor="share-password"
-                hint={password ? `Strength: ${strength.label}` : "At least 8 characters."}
+                hint={
+                  password
+                    ? t("strength", { label: t(`strengthLabels.${STRENGTH_KEY[strength.label]}`) })
+                    : t("passwordHint")
+                }
                 error={state && !state.ok ? state.fieldErrors.password : undefined}
                 required
               >
@@ -164,13 +172,13 @@ export function ShareDialog({
             ) : null}
           </FieldGroup>
           <div className="flex justify-end">
-            <SubmitButton pendingLabel="Creating…">Create link</SubmitButton>
+            <SubmitButton pendingLabel={t("creating")}>{t("create")}</SubmitButton>
           </div>
         </form>
 
         {live.length > 0 ? (
           <div className="flex flex-col gap-2">
-            <span className="text-app-label text-ink">Active links</span>
+            <span className="text-app-label text-ink">{t("activeLinks")}</span>
             <ul className="flex flex-col gap-2">
               {live.map((l) => (
                 <li
@@ -179,18 +187,22 @@ export function ShareDialog({
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span className="text-ink">
-                      {l.protected ? "Password-protected" : "Open link"}
                       {l.expiresAt
-                        ? ` · expires ${new Date(l.expiresAt).toLocaleDateString("en-GB")}`
-                        : " · never expires"}
+                        ? t("linkExpires", {
+                            kind: l.protected ? t("passwordProtected") : t("openLink"),
+                            date: new Date(l.expiresAt).toLocaleDateString("en-GB"),
+                          })
+                        : t("linkNeverExpires", {
+                            kind: l.protected ? t("passwordProtected") : t("openLink"),
+                          })}
                     </span>
                     <ConfirmAction
                       action={revokeShareLinkAction}
-                      title="Revoke this link?"
-                      description="The link stops working immediately for everyone who has it."
-                      confirmLabel="Revoke"
+                      title={t("revoke.title")}
+                      description={t("revoke.description")}
+                      confirmLabel={t("revoke.label")}
                       hidden={{ linkId: l.id, kind, id }}
-                      trigger="Revoke"
+                      trigger={t("revoke.label")}
                       triggerVariant="tertiary"
                       size="sm"
                       destructive
@@ -199,11 +211,16 @@ export function ShareDialog({
                   <code className="app-mono break-all text-ink-subtle select-all">{l.url}</code>
                   {l.password ? (
                     <span className="text-ink-subtle">
-                      Password: <code className="app-mono text-ink select-all">{l.password}</code>
+                      {t.rich("linkPassword", {
+                        password: l.password,
+                        code: (chunks) => (
+                          <code className="app-mono text-ink select-all">{chunks}</code>
+                        ),
+                      })}
                     </span>
                   ) : null}
                   <span className="text-ink-subtle">
-                    {l.viewCount} views · {l.downloadCount} downloads
+                    {t("counts", { views: l.viewCount, downloads: l.downloadCount })}
                   </span>
                 </li>
               ))}

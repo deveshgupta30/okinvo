@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { ConfirmAction } from "@/components/confirm-action";
 import { ScaledPreview } from "@/components/documents/scaled-preview";
 import { ShareDialog } from "@/components/documents/share-dialog";
@@ -29,13 +30,19 @@ import { assetUrl, verificationQr } from "@/server/dal/documents";
 import { NotFoundError } from "@/server/dal/errors";
 import { listShareLinks } from "@/server/dal/share-links";
 
-export const metadata: Metadata = { title: "Credit note" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("creditNotes.detail");
+  return { title: t("metaTitle") };
+}
 
 const PT_TO_PX = 96 / 72;
 
 export default async function CreditNotePage({ params }: { params: Promise<{ id: string }> }) {
   const actor = await requireRole("VIEWER");
   const canEdit = hasRole(actor, "EDITOR");
+  const t = await getTranslations("creditNotes.detail");
+  const tn = await getTranslations("shell.nav");
+  const tc = await getTranslations("common");
   const { id } = await params;
   const cn = await getCreditNote(actor, id).catch((e: unknown) => {
     if (e instanceof NotFoundError) notFound();
@@ -72,18 +79,24 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
       <PageHeader
         title={
           <>
-            {cn.number ? <Mono className="text-app-title">{cn.number}</Mono> : "Draft credit note"}
+            {cn.number ? <Mono className="text-app-title">{cn.number}</Mono> : t("draftTitle")}
             <StatusPill status={cn.displayStatus} />
           </>
         }
-        breadcrumb={[{ href: "/credit-notes", label: "Credit notes" }]}
+        breadcrumb={[{ href: "/credit-notes", label: tn("creditNotes") }]}
         meta={
           <span>
-            {cn.clientName} · against{" "}
-            <Link href={`/invoices/${cn.invoiceId}`} className="text-link">
-              {cn.invoiceNumber}
-            </Link>{" "}
-            · issued <Mono>{formatDate(cn.issueDate, cn.locale)}</Mono>
+            {t.rich("meta", {
+              client: cn.clientName,
+              number: cn.invoiceNumber ?? "",
+              date: formatDate(cn.issueDate, cn.locale),
+              invoice: (chunks) => (
+                <Link href={`/invoices/${cn.invoiceId}`} className="text-link">
+                  {chunks}
+                </Link>
+              ),
+              mono: (chunks) => <Mono>{chunks}</Mono>,
+            })}
           </span>
         }
         actions={
@@ -91,7 +104,7 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
             {isDraft && canEdit ? (
               <>
                 <Button asChild variant="secondary">
-                  <Link href={`/credit-notes/${id}/edit`}>Edit</Link>
+                  <Link href={`/credit-notes/${id}/edit`}>{tc("edit")}</Link>
                 </Button>
                 <Button asChild variant="tertiary">
                   <a
@@ -99,24 +112,24 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
                     target="_blank"
                     rel="noopener"
                   >
-                    Preview PDF
+                    {t("previewPdf")}
                   </a>
                 </Button>
                 <ConfirmAction
                   action={issueCreditNoteAction}
-                  title="Issue this credit note?"
-                  description="A number is allocated, the invoice balance is reduced and the document becomes immutable."
-                  confirmLabel="Issue"
+                  title={t("issue.title")}
+                  description={t("issue.description")}
+                  confirmLabel={t("issue.label")}
                   hidden={{ id }}
-                  trigger="Issue"
+                  trigger={t("issue.label")}
                   triggerVariant="primary"
                 />
                 <ConfirmAction
                   action={deleteCreditNoteDraftAction}
-                  title="Delete this draft?"
-                  confirmLabel="Delete"
+                  title={t("deleteDraft.title")}
+                  confirmLabel={tc("delete")}
                   hidden={{ id }}
-                  trigger="Delete"
+                  trigger={tc("delete")}
                   triggerVariant="tertiary"
                   destructive
                 />
@@ -131,11 +144,13 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
                         : `/api/documents/preview?creditNote=${id}`
                     }
                   >
-                    Download PDF
+                    {tc("downloadPdf")}
                   </a>
                 </Button>
                 <Button asChild variant="secondary">
-                  <a href={`/api/documents/preview?creditNote=${id}&format=docx`}>Download DOCX</a>
+                  <a href={`/api/documents/preview?creditNote=${id}&format=docx`}>
+                    {tc("downloadDocx")}
+                  </a>
                 </Button>
                 {cn.status === "ISSUED" && canEdit ? (
                   <>
@@ -145,26 +160,26 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
                       links={await listShareLinks(actor, "CREDIT_NOTE", id)}
                     />
                     <Button asChild variant="secondary">
-                      <Link href={`/credit-notes/${id}/send`}>Send by email</Link>
+                      <Link href={`/credit-notes/${id}/send`}>{t("sendByEmail")}</Link>
                     </Button>
                     {!cn.sentAt ? (
                       <ConfirmAction
                         action={markCreditNoteSentAction}
-                        title="Mark as sent?"
-                        confirmLabel="Mark as sent"
+                        title={t("markSent.title")}
+                        confirmLabel={t("markSent.label")}
                         hidden={{ id }}
-                        trigger="Mark as sent"
+                        trigger={t("markSent.label")}
                         triggerVariant="tertiary"
                       />
                     ) : null}
                     <ConfirmAction
                       action={voidCreditNoteAction}
-                      title="Void this credit note?"
-                      description="The invoice balance is restored; the number is never reused."
-                      confirmLabel="Void"
+                      title={t("void.title")}
+                      description={t("void.description")}
+                      confirmLabel={t("void.label")}
                       hidden={{ id }}
-                      reason={{ label: "Reason", required: true }}
-                      trigger="Void"
+                      reason={{ label: t("void.reason"), required: true }}
+                      trigger={t("void.label")}
                       triggerVariant="tertiary"
                       destructive
                     />
@@ -177,38 +192,40 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
       />
       {cn.status === "VOID" ? (
         <p className="mb-6 rounded-md border border-semantic-danger/40 bg-surface-2 px-4 py-3 text-app-body text-semantic-danger">
-          Voided {cn.voidedAt ? formatDateTime(new Date(cn.voidedAt), "en-GB", actor.timezone) : ""}
-          : {cn.voidReason}
+          {t("voided", {
+            date: cn.voidedAt ? formatDateTime(new Date(cn.voidedAt), "en-GB", actor.timezone) : "",
+            reason: cn.voidReason ?? "",
+          })}
         </p>
       ) : null}
       <div className="grid gap-6 xl:grid-cols-[7fr_5fr]">
         <div className="flex min-w-0 flex-col gap-6">
           <Card>
             <CardHeader>
-              <CardTitle>Amounts</CardTitle>
+              <CardTitle>{t("amounts.title")}</CardTitle>
             </CardHeader>
             <CardContent>
               <DescriptionList>
-                <Item label="Reason">{cn.reason}</Item>
-                <Item label="Credit amount">
+                <Item label={t("amounts.reason")}>{cn.reason}</Item>
+                <Item label={t("amounts.creditAmount")}>
                   <Amount>{money(cn.subtotal)}</Amount>
                 </Item>
-                {cn.taxLines.map((t) => (
+                {cn.taxLines.map((line) => (
                   <Item
-                    key={`${t.taxType}-${t.rate}`}
-                    label={`${t.taxType} ${formatPercent(t.rate)}`}
+                    key={`${line.taxType}-${line.rate}`}
+                    label={`${line.taxType} ${formatPercent(line.rate)}`}
                   >
-                    <Amount>{money(t.taxAmount)}</Amount>
+                    <Amount>{money(line.taxAmount)}</Amount>
                   </Item>
                 ))}
-                <Item label="Total">
+                <Item label={t("amounts.total")}>
                   <Amount className="text-app-section">{money(cn.total)}</Amount>
                 </Item>
-                <Item label="Invoice balance now">
+                <Item label={t("amounts.balanceNow")}>
                   <Amount>{money(cn.invoice.balanceDue)}</Amount>
                 </Item>
                 {cn.sentAt ? (
-                  <Item label="Sent" mono>
+                  <Item label={t("amounts.sent")} mono>
                     {formatDateTime(new Date(cn.sentAt), "en-GB", actor.timezone)}
                   </Item>
                 ) : null}
@@ -219,17 +236,15 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
             <Card>
               <CardHeader>
                 <div>
-                  <CardTitle>Stored documents</CardTitle>
-                  <CardDescription>
-                    Every version is kept; the verify page lists all hashes.
-                  </CardDescription>
+                  <CardTitle>{t("documents.title")}</CardTitle>
+                  <CardDescription>{t("documents.description")}</CardDescription>
                 </div>
                 <ConfirmAction
                   action={regenerateCreditNoteDocumentAction}
-                  title="Generate a new PDF version?"
-                  confirmLabel="Generate"
+                  title={t("documents.regenerateTitle")}
+                  confirmLabel={t("documents.generate")}
                   hidden={{ id }}
-                  trigger="New version"
+                  trigger={t("documents.newVersion")}
                   triggerVariant="tertiary"
                   size="sm"
                 />
@@ -237,7 +252,7 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
               <CardContent>
                 {cn.documents.length === 0 ? (
                   <p className="text-app-body text-ink-subtle">
-                    The PDF is rendered on first download.
+                    {t("documents.renderedOnFirstDownload")}
                   </p>
                 ) : (
                   <ul className="flex flex-col gap-2">
@@ -249,8 +264,8 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
                         <span>
                           <a href={`/api/documents/${d.id}`} className="text-link">
                             {d.format === "PDF_PROTECTED"
-                              ? `Password-protected copy ${d.version}`
-                              : `Version ${d.version}`}
+                              ? t("documents.protectedCopy", { version: d.version })
+                              : t("documents.version", { version: d.version })}
                           </a>
                           <span className="text-ink-subtle">
                             {" "}
@@ -263,15 +278,19 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
                   </ul>
                 )}
                 <p className="text-app-caption text-ink-subtle">
-                  Verification link:{" "}
-                  <a
-                    href={`/verify/${cn.verificationToken}`}
-                    className="text-link"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    /verify/{cn.verificationToken.slice(0, 8)}…
-                  </a>
+                  {t.rich("documents.verificationLink", {
+                    path: `/verify/${cn.verificationToken.slice(0, 8)}`,
+                    link: (chunks) => (
+                      <a
+                        href={`/verify/${cn.verificationToken}`}
+                        className="text-link"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        {chunks}
+                      </a>
+                    ),
+                  })}
                 </p>
               </CardContent>
             </Card>
@@ -281,7 +300,7 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
           {preview ?? (
             <Card>
               <CardContent>
-                <p className="text-app-body text-ink-subtle">Drafts preview live in the editor.</p>
+                <p className="text-app-body text-ink-subtle">{t("draftsPreview")}</p>
               </CardContent>
             </Card>
           )}

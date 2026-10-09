@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import * as React from "react";
 
 export interface Crumb {
@@ -21,10 +22,11 @@ export function PageHeader({
   actions?: React.ReactNode;
   meta?: React.ReactNode;
 }) {
+  const t = useTranslations("ui");
   return (
     <div className="mb-6 flex flex-col gap-2">
       {breadcrumb.length > 0 ? (
-        <nav aria-label="Breadcrumb" className="flex h-5 items-center gap-1 text-app-caption">
+        <nav aria-label={t("breadcrumb")} className="flex h-5 items-center gap-1 text-app-caption">
           {breadcrumb.map((c, i) => (
             <React.Fragment key={c.href}>
               {i > 0 ? (

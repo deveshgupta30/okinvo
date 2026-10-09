@@ -92,7 +92,9 @@ test("owner invites a viewer; the viewer is read-only and cannot open settings",
     expect(invoicesCsv.status()).toBe(200);
     await viewer.page.goto("/settings/account");
     const tabs = viewer.page.getByRole("navigation", { name: "Settings" }).getByRole("link");
-    await expect(tabs).toHaveCount(2);
+    // a viewer sees Account, Appearance, API and Status; the owner-only tabs are hidden
+    await expect(tabs).toHaveCount(4);
+    await expect(tabs.filter({ hasText: "Users" })).toHaveCount(0);
   } finally {
     await viewer.context.close();
   }

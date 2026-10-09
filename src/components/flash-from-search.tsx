@@ -1,6 +1,7 @@
 "use client";
 
 import { X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { readFlash, type Flash } from "@/lib/flash";
@@ -14,6 +15,7 @@ const RAIL: Record<Flash["kind"], string> = {
 
 /** Toast rendered from `?flash=`; strips the parameter so a reload does not repeat it. */
 export function FlashFromSearch() {
+  const tc = useTranslations("common");
   const params = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -49,7 +51,7 @@ export function FlashFromSearch() {
       <span className="flex-1">{flash.message}</span>
       <button
         type="button"
-        aria-label="Dismiss"
+        aria-label={tc("dismiss")}
         className="text-ink-subtle hover:text-ink"
         onClick={() => setShown((s) => ({ ...s, flash: null }))}
       >

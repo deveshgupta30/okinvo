@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 export type Tone = "neutral" | "muted" | "success" | "warning" | "danger";
@@ -35,28 +36,30 @@ export function Pill({
 export type DocumentDisplayStatus =
   "DRAFT" | "ISSUED" | "SENT" | "PARTIALLY_PAID" | "PAID" | "OVERDUE" | "VOID";
 
-const STATUS: Record<DocumentDisplayStatus, { tone: Tone; label: string }> = {
-  DRAFT: { tone: "neutral", label: "Draft" },
-  ISSUED: { tone: "muted", label: "Issued" },
-  SENT: { tone: "muted", label: "Sent" },
-  PARTIALLY_PAID: { tone: "warning", label: "Partially paid" },
-  PAID: { tone: "success", label: "Paid" },
-  OVERDUE: { tone: "danger", label: "Overdue" },
-  VOID: { tone: "danger", label: "Void" },
+/** Labels come from the `ui.statusPill` catalogue namespace, keyed by the status itself. */
+const STATUS_TONE: Record<DocumentDisplayStatus, Tone> = {
+  DRAFT: "neutral",
+  ISSUED: "muted",
+  SENT: "muted",
+  PARTIALLY_PAID: "warning",
+  PAID: "success",
+  OVERDUE: "danger",
+  VOID: "danger",
 };
 
 export function StatusPill({ status }: { status: DocumentDisplayStatus }) {
-  const { tone, label } = STATUS[status];
+  const t = useTranslations("ui.statusPill");
   return (
-    <Pill tone={tone} data-status={status}>
+    <Pill tone={STATUS_TONE[status]} data-status={status}>
       {status === "SENT" ? <Mail aria-hidden className="size-3" strokeWidth={1.5} /> : null}
-      {label}
+      {t(status)}
     </Pill>
   );
 }
 
 export function ActivePill({ active, archived }: { active?: boolean; archived?: boolean }) {
-  if (archived) return <Pill tone="neutral">Archived</Pill>;
-  if (active === false) return <Pill tone="neutral">Inactive</Pill>;
-  return <Pill tone="success">Active</Pill>;
+  const t = useTranslations("ui.activePill");
+  if (archived) return <Pill tone="neutral">{t("archived")}</Pill>;
+  if (active === false) return <Pill tone="neutral">{t("inactive")}</Pill>;
+  return <Pill tone="success">{t("active")}</Pill>;
 }

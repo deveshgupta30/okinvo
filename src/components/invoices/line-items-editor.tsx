@@ -2,17 +2,27 @@
 
 import type React from "react";
 import { ArrowDown, ArrowUp, Plus, Trash2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import type { FieldErrors } from "@/lib/forms";
 import type { BuilderItem } from "@/lib/invoices/client-preview";
-import { UNIT_LABELS, UNIT_TYPES } from "@/lib/schemas/service-input";
+import { UNIT_TYPES } from "@/lib/schemas/service-input";
 import type { ProductDto } from "@/server/dal/products";
 import type { ServiceDto } from "@/server/dal/services";
 
 const EXEMPT = "__exempt";
+
+/** Unit type → its `invoices.shared.units` / `unitsLower` catalogue key. */
+const UNIT_KEY = {
+  HOUR: "hour",
+  DAY: "day",
+  FIXED: "fixed",
+  MILESTONE: "milestone",
+  UNIT: "unit",
+} as const satisfies Record<(typeof UNIT_TYPES)[number], string>;
 
 const EMPTY: BuilderItem = {
   description: "",
@@ -41,6 +51,8 @@ export function LineItemsEditor({
   errors?: FieldErrors | undefined;
   onChange: (items: BuilderItem[]) => void;
 }) {
+  const t = useTranslations("invoices.lineItems");
+  const ts = useTranslations("invoices.shared");
   const rows = items.length === 0 ? [EMPTY] : items;
   const update = (i: number, patch: Partial<BuilderItem>) =>
     onChange(rows.map((r, idx) => (idx === i ? { ...r, ...patch } : r)));
@@ -93,7 +105,7 @@ export function LineItemsEditor({
     if (i === rows.length - 1) onChange([...rows, EMPTY]);
     const focusNext = () =>
       document
-        .querySelector<HTMLTextAreaElement>(`[aria-label="Line ${i + 2} description"]`)
+        .querySelector<HTMLTextAreaElement>(`textarea[name="items[${i + 1}].description"]`)
         ?.focus();
     if (typeof requestAnimationFrame === "function") requestAnimationFrame(focusNext);
     else focusNext();
@@ -104,7 +116,7 @@ export function LineItemsEditor({
       <div className="flex flex-wrap items-center gap-2">
         {services.length > 0 || products.length > 0 ? (
           <Select
-            aria-label="Add from catalogue"
+            aria-label={t("addFromCatalogueAria")}
             className="w-64"
             value=""
             onChange={(e) => {
@@ -114,18 +126,19 @@ export function LineItemsEditor({
               e.target.value = "";
             }}
           >
-            <option value="">Add from catalogue…</option>
+            <option value="">{t("addFromCatalogue")}</option>
             {services.length > 0 ? (
-              <optgroup label="Services">
+              <optgroup label={t("services")}>
                 {services.map((s) => (
                   <option key={s.id} value={`svc:${s.id}`}>
-                    {s.name} · {s.defaultRate} {s.currency}/{UNIT_LABELS[s.unitType].toLowerCase()}
+                    {s.name} · {s.defaultRate} {s.currency}/
+                    {ts(`unitsLower.${UNIT_KEY[s.unitType]}`)}
                   </option>
                 ))}
               </optgroup>
             ) : null}
             {products.length > 0 ? (
-              <optgroup label="Products">
+              <optgroup label={t("products")}>
                 {products.map((p) => (
                   <option key={p.id} value={`prod:${p.id}`}>
                     {p.sku} · {p.name} · {p.unitPrice} {p.currency}
@@ -140,7 +153,7 @@ export function LineItemsEditor({
           variant="secondary"
           onClick={() => onChange([...(items.length === 0 ? [] : rows), EMPTY])}
         >
-          <Plus /> Add line
+          <Plus /> {t("addLine")}
         </Button>
       </div>
       <div className="overflow-x-auto rounded-lg border border-hairline">
@@ -148,12 +161,12 @@ export function LineItemsEditor({
           <thead className="bg-surface-2 text-app-label text-ink-subtle">
             <tr>
               <th className="px-2 py-2 text-left font-medium">#</th>
-              <th className="px-2 py-2 text-left font-medium">Description</th>
-              <th className="px-2 py-2 text-left font-medium">SAC/HSN</th>
-              <th className="px-2 py-2 text-right font-medium">Qty</th>
-              <th className="px-2 py-2 text-left font-medium">Unit</th>
-              <th className="px-2 py-2 text-right font-medium">Rate</th>
-              <th className="px-2 py-2 text-right font-medium">Tax %</th>
+              <th className="px-2 py-2 text-left font-medium">{t("columns.description")}</th>
+              <th className="px-2 py-2 text-left font-medium">{t("columns.sacHsn")}</th>
+              <th className="px-2 py-2 text-right font-medium">{t("columns.qty")}</th>
+              <th className="px-2 py-2 text-left font-medium">{t("columns.unit")}</th>
+              <th className="px-2 py-2 text-right font-medium">{t("columns.rate")}</th>
+              <th className="px-2 py-2 text-right font-medium">{t("columns.taxPercent")}</th>
               <th className="px-2 py-2" />
             </tr>
           </thead>
@@ -177,7 +190,7 @@ export function LineItemsEditor({
                   ) : null}
                   <Textarea
                     name={`items[${i}].description`}
-                    aria-label={`Line ${i + 1} description`}
+                    aria-label={t("aria.description", { line: i + 1 })}
                     rows={2}
                     className="min-h-9"
                     value={row.description}
@@ -191,7 +204,9 @@ export function LineItemsEditor({
                     }}
                   />
                   {row.sku ? (
-                    <p className="mt-1 font-mono text-app-caption text-ink-subtle">SKU {row.sku}</p>
+                    <p className="mt-1 font-mono text-app-caption text-ink-subtle">
+                      {t("sku", { sku: row.sku })}
+                    </p>
                   ) : null}
                   {err(i, "description") ? (
                     <p role="alert" className="text-app-caption text-semantic-danger">
@@ -202,7 +217,7 @@ export function LineItemsEditor({
                 <td className="w-28 px-2 py-2">
                   <Input
                     name={`items[${i}].sacHsnCode`}
-                    aria-label={`Line ${i + 1} SAC/HSN`}
+                    aria-label={t("aria.sacHsn", { line: i + 1 })}
                     className="font-mono"
                     value={row.sacHsnCode}
                     invalid={Boolean(err(i, "sacHsnCode"))}
@@ -213,7 +228,7 @@ export function LineItemsEditor({
                 <td className="w-24 px-2 py-2">
                   <Input
                     name={`items[${i}].quantity`}
-                    aria-label={`Line ${i + 1} quantity`}
+                    aria-label={t("aria.quantity", { line: i + 1 })}
                     type="number"
                     step="0.001"
                     min="0"
@@ -226,7 +241,7 @@ export function LineItemsEditor({
                 <td className="w-28 px-2 py-2">
                   <Select
                     name={`items[${i}].unitType`}
-                    aria-label={`Line ${i + 1} unit`}
+                    aria-label={t("aria.unit", { line: i + 1 })}
                     value={row.unitType}
                     onChange={(e) =>
                       update(i, { unitType: e.target.value as BuilderItem["unitType"] })
@@ -234,7 +249,7 @@ export function LineItemsEditor({
                   >
                     {UNIT_TYPES.map((u) => (
                       <option key={u} value={u}>
-                        {UNIT_LABELS[u]}
+                        {ts(`units.${UNIT_KEY[u]}`)}
                       </option>
                     ))}
                   </Select>
@@ -242,7 +257,7 @@ export function LineItemsEditor({
                 <td className="w-32 px-2 py-2">
                   <Input
                     name={`items[${i}].unitPrice`}
-                    aria-label={`Line ${i + 1} rate`}
+                    aria-label={t("aria.rate", { line: i + 1 })}
                     type="number"
                     step="0.01"
                     min="0"
@@ -262,7 +277,7 @@ export function LineItemsEditor({
                         value={row.taxExempt ? "true" : "false"}
                       />
                       <Select
-                        aria-label={`Line ${i + 1} tax rate`}
+                        aria-label={t("aria.taxRate", { line: i + 1 })}
                         value={
                           row.taxExempt
                             ? EXEMPT
@@ -281,13 +296,13 @@ export function LineItemsEditor({
                             {r}%
                           </option>
                         ))}
-                        {allowExempt ? <option value={EXEMPT}>Exempt</option> : null}
+                        {allowExempt ? <option value={EXEMPT}>{t("exempt")}</option> : null}
                       </Select>
                     </>
                   ) : (
                     <Input
                       name={`items[${i}].taxRate`}
-                      aria-label={`Line ${i + 1} tax rate`}
+                      aria-label={t("aria.taxRate", { line: i + 1 })}
                       type="number"
                       step="0.01"
                       min="0"
@@ -303,7 +318,7 @@ export function LineItemsEditor({
                     type="button"
                     variant="tertiary"
                     size="icon"
-                    aria-label="Move up"
+                    aria-label={t("moveUp")}
                     disabled={i === 0}
                     onClick={() => move(i, -1)}
                   >
@@ -313,7 +328,7 @@ export function LineItemsEditor({
                     type="button"
                     variant="tertiary"
                     size="icon"
-                    aria-label="Move down"
+                    aria-label={t("moveDown")}
                     disabled={i === rows.length - 1}
                     onClick={() => move(i, 1)}
                   >
@@ -323,7 +338,7 @@ export function LineItemsEditor({
                     type="button"
                     variant="tertiary"
                     size="icon"
-                    aria-label="Remove line"
+                    aria-label={t("removeLine")}
                     onClick={() => onChange(rows.filter((_, idx) => idx !== i))}
                   >
                     <Trash2 />
@@ -339,7 +354,7 @@ export function LineItemsEditor({
           {errors.items.join(" ")}
         </p>
       ) : null}
-      <p className="text-app-caption text-ink-subtle">Ctrl/⌘+Enter in a description adds a line.</p>
+      <p className="text-app-caption text-ink-subtle">{t("shortcutHint")}</p>
     </div>
   );
 }

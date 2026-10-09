@@ -1,9 +1,8 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import * as React from "react";
-import {
-  INPUT_CHARSET_MESSAGE,
-  KEYBOARD_INPUT_PATTERN,
-  stripToKeyboard,
-} from "@/lib/input-charset";
+import { KEYBOARD_INPUT_PATTERN, stripToKeyboard } from "@/lib/input-charset";
 import { cn } from "@/lib/utils";
 
 export type InputProps = React.ComponentProps<"input"> & { invalid?: boolean };
@@ -36,6 +35,7 @@ export function guardTextInput<E extends HTMLInputElement | HTMLTextAreaElement>
 }
 
 export function Input({ className, invalid, type = "text", onChange, ...props }: InputProps) {
+  const t = useTranslations("ui");
   const guarded = GUARDED_TYPES.has(type);
   return (
     <input
@@ -47,7 +47,7 @@ export function Input({ className, invalid, type = "text", onChange, ...props }:
         type === "number" && "text-right font-mono tabular-nums",
         className,
       )}
-      {...(guarded ? { pattern: KEYBOARD_INPUT_PATTERN, title: INPUT_CHARSET_MESSAGE } : {})}
+      {...(guarded ? { pattern: KEYBOARD_INPUT_PATTERN, title: t("inputCharset") } : {})}
       {...props}
       onChange={guarded ? guardTextInput(onChange) : onChange}
     />

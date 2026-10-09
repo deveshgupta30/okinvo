@@ -12,7 +12,3 @@ export function estimatePages(contentHeight: number, pageHeight: number): number
   const usable = pageHeight * (1 - CONTINUATION_CHROME);
   return 1 + Math.ceil((contentHeight - pageHeight) / usable);
 }
-
-export function pageEstimateLabel(pages: number): string {
-  return `approx. ${pages} ${pages === 1 ? "page" : "pages"}`;
-}

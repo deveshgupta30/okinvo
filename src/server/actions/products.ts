@@ -14,7 +14,7 @@ import {
   unarchiveProduct,
   updateProduct,
 } from "@/server/dal/products";
-import { errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
+import { actionT, errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
 
 const LIST = "/products";
 
@@ -24,6 +24,7 @@ export async function saveProduct(
   formData: FormData,
 ): Promise<ActionState> {
   const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const parsed = parseForm(ProductInputSchema, formData);
   if (!parsed.ok) return failedParse(parsed, formData);
   let name: string;
@@ -36,7 +37,7 @@ export async function saveProduct(
     return failedWith(e, formData);
   }
   revalidatePath(LIST);
-  redirect(withFlash(LIST, { kind: "success", message: `Saved ${name}` }));
+  redirect(withFlash(LIST, { kind: "success", message: t("saved", { name }) }));
 }
 
 async function simple(formData: FormData, fn: () => Promise<void>, success: string) {
@@ -44,7 +45,7 @@ async function simple(formData: FormData, fn: () => Promise<void>, success: stri
   try {
     await fn();
   } catch (e) {
-    redirect(withFlash(back, { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(back, { kind: "error", message: await errorMessage(e) }));
   }
   revalidatePath(LIST);
   redirect(withFlash(back, { kind: "success", message: success }));
@@ -52,21 +53,24 @@ async function simple(formData: FormData, fn: () => Promise<void>, success: stri
 
 export async function archiveProductAction(formData: FormData): Promise<void> {
   const actor = await requireRole("EDITOR");
-  await simple(formData, () => archiveProduct(actor, str(formData, "id")), "Product archived");
+  const t = await actionT();
+  await simple(formData, () => archiveProduct(actor, str(formData, "id")), t("productArchived"));
 }
 
 export async function unarchiveProductAction(formData: FormData): Promise<void> {
   const actor = await requireRole("EDITOR");
-  await simple(formData, () => unarchiveProduct(actor, str(formData, "id")), "Product restored");
+  const t = await actionT();
+  await simple(formData, () => unarchiveProduct(actor, str(formData, "id")), t("productRestored"));
 }
 
 export async function toggleProductAction(formData: FormData): Promise<void> {
   const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const active = str(formData, "isActive") === "true";
   await simple(
     formData,
     () => toggleProductActive(actor, str(formData, "id"), active),
-    active ? "Product activated" : "Product deactivated",
+    active ? t("productActivated") : t("productDeactivated"),
   );
 }
 

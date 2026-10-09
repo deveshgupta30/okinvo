@@ -11,12 +11,13 @@ import { AccountInputSchema } from "@/lib/schemas/account-input";
 import { THEME_COOKIE, parseThemeMode } from "@/lib/theme";
 import { requireRole } from "@/server/auth";
 import { setAccent, setAvatar, setTheme, updateAccount } from "@/server/dal/users";
-import { failedParse, failedWith, type ActionState } from "./shared";
+import { actionT, failedParse, failedWith, type ActionState } from "./shared";
 
 const PAGE = "/settings/account";
 
 export async function saveAccount(_prev: ActionState, formData: FormData): Promise<ActionState> {
   const actor = await requireRole("VIEWER");
+  const t = await actionT();
   const parsed = parseForm(AccountInputSchema, formData);
   if (!parsed.ok) return failedParse(parsed, formData);
   try {
@@ -43,7 +44,7 @@ export async function saveAccount(_prev: ActionState, formData: FormData): Promi
     });
   }
   revalidatePath("/", "layout");
-  redirect(withFlash(PAGE, { kind: "success", message: "Account preferences saved" }));
+  redirect(withFlash(PAGE, { kind: "success", message: t("accountSaved") }));
 }
 
 /** Links a freshly uploaded AVATAR asset to the signed-in account (spec §3.5). */

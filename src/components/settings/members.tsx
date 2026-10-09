@@ -1,6 +1,7 @@
 "use client";
 
 import { Check, Copy, UserPlus } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useActionState, useState } from "react";
 import { ConfirmAction } from "@/components/confirm-action";
 import { FormMessage } from "@/components/forms/form-message";
@@ -24,33 +25,32 @@ import {
 } from "@/server/actions/members";
 import type { InvitationDto, MemberDto } from "@/server/dal/members";
 
-const ROLE_LABELS = { OWNER: "Owner", EDITOR: "Editor", VIEWER: "Viewer" } as const;
-const ROLE_HINTS = {
-  OWNER: "Everything, including settings and members",
-  EDITOR: "Clients, catalogue, invoices, credit notes, payments, e-mail",
-  VIEWER: "Read-only",
-} as const;
+/** Role enum value to its catalogue key (labels under `roles`, hints under `roleHints`). */
+const ROLE_KEYS = { OWNER: "owner", EDITOR: "editor", VIEWER: "viewer" } as const;
+const ROLES = Object.keys(ROLE_KEYS) as (keyof typeof ROLE_KEYS)[];
 
 function RoleSelect({ member, self }: { member: MemberDto; self: boolean }) {
+  const t = useTranslations("settings.users");
+  const tc = useTranslations("common");
   return (
     <form action={setMemberRoleAction} className="flex items-center gap-2">
       <input type="hidden" name="userId" value={member.id} />
       <Select
         name="role"
-        aria-label={`Role of ${member.email}`}
+        aria-label={t("roleOf", { email: member.email })}
         defaultValue={member.role}
         disabled={self || member.deactivatedAt !== null}
         className="w-28"
       >
-        {(Object.keys(ROLE_LABELS) as (keyof typeof ROLE_LABELS)[]).map((r) => (
+        {ROLES.map((r) => (
           <option key={r} value={r}>
-            {ROLE_LABELS[r]}
+            {t(`roles.${ROLE_KEYS[r]}`)}
           </option>
         ))}
       </Select>
       {self || member.deactivatedAt ? null : (
-        <SubmitButton variant="secondary" size="sm" pendingLabel="Saving…">
-          Save
+        <SubmitButton variant="secondary" size="sm" pendingLabel={tc("saving")}>
+          {tc("save")}
         </SubmitButton>
       )}
     </form>
@@ -58,6 +58,8 @@ function RoleSelect({ member, self }: { member: MemberDto; self: boolean }) {
 }
 
 function InviteForm() {
+  const t = useTranslations("settings.users");
+  const tc = useTranslations("common");
   const [state, action] = useActionState<InviteState | null, FormData>(inviteMemberAction, null);
   const [copied, setCopied] = useState(false);
   const failed = state && !state.ok ? state : null;
@@ -72,12 +74,10 @@ function InviteForm() {
         >
           <span>
             {invited.sent
-              ? `Invitation e-mailed to ${invited.email}.`
-              : `Invitation ready for ${invited.email}. ${
-                  invited.error
-                    ? `The e-mail could not be sent (${invited.error}); `
-                    : "No SMTP is configured; "
-                }send them this link:`}
+              ? t("invite.sent", { email: invited.email })
+              : invited.error
+                ? t("invite.readyWithError", { email: invited.email, error: invited.error })
+                : t("invite.readyNoSmtp", { email: invited.email })}
           </span>
           <span className="flex flex-wrap items-center gap-2">
             <code className="font-mono text-app-mono">{invited.signInUrl}</code>
@@ -90,34 +90,42 @@ function InviteForm() {
                 setCopied(true);
               }}
             >
-              {copied ? <Check /> : <Copy />} {copied ? "Copied" : "Copy link"}
+              {copied ? <Check /> : <Copy />} {copied ? tc("copied") : t("invite.copyLink")}
             </Button>
           </span>
         </div>
       ) : null}
       <FieldGroup className="sm:grid-cols-[1fr_auto]">
-        <Field label="Email" htmlFor="inviteEmail" error={failed?.fieldErrors.email} required>
+        <Field
+          label={t("invite.email")}
+          htmlFor="inviteEmail"
+          error={failed?.fieldErrors.email}
+          required
+        >
           <Input
             id="inviteEmail"
             name="email"
             type="email"
-            placeholder="person@example.com"
+            placeholder={t("invite.emailPlaceholder")}
             defaultValue={failed?.values.email ?? ""}
           />
         </Field>
-        <Field label="Role" htmlFor="inviteRole" error={failed?.fieldErrors.role}>
+        <Field label={t("invite.role")} htmlFor="inviteRole" error={failed?.fieldErrors.role}>
           <Select id="inviteRole" name="role" defaultValue={failed?.values.role ?? "EDITOR"}>
-            {(Object.keys(ROLE_LABELS) as (keyof typeof ROLE_LABELS)[]).map((r) => (
+            {ROLES.map((r) => (
               <option key={r} value={r}>
-                {ROLE_LABELS[r]} — {ROLE_HINTS[r]}
+                {t("roleOption", {
+                  role: t(`roles.${ROLE_KEYS[r]}`),
+                  hint: t(`roleHints.${ROLE_KEYS[r]}`),
+                })}
               </option>
             ))}
           </Select>
         </Field>
       </FieldGroup>
       <div>
-        <SubmitButton pendingLabel="Inviting…">
-          <UserPlus /> Invite
+        <SubmitButton pendingLabel={t("invite.inviting")}>
+          <UserPlus /> {t("invite.submit")}
         </SubmitButton>
       </div>
     </form>
@@ -138,16 +146,15 @@ export function MembersPanel({
   locale: string;
   timeZone: string;
 }) {
+  const t = useTranslations("settings.users");
+  const tc = useTranslations("common");
   return (
     <div className="flex flex-col gap-6">
       <Card>
         <CardHeader>
           <div>
-            <CardTitle>Invite someone</CardTitle>
-            <CardDescription>
-              They sign in with the invited address (an identity provider or a password) and get the
-              role you choose.
-            </CardDescription>
+            <CardTitle>{t("invite.title")}</CardTitle>
+            <CardDescription>{t("invite.description")}</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
@@ -158,18 +165,18 @@ export function MembersPanel({
       <Card>
         <CardHeader>
           <div>
-            <CardTitle>Members</CardTitle>
-            <CardDescription>At least one active owner always remains.</CardDescription>
+            <CardTitle>{t("members.title")}</CardTitle>
+            <CardDescription>{t("members.description")}</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
           <Table cards>
             <THead>
               <TR>
-                <TH>Person</TH>
-                <TH>Role</TH>
-                <TH>Last sign-in</TH>
-                <TH>Status</TH>
+                <TH>{t("members.columns.person")}</TH>
+                <TH>{t("members.columns.role")}</TH>
+                <TH>{t("members.columns.lastSignIn")}</TH>
+                <TH>{t("members.columns.status")}</TH>
                 <TH />
               </TR>
             </THead>
@@ -178,13 +185,12 @@ export function MembersPanel({
                 const self = m.id === selfId;
                 return (
                   <TR key={m.id}>
-                    <TD label="Person">
+                    <TD label={t("members.columns.person")}>
                       <span className="flex items-center gap-3">
                         <Avatar name={m.name} email={m.email} src={m.avatarKey} size="sm" />
                         <span className="flex min-w-0 flex-col">
                           <span className="truncate text-app-label text-ink">
-                            {m.name}
-                            {self ? " (you)" : ""}
+                            {self ? t("members.nameYou", { name: m.name }) : m.name}
                           </span>
                           <span className="truncate text-app-caption text-ink-subtle">
                             {m.email}
@@ -192,41 +198,41 @@ export function MembersPanel({
                         </span>
                       </span>
                     </TD>
-                    <TD label="Role">
+                    <TD label={t("members.columns.role")}>
                       <RoleSelect member={m} self={self} />
                     </TD>
-                    <TD label="Last sign-in" mono>
+                    <TD label={t("members.columns.lastSignIn")} mono>
                       {m.lastSignInAt
                         ? formatDateTime(new Date(m.lastSignInAt), locale, timeZone)
-                        : "—"}
+                        : tc("emptyValue")}
                     </TD>
-                    <TD label="Status">
+                    <TD label={t("members.columns.status")}>
                       {m.deactivatedAt ? (
-                        <Pill tone="danger">Deactivated</Pill>
+                        <Pill tone="danger">{t("members.deactivated")}</Pill>
                       ) : (
-                        <Pill tone="success">Active</Pill>
+                        <Pill tone="success">{tc("active")}</Pill>
                       )}
                     </TD>
                     <TD label="" className="text-right">
                       {self ? null : m.deactivatedAt ? (
                         <ConfirmAction
                           action={reactivateMemberAction}
-                          title={`Reactivate ${m.email}?`}
-                          description="They can sign in again with their previous role."
-                          confirmLabel="Reactivate"
+                          title={t("members.reactivate.title", { email: m.email })}
+                          description={t("members.reactivate.description")}
+                          confirmLabel={t("members.reactivate.confirm")}
                           hidden={{ userId: m.id }}
-                          trigger="Reactivate"
+                          trigger={t("members.reactivate.confirm")}
                           size="sm"
                         />
                       ) : (
                         <ConfirmAction
                           action={deactivateMemberAction}
-                          title={`Deactivate ${m.email}?`}
-                          description="Every session ends now and they cannot sign in until reactivated. Their history stays."
-                          confirmLabel="Deactivate"
+                          title={t("members.deactivate.title", { email: m.email })}
+                          description={t("members.deactivate.description")}
+                          confirmLabel={t("members.deactivate.confirm")}
                           hidden={{ userId: m.id }}
                           destructive
-                          trigger="Deactivate"
+                          trigger={t("members.deactivate.confirm")}
                           size="sm"
                         />
                       )}
@@ -242,40 +248,44 @@ export function MembersPanel({
       <Card>
         <CardHeader>
           <div>
-            <CardTitle>Pending invitations</CardTitle>
-            <CardDescription>Addresses that may sign in but have not yet.</CardDescription>
+            <CardTitle>{t("invitations.title")}</CardTitle>
+            <CardDescription>{t("invitations.description")}</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
           <Table cards>
             <THead>
               <TR>
-                <TH>Email</TH>
-                <TH>Role</TH>
-                <TH>Invited</TH>
+                <TH>{t("invitations.columns.email")}</TH>
+                <TH>{t("invitations.columns.role")}</TH>
+                <TH>{t("invitations.columns.invited")}</TH>
                 <TH />
               </TR>
             </THead>
             <TBody>
               {invitations.length === 0 ? (
-                <TableEmpty colSpan={4}>No pending invitations.</TableEmpty>
+                <TableEmpty colSpan={4}>{t("invitations.empty")}</TableEmpty>
               ) : (
                 invitations.map((i) => (
                   <TR key={i.email}>
-                    <TD label="Email">{i.email}</TD>
-                    <TD label="Role">{ROLE_LABELS[i.role]}</TD>
-                    <TD label="Invited" mono>
-                      {formatDateTime(new Date(i.invitedAt), locale, timeZone)}
-                      {i.invitedBy ? ` · ${i.invitedBy}` : ""}
+                    <TD label={t("invitations.columns.email")}>{i.email}</TD>
+                    <TD label={t("invitations.columns.role")}>{t(`roles.${ROLE_KEYS[i.role]}`)}</TD>
+                    <TD label={t("invitations.columns.invited")} mono>
+                      {i.invitedBy
+                        ? t("invitations.invitedAtBy", {
+                            date: formatDateTime(new Date(i.invitedAt), locale, timeZone),
+                            by: i.invitedBy,
+                          })
+                        : formatDateTime(new Date(i.invitedAt), locale, timeZone)}
                     </TD>
                     <TD label="" className="text-right">
                       <ConfirmAction
                         action={revokeInvitationAction}
-                        title={`Revoke the invitation for ${i.email}?`}
-                        confirmLabel="Revoke"
+                        title={t("invitations.revokeTitle", { email: i.email })}
+                        confirmLabel={tc("revoke")}
                         hidden={{ email: i.email }}
                         destructive
-                        trigger="Revoke"
+                        trigger={tc("revoke")}
                         size="sm"
                       />
                     </TD>

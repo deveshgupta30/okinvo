@@ -14,7 +14,7 @@ import {
   unarchiveService,
   updateService,
 } from "@/server/dal/services";
-import { errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
+import { actionT, errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
 
 const LIST = "/services";
 
@@ -24,6 +24,7 @@ export async function saveService(
   formData: FormData,
 ): Promise<ActionState> {
   const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const parsed = parseForm(ServiceInputSchema, formData);
   if (!parsed.ok) return failedParse(parsed, formData);
   let name: string;
@@ -36,7 +37,7 @@ export async function saveService(
     return failedWith(e, formData);
   }
   revalidatePath(LIST);
-  redirect(withFlash(LIST, { kind: "success", message: `Saved ${name}` }));
+  redirect(withFlash(LIST, { kind: "success", message: t("saved", { name }) }));
 }
 
 async function simple(formData: FormData, fn: () => Promise<void>, success: string) {
@@ -44,7 +45,7 @@ async function simple(formData: FormData, fn: () => Promise<void>, success: stri
   try {
     await fn();
   } catch (e) {
-    redirect(withFlash(back, { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(back, { kind: "error", message: await errorMessage(e) }));
   }
   revalidatePath(LIST);
   redirect(withFlash(back, { kind: "success", message: success }));
@@ -52,21 +53,24 @@ async function simple(formData: FormData, fn: () => Promise<void>, success: stri
 
 export async function archiveServiceAction(formData: FormData): Promise<void> {
   const actor = await requireRole("EDITOR");
-  await simple(formData, () => archiveService(actor, str(formData, "id")), "Service archived");
+  const t = await actionT();
+  await simple(formData, () => archiveService(actor, str(formData, "id")), t("serviceArchived"));
 }
 
 export async function unarchiveServiceAction(formData: FormData): Promise<void> {
   const actor = await requireRole("EDITOR");
-  await simple(formData, () => unarchiveService(actor, str(formData, "id")), "Service restored");
+  const t = await actionT();
+  await simple(formData, () => unarchiveService(actor, str(formData, "id")), t("serviceRestored"));
 }
 
 export async function toggleServiceAction(formData: FormData): Promise<void> {
   const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const active = str(formData, "isActive") === "true";
   await simple(
     formData,
     () => toggleServiceActive(actor, str(formData, "id"), active),
-    active ? "Service activated" : "Service deactivated",
+    active ? t("serviceActivated") : t("serviceDeactivated"),
   );
 }
 

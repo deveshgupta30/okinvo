@@ -7,7 +7,7 @@ import { generatePassphrase } from "@/lib/security/passphrase";
 import { requireRole } from "@/server/auth";
 import { isDalError } from "@/server/dal/errors";
 import { createShareLink, revokeShareLink } from "@/server/dal/share-links";
-import { failedParse, str, type ActionState } from "./shared";
+import { actionT, failedParse, str, type ActionState } from "./shared";
 
 const CreateSchema = z.object({
   kind: z.enum(["INVOICE", "CREDIT_NOTE"]),
@@ -28,6 +28,7 @@ export async function createShareLinkAction(
   formData: FormData,
 ): Promise<ShareState> {
   const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const parsed = parseForm(CreateSchema, formData);
   if (!parsed.ok) return failedParse(parsed, formData);
   const { kind, id, expires, protection } = parsed.data;
@@ -40,8 +41,8 @@ export async function createShareLinkAction(
   if (protection === "manual" && !password) {
     return {
       ok: false,
-      fieldErrors: { password: ["Enter a password, or let one be generated."] },
-      message: "Please correct the highlighted fields.",
+      fieldErrors: { password: [t("sharePasswordRequired")] },
+      message: t("fixFields"),
       values: {},
     };
   }
@@ -55,7 +56,7 @@ export async function createShareLinkAction(
     revalidatePath(pageFor(kind, id));
     return {
       ok: true,
-      message: "Share link created.",
+      message: t("shareLinkCreated"),
       created: { url: result.url, password: result.password },
     };
   } catch (e) {

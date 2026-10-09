@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 type Outcome = { kind: "match"; version: number } | { kind: "mismatch"; sha256: string } | null;
 
 /** Hashes a user-picked file with WebCrypto and compares it against the stored versions. */
 export function HashCheck({ hashes }: { hashes: { version: number; sha256: string }[] }) {
+  const t = useTranslations("verify.check");
   const [outcome, setOutcome] = useState<Outcome>(null);
   const [busy, setBusy] = useState(false);
 
@@ -26,7 +28,7 @@ export function HashCheck({ hashes }: { hashes: { version: number; sha256: strin
   return (
     <div className="mt-4 flex flex-col gap-2">
       <label className="text-app-label text-ink-subtle" htmlFor="verify-file">
-        Check your copy
+        {t("label")}
       </label>
       <input
         id="verify-file"
@@ -39,14 +41,14 @@ export function HashCheck({ hashes }: { hashes: { version: number; sha256: strin
           if (f) void check(f);
         }}
       />
-      {busy ? <p className="text-app-caption text-ink-subtle">Hashing…</p> : null}
+      {busy ? <p className="text-app-caption text-ink-subtle">{t("hashing")}</p> : null}
       {outcome?.kind === "match" ? (
         <p role="status" className="text-app-body text-semantic-success">
-          Your copy matches version {outcome.version} exactly.
+          {t("match", { version: outcome.version })}
         </p>
       ) : outcome?.kind === "mismatch" ? (
         <p role="alert" className="text-app-body text-semantic-danger">
-          Your copy does not match any stored version.
+          {t("mismatch")}
           <span className="block text-app-mono break-all text-ink-subtle">{outcome.sha256}</span>
         </p>
       ) : null}

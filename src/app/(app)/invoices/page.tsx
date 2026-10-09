@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FileText } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import { ExportButton } from "@/components/export-button";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -30,9 +31,23 @@ function rejectBadFilters(e: unknown): never {
   throw e;
 }
 
-export const metadata: Metadata = { title: "Invoices" };
+export async function generateMetadata(): Promise<Metadata> {
+  const ts = await getTranslations("invoices.shared");
+  return { title: ts("invoices") };
+}
 
 const STATUSES = Object.keys(STATUS_LABELS) as (keyof typeof STATUS_LABELS)[];
+
+/** Display status → its `invoices.shared.statuses` catalogue key. */
+const STATUS_KEY = {
+  DRAFT: "draft",
+  ISSUED: "issued",
+  SENT: "sent",
+  PARTIALLY_PAID: "partiallyPaid",
+  PAID: "paid",
+  OVERDUE: "overdue",
+  VOID: "void",
+} as const satisfies Record<keyof typeof STATUS_LABELS, string>;
 
 export default async function InvoicesPage({
   searchParams,
@@ -64,29 +79,32 @@ export default async function InvoicesPage({
     }
     return `/invoices?${q.toString()}`;
   };
+  const t = await getTranslations("invoices.list");
+  const ts = await getTranslations("invoices.shared");
+  const tc = await getTranslations("common");
   const nothingYet =
     total === 0 && !parsed.success ? false : total === 0 && Object.values(params).every((v) => !v);
 
   return (
     <>
       <PageHeader
-        title="Invoices"
-        description="Drafts, issued and voided invoices; statuses derive from payments and due dates."
+        title={ts("invoices")}
+        description={t("description")}
         actions={
           <>
             <ExportButton dataset="invoices" params={params} />
             {canEdit ? (
               <Button asChild>
-                <Link href="/invoices/new">New invoice</Link>
+                <Link href="/invoices/new">{ts("newInvoice")}</Link>
               </Button>
             ) : null}
           </>
         }
       />
       <form className="mb-4 grid gap-3 md:grid-cols-4 xl:grid-cols-8" role="search">
-        <Field label="Fiscal year" htmlFor="fy">
+        <Field label={t("fiscalYear")} htmlFor="fy">
           <Select id="fy" name="fy" defaultValue={filters.fy ?? ""}>
-            <option value="">All</option>
+            <option value="">{tc("all")}</option>
             {years.map((y) => (
               <option key={y} value={y}>
                 {y}
@@ -94,19 +112,19 @@ export default async function InvoicesPage({
             ))}
           </Select>
         </Field>
-        <Field label="From" htmlFor="from">
+        <Field label={tc("from")} htmlFor="from">
           <Input id="from" name="from" type="date" defaultValue={filters.from ?? ""} />
         </Field>
-        <Field label="To" htmlFor="to">
+        <Field label={tc("to")} htmlFor="to">
           <Input id="to" name="to" type="date" defaultValue={filters.to ?? ""} />
         </Field>
-        <Field label="Issuer" htmlFor="issuerProfileId">
+        <Field label={t("issuer")} htmlFor="issuerProfileId">
           <Select
             id="issuerProfileId"
             name="issuerProfileId"
             defaultValue={filters.issuerProfileId ?? ""}
           >
-            <option value="">All</option>
+            <option value="">{tc("all")}</option>
             {profiles.map((p) => (
               <option key={p.id} value={p.id}>
                 {p.label}
@@ -114,9 +132,9 @@ export default async function InvoicesPage({
             ))}
           </Select>
         </Field>
-        <Field label="Client" htmlFor="clientId">
+        <Field label={t("client")} htmlFor="clientId">
           <Select id="clientId" name="clientId" defaultValue={filters.clientId ?? ""}>
-            <option value="">All</option>
+            <option value="">{tc("all")}</option>
             {clients.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.displayName}
@@ -124,19 +142,19 @@ export default async function InvoicesPage({
             ))}
           </Select>
         </Field>
-        <Field label="Status" htmlFor="status">
+        <Field label={tc("status")} htmlFor="status">
           <Select id="status" name="status" defaultValue={filters.status ?? ""}>
-            <option value="">All</option>
+            <option value="">{tc("all")}</option>
             {STATUSES.map((s) => (
               <option key={s} value={s}>
-                {STATUS_LABELS[s]}
+                {ts(`statuses.${STATUS_KEY[s]}`)}
               </option>
             ))}
           </Select>
         </Field>
-        <Field label="Currency" htmlFor="currency">
+        <Field label={tc("currency")} htmlFor="currency">
           <Select id="currency" name="currency" defaultValue={filters.currency ?? ""}>
-            <option value="">All</option>
+            <option value="">{tc("all")}</option>
             {COMMON_CURRENCIES.map((c) => (
               <option key={c} value={c}>
                 {c}
@@ -144,16 +162,16 @@ export default async function InvoicesPage({
             ))}
           </Select>
         </Field>
-        <Field label="Search" htmlFor="q">
+        <Field label={tc("search")} htmlFor="q">
           <div className="flex gap-2">
             <Input
               id="q"
               name="q"
               defaultValue={filters.q ?? ""}
-              placeholder="Number, PO, client"
+              placeholder={t("searchPlaceholder")}
             />
             <Button type="submit" variant="secondary">
-              Go
+              {tc("go")}
             </Button>
           </div>
         </Field>
@@ -162,12 +180,12 @@ export default async function InvoicesPage({
       {nothingYet ? (
         <EmptyState
           icon={FileText}
-          title="No invoices yet"
-          description="Build your first invoice: pick a client, add lines, watch the preview, then issue it."
+          title={t("emptyTitle")}
+          description={t("emptyDescription")}
           action={
             canEdit ? (
               <Button asChild variant="secondary">
-                <Link href="/invoices/new">New invoice</Link>
+                <Link href="/invoices/new">{ts("newInvoice")}</Link>
               </Button>
             ) : null
           }
@@ -177,48 +195,48 @@ export default async function InvoicesPage({
           <Table cards>
             <THead>
               <TR>
-                <TH>Number</TH>
-                <TH>Client</TH>
-                <TH>Issuer</TH>
-                <TH>Issue date</TH>
-                <TH>Due</TH>
-                <TH numeric>Total</TH>
-                <TH numeric>Balance</TH>
-                <TH>Status</TH>
+                <TH>{t("columns.number")}</TH>
+                <TH>{t("columns.client")}</TH>
+                <TH>{t("columns.issuer")}</TH>
+                <TH>{t("columns.issueDate")}</TH>
+                <TH>{t("columns.due")}</TH>
+                <TH numeric>{tc("total")}</TH>
+                <TH numeric>{t("columns.balance")}</TH>
+                <TH>{tc("status")}</TH>
               </TR>
             </THead>
             <TBody>
               {slice.length === 0 ? (
-                <TableEmpty colSpan={8}>No invoices match these filters.</TableEmpty>
+                <TableEmpty colSpan={8}>{t("noMatches")}</TableEmpty>
               ) : (
                 slice.map((r) => (
                   <TR key={r.id}>
-                    <TD label="Number" mono>
+                    <TD label={t("columns.number")} mono>
                       <Link href={`/invoices/${r.id}`} className="hover:underline">
-                        {r.number ?? <span className="text-ink-subtle">Draft</span>}
+                        {r.number ?? <span className="text-ink-subtle">{ts("draft")}</span>}
                       </Link>
                     </TD>
-                    <TD label="Client">{r.clientName}</TD>
-                    <TD label="Issuer" className="text-ink-subtle">
+                    <TD label={t("columns.client")}>{r.clientName}</TD>
+                    <TD label={t("columns.issuer")} className="text-ink-subtle">
                       {r.issuerLabel}
                     </TD>
-                    <TD label="Issue date" mono>
+                    <TD label={t("columns.issueDate")} mono>
                       {formatDate(r.issueDate, r.locale)}
                     </TD>
-                    <TD label="Due" mono>
+                    <TD label={t("columns.due")} mono>
                       {formatDate(r.dueDate, r.locale)}
                     </TD>
-                    <TD label="Total" numeric>
+                    <TD label={tc("total")} numeric>
                       <Amount>{formatMoney(r.total, r.currency, r.locale)}</Amount>
                     </TD>
-                    <TD label="Balance" numeric>
+                    <TD label={t("columns.balance")} numeric>
                       <Amount>
                         {r.status === "ISSUED"
                           ? formatMoney(r.balanceDue, r.currency, r.locale)
-                          : "—"}
+                          : tc("emptyValue")}
                       </Amount>
                     </TD>
-                    <TD label="Status">
+                    <TD label={tc("status")}>
                       <StatusPill status={r.displayStatus} />
                     </TD>
                   </TR>
@@ -228,25 +246,26 @@ export default async function InvoicesPage({
           </Table>
           <div className="mt-3 flex items-center justify-between text-app-caption text-ink-subtle">
             <span>
-              {total} invoice{total === 1 ? "" : "s"}
-              {pages > 1 ? ` · page ${page} of ${pages}` : ""}
+              {pages > 1
+                ? t("countPaged", { count: total, page, pages })
+                : t("count", { count: total })}
             </span>
             {pages > 1 ? (
               <div className="flex gap-2">
                 {page > 1 ? (
                   <Button asChild variant="tertiary" size="sm">
-                    <Link href={query({ page: String(page - 1) })}>Previous</Link>
+                    <Link href={query({ page: String(page - 1) })}>{tc("previous")}</Link>
                   </Button>
                 ) : null}
                 {page < pages ? (
                   <Button asChild variant="tertiary" size="sm">
-                    <Link href={query({ page: String(page + 1) })}>Next</Link>
+                    <Link href={query({ page: String(page + 1) })}>{tc("next")}</Link>
                   </Button>
                 ) : null}
               </div>
             ) : null}
           </div>
-          <Mono className="sr-only">register</Mono>
+          <Mono className="sr-only">{t("register")}</Mono>
         </>
       )}
     </>

@@ -1,4 +1,5 @@
 import { ChevronDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { buttonVariants } from "@/components/ui/button";
 import type { DatasetId } from "@/lib/exports/types";
 import { cn } from "@/lib/utils";
@@ -17,6 +18,7 @@ export function ExportButton({
   params?: Record<string, string | string[] | undefined>;
   className?: string | undefined;
 }) {
+  const t = useTranslations("exports");
   const q = new URLSearchParams();
   for (const [k, v] of Object.entries(params)) {
     if (typeof v === "string" && v && k !== "page" && k !== "format" && k !== "flash") q.set(k, v);
@@ -34,7 +36,7 @@ export function ExportButton({
           "cursor-pointer list-none select-none [&::-webkit-details-marker]:hidden",
         )}
       >
-        Export
+        {t("export")}
         <ChevronDown aria-hidden className="transition-transform group-open:rotate-180" />
       </summary>
       <div
@@ -46,14 +48,14 @@ export function ExportButton({
           href={href("csv")}
           className="block rounded-sm px-2 py-1.5 text-app-body hover:bg-surface-1"
         >
-          CSV
+          {t("csv")}
         </a>
         <a
           role="menuitem"
           href={href("xlsx")}
           className="block rounded-sm px-2 py-1.5 text-app-body hover:bg-surface-1"
         >
-          Excel (XLSX)
+          {t("xlsx")}
         </a>
       </div>
     </details>

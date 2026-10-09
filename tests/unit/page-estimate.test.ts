@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { estimatePages, pageEstimateLabel } from "@/components/documents/page-estimate";
+import { estimatePages } from "@/components/documents/page-estimate";
 
 /**
  * The builder's "approx. N pages" badge (spec §4.6 "Documents fit A4/Letter"): the first page
@@ -22,12 +22,5 @@ describe("estimatePages", () => {
   it("never divides by zero or returns less than one page", () => {
     expect(estimatePages(100, 0)).toBe(1);
     expect(estimatePages(-5, 1123)).toBe(1);
-  });
-});
-
-describe("pageEstimateLabel", () => {
-  it("reads naturally", () => {
-    expect(pageEstimateLabel(1)).toBe("approx. 1 page");
-    expect(pageEstimateLabel(2)).toBe("approx. 2 pages");
   });
 });

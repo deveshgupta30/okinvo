@@ -5,7 +5,7 @@ import { parseForm } from "@/lib/forms";
 import { LegalOperatorSchema } from "@/lib/schemas/legal-operator";
 import { requireOwner } from "@/server/auth";
 import { saveLegalOperator } from "@/server/dal/legal";
-import { failedParse, failedWith, type ActionState } from "./shared";
+import { actionT, failedParse, failedWith, type ActionState } from "./shared";
 
 export type LegalState = ActionState | { ok: true; message: string };
 
@@ -14,6 +14,7 @@ export async function saveLegalOperatorAction(
   formData: FormData,
 ): Promise<LegalState> {
   const actor = await requireOwner();
+  const t = await actionT();
   const parsed = parseForm(LegalOperatorSchema, formData);
   if (!parsed.ok) return failedParse(parsed, formData);
   try {
@@ -25,5 +26,5 @@ export async function saveLegalOperatorAction(
   for (const p of ["terms", "acceptable-use", "privacy", "data-retention", "security", "cookies"]) {
     revalidatePath(`/legal/${p}`);
   }
-  return { ok: true, message: "Operator details saved. The legal pages now show them." };
+  return { ok: true, message: t("operatorSaved") };
 }
