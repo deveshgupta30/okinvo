@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Ngarep okinvo",
+    "save": "Simpen",
+    "cancel": "Batal",
+    "continue": "Terusake",
+    "saving": "Nyimpen…",
+    "detect": "Deteksi",
+    "yes": "Ya",
+    "no": "Ora",
+    "choose": "Pilih…",
+    "remove": "Busak",
+    "tryAgain": "Coba maneh",
+    "dashboard": "Dasbor",
+    "goToDashboard": "Menyang dasbor",
+    "or": "utawa",
+    "invoice": "Faktur",
+    "creditNote": "Nota kredit",
+    "downloadPdf": "Undhuh PDF",
+    "edit": "Besut",
+    "delete": "Busak",
+    "downloadDocx": "Undhuh DOCX",
+    "none": "Ora ana",
+    "dismiss": "Tutup",
+    "all": "Kabeh",
+    "previous": "Sadurunge",
+    "next": "Sabanjure",
+    "go": "Lunga",
+    "search": "Goleki",
+    "status": "Status",
+    "total": "Total",
+    "currency": "Mata uang",
+    "from": "Saka",
+    "to": "Nganti",
+    "reason": "Alesan",
+    "history": "Riwayat",
+    "archive": "Arsip",
+    "restore": "Pulihake",
+    "showArchived": "Tuduhake sing diarsip",
+    "hideArchived": "Delikake sing diarsip",
+    "archived": "Diarsip",
+    "default": "Standar",
+    "setDefault": "Setel standar",
+    "revoke": "Cabut",
+    "copy": "Salin",
+    "copied": "Wis disalin",
+    "active": "Aktif",
+    "pagination": "Nomer kaca",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Dasbor",
+      "invoices": "Faktur",
+      "creditNotes": "Nota kredit",
+      "clients": "Klien",
+      "services": "Layanan",
+      "products": "Produk"
+    },
+    "primaryNav": "Utama",
+    "settings": "Setelan",
+    "openMenu": "Bukak menu",
+    "navigation": "Navigasi",
+    "pagesAndAccount": "Kaca lan akun",
+    "collapseSidebar": "Ciutake bilah sisih",
+    "collapseSidebarHint": "Ciutake bilah sisih ([)",
+    "expandSidebar": "Gedhekake bilah sisih",
+    "expandSidebarHint": "Gedhekake bilah sisih ([)",
+    "theme": {
+      "label": "Tema",
+      "system": "Sistem",
+      "light": "Padhang",
+      "dark": "Peteng",
+      "current": "Tema: {mode}",
+      "switchTo": "Tema: {mode}. Ganti dadi {next}"
+    },
+    "userMenu": {
+      "label": "Menu akun kanggo {name}",
+      "profile": "Profil",
+      "logOut": "Metu"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Mlebu",
+      "title": "Mlebu",
+      "subtitle": "Mung akun sing ana ing daftar idin sing bisa mlebu.",
+      "failed": "Gagal mlebu.",
+      "noMethod": "Durung ana cara mlebu sing dikonfigurasi. Setel pasangan panyedhiya kayata <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>, utawa <code>AUTH_PASSWORD_SIGNIN=true</code>, ing <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Akun kuwi ora diidini ing instans iki, utawa wis dinonaktifake.",
+        "signin": "Proses mlebu ora rampung. Coba maneh."
+      }
+    },
+    "password": {
+      "name": "Jeneng",
+      "email": "Email",
+      "password": "Tembung sandhi",
+      "signingIn": "Lagi mlebu…",
+      "createAccount": "Gawe akun",
+      "signIn": "Mlebu",
+      "haveAPassword": "Aku wis duwe tembung sandhi",
+      "firstTime": "Pisanan teka ing kene? Setel tembung sandhi",
+      "failed": "Gagal mlebu."
+    },
+    "social": {
+      "redirecting": "Ngalihake…",
+      "continueWith": "Terusake nganggo {provider}",
+      "failed": "Proses mlebu ora bisa diwiwiti."
+    },
+    "error": {
+      "metaTitle": "Kasalahan mlebu",
+      "title": "Gagal mlebu",
+      "body": "Panyedhiya identitas ngasilake <code>{value}</code>. Yen alamatmu ora ana ing daftar idin instans iki, jaluka pemilik nambahake.",
+      "back": "Bali menyang kaca mlebu"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Setelan",
+      "profiles": "Profil",
+      "paymentMethods": "Cara pembayaran",
+      "templates": "Cithakan",
+      "email": "Email",
+      "security": "Keamanan",
+      "users": "Pangguna",
+      "data": "Data",
+      "legal": "Hukum",
+      "account": "Akun",
+      "appearance": "Tampilan",
+      "api": "API",
+      "status": "Status"
+    },
+    "account": {
+      "metaTitle": "Akun",
+      "title": "Akun",
+      "description": "Foto, jeneng, wilayah, basa lan zona wektumu.",
+      "photo": {
+        "title": "Foto",
+        "description": "Katon ing bilah sisih lan menu pangguna."
+      },
+      "form": {
+        "title": "Akun",
+        "description": "Carane kowe katon lan kapan “dina iki” kuwi.",
+        "displayName": "Jeneng tampilan",
+        "signInEmail": "Email kanggo mlebu",
+        "signInEmailHint": "Identitasmu ing instans iki; ora bisa dibesut ing kene.",
+        "timezone": "Zona wektu",
+        "timezoneHint": "“Dina iki” kanggo tanggal terbit, tanggal tempo lan dasbor",
+        "regionTitle": "Wilayah",
+        "regionDescription": "Standar kanggo profil penerbit anyar lan kanggo dasbor nganti ana profil.",
+        "country": "Negara",
+        "currency": "Mata uang",
+        "suggested": "Disaranake kanggo negara iki:",
+        "language": "Basa",
+        "languageHint": "Basa aplikasi dhewe. Dokumen nganggo lokal saben profil.",
+        "machineTranslated": "Basa iki diterjemahake nganggo mesin. Koreksi disambut kanthi apik: <link>apikana ing GitHub</link>.",
+        "save": "Simpen preferensi"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerika",
+        "Asia": "Asia",
+        "Europe": "Eropa",
+        "MiddleEast": "Timur Tengah",
+        "Oceania": "Oseania",
+        "Constructed": "Basa buatan"
+      },
+      "privacy": {
+        "title": "Privasi",
+        "description": "okinvo mung nyetel cookie sing dibutuhake supaya bisa mlaku. Ora ana analitik, ora ana pelacakan.",
+        "cookiePolicy": "Kebijakan cookie",
+        "showNoticeAgain": "Tampilake maneh kabar cookie"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Ganti foto",
+      "addPhoto": "Tambah foto",
+      "hint": "PNG, JPEG utawa WebP. Katon minangka bunder ing ngendi-endi; kowe bisa nggedhekake lan nggeser sadurunge nyimpen.",
+      "tooLarge": "Foto kuwi kegedhen.",
+      "uploadFailed": "Gagal ngunggah.",
+      "choose": "Pilih foto profil",
+      "dialogTitle": "Atur posisi fotomu",
+      "dialogDescription": "Seret kanggo nggeser, gulung utawa cubit kanggo zoom. Bunder kuwi sing dideleng kabeh wong.",
+      "zoom": "Zoom",
+      "save": "Simpen foto"
+    },
+    "appearance": {
+      "metaTitle": "Tampilan",
+      "title": "Tampilan",
+      "description": "Tema lan warna aksen, disimpen ing akunmu.",
+      "theme": {
+        "title": "Tema",
+        "description": "Ngetutake sistem, utawa tetepake padhang utawa peteng.",
+        "label": "Tema",
+        "system": "Ngetutake sistem",
+        "systemHint": "Owah manut OS-mu",
+        "light": "Padhang",
+        "lightHint": "Kanvas putih",
+        "dark": "Peteng",
+        "darkHint": "Kanvas meh ireng"
+      },
+      "accent": {
+        "title": "Aksen",
+        "description": "Dienggo kanggo tombol utama, cincin fokus lan tandha kaca aktif. Mint cocog karo logo merek.",
+        "label": "Warna aksen"
+      },
+      "accents": {
+        "mint": "Mint",
+        "lavender": "Lavender",
+        "sky": "Biru langit",
+        "peach": "Persik",
+        "butter": "Kuning mentega",
+        "rose": "Mawar",
+        "sage": "Ijo sage",
+        "lilac": "Lilak"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Profil penerbit",
+      "title": "Profil penerbit",
+      "description": "Identitas hukum sing dienggo nagih. Sing standar ngisi faktur anyar luwih dhisik.",
+      "breadcrumb": "Profil",
+      "newProfile": "Profil anyar",
+      "emptyTitle": "Durung ana profil penerbit",
+      "emptyDescription": "Gawe identitas kanggo nerbitake faktur: individu nganggo PAN, utawa perusahaanmu.",
+      "createProfile": "Gawe profil",
+      "columns": {
+        "label": "Label",
+        "legalName": "Jeneng resmi",
+        "type": "Jinis",
+        "country": "Negara",
+        "currency": "Mata uang",
+        "regime": "Rezim",
+        "status": "Status"
+      },
+      "types": {
+        "company": "Perusahaan",
+        "individual": "Individu"
+      },
+      "makeDefaultTitle": "Dadekake {label} standar?",
+      "makeDefaultDescription": "Faktur anyar bakal diwiwiti saka profil iki.",
+      "restoreTitle": "Pulihake {label}?",
+      "archiveTitle": "Arsipake {label}?",
+      "archiveDescription": "Ilang saka pamilih; faktur sing wis ana ora kena apa-apa.",
+      "new": {
+        "metaTitle": "Profil penerbit anyar",
+        "title": "Profil penerbit anyar",
+        "prefilled": "Diisi saka wangsulanmu; priksa alamat lan rincian pajak, banjur simpen."
+      },
+      "edit": {
+        "metaTitle": "Besut profil penerbit",
+        "template": "Cithakan",
+        "deleteTitle": "Busak {label}?",
+        "deleteDescription": "Mung bisa yen ora ana faktur utawa nota kredit sing ngrujuk profil iki. Yen ora, arsipake wae."
+      },
+      "template": {
+        "metaTitle": "Cithakan profil",
+        "title": "Cithakan kanggo {label}",
+        "ownTemplate": "Cithakan dhewe",
+        "instanceTemplate": "Cithakan instans",
+        "resetTitle": "Nganggo cithakan instans maneh?",
+        "resetDescription": "Konfigurasi dhewe profil iki dibusak; dokumen sing wis diterbitake ora kena.",
+        "useInstance": "Nganggo cithakan instans",
+        "usingInstanceTitle": "Nganggo cithakan instans",
+        "usingInstanceDescription": "Dokumen saka profil iki ngetutake Setelan → Cithakan. Pilih kanggo nyesuekake kanthi kapisah.",
+        "customise": "Nganggo cithakan beda kanggo profil iki",
+        "openInstance": "Bukak cithakan instans"
+      },
+      "form": {
+        "identityTitle": "Identitas",
+        "identityDescription": "Faktur iki saka sapa.",
+        "type": "Jinis",
+        "label": "Label",
+        "labelHint": "Mung katon ing pamilih",
+        "legalName": "Jeneng resmi",
+        "tradeName": "Jeneng dagang",
+        "designation": "Jabatan",
+        "email": "Email",
+        "phone": "Telpon",
+        "website": "Situs web",
+        "addressTitle": "Alamat",
+        "taxTitle": "Pengenal pajak",
+        "taxDescription": "Mung sing ana gandhengane karo kowe; pencetakan diatur saben faktur.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Nomer VAT Inggris",
+        "usTaxId": "EIN / SSN AS",
+        "usTaxIdHint": "Dienkripsi nalika disimpen",
+        "lutNumber": "Nomer LUT",
+        "lutNumberHint": "Kanggo ekspor tanpa IGST",
+        "lutFiscalYear": "Taun finansial LUT",
+        "lutFiscalYearHint": "contone 2026-27",
+        "defaultsTitle": "Standar",
+        "baseCurrency": "Mata uang dhasar",
+        "locale": "Lokal dokumen",
+        "localeHint": "Format angka lan tanggal ing dokumen",
+        "fiscalYearStart": "Taun fiskal diwiwiti ing",
+        "months": {
+          "january": "Januari",
+          "february": "Februari",
+          "march": "Maret",
+          "april": "April",
+          "may": "Mei",
+          "june": "Juni",
+          "july": "Juli",
+          "august": "Agustus",
+          "september": "September",
+          "october": "Oktober",
+          "november": "November",
+          "december": "Desember"
+        },
+        "taxRegime": "Rezim pajak standar",
+        "regimes": {
+          "indiaGst": "GST India",
+          "ukVat": "VAT Inggris",
+          "usSalesTax": "Pajak dodolan AS",
+          "none": "Tanpa pajak"
+        },
+        "invoiceNumberFormat": "Format nomer faktur",
+        "invoiceNumberFormatHint": "Token: {tokens}",
+        "creditNoteNumberFormat": "Format nomer nota kredit",
+        "tdsRate": "Tarif TDS sing dikarepake (%)",
+        "tdsRateHint": "Mung informasi, dicetak minangka potongan sing dikarepake",
+        "defaultNotes": "Cathetan standar",
+        "defaultTerms": "Katentuan standar",
+        "printTitle": "Apa sing dicetak sacara standar",
+        "printDescription": "Saben faktur nyalin iki lan bisa ngowahi dhewe-dhewe.",
+        "emailTitle": "Email",
+        "emailDescription": "Standar kanggo panyusun kiriman. Panggonan: {placeholders}",
+        "emailCc": "CC standar",
+        "emailBcc": "BCC standar",
+        "commaSeparated": "Dipisahake koma",
+        "invoiceSubject": "Subjek faktur",
+        "invoiceSubjectHint": "Yen kosong nganggo cithakan bawaan",
+        "creditNoteSubject": "Subjek nota kredit",
+        "invoiceBody": "Isi faktur",
+        "creditNoteBody": "Isi nota kredit",
+        "artworkTitle": "Grafis",
+        "artworkDescription": "PNG, JPEG utawa WebP nganti 2 MB; tandha tangan lan stempel njaga transparansi.",
+        "logo": "Logo",
+        "signature": "Tandha tangan",
+        "stamp": "Stempel",
+        "transparentPng": "PNG transparan",
+        "save": "Simpen profil"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Cara pembayaran",
+      "title": "Cara pembayaran",
+      "description": "Carane klien mbayar kowe. Rincian dienkripsi lan dibekukake ing saben faktur nalika diterbitake.",
+      "newMethod": "Cara anyar",
+      "emptyTitle": "Durung ana cara pembayaran",
+      "emptyDescription": "Tambah rekening bank, ID UPI utawa dompet supaya faktur bisa ngandhani klien ngendi kudu mbayar.",
+      "addMethod": "Tambah cara",
+      "columns": {
+        "name": "Jeneng",
+        "type": "Jinis",
+        "currency": "Mata uang",
+        "status": "Status"
+      },
+      "types": {
+        "bankTransfer": "Transfer bank",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Khusus"
+      },
+      "makeDefaultTitle": "Dadekake {name} standar?",
+      "restoreTitle": "Pulihake {name}?",
+      "archiveTitle": "Arsipake {name}?",
+      "archiveDescription": "Faktur sing wis diterbitake njaga snapshot sing dicetak.",
+      "new": {
+        "metaTitle": "Cara pembayaran anyar",
+        "title": "Cara pembayaran anyar"
+      },
+      "edit": {
+        "metaTitle": "Besut cara pembayaran",
+        "title": "Besut {name}",
+        "deleteTitle": "Busak {name}?",
+        "deleteDescription": "Mung bisa yen ora ana faktur utawa pembayaran sing ngrujuk. Yen ora, arsipake wae."
+      },
+      "form": {
+        "name": "Jeneng",
+        "nameHint": "Dicetak minangka judhul blok pembayaran",
+        "type": "Jinis",
+        "currency": "Mata uang",
+        "currencyHint": "Pilihan; mung katon kanggo konteks",
+        "anyCurrency": "Apa wae",
+        "instructions": "Pituduh",
+        "instructionsHint": "Dicetak ing sangisore rincian",
+        "isDefault": "Cara standar",
+        "isDefaultDescription": "Dipilih luwih dhisik ing faktur anyar",
+        "isActive": "Aktif",
+        "detailsTitle": "Rincian",
+        "detailsDescription": "Dienkripsi nalika disimpen; disnapshot ing saben faktur nalika diterbitake.",
+        "vpa": "ID UPI (VPA)",
+        "payeeName": "Jeneng panampa",
+        "lines": "Baris",
+        "linesHint": "Siji baris saben larik, dicetak apa anane",
+        "accountEmail": "Email / handle akun",
+        "bank": {
+          "accountHolder": "Pemegang rekening",
+          "accountNumber": "Nomer rekening",
+          "bankName": "Jeneng bank",
+          "branch": "Cabang",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Kode routing / sort"
+        },
+        "save": "Simpen cara pembayaran"
+      }
+    },
+    "templates": {
+      "metaTitle": "Cithakan dokumen",
+      "title": "Cithakan dokumen",
+      "customised": "Disesuekake",
+      "builtIn": "Standar bawaan",
+      "description": "Tampilan faktur lan nota kredit. Dokumen sing wis diterbitake njaga cithakan nalika diterbitake.",
+      "resetTitle": "Reset menyang standar bawaan?",
+      "resetDescription": "Panyesuaianmu dibusak; dokumen sing wis diterbitake ora kena.",
+      "reset": "Reset",
+      "resetTrigger": "Reset menyang standar",
+      "importTitle": "Impor",
+      "importDescription": "Pulihake konfigurasi sing wis diekspor sadurunge.",
+      "overridesTitle": "Penggantian saben profil",
+      "overridesDescription": "Profil bisa milih cithakan dhewe saka kaca besut profil kuwi.",
+      "noOverrides": "Saben profil nganggo cithakan instans.",
+      "import": {
+        "json": "JSON cithakan",
+        "jsonHint": "Tempel berkas saka Ekspor JSON; kunci sing ora ana bali menyang standar",
+        "importing": "Ngimpor…",
+        "submit": "Impor"
+      },
+      "form": {
+        "templateTitle": "Cithakan",
+        "templateDescription": "Enem cithakan bawaan; panyesuaian ing ngisor ditrapake ing sing kok pilih.",
+        "templateGroup": "Cithakan",
+        "templates": {
+          "ledger": {
+            "name": "Buku besar",
+            "character": "Modern lan longgar, sans-serif, garis aksen ing sangisore header."
+          },
+          "classic": {
+            "name": "Klasik",
+            "character": "Tabel bergaris tradisional, judhul serif, total ing kothak."
+          },
+          "compact": {
+            "name": "Ringkes",
+            "character": "Tata letak padhet kanggo dhaptar item dawa; aksara luwih cilik, pemisah luwih sithik."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "Sepi lan longgar: tanpa garis utawa kothak, label tipis, ruang amba."
+          },
+          "letterhead": {
+            "name": "Kop surat",
+            "character": "Logo lan jenengmu ing pita warna utawa gambar ing ndhuwur saben kaca."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Header pita warna; pihak, header tabel lan total ing semu aksen pucet."
+          }
+        },
+        "paperTitle": "Kertas lan aksara",
+        "paperSize": "Ukuran kertas",
+        "paperLetter": "Letter",
+        "margins": "Margin",
+        "marginsNormal": "Normal",
+        "marginsNarrow": "Sempit",
+        "headingFont": "Font judhul",
+        "bodyFont": "Font isi",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "Gaya tabel",
+        "tableRuled": "Bergaris",
+        "tableZebra": "Zebra",
+        "tablePlain": "Polos",
+        "accentColour": "Warna aksen",
+        "textColour": "Warna teks",
+        "logoPosition": "Posisi logo",
+        "positionLeft": "Kiwa",
+        "positionCentre": "Tengah",
+        "positionRight": "Tengen",
+        "logoHeight": "Dhuwur logo (mm)",
+        "documentTitle": "Judhul dokumen",
+        "titleAuto": "Otomatis (sadar GST)",
+        "titleCustom": "Khusus",
+        "titlePlaceholder": "contone FAKTUR PROFORMA",
+        "qrPosition": "Posisi QR",
+        "qrFooter": "Footer",
+        "qrHeader": "Header",
+        "qrBesideTotals": "Jejere total",
+        "amountInWords": "Jumlah nganggo tembung",
+        "wordsBelowTotal": "Ing ngisor total",
+        "wordsFooter": "Footer",
+        "wordsHidden": "Didelikake",
+        "subtotalRow": "Baris subtotal",
+        "discountRow": "Baris diskon",
+        "taxLines": "Baris pajak",
+        "tdsExpected": "TDS sing dikarepake",
+        "roundingRow": "Baris pembulatan",
+        "pageNumbers": "Nomer kaca",
+        "headerTitle": "Header",
+        "headerDescription": "Pita warna utawa gambar ing ndhuwur saben kaca. Kop surat lan Modern nuduhake pita kajaba kowe milih liyane.",
+        "headerStyle": "Gaya header",
+        "headerNone": "Ora ana",
+        "headerBand": "Pita warna",
+        "headerImage": "Gambar",
+        "bandColour": "Warna pita",
+        "bandColourHex": "Warna pita (hex)",
+        "headerImageLabel": "Gambar header",
+        "headerImageHint": "PNG, JPEG utawa WebP jembar nganti 2400 px; mbentang selebar kaca.",
+        "imageOpacity": "Opasitas gambar",
+        "headerHeight": "Dhuwur header (mm)",
+        "bandText": "Teks ing pita",
+        "bandTextAuto": "Otomatis (saka warna pita)",
+        "bandTextLight": "Padhang",
+        "bandTextDark": "Peteng",
+        "textTitle": "Teks",
+        "headerNote": "Cathetan header",
+        "footer": "Footer",
+        "signatureCaption": "Katrangan tandha tangan",
+        "draftWatermark": "Watermark draf",
+        "labelsTitle": "Label",
+        "labelsDescription": "Kosongake kolom kanggo njaga tembung standar.",
+        "save": "Simpen cithakan",
+        "downloadSample": "Undhuh PDF conto",
+        "exportJson": "Ekspor JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Email",
+      "title": "Email",
+      "configuredSettings": "Dikonfigurasi ing Setelan",
+      "configuredEnv": "Dikonfigurasi dening lingkungan",
+      "notConfigured": "Durung dikonfigurasi: alur aplikasi surat",
+      "description": "Dokumen dikirim saka panyusun kanthi PDF sing disimpen dilampirake. Setelan ing kene ngganti SMTP_* ing lingkungan.",
+      "sendTest": "Kirim email tes menyang {email}",
+      "removeTitle": "Busak setelan SMTP sing disimpen?",
+      "removeEnvTakesOver": "Nilai SMTP_* saka lingkungan sing ngganteni.",
+      "removeFallsBack": "Email bali menyang alur aplikasi surat.",
+      "removeTrigger": "Busak setelan sing disimpen",
+      "smtpTitle": "Server SMTP",
+      "smtpFromEnv": "Saiki dijupuk saka lingkungan; nyimpen ing kene bakal ngganti.",
+      "smtpPasswordNote": "Tembung sandhi dienkripsi nalika disimpen lan ora bakal katon maneh.",
+      "defaultsTitle": "Panampa standar",
+      "defaultsDescription": "CC/BCC saindhenging instans; profil penerbit nambahake dhewe.",
+      "sentTitle": "Surat kekirim",
+      "sentDescription": "50 upaya pungkasan, kalebu sing gagal lan kirim manual.",
+      "smtp": {
+        "host": "Host",
+        "port": "Port",
+        "security": "Keamanan",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Ora ana (relay LAN)",
+        "user": "Jeneng pangguna",
+        "password": "Tembung sandhi",
+        "passwordStored": "Disimpen lan dienkripsi; kosongake kanggo njaga",
+        "passwordEncrypted": "Dienkripsi nalika disimpen",
+        "from": "Alamat pangirim",
+        "fromName": "Jeneng pangirim",
+        "replyTo": "Wangsulan menyang",
+        "save": "Simpen setelan SMTP"
+      },
+      "defaults": {
+        "cc": "CC standar",
+        "ccHint": "Ditambahake ing saben panyusun; dipisahake koma",
+        "bcc": "BCC standar",
+        "save": "Simpen standar"
+      }
+    },
+    "security": {
+      "metaTitle": "Keamanan",
+      "title": "Keamanan",
+      "description": "Ngendi kowe mlebu, lan kabeh sing owah.",
+      "sessions": {
+        "title": "Sesi aktif",
+        "description": "Nyabut sesi bakal langsung metokake piranti kuwi.",
+        "signOutOthers": {
+          "title": "Metu saka ngendi-endi liyane?",
+          "description": "Kabeh sesi kajaba sing iki dicabut.",
+          "confirm": "Metokake liyane",
+          "trigger": "Metu saka ngendi-endi liyane"
+        },
+        "columns": {
+          "device": "Piranti",
+          "ipAddress": "Alamat IP",
+          "signedIn": "Mlebu",
+          "lastSeen": "Pungkasan katon",
+          "expires": "Kadaluwarsa"
+        },
+        "thisDevice": "Piranti iki",
+        "revokeTitle": "Cabut sesi iki?",
+        "unknownDevice": "Piranti ora dingerteni",
+        "unknownBrowser": "Ora dingerteni",
+        "agentOnOs": "{browser} ing {os}"
+      },
+      "audit": {
+        "title": "Log audit",
+        "count": "{count, plural, other {# kedadean}}",
+        "entity": "Entitas",
+        "actionContains": "Tindakan ngemot",
+        "filter": "Saring",
+        "reset": "Reset",
+        "columns": {
+          "when": "Kapan",
+          "who": "Sapa",
+          "action": "Tindakan",
+          "entity": "Entitas",
+          "summary": "Ringkesan"
+        },
+        "empty": "Ora ana kedadean sing cocog karo saringan iki.",
+        "system": "Sistem",
+        "changes": "Owahan",
+        "page": "Kaca {page} saka {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Pangguna",
+      "title": "Pangguna",
+      "description": "Sapa sing bisa mlebu ing instans iki lan apa sing diidini.",
+      "roles": {
+        "owner": "Pemilik",
+        "editor": "Penyunting",
+        "viewer": "Pamirsa"
+      },
+      "roleHints": {
+        "owner": "Kabeh, kalebu setelan lan anggota",
+        "editor": "Klien, katalog, faktur, nota kredit, pembayaran, email",
+        "viewer": "Mung maca"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Peran {email}",
+      "invite": {
+        "title": "Undang wong",
+        "description": "Dheweke mlebu nganggo alamat sing diundang (panyedhiya identitas utawa tembung sandhi) lan oleh peran sing kok pilih.",
+        "sent": "Undhangan dikirim liwat email menyang {email}.",
+        "readyWithError": "Undhangan siyap kanggo {email}. Email ora bisa dikirim ({error}); kirimana pranala iki:",
+        "readyNoSmtp": "Undhangan siyap kanggo {email}. SMTP durung dikonfigurasi; kirimana pranala iki:",
+        "copyLink": "Salin pranala",
+        "email": "Email",
+        "emailPlaceholder": "wong@contoh.com",
+        "role": "Peran",
+        "submit": "Undang",
+        "inviting": "Ngundang…"
+      },
+      "members": {
+        "title": "Anggota",
+        "description": "Paling ora siji pemilik aktif mesthi isih ana.",
+        "columns": {
+          "person": "Wong",
+          "role": "Peran",
+          "lastSignIn": "Mlebu pungkasan",
+          "status": "Status"
+        },
+        "nameYou": "{name} (kowe)",
+        "deactivated": "Dinonaktifake",
+        "reactivate": {
+          "title": "Aktifake maneh {email}?",
+          "description": "Dheweke bisa mlebu maneh nganggo peran sadurunge.",
+          "confirm": "Aktifake maneh"
+        },
+        "deactivate": {
+          "title": "Nonaktifake {email}?",
+          "description": "Kabeh sesi mandheg saiki lan dheweke ora bisa mlebu nganti diaktifake maneh. Riwayate tetep ana.",
+          "confirm": "Nonaktifake"
+        }
+      },
+      "invitations": {
+        "title": "Undhangan sing isih ngenteni",
+        "description": "Alamat sing oleh mlebu nanging durung mlebu.",
+        "columns": {
+          "email": "Email",
+          "role": "Peran",
+          "invited": "Diundang"
+        },
+        "empty": "Ora ana undhangan sing ngenteni.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Cabut undhangan kanggo {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Data",
+      "title": "Data",
+      "description": "Kabeh bisa dipindhah: set data minangka CSV utawa Excel, snapshot lengkap kanggo migrasi, PDF kanggo akuntanmu, lan rutinitas cadangan sing wis diuji.",
+      "period": {
+        "fiscalYear": "Taun fiskal",
+        "fiscalYearHint": "Ngganti tanggal",
+        "issuer": "Penerbit"
+      },
+      "exportAll": {
+        "title": "Ekspor kabeh data",
+        "description": "ZIP kanthi saben set data minangka CSV lan <mono>data.json</mono>, snapshot relasional kabeh tabel. Kolom sing dienkripsi (rincian cara pembayaran, tembung sandhi SMTP) ora kalebu; README ing njero nyathet.",
+        "download": "Undhuh ZIP okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "Ekspor dokumen",
+        "description": "Saben PDF faktur lan nota kredit sing diterbitake lan dibatalake kanggo sawijining periode, dijenengi manut nomer, kanthi <mono>index.csv</mono> nomer, total lan hash. PDF sing durung ana digawe sauntara.",
+        "docx": "Uga lebokake salinan DOCX saben dokumen",
+        "download": "Undhuh ZIP dokumen"
+      },
+      "datasets": {
+        "title": "Set data",
+        "description": "Ekspor sing padha karo sing ditawakake kaca indeks, kanthi periode lan penerbit ditrapake ing kabeh. Pembayaran nganggo rentang tanggal; klien lan layanan ora nggatekake periode.",
+        "columns": {
+          "dataset": "Set data",
+          "filters": "Saringan sing ditrapake",
+          "download": "Undhuh"
+        },
+        "names": {
+          "invoices": "Register faktur",
+          "invoiceItems": "Item baris faktur",
+          "payments": "Buku besar pembayaran",
+          "creditNotes": "Register nota kredit",
+          "clients": "Klien",
+          "services": "Layanan",
+          "gstSummary": "Ringkesan GST",
+          "tdsSummary": "Ringkesan TDS"
+        },
+        "filters": {
+          "periodIssuer": "periode, penerbit",
+          "dateRangeIssuer": "rentang tanggal, penerbit",
+          "includesArchived": "kalebu sing diarsip"
+        }
+      },
+      "backups": {
+        "title": "Cadangan",
+        "notWired": "Durung ana layanan cadangan sing disambungake",
+        "noRun": "Durung ana cadangan sing mlaku",
+        "lastOk": "Cadangan pungkasan sukses",
+        "lastFailed": "Cadangan pungkasan gagal",
+        "description": "Layanan <mono>backup</mono> Compose nggawe dump Postgres lan ngarsip volume panyimpenan ing <mono>BACKUP_CRON</mono>, njaga riwayat <mono>BACKUP_RETENTION_DAYS</mono> ing volume <mono>backups</mono>, lan nulis berkas status sing diwaca kaca iki.",
+        "finished": "Rampung",
+        "databaseDump": "Dump basis data",
+        "storageArchive": "Arsip panyimpenan",
+        "size": "Ukuran",
+        "sizeMb": "{size} MB",
+        "error": "Kasalahan",
+        "runNow": "Jalanake siji saiki, utawa pulihake saka sepasang berkas:",
+        "restoreDrill": "Prosedur pemulihan dilatih ing CI dening <mono>scripts/restore-drill.sh</mono>: nyemai, nyadangake, mbusak, mulihake, banjur mbandhingake cacahe baris lan hash PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "Hukum",
+      "metaDescription": "Sapa sing ngoperasikake instans iki: rincian sing dicetak ing kaca hukum umum.",
+      "title": "Hukum",
+      "description": "Kaca hukum umum nyetak rincian iki. Nganti saben kolom diisi, kaca nuduhake panggonan sing disorot.",
+      "operator": {
+        "title": "Rincian operator",
+        "complete": "Lengkap",
+        "missing": "{count} durung ana: {fields}",
+        "description": "Kowe, minangka wong utawa perusahaan sing mlakokake instans iki, yaiku operator sing dirujuk dokumen. Ora ana sing ana ing kene sing dikirim menyang ngendi-ngendi; dicetak ing kaca ing ngisor."
+      },
+      "fieldLabels": {
+        "legalName": "Jeneng resmi operator",
+        "entityType": "Jinis entitas",
+        "address": "Alamat operator",
+        "country": "Negara operator",
+        "contactEmail": "Email kontak",
+        "privacyEmail": "Email privasi",
+        "dpoEmail": "Email petugas pelindungan data",
+        "governingLaw": "Hukum sing ngatur",
+        "venue": "Papan sengketa",
+        "effectiveDate": "Tanggal efektif"
+      },
+      "publicPages": {
+        "title": "Kaca umum",
+        "description": "Disambungake saka kaca mlebu, panampil bagi lan kabar cookie.",
+        "terms": "Katentuan Layanan",
+        "acceptableUse": "Kebijakan Panggunaan sing Bisa Ditampa",
+        "privacy": "Kebijakan Privasi",
+        "cookies": "Kebijakan Cookie",
+        "dataRetention": "Penyimpenan data",
+        "security": "Keamanan",
+        "licenses": "Lisensi lan kabar pihak katelu"
+      },
+      "form": {
+        "legalName": "Jeneng resmi",
+        "entityType": "Jinis entitas",
+        "individual": "Individu / pemilik tunggal",
+        "company": "Perusahaan / entitas kadaftar",
+        "address": "Alamat",
+        "addressHint": "Dicetak ing Katentuan lan Kebijakan Privasi minangka alamat pos operator.",
+        "country": "Negara",
+        "effectiveDate": "Tanggal efektif",
+        "contactEmail": "Email kontak",
+        "privacyEmail": "Email privasi",
+        "privacyEmailHint": "Panggonan panyuwunan subjek data dikirim; bisa alamat kontak.",
+        "dpoEmail": "Email petugas pelindungan data",
+        "dpoEmailHint": "Mung yen kowe wis nunjuk siji.",
+        "governingLaw": "Hukum sing ngatur",
+        "governingLawHint": "Contone \"hukum India\" utawa \"hukum Inggris lan Wales\".",
+        "venue": "Papan sengketa",
+        "venueHint": "Contone \"pengadilan Bengaluru, Karnataka\".",
+        "submit": "Simpen rincian operator"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Kunci API kanggo skrip, SDK lan klien MCP, kanthi conto curl.",
+      "title": "API",
+      "description": "Kunci kanggo skrip, SDK lan klien MCP. Kunci mung bisa nindakake paling akeh apa sing bisa ditindakake perane; mung katon sepisan.",
+      "create": {
+        "title": "Gawe kunci",
+        "description": "Kirim minangka <mono>Authorization: Bearer okv_…</mono>. Aja nganti ana ing kode sumber lan log obrolan; cabuten ing ngisor yen bocor."
+      },
+      "keys": {
+        "title": "Kunci",
+        "descriptionOwner": "Saben kunci instans iki; pemilik bisa nyabut apa wae.",
+        "descriptionOwn": "Kunciku.",
+        "columns": {
+          "name": "Jeneng",
+          "prefix": "Prefiks",
+          "scopes": "Lingkup",
+          "owner": "Pemilik",
+          "lastUsed": "Pungkasan dienggo",
+          "expires": "Kadaluwarsa",
+          "status": "Status"
+        },
+        "empty": "Durung ana kunci API.",
+        "never": "ora tau",
+        "revoked": "Dicabut",
+        "expired": "Kadaluwarsa",
+        "revokeTitle": "Cabut {name}?",
+        "revokeDescription": "Klien sing nganggo kunci iki langsung mandheg bisa digunakake.",
+        "activeCount": "{count, plural, other {# kunci aktif.}}"
+      },
+      "examples": {
+        "title": "Conto",
+        "description": "Ganti <mono>$OKINVO_KEY</mono> nganggo kunci. REST API sing duwe versi, dokumen OpenAPI-ne (<mono>/api/openapi.json</mono>), SDK TypeScript lan server MCP teka karo tugas sabanjure rencana v1.1; endpoint status wis bisa dienggo saiki.",
+        "rateLimit": "Panggilan sing ngluwihi watesan dijawab 429 kanthi header <mono>Retry-After</mono> (120 panyuwunan per menit saben kunci). Lingkup kunci diwatesi dening peran pemilike saiki."
+      },
+      "form": {
+        "copyKey": "Salin kunci API",
+        "name": "Jeneng",
+        "namePlaceholder": "contone skrip akuntansi",
+        "expires": "Kadaluwarsa",
+        "in30Days": "Ing 30 dina",
+        "in90Days": "Ing 90 dina",
+        "inAYear": "Ing setaun",
+        "never": "Ora tau",
+        "scopes": "Lingkup",
+        "submit": "Gawe kunci API",
+        "creating": "Nggawe…"
+      },
+      "scopes": {
+        "invoicesRead": "Maca faktur",
+        "invoicesCreate": "Gawe lan terbitake faktur",
+        "creditNotesRead": "Maca nota kredit",
+        "creditNotesCreate": "Gawe lan terbitake nota kredit",
+        "catalogueRead": "Maca klien, layanan lan produk",
+        "documentsRead": "Undhuh PDF sing disimpen lan salinan DOCX",
+        "statusRead": "Maca status instans"
+      }
+    },
+    "status": {
+      "metaTitle": "Status",
+      "metaDescription": "Versi, basis data, panyimpenan, email lan kesehatan cadangan instans iki.",
+      "title": "Status",
+      "description": "Apa sing dilakokake instans iki lan apa bagean-bageane nanggapi.",
+      "recheck": "Priksa maneh",
+      "health": {
+        "ok": "OK",
+        "warning": "Pènget",
+        "failed": "Gagal",
+        "na": "Durung dikonfigurasi"
+      },
+      "overall": {
+        "ok": "Kabeh apik",
+        "degraded": "Mudhun",
+        "failed": "Gagal"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(sha ora dingerteni)}} · dibangun {built} · Node <mono>{node}</mono> · urip {uptime} · dipriksa {checked}",
+      "dateUnknown": "(tanggal ora dingerteni)",
+      "uptime": {
+        "days": "{d}d {h}j {m}m",
+        "hours": "{h}j {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Basis data",
+        "storage": "Panyimpenan",
+        "rateLimiting": "Watesan laju",
+        "email": "Email",
+        "backups": "Cadangan"
+      },
+      "db": {
+        "detail": "{latency} ms · migrasi pungkasan <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # migrasi durung rampung}}",
+        "noMigration": "ora ana"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · nulis, maca lan mbusak obyek uji ing {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "panyimpenan <mono>{store}</mono> {store, select, memory {(siji replika)} other {(dienggo bareng antarane replika)}}",
+      "smtp": {
+        "configured": "SMTP saka {source, select, settings {settings} env {env} other {}} · tes pungkasan {lastTest} · 24 jam pungkasan: {sent} kekirim, {failed} gagal",
+        "none": "Ora ana server SMTP; panyusun nawakake “Bukak ing aplikasi surat”. <link>Konfigurasi</link>"
+      },
+      "backups": {
+        "notWired": "Durung ana layanan cadangan sing disambungake (BACKUP_STATUS_FILE durung disetel).",
+        "noRun": "Layanan cadangan wis disambungake; durung ana larian sing kacathet.",
+        "ok": "Larian pungkasan sukses ing {finishedAt}{days, plural, =0 {} other { · panyimpenan # dina}}",
+        "failed": "Larian pungkasan gagal: {error} ing {finishedAt}{days, plural, =0 {} other { · panyimpenan # dina}}"
+      },
+      "footer": "Laporan sing padha kasedhiya minangka JSON ing <mono>/api/health/status</mono> kanggo pemantauan (sesi mlebu utawa kunci API)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Sugeng rawuh",
+    "progress": "Kemajuan",
+    "steps": {
+      "aboutYou": "Bab kowe",
+      "howYouUse": "Carane kowe nganggo",
+      "allSet": "Wis siyap"
+    },
+    "step1": {
+      "title": "Critakna bab kowe",
+      "subtitle": "Iki nyetel standarmu; saben nilai bisa diowahi mengko ing Setelan.",
+      "name": "Jeneng",
+      "email": "Email",
+      "emailHint": "Identitas mlebumu. Bisa diowahi saka Setelan → Keamanan mengko.",
+      "country": "Negara",
+      "currency": "Mata uang pilihan",
+      "currencyHint": "Dienggo kanggo profil anyar lan dasbor nganti ana profil."
+    },
+    "step2": {
+      "title": "Kowe arep nganggo okinvo kanggo apa?",
+      "subtitle": "Mung standar sing owah; ora ana sing dikunci.",
+      "usage": "Panggunaan",
+      "personal": "Faktur pribadi",
+      "personalHint": "Karya lepas kanthi jeneng dhewe",
+      "business": "Faktur bisnis",
+      "businessHint": "Faktur saka bisnis sing kadaftar",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Nomer VAT",
+        "other": "Nomer registrasi pajak"
+      },
+      "taxQuestion": {
+        "IN": "Apa kowe duwe GSTIN?",
+        "GB": "Apa kowe kadaftar VAT?",
+        "other": "Apa kowe duwe nomer registrasi pajak kanggo dicetak ing faktur?"
+      }
+    },
+    "step3": {
+      "title": "Kowe wis siyap",
+      "body": "Sabanjure, gawe profil penerbit pisanan: jeneng, alamat lan rincian pajak sing dicetak ing fakturmu. Kita wis ngisi apa sing kok kandhakake.",
+      "go": "Menyang profil",
+      "opening": "Mbukak…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Katentuan",
+      "privacy": "Privasi",
+      "cookies": "Cookie",
+      "security": "Keamanan"
+    },
+    "cookieNotice": {
+      "label": "Kabar cookie",
+      "body": "Kita mung nganggo cookie sing pancen dibutuhake: sesimu lan preferensi tampilan. Ora ana analitik, ora ana pelacakan.",
+      "policy": "Kebijakan cookie",
+      "gotIt": "Ngerti"
+    },
+    "nav": {
+      "label": "Hukum",
+      "cookies": "Cookie",
+      "privacy": "Privasi",
+      "terms": "Katentuan",
+      "acceptableUse": "Panggunaan sing bisa ditampa",
+      "retention": "Penyimpenan",
+      "security": "Keamanan",
+      "licences": "Lisensi"
+    },
+    "operatorNotice": "okinvo yaiku piranti lunak self-hosted; operator instans iki tanggung jawab marang panggunaane.",
+    "doc": {
+      "effectiveOn": "Efektif <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Isi"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Jeneng resmi operator",
+        "entityType": "Jinis entitas",
+        "address": "Alamat operator",
+        "country": "Negara operator",
+        "contactEmail": "Email kontak",
+        "privacyEmail": "Email privasi",
+        "dpoEmail": "Email petugas pelindungan data",
+        "governingLaw": "Hukum sing ngatur",
+        "venue": "Papan sengketa",
+        "effectiveDate": "Tanggal efektif"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Ora ketemu",
+      "title": "Ora ana apa-apa ing alamat iki",
+      "body": "Pranala bisa wis lawas, utawa dokumen sing dirujuk ora tau diterbitake."
+    },
+    "forbidden": {
+      "metaTitle": "Ora diidini",
+      "title": "Akun iki ora bisa nindakake kuwi",
+      "body": "Peranmu ora ngidini iki. Jaluka pemilik kanggo akses, utawa mlebua nganggo akun sing duwe."
+    },
+    "error": {
+      "title": "Ana sing salah",
+      "body": "Ora ana sing diowahi dening panyuwunan iki. Coba maneh; yen terus kedadeyan, log server ngandhut rincian.",
+      "digest": "kasalahan {digest}",
+      "generic": "kasalahan"
+    },
+    "appNotFound": {
+      "title": "Ora ketemu",
+      "body": "Cathetan iki ora ana, utawa dibusak nalika kowe lagi ndeleng.",
+      "back": "Bali menyang dasbor"
+    },
+    "validation": {
+      "required": "kudu diisi",
+      "tooLong": "paling akeh {max} karakter",
+      "invalidEmail": "kudu email sing sah",
+      "invalidDate": "kudu tanggal kalender kanthi format YYYY-MM-DD",
+      "invalidAmount": "kudu angka",
+      "wholeNumber": "kudu angka bulat",
+      "greaterThanZero": "kudu luwih saka nol",
+      "fixFields": "Mangga benerake kolom sing disorot.",
+      "charset": "Mung karakter keyboard standar sing diidini."
+    }
+  },
+  "verify": {
+    "metaTitle": "Verifikasi dokumen",
+    "heading": "Verifikasi dokumen",
+    "rateLimited": "Kakehan pamriksan saka alamat iki. Coba maneh ing sawetara menit.",
+    "notFound": {
+      "title": "Dokumen ora ana",
+      "body": "Pranala iki ora cocog karo dokumen sing wis diterbitake. Priksa kode QR utawa pranala sing diwenehake, utawa hubungi penerbit."
+    },
+    "status": {
+      "void": "Batal",
+      "valid": "Sah"
+    },
+    "issuedBy": "Diterbitake dening",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Diterbitake kanggo",
+    "issueDate": "Tanggal terbit",
+    "total": "Total",
+    "voided": "Dokumen iki dibatalake dening penerbit lan ora sah maneh.",
+    "storedCopies": {
+      "title": "Salinan sing disimpen",
+      "description": "SHA-256 saben versi PDF sing dicekel penerbit. Pilih salinanmu kanggo dibandhingake ing browser: ora ana sing diunggah.",
+      "empty": "Durung ana PDF sing digawe.",
+      "protectedVersion": "Salinan kanthi tembung sandhi {version}",
+      "version": "Versi {version}"
+    },
+    "check": {
+      "label": "Priksa salinanmu",
+      "hashing": "Ngitung hash…",
+      "match": "Salinanmu persis cocog karo versi {version}.",
+      "mismatch": "Salinanmu ora cocog karo versi sing disimpen."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Dokumen sing dibagi",
+      "rateLimited": "Kakehan panyuwunan saka alamat iki. Coba maneh ing sawetara menit.",
+      "unavailable": {
+        "title": "Pranala iki ora kasedhiya",
+        "body": "Bisa wis kadaluwarsa utawa dicabut penerbit. Jaluka sing anyar marang dheweke."
+      },
+      "lockedTitleInvoice": "Faktur saka {issuer}",
+      "lockedTitleCreditNote": "Nota kredit saka {issuer}",
+      "lockedBody": "Dokumen iki diamanake nganggo tembung sandhi. Lebokna tembung sandhi sing diwenehake penerbit.",
+      "void": "Batal",
+      "protectedPdf": "PDF dibukak nganggo tembung sandhi sing padha. Bisa diwaca lan dicetak; nyalin lan ngowahi dikunci.",
+      "byline": "Saka {issuer} kanggo {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Tembung sandhi",
+      "limited": "Kakehan upaya. Enteni limalas menit banjur coba maneh.",
+      "wrong": "Tembung sandhi kuwi ora bener.",
+      "submit": "Bukak dokumen"
+    },
+    "dialog": {
+      "trigger": "Bagi",
+      "title": "Bagekake dokumen iki",
+      "description": "Sapa wae sing duwe pranala bisa ndeleng lan ngundhuh nganti kadaluwarsa utawa kowe nyabut. Tembung sandhi uga ngamanake PDF dhewe: dibukak nganggo tembung sandhi lan bisa diwaca lan dicetak, ora bisa diowahi utawa disalin.",
+      "link": "Pranala",
+      "copyLink": "Salin pranala",
+      "password": "Tembung sandhi",
+      "copyPassword": "Salin tembung sandhi",
+      "sendSeparately": "Kirimana tembung sandhi kapisah saka pranala. Kowe bisa ndeleng maneh ing dhaptar ing ngisor.",
+      "copy": "Salin",
+      "copied": "Wis disalin",
+      "expires": "Kadaluwarsa",
+      "expiry": {
+        "d7": "Ing 7 dina",
+        "d30": "Ing 30 dina",
+        "d90": "Ing 90 dina",
+        "never": "Ora tau"
+      },
+      "protection": "Pangayoman",
+      "protectionOptions": {
+        "auto": "Tembung sandhi: gawe frasa sandhi",
+        "manual": "Tembung sandhi: pilih dhewe",
+        "none": "Tanpa tembung sandhi (pranala mbukak)"
+      },
+      "passwordHint": "Paling ora 8 karakter.",
+      "strength": "Kekuwatan: {label}",
+      "strengthLabels": {
+        "veryWeak": "banget ringkih",
+        "weak": "ringkih",
+        "fair": "cukup",
+        "good": "apik",
+        "strong": "kuwat"
+      },
+      "creating": "Nggawe…",
+      "create": "Gawe pranala",
+      "activeLinks": "Pranala aktif",
+      "passwordProtected": "Diamanake nganggo tembung sandhi",
+      "openLink": "Bukak pranala",
+      "linkExpires": "{kind} · kadaluwarsa {date}",
+      "linkNeverExpires": "{kind} · ora tau kadaluwarsa",
+      "revoke": {
+        "title": "Cabut pranala iki?",
+        "description": "Pranala langsung mandheg bisa digunakake kanggo kabeh sing duwe.",
+        "label": "Cabut"
+      },
+      "linkPassword": "Tembung sandhi: <code>{password}</code>",
+      "counts": "{views, plural, other {# tayangan}} · {downloads, plural, other {# undhuhan}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Nota kredit",
+      "title": "Nota kredit",
+      "description": "Digawe tumrap faktur sing wis diterbitake; saben siji nyuda saldo fakture nalika diterbitake.",
+      "newCreditNote": "Nota kredit anyar",
+      "filters": {
+        "from": "Saka",
+        "to": "Nganti",
+        "issuer": "Penerbit",
+        "client": "Klien",
+        "status": "Status",
+        "search": "Goleki",
+        "all": "Kabeh",
+        "searchPlaceholder": "Nomer, alesan, klien",
+        "go": "Lunga"
+      },
+      "statuses": {
+        "DRAFT": "Draf",
+        "ISSUED": "Diterbitake",
+        "SENT": "Kekirim",
+        "VOID": "Batal"
+      },
+      "empty": {
+        "title": "Durung ana nota kredit",
+        "description": "Bukak faktur sing wis diterbitake lan pilih “Nota kredit” kanggo nyuda sing dutang."
+      },
+      "noMatch": "Ora ana nota kredit sing cocog karo saringan iki.",
+      "columns": {
+        "number": "Nomer",
+        "against": "Tumrap",
+        "client": "Klien",
+        "issueDate": "Tanggal terbit",
+        "reason": "Alesan",
+        "total": "Total",
+        "status": "Status"
+      },
+      "draft": "Draf"
+    },
+    "new": {
+      "metaTitle": "Nota kredit anyar",
+      "title": "Nota kredit anyar",
+      "description": "Nota kredit digawe tumrap faktur sing wis diterbitake lan nyuda saldone.",
+      "nothingToCredit": {
+        "title": "Ora ana sing bisa dikreditake",
+        "description": "Nota kredit mbutuhake faktur sing wis diterbitake kanthi saldo sing durung dilunasi.",
+        "openInvoices": "Bukak faktur"
+      },
+      "whichInvoice": "Faktur endi?",
+      "invoice": "Faktur",
+      "invoiceOption": "{number} · {client} · saldo {balance}",
+      "issuedOnly": "Nota kredit mung digawe tumrap faktur sing wis diterbitake.",
+      "invoiceFallback": "Faktur"
+    },
+    "edit": {
+      "metaTitle": "Besut nota kredit",
+      "title": "Besut draf nota kredit",
+      "immutable": "Nota kredit sing wis diterbitake ora bisa diowahi.",
+      "draft": "Draf"
+    },
+    "detail": {
+      "metaTitle": "Nota kredit",
+      "draftTitle": "Draf nota kredit",
+      "meta": "{client} · tumrap <invoice>{number}</invoice> · diterbitake <mono>{date}</mono>",
+      "previewPdf": "Pratinjau PDF",
+      "issue": {
+        "title": "Terbitake nota kredit iki?",
+        "description": "Nomer dialokasikake, saldo faktur disuda lan dokumen dadi ora bisa diowahi.",
+        "label": "Terbitake"
+      },
+      "deleteDraft": {
+        "title": "Busak draf iki?"
+      },
+      "sendByEmail": "Kirim liwat email",
+      "markSent": {
+        "title": "Tandhani wis kekirim?",
+        "label": "Tandhani wis kekirim"
+      },
+      "void": {
+        "title": "Batalake nota kredit iki?",
+        "description": "Saldo faktur dipulihake; nomer ora tau dienggo maneh.",
+        "reason": "Alesan",
+        "label": "Batalake"
+      },
+      "voided": "Dibatalake {date}: {reason}",
+      "amounts": {
+        "title": "Jumlah",
+        "reason": "Alesan",
+        "creditAmount": "Jumlah kredit",
+        "total": "Total",
+        "balanceNow": "Saldo faktur saiki",
+        "sent": "Kekirim"
+      },
+      "documents": {
+        "title": "Dokumen sing disimpen",
+        "description": "Saben versi disimpen; kaca verifikasi nyathet kabeh hash.",
+        "regenerateTitle": "Gawe versi PDF anyar?",
+        "generate": "Gawe",
+        "newVersion": "Versi anyar",
+        "renderedOnFirstDownload": "PDF digawe nalika undhuhan pisanan.",
+        "protectedCopy": "Salinan kanthi tembung sandhi {version}",
+        "version": "Versi {version}",
+        "verificationLink": "Pranala verifikasi: <link>{path}…</link>"
+      },
+      "draftsPreview": "Pratinjau draf langsung ing panyunting."
+    },
+    "send": {
+      "metaTitle": "Kirim nota kredit",
+      "title": "Kirim <mono>{number}</mono>",
+      "previousSends": "Kiriman sadurunge"
+    },
+    "builder": {
+      "against": "Tumrap <mono>{number}</mono>",
+      "summary": "{client} · total {total} · saldo {balance} · ruang kena pajak ≈ {headroom}",
+      "issueDate": "Tanggal terbit",
+      "creditAmount": "Jumlah kredit (tanpa pajak)",
+      "creditAmountHint": "Pajak dibagi saka baris pajak faktur",
+      "reason": "Alesan",
+      "picker": {
+        "title": "Etung saka baris faktur",
+        "description": "Centhang baris wutuh utawa persentase; iki mung ngisi jumlah ing ndhuwur.",
+        "line": "Baris",
+        "subtotal": "Subtotal",
+        "credit": "Kredit",
+        "percent": "%",
+        "creditLine": "Baris kredit {position}",
+        "percentOfLine": "Persentase baris {position}"
+      },
+      "saveDraft": "Simpen draf",
+      "issuing": "Nerbitake…",
+      "saveAndIssue": "Simpen lan terbitake"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Pembayaran ditampa",
+        "REFUND": "Pengembalian dana diterbitake",
+        "WRITE_OFF": "Dihapus buku"
+      },
+      "editTitle": "Besut cathetan",
+      "recordTitle": "Catet pembayaran",
+      "description": "Jumlah nganggo mata uang faktur ({currency}); TDS sing dipotong kalebu ing jumlah sing ditrapake.",
+      "kind": "Jinis",
+      "date": "Tanggal",
+      "amountRefunded": "Jumlah dibalekake (negatif)",
+      "amountApplied": "Jumlah sing ditrapake",
+      "refundHint": "Lebokna jumlah negatif, contone -500",
+      "tdsDeducted": "TDS sing dipotong",
+      "tdsHint": "Pajak sing ditahan klien; diitung minangka bagean saka jumlah sing ditrapake",
+      "bankFees": "Biaya bank",
+      "receivedInto": "Ditampa menyang",
+      "noMethod": "-",
+      "reference": "Referensi",
+      "referenceHint": "UTR, ID transaksi, nomer cek",
+      "otherCurrency": "Ditampa nganggo mata uang liya",
+      "amountReceived": "Jumlah sing ditampa",
+      "receivedCurrency": "Mata uang sing ditampa",
+      "exchangeRate": "Kurs",
+      "exchangeRateHint": "1 unit sing ditampa = ? {currency}",
+      "notes": "Cathetan",
+      "receipt": "Kuitansi",
+      "receiptHint": "PNG, JPEG, WebP utawa PDF nganti 10 MB",
+      "saveChanges": "Simpen owahan",
+      "record": "Catet"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "kira-kira {count, plural, other {# kaca}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Pesen",
+      "description": "Diisi luwih dhisik saka cithakan profil penerbit. Ora ana sing dikirim nganti kowe ngeklik Kirim.",
+      "to": "Kanggo",
+      "toHint": "Dipisahake koma",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Subjek",
+      "body": "Isi",
+      "bodyHint": "Teks biasa; pranala dadi bisa diklik",
+      "attachment": "Lampiran",
+      "attachmentHint": "Salinan sing disimpen, dijenengi <mono>{name}</mono> (utawa .docx); isine ora bisa diowahi.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Ngirim…",
+      "send": "Kirim",
+      "openInMailApp": "Bukak ing aplikasi surat",
+      "noSmtp": "Durung ana server SMTP sing dikonfigurasi (Setelan → Email). Bukak draf ing aplikasi suratmu, lampirake PDF sing diundhuh, banjur tandhani wis kekirim ing ngisor.",
+      "markAsSent": "Tandhani wis kekirim"
+    },
+    "sentLog": {
+      "when": "Kapan",
+      "document": "Dokumen",
+      "to": "Kanggo",
+      "subject": "Subjek",
+      "status": "Status",
+      "empty": "Durung ana sing kekirim.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "kekirim",
+        "FAILED": "gagal",
+        "MANUAL": "manual"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Halo, {name}",
+    "fiscalYear": "Taun fiskal {year}",
+    "fiscalYearWithBase": "Taun fiskal {year} · mata uang dhasar {currency} ({profile})",
+    "newCreditNote": "Nota kredit anyar",
+    "welcomeTitle": "Sugeng rawuh ing {appName}",
+    "welcomeDescription": "Wiwiti kanthi nggawe profil penerbit sing dienggo nagih, banjur tambah klien lan faktur pisanan.",
+    "createProfile": "Gawe profilmu",
+    "tiles": {
+      "outstanding": "Durung dibayar",
+      "overdue": "Kliwat tempo",
+      "billedThisFy": "Ditagih TF iki",
+      "receivedThisFy": "Ditampa TF iki",
+      "drafts": "Draf",
+      "invoiceCount": "{count, plural, other {# faktur}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Pembayaran dikurangi pengembalian, kanthi FX sing kacathet",
+      "awaitingIssue": "ngenteni diterbitake",
+      "nothingPending": "ora ana sing ngenteni"
+    },
+    "recentInvoices": "Faktur anyar",
+    "allInvoices": "Kabeh faktur",
+    "noInvoicesYet": "Durung ana faktur.",
+    "columns": {
+      "number": "Nomer",
+      "client": "Klien",
+      "issued": "Diterbitake"
+    },
+    "topClients": "Klien paling dhuwur manut sing durung dibayar",
+    "nothingOutstanding": "Ora ana sing durung dibayar."
+  },
+  "exports": {
+    "export": "Ekspor",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Faktur",
+      "newInvoice": "Faktur anyar",
+      "draft": "Draf",
+      "aDraft": "draf",
+      "statuses": {
+        "draft": "Draf",
+        "issued": "Diterbitake",
+        "sent": "Kekirim",
+        "partiallyPaid": "Dibayar sebagian",
+        "paid": "Lunas",
+        "overdue": "Kliwat tempo",
+        "void": "Batal"
+      },
+      "lifecycle": {
+        "draft": "draf",
+        "issued": "diterbitake",
+        "void": "batal"
+      },
+      "units": {
+        "hour": "Jam",
+        "day": "Dina",
+        "fixed": "Tetep",
+        "milestone": "Tonggak",
+        "unit": "Unit"
+      },
+      "unitsLower": {
+        "hour": "jam",
+        "day": "dina",
+        "fixed": "tetep",
+        "milestone": "tonggak",
+        "unit": "unit"
+      },
+      "supplyTypes": {
+        "intraState": "jero negara bagian",
+        "interState": "antar negara bagian",
+        "exportLut": "ekspor lut",
+        "exportWithTax": "ekspor nganggo pajak",
+        "reverseCharge": "tagihan walik",
+        "notApplicable": "ora ditrapake"
+      }
+    },
+    "list": {
+      "description": "Faktur draf, diterbitake lan dibatalake; status ditemtokake saka pembayaran lan tanggal tempo.",
+      "fiscalYear": "Taun fiskal",
+      "issuer": "Penerbit",
+      "client": "Klien",
+      "searchPlaceholder": "Nomer, PO, klien",
+      "emptyTitle": "Durung ana faktur",
+      "emptyDescription": "Gawe faktur pisanan: pilih klien, tambah baris, deleng pratinjau, banjur terbitake.",
+      "columns": {
+        "number": "Nomer",
+        "client": "Klien",
+        "issuer": "Penerbit",
+        "issueDate": "Tanggal terbit",
+        "due": "Tempo",
+        "balance": "Saldo"
+      },
+      "noMatches": "Ora ana faktur sing cocog karo saringan iki.",
+      "count": "{count, plural, other {# faktur}}",
+      "countPaged": "{count, plural, other {# faktur}} · kaca {page} saka {pages}",
+      "register": "register"
+    },
+    "new": {
+      "noProfileTitle": "Gawe profil penerbit luwih dhisik",
+      "noProfileDescription": "Faktur diterbitake saka identitas hukum: setel profilmu kanthi ID pajak lan penomerane.",
+      "createProfile": "Gawe profil"
+    },
+    "edit": {
+      "metaTitle": "Besut faktur",
+      "title": "Besut draf",
+      "immutableFlash": "Faktur sing wis diterbitake ora bisa diowahi. Gunakna “Batalake & terbitake maneh” kanggo mbenerake."
+    },
+    "detail": {
+      "metaTitle": "Faktur",
+      "draftInvoice": "Draf faktur",
+      "issuedDue": "Diterbitake <mono>{issued}</mono>, tempo <mono>{due}</mono>",
+      "replaces": "Ngganti {number}",
+      "replacedBy": "Diganti dening {number}",
+      "previewPdf": "Pratinjau PDF",
+      "issueTitle": "Terbitake faktur iki?",
+      "issueDescription": "Nomer dialokasikake lan dokumen dadi ora bisa diowahi.",
+      "issue": "Terbitake",
+      "deleteDraftTitle": "Busak draf iki?",
+      "sendByEmail": "Kirim liwat email",
+      "recordPayment": "Catet pembayaran",
+      "creditNote": "Nota kredit",
+      "markSentTitle": "Tandhani wis kekirim?",
+      "markSentDescription": "Nyathet yen klien wis nampa faktur iki.",
+      "markSent": "Tandhani wis kekirim",
+      "voidReissueTitle": "Batalake lan terbitake maneh?",
+      "voidReissueDescription": "Sing asli dibatalake lan draf sing disambung kanthi isi padha dibukak kanggo dibesut.",
+      "voidReissue": "Batalake & terbitake maneh",
+      "voidTitle": "Batalake faktur iki?",
+      "voidDescription": "Mung bisa yen ora ana pembayaran sing kacathet; nomer ora tau dienggo maneh.",
+      "void": "Batalake",
+      "voided": "Dibatalake {date}: {reason}",
+      "amounts": "Jumlah",
+      "subtotal": "Subtotal",
+      "discount": "Diskon",
+      "discountPercent": "Diskon ({percent})",
+      "rounding": "Pembulatan",
+      "tdsExpected": "TDS sing dikarepake ({percent})",
+      "paid": "Dibayar",
+      "credited": "Dikreditake",
+      "balanceDue": "Saldo sing kudu dibayar",
+      "supply": "Pasokan",
+      "fxToBase": "FX menyang dhasar",
+      "poReference": "Referensi PO",
+      "sent": "Kekirim",
+      "lineItems": "Item baris",
+      "columns": {
+        "description": "Katrangan",
+        "sacHsn": "SAC/HSN",
+        "qty": "Jml",
+        "rate": "Tarif",
+        "tax": "Pajak",
+        "amount": "Jumlah"
+      },
+      "creditNotes": "Nota kredit",
+      "storedDocuments": "Dokumen sing disimpen",
+      "storedDocumentsHint": "Saben versi disimpen; kaca verifikasi nyathet kabeh hash.",
+      "regenerateTitle": "Gawe versi PDF anyar?",
+      "regenerateDescription": "Digawe maneh saka snapshot beku (contone sawise renderer didandani). Versi sadurunge tetep ana.",
+      "regenerate": "Gawe",
+      "newVersion": "Versi anyar",
+      "renderedOnFirstDownload": "PDF digawe nalika undhuhan pisanan.",
+      "protectedCopy": "Salinan kanthi tembung sandhi {version}",
+      "version": "Versi {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Pranala verifikasi:",
+      "draftPreviewHint": "Draf dipratinjau langsung ing panyunting; bukak <link>PDF kanthi watermark</link> kanggo ndeleng kaca."
+    },
+    "history": {
+      "metaTitle": "Riwayat faktur",
+      "title": "Riwayat <mono>{number}</mono>",
+      "reissueChain": "Rantai penerbitan maneh",
+      "replaces": "Ngganti <link>{number}</link>",
+      "replacedBy": "Diganti dening <link>{number}</link>",
+      "auditTrail": "Jejak audit",
+      "columns": {
+        "when": "Kapan",
+        "who": "Sapa",
+        "action": "Tindakan",
+        "summary": "Ringkesan"
+      },
+      "noEvents": "Durung ana kedadean.",
+      "system": "Sistem",
+      "emails": "Email"
+    },
+    "payments": {
+      "title": "Pembayaran",
+      "description": "{client} · total {total}",
+      "backToInvoice": "Bali menyang faktur",
+      "ledger": "Buku besar",
+      "columns": {
+        "date": "Tanggal",
+        "kind": "Jinis",
+        "applied": "Ditrapake",
+        "tds": "TDS",
+        "received": "Ditampa",
+        "reference": "Referensi",
+        "balance": "Saldo"
+      },
+      "noPayments": "Durung ana pembayaran sing kacathet.",
+      "kinds": {
+        "payment": "Pembayaran",
+        "refund": "Pengembalian dana",
+        "writeOff": "Hapus buku"
+      },
+      "receipt": "Kuitansi",
+      "deleteEntryTitle": "Busak cathetan iki?",
+      "deleteEntryDescription": "Saldo faktur diitung maneh.",
+      "totals": "Total",
+      "invoiceTotal": "Total faktur",
+      "credited": "Dikreditake",
+      "refunds": "Pengembalian dana",
+      "writeOffs": "Hapus buku",
+      "tdsDeducted": "TDS sing dipotong",
+      "bankFees": "Biaya bank",
+      "balanceDue": "Saldo sing kudu dibayar",
+      "onlyIssued": "Mung faktur sing wis diterbitake sing nampa pembayaran."
+    },
+    "send": {
+      "metaTitle": "Kirim faktur",
+      "title": "Kirim <mono>{number}</mono>",
+      "alreadySent": "Wis ditandhani kekirim; ngirim maneh nambah cathetan log liyane.",
+      "previousSends": "Kiriman sadurunge"
+    },
+    "builder": {
+      "parties": "Pihak",
+      "issuerProfile": "Profil penerbit",
+      "client": "Klien",
+      "archivedOption": "{label} (diarsip)",
+      "issueDate": "Tanggal terbit",
+      "dueDate": "Tanggal tempo",
+      "fxRate": "Kurs FX menyang mata uang dhasar",
+      "fxHint": "1 {currency} = ? {base} (kanggo laporan wae)",
+      "poReference": "Referensi PO",
+      "lineItems": "Item baris",
+      "lineItemsHint": "Pilih saka katalog kanggo nyalin nilaine, utawa ketik baris.",
+      "taxDiscountTds": "Pajak, diskon lan TDS",
+      "taxRegime": "Rezim pajak",
+      "regimes": {
+        "indiaGst": "GST India",
+        "ukVat": "VAT Inggris",
+        "usSalesTax": "Pajak dodolan AS",
+        "none": "Tanpa pajak"
+      },
+      "reverseCharge": "Tagihan walik",
+      "reverseChargeHint": "Pajak dibayar dening panampa",
+      "discount": "Diskon",
+      "percent": "Persen",
+      "amount": "Jumlah",
+      "rounding": "Penyesuaian pembulatan",
+      "roundingHint": "Pilihan, menyang unit wutuh; kudu kurang saka 1",
+      "round": "Bulataken",
+      "tdsRate": "Tarif TDS sing dikarepake (%)",
+      "tdsRateHint": "Mung informasi; dicetak yen rincian TDS diuripake",
+      "paymentMethods": "Cara pembayaran",
+      "paymentMethodsHint": "Dicetak manut urutan sing dicentang.",
+      "noPaymentMethods": "Ora ana cara pembayaran aktif. <link>Tambah siji</link>.",
+      "whatPrints": "Apa sing dicetak",
+      "whatPrintsHint": "Diwiwiti saka standar profil penerbit.",
+      "notesAndTerms": "Cathetan lan katentuan",
+      "notes": "Cathetan",
+      "terms": "Katentuan",
+      "saveDraft": "Simpen draf",
+      "issuing": "Nerbitake…",
+      "saveAndIssue": "Simpen lan terbitake",
+      "subtotal": "Subtotal",
+      "tax": "Pajak",
+      "tdsExpected": "TDS sing dikarepake",
+      "netExpected": "Net sing dikarepake"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Tambah saka katalog…",
+      "services": "Layanan",
+      "products": "Produk",
+      "addLine": "Tambah baris",
+      "columns": {
+        "description": "Katrangan",
+        "sacHsn": "SAC/HSN",
+        "qty": "Jml",
+        "unit": "Unit",
+        "rate": "Tarif",
+        "taxPercent": "Pajak %"
+      },
+      "aria": {
+        "description": "Katrangan baris {line}",
+        "sacHsn": "SAC/HSN baris {line}",
+        "quantity": "Jumlah baris {line}",
+        "unit": "Unit baris {line}",
+        "rate": "Tarif baris {line}",
+        "taxRate": "Tarif pajak baris {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Dikecualekake",
+      "moveUp": "Geser munggah",
+      "moveDown": "Geser mudhun",
+      "removeLine": "Busak baris",
+      "shortcutHint": "Ctrl/⌘+Enter ing katrangan nambah baris.",
+      "addFromCatalogueAria": "Tambah saka katalog"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Rincian penerbit",
+        "client": "Rincian klien",
+        "document": "Bagean dokumen"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Jeneng dagang",
+        "showDesignation": "Jabatan",
+        "showEmail": "Email",
+        "showPhone": "Telpon",
+        "showWebsite": "Situs web",
+        "showFullAddress": "Alamat lengkap",
+        "showPan": "Pan",
+        "showGstin": "Gstin",
+        "showCin": "Cin",
+        "showLut": "Lut",
+        "showSignature": "Tandha tangan",
+        "showStamp": "Stempel",
+        "showContactPerson": "Wong kontak",
+        "showBillingAddress": "Alamat penagihan",
+        "showShippingAddress": "Alamat pangiriman",
+        "showTaxIdentifier": "Pengenal pajak",
+        "showPlaceOfSupply": "Papan pasokan",
+        "showDueDate": "Tanggal tempo",
+        "showPaymentTerms": "Katentuan pembayaran",
+        "showSacCodeColumn": "Kolom kode Sac",
+        "showQuantityColumn": "Kolom jumlah",
+        "showUnitPriceColumn": "Kolom rega saunit",
+        "showTaxColumn": "Kolom pajak",
+        "showTdsBreakdown": "Rincian Tds",
+        "showQrVerification": "Verifikasi Qr",
+        "showNotes": "Cathetan",
+        "showTerms": "Katentuan",
+        "showReplacesReference": "Referensi panggantos",
+        "showAmountInWords": "Jumlah nganggo tembung",
+        "showSupplyStatement": "Pernyataan pasokan",
+        "showRoundingLine": "Baris pembulatan",
+        "showSku": "Sku"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Klien",
+      "description": "Kabeh sing kok tagih. Klien sing duwe faktur diarsip, ora tau dibusak.",
+      "newClient": "Klien anyar",
+      "searchPlaceholder": "Goleki manut jeneng",
+      "searchLabel": "Goleki klien",
+      "emptyTitle": "Durung ana klien",
+      "emptyDescription": "Tambah wong lan perusahaan sing kok terbitake faktur; mata uang lan katentuan pembayarane ngisi saben faktur luwih dhisik.",
+      "addClient": "Tambah klien",
+      "noMatch": "Ora ana klien sing cocog karo “{q}”.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Jeneng",
+        "contact": "Kontak",
+        "email": "Email",
+        "country": "Negara",
+        "currency": "Mata uang",
+        "terms": "Katentuan",
+        "status": "Status"
+      }
+    },
+    "new": {
+      "title": "Klien anyar"
+    },
+    "edit": {
+      "metaTitle": "Besut klien",
+      "title": "Besut {name}"
+    },
+    "detail": {
+      "metaTitle": "Klien",
+      "newInvoice": "Faktur anyar",
+      "restoreTitle": "Pulihake klien iki?",
+      "archiveTitle": "Arsipake klien iki?",
+      "archiveDescription": "Ilang saka pamilih; faktur lan riwayat tetep utuh.",
+      "deleteTitle": "Busak klien iki?",
+      "deleteDescription": "Mung bisa yen ora ana faktur sing ngrujuk klien iki.",
+      "details": "Rincian",
+      "contact": "Kontak",
+      "email": "Email",
+      "phone": "Telpon",
+      "country": "Negara",
+      "gstState": "GST {code}",
+      "taxId": "ID pajak",
+      "currency": "Mata uang",
+      "paymentTerms": "Katentuan pembayaran",
+      "paymentTermsDays": "{days} dina",
+      "expectedTds": "TDS sing dikarepake",
+      "notes": "Cathetan",
+      "addresses": "Alamat",
+      "billing": "Penagihan",
+      "shipping": "Pangiriman",
+      "lifetime": "Salawase",
+      "openRegister": "Bukak register",
+      "noIssued": "Durung ana faktur sing diterbitake.",
+      "noIssuedWithDrafts": "Durung ana faktur sing diterbitake ({drafts} draf).",
+      "firstLatest": "Faktur pisanan <mono>{first}</mono>, paling anyar <mono>{latest}</mono>{drafts, plural, =0 {} other { · # draf}}",
+      "lifetimeColumns": {
+        "currency": "Mata uang",
+        "invoices": "Faktur",
+        "billed": "Ditagih",
+        "received": "Ditampa",
+        "credited": "Dikreditake",
+        "outstanding": "Durung dibayar",
+        "overdue": "Kliwat tempo"
+      },
+      "recentInvoices": "Faktur anyar",
+      "noInvoices": "Durung ana faktur kanggo klien iki.",
+      "recentColumns": {
+        "number": "Nomer",
+        "issueDate": "Tanggal terbit",
+        "due": "Tempo",
+        "total": "Total",
+        "balance": "Saldo",
+        "status": "Status"
+      }
+    },
+    "form": {
+      "cardTitle": "Klien",
+      "displayName": "Jeneng tampilan",
+      "contactPerson": "Wong kontak",
+      "email": "Email",
+      "phone": "Telpon",
+      "taxIdType": "Jinis ID pajak",
+      "taxIdTypeNone": "Ora ana",
+      "taxId": "ID pajak",
+      "currency": "Mata uang",
+      "paymentTerms": "Katentuan pembayaran (dina)",
+      "expectedTdsRate": "Tarif TDS sing dikarepake (%)",
+      "notes": "Cathetan",
+      "billingAddress": "Alamat penagihan",
+      "shippingAddress": "Alamat pangiriman",
+      "differentFromBilling": "Beda karo penagihan",
+      "save": "Simpen klien"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Jam",
+      "DAY": "Dina",
+      "FIXED": "Tetep",
+      "MILESTONE": "Tonggak",
+      "UNIT": "Unit"
+    },
+    "list": {
+      "activate": "Aktifake",
+      "deactivate": "Nonaktifake",
+      "archiveDescription": "Baris faktur sing wis ana njaga nilai sing disalin.",
+      "deleteDescription": "Mung bisa yen ora ana baris faktur sing ngrujuk. Yen ora, arsipake wae.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Jeneng",
+        "unit": "Unit",
+        "rate": "Tarif",
+        "price": "Rega",
+        "currency": "Mata uang",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Pajak",
+        "status": "Status"
+      }
+    },
+    "services": {
+      "title": "Layanan",
+      "description": "Katalogmu. Milih layanan nyalin nilaine menyang baris faktur.",
+      "newService": "Layanan anyar",
+      "emptyTitle": "Durung ana layanan",
+      "emptyDescription": "Tambah apa sing kok dol - desain per jam, tonggak biaya tetep - kanthi kode SAC/HSN lan tarif pajake.",
+      "addService": "Tambah layanan",
+      "restoreTitle": "Pulihake {name}?",
+      "archiveTitle": "Arsipake {name}?",
+      "deleteTitle": "Busak {name}?",
+      "editMetaTitle": "Besut layanan",
+      "editTitle": "Besut {name}"
+    },
+    "products": {
+      "title": "Produk",
+      "description": "Barang sing kok dol, saben-saben nganggo SKU. Milih produk nyalin nilaine menyang baris faktur.",
+      "newProduct": "Produk anyar",
+      "emptyTitle": "Durung ana produk",
+      "emptyDescription": "Tambah barang sing kok dol kanthi SKU, kode HSN, rega saunit lan tarif pajak.",
+      "addProduct": "Tambah produk",
+      "restoreTitle": "Pulihake {sku}?",
+      "archiveTitle": "Arsipake {sku}?",
+      "deleteTitle": "Busak {sku}?",
+      "editMetaTitle": "Besut produk",
+      "editTitle": "Besut {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Kode unik sing dicetak ing sangisore katrangan baris",
+      "name": "Jeneng",
+      "unit": "Unit",
+      "defaultRate": "Tarif standar",
+      "unitPrice": "Rega saunit",
+      "currency": "Mata uang",
+      "sacHsnCode": "Kode SAC / HSN",
+      "sacHsnHint": "Dibutuhake ing faktur GST",
+      "hsnCode": "Kode HSN",
+      "hsnHint": "Dibutuhake ing faktur GST kanggo barang",
+      "defaultTaxRate": "Tarif pajak standar (%)",
+      "description": "Katrangan",
+      "descriptionHint": "Ngisi katrangan baris luwih dhisik",
+      "active": "Aktif",
+      "serviceInactiveHint": "Layanan sing ora aktif ora ana ing pamilih faktur",
+      "productInactiveHint": "Produk sing ora aktif ora ana ing pamilih faktur",
+      "saveService": "Simpen layanan",
+      "saveProduct": "Simpen produk"
+    },
+    "tags": {
+      "legend": "Profil",
+      "hint": "Centhang profil penerbit sing ngedol iki. Kosongake kabeh kanggo nawakake menyang saben profil."
+    }
+  },
+  "address": {
+    "line1": "Baris alamat 1",
+    "line2": "Baris alamat 2",
+    "city": "Kutha",
+    "stateRegion": "Negara bagian / wilayah",
+    "postalCode": "Kode pos",
+    "country": "Negara",
+    "state": "Negara bagian",
+    "gstStateCodeHint": "Kode negara bagian GST {code}",
+    "pickStateHint": "Pilih negara bagian kanggo kode negara bagian GST",
+    "stateRegionCode": "Kode negara bagian / wilayah",
+    "stateRegionCodePlaceholder": "contone CA"
+  },
+  "assets": {
+    "tooLarge": "Berkas kuwi kegedhen.",
+    "unsupportedReceipt": "Gunakna gambar PNG, JPEG, WebP utawa PDF.",
+    "unsupportedImage": "Gunakna gambar PNG, JPEG utawa WebP.",
+    "uploadFailed": "Gagal ngunggah.",
+    "uploading": "Ngunggah…"
+  },
+  "ui": {
+    "breadcrumb": "Jejak navigasi",
+    "close": "Tutup",
+    "closeMenu": "Tutup menu",
+    "inputCharset": "Mung karakter keyboard standar sing diidini.",
+    "confirm": {
+      "working": "Lagi digarap…"
+    },
+    "statusPill": {
+      "DRAFT": "Draf",
+      "ISSUED": "Diterbitake",
+      "SENT": "Kekirim",
+      "PARTIALLY_PAID": "Dibayar sebagian",
+      "PAID": "Lunas",
+      "OVERDUE": "Kliwat tempo",
+      "VOID": "Batal"
+    },
+    "activePill": {
+      "active": "Aktif",
+      "archived": "Diarsip",
+      "inactive": "Ora aktif"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Ana sing salah.",
+    "fixFields": "Mangga benerake kolom sing disorot.",
+    "accountSaved": "Preferensi akun disimpen",
+    "apiKeyCreated": "Kunci API digawe. Salinen saiki: mung katon sepisan.",
+    "saved": "{name} disimpen",
+    "savedProfile": "Profil {label} disimpen",
+    "clientArchived": "Klien diarsip",
+    "clientRestored": "Klien dipulihake",
+    "clientDeleted": "Klien dibusak",
+    "productArchived": "Produk diarsip",
+    "productRestored": "Produk dipulihake",
+    "productActivated": "Produk diaktifake",
+    "productDeactivated": "Produk dinonaktifake",
+    "serviceArchived": "Layanan diarsip",
+    "serviceRestored": "Layanan dipulihake",
+    "serviceActivated": "Layanan diaktifake",
+    "serviceDeactivated": "Layanan dinonaktifake",
+    "defaultProfileUpdated": "Profil standar dianyari",
+    "profileArchived": "Profil diarsip",
+    "profileRestored": "Profil dipulihake",
+    "profileDeleted": "Profil dibusak",
+    "defaultPaymentMethodUpdated": "Cara pembayaran standar dianyari",
+    "paymentMethodArchived": "Cara pembayaran diarsip",
+    "paymentMethodRestored": "Cara pembayaran dipulihake",
+    "paymentMethodDeleted": "Cara pembayaran dibusak",
+    "issued": "{number} diterbitake",
+    "savedAsDraft": "Disimpen minangka draf. {reason}",
+    "draftSaved": "Draf disimpen",
+    "invoiceVoided": "Faktur dibatalake",
+    "originalVoided": "Sing asli dibatalake; besut draf panggantos",
+    "markedAsSent": "Ditandhani wis kekirim",
+    "draftDeleted": "Draf dibusak",
+    "generatedPdf": "Versi PDF {version} digawe",
+    "creditNoteVoided": "Nota kredit dibatalake; saldo faktur dipulihake",
+    "draftCreditNoteDeleted": "Draf nota kredit dibusak",
+    "mailRefused": "Server surat nolak pesen: {error}. Upaya kuwi wis dicathet ing log.",
+    "unknownError": "kasalahan ora dingerteni",
+    "sentTo": "Dikirim menyang {recipients}",
+    "smtpSaved": "Setelan SMTP disimpen",
+    "smtpRemoved": "Setelan SMTP sing disimpen dibusak",
+    "testEmailSent": "Email tes dikirim menyang {email}",
+    "testFailed": "Tes gagal: {error}",
+    "defaultRecipientsSaved": "Panampa standar disimpen",
+    "invitationSent": "Undhangan dikirim",
+    "invitationReady": "Undhangan siyap",
+    "unknownRole": "Peran ora dingerteni",
+    "roleUpdated": "Peran dianyari",
+    "accountDeactivated": "Akun dinonaktifake",
+    "accountReactivated": "Akun diaktifake maneh",
+    "invitationRevoked": "Undhangan dicabut",
+    "paymentUpdated": "Pembayaran dianyari",
+    "paymentRecorded": "Pembayaran dicathet",
+    "paymentDeleted": "Pembayaran dibusak",
+    "sessionRevoked": "Sesi dicabut",
+    "noOtherSessions": "Ora ana sesi liyane",
+    "signedOutOthers": "Metu saka {count} sesi liyane",
+    "sharePasswordRequired": "Lebokna tembung sandhi, utawa ben digawe otomatis.",
+    "shareLinkCreated": "Pranala bagi digawe.",
+    "templateSaved": "Cithakan disimpen; dokumen sabanjure nganggo iki",
+    "templateReset": "Cithakan direset menyang standar bawaan",
+    "templateImported": "Cithakan diimpor",
+    "profileTemplateCleared": "Profil nganggo cithakan instans maneh",
+    "operatorSaved": "Rincian operator disimpen. Kaca hukum saiki nuduhake iki."
+  }
+}

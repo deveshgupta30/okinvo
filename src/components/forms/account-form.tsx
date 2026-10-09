@@ -25,8 +25,10 @@ export interface CurrencyOption {
 export interface LanguageGroup {
   /** The region, already in the UI language. */
   label: string;
-  languages: { tag: string; name: string }[];
+  languages: { tag: string; name: string; generated?: true }[];
 }
+
+const REPO_URL = "https://github.com/deveshgupta30/okinvo";
 
 /**
  * Settings → Account (spec §4.3): photo and name live in their own card above; this form holds
@@ -53,6 +55,10 @@ export function AccountForm({
   const [country, setCountry] = useState(state?.values?.countryCode ?? account.countryCode ?? "IN");
   const [currency, setCurrency] = useState(state?.values?.currency ?? account.currency ?? "INR");
   const [currencyTouched, setCurrencyTouched] = useState(false);
+  const [locale, setLocale] = useState(state?.values?.locale ?? account.locale);
+  const localeIsGenerated = languages.some((g) =>
+    g.languages.some((l) => l.tag === locale && l.generated),
+  );
   const suggested = countries.find((c) => c.code === country)?.currency;
 
   const onCountry = (code: string) => {
@@ -170,12 +176,30 @@ export function AccountForm({
               label={t("language")}
               htmlFor="locale"
               error={errors?.locale}
-              hint={t("languageHint")}
+              hint={
+                localeIsGenerated ? (
+                  <span data-machine-translated>
+                    {t.rich("machineTranslated", {
+                      link: (chunks) => (
+                        <a
+                          href={`${REPO_URL}/tree/main/messages`}
+                          className="text-link underline-offset-4 hover:underline"
+                        >
+                          {chunks}
+                        </a>
+                      ),
+                    })}
+                  </span>
+                ) : (
+                  t("languageHint")
+                )
+              }
             >
               <Select
                 id="locale"
                 name="locale"
-                defaultValue={state?.values?.locale ?? account.locale}
+                value={locale}
+                onChange={(e) => setLocale(e.target.value)}
               >
                 {languages.map((group) => (
                   <optgroup key={group.label} label={group.label}>

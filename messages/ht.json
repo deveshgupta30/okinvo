@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Paj dakèy okinvo",
+    "save": "Anrejistre",
+    "cancel": "Anile",
+    "continue": "Kontinye",
+    "saving": "Ap anrejistre…",
+    "detect": "Detekte",
+    "yes": "Wi",
+    "no": "Non",
+    "choose": "Chwazi…",
+    "remove": "Retire",
+    "tryAgain": "Eseye ankò",
+    "dashboard": "Tablo bò",
+    "goToDashboard": "Ale nan tablo bò a",
+    "or": "oswa",
+    "invoice": "Faktiri",
+    "creditNote": "Nòt kredi",
+    "downloadPdf": "Telechaje PDF",
+    "edit": "Modifye",
+    "delete": "Efase",
+    "downloadDocx": "Telechaje DOCX",
+    "none": "Okenn",
+    "dismiss": "Fèmen",
+    "all": "Tout",
+    "previous": "Anvan",
+    "next": "Swivan",
+    "go": "Ale",
+    "search": "Chèche",
+    "status": "Eta",
+    "total": "Total",
+    "currency": "Lajan",
+    "from": "Soti",
+    "to": "Rive",
+    "reason": "Rezon",
+    "history": "Istorik",
+    "archive": "Achive",
+    "restore": "Restore",
+    "showArchived": "Montre sa ki achive yo",
+    "hideArchived": "Kache sa ki achive yo",
+    "archived": "Achive",
+    "default": "Pa defo",
+    "setDefault": "Mete pa defo",
+    "revoke": "Anile aksè",
+    "copy": "Kopye",
+    "copied": "Kopye",
+    "active": "Aktif",
+    "pagination": "Paginasyon",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Tablo bò",
+      "invoices": "Faktiri",
+      "creditNotes": "Nòt kredi",
+      "clients": "Kliyan",
+      "services": "Sèvis",
+      "products": "Pwodui"
+    },
+    "primaryNav": "Prensipal",
+    "settings": "Paramèt",
+    "openMenu": "Louvri meni an",
+    "navigation": "Navigasyon",
+    "pagesAndAccount": "Paj yo ak kont lan",
+    "collapseSidebar": "Redui ba bò a",
+    "collapseSidebarHint": "Redui ba bò a ([)",
+    "expandSidebar": "Agrandi ba bò a",
+    "expandSidebarHint": "Agrandi ba bò a ([)",
+    "theme": {
+      "label": "Tèm",
+      "system": "Sistèm",
+      "light": "Klè",
+      "dark": "Fonse",
+      "current": "Tèm: {mode}",
+      "switchTo": "Tèm: {mode}. Chanje an {next}"
+    },
+    "userMenu": {
+      "label": "Meni kont {name}",
+      "profile": "Pwofil",
+      "logOut": "Dekonekte"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Konekte",
+      "title": "Konekte",
+      "subtitle": "Se sèlman kont ki otorize yo ki ka antre.",
+      "failed": "Koneksyon an echwe.",
+      "noMethod": "Pa gen okenn metòd koneksyon ki konfigire. Mete yon pè founisè tankou <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>, oswa <code>AUTH_PASSWORD_SIGNIN=true</code>, nan <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Kont sa a pa otorize sou enstans sa a, oswa yo dezaktive l.",
+        "signin": "Koneksyon an pa fini. Tanpri eseye ankò."
+      }
+    },
+    "password": {
+      "name": "Non",
+      "email": "Imèl",
+      "password": "Modpas",
+      "signingIn": "Ap konekte…",
+      "createAccount": "Kreye yon kont",
+      "signIn": "Konekte",
+      "haveAPassword": "Mwen deja gen yon modpas",
+      "firstTime": "Premye fwa ou isit la? Mete yon modpas",
+      "failed": "Koneksyon an echwe."
+    },
+    "social": {
+      "redirecting": "Ap redirije…",
+      "continueWith": "Kontinye avèk {provider}",
+      "failed": "Pa t posib kòmanse koneksyon an."
+    },
+    "error": {
+      "metaTitle": "Erè koneksyon",
+      "title": "Koneksyon an echwe",
+      "body": "Founisè idantite a retounen <code>{value}</code>. Si adrès ou a pa nan lis moun yo otorize sou enstans sa a, mande pwopriyetè a ajoute l.",
+      "back": "Tounen nan koneksyon"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Paramèt",
+      "profiles": "Pwofil",
+      "paymentMethods": "Mwayen peman",
+      "templates": "Modèl",
+      "email": "Imèl",
+      "security": "Sekirite",
+      "users": "Itilizatè",
+      "data": "Done",
+      "legal": "Legal",
+      "account": "Kont",
+      "appearance": "Aparans",
+      "api": "API",
+      "status": "Eta"
+    },
+    "account": {
+      "metaTitle": "Kont",
+      "title": "Kont",
+      "description": "Foto ou, non ou, rejyon ou, lang ou ak fuzo orè ou.",
+      "photo": {
+        "title": "Foto",
+        "description": "Yo montre l nan ba bò a ak nan meni itilizatè a."
+      },
+      "form": {
+        "title": "Kont",
+        "description": "Kijan ou parèt ak ki lè “jodi a” ye.",
+        "displayName": "Non pou montre",
+        "signInEmail": "Imèl koneksyon",
+        "signInEmailHint": "Idantite ou sou enstans sa a; yo pa ka modifye l isit la.",
+        "timezone": "Fuzo orè",
+        "timezoneHint": "“Jodi a” pou dat emisyon, dat echeyans ak tablo bò a",
+        "regionTitle": "Rejyon",
+        "regionDescription": "Valè pa defo pou nouvo pwofil emetè ak pou tablo bò a jiskaske yon pwofil egziste.",
+        "country": "Peyi",
+        "currency": "Lajan",
+        "suggested": "Sijere pou peyi sa a:",
+        "language": "Lang",
+        "languageHint": "Lang aplikasyon an li menm. Dokiman yo itilize lokal pwòp pwofil chak moun.",
+        "machineTranslated": "Yon machin ki tradui lang sa a. Korèksyon byen resevwa: <link>amelyore l sou GitHub</link>.",
+        "save": "Anrejistre preferans yo"
+      },
+      "regions": {
+        "Africa": "Afrik",
+        "Americas": "Amerik",
+        "Asia": "Azi",
+        "Europe": "Ewòp",
+        "MiddleEast": "Mwayen Oryan",
+        "Oceania": "Oseyani",
+        "Constructed": "Lang konstwi"
+      },
+      "privacy": {
+        "title": "Vi prive",
+        "description": "okinvo sèlman mete kouki ki nesesè pou li fonksyone. Pa gen analiz, pa gen swivi.",
+        "cookiePolicy": "Politik kouki",
+        "showNoticeAgain": "Montre avi sou kouki a ankò"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Chanje foto a",
+      "addPhoto": "Ajoute yon foto",
+      "hint": "PNG, JPEG oswa WebP. Yo montre l tankou yon sèk toupatou; ou ka zoom ladan l epi deplase l anvan ou anrejistre.",
+      "tooLarge": "Foto sa a twò gwo.",
+      "uploadFailed": "Chajman an echwe.",
+      "choose": "Chwazi yon foto pwofil",
+      "dialogTitle": "Pozisyone foto ou a",
+      "dialogDescription": "Trennen pou deplase, woule oswa pensé pou zoom. Sèk la se sa tout moun wè.",
+      "zoom": "Zoom",
+      "save": "Anrejistre foto a"
+    },
+    "appearance": {
+      "metaTitle": "Aparans",
+      "title": "Aparans",
+      "description": "Tèm ak koulè aksan, yo anrejistre nan kont ou.",
+      "theme": {
+        "title": "Tèm",
+        "description": "Swiv sistèm lan, oswa fikse klè oswa fonse.",
+        "label": "Tèm",
+        "system": "Swiv sistèm lan",
+        "systemHint": "Chanje ak sistèm eksplwatasyon ou",
+        "light": "Klè",
+        "lightHint": "Fon blan",
+        "dark": "Fonse",
+        "darkHint": "Fon prèske nwa"
+      },
+      "accent": {
+        "title": "Aksan",
+        "description": "Itilize pou bouton prensipal la, sèk konsantrasyon yo ak makè paj aktif la. Mint koresponn ak logo mak la.",
+        "label": "Koulè aksan"
+      },
+      "accents": {
+        "mint": "Mint",
+        "lavender": "Lavann",
+        "sky": "Syèl",
+        "peach": "Pèch",
+        "butter": "Bè",
+        "rose": "Woz",
+        "sage": "Sòj",
+        "lilac": "Lilas"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Pwofil emetè",
+      "title": "Pwofil emetè",
+      "description": "Idantite legal ou fè faktiri ladan yo. Sa ki pa defo a ranpli nouvo faktiri yo davans.",
+      "breadcrumb": "Pwofil",
+      "newProfile": "Nouvo pwofil",
+      "emptyTitle": "Poko gen pwofil emetè",
+      "emptyDescription": "Kreye idantite ou fè faktiri ladan l: yon moun ak yon PAN, oswa konpayi ou.",
+      "createProfile": "Kreye yon pwofil",
+      "columns": {
+        "label": "Etikèt",
+        "legalName": "Non legal",
+        "type": "Kalite",
+        "country": "Peyi",
+        "currency": "Lajan",
+        "regime": "Rejim",
+        "status": "Eta"
+      },
+      "types": {
+        "company": "Konpayi",
+        "individual": "Moun"
+      },
+      "makeDefaultTitle": "Fè {label} pa defo?",
+      "makeDefaultDescription": "Nouvo faktiri yo pral kòmanse ak pwofil sa a.",
+      "restoreTitle": "Restore {label}?",
+      "archiveTitle": "Achive {label}?",
+      "archiveDescription": "Li disparèt nan lis chwa yo; faktiri ki deja egziste yo pa chanje.",
+      "new": {
+        "metaTitle": "Nouvo pwofil emetè",
+        "title": "Nouvo pwofil emetè",
+        "prefilled": "Ranpli ak repons ou yo; verifye adrès la ak detay taks yo, apre sa anrejistre."
+      },
+      "edit": {
+        "metaTitle": "Modifye pwofil emetè",
+        "template": "Modèl",
+        "deleteTitle": "Efase {label}?",
+        "deleteDescription": "Sa posib sèlman toutotan pa gen okenn faktiri oswa nòt kredi ki fè referans a pwofil sa a. Sinon achive l."
+      },
+      "template": {
+        "metaTitle": "Modèl pwofil la",
+        "title": "Modèl pou {label}",
+        "ownTemplate": "Pwòp modèl li",
+        "instanceTemplate": "Modèl enstans lan",
+        "resetTitle": "Itilize modèl enstans lan ankò?",
+        "resetDescription": "Yo retire konfigirasyon pwòp pwofil sa a; dokiman ki deja emèt yo pa chanje.",
+        "useInstance": "Itilize modèl enstans lan",
+        "usingInstanceTitle": "Ap itilize modèl enstans lan",
+        "usingInstanceDescription": "Dokiman pwofil sa a swiv Paramèt → Modèl. Chwazi pèsonalize yo separeman.",
+        "customise": "Itilize yon lòt modèl pou pwofil sa a",
+        "openInstance": "Louvri modèl enstans lan"
+      },
+      "form": {
+        "identityTitle": "Idantite",
+        "identityDescription": "Kiyès faktiri a soti.",
+        "type": "Kalite",
+        "label": "Etikèt",
+        "labelHint": "Montre nan lis chwa yo sèlman",
+        "legalName": "Non legal",
+        "tradeName": "Non komèsyal",
+        "designation": "Tit",
+        "email": "Imèl",
+        "phone": "Telefòn",
+        "website": "Sit entènèt",
+        "addressTitle": "Adrès",
+        "taxTitle": "Idantifyan taks",
+        "taxDescription": "Sèlman sa ki aplike pou ou; enprime a kontwole pou chak faktiri.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Nimewo VAT Wayòm Ini",
+        "usTaxId": "EIN / SSN Etazini",
+        "usTaxIdHint": "Chifre lè l estoke",
+        "lutNumber": "Nimewo LUT",
+        "lutNumberHint": "Pou ekspòtasyon san IGST",
+        "lutFiscalYear": "Ane finansye LUT",
+        "lutFiscalYearHint": "egz. 2026-27",
+        "defaultsTitle": "Valè pa defo",
+        "baseCurrency": "Lajan de baz",
+        "locale": "Lokal dokiman",
+        "localeHint": "Fòma nimewo ak dat sou dokiman yo",
+        "fiscalYearStart": "Ane fiskal la kòmanse nan",
+        "months": {
+          "january": "Janvye",
+          "february": "Fevriye",
+          "march": "Mas",
+          "april": "Avril",
+          "may": "Me",
+          "june": "Jen",
+          "july": "Jiyè",
+          "august": "Out",
+          "september": "Septanm",
+          "october": "Oktòb",
+          "november": "Novanm",
+          "december": "Desanm"
+        },
+        "taxRegime": "Rejim taks pa defo",
+        "regimes": {
+          "indiaGst": "GST End",
+          "ukVat": "VAT Wayòm Ini",
+          "usSalesTax": "Taks lavant Etazini",
+          "none": "San taks"
+        },
+        "invoiceNumberFormat": "Fòma nimewo faktiri",
+        "invoiceNumberFormatHint": "Jeton: {tokens}",
+        "creditNoteNumberFormat": "Fòma nimewo nòt kredi",
+        "tdsRate": "To TDS ki espere (%)",
+        "tdsRateHint": "Pou enfòmasyon sèlman, enprime kòm dediksyon ki espere",
+        "defaultNotes": "Nòt pa defo",
+        "defaultTerms": "Kondisyon pa defo",
+        "printTitle": "Sa ki enprime pa defo",
+        "printDescription": "Chak faktiri kopye sa yo epi li ka chanje yo youn pa youn.",
+        "emailTitle": "Imèl",
+        "emailDescription": "Valè pa defo pou konpozitè voye a. Espas rezève: {placeholders}",
+        "emailCc": "CC pa defo",
+        "emailBcc": "BCC pa defo",
+        "commaSeparated": "Separe ak vigil",
+        "invoiceSubject": "Sijè faktiri a",
+        "invoiceSubjectHint": "Si vid, li itilize modèl entegre a",
+        "creditNoteSubject": "Sijè nòt kredi a",
+        "invoiceBody": "Kò faktiri a",
+        "creditNoteBody": "Kò nòt kredi a",
+        "artworkTitle": "Imaj",
+        "artworkDescription": "PNG, JPEG oswa WebP jiska 2 MB; siyati ak tanp konsève transparans.",
+        "logo": "Logo",
+        "signature": "Siyati",
+        "stamp": "Tanp",
+        "transparentPng": "PNG transparan",
+        "save": "Anrejistre pwofil la"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Mwayen peman",
+      "title": "Mwayen peman",
+      "description": "Kijan kliyan yo peye ou. Detay yo chifre epi yo vin fiks nan chak faktiri lè yo emèt li.",
+      "newMethod": "Nouvo mwayen",
+      "emptyTitle": "Poko gen mwayen peman",
+      "emptyDescription": "Ajoute yon kont labank, yon ID UPI oswa yon pòtmonè pou faktiri yo di kliyan yo ki kote pou yo peye.",
+      "addMethod": "Ajoute yon mwayen",
+      "columns": {
+        "name": "Non",
+        "type": "Kalite",
+        "currency": "Lajan",
+        "status": "Eta"
+      },
+      "types": {
+        "bankTransfer": "Transfè labank",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Pèsonalize"
+      },
+      "makeDefaultTitle": "Fè {name} pa defo?",
+      "restoreTitle": "Restore {name}?",
+      "archiveTitle": "Achive {name}?",
+      "archiveDescription": "Faktiri ki emèt yo konsève kopi yo te enprime a.",
+      "new": {
+        "metaTitle": "Nouvo mwayen peman",
+        "title": "Nouvo mwayen peman"
+      },
+      "edit": {
+        "metaTitle": "Modifye mwayen peman",
+        "title": "Modifye {name}",
+        "deleteTitle": "Efase {name}?",
+        "deleteDescription": "Sa posib sèlman toutotan pa gen okenn faktiri oswa peman ki fè referans a li. Sinon achive l."
+      },
+      "form": {
+        "name": "Non",
+        "nameHint": "Enprime kòm tit blòk peman an",
+        "type": "Kalite",
+        "currency": "Lajan",
+        "currencyHint": "Opsyonèl; montre pou kontèks sèlman",
+        "anyCurrency": "Nenpòt",
+        "instructions": "Enstriksyon",
+        "instructionsHint": "Enprime anba detay yo",
+        "isDefault": "Mwayen pa defo",
+        "isDefaultDescription": "Chwazi davans sou nouvo faktiri yo",
+        "isActive": "Aktif",
+        "detailsTitle": "Detay",
+        "detailsDescription": "Chifre lè yo estoke; kopye nan chak faktiri lè yo emèt li.",
+        "vpa": "ID UPI (VPA)",
+        "payeeName": "Non benefisyè a",
+        "lines": "Liy",
+        "linesHint": "Yon liy pou chak ranje, enprime jan l ye a",
+        "accountEmail": "Imèl / idantifyan kont",
+        "bank": {
+          "accountHolder": "Titilè kont lan",
+          "accountNumber": "Nimewo kont",
+          "bankName": "Non labank",
+          "branch": "Branch",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Kòd routaj / sort code"
+        },
+        "save": "Anrejistre mwayen peman an"
+      }
+    },
+    "templates": {
+      "metaTitle": "Modèl dokiman",
+      "title": "Modèl dokiman",
+      "customised": "Pèsonalize",
+      "builtIn": "Pa defo entegre",
+      "description": "Kijan faktiri ak nòt kredi yo gen pou parèt. Dokiman ki emèt yo konsève modèl yo te emèt la.",
+      "resetTitle": "Reyinisyalize sou pa defo entegre a?",
+      "resetDescription": "Yo retire pèsonalizasyon ou; dokiman ki deja emèt yo pa chanje.",
+      "reset": "Reyinisyalize",
+      "resetTrigger": "Reyinisyalize sou pa defo",
+      "importTitle": "Enpòte",
+      "importDescription": "Restore yon konfigirasyon ou te ekspòte avan.",
+      "overridesTitle": "Modèl pou chak pwofil",
+      "overridesDescription": "Yon pwofil ka chwazi pwòp modèl li nan paj modifikasyon li.",
+      "noOverrides": "Tout pwofil yo itilize modèl enstans lan.",
+      "import": {
+        "json": "JSON modèl la",
+        "jsonHint": "Kole yon fichye ki soti nan Ekspòte JSON; kle ki manke yo itilize valè pa defo",
+        "importing": "Ap enpòte…",
+        "submit": "Enpòte"
+      },
+      "form": {
+        "templateTitle": "Modèl",
+        "templateDescription": "Sis modèl entegre; pèsonalizasyon ki anba a aplike sou sa ou chwazi a.",
+        "templateGroup": "Modèl",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Modèn ak ayere, san seri, liy aksan anba tit la."
+          },
+          "classic": {
+            "name": "Klasik",
+            "character": "Tablo tradisyonèl ak bòdi, tit ak seri, total nan bwat."
+          },
+          "compact": {
+            "name": "Kompak",
+            "character": "Mizanpaj dans pou long lis atik; ti karaktè, mwens separatè."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "Kalm ak laj: pa gen liy ni bwat, etikèt lejè, anpil espas."
+          },
+          "letterhead": {
+            "name": "Papye antèt",
+            "character": "Logo ou ak non ou sou yon bann koulè oswa yon imaj anlè chak paj."
+          },
+          "modern": {
+            "name": "Modèn",
+            "character": "Antèt ak bann koulè; pati yo, antèt tablo a ak total yo sou yon ti nuans aksan pal."
+          }
+        },
+        "paperTitle": "Papye ak karaktè",
+        "paperSize": "Gwosè papye",
+        "paperLetter": "Letter",
+        "margins": "Maj",
+        "marginsNormal": "Nòmal",
+        "marginsNarrow": "Etwat",
+        "headingFont": "Karaktè tit yo",
+        "bodyFont": "Karaktè tèks la",
+        "fontSans": "San seri",
+        "fontSerif": "Ak seri",
+        "tableStyle": "Stil tablo",
+        "tableRuled": "Ak liy",
+        "tableZebra": "Zèbr",
+        "tablePlain": "Senp",
+        "accentColour": "Koulè aksan",
+        "textColour": "Koulè tèks",
+        "logoPosition": "Pozisyon logo",
+        "positionLeft": "Agòch",
+        "positionCentre": "Nan mitan",
+        "positionRight": "Adwat",
+        "logoHeight": "Wotè logo (mm)",
+        "documentTitle": "Tit dokiman",
+        "titleAuto": "Otomatik (selon GST)",
+        "titleCustom": "Pèsonalize",
+        "titlePlaceholder": "egz. FAKTIRI PWOFÒMA",
+        "qrPosition": "Pozisyon QR",
+        "qrFooter": "Pye paj",
+        "qrHeader": "Antèt",
+        "qrBesideTotals": "Bò total yo",
+        "amountInWords": "Montan an lèt",
+        "wordsBelowTotal": "Anba total yo",
+        "wordsFooter": "Pye paj",
+        "wordsHidden": "Kache",
+        "subtotalRow": "Ranje sou-total",
+        "discountRow": "Ranje rabè",
+        "taxLines": "Liy taks",
+        "tdsExpected": "TDS ki espere",
+        "roundingRow": "Ranje awondi",
+        "pageNumbers": "Nimewo paj",
+        "headerTitle": "Antèt",
+        "headerDescription": "Yon bann koulè oswa yon imaj anlè chak paj. Papye antèt ak Modèn montre yon bann sof si ou chwazi otreman.",
+        "headerStyle": "Stil antèt",
+        "headerNone": "Okenn",
+        "headerBand": "Bann koulè",
+        "headerImage": "Imaj",
+        "bandColour": "Koulè bann lan",
+        "bandColourHex": "Koulè bann lan (hex)",
+        "headerImageLabel": "Imaj antèt",
+        "headerImageHint": "PNG, JPEG oswa WebP jiska 2400 px laj; li ocupe tout lajè paj la.",
+        "imageOpacity": "Opasite imaj la",
+        "headerHeight": "Wotè antèt (mm)",
+        "bandText": "Tèks sou bann lan",
+        "bandTextAuto": "Otomatik (selon koulè bann lan)",
+        "bandTextLight": "Klè",
+        "bandTextDark": "Fonse",
+        "textTitle": "Tèks",
+        "headerNote": "Nòt antèt",
+        "footer": "Pye paj",
+        "signatureCaption": "Lejand siyati",
+        "draftWatermark": "Filigran bouyon",
+        "labelsTitle": "Etikèt",
+        "labelsDescription": "Kite yon chan vid pou kenbe fòmilasyon pa defo a.",
+        "save": "Anrejistre modèl la",
+        "downloadSample": "Telechaje PDF egzanp",
+        "exportJson": "Ekspòte JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Imèl",
+      "title": "Imèl",
+      "configuredSettings": "Konfigire nan Paramèt",
+      "configuredEnv": "Konfigire pa anviwonman an",
+      "notConfigured": "Pa konfigire: fason ak aplikasyon imèl",
+      "description": "Dokiman yo voye soti nan konpozitè a ak PDF ki estoke a kòm pyès jwenn. Paramèt isit yo ranplase SMTP_* anviwonman an.",
+      "sendTest": "Voye yon imèl tès bay {email}",
+      "removeTitle": "Retire paramèt SMTP ki estoke yo?",
+      "removeEnvTakesOver": "Valè SMTP_* anviwonman an pran plas.",
+      "removeFallsBack": "Imèl la tounen sou fason ak aplikasyon imèl.",
+      "removeTrigger": "Retire paramèt ki estoke yo",
+      "smtpTitle": "Sèvè SMTP",
+      "smtpFromEnv": "Kounye a li soti nan anviwonman an; si ou anrejistre isit la, sa ranplase l.",
+      "smtpPasswordNote": "Modpas la chifre lè l estoke epi yo p ap montre l ankò.",
+      "defaultsTitle": "Destinatè pa defo",
+      "defaultsDescription": "CC/BCC pou tout enstans lan; pwofil emetè yo ajoute pa yo.",
+      "sentTitle": "Imèl voye yo",
+      "sentDescription": "50 dènye eseye yo, ansanm ak echèk ak voye manyèl yo.",
+      "smtp": {
+        "host": "Sèvè",
+        "port": "Pò",
+        "security": "Sekirite",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Okenn (relè LAN)",
+        "user": "Non itilizatè",
+        "password": "Modpas",
+        "passwordStored": "Estoke epi chifre; kite l vid pou kenbe l",
+        "passwordEncrypted": "Chifre lè l estoke",
+        "from": "Adrès moun k ap voye a",
+        "fromName": "Non moun k ap voye a",
+        "replyTo": "Reponn a",
+        "save": "Anrejistre paramèt SMTP"
+      },
+      "defaults": {
+        "cc": "CC pa defo",
+        "ccHint": "Ajoute sou chak mesaj; separe ak vigil",
+        "bcc": "BCC pa defo",
+        "save": "Anrejistre valè pa defo yo"
+      }
+    },
+    "security": {
+      "metaTitle": "Sekirite",
+      "title": "Sekirite",
+      "description": "Kote ou konekte, ak tout sa ki chanje.",
+      "sessions": {
+        "title": "Sesyon aktif",
+        "description": "Si ou anile yon sesyon, aparèy sa a dekonekte touswit.",
+        "signOutOthers": {
+          "title": "Dekonekte tout lòt kote yo?",
+          "description": "Tout sesyon eksepte sa a anile.",
+          "confirm": "Dekonekte lòt yo",
+          "trigger": "Dekonekte tout lòt kote yo"
+        },
+        "columns": {
+          "device": "Aparèy",
+          "ipAddress": "Adrès IP",
+          "signedIn": "Konekte",
+          "lastSeen": "Dènye aktivite",
+          "expires": "Ekspire"
+        },
+        "thisDevice": "Aparèy sa a",
+        "revokeTitle": "Anile sesyon sa a?",
+        "unknownDevice": "Aparèy enkoni",
+        "unknownBrowser": "Enkoni",
+        "agentOnOs": "{browser} sou {os}"
+      },
+      "audit": {
+        "title": "Jounal odit",
+        "count": "{count, plural, one {# evènman} other {# evènman}}",
+        "entity": "Antite",
+        "actionContains": "Aksyon an gen",
+        "filter": "Filtre",
+        "reset": "Reyinisyalize",
+        "columns": {
+          "when": "Kilè",
+          "who": "Kiyès",
+          "action": "Aksyon",
+          "entity": "Antite",
+          "summary": "Rezime"
+        },
+        "empty": "Pa gen okenn evènman ki koresponn ak filtre sa yo.",
+        "system": "Sistèm",
+        "changes": "Chanjman",
+        "page": "Paj {page} sou {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Itilizatè",
+      "title": "Itilizatè",
+      "description": "Kiyès ki ka konekte sou enstans sa a ak sa yo ka fè.",
+      "roles": {
+        "owner": "Pwopriyetè",
+        "editor": "Editè",
+        "viewer": "Lektè"
+      },
+      "roleHints": {
+        "owner": "Tout bagay, ak paramèt ak manm yo",
+        "editor": "Kliyan, katalòg, faktiri, nòt kredi, peman, imèl",
+        "viewer": "Lekti sèlman"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Wòl {email}",
+      "invite": {
+        "title": "Envite yon moun",
+        "description": "Yo konekte ak adrès yo envite a (yon founisè idantite oswa yon modpas) epi yo jwenn wòl ou chwazi a.",
+        "sent": "Envitasyon an voye pa imèl bay {email}.",
+        "readyWithError": "Envitasyon an pare pou {email}. Imèl la pa t ka voye ({error}); voye lyen sa a ba yo:",
+        "readyNoSmtp": "Envitasyon an pare pou {email}. Pa gen okenn SMTP ki konfigire; voye lyen sa a ba yo:",
+        "copyLink": "Kopye lyen an",
+        "email": "Imèl",
+        "emailPlaceholder": "moun@example.com",
+        "role": "Wòl",
+        "submit": "Envite",
+        "inviting": "Ap envite…"
+      },
+      "members": {
+        "title": "Manm",
+        "description": "Toujou rete omwen yon pwopriyetè aktif.",
+        "columns": {
+          "person": "Moun",
+          "role": "Wòl",
+          "lastSignIn": "Dènye koneksyon",
+          "status": "Eta"
+        },
+        "nameYou": "{name} (ou)",
+        "deactivated": "Dezaktive",
+        "reactivate": {
+          "title": "Reaktive {email}?",
+          "description": "Yo ka konekte ankò ak ansyen wòl yo.",
+          "confirm": "Reaktive"
+        },
+        "deactivate": {
+          "title": "Dezaktive {email}?",
+          "description": "Tout sesyon yo fini kounye a epi yo pa ka konekte jiskaske yo reaktive yo. Istorik yo rete.",
+          "confirm": "Dezaktive"
+        }
+      },
+      "invitations": {
+        "title": "Envitasyon k ap tann",
+        "description": "Adrès ki ka konekte men ki poko fè sa.",
+        "columns": {
+          "email": "Imèl",
+          "role": "Wòl",
+          "invited": "Envite"
+        },
+        "empty": "Pa gen okenn envitasyon k ap tann.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Anile envitasyon pou {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Done",
+      "title": "Done",
+      "description": "Tout bagay ka transpòte: seri done an CSV oswa Excel, yon kopi konplè pou migrasyon, PDF yo pou kontab ou, ak yon woutin sovgad ki teste.",
+      "period": {
+        "fiscalYear": "Ane fiskal",
+        "fiscalYearHint": "Ranplase dat yo",
+        "issuer": "Emetè"
+      },
+      "exportAll": {
+        "title": "Ekspòte tout done yo",
+        "description": "Yon ZIP ak chak seri done an CSV plis <mono>data.json</mono>, yon kopi relasyonèl tout tablo yo. Chan chifre yo (detay mwayen peman, modpas SMTP) pa ladan l; README ki anndan an make yo.",
+        "download": "Telechaje ZIP okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "Ekspòte dokiman yo",
+        "description": "Tout PDF faktiri ak nòt kredi ki emèt epi ki anile pou yon peryòd, non yo baze sou nimewo yo, ak yon <mono>index.csv</mono> ki gen nimewo, total ak anprent. PDF ki manke yo kreye pandan travay la.",
+        "docx": "Mete tou yon kopi DOCX chak dokiman",
+        "download": "Telechaje ZIP dokiman yo"
+      },
+      "datasets": {
+        "title": "Seri done",
+        "description": "Menm ekspòtasyon paj lis yo ofri yo, ak yon peryòd ak yon emetè ki aplike sou tout. Peman yo itilize entèval dat la; kliyan ak sèvis inyore peryòd la.",
+        "columns": {
+          "dataset": "Seri done",
+          "filters": "Filtre aplike",
+          "download": "Telechaje"
+        },
+        "names": {
+          "invoices": "Rejis faktiri",
+          "invoiceItems": "Liy faktiri",
+          "payments": "Liv peman",
+          "creditNotes": "Rejis nòt kredi",
+          "clients": "Kliyan",
+          "services": "Sèvis",
+          "gstSummary": "Rezime GST",
+          "tdsSummary": "Rezime TDS"
+        },
+        "filters": {
+          "periodIssuer": "peryòd, emetè",
+          "dateRangeIssuer": "entèval dat, emetè",
+          "includesArchived": "gen sa ki achive yo ladan"
+        }
+      },
+      "backups": {
+        "title": "Sovgad",
+        "notWired": "Pa gen okenn sèvis sovgad ki konekte",
+        "noRun": "Poko gen okenn sovgad ki fèt",
+        "lastOk": "Dènye sovgad la reyisi",
+        "lastFailed": "Dènye sovgad la echwe",
+        "description": "Sèvis Compose <mono>backup</mono> la fè yon dump Postgres epi achive volim estokaj la dapre <mono>BACKUP_CRON</mono>, kenbe <mono>BACKUP_RETENTION_DAYS</mono> istorik nan volim <mono>backups</mono> la, epi li ekri yon fichye eta paj sa a li.",
+        "finished": "Fini",
+        "databaseDump": "Dump baz done",
+        "storageArchive": "Achiv estokaj",
+        "size": "Gwosè",
+        "sizeMb": "{size} MB",
+        "error": "Erè",
+        "runNow": "Lanse youn kounye a, oswa restore ak yon pè fichye:",
+        "restoreDrill": "Pwosedi restorasyon an teste nan CI pa <mono>scripts/restore-drill.sh</mono>: seed, sovgad, efase, restore, apre sa konpare kantite ranje yo ak anprent yon PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "Legal",
+      "metaDescription": "Kiyès ki opere enstans sa a: detay yo enprime sou paj legal piblik yo.",
+      "title": "Legal",
+      "description": "Paj legal piblik yo enprime detay sa yo. Jiskaske tout chan ranpli, paj yo montre espas rezève ki make.",
+      "operator": {
+        "title": "Detay operatè a",
+        "complete": "Konplè",
+        "missing": "{count} manke: {fields}",
+        "description": "Ou menm, kòm moun oswa konpayi ki opere enstans sa a, se operatè dokiman yo refere a. Anyen isit la pa voye okenn kote; li enprime sou paj ki anba yo."
+      },
+      "fieldLabels": {
+        "legalName": "Non legal operatè a",
+        "entityType": "Kalite antite",
+        "address": "Adrès operatè a",
+        "country": "Peyi operatè a",
+        "contactEmail": "Imèl kontak",
+        "privacyEmail": "Imèl vi prive",
+        "dpoEmail": "Imèl responsab pwoteksyon done",
+        "governingLaw": "Lwa aplikab",
+        "venue": "Jiridiksyon pou konfli yo",
+        "effectiveDate": "Dat antre an vigè"
+      },
+      "publicPages": {
+        "title": "Paj piblik",
+        "description": "Lye ak paj koneksyon an, vizyonè pataj la ak avi sou kouki a.",
+        "terms": "Kondisyon sèvis",
+        "acceptableUse": "Politik itilizasyon akseptab",
+        "privacy": "Politik vi prive",
+        "cookies": "Politik kouki",
+        "dataRetention": "Konsèvasyon done",
+        "security": "Sekirite",
+        "licenses": "Lisans ak avi twazyèm pati"
+      },
+      "form": {
+        "legalName": "Non legal",
+        "entityType": "Kalite antite",
+        "individual": "Moun / patwon inik",
+        "company": "Konpayi / antite anrejistre",
+        "address": "Adrès",
+        "addressHint": "Enprime nan Kondisyon yo ak Politik vi prive a kòm adrès postal operatè a.",
+        "country": "Peyi",
+        "effectiveDate": "Dat antre an vigè",
+        "contactEmail": "Imèl kontak",
+        "privacyEmail": "Imèl vi prive",
+        "privacyEmailHint": "Kote demann moun ki konsène yo ale; ka menm ak adrès kontak la.",
+        "dpoEmail": "Imèl responsab pwoteksyon done",
+        "dpoEmailHint": "Sèlman si ou nonmen youn.",
+        "governingLaw": "Lwa aplikab",
+        "governingLawHint": "Pa egzanp “lwa peyi End” oswa “lwa Angletè ak Pays de Galles”.",
+        "venue": "Jiridiksyon pou konfli yo",
+        "venueHint": "Pa egzanp “tribinal Bengaluru, Karnataka”.",
+        "submit": "Anrejistre detay operatè a"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Kle API pou script, SDK ak kliyan MCP, ak egzanp curl.",
+      "title": "API",
+      "description": "Kle pou script, SDK ak kliyan MCP. Yon kle ka fè o maksimòm sa wòl ou pèmèt; yo montre l yon sèl fwa.",
+      "create": {
+        "title": "Kreye yon kle",
+        "description": "Voye l kòm <mono>Authorization: Bearer okv_…</mono>. Pa kite l nan kòd sous la ni nan jounal chat; anile l anba a si li fuite."
+      },
+      "keys": {
+        "title": "Kle",
+        "descriptionOwner": "Tout kle enstans sa a; pwopriyetè yo ka anile nenpòt ladan yo.",
+        "descriptionOwn": "Kle ou yo.",
+        "columns": {
+          "name": "Non",
+          "prefix": "Prefiks",
+          "scopes": "Pòte",
+          "owner": "Pwopriyetè",
+          "lastUsed": "Dènye itilizasyon",
+          "expires": "Ekspire",
+          "status": "Eta"
+        },
+        "empty": "Poko gen okenn kle API.",
+        "never": "janm",
+        "revoked": "Anile",
+        "expired": "Ekspire",
+        "revokeTitle": "Anile {name}?",
+        "revokeDescription": "Kliyan ki itilize kle sa a sispann fonksyone touswit.",
+        "activeCount": "{count, plural, one {# kle aktif.} other {# kle aktif.}}"
+      },
+      "examples": {
+        "title": "Egzanp",
+        "description": "Ranplase <mono>$OKINVO_KEY</mono> ak yon kle. API REST ki vèsyone a, dokiman OpenAPI li (<mono>/api/openapi.json</mono>), SDK TypeScript la ak sèvè MCP a ap vini ak pwochen tach plan v1.1 yo; pwen final eta a mache jodi a.",
+        "rateLimit": "Apèl ki depase limit la jwenn repons 429 ak yon antèt <mono>Retry-After</mono> (120 demann pa minit pou chak kle). Pòte yon kle limite pa wòl aktyèl pwopriyetè li."
+      },
+      "form": {
+        "copyKey": "Kopye kle API a",
+        "name": "Non",
+        "namePlaceholder": "egz. script kontabilite",
+        "expires": "Ekspire",
+        "in30Days": "Nan 30 jou",
+        "in90Days": "Nan 90 jou",
+        "inAYear": "Nan yon ane",
+        "never": "Janm",
+        "scopes": "Pòte",
+        "submit": "Kreye kle API",
+        "creating": "Ap kreye…"
+      },
+      "scopes": {
+        "invoicesRead": "Li faktiri yo",
+        "invoicesCreate": "Kreye epi emèt faktiri",
+        "creditNotesRead": "Li nòt kredi yo",
+        "creditNotesCreate": "Kreye epi emèt nòt kredi",
+        "catalogueRead": "Li kliyan, sèvis ak pwodui yo",
+        "documentsRead": "Telechaje PDF estoke yo ak kopi DOCX yo",
+        "statusRead": "Li eta enstans lan"
+      }
+    },
+    "status": {
+      "metaTitle": "Eta",
+      "metaDescription": "Vèsyon, baz done, estokaj, imèl ak sante sovgad enstans sa a.",
+      "title": "Eta",
+      "description": "Sa enstans sa a ap egzekite ak si pati li yo reponn.",
+      "recheck": "Verifye ankò",
+      "health": {
+        "ok": "OK",
+        "warning": "Avètisman",
+        "failed": "Echwe",
+        "na": "Pa konfigire"
+      },
+      "overall": {
+        "ok": "Tout bon",
+        "degraded": "Pèfòmans redui",
+        "failed": "Echwe"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(sha enkoni)}} · konstwi {built} · Node <mono>{node}</mono> · aktif depi {uptime} · verifye {checked}",
+      "dateUnknown": "(dat enkoni)",
+      "uptime": {
+        "days": "{d}j {h}è {m}m",
+        "hours": "{h}è {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Baz done",
+        "storage": "Estokaj",
+        "rateLimiting": "Limit to demann",
+        "email": "Imèl",
+        "backups": "Sovgad"
+      },
+      "db": {
+        "detail": "{latency} ms · dènye migrasyon <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # migrasyon pa fini}}",
+        "noMigration": "okenn"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · ekriti, lekti ak efasman yon objè tès nan {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "depo <mono>{store}</mono> {store, select, memory {(yon sèl kopi)} other {(pataje ant kopi yo)}}",
+      "smtp": {
+        "configured": "SMTP soti nan {source, select, settings {settings} env {env} other {}} · dènye tès {lastTest} · 24 èdtan ki sot pase yo: {sent} voye, {failed} echwe",
+        "none": "Pa gen sèvè SMTP; konpozitè a ofri “Louvri nan aplikasyon imèl”. <link>Konfigire</link>"
+      },
+      "backups": {
+        "notWired": "Pa gen okenn sèvis sovgad ki konekte (BACKUP_STATUS_FILE pa defini).",
+        "noRun": "Sèvis sovgad konekte; poko gen okenn egzekisyon anrejistre.",
+        "ok": "Dènye egzekisyon an reyisi a {finishedAt}{days, plural, =0 {} one { · konsèvasyon # jou} other { · konsèvasyon # jou}}",
+        "failed": "Dènye egzekisyon an echwe: {error} a {finishedAt}{days, plural, =0 {} one { · konsèvasyon # jou} other { · konsèvasyon # jou}}"
+      },
+      "footer": "Menm rapò a disponib an JSON nan <mono>/api/health/status</mono> pou siveyans (sesyon konekte oswa kle API)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Byenveni",
+    "progress": "Pwogrè",
+    "steps": {
+      "aboutYou": "Sou ou",
+      "howYouUse": "Kijan w ap itilize l",
+      "allSet": "Tout pare"
+    },
+    "step1": {
+      "title": "Pale nou de ou",
+      "subtitle": "Sa defini valè pa defo ou yo; ou ka chanje chak valè pita nan Paramèt.",
+      "name": "Non",
+      "email": "Imèl",
+      "emailHint": "Idantite koneksyon ou. Ou ka chanje l pita nan Paramèt → Sekirite.",
+      "country": "Peyi",
+      "currency": "Lajan ou prefere",
+      "currencyHint": "Itilize pou nouvo pwofil yo ak pou tablo bò a jiskaske yon pwofil egziste."
+    },
+    "step2": {
+      "title": "Kijan w ap itilize okinvo?",
+      "subtitle": "Se sèlman valè pa defo yo ki chanje; anyen pa fiks.",
+      "usage": "Itilizasyon",
+      "personal": "Faktirasyon pèsonèl",
+      "personalHint": "Travay endepandan sou non pa ou",
+      "business": "Faktirasyon biznis",
+      "businessHint": "Faktiri ki soti nan yon biznis anrejistre",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Nimewo VAT",
+        "other": "Nimewo anrejistreman taks"
+      },
+      "taxQuestion": {
+        "IN": "Èske w gen yon GSTIN?",
+        "GB": "Èske w anrejistre pou VAT?",
+        "other": "Èske w gen yon nimewo anrejistreman taks pou enprime sou faktiri yo?"
+      }
+    },
+    "step3": {
+      "title": "Tout pare",
+      "body": "Apre sa, kreye premye pwofil emetè ou: non an, adrès la ak detay taks yo ki enprime sou faktiri ou yo. Nou ranpli sa ou di nou yo.",
+      "go": "Ale nan pwofil yo",
+      "opening": "Ap louvri…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Kondisyon",
+      "privacy": "Vi prive",
+      "cookies": "Kouki",
+      "security": "Sekirite"
+    },
+    "cookieNotice": {
+      "label": "Avi sou kouki",
+      "body": "Nou itilize sèlman kouki ki absoliman nesesè: sesyon ou ak preferans ekran ou yo. Pa gen analiz, pa gen swivi.",
+      "policy": "Politik kouki",
+      "gotIt": "Konprann"
+    },
+    "nav": {
+      "label": "Legal",
+      "cookies": "Kouki",
+      "privacy": "Vi prive",
+      "terms": "Kondisyon",
+      "acceptableUse": "Itilizasyon akseptab",
+      "retention": "Konsèvasyon",
+      "security": "Sekirite",
+      "licences": "Lisans"
+    },
+    "operatorNotice": "okinvo se yon lojisyèl pou ebèje pou kont ou; operatè enstans sa a responsab itilizasyon li.",
+    "doc": {
+      "effectiveOn": "An vigè depi <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Kontni"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Non legal operatè a",
+        "entityType": "Kalite antite",
+        "address": "Adrès operatè a",
+        "country": "Peyi operatè a",
+        "contactEmail": "Imèl kontak",
+        "privacyEmail": "Imèl vi prive",
+        "dpoEmail": "Imèl responsab pwoteksyon done",
+        "governingLaw": "Lwa aplikab",
+        "venue": "Jiridiksyon pou konfli yo",
+        "effectiveDate": "Dat antre an vigè"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Pa jwenn",
+      "title": "Pa gen anyen nan adrès sa a",
+      "body": "Lyen an ka peri, oswa dokiman li te montre a pa t janm emèt."
+    },
+    "forbidden": {
+      "metaTitle": "Pa otorize",
+      "title": "Kont sa a pa ka fè sa",
+      "body": "Wòl ou pa pèmèt sa. Mande yon pwopriyetè aksè, oswa konekte ak yon kont ki genyen l."
+    },
+    "error": {
+      "title": "Gen yon bagay ki pa mache",
+      "body": "Demann sa a pa chanje anyen. Eseye ankò; si sa kontinye, jounal sèvè a gen detay yo.",
+      "digest": "erè {digest}",
+      "generic": "erè"
+    },
+    "appNotFound": {
+      "title": "Pa jwenn",
+      "body": "Anrejistreman sa a pa egziste, oswa yo efase l pandan w t ap gade l.",
+      "back": "Tounen nan tablo bò a"
+    },
+    "validation": {
+      "required": "obligatwa",
+      "tooLong": "maksimòm {max} karaktè",
+      "invalidEmail": "dwe yon imèl valid",
+      "invalidDate": "dwe yon dat kalandriye nan fòm YYYY-MM-DD",
+      "invalidAmount": "dwe yon nimewo",
+      "wholeNumber": "dwe yon nimewo antye",
+      "greaterThanZero": "dwe pi gran pase zewo",
+      "fixFields": "Tanpri korije chan ki make yo.",
+      "charset": "Se sèlman karaktè estanda klavye yo ki otorize."
+    }
+  },
+  "verify": {
+    "metaTitle": "Verifye dokiman an",
+    "heading": "Verifikasyon dokiman",
+    "rateLimited": "Twòp verifikasyon soti nan adrès sa a. Tanpri eseye ankò nan yon minit.",
+    "notFound": {
+      "title": "Pa gen dokiman sa a",
+      "body": "Lyen sa a pa koresponn ak okenn dokiman ki emèt. Tcheke kòd QR la oswa lyen yo ba ou a, oswa kontakte emetè a."
+    },
+    "status": {
+      "void": "Anile",
+      "valid": "Valid"
+    },
+    "issuedBy": "Emèt pa",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Emèt pou",
+    "issueDate": "Dat emisyon",
+    "total": "Total",
+    "voided": "Emetè a anile dokiman sa a epi li pa valid ankò.",
+    "storedCopies": {
+      "title": "Kopi estoke",
+      "description": "SHA-256 chak vèsyon PDF emetè a genyen. Chwazi kopi pa ou pou konpare l nan navigatè ou: anyen pa chaje.",
+      "empty": "Poko gen okenn PDF ki kreye.",
+      "protectedVersion": "Kopi pwoteje ak modpas {version}",
+      "version": "Vèsyon {version}"
+    },
+    "check": {
+      "label": "Verifye kopi pa ou",
+      "hashing": "Ap kalkile anprent…",
+      "match": "Kopi pa ou a koresponn egzakteman ak vèsyon {version}.",
+      "mismatch": "Kopi pa ou a pa koresponn ak okenn vèsyon estoke."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Dokiman pataje",
+      "rateLimited": "Twòp demann soti nan adrès sa a. Tanpri eseye ankò nan yon minit.",
+      "unavailable": {
+        "title": "Lyen sa a pa disponib",
+        "body": "Li ka ekspire oswa emetè a ka anile l. Mande l yon nouvo."
+      },
+      "lockedTitleInvoice": "Faktiri ki soti nan {issuer}",
+      "lockedTitleCreditNote": "Nòt kredi ki soti nan {issuer}",
+      "lockedBody": "Dokiman sa a pwoteje ak yon modpas. Antre modpas emetè a ba ou a.",
+      "void": "Anile",
+      "protectedPdf": "PDF la louvri ak menm modpas la. Yo ka li l epi enprime l; kopi ak modifikasyon bloke.",
+      "byline": "Soti nan {issuer} pou {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Modpas",
+      "limited": "Twòp tantativ. Tanpri tann kenz minit epi eseye ankò.",
+      "wrong": "Modpas sa a pa bon.",
+      "submit": "Louvri dokiman an"
+    },
+    "dialog": {
+      "trigger": "Pataje",
+      "title": "Pataje dokiman sa a",
+      "description": "Nenpòt moun ki gen lyen an ka gade l epi telechaje l jiskaske li ekspire oswa ou anile l. Yon modpas pwoteje PDF la tou: li louvri ak modpas la epi yo ka li l epi enprime l, pa modifye l ni kopye l.",
+      "link": "Lyen",
+      "copyLink": "Kopye lyen an",
+      "password": "Modpas",
+      "copyPassword": "Kopye modpas la",
+      "sendSeparately": "Voye modpas la separeman de lyen an. Ou ka wè l ankò nan lis ki anba a.",
+      "copy": "Kopye",
+      "copied": "Kopye",
+      "expires": "Ekspire",
+      "expiry": {
+        "d7": "Nan 7 jou",
+        "d30": "Nan 30 jou",
+        "d90": "Nan 90 jou",
+        "never": "Janm"
+      },
+      "protection": "Pwoteksyon",
+      "protectionOptions": {
+        "auto": "Modpas: jenere yon fraz sekrè",
+        "manual": "Modpas: mwen chwazi pa m",
+        "none": "Pa gen modpas (lyen ouvè)"
+      },
+      "passwordHint": "Omwen 8 karaktè.",
+      "strength": "Fòs: {label}",
+      "strengthLabels": {
+        "veryWeak": "trè fèb",
+        "weak": "fèb",
+        "fair": "mwayen",
+        "good": "bon",
+        "strong": "fò"
+      },
+      "creating": "Ap kreye…",
+      "create": "Kreye lyen",
+      "activeLinks": "Lyen aktif",
+      "passwordProtected": "Pwoteje ak modpas",
+      "openLink": "Louvri lyen an",
+      "linkExpires": "{kind} · ekspire {date}",
+      "linkNeverExpires": "{kind} · pa janm ekspire",
+      "revoke": {
+        "title": "Anile lyen sa a?",
+        "description": "Lyen an sispann fonksyone touswit pou tout moun ki genyen l.",
+        "label": "Anile"
+      },
+      "linkPassword": "Modpas: <code>{password}</code>",
+      "counts": "{views, plural, other {# vizit}} · {downloads, plural, other {# telechajman}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Nòt kredi",
+      "title": "Nòt kredi",
+      "description": "Emèt kont faktiri ki emèt; chak nòt diminye balans faktiri li a lè yo emèt li.",
+      "newCreditNote": "Nouvo nòt kredi",
+      "filters": {
+        "from": "Soti",
+        "to": "Rive",
+        "issuer": "Emetè",
+        "client": "Kliyan",
+        "status": "Eta",
+        "search": "Chèche",
+        "all": "Tout",
+        "searchPlaceholder": "Nimewo, rezon, kliyan",
+        "go": "Ale"
+      },
+      "statuses": {
+        "DRAFT": "Bouyon",
+        "ISSUED": "Emèt",
+        "SENT": "Voye",
+        "VOID": "Anile"
+      },
+      "empty": {
+        "title": "Poko gen nòt kredi",
+        "description": "Louvri yon faktiri ki emèt epi chwazi “Nòt kredi” pou diminye sa li dwe."
+      },
+      "noMatch": "Pa gen okenn nòt kredi ki koresponn ak filtre sa yo.",
+      "columns": {
+        "number": "Nimewo",
+        "against": "Kont",
+        "client": "Kliyan",
+        "issueDate": "Dat emisyon",
+        "reason": "Rezon",
+        "total": "Total",
+        "status": "Eta"
+      },
+      "draft": "Bouyon"
+    },
+    "new": {
+      "metaTitle": "Nouvo nòt kredi",
+      "title": "Nouvo nòt kredi",
+      "description": "Yon nòt kredi emèt kont yon faktiri ki emèt epi li diminye balans li.",
+      "nothingToCredit": {
+        "title": "Pa gen anyen pou kredite",
+        "description": "Nòt kredi bezwen yon faktiri ki emèt ak yon balans ki rete.",
+        "openInvoices": "Louvri faktiri yo"
+      },
+      "whichInvoice": "Ki faktiri?",
+      "invoice": "Faktiri",
+      "invoiceOption": "{number} · {client} · balans {balance}",
+      "issuedOnly": "Nòt kredi emèt sèlman kont faktiri ki emèt.",
+      "invoiceFallback": "Faktiri"
+    },
+    "edit": {
+      "metaTitle": "Modifye nòt kredi",
+      "title": "Modifye bouyon nòt kredi a",
+      "immutable": "Nòt kredi ki emèt yo pa ka modifye.",
+      "draft": "Bouyon"
+    },
+    "detail": {
+      "metaTitle": "Nòt kredi",
+      "draftTitle": "Bouyon nòt kredi",
+      "meta": "{client} · kont <invoice>{number}</invoice> · emèt <mono>{date}</mono>",
+      "previewPdf": "Aperçu PDF",
+      "issue": {
+        "title": "Emèt nòt kredi sa a?",
+        "description": "Yo bay yon nimewo, balans faktiri a diminye epi dokiman an vin pa ka modifye.",
+        "label": "Emèt"
+      },
+      "deleteDraft": {
+        "title": "Efase bouyon sa a?"
+      },
+      "sendByEmail": "Voye pa imèl",
+      "markSent": {
+        "title": "Make kòm voye?",
+        "label": "Make kòm voye"
+      },
+      "void": {
+        "title": "Anile nòt kredi sa a?",
+        "description": "Balans faktiri a retabli; nimewo a pa janm reitilize.",
+        "reason": "Rezon",
+        "label": "Anile"
+      },
+      "voided": "Anile {date}: {reason}",
+      "amounts": {
+        "title": "Montan",
+        "reason": "Rezon",
+        "creditAmount": "Montan kredi",
+        "total": "Total",
+        "balanceNow": "Balans faktiri a kounye a",
+        "sent": "Voye"
+      },
+      "documents": {
+        "title": "Dokiman estoke",
+        "description": "Yo kenbe chak vèsyon; paj verifikasyon an make tout anprent yo.",
+        "regenerateTitle": "Jenere yon nouvo vèsyon PDF?",
+        "generate": "Jenere",
+        "newVersion": "Nouvo vèsyon",
+        "renderedOnFirstDownload": "PDF la kreye nan premye telechajman an.",
+        "protectedCopy": "Kopi pwoteje ak modpas {version}",
+        "version": "Vèsyon {version}",
+        "verificationLink": "Lyen verifikasyon: <link>{path}…</link>"
+      },
+      "draftsPreview": "Aperçu bouyon yo parèt an dirèk nan editè a."
+    },
+    "send": {
+      "metaTitle": "Voye nòt kredi",
+      "title": "Voye <mono>{number}</mono>",
+      "previousSends": "Voye anvan yo"
+    },
+    "builder": {
+      "against": "Kont <mono>{number}</mono>",
+      "summary": "{client} · total {total} · balans {balance} · maj taksab ≈ {headroom}",
+      "issueDate": "Dat emisyon",
+      "creditAmount": "Montan kredi (san taks)",
+      "creditAmountHint": "Taks la repati dapre liy taks faktiri a",
+      "reason": "Rezon",
+      "picker": {
+        "title": "Kalkile dapre liy faktiri yo",
+        "description": "Make liy antye oswa yon pousantaj; sa sèlman ranpli montan ki anwo a.",
+        "line": "Liy",
+        "subtotal": "Sou-total",
+        "credit": "Kredi",
+        "percent": "%",
+        "creditLine": "Kredite liy {position}",
+        "percentOfLine": "Pousantaj liy {position}"
+      },
+      "saveDraft": "Anrejistre bouyon",
+      "issuing": "Ap emèt…",
+      "saveAndIssue": "Anrejistre epi emèt"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Peman resevwa",
+        "REFUND": "Ranbousman emèt",
+        "WRITE_OFF": "Aboli dèt"
+      },
+      "editTitle": "Modifye antre a",
+      "recordTitle": "Anrejistre yon peman",
+      "description": "Montan yo an lajan faktiri a ({currency}); TDS ki dedwi a fè pati montan aplike a.",
+      "kind": "Kalite",
+      "date": "Dat",
+      "amountRefunded": "Montan ranbouse (negatif)",
+      "amountApplied": "Montan aplike",
+      "refundHint": "Antre yon montan negatif, egz. -500",
+      "tdsDeducted": "TDS dedwi",
+      "tdsHint": "Taks kliyan an retni; konte nan montan aplike a",
+      "bankFees": "Frè labank",
+      "receivedInto": "Resevwa sou",
+      "noMethod": "-",
+      "reference": "Referans",
+      "referenceHint": "UTR, ID tranzaksyon, nimewo chèk",
+      "otherCurrency": "Resevwa nan yon lòt lajan",
+      "amountReceived": "Montan resevwa",
+      "receivedCurrency": "Lajan resevwa",
+      "exchangeRate": "To chanj",
+      "exchangeRateHint": "1 inite resevwa = ? {currency}",
+      "notes": "Nòt",
+      "receipt": "Resi",
+      "receiptHint": "PNG, JPEG, WebP oswa PDF jiska 10 MB",
+      "saveChanges": "Anrejistre chanjman yo",
+      "record": "Anrejistre"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "apeprè {count, plural, one {# paj} other {# paj}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Mesaj",
+      "description": "Ranpli davans ak modèl pwofil emetè a. Anyen pa voye jiskaske ou klike sou Voye.",
+      "to": "Pou",
+      "toHint": "Separe ak vigil",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Sijè",
+      "body": "Kò mesaj",
+      "bodyHint": "Tèks senp; lyen yo vin klikab",
+      "attachment": "Pyès jwenn",
+      "attachmentHint": "Kopi estoke a, ki rele <mono>{name}</mono> (oswa .docx); yo pa ka chanje kontni li.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Ap voye…",
+      "send": "Voye",
+      "openInMailApp": "Louvri nan aplikasyon imèl",
+      "noSmtp": "Pa gen okenn sèvè SMTP ki konfigire (Paramèt → Imèl). Louvri bouyon an nan aplikasyon imèl ou, mete PDF ou telechaje a kòm pyès jwenn, apre sa make l kòm voye anba a.",
+      "markAsSent": "Make kòm voye"
+    },
+    "sentLog": {
+      "when": "Kilè",
+      "document": "Dokiman",
+      "to": "Pou",
+      "subject": "Sijè",
+      "status": "Eta",
+      "empty": "Poko gen anyen ki voye.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "voye",
+        "FAILED": "echwe",
+        "MANUAL": "manyèl"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Bonjou, {name}",
+    "fiscalYear": "Ane fiskal {year}",
+    "fiscalYearWithBase": "Ane fiskal {year} · lajan de baz {currency} ({profile})",
+    "newCreditNote": "Nouvo nòt kredi",
+    "welcomeTitle": "Byenveni nan {appName}",
+    "welcomeDescription": "Kòmanse pa kreye pwofil emetè ou fè faktiri ladan l, apre sa ajoute yon kliyan ak premye faktiri ou.",
+    "createProfile": "Kreye pwofil ou",
+    "tiles": {
+      "outstanding": "Ki rete pou peye",
+      "overdue": "An reta",
+      "billedThisFy": "Faktire ane fiskal sa a",
+      "receivedThisFy": "Resevwa ane fiskal sa a",
+      "drafts": "Bouyon",
+      "invoiceCount": "{count, plural, one {# faktiri} other {# faktiri}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Peman mwens ranbousman, ak to chanj yo anrejistre",
+      "awaitingIssue": "ap tann emisyon",
+      "nothingPending": "pa gen anyen k ap tann"
+    },
+    "recentInvoices": "Faktiri resan yo",
+    "allInvoices": "Tout faktiri yo",
+    "noInvoicesYet": "Poko gen faktiri.",
+    "columns": {
+      "number": "Nimewo",
+      "client": "Kliyan",
+      "issued": "Emèt"
+    },
+    "topClients": "Kliyan ki gen pi plis ki rete pou peye",
+    "nothingOutstanding": "Pa gen anyen ki rete pou peye."
+  },
+  "exports": {
+    "export": "Ekspòte",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Faktiri",
+      "newInvoice": "Nouvo faktiri",
+      "draft": "Bouyon",
+      "aDraft": "yon bouyon",
+      "statuses": {
+        "draft": "Bouyon",
+        "issued": "Emèt",
+        "sent": "Voye",
+        "partiallyPaid": "Peye an pati",
+        "paid": "Peye",
+        "overdue": "An reta",
+        "void": "Anile"
+      },
+      "lifecycle": {
+        "draft": "bouyon",
+        "issued": "emèt",
+        "void": "anile"
+      },
+      "units": {
+        "hour": "Èdtan",
+        "day": "Jou",
+        "fixed": "Fiks",
+        "milestone": "Etap",
+        "unit": "Inite"
+      },
+      "unitsLower": {
+        "hour": "èdtan",
+        "day": "jou",
+        "fixed": "fiks",
+        "milestone": "etap",
+        "unit": "inite"
+      },
+      "supplyTypes": {
+        "intraState": "anndan eta a",
+        "interState": "ant eta yo",
+        "exportLut": "ekspòtasyon lut",
+        "exportWithTax": "ekspòtasyon ak taks",
+        "reverseCharge": "taks pa moun k ap resevwa a",
+        "notApplicable": "pa aplikab"
+      }
+    },
+    "list": {
+      "description": "Faktiri bouyon, emèt ak anile; eta yo soti nan peman ak dat echeyans yo.",
+      "fiscalYear": "Ane fiskal",
+      "issuer": "Emetè",
+      "client": "Kliyan",
+      "searchPlaceholder": "Nimewo, PO, kliyan",
+      "emptyTitle": "Poko gen faktiri",
+      "emptyDescription": "Konstwi premye faktiri ou: chwazi yon kliyan, ajoute liy, gade aperçu a, apre sa emèt li.",
+      "columns": {
+        "number": "Nimewo",
+        "client": "Kliyan",
+        "issuer": "Emetè",
+        "issueDate": "Dat emisyon",
+        "due": "Echeyans",
+        "balance": "Balans"
+      },
+      "noMatches": "Pa gen okenn faktiri ki koresponn ak filtre sa yo.",
+      "count": "{count, plural, one {# faktiri} other {# faktiri}}",
+      "countPaged": "{count, plural, one {# faktiri} other {# faktiri}} · paj {page} sou {pages}",
+      "register": "rejis"
+    },
+    "new": {
+      "noProfileTitle": "Kreye yon pwofil emetè dabò",
+      "noProfileDescription": "Yon faktiri emèt apati yon idantite legal: konfigire pwofil ou ak idantifyan taks li yo ak nimewotasyon an.",
+      "createProfile": "Kreye yon pwofil"
+    },
+    "edit": {
+      "metaTitle": "Modifye faktiri",
+      "title": "Modifye bouyon an",
+      "immutableFlash": "Faktiri ki emèt yo pa ka modifye. Itilize “Anile epi reemèt” pou korije l."
+    },
+    "detail": {
+      "metaTitle": "Faktiri",
+      "draftInvoice": "Bouyon faktiri",
+      "issuedDue": "Emèt <mono>{issued}</mono>, echeyans <mono>{due}</mono>",
+      "replaces": "Ranplase {number}",
+      "replacedBy": "Ranplase pa {number}",
+      "previewPdf": "Aperçu PDF",
+      "issueTitle": "Emèt faktiri sa a?",
+      "issueDescription": "Yo bay yon nimewo epi dokiman an vin pa ka modifye.",
+      "issue": "Emèt",
+      "deleteDraftTitle": "Efase bouyon sa a?",
+      "sendByEmail": "Voye pa imèl",
+      "recordPayment": "Anrejistre yon peman",
+      "creditNote": "Nòt kredi",
+      "markSentTitle": "Make kòm voye?",
+      "markSentDescription": "Anrejistre ke kliyan an resevwa faktiri sa a.",
+      "markSent": "Make kòm voye",
+      "voidReissueTitle": "Anile epi reemèt?",
+      "voidReissueDescription": "Orijinal la anile epi yon bouyon lye ak menm kontni an louvri pou modifikasyon.",
+      "voidReissue": "Anile epi reemèt",
+      "voidTitle": "Anile faktiri sa a?",
+      "voidDescription": "Posib sèlman san peman anrejistre; nimewo a pa janm reitilize.",
+      "void": "Anile",
+      "voided": "Anile {date}: {reason}",
+      "amounts": "Montan",
+      "subtotal": "Sou-total",
+      "discount": "Rabè",
+      "discountPercent": "Rabè ({percent})",
+      "rounding": "Awondi",
+      "tdsExpected": "TDS ki espere ({percent})",
+      "paid": "Peye",
+      "credited": "Kredite",
+      "balanceDue": "Balans ki dwe",
+      "supply": "Founiti",
+      "fxToBase": "Chanj nan lajan de baz",
+      "poReference": "Referans PO",
+      "sent": "Voye",
+      "lineItems": "Liy faktiri",
+      "columns": {
+        "description": "Deskripsyon",
+        "sacHsn": "SAC/HSN",
+        "qty": "Kantite",
+        "rate": "To",
+        "tax": "Taks",
+        "amount": "Montan"
+      },
+      "creditNotes": "Nòt kredi",
+      "storedDocuments": "Dokiman estoke",
+      "storedDocumentsHint": "Yo kenbe chak vèsyon; paj verifikasyon an make tout anprent yo.",
+      "regenerateTitle": "Jenere yon nouvo vèsyon PDF?",
+      "regenerateDescription": "Li kreye ankò apati kopi fiks la (pa egzanp apre yon korèksyon nan jeneratè a). Vèsyon anvan yo rete.",
+      "regenerate": "Jenere",
+      "newVersion": "Nouvo vèsyon",
+      "renderedOnFirstDownload": "PDF la kreye nan premye telechajman an.",
+      "protectedCopy": "Kopi pwoteje ak modpas {version}",
+      "version": "Vèsyon {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Lyen verifikasyon:",
+      "draftPreviewHint": "Aperçu bouyon yo parèt an dirèk nan editè a; louvri <link>PDF ak filigran nan</link> pou wè paj la."
+    },
+    "history": {
+      "metaTitle": "Istorik faktiri",
+      "title": "Istorik <mono>{number}</mono>",
+      "reissueChain": "Chèn reemisyon",
+      "replaces": "Ranplase <link>{number}</link>",
+      "replacedBy": "Ranplase pa <link>{number}</link>",
+      "auditTrail": "Jounal odit",
+      "columns": {
+        "when": "Kilè",
+        "who": "Kiyès",
+        "action": "Aksyon",
+        "summary": "Rezime"
+      },
+      "noEvents": "Poko gen evènman.",
+      "system": "Sistèm",
+      "emails": "Imèl"
+    },
+    "payments": {
+      "title": "Peman",
+      "description": "{client} · total {total}",
+      "backToInvoice": "Tounen nan faktiri a",
+      "ledger": "Liv",
+      "columns": {
+        "date": "Dat",
+        "kind": "Kalite",
+        "applied": "Aplike",
+        "tds": "TDS",
+        "received": "Resevwa",
+        "reference": "Referans",
+        "balance": "Balans"
+      },
+      "noPayments": "Poko gen okenn peman anrejistre.",
+      "kinds": {
+        "payment": "Peman",
+        "refund": "Ranbousman",
+        "writeOff": "Aboli dèt"
+      },
+      "receipt": "Resi",
+      "deleteEntryTitle": "Efase antre sa a?",
+      "deleteEntryDescription": "Balans faktiri a rekalkile.",
+      "totals": "Total yo",
+      "invoiceTotal": "Total faktiri a",
+      "credited": "Kredite",
+      "refunds": "Ranbousman",
+      "writeOffs": "Dèt aboli",
+      "tdsDeducted": "TDS dedwi",
+      "bankFees": "Frè labank",
+      "balanceDue": "Balans ki dwe",
+      "onlyIssued": "Se sèlman faktiri ki emèt ki aksepte peman."
+    },
+    "send": {
+      "metaTitle": "Voye faktiri",
+      "title": "Voye <mono>{number}</mono>",
+      "alreadySent": "Deja make kòm voye; si ou voye ankò, sa ajoute yon lòt antre nan jounal la.",
+      "previousSends": "Voye anvan yo"
+    },
+    "builder": {
+      "parties": "Pati yo",
+      "issuerProfile": "Pwofil emetè",
+      "client": "Kliyan",
+      "archivedOption": "{label} (achive)",
+      "issueDate": "Dat emisyon",
+      "dueDate": "Dat echeyans",
+      "fxRate": "To chanj nan lajan de baz",
+      "fxHint": "1 {currency} = ? {base} (pou rapò sèlman)",
+      "poReference": "Referans PO",
+      "lineItems": "Liy faktiri",
+      "lineItemsHint": "Chwazi nan katalòg la pou kopye valè li yo, oswa tape yon liy.",
+      "taxDiscountTds": "Taks, rabè ak TDS",
+      "taxRegime": "Rejim taks",
+      "regimes": {
+        "indiaGst": "GST End",
+        "ukVat": "VAT Wayòm Ini",
+        "usSalesTax": "Taks lavant Etazini",
+        "none": "San taks"
+      },
+      "reverseCharge": "Taks pa moun k ap resevwa a",
+      "reverseChargeHint": "Taks moun k ap resevwa a dwe peye",
+      "discount": "Rabè",
+      "percent": "Pousantaj",
+      "amount": "Montan",
+      "rounding": "Ajisteman awondi",
+      "roundingHint": "Opsyonèl, nan yon inite antye; dwe mwens pase 1",
+      "round": "Awondi",
+      "tdsRate": "To TDS ki espere (%)",
+      "tdsRateHint": "Pou enfòmasyon; enprime lè detay TDS la aktive",
+      "paymentMethods": "Mwayen peman",
+      "paymentMethodsHint": "Enprime nan lòd ou make yo.",
+      "noPaymentMethods": "Pa gen okenn mwayen peman aktif. <link>Ajoute youn</link>.",
+      "whatPrints": "Sa ki enprime",
+      "whatPrintsHint": "Li kòmanse ak valè pa defo pwofil emetè a.",
+      "notesAndTerms": "Nòt ak kondisyon",
+      "notes": "Nòt",
+      "terms": "Kondisyon",
+      "saveDraft": "Anrejistre bouyon",
+      "issuing": "Ap emèt…",
+      "saveAndIssue": "Anrejistre epi emèt",
+      "subtotal": "Sou-total",
+      "tax": "Taks",
+      "tdsExpected": "TDS ki espere",
+      "netExpected": "Net ki espere"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Ajoute nan katalòg la…",
+      "services": "Sèvis",
+      "products": "Pwodui",
+      "addLine": "Ajoute yon liy",
+      "columns": {
+        "description": "Deskripsyon",
+        "sacHsn": "SAC/HSN",
+        "qty": "Kantite",
+        "unit": "Inite",
+        "rate": "To",
+        "taxPercent": "Taks %"
+      },
+      "aria": {
+        "description": "Deskripsyon liy {line}",
+        "sacHsn": "SAC/HSN liy {line}",
+        "quantity": "Kantite liy {line}",
+        "unit": "Inite liy {line}",
+        "rate": "To liy {line}",
+        "taxRate": "To taks liy {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Egzante",
+      "moveUp": "Monte",
+      "moveDown": "Desann",
+      "removeLine": "Retire liy lan",
+      "shortcutHint": "Ctrl/⌘+Antre nan yon deskripsyon ajoute yon liy.",
+      "addFromCatalogueAria": "Ajoute nan katalòg la"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Detay emetè a",
+        "client": "Detay kliyan an",
+        "document": "Seksyon dokiman an"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Non komèsyal",
+        "showDesignation": "Tit",
+        "showEmail": "Imèl",
+        "showPhone": "Telefòn",
+        "showWebsite": "Sit entènèt",
+        "showFullAddress": "Adrès konplè",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Siyati",
+        "showStamp": "Tanp",
+        "showContactPerson": "Moun pou kontakte",
+        "showBillingAddress": "Adrès faktirasyon",
+        "showShippingAddress": "Adrès livrezon",
+        "showTaxIdentifier": "Idantifyan taks",
+        "showPlaceOfSupply": "Kote founiti",
+        "showDueDate": "Dat echeyans",
+        "showPaymentTerms": "Kondisyon peman",
+        "showSacCodeColumn": "Kolòn kòd SAC",
+        "showQuantityColumn": "Kolòn kantite",
+        "showUnitPriceColumn": "Kolòn pri initè",
+        "showTaxColumn": "Kolòn taks",
+        "showTdsBreakdown": "Detay TDS",
+        "showQrVerification": "Verifikasyon QR",
+        "showNotes": "Nòt",
+        "showTerms": "Kondisyon",
+        "showReplacesReference": "Referans sa k ranplase a",
+        "showAmountInWords": "Montan an lèt",
+        "showSupplyStatement": "Deklarasyon founiti",
+        "showRoundingLine": "Liy awondi",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Kliyan",
+      "description": "Tout moun ou fè faktiri pou yo. Kliyan ki gen faktiri achive, yo pa janm efase.",
+      "newClient": "Nouvo kliyan",
+      "searchPlaceholder": "Chèche pa non",
+      "searchLabel": "Chèche kliyan",
+      "emptyTitle": "Poko gen kliyan",
+      "emptyDescription": "Ajoute moun ak konpayi ou fè faktiri pou yo; lajan yo ak kondisyon peman yo ranpli chak faktiri davans.",
+      "addClient": "Ajoute yon kliyan",
+      "noMatch": "Pa gen okenn kliyan ki koresponn ak “{q}”.",
+      "termsDays": "{days} j",
+      "columns": {
+        "name": "Non",
+        "contact": "Kontak",
+        "email": "Imèl",
+        "country": "Peyi",
+        "currency": "Lajan",
+        "terms": "Kondisyon",
+        "status": "Eta"
+      }
+    },
+    "new": {
+      "title": "Nouvo kliyan"
+    },
+    "edit": {
+      "metaTitle": "Modifye kliyan",
+      "title": "Modifye {name}"
+    },
+    "detail": {
+      "metaTitle": "Kliyan",
+      "newInvoice": "Nouvo faktiri",
+      "restoreTitle": "Restore kliyan sa a?",
+      "archiveTitle": "Achive kliyan sa a?",
+      "archiveDescription": "Li soti nan lis chwa yo; faktiri ak istorik yo rete entak.",
+      "deleteTitle": "Efase kliyan sa a?",
+      "deleteDescription": "Posib sèlman toutotan pa gen okenn faktiri ki fè referans a kliyan an.",
+      "details": "Detay",
+      "contact": "Kontak",
+      "email": "Imèl",
+      "phone": "Telefòn",
+      "country": "Peyi",
+      "gstState": "GST {code}",
+      "taxId": "Idantifyan taks",
+      "currency": "Lajan",
+      "paymentTerms": "Kondisyon peman",
+      "paymentTermsDays": "{days} jou",
+      "expectedTds": "TDS ki espere",
+      "notes": "Nòt",
+      "addresses": "Adrès",
+      "billing": "Faktirasyon",
+      "shipping": "Livrezon",
+      "lifetime": "Depi nan kòmansman",
+      "openRegister": "Louvri rejis la",
+      "noIssued": "Poko gen faktiri ki emèt.",
+      "noIssuedWithDrafts": "Poko gen faktiri ki emèt ({drafts} bouyon).",
+      "firstLatest": "Premye faktiri <mono>{first}</mono>, dènye a <mono>{latest}</mono>{drafts, plural, =0 {} one { · # bouyon} other { · # bouyon}}",
+      "lifetimeColumns": {
+        "currency": "Lajan",
+        "invoices": "Faktiri",
+        "billed": "Faktire",
+        "received": "Resevwa",
+        "credited": "Kredite",
+        "outstanding": "Ki rete pou peye",
+        "overdue": "An reta"
+      },
+      "recentInvoices": "Faktiri resan yo",
+      "noInvoices": "Poko gen faktiri pou kliyan sa a.",
+      "recentColumns": {
+        "number": "Nimewo",
+        "issueDate": "Dat emisyon",
+        "due": "Echeyans",
+        "total": "Total",
+        "balance": "Balans",
+        "status": "Eta"
+      }
+    },
+    "form": {
+      "cardTitle": "Kliyan",
+      "displayName": "Non pou montre",
+      "contactPerson": "Moun pou kontakte",
+      "email": "Imèl",
+      "phone": "Telefòn",
+      "taxIdType": "Kalite idantifyan taks",
+      "taxIdTypeNone": "Okenn",
+      "taxId": "Idantifyan taks",
+      "currency": "Lajan",
+      "paymentTerms": "Kondisyon peman (jou)",
+      "expectedTdsRate": "To TDS ki espere (%)",
+      "notes": "Nòt",
+      "billingAddress": "Adrès faktirasyon",
+      "shippingAddress": "Adrès livrezon",
+      "differentFromBilling": "Diferan de adrès faktirasyon an",
+      "save": "Anrejistre kliyan an"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Èdtan",
+      "DAY": "Jou",
+      "FIXED": "Fiks",
+      "MILESTONE": "Etap",
+      "UNIT": "Inite"
+    },
+    "list": {
+      "activate": "Aktive",
+      "deactivate": "Dezaktive",
+      "archiveDescription": "Liy faktiri ki deja egziste yo konsève valè yo te kopye yo.",
+      "deleteDescription": "Posib sèlman toutotan pa gen okenn liy faktiri ki fè referans a li. Sinon achive l.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Non",
+        "unit": "Inite",
+        "rate": "To",
+        "price": "Pri",
+        "currency": "Lajan",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Taks",
+        "status": "Eta"
+      }
+    },
+    "services": {
+      "title": "Sèvis",
+      "description": "Katalòg ou. Lè ou chwazi yon sèvis, valè li yo kopye sou liy faktiri a.",
+      "newService": "Nouvo sèvis",
+      "emptyTitle": "Poko gen sèvis",
+      "emptyDescription": "Ajoute sa ou vann - konsepsyon pa èdtan, yon etap pri fiks - ak kòd SAC/HSN li ak to taks li.",
+      "addService": "Ajoute yon sèvis",
+      "restoreTitle": "Restore {name}?",
+      "archiveTitle": "Achive {name}?",
+      "deleteTitle": "Efase {name}?",
+      "editMetaTitle": "Modifye sèvis",
+      "editTitle": "Modifye {name}"
+    },
+    "products": {
+      "title": "Pwodui",
+      "description": "Machandiz ou vann, chak ak yon SKU. Lè ou chwazi yon pwodui, valè li yo kopye sou liy faktiri a.",
+      "newProduct": "Nouvo pwodui",
+      "emptyTitle": "Poko gen pwodui",
+      "emptyDescription": "Ajoute machandiz ou vann ak yon SKU, yon kòd HSN, yon pri initè ak yon to taks.",
+      "addProduct": "Ajoute yon pwodui",
+      "restoreTitle": "Restore {sku}?",
+      "archiveTitle": "Achive {sku}?",
+      "deleteTitle": "Efase {sku}?",
+      "editMetaTitle": "Modifye pwodui",
+      "editTitle": "Modifye {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Kòd inik ki enprime anba deskripsyon liy lan",
+      "name": "Non",
+      "unit": "Inite",
+      "defaultRate": "To pa defo",
+      "unitPrice": "Pri initè",
+      "currency": "Lajan",
+      "sacHsnCode": "Kòd SAC / HSN",
+      "sacHsnHint": "Obligatwa sou faktiri GST",
+      "hsnCode": "Kòd HSN",
+      "hsnHint": "Obligatwa sou faktiri GST pou machandiz",
+      "defaultTaxRate": "To taks pa defo (%)",
+      "description": "Deskripsyon",
+      "descriptionHint": "Ranpli deskripsyon liy lan davans",
+      "active": "Aktif",
+      "serviceInactiveHint": "Sèvis ki pa aktif yo pa nan chwa faktiri a",
+      "productInactiveHint": "Pwodui ki pa aktif yo pa nan chwa faktiri a",
+      "saveService": "Anrejistre sèvis la",
+      "saveProduct": "Anrejistre pwodui a"
+    },
+    "tags": {
+      "legend": "Pwofil",
+      "hint": "Make pwofil emetè ki vann sa a. Kite tout san make pou ofri l bay tout pwofil."
+    }
+  },
+  "address": {
+    "line1": "Liy adrès 1",
+    "line2": "Liy adrès 2",
+    "city": "Vil",
+    "stateRegion": "Eta / rejyon",
+    "postalCode": "Kòd postal",
+    "country": "Peyi",
+    "state": "Eta",
+    "gstStateCodeHint": "Kòd eta GST {code}",
+    "pickStateHint": "Chwazi eta a pou kòd eta GST la",
+    "stateRegionCode": "Kòd eta / rejyon",
+    "stateRegionCodePlaceholder": "egz. CA"
+  },
+  "assets": {
+    "tooLarge": "Fichye sa a twò gwo.",
+    "unsupportedReceipt": "Itilize yon imaj PNG, JPEG, WebP oswa yon PDF.",
+    "unsupportedImage": "Itilize yon imaj PNG, JPEG oswa WebP.",
+    "uploadFailed": "Chajman an echwe.",
+    "uploading": "Ap chaje…"
+  },
+  "ui": {
+    "breadcrumb": "Chemen navigasyon",
+    "close": "Fèmen",
+    "closeMenu": "Fèmen meni an",
+    "inputCharset": "Se sèlman karaktè estanda klavye yo ki otorize.",
+    "confirm": {
+      "working": "Ap travay…"
+    },
+    "statusPill": {
+      "DRAFT": "Bouyon",
+      "ISSUED": "Emèt",
+      "SENT": "Voye",
+      "PARTIALLY_PAID": "Peye an pati",
+      "PAID": "Peye",
+      "OVERDUE": "An reta",
+      "VOID": "Anile"
+    },
+    "activePill": {
+      "active": "Aktif",
+      "archived": "Achive",
+      "inactive": "Inaktif"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Gen yon bagay ki pa mache.",
+    "fixFields": "Tanpri korije chan ki make yo.",
+    "accountSaved": "Preferans kont lan anrejistre",
+    "apiKeyCreated": "Kle API a kreye. Kopye l kounye a: yo montre l yon sèl fwa.",
+    "saved": "{name} anrejistre",
+    "savedProfile": "Pwofil {label} anrejistre",
+    "clientArchived": "Kliyan achive",
+    "clientRestored": "Kliyan restore",
+    "clientDeleted": "Kliyan efase",
+    "productArchived": "Pwodui achive",
+    "productRestored": "Pwodui restore",
+    "productActivated": "Pwodui aktive",
+    "productDeactivated": "Pwodui dezaktive",
+    "serviceArchived": "Sèvis achive",
+    "serviceRestored": "Sèvis restore",
+    "serviceActivated": "Sèvis aktive",
+    "serviceDeactivated": "Sèvis dezaktive",
+    "defaultProfileUpdated": "Pwofil pa defo a mete ajou",
+    "profileArchived": "Pwofil achive",
+    "profileRestored": "Pwofil restore",
+    "profileDeleted": "Pwofil efase",
+    "defaultPaymentMethodUpdated": "Mwayen peman pa defo a mete ajou",
+    "paymentMethodArchived": "Mwayen peman achive",
+    "paymentMethodRestored": "Mwayen peman restore",
+    "paymentMethodDeleted": "Mwayen peman efase",
+    "issued": "{number} emèt",
+    "savedAsDraft": "Anrejistre kòm bouyon. {reason}",
+    "draftSaved": "Bouyon anrejistre",
+    "invoiceVoided": "Faktiri anile",
+    "originalVoided": "Orijinal la anile; modifye bouyon ranplasman an",
+    "markedAsSent": "Make kòm voye",
+    "draftDeleted": "Bouyon efase",
+    "generatedPdf": "Vèsyon PDF {version} jenere",
+    "creditNoteVoided": "Nòt kredi anile; balans faktiri a retabli",
+    "draftCreditNoteDeleted": "Bouyon nòt kredi efase",
+    "mailRefused": "Sèvè imèl la refize mesaj la: {error}. Tantativ la anrejistre.",
+    "unknownError": "erè enkoni",
+    "sentTo": "Voye bay {recipients}",
+    "smtpSaved": "Paramèt SMTP anrejistre",
+    "smtpRemoved": "Paramèt SMTP ki estoke yo retire",
+    "testEmailSent": "Imèl tès voye bay {email}",
+    "testFailed": "Tès la echwe: {error}",
+    "defaultRecipientsSaved": "Destinatè pa defo yo anrejistre",
+    "invitationSent": "Envitasyon voye",
+    "invitationReady": "Envitasyon pare",
+    "unknownRole": "Wòl enkoni",
+    "roleUpdated": "Wòl mete ajou",
+    "accountDeactivated": "Kont dezaktive",
+    "accountReactivated": "Kont reaktive",
+    "invitationRevoked": "Envitasyon anile",
+    "paymentUpdated": "Peman mete ajou",
+    "paymentRecorded": "Peman anrejistre",
+    "paymentDeleted": "Peman efase",
+    "sessionRevoked": "Sesyon anile",
+    "noOtherSessions": "Pa gen lòt sesyon",
+    "signedOutOthers": "Dekonekte nan {count} lòt sesyon",
+    "sharePasswordRequired": "Antre yon modpas, oswa kite yo jenere youn.",
+    "shareLinkCreated": "Lyen pataje kreye.",
+    "templateSaved": "Modèl anrejistre; dokiman nan lavni yo pral itilize l",
+    "templateReset": "Modèl la reyinisyalize sou pa defo entegre a",
+    "templateImported": "Modèl enpòte",
+    "profileTemplateCleared": "Pwofil la itilize modèl enstans lan ankò",
+    "operatorSaved": "Detay operatè a anrejistre. Paj legal yo montre yo kounye a."
+  }
+}

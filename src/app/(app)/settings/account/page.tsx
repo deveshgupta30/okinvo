@@ -8,6 +8,7 @@ import { PageHeader } from "@/components/ui/page-header";
 import { APP_COOKIES } from "@/lib/cookies";
 import { countryOptions } from "@/lib/geo/countries";
 import { CURRENCIES, currencyName, pinnedFirst } from "@/lib/geo/currencies";
+import { generatedLocales } from "@/lib/i18n/catalogues";
 import { languagesByRegion, type Region } from "@/lib/i18n/languages";
 import { TIMEZONES } from "@/lib/timezones";
 import { requireRole } from "@/server/auth";
@@ -37,9 +38,14 @@ export default async function AccountPage() {
     name: currencyName(c.code),
   }));
   // The picker groups the table by region and shows every language in its own name (spec §8.1).
+  const generated = new Set(generatedLocales());
   const languages: LanguageGroup[] = languagesByRegion().map((g) => ({
     label: t(`regions.${REGION_KEY[g.region]}`),
-    languages: g.languages.map((l) => ({ tag: l.tag, name: l.name })),
+    languages: g.languages.map((l) => ({
+      tag: l.tag,
+      name: l.name,
+      ...(generated.has(l.tag) ? { generated: true } : {}),
+    })),
   }));
   return (
     <>

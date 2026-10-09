@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo tuisblad",
+    "save": "Stoor",
+    "cancel": "Kanselleer",
+    "continue": "Gaan voort",
+    "saving": "Stoor tans…",
+    "detect": "Bespeur",
+    "yes": "Ja",
+    "no": "Nee",
+    "choose": "Kies…",
+    "remove": "Verwyder",
+    "tryAgain": "Probeer weer",
+    "dashboard": "Kontrolebord",
+    "goToDashboard": "Gaan na die kontrolebord",
+    "or": "of",
+    "invoice": "Faktuur",
+    "creditNote": "Kredietnota",
+    "downloadPdf": "Laai PDF af",
+    "edit": "Wysig",
+    "delete": "Skrap",
+    "downloadDocx": "Laai DOCX af",
+    "none": "Geen",
+    "dismiss": "Maak toe",
+    "all": "Alle",
+    "previous": "Vorige",
+    "next": "Volgende",
+    "go": "Gaan",
+    "search": "Soek",
+    "status": "Status",
+    "total": "Totaal",
+    "currency": "Geldeenheid",
+    "from": "Van",
+    "to": "Tot",
+    "reason": "Rede",
+    "history": "Geskiedenis",
+    "archive": "Argiveer",
+    "restore": "Herstel",
+    "showArchived": "Wys geargiveerde",
+    "hideArchived": "Versteek geargiveerde",
+    "archived": "Geargiveer",
+    "default": "Verstek",
+    "setDefault": "Stel as verstek",
+    "revoke": "Trek terug",
+    "copy": "Kopieer",
+    "copied": "Gekopieer",
+    "active": "Aktief",
+    "pagination": "Bladsynommering",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Kontrolebord",
+      "invoices": "Fakture",
+      "creditNotes": "Kredietnotas",
+      "clients": "Kliënte",
+      "services": "Dienste",
+      "products": "Produkte"
+    },
+    "primaryNav": "Hoof",
+    "settings": "Instellings",
+    "openMenu": "Maak kieslys oop",
+    "navigation": "Navigasie",
+    "pagesAndAccount": "Bladsye en rekening",
+    "collapseSidebar": "Vou sybalk toe",
+    "collapseSidebarHint": "Vou sybalk toe ([)",
+    "expandSidebar": "Brei sybalk uit",
+    "expandSidebarHint": "Brei sybalk uit ([)",
+    "theme": {
+      "label": "Tema",
+      "system": "Stelsel",
+      "light": "Lig",
+      "dark": "Donker",
+      "current": "Tema: {mode}",
+      "switchTo": "Tema: {mode}. Skakel oor na {next}"
+    },
+    "userMenu": {
+      "label": "Rekeningkieslys vir {name}",
+      "profile": "Profiel",
+      "logOut": "Teken uit"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Teken in",
+      "title": "Teken in",
+      "subtitle": "Slegs rekeninge op die toelaatlys kan inkom.",
+      "failed": "Aanmelding het misluk.",
+      "noMethod": "Geen aanmeldmetode is gekonfigureer nie. Stel ’n verskafferpaar soos <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>, of <code>AUTH_PASSWORD_SIGNIN=true</code>, in <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Daardie rekening word nie op hierdie instansie toegelaat nie, of is gedeaktiveer.",
+        "signin": "Aanmelding is nie voltooi nie. Probeer asseblief weer."
+      }
+    },
+    "password": {
+      "name": "Naam",
+      "email": "E-pos",
+      "password": "Wagwoord",
+      "signingIn": "Teken tans in…",
+      "createAccount": "Skep rekening",
+      "signIn": "Teken in",
+      "haveAPassword": "Ek het reeds ’n wagwoord",
+      "firstTime": "Eerste keer hier? Stel ’n wagwoord",
+      "failed": "Aanmelding het misluk."
+    },
+    "social": {
+      "redirecting": "Herlei tans…",
+      "continueWith": "Gaan voort met {provider}",
+      "failed": "Aanmelding kon nie begin nie."
+    },
+    "error": {
+      "metaTitle": "Aanmeldfout",
+      "title": "Aanmelding het misluk",
+      "body": "Die identiteitsverskaffer het <code>{value}</code> teruggestuur. As jou adres nie op hierdie instansie se toelaatlys is nie, vra die eienaar om dit by te voeg.",
+      "back": "Terug na aanmelding"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Instellings",
+      "profiles": "Profiele",
+      "paymentMethods": "Betaalmetodes",
+      "templates": "Sjablone",
+      "email": "E-pos",
+      "security": "Sekuriteit",
+      "users": "Gebruikers",
+      "data": "Data",
+      "legal": "Regsinligting",
+      "account": "Rekening",
+      "appearance": "Voorkoms",
+      "api": "API",
+      "status": "Status"
+    },
+    "account": {
+      "metaTitle": "Rekening",
+      "title": "Rekening",
+      "description": "Jou foto, naam, streek, taal en tydsone.",
+      "photo": {
+        "title": "Foto",
+        "description": "Word in die sybalk en die gebruikerskieslys gewys."
+      },
+      "form": {
+        "title": "Rekening",
+        "description": "Hoe jy verskyn en wanneer “vandag” is.",
+        "displayName": "Vertoonnaam",
+        "signInEmail": "Aanmeld-e-pos",
+        "signInEmailHint": "Jou identiteit op hierdie instansie; dit kan nie hier gewysig word nie.",
+        "timezone": "Tydsone",
+        "timezoneHint": "“Vandag” vir uitreikingsdatums, vervaldatums en die kontrolebord",
+        "regionTitle": "Streek",
+        "regionDescription": "Verstekke vir nuwe uitreikerprofiele en vir die kontrolebord totdat ’n profiel bestaan.",
+        "country": "Land",
+        "currency": "Geldeenheid",
+        "suggested": "Voorgestel vir hierdie land:",
+        "language": "Taal",
+        "languageHint": "Die taal van die toepassing self. Dokumente gebruik elke profiel se eie lokale.",
+        "machineTranslated": "Hierdie taal is masjienvertaal. Verbeterings is welkom: <link>verbeter dit op GitHub</link>.",
+        "save": "Stoor voorkeure"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerikas",
+        "Asia": "Asië",
+        "Europe": "Europa",
+        "MiddleEast": "Midde-Ooste",
+        "Oceania": "Oseanië",
+        "Constructed": "Gekonstrueerd"
+      },
+      "privacy": {
+        "title": "Privaatheid",
+        "description": "okinvo stel slegs die koekies wat nodig is om te werk. Geen ontleding, geen naspeuring.",
+        "cookiePolicy": "Koekiebeleid",
+        "showNoticeAgain": "Wys die koekiekennisgewing weer"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Verander foto",
+      "addPhoto": "Voeg foto by",
+      "hint": "PNG, JPEG of WebP. Oral as ’n sirkel gewys; jy kan voor stoor inzoem en skuif.",
+      "tooLarge": "Daardie foto is te groot.",
+      "uploadFailed": "Oplaai het misluk.",
+      "choose": "Kies ’n profielfoto",
+      "dialogTitle": "Posisioneer jou foto",
+      "dialogDescription": "Sleep om te skuif, rol of knyp om te zoem. Die sirkel is wat almal sien.",
+      "zoom": "Zoem",
+      "save": "Stoor foto"
+    },
+    "appearance": {
+      "metaTitle": "Voorkoms",
+      "title": "Voorkoms",
+      "description": "Tema en aksentkleur, gestoor by jou rekening.",
+      "theme": {
+        "title": "Tema",
+        "description": "Volg die stelsel, of pen lig of donker vas.",
+        "label": "Tema",
+        "system": "Volg die stelsel",
+        "systemHint": "Skakel saam met jou bedryfstelsel",
+        "light": "Lig",
+        "lightHint": "Wit doek",
+        "dark": "Donker",
+        "darkHint": "Amper-swart doek"
+      },
+      "accent": {
+        "title": "Aksent",
+        "description": "Gebruik vir die primêre knoppie, fokusringe en die aktiewe bladsymerker. Mint pas by die handelsmerk.",
+        "label": "Aksentkleur"
+      },
+      "accents": {
+        "mint": "Mint",
+        "lavender": "Laventel",
+        "sky": "Lug",
+        "peach": "Perske",
+        "butter": "Botter",
+        "rose": "Roos",
+        "sage": "Salie",
+        "lilac": "Lila"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Uitreikerprofiele",
+      "title": "Uitreikerprofiele",
+      "description": "Die regsidentiteite waarvandaan jy faktureer. Die verstek een vul nuwe fakture vooraf in.",
+      "breadcrumb": "Profiele",
+      "newProfile": "Nuwe profiel",
+      "emptyTitle": "Nog geen uitreikerprofiel nie",
+      "emptyDescription": "Skep die identiteit waarvandaan jy faktureer: ’n individu met ’n PAN, of jou maatskappy.",
+      "createProfile": "Skep ’n profiel",
+      "columns": {
+        "label": "Etiket",
+        "legalName": "Regsnaam",
+        "type": "Tipe",
+        "country": "Land",
+        "currency": "Geldeenheid",
+        "regime": "Stelsel",
+        "status": "Status"
+      },
+      "types": {
+        "company": "Maatskappy",
+        "individual": "Individu"
+      },
+      "makeDefaultTitle": "Maak {label} die verstek?",
+      "makeDefaultDescription": "Nuwe fakture sal vanaf hierdie profiel begin.",
+      "restoreTitle": "Herstel {label}?",
+      "archiveTitle": "Argiveer {label}?",
+      "archiveDescription": "Dit verdwyn uit keuselyste; bestaande fakture bly onaangeraak.",
+      "new": {
+        "metaTitle": "Nuwe uitreikerprofiel",
+        "title": "Nuwe uitreikerprofiel",
+        "prefilled": "Ingevul uit jou antwoorde; gaan die adres en belastingbesonderhede na, en stoor dan."
+      },
+      "edit": {
+        "metaTitle": "Wysig uitreikerprofiel",
+        "template": "Sjabloon",
+        "deleteTitle": "Skrap {label}?",
+        "deleteDescription": "Slegs moontlik solank geen faktuur of kredietnota na hierdie profiel verwys nie. Argiveer dit andersins."
+      },
+      "template": {
+        "metaTitle": "Profielsjabloon",
+        "title": "Sjabloon vir {label}",
+        "ownTemplate": "Eie sjabloon",
+        "instanceTemplate": "Instansiesjabloon",
+        "resetTitle": "Gebruik weer die instansiesjabloon?",
+        "resetDescription": "Hierdie profiel se eie konfigurasie word verwyder; uitgereikte dokumente word nie geraak nie.",
+        "useInstance": "Gebruik instansiesjabloon",
+        "usingInstanceTitle": "Gebruik die instansiesjabloon",
+        "usingInstanceDescription": "Dokumente van hierdie profiel volg Instellings → Sjablone. Kies in om dit afsonderlik aan te pas.",
+        "customise": "Gebruik ’n ander sjabloon vir hierdie profiel",
+        "openInstance": "Maak instansiesjabloon oop"
+      },
+      "form": {
+        "identityTitle": "Identiteit",
+        "identityDescription": "Van wie die faktuur kom.",
+        "type": "Tipe",
+        "label": "Etiket",
+        "labelHint": "Slegs in keuselyste gewys",
+        "legalName": "Regsnaam",
+        "tradeName": "Handelsnaam",
+        "designation": "Aanwysing",
+        "email": "E-pos",
+        "phone": "Foon",
+        "website": "Webwerf",
+        "addressTitle": "Adres",
+        "taxTitle": "Belastingidentifiseerders",
+        "taxDescription": "Slegs dié wat op jou van toepassing is; drukwerk word per faktuur beheer.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "VK BTW-nommer",
+        "usTaxId": "VSA EIN / SSN",
+        "usTaxIdHint": "Geënkripteer in rus",
+        "lutNumber": "LUT-nommer",
+        "lutNumberHint": "Vir uitvoere sonder IGST",
+        "lutFiscalYear": "LUT-boekjaar",
+        "lutFiscalYearHint": "bv. 2026-27",
+        "defaultsTitle": "Verstekke",
+        "baseCurrency": "Basisgeldeenheid",
+        "locale": "Dokumentlokale",
+        "localeHint": "Getal- en datumformatering op dokumente",
+        "fiscalYearStart": "Boekjaar begin in",
+        "months": {
+          "january": "Januarie",
+          "february": "Februarie",
+          "march": "Maart",
+          "april": "April",
+          "may": "Mei",
+          "june": "Junie",
+          "july": "Julie",
+          "august": "Augustus",
+          "september": "September",
+          "october": "Oktober",
+          "november": "November",
+          "december": "Desember"
+        },
+        "taxRegime": "Verstek-belastingstelsel",
+        "regimes": {
+          "indiaGst": "Indië GST",
+          "ukVat": "VK BTW",
+          "usSalesTax": "VSA verkoopbelasting",
+          "none": "Geen belasting"
+        },
+        "invoiceNumberFormat": "Faktuurnommerformaat",
+        "invoiceNumberFormatHint": "Tekens: {tokens}",
+        "creditNoteNumberFormat": "Kredietnotanommerformaat",
+        "tdsRate": "Verwagte TDS-koers (%)",
+        "tdsRateHint": "Ter inligting, gedruk as verwagte aftrekking",
+        "defaultNotes": "Verstek-aantekeninge",
+        "defaultTerms": "Verstekvoorwaardes",
+        "printTitle": "Wat by verstek gedruk word",
+        "printDescription": "Elke faktuur kopieer hierdie en kan dit individueel verander.",
+        "emailTitle": "E-pos",
+        "emailDescription": "Verstekke vir die stuurskrywer. Plekhouers: {placeholders}",
+        "emailCc": "Verstek-CC",
+        "emailBcc": "Verstek-BCC",
+        "commaSeparated": "Kommageskei",
+        "invoiceSubject": "Faktuuronderwerp",
+        "invoiceSubjectHint": "Leeg gebruik die ingeboude sjabloon",
+        "creditNoteSubject": "Kredietnota-onderwerp",
+        "invoiceBody": "Faktuurliggaam",
+        "creditNoteBody": "Kredietnota-liggaam",
+        "artworkTitle": "Beeldmateriaal",
+        "artworkDescription": "PNG, JPEG of WebP tot 2 MB; handtekening en stempel behou deursigtigheid.",
+        "logo": "Logo",
+        "signature": "Handtekening",
+        "stamp": "Stempel",
+        "transparentPng": "Deurskynende PNG",
+        "save": "Stoor profiel"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Betaalmetodes",
+      "title": "Betaalmetodes",
+      "description": "Hoe kliënte jou betaal. Besonderhede is geënkripteer en word by uitreiking in elke faktuur gevries.",
+      "newMethod": "Nuwe metode",
+      "emptyTitle": "Nog geen betaalmetodes nie",
+      "emptyDescription": "Voeg ’n bankrekening, UPI-ID of beursie by sodat fakture kliënte kan sê waar om te betaal.",
+      "addMethod": "Voeg ’n metode by",
+      "columns": {
+        "name": "Naam",
+        "type": "Tipe",
+        "currency": "Geldeenheid",
+        "status": "Status"
+      },
+      "types": {
+        "bankTransfer": "Banküroordrag",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Pasgemaak"
+      },
+      "makeDefaultTitle": "Maak {name} die verstek?",
+      "restoreTitle": "Herstel {name}?",
+      "archiveTitle": "Argiveer {name}?",
+      "archiveDescription": "Uitgereikte fakture behou die momentopname wat hulle gedruk het.",
+      "new": {
+        "metaTitle": "Nuwe betaalmetode",
+        "title": "Nuwe betaalmetode"
+      },
+      "edit": {
+        "metaTitle": "Wysig betaalmetode",
+        "title": "Wysig {name}",
+        "deleteTitle": "Skrap {name}?",
+        "deleteDescription": "Slegs moontlik solank geen faktuur of betaling daarna verwys nie. Argiveer dit andersins."
+      },
+      "form": {
+        "name": "Naam",
+        "nameHint": "Gedruk as die opskrif van die betaalblok",
+        "type": "Tipe",
+        "currency": "Geldeenheid",
+        "currencyHint": "Opsioneel; slegs vir konteks gewys",
+        "anyCurrency": "Enige",
+        "instructions": "Instruksies",
+        "instructionsHint": "Gedruk onder die besonderhede",
+        "isDefault": "Verstekmetode",
+        "isDefaultDescription": "Vooraf gekies op nuwe fakture",
+        "isActive": "Aktief",
+        "detailsTitle": "Besonderhede",
+        "detailsDescription": "Geënkripteer in rus; by uitreiking as momentopname in elke faktuur opgeneem.",
+        "vpa": "UPI-ID (VPA)",
+        "payeeName": "Naam van begunstigde",
+        "lines": "Reëls",
+        "linesHint": "Een reël per ry, gedruk soos dit is",
+        "accountEmail": "Rekening-e-pos / handvatsel",
+        "bank": {
+          "accountHolder": "Rekeninghouer",
+          "accountNumber": "Rekeningnommer",
+          "bankName": "Banknaam",
+          "branch": "Tak",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Roetering- / takkode"
+        },
+        "save": "Stoor betaalmetode"
+      }
+    },
+    "templates": {
+      "metaTitle": "Dokumentsjablone",
+      "title": "Dokumentsjablone",
+      "customised": "Aangepas",
+      "builtIn": "Ingeboude verstek",
+      "description": "Hoe fakture en kredietnotas lyk. Uitgereikte dokumente behou die sjabloon waarmee hulle uitgereik is.",
+      "resetTitle": "Herstel na die ingeboude verstek?",
+      "resetDescription": "Jou aanpassing word verwyder; reeds uitgereikte dokumente word nie geraak nie.",
+      "reset": "Herstel",
+      "resetTrigger": "Herstel na verstekke",
+      "importTitle": "Voer in",
+      "importDescription": "Herstel ’n konfigurasie wat vroeër uitgevoer is.",
+      "overridesTitle": "Oorskrywings per profiel",
+      "overridesDescription": "’n Profiel kan op sy wysigbladsy kies om sy eie sjabloon te gebruik.",
+      "noOverrides": "Elke profiel gebruik die instansiesjabloon.",
+      "import": {
+        "json": "Sjabloon-JSON",
+        "jsonHint": "Plak ’n lêer wat deur Voer JSON uit geskep is; ontbrekende sleutels val terug op verstekke",
+        "importing": "Voer tans in…",
+        "submit": "Voer in"
+      },
+      "form": {
+        "templateTitle": "Sjabloon",
+        "templateDescription": "Ses ingeboude sjablone; die aanpassing hieronder geld vir watter een jy ook kies.",
+        "templateGroup": "Sjabloon",
+        "templates": {
+          "ledger": {
+            "name": "Grootboek",
+            "character": "Modern en lugtig, sans-serif, aksentlyn onder die opskrif."
+          },
+          "classic": {
+            "name": "Klassiek",
+            "character": "Tradisionele omrande tabel, serif-opskrifte, omkaderde totale."
+          },
+          "compact": {
+            "name": "Kompak",
+            "character": "Digte uitleg vir lang itemlyste; kleiner letters, minder skeidingslyne."
+          },
+          "minimal": {
+            "name": "Minimaal",
+            "character": "Rustig en ruim: geen lyne of kaders nie, ligte etikette, baie spasie."
+          },
+          "letterhead": {
+            "name": "Briefhoof",
+            "character": "Jou logo en naam op ’n kleurband of beeld bo-aan elke bladsy."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Kleurbandopskrif; partye, tabelopskrif en totale op ’n ligte aksenttint."
+          }
+        },
+        "paperTitle": "Papier en lettertipe",
+        "paperSize": "Papiergrootte",
+        "paperLetter": "Letter",
+        "margins": "Kantlyne",
+        "marginsNormal": "Normaal",
+        "marginsNarrow": "Smal",
+        "headingFont": "Opskrif-lettertipe",
+        "bodyFont": "Teks-lettertipe",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "Tabelstyl",
+        "tableRuled": "Met lyne",
+        "tableZebra": "Sebra",
+        "tablePlain": "Gewoon",
+        "accentColour": "Aksentkleur",
+        "textColour": "Tekskleur",
+        "logoPosition": "Logoposisie",
+        "positionLeft": "Links",
+        "positionCentre": "Middel",
+        "positionRight": "Regs",
+        "logoHeight": "Logohoogte (mm)",
+        "documentTitle": "Dokumenttitel",
+        "titleAuto": "Outomaties (GST-bewus)",
+        "titleCustom": "Pasgemaak",
+        "titlePlaceholder": "bv. PROFORMA-FAKTUUR",
+        "qrPosition": "QR-posisie",
+        "qrFooter": "Voetstuk",
+        "qrHeader": "Opskrif",
+        "qrBesideTotals": "Langs totale",
+        "amountInWords": "Bedrag in woorde",
+        "wordsBelowTotal": "Onder totale",
+        "wordsFooter": "Voetstuk",
+        "wordsHidden": "Versteek",
+        "subtotalRow": "Subtotaalry",
+        "discountRow": "Kortingry",
+        "taxLines": "Belastingreëls",
+        "tdsExpected": "TDS verwag",
+        "roundingRow": "Afrondingsry",
+        "pageNumbers": "Bladsynommers",
+        "headerTitle": "Opskrif",
+        "headerDescription": "’n Kleurband of beeld bo-aan elke bladsy. Briefhoof en Modern wys ’n band tensy jy anders kies.",
+        "headerStyle": "Opskrifstyl",
+        "headerNone": "Geen",
+        "headerBand": "Kleurband",
+        "headerImage": "Beeld",
+        "bandColour": "Bandkleur",
+        "bandColourHex": "Bandkleur (hex)",
+        "headerImageLabel": "Opskrifbeeld",
+        "headerImageHint": "PNG, JPEG of WebP tot 2400 px breed; dit span die bladsybreedte.",
+        "imageOpacity": "Beeldondeursigtigheid",
+        "headerHeight": "Opskrifhoogte (mm)",
+        "bandText": "Teks op die band",
+        "bandTextAuto": "Outomaties (vanaf die bandkleur)",
+        "bandTextLight": "Lig",
+        "bandTextDark": "Donker",
+        "textTitle": "Teks",
+        "headerNote": "Opskrifnota",
+        "footer": "Voetstuk",
+        "signatureCaption": "Handtekeningonderskrif",
+        "draftWatermark": "Konsepwatermerk",
+        "labelsTitle": "Etikette",
+        "labelsDescription": "Laat ’n veld leeg om die verstekformulering te behou.",
+        "save": "Stoor sjabloon",
+        "downloadSample": "Laai voorbeeld-PDF af",
+        "exportJson": "Voer JSON uit"
+      }
+    },
+    "email": {
+      "metaTitle": "E-pos",
+      "title": "E-pos",
+      "configuredSettings": "Gekonfigureer in Instellings",
+      "configuredEnv": "Gekonfigureer deur omgewing",
+      "notConfigured": "Nie gekonfigureer nie: e-pos-toepassingvloei",
+      "description": "Dokumente word uit die stuurskrywer gestuur met die gestoorde PDF aangeheg. Instellings hier oorskryf SMTP_* in die omgewing.",
+      "sendTest": "Stuur toets-e-pos na {email}",
+      "removeTitle": "Verwyder die gestoorde SMTP-instellings?",
+      "removeEnvTakesOver": "Die omgewing se SMTP_*-waardes neem oor.",
+      "removeFallsBack": "E-pos val terug op die e-pos-toepassingvloei.",
+      "removeTrigger": "Verwyder gestoorde instellings",
+      "smtpTitle": "SMTP-bediener",
+      "smtpFromEnv": "Word tans uit die omgewing geneem; stoor hier oorskryf dit.",
+      "smtpPasswordNote": "Die wagwoord is geënkripteer in rus en word nooit weer gewys nie.",
+      "defaultsTitle": "Verstekontvangers",
+      "defaultsDescription": "CC/BCC vir die hele instansie; uitreikerprofiele voeg hul eie by.",
+      "sentTitle": "Gestuurde pos",
+      "sentDescription": "Die laaste 50 pogings, insluitend mislukkings en handmatige stuur.",
+      "smtp": {
+        "host": "Gasheer",
+        "port": "Poort",
+        "security": "Sekuriteit",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Geen (LAN-relay)",
+        "user": "Gebruikersnaam",
+        "password": "Wagwoord",
+        "passwordStored": "Gestoor en geënkripteer; los leeg om dit te behou",
+        "passwordEncrypted": "Geënkripteer in rus",
+        "from": "Van-adres",
+        "fromName": "Van-naam",
+        "replyTo": "Antwoord aan",
+        "save": "Stoor SMTP-instellings"
+      },
+      "defaults": {
+        "cc": "Verstek-CC",
+        "ccHint": "By elke stuurskrywer gevoeg; kommageskei",
+        "bcc": "Verstek-BCC",
+        "save": "Stoor verstekke"
+      }
+    },
+    "security": {
+      "metaTitle": "Sekuriteit",
+      "title": "Sekuriteit",
+      "description": "Waar jy aangemeld is, en alles wat verander het.",
+      "sessions": {
+        "title": "Aktiewe sessies",
+        "description": "As jy ’n sessie intrek, word daardie toestel dadelik afgemeld.",
+        "signOutOthers": {
+          "title": "Teken orals elders uit?",
+          "description": "Elke sessie behalwe hierdie een word ingetrek.",
+          "confirm": "Teken ander uit",
+          "trigger": "Teken orals elders uit"
+        },
+        "columns": {
+          "device": "Toestel",
+          "ipAddress": "IP-adres",
+          "signedIn": "Aangemeld",
+          "lastSeen": "Laas gesien",
+          "expires": "Verval"
+        },
+        "thisDevice": "Hierdie toestel",
+        "revokeTitle": "Trek hierdie sessie in?",
+        "unknownDevice": "Onbekende toestel",
+        "unknownBrowser": "Onbekend",
+        "agentOnOs": "{browser} op {os}"
+      },
+      "audit": {
+        "title": "Ouditlogboek",
+        "count": "{count, plural, one {# gebeurtenis} other {# gebeurtenisse}}",
+        "entity": "Entiteit",
+        "actionContains": "Handeling bevat",
+        "filter": "Filter",
+        "reset": "Herstel",
+        "columns": {
+          "when": "Wanneer",
+          "who": "Wie",
+          "action": "Handeling",
+          "entity": "Entiteit",
+          "summary": "Opsomming"
+        },
+        "empty": "Geen gebeurtenisse pas by hierdie filters nie.",
+        "system": "Stelsel",
+        "changes": "Veranderinge",
+        "page": "Bladsy {page} van {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Gebruikers",
+      "title": "Gebruikers",
+      "description": "Wie by hierdie instansie kan aanmeld en wat hulle mag doen.",
+      "roles": {
+        "owner": "Eienaar",
+        "editor": "Redakteur",
+        "viewer": "Kyker"
+      },
+      "roleHints": {
+        "owner": "Alles, insluitend instellings en lede",
+        "editor": "Kliënte, katalogus, fakture, kredietnotas, betalings, e-pos",
+        "viewer": "Slegs lees"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Rol van {email}",
+      "invite": {
+        "title": "Nooi iemand uit",
+        "description": "Hulle meld aan met die uitgenooide adres (’n identiteitsverskaffer of ’n wagwoord) en kry die rol wat jy kies.",
+        "sent": "Uitnodiging per e-pos gestuur aan {email}.",
+        "readyWithError": "Uitnodiging gereed vir {email}. Die e-pos kon nie gestuur word nie ({error}); stuur hulle hierdie skakel:",
+        "readyNoSmtp": "Uitnodiging gereed vir {email}. Geen SMTP is gekonfigureer nie; stuur hulle hierdie skakel:",
+        "copyLink": "Kopieer skakel",
+        "email": "E-pos",
+        "emailPlaceholder": "persoon@example.com",
+        "role": "Rol",
+        "submit": "Nooi uit",
+        "inviting": "Nooi tans uit…"
+      },
+      "members": {
+        "title": "Lede",
+        "description": "Ten minste een aktiewe eienaar bly altyd oor.",
+        "columns": {
+          "person": "Persoon",
+          "role": "Rol",
+          "lastSignIn": "Laaste aanmelding",
+          "status": "Status"
+        },
+        "nameYou": "{name} (jy)",
+        "deactivated": "Gedeaktiveer",
+        "reactivate": {
+          "title": "Heraktiveer {email}?",
+          "description": "Hulle kan weer aanmeld met hul vorige rol.",
+          "confirm": "Heraktiveer"
+        },
+        "deactivate": {
+          "title": "Deaktiveer {email}?",
+          "description": "Elke sessie eindig nou en hulle kan nie aanmeld totdat hulle geheraktiveer is nie. Hul geskiedenis bly.",
+          "confirm": "Deaktiveer"
+        }
+      },
+      "invitations": {
+        "title": "Hangende uitnodigings",
+        "description": "Adresse wat mag aanmeld maar dit nog nie gedoen het nie.",
+        "columns": {
+          "email": "E-pos",
+          "role": "Rol",
+          "invited": "Uitgenooi"
+        },
+        "empty": "Geen hangende uitnodigings nie.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Trek die uitnodiging vir {email} terug?"
+      }
+    },
+    "data": {
+      "metaTitle": "Data",
+      "title": "Data",
+      "description": "Alles is oordraagbaar: datastelle as CSV of Excel, ’n volledige momentopname vir migrasie, die PDF’s vir jou rekenmeester, en ’n getoetste rugsteunroetine.",
+      "period": {
+        "fiscalYear": "Boekjaar",
+        "fiscalYearHint": "Oorskryf die datums",
+        "issuer": "Uitreiker"
+      },
+      "exportAll": {
+        "title": "Voer alle data uit",
+        "description": "’n ZIP met elke datastel as CSV plus <mono>data.json</mono>, ’n relasionele momentopname van alle tabelle. Geënkripteerde velde (betaalmetodebesonderhede, SMTP-wagwoord) bly uit; die README binne-in lys hulle.",
+        "download": "Laai okinvo-data ZIP af"
+      },
+      "exportDocuments": {
+        "title": "Voer dokumente uit",
+        "description": "Elke uitgereikte en nietig verklaarde faktuur- en kredietnota-PDF vir ’n tydperk, benoem volgens nommer, met ’n <mono>index.csv</mono> van nommers, totale en hashes. Ontbrekende PDF’s word onderweg gelewer.",
+        "docx": "Sluit ook ’n DOCX-kopie van elke dokument in",
+        "download": "Laai dokumente-ZIP af"
+      },
+      "datasets": {
+        "title": "Datastelle",
+        "description": "Dieselfde uitvoere as wat die indeksbladsye bied, met ’n tydperk en uitreiker op almal toegepas. Betalings gebruik die datumreeks; kliënte en dienste ignoreer die tydperk.",
+        "columns": {
+          "dataset": "Datastel",
+          "filters": "Filters toegepas",
+          "download": "Aflaai"
+        },
+        "names": {
+          "invoices": "Faktuurregister",
+          "invoiceItems": "Faktuurreëlitems",
+          "payments": "Betalingsgrootboek",
+          "creditNotes": "Kredietnotaregister",
+          "clients": "Kliënte",
+          "services": "Dienste",
+          "gstSummary": "GST-opsomming",
+          "tdsSummary": "TDS-opsomming"
+        },
+        "filters": {
+          "periodIssuer": "tydperk, uitreiker",
+          "dateRangeIssuer": "datumreeks, uitreiker",
+          "includesArchived": "sluit geargiveerde in"
+        }
+      },
+      "backups": {
+        "title": "Rugsteun",
+        "notWired": "Geen rugsteundiens gekoppel nie",
+        "noRun": "Nog geen rugsteun het geloop nie",
+        "lastOk": "Laaste rugsteun suksesvol",
+        "lastFailed": "Laaste rugsteun het misluk",
+        "description": "Die Compose-<mono>backup</mono>-diens maak ’n Postgres-storting en argiveer die bergingsvolume volgens <mono>BACKUP_CRON</mono>, hou <mono>BACKUP_RETENTION_DAYS</mono> se geskiedenis in die <mono>backups</mono>-volume, en skryf ’n statuslêer wat hierdie bladsy lees.",
+        "finished": "Voltooi",
+        "databaseDump": "Databasisstorting",
+        "storageArchive": "Bergingsargief",
+        "size": "Grootte",
+        "sizeMb": "{size} MB",
+        "error": "Fout",
+        "runNow": "Laat een nou loop, of herstel vanaf ’n paar lêers:",
+        "restoreDrill": "Die herstelprosedure word in CI deur <mono>scripts/restore-drill.sh</mono> geoefen: saai, rugsteun, vee uit, herstel, vergelyk dan rytelling en ’n PDF-hash."
+      }
+    },
+    "legal": {
+      "metaTitle": "Regsinligting",
+      "metaDescription": "Wie hierdie instansie bedryf: die besonderhede wat op die openbare regsbladsye gedruk word.",
+      "title": "Regsinligting",
+      "description": "Die openbare regsbladsye druk hierdie besonderhede. Totdat elke veld ingevul is, wys die bladsye gemerkte plekhouers.",
+      "operator": {
+        "title": "Bedryfsbesonderhede",
+        "complete": "Volledig",
+        "missing": "{count} ontbreek: {fields}",
+        "description": "Jy, as die persoon of maatskappy wat hierdie instansie bedryf, is die bedryfsdraer na wie die dokumente verwys. Niks hier word êrens heen gestuur nie; dit word op die bladsye hieronder gedruk."
+      },
+      "fieldLabels": {
+        "legalName": "Regsnaam van bedryfsdraer",
+        "entityType": "Entiteitstipe",
+        "address": "Adres van bedryfsdraer",
+        "country": "Land van bedryfsdraer",
+        "contactEmail": "Kontak-e-pos",
+        "privacyEmail": "Privaatheids-e-pos",
+        "dpoEmail": "Databeskermingsbeampte se e-pos",
+        "governingLaw": "Toepaslike reg",
+        "venue": "Forum vir geskille",
+        "effectiveDate": "Inwerkingtredingsdatum"
+      },
+      "publicPages": {
+        "title": "Openbare bladsye",
+        "description": "Gekoppel vanaf die aanmeldbladsy, die deelkyker en die koekiekennisgewing.",
+        "terms": "Diensvoorwaardes",
+        "acceptableUse": "Beleid vir aanvaarbare gebruik",
+        "privacy": "Privaatheidsbeleid",
+        "cookies": "Koekiebeleid",
+        "dataRetention": "Databehoud",
+        "security": "Sekuriteit",
+        "licenses": "Lisensies en derdeparty-kennisgewings"
+      },
+      "form": {
+        "legalName": "Regsnaam",
+        "entityType": "Entiteitstipe",
+        "individual": "Individu / enigeeienaar",
+        "company": "Maatskappy / geregistreerde entiteit",
+        "address": "Adres",
+        "addressHint": "Gedruk in die Voorwaardes en die Privaatheidsbeleid as die bedryfsdraer se posadres.",
+        "country": "Land",
+        "effectiveDate": "Inwerkingtredingsdatum",
+        "contactEmail": "Kontak-e-pos",
+        "privacyEmail": "Privaatheids-e-pos",
+        "privacyEmailHint": "Waarheen datasubjekversoeke gaan; mag die kontakadres wees.",
+        "dpoEmail": "Databeskermingsbeampte se e-pos",
+        "dpoEmailHint": "Slegs as jy een aangestel het.",
+        "governingLaw": "Toepaslike reg",
+        "governingLawHint": "Byvoorbeeld \"die wette van Indië\" of \"die wette van Engeland en Wallis\".",
+        "venue": "Forum vir geskille",
+        "venueHint": "Byvoorbeeld \"die howe van Bengaluru, Karnataka\".",
+        "submit": "Stoor bedryfsbesonderhede"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API-sleutels vir skripte, die SDK en MCP-kliënte, met curl-voorbeelde.",
+      "title": "API",
+      "description": "Sleutels vir skripte, die SDK en MCP-kliënte. ’n Sleutel kan hoogstens doen wat jou rol kan doen; dit word een keer gewys.",
+      "create": {
+        "title": "Skep ’n sleutel",
+        "description": "Stuur dit as <mono>Authorization: Bearer okv_…</mono>. Hou dit uit bronkode en geselsloglêers; trek dit hieronder terug as dit uitlek."
+      },
+      "keys": {
+        "title": "Sleutels",
+        "descriptionOwner": "Elke sleutel van hierdie instansie; eienaars kan enige daarvan terugtrek.",
+        "descriptionOwn": "Jou sleutels.",
+        "columns": {
+          "name": "Naam",
+          "prefix": "Voorvoegsel",
+          "scopes": "Bereike",
+          "owner": "Eienaar",
+          "lastUsed": "Laas gebruik",
+          "expires": "Verval",
+          "status": "Status"
+        },
+        "empty": "Nog geen API-sleutels nie.",
+        "never": "nooit",
+        "revoked": "Teruggetrek",
+        "expired": "Verval",
+        "revokeTitle": "Trek {name} terug?",
+        "revokeDescription": "Kliënte wat hierdie sleutel gebruik, hou dadelik op werk.",
+        "activeCount": "{count, plural, one {# aktiewe sleutel.} other {# aktiewe sleutels.}}"
+      },
+      "examples": {
+        "title": "Voorbeelde",
+        "description": "Vervang <mono>$OKINVO_KEY</mono> met ’n sleutel. Die weergawe-REST-API, sy OpenAPI-dokument (<mono>/api/openapi.json</mono>), die TypeScript-SDK en die MCP-bediener kom met die volgende take van die v1.1-plan; die statuseindpunt werk vandag.",
+        "rateLimit": "Oproepe oor die perk antwoord 429 met ’n <mono>Retry-After</mono>-kopstuk (120 versoeke per minuut per sleutel). ’n Sleutel se bereike word beperk deur sy eienaar se huidige rol."
+      },
+      "form": {
+        "copyKey": "Kopieer API-sleutel",
+        "name": "Naam",
+        "namePlaceholder": "bv. rekeningkundige skrip",
+        "expires": "Verval",
+        "in30Days": "oor 30 dae",
+        "in90Days": "oor 90 dae",
+        "inAYear": "oor ’n jaar",
+        "never": "Nooit",
+        "scopes": "Bereike",
+        "submit": "Skep API-sleutel",
+        "creating": "Skep tans…"
+      },
+      "scopes": {
+        "invoicesRead": "Lees fakture",
+        "invoicesCreate": "Skep en reik fakture uit",
+        "creditNotesRead": "Lees kredietnotas",
+        "creditNotesCreate": "Skep en reik kredietnotas uit",
+        "catalogueRead": "Lees kliënte, dienste en produkte",
+        "documentsRead": "Laai gestoorde PDF’s en DOCX-kopieë af",
+        "statusRead": "Lees die instansiestatus"
+      }
+    },
+    "status": {
+      "metaTitle": "Status",
+      "metaDescription": "Weergawe, databasis, berging, e-pos en rugsteungesondheid van hierdie instansie.",
+      "title": "Status",
+      "description": "Wat hierdie instansie laat loop en of sy dele antwoord.",
+      "recheck": "Gaan weer na",
+      "health": {
+        "ok": "OK",
+        "warning": "Waarskuwing",
+        "failed": "Misluk",
+        "na": "Nie gekonfigureer nie"
+      },
+      "overall": {
+        "ok": "Alles reg",
+        "degraded": "Verswak",
+        "failed": "Misluk"
+      },
+      "version": "Bou {hasSha, select, yes {<mono>{sha}</mono>} other {(sha onbekend)}} · gebou {built} · Node <mono>{node}</mono> · aktief {uptime} · nagegaan {checked}",
+      "dateUnknown": "(datum onbekend)",
+      "uptime": {
+        "days": "{d}d {h}u {m}m",
+        "hours": "{h}u {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Databasis",
+        "storage": "Berging",
+        "rateLimiting": "Koersbeperking",
+        "email": "E-pos",
+        "backups": "Rugsteun"
+      },
+      "db": {
+        "detail": "{latency} ms · laaste migrasie <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # onvoltooide migrasie(s)}}",
+        "noMigration": "geen"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · skryf, lees en skrap van ’n toetsvoorwerp in {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono>-stoor {store, select, memory {(een replika)} other {(gedeel oor replikas)}}",
+      "smtp": {
+        "configured": "SMTP vanaf {source, select, settings {settings} env {env} other {}} · laaste toets {lastTest} · laaste 24 u: {sent} gestuur, {failed} misluk",
+        "none": "Geen SMTP-bediener nie; die stuurskrywer bied “Maak oop in e-pos-toepassing”. <link>Konfigureer</link>"
+      },
+      "backups": {
+        "notWired": "Geen rugsteundiens gekoppel nie (BACKUP_STATUS_FILE nie gestel nie).",
+        "noRun": "Rugsteundiens gekoppel; nog geen lopie aangeteken nie.",
+        "ok": "Laaste lopie het geslaag om {finishedAt}{days, plural, =0 {} one { · behoud # dag} other { · behoud # dae}}",
+        "failed": "Laaste lopie het misluk: {error} om {finishedAt}{days, plural, =0 {} one { · behoud # dag} other { · behoud # dae}}"
+      },
+      "footer": "Dieselfde verslag is as JSON beskikbaar by <mono>/api/health/status</mono> vir monitering (aangemelde sessie of API-sleutel)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Welkom",
+    "progress": "Vordering",
+    "steps": {
+      "aboutYou": "Oor jou",
+      "howYouUse": "Hoe jy dit sal gebruik",
+      "allSet": "Als gereed"
+    },
+    "step1": {
+      "title": "Vertel ons van jouself",
+      "subtitle": "Dit stel jou verstekke; elke waarde kan later in Instellings verander word.",
+      "name": "Naam",
+      "email": "E-pos",
+      "emailHint": "Jou aanmeldidentiteit. Dit kan later vanaf Instellings → Sekuriteit verander word.",
+      "country": "Land",
+      "currency": "Voorkeurgeldeenheid",
+      "currencyHint": "Gebruik vir nuwe profiele en die kontrolebord totdat ’n profiel bestaan."
+    },
+    "step2": {
+      "title": "Hoe sal jy okinvo gebruik?",
+      "subtitle": "Slegs die verstekke verander; niks is vasgesluit nie.",
+      "usage": "Gebruik",
+      "personal": "Persoonlike fakturering",
+      "personalHint": "Vryskutwerk in jou eie naam",
+      "business": "Sakefakturering",
+      "businessHint": "Fakture vanaf ’n geregistreerde besigheid",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "BTW-nommer",
+        "other": "Belastingregistrasienommer"
+      },
+      "taxQuestion": {
+        "IN": "Het jy ’n GSTIN?",
+        "GB": "Is jy vir BTW geregistreer?",
+        "other": "Het jy ’n belastingregistrasienommer om op fakture te druk?"
+      }
+    },
+    "step3": {
+      "title": "Jy is gereed",
+      "body": "Skep volgende jou eerste uitreikerprofiel: die naam, adres en belastingbesonderhede wat op jou fakture gedruk word. Ons het ingevul wat jy ons vertel het.",
+      "go": "Gaan na profiele",
+      "opening": "Maak tans oop…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Voorwaardes",
+      "privacy": "Privaatheid",
+      "cookies": "Koekies",
+      "security": "Sekuriteit"
+    },
+    "cookieNotice": {
+      "label": "Koekiekennisgewing",
+      "body": "Ons gebruik slegs streng noodsaaklike koekies: jou sessie en jou vertoonvoorkeure. Geen ontleding, geen naspeuring.",
+      "policy": "Koekiebeleid",
+      "gotIt": "Verstaan"
+    },
+    "nav": {
+      "label": "Regsinligting",
+      "cookies": "Koekies",
+      "privacy": "Privaatheid",
+      "terms": "Voorwaardes",
+      "acceptableUse": "Aanvaarbare gebruik",
+      "retention": "Behoud",
+      "security": "Sekuriteit",
+      "licences": "Lisensies"
+    },
+    "operatorNotice": "okinvo is selfgehuisveste sagteware; die bedryfsdraer van hierdie instansie is verantwoordelik vir die gebruik daarvan.",
+    "doc": {
+      "effectiveOn": "Van krag <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Inhoud"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Regsnaam van bedryfsdraer",
+        "entityType": "Entiteitstipe",
+        "address": "Adres van bedryfsdraer",
+        "country": "Land van bedryfsdraer",
+        "contactEmail": "Kontak-e-pos",
+        "privacyEmail": "Privaatheids-e-pos",
+        "dpoEmail": "Databeskermingsbeampte se e-pos",
+        "governingLaw": "Toepaslike reg",
+        "venue": "Forum vir geskille",
+        "effectiveDate": "Inwerkingtredingsdatum"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Nie gevind nie",
+      "title": "Daar is niks by hierdie adres nie",
+      "body": "Die skakel mag verouderd wees, of die dokument waarna dit gewys het, is nooit uitgereik nie."
+    },
+    "forbidden": {
+      "metaTitle": "Nie toegelaat nie",
+      "title": "Hierdie rekening kan dit nie doen nie",
+      "body": "Jou rol laat dit nie toe nie. Vra ’n eienaar vir toegang, of meld aan met ’n rekening wat dit het."
+    },
+    "error": {
+      "title": "Iets het skeefgeloop",
+      "body": "Niks is deur hierdie versoek verander nie. Probeer weer; as dit aanhou gebeur, het die bedienerlogboek die besonderhede.",
+      "digest": "fout {digest}",
+      "generic": "fout"
+    },
+    "appNotFound": {
+      "title": "Nie gevind nie",
+      "body": "Hierdie rekord bestaan nie, of is geskrap terwyl jy daarna gekyk het.",
+      "back": "Terug na die kontrolebord"
+    },
+    "validation": {
+      "required": "vereis",
+      "tooLong": "hoogstens {max} karakters",
+      "invalidEmail": "moet ’n geldige e-pos wees",
+      "invalidDate": "moet ’n kalenderdatum in die vorm JJJJ-MM-DD wees",
+      "invalidAmount": "moet ’n getal wees",
+      "wholeNumber": "moet ’n heelgetal wees",
+      "greaterThanZero": "moet groter as nul wees",
+      "fixFields": "Korrigeer asseblief die gemerkte velde.",
+      "charset": "Slegs standaard sleutelbordkarakters word toegelaat."
+    }
+  },
+  "verify": {
+    "metaTitle": "Verifieer dokument",
+    "heading": "Dokumentverifikasie",
+    "rateLimited": "Te veel kontroles vanaf hierdie adres. Probeer asseblief oor ’n minuut weer.",
+    "notFound": {
+      "title": "Geen sodanige dokument nie",
+      "body": "Hierdie skakel stem met geen uitgereikte dokument ooreen nie. Gaan die QR-kode of die skakel wat jy ontvang het na, of kontak die uitreiker."
+    },
+    "status": {
+      "void": "Nietig",
+      "valid": "Geldig"
+    },
+    "issuedBy": "Uitgereik deur",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Uitgereik aan",
+    "issueDate": "Uitreikingsdatum",
+    "total": "Totaal",
+    "voided": "Hierdie dokument is deur die uitreiker nietig verklaar en is nie meer geldig nie.",
+    "storedCopies": {
+      "title": "Gestoorde kopieë",
+      "description": "SHA-256 van elke PDF-weergawe wat die uitreiker hou. Kies jou kopie om dit in jou blaaier te vergelyk: niks word opgelaai nie.",
+      "empty": "Nog geen PDF is gegenereer nie.",
+      "protectedVersion": "Wagwoordbeskermde kopie {version}",
+      "version": "Weergawe {version}"
+    },
+    "check": {
+      "label": "Gaan jou kopie na",
+      "hashing": "Bereken hash…",
+      "match": "Jou kopie stem presies met weergawe {version} ooreen.",
+      "mismatch": "Jou kopie stem met geen gestoorde weergawe ooreen nie."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Gedeelde dokument",
+      "rateLimited": "Te veel versoeke vanaf hierdie adres. Probeer asseblief oor ’n minuut weer.",
+      "unavailable": {
+        "title": "Hierdie skakel is nie beskikbaar nie",
+        "body": "Dit het dalk verval of is deur die uitreiker teruggetrek. Vra hulle vir ’n nuwe een."
+      },
+      "lockedTitleInvoice": "Faktuur van {issuer}",
+      "lockedTitleCreditNote": "Kredietnota van {issuer}",
+      "lockedBody": "Hierdie dokument is wagwoordbeskerm. Voer die wagwoord in wat die uitreiker jou gegee het.",
+      "void": "Nietig",
+      "protectedPdf": "Die PDF maak met dieselfde wagwoord oop. Dit kan gelees en gedruk word; kopiëring en wysiging is gesluit.",
+      "byline": "Van {issuer} aan {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Wagwoord",
+      "limited": "Te veel pogings. Wag asseblief vyftien minute en probeer weer.",
+      "wrong": "Daardie wagwoord is nie reg nie.",
+      "submit": "Maak dokument oop"
+    },
+    "dialog": {
+      "trigger": "Deel",
+      "title": "Deel hierdie dokument",
+      "description": "Enigiemand met die skakel kan dit sien en aflaai totdat dit verval of jy dit terugtrek. ’n Wagwoord beskerm ook die PDF self: dit maak met die wagwoord oop en kan gelees en gedruk word, nie gewysig of gekopieer nie.",
+      "link": "Skakel",
+      "copyLink": "Kopieer skakel",
+      "password": "Wagwoord",
+      "copyPassword": "Kopieer wagwoord",
+      "sendSeparately": "Stuur die wagwoord apart van die skakel. Jy kan dit weer in die lys hieronder sien.",
+      "copy": "Kopieer",
+      "copied": "Gekopieer",
+      "expires": "Verval",
+      "expiry": {
+        "d7": "oor 7 dae",
+        "d30": "oor 30 dae",
+        "d90": "oor 90 dae",
+        "never": "Nooit"
+      },
+      "protection": "Beskerming",
+      "protectionOptions": {
+        "auto": "Wagwoord: genereer ’n wagfrase",
+        "manual": "Wagwoord: kies my eie",
+        "none": "Geen wagwoord (oop skakel)"
+      },
+      "passwordHint": "Ten minste 8 karakters.",
+      "strength": "Sterkte: {label}",
+      "strengthLabels": {
+        "veryWeak": "baie swak",
+        "weak": "swak",
+        "fair": "redelik",
+        "good": "goed",
+        "strong": "sterk"
+      },
+      "creating": "Skep tans…",
+      "create": "Skep skakel",
+      "activeLinks": "Aktiewe skakels",
+      "passwordProtected": "Wagwoordbeskerm",
+      "openLink": "Maak skakel oop",
+      "linkExpires": "{kind} · verval {date}",
+      "linkNeverExpires": "{kind} · verval nooit",
+      "revoke": {
+        "title": "Trek hierdie skakel terug?",
+        "description": "Die skakel hou dadelik op werk vir almal wat dit het.",
+        "label": "Trek terug"
+      },
+      "linkPassword": "Wagwoord: <code>{password}</code>",
+      "counts": "{views, plural, one {# kyk} other {# kyke}} · {downloads, plural, one {# aflaai} other {# aflaaie}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Kredietnotas",
+      "title": "Kredietnotas",
+      "description": "Teen uitgereikte fakture opgestel; elkeen verminder sy faktuursaldo wanneer dit uitgereik word.",
+      "newCreditNote": "Nuwe kredietnota",
+      "filters": {
+        "from": "Van",
+        "to": "Tot",
+        "issuer": "Uitreiker",
+        "client": "Kliënt",
+        "status": "Status",
+        "search": "Soek",
+        "all": "Alle",
+        "searchPlaceholder": "Nommer, rede, kliënt",
+        "go": "Gaan"
+      },
+      "statuses": {
+        "DRAFT": "Konsep",
+        "ISSUED": "Uitgereik",
+        "SENT": "Gestuur",
+        "VOID": "Nietig"
+      },
+      "empty": {
+        "title": "Nog geen kredietnotas nie",
+        "description": "Maak ’n uitgereikte faktuur oop en kies “Kredietnota” om te verminder wat dit skuld."
+      },
+      "noMatch": "Geen kredietnotas pas by hierdie filters nie.",
+      "columns": {
+        "number": "Nommer",
+        "against": "Teen",
+        "client": "Kliënt",
+        "issueDate": "Uitreikingsdatum",
+        "reason": "Rede",
+        "total": "Totaal",
+        "status": "Status"
+      },
+      "draft": "Konsep"
+    },
+    "new": {
+      "metaTitle": "Nuwe kredietnota",
+      "title": "Nuwe kredietnota",
+      "description": "’n Kredietnota word teen ’n uitgereikte faktuur opgestel en verminder sy saldo.",
+      "nothingToCredit": {
+        "title": "Niks om te krediteer nie",
+        "description": "Kredietnotas vereis ’n uitgereikte faktuur met ’n uitstaande saldo.",
+        "openInvoices": "Maak die fakture oop"
+      },
+      "whichInvoice": "Watter faktuur?",
+      "invoice": "Faktuur",
+      "invoiceOption": "{number} · {client} · saldo {balance}",
+      "issuedOnly": "Kredietnotas word slegs teen uitgereikte fakture opgestel.",
+      "invoiceFallback": "Faktuur"
+    },
+    "edit": {
+      "metaTitle": "Wysig kredietnota",
+      "title": "Wysig konsepkredietnota",
+      "immutable": "Uitgereikte kredietnotas is onveranderlik.",
+      "draft": "Konsep"
+    },
+    "detail": {
+      "metaTitle": "Kredietnota",
+      "draftTitle": "Konsepkredietnota",
+      "meta": "{client} · teen <invoice>{number}</invoice> · uitgereik <mono>{date}</mono>",
+      "previewPdf": "Voorskou PDF",
+      "issue": {
+        "title": "Reik hierdie kredietnota uit?",
+        "description": "’n Nommer word toegeken, die faktuursaldo word verminder en die dokument word onveranderlik.",
+        "label": "Reik uit"
+      },
+      "deleteDraft": {
+        "title": "Skrap hierdie konsep?"
+      },
+      "sendByEmail": "Stuur per e-pos",
+      "markSent": {
+        "title": "Merk as gestuur?",
+        "label": "Merk as gestuur"
+      },
+      "void": {
+        "title": "Maak hierdie kredietnota nietig?",
+        "description": "Die faktuursaldo word herstel; die nommer word nooit hergebruik nie.",
+        "reason": "Rede",
+        "label": "Maak nietig"
+      },
+      "voided": "Nietig verklaar {date}: {reason}",
+      "amounts": {
+        "title": "Bedrae",
+        "reason": "Rede",
+        "creditAmount": "Kredietbedrag",
+        "total": "Totaal",
+        "balanceNow": "Faktuursaldo nou",
+        "sent": "Gestuur"
+      },
+      "documents": {
+        "title": "Gestoorde dokumente",
+        "description": "Elke weergawe word behou; die verifieerbladsy lys alle hashes.",
+        "regenerateTitle": "Genereer ’n nuwe PDF-weergawe?",
+        "generate": "Genereer",
+        "newVersion": "Nuwe weergawe",
+        "renderedOnFirstDownload": "Die PDF word met die eerste aflaai gelewer.",
+        "protectedCopy": "Wagwoordbeskermde kopie {version}",
+        "version": "Weergawe {version}",
+        "verificationLink": "Verifikasieskakel: <link>{path}…</link>"
+      },
+      "draftsPreview": "Konsepte word regstreeks in die redigeerder voorsien."
+    },
+    "send": {
+      "metaTitle": "Stuur kredietnota",
+      "title": "Stuur <mono>{number}</mono>",
+      "previousSends": "Vorige stuurs"
+    },
+    "builder": {
+      "against": "Teen <mono>{number}</mono>",
+      "summary": "{client} · totaal {total} · saldo {balance} · belasbare speelruimte ≈ {headroom}",
+      "issueDate": "Uitreikingsdatum",
+      "creditAmount": "Kredietbedrag (sonder belasting)",
+      "creditAmountHint": "Belasting word uit die faktuur se belastingreëls toegedeel",
+      "reason": "Rede",
+      "picker": {
+        "title": "Bereken uit faktuurreëls",
+        "description": "Merk hele reëls of ’n persentasie; dit vul slegs die bedrag hierbo in.",
+        "line": "Reël",
+        "subtotal": "Subtotaal",
+        "credit": "Krediet",
+        "percent": "%",
+        "creditLine": "Krediteer reël {position}",
+        "percentOfLine": "Persentasie van reël {position}"
+      },
+      "saveDraft": "Stoor konsep",
+      "issuing": "Reik tans uit…",
+      "saveAndIssue": "Stoor en reik uit"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Betaling ontvang",
+        "REFUND": "Terugbetaling uitgereik",
+        "WRITE_OFF": "Afskrywing"
+      },
+      "editTitle": "Wysig inskrywing",
+      "recordTitle": "Teken ’n betaling aan",
+      "description": "Bedrae is in die faktuurgeldeenheid ({currency}); TDS afgetrek is deel van die toegepaste bedrag.",
+      "kind": "Soort",
+      "date": "Datum",
+      "amountRefunded": "Bedrag terugbetaal (negatief)",
+      "amountApplied": "Bedrag toegepas",
+      "refundHint": "Voer ’n negatiewe bedrag in, bv. -500",
+      "tdsDeducted": "TDS afgetrek",
+      "tdsHint": "Belasting wat die kliënt teruggehou het; tel mee tot die toegepaste bedrag",
+      "bankFees": "Bankkoste",
+      "receivedInto": "Ontvang in",
+      "noMethod": "-",
+      "reference": "Verwysing",
+      "referenceHint": "UTR, transaksie-ID, tjeknommer",
+      "otherCurrency": "In ’n ander geldeenheid ontvang",
+      "amountReceived": "Bedrag ontvang",
+      "receivedCurrency": "Ontvangsgeldeenheid",
+      "exchangeRate": "Wisselkoers",
+      "exchangeRateHint": "1 eenheid ontvang = ? {currency}",
+      "notes": "Aantekeninge",
+      "receipt": "Kwitansie",
+      "receiptHint": "PNG, JPEG, WebP of PDF tot 10 MB",
+      "saveChanges": "Stoor veranderinge",
+      "record": "Teken aan"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "ongeveer {count, plural, one {# bladsy} other {# bladsye}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Boodskap",
+      "description": "Vooraf ingevul uit die uitreikerprofiel se sjablone. Niks word gestuur voordat jy Stuur klik nie.",
+      "to": "Aan",
+      "toHint": "Kommageskei",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Onderwerp",
+      "body": "Liggaam",
+      "bodyHint": "Gewone teks; skakels word klikbaar",
+      "attachment": "Aanhegsel",
+      "attachmentHint": "Die gestoorde kopie, genaamd <mono>{name}</mono> (of .docx); die inhoud kan nie verander word nie.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Stuur tans…",
+      "send": "Stuur",
+      "openInMailApp": "Maak oop in e-pos-toepassing",
+      "noSmtp": "Geen SMTP-bediener is gekonfigureer nie (Instellings → E-pos). Maak die konsep in jou e-pos-toepassing oop, heg die afgelaaide PDF aan, en merk dit dan hieronder as gestuur.",
+      "markAsSent": "Merk as gestuur"
+    },
+    "sentLog": {
+      "when": "Wanneer",
+      "document": "Dokument",
+      "to": "Aan",
+      "subject": "Onderwerp",
+      "status": "Status",
+      "empty": "Nog niks gestuur nie.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "gestuur",
+        "FAILED": "misluk",
+        "MANUAL": "handmatig"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Hallo, {name}",
+    "fiscalYear": "Boekjaar {year}",
+    "fiscalYearWithBase": "Boekjaar {year} · basisgeldeenheid {currency} ({profile})",
+    "newCreditNote": "Nuwe kredietnota",
+    "welcomeTitle": "Welkom by {appName}",
+    "welcomeDescription": "Begin deur die uitreikerprofiel te skep waarvandaan jy faktureer, voeg dan ’n kliënt en jou eerste faktuur by.",
+    "createProfile": "Skep jou profiel",
+    "tiles": {
+      "outstanding": "Uitstaande",
+      "overdue": "Agterstallig",
+      "billedThisFy": "Gefaktureer hierdie boekjaar",
+      "receivedThisFy": "Ontvang hierdie boekjaar",
+      "drafts": "Konsepte",
+      "invoiceCount": "{count, plural, one {# faktuur} other {# fakture}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Betalings min terugbetalings, teen aangetekende wisselkoers",
+      "awaitingIssue": "wag vir uitreiking",
+      "nothingPending": "niks hangend nie"
+    },
+    "recentInvoices": "Onlangse fakture",
+    "allInvoices": "Alle fakture",
+    "noInvoicesYet": "Nog geen fakture nie.",
+    "columns": {
+      "number": "Nommer",
+      "client": "Kliënt",
+      "issued": "Uitgereik"
+    },
+    "topClients": "Top kliënte volgens uitstaande bedrag",
+    "nothingOutstanding": "Niks uitstaande nie."
+  },
+  "exports": {
+    "export": "Voer uit",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Fakture",
+      "newInvoice": "Nuwe faktuur",
+      "draft": "Konsep",
+      "aDraft": "’n konsep",
+      "statuses": {
+        "draft": "Konsep",
+        "issued": "Uitgereik",
+        "sent": "Gestuur",
+        "partiallyPaid": "Gedeeltelik betaal",
+        "paid": "Betaal",
+        "overdue": "Agterstallig",
+        "void": "Nietig"
+      },
+      "lifecycle": {
+        "draft": "konsep",
+        "issued": "uitgereik",
+        "void": "nietig"
+      },
+      "units": {
+        "hour": "Uur",
+        "day": "Dag",
+        "fixed": "Vas",
+        "milestone": "Mylpaal",
+        "unit": "Eenheid"
+      },
+      "unitsLower": {
+        "hour": "uur",
+        "day": "dag",
+        "fixed": "vas",
+        "milestone": "mylpaal",
+        "unit": "eenheid"
+      },
+      "supplyTypes": {
+        "intraState": "binne-staat",
+        "interState": "tussen-state",
+        "exportLut": "uitvoer lut",
+        "exportWithTax": "uitvoer met belasting",
+        "reverseCharge": "omgekeerde heffing",
+        "notApplicable": "nie van toepassing nie"
+      }
+    },
+    "list": {
+      "description": "Konsepte, uitgereikte en nietige fakture; statusse word van betalings en vervaldatums afgelei.",
+      "fiscalYear": "Boekjaar",
+      "issuer": "Uitreiker",
+      "client": "Kliënt",
+      "searchPlaceholder": "Nommer, bestelling, kliënt",
+      "emptyTitle": "Nog geen fakture nie",
+      "emptyDescription": "Bou jou eerste faktuur: kies ’n kliënt, voeg reëls by, kyk na die voorskou, en reik dit dan uit.",
+      "columns": {
+        "number": "Nommer",
+        "client": "Kliënt",
+        "issuer": "Uitreiker",
+        "issueDate": "Uitreikingsdatum",
+        "due": "Verval",
+        "balance": "Saldo"
+      },
+      "noMatches": "Geen fakture pas by hierdie filters nie.",
+      "count": "{count, plural, one {# faktuur} other {# fakture}}",
+      "countPaged": "{count, plural, one {# faktuur} other {# fakture}} · bladsy {page} van {pages}",
+      "register": "register"
+    },
+    "new": {
+      "noProfileTitle": "Skep eers ’n uitreikerprofiel",
+      "noProfileDescription": "’n Faktuur word vanaf ’n regsidentiteit uitgereik: stel jou profiel met sy belasting-ID’s en nommering op.",
+      "createProfile": "Skep ’n profiel"
+    },
+    "edit": {
+      "metaTitle": "Wysig faktuur",
+      "title": "Wysig konsep",
+      "immutableFlash": "Uitgereikte fakture is onveranderlik. Gebruik “Maak nietig en reik weer uit” om dit reg te stel."
+    },
+    "detail": {
+      "metaTitle": "Faktuur",
+      "draftInvoice": "Konsepfaktuur",
+      "issuedDue": "Uitgereik <mono>{issued}</mono>, verval <mono>{due}</mono>",
+      "replaces": "Vervang {number}",
+      "replacedBy": "Vervang deur {number}",
+      "previewPdf": "Voorskou PDF",
+      "issueTitle": "Reik hierdie faktuur uit?",
+      "issueDescription": "’n Nommer word toegeken en die dokument word onveranderlik.",
+      "issue": "Reik uit",
+      "deleteDraftTitle": "Skrap hierdie konsep?",
+      "sendByEmail": "Stuur per e-pos",
+      "recordPayment": "Teken betaling aan",
+      "creditNote": "Kredietnota",
+      "markSentTitle": "Merk as gestuur?",
+      "markSentDescription": "Teken aan dat die kliënt hierdie faktuur ontvang het.",
+      "markSent": "Merk as gestuur",
+      "voidReissueTitle": "Maak nietig en reik weer uit?",
+      "voidReissueDescription": "Die oorspronklike word nietig verklaar en ’n gekoppelde konsep met dieselfde inhoud maak oop vir wysiging.",
+      "voidReissue": "Maak nietig en reik weer uit",
+      "voidTitle": "Maak hierdie faktuur nietig?",
+      "voidDescription": "Slegs moontlik sonder aangetekende betalings; die nommer word nooit hergebruik nie.",
+      "void": "Maak nietig",
+      "voided": "Nietig verklaar {date}: {reason}",
+      "amounts": "Bedrae",
+      "subtotal": "Subtotaal",
+      "discount": "Korting",
+      "discountPercent": "Korting ({percent})",
+      "rounding": "Afronding",
+      "tdsExpected": "TDS verwag ({percent})",
+      "paid": "Betaal",
+      "credited": "Gekrediteer",
+      "balanceDue": "Saldo verskuldig",
+      "supply": "Lewering",
+      "fxToBase": "Wisselkoers na basis",
+      "poReference": "Bestellingsverwysing",
+      "sent": "Gestuur",
+      "lineItems": "Reëlitems",
+      "columns": {
+        "description": "Beskrywing",
+        "sacHsn": "SAC/HSN",
+        "qty": "Hoev.",
+        "rate": "Koers",
+        "tax": "Belasting",
+        "amount": "Bedrag"
+      },
+      "creditNotes": "Kredietnotas",
+      "storedDocuments": "Gestoorde dokumente",
+      "storedDocumentsHint": "Elke weergawe word behou; die verifieerbladsy lys alle hashes.",
+      "regenerateTitle": "Genereer ’n nuwe PDF-weergawe?",
+      "regenerateDescription": "Lewer weer uit die bevrore momentopname (byvoorbeeld ná ’n lewerprogramregstelling). Vroeëre weergawes bly.",
+      "regenerate": "Genereer",
+      "newVersion": "Nuwe weergawe",
+      "renderedOnFirstDownload": "Die PDF word met die eerste aflaai gelewer.",
+      "protectedCopy": "Wagwoordbeskermde kopie {version}",
+      "version": "Weergawe {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Verifikasieskakel:",
+      "draftPreviewHint": "Konsepte word regstreeks in die redigeerder voorsien; maak <link>die PDF met watermerk</link> oop om die bladsy te sien."
+    },
+    "history": {
+      "metaTitle": "Faktuurgeskiedenis",
+      "title": "Geskiedenis <mono>{number}</mono>",
+      "reissueChain": "Heruitreikingsketting",
+      "replaces": "Vervang <link>{number}</link>",
+      "replacedBy": "Vervang deur <link>{number}</link>",
+      "auditTrail": "Ouditspoor",
+      "columns": {
+        "when": "Wanneer",
+        "who": "Wie",
+        "action": "Handeling",
+        "summary": "Opsomming"
+      },
+      "noEvents": "Nog geen gebeurtenisse nie.",
+      "system": "Stelsel",
+      "emails": "E-posse"
+    },
+    "payments": {
+      "title": "Betalings",
+      "description": "{client} · {total} totaal",
+      "backToInvoice": "Terug na faktuur",
+      "ledger": "Grootboek",
+      "columns": {
+        "date": "Datum",
+        "kind": "Soort",
+        "applied": "Toegepas",
+        "tds": "TDS",
+        "received": "Ontvang",
+        "reference": "Verwysing",
+        "balance": "Saldo"
+      },
+      "noPayments": "Nog geen betalings aangeteken nie.",
+      "kinds": {
+        "payment": "Betaling",
+        "refund": "Terugbetaling",
+        "writeOff": "Afskrywing"
+      },
+      "receipt": "Kwitansie",
+      "deleteEntryTitle": "Skrap hierdie inskrywing?",
+      "deleteEntryDescription": "Die faktuursaldo word herbereken.",
+      "totals": "Totale",
+      "invoiceTotal": "Faktuurtotaal",
+      "credited": "Gekrediteer",
+      "refunds": "Terugbetalings",
+      "writeOffs": "Afskrywings",
+      "tdsDeducted": "TDS afgetrek",
+      "bankFees": "Bankkoste",
+      "balanceDue": "Saldo verskuldig",
+      "onlyIssued": "Slegs uitgereikte fakture aanvaar betalings."
+    },
+    "send": {
+      "metaTitle": "Stuur faktuur",
+      "title": "Stuur <mono>{number}</mono>",
+      "alreadySent": "Reeds as gestuur gemerk; om weer te stuur voeg nog ’n logboekinskrywing by.",
+      "previousSends": "Vorige stuurs"
+    },
+    "builder": {
+      "parties": "Partye",
+      "issuerProfile": "Uitreikerprofiel",
+      "client": "Kliënt",
+      "archivedOption": "{label} (geargiveer)",
+      "issueDate": "Uitreikingsdatum",
+      "dueDate": "Vervaldatum",
+      "fxRate": "Wisselkoers na basisgeldeenheid",
+      "fxHint": "1 {currency} = ? {base} (slegs vir verslagdoening)",
+      "poReference": "Bestellingsverwysing",
+      "lineItems": "Reëlitems",
+      "lineItemsHint": "Kies uit die katalogus om die waardes te kopieer, of tik ’n reël.",
+      "taxDiscountTds": "Belasting, korting en TDS",
+      "taxRegime": "Belastingstelsel",
+      "regimes": {
+        "indiaGst": "Indië GST",
+        "ukVat": "VK BTW",
+        "usSalesTax": "VSA verkoopbelasting",
+        "none": "Geen belasting"
+      },
+      "reverseCharge": "Omgekeerde heffing",
+      "reverseChargeHint": "Belasting betaalbaar deur die ontvanger",
+      "discount": "Korting",
+      "percent": "Persentasie",
+      "amount": "Bedrag",
+      "rounding": "Afrondingsaanpassing",
+      "roundingHint": "Opsioneel, tot ’n hele eenheid; moet minder as 1 wees",
+      "round": "Rond af",
+      "tdsRate": "Verwagte TDS-koers (%)",
+      "tdsRateHint": "Ter inligting; gedruk wanneer die TDS-uiteensetting aan is",
+      "paymentMethods": "Betaalmetodes",
+      "paymentMethodsHint": "Gedruk in die volgorde waarin dit gemerk is.",
+      "noPaymentMethods": "Geen aktiewe betaalmetodes nie. <link>Voeg een by</link>.",
+      "whatPrints": "Wat gedruk word",
+      "whatPrintsHint": "Begin by die uitreikerprofiel se verstekke.",
+      "notesAndTerms": "Aantekeninge en voorwaardes",
+      "notes": "Aantekeninge",
+      "terms": "Voorwaardes",
+      "saveDraft": "Stoor konsep",
+      "issuing": "Reik tans uit…",
+      "saveAndIssue": "Stoor en reik uit",
+      "subtotal": "Subtotaal",
+      "tax": "Belasting",
+      "tdsExpected": "TDS verwag",
+      "netExpected": "Netto verwag"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Voeg by uit katalogus…",
+      "services": "Dienste",
+      "products": "Produkte",
+      "addLine": "Voeg reël by",
+      "columns": {
+        "description": "Beskrywing",
+        "sacHsn": "SAC/HSN",
+        "qty": "Hoev.",
+        "unit": "Eenheid",
+        "rate": "Koers",
+        "taxPercent": "Belasting %"
+      },
+      "aria": {
+        "description": "Beskrywing van reël {line}",
+        "sacHsn": "SAC/HSN van reël {line}",
+        "quantity": "Hoeveelheid van reël {line}",
+        "unit": "Eenheid van reël {line}",
+        "rate": "Koers van reël {line}",
+        "taxRate": "Belastingkoers van reël {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Vrygestel",
+      "moveUp": "Skuif op",
+      "moveDown": "Skuif af",
+      "removeLine": "Verwyder reël",
+      "shortcutHint": "Ctrl/⌘+Enter in ’n beskrywing voeg ’n reël by.",
+      "addFromCatalogueAria": "Voeg by uit katalogus"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Uitreikerbesonderhede",
+        "client": "Kliëntbesonderhede",
+        "document": "Dokumentafdelings"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Handelsnaam",
+        "showDesignation": "Aanwysing",
+        "showEmail": "E-pos",
+        "showPhone": "Foon",
+        "showWebsite": "Webwerf",
+        "showFullAddress": "Volledige adres",
+        "showPan": "Pan",
+        "showGstin": "Gstin",
+        "showCin": "Cin",
+        "showLut": "Lut",
+        "showSignature": "Handtekening",
+        "showStamp": "Stempel",
+        "showContactPerson": "Kontakpersoon",
+        "showBillingAddress": "Faktuuradres",
+        "showShippingAddress": "Afleweringsadres",
+        "showTaxIdentifier": "Belastingidentifiseerder",
+        "showPlaceOfSupply": "Plek van lewering",
+        "showDueDate": "Vervaldatum",
+        "showPaymentTerms": "Betalingsvoorwaardes",
+        "showSacCodeColumn": "SAC-kodekolom",
+        "showQuantityColumn": "Hoeveelheidkolom",
+        "showUnitPriceColumn": "Eenheidsprys-kolom",
+        "showTaxColumn": "Belastingkolom",
+        "showTdsBreakdown": "TDS-uiteensetting",
+        "showQrVerification": "QR-verifikasie",
+        "showNotes": "Aantekeninge",
+        "showTerms": "Voorwaardes",
+        "showReplacesReference": "Vervangingsverwysing",
+        "showAmountInWords": "Bedrag in woorde",
+        "showSupplyStatement": "Leweringsverklaring",
+        "showRoundingLine": "Afrondingsreël",
+        "showSku": "Sku"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Kliënte",
+      "description": "Almal aan wie jy faktureer. Kliënte met fakture word geargiveer, nooit geskrap nie.",
+      "newClient": "Nuwe kliënt",
+      "searchPlaceholder": "Soek volgens naam",
+      "searchLabel": "Soek kliënte",
+      "emptyTitle": "Nog geen kliënte nie",
+      "emptyDescription": "Voeg die mense en maatskappye by aan wie jy faktureer; hul geldeenheid en betalingsvoorwaardes vul elke faktuur vooraf in.",
+      "addClient": "Voeg ’n kliënt by",
+      "noMatch": "Geen kliënte pas by “{q}” nie.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Naam",
+        "contact": "Kontak",
+        "email": "E-pos",
+        "country": "Land",
+        "currency": "Geldeenheid",
+        "terms": "Voorwaardes",
+        "status": "Status"
+      }
+    },
+    "new": {
+      "title": "Nuwe kliënt"
+    },
+    "edit": {
+      "metaTitle": "Wysig kliënt",
+      "title": "Wysig {name}"
+    },
+    "detail": {
+      "metaTitle": "Kliënt",
+      "newInvoice": "Nuwe faktuur",
+      "restoreTitle": "Herstel hierdie kliënt?",
+      "archiveTitle": "Argiveer hierdie kliënt?",
+      "archiveDescription": "Dit verlaat die keuselyste; fakture en geskiedenis bly ongeskonde.",
+      "deleteTitle": "Skrap hierdie kliënt?",
+      "deleteDescription": "Slegs moontlik solank geen faktuur na die kliënt verwys nie.",
+      "details": "Besonderhede",
+      "contact": "Kontak",
+      "email": "E-pos",
+      "phone": "Foon",
+      "country": "Land",
+      "gstState": "GST {code}",
+      "taxId": "Belasting-ID",
+      "currency": "Geldeenheid",
+      "paymentTerms": "Betalingsvoorwaardes",
+      "paymentTermsDays": "{days} dae",
+      "expectedTds": "Verwagte TDS",
+      "notes": "Aantekeninge",
+      "addresses": "Adresse",
+      "billing": "Faktuur",
+      "shipping": "Aflewering",
+      "lifetime": "Lewenslank",
+      "openRegister": "Maak die register oop",
+      "noIssued": "Nog geen uitgereikte fakture nie.",
+      "noIssuedWithDrafts": "Nog geen uitgereikte fakture nie ({drafts} konsep).",
+      "firstLatest": "Eerste faktuur <mono>{first}</mono>, nuutste <mono>{latest}</mono>{drafts, plural, =0 {} one { · # konsep} other { · # konsepte}}",
+      "lifetimeColumns": {
+        "currency": "Geldeenheid",
+        "invoices": "Fakture",
+        "billed": "Gefaktureer",
+        "received": "Ontvang",
+        "credited": "Gekrediteer",
+        "outstanding": "Uitstaande",
+        "overdue": "Agterstallig"
+      },
+      "recentInvoices": "Onlangse fakture",
+      "noInvoices": "Nog geen fakture vir hierdie kliënt nie.",
+      "recentColumns": {
+        "number": "Nommer",
+        "issueDate": "Uitreikingsdatum",
+        "due": "Verval",
+        "total": "Totaal",
+        "balance": "Saldo",
+        "status": "Status"
+      }
+    },
+    "form": {
+      "cardTitle": "Kliënt",
+      "displayName": "Vertoonnaam",
+      "contactPerson": "Kontakpersoon",
+      "email": "E-pos",
+      "phone": "Foon",
+      "taxIdType": "Belasting-ID-tipe",
+      "taxIdTypeNone": "Geen",
+      "taxId": "Belasting-ID",
+      "currency": "Geldeenheid",
+      "paymentTerms": "Betalingsvoorwaardes (dae)",
+      "expectedTdsRate": "Verwagte TDS-koers (%)",
+      "notes": "Aantekeninge",
+      "billingAddress": "Faktuuradres",
+      "shippingAddress": "Afleweringsadres",
+      "differentFromBilling": "Verskil van faktuuradres",
+      "save": "Stoor kliënt"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Uur",
+      "DAY": "Dag",
+      "FIXED": "Vas",
+      "MILESTONE": "Mylpaal",
+      "UNIT": "Eenheid"
+    },
+    "list": {
+      "activate": "Aktiveer",
+      "deactivate": "Deaktiveer",
+      "archiveDescription": "Bestaande faktuurreëls behou hul gekopieerde waardes.",
+      "deleteDescription": "Slegs moontlik solank geen faktuurreël daarna verwys nie. Argiveer dit andersins.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Naam",
+        "unit": "Eenheid",
+        "rate": "Koers",
+        "price": "Prys",
+        "currency": "Geldeenheid",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Belasting",
+        "status": "Status"
+      }
+    },
+    "services": {
+      "title": "Dienste",
+      "description": "Jou katalogus. As jy ’n diens kies, word sy waardes na die faktuurreël gekopieer.",
+      "newService": "Nuwe diens",
+      "emptyTitle": "Nog geen dienste nie",
+      "emptyDescription": "Voeg by wat jy verkoop - ontwerp per uur, ’n vastefooi-mylpaal - met sy SAC/HSN-kode en belastingkoers.",
+      "addService": "Voeg ’n diens by",
+      "restoreTitle": "Herstel {name}?",
+      "archiveTitle": "Argiveer {name}?",
+      "deleteTitle": "Skrap {name}?",
+      "editMetaTitle": "Wysig diens",
+      "editTitle": "Wysig {name}"
+    },
+    "products": {
+      "title": "Produkte",
+      "description": "Goedere wat jy verkoop, elk met ’n SKU. As jy ’n produk kies, word sy waardes na die faktuurreël gekopieer.",
+      "newProduct": "Nuwe produk",
+      "emptyTitle": "Nog geen produkte nie",
+      "emptyDescription": "Voeg die goedere by wat jy verkoop met ’n SKU, HSN-kode, eenheidsprys en belastingkoers.",
+      "addProduct": "Voeg ’n produk by",
+      "restoreTitle": "Herstel {sku}?",
+      "archiveTitle": "Argiveer {sku}?",
+      "deleteTitle": "Skrap {sku}?",
+      "editMetaTitle": "Wysig produk",
+      "editTitle": "Wysig {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Unieke kode wat onder die reëlbeskrywing gedruk word",
+      "name": "Naam",
+      "unit": "Eenheid",
+      "defaultRate": "Verstekkoers",
+      "unitPrice": "Eenheidsprys",
+      "currency": "Geldeenheid",
+      "sacHsnCode": "SAC / HSN-kode",
+      "sacHsnHint": "Vereis op GST-fakture",
+      "hsnCode": "HSN-kode",
+      "hsnHint": "Vereis op GST-fakture vir goedere",
+      "defaultTaxRate": "Verstek-belastingkoers (%)",
+      "description": "Beskrywing",
+      "descriptionHint": "Vul die reëlbeskrywing vooraf in",
+      "active": "Aktief",
+      "serviceInactiveHint": "Onaktiewe dienste bly uit die faktuurkieser",
+      "productInactiveHint": "Onaktiewe produkte bly uit die faktuurkieser",
+      "saveService": "Stoor diens",
+      "saveProduct": "Stoor produk"
+    },
+    "tags": {
+      "legend": "Profiele",
+      "hint": "Merk die uitreikerprofiele wat dit verkoop. Laat almal ongemerk om dit aan elke profiel te bied."
+    }
+  },
+  "address": {
+    "line1": "Adresreël 1",
+    "line2": "Adresreël 2",
+    "city": "Stad",
+    "stateRegion": "Staat / streek",
+    "postalCode": "Poskode",
+    "country": "Land",
+    "state": "Staat",
+    "gstStateCodeHint": "GST-staatskode {code}",
+    "pickStateHint": "Kies die staat vir die GST-staatskode",
+    "stateRegionCode": "Staat- / streekkode",
+    "stateRegionCodePlaceholder": "bv. CA"
+  },
+  "assets": {
+    "tooLarge": "Daardie lêer is te groot.",
+    "unsupportedReceipt": "Gebruik ’n PNG-, JPEG-, WebP-beeld of ’n PDF.",
+    "unsupportedImage": "Gebruik ’n PNG-, JPEG- of WebP-beeld.",
+    "uploadFailed": "Oplaai het misluk.",
+    "uploading": "Laai tans op…"
+  },
+  "ui": {
+    "breadcrumb": "Broodkruimel",
+    "close": "Maak toe",
+    "closeMenu": "Maak kieslys toe",
+    "inputCharset": "Slegs standaard sleutelbordkarakters word toegelaat.",
+    "confirm": {
+      "working": "Besig…"
+    },
+    "statusPill": {
+      "DRAFT": "Konsep",
+      "ISSUED": "Uitgereik",
+      "SENT": "Gestuur",
+      "PARTIALLY_PAID": "Gedeeltelik betaal",
+      "PAID": "Betaal",
+      "OVERDUE": "Agterstallig",
+      "VOID": "Nietig"
+    },
+    "activePill": {
+      "active": "Aktief",
+      "archived": "Geargiveer",
+      "inactive": "Onaktief"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Iets het skeefgeloop.",
+    "fixFields": "Korrigeer asseblief die gemerkte velde.",
+    "accountSaved": "Rekeningvoorkeure gestoor",
+    "apiKeyCreated": "API-sleutel geskep. Kopieer dit nou: dit word net een keer gewys.",
+    "saved": "{name} gestoor",
+    "savedProfile": "Profiel {label} gestoor",
+    "clientArchived": "Kliënt geargiveer",
+    "clientRestored": "Kliënt herstel",
+    "clientDeleted": "Kliënt geskrap",
+    "productArchived": "Produk geargiveer",
+    "productRestored": "Produk herstel",
+    "productActivated": "Produk geaktiveer",
+    "productDeactivated": "Produk gedeaktiveer",
+    "serviceArchived": "Diens geargiveer",
+    "serviceRestored": "Diens herstel",
+    "serviceActivated": "Diens geaktiveer",
+    "serviceDeactivated": "Diens gedeaktiveer",
+    "defaultProfileUpdated": "Verstekprofiel opgedateer",
+    "profileArchived": "Profiel geargiveer",
+    "profileRestored": "Profiel herstel",
+    "profileDeleted": "Profiel geskrap",
+    "defaultPaymentMethodUpdated": "Verstekbetaalmetode opgedateer",
+    "paymentMethodArchived": "Betaalmetode geargiveer",
+    "paymentMethodRestored": "Betaalmetode herstel",
+    "paymentMethodDeleted": "Betaalmetode geskrap",
+    "issued": "{number} uitgereik",
+    "savedAsDraft": "As konsep gestoor. {reason}",
+    "draftSaved": "Konsep gestoor",
+    "invoiceVoided": "Faktuur nietig verklaar",
+    "originalVoided": "Oorspronklike nietig verklaar; wysig die vervangingskonsep",
+    "markedAsSent": "As gestuur gemerk",
+    "draftDeleted": "Konsep geskrap",
+    "generatedPdf": "PDF-weergawe {version} gegenereer",
+    "creditNoteVoided": "Kredietnota nietig verklaar; die faktuursaldo is herstel",
+    "draftCreditNoteDeleted": "Konsepkredietnota geskrap",
+    "mailRefused": "Die e-posbediener het die boodskap geweier: {error}. Die poging is aangeteken.",
+    "unknownError": "onbekende fout",
+    "sentTo": "Gestuur aan {recipients}",
+    "smtpSaved": "SMTP-instellings gestoor",
+    "smtpRemoved": "Gestoorde SMTP-instellings verwyder",
+    "testEmailSent": "Toets-e-pos gestuur aan {email}",
+    "testFailed": "Toets het misluk: {error}",
+    "defaultRecipientsSaved": "Verstekontvangers gestoor",
+    "invitationSent": "Uitnodiging gestuur",
+    "invitationReady": "Uitnodiging gereed",
+    "unknownRole": "Onbekende rol",
+    "roleUpdated": "Rol opgedateer",
+    "accountDeactivated": "Rekening gedeaktiveer",
+    "accountReactivated": "Rekening geheraktiveer",
+    "invitationRevoked": "Uitnodiging teruggetrek",
+    "paymentUpdated": "Betaling opgedateer",
+    "paymentRecorded": "Betaling aangeteken",
+    "paymentDeleted": "Betaling geskrap",
+    "sessionRevoked": "Sessie ingetrek",
+    "noOtherSessions": "Geen ander sessies nie",
+    "signedOutOthers": "Van {count} ander sessie(s) afgemeld",
+    "sharePasswordRequired": "Voer ’n wagwoord in, of laat een genereer word.",
+    "shareLinkCreated": "Deelskakel geskep.",
+    "templateSaved": "Sjabloon gestoor; toekomstige dokumente gebruik dit",
+    "templateReset": "Sjabloon na die ingeboude verstek herstel",
+    "templateImported": "Sjabloon ingevoer",
+    "profileTemplateCleared": "Profiel gebruik weer die instansiesjabloon",
+    "operatorSaved": "Bedryfsbesonderhede gestoor. Die regsbladsye wys dit nou."
+  }
+}

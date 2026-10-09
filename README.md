@@ -223,6 +223,17 @@ resources — with no delete, void, payment or settings tools; `docs/mcp.md` has
 and Claude Desktop snippets and the `skills/okinvo-invoicing` skill teaches an agent the
 workflow.
 
+## Languages and translations
+
+The app speaks 115 languages (Settings → Account → Language). `messages/en-US.json` is the
+source of truth and `messages/en-GB.json` a spelling overlay; the other catalogues were
+machine-translated in batches (`"@@generated": true` at the top of the file, and the language
+picker says so). To improve one, edit the string in `messages/<tag>.json`, keep the ICU
+placeholders and plural branches intact, run `pnpm i18n:check` (it compares every catalogue
+with en-US, placeholder by placeholder) and open a pull request. Remove the `@@generated`
+marker once a catalogue has been reviewed by a speaker. `node scripts/i18n-batch.mjs missing`
+lists languages without a catalogue and `… validate messages/<tag>.json` checks one file.
+
 ## Documentation site
 
 A Wiki.js profile with the user guide and screenshots is part of the v1.1 plan (sub-project G).
