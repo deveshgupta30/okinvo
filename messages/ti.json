@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo መበገሲ",
+    "save": "ዕቅብ",
+    "cancel": "ሰርዝ",
+    "continue": "ቀጽል",
+    "saving": "ይዕቀብ ኣሎ…",
+    "detect": "ረኽብ",
+    "yes": "እወ",
+    "no": "ኣይፋል",
+    "choose": "ሕረ…",
+    "remove": "ኣወግድ",
+    "tryAgain": "ደጊምካ ፈትን",
+    "dashboard": "ዳሽቦርድ",
+    "goToDashboard": "ናብ ዳሽቦርድ ኪድ",
+    "or": "ወይ",
+    "invoice": "ኢንቮይስ",
+    "creditNote": "ክረዲት ኖት",
+    "downloadPdf": "PDF ኣውርድ",
+    "edit": "ኣዐርይ",
+    "delete": "ሰርዝ",
+    "downloadDocx": "DOCX ኣውርድ",
+    "none": "የለን",
+    "dismiss": "ዕጸው",
+    "all": "ኩሉ",
+    "previous": "ዝሓለፈ",
+    "next": "ዝቕጽል",
+    "go": "ኪድ",
+    "search": "ድለይ",
+    "status": "ኩነታት",
+    "total": "ጠቕላላ",
+    "currency": "ሞንዲ",
+    "from": "ካብ",
+    "to": "ናብ",
+    "reason": "ምኽንያት",
+    "history": "ታሪኽ",
+    "archive": "ኣርከብ",
+    "restore": "መሊስካ ኣምጽእ",
+    "showArchived": "ዝተኣርከቡ ኣርእይ",
+    "hideArchived": "ዝተኣርከቡ ሕባእ",
+    "archived": "ዝተኣርከበ",
+    "default": "ቀዳማይ ምርጫ",
+    "setDefault": "ቀዳማይ ምርጫ ግበሮ",
+    "revoke": "ኣቋርጽ",
+    "copy": "ቅዳሕ",
+    "copied": "ተቐዲሑ",
+    "active": "ንጡፍ",
+    "pagination": "ምግላጽ ገጻት",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "ዳሽቦርድ",
+      "invoices": "ኢንቮይሳት",
+      "creditNotes": "ክረዲት ኖትስ",
+      "clients": "ዓማዊል",
+      "services": "ኣገልግሎታት",
+      "products": "ምህርቲታት"
+    },
+    "primaryNav": "ቀንዲ",
+    "settings": "ቅጥዕታት",
+    "openMenu": "ሜኑ ክፈት",
+    "navigation": "ምምራሕ",
+    "pagesAndAccount": "ገጻትን ሕሳብን",
+    "collapseSidebar": "ጎኒ ባር ሕጸር",
+    "collapseSidebarHint": "ጎኒ ባር ሕጸር ([)",
+    "expandSidebar": "ጎኒ ባር ኣስፍሕ",
+    "expandSidebarHint": "ጎኒ ባር ኣስፍሕ ([)",
+    "theme": {
+      "label": "ገጽታ",
+      "system": "ስርዓት",
+      "light": "ብሩህ",
+      "dark": "ጸሊም",
+      "current": "ገጽታ: {mode}",
+      "switchTo": "ገጽታ: {mode}. ናብ {next} ቀይር"
+    },
+    "userMenu": {
+      "label": "ሜኑ ሕሳብ ናይ {name}",
+      "profile": "ፕሮፋይል",
+      "logOut": "ውጻእ"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "እቶ",
+      "title": "እቶ",
+      "subtitle": "ኣብ ዝርዝር ዝተፈቕዱ ሕሳባት ጥራይ እዮም ክኣትዉ ዝኽእሉ።",
+      "failed": "ምእታው ኣይተዓወተን።",
+      "noMethod": "ዝኾነ መገዲ ምእታው ኣይተዋቕረን። ኣብ <code>.env</code> ሓደ ጽምዲ ኣቕራቢ ኣዘጋጅ ከም <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>፣ ወይ <code>AUTH_PASSWORD_SIGNIN=true</code>።",
+      "errors": {
+        "not_allowed": "እቲ ሕሳብ ኣብዚ ኢንስታንስ ዝተፈቐደ ኣይኮነን፣ ወይ ተዓጽዩ ኣሎ።",
+        "signin": "ምእታው ኣይተፈጸመን። ብሓገዝ ደጊምካ ፈትን።"
+      }
+    },
+    "password": {
+      "name": "ስም",
+      "email": "ኢሜይል",
+      "password": "መሕለፊ ቃል",
+      "signingIn": "ይኣቱ ኣሎ…",
+      "createAccount": "ሕሳብ ፍጠር",
+      "signIn": "እቶ",
+      "haveAPassword": "መሕለፊ ቃል ኣሎኒ",
+      "firstTime": "ቀዳማይ ግዜኹም ዶ? መሕለፊ ቃል ኣዘጋጅ",
+      "failed": "ምእታው ኣይተዓወተን።"
+    },
+    "social": {
+      "redirecting": "ይቕየር ኣሎ…",
+      "continueWith": "ብ{provider} ቀጽል",
+      "failed": "ምእታው ኣይጀመረን።"
+    },
+    "error": {
+      "metaTitle": "ጌጋ ምእታው",
+      "title": "ምእታው ኣይተዓወተን",
+      "body": "እቲ ኣቕራቢ መንነት <code>{value}</code> መሊሱ። ኣድራሻኹም ኣብ ዝርዝር ዝተፈቐዱ ናይዚ ኢንስታንስ እንተዘየሎ፣ ንዋና ኣብዚ ክውስኽዎ ሕተቱ።",
+      "back": "ናብ ምእታው ተመለስ"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "ቅጥዕታት",
+      "profiles": "ፕሮፋይላት",
+      "paymentMethods": "መገድታት ክፍሊት",
+      "templates": "ቴምፕሌትስ",
+      "email": "ኢሜይል",
+      "security": "ድሕነት",
+      "users": "ተጠቀምቲ",
+      "data": "ዳታ",
+      "legal": "ሕጋዊ",
+      "account": "ሕሳብ",
+      "appearance": "ገጽታ",
+      "api": "API",
+      "status": "ኩነታት"
+    },
+    "account": {
+      "metaTitle": "ሕሳብ",
+      "title": "ሕሳብ",
+      "description": "ስእልኹም፣ ስምኩም፣ ዞባኹም፣ ቋንቋኹምን ሰዓት ዞንኩምን።",
+      "photo": {
+        "title": "ስእሊ",
+        "description": "ኣብ ጎኒ ባርን ሜኑ ተጠቃሚን ይረአ።"
+      },
+      "form": {
+        "title": "ሕሳብ",
+        "description": "ከመይ ከም እትረኣዩን “ሎሚ” መዓስ ከም ዝኸውንን።",
+        "displayName": "ዝረአ ስም",
+        "signInEmail": "ኢሜይል ምእታው",
+        "signInEmailHint": "መንነትኩም ኣብዚ ኢንስታንስ፣ ኣብዚ ክስተኻኸል ኣይክእልን።",
+        "timezone": "ሰዓት ዞን",
+        "timezoneHint": "“ሎሚ” ንዕለታት ምዕዳል፣ ዕለታት ክፍሊትን ዳሽቦርድን",
+        "regionTitle": "ዞባ",
+        "regionDescription": "ንሓደሽቲ ፕሮፋይላት ኣውጻእትን ንዳሽቦርድን ቀዳማይ ምርጫ ክሳብ ፕሮፋይል ዝህሉ።",
+        "country": "ሃገር",
+        "currency": "ሞንዲ",
+        "suggested": "ንዚ ሃገር ዝተመከረ:",
+        "language": "ቋንቋ",
+        "languageHint": "ቋንቋ እቲ ኣፕ ባዕሉ። ሰነዳት ናይ ነፍሲ ወከፍ ፕሮፋይል ሎኬል ይጥቀሙ።",
+        "machineTranslated": "እዚ ቋንቋ ብማሽን ተተርጒሙ እዩ። ምእራማት ኣቀባብላ ኣለዎ: <link>ኣብ GitHub ኣመሓይሽዎ</link>።",
+        "save": "ምርጫታት ዕቅብ"
+      },
+      "regions": {
+        "Africa": "ኣፍሪቃ",
+        "Americas": "ኣሜሪካታት",
+        "Asia": "ኤስያ",
+        "Europe": "ኤውሮጳ",
+        "MiddleEast": "ማእከላይ ምብራቕ",
+        "Oceania": "ኦሽያንያ",
+        "Constructed": "ዝተሰርሐ"
+      },
+      "privacy": {
+        "title": "ምስጢራዊነት",
+        "description": "okinvo እቲ ንስራሕ ዘድሊ ኩኪታት ጥራይ የቐምጥ። ዝኾነ ትንተናን ክትትልን የለን።",
+        "cookiePolicy": "ፖሊሲ ኩኪ",
+        "showNoticeAgain": "መሰነይታ ኩኪ ደጊሙ ኣርእይ"
+      }
+    },
+    "avatar": {
+      "changePhoto": "ስእሊ ቀይር",
+      "addPhoto": "ስእሊ ወስኽ",
+      "hint": "PNG፣ JPEG ወይ WebP። ኣብ ኩሉ ቦታ ከም ክቢ ይረአ፤ ቅድሚ ምዕቃብ ከተዕቢዮን ከተንቀሳቕሶን ትኽእል።",
+      "tooLarge": "እቲ ስእሊ ብዙሕ ዓቢ እዩ።",
+      "uploadFailed": "ምጽዓን ኣይተዓወተን።",
+      "choose": "ስእሊ ፕሮፋይል ሕረ",
+      "dialogTitle": "ስእልኻ ኣሰላስል",
+      "dialogDescription": "ንምንቅስቓስ ስሓብ፣ ንምዕባይ ስክሮል ወይ ፒንች ግበር። እቲ ክቢ ኩሉ ሰብ ዝርእዮ እዩ።",
+      "zoom": "ኣዕቢ",
+      "save": "ስእሊ ዕቅብ"
+    },
+    "appearance": {
+      "metaTitle": "ገጽታ",
+      "title": "ገጽታ",
+      "description": "ገጽታን ሕብሪ ኣክሰንትን፣ ኣብ ሕሳብኩም ይዕቀብ።",
+      "theme": {
+        "title": "ገጽታ",
+        "description": "ስርዓቱ ስዓብ፣ ወይ ብሩህ ወይ ጸሊም ኣጽንዕ።",
+        "label": "ገጽታ",
+        "system": "ስርዓቱ ስዓብ",
+        "systemHint": "ምስ ስርዓት ኣሰራርሓኹም ይቕየር",
+        "light": "ብሩህ",
+        "lightHint": "ጻዕዳ ሜዳ",
+        "dark": "ጸሊም",
+        "darkHint": "ናብ ጸሊም ዝቐረበ ሜዳ"
+      },
+      "accent": {
+        "title": "ኣክሰንት",
+        "description": "ንቀንዲ ቁልፊ፣ ቀለቤታት ትኩረትን ምልክት ንጡፍ ገጽን ይጥቀም። ሚንት ምስ ምልክት ብራንድ ይመሳሰል።",
+        "label": "ሕብሪ ኣክሰንት"
+      },
+      "accents": {
+        "mint": "ሚንት",
+        "lavender": "ላቨንደር",
+        "sky": "ሰማያዊ",
+        "peach": "ፒች",
+        "butter": "ቅቤ",
+        "rose": "ሮዝ",
+        "sage": "ሰይጅ",
+        "lilac": "ላይላክ"
+      }
+    },
+    "profiles": {
+      "metaTitle": "ፕሮፋይላት ኣውጻእቲ",
+      "title": "ፕሮፋይላት ኣውጻእቲ",
+      "description": "እቶም ኢንቮይስ ዘውጽኡሎም ሕጋውያን መንነታት። እቲ ቀዳማይ ምርጫ ንሓደሽቲ ኢንቮይሳት ቅድሚኡ ይመልእ።",
+      "breadcrumb": "ፕሮፋይላት",
+      "newProfile": "ሓድሽ ፕሮፋይል",
+      "emptyTitle": "ክሳብ ሕጂ ፕሮፋይል ኣውጻኢ የለን",
+      "emptyDescription": "እቲ ኢንቮይስ ዘውጽኣሉ መንነት ፍጠር: ሓደ ውልቀ-ሰብ ምስ PAN፣ ወይ ኩባንያኹም።",
+      "createProfile": "ፕሮፋይል ፍጠር",
+      "columns": {
+        "label": "ምልክት",
+        "legalName": "ሕጋዊ ስም",
+        "type": "ዓይነት",
+        "country": "ሃገር",
+        "currency": "ሞንዲ",
+        "regime": "ስርዓት ግብሪ",
+        "status": "ኩነታት"
+      },
+      "types": {
+        "company": "ኩባንያ",
+        "individual": "ውልቀ-ሰብ"
+      },
+      "makeDefaultTitle": "{label} ቀዳማይ ምርጫ ይኹን?",
+      "makeDefaultDescription": "ሓደሽቲ ኢንቮይሳት ካብዚ ፕሮፋይል ይጅምሩ።",
+      "restoreTitle": "{label} ይመለስ?",
+      "archiveTitle": "{label} ይኣርከብ?",
+      "archiveDescription": "ካብ ዝርዝር ምርጫታት ይጠፍእ፤ ዘለዉ ኢንቮይሳት ኣይተንከፉን።",
+      "new": {
+        "metaTitle": "ሓድሽ ፕሮፋይል ኣውጻኢ",
+        "title": "ሓድሽ ፕሮፋይል ኣውጻኢ",
+        "prefilled": "ካብ መልስታትኩም ተመሊኡ፤ ኣድራሻን ዝርዝር ግብርን ርአዮ፣ ድሕሪኡ ዕቅብ።"
+      },
+      "edit": {
+        "metaTitle": "ፕሮፋይል ኣውጻኢ ኣዐርይ",
+        "template": "ቴምፕሌት",
+        "deleteTitle": "{label} ይሰረዝ?",
+        "deleteDescription": "ዝኾነ ኢንቮይስ ወይ ክረዲት ኖት ናብዚ ፕሮፋይል እንተዘይጠቒሱ ጥራይ ይካኣል። ካልእ ኣርክቦ።"
+      },
+      "template": {
+        "metaTitle": "ቴምፕሌት ፕሮፋይል",
+        "title": "ቴምፕሌት ንዝኾነ {label}",
+        "ownTemplate": "ባዕሉ ቴምፕሌት",
+        "instanceTemplate": "ቴምፕሌት ኢንስታንስ",
+        "resetTitle": "ቴምፕሌት ኢንስታንስ ደጊሙ ይጥቀም?",
+        "resetDescription": "ናይዚ ፕሮፋይል ባዕሉ ኣቀማምጣ ይወገድ፤ ዝወጽኡ ሰነዳት ኣይጸለዉን።",
+        "useInstance": "ቴምፕሌት ኢንስታንስ ተጠቐም",
+        "usingInstanceTitle": "ቴምፕሌት ኢንስታንስ ይጥቀም ኣሎ",
+        "usingInstanceDescription": "ሰነዳት ናይዚ ፕሮፋይል ቅጥዕታት → ቴምፕሌትስ ይስዕቡ። ብዘይ ሓባር ንምግባር ምረጽ።",
+        "customise": "ንዚ ፕሮፋይል ኻልእ ቴምፕሌት ተጠቐም",
+        "openInstance": "ቴምፕሌት ኢንስታንስ ክፈት"
+      },
+      "form": {
+        "identityTitle": "መንነት",
+        "identityDescription": "እቲ ኢንቮይስ ካብ መን እዩ።",
+        "type": "ዓይነት",
+        "label": "ምልክት",
+        "labelHint": "ኣብ ዝርዝር ምርጫታት ጥራይ ይረአ",
+        "legalName": "ሕጋዊ ስም",
+        "tradeName": "ስም ንግዲ",
+        "designation": "ሓላፍነት",
+        "email": "ኢሜይል",
+        "phone": "ስልኪ",
+        "website": "መርበብ ሓበሬታ",
+        "addressTitle": "ኣድራሻ",
+        "taxTitle": "መለለዪታት ግብሪ",
+        "taxDescription": "እቶም ንዓኻትኩም ዝምልከቱ ጥራይ፤ ሕታም ንነፍሲ ወከፍ ኢንቮይስ ይቆጻጸር።",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "ቁጽሪ UK VAT",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "ኣብ ግዜ ምዕቃብ ዝተሰውረ",
+        "lutNumber": "ቁጽሪ LUT",
+        "lutNumberHint": "ንኤክስፖርት ብዘይ IGST",
+        "lutFiscalYear": "ዓመት ፋይናንስ LUT",
+        "lutFiscalYearHint": "ንኣብነት 2026-27",
+        "defaultsTitle": "ቀዳማይ ምርጫታት",
+        "baseCurrency": "መሰረታዊ ሞንዲ",
+        "locale": "ሎኬል ሰነድ",
+        "localeHint": "ቅርጺ ቁጽርን ዕለትን ኣብ ሰነዳት",
+        "fiscalYearStart": "ዓመት ፋይናንስ ይጅምር ኣብ",
+        "months": {
+          "january": "ጥሪ",
+          "february": "ለካቲት",
+          "march": "መጋቢት",
+          "april": "ሚያዝያ",
+          "may": "ግንቦት",
+          "june": "ሰነ",
+          "july": "ሓምለ",
+          "august": "ነሓሰ",
+          "september": "መስከረም",
+          "october": "ጥቅምቲ",
+          "november": "ሕዳር",
+          "december": "ታሕሳስ"
+        },
+        "taxRegime": "ቀዳማይ ስርዓት ግብሪ",
+        "regimes": {
+          "indiaGst": "GST ህንዲ",
+          "ukVat": "UK VAT",
+          "usSalesTax": "ግብሪ ሽያጥ US",
+          "none": "ብዘይ ግብሪ"
+        },
+        "invoiceNumberFormat": "ቅርጺ ቁጽሪ ኢንቮይስ",
+        "invoiceNumberFormatHint": "ቶከናት: {tokens}",
+        "creditNoteNumberFormat": "ቅርጺ ቁጽሪ ክረዲት ኖት",
+        "tdsRate": "ዝተጸበየ ተመን TDS (%)",
+        "tdsRateHint": "ሓበሬታዊ፣ ከም ዝተጸበየ ምቕናስ ይሕተም",
+        "defaultNotes": "ቀዳማይ ምስክርነታት",
+        "defaultTerms": "ቀዳማይ ቅድመ-ኩነታት",
+        "printTitle": "ብቀዳማይ ምርጫ እንታይ ይሕተም",
+        "printDescription": "ነፍሲ ወከፍ ኢንቮይስ እዞም ይቅዳሕ፣ ከይዲ ድማ ብዘይ ሓባር ክቕይሮም ይኽእል።",
+        "emailTitle": "ኢሜይል",
+        "emailDescription": "ቀዳማይ ምርጫታት ንናይ ምስዳድ ኮምፖዘር። ተሓዘቲ ቦታ: {placeholders}",
+        "emailCc": "ቀዳማይ CC",
+        "emailBcc": "ቀዳማይ BCC",
+        "commaSeparated": "ብኮማ ዝተፈለየ",
+        "invoiceSubject": "ጕዳይ ኢንቮይስ",
+        "invoiceSubjectHint": "እንተዘይተመልኣ ዝተሃንጸ ቴምፕሌት ይጥቀም",
+        "creditNoteSubject": "ጕዳይ ክረዲት ኖት",
+        "invoiceBody": "ትሕዝቶ ኢንቮይስ",
+        "creditNoteBody": "ትሕዝቶ ክረዲት ኖት",
+        "artworkTitle": "ስነ-ጥበባዊ ስራሕ",
+        "artworkDescription": "PNG፣ JPEG ወይ WebP ክሳብ 2 MB፤ ፊርማን ማሕተምን ንጽህናኦም የዕቅቡ።",
+        "logo": "ሎጎ",
+        "signature": "ፊርማ",
+        "stamp": "ማሕተም",
+        "transparentPng": "ንጹር PNG",
+        "save": "ፕሮፋይል ዕቅብ"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "መገድታት ክፍሊት",
+      "title": "መገድታት ክፍሊት",
+      "description": "ዓማዊል ከመይ ይኽፍሉኹም። ዝርዝራት ዝተሰወሩ እዮም ኣብ ግዜ ምዕዳል ድማ ኣብ ነፍሲ ወከፍ ኢንቮይስ ይቐረዉ።",
+      "newMethod": "ሓድሽ መገዲ",
+      "emptyTitle": "ክሳብ ሕጂ መገዲ ክፍሊት የለን",
+      "emptyDescription": "ሕሳብ ባንኪ፣ UPI ID ወይ ዋሌት ወስኹ ኢንቮይሳት ንዓማዊል ኣበይ ከም ዝኽፍሉ ክነግሩ።",
+      "addMethod": "መገዲ ወስኽ",
+      "columns": {
+        "name": "ስም",
+        "type": "ዓይነት",
+        "currency": "ሞንዲ",
+        "status": "ኩነታት"
+      },
+      "types": {
+        "bankTransfer": "ምቕያር ባንኪ",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "ብዘይ ሓባር"
+      },
+      "makeDefaultTitle": "{name} ቀዳማይ ምርጫ ይኹን?",
+      "restoreTitle": "{name} ይመለስ?",
+      "archiveTitle": "{name} ይኣርከብ?",
+      "archiveDescription": "ዝወጹ ኢንቮይሳት እቲ ዝሕተመ ስናፕሾት የዕቅቡ።",
+      "new": {
+        "metaTitle": "ሓድሽ መገዲ ክፍሊት",
+        "title": "ሓድሽ መገዲ ክፍሊት"
+      },
+      "edit": {
+        "metaTitle": "መገዲ ክፍሊት ኣዐርይ",
+        "title": "{name} ኣዐርይ",
+        "deleteTitle": "{name} ይሰረዝ?",
+        "deleteDescription": "ዝኾነ ኢንቮይስ ወይ ክፍሊት እንተዘይጠቒሱ ጥራይ ይካኣል። ካልእ ኣርክቦ።"
+      },
+      "form": {
+        "name": "ስም",
+        "nameHint": "ከም ርእሲ ብሎክ ክፍሊት ይሕተም",
+        "type": "ዓይነት",
+        "currency": "ሞንዲ",
+        "currencyHint": "ወሳኒ ኣይኮነን፤ ንሓበሬታ ጥራይ ይረአ",
+        "anyCurrency": "ዝኾነ",
+        "instructions": "መምርሒታት",
+        "instructionsHint": "ኣብ ትሕቲ ዝርዝራት ይሕተም",
+        "isDefault": "ቀዳማይ መገዲ",
+        "isDefaultDescription": "ኣብ ሓደሽቲ ኢንቮይሳት ቅድሚኡ ዝተመረጸ",
+        "isActive": "ንጡፍ",
+        "detailsTitle": "ዝርዝራት",
+        "detailsDescription": "ኣብ ግዜ ምዕቃብ ዝተሰወረ፤ ኣብ ግዜ ምዕዳል ኣብ ነፍሲ ወከፍ ኢንቮይስ ስናፕሾት ይውሰድ።",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "ስም ተቐባሊ",
+        "lines": "መስመራት",
+        "linesHint": "ሓደ መስመር ንሓደ ሕዳር፣ ከምቲ ዘሎ ይሕተም",
+        "accountEmail": "ኢሜይል / ሃንድል ሕሳብ",
+        "bank": {
+          "accountHolder": "ወናኒ ሕሳብ",
+          "accountNumber": "ቁጽሪ ሕሳብ",
+          "bankName": "ስም ባንኪ",
+          "branch": "ጨንፈር",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "ኮድ ምምራሕ / sort code"
+        },
+        "save": "መገዲ ክፍሊት ዕቅብ"
+      }
+    },
+    "templates": {
+      "metaTitle": "ቴምፕሌትስ ሰነድ",
+      "title": "ቴምፕሌትስ ሰነድ",
+      "customised": "ዝተመቓቐለ",
+      "builtIn": "ዝተሃንጸ ቀዳማይ ምርጫ",
+      "description": "ኢንቮይሳትን ክረዲት ኖትስን ከመይ ይርእዩ። ዝወጹ ሰነዳት እቲ ብኡ ዝወጹ ቴምፕሌት የዕቅቡ።",
+      "resetTitle": "ናብ ዝተሃንጸ ቀዳማይ ምርጫ ይመለስ?",
+      "resetDescription": "ምምቕቓልኩም ይወገድ፤ ቅድሚኡ ዝወጹ ሰነዳት ኣይጸለዉን።",
+      "reset": "ምለስ",
+      "resetTrigger": "ናብ ቀዳማይ ምርጫታት ምለስ",
+      "importTitle": "ኣእትው",
+      "importDescription": "ቅድሚኡ ዝተላእከ ኣቀማምጣ መልስ።",
+      "overridesTitle": "ኣብ ነፍሲ ወከፍ ፕሮፋይል ምልዋጥ",
+      "overridesDescription": "ሓደ ፕሮፋይል ካብ ገጹ ምዕራይ ናይ ባዕሉ ቴምፕሌት ክመርጽ ይኽእል።",
+      "noOverrides": "ኩሉ ፕሮፋይል ቴምፕሌት ኢንስታንስ ይጥቀም።",
+      "import": {
+        "json": "JSON ቴምፕሌት",
+        "jsonHint": "ብ Export JSON ዝተፈጥረ ፋይል ለጥፍ፤ ዝጎደሉ ቁልፍታት ናብ ቀዳማይ ምርጫታት ይምለሱ",
+        "importing": "ይኣቱ ኣሎ…",
+        "submit": "ኣእትው"
+      },
+      "form": {
+        "templateTitle": "ቴምፕሌት",
+        "templateDescription": "ሽዱሽተ ዝተሃንጹ፤ እቲ ትሕቲ ዘሎ ምምቕቓል ኣብቲ ዝመረጽኩሞ ዝኾነ ይትግበር።",
+        "templateGroup": "ቴምፕሌት",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "ዘመናዊን ኣየር ዘለዎን፣ sans-serif፣ ኣብ ትሕቲ ርእሲ ሕብሪ ዘለዎ መስመር።"
+          },
+          "classic": {
+            "name": "Classic",
+            "character": "ልሙድ ዶባት ዘለዎ ሰንጠረዥ፣ serif ርእስታት፣ ኣብ ሳጹን ዘሎ ጠቕላላ።"
+          },
+          "compact": {
+            "name": "Compact",
+            "character": "ንነዊሕ ዝርዝር ንጥፍታት ጽቡቕ ኣቀማምጣ፤ ንእሽቶ ፊደል፣ ውሑዳት መፈላለዪታት።"
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "ህዱእን ሰፊሕን: መስመራትን ሳጹናትን የለን፣ ቀሊል ምልክታት፣ ብዙሕ ባዶ ቦታ።"
+          },
+          "letterhead": {
+            "name": "Letterhead",
+            "character": "ሎጎኹምን ስምኩምን ኣብ ሕብሪ ባንድ ወይ ስእሊ ኣብ ላዕሊ ነፍሲ ወከፍ ገጽ።"
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "ርእሲ ብሕብሪ ባንድ፤ ወገናት፣ ርእሲ ሰንጠረዥን ጠቕላላን ኣብ ፈዘዝ ሕብሪ ኣክሰንት።"
+          }
+        },
+        "paperTitle": "ወረቐትን ፊደልን",
+        "paperSize": "ዓቐን ወረቐት",
+        "paperLetter": "Letter",
+        "margins": "ዶባት",
+        "marginsNormal": "ልሙድ",
+        "marginsNarrow": "ጸቢብ",
+        "headingFont": "ፎንት ርእሲ",
+        "bodyFont": "ፎንት ትሕዝቶ",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "ዓይነት ሰንጠረዥ",
+        "tableRuled": "ብመስመር",
+        "tableZebra": "Zebra",
+        "tablePlain": "ቀሊል",
+        "accentColour": "ሕብሪ ኣክሰንት",
+        "textColour": "ሕብሪ ጽሑፍ",
+        "logoPosition": "ቦታ ሎጎ",
+        "positionLeft": "ጸጋም",
+        "positionCentre": "ማእከል",
+        "positionRight": "የማን",
+        "logoHeight": "ልዕል ሎጎ (mm)",
+        "documentTitle": "ርእሲ ሰነድ",
+        "titleAuto": "ብኣውቶማቲክ (GST ዝፈልጥ)",
+        "titleCustom": "ብዘይ ሓባር",
+        "titlePlaceholder": "ንኣብነት PROFORMA INVOICE",
+        "qrPosition": "ቦታ QR",
+        "qrFooter": "ግርጌ",
+        "qrHeader": "ርእሲ",
+        "qrBesideTotals": "ኣብ ጥቓ ጠቕላላ",
+        "amountInWords": "መጠን ብቓላት",
+        "wordsBelowTotal": "ኣብ ትሕቲ ጠቕላላ",
+        "wordsFooter": "ግርጌ",
+        "wordsHidden": "ዝተሓብአ",
+        "subtotalRow": "ሕሩይ ጠቕላላ ሕዳር",
+        "discountRow": "ሕዳር ቅናሽ",
+        "taxLines": "መስመራት ግብሪ",
+        "tdsExpected": "ዝተጸበየ TDS",
+        "roundingRow": "ሕዳር ምዕሩግ",
+        "pageNumbers": "ቁጽሪ ገጻት",
+        "headerTitle": "ርእሲ",
+        "headerDescription": "ሕብሪ ባንድ ወይ ስእሊ ኣብ ላዕሊ ነፍሲ ወከፍ ገጽ። Letterhead ን Modern ን ካልእ ክሳብ ዘይመረጽኩም ባንድ የርእዩ።",
+        "headerStyle": "ዓይነት ርእሲ",
+        "headerNone": "የለን",
+        "headerBand": "ሕብሪ ባንድ",
+        "headerImage": "ስእሊ",
+        "bandColour": "ሕብሪ ባንድ",
+        "bandColourHex": "ሕብሪ ባንድ (hex)",
+        "headerImageLabel": "ስእሊ ርእሲ",
+        "headerImageHint": "PNG፣ JPEG ወይ WebP ክሳብ 2400 px ወርሒ፤ ንምሉእ ወርሒ ገጽ የጠቓልል።",
+        "imageOpacity": "ንጽህና ስእሊ",
+        "headerHeight": "ልዕል ርእሲ (mm)",
+        "bandText": "ጽሑፍ ኣብ ባንድ",
+        "bandTextAuto": "ብኣውቶማቲክ (ካብ ሕብሪ ባንድ)",
+        "bandTextLight": "ብሩህ",
+        "bandTextDark": "ጸሊም",
+        "textTitle": "ጽሑፍ",
+        "headerNote": "ምስክርነት ርእሲ",
+        "footer": "ግርጌ",
+        "signatureCaption": "መግለጺ ፊርማ",
+        "draftWatermark": "ዋተርማርክ ድራፍት",
+        "labelsTitle": "ምልክታት",
+        "labelsDescription": "ቀዳማይ ቃላት ንምዕቃብ ሜዳ ባዶ ግደፎ።",
+        "save": "ቴምፕሌት ዕቅብ",
+        "downloadSample": "ሰናድ PDF ኣውርድ",
+        "exportJson": "JSON ኣውጽእ"
+      }
+    },
+    "email": {
+      "metaTitle": "ኢሜይል",
+      "title": "ኢሜይል",
+      "configuredSettings": "ኣብ ቅጥዕታት ዝተዋቀረ",
+      "configuredEnv": "ብኣከባቢ ዝተዋቀረ",
+      "notConfigured": "ዘይተዋቀረ: መገዲ ኣፕ ሜይል",
+      "description": "ሰነዳት ካብ ኮምፖዘር ምስ ዝተዓቀበ PDF ተሓሪዩ ይለኣኽ። ኣብዚ ዘለዉ ቅጥዕታት ንSMTP_* ኣብ ኣከባቢ ይሽሩ።",
+      "sendTest": "ፈተናዊ ኢሜይል ናብ {email} ለኣኽ",
+      "removeTitle": "ዝተዓቀበ ቅጥዕታት SMTP ይወገድ?",
+      "removeEnvTakesOver": "ዋጋታት SMTP_* ናይ ኣከባቢ ይትክኡ።",
+      "removeFallsBack": "ኢሜይል ናብ መገዲ ኣፕ ሜይል ይምለስ።",
+      "removeTrigger": "ዝተዓቀበ ቅጥዕታት ኣወግድ",
+      "smtpTitle": "ሰርቨር SMTP",
+      "smtpFromEnv": "ሕጂ ካብ ኣከባቢ ዝተወስደ፤ ኣብዚ ምዕቃብ ይሽሮ።",
+      "smtpPasswordNote": "እቲ መሕለፊ ቃል ኣብ ግዜ ምዕቃብ ዝተሰወረ ኮይኑ ደጊሙ ኣይረአን።",
+      "defaultsTitle": "ቀዳማይ ተቐበልቲ",
+      "defaultsDescription": "CC/BCC ንብዘላ ኢንስታንስ፤ ፕሮፋይላት ኣውጻእቲ ናይ ባዕሎም የውስኹ።",
+      "sentTitle": "ዝተላእከ መልእኽቲ",
+      "sentDescription": "ናይ መወዳእታ 50 ፈተነታት፣ ዝተፈሸሉን ብኢድ ዝተላእኩን ጌርካ።",
+      "smtp": {
+        "host": "ሆስት",
+        "port": "ፖርት",
+        "security": "ድሕነት",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "የለን (LAN ሪሌይ)",
+        "user": "ስም ተጠቃሚ",
+        "password": "መሕለፊ ቃል",
+        "passwordStored": "ዝተዓቀበን ዝተሰወረን፤ ንምዕቃብ ባዶ ግደፎ",
+        "passwordEncrypted": "ኣብ ግዜ ምዕቃብ ዝተሰወረ",
+        "from": "ኣድራሻ ሰዳዲ",
+        "fromName": "ስም ሰዳዲ",
+        "replyTo": "መልሲ ናብ",
+        "save": "ቅጥዕታት SMTP ዕቅብ"
+      },
+      "defaults": {
+        "cc": "ቀዳማይ CC",
+        "ccHint": "ናብ ነፍሲ ወከፍ ኮምፖዘር ይወሰኽ፤ ብኮማ ዝተፈለየ",
+        "bcc": "ቀዳማይ BCC",
+        "save": "ቀዳማይ ምርጫታት ዕቅብ"
+      }
+    },
+    "security": {
+      "metaTitle": "ድሕነት",
+      "title": "ድሕነት",
+      "description": "ኣበይ ኣቲኹም ከም ዘለኹም፣ ከምኡውን ዝተቐየረ ኩሉ።",
+      "sessions": {
+        "title": "ንጡፋት ክፍለ-ግዜታት",
+        "description": "ክፍለ-ግዜ ምሕራም ነቲ መሳርሒ ብቕጽበት የውጽኦ።",
+        "signOutOthers": {
+          "title": "ካብ ኩሎም ካልኦት ቦታታት ይወጽእ?",
+          "description": "ኩሉ ክፍለ-ግዜ ብዘይካ እዚ ይሕረም።",
+          "confirm": "ካልኦት ኣውጽእ",
+          "trigger": "ካብ ኩሎም ካልኦት ቦታታት ውጻእ"
+        },
+        "columns": {
+          "device": "መሳርሒ",
+          "ipAddress": "ኣድራሻ IP",
+          "signedIn": "ዝኣተወ",
+          "lastSeen": "ናይ መወዳእታ ዝረአየ",
+          "expires": "ዝተወድአ"
+        },
+        "thisDevice": "እዚ መሳርሒ",
+        "revokeTitle": "እዚ ክፍለ-ግዜ ይሕረም?",
+        "unknownDevice": "ዘይፍለጥ መሳርሒ",
+        "unknownBrowser": "ዘይፍለጥ",
+        "agentOnOs": "{browser} ኣብ {os}"
+      },
+      "audit": {
+        "title": "ሎግ ኦዲት",
+        "count": "{count, plural, one {# ፍጻመ} other {# ፍጻመታት}}",
+        "entity": "ህላወ",
+        "actionContains": "ተግባር ዝሓዘ",
+        "filter": "ምጽራይ",
+        "reset": "ምለስ",
+        "columns": {
+          "when": "መዓስ",
+          "who": "መን",
+          "action": "ተግባር",
+          "entity": "ህላወ",
+          "summary": "ጽሕፈት"
+        },
+        "empty": "ምስዞም ምጽራያት ዝሰማማዕ ፍጻመ የለን።",
+        "system": "ስርዓት",
+        "changes": "ለውጥታት",
+        "page": "ገጽ {page} ካብ {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "ተጠቀምቲ",
+      "title": "ተጠቀምቲ",
+      "description": "ኣብዚ ኢንስታንስ መን ክኣቱን እንታይ ክገብርን ይኽእል።",
+      "roles": {
+        "owner": "ወናኒ",
+        "editor": "ኣዐራሪ",
+        "viewer": "ተራኣይ"
+      },
+      "roleHints": {
+        "owner": "ኩሉ ነገር፣ ቅጥዕታትን ኣባላትን ጌርካ",
+        "editor": "ዓማዊል፣ ካታሎግ፣ ኢንቮይሳት፣ ክረዲት ኖትስ፣ ክፍሊታት፣ ኢሜይል",
+        "viewer": "ንምንባብ ጥራይ"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "ተራ ናይ {email}",
+      "invite": {
+        "title": "ሰብ ጸውዕ",
+        "description": "ብዝተጸውዐ ኣድራሻ (ኣቕራቢ መንነት ወይ መሕለፊ ቃል) ይኣትዉ ኣብ ዝመረጽኩምዎ ተራ ድማ ይኾኑ።",
+        "sent": "ጻውዒት ናብ {email} ብኢሜይል ተላኢኹ።",
+        "readyWithError": "ጻውዒት ንዝኾነ {email} ዳልዩ እዩ። እቲ ኢሜይል ኣይተላእከን ({error})፤ እዚ ሊንክ ለኣኹሎም:",
+        "readyNoSmtp": "ጻውዒት ንዝኾነ {email} ዳልዩ እዩ። SMTP ኣይተዋቕረን፤ እዚ ሊንክ ለኣኹሎም:",
+        "copyLink": "ሊንክ ቅዳሕ",
+        "email": "ኢሜይል",
+        "emailPlaceholder": "person@example.com",
+        "role": "ተራ",
+        "submit": "ጸውዕ",
+        "inviting": "ይጽውዕ ኣሎ…"
+      },
+      "members": {
+        "title": "ኣባላት",
+        "description": "ብውሑዱ ሓደ ንጡፍ ወናኒ ኩሉ ግዜ ይነብር።",
+        "columns": {
+          "person": "ሰብ",
+          "role": "ተራ",
+          "lastSignIn": "ናይ መወዳእታ ምእታው",
+          "status": "ኩነታት"
+        },
+        "nameYou": "{name} (ንስኻ)",
+        "deactivated": "ዝተዓጽወ",
+        "reactivate": {
+          "title": "{email} ደጊሙ ይንጥፍ?",
+          "description": "ብቀዳማይ ተራኦም ደጊሞም ክኣትዉ ይኽእሉ።",
+          "confirm": "ደጊምካ ኣንጥፍ"
+        },
+        "deactivate": {
+          "title": "{email} ይዕጸው?",
+          "description": "ኩሉ ክፍለ-ግዜ ሕጂ ይውድእ ክሳብ ዝንጥፍ ድማ ክኣትዉ ኣይክእሉን። ታሪኾም ይነብር።",
+          "confirm": "ዕጸው"
+        }
+      },
+      "invitations": {
+        "title": "ዝጽበዩ ጻውዒታት",
+        "description": "ክኣትዉ ዝኽእሉ ግን ገና ዘይኣተዉ ኣድራሻታት።",
+        "columns": {
+          "email": "ኢሜይል",
+          "role": "ተራ",
+          "invited": "ዝተጸውዐ"
+        },
+        "empty": "ዝጽበ ጻውዒት የለን።",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "ጻውዒት ንዝኾነ {email} ይሕረም?"
+      }
+    },
+    "data": {
+      "metaTitle": "ዳታ",
+      "title": "ዳታ",
+      "description": "ኩሉ ክሰጋገር ዝኽእል እዩ: ዳታሴትስ ከም CSV ወይ Excel፣ ንስደት ምሉእ ስናፕሾት፣ PDFs ንሕሳብ ሰብኩም፣ ከምኡውን ዝተፈተነ መገዲ ባክኣፕ።",
+      "period": {
+        "fiscalYear": "ዓመት ፋይናንስ",
+        "fiscalYearHint": "ንዕለታት ይሽሩ",
+        "issuer": "ኣውጻኢ"
+      },
+      "exportAll": {
+        "title": "ኩሉ ዳታ ኣውጽእ",
+        "description": "ZIP ምስ ነፍሲ ወከፍ ዳታሴት ከም CSV ከምኡውን <mono>data.json</mono>፣ ናይ ኩሎም ሰንጠረዥታት ርክባዊ ስናፕሾት። ዝተሰወሩ ሜዳታት (ዝርዝራት መገዲ ክፍሊት፣ መሕለፊ ቃል SMTP) ወጻኢ እዮም፤ እቲ ኣብ ውሽጢ ዘሎ README ይዝርዝሮም።",
+        "download": "okinvo-data ZIP ኣውርድ"
+      },
+      "exportDocuments": {
+        "title": "ሰነዳት ኣውጽእ",
+        "description": "ንሓደ ግዜ ዝኾነ ዝወጸን ዝተሰረዘን ኢንቮይስን ክረዲት ኖት PDF፣ ብቁጽሪ ዝተሰምዩ፣ ምስ <mono>index.csv</mono> ናይ ቁጽሪታት፣ ጠቕላላታትን ሃሾታትን። ዝጎደሉ PDFs ኣብ መገዲ ይፍጠሩ።",
+        "docx": "ናይ ነፍሲ ወከፍ ሰነድ ቅዳሕ DOCX እውን ጌርካ ኣእትው",
+        "download": "ZIP ሰነዳት ኣውርድ"
+      },
+      "datasets": {
+        "title": "ዳታሴትስ",
+        "description": "እቲ ገጻት ዝርዝር ዘቕርብዎ ተመሳሳሊ ኤክስፖርታት፣ ግዜን ኣውጻእን ኣብ ኩሎም ተፈጺሙ። ክፍሊታት ርሕቀት ዕለት ይጥቀሙ፤ ዓማዊልን ኣገልግሎታትን ግዜ ይሕልፉ።",
+        "columns": {
+          "dataset": "ዳታሴት",
+          "filters": "ዝተፈጸሙ ምጽራያት",
+          "download": "ምውራድ"
+        },
+        "names": {
+          "invoices": "መዝገብ ኢንቮይሳት",
+          "invoiceItems": "መስመራት ኢንቮይስ",
+          "payments": "ሌጀር ክፍሊታት",
+          "creditNotes": "መዝገብ ክረዲት ኖትስ",
+          "clients": "ዓማዊል",
+          "services": "ኣገልግሎታት",
+          "gstSummary": "ጽሕፈት GST",
+          "tdsSummary": "ጽሕፈት TDS"
+        },
+        "filters": {
+          "periodIssuer": "ግዜ፣ ኣውጻኢ",
+          "dateRangeIssuer": "ርሕቀት ዕለት፣ ኣውጻኢ",
+          "includesArchived": "ዝተኣርከቡ ሓዊሱ"
+        }
+      },
+      "backups": {
+        "title": "ባክኣፕስ",
+        "notWired": "ዝተወሰነ ኣገልግሎት ባክኣፕ የለን",
+        "noRun": "ክሳብ ሕጂ ባክኣፕ ኣይተሰርሐን",
+        "lastOk": "ናይ መወዳእታ ባክኣፕ ተዓዊቱ",
+        "lastFailed": "ናይ መወዳእታ ባክኣፕ ኣይተዓወተን",
+        "description": "እቲ ኣገልግሎት Compose <mono>backup</mono> ንPostgres ይድምፕ ኣብ <mono>BACKUP_CRON</mono> ድማ ነቲ ቮልዩም ዕቃበ የኣርክብ፣ ታሪኽ <mono>BACKUP_RETENTION_DAYS</mono> ኣብ ቮልዩም <mono>backups</mono> የዕቅብ፣ እዛ ገጽ ዘንብባ ፋይል ኩነታት ድማ ይጽሕፍ።",
+        "finished": "ዝወዳእ",
+        "databaseDump": "ድምፕ ዳታቤስ",
+        "storageArchive": "ኣርካይቭ ዕቃበ",
+        "size": "ዓቐን",
+        "sizeMb": "{size} MB",
+        "error": "ጌጋ",
+        "runNow": "ሕጂ ሓደ ኣሰርሕ፣ ወይ ካብ ጽምዲ ፋይላት መልስ:",
+        "restoreDrill": "ኣካይዳ ምምላስ ኣብ CI ብ <mono>scripts/restore-drill.sh</mono> ይተግብር: ዘርእ፣ ባክኣፕ፣ ሰርዝ፣ መልስ፣ ድሕሪኡ ቁጽሪ ሕዳራትን ሃሽ PDF ኣነጻጽር።"
+      }
+    },
+    "legal": {
+      "metaTitle": "ሕጋዊ",
+      "metaDescription": "እዚ ኢንስታንስ መን የካይዶ: ኣብ ህዝባዊ ሕጋውያን ገጻት ዝሕተሙ ዝርዝራት።",
+      "title": "ሕጋዊ",
+      "description": "ህዝባዊ ሕጋውያን ገጻት እዞም ዝርዝራት ይሕትሙ። ኩሉ ሜዳ ክሳብ ዝመልእ፣ ገጻት ዝተሓይሉ ተሓዘቲ ቦታ የርእዩ።",
+      "operator": {
+        "title": "ዝርዝራት ኣካይዲ",
+        "complete": "ምሉእ",
+        "missing": "{count} ጎዲሉ: {fields}",
+        "description": "ንስኻ፣ ከም እቲ ንዚ ኢንስታንስ ዘካይድ ሰብ ወይ ኩባንያ፣ እቲ ሰነዳት ዝጠቅስዎ ኣካይዲ ኢኻ። ኣብዚ ዘሎ ኩሉ ናብ ዝኾነ ቦታ ኣይልኣኽን፤ ኣብ ትሕቲ ዘለዉ ገጻት ይሕተም።"
+      },
+      "fieldLabels": {
+        "legalName": "ሕጋዊ ስም ኣካይዲ",
+        "entityType": "ዓይነት ህላወ",
+        "address": "ኣድራሻ ኣካይዲ",
+        "country": "ሃገር ኣካይዲ",
+        "contactEmail": "ኢሜይል ርክብ",
+        "privacyEmail": "ኢሜይል ምስጢራዊነት",
+        "dpoEmail": "ኢሜይል ሓላፊ ሓለዋ ዳታ",
+        "governingLaw": "ዝመሓደር ሕጊ",
+        "venue": "ቦታ ክሲ",
+        "effectiveDate": "ዕለት ትግበራ"
+      },
+      "publicPages": {
+        "title": "ህዝባዊ ገጻት",
+        "description": "ካብ ገጽ ምእታው፣ ተራኣይ ምክፍፋልን መሰነይታ ኩኪን ዝተኣሳሰረ።",
+        "terms": "ቅድመ-ኩነታት ኣገልግሎት",
+        "acceptableUse": "ፖሊሲ ዝተፈቕደ ኣጠቓቕማ",
+        "privacy": "ፖሊሲ ምስጢራዊነት",
+        "cookies": "ፖሊሲ ኩኪ",
+        "dataRetention": "ምዕቃብ ዳታ",
+        "security": "ድሕነት",
+        "licenses": "ፍቓዳትን መሰነይታታት ሳልሳይ ወገንን"
+      },
+      "form": {
+        "legalName": "ሕጋዊ ስም",
+        "entityType": "ዓይነት ህላወ",
+        "individual": "ውልቀ-ሰብ / ሓደ ወናኒ",
+        "company": "ኩባንያ / ዝተመዝገበ ህላወ",
+        "address": "ኣድራሻ",
+        "addressHint": "ኣብ ቅድመ-ኩነታትን ፖሊሲ ምስጢራዊነትን ከም ኣድራሻ ጽሕፈት-ቤት ፖስታ ኣካይዲ ይሕተም።",
+        "country": "ሃገር",
+        "effectiveDate": "ዕለት ትግበራ",
+        "contactEmail": "ኢሜይል ርክብ",
+        "privacyEmail": "ኢሜይል ምስጢራዊነት",
+        "privacyEmailHint": "ሕቶታት ወናኒ ዳታ ናብዚ ይኸዱ፤ ኣድራሻ ርክብ ክኸውን ይኽእል።",
+        "dpoEmail": "ኢሜይል ሓላፊ ሓለዋ ዳታ",
+        "dpoEmailHint": "ሓደ እንተሸይምኩም ጥራይ።",
+        "governingLaw": "ዝመሓደር ሕጊ",
+        "governingLawHint": "ንኣብነት “ሕግታት ህንዲ” ወይ “ሕግታት እንግሊዝን ዌልስን”።",
+        "venue": "ቦታ ክሲ",
+        "venueHint": "ንኣብነት “ቤት ፍርዲ Bengaluru፣ Karnataka”።",
+        "submit": "ዝርዝራት ኣካይዲ ዕቅብ"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "ቁልፍታት API ንስክሪፕትስ፣ SDK ን MCP ክላይንትስን፣ ምስ ኣብነታት curl።",
+      "title": "API",
+      "description": "ቁልፍታት ንስክሪፕትስ፣ SDK ን MCP ክላይንትስን። ሓደ ቁልፊ ብዝበዝሐ ተራኹም ዝገብሮ ክገብር ይኽእል፤ ሓደ ግዜ ጥራይ ይረአ።",
+      "create": {
+        "title": "ቁልፊ ፍጠር",
+        "description": "ከም <mono>Authorization: Bearer okv_…</mono> ለኣኾ። ካብ ምንጪ ኮድን ሎግ ቻትን ርሒቕኩሞ ሓዙዎ፤ እንተፈሲሱ ኣብ ታሕቲ ሕረሙዎ።"
+      },
+      "keys": {
+        "title": "ቁልፍታት",
+        "descriptionOwner": "ኩሎም ቁልፍታት ናይዚ ኢንስታንስ፤ ወናኒታት ዝኾነ ክሕርሙ ይኽእሉ።",
+        "descriptionOwn": "ቁልፍታትኩም።",
+        "columns": {
+          "name": "ስም",
+          "prefix": "ቅድመ-ቅጥዒ",
+          "scopes": "ወሰናት",
+          "owner": "ወናኒ",
+          "lastUsed": "ናይ መወዳእታ ኣጠቃቕማ",
+          "expires": "ዝውድእ",
+          "status": "ኩነታት"
+        },
+        "empty": "ክሳብ ሕጂ ቁልፍታት API የለን።",
+        "never": "ፈጺሙ",
+        "revoked": "ዝተሓረመ",
+        "expired": "ዝወድአ",
+        "revokeTitle": "{name} ይሕረም?",
+        "revokeDescription": "ክላይንትስ እዚ ቁልፊ ዝጥቀሙ ብቕጽበት ስራሕ የቋርጹ።",
+        "activeCount": "{count, plural, one {# ንጡፍ ቁልፊ።} other {# ንጡፋት ቁልፍታት።}}"
+      },
+      "examples": {
+        "title": "ኣብነታት",
+        "description": "<mono>$OKINVO_KEY</mono> ብቁልፊ ተክኦ። REST API ምስ ስሪት፣ ሰነድ OpenAPI ናቱ (<mono>/api/openapi.json</mono>)፣ SDK TypeScript ን ሰርቨር MCP ን ምስ ዝቕጽሉ ተግባራት ዕላማ v1.1 ይመጹ፤ እቲ መወዳእታ ነጥቢ ኩነታት ሎሚ ይሰርሕ።",
+        "rateLimit": "ልዕሊ ገደብ ዝኾኑ ጻውዒታት ብ 429 ምስ ርእሲ <mono>Retry-After</mono> ይምልሱ (ንነፍሲ ወከፍ ቁልፊ 120 ሕቶታት ኣብ ደቒቕ)። ወሰናት ቁልፊ ብሕጂ ዘለዎ ተራ ወናኒኡ ይጥቓዕ።"
+      },
+      "form": {
+        "copyKey": "ቁልፊ API ቅዳሕ",
+        "name": "ስም",
+        "namePlaceholder": "ንኣብነት ስክሪፕት ሕሳብ",
+        "expires": "ዝውድእ",
+        "in30Days": "ኣብ 30 መዓልቲ",
+        "in90Days": "ኣብ 90 መዓልቲ",
+        "inAYear": "ኣብ ሓደ ዓመት",
+        "never": "ፈጺሙ",
+        "scopes": "ወሰናት",
+        "submit": "ቁልፊ API ፍጠር",
+        "creating": "ይፈጥር ኣሎ…"
+      },
+      "scopes": {
+        "invoicesRead": "ኢንቮይሳት ኣንብብ",
+        "invoicesCreate": "ኢንቮይሳት ፍጠርን ኣውጽእን",
+        "creditNotesRead": "ክረዲት ኖትስ ኣንብብ",
+        "creditNotesCreate": "ክረዲት ኖትስ ፍጠርን ኣውጽእን",
+        "catalogueRead": "ዓማዊል፣ ኣገልግሎታትን ምህርትታትን ኣንብብ",
+        "documentsRead": "ዝተዓቀበ PDFs ን ቅዳሕ DOCX ን ኣውርድ",
+        "statusRead": "ኩነታት ኢንስታንስ ኣንብብ"
+      }
+    },
+    "status": {
+      "metaTitle": "ኩነታት",
+      "metaDescription": "ስሪት፣ ዳታቤስ፣ ዕቃበ፣ ኢሜይልን ጥዕና ባክኣፕን ናይዚ ኢንስታንስ።",
+      "title": "ኩነታት",
+      "description": "እዚ ኢንስታንስ እንታይ ይሰርሕ ከምኡውን ክፍልታቱ ይምልሱ ዶ።",
+      "recheck": "ደጊምካ ርአ",
+      "health": {
+        "ok": "ጽቡቕ",
+        "warning": "ኣጠንቅቕ",
+        "failed": "ዝፈሸለ",
+        "na": "ዘይተዋቕረ"
+      },
+      "overall": {
+        "ok": "ኩሉ ጽቡቕ",
+        "degraded": "ዝተጎድአ",
+        "failed": "ዝፈሸለ"
+      },
+      "version": "ቢልድ {hasSha, select, yes {<mono>{sha}</mono>} other {(sha ዘይፍለጥ)}} · ዝተሰርሐ {built} · Node <mono>{node}</mono> · ዝሰርሐ {uptime} · ዝተረኣየ {checked}",
+      "dateUnknown": "(ዕለት ዘይፍለጥ)",
+      "uptime": {
+        "days": "{d}መ {h}ሰ {m}ደ",
+        "hours": "{h}ሰ {m}ደ",
+        "minutes": "{m}ደ"
+      },
+      "rows": {
+        "database": "ዳታቤስ",
+        "storage": "ዕቃበ",
+        "rateLimiting": "ገደብ ተመን",
+        "email": "ኢሜይል",
+        "backups": "ባክኣፕስ"
+      },
+      "db": {
+        "detail": "{latency} ms · ናይ መወዳእታ ሚግሬሽን <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # ዘይወዳእ ሚግሬሽን}}",
+        "noMigration": "የለን"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · ምጽሓፍ፣ ምንባብን ምስራዝን ናይ ፈተናዊ ኦብጀክት ኣብ {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "ዕቃበ <mono>{store}</mono> {store, select, memory {(ሓደ ሬፕሊካ)} other {(ኣብ መንጎ ሬፕሊካታት ዝተኻፈለ)}}",
+      "smtp": {
+        "configured": "SMTP ካብ {source, select, settings {ገጽ ቅጥዕታት} env {ኣከባቢ} other {}} · ናይ መወዳእታ ፈተና {lastTest} · ናይ መወዳእታ 24 ሰዓት: {sent} ተላኢኹ፣ {failed} ፈሺሉ",
+        "none": "ሰርቨር SMTP የለን፤ እቲ ኮምፖዘር “ኣብ ኣፕ ሜይል ክፈት” የቕርብ። <link>ኣዋቕር</link>"
+      },
+      "backups": {
+        "notWired": "ዝተወሰነ ኣገልግሎት ባክኣፕ የለን (BACKUP_STATUS_FILE ኣይተመደበን)።",
+        "noRun": "ኣገልግሎት ባክኣፕ ተወሲኑ፤ ክሳብ ሕጂ ዝተመዝገበ ስራሕ የለን።",
+        "ok": "ናይ መወዳእታ ስራሕ ኣብ {finishedAt} ተዓዊቱ{days, plural, =0 {} one { · ምዕቃብ # መዓልቲ} other { · ምዕቃብ # መዓልታት}}",
+        "failed": "ናይ መወዳእታ ስራሕ ፈሺሉ: {error} ኣብ {finishedAt}{days, plural, =0 {} one { · ምዕቃብ # መዓልቲ} other { · ምዕቃብ # መዓልታት}}"
+      },
+      "footer": "ተመሳሳሊ ጸብጻብ ከም JSON ኣብ <mono>/api/health/status</mono> ንክትትል ይርከብ (ዝኣተወ ክፍለ-ግዜ ወይ ቁልፊ API)።"
+    }
+  },
+  "onboarding": {
+    "metaTitle": "እንኳዕ ብደሓን መጻእኩም",
+    "progress": "ግስጋሴ",
+    "steps": {
+      "aboutYou": "ብዛዕባኻትኩም",
+      "howYouUse": "ከመይ ክትጥቀሙ ኢኹም",
+      "allSet": "ኩሉ ድልው"
+    },
+    "step1": {
+      "title": "ብዛዕባኻትኩም ንገሩና",
+      "subtitle": "እዚ ቀዳማይ ምርጫታትኩም የዘጋጅ፤ ኩሉ ዋጋ ደሓር ኣብ ቅጥዕታት ክቕየር ይኽእል።",
+      "name": "ስም",
+      "email": "ኢሜይል",
+      "emailHint": "መንነት ምእታውኩም። ደሓር ካብ ቅጥዕታት → ድሕነት ክቕየር ይኽእል።",
+      "country": "ሃገር",
+      "currency": "ዝፈተኹም ሞንዲ",
+      "currencyHint": "ንሓደሽቲ ፕሮፋይላትን ንዳሽቦርድን ክሳብ ፕሮፋይል ዝህሉ ይጥቀም።"
+    },
+    "step2": {
+      "title": "okinvo ከመይ ክትጥቀሙ ኢኹም?",
+      "subtitle": "ቀዳማይ ምርጫታት ጥራይ ይቕየሩ፤ ዝተዓጽወ ነገር የለን።",
+      "usage": "ኣጠቃቕማ",
+      "personal": "ውልቃዊ ኢንቮይሲንግ",
+      "personalHint": "ብስምኩም ናጻ ስራሕ",
+      "business": "ንግዳዊ ኢንቮይሲንግ",
+      "businessHint": "ኢንቮይሳት ካብ ዝተመዝገበ ንግዲ",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "ቁጽሪ VAT",
+        "other": "ቁጽሪ ምዝገባ ግብሪ"
+      },
+      "taxQuestion": {
+        "IN": "GSTIN ዶ ኣለኩም?",
+        "GB": "ኣብ VAT ዶ ተመዝጊብኩም?",
+        "other": "ኣብ ኢንቮይሳት ንምሕታም ቁጽሪ ምዝገባ ግብሪ ዶ ኣለኩም?"
+      }
+    },
+    "step3": {
+      "title": "ድልዋት ኢኹም",
+      "body": "ቀጺሉ፣ ቀዳማይ ፕሮፋይል ኣውጻኢኹም ፍጠሩ: እቲ ኣብ ኢንቮይሳትኩም ዝሕተም ስም፣ ኣድራሻን ዝርዝር ግብርን። እቲ ዝነገርኩምና መሊእናዮ ኣለና።",
+      "go": "ናብ ፕሮፋይላት ኪዱ",
+      "opening": "ይኽፈት ኣሎ…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "ቅድመ-ኩነታት",
+      "privacy": "ምስጢራዊነት",
+      "cookies": "ኩኪታት",
+      "security": "ድሕነት"
+    },
+    "cookieNotice": {
+      "label": "መሰነይታ ኩኪ",
+      "body": "እቲ ብጥብቂ ዘድሊ ኩኪታት ጥራይ ንጥቀም: ክፍለ-ግዜኹምን ምርጫታት ምርኣይኩምን። ዝኾነ ትንተናን ክትትልን የለን።",
+      "policy": "ፖሊሲ ኩኪ",
+      "gotIt": "ተረዲኡኒ"
+    },
+    "nav": {
+      "label": "ሕጋዊ",
+      "cookies": "ኩኪታት",
+      "privacy": "ምስጢራዊነት",
+      "terms": "ቅድመ-ኩነታት",
+      "acceptableUse": "ዝተፈቕደ ኣጠቓቕማ",
+      "retention": "ምዕቃብ",
+      "security": "ድሕነት",
+      "licences": "ፍቓዳት"
+    },
+    "operatorNotice": "okinvo ባዕሉ ዝተኣልየ ሶፍትዌር እዩ፤ ኣካይዲ እዚ ኢንስታንስ ንኣጠቓቕማኡ ተሓታቲ እዩ።",
+    "doc": {
+      "effectiveOn": "ዝትግበር <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "ትሕዝቶ"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "ሕጋዊ ስም ኣካይዲ",
+        "entityType": "ዓይነት ህላወ",
+        "address": "ኣድራሻ ኣካይዲ",
+        "country": "ሃገር ኣካይዲ",
+        "contactEmail": "ኢሜይል ርክብ",
+        "privacyEmail": "ኢሜይል ምስጢራዊነት",
+        "dpoEmail": "ኢሜይል ሓላፊ ሓለዋ ዳታ",
+        "governingLaw": "ዝመሓደር ሕጊ",
+        "venue": "ቦታ ክሲ",
+        "effectiveDate": "ዕለት ትግበራ"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "ኣይተረኸበን",
+      "title": "ኣብዚ ኣድራሻ ዋላ ሓደ ነገር የለን",
+      "body": "እቲ ሊንክ ኣረጊኡ ክኸውን ይኽእል፣ ወይ እቲ ዝጠቆሞ ሰነድ ፈጺሙ ኣይወጸን።"
+    },
+    "forbidden": {
+      "metaTitle": "ዘይተፈቐደ",
+      "title": "እዚ ሕሳብ እዚ ክገብር ኣይክእልን",
+      "body": "ተራኹም ንዚ ኣይፈቕድን። ካብ ወናኒ መእተዊ ሕተቱ፣ ወይ ዘለዎ ሕሳብ ተጠቒምኩም እተዉ።"
+    },
+    "error": {
+      "title": "ገለ ነገር ተበላሽዩ",
+      "body": "እዚ ሕቶ ዋላ ሓደ ኣይቐየረን። ደጊምኩም ፈትኑ፤ እንተቐጸለ ሎግ ሰርቨር ዝርዝር ኣለዎ።",
+      "digest": "ጌጋ {digest}",
+      "generic": "ጌጋ"
+    },
+    "appNotFound": {
+      "title": "ኣይተረኸበን",
+      "body": "እዚ ሰነድ የለን፣ ወይ ክትርእዩ ከለኹም ተሰሪዙ።",
+      "back": "ናብ ዳሽቦርድ ተመለስ"
+    },
+    "validation": {
+      "required": "ግድን",
+      "tooLong": "ዝበዝሐ {max} ፊደላት",
+      "invalidEmail": "ትክክለኛ ኢሜይል ክኸውን ኣለዎ",
+      "invalidDate": "ኣብ ቅርጺ YYYY-MM-DD ዝኾነ ዕለት ካላንደር ክኸውን ኣለዎ",
+      "invalidAmount": "ቁጽሪ ክኸውን ኣለዎ",
+      "wholeNumber": "ምሉእ ቁጽሪ ክኸውን ኣለዎ",
+      "greaterThanZero": "ካብ ዜሮ ዝዓቢ ክኸውን ኣለዎ",
+      "fixFields": "ብሓገዝ እቶም ዝተሓይሉ ሜዳታት ኣመሓይሹዎም።",
+      "charset": "መደበኛ ፊደላት ኪቦርድ ጥራይ ይፍቀዱ።"
+    }
+  },
+  "verify": {
+    "metaTitle": "ሰነድ ኣረጋግጽ",
+    "heading": "ምርግጋጽ ሰነድ",
+    "rateLimited": "ካብዚ ኣድራሻ ብዙሕ ምርመራታት። ብሓገዝ ድሕሪ ደቒቕ ደጊምኩም ፈትኑ።",
+    "notFound": {
+      "title": "ከምዚ ዝኣመሰለ ሰነድ የለን",
+      "body": "እዚ ሊንክ ምስ ዝኾነ ዝወጸ ሰነድ ኣይሰማማዕን። ኮድ QR ወይ እቲ ዝተዋህበኩም ሊንክ ርኣዩ፣ ወይ ንኣውጻኢ ርከቡ።"
+    },
+    "status": {
+      "void": "ዝተሰረዘ",
+      "valid": "ትክክል"
+    },
+    "issuedBy": "ዘውጽኦ",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "ዝወጸሉ",
+    "issueDate": "ዕለት ምዕዳል",
+    "total": "ጠቕላላ",
+    "voided": "እዚ ሰነድ ብኣውጻኢ ተሰሪዙ እዩ ድሕሪ ሕጂ ድማ ትክክል ኣይኮነን።",
+    "storedCopies": {
+      "title": "ዝተዓቀቡ ቅዳሓት",
+      "description": "SHA-256 ናይ ነፍሲ ወከፍ ስሪት PDF ኣብ ኣውጻኢ ዘሎ። ንምንጽጻር ኣብ ብሮውዘርኩም ቅዳሕኩም ምረጹ: ዋላ ሓደ ኣይጽዓንን።",
+      "empty": "ክሳብ ሕጂ PDF ኣይተፈጥረን።",
+      "protectedVersion": "ብመሕለፊ ቃል ዝተሓለወ ቅዳሕ {version}",
+      "version": "ስሪት {version}"
+    },
+    "check": {
+      "label": "ቅዳሕኩም ርኣዩ",
+      "hashing": "ሃሽ ይግበር ኣሎ…",
+      "match": "ቅዳሕኩም ምስ ስሪት {version} ብቐጥታ ይሰማማዕ።",
+      "mismatch": "ቅዳሕኩም ምስ ዝኾነ ዝተዓቀበ ስሪት ኣይሰማማዕን።"
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "ዝተኻፈለ ሰነድ",
+      "rateLimited": "ካብዚ ኣድራሻ ብዙሕ ሕቶታት። ብሓገዝ ድሕሪ ደቒቕ ደጊምኩም ፈትኑ።",
+      "unavailable": {
+        "title": "እዚ ሊንክ ኣይርከብን",
+        "body": "ክኸውን ይኽእል ኣብቅዑ ወይ ብኣውጻኢ ተሓሪሙ። ሓድሽ ሕተትዎም።"
+      },
+      "lockedTitleInvoice": "ኢንቮይስ ካብ {issuer}",
+      "lockedTitleCreditNote": "ክረዲት ኖት ካብ {issuer}",
+      "lockedBody": "እዚ ሰነድ ብመሕለፊ ቃል ዝተሓለወ እዩ። እቲ ኣውጻኢ ዝሃበኩም መሕለፊ ቃል ኣእትዉ።",
+      "void": "ዝተሰረዘ",
+      "protectedPdf": "እቲ PDF ብተመሳሳሊ መሕለፊ ቃል ይኽፈት። ክንበብን ክሕተምን ይኽእል፤ ምቕዳሕን ምዕራይን ዝተዓጽወ እዩ።",
+      "byline": "ካብ {issuer} ናብ {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "መሕለፊ ቃል",
+      "limited": "ብዙሕ ፈተነታት። ብሓገዝ ዓሰርተ ሓሙሽተ ደቓይቕ ተጸበዩ ደጊምኩም ድማ ፈትኑ።",
+      "wrong": "እቲ መሕለፊ ቃል ትክክል ኣይኮነን።",
+      "submit": "ሰነድ ክፈት"
+    },
+    "dialog": {
+      "trigger": "ኣካፍል",
+      "title": "እዚ ሰነድ ኣካፍል",
+      "description": "እቲ ሊንክ ዘለዎ ዝኾነ ሰብ ክሳብ ዝውድእ ወይ ክሳብ እትሕርምዎ ክርእዮን ከውርዶን ይኽእል። መሕለፊ ቃል ነቲ PDF ባዕሉ እውን ይሕሉ: ብመሕለፊ ቃል ይኽፈት ክንበብን ክሕተምን ይኽእል፣ ኣይኮነን ክእረምን ክቕዳሕን።",
+      "link": "ሊንክ",
+      "copyLink": "ሊንክ ቅዳሕ",
+      "password": "መሕለፊ ቃል",
+      "copyPassword": "መሕለፊ ቃል ቅዳሕ",
+      "sendSeparately": "መሕለፊ ቃል ካብ ሊንክ ፈልዩ ለኣኽ። ኣብ ዝርዝር ትሕቲ ደጊምካ ክትርእዮ ትኽእል።",
+      "copy": "ቅዳሕ",
+      "copied": "ተቐዲሑ",
+      "expires": "ዝውድእ",
+      "expiry": {
+        "d7": "ኣብ 7 መዓልቲ",
+        "d30": "ኣብ 30 መዓልቲ",
+        "d90": "ኣብ 90 መዓልቲ",
+        "never": "ፈጺሙ"
+      },
+      "protection": "ሓለዋ",
+      "protectionOptions": {
+        "auto": "መሕለፊ ቃል: ሓረግ ፍጠር",
+        "manual": "መሕለፊ ቃል: ናተይ ምረጽ",
+        "none": "መሕለፊ ቃል የለን (ክፉት ሊንክ)"
+      },
+      "passwordHint": "ብውሑዱ 8 ፊደላት።",
+      "strength": "ሓይሊ: {label}",
+      "strengthLabels": {
+        "veryWeak": "ኣዝዩ ድኹም",
+        "weak": "ድኹም",
+        "fair": "ማእከላይ",
+        "good": "ጽቡቕ",
+        "strong": "ጽኑዕ"
+      },
+      "creating": "ይፈጥር ኣሎ…",
+      "create": "ሊንክ ፍጠር",
+      "activeLinks": "ንጡፋት ሊንክታት",
+      "passwordProtected": "ብመሕለፊ ቃል ዝተሓለወ",
+      "openLink": "ሊንክ ክፈት",
+      "linkExpires": "{kind} · ኣብ {date} ይውድእ",
+      "linkNeverExpires": "{kind} · ፈጺሙ ኣይውድእን",
+      "revoke": {
+        "title": "እዚ ሊንክ ይሕረም?",
+        "description": "እቲ ሊንክ ንዘለዎም ኩሎም ብቕጽበት ስራሕ የቋርጽ።",
+        "label": "ኣቋርጽ"
+      },
+      "linkPassword": "መሕለፊ ቃል: <code>{password}</code>",
+      "counts": "{views, plural, other {# ምርኣያት}} · {downloads, plural, other {# ምውራዳት}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "ክረዲት ኖትስ",
+      "title": "ክረዲት ኖትስ",
+      "description": "ኣብ ዝወጹ ኢንቮይሳት ዝተኸፍቱ፤ ነፍሲ ወከፍ ኣብ ግዜ ምዕዳል ሚዛን ኢንቮይሱ የጉድል።",
+      "newCreditNote": "ሓድሽ ክረዲት ኖት",
+      "filters": {
+        "from": "ካብ",
+        "to": "ናብ",
+        "issuer": "ኣውጻኢ",
+        "client": "ዓሚል",
+        "status": "ኩነታት",
+        "search": "ድለይ",
+        "all": "ኩሉ",
+        "searchPlaceholder": "ቁጽሪ፣ ምኽንያት፣ ዓሚል",
+        "go": "ኪድ"
+      },
+      "statuses": {
+        "DRAFT": "ድራፍት",
+        "ISSUED": "ዝወጸ",
+        "SENT": "ዝተላእከ",
+        "VOID": "ዝተሰረዘ"
+      },
+      "empty": {
+        "title": "ክሳብ ሕጂ ክረዲት ኖት የለን",
+        "description": "ዝወጸ ኢንቮይስ ክፈትን “ክረዲት ኖት” ድማ ምረጽ እቲ ዝተዋሰኦ ንምጉዳል።"
+      },
+      "noMatch": "ምስዞም ምጽራያት ዝሰማማዕ ክረዲት ኖት የለን።",
+      "columns": {
+        "number": "ቁጽሪ",
+        "against": "ኣብ ልዕሊ",
+        "client": "ዓሚል",
+        "issueDate": "ዕለት ምዕዳል",
+        "reason": "ምኽንያት",
+        "total": "ጠቕላላ",
+        "status": "ኩነታት"
+      },
+      "draft": "ድራፍት"
+    },
+    "new": {
+      "metaTitle": "ሓድሽ ክረዲት ኖት",
+      "title": "ሓድሽ ክረዲት ኖት",
+      "description": "ክረዲት ኖት ኣብ ዝወጸ ኢንቮይስ ይኽፈት ሚዛኑ ድማ የጉድል።",
+      "nothingToCredit": {
+        "title": "ንክረዲት ዋላ ሓደ የለን",
+        "description": "ክረዲት ኖትስ ምስ ዝተረፈ ሚዛን ዝወጸ ኢንቮይስ የድልዮም።",
+        "openInvoices": "ኢንቮይሳት ክፈት"
+      },
+      "whichInvoice": "ኣየናይ ኢንቮይስ?",
+      "invoice": "ኢንቮይስ",
+      "invoiceOption": "{number} · {client} · ሚዛን {balance}",
+      "issuedOnly": "ክረዲት ኖትስ ኣብ ዝወጹ ኢንቮይሳት ጥራይ ይኽፈቱ።",
+      "invoiceFallback": "ኢንቮይስ"
+    },
+    "edit": {
+      "metaTitle": "ክረዲት ኖት ኣዐርይ",
+      "title": "ድራፍት ክረዲት ኖት ኣዐርይ",
+      "immutable": "ዝወጹ ክረዲት ኖትስ ዘይቅየሩ እዮም።",
+      "draft": "ድራፍት"
+    },
+    "detail": {
+      "metaTitle": "ክረዲት ኖት",
+      "draftTitle": "ድራፍት ክረዲት ኖት",
+      "meta": "{client} · ኣብ ልዕሊ <invoice>{number}</invoice> · ዝወጸ <mono>{date}</mono>",
+      "previewPdf": "ቅድመ-ምርኣይ PDF",
+      "issue": {
+        "title": "እዚ ክረዲት ኖት ይውጽእ?",
+        "description": "ቁጽሪ ይወሃብ፣ ሚዛን ኢንቮይስ ይጉደል ሰነዱ ድማ ዘይቅየር ይኸውን።",
+        "label": "ኣውጽእ"
+      },
+      "deleteDraft": {
+        "title": "እዚ ድራፍት ይሰረዝ?"
+      },
+      "sendByEmail": "ብኢሜይል ለኣኽ",
+      "markSent": {
+        "title": "ከም ዝተላእከ ይግለጽ?",
+        "label": "ከም ዝተላእከ ግለጽ"
+      },
+      "void": {
+        "title": "እዚ ክረዲት ኖት ይሰረዝ?",
+        "description": "ሚዛን ኢንቮይስ ይምለስ፤ እቲ ቁጽሪ ፈጺሙ ደጊሙ ኣይጥቀምን።",
+        "reason": "ምኽንያት",
+        "label": "ሰርዝ"
+      },
+      "voided": "ኣብ {date} ተሰሪዙ: {reason}",
+      "amounts": {
+        "title": "መጠናት",
+        "reason": "ምኽንያት",
+        "creditAmount": "መጠን ክረዲት",
+        "total": "ጠቕላላ",
+        "balanceNow": "ሕጂ ሚዛን ኢንቮይስ",
+        "sent": "ዝተላእከ"
+      },
+      "documents": {
+        "title": "ዝተዓቀቡ ሰነዳት",
+        "description": "ነፍሲ ወከፍ ስሪት ይዕቀብ፤ ገጽ ምርግጋጽ ኩሎም ሃሾታት ይዝርዝር።",
+        "regenerateTitle": "ሓድሽ ስሪት PDF ይፈጠር?",
+        "generate": "ፍጠር",
+        "newVersion": "ሓድሽ ስሪት",
+        "renderedOnFirstDownload": "እቲ PDF ኣብ ቀዳማይ ምውራድ ይፍጠር።",
+        "protectedCopy": "ብመሕለፊ ቃል ዝተሓለወ ቅዳሕ {version}",
+        "version": "ስሪት {version}",
+        "verificationLink": "ሊንክ ምርግጋጽ: <link>{path}…</link>"
+      },
+      "draftsPreview": "ድራፍታት ኣብ ኣዐራሪ ብቐጥታ ይረኣዩ።"
+    },
+    "send": {
+      "metaTitle": "ክረዲት ኖት ለኣኽ",
+      "title": "<mono>{number}</mono> ለኣኽ",
+      "previousSends": "ዝሓለፉ ምስዳዳት"
+    },
+    "builder": {
+      "against": "ኣብ ልዕሊ <mono>{number}</mono>",
+      "summary": "{client} · ጠቕላላ {total} · ሚዛን {balance} · ዝግብር ግብሪ ≈ {headroom}",
+      "issueDate": "ዕለት ምዕዳል",
+      "creditAmount": "መጠን ክረዲት (ብዘይ ግብሪ)",
+      "creditAmountHint": "ግብሪ ካብ መስመራት ግብሪ ኢንቮይስ ይዕደል",
+      "reason": "ምኽንያት",
+      "picker": {
+        "title": "ካብ መስመራት ኢንቮይስ ኣሰልዕ",
+        "description": "ምሉኣት መስመራት ወይ ሚእታዊ ምልክት ግበር፤ እዚ ነቲ ልዕሊ መጠን ጥራይ የመልእ።",
+        "line": "መስመር",
+        "subtotal": "ሕሩይ ጠቕላላ",
+        "credit": "ክረዲት",
+        "percent": "%",
+        "creditLine": "መስመር ክረዲት {position}",
+        "percentOfLine": "ሚእታዊ ናይ መስመር {position}"
+      },
+      "saveDraft": "ድራፍት ዕቅብ",
+      "issuing": "ይወጽእ ኣሎ…",
+      "saveAndIssue": "ዕቅብን ኣውጽእን"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "ዝተቐበልናዮ ክፍሊት",
+        "REFUND": "ዝወጸ ምምላስ",
+        "WRITE_OFF": "ምስራዝ"
+      },
+      "editTitle": "ምእታው ኣዐርይ",
+      "recordTitle": "ክፍሊት መዝግብ",
+      "description": "መጠናት ብሞንዲ ኢንቮይስ ({currency})፤ ዝተቖረጸ TDS ኣካል እቲ ዝተፈጸመ መጠን እዩ።",
+      "kind": "ዓይነት",
+      "date": "ዕለት",
+      "amountRefunded": "ዝተመለሰ መጠን (ኣሉታዊ)",
+      "amountApplied": "ዝተፈጸመ መጠን",
+      "refundHint": "ኣሉታዊ መጠን ኣእትው፣ ንኣብነት -500",
+      "tdsDeducted": "ዝተቖረጸ TDS",
+      "tdsHint": "እቲ ዓሚል ዝሓዞ ግብሪ፤ ኣብ ዝተፈጸመ መጠን ይቑጸር",
+      "bankFees": "ክፍሊት ባንኪ",
+      "receivedInto": "ዝተቐበልናሉ",
+      "noMethod": "-",
+      "reference": "መወከሲ",
+      "referenceHint": "UTR፣ መለለዪ ንግዳዊ ምልውዋጥ፣ ቁጽሪ ቼክ",
+      "otherCurrency": "ብካልእ ሞንዲ ዝተቐበልና",
+      "amountReceived": "ዝተቐበልናዮ መጠን",
+      "receivedCurrency": "ዝተቐበልናዮ ሞንዲ",
+      "exchangeRate": "ተመን ምቕያር",
+      "exchangeRateHint": "1 ዝተቐበልና ዩኒት = ? {currency}",
+      "notes": "ምስክርነታት",
+      "receipt": "ደረሰኝ",
+      "receiptHint": "PNG፣ JPEG፣ WebP ወይ PDF ክሳብ 10 MB",
+      "saveChanges": "ለውጥታት ዕቅብ",
+      "record": "መዝግብ"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "ኣስታት {count, plural, one {# ገጽ} other {# ገጻት}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "መልእኽቲ",
+      "description": "ካብ ቴምፕሌትስ ፕሮፋይል ኣውጻኢ ቅድሚኡ ዝተመልአ። ክሳብ ኣብ ለኣኽ እትጠውቁ ዋላ ሓደ ኣይለኣኽን።",
+      "to": "ናብ",
+      "toHint": "ብኮማ ዝተፈለየ",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "ጕዳይ",
+      "body": "ትሕዝቶ",
+      "bodyHint": "ተራ ጽሑፍ፤ ሊንክታት ክጥወቑ ይኽእሉ",
+      "attachment": "ሕሩይ ፋይል",
+      "attachmentHint": "እቲ ዝተዓቀበ ቅዳሕ፣ ስም <mono>{name}</mono> (ወይ .docx) ዘለዎ፤ ትሕዝቶኡ ክቕየር ኣይክእልን።",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "ይለኣኽ ኣሎ…",
+      "send": "ለኣኽ",
+      "openInMailApp": "ኣብ ኣፕ ሜይል ክፈት",
+      "noSmtp": "ሰርቨር SMTP ኣይተዋቕረን (ቅጥዕታት → ኢሜይል)። ድራፍት ኣብ ኣፕ ሜይልኩም ክፈቱ፣ እቲ ዝወረደ PDF ሕሩዩ፣ ድሕሪኡ ኣብ ታሕቲ ከም ዝተላእከ ግለጹ።",
+      "markAsSent": "ከም ዝተላእከ ግለጽ"
+    },
+    "sentLog": {
+      "when": "መዓስ",
+      "document": "ሰነድ",
+      "to": "ናብ",
+      "subject": "ጕዳይ",
+      "status": "ኩነታት",
+      "empty": "ክሳብ ሕጂ ዝተላእከ ነገር የለን።",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "ዝተላእከ",
+        "FAILED": "ዝፈሸለ",
+        "MANUAL": "ብኢድ"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "ሰላም፣ {name}",
+    "fiscalYear": "ዓመት ፋይናንስ {year}",
+    "fiscalYearWithBase": "ዓመት ፋይናንስ {year} · መሰረታዊ ሞንዲ {currency} ({profile})",
+    "newCreditNote": "ሓድሽ ክረዲት ኖት",
+    "welcomeTitle": "እንኳዕ ናብ {appName} ብደሓን መጻእኩም",
+    "welcomeDescription": "ንፕሮፋይል ኣውጻኢ ዘውጽኡሉ ብምፍጣር ጀምሩ፣ ድሕሪኡ ዓሚልን ቀዳማይ ኢንቮይስኩምን ወስኹ።",
+    "createProfile": "ፕሮፋይልኩም ፍጠሩ",
+    "tiles": {
+      "outstanding": "ዝተረፈ",
+      "overdue": "ዝዘንግዐ",
+      "billedThisFy": "ኣብዚ ዓመት ፋይናንስ ዝተሓተተ",
+      "receivedThisFy": "ኣብዚ ዓመት ፋይናንስ ዝተቐበልናዮ",
+      "drafts": "ድራፍታት",
+      "invoiceCount": "{count, plural, one {# ኢንቮይስ} other {# ኢንቮይሳት}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "ክፍሊታት ሕሰም ምምላስ፣ ብዝተመዝገበ FX",
+      "awaitingIssue": "ምዕዳል ይጽበ",
+      "nothingPending": "ዝጽበ የለን"
+    },
+    "recentInvoices": "ናይ ቀረባ ኢንቮይሳት",
+    "allInvoices": "ኩሎም ኢንቮይሳት",
+    "noInvoicesYet": "ክሳብ ሕጂ ኢንቮይስ የለን።",
+    "columns": {
+      "number": "ቁጽሪ",
+      "client": "ዓሚል",
+      "issued": "ዝወጸ"
+    },
+    "topClients": "ቀንዲ ዓማዊል ብዝተረፈ መሰረት",
+    "nothingOutstanding": "ዝተረፈ የለን።"
+  },
+  "exports": {
+    "export": "ኣውጽእ",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "ኢንቮይሳት",
+      "newInvoice": "ሓድሽ ኢንቮይስ",
+      "draft": "ድራፍት",
+      "aDraft": "ድራፍት",
+      "statuses": {
+        "draft": "ድራፍት",
+        "issued": "ዝወጸ",
+        "sent": "ዝተላእከ",
+        "partiallyPaid": "ብኽፋል ዝተኸፍለ",
+        "paid": "ዝተኸፍለ",
+        "overdue": "ዝዘንግዐ",
+        "void": "ዝተሰረዘ"
+      },
+      "lifecycle": {
+        "draft": "ድራፍት",
+        "issued": "ዝወጸ",
+        "void": "ዝተሰረዘ"
+      },
+      "units": {
+        "hour": "ሰዓት",
+        "day": "መዓልቲ",
+        "fixed": "ቀዋሚ",
+        "milestone": "ወሰን ስራሕ",
+        "unit": "ዩኒት"
+      },
+      "unitsLower": {
+        "hour": "ሰዓት",
+        "day": "መዓልቲ",
+        "fixed": "ቀዋሚ",
+        "milestone": "ወሰን ስራሕ",
+        "unit": "ዩኒት"
+      },
+      "supplyTypes": {
+        "intraState": "ውሽጢ ግዝኣት",
+        "interState": "ኣብ መንጎ ግዝኣታት",
+        "exportLut": "ኤክስፖርት lut",
+        "exportWithTax": "ኤክስፖርት ምስ ግብሪ",
+        "reverseCharge": "ተገላቢጡ ክፍሊት",
+        "notApplicable": "ዘይግበር"
+      }
+    },
+    "list": {
+      "description": "ድራፍታት፣ ዝወጹን ዝተሰረዙን ኢንቮይሳት፤ ኩነታት ካብ ክፍሊታትን ዕለታት ክፍሊትን ይወጽእ።",
+      "fiscalYear": "ዓመት ፋይናንስ",
+      "issuer": "ኣውጻኢ",
+      "client": "ዓሚል",
+      "searchPlaceholder": "ቁጽሪ፣ PO፣ ዓሚል",
+      "emptyTitle": "ክሳብ ሕጂ ኢንቮይስ የለን",
+      "emptyDescription": "ቀዳማይ ኢንቮይስኩም ስርሑ: ዓሚል ምረጹ፣ መስመራት ወስኹ፣ ቅድመ-ምርኣይ ርኣዩ፣ ድሕሪኡ ኣውጽእዎ።",
+      "columns": {
+        "number": "ቁጽሪ",
+        "client": "ዓሚል",
+        "issuer": "ኣውጻኢ",
+        "issueDate": "ዕለት ምዕዳል",
+        "due": "ዕለት ክፍሊት",
+        "balance": "ሚዛን"
+      },
+      "noMatches": "ምስዞም ምጽራያት ዝሰማማዕ ኢንቮይስ የለን።",
+      "count": "{count, plural, one {# ኢንቮይስ} other {# ኢንቮይሳት}}",
+      "countPaged": "{count, plural, one {# ኢንቮይስ} other {# ኢንቮይሳት}} · ገጽ {page} ካብ {pages}",
+      "register": "መዝገብ"
+    },
+    "new": {
+      "noProfileTitle": "ቅድም ፕሮፋይል ኣውጻኢ ፍጠሩ",
+      "noProfileDescription": "ኢንቮይስ ካብ ሕጋዊ መንነት ይወጽእ: ፕሮፋይልኩም ምስ መለለዪታት ግብሪኡን ቁጽርታቱን ኣዘጋጁ።",
+      "createProfile": "ፕሮፋይል ፍጠር"
+    },
+    "edit": {
+      "metaTitle": "ኢንቮይስ ኣዐርይ",
+      "title": "ድራፍት ኣዐርይ",
+      "immutableFlash": "ዝወጹ ኢንቮይሳት ዘይቅየሩ እዮም። ንምእራሙ “ሰርዝን ደጊምካ ኣውጽእን” ተጠቐም።"
+    },
+    "detail": {
+      "metaTitle": "ኢንቮይስ",
+      "draftInvoice": "ድራፍት ኢንቮይስ",
+      "issuedDue": "ዝወጸ <mono>{issued}</mono>፣ ክፍሊት <mono>{due}</mono>",
+      "replaces": "ንዝኾነ {number} ይትክእ",
+      "replacedBy": "ብ{number} ተተኪኡ",
+      "previewPdf": "ቅድመ-ምርኣይ PDF",
+      "issueTitle": "እዚ ኢንቮይስ ይውጽእ?",
+      "issueDescription": "ቁጽሪ ይወሃብ ሰነዱ ድማ ዘይቅየር ይኸውን።",
+      "issue": "ኣውጽእ",
+      "deleteDraftTitle": "እዚ ድራፍት ይሰረዝ?",
+      "sendByEmail": "ብኢሜይል ለኣኽ",
+      "recordPayment": "ክፍሊት መዝግብ",
+      "creditNote": "ክረዲት ኖት",
+      "markSentTitle": "ከም ዝተላእከ ይግለጽ?",
+      "markSentDescription": "እቲ ዓሚል እዚ ኢንቮይስ ከም ዝተቐበሎ ይምዝግብ።",
+      "markSent": "ከም ዝተላእከ ግለጽ",
+      "voidReissueTitle": "ይሰረዝን ደጊሙ ይውጽእን?",
+      "voidReissueDescription": "እቲ ቀዳማይ ይሰረዝ ምስ ተመሳሳሊ ትሕዝቶ ዝተኣሳሰረ ድራፍት ድማ ንምዕራይ ይኽፈት።",
+      "voidReissue": "ሰርዝን ደጊምካ ኣውጽእን",
+      "voidTitle": "እዚ ኢንቮይስ ይሰረዝ?",
+      "voidDescription": "ብዘይ ዝተመዝገበ ክፍሊት ጥራይ ይካኣል፤ እቲ ቁጽሪ ፈጺሙ ደጊሙ ኣይጥቀምን።",
+      "void": "ሰርዝ",
+      "voided": "ኣብ {date} ተሰሪዙ: {reason}",
+      "amounts": "መጠናት",
+      "subtotal": "ሕሩይ ጠቕላላ",
+      "discount": "ቅናሽ",
+      "discountPercent": "ቅናሽ ({percent})",
+      "rounding": "ምዕሩግ",
+      "tdsExpected": "ዝተጸበየ TDS ({percent})",
+      "paid": "ዝተኸፍለ",
+      "credited": "ክረዲት ዝተገብረሉ",
+      "balanceDue": "ዝተረፈ ሚዛን",
+      "supply": "ምቕራብ",
+      "fxToBase": "FX ናብ መሰረታዊ",
+      "poReference": "መወከሲ PO",
+      "sent": "ዝተላእከ",
+      "lineItems": "መስመራት ንጥፍታት",
+      "columns": {
+        "description": "መግለጺ",
+        "sacHsn": "SAC/HSN",
+        "qty": "ብዝሒ",
+        "rate": "ተመን",
+        "tax": "ግብሪ",
+        "amount": "መጠን"
+      },
+      "creditNotes": "ክረዲት ኖትስ",
+      "storedDocuments": "ዝተዓቀቡ ሰነዳት",
+      "storedDocumentsHint": "ነፍሲ ወከፍ ስሪት ይዕቀብ፤ ገጽ ምርግጋጽ ኩሎም ሃሾታት ይዝርዝር።",
+      "regenerateTitle": "ሓድሽ ስሪት PDF ይፈጠር?",
+      "regenerateDescription": "ካብ እቲ ዝተቐረ ስናፕሾት ደጊሙ ይሰርሕ (ንኣብነት ድሕሪ ምምሕያሽ ረንደረር)። ዝሓለፉ ስሪታት ይነብሩ።",
+      "regenerate": "ፍጠር",
+      "newVersion": "ሓድሽ ስሪት",
+      "renderedOnFirstDownload": "እቲ PDF ኣብ ቀዳማይ ምውራድ ይፍጠር።",
+      "protectedCopy": "ብመሕለፊ ቃል ዝተሓለወ ቅዳሕ {version}",
+      "version": "ስሪት {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "ሊንክ ምርግጋጽ:",
+      "draftPreviewHint": "ድራፍታት ኣብ ኣዐራሪ ብቐጥታ ይረኣዩ፤ እቲ ገጽ ንምርካብ <link>ዋተርማርክ ዘለዎ PDF</link> ክፈቱ።"
+    },
+    "history": {
+      "metaTitle": "ታሪኽ ኢንቮይስ",
+      "title": "ታሪኽ <mono>{number}</mono>",
+      "reissueChain": "ሰንሰለት ደጊም ምዕዳል",
+      "replaces": "ንዝኾነ <link>{number}</link> ይትክእ",
+      "replacedBy": "ብ<link>{number}</link> ተተኪኡ",
+      "auditTrail": "ሕዛእቲ ኦዲት",
+      "columns": {
+        "when": "መዓስ",
+        "who": "መን",
+        "action": "ተግባር",
+        "summary": "ጽሕፈት"
+      },
+      "noEvents": "ክሳብ ሕጂ ፍጻመ የለን።",
+      "system": "ስርዓት",
+      "emails": "ኢሜይላት"
+    },
+    "payments": {
+      "title": "ክፍሊታት",
+      "description": "{client} · ጠቕላላ {total}",
+      "backToInvoice": "ናብ ኢንቮይስ ተመለስ",
+      "ledger": "ሌጀር",
+      "columns": {
+        "date": "ዕለት",
+        "kind": "ዓይነት",
+        "applied": "ዝተፈጸመ",
+        "tds": "TDS",
+        "received": "ዝተቐበልናዮ",
+        "reference": "መወከሲ",
+        "balance": "ሚዛን"
+      },
+      "noPayments": "ክሳብ ሕጂ ዝተመዝገበ ክፍሊት የለን።",
+      "kinds": {
+        "payment": "ክፍሊት",
+        "refund": "ምምላስ",
+        "writeOff": "ምስራዝ"
+      },
+      "receipt": "ደረሰኝ",
+      "deleteEntryTitle": "እዚ ምእታው ይሰረዝ?",
+      "deleteEntryDescription": "ሚዛን ኢንቮይስ ደጊሙ ይሰላሰል።",
+      "totals": "ጠቕላላታት",
+      "invoiceTotal": "ጠቕላላ ኢንቮይስ",
+      "credited": "ክረዲት ዝተገብረሉ",
+      "refunds": "ምምላሳት",
+      "writeOffs": "ምስራዛት",
+      "tdsDeducted": "ዝተቖረጸ TDS",
+      "bankFees": "ክፍሊት ባንኪ",
+      "balanceDue": "ዝተረፈ ሚዛን",
+      "onlyIssued": "ዝወጹ ኢንቮይሳት ጥራይ ክፍሊት ይቕበሉ።"
+    },
+    "send": {
+      "metaTitle": "ኢንቮይስ ለኣኽ",
+      "title": "<mono>{number}</mono> ለኣኽ",
+      "alreadySent": "ድሮ ከም ዝተላእከ ተመልክቱ እዩ፤ ደጊም ምልኣኽ ካልእ ምእታው ሎግ የውስኽ።",
+      "previousSends": "ዝሓለፉ ምስዳዳት"
+    },
+    "builder": {
+      "parties": "ወገናት",
+      "issuerProfile": "ፕሮፋይል ኣውጻኢ",
+      "client": "ዓሚል",
+      "archivedOption": "{label} (ዝተኣርከበ)",
+      "issueDate": "ዕለት ምዕዳል",
+      "dueDate": "ዕለት ክፍሊት",
+      "fxRate": "ተመን FX ናብ መሰረታዊ ሞንዲ",
+      "fxHint": "1 {currency} = ? {base} (ንጸብጻብ ጥራይ)",
+      "poReference": "መወከሲ PO",
+      "lineItems": "መስመራት ንጥፍታት",
+      "lineItemsHint": "ካብ ካታሎግ ምረጹ ዋጋታቱ ንምቕዳሕ፣ ወይ መስመር ጽሓፉ።",
+      "taxDiscountTds": "ግብሪ፣ ቅናሽን TDS ን",
+      "taxRegime": "ስርዓት ግብሪ",
+      "regimes": {
+        "indiaGst": "GST ህንዲ",
+        "ukVat": "UK VAT",
+        "usSalesTax": "ግብሪ ሽያጥ US",
+        "none": "ብዘይ ግብሪ"
+      },
+      "reverseCharge": "ተገላቢጡ ክፍሊት",
+      "reverseChargeHint": "ግብሪ ብተቐባሊ ዝኽፈል",
+      "discount": "ቅናሽ",
+      "percent": "ሚእታዊ",
+      "amount": "መጠን",
+      "rounding": "ምዕራይ ምዕሩግ",
+      "roundingHint": "ወሳኒ ኣይኮነን፣ ናብ ምሉእ ዩኒት፤ ካብ 1 ዝውሕድ ክኸውን ኣለዎ",
+      "round": "ዕሩግ",
+      "tdsRate": "ዝተጸበየ ተመን TDS (%)",
+      "tdsRateHint": "ሓበሬታዊ፤ ዝርዝር TDS ምስ ዝነጥፍ ይሕተም",
+      "paymentMethods": "መገድታት ክፍሊት",
+      "paymentMethodsHint": "ብትዕዝብቲ ምልክት ይሕተሙ።",
+      "noPaymentMethods": "ንጡፍ መገዲ ክፍሊት የለን። <link>ሓደ ወስኹ</link>።",
+      "whatPrints": "እንታይ ይሕተም",
+      "whatPrintsHint": "ካብ ቀዳማይ ምርጫታት ፕሮፋይል ኣውጻኢ ይጅምር።",
+      "notesAndTerms": "ምስክርነታትን ቅድመ-ኩነታትን",
+      "notes": "ምስክርነታት",
+      "terms": "ቅድመ-ኩነታት",
+      "saveDraft": "ድራፍት ዕቅብ",
+      "issuing": "ይወጽእ ኣሎ…",
+      "saveAndIssue": "ዕቅብን ኣውጽእን",
+      "subtotal": "ሕሩይ ጠቕላላ",
+      "tax": "ግብሪ",
+      "tdsExpected": "ዝተጸበየ TDS",
+      "netExpected": "ዝተጸበየ ጽሩይ"
+    },
+    "lineItems": {
+      "addFromCatalogue": "ካብ ካታሎግ ወስኽ…",
+      "services": "ኣገልግሎታት",
+      "products": "ምህርትታት",
+      "addLine": "መስመር ወስኽ",
+      "columns": {
+        "description": "መግለጺ",
+        "sacHsn": "SAC/HSN",
+        "qty": "ብዝሒ",
+        "unit": "ዩኒት",
+        "rate": "ተመን",
+        "taxPercent": "ግብሪ %"
+      },
+      "aria": {
+        "description": "መግለጺ መስመር {line}",
+        "sacHsn": "SAC/HSN መስመር {line}",
+        "quantity": "ብዝሒ መስመር {line}",
+        "unit": "ዩኒት መስመር {line}",
+        "rate": "ተመን መስመር {line}",
+        "taxRate": "ተመን ግብሪ መስመር {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "ዝተፈተሐ",
+      "moveUp": "ናብ ላዕሊ ሰጉም",
+      "moveDown": "ናብ ታሕቲ ሰጉም",
+      "removeLine": "መስመር ኣወግድ",
+      "shortcutHint": "Ctrl/⌘+Enter ኣብ መግለጺ መስመር የውስኽ።",
+      "addFromCatalogueAria": "ካብ ካታሎግ ወስኽ"
+    },
+    "display": {
+      "groups": {
+        "issuer": "ዝርዝራት ኣውጻኢ",
+        "client": "ዝርዝራት ዓሚል",
+        "document": "ክፍልታት ሰነድ"
+      },
+      "fields": {
+        "showLogo": "ሎጎ",
+        "showTradeName": "ስም ንግዲ",
+        "showDesignation": "ሓላፍነት",
+        "showEmail": "ኢሜይል",
+        "showPhone": "ስልኪ",
+        "showWebsite": "መርበብ ሓበሬታ",
+        "showFullAddress": "ምሉእ ኣድራሻ",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "ፊርማ",
+        "showStamp": "ማሕተም",
+        "showContactPerson": "ሰብ ርክብ",
+        "showBillingAddress": "ኣድራሻ ምሕታት",
+        "showShippingAddress": "ኣድራሻ ምልኣኽ",
+        "showTaxIdentifier": "መለለዪ ግብሪ",
+        "showPlaceOfSupply": "ቦታ ምቕራብ",
+        "showDueDate": "ዕለት ክፍሊት",
+        "showPaymentTerms": "ቅድመ-ኩነታት ክፍሊት",
+        "showSacCodeColumn": "ዓምዲ ኮድ SAC",
+        "showQuantityColumn": "ዓምዲ ብዝሒ",
+        "showUnitPriceColumn": "ዓምዲ ዋጋ ዩኒት",
+        "showTaxColumn": "ዓምዲ ግብሪ",
+        "showTdsBreakdown": "ዝርዝር TDS",
+        "showQrVerification": "ምርግጋጽ QR",
+        "showNotes": "ምስክርነታት",
+        "showTerms": "ቅድመ-ኩነታት",
+        "showReplacesReference": "መወከሲ ምትክኣት",
+        "showAmountInWords": "መጠን ብቓላት",
+        "showSupplyStatement": "መግለጺ ምቕራብ",
+        "showRoundingLine": "መስመር ምዕሩግ",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "ዓማዊል",
+      "description": "ኩሎም ዝሕተትዎም። ዓማዊል ምስ ኢንቮይስ ይኣርከቡ እምበር ፈጺሞም ኣይሰረዙን።",
+      "newClient": "ሓድሽ ዓሚል",
+      "searchPlaceholder": "ብስም ድለይ",
+      "searchLabel": "ዓማዊል ድለይ",
+      "emptyTitle": "ክሳብ ሕጂ ዓሚል የለን",
+      "emptyDescription": "ኢንቮይስ ዘውጽኡሎም ሰባትን ኩባንያታትን ወስኹ፤ ሞንዲኦምን ቅድመ-ኩነታት ክፍሊቶምን ነፍሲ ወከፍ ኢንቮይስ ቅድሚኡ ይመልእ።",
+      "addClient": "ዓሚል ወስኽ",
+      "noMatch": "ምስ “{q}” ዝሰማማዕ ዓሚል የለን።",
+      "termsDays": "{days} መ",
+      "columns": {
+        "name": "ስም",
+        "contact": "ርክብ",
+        "email": "ኢሜይል",
+        "country": "ሃገር",
+        "currency": "ሞንዲ",
+        "terms": "ቅድመ-ኩነታት",
+        "status": "ኩነታት"
+      }
+    },
+    "new": {
+      "title": "ሓድሽ ዓሚል"
+    },
+    "edit": {
+      "metaTitle": "ዓሚል ኣዐርይ",
+      "title": "{name} ኣዐርይ"
+    },
+    "detail": {
+      "metaTitle": "ዓሚል",
+      "newInvoice": "ሓድሽ ኢንቮይስ",
+      "restoreTitle": "እዚ ዓሚል ይመለስ?",
+      "archiveTitle": "እዚ ዓሚል ይኣርከብ?",
+      "archiveDescription": "ካብ ዝርዝር ምርጫታት ይወጽእ፤ ኢንቮይሳትን ታሪኽን ኣይተንከፉን።",
+      "deleteTitle": "እዚ ዓሚል ይሰረዝ?",
+      "deleteDescription": "ዝኾነ ኢንቮይስ ንዓሚል እንተዘይጠቒሱ ጥራይ ይካኣል።",
+      "details": "ዝርዝራት",
+      "contact": "ርክብ",
+      "email": "ኢሜይል",
+      "phone": "ስልኪ",
+      "country": "ሃገር",
+      "gstState": "GST {code}",
+      "taxId": "መለለዪ ግብሪ",
+      "currency": "ሞንዲ",
+      "paymentTerms": "ቅድመ-ኩነታት ክፍሊት",
+      "paymentTermsDays": "{days} መዓልታት",
+      "expectedTds": "ዝተጸበየ TDS",
+      "notes": "ምስክርነታት",
+      "addresses": "ኣድራሻታት",
+      "billing": "ምሕታት",
+      "shipping": "ምልኣኽ",
+      "lifetime": "ዕድመ ምሉእ",
+      "openRegister": "መዝገብ ክፈት",
+      "noIssued": "ክሳብ ሕጂ ዝወጸ ኢንቮይስ የለን።",
+      "noIssuedWithDrafts": "ክሳብ ሕጂ ዝወጸ ኢንቮይስ የለን ({drafts} ድራፍት)።",
+      "firstLatest": "ቀዳማይ ኢንቮይስ <mono>{first}</mono>፣ ናይ ቀረባ <mono>{latest}</mono>{drafts, plural, =0 {} one { · # ድራፍት} other { · # ድራፍታት}}",
+      "lifetimeColumns": {
+        "currency": "ሞንዲ",
+        "invoices": "ኢንቮይሳት",
+        "billed": "ዝተሓተተ",
+        "received": "ዝተቐበልናዮ",
+        "credited": "ክረዲት ዝተገብረሉ",
+        "outstanding": "ዝተረፈ",
+        "overdue": "ዝዘንግዐ"
+      },
+      "recentInvoices": "ናይ ቀረባ ኢንቮይሳት",
+      "noInvoices": "ክሳብ ሕጂ ንዚ ዓሚል ኢንቮይስ የለን።",
+      "recentColumns": {
+        "number": "ቁጽሪ",
+        "issueDate": "ዕለት ምዕዳል",
+        "due": "ዕለት ክፍሊት",
+        "total": "ጠቕላላ",
+        "balance": "ሚዛን",
+        "status": "ኩነታት"
+      }
+    },
+    "form": {
+      "cardTitle": "ዓሚል",
+      "displayName": "ዝረአ ስም",
+      "contactPerson": "ሰብ ርክብ",
+      "email": "ኢሜይል",
+      "phone": "ስልኪ",
+      "taxIdType": "ዓይነት መለለዪ ግብሪ",
+      "taxIdTypeNone": "የለን",
+      "taxId": "መለለዪ ግብሪ",
+      "currency": "ሞንዲ",
+      "paymentTerms": "ቅድመ-ኩነታት ክፍሊት (መዓልታት)",
+      "expectedTdsRate": "ዝተጸበየ ተመን TDS (%)",
+      "notes": "ምስክርነታት",
+      "billingAddress": "ኣድራሻ ምሕታት",
+      "shippingAddress": "ኣድራሻ ምልኣኽ",
+      "differentFromBilling": "ካብ ምሕታት ዝፍለ",
+      "save": "ዓሚል ዕቅብ"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "ሰዓት",
+      "DAY": "መዓልቲ",
+      "FIXED": "ቀዋሚ",
+      "MILESTONE": "ወሰን ስራሕ",
+      "UNIT": "ዩኒት"
+    },
+    "list": {
+      "activate": "ኣንጥፍ",
+      "deactivate": "ዕጸው",
+      "archiveDescription": "ዘለዉ መስመራት ኢንቮይስ እቲ ዝተቐድሐ ዋጋታቶም የዕቅቡ።",
+      "deleteDescription": "ዝኾነ መስመር ኢንቮይስ እንተዘይጠቒሱ ጥራይ ይካኣል። ካልእ ኣርክቦ።",
+      "columns": {
+        "sku": "SKU",
+        "name": "ስም",
+        "unit": "ዩኒት",
+        "rate": "ተመን",
+        "price": "ዋጋ",
+        "currency": "ሞንዲ",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "ግብሪ",
+        "status": "ኩነታት"
+      }
+    },
+    "services": {
+      "title": "ኣገልግሎታት",
+      "description": "ካታሎግኩም። ኣገልግሎት ምምራጽ ዋጋታቱ ናብ መስመር ኢንቮይስ ይቕዳሕ።",
+      "newService": "ሓድሽ ኣገልግሎት",
+      "emptyTitle": "ክሳብ ሕጂ ኣገልግሎት የለን",
+      "emptyDescription": "እትሸጥዎ ወስኹ - ብሰዓት ዲዛይን፣ ብቀዋሚ ክፍሊት ወሰን ስራሕ - ምስ ኮድ SAC/HSN ን ተመን ግብሪን።",
+      "addService": "ኣገልግሎት ወስኽ",
+      "restoreTitle": "{name} ይመለስ?",
+      "archiveTitle": "{name} ይኣርከብ?",
+      "deleteTitle": "{name} ይሰረዝ?",
+      "editMetaTitle": "ኣገልግሎት ኣዐርይ",
+      "editTitle": "{name} ኣዐርይ"
+    },
+    "products": {
+      "title": "ምህርትታት",
+      "description": "እትሸጥዎ ህጻውንቲ፣ ነፍሲ ወከፍ ምስ SKU። ምህርቲ ምምራጽ ዋጋታቱ ናብ መስመር ኢንቮይስ ይቕዳሕ።",
+      "newProduct": "ሓድሽ ምህርቲ",
+      "emptyTitle": "ክሳብ ሕጂ ምህርቲ የለን",
+      "emptyDescription": "እትሸጥዎ ህጻውንቲ ምስ SKU፣ ኮድ HSN፣ ዋጋ ዩኒትን ተመን ግብሪን ወስኹ።",
+      "addProduct": "ምህርቲ ወስኽ",
+      "restoreTitle": "{sku} ይመለስ?",
+      "archiveTitle": "{sku} ይኣርከብ?",
+      "deleteTitle": "{sku} ይሰረዝ?",
+      "editMetaTitle": "ምህርቲ ኣዐርይ",
+      "editTitle": "{sku} ኣዐርይ"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "ጽሩይ ኮድ ኣብ ትሕቲ መግለጺ መስመር ዝሕተም",
+      "name": "ስም",
+      "unit": "ዩኒት",
+      "defaultRate": "ቀዳማይ ተመን",
+      "unitPrice": "ዋጋ ዩኒት",
+      "currency": "ሞንዲ",
+      "sacHsnCode": "ኮድ SAC / HSN",
+      "sacHsnHint": "ኣብ ኢንቮይሳት GST ግድን",
+      "hsnCode": "ኮድ HSN",
+      "hsnHint": "ንህጻውንቲ ኣብ ኢንቮይሳት GST ግድን",
+      "defaultTaxRate": "ቀዳማይ ተመን ግብሪ (%)",
+      "description": "መግለጺ",
+      "descriptionHint": "መግለጺ መስመር ቅድሚኡ ይመልእ",
+      "active": "ንጡፍ",
+      "serviceInactiveHint": "ዘይንጡፋት ኣገልግሎታት ካብ መራጺ ኢንቮይስ ወጻኢ ይኾኑ",
+      "productInactiveHint": "ዘይንጡፋት ምህርትታት ካብ መራጺ ኢንቮይስ ወጻኢ ይኾኑ",
+      "saveService": "ኣገልግሎት ዕቅብ",
+      "saveProduct": "ምህርቲ ዕቅብ"
+    },
+    "tags": {
+      "legend": "ፕሮፋይላት",
+      "hint": "እዚ ዝሸጡ ፕሮፋይላት ኣውጻኢ ምልክት ግበሩ። ንኩሎም ፕሮፋይላት ንምቕራብ ኩሉ ብዘይ ምልክት ግደፉ።"
+    }
+  },
+  "address": {
+    "line1": "መስመር ኣድራሻ 1",
+    "line2": "መስመር ኣድራሻ 2",
+    "city": "ከተማ",
+    "stateRegion": "ክልል / ዞባ",
+    "postalCode": "ኮድ ፖስታ",
+    "country": "ሃገር",
+    "state": "ክልል",
+    "gstStateCodeHint": "ኮድ ክልል GST {code}",
+    "pickStateHint": "ንኮድ ክልል GST ክልል ምረጹ",
+    "stateRegionCode": "ኮድ ክልል / ዞባ",
+    "stateRegionCodePlaceholder": "ንኣብነት CA"
+  },
+  "assets": {
+    "tooLarge": "እቲ ፋይል ብዙሕ ዓቢ እዩ።",
+    "unsupportedReceipt": "ስእሊ PNG፣ JPEG፣ WebP ወይ PDF ተጠቐሙ።",
+    "unsupportedImage": "ስእሊ PNG፣ JPEG ወይ WebP ተጠቐሙ።",
+    "uploadFailed": "ምጽዓን ኣይተዓወተን።",
+    "uploading": "ይጽዓን ኣሎ…"
+  },
+  "ui": {
+    "breadcrumb": "መንገዲ ገጽ",
+    "close": "ዕጸው",
+    "closeMenu": "ሜኑ ዕጸው",
+    "inputCharset": "መደበኛ ፊደላት ኪቦርድ ጥራይ ይፍቀዱ።",
+    "confirm": {
+      "working": "ይሰርሕ ኣሎ…"
+    },
+    "statusPill": {
+      "DRAFT": "ድራፍት",
+      "ISSUED": "ዝወጸ",
+      "SENT": "ዝተላእከ",
+      "PARTIALLY_PAID": "ብኽፋል ዝተኸፍለ",
+      "PAID": "ዝተኸፍለ",
+      "OVERDUE": "ዝዘንግዐ",
+      "VOID": "ዝተሰረዘ"
+    },
+    "activePill": {
+      "active": "ንጡፍ",
+      "archived": "ዝተኣርከበ",
+      "inactive": "ዘይንጡፍ"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "ገለ ነገር ተበላሽዩ።",
+    "fixFields": "ብሓገዝ እቶም ዝተሓይሉ ሜዳታት ኣመሓይሹዎም።",
+    "accountSaved": "ምርጫታት ሕሳብ ተዓቂቡ",
+    "apiKeyCreated": "ቁልፊ API ተፈጢሩ። ሕጂ ቅዳሑ: ሓደ ግዜ ጥራይ ይረአ።",
+    "saved": "{name} ተዓቂቡ",
+    "savedProfile": "ፕሮፋይል {label} ተዓቂቡ",
+    "clientArchived": "ዓሚል ተኣርኪቡ",
+    "clientRestored": "ዓሚል ተመሊሱ",
+    "clientDeleted": "ዓሚል ተሰሪዙ",
+    "productArchived": "ምህርቲ ተኣርኪቡ",
+    "productRestored": "ምህርቲ ተመሊሱ",
+    "productActivated": "ምህርቲ ነጢፉ",
+    "productDeactivated": "ምህርቲ ተዓጽዩ",
+    "serviceArchived": "ኣገልግሎት ተኣርኪቡ",
+    "serviceRestored": "ኣገልግሎት ተመሊሱ",
+    "serviceActivated": "ኣገልግሎት ነጢፉ",
+    "serviceDeactivated": "ኣገልግሎት ተዓጽዩ",
+    "defaultProfileUpdated": "ቀዳማይ ፕሮፋይል ተሓዲሱ",
+    "profileArchived": "ፕሮፋይል ተኣርኪቡ",
+    "profileRestored": "ፕሮፋይል ተመሊሱ",
+    "profileDeleted": "ፕሮፋይል ተሰሪዙ",
+    "defaultPaymentMethodUpdated": "ቀዳማይ መገዲ ክፍሊት ተሓዲሱ",
+    "paymentMethodArchived": "መገዲ ክፍሊት ተኣርኪቡ",
+    "paymentMethodRestored": "መገዲ ክፍሊት ተመሊሱ",
+    "paymentMethodDeleted": "መገዲ ክፍሊት ተሰሪዙ",
+    "issued": "{number} ወጺኡ",
+    "savedAsDraft": "ከም ድራፍት ተዓቂቡ። {reason}",
+    "draftSaved": "ድራፍት ተዓቂቡ",
+    "invoiceVoided": "ኢንቮይስ ተሰሪዙ",
+    "originalVoided": "እቲ ቀዳማይ ተሰሪዙ፤ ድራፍት ተክእቲ ኣዐርዩ",
+    "markedAsSent": "ከም ዝተላእከ ተመልኪቱ",
+    "draftDeleted": "ድራፍት ተሰሪዙ",
+    "generatedPdf": "ስሪት PDF {version} ተፈጢሩ",
+    "creditNoteVoided": "ክረዲት ኖት ተሰሪዙ፤ ሚዛን ኢንቮይስ ተመሊሱ",
+    "draftCreditNoteDeleted": "ድራፍት ክረዲት ኖት ተሰሪዙ",
+    "mailRefused": "ሰርቨር ሜይል እቲ መልእኽቲ ኣይተቐበሎን: {error}። እቲ ፈተነ ተመዝጊቡ።",
+    "unknownError": "ዘይፍለጥ ጌጋ",
+    "sentTo": "ናብ {recipients} ተላኢኹ",
+    "smtpSaved": "ቅጥዕታት SMTP ተዓቂቡ",
+    "smtpRemoved": "ዝተዓቀበ ቅጥዕታት SMTP ተወጊዱ",
+    "testEmailSent": "ፈተናዊ ኢሜይል ናብ {email} ተላኢኹ",
+    "testFailed": "ፈተና ፈሺሉ: {error}",
+    "defaultRecipientsSaved": "ቀዳማይ ተቐበልቲ ተዓቂቡ",
+    "invitationSent": "ጻውዒት ተላኢኹ",
+    "invitationReady": "ጻውዒት ዳልዩ",
+    "unknownRole": "ዘይፍለጥ ተራ",
+    "roleUpdated": "ተራ ተሓዲሱ",
+    "accountDeactivated": "ሕሳብ ተዓጽዩ",
+    "accountReactivated": "ሕሳብ ደጊሙ ነጢፉ",
+    "invitationRevoked": "ጻውዒት ተሓሪሙ",
+    "paymentUpdated": "ክፍሊት ተሓዲሱ",
+    "paymentRecorded": "ክፍሊት ተመዝጊቡ",
+    "paymentDeleted": "ክፍሊት ተሰሪዙ",
+    "sessionRevoked": "ክፍለ-ግዜ ተሓሪሙ",
+    "noOtherSessions": "ካልእ ክፍለ-ግዜ የለን",
+    "signedOutOthers": "ካብ {count} ካልኦት ክፍለ-ግዜታት ወጺኡ",
+    "sharePasswordRequired": "መሕለፊ ቃል ኣእትዉ፣ ወይ ሓደ ይፈጠር።",
+    "shareLinkCreated": "ሊንክ ምክፋል ተፈጢሩ።",
+    "templateSaved": "ቴምፕሌት ተዓቂቡ፤ ዝመጹ ሰነዳት ክጥቀምሉ እዮም",
+    "templateReset": "ቴምፕሌት ናብ ዝተሃንጸ ቀዳማይ ምርጫ ተመሊሱ",
+    "templateImported": "ቴምፕሌት ኣትዩ",
+    "profileTemplateCleared": "ፕሮፋይል ደጊሙ ቴምፕሌት ኢንስታንስ ይጥቀም",
+    "operatorSaved": "ዝርዝራት ኣካይዲ ተዓቂቡ። ሕጋውያን ገጻት ሕጂ የርእይዎም።"
+  }
+}

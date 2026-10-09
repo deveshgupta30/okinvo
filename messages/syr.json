@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo ܒܝܬܐ",
+    "save": "ܢܛܘܪ",
+    "cancel": "ܒܛܘܠ",
+    "continue": "ܐܫܬܡܠܝ",
+    "saving": "ܡܬܢܛܪ…",
+    "detect": "ܐܫܟܚ",
+    "yes": "ܐܝܢ",
+    "no": "ܠܐ",
+    "choose": "ܓܒܝ…",
+    "remove": "ܫܩܘܠ",
+    "tryAgain": "ܢܣܝ ܬܘܒ",
+    "dashboard": "Dashboard",
+    "goToDashboard": "ܙܠ ܠDashboard",
+    "or": "ܐܘ",
+    "invoice": "Invoice",
+    "creditNote": "Credit note",
+    "downloadPdf": "ܐܚܬ PDF",
+    "edit": "Edit",
+    "delete": "ܫܪܝ",
+    "downloadDocx": "ܐܚܬ DOCX",
+    "none": "ܠܐ ܡܕܡ",
+    "dismiss": "ܣܘܪ",
+    "all": "ܟܠ",
+    "previous": "ܩܕܡܝܐ",
+    "next": "ܒܬܪܝܐ",
+    "go": "ܙܠ",
+    "search": "ܒܥܝ",
+    "status": "ܚܐܠܐ",
+    "total": "Total",
+    "currency": "Currency",
+    "from": "ܡܢ",
+    "to": "ܠ",
+    "reason": "ܥܠܬܐ",
+    "history": "ܬܫܥܝܬܐ",
+    "archive": "Archive",
+    "restore": "ܗܦܘܟ",
+    "showArchived": "ܚܘܝ Archived",
+    "hideArchived": "ܛܫܝ Archived",
+    "archived": "Archived",
+    "default": "Default",
+    "setDefault": "ܣܝܡ Default",
+    "revoke": "ܒܛܘܠ",
+    "copy": "ܢܘܣܚܐ",
+    "copied": "ܐܬܢܣܚ",
+    "active": "ܦܥܝܠܐ",
+    "pagination": "Pagination",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "invoices": "Invoices",
+      "creditNotes": "Credit notes",
+      "clients": "Clients",
+      "services": "Services",
+      "products": "Products"
+    },
+    "primaryNav": "ܪܝܫܝܐ",
+    "settings": "Settings",
+    "openMenu": "ܦܬܚ Menu",
+    "navigation": "Navigation",
+    "pagesAndAccount": "ܦܬܝܬܐ ܘAccount",
+    "collapseSidebar": "ܟܢܘܫ Sidebar",
+    "collapseSidebarHint": "ܟܢܘܫ Sidebar ([)",
+    "expandSidebar": "ܦܬܚ Sidebar",
+    "expandSidebarHint": "ܦܬܚ Sidebar ([)",
+    "theme": {
+      "label": "Theme",
+      "system": "System",
+      "light": "ܢܗܝܪܐ",
+      "dark": "ܥܬܝܡܐ",
+      "current": "Theme: {mode}",
+      "switchTo": "Theme: {mode}. ܫܚܠܦ ܠ{next}"
+    },
+    "userMenu": {
+      "label": "Account menu ܕ{name}",
+      "profile": "Profile",
+      "logOut": "ܦܩ"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "ܥܘܠ",
+      "title": "ܥܘܠ",
+      "subtitle": "ܒܠܚܘܕ accounts ܕܐܬܬܪܝܨܘ ܡܨܝܢ ܕܢܥܠܘܢ.",
+      "failed": "ܡܥܠܬܐ ܠܐ ܐܬܓܡܪܬ.",
+      "noMethod": "ܠܝܬ ܐܘܪܚܐ ܕܡܥܠܬܐ ܕܐܬܬܣܝܡܬ. ܣܝܡ provider pair ܐܝܟ <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>, ܐܘ <code>AUTH_PASSWORD_SIGNIN=true</code>, ܒ<code>.env</code>.",
+      "errors": {
+        "not_allowed": "ܗܘ account ܠܐ ܐܬܬܪܝܨ ܥܠ instance ܗܢܐ, ܐܘ ܐܬܒܛܠ.",
+        "signin": "ܡܥܠܬܐ ܠܐ ܐܬܓܡܪܬ. ܒܥܘܬܐ ܢܣܝ ܬܘܒ."
+      }
+    },
+    "password": {
+      "name": "ܫܡܐ",
+      "email": "Email",
+      "password": "Password",
+      "signingIn": "ܥܐܠ…",
+      "createAccount": "ܒܪܝ Account",
+      "signIn": "ܥܘܠ",
+      "haveAPassword": "ܐܝܬ ܠܝ Password",
+      "firstTime": "ܩܕܡܝܬܐ ܗܪܟܐ؟ ܣܝܡ Password",
+      "failed": "ܡܥܠܬܐ ܠܐ ܐܬܓܡܪܬ."
+    },
+    "social": {
+      "redirecting": "ܡܬܦܢܐ…",
+      "continueWith": "ܐܫܬܡܠܝ ܥܡ {provider}",
+      "failed": "ܡܥܠܬܐ ܠܐ ܫܪܝܬ."
+    },
+    "error": {
+      "metaTitle": "ܛܥܝܘܬܐ ܕܡܥܠܬܐ",
+      "title": "ܡܥܠܬܐ ܠܐ ܐܬܓܡܪܬ",
+      "body": "Identity provider ܐܗܦܟ <code>{value}</code>. ܐܢ ܟܬܒܬܟ ܠܝܬ ܒallow-list ܕinstance ܗܢܐ, ܫܐܠ ܠܡܪܐ ܕܢܘܣܦ ܠܗ.",
+      "back": "ܗܦܘܟ ܠܡܥܠܬܐ"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Settings",
+      "profiles": "Profiles",
+      "paymentMethods": "Payment methods",
+      "templates": "Templates",
+      "email": "Email",
+      "security": "Security",
+      "users": "Users",
+      "data": "Data",
+      "legal": "Legal",
+      "account": "Account",
+      "appearance": "Appearance",
+      "api": "API",
+      "status": "ܚܐܠܐ"
+    },
+    "account": {
+      "metaTitle": "Account",
+      "title": "Account",
+      "description": "ܨܠܡܟ, ܫܡܟ, region, ܠܫܢܐ ܘtimezone.",
+      "photo": {
+        "title": "ܨܠܡܐ",
+        "description": "ܡܬܚܙܐ ܒsidebar ܘܒuser menu."
+      },
+      "form": {
+        "title": "Account",
+        "description": "ܐܝܟܢܐ ܡܬܚܙܐ ܐܢܬ ܘܐܡܬܝ “ܝܘܡܢܐ”.",
+        "displayName": "ܫܡܐ ܕܡܬܚܙܐ",
+        "signInEmail": "Sign-in email",
+        "signInEmailHint": "ܗܘܝܘܬܟ ܒinstance ܗܢܐ; ܠܐ ܡܬܫܚܠܦ ܗܪܟܐ.",
+        "timezone": "Timezone",
+        "timezoneHint": "“ܝܘܡܢܐ” ܠܝܘܡܬܐ ܕܡܦܩܢܘܬܐ, ܝܘܡܬܐ ܕܦܪܘܥܐ ܘDashboard",
+        "regionTitle": "Region",
+        "regionDescription": "Defaults ܠprofiles ܚܕܬܐ ܘܠDashboard ܥܕܡܐ ܕܐܝܬ profile.",
+        "country": "ܐܬܪܐ",
+        "currency": "Currency",
+        "suggested": "ܡܡܠܟ ܠܐܬܪܐ ܗܢܐ:",
+        "language": "ܠܫܢܐ",
+        "languageHint": "ܠܫܢܐ ܕܗܘ app. Documents ܡܬܠܐܝܢ locale ܕܟܠ profile.",
+        "machineTranslated": "ܠܫܢܐ ܗܢܐ ܐܬܬܪܓܡ ܒmachine. ܬܘܪܨܐ ܡܬܩܒܠ: <link>ܬܘܪܨ ܐܢܘܢ ܒGitHub</link>.",
+        "save": "ܢܛܘܪ preferences"
+      },
+      "regions": {
+        "Africa": "ܐܦܪܝܩܐ",
+        "Americas": "ܐܡܪܝܩܐ",
+        "Asia": "ܐܣܝܐ",
+        "Europe": "ܐܘܪܘܦܐ",
+        "MiddleEast": "ܡܕܢܚܐ ܡܨܥܝܐ",
+        "Oceania": "ܐܘܩܝܢܘܣܝܐ",
+        "Constructed": "Constructed"
+      },
+      "privacy": {
+        "title": "Privacy",
+        "description": "okinvo ܣܐܡ ܒܠܚܘܕ cookies ܕܡܬܒܥܝܢ ܠܥܒܕܐ. ܠܝܬ analytics, ܠܝܬ tracking.",
+        "cookiePolicy": "Cookie policy",
+        "showNoticeAgain": "ܚܘܝ cookie notice ܬܘܒ"
+      }
+    },
+    "avatar": {
+      "changePhoto": "ܫܚܠܦ ܨܠܡܐ",
+      "addPhoto": "ܘܣܦ ܨܠܡܐ",
+      "hint": "PNG, JPEG ܐܘ WebP. ܡܬܚܙܐ ܐܝܟ ܓܘܠܬܐ ܒܟܠ ܕܘܟܐ; ܡܨܝܬ ܠܡܪܒܝܘ ܘܠܡܙܝܥܘ ܩܕܡ ܕܬܢܛܪ.",
+      "tooLarge": "ܨܠܡܐ ܗܢܐ ܪܒ ܛܒ.",
+      "uploadFailed": "Upload ܠܐ ܐܬܓܡܪ.",
+      "choose": "ܓܒܝ ܨܠܡܐ ܕProfile",
+      "dialogTitle": "ܣܝܡ ܨܠܡܟ",
+      "dialogDescription": "ܓܪܘܫ ܠܡܙܝܥܐ, scroll ܐܘ pinch ܠܡܪܒܝܘ. ܓܘܠܬܐ ܗܝ ܗܝ ܕܟܠܢܫ ܚܙܐ.",
+      "zoom": "Zoom",
+      "save": "ܢܛܘܪ ܨܠܡܐ"
+    },
+    "appearance": {
+      "metaTitle": "Appearance",
+      "title": "Appearance",
+      "description": "Theme ܘaccent color, ܡܬܢܛܪܝܢ ܒAccount ܕܝܠܟ.",
+      "theme": {
+        "title": "Theme",
+        "description": "ܒܬܪ system, ܐܘ ܦܪܣ ܢܗܝܪܐ ܐܘ ܥܬܝܡܐ.",
+        "label": "Theme",
+        "system": "ܒܬܪ system",
+        "systemHint": "ܡܫܬܚܠܦ ܥܡ OS ܕܝܠܟ",
+        "light": "ܢܗܝܪܐ",
+        "lightHint": "ܐܘܟܡܐ ܚܘܪܐ",
+        "dark": "ܥܬܝܡܐ",
+        "darkHint": "ܐܘܟܡܐ ܩܪܝܒܐ ܠܐܘܟܡܐ"
+      },
+      "accent": {
+        "title": "Accent",
+        "description": "ܡܬܬܣܝܡ ܠܟܦܬܐ ܪܝܫܝܬܐ, focus rings ܘܠܣܝܡܬܐ ܕܦܬܝܬܐ ܦܥܝܠܬܐ. Mint ܡܬܕܡܝܐ ܠܣܝܡܬܐ ܕbrand.",
+        "label": "Accent color"
+      },
+      "accents": {
+        "mint": "Mint",
+        "lavender": "Lavender",
+        "sky": "ܫܡܝܐ",
+        "peach": "Peach",
+        "butter": "Butter",
+        "rose": "ܘܪܕܐ",
+        "sage": "Sage",
+        "lilac": "Lilac"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Issuer profiles",
+      "title": "Issuer profiles",
+      "description": "ܗܘܝܬܐ ܕܢܡܘܣܝܐ ܕܡܢܗܘܢ ܡܦܩ ܐܢܬ invoices. Default ܡܡܠܐ invoices ܚܕܬܐ ܡܢ ܩܕܡ.",
+      "breadcrumb": "Profiles",
+      "newProfile": "Profile ܚܕܬܐ",
+      "emptyTitle": "ܠܝܬ ܥܕܡܐ ܕܗܫܐ issuer profile",
+      "emptyDescription": "ܒܪܝ ܗܘܝܘܬܐ ܕܡܢܗ ܡܦܩ ܐܢܬ invoices: ܐܢܫܐ ܚܕ ܥܡ PAN, ܐܘ company ܕܝܠܟ.",
+      "createProfile": "ܒܪܝ Profile",
+      "columns": {
+        "label": "Label",
+        "legalName": "Legal name",
+        "type": "ܨܒܬܐ",
+        "country": "ܐܬܪܐ",
+        "currency": "Currency",
+        "regime": "Regime",
+        "status": "ܚܐܠܐ"
+      },
+      "types": {
+        "company": "Company",
+        "individual": "ܐܢܫܐ ܚܕ"
+      },
+      "makeDefaultTitle": "ܣܝܡ {label} Default؟",
+      "makeDefaultDescription": "Invoices ܚܕܬܐ ܫܪܝܢ ܡܢ profile ܗܢܐ.",
+      "restoreTitle": "ܗܦܘܟ {label}؟",
+      "archiveTitle": "Archive {label}؟",
+      "archiveDescription": "ܓܠܝܪ ܡܢ pickers; invoices ܕܐܝܬ ܠܐ ܡܬܓܘܫܡܝܢ.",
+      "new": {
+        "metaTitle": "Issuer profile ܚܕܬܐ",
+        "title": "Issuer profile ܚܕܬܐ",
+        "prefilled": "ܡܠܝܐ ܡܢ ܦܘܪܥܢܐ ܕܝܠܟ; ܒܨܝ ܟܬܒܬܐ ܘtax details, ܘܒܬܪ ܗܠܝܢ ܢܛܘܪ."
+      },
+      "edit": {
+        "metaTitle": "Edit issuer profile",
+        "template": "Template",
+        "deleteTitle": "ܫܪܝ {label}؟",
+        "deleteDescription": "ܡܬܚܫܚ ܒܠܚܘܕ ܐܢ ܠܝܬ invoice ܐܘ credit note ܕܡܬܚܘܬܐ ܠܗ. ܐܢ ܠܐ, Archive ܠܗ."
+      },
+      "template": {
+        "metaTitle": "Profile template",
+        "title": "Template ܠ{label}",
+        "ownTemplate": "Template ܕܝܠܗ",
+        "instanceTemplate": "Instance template",
+        "resetTitle": "ܬܘܒ ܬܬܠܐܐ instance template؟",
+        "resetDescription": "Configuration ܕܝܠܗ ܕܗܢܐ profile ܡܬܫܩܠ; documents ܕܐܬܦܩܘ ܠܐ ܡܬܓܘܫܡܝܢ.",
+        "useInstance": "ܐܣܬܥܡܠ instance template",
+        "usingInstanceTitle": "ܡܣܬܥܡܠ instance template",
+        "usingInstanceDescription": "Documents ܕܗܢܐ profile ܗܦܟܝܢ Settings → Templates. ܓܒܝ ܕܬܫܚܠܦ ܐܢܘܢ ܒܠܚܘܕܝܗܘܢ.",
+        "customise": "ܐܣܬܥܡܠ template ܐܚܪܢܐ ܠprofile ܗܢܐ",
+        "openInstance": "ܦܬܚ instance template"
+      },
+      "form": {
+        "identityTitle": "ܗܘܝܘܬܐ",
+        "identityDescription": "ܡܢ ܗܘ invoice ܡܢܗ.",
+        "type": "ܨܒܬܐ",
+        "label": "Label",
+        "labelHint": "ܡܬܚܙܐ ܒpickers ܒܠܚܘܕ",
+        "legalName": "Legal name",
+        "tradeName": "Trade name",
+        "designation": "Designation",
+        "email": "Email",
+        "phone": "ܛܠܦܘܢ",
+        "website": "Website",
+        "addressTitle": "ܟܬܒܬܐ",
+        "taxTitle": "Tax identifiers",
+        "taxDescription": "ܗܠܝܢ ܕܡܬܚܘܬܝܢ ܠܟ ܒܠܚܘܕ; ܛܒܥܐ ܡܬܕܒܪ ܠܟܠ invoice.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "UK VAT number",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "Encrypted ܒܗܘ ܙܒܢܐ ܕܡܬܢܛܪ",
+        "lutNumber": "LUT number",
+        "lutNumberHint": "ܠexports ܕܠܐ IGST",
+        "lutFiscalYear": "LUT financial year",
+        "lutFiscalYearHint": "ܐܝܟ 2026-27",
+        "defaultsTitle": "Defaults",
+        "baseCurrency": "Base currency",
+        "locale": "Document locale",
+        "localeHint": "Formatting ܕܡܢܝܢܐ ܘܝܘܡܬܐ ܒdocuments",
+        "fiscalYearStart": "Fiscal year ܫܪܐ ܒ",
+        "months": {
+          "january": "ܟܢܘܢ ܐܚܪܝ",
+          "february": "ܫܒܛ",
+          "march": "ܐܕܪ",
+          "april": "ܢܝܣܢ",
+          "may": "ܐܝܪ",
+          "june": "ܚܙܝܪܢ",
+          "july": "ܬܡܘܙ",
+          "august": "ܐܒ",
+          "september": "ܐܝܠܘܠ",
+          "october": "ܬܫܪܝ ܩܕܡܝܐ",
+          "november": "ܬܫܪܝ ܐܚܪܝ",
+          "december": "ܟܢܘܢ ܩܕܡܝܐ"
+        },
+        "taxRegime": "Default tax regime",
+        "regimes": {
+          "indiaGst": "India GST",
+          "ukVat": "UK VAT",
+          "usSalesTax": "US sales tax",
+          "none": "ܠܐ tax"
+        },
+        "invoiceNumberFormat": "Invoice number format",
+        "invoiceNumberFormatHint": "Tokens: {tokens}",
+        "creditNoteNumberFormat": "Credit note number format",
+        "tdsRate": "Expected TDS rate (%)",
+        "tdsRateHint": "Informational, ܡܬܛܒܥ ܐܝܟ expected deduction",
+        "defaultNotes": "Default notes",
+        "defaultTerms": "Default terms",
+        "printTitle": "ܡܐ ܕܡܬܛܒܥ ܒDefault",
+        "printDescription": "ܟܠ invoice ܢܣܚ ܠܗܠܝܢ ܘܡܨܐ ܠܡܫܚܠܦܘ ܒܠܚܘܕ.",
+        "emailTitle": "Email",
+        "emailDescription": "Defaults ܠsend composer. Placeholders: {placeholders}",
+        "emailCc": "Default CC",
+        "emailBcc": "Default BCC",
+        "commaSeparated": "ܡܦܪܫ ܒcomma",
+        "invoiceSubject": "Invoice subject",
+        "invoiceSubjectHint": "ܒܛܝܠܐ ܡܣܬܥܡܠ built-in template",
+        "creditNoteSubject": "Credit note subject",
+        "invoiceBody": "Invoice body",
+        "creditNoteBody": "Credit note body",
+        "artworkTitle": "Artwork",
+        "artworkDescription": "PNG, JPEG ܐܘ WebP ܥܕܡܐ 2 MB; signature ܘstamp ܢܛܪܝܢ transparency.",
+        "logo": "Logo",
+        "signature": "Signature",
+        "stamp": "Stamp",
+        "transparentPng": "Transparent PNG",
+        "save": "ܢܛܘܪ Profile"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Payment methods",
+      "title": "Payment methods",
+      "description": "ܐܝܟܢܐ clients ܦܪܥܝܢ ܠܟ. Details encrypted ܘܡܬܩܪܫܝܢ ܒܟܠ invoice ܒܙܒܢ ܕܡܦܩܢܘܬܐ.",
+      "newMethod": "Method ܚܕܬܐ",
+      "emptyTitle": "ܠܝܬ ܥܕܡܐ ܕܗܫܐ payment methods",
+      "emptyDescription": "ܘܣܦ bank account, UPI ID ܐܘ wallet ܕܢܚܘܘܢ invoices ܠclients ܐܝܟܐ ܕܢܦܪܥܘܢ.",
+      "addMethod": "ܘܣܦ method",
+      "columns": {
+        "name": "ܫܡܐ",
+        "type": "ܨܒܬܐ",
+        "currency": "Currency",
+        "status": "ܚܐܠܐ"
+      },
+      "types": {
+        "bankTransfer": "Bank transfer",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Custom"
+      },
+      "makeDefaultTitle": "ܣܝܡ {name} Default؟",
+      "restoreTitle": "ܗܦܘܟ {name}؟",
+      "archiveTitle": "Archive {name}؟",
+      "archiveDescription": "Invoices ܕܐܬܦܩܘ ܢܛܪܝܢ snapshot ܕܐܬܛܒܥ.",
+      "new": {
+        "metaTitle": "Payment method ܚܕܬܐ",
+        "title": "Payment method ܚܕܬܐ"
+      },
+      "edit": {
+        "metaTitle": "Edit payment method",
+        "title": "Edit {name}",
+        "deleteTitle": "ܫܪܝ {name}؟",
+        "deleteDescription": "ܡܬܚܫܚ ܒܠܚܘܕ ܐܢ ܠܝܬ invoice ܐܘ payment ܕܡܬܚܘܬܐ ܠܗ. ܐܢ ܠܐ, Archive ܠܗ."
+      },
+      "form": {
+        "name": "ܫܡܐ",
+        "nameHint": "ܡܬܛܒܥ ܐܝܟ heading ܕpayment block",
+        "type": "ܨܒܬܐ",
+        "currency": "Currency",
+        "currencyHint": "Optional; ܡܬܚܙܐ ܠcontext ܒܠܚܘܕ",
+        "anyCurrency": "ܟܠܡܕܡ",
+        "instructions": "Instructions",
+        "instructionsHint": "ܡܬܛܒܥ ܬܚܬ details",
+        "isDefault": "Default method",
+        "isDefaultDescription": "ܡܓܒܝ ܡܢ ܩܕܡ ܒinvoices ܚܕܬܐ",
+        "isActive": "ܦܥܝܠܐ",
+        "detailsTitle": "Details",
+        "detailsDescription": "Encrypted ܒܙܒܢ ܕܡܬܢܛܪ; snapshot ܒܟܠ invoice ܒܙܒܢ ܕܡܦܩܢܘܬܐ.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "Payee name",
+        "lines": "Lines",
+        "linesHint": "ܚܕ line ܠܟܠ row, ܡܬܛܒܥ ܐܝܟ ܕܐܝܬ",
+        "accountEmail": "Account email / handle",
+        "bank": {
+          "accountHolder": "Account holder",
+          "accountNumber": "Account number",
+          "bankName": "Bank name",
+          "branch": "Branch",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Routing / sort code"
+        },
+        "save": "ܢܛܘܪ Payment method"
+      }
+    },
+    "templates": {
+      "metaTitle": "Document templates",
+      "title": "Document templates",
+      "customised": "Customised",
+      "builtIn": "Built-in default",
+      "description": "ܐܝܟܢܐ invoices ܘcredit notes ܡܬܚܙܝܢ. Documents ܕܐܬܦܩܘ ܢܛܪܝܢ template ܕܒܗ ܐܬܦܩܘ.",
+      "resetTitle": "ܗܦܘܟ ܠbuilt-in default؟",
+      "resetDescription": "Customisation ܕܝܠܟ ܡܬܫܩܠ; documents ܕܐܬܦܩܘ ܡܢ ܩܕܡ ܠܐ ܡܬܓܘܫܡܝܢ.",
+      "reset": "Reset",
+      "resetTrigger": "Reset ܠdefaults",
+      "importTitle": "Import",
+      "importDescription": "ܗܦܘܟ configuration ܕܐܬܦܩ ܩܕܡ.",
+      "overridesTitle": "Per-profile overrides",
+      "overridesDescription": "Profile ܡܨܐ ܠܡܓܒܐ template ܕܝܠܗ ܡܢ ܦܬܝܬܐ ܕedit ܕܝܠܗ.",
+      "noOverrides": "ܟܠ profile ܡܣܬܥܡܠ instance template.",
+      "import": {
+        "json": "Template JSON",
+        "jsonHint": "ܣܝܡ file ܕܐܬܒܪܝ ܒExport JSON; keys ܕܚܣܝܪܝܢ ܗܦܟܝܢ ܠdefaults",
+        "importing": "ܡܝܒܠ…",
+        "submit": "Import"
+      },
+      "form": {
+        "templateTitle": "Template",
+        "templateDescription": "ܫܬ built-ins; customisation ܕܠܬܚܬ ܡܬܚܘܬܐ ܠܐܝܢܐ ܕܓܒܝܬ.",
+        "templateGroup": "Template",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Modern ܘܪܘܝܚܐ, sans-serif, accent rule ܬܚܬ header."
+          },
+          "classic": {
+            "name": "Classic",
+            "character": "Traditional bordered table, serif headings, boxed totals."
+          },
+          "compact": {
+            "name": "Compact",
+            "character": "Dense layout ܠlong item lists; smaller type, fewer separators."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "ܫܠܝܐ ܘܪܘܝܚܐ: ܠܝܬ rules ܐܘ boxes, light labels, plenty of air."
+          },
+          "letterhead": {
+            "name": "Letterhead",
+            "character": "Logo ܘܫܡܟ ܥܠ colour band ܐܘ image ܥܠ ܪܝܫ ܟܠ ܦܬܝܬܐ."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Colour band header; parties, table header ܘtotals ܥܠ pale accent tint."
+          }
+        },
+        "paperTitle": "Paper ܘtype",
+        "paperSize": "Paper size",
+        "paperLetter": "Letter",
+        "margins": "Margins",
+        "marginsNormal": "Normal",
+        "marginsNarrow": "Narrow",
+        "headingFont": "Heading font",
+        "bodyFont": "Body font",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "Table style",
+        "tableRuled": "Ruled",
+        "tableZebra": "Zebra",
+        "tablePlain": "Plain",
+        "accentColour": "Accent colour",
+        "textColour": "Text colour",
+        "logoPosition": "Logo position",
+        "positionLeft": "ܣܡܠܐ",
+        "positionCentre": "ܡܨܥܬܐ",
+        "positionRight": "ܝܡܝܢܐ",
+        "logoHeight": "Logo height (mm)",
+        "documentTitle": "Document title",
+        "titleAuto": "Automatic (GST-aware)",
+        "titleCustom": "Custom",
+        "titlePlaceholder": "ܐܝܟ PROFORMA INVOICE",
+        "qrPosition": "QR position",
+        "qrFooter": "Footer",
+        "qrHeader": "Header",
+        "qrBesideTotals": "Beside totals",
+        "amountInWords": "Amount in words",
+        "wordsBelowTotal": "Below totals",
+        "wordsFooter": "Footer",
+        "wordsHidden": "ܛܫܝܐ",
+        "subtotalRow": "Subtotal row",
+        "discountRow": "Discount row",
+        "taxLines": "Tax lines",
+        "tdsExpected": "TDS expected",
+        "roundingRow": "Rounding row",
+        "pageNumbers": "Page numbers",
+        "headerTitle": "Header",
+        "headerDescription": "Colour band ܐܘ image ܥܠ ܪܝܫ ܟܠ ܦܬܝܬܐ. Letterhead ܘModern ܡܚܘܝܢ band ܐܠܐ ܐܢ ܓܒܝܬ ܐܚܪܢܐ.",
+        "headerStyle": "Header style",
+        "headerNone": "ܠܐ ܡܕܡ",
+        "headerBand": "Colour band",
+        "headerImage": "Image",
+        "bandColour": "Band colour",
+        "bandColourHex": "Band colour (hex)",
+        "headerImageLabel": "Header image",
+        "headerImageHint": "PNG, JPEG ܐܘ WebP ܥܕܡܐ 2400 px ܦܬܝܐ; ܡܬܦܫܛ ܥܠ ܦܬܝܘܬܐ ܕܦܬܝܬܐ.",
+        "imageOpacity": "Image opacity",
+        "headerHeight": "Header height (mm)",
+        "bandText": "Text ܥܠ band",
+        "bandTextAuto": "Automatic (ܡܢ band colour)",
+        "bandTextLight": "ܢܗܝܪܐ",
+        "bandTextDark": "ܥܬܝܡܐ",
+        "textTitle": "Text",
+        "headerNote": "Header note",
+        "footer": "Footer",
+        "signatureCaption": "Signature caption",
+        "draftWatermark": "Draft watermark",
+        "labelsTitle": "Labels",
+        "labelsDescription": "ܫܒܘܩ field ܣܪܝܩܐ ܕܬܢܛܪ wording default.",
+        "save": "ܢܛܘܪ Template",
+        "downloadSample": "ܐܚܬ sample PDF",
+        "exportJson": "Export JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Email",
+      "title": "Email",
+      "configuredSettings": "Configured ܒSettings",
+      "configuredEnv": "Configured ܒenvironment",
+      "notConfigured": "ܠܐ configured: mail-app flow",
+      "description": "Documents ܡܬܫܕܪܝܢ ܡܢ composer ܥܡ PDF ܕܡܬܢܛܪ ܡܚܪܒܐ. Settings ܗܪܟܐ ܥܠܝܢ SMTP_* ܒenvironment.",
+      "sendTest": "ܫܕܪ test email ܠ{email}",
+      "removeTitle": "ܫܩܘܠ SMTP settings ܕܡܬܢܛܪܝܢ؟",
+      "removeEnvTakesOver": "ܩܝܡܬܐ ܕSMTP_* ܕenvironment ܫܠܛܝܢ.",
+      "removeFallsBack": "Email ܗܦܟ ܠmail-app flow.",
+      "removeTrigger": "ܫܩܘܠ stored settings",
+      "smtpTitle": "SMTP server",
+      "smtpFromEnv": "ܗܫܐ ܐܬܩܒܠ ܡܢ environment; ܢܛܪܐ ܗܪܟܐ ܥܠܝܐ ܠܗ.",
+      "smtpPasswordNote": "Password encrypted ܘܠܐ ܡܬܚܙܐ ܬܘܒ.",
+      "defaultsTitle": "Default recipients",
+      "defaultsDescription": "Instance-wide CC/BCC; issuer profiles ܘܣܦܝܢ ܕܝܠܗܘܢ.",
+      "sentTitle": "Sent mail",
+      "sentDescription": "50 ܢܣܝܘܢܐ ܐܚܪܝܐ, ܥܡ failures ܘmanual sends.",
+      "smtp": {
+        "host": "Host",
+        "port": "Port",
+        "security": "Security",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "ܠܐ ܡܕܡ (LAN relay)",
+        "user": "Username",
+        "password": "Password",
+        "passwordStored": "Stored ܘencrypted; ܫܒܘܩ ܣܪܝܩܐ ܕܬܢܛܪܝܘܗܝ",
+        "passwordEncrypted": "Encrypted ܒܙܒܢ ܕܡܬܢܛܪ",
+        "from": "From address",
+        "fromName": "From name",
+        "replyTo": "Reply-to",
+        "save": "ܢܛܘܪ SMTP settings"
+      },
+      "defaults": {
+        "cc": "Default CC",
+        "ccHint": "ܡܬܘܣܦ ܠܟܠ composer; ܡܦܪܫ ܒcomma",
+        "bcc": "Default BCC",
+        "save": "ܢܛܘܪ defaults"
+      }
+    },
+    "security": {
+      "metaTitle": "Security",
+      "title": "Security",
+      "description": "ܐܝܟܐ ܥܠܝܬ, ܘܟܠ ܡܕܡ ܕܐܫܬܚܠܦ.",
+      "sessions": {
+        "title": "Active sessions",
+        "description": "ܒܛܘܠܐ ܕsession ܡܦܩ ܠܗܘ device ܡܚܕܐ.",
+        "signOutOthers": {
+          "title": "ܦܘܩ ܡܢ ܟܠ ܕܘܟܬܐ ܐܚܪܬܐ؟",
+          "description": "ܟܠ session ܐܠܐ ܗܢܐ ܡܬܒܛܠ.",
+          "confirm": "ܦܘܩ ܐܚܪܢܐ",
+          "trigger": "ܦܘܩ ܡܢ ܟܠ ܕܘܟܬܐ ܐܚܪܬܐ"
+        },
+        "columns": {
+          "device": "Device",
+          "ipAddress": "IP address",
+          "signedIn": "ܥܠ",
+          "lastSeen": "ܐܬܚܙܝ ܐܚܪܝܬܐ",
+          "expires": "ܡܫܬܠܡ"
+        },
+        "thisDevice": "Device ܗܢܐ",
+        "revokeTitle": "ܒܛܠ session ܗܢܐ؟",
+        "unknownDevice": "Device ܠܐ ܝܕܝܥ",
+        "unknownBrowser": "ܠܐ ܝܕܝܥ",
+        "agentOnOs": "{browser} ܥܠ {os}"
+      },
+      "audit": {
+        "title": "Audit log",
+        "count": "{count, plural, one {# event} other {# events}}",
+        "entity": "Entity",
+        "actionContains": "Action ܡܟܝܠ",
+        "filter": "Filter",
+        "reset": "Reset",
+        "columns": {
+          "when": "ܐܡܬܝ",
+          "who": "ܡܢ",
+          "action": "Action",
+          "entity": "Entity",
+          "summary": "Summary"
+        },
+        "empty": "ܠܝܬ events ܕܡܬܚܘܬܝܢ ܠfilters ܗܠܝܢ.",
+        "system": "System",
+        "changes": "ܫܘܚܠܦܐ",
+        "page": "ܦܬܝܬܐ {page} ܡܢ {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Users",
+      "title": "Users",
+      "description": "ܡܢ ܡܨܐ ܕܢܥܘܠ ܠinstance ܗܢܐ ܘܡܢܐ ܡܨܐ ܕܢܥܒܕ.",
+      "roles": {
+        "owner": "ܡܪܐ",
+        "editor": "Editor",
+        "viewer": "Viewer"
+      },
+      "roleHints": {
+        "owner": "ܟܠܡܕܡ, ܥܡ settings ܘmembers",
+        "editor": "Clients, catalogue, invoices, credit notes, payments, e-mail",
+        "viewer": "ܩܪܝܬܐ ܒܠܚܘܕ"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Role ܕ{email}",
+      "invite": {
+        "title": "ܩܪܝ ܐܢܫ",
+        "description": "ܥܐܠܝܢ ܒܟܬܒܬܐ ܕܐܬܩܪܝ (identity provider ܐܘ password) ܘܡܫܬܡܠܝܢ role ܕܓܒܝܬ.",
+        "sent": "Invitation ܐܬܫܕܪܬ ܠ{email}.",
+        "readyWithError": "Invitation ܛܝܒܬܐ ܠ{email}. Email ܠܐ ܐܬܫܕܪ ({error}); ܫܕܪ ܠܗܘܢ link ܗܢܐ:",
+        "readyNoSmtp": "Invitation ܛܝܒܬܐ ܠ{email}. ܠܝܬ SMTP configured; ܫܕܪ ܠܗܘܢ link ܗܢܐ:",
+        "copyLink": "ܢܣܘܚ link",
+        "email": "Email",
+        "emailPlaceholder": "person@example.com",
+        "role": "Role",
+        "submit": "ܩܪܝ",
+        "inviting": "ܩܪܐ…"
+      },
+      "members": {
+        "title": "Members",
+        "description": "ܡܪܐ ܦܥܝܠܐ ܚܕ ܠܐܠܝܠ ܡܫܬܐܪ.",
+        "columns": {
+          "person": "ܐܢܫܐ",
+          "role": "Role",
+          "lastSignIn": "ܡܥܠܬܐ ܐܚܪܝܬܐ",
+          "status": "ܚܐܠܐ"
+        },
+        "nameYou": "{name} (ܐܢܬ)",
+        "deactivated": "Deactivated",
+        "reactivate": {
+          "title": "Reactivate {email}؟",
+          "description": "ܡܨܝܢ ܕܢܥܠܘܢ ܬܘܒ ܒrole ܩܕܡܝܐ.",
+          "confirm": "Reactivate"
+        },
+        "deactivate": {
+          "title": "Deactivate {email}؟",
+          "description": "ܟܠ session ܡܫܬܠܡ ܗܫܐ ܘܠܐ ܡܨܝܢ ܕܢܥܠܘܢ ܥܕܡܐ ܕܡܬܗܦܟ. ܬܫܥܝܬܐ ܕܝܠܗܘܢ ܡܫܬܐܪ.",
+          "confirm": "Deactivate"
+        }
+      },
+      "invitations": {
+        "title": "Pending invitations",
+        "description": "ܟܬܒܬܐ ܕܡܨܝܢ ܕܢܥܠܘܢ ܐܠܐ ܠܐ ܥܠܘ ܥܕܡܐ ܗܫܐ.",
+        "columns": {
+          "email": "Email",
+          "role": "Role",
+          "invited": "ܐܬܩܪܝ"
+        },
+        "empty": "ܠܝܬ pending invitations.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "ܒܛܠ invitation ܕ{email}؟"
+      }
+    },
+    "data": {
+      "metaTitle": "Data",
+      "title": "Data",
+      "description": "ܟܠܡܕܡ portable: datasets ܐܝܟ CSV ܐܘ Excel, full snapshot ܠmigration, PDFs ܠaccountant ܕܝܠܟ, ܘbackup routine ܕܐܬܒܚܪ.",
+      "period": {
+        "fiscalYear": "Fiscal year",
+        "fiscalYearHint": "ܥܠܝܐ ܥܠ ܝܘܡܬܐ",
+        "issuer": "Issuer"
+      },
+      "exportAll": {
+        "title": "Export all data",
+        "description": "ZIP ܥܡ ܟܠ dataset ܐܝܟ CSV ܘ<mono>data.json</mono>, relational snapshot ܕܟܠ tables. Encrypted fields (payment-method details, SMTP password) ܠܒܪ ܡܢ ܗܪܟܐ; README ܓܘ ܡܡܢܐ ܐܢܘܢ.",
+        "download": "ܐܚܬ okinvo-data ZIP"
+      },
+      "exportDocuments": {
+        "title": "Export documents",
+        "description": "ܟܠ invoice ܘcredit-note PDF ܕܐܬܦܩ ܘܕܐܬܒܛܠ ܠperiod, ܡܫܡܗ ܒܡܢܝܢܐ, ܥܡ <mono>index.csv</mono> ܕܡܢܝܢܐ, totals ܘhashes. PDFs ܕܚܣܝܪܝܢ ܡܬܒܪܝܢ ܒܐܘܪܚܐ.",
+        "docx": "ܘܣܦ ܐܦ DOCX copy ܕܟܠ document",
+        "download": "ܐܚܬ documents ZIP"
+      },
+      "datasets": {
+        "title": "Datasets",
+        "description": "Exports ܕܚܕ ܐܢܘܢ ܕܦܬܝܬܐ ܕindex ܡܩܪܒܝܢ, ܥܡ period ܘissuer ܡܬܚܘܬܝܢ ܠܟܠܗܘܢ. Payments ܡܣܬܥܡܠܝܢ date range; clients ܘservices ܡܫܒܩܝܢ period.",
+        "columns": {
+          "dataset": "Dataset",
+          "filters": "Filters applied",
+          "download": "Download"
+        },
+        "names": {
+          "invoices": "Invoices register",
+          "invoiceItems": "Invoice line items",
+          "payments": "Payments ledger",
+          "creditNotes": "Credit notes register",
+          "clients": "Clients",
+          "services": "Services",
+          "gstSummary": "GST summary",
+          "tdsSummary": "TDS summary"
+        },
+        "filters": {
+          "periodIssuer": "period, issuer",
+          "dateRangeIssuer": "date range, issuer",
+          "includesArchived": "includes archived"
+        }
+      },
+      "backups": {
+        "title": "Backups",
+        "notWired": "ܠܝܬ backup service ܕܡܚܒܪ",
+        "noRun": "ܠܐ ܗܘܐ backup ܥܕܡܐ ܗܫܐ",
+        "lastOk": "Backup ܐܚܪܝܐ OK",
+        "lastFailed": "Backup ܐܚܪܝܐ ܠܐ ܐܬܓܡܪ",
+        "description": "Compose <mono>backup</mono> service ܡܢܩܒ Postgres ܘܡܪܫܡ storage volume ܥܠ <mono>BACKUP_CRON</mono>, ܢܛܪ <mono>BACKUP_RETENTION_DAYS</mono> ܕܬܫܥܝܬܐ ܒ<mono>backups</mono> volume, ܘܟܬܒ status file ܕܦܬܝܬܐ ܗܢܐ ܩܪܐ.",
+        "finished": "ܐܬܓܡܪ",
+        "databaseDump": "Database dump",
+        "storageArchive": "Storage archive",
+        "size": "Size",
+        "sizeMb": "{size} MB",
+        "error": "ܛܥܝܘܬܐ",
+        "runNow": "ܫܡܠܝ ܚܕ ܗܫܐ, ܐܘ ܗܦܘܟ ܡܢ ܙܘܓܐ ܕfiles:",
+        "restoreDrill": "Restore procedure ܡܬܒܚܪ ܒCI ܒ<mono>scripts/restore-drill.sh</mono>: seed, back up, wipe, restore, ܘܒܬܪ ܗܠܝܢ ܡܬܚܫܒ row counts ܘPDF hash."
+      }
+    },
+    "legal": {
+      "metaTitle": "Legal",
+      "metaDescription": "ܡܢ ܡܕܒܪ instance ܗܢܐ: details ܕܡܬܛܒܥܝܢ ܒܦܬܝܬܐ legal ܕܓܠܝܐ.",
+      "title": "Legal",
+      "description": "ܦܬܝܬܐ legal ܕܓܠܝܐ ܛܒܥܝܢ details ܗܠܝܢ. ܥܕܡܐ ܕܟܠ field ܡܠܝܐ, ܦܬܝܬܐ ܡܚܘܝܢ placeholders ܕܡܬܚܘܝܢ.",
+      "operator": {
+        "title": "Operator details",
+        "complete": "ܓܡܝܪ",
+        "missing": "{count} ܚܣܝܪ: {fields}",
+        "description": "ܐܢܬ, ܐܝܟ ܐܢܫܐ ܐܘ company ܕܡܕܒܪ instance ܗܢܐ, ܐܢܬ ܗܘ operator ܕdocuments ܡܬܚܘܬܝܢ ܠܗ. ܠܐ ܡܕܡ ܡܫܬܕܪ ܠܐܝܟܐ; ܡܬܛܒܥ ܒܦܬܝܬܐ ܕܠܬܚܬ."
+      },
+      "fieldLabels": {
+        "legalName": "Operator legal name",
+        "entityType": "Entity type",
+        "address": "Operator address",
+        "country": "Operator country",
+        "contactEmail": "Contact e-mail",
+        "privacyEmail": "Privacy e-mail",
+        "dpoEmail": "Data protection officer e-mail",
+        "governingLaw": "Governing law",
+        "venue": "Venue for disputes",
+        "effectiveDate": "Effective date"
+      },
+      "publicPages": {
+        "title": "Public pages",
+        "description": "ܡܚܒܪܝܢ ܡܢ sign-in page, share viewer ܘcookie notice.",
+        "terms": "Terms of Service",
+        "acceptableUse": "Acceptable Use Policy",
+        "privacy": "Privacy Policy",
+        "cookies": "Cookie Policy",
+        "dataRetention": "Data retention",
+        "security": "Security",
+        "licenses": "Licences ܘthird-party notices"
+      },
+      "form": {
+        "legalName": "Legal name",
+        "entityType": "Entity type",
+        "individual": "Individual / sole proprietor",
+        "company": "Company / registered entity",
+        "address": "ܟܬܒܬܐ",
+        "addressHint": "ܡܬܛܒܥ ܒTerms ܘPrivacy Policy ܐܝܟ postal address ܕoperator.",
+        "country": "ܐܬܪܐ",
+        "effectiveDate": "Effective date",
+        "contactEmail": "Contact e-mail",
+        "privacyEmail": "Privacy e-mail",
+        "privacyEmailHint": "ܐܝܟܐ ܕܒܥܘܬܐ ܕܡܪܐ ܕdata ܙܠܝܢ; ܡܨܐ ܗܘܐ contact address.",
+        "dpoEmail": "Data protection officer e-mail",
+        "dpoEmailHint": "ܒܠܚܘܕ ܐܢ ܣܡܬ ܚܕ.",
+        "governingLaw": "Governing law",
+        "governingLawHint": "ܐܝܟ “the laws of India” ܐܘ “the laws of England and Wales”.",
+        "venue": "Venue for disputes",
+        "venueHint": "ܐܝܟ “the courts of Bengaluru, Karnataka”.",
+        "submit": "ܢܛܘܪ operator details"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API keys ܠscripts, SDK ܘMCP clients, ܥܡ curl examples.",
+      "title": "API",
+      "description": "Keys ܠscripts, SDK ܘMCP clients. Key ܡܨܐ ܠܡܥܒܕ ܠܐܝܬ ܕܡܫܬܐܪ role ܕܝܠܟ; ܡܬܚܙܐ ܚܕܐ ܙܒܢܐ.",
+      "create": {
+        "title": "ܒܪܝ key",
+        "description": "ܫܕܪܝܗܝ ܐܝܟ <mono>Authorization: Bearer okv_…</mono>. ܠܐ ܬܣܝܡܝܗܝ ܒsource code ܘchat logs; ܒܛܠܝܗܝ ܠܬܚܬ ܐܢ ܐܬܓܠܝ."
+      },
+      "keys": {
+        "title": "Keys",
+        "descriptionOwner": "ܟܠ keys ܕinstance ܗܢܐ; ܡܪܐ ܡܨܐ ܠܡܒܛܠܘ ܐܝܢܐ ܕܗܘ.",
+        "descriptionOwn": "Keys ܕܝܠܟ.",
+        "columns": {
+          "name": "ܫܡܐ",
+          "prefix": "Prefix",
+          "scopes": "Scopes",
+          "owner": "ܡܪܐ",
+          "lastUsed": "ܐܬܣܬܥܡܠ ܐܚܪܝܬܐ",
+          "expires": "ܡܫܬܠܡ",
+          "status": "ܚܐܠܐ"
+        },
+        "empty": "ܠܝܬ API keys ܥܕܡܐ ܗܫܐ.",
+        "never": "ܡܢ ܡܬܡܠ",
+        "revoked": "ܒܛܝܠ",
+        "expired": "ܫܠܡ",
+        "revokeTitle": "ܒܛܠ {name}؟",
+        "revokeDescription": "Clients ܕܡܣܬܥܡܠܝܢ key ܗܢܐ ܣܦܝܢ ܠܡܥܒܕ ܡܚܕܐ.",
+        "activeCount": "{count, plural, one {# active key.} other {# active keys.}}"
+      },
+      "examples": {
+        "title": "Examples",
+        "description": "ܗܦܘܟ <mono>$OKINVO_KEY</mono> ܒkey. Versioned REST API, OpenAPI document ܕܝܠܗ (<mono>/api/openapi.json</mono>), TypeScript SDK ܘMCP server ܐܬܝܢ ܥܡ tasks ܕܐܬܝܢ ܕv1.1 plan; status endpoint ܥܒܕ ܝܘܡܢܐ.",
+        "rateLimit": "Calls ܕܥܒܪܝܢ limit ܥܢܝܢ 429 ܥܡ <mono>Retry-After</mono> header (120 requests ܒܕܩܬܐ ܠܟܠ key). Scopes ܕkey ܡܬܚܡܝܢ ܒrole ܕܗܫܐ ܕܡܪܗ."
+      },
+      "form": {
+        "copyKey": "ܢܣܘܚ API key",
+        "name": "ܫܡܐ",
+        "namePlaceholder": "ܐܝܟ accounting script",
+        "expires": "ܡܫܬܠܡ",
+        "in30Days": "ܒ30 ܝܘܡܬܐ",
+        "in90Days": "ܒ90 ܝܘܡܬܐ",
+        "inAYear": "ܒܫܢܬܐ",
+        "never": "ܡܢ ܡܬܡܠ",
+        "scopes": "Scopes",
+        "submit": "ܒܪܝ API key",
+        "creating": "ܒܪܐ…"
+      },
+      "scopes": {
+        "invoicesRead": "ܩܪܝ invoices",
+        "invoicesCreate": "ܒܪܝ ܘܦܩ invoices",
+        "creditNotesRead": "ܩܪܝ credit notes",
+        "creditNotesCreate": "ܒܪܝ ܘܦܩ credit notes",
+        "catalogueRead": "ܩܪܝ clients, services ܘproducts",
+        "documentsRead": "ܐܚܬ stored PDFs ܘDOCX copies",
+        "statusRead": "ܩܪܝ status ܕinstance"
+      }
+    },
+    "status": {
+      "metaTitle": "ܚܐܠܐ",
+      "metaDescription": "Version, database, storage, e-mail ܘbackup health ܕinstance ܗܢܐ.",
+      "title": "ܚܐܠܐ",
+      "description": "ܡܢܐ ܡܫܡܠܐ instance ܗܢܐ ܘܐܢ ܡܢܘܬܗ ܥܢܝܢ.",
+      "recheck": "Re-check",
+      "health": {
+        "ok": "OK",
+        "warning": "Warning",
+        "failed": "ܠܐ ܐܬܓܡܪ",
+        "na": "ܠܐ configured"
+      },
+      "overall": {
+        "ok": "ܟܠܡܕܡ ܛܒ",
+        "degraded": "Degraded",
+        "failed": "ܠܐ ܐܬܓܡܪ"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(sha ܠܐ ܝܕܝܥ)}} · built {built} · Node <mono>{node}</mono> · up {uptime} · checked {checked}",
+      "dateUnknown": "(ܝܘܡܐ ܠܐ ܝܕܝܥ)",
+      "uptime": {
+        "days": "{d}d {h}h {m}m",
+        "hours": "{h}h {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Database",
+        "storage": "Storage",
+        "rateLimiting": "Rate limiting",
+        "email": "E-mail",
+        "backups": "Backups"
+      },
+      "db": {
+        "detail": "{latency} ms · last migration <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # unfinished migration(s)}}",
+        "noMigration": "ܠܐ ܡܕܡ"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · write, read ܘdelete ܕprobe object ܒ{latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> store {store, select, memory {(one replica)} other {(shared across replicas)}}",
+      "smtp": {
+        "configured": "SMTP ܡܢ {source, select, settings {ܦܬܝܬܐ ܕSettings} env {ܣܛܪܐ} other {}} · last test {lastTest} · last 24 h: {sent} sent, {failed} failed",
+        "none": "ܠܝܬ SMTP server; composer ܡܩܪܒ “Open in mail app”. <link>Configure</link>"
+      },
+      "backups": {
+        "notWired": "ܠܝܬ backup service ܕܡܚܒܪ (BACKUP_STATUS_FILE ܠܐ ܣܡ).",
+        "noRun": "Backup service ܡܚܒܪ; ܠܝܬ run ܕܐܬܟܬܒ ܥܕܡܐ ܗܫܐ.",
+        "ok": "Run ܐܚܪܝܐ ܐܬܓܡܪ ܒ{finishedAt}{days, plural, =0 {} one { · retention # day} other { · retention # days}}",
+        "failed": "Run ܐܚܪܝܐ ܠܐ ܐܬܓܡܪ: {error} ܒ{finishedAt}{days, plural, =0 {} one { · retention # day} other { · retention # days}}"
+      },
+      "footer": "ܗܘ report ܗܘ ܡܬܚܙܐ ܐܝܟ JSON ܒ<mono>/api/health/status</mono> ܠmonitoring (signed-in session ܐܘ API key)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "ܒܫܝܢܐ",
+    "progress": "Progress",
+    "steps": {
+      "aboutYou": "ܥܠܝܟ",
+      "howYouUse": "ܐܝܟܢܐ ܬܣܬܥܡܠ ܠܗ",
+      "allSet": "ܟܠܡܕܡ ܛܝܒ"
+    },
+    "step1": {
+      "title": "ܐܡܪ ܠܢ ܥܠܝܟ",
+      "subtitle": "ܗܢܐ ܣܐܡ defaults ܕܝܠܟ; ܟܠ ܩܝܡܬܐ ܡܬܫܚܠܦ ܒܬܪ ܗܠܝܢ ܒSettings.",
+      "name": "ܫܡܐ",
+      "email": "Email",
+      "emailHint": "ܗܘܝܘܬ sign-in ܕܝܠܟ. ܡܬܫܚܠܦ ܒܬܪ ܗܠܝܢ ܡܢ Settings → Security.",
+      "country": "ܐܬܪܐ",
+      "currency": "Preferred currency",
+      "currencyHint": "ܡܣܬܥܡܠ ܠprofiles ܚܕܬܐ ܘܠDashboard ܥܕܡܐ ܕܐܝܬ profile."
+    },
+    "step2": {
+      "title": "ܐܝܟܢܐ ܬܣܬܥܡܠ okinvo؟",
+      "subtitle": "defaults ܒܠܚܘܕ ܡܫܬܚܠܦܝܢ; ܠܐ ܡܕܡ ܡܬܩܦܠ.",
+      "usage": "Usage",
+      "personal": "Personal invoicing",
+      "personalHint": "Freelance work ܒܫܡܟ",
+      "business": "Business invoicing",
+      "businessHint": "Invoices ܡܢ registered business",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "VAT number",
+        "other": "Tax registration number"
+      },
+      "taxQuestion": {
+        "IN": "ܐܝܬ ܠܟ GSTIN؟",
+        "GB": "ܡܬܟܬܒ ܐܢܬ ܒVAT؟",
+        "other": "ܐܝܬ ܠܟ tax registration number ܕܬܛܒܥ ܥܠ invoices؟"
+      }
+    },
+    "step3": {
+      "title": "ܛܝܒ ܐܢܬ",
+      "body": "ܒܬܪ ܗܠܝܢ, ܒܪܝ issuer profile ܩܕܡܝܐ ܕܝܠܟ: ܫܡܐ, ܟܬܒܬܐ ܘtax details ܕܡܬܛܒܥܝܢ ܥܠ invoices ܕܝܠܟ. ܡܠܝܢ ܠܗܘ ܕܐܡܪܬ ܠܢ.",
+      "go": "ܙܠ ܠprofiles",
+      "opening": "ܦܬܚ…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "cookies": "Cookies",
+      "security": "Security"
+    },
+    "cookieNotice": {
+      "label": "Cookie notice",
+      "body": "ܡܣܬܥܡܠܝܢ ܚܢܢ ܒܠܚܘܕ cookies ܕܡܬܒܥܝܢ ܒܐܢܘܣܐ: session ܕܝܠܟ ܘdisplay preferences ܕܝܠܟ. ܠܝܬ analytics, ܠܝܬ tracking.",
+      "policy": "Cookie policy",
+      "gotIt": "ܐܬܒܝܢ ܠܝ"
+    },
+    "nav": {
+      "label": "Legal",
+      "cookies": "Cookies",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "acceptableUse": "Acceptable use",
+      "retention": "Retention",
+      "security": "Security",
+      "licences": "Licences"
+    },
+    "operatorNotice": "okinvo ܗܘ self-hosted software; operator ܕinstance ܗܢܐ ܥܠܘܗܝ ܡܣܬܥܡܠ.",
+    "doc": {
+      "effectiveOn": "Effective <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Contents"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Operator legal name",
+        "entityType": "Entity type",
+        "address": "Operator address",
+        "country": "Operator country",
+        "contactEmail": "Contact e-mail",
+        "privacyEmail": "Privacy e-mail",
+        "dpoEmail": "Data protection officer e-mail",
+        "governingLaw": "Governing law",
+        "venue": "Venue for disputes",
+        "effectiveDate": "Effective date"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "ܠܐ ܐܫܬܟܚ",
+      "title": "ܠܝܬ ܡܕܡ ܒܟܬܒܬܐ ܗܢܐ",
+      "body": "Link ܡܨܐ ܕܥܬܝܩ, ܐܘ document ܕܡܬܚܘܐ ܠܗ ܡܢ ܡܬܡܠ ܠܐ ܐܬܦܩ."
+    },
+    "forbidden": {
+      "metaTitle": "ܠܐ ܡܫܬܪܝ",
+      "title": "Account ܗܢܐ ܠܐ ܡܨܐ ܠܡܥܒܕ ܗܕܐ",
+      "body": "Role ܕܝܠܟ ܠܐ ܫܪܐ ܗܕܐ. ܫܐܠ ܡܪܐ ܕܢܬܠ ܠܟ access, ܐܘ ܥܘܠ ܒaccount ܕܐܝܬ ܠܗ."
+    },
+    "error": {
+      "title": "ܡܕܡ ܛܥܝ",
+      "body": "ܠܐ ܐܫܬܚܠܦ ܡܕܡ ܒܗܢܐ request. ܢܣܝ ܬܘܒ; ܐܢ ܡܬܬܚܕ, server log ܐܝܬ ܒܗ details.",
+      "digest": "error {digest}",
+      "generic": "error"
+    },
+    "appNotFound": {
+      "title": "ܠܐ ܐܫܬܟܚ",
+      "body": "ܗܢܐ record ܠܝܬ ܗܘ, ܐܘ ܐܬܫܪܝ ܟܕ ܚܐܪ ܐܢܬ ܒܗ.",
+      "back": "ܗܦܘܟ ܠDashboard"
+    },
+    "validation": {
+      "required": "ܡܬܒܥܐ",
+      "tooLong": "ܠܐ ܝܬܝܪ ܡܢ {max} characters",
+      "invalidEmail": "ܠܐܦܣ ܕܗܘܐ email ܬܪܝܨܐ",
+      "invalidDate": "ܠܐܦܣ ܕܗܘܐ calendar date ܒܨܒܬܐ YYYY-MM-DD",
+      "invalidAmount": "ܠܐܦܣ ܕܗܘܐ ܡܢܝܢܐ",
+      "wholeNumber": "ܠܐܦܣ ܕܗܘܐ ܡܢܝܢܐ ܡܠܝܐ",
+      "greaterThanZero": "ܠܐܦܣ ܕܗܘܐ ܪܒ ܡܢ ܐܦܣ",
+      "fixFields": "ܒܥܘܬܐ ܬܪܨ fields ܕܡܬܚܘܝܢ.",
+      "charset": "ܒܠܚܘܕ standard keyboard characters ܡܫܬܪܝܢ."
+    }
+  },
+  "verify": {
+    "metaTitle": "Verify document",
+    "heading": "Document verification",
+    "rateLimited": "ܝܬܝܪ ܡܢ ܕܝܢ checks ܡܢ ܟܬܒܬܐ ܗܢܐ. ܒܥܘܬܐ ܢܣܝ ܬܘܒ ܒܥܕ ܕܩܬܐ.",
+    "notFound": {
+      "title": "ܠܝܬ ܗܟܢܐ document",
+      "body": "Link ܗܢܐ ܠܐ ܡܬܚܘܐ ܠܡܕܡ issued document. ܒܨܝ QR code ܐܘ link ܕܐܬܝܗܒ ܠܟ, ܐܘ ܐܬܩܪܒ ܠissuer."
+    },
+    "status": {
+      "void": "Void",
+      "valid": "Valid"
+    },
+    "issuedBy": "ܐܬܦܩ ܡܢ",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "ܐܬܦܩ ܠ",
+    "issueDate": "Issue date",
+    "total": "Total",
+    "voided": "Document ܗܢܐ ܐܬܒܛܠ ܡܢ issuer ܘܠܐ ܬܘܒ valid.",
+    "storedCopies": {
+      "title": "Stored copies",
+      "description": "SHA-256 ܕܟܠ PDF version ܕܐܝܬ ܠissuer. ܓܒܝ copy ܕܝܠܟ ܠܡܫܘܘܝܘ ܒbrowser ܕܝܠܟ: ܠܐ ܡܕܡ ܡܬܬܣܩ.",
+      "empty": "ܠܐ ܐܬܒܪܝ PDF ܥܕܡܐ ܗܫܐ.",
+      "protectedVersion": "Password-protected copy {version}",
+      "version": "Version {version}"
+    },
+    "check": {
+      "label": "ܒܨܝ copy ܕܝܠܟ",
+      "hashing": "Hashing…",
+      "match": "Copy ܕܝܠܟ ܡܬܚܘܐ ܠversion {version} ܓܡܝܪܐܝܬ.",
+      "mismatch": "Copy ܕܝܠܟ ܠܐ ܡܬܚܘܐ ܠܡܕܡ stored version."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Shared document",
+      "rateLimited": "ܝܬܝܪ ܡܢ ܕܝܢ requests ܡܢ ܟܬܒܬܐ ܗܢܐ. ܒܥܘܬܐ ܢܣܝ ܬܘܒ ܒܥܕ ܕܩܬܐ.",
+      "unavailable": {
+        "title": "Link ܗܢܐ ܠܝܬ ܠܗ",
+        "body": "ܡܨܐ ܕܫܠܡ ܐܘ ܐܬܒܛܠ ܡܢ issuer. ܫܐܠ ܡܢܗܘܢ ܕܚܕܬܐ."
+      },
+      "lockedTitleInvoice": "Invoice ܡܢ {issuer}",
+      "lockedTitleCreditNote": "Credit note ܡܢ {issuer}",
+      "lockedBody": "Document ܗܢܐ password-protected. ܥܠܠ password ܕܝܗܒ ܠܟ issuer.",
+      "void": "Void",
+      "protectedPdf": "PDF ܦܬܚ ܒܗܘ password. ܡܨܝܢ ܠܡܩܪܐ ܘܠܡܛܒܥ; copying ܘediting ܐܬܩܦܠܘ.",
+      "byline": "ܡܢ {issuer} ܠ{client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Password",
+      "limited": "ܝܬܝܪ ܡܢ ܕܝܢ ܢܣܝܘܢܐ. ܒܥܘܬܐ ܣܟܝ ܚܡܫܥܣܪ ܕܩܬܐ ܘܢܣܝ ܬܘܒ.",
+      "wrong": "Password ܗܢܐ ܠܐ ܬܪܝܨ.",
+      "submit": "ܦܬܚ document"
+    },
+    "dialog": {
+      "trigger": "Share",
+      "title": "Share document ܗܢܐ",
+      "description": "ܟܠ ܐܢܫ ܕܐܝܬ ܠܗ link ܡܨܐ ܕܢܚܙܐ ܘܢܐܚܬ ܠܗ ܥܕܡܐ ܕܫܠܡ ܐܘ ܕܐܢܬ ܬܒܛܠ. Password ܢܛܪ ܐܦ PDF: ܦܬܚ ܒpassword ܘܡܬܩܪܐ ܘܡܬܛܒܥ, ܠܐ ܡܬܫܚܠܦ ܐܘ ܡܬܢܣܚ.",
+      "link": "Link",
+      "copyLink": "ܢܣܘܚ link",
+      "password": "Password",
+      "copyPassword": "ܢܣܘܚ password",
+      "sendSeparately": "ܫܕܪ password ܡܦܪܫ ܡܢ link. ܡܨܝܬ ܠܡܚܙܐ ܠܗ ܬܘܒ ܒܠܬܚܬ.",
+      "copy": "ܢܘܣܚܐ",
+      "copied": "ܐܬܢܣܚ",
+      "expires": "ܡܫܬܠܡ",
+      "expiry": {
+        "d7": "ܒ7 ܝܘܡܬܐ",
+        "d30": "ܒ30 ܝܘܡܬܐ",
+        "d90": "ܒ90 ܝܘܡܬܐ",
+        "never": "ܡܢ ܡܬܡܠ"
+      },
+      "protection": "Protection",
+      "protectionOptions": {
+        "auto": "Password: ܒܪܝ passphrase",
+        "manual": "Password: ܓܒܝ ܕܝܠܝ",
+        "none": "ܠܐ password (open link)"
+      },
+      "passwordHint": "ܠܐܠܝܠ 8 characters.",
+      "strength": "Strength: {label}",
+      "strengthLabels": {
+        "veryWeak": "ܪܚܝܩ ܚܠܝܫ",
+        "weak": "ܚܠܝܫ",
+        "fair": "ܡܨܥܝܐ",
+        "good": "ܛܒ",
+        "strong": "ܚܣܝܢ"
+      },
+      "creating": "ܒܪܐ…",
+      "create": "ܒܪܝ link",
+      "activeLinks": "Active links",
+      "passwordProtected": "Password-protected",
+      "openLink": "ܦܬܚ link",
+      "linkExpires": "{kind} · ܡܫܬܠܡ {date}",
+      "linkNeverExpires": "{kind} · ܠܐ ܡܫܬܠܡ",
+      "revoke": {
+        "title": "ܒܛܠ link ܗܢܐ؟",
+        "description": "Link ܣܦܐ ܠܡܥܒܕ ܡܚܕܐ ܠܟܠ ܡܢ ܕܐܝܬ ܠܗ.",
+        "label": "ܒܛܠ"
+      },
+      "linkPassword": "Password: <code>{password}</code>",
+      "counts": "{views, plural, other {# views}} · {downloads, plural, other {# downloads}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Credit notes",
+      "title": "Credit notes",
+      "description": "ܡܬܒܪܝܢ ܥܠ invoices ܕܐܬܦܩܘ; ܟܠ ܚܕ ܡܙܥܪ balance ܕinvoice ܕܝܠܗ ܟܕ ܡܬܦܩ.",
+      "newCreditNote": "Credit note ܚܕܬܐ",
+      "filters": {
+        "from": "ܡܢ",
+        "to": "ܠ",
+        "issuer": "Issuer",
+        "client": "Client",
+        "status": "ܚܐܠܐ",
+        "search": "ܒܥܝ",
+        "all": "ܟܠ",
+        "searchPlaceholder": "Number, reason, client",
+        "go": "ܙܠ"
+      },
+      "statuses": {
+        "DRAFT": "Draft",
+        "ISSUED": "Issued",
+        "SENT": "Sent",
+        "VOID": "Void"
+      },
+      "empty": {
+        "title": "ܠܝܬ credit notes ܥܕܡܐ ܗܫܐ",
+        "description": "ܦܬܚ invoice ܕܐܬܦܩ ܘܓܒܝ “Credit note” ܕܬܙܥܪ ܡܕܡ ܕܚܝܒ."
+      },
+      "noMatch": "ܠܝܬ credit notes ܕܡܬܚܘܬܝܢ ܠfilters ܗܠܝܢ.",
+      "columns": {
+        "number": "Number",
+        "against": "Against",
+        "client": "Client",
+        "issueDate": "Issue date",
+        "reason": "ܥܠܬܐ",
+        "total": "Total",
+        "status": "ܚܐܠܐ"
+      },
+      "draft": "Draft"
+    },
+    "new": {
+      "metaTitle": "Credit note ܚܕܬܐ",
+      "title": "Credit note ܚܕܬܐ",
+      "description": "Credit note ܡܬܒܪܐ ܥܠ invoice ܕܐܬܦܩ ܘܡܙܥܪ balance ܕܝܠܗ.",
+      "nothingToCredit": {
+        "title": "ܠܝܬ ܡܕܡ ܠcredit",
+        "description": "Credit notes ܡܬܒܥܝܢ invoice ܕܐܬܦܩ ܥܡ balance ܕܡܫܬܐܪ.",
+        "openInvoices": "ܦܬܚ invoices"
+      },
+      "whichInvoice": "ܐܝܢܐ invoice؟",
+      "invoice": "Invoice",
+      "invoiceOption": "{number} · {client} · balance {balance}",
+      "issuedOnly": "Credit notes ܡܬܒܪܝܢ ܥܠ issued invoices ܒܠܚܘܕ.",
+      "invoiceFallback": "Invoice"
+    },
+    "edit": {
+      "metaTitle": "Edit credit note",
+      "title": "Edit draft credit note",
+      "immutable": "Issued credit notes ܠܐ ܡܫܬܚܠܦܝܢ.",
+      "draft": "Draft"
+    },
+    "detail": {
+      "metaTitle": "Credit note",
+      "draftTitle": "Draft credit note",
+      "meta": "{client} · against <invoice>{number}</invoice> · issued <mono>{date}</mono>",
+      "previewPdf": "Preview PDF",
+      "issue": {
+        "title": "ܦܩ credit note ܗܢܐ؟",
+        "description": "Number ܡܬܝܗܒ, invoice balance ܡܬܙܥܪ ܘdocument ܡܬܗܦܟ ܠܐ ܡܫܬܚܠܦ.",
+        "label": "Issue"
+      },
+      "deleteDraft": {
+        "title": "ܫܪܝ draft ܗܢܐ؟"
+      },
+      "sendByEmail": "ܫܕܪ ܒemail",
+      "markSent": {
+        "title": "ܣܡ ܐܝܟ sent؟",
+        "label": "ܣܡ ܐܝܟ sent"
+      },
+      "void": {
+        "title": "ܒܛܠ credit note ܗܢܐ؟",
+        "description": "Invoice balance ܡܬܗܦܟ; number ܠܐ ܡܬܬܠܐ ܡܢ ܡܬܡܠ.",
+        "reason": "ܥܠܬܐ",
+        "label": "Void"
+      },
+      "voided": "Voided {date}: {reason}",
+      "amounts": {
+        "title": "Amounts",
+        "reason": "ܥܠܬܐ",
+        "creditAmount": "Credit amount",
+        "total": "Total",
+        "balanceNow": "Invoice balance now",
+        "sent": "Sent"
+      },
+      "documents": {
+        "title": "Stored documents",
+        "description": "ܟܠ version ܡܬܢܛܪ; verify page ܡܡܢܐ ܟܠ hashes.",
+        "regenerateTitle": "ܒܪܝ PDF version ܚܕܬܐ؟",
+        "generate": "Generate",
+        "newVersion": "Version ܚܕܬܐ",
+        "renderedOnFirstDownload": "PDF ܡܬܒܪܐ ܒܐܚܬܐ ܩܕܡܝܬܐ.",
+        "protectedCopy": "Password-protected copy {version}",
+        "version": "Version {version}",
+        "verificationLink": "Verification link: <link>{path}…</link>"
+      },
+      "draftsPreview": "Drafts preview live ܒeditor."
+    },
+    "send": {
+      "metaTitle": "ܫܕܪ credit note",
+      "title": "ܫܕܪ <mono>{number}</mono>",
+      "previousSends": "Previous sends"
+    },
+    "builder": {
+      "against": "Against <mono>{number}</mono>",
+      "summary": "{client} · total {total} · balance {balance} · taxable headroom ≈ {headroom}",
+      "issueDate": "Issue date",
+      "creditAmount": "Credit amount (excluding tax)",
+      "creditAmountHint": "Tax ܡܬܦܠܓ ܡܢ tax lines ܕܒinvoice",
+      "reason": "ܥܠܬܐ",
+      "picker": {
+        "title": "ܚܫܘܒ ܡܢ invoice lines",
+        "description": "ܣܡ ܣܝܡܬܐ ܥܠ lines ܡܠܝܐ ܐܘ percentage; ܗܢܐ ܡܡܠܐ ܒܠܚܘܕ amount ܕܠܥܠ.",
+        "line": "Line",
+        "subtotal": "Subtotal",
+        "credit": "Credit",
+        "percent": "%",
+        "creditLine": "Credit line {position}",
+        "percentOfLine": "Percent of line {position}"
+      },
+      "saveDraft": "ܢܛܘܪ draft",
+      "issuing": "ܡܦܩ…",
+      "saveAndIssue": "ܢܛܘܪ ܘܦܩ"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Payment received",
+        "REFUND": "Refund issued",
+        "WRITE_OFF": "Write-off"
+      },
+      "editTitle": "Edit entry",
+      "recordTitle": "ܟܬܘܒ payment",
+      "description": "Amounts ܒcurrency ܕinvoice ({currency}); TDS ܕܐܬܢܣܒ ܡܢܝܐ ܡܢ amount applied.",
+      "kind": "ܨܒܬܐ",
+      "date": "ܝܘܡܐ",
+      "amountRefunded": "Amount refunded (negative)",
+      "amountApplied": "Amount applied",
+      "refundHint": "ܥܠܠ negative amount, ܐܝܟ -500",
+      "tdsDeducted": "TDS deducted",
+      "tdsHint": "Tax ܕܐܚܕ client; ܡܬܚܫܒ ܠamount applied",
+      "bankFees": "Bank fees",
+      "receivedInto": "Received into",
+      "noMethod": "-",
+      "reference": "Reference",
+      "referenceHint": "UTR, transaction id, cheque number",
+      "otherCurrency": "Received ܒcurrency ܐܚܪܬܐ",
+      "amountReceived": "Amount received",
+      "receivedCurrency": "Received currency",
+      "exchangeRate": "Exchange rate",
+      "exchangeRateHint": "1 unit received = ? {currency}",
+      "notes": "Notes",
+      "receipt": "Receipt",
+      "receiptHint": "PNG, JPEG, WebP ܐܘ PDF ܥܕܡܐ 10 MB",
+      "saveChanges": "ܢܛܘܪ ܫܘܚܠܦܐ",
+      "record": "ܟܬܘܒ"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "approx. {count, plural, one {# page} other {# pages}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "ܐܓܪܬܐ",
+      "description": "ܡܠܝܐ ܡܢ ܩܕܡ ܡܢ templates ܕissuer profile. ܠܐ ܡܕܡ ܡܫܬܕܪ ܥܕܡܐ ܕܬܚܘܛ ܥܠ Send.",
+      "to": "ܠ",
+      "toHint": "ܡܦܪܫ ܒcomma",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Subject",
+      "body": "Body",
+      "bodyHint": "Plain text; links ܗܘܝܢ clickable",
+      "attachment": "Attachment",
+      "attachmentHint": "Stored copy, ܫܡܗ <mono>{name}</mono> (ܐܘ .docx); ܐܝܬܘܬܗ ܠܐ ܡܫܬܚܠܦ.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "ܡܫܕܪ…",
+      "send": "Send",
+      "openInMailApp": "ܦܬܚ ܒmail app",
+      "noSmtp": "ܠܝܬ SMTP server configured (Settings → Email). ܦܬܚ draft ܒmail app ܕܝܠܟ, ܩܪܫ PDF ܕܐܚܬܬ, ܘܣܡ ܐܝܟ sent ܠܬܚܬ.",
+      "markAsSent": "ܣܡ ܐܝܟ sent"
+    },
+    "sentLog": {
+      "when": "ܐܡܬܝ",
+      "document": "Document",
+      "to": "ܠ",
+      "subject": "Subject",
+      "status": "ܚܐܠܐ",
+      "empty": "ܠܐ ܐܬܫܕܪ ܡܕܡ ܥܕܡܐ ܗܫܐ.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "sent",
+        "FAILED": "failed",
+        "MANUAL": "manual"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "ܫܠܡܐ, {name}",
+    "fiscalYear": "Fiscal year {year}",
+    "fiscalYearWithBase": "Fiscal year {year} · base currency {currency} ({profile})",
+    "newCreditNote": "Credit note ܚܕܬܐ",
+    "welcomeTitle": "ܒܫܝܢܐ ܠ{appName}",
+    "welcomeDescription": "ܫܪܝ ܒܒܪܝܬܐ ܕissuer profile ܕܡܢܗ ܡܦܩ ܐܢܬ, ܘܒܬܪ ܗܠܝܢ ܘܣܦ client ܘinvoice ܩܕܡܝܐ ܕܝܠܟ.",
+    "createProfile": "ܒܪܝ profile ܕܝܠܟ",
+    "tiles": {
+      "outstanding": "Outstanding",
+      "overdue": "Overdue",
+      "billedThisFy": "Billed this FY",
+      "receivedThisFy": "Received this FY",
+      "drafts": "Drafts",
+      "invoiceCount": "{count, plural, one {# invoice} other {# invoices}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Payments less refunds, at recorded FX",
+      "awaitingIssue": "awaiting issue",
+      "nothingPending": "ܠܝܬ ܡܕܡ ܕܡܣܟܐ"
+    },
+    "recentInvoices": "Recent invoices",
+    "allInvoices": "ܟܠ invoices",
+    "noInvoicesYet": "ܠܝܬ invoices ܥܕܡܐ ܗܫܐ.",
+    "columns": {
+      "number": "Number",
+      "client": "Client",
+      "issued": "Issued"
+    },
+    "topClients": "Top clients by outstanding",
+    "nothingOutstanding": "ܠܝܬ ܡܕܡ outstanding."
+  },
+  "exports": {
+    "export": "Export",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Invoices",
+      "newInvoice": "Invoice ܚܕܬܐ",
+      "draft": "Draft",
+      "aDraft": "a draft",
+      "statuses": {
+        "draft": "Draft",
+        "issued": "Issued",
+        "sent": "Sent",
+        "partiallyPaid": "Partially paid",
+        "paid": "Paid",
+        "overdue": "Overdue",
+        "void": "Void"
+      },
+      "lifecycle": {
+        "draft": "draft",
+        "issued": "issued",
+        "void": "void"
+      },
+      "units": {
+        "hour": "ܫܥܬܐ",
+        "day": "ܝܘܡܐ",
+        "fixed": "Fixed",
+        "milestone": "Milestone",
+        "unit": "Unit"
+      },
+      "unitsLower": {
+        "hour": "ܫܥܬܐ",
+        "day": "ܝܘܡܐ",
+        "fixed": "fixed",
+        "milestone": "milestone",
+        "unit": "unit"
+      },
+      "supplyTypes": {
+        "intraState": "intra state",
+        "interState": "inter state",
+        "exportLut": "export lut",
+        "exportWithTax": "export with tax",
+        "reverseCharge": "reverse charge",
+        "notApplicable": "not applicable"
+      }
+    },
+    "list": {
+      "description": "Drafts, issued ܘvoided invoices; statuses ܡܬܢܣܒܝܢ ܡܢ payments ܘdue dates.",
+      "fiscalYear": "Fiscal year",
+      "issuer": "Issuer",
+      "client": "Client",
+      "searchPlaceholder": "Number, PO, client",
+      "emptyTitle": "ܠܝܬ invoices ܥܕܡܐ ܗܫܐ",
+      "emptyDescription": "ܒܢܝ invoice ܩܕܡܝܐ ܕܝܠܟ: ܓܒܝ client, ܘܣܦ lines, ܚܙܝ preview, ܘܒܬܪ ܗܠܝܢ ܦܩ ܠܗ.",
+      "columns": {
+        "number": "Number",
+        "client": "Client",
+        "issuer": "Issuer",
+        "issueDate": "Issue date",
+        "due": "Due",
+        "balance": "Balance"
+      },
+      "noMatches": "ܠܝܬ invoices ܕܡܬܚܘܬܝܢ ܠfilters ܗܠܝܢ.",
+      "count": "{count, plural, one {# invoice} other {# invoices}}",
+      "countPaged": "{count, plural, one {# invoice} other {# invoices}} · page {page} of {pages}",
+      "register": "register"
+    },
+    "new": {
+      "noProfileTitle": "ܒܪܝ issuer profile ܩܕܡܝܐ",
+      "noProfileDescription": "Invoice ܡܬܦܩ ܡܢ legal identity: ܣܝܡ profile ܕܝܠܟ ܥܡ tax IDs ܘnumbering ܕܝܠܗ.",
+      "createProfile": "ܒܪܝ Profile"
+    },
+    "edit": {
+      "metaTitle": "Edit invoice",
+      "title": "Edit draft",
+      "immutableFlash": "Issued invoices ܠܐ ܡܫܬܚܠܦܝܢ. ܐܣܬܥܡܠ “Void & reissue” ܕܬܬܪܨ ܠܗ."
+    },
+    "detail": {
+      "metaTitle": "Invoice",
+      "draftInvoice": "Draft invoice",
+      "issuedDue": "Issued <mono>{issued}</mono>, due <mono>{due}</mono>",
+      "replaces": "Replaces {number}",
+      "replacedBy": "Replaced by {number}",
+      "previewPdf": "Preview PDF",
+      "issueTitle": "ܦܩ invoice ܗܢܐ؟",
+      "issueDescription": "Number ܡܬܝܗܒ ܘdocument ܡܬܗܦܟ ܠܐ ܡܫܬܚܠܦ.",
+      "issue": "Issue",
+      "deleteDraftTitle": "ܫܪܝ draft ܗܢܐ؟",
+      "sendByEmail": "ܫܕܪ ܒemail",
+      "recordPayment": "ܟܬܘܒ payment",
+      "creditNote": "Credit note",
+      "markSentTitle": "ܣܡ ܐܝܟ sent؟",
+      "markSentDescription": "ܟܬܒ ܕclient ܩܒܠ invoice ܗܢܐ.",
+      "markSent": "ܣܡ ܐܝܟ sent",
+      "voidReissueTitle": "Void ܘreissue؟",
+      "voidReissueDescription": "ܩܕܡܝܐ ܡܬܒܛܠ ܘdraft ܡܚܒܪ ܥܡ ܐܝܬܘܬܐ ܚܕܐ ܡܬܦܬܚ ܠediting.",
+      "voidReissue": "Void & reissue",
+      "voidTitle": "ܒܛܠ invoice ܗܢܐ؟",
+      "voidDescription": "ܡܬܚܫܚ ܒܠܚܘܕ ܕܠܐ payments ܕܟܬܝܒܝܢ; number ܠܐ ܡܬܬܠܐ ܡܢ ܡܬܡܠ.",
+      "void": "Void",
+      "voided": "Voided {date}: {reason}",
+      "amounts": "Amounts",
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "discountPercent": "Discount ({percent})",
+      "rounding": "Rounding",
+      "tdsExpected": "TDS expected ({percent})",
+      "paid": "Paid",
+      "credited": "Credited",
+      "balanceDue": "Balance due",
+      "supply": "Supply",
+      "fxToBase": "FX to base",
+      "poReference": "PO reference",
+      "sent": "Sent",
+      "lineItems": "Line items",
+      "columns": {
+        "description": "Description",
+        "sacHsn": "SAC/HSN",
+        "qty": "Qty",
+        "rate": "Rate",
+        "tax": "Tax",
+        "amount": "Amount"
+      },
+      "creditNotes": "Credit notes",
+      "storedDocuments": "Stored documents",
+      "storedDocumentsHint": "ܟܠ version ܡܬܢܛܪ; verify page ܡܡܢܐ ܟܠ hashes.",
+      "regenerateTitle": "ܒܪܝ PDF version ܚܕܬܐ؟",
+      "regenerateDescription": "ܡܬܒܪܐ ܬܘܒ ܡܢ frozen snapshot (ܐܝܟ ܒܬܪ renderer fix). Versions ܩܕܡܝܐ ܡܫܬܪܝܢ.",
+      "regenerate": "Generate",
+      "newVersion": "Version ܚܕܬܐ",
+      "renderedOnFirstDownload": "PDF ܡܬܒܪܐ ܒܐܚܬܐ ܩܕܡܝܬܐ.",
+      "protectedCopy": "Password-protected copy {version}",
+      "version": "Version {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Verification link:",
+      "draftPreviewHint": "Drafts preview live ܒeditor; ܦܬܚ <link>watermarked PDF</link> ܕܬܚܙܐ ܠܦܬܝܬܐ."
+    },
+    "history": {
+      "metaTitle": "Invoice history",
+      "title": "History <mono>{number}</mono>",
+      "reissueChain": "Reissue chain",
+      "replaces": "Replaces <link>{number}</link>",
+      "replacedBy": "Replaced by <link>{number}</link>",
+      "auditTrail": "Audit trail",
+      "columns": {
+        "when": "ܐܡܬܝ",
+        "who": "ܡܢ",
+        "action": "Action",
+        "summary": "Summary"
+      },
+      "noEvents": "ܠܝܬ events ܥܕܡܐ ܗܫܐ.",
+      "system": "System",
+      "emails": "Emails"
+    },
+    "payments": {
+      "title": "Payments",
+      "description": "{client} · {total} total",
+      "backToInvoice": "ܗܦܘܟ ܠinvoice",
+      "ledger": "Ledger",
+      "columns": {
+        "date": "ܝܘܡܐ",
+        "kind": "ܨܒܬܐ",
+        "applied": "Applied",
+        "tds": "TDS",
+        "received": "Received",
+        "reference": "Reference",
+        "balance": "Balance"
+      },
+      "noPayments": "ܠܝܬ payments ܕܟܬܝܒܝܢ ܥܕܡܐ ܗܫܐ.",
+      "kinds": {
+        "payment": "Payment",
+        "refund": "Refund",
+        "writeOff": "Write-off"
+      },
+      "receipt": "Receipt",
+      "deleteEntryTitle": "ܫܪܝ entry ܗܢܐ؟",
+      "deleteEntryDescription": "Invoice balance ܡܬܚܫܒ ܬܘܒ.",
+      "totals": "Totals",
+      "invoiceTotal": "Invoice total",
+      "credited": "Credited",
+      "refunds": "Refunds",
+      "writeOffs": "Write-offs",
+      "tdsDeducted": "TDS deducted",
+      "bankFees": "Bank fees",
+      "balanceDue": "Balance due",
+      "onlyIssued": "Issued invoices ܒܠܚܘܕ ܡܩܒܠܝܢ payments."
+    },
+    "send": {
+      "metaTitle": "ܫܕܪ invoice",
+      "title": "ܫܕܪ <mono>{number}</mono>",
+      "alreadySent": "ܐܬܣܝܡ ܐܝܟ sent ܡܢ ܩܕܡ; ܫܕܪܐ ܬܘܒ ܡܘܣܦ log entry ܐܚܪܝܐ.",
+      "previousSends": "Previous sends"
+    },
+    "builder": {
+      "parties": "Parties",
+      "issuerProfile": "Issuer profile",
+      "client": "Client",
+      "archivedOption": "{label} (archived)",
+      "issueDate": "Issue date",
+      "dueDate": "Due date",
+      "fxRate": "FX rate to base currency",
+      "fxHint": "1 {currency} = ? {base} (reporting only)",
+      "poReference": "PO reference",
+      "lineItems": "Line items",
+      "lineItemsHint": "ܓܒܝ ܡܢ catalogue ܕܬܢܣܚ ܩܝܡܬܐ ܕܝܠܗ, ܐܘ ܟܬܘܒ line.",
+      "taxDiscountTds": "Tax, discount ܘTDS",
+      "taxRegime": "Tax regime",
+      "regimes": {
+        "indiaGst": "India GST",
+        "ukVat": "UK VAT",
+        "usSalesTax": "US sales tax",
+        "none": "ܠܐ tax"
+      },
+      "reverseCharge": "Reverse charge",
+      "reverseChargeHint": "Tax ܡܬܦܪܥ ܡܢ recipient",
+      "discount": "Discount",
+      "percent": "Percent",
+      "amount": "Amount",
+      "rounding": "Rounding adjustment",
+      "roundingHint": "Optional, ܠunit ܡܠܝܐ; ܠܐܦܣ ܕܗܘܐ ܬܚܬ 1",
+      "round": "Round",
+      "tdsRate": "Expected TDS rate (%)",
+      "tdsRateHint": "Informational; ܡܬܛܒܥ ܟܕ TDS breakdown ܦܬܝܚ",
+      "paymentMethods": "Payment methods",
+      "paymentMethodsHint": "ܡܬܛܒܥܝܢ ܒܗܘ ܣܕܪܐ ܕܡܣܡܝܢ.",
+      "noPaymentMethods": "ܠܝܬ active payment methods. <link>ܘܣܦ ܚܕ</link>.",
+      "whatPrints": "ܡܢܐ ܡܬܛܒܥ",
+      "whatPrintsHint": "ܫܪܐ ܡܢ defaults ܕissuer profile.",
+      "notesAndTerms": "Notes ܘterms",
+      "notes": "Notes",
+      "terms": "Terms",
+      "saveDraft": "ܢܛܘܪ draft",
+      "issuing": "ܡܦܩ…",
+      "saveAndIssue": "ܢܛܘܪ ܘܦܩ",
+      "subtotal": "Subtotal",
+      "tax": "Tax",
+      "tdsExpected": "TDS expected",
+      "netExpected": "Net expected"
+    },
+    "lineItems": {
+      "addFromCatalogue": "ܘܣܦ ܡܢ catalogue…",
+      "services": "Services",
+      "products": "Products",
+      "addLine": "ܘܣܦ line",
+      "columns": {
+        "description": "Description",
+        "sacHsn": "SAC/HSN",
+        "qty": "Qty",
+        "unit": "Unit",
+        "rate": "Rate",
+        "taxPercent": "Tax %"
+      },
+      "aria": {
+        "description": "Line {line} description",
+        "sacHsn": "Line {line} SAC/HSN",
+        "quantity": "Line {line} quantity",
+        "unit": "Line {line} unit",
+        "rate": "Line {line} rate",
+        "taxRate": "Line {line} tax rate"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Exempt",
+      "moveUp": "ܣܠܩ",
+      "moveDown": "ܐܚܬ",
+      "removeLine": "ܫܩܘܠ line",
+      "shortcutHint": "Ctrl/⌘+Enter ܒdescription ܡܘܣܦ line.",
+      "addFromCatalogueAria": "ܘܣܦ ܡܢ catalogue"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Issuer details",
+        "client": "Client details",
+        "document": "Document sections"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Trade name",
+        "showDesignation": "Designation",
+        "showEmail": "Email",
+        "showPhone": "Phone",
+        "showWebsite": "Website",
+        "showFullAddress": "Full address",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Signature",
+        "showStamp": "Stamp",
+        "showContactPerson": "Contact person",
+        "showBillingAddress": "Billing address",
+        "showShippingAddress": "Shipping address",
+        "showTaxIdentifier": "Tax identifier",
+        "showPlaceOfSupply": "Place of supply",
+        "showDueDate": "Due date",
+        "showPaymentTerms": "Payment terms",
+        "showSacCodeColumn": "SAC code column",
+        "showQuantityColumn": "Quantity column",
+        "showUnitPriceColumn": "Unit price column",
+        "showTaxColumn": "Tax column",
+        "showTdsBreakdown": "TDS breakdown",
+        "showQrVerification": "QR verification",
+        "showNotes": "Notes",
+        "showTerms": "Terms",
+        "showReplacesReference": "Replaces reference",
+        "showAmountInWords": "Amount in words",
+        "showSupplyStatement": "Supply statement",
+        "showRoundingLine": "Rounding line",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Clients",
+      "description": "ܟܠܢܫ ܕܡܦܩ ܐܢܬ ܠܗ invoice. Clients ܥܡ invoices ܡܬܚܡܠܝܢ ܒArchive, ܠܐ ܡܬܫܪܝܢ.",
+      "newClient": "Client ܚܕܬܐ",
+      "searchPlaceholder": "ܒܥܝ ܒܫܡܐ",
+      "searchLabel": "ܒܥܝ clients",
+      "emptyTitle": "ܠܝܬ clients ܥܕܡܐ ܗܫܐ",
+      "emptyDescription": "ܘܣܦ ܐܢܫܐ ܘcompanies ܕܡܦܩ ܐܢܬ ܠܗܘܢ invoice; currency ܘpayment terms ܕܝܠܗܘܢ ܡܡܠܝܢ ܟܠ invoice ܡܢ ܩܕܡ.",
+      "addClient": "ܘܣܦ client",
+      "noMatch": "ܠܝܬ clients ܕܡܬܚܘܬܝܢ ܠ“{q}”.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "ܫܡܐ",
+        "contact": "Contact",
+        "email": "Email",
+        "country": "ܐܬܪܐ",
+        "currency": "Currency",
+        "terms": "Terms",
+        "status": "ܚܐܠܐ"
+      }
+    },
+    "new": {
+      "title": "Client ܚܕܬܐ"
+    },
+    "edit": {
+      "metaTitle": "Edit client",
+      "title": "Edit {name}"
+    },
+    "detail": {
+      "metaTitle": "Client",
+      "newInvoice": "Invoice ܚܕܬܐ",
+      "restoreTitle": "ܗܦܘܟ client ܗܢܐ؟",
+      "archiveTitle": "Archive client ܗܢܐ؟",
+      "archiveDescription": "ܓܠܝܪ ܡܢ pickers; invoices ܘܬܫܥܝܬܐ ܡܫܬܪܝܢ ܠܐ ܓܘܫܡܐ.",
+      "deleteTitle": "ܫܪܝ client ܗܢܐ؟",
+      "deleteDescription": "ܡܬܚܫܚ ܒܠܚܘܕ ܐܢ ܠܝܬ invoice ܕܡܬܚܘܐ ܠclient.",
+      "details": "Details",
+      "contact": "Contact",
+      "email": "Email",
+      "phone": "ܛܠܦܘܢ",
+      "country": "ܐܬܪܐ",
+      "gstState": "GST {code}",
+      "taxId": "Tax ID",
+      "currency": "Currency",
+      "paymentTerms": "Payment terms",
+      "paymentTermsDays": "{days} ܝܘܡܬܐ",
+      "expectedTds": "Expected TDS",
+      "notes": "Notes",
+      "addresses": "Addresses",
+      "billing": "Billing",
+      "shipping": "Shipping",
+      "lifetime": "Lifetime",
+      "openRegister": "ܦܬܚ register",
+      "noIssued": "ܠܝܬ issued invoices ܥܕܡܐ ܗܫܐ.",
+      "noIssuedWithDrafts": "ܠܝܬ issued invoices ܥܕܡܐ ܗܫܐ ({drafts} draft).",
+      "firstLatest": "Invoice ܩܕܡܝܐ <mono>{first}</mono>, ܐܚܪܝܐ <mono>{latest}</mono>{drafts, plural, =0 {} one { · # draft} other { · # drafts}}",
+      "lifetimeColumns": {
+        "currency": "Currency",
+        "invoices": "Invoices",
+        "billed": "Billed",
+        "received": "Received",
+        "credited": "Credited",
+        "outstanding": "Outstanding",
+        "overdue": "Overdue"
+      },
+      "recentInvoices": "Recent invoices",
+      "noInvoices": "ܠܝܬ invoices ܠclient ܗܢܐ ܥܕܡܐ ܗܫܐ.",
+      "recentColumns": {
+        "number": "Number",
+        "issueDate": "Issue date",
+        "due": "Due",
+        "total": "Total",
+        "balance": "Balance",
+        "status": "ܚܐܠܐ"
+      }
+    },
+    "form": {
+      "cardTitle": "Client",
+      "displayName": "ܫܡܐ ܕܡܬܚܙܐ",
+      "contactPerson": "Contact person",
+      "email": "Email",
+      "phone": "ܛܠܦܘܢ",
+      "taxIdType": "Tax ID type",
+      "taxIdTypeNone": "ܠܐ ܡܕܡ",
+      "taxId": "Tax ID",
+      "currency": "Currency",
+      "paymentTerms": "Payment terms (days)",
+      "expectedTdsRate": "Expected TDS rate (%)",
+      "notes": "Notes",
+      "billingAddress": "Billing address",
+      "shippingAddress": "Shipping address",
+      "differentFromBilling": "ܚܠܝܦ ܡܢ billing",
+      "save": "ܢܛܘܪ client"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "ܫܥܬܐ",
+      "DAY": "ܝܘܡܐ",
+      "FIXED": "Fixed",
+      "MILESTONE": "Milestone",
+      "UNIT": "Unit"
+    },
+    "list": {
+      "activate": "Activate",
+      "deactivate": "Deactivate",
+      "archiveDescription": "Invoice lines ܕܐܝܬ ܢܛܪܝܢ ܩܝܡܬܐ ܕܐܬܢܣܚܘ.",
+      "deleteDescription": "ܡܬܚܫܚ ܒܠܚܘܕ ܐܢ ܠܝܬ invoice line ܕܡܬܚܘܐ ܠܗ. ܐܢ ܠܐ, Archive ܠܗ.",
+      "columns": {
+        "sku": "SKU",
+        "name": "ܫܡܐ",
+        "unit": "Unit",
+        "rate": "Rate",
+        "price": "Price",
+        "currency": "Currency",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Tax",
+        "status": "ܚܐܠܐ"
+      }
+    },
+    "services": {
+      "title": "Services",
+      "description": "Catalogue ܕܝܠܟ. ܓܒܝܬܐ ܕservice ܢܣܚ ܩܝܡܬܐ ܕܝܠܗ ܥܠ invoice line.",
+      "newService": "Service ܚܕܬܐ",
+      "emptyTitle": "ܠܝܬ services ܥܕܡܐ ܗܫܐ",
+      "emptyDescription": "ܘܣܦ ܡܐ ܕܙܒܢ ܐܢܬ - hourly design, fixed-fee milestone - ܥܡ SAC/HSN code ܘtax rate ܕܝܠܗ.",
+      "addService": "ܘܣܦ service",
+      "restoreTitle": "ܗܦܘܟ {name}؟",
+      "archiveTitle": "Archive {name}؟",
+      "deleteTitle": "ܫܪܝ {name}؟",
+      "editMetaTitle": "Edit service",
+      "editTitle": "Edit {name}"
+    },
+    "products": {
+      "title": "Products",
+      "description": "Goods ܕܙܒܢ ܐܢܬ, ܟܠ ܚܕ ܥܡ SKU. ܓܒܝܬܐ ܕproduct ܢܣܚ ܩܝܡܬܐ ܕܝܠܗ ܥܠ invoice line.",
+      "newProduct": "Product ܚܕܬܐ",
+      "emptyTitle": "ܠܝܬ products ܥܕܡܐ ܗܫܐ",
+      "emptyDescription": "ܘܣܦ goods ܕܙܒܢ ܐܢܬ ܥܡ SKU, HSN code, unit price ܘtax rate.",
+      "addProduct": "ܘܣܦ product",
+      "restoreTitle": "ܗܦܘܟ {sku}؟",
+      "archiveTitle": "Archive {sku}؟",
+      "deleteTitle": "ܫܪܝ {sku}؟",
+      "editMetaTitle": "Edit product",
+      "editTitle": "Edit {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Unique code ܕܡܬܛܒܥ ܬܚܬ line description",
+      "name": "ܫܡܐ",
+      "unit": "Unit",
+      "defaultRate": "Default rate",
+      "unitPrice": "Unit price",
+      "currency": "Currency",
+      "sacHsnCode": "SAC / HSN code",
+      "sacHsnHint": "ܡܬܒܥܐ ܒGST invoices",
+      "hsnCode": "HSN code",
+      "hsnHint": "ܡܬܒܥܐ ܒGST invoices ܠgoods",
+      "defaultTaxRate": "Default tax rate (%)",
+      "description": "Description",
+      "descriptionHint": "ܡܡܠܐ ܡܢ ܩܕܡ line description",
+      "active": "ܦܥܝܠܐ",
+      "serviceInactiveHint": "Inactive services ܡܫܬܐܪܝܢ ܠܒܪ ܡܢ invoice picker",
+      "productInactiveHint": "Inactive products ܡܫܬܐܪܝܢ ܠܒܪ ܡܢ invoice picker",
+      "saveService": "ܢܛܘܪ service",
+      "saveProduct": "ܢܛܘܪ product"
+    },
+    "tags": {
+      "legend": "Profiles",
+      "hint": "ܣܡ issuer profiles ܕܙܒܢܝܢ ܗܢܐ. ܫܒܘܩ ܟܠܗܘܢ ܕܠܐ ܣܝܡܬܐ ܕܬܩܪܒ ܠܟܠ profile."
+    }
+  },
+  "address": {
+    "line1": "Address line 1",
+    "line2": "Address line 2",
+    "city": "ܡܕܝܢܬܐ",
+    "stateRegion": "State / region",
+    "postalCode": "Postal code",
+    "country": "ܐܬܪܐ",
+    "state": "State",
+    "gstStateCodeHint": "GST state code {code}",
+    "pickStateHint": "ܓܒܝ state ܠGST state code",
+    "stateRegionCode": "State / region code",
+    "stateRegionCodePlaceholder": "ܐܝܟ CA"
+  },
+  "assets": {
+    "tooLarge": "File ܗܢܐ ܪܒ ܛܒ.",
+    "unsupportedReceipt": "ܐܣܬܥܡܠ PNG, JPEG, WebP image ܐܘ PDF.",
+    "unsupportedImage": "ܐܣܬܥܡܠ PNG, JPEG ܐܘ WebP image.",
+    "uploadFailed": "Upload ܠܐ ܐܬܓܡܪ.",
+    "uploading": "ܡܬܬܣܩ…"
+  },
+  "ui": {
+    "breadcrumb": "Breadcrumb",
+    "close": "ܣܓܘܪ",
+    "closeMenu": "ܣܓܘܪ menu",
+    "inputCharset": "ܒܠܚܘܕ standard keyboard characters ܡܫܬܪܝܢ.",
+    "confirm": {
+      "working": "ܥܒܕ…"
+    },
+    "statusPill": {
+      "DRAFT": "Draft",
+      "ISSUED": "Issued",
+      "SENT": "Sent",
+      "PARTIALLY_PAID": "Partially paid",
+      "PAID": "Paid",
+      "OVERDUE": "Overdue",
+      "VOID": "Void"
+    },
+    "activePill": {
+      "active": "ܦܥܝܠܐ",
+      "archived": "Archived",
+      "inactive": "Inactive"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "ܡܕܡ ܛܥܝ.",
+    "fixFields": "ܒܥܘܬܐ ܬܪܨ fields ܕܡܬܚܘܝܢ.",
+    "accountSaved": "Account preferences ܐܬܢܛܪܘ",
+    "apiKeyCreated": "API key ܐܬܒܪܝ. ܢܣܘܚ ܠܗ ܗܫܐ: ܡܬܚܙܐ ܚܕܐ ܙܒܢܐ ܒܠܚܘܕ.",
+    "saved": "{name} ܐܬܢܛܪ",
+    "savedProfile": "Profile {label} ܐܬܢܛܪ",
+    "clientArchived": "Client ܐܬܚܡܠ ܒArchive",
+    "clientRestored": "Client ܐܬܗܦܟ",
+    "clientDeleted": "Client ܐܬܫܪܝ",
+    "productArchived": "Product ܐܬܚܡܠ ܒArchive",
+    "productRestored": "Product ܐܬܗܦܟ",
+    "productActivated": "Product ܐܬܦܥܠ",
+    "productDeactivated": "Product ܐܬܒܛܠ ܦܥܝܠܘܬܗ",
+    "serviceArchived": "Service ܐܬܚܡܠ ܒArchive",
+    "serviceRestored": "Service ܐܬܗܦܟ",
+    "serviceActivated": "Service ܐܬܦܥܠ",
+    "serviceDeactivated": "Service ܐܬܒܛܠ ܦܥܝܠܘܬܗ",
+    "defaultProfileUpdated": "Default profile ܐܬܚܕܬ",
+    "profileArchived": "Profile ܐܬܚܡܠ ܒArchive",
+    "profileRestored": "Profile ܐܬܗܦܟ",
+    "profileDeleted": "Profile ܐܬܫܪܝ",
+    "defaultPaymentMethodUpdated": "Default payment method ܐܬܚܕܬ",
+    "paymentMethodArchived": "Payment method ܐܬܚܡܠ ܒArchive",
+    "paymentMethodRestored": "Payment method ܐܬܗܦܟ",
+    "paymentMethodDeleted": "Payment method ܐܬܫܪܝ",
+    "issued": "ܐܬܦܩ {number}",
+    "savedAsDraft": "ܐܬܢܛܪ ܐܝܟ draft. {reason}",
+    "draftSaved": "Draft ܐܬܢܛܪ",
+    "invoiceVoided": "Invoice ܐܬܒܛܠ",
+    "originalVoided": "ܩܕܡܝܐ ܐܬܒܛܠ; ܫܚܠܦ draft ܕܚܠܦܗ",
+    "markedAsSent": "ܐܬܣܝܡ ܐܝܟ sent",
+    "draftDeleted": "Draft ܐܬܫܪܝ",
+    "generatedPdf": "PDF version {version} ܐܬܒܪܝ",
+    "creditNoteVoided": "Credit note ܐܬܒܛܠ; invoice balance ܐܬܗܦܟ",
+    "draftCreditNoteDeleted": "Draft credit note ܐܬܫܪܝ",
+    "mailRefused": "Mail server ܕܚܐ ܠܐܓܪܬܐ: {error}. ܢܣܝܘܢܐ ܐܬܟܬܒ ܒlog.",
+    "unknownError": "unknown error",
+    "sentTo": "ܐܬܫܕܪ ܠ{recipients}",
+    "smtpSaved": "SMTP settings ܐܬܢܛܪܘ",
+    "smtpRemoved": "Stored SMTP settings ܐܬܫܩܠܘ",
+    "testEmailSent": "Test email ܐܬܫܕܪ ܠ{email}",
+    "testFailed": "Test ܠܐ ܐܬܓܡܪ: {error}",
+    "defaultRecipientsSaved": "Default recipients ܐܬܢܛܪܘ",
+    "invitationSent": "Invitation ܐܬܫܕܪܬ",
+    "invitationReady": "Invitation ܛܝܒܬܐ",
+    "unknownRole": "Unknown role",
+    "roleUpdated": "Role ܐܬܚܕܬ",
+    "accountDeactivated": "Account ܐܬܒܛܠ ܦܥܝܠܘܬܗ",
+    "accountReactivated": "Account ܐܬܦܥܠ ܬܘܒ",
+    "invitationRevoked": "Invitation ܐܬܒܛܠܬ",
+    "paymentUpdated": "Payment ܐܬܚܕܬ",
+    "paymentRecorded": "Payment ܐܬܟܬܒ",
+    "paymentDeleted": "Payment ܐܬܫܪܝ",
+    "sessionRevoked": "Session ܐܬܒܛܠ",
+    "noOtherSessions": "ܠܝܬ sessions ܐܚܪܢܐ",
+    "signedOutOthers": "ܦܩ ܡܢ {count} other session(s)",
+    "sharePasswordRequired": "ܥܠܠ password, ܐܘ ܫܒܘܩ ܕܢܬܒܪܐ ܚܕ.",
+    "shareLinkCreated": "Share link ܐܬܒܪܝ.",
+    "templateSaved": "Template ܐܬܢܛܪ; documents ܕܥܬܝܕ ܡܣܬܥܡܠܝܢ ܠܗ",
+    "templateReset": "Template ܗܦܟ ܠbuilt-in default",
+    "templateImported": "Template ܐܬܝܒܠ",
+    "profileTemplateCleared": "Profile ܡܣܬܥܡܠ ܬܘܒ instance template",
+    "operatorSaved": "Operator details ܐܬܢܛܪܘ. Legal pages ܡܚܘܝܢ ܠܗܘܢ ܗܫܐ."
+  }
+}

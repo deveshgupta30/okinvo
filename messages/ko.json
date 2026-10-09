@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo 홈",
+    "save": "저장",
+    "cancel": "취소",
+    "continue": "계속",
+    "saving": "저장 중…",
+    "detect": "감지",
+    "yes": "예",
+    "no": "아니요",
+    "choose": "선택…",
+    "remove": "제거",
+    "tryAgain": "다시 시도",
+    "dashboard": "대시보드",
+    "goToDashboard": "대시보드로 이동",
+    "or": "또는",
+    "invoice": "청구서",
+    "creditNote": "대변 전표",
+    "downloadPdf": "PDF 다운로드",
+    "edit": "편집",
+    "delete": "삭제",
+    "downloadDocx": "DOCX 다운로드",
+    "none": "없음",
+    "dismiss": "닫기",
+    "all": "전체",
+    "previous": "이전",
+    "next": "다음",
+    "go": "이동",
+    "search": "검색",
+    "status": "상태",
+    "total": "합계",
+    "currency": "통화",
+    "from": "시작",
+    "to": "종료",
+    "reason": "사유",
+    "history": "이력",
+    "archive": "보관",
+    "restore": "복원",
+    "showArchived": "보관된 항목 표시",
+    "hideArchived": "보관된 항목 숨기기",
+    "archived": "보관됨",
+    "default": "기본",
+    "setDefault": "기본으로 설정",
+    "revoke": "취소 처리",
+    "copy": "복사",
+    "copied": "복사됨",
+    "active": "활성",
+    "pagination": "페이지 이동",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "대시보드",
+      "invoices": "청구서",
+      "creditNotes": "대변 전표",
+      "clients": "고객",
+      "services": "서비스",
+      "products": "제품"
+    },
+    "primaryNav": "주요 메뉴",
+    "settings": "설정",
+    "openMenu": "메뉴 열기",
+    "navigation": "탐색",
+    "pagesAndAccount": "페이지 및 계정",
+    "collapseSidebar": "사이드바 접기",
+    "collapseSidebarHint": "사이드바 접기 ([)",
+    "expandSidebar": "사이드바 펼치기",
+    "expandSidebarHint": "사이드바 펼치기 ([)",
+    "theme": {
+      "label": "테마",
+      "system": "시스템",
+      "light": "라이트",
+      "dark": "다크",
+      "current": "테마: {mode}",
+      "switchTo": "테마: {mode}. {next}(으)로 전환"
+    },
+    "userMenu": {
+      "label": "{name}의 계정 메뉴",
+      "profile": "프로필",
+      "logOut": "로그아웃"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "로그인",
+      "title": "로그인",
+      "subtitle": "허용 목록에 등록된 계정만 접속할 수 있습니다.",
+      "failed": "로그인에 실패했습니다.",
+      "noMethod": "구성된 로그인 방법이 없습니다. <code>.env</code>에 <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code> 같은 공급자 쌍 또는 <code>AUTH_PASSWORD_SIGNIN=true</code>를 설정하십시오.",
+      "errors": {
+        "not_allowed": "이 계정은 이 인스턴스에서 허용되지 않거나 비활성화되었습니다.",
+        "signin": "로그인이 완료되지 않았습니다. 다시 시도해 주십시오."
+      }
+    },
+    "password": {
+      "name": "이름",
+      "email": "이메일",
+      "password": "비밀번호",
+      "signingIn": "로그인 중…",
+      "createAccount": "계정 만들기",
+      "signIn": "로그인",
+      "haveAPassword": "이미 비밀번호가 있습니다",
+      "firstTime": "처음이십니까? 비밀번호 설정",
+      "failed": "로그인에 실패했습니다."
+    },
+    "social": {
+      "redirecting": "이동 중…",
+      "continueWith": "{provider}(으)로 계속",
+      "failed": "로그인을 시작할 수 없습니다."
+    },
+    "error": {
+      "metaTitle": "로그인 오류",
+      "title": "로그인 실패",
+      "body": "ID 공급자가 <code>{value}</code>을(를) 반환했습니다. 이 인스턴스의 허용 목록에 주소가 없다면 소유자에게 추가를 요청하십시오.",
+      "back": "로그인으로 돌아가기"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "설정",
+      "profiles": "프로필",
+      "paymentMethods": "결제 수단",
+      "templates": "템플릿",
+      "email": "이메일",
+      "security": "보안",
+      "users": "사용자",
+      "data": "데이터",
+      "legal": "법적 고지",
+      "account": "계정",
+      "appearance": "화면 모양",
+      "api": "API",
+      "status": "상태"
+    },
+    "account": {
+      "metaTitle": "계정",
+      "title": "계정",
+      "description": "사진, 이름, 지역, 언어 및 시간대입니다.",
+      "photo": {
+        "title": "사진",
+        "description": "사이드바와 사용자 메뉴에 표시됩니다."
+      },
+      "form": {
+        "title": "계정",
+        "description": "표시되는 방식과 “오늘”의 기준입니다.",
+        "displayName": "표시 이름",
+        "signInEmail": "로그인 이메일",
+        "signInEmailHint": "이 인스턴스에서의 사용자 식별 정보이며 여기서 편집할 수 없습니다.",
+        "timezone": "시간대",
+        "timezoneHint": "발행일, 만기일 및 대시보드의 “오늘” 기준",
+        "regionTitle": "지역",
+        "regionDescription": "프로필이 생성되기 전까지 새 발행자 프로필과 대시보드에 적용되는 기본값입니다.",
+        "country": "국가",
+        "currency": "통화",
+        "suggested": "이 국가에 권장:",
+        "language": "언어",
+        "languageHint": "앱 자체의 언어입니다. 문서는 각 프로필의 고유 로캘을 사용합니다.",
+        "machineTranslated": "이 언어는 기계 번역되었습니다. 수정 제안을 환영합니다: <link>GitHub에서 개선하기</link>.",
+        "save": "환경설정 저장"
+      },
+      "regions": {
+        "Africa": "아프리카",
+        "Americas": "아메리카",
+        "Asia": "아시아",
+        "Europe": "유럽",
+        "MiddleEast": "중동",
+        "Oceania": "오세아니아",
+        "Constructed": "인공어"
+      },
+      "privacy": {
+        "title": "개인정보 보호",
+        "description": "okinvo는 작동에 필요한 쿠키만 설정합니다. 분석도, 추적도 없습니다.",
+        "cookiePolicy": "쿠키 정책",
+        "showNoticeAgain": "쿠키 안내 다시 표시"
+      }
+    },
+    "avatar": {
+      "changePhoto": "사진 변경",
+      "addPhoto": "사진 추가",
+      "hint": "PNG, JPEG 또는 WebP. 모든 곳에서 원형으로 표시되며, 저장하기 전에 확대 및 이동할 수 있습니다.",
+      "tooLarge": "사진이 너무 큽니다.",
+      "uploadFailed": "업로드에 실패했습니다.",
+      "choose": "프로필 사진 선택",
+      "dialogTitle": "사진 위치 조정",
+      "dialogDescription": "끌어서 이동하고, 스크롤하거나 핀치하여 확대합니다. 원 안의 영역이 모두에게 표시됩니다.",
+      "zoom": "확대",
+      "save": "사진 저장"
+    },
+    "appearance": {
+      "metaTitle": "화면 모양",
+      "title": "화면 모양",
+      "description": "테마와 강조 색상이며 계정에 저장됩니다.",
+      "theme": {
+        "title": "테마",
+        "description": "시스템을 따르거나 라이트 또는 다크로 고정합니다.",
+        "label": "테마",
+        "system": "시스템 설정 따르기",
+        "systemHint": "운영체제 설정에 맞춰 전환됩니다",
+        "light": "라이트",
+        "lightHint": "흰색 배경",
+        "dark": "다크",
+        "darkHint": "검정에 가까운 배경"
+      },
+      "accent": {
+        "title": "강조 색상",
+        "description": "기본 버튼, 포커스 링 및 현재 페이지 표시에 사용됩니다. 민트는 브랜드 마크와 같은 색입니다.",
+        "label": "강조 색상"
+      },
+      "accents": {
+        "mint": "민트",
+        "lavender": "라벤더",
+        "sky": "하늘색",
+        "peach": "복숭아색",
+        "butter": "버터색",
+        "rose": "장미색",
+        "sage": "세이지",
+        "lilac": "라일락"
+      }
+    },
+    "profiles": {
+      "metaTitle": "발행자 프로필",
+      "title": "발행자 프로필",
+      "description": "청구서를 발행하는 법적 주체입니다. 기본 프로필이 새 청구서에 미리 입력됩니다.",
+      "breadcrumb": "프로필",
+      "newProfile": "새 프로필",
+      "emptyTitle": "발행자 프로필이 아직 없습니다",
+      "emptyDescription": "청구서를 발행할 주체를 만드십시오. PAN을 가진 개인 또는 회사입니다.",
+      "createProfile": "프로필 만들기",
+      "columns": {
+        "label": "레이블",
+        "legalName": "법적 명칭",
+        "type": "유형",
+        "country": "국가",
+        "currency": "통화",
+        "regime": "세제",
+        "status": "상태"
+      },
+      "types": {
+        "company": "회사",
+        "individual": "개인"
+      },
+      "makeDefaultTitle": "{label}을(를) 기본으로 설정하시겠습니까?",
+      "makeDefaultDescription": "새 청구서는 이 프로필을 기준으로 시작됩니다.",
+      "restoreTitle": "{label}을(를) 복원하시겠습니까?",
+      "archiveTitle": "{label}을(를) 보관하시겠습니까?",
+      "archiveDescription": "선택 목록에서 사라지며, 기존 청구서는 변경되지 않습니다.",
+      "new": {
+        "metaTitle": "새 발행자 프로필",
+        "title": "새 발행자 프로필",
+        "prefilled": "입력하신 답변으로 채워졌습니다. 주소와 세금 정보를 확인한 후 저장하십시오."
+      },
+      "edit": {
+        "metaTitle": "발행자 프로필 편집",
+        "template": "템플릿",
+        "deleteTitle": "{label}을(를) 삭제하시겠습니까?",
+        "deleteDescription": "이 프로필을 참조하는 청구서나 대변 전표가 없을 때만 가능합니다. 그렇지 않으면 보관하십시오."
+      },
+      "template": {
+        "metaTitle": "프로필 템플릿",
+        "title": "{label}의 템플릿",
+        "ownTemplate": "고유 템플릿",
+        "instanceTemplate": "인스턴스 템플릿",
+        "resetTitle": "인스턴스 템플릿을 다시 사용하시겠습니까?",
+        "resetDescription": "이 프로필의 고유 구성이 제거되며, 발행된 문서는 영향을 받지 않습니다.",
+        "useInstance": "인스턴스 템플릿 사용",
+        "usingInstanceTitle": "인스턴스 템플릿 사용 중",
+        "usingInstanceDescription": "이 프로필의 문서는 설정 → 템플릿을 따릅니다. 별도로 맞춤 설정하려면 선택하십시오.",
+        "customise": "이 프로필에 다른 템플릿 사용",
+        "openInstance": "인스턴스 템플릿 열기"
+      },
+      "form": {
+        "identityTitle": "신원 정보",
+        "identityDescription": "청구서를 발행하는 주체입니다.",
+        "type": "유형",
+        "label": "레이블",
+        "labelHint": "선택 목록에만 표시됩니다",
+        "legalName": "법적 명칭",
+        "tradeName": "상호",
+        "designation": "직함",
+        "email": "이메일",
+        "phone": "전화번호",
+        "website": "웹사이트",
+        "addressTitle": "주소",
+        "taxTitle": "세금 식별 번호",
+        "taxDescription": "해당되는 항목만 입력하십시오. 인쇄 여부는 청구서별로 제어됩니다.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "영국 VAT 번호",
+        "usTaxId": "미국 EIN / SSN",
+        "usTaxIdHint": "저장 시 암호화됩니다",
+        "lutNumber": "LUT 번호",
+        "lutNumberHint": "IGST 없는 수출용",
+        "lutFiscalYear": "LUT 회계연도",
+        "lutFiscalYearHint": "예: 2026-27",
+        "defaultsTitle": "기본값",
+        "baseCurrency": "기준 통화",
+        "locale": "문서 로캘",
+        "localeHint": "문서의 숫자 및 날짜 형식",
+        "fiscalYearStart": "회계연도 시작 월",
+        "months": {
+          "january": "1월",
+          "february": "2월",
+          "march": "3월",
+          "april": "4월",
+          "may": "5월",
+          "june": "6월",
+          "july": "7월",
+          "august": "8월",
+          "september": "9월",
+          "october": "10월",
+          "november": "11월",
+          "december": "12월"
+        },
+        "taxRegime": "기본 세제",
+        "regimes": {
+          "indiaGst": "인도 GST",
+          "ukVat": "영국 VAT",
+          "usSalesTax": "미국 판매세",
+          "none": "세금 없음"
+        },
+        "invoiceNumberFormat": "청구서 번호 형식",
+        "invoiceNumberFormatHint": "토큰: {tokens}",
+        "creditNoteNumberFormat": "대변 전표 번호 형식",
+        "tdsRate": "예상 TDS 세율 (%)",
+        "tdsRateHint": "참고용이며 예상 공제액으로 인쇄됩니다",
+        "defaultNotes": "기본 메모",
+        "defaultTerms": "기본 조건",
+        "printTitle": "기본 인쇄 항목",
+        "printDescription": "각 청구서는 이 설정을 복사하며 개별적으로 변경할 수 있습니다.",
+        "emailTitle": "이메일",
+        "emailDescription": "발송 작성기의 기본값입니다. 자리 표시자: {placeholders}",
+        "emailCc": "기본 참조(CC)",
+        "emailBcc": "기본 숨은 참조(BCC)",
+        "commaSeparated": "쉼표로 구분",
+        "invoiceSubject": "청구서 제목",
+        "invoiceSubjectHint": "비워 두면 기본 제공 템플릿을 사용합니다",
+        "creditNoteSubject": "대변 전표 제목",
+        "invoiceBody": "청구서 본문",
+        "creditNoteBody": "대변 전표 본문",
+        "artworkTitle": "이미지",
+        "artworkDescription": "2 MB 이하의 PNG, JPEG 또는 WebP. 서명과 직인은 투명도가 유지됩니다.",
+        "logo": "로고",
+        "signature": "서명",
+        "stamp": "직인",
+        "transparentPng": "투명 PNG",
+        "save": "프로필 저장"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "결제 수단",
+      "title": "결제 수단",
+      "description": "고객이 결제하는 방법입니다. 세부 정보는 암호화되며 발행 시 각 청구서에 고정됩니다.",
+      "newMethod": "새 수단",
+      "emptyTitle": "결제 수단이 아직 없습니다",
+      "emptyDescription": "은행 계좌, UPI ID 또는 지갑을 추가하면 청구서에 결제 위치를 안내할 수 있습니다.",
+      "addMethod": "수단 추가",
+      "columns": {
+        "name": "이름",
+        "type": "유형",
+        "currency": "통화",
+        "status": "상태"
+      },
+      "types": {
+        "bankTransfer": "계좌 이체",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "사용자 지정"
+      },
+      "makeDefaultTitle": "{name}을(를) 기본으로 설정하시겠습니까?",
+      "restoreTitle": "{name}을(를) 복원하시겠습니까?",
+      "archiveTitle": "{name}을(를) 보관하시겠습니까?",
+      "archiveDescription": "발행된 청구서는 인쇄된 스냅샷을 유지합니다.",
+      "new": {
+        "metaTitle": "새 결제 수단",
+        "title": "새 결제 수단"
+      },
+      "edit": {
+        "metaTitle": "결제 수단 편집",
+        "title": "{name} 편집",
+        "deleteTitle": "{name}을(를) 삭제하시겠습니까?",
+        "deleteDescription": "이를 참조하는 청구서나 결제가 없을 때만 가능합니다. 그렇지 않으면 보관하십시오."
+      },
+      "form": {
+        "name": "이름",
+        "nameHint": "결제 블록의 제목으로 인쇄됩니다",
+        "type": "유형",
+        "currency": "통화",
+        "currencyHint": "선택 사항이며 참고용으로만 표시됩니다",
+        "anyCurrency": "모두",
+        "instructions": "안내",
+        "instructionsHint": "세부 정보 아래에 인쇄됩니다",
+        "isDefault": "기본 수단",
+        "isDefaultDescription": "새 청구서에서 미리 선택됩니다",
+        "isActive": "활성",
+        "detailsTitle": "세부 정보",
+        "detailsDescription": "저장 시 암호화되며, 발행 시 각 청구서에 스냅샷으로 저장됩니다.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "수취인 이름",
+        "lines": "행",
+        "linesHint": "한 행에 한 줄씩, 입력한 그대로 인쇄됩니다",
+        "accountEmail": "계정 이메일 / 핸들",
+        "bank": {
+          "accountHolder": "예금주",
+          "accountNumber": "계좌 번호",
+          "bankName": "은행 이름",
+          "branch": "지점",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "라우팅 / 소트 코드"
+        },
+        "save": "결제 수단 저장"
+      }
+    },
+    "templates": {
+      "metaTitle": "문서 템플릿",
+      "title": "문서 템플릿",
+      "customised": "맞춤 설정됨",
+      "builtIn": "기본 제공 기본값",
+      "description": "청구서와 대변 전표의 모양입니다. 발행된 문서는 발행 당시의 템플릿을 유지합니다.",
+      "resetTitle": "기본 제공 기본값으로 초기화하시겠습니까?",
+      "resetDescription": "맞춤 설정이 제거되며, 이미 발행된 문서는 영향을 받지 않습니다.",
+      "reset": "초기화",
+      "resetTrigger": "기본값으로 초기화",
+      "importTitle": "가져오기",
+      "importDescription": "이전에 내보낸 구성을 복원합니다.",
+      "overridesTitle": "프로필별 재정의",
+      "overridesDescription": "프로필은 편집 페이지에서 고유 템플릿을 사용하도록 선택할 수 있습니다.",
+      "noOverrides": "모든 프로필이 인스턴스 템플릿을 사용합니다.",
+      "import": {
+        "json": "템플릿 JSON",
+        "jsonHint": "JSON 내보내기로 생성한 파일을 붙여 넣으십시오. 누락된 키는 기본값으로 대체됩니다",
+        "importing": "가져오는 중…",
+        "submit": "가져오기"
+      },
+      "form": {
+        "templateTitle": "템플릿",
+        "templateDescription": "기본 제공 템플릿 6종이 있으며, 아래 맞춤 설정은 선택한 템플릿에 적용됩니다.",
+        "templateGroup": "템플릿",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "현대적이고 여백이 넉넉한 산세리프 디자인이며, 머리글 아래에 강조선이 있습니다."
+          },
+          "classic": {
+            "name": "Classic",
+            "character": "전통적인 테두리 표, 세리프 제목, 상자형 합계 영역입니다."
+          },
+          "compact": {
+            "name": "Compact",
+            "character": "긴 항목 목록을 위한 밀도 높은 레이아웃이며, 글자가 작고 구분선이 적습니다."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "조용하고 여유로운 구성으로, 선이나 상자 없이 가벼운 레이블과 넓은 여백을 사용합니다."
+          },
+          "letterhead": {
+            "name": "Letterhead",
+            "character": "모든 페이지 상단의 색상 띠 또는 이미지 위에 로고와 이름을 배치합니다."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "색상 띠 머리글이며, 당사자 정보, 표 머리글 및 합계가 옅은 강조색 배경 위에 놓입니다."
+          }
+        },
+        "paperTitle": "용지 및 글꼴",
+        "paperSize": "용지 크기",
+        "paperLetter": "Letter",
+        "margins": "여백",
+        "marginsNormal": "보통",
+        "marginsNarrow": "좁게",
+        "headingFont": "제목 글꼴",
+        "bodyFont": "본문 글꼴",
+        "fontSans": "산세리프",
+        "fontSerif": "세리프",
+        "tableStyle": "표 스타일",
+        "tableRuled": "구분선",
+        "tableZebra": "줄무늬",
+        "tablePlain": "단순",
+        "accentColour": "강조 색상",
+        "textColour": "글자 색상",
+        "logoPosition": "로고 위치",
+        "positionLeft": "왼쪽",
+        "positionCentre": "가운데",
+        "positionRight": "오른쪽",
+        "logoHeight": "로고 높이 (mm)",
+        "documentTitle": "문서 제목",
+        "titleAuto": "자동 (GST 반영)",
+        "titleCustom": "사용자 지정",
+        "titlePlaceholder": "예: PROFORMA INVOICE",
+        "qrPosition": "QR 위치",
+        "qrFooter": "바닥글",
+        "qrHeader": "머리글",
+        "qrBesideTotals": "합계 옆",
+        "amountInWords": "금액 문자 표기",
+        "wordsBelowTotal": "합계 아래",
+        "wordsFooter": "바닥글",
+        "wordsHidden": "숨김",
+        "subtotalRow": "소계 행",
+        "discountRow": "할인 행",
+        "taxLines": "세금 행",
+        "tdsExpected": "예상 TDS",
+        "roundingRow": "반올림 행",
+        "pageNumbers": "페이지 번호",
+        "headerTitle": "머리글",
+        "headerDescription": "모든 페이지 상단의 색상 띠 또는 이미지입니다. Letterhead와 Modern은 달리 선택하지 않으면 색상 띠를 표시합니다.",
+        "headerStyle": "머리글 스타일",
+        "headerNone": "없음",
+        "headerBand": "색상 띠",
+        "headerImage": "이미지",
+        "bandColour": "띠 색상",
+        "bandColourHex": "띠 색상 (hex)",
+        "headerImageLabel": "머리글 이미지",
+        "headerImageHint": "너비 2400 px 이하의 PNG, JPEG 또는 WebP이며 페이지 너비에 맞춰집니다.",
+        "imageOpacity": "이미지 불투명도",
+        "headerHeight": "머리글 높이 (mm)",
+        "bandText": "띠 위의 글자",
+        "bandTextAuto": "자동 (띠 색상 기준)",
+        "bandTextLight": "밝게",
+        "bandTextDark": "어둡게",
+        "textTitle": "텍스트",
+        "headerNote": "머리글 메모",
+        "footer": "바닥글",
+        "signatureCaption": "서명 설명",
+        "draftWatermark": "초안 워터마크",
+        "labelsTitle": "레이블",
+        "labelsDescription": "기본 문구를 유지하려면 필드를 비워 두십시오.",
+        "save": "템플릿 저장",
+        "downloadSample": "샘플 PDF 다운로드",
+        "exportJson": "JSON 내보내기"
+      }
+    },
+    "email": {
+      "metaTitle": "이메일",
+      "title": "이메일",
+      "configuredSettings": "설정에서 구성됨",
+      "configuredEnv": "환경 변수로 구성됨",
+      "notConfigured": "구성되지 않음: 메일 앱 방식",
+      "description": "문서는 저장된 PDF를 첨부하여 작성기에서 발송됩니다. 여기의 설정은 환경 변수의 SMTP_*보다 우선합니다.",
+      "sendTest": "{email}(으)로 테스트 이메일 보내기",
+      "removeTitle": "저장된 SMTP 설정을 제거하시겠습니까?",
+      "removeEnvTakesOver": "환경 변수의 SMTP_* 값이 대신 사용됩니다.",
+      "removeFallsBack": "이메일은 메일 앱 방식으로 되돌아갑니다.",
+      "removeTrigger": "저장된 설정 제거",
+      "smtpTitle": "SMTP 서버",
+      "smtpFromEnv": "현재 환경 변수에서 가져오며, 여기에 저장하면 이를 재정의합니다.",
+      "smtpPasswordNote": "비밀번호는 저장 시 암호화되며 다시 표시되지 않습니다.",
+      "defaultsTitle": "기본 수신자",
+      "defaultsDescription": "인스턴스 전체의 CC/BCC이며, 발행자 프로필이 자체 항목을 추가합니다.",
+      "sentTitle": "발송된 메일",
+      "sentDescription": "실패 및 수동 발송을 포함한 최근 50건의 시도입니다.",
+      "smtp": {
+        "host": "호스트",
+        "port": "포트",
+        "security": "보안",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "없음 (LAN 릴레이)",
+        "user": "사용자 이름",
+        "password": "비밀번호",
+        "passwordStored": "저장 및 암호화됨. 유지하려면 비워 두십시오",
+        "passwordEncrypted": "저장 시 암호화됨",
+        "from": "발신 주소",
+        "fromName": "발신자 이름",
+        "replyTo": "회신 주소",
+        "save": "SMTP 설정 저장"
+      },
+      "defaults": {
+        "cc": "기본 참조(CC)",
+        "ccHint": "모든 작성기에 추가되며 쉼표로 구분합니다",
+        "bcc": "기본 숨은 참조(BCC)",
+        "save": "기본값 저장"
+      }
+    },
+    "security": {
+      "metaTitle": "보안",
+      "title": "보안",
+      "description": "로그인된 위치와 변경된 모든 내역입니다.",
+      "sessions": {
+        "title": "활성 세션",
+        "description": "세션을 해지하면 해당 기기가 즉시 로그아웃됩니다.",
+        "signOutOthers": {
+          "title": "다른 모든 곳에서 로그아웃하시겠습니까?",
+          "description": "현재 세션을 제외한 모든 세션이 해지됩니다.",
+          "confirm": "다른 세션 로그아웃",
+          "trigger": "다른 모든 곳에서 로그아웃"
+        },
+        "columns": {
+          "device": "기기",
+          "ipAddress": "IP 주소",
+          "signedIn": "로그인 시각",
+          "lastSeen": "마지막 접속",
+          "expires": "만료"
+        },
+        "thisDevice": "이 기기",
+        "revokeTitle": "이 세션을 해지하시겠습니까?",
+        "unknownDevice": "알 수 없는 기기",
+        "unknownBrowser": "알 수 없음",
+        "agentOnOs": "{os}의 {browser}"
+      },
+      "audit": {
+        "title": "감사 로그",
+        "count": "{count, plural, other {이벤트 #건}}",
+        "entity": "대상",
+        "actionContains": "작업 포함 문자열",
+        "filter": "필터",
+        "reset": "초기화",
+        "columns": {
+          "when": "시각",
+          "who": "수행자",
+          "action": "작업",
+          "entity": "대상",
+          "summary": "요약"
+        },
+        "empty": "이 필터와 일치하는 이벤트가 없습니다.",
+        "system": "시스템",
+        "changes": "변경 내용",
+        "page": "{pages}페이지 중 {page}페이지"
+      }
+    },
+    "users": {
+      "metaTitle": "사용자",
+      "title": "사용자",
+      "description": "이 인스턴스에 로그인할 수 있는 사람과 그들이 할 수 있는 작업입니다.",
+      "roles": {
+        "owner": "소유자",
+        "editor": "편집자",
+        "viewer": "열람자"
+      },
+      "roleHints": {
+        "owner": "설정과 구성원을 포함한 모든 권한",
+        "editor": "고객, 카탈로그, 청구서, 대변 전표, 결제, 이메일",
+        "viewer": "읽기 전용"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "{email}의 역할",
+      "invite": {
+        "title": "사용자 초대",
+        "description": "초대받은 주소로(ID 공급자 또는 비밀번호) 로그인하며, 선택하신 역할이 부여됩니다.",
+        "sent": "{email}(으)로 초대장을 이메일로 보냈습니다.",
+        "readyWithError": "{email}에 대한 초대장이 준비되었습니다. 이메일을 보낼 수 없었습니다({error}). 다음 링크를 직접 전달하십시오:",
+        "readyNoSmtp": "{email}에 대한 초대장이 준비되었습니다. SMTP가 구성되지 않았으니 다음 링크를 직접 전달하십시오:",
+        "copyLink": "링크 복사",
+        "email": "이메일",
+        "emailPlaceholder": "person@example.com",
+        "role": "역할",
+        "submit": "초대",
+        "inviting": "초대 중…"
+      },
+      "members": {
+        "title": "구성원",
+        "description": "활성 소유자는 항상 한 명 이상 남아 있습니다.",
+        "columns": {
+          "person": "사용자",
+          "role": "역할",
+          "lastSignIn": "마지막 로그인",
+          "status": "상태"
+        },
+        "nameYou": "{name} (본인)",
+        "deactivated": "비활성화됨",
+        "reactivate": {
+          "title": "{email}을(를) 다시 활성화하시겠습니까?",
+          "description": "이전 역할로 다시 로그인할 수 있습니다.",
+          "confirm": "다시 활성화"
+        },
+        "deactivate": {
+          "title": "{email}을(를) 비활성화하시겠습니까?",
+          "description": "모든 세션이 지금 종료되며 다시 활성화할 때까지 로그인할 수 없습니다. 이력은 유지됩니다.",
+          "confirm": "비활성화"
+        }
+      },
+      "invitations": {
+        "title": "대기 중인 초대",
+        "description": "로그인할 수 있지만 아직 로그인하지 않은 주소입니다.",
+        "columns": {
+          "email": "이메일",
+          "role": "역할",
+          "invited": "초대 일시"
+        },
+        "empty": "대기 중인 초대가 없습니다.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "{email}에 대한 초대를 취소하시겠습니까?"
+      }
+    },
+    "data": {
+      "metaTitle": "데이터",
+      "title": "데이터",
+      "description": "모든 것이 이식 가능합니다. CSV 또는 Excel 데이터 세트, 마이그레이션용 전체 스냅샷, 회계사를 위한 PDF, 그리고 검증된 백업 절차를 제공합니다.",
+      "period": {
+        "fiscalYear": "회계연도",
+        "fiscalYearHint": "날짜보다 우선합니다",
+        "issuer": "발행자"
+      },
+      "exportAll": {
+        "title": "모든 데이터 내보내기",
+        "description": "모든 데이터 세트를 CSV로 담은 ZIP과, 모든 테이블의 관계형 스냅샷인 <mono>data.json</mono>입니다. 암호화된 필드(결제 수단 세부 정보, SMTP 비밀번호)는 제외되며, 내부 README에 목록이 있습니다.",
+        "download": "okinvo-data ZIP 다운로드"
+      },
+      "exportDocuments": {
+        "title": "문서 내보내기",
+        "description": "기간 내에 발행되었거나 무효 처리된 모든 청구서 및 대변 전표 PDF를 번호 이름으로 담으며, 번호, 합계 및 해시가 들어 있는 <mono>index.csv</mono>가 포함됩니다. 누락된 PDF는 그 과정에서 생성됩니다.",
+        "docx": "모든 문서의 DOCX 사본도 포함",
+        "download": "문서 ZIP 다운로드"
+      },
+      "datasets": {
+        "title": "데이터 세트",
+        "description": "목록 페이지에서 제공하는 것과 같은 내보내기이며, 기간과 발행자가 모두에 적용됩니다. 결제는 날짜 범위를 사용하고, 고객과 서비스는 기간을 무시합니다.",
+        "columns": {
+          "dataset": "데이터 세트",
+          "filters": "적용된 필터",
+          "download": "다운로드"
+        },
+        "names": {
+          "invoices": "청구서 대장",
+          "invoiceItems": "청구서 항목",
+          "payments": "결제 원장",
+          "creditNotes": "대변 전표 대장",
+          "clients": "고객",
+          "services": "서비스",
+          "gstSummary": "GST 요약",
+          "tdsSummary": "TDS 요약"
+        },
+        "filters": {
+          "periodIssuer": "기간, 발행자",
+          "dateRangeIssuer": "날짜 범위, 발행자",
+          "includesArchived": "보관된 항목 포함"
+        }
+      },
+      "backups": {
+        "title": "백업",
+        "notWired": "연결된 백업 서비스 없음",
+        "noRun": "아직 실행된 백업 없음",
+        "lastOk": "마지막 백업 성공",
+        "lastFailed": "마지막 백업 실패",
+        "description": "Compose의 <mono>backup</mono> 서비스는 <mono>BACKUP_CRON</mono>에 따라 Postgres를 덤프하고 스토리지 볼륨을 보관하며, <mono>backups</mono> 볼륨에 <mono>BACKUP_RETENTION_DAYS</mono> 동안의 이력을 유지하고, 이 페이지가 읽는 상태 파일을 기록합니다.",
+        "finished": "완료 시각",
+        "databaseDump": "데이터베이스 덤프",
+        "storageArchive": "스토리지 아카이브",
+        "size": "크기",
+        "sizeMb": "{size} MB",
+        "error": "오류",
+        "runNow": "지금 실행하거나 파일 한 쌍으로 복원하십시오:",
+        "restoreDrill": "복원 절차는 CI에서 <mono>scripts/restore-drill.sh</mono>로 검증됩니다. 시드, 백업, 삭제, 복원 후 행 수와 PDF 해시를 비교합니다."
+      }
+    },
+    "legal": {
+      "metaTitle": "법적 고지",
+      "metaDescription": "이 인스턴스의 운영자: 공개 법적 고지 페이지에 인쇄되는 정보입니다.",
+      "title": "법적 고지",
+      "description": "공개 법적 고지 페이지에 이 정보가 인쇄됩니다. 모든 필드가 채워지기 전까지 페이지에는 강조 표시된 자리 표시자가 나타납니다.",
+      "operator": {
+        "title": "운영자 정보",
+        "complete": "완료",
+        "missing": "{count}개 누락: {fields}",
+        "description": "이 인스턴스를 운영하는 개인 또는 회사로서 귀하가 문서에서 말하는 운영자입니다. 여기의 내용은 어디로도 전송되지 않으며 아래 페이지에 인쇄됩니다."
+      },
+      "fieldLabels": {
+        "legalName": "운영자 법적 명칭",
+        "entityType": "주체 유형",
+        "address": "운영자 주소",
+        "country": "운영자 국가",
+        "contactEmail": "문의 이메일",
+        "privacyEmail": "개인정보 이메일",
+        "dpoEmail": "개인정보 보호 책임자 이메일",
+        "governingLaw": "준거법",
+        "venue": "분쟁 관할",
+        "effectiveDate": "시행일"
+      },
+      "publicPages": {
+        "title": "공개 페이지",
+        "description": "로그인 페이지, 공유 뷰어 및 쿠키 안내에서 연결됩니다.",
+        "terms": "서비스 약관",
+        "acceptableUse": "허용 가능한 사용 정책",
+        "privacy": "개인정보 처리방침",
+        "cookies": "쿠키 정책",
+        "dataRetention": "데이터 보존",
+        "security": "보안",
+        "licenses": "라이선스 및 제3자 고지"
+      },
+      "form": {
+        "legalName": "법적 명칭",
+        "entityType": "주체 유형",
+        "individual": "개인 / 개인사업자",
+        "company": "회사 / 등록 법인",
+        "address": "주소",
+        "addressHint": "약관과 개인정보 처리방침에 운영자의 우편 주소로 인쇄됩니다.",
+        "country": "국가",
+        "effectiveDate": "시행일",
+        "contactEmail": "문의 이메일",
+        "privacyEmail": "개인정보 이메일",
+        "privacyEmailHint": "정보 주체의 요청이 전달되는 곳이며 문의 주소와 같아도 됩니다.",
+        "dpoEmail": "개인정보 보호 책임자 이메일",
+        "dpoEmailHint": "책임자를 지정한 경우에만 입력하십시오.",
+        "governingLaw": "준거법",
+        "governingLawHint": "예: “인도 법”, “잉글랜드 및 웨일스 법”",
+        "venue": "분쟁 관할",
+        "venueHint": "예: “카르나타카주 벵갈루루 소재 법원”",
+        "submit": "운영자 정보 저장"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "스크립트, SDK 및 MCP 클라이언트용 API 키와 curl 예제입니다.",
+      "title": "API",
+      "description": "스크립트, SDK 및 MCP 클라이언트용 키입니다. 키는 귀하의 역할이 할 수 있는 범위까지만 작동하며 한 번만 표시됩니다.",
+      "create": {
+        "title": "키 만들기",
+        "description": "<mono>Authorization: Bearer okv_…</mono>로 전송하십시오. 소스 코드와 채팅 기록에 남기지 말고, 유출되면 아래에서 해지하십시오."
+      },
+      "keys": {
+        "title": "키",
+        "descriptionOwner": "이 인스턴스의 모든 키이며, 소유자는 어떤 키든 해지할 수 있습니다.",
+        "descriptionOwn": "내 키입니다.",
+        "columns": {
+          "name": "이름",
+          "prefix": "접두사",
+          "scopes": "범위",
+          "owner": "소유자",
+          "lastUsed": "마지막 사용",
+          "expires": "만료",
+          "status": "상태"
+        },
+        "empty": "API 키가 아직 없습니다.",
+        "never": "없음",
+        "revoked": "해지됨",
+        "expired": "만료됨",
+        "revokeTitle": "{name}을(를) 해지하시겠습니까?",
+        "revokeDescription": "이 키를 사용하는 클라이언트는 즉시 작동을 멈춥니다.",
+        "activeCount": "{count, plural, other {활성 키 #개}}"
+      },
+      "examples": {
+        "title": "예제",
+        "description": "<mono>$OKINVO_KEY</mono>를 키로 바꾸십시오. 버전이 지정된 REST API, OpenAPI 문서(<mono>/api/openapi.json</mono>), TypeScript SDK 및 MCP 서버는 v1.1 계획의 다음 작업에서 제공되며, 상태 엔드포인트는 현재 사용할 수 있습니다.",
+        "rateLimit": "한도를 초과한 호출은 <mono>Retry-After</mono> 헤더와 함께 429로 응답합니다(키당 분당 120회 요청). 키의 범위는 소유자의 현재 역할로 제한됩니다."
+      },
+      "form": {
+        "copyKey": "API 키 복사",
+        "name": "이름",
+        "namePlaceholder": "예: 회계 스크립트",
+        "expires": "만료",
+        "in30Days": "30일 후",
+        "in90Days": "90일 후",
+        "inAYear": "1년 후",
+        "never": "없음",
+        "scopes": "범위",
+        "submit": "API 키 만들기",
+        "creating": "만드는 중…"
+      },
+      "scopes": {
+        "invoicesRead": "청구서 읽기",
+        "invoicesCreate": "청구서 생성 및 발행",
+        "creditNotesRead": "대변 전표 읽기",
+        "creditNotesCreate": "대변 전표 생성 및 발행",
+        "catalogueRead": "고객, 서비스 및 제품 읽기",
+        "documentsRead": "저장된 PDF 및 DOCX 사본 다운로드",
+        "statusRead": "인스턴스 상태 읽기"
+      }
+    },
+    "status": {
+      "metaTitle": "상태",
+      "metaDescription": "이 인스턴스의 버전, 데이터베이스, 스토리지, 이메일 및 백업 상태입니다.",
+      "title": "상태",
+      "description": "이 인스턴스가 실행 중인 항목과 각 구성 요소의 응답 여부입니다.",
+      "recheck": "다시 확인",
+      "health": {
+        "ok": "정상",
+        "warning": "경고",
+        "failed": "실패",
+        "na": "구성되지 않음"
+      },
+      "overall": {
+        "ok": "모두 정상",
+        "degraded": "성능 저하",
+        "failed": "실패"
+      },
+      "version": "빌드 {hasSha, select, yes {<mono>{sha}</mono>} other {(sha 알 수 없음)}} · 빌드 시각 {built} · Node <mono>{node}</mono> · 가동 시간 {uptime} · 확인 시각 {checked}",
+      "dateUnknown": "(날짜 알 수 없음)",
+      "uptime": {
+        "days": "{d}일 {h}시간 {m}분",
+        "hours": "{h}시간 {m}분",
+        "minutes": "{m}분"
+      },
+      "rows": {
+        "database": "데이터베이스",
+        "storage": "스토리지",
+        "rateLimiting": "속도 제한",
+        "email": "이메일",
+        "backups": "백업"
+      },
+      "db": {
+        "detail": "{latency} ms · 마지막 마이그레이션 <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · 미완료 마이그레이션 #건}}",
+        "noMigration": "없음"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · 프로브 객체의 쓰기, 읽기 및 삭제에 {latency} ms 소요",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> 저장소 {store, select, memory {(단일 복제본)} other {(복제본 간 공유)}}",
+      "smtp": {
+        "configured": "SMTP 출처 {source, select, settings {설정 페이지} env {환경} other {}} · 마지막 테스트 {lastTest} · 최근 24시간: 성공 {sent}건, 실패 {failed}건",
+        "none": "SMTP 서버가 없으며, 작성기에서 “메일 앱에서 열기”를 제공합니다. <link>구성</link>"
+      },
+      "backups": {
+        "notWired": "연결된 백업 서비스가 없습니다 (BACKUP_STATUS_FILE 미설정).",
+        "noRun": "백업 서비스가 연결되었으나 아직 기록된 실행이 없습니다.",
+        "ok": "마지막 실행이 {finishedAt}에 성공했습니다{days, plural, =0 {} other { · 보존 기간 #일}}",
+        "failed": "마지막 실행이 {finishedAt}에 실패했습니다: {error}{days, plural, =0 {} other { · 보존 기간 #일}}"
+      },
+      "footer": "같은 보고서를 모니터링용으로 <mono>/api/health/status</mono>에서 JSON으로 제공합니다(로그인된 세션 또는 API 키 필요)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "환영합니다",
+    "progress": "진행 상황",
+    "steps": {
+      "aboutYou": "사용자 정보",
+      "howYouUse": "사용 방식",
+      "allSet": "준비 완료"
+    },
+    "step1": {
+      "title": "사용자에 대해 알려 주십시오",
+      "subtitle": "기본값이 설정되며, 모든 값은 나중에 설정에서 변경할 수 있습니다.",
+      "name": "이름",
+      "email": "이메일",
+      "emailHint": "로그인 식별 정보입니다. 나중에 설정 → 보안에서 변경할 수 있습니다.",
+      "country": "국가",
+      "currency": "선호 통화",
+      "currencyHint": "프로필이 생성되기 전까지 새 프로필과 대시보드에 사용됩니다."
+    },
+    "step2": {
+      "title": "okinvo를 어떻게 사용하시겠습니까?",
+      "subtitle": "기본값만 달라지며, 고정되는 것은 없습니다.",
+      "usage": "사용 방식",
+      "personal": "개인 청구",
+      "personalHint": "본인 명의의 프리랜서 업무",
+      "business": "사업자 청구",
+      "businessHint": "등록된 사업체의 청구서",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "VAT 번호",
+        "other": "세금 등록 번호"
+      },
+      "taxQuestion": {
+        "IN": "GSTIN이 있으십니까?",
+        "GB": "VAT 등록 사업자이십니까?",
+        "other": "청구서에 인쇄할 세금 등록 번호가 있으십니까?"
+      }
+    },
+    "step3": {
+      "title": "준비가 끝났습니다",
+      "body": "다음으로 첫 발행자 프로필을 만드십시오. 청구서에 인쇄될 이름, 주소 및 세금 정보입니다. 알려 주신 내용은 미리 채워 두었습니다.",
+      "go": "프로필로 이동",
+      "opening": "여는 중…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "약관",
+      "privacy": "개인정보",
+      "cookies": "쿠키",
+      "security": "보안"
+    },
+    "cookieNotice": {
+      "label": "쿠키 안내",
+      "body": "세션과 화면 환경설정 등 반드시 필요한 쿠키만 사용합니다. 분석도, 추적도 없습니다.",
+      "policy": "쿠키 정책",
+      "gotIt": "확인"
+    },
+    "nav": {
+      "label": "법적 고지",
+      "cookies": "쿠키",
+      "privacy": "개인정보",
+      "terms": "약관",
+      "acceptableUse": "허용 가능한 사용",
+      "retention": "보존",
+      "security": "보안",
+      "licences": "라이선스"
+    },
+    "operatorNotice": "okinvo는 자체 호스팅 소프트웨어이며, 이 인스턴스의 운영자가 그 사용에 책임을 집니다.",
+    "doc": {
+      "effectiveOn": "시행일 <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "목차"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "운영자 법적 명칭",
+        "entityType": "주체 유형",
+        "address": "운영자 주소",
+        "country": "운영자 국가",
+        "contactEmail": "문의 이메일",
+        "privacyEmail": "개인정보 이메일",
+        "dpoEmail": "개인정보 보호 책임자 이메일",
+        "governingLaw": "준거법",
+        "venue": "분쟁 관할",
+        "effectiveDate": "시행일"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "찾을 수 없음",
+      "title": "이 주소에는 아무것도 없습니다",
+      "body": "링크가 오래되었거나, 연결된 문서가 발행된 적이 없을 수 있습니다."
+    },
+    "forbidden": {
+      "metaTitle": "허용되지 않음",
+      "title": "이 계정으로는 할 수 없습니다",
+      "body": "현재 역할로는 허용되지 않습니다. 소유자에게 권한을 요청하거나 권한이 있는 계정으로 로그인하십시오."
+    },
+    "error": {
+      "title": "문제가 발생했습니다",
+      "body": "이 요청으로 변경된 내용은 없습니다. 다시 시도하십시오. 계속되면 서버 로그에서 자세한 내용을 확인할 수 있습니다.",
+      "digest": "오류 {digest}",
+      "generic": "오류"
+    },
+    "appNotFound": {
+      "title": "찾을 수 없음",
+      "body": "이 레코드가 존재하지 않거나, 보시는 동안 삭제되었습니다.",
+      "back": "대시보드로 돌아가기"
+    },
+    "validation": {
+      "required": "필수 항목입니다",
+      "tooLong": "최대 {max}자까지 입력할 수 있습니다",
+      "invalidEmail": "올바른 이메일이어야 합니다",
+      "invalidDate": "YYYY-MM-DD 형식의 달력 날짜여야 합니다",
+      "invalidAmount": "숫자여야 합니다",
+      "wholeNumber": "정수여야 합니다",
+      "greaterThanZero": "0보다 커야 합니다",
+      "fixFields": "강조 표시된 필드를 수정해 주십시오.",
+      "charset": "표준 키보드 문자만 사용할 수 있습니다."
+    }
+  },
+  "verify": {
+    "metaTitle": "문서 확인",
+    "heading": "문서 확인",
+    "rateLimited": "이 주소에서 확인 요청이 너무 많습니다. 1분 후에 다시 시도해 주십시오.",
+    "notFound": {
+      "title": "해당 문서가 없습니다",
+      "body": "이 링크는 발행된 어떤 문서와도 일치하지 않습니다. QR 코드 또는 받으신 링크를 확인하거나 발행자에게 문의하십시오."
+    },
+    "status": {
+      "void": "무효",
+      "valid": "유효"
+    },
+    "issuedBy": "발행자",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "수신자",
+    "issueDate": "발행일",
+    "total": "합계",
+    "voided": "이 문서는 발행자에 의해 무효 처리되어 더 이상 유효하지 않습니다.",
+    "storedCopies": {
+      "title": "저장된 사본",
+      "description": "발행자가 보관 중인 모든 PDF 버전의 SHA-256입니다. 사본을 선택하여 브라우저에서 비교하십시오. 아무것도 업로드되지 않습니다.",
+      "empty": "아직 생성된 PDF가 없습니다.",
+      "protectedVersion": "비밀번호로 보호된 사본 {version}",
+      "version": "버전 {version}"
+    },
+    "check": {
+      "label": "사본 확인",
+      "hashing": "해시 계산 중…",
+      "match": "사본이 버전 {version}과(와) 정확히 일치합니다.",
+      "mismatch": "사본이 저장된 어떤 버전과도 일치하지 않습니다."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "공유된 문서",
+      "rateLimited": "이 주소에서 요청이 너무 많습니다. 1분 후에 다시 시도해 주십시오.",
+      "unavailable": {
+        "title": "이 링크를 사용할 수 없습니다",
+        "body": "만료되었거나 발행자가 해지했을 수 있습니다. 새 링크를 요청하십시오."
+      },
+      "lockedTitleInvoice": "{issuer}의 청구서",
+      "lockedTitleCreditNote": "{issuer}의 대변 전표",
+      "lockedBody": "이 문서는 비밀번호로 보호되어 있습니다. 발행자가 알려 준 비밀번호를 입력하십시오.",
+      "void": "무효",
+      "protectedPdf": "PDF도 같은 비밀번호로 열립니다. 읽기와 인쇄는 가능하며 복사와 편집은 잠겨 있습니다.",
+      "byline": "{issuer} → {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "비밀번호",
+      "limited": "시도 횟수가 너무 많습니다. 15분 후에 다시 시도해 주십시오.",
+      "wrong": "비밀번호가 올바르지 않습니다.",
+      "submit": "문서 열기"
+    },
+    "dialog": {
+      "trigger": "공유",
+      "title": "이 문서 공유",
+      "description": "링크가 있는 누구나 만료되거나 해지하기 전까지 문서를 보고 다운로드할 수 있습니다. 비밀번호는 PDF 자체도 보호합니다. 비밀번호로 열리며 읽기와 인쇄는 가능하지만 편집이나 복사는 할 수 없습니다.",
+      "link": "링크",
+      "copyLink": "링크 복사",
+      "password": "비밀번호",
+      "copyPassword": "비밀번호 복사",
+      "sendSeparately": "비밀번호는 링크와 별도로 전달하십시오. 아래 목록에서 다시 확인할 수 있습니다.",
+      "copy": "복사",
+      "copied": "복사됨",
+      "expires": "만료",
+      "expiry": {
+        "d7": "7일 후",
+        "d30": "30일 후",
+        "d90": "90일 후",
+        "never": "없음"
+      },
+      "protection": "보호",
+      "protectionOptions": {
+        "auto": "비밀번호: 암호 문구 생성",
+        "manual": "비밀번호: 직접 선택",
+        "none": "비밀번호 없음 (공개 링크)"
+      },
+      "passwordHint": "8자 이상이어야 합니다.",
+      "strength": "강도: {label}",
+      "strengthLabels": {
+        "veryWeak": "매우 약함",
+        "weak": "약함",
+        "fair": "보통",
+        "good": "좋음",
+        "strong": "강함"
+      },
+      "creating": "만드는 중…",
+      "create": "링크 만들기",
+      "activeLinks": "활성 링크",
+      "passwordProtected": "비밀번호로 보호됨",
+      "openLink": "링크 열기",
+      "linkExpires": "{kind} · {date} 만료",
+      "linkNeverExpires": "{kind} · 만료 없음",
+      "revoke": {
+        "title": "이 링크를 해지하시겠습니까?",
+        "description": "링크를 가진 모든 사람에게 즉시 작동하지 않게 됩니다.",
+        "label": "해지"
+      },
+      "linkPassword": "비밀번호: <code>{password}</code>",
+      "counts": "{views, plural, other {조회 #회}} · {downloads, plural, other {다운로드 #회}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "대변 전표",
+      "title": "대변 전표",
+      "description": "발행된 청구서에 대해 작성되며, 각 전표는 발행 시 해당 청구서의 잔액을 줄입니다.",
+      "newCreditNote": "새 대변 전표",
+      "filters": {
+        "from": "시작",
+        "to": "종료",
+        "issuer": "발행자",
+        "client": "고객",
+        "status": "상태",
+        "search": "검색",
+        "all": "전체",
+        "searchPlaceholder": "번호, 사유, 고객",
+        "go": "이동"
+      },
+      "statuses": {
+        "DRAFT": "초안",
+        "ISSUED": "발행됨",
+        "SENT": "발송됨",
+        "VOID": "무효"
+      },
+      "empty": {
+        "title": "대변 전표가 아직 없습니다",
+        "description": "발행된 청구서를 열고 “대변 전표”를 선택하여 청구 금액을 줄이십시오."
+      },
+      "noMatch": "이 필터와 일치하는 대변 전표가 없습니다.",
+      "columns": {
+        "number": "번호",
+        "against": "대상 청구서",
+        "client": "고객",
+        "issueDate": "발행일",
+        "reason": "사유",
+        "total": "합계",
+        "status": "상태"
+      },
+      "draft": "초안"
+    },
+    "new": {
+      "metaTitle": "새 대변 전표",
+      "title": "새 대변 전표",
+      "description": "대변 전표는 발행된 청구서에 대해 작성되며 해당 청구서의 잔액을 줄입니다.",
+      "nothingToCredit": {
+        "title": "대변 처리할 항목이 없습니다",
+        "description": "대변 전표에는 미결제 잔액이 있는 발행된 청구서가 필요합니다.",
+        "openInvoices": "청구서 열기"
+      },
+      "whichInvoice": "어떤 청구서입니까?",
+      "invoice": "청구서",
+      "invoiceOption": "{number} · {client} · 잔액 {balance}",
+      "issuedOnly": "대변 전표는 발행된 청구서에 대해서만 작성할 수 있습니다.",
+      "invoiceFallback": "청구서"
+    },
+    "edit": {
+      "metaTitle": "대변 전표 편집",
+      "title": "초안 대변 전표 편집",
+      "immutable": "발행된 대변 전표는 변경할 수 없습니다.",
+      "draft": "초안"
+    },
+    "detail": {
+      "metaTitle": "대변 전표",
+      "draftTitle": "초안 대변 전표",
+      "meta": "{client} · <invoice>{number}</invoice> 대상 · 발행일 <mono>{date}</mono>",
+      "previewPdf": "PDF 미리보기",
+      "issue": {
+        "title": "이 대변 전표를 발행하시겠습니까?",
+        "description": "번호가 할당되고, 청구서 잔액이 줄어들며, 문서는 변경할 수 없게 됩니다.",
+        "label": "발행"
+      },
+      "deleteDraft": {
+        "title": "이 초안을 삭제하시겠습니까?"
+      },
+      "sendByEmail": "이메일로 보내기",
+      "markSent": {
+        "title": "발송됨으로 표시하시겠습니까?",
+        "label": "발송됨으로 표시"
+      },
+      "void": {
+        "title": "이 대변 전표를 무효 처리하시겠습니까?",
+        "description": "청구서 잔액이 복원되며, 번호는 재사용되지 않습니다.",
+        "reason": "사유",
+        "label": "무효 처리"
+      },
+      "voided": "{date}에 무효 처리됨: {reason}",
+      "amounts": {
+        "title": "금액",
+        "reason": "사유",
+        "creditAmount": "대변 금액",
+        "total": "합계",
+        "balanceNow": "현재 청구서 잔액",
+        "sent": "발송됨"
+      },
+      "documents": {
+        "title": "저장된 문서",
+        "description": "모든 버전이 보관되며, 확인 페이지에 모든 해시가 표시됩니다.",
+        "regenerateTitle": "새 PDF 버전을 생성하시겠습니까?",
+        "generate": "생성",
+        "newVersion": "새 버전",
+        "renderedOnFirstDownload": "PDF는 처음 다운로드할 때 생성됩니다.",
+        "protectedCopy": "비밀번호로 보호된 사본 {version}",
+        "version": "버전 {version}",
+        "verificationLink": "확인 링크: <link>{path}…</link>"
+      },
+      "draftsPreview": "초안은 편집기에서 실시간으로 미리 볼 수 있습니다."
+    },
+    "send": {
+      "metaTitle": "대변 전표 보내기",
+      "title": "<mono>{number}</mono> 보내기",
+      "previousSends": "이전 발송"
+    },
+    "builder": {
+      "against": "<mono>{number}</mono> 대상",
+      "summary": "{client} · 합계 {total} · 잔액 {balance} · 과세 가능 한도 ≈ {headroom}",
+      "issueDate": "발행일",
+      "creditAmount": "대변 금액 (세금 제외)",
+      "creditAmountHint": "세금은 청구서의 세금 행에서 비례 배분됩니다",
+      "reason": "사유",
+      "picker": {
+        "title": "청구서 행에서 계산",
+        "description": "행 전체 또는 비율을 선택하십시오. 위의 금액만 채워집니다.",
+        "line": "행",
+        "subtotal": "소계",
+        "credit": "대변",
+        "percent": "%",
+        "creditLine": "{position}번 행 대변",
+        "percentOfLine": "{position}번 행 비율"
+      },
+      "saveDraft": "초안 저장",
+      "issuing": "발행 중…",
+      "saveAndIssue": "저장 후 발행"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "수령한 결제",
+        "REFUND": "발행한 환불",
+        "WRITE_OFF": "손실 처리"
+      },
+      "editTitle": "항목 편집",
+      "recordTitle": "결제 기록",
+      "description": "금액은 청구서 통화({currency})로 입력합니다. 공제된 TDS는 적용 금액에 포함됩니다.",
+      "kind": "종류",
+      "date": "날짜",
+      "amountRefunded": "환불 금액 (음수)",
+      "amountApplied": "적용 금액",
+      "refundHint": "음수로 입력하십시오. 예: -500",
+      "tdsDeducted": "공제된 TDS",
+      "tdsHint": "고객이 원천징수한 세금이며 적용 금액에 포함됩니다",
+      "bankFees": "은행 수수료",
+      "receivedInto": "입금 계좌",
+      "noMethod": "-",
+      "reference": "참조",
+      "referenceHint": "UTR, 거래 ID, 수표 번호",
+      "otherCurrency": "다른 통화로 수령",
+      "amountReceived": "수령 금액",
+      "receivedCurrency": "수령 통화",
+      "exchangeRate": "환율",
+      "exchangeRateHint": "수령 통화 1단위 = ? {currency}",
+      "notes": "메모",
+      "receipt": "영수증",
+      "receiptHint": "10 MB 이하의 PNG, JPEG, WebP 또는 PDF",
+      "saveChanges": "변경 사항 저장",
+      "record": "기록"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "약 {count, plural, other {#페이지}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "메시지",
+      "description": "발행자 프로필의 템플릿으로 미리 채워집니다. 보내기를 클릭하기 전에는 아무것도 발송되지 않습니다.",
+      "to": "받는 사람",
+      "toHint": "쉼표로 구분",
+      "cc": "참조(CC)",
+      "bcc": "숨은 참조(BCC)",
+      "subject": "제목",
+      "body": "본문",
+      "bodyHint": "일반 텍스트이며 링크는 클릭할 수 있게 됩니다",
+      "attachment": "첨부 파일",
+      "attachmentHint": "저장된 사본이며 이름은 <mono>{name}</mono>(또는 .docx)입니다. 내용은 변경할 수 없습니다.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "보내는 중…",
+      "send": "보내기",
+      "openInMailApp": "메일 앱에서 열기",
+      "noSmtp": "SMTP 서버가 구성되지 않았습니다 (설정 → 이메일). 메일 앱에서 초안을 열고 다운로드한 PDF를 첨부한 후 아래에서 발송됨으로 표시하십시오.",
+      "markAsSent": "발송됨으로 표시"
+    },
+    "sentLog": {
+      "when": "시각",
+      "document": "문서",
+      "to": "받는 사람",
+      "subject": "제목",
+      "status": "상태",
+      "empty": "아직 발송된 항목이 없습니다.",
+      "noDocument": "-",
+      "cc": "참조 {list}",
+      "statuses": {
+        "SENT": "발송됨",
+        "FAILED": "실패",
+        "MANUAL": "수동"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "{name}님, 안녕하십니까",
+    "fiscalYear": "{year} 회계연도",
+    "fiscalYearWithBase": "{year} 회계연도 · 기준 통화 {currency} ({profile})",
+    "newCreditNote": "새 대변 전표",
+    "welcomeTitle": "{appName}에 오신 것을 환영합니다",
+    "welcomeDescription": "먼저 청구서를 발행할 발행자 프로필을 만든 다음, 고객과 첫 청구서를 추가하십시오.",
+    "createProfile": "프로필 만들기",
+    "tiles": {
+      "outstanding": "미수금",
+      "overdue": "연체",
+      "billedThisFy": "이번 회계연도 청구액",
+      "receivedThisFy": "이번 회계연도 수금액",
+      "drafts": "초안",
+      "invoiceCount": "{count, plural, other {청구서 #건}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "기록된 환율 기준 결제 금액에서 환불을 뺀 금액",
+      "awaitingIssue": "발행 대기 중",
+      "nothingPending": "대기 중인 항목 없음"
+    },
+    "recentInvoices": "최근 청구서",
+    "allInvoices": "모든 청구서",
+    "noInvoicesYet": "청구서가 아직 없습니다.",
+    "columns": {
+      "number": "번호",
+      "client": "고객",
+      "issued": "발행일"
+    },
+    "topClients": "미수금 상위 고객",
+    "nothingOutstanding": "미수금이 없습니다."
+  },
+  "exports": {
+    "export": "내보내기",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "청구서",
+      "newInvoice": "새 청구서",
+      "draft": "초안",
+      "aDraft": "초안",
+      "statuses": {
+        "draft": "초안",
+        "issued": "발행됨",
+        "sent": "발송됨",
+        "partiallyPaid": "일부 결제됨",
+        "paid": "결제 완료",
+        "overdue": "연체",
+        "void": "무효"
+      },
+      "lifecycle": {
+        "draft": "초안",
+        "issued": "발행됨",
+        "void": "무효"
+      },
+      "units": {
+        "hour": "시간",
+        "day": "일",
+        "fixed": "정액",
+        "milestone": "마일스톤",
+        "unit": "단위"
+      },
+      "unitsLower": {
+        "hour": "시간",
+        "day": "일",
+        "fixed": "정액",
+        "milestone": "마일스톤",
+        "unit": "단위"
+      },
+      "supplyTypes": {
+        "intraState": "주 내 공급",
+        "interState": "주 간 공급",
+        "exportLut": "LUT 수출",
+        "exportWithTax": "과세 수출",
+        "reverseCharge": "역과세",
+        "notApplicable": "해당 없음"
+      }
+    },
+    "list": {
+      "description": "초안, 발행 및 무효 처리된 청구서입니다. 상태는 결제와 만기일로 결정됩니다.",
+      "fiscalYear": "회계연도",
+      "issuer": "발행자",
+      "client": "고객",
+      "searchPlaceholder": "번호, PO, 고객",
+      "emptyTitle": "청구서가 아직 없습니다",
+      "emptyDescription": "첫 청구서를 작성하십시오. 고객을 선택하고, 항목을 추가하고, 미리보기를 확인한 후 발행합니다.",
+      "columns": {
+        "number": "번호",
+        "client": "고객",
+        "issuer": "발행자",
+        "issueDate": "발행일",
+        "due": "만기",
+        "balance": "잔액"
+      },
+      "noMatches": "이 필터와 일치하는 청구서가 없습니다.",
+      "count": "{count, plural, other {청구서 #건}}",
+      "countPaged": "{count, plural, other {청구서 #건}} · {pages}페이지 중 {page}페이지",
+      "register": "대장"
+    },
+    "new": {
+      "noProfileTitle": "먼저 발행자 프로필을 만드십시오",
+      "noProfileDescription": "청구서는 법적 주체로 발행됩니다. 세금 ID와 번호 체계를 포함하여 프로필을 설정하십시오.",
+      "createProfile": "프로필 만들기"
+    },
+    "edit": {
+      "metaTitle": "청구서 편집",
+      "title": "초안 편집",
+      "immutableFlash": "발행된 청구서는 변경할 수 없습니다. 수정하려면 “무효 처리 후 재발행”을 사용하십시오."
+    },
+    "detail": {
+      "metaTitle": "청구서",
+      "draftInvoice": "초안 청구서",
+      "issuedDue": "발행일 <mono>{issued}</mono>, 만기일 <mono>{due}</mono>",
+      "replaces": "{number} 대체",
+      "replacedBy": "{number}에 의해 대체됨",
+      "previewPdf": "PDF 미리보기",
+      "issueTitle": "이 청구서를 발행하시겠습니까?",
+      "issueDescription": "번호가 할당되며 문서는 변경할 수 없게 됩니다.",
+      "issue": "발행",
+      "deleteDraftTitle": "이 초안을 삭제하시겠습니까?",
+      "sendByEmail": "이메일로 보내기",
+      "recordPayment": "결제 기록",
+      "creditNote": "대변 전표",
+      "markSentTitle": "발송됨으로 표시하시겠습니까?",
+      "markSentDescription": "고객이 이 청구서를 받았음을 기록합니다.",
+      "markSent": "발송됨으로 표시",
+      "voidReissueTitle": "무효 처리 후 재발행하시겠습니까?",
+      "voidReissueDescription": "원본은 무효 처리되고, 같은 내용의 연결된 초안이 편집용으로 열립니다.",
+      "voidReissue": "무효 처리 후 재발행",
+      "voidTitle": "이 청구서를 무효 처리하시겠습니까?",
+      "voidDescription": "기록된 결제가 없을 때만 가능하며, 번호는 재사용되지 않습니다.",
+      "void": "무효 처리",
+      "voided": "{date}에 무효 처리됨: {reason}",
+      "amounts": "금액",
+      "subtotal": "소계",
+      "discount": "할인",
+      "discountPercent": "할인 ({percent})",
+      "rounding": "반올림",
+      "tdsExpected": "예상 TDS ({percent})",
+      "paid": "결제됨",
+      "credited": "대변 처리됨",
+      "balanceDue": "미결제 잔액",
+      "supply": "공급",
+      "fxToBase": "기준 통화 환율",
+      "poReference": "PO 참조",
+      "sent": "발송됨",
+      "lineItems": "항목",
+      "columns": {
+        "description": "설명",
+        "sacHsn": "SAC/HSN",
+        "qty": "수량",
+        "rate": "단가",
+        "tax": "세금",
+        "amount": "금액"
+      },
+      "creditNotes": "대변 전표",
+      "storedDocuments": "저장된 문서",
+      "storedDocumentsHint": "모든 버전이 보관되며, 확인 페이지에 모든 해시가 표시됩니다.",
+      "regenerateTitle": "새 PDF 버전을 생성하시겠습니까?",
+      "regenerateDescription": "고정된 스냅샷에서 다시 생성합니다(예: 렌더러 수정 후). 이전 버전은 유지됩니다.",
+      "regenerate": "생성",
+      "newVersion": "새 버전",
+      "renderedOnFirstDownload": "PDF는 처음 다운로드할 때 생성됩니다.",
+      "protectedCopy": "비밀번호로 보호된 사본 {version}",
+      "version": "버전 {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "확인 링크:",
+      "draftPreviewHint": "초안은 편집기에서 실시간으로 미리 볼 수 있습니다. 페이지를 보려면 <link>워터마크가 있는 PDF</link>를 여십시오."
+    },
+    "history": {
+      "metaTitle": "청구서 이력",
+      "title": "<mono>{number}</mono> 이력",
+      "reissueChain": "재발행 연결",
+      "replaces": "<link>{number}</link> 대체",
+      "replacedBy": "<link>{number}</link>에 의해 대체됨",
+      "auditTrail": "감사 추적",
+      "columns": {
+        "when": "시각",
+        "who": "수행자",
+        "action": "작업",
+        "summary": "요약"
+      },
+      "noEvents": "이벤트가 아직 없습니다.",
+      "system": "시스템",
+      "emails": "이메일"
+    },
+    "payments": {
+      "title": "결제",
+      "description": "{client} · 합계 {total}",
+      "backToInvoice": "청구서로 돌아가기",
+      "ledger": "원장",
+      "columns": {
+        "date": "날짜",
+        "kind": "종류",
+        "applied": "적용",
+        "tds": "TDS",
+        "received": "수령",
+        "reference": "참조",
+        "balance": "잔액"
+      },
+      "noPayments": "기록된 결제가 아직 없습니다.",
+      "kinds": {
+        "payment": "결제",
+        "refund": "환불",
+        "writeOff": "손실 처리"
+      },
+      "receipt": "영수증",
+      "deleteEntryTitle": "이 항목을 삭제하시겠습니까?",
+      "deleteEntryDescription": "청구서 잔액이 다시 계산됩니다.",
+      "totals": "합계",
+      "invoiceTotal": "청구서 합계",
+      "credited": "대변 처리됨",
+      "refunds": "환불",
+      "writeOffs": "손실 처리",
+      "tdsDeducted": "공제된 TDS",
+      "bankFees": "은행 수수료",
+      "balanceDue": "미결제 잔액",
+      "onlyIssued": "발행된 청구서만 결제를 받을 수 있습니다."
+    },
+    "send": {
+      "metaTitle": "청구서 보내기",
+      "title": "<mono>{number}</mono> 보내기",
+      "alreadySent": "이미 발송됨으로 표시되어 있으며, 다시 보내면 로그 항목이 하나 더 추가됩니다.",
+      "previousSends": "이전 발송"
+    },
+    "builder": {
+      "parties": "당사자",
+      "issuerProfile": "발행자 프로필",
+      "client": "고객",
+      "archivedOption": "{label} (보관됨)",
+      "issueDate": "발행일",
+      "dueDate": "만기일",
+      "fxRate": "기준 통화 환율",
+      "fxHint": "1 {currency} = ? {base} (보고용)",
+      "poReference": "PO 참조",
+      "lineItems": "항목",
+      "lineItemsHint": "카탈로그에서 선택하여 값을 복사하거나 직접 입력하십시오.",
+      "taxDiscountTds": "세금, 할인 및 TDS",
+      "taxRegime": "세제",
+      "regimes": {
+        "indiaGst": "인도 GST",
+        "ukVat": "영국 VAT",
+        "usSalesTax": "미국 판매세",
+        "none": "세금 없음"
+      },
+      "reverseCharge": "역과세",
+      "reverseChargeHint": "수취인이 납부하는 세금",
+      "discount": "할인",
+      "percent": "비율",
+      "amount": "금액",
+      "rounding": "반올림 조정",
+      "roundingHint": "선택 사항이며 정수 단위로 하고 1 미만이어야 합니다",
+      "round": "반올림",
+      "tdsRate": "예상 TDS 세율 (%)",
+      "tdsRateHint": "참고용이며 TDS 내역을 켜면 인쇄됩니다",
+      "paymentMethods": "결제 수단",
+      "paymentMethodsHint": "선택한 순서대로 인쇄됩니다.",
+      "noPaymentMethods": "활성 결제 수단이 없습니다. <link>추가하기</link>.",
+      "whatPrints": "인쇄 항목",
+      "whatPrintsHint": "발행자 프로필의 기본값에서 시작합니다.",
+      "notesAndTerms": "메모 및 조건",
+      "notes": "메모",
+      "terms": "조건",
+      "saveDraft": "초안 저장",
+      "issuing": "발행 중…",
+      "saveAndIssue": "저장 후 발행",
+      "subtotal": "소계",
+      "tax": "세금",
+      "tdsExpected": "예상 TDS",
+      "netExpected": "예상 순액"
+    },
+    "lineItems": {
+      "addFromCatalogue": "카탈로그에서 추가…",
+      "services": "서비스",
+      "products": "제품",
+      "addLine": "행 추가",
+      "columns": {
+        "description": "설명",
+        "sacHsn": "SAC/HSN",
+        "qty": "수량",
+        "unit": "단위",
+        "rate": "단가",
+        "taxPercent": "세율 %"
+      },
+      "aria": {
+        "description": "{line}번 행 설명",
+        "sacHsn": "{line}번 행 SAC/HSN",
+        "quantity": "{line}번 행 수량",
+        "unit": "{line}번 행 단위",
+        "rate": "{line}번 행 단가",
+        "taxRate": "{line}번 행 세율"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "면세",
+      "moveUp": "위로 이동",
+      "moveDown": "아래로 이동",
+      "removeLine": "행 제거",
+      "shortcutHint": "설명에서 Ctrl/⌘+Enter를 누르면 행이 추가됩니다.",
+      "addFromCatalogueAria": "카탈로그에서 추가"
+    },
+    "display": {
+      "groups": {
+        "issuer": "발행자 정보",
+        "client": "고객 정보",
+        "document": "문서 섹션"
+      },
+      "fields": {
+        "showLogo": "로고",
+        "showTradeName": "상호",
+        "showDesignation": "직함",
+        "showEmail": "이메일",
+        "showPhone": "전화번호",
+        "showWebsite": "웹사이트",
+        "showFullAddress": "전체 주소",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "서명",
+        "showStamp": "직인",
+        "showContactPerson": "담당자",
+        "showBillingAddress": "청구 주소",
+        "showShippingAddress": "배송 주소",
+        "showTaxIdentifier": "세금 식별 번호",
+        "showPlaceOfSupply": "공급 장소",
+        "showDueDate": "만기일",
+        "showPaymentTerms": "결제 조건",
+        "showSacCodeColumn": "SAC 코드 열",
+        "showQuantityColumn": "수량 열",
+        "showUnitPriceColumn": "단가 열",
+        "showTaxColumn": "세금 열",
+        "showTdsBreakdown": "TDS 내역",
+        "showQrVerification": "QR 확인",
+        "showNotes": "메모",
+        "showTerms": "조건",
+        "showReplacesReference": "대체 참조",
+        "showAmountInWords": "금액 문자 표기",
+        "showSupplyStatement": "공급 설명문",
+        "showRoundingLine": "반올림 행",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "고객",
+      "description": "청구하는 모든 상대입니다. 청구서가 있는 고객은 삭제되지 않고 보관됩니다.",
+      "newClient": "새 고객",
+      "searchPlaceholder": "이름으로 검색",
+      "searchLabel": "고객 검색",
+      "emptyTitle": "고객이 아직 없습니다",
+      "emptyDescription": "청구 대상 개인과 회사를 추가하십시오. 통화와 결제 조건이 각 청구서에 미리 입력됩니다.",
+      "addClient": "고객 추가",
+      "noMatch": "“{q}”와(과) 일치하는 고객이 없습니다.",
+      "termsDays": "{days}일",
+      "columns": {
+        "name": "이름",
+        "contact": "담당자",
+        "email": "이메일",
+        "country": "국가",
+        "currency": "통화",
+        "terms": "조건",
+        "status": "상태"
+      }
+    },
+    "new": {
+      "title": "새 고객"
+    },
+    "edit": {
+      "metaTitle": "고객 편집",
+      "title": "{name} 편집"
+    },
+    "detail": {
+      "metaTitle": "고객",
+      "newInvoice": "새 청구서",
+      "restoreTitle": "이 고객을 복원하시겠습니까?",
+      "archiveTitle": "이 고객을 보관하시겠습니까?",
+      "archiveDescription": "선택 목록에서 사라지며, 청구서와 이력은 그대로 유지됩니다.",
+      "deleteTitle": "이 고객을 삭제하시겠습니까?",
+      "deleteDescription": "이 고객을 참조하는 청구서가 없을 때만 가능합니다.",
+      "details": "세부 정보",
+      "contact": "담당자",
+      "email": "이메일",
+      "phone": "전화번호",
+      "country": "국가",
+      "gstState": "GST {code}",
+      "taxId": "세금 ID",
+      "currency": "통화",
+      "paymentTerms": "결제 조건",
+      "paymentTermsDays": "{days}일",
+      "expectedTds": "예상 TDS",
+      "notes": "메모",
+      "addresses": "주소",
+      "billing": "청구",
+      "shipping": "배송",
+      "lifetime": "누적",
+      "openRegister": "대장 열기",
+      "noIssued": "발행된 청구서가 아직 없습니다.",
+      "noIssuedWithDrafts": "발행된 청구서가 아직 없습니다 (초안 {drafts}건).",
+      "firstLatest": "첫 청구서 <mono>{first}</mono>, 최근 청구서 <mono>{latest}</mono>{drafts, plural, =0 {} other { · 초안 #건}}",
+      "lifetimeColumns": {
+        "currency": "통화",
+        "invoices": "청구서",
+        "billed": "청구액",
+        "received": "수금액",
+        "credited": "대변 처리액",
+        "outstanding": "미수금",
+        "overdue": "연체"
+      },
+      "recentInvoices": "최근 청구서",
+      "noInvoices": "이 고객의 청구서가 아직 없습니다.",
+      "recentColumns": {
+        "number": "번호",
+        "issueDate": "발행일",
+        "due": "만기",
+        "total": "합계",
+        "balance": "잔액",
+        "status": "상태"
+      }
+    },
+    "form": {
+      "cardTitle": "고객",
+      "displayName": "표시 이름",
+      "contactPerson": "담당자",
+      "email": "이메일",
+      "phone": "전화번호",
+      "taxIdType": "세금 ID 유형",
+      "taxIdTypeNone": "없음",
+      "taxId": "세금 ID",
+      "currency": "통화",
+      "paymentTerms": "결제 조건 (일)",
+      "expectedTdsRate": "예상 TDS 세율 (%)",
+      "notes": "메모",
+      "billingAddress": "청구 주소",
+      "shippingAddress": "배송 주소",
+      "differentFromBilling": "청구 주소와 다름",
+      "save": "고객 저장"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "시간",
+      "DAY": "일",
+      "FIXED": "정액",
+      "MILESTONE": "마일스톤",
+      "UNIT": "단위"
+    },
+    "list": {
+      "activate": "활성화",
+      "deactivate": "비활성화",
+      "archiveDescription": "기존 청구서 항목은 복사된 값을 유지합니다.",
+      "deleteDescription": "이를 참조하는 청구서 항목이 없을 때만 가능합니다. 그렇지 않으면 보관하십시오.",
+      "columns": {
+        "sku": "SKU",
+        "name": "이름",
+        "unit": "단위",
+        "rate": "단가",
+        "price": "가격",
+        "currency": "통화",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "세금",
+        "status": "상태"
+      }
+    },
+    "services": {
+      "title": "서비스",
+      "description": "카탈로그입니다. 서비스를 선택하면 값이 청구서 항목에 복사됩니다.",
+      "newService": "새 서비스",
+      "emptyTitle": "서비스가 아직 없습니다",
+      "emptyDescription": "판매하는 항목(시간당 디자인, 정액 마일스톤 등)을 SAC/HSN 코드와 세율과 함께 추가하십시오.",
+      "addService": "서비스 추가",
+      "restoreTitle": "{name}을(를) 복원하시겠습니까?",
+      "archiveTitle": "{name}을(를) 보관하시겠습니까?",
+      "deleteTitle": "{name}을(를) 삭제하시겠습니까?",
+      "editMetaTitle": "서비스 편집",
+      "editTitle": "{name} 편집"
+    },
+    "products": {
+      "title": "제품",
+      "description": "SKU가 있는 판매 상품입니다. 제품을 선택하면 값이 청구서 항목에 복사됩니다.",
+      "newProduct": "새 제품",
+      "emptyTitle": "제품이 아직 없습니다",
+      "emptyDescription": "판매하는 상품을 SKU, HSN 코드, 단가 및 세율과 함께 추가하십시오.",
+      "addProduct": "제품 추가",
+      "restoreTitle": "{sku}을(를) 복원하시겠습니까?",
+      "archiveTitle": "{sku}을(를) 보관하시겠습니까?",
+      "deleteTitle": "{sku}을(를) 삭제하시겠습니까?",
+      "editMetaTitle": "제품 편집",
+      "editTitle": "{sku} 편집"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "항목 설명 아래에 인쇄되는 고유 코드",
+      "name": "이름",
+      "unit": "단위",
+      "defaultRate": "기본 단가",
+      "unitPrice": "단가",
+      "currency": "통화",
+      "sacHsnCode": "SAC / HSN 코드",
+      "sacHsnHint": "GST 청구서에 필수",
+      "hsnCode": "HSN 코드",
+      "hsnHint": "상품에 대한 GST 청구서에 필수",
+      "defaultTaxRate": "기본 세율 (%)",
+      "description": "설명",
+      "descriptionHint": "항목 설명에 미리 입력됩니다",
+      "active": "활성",
+      "serviceInactiveHint": "비활성 서비스는 청구서 선택 목록에 표시되지 않습니다",
+      "productInactiveHint": "비활성 제품은 청구서 선택 목록에 표시되지 않습니다",
+      "saveService": "서비스 저장",
+      "saveProduct": "제품 저장"
+    },
+    "tags": {
+      "legend": "프로필",
+      "hint": "이를 판매하는 발행자 프로필을 선택하십시오. 모두 선택하지 않으면 모든 프로필에 제공됩니다."
+    }
+  },
+  "address": {
+    "line1": "주소 1행",
+    "line2": "주소 2행",
+    "city": "도시",
+    "stateRegion": "주 / 지역",
+    "postalCode": "우편번호",
+    "country": "국가",
+    "state": "주",
+    "gstStateCodeHint": "GST 주 코드 {code}",
+    "pickStateHint": "GST 주 코드에 해당하는 주를 선택하십시오",
+    "stateRegionCode": "주 / 지역 코드",
+    "stateRegionCodePlaceholder": "예: CA"
+  },
+  "assets": {
+    "tooLarge": "파일이 너무 큽니다.",
+    "unsupportedReceipt": "PNG, JPEG, WebP 이미지 또는 PDF를 사용하십시오.",
+    "unsupportedImage": "PNG, JPEG 또는 WebP 이미지를 사용하십시오.",
+    "uploadFailed": "업로드에 실패했습니다.",
+    "uploading": "업로드 중…"
+  },
+  "ui": {
+    "breadcrumb": "탐색 경로",
+    "close": "닫기",
+    "closeMenu": "메뉴 닫기",
+    "inputCharset": "표준 키보드 문자만 사용할 수 있습니다.",
+    "confirm": {
+      "working": "처리 중…"
+    },
+    "statusPill": {
+      "DRAFT": "초안",
+      "ISSUED": "발행됨",
+      "SENT": "발송됨",
+      "PARTIALLY_PAID": "일부 결제됨",
+      "PAID": "결제 완료",
+      "OVERDUE": "연체",
+      "VOID": "무효"
+    },
+    "activePill": {
+      "active": "활성",
+      "archived": "보관됨",
+      "inactive": "비활성"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "문제가 발생했습니다.",
+    "fixFields": "강조 표시된 필드를 수정해 주십시오.",
+    "accountSaved": "계정 환경설정이 저장되었습니다",
+    "apiKeyCreated": "API 키가 생성되었습니다. 지금 복사하십시오. 한 번만 표시됩니다.",
+    "saved": "{name}을(를) 저장했습니다",
+    "savedProfile": "프로필 {label}을(를) 저장했습니다",
+    "clientArchived": "고객이 보관되었습니다",
+    "clientRestored": "고객이 복원되었습니다",
+    "clientDeleted": "고객이 삭제되었습니다",
+    "productArchived": "제품이 보관되었습니다",
+    "productRestored": "제품이 복원되었습니다",
+    "productActivated": "제품이 활성화되었습니다",
+    "productDeactivated": "제품이 비활성화되었습니다",
+    "serviceArchived": "서비스가 보관되었습니다",
+    "serviceRestored": "서비스가 복원되었습니다",
+    "serviceActivated": "서비스가 활성화되었습니다",
+    "serviceDeactivated": "서비스가 비활성화되었습니다",
+    "defaultProfileUpdated": "기본 프로필이 업데이트되었습니다",
+    "profileArchived": "프로필이 보관되었습니다",
+    "profileRestored": "프로필이 복원되었습니다",
+    "profileDeleted": "프로필이 삭제되었습니다",
+    "defaultPaymentMethodUpdated": "기본 결제 수단이 업데이트되었습니다",
+    "paymentMethodArchived": "결제 수단이 보관되었습니다",
+    "paymentMethodRestored": "결제 수단이 복원되었습니다",
+    "paymentMethodDeleted": "결제 수단이 삭제되었습니다",
+    "issued": "{number}을(를) 발행했습니다",
+    "savedAsDraft": "초안으로 저장되었습니다. {reason}",
+    "draftSaved": "초안이 저장되었습니다",
+    "invoiceVoided": "청구서가 무효 처리되었습니다",
+    "originalVoided": "원본이 무효 처리되었습니다. 대체 초안을 편집하십시오",
+    "markedAsSent": "발송됨으로 표시되었습니다",
+    "draftDeleted": "초안이 삭제되었습니다",
+    "generatedPdf": "PDF 버전 {version}을(를) 생성했습니다",
+    "creditNoteVoided": "대변 전표가 무효 처리되었으며, 청구서 잔액이 복원되었습니다",
+    "draftCreditNoteDeleted": "초안 대변 전표가 삭제되었습니다",
+    "mailRefused": "메일 서버가 메시지를 거부했습니다: {error}. 시도 내용이 기록되었습니다.",
+    "unknownError": "알 수 없는 오류",
+    "sentTo": "{recipients}에게 보냈습니다",
+    "smtpSaved": "SMTP 설정이 저장되었습니다",
+    "smtpRemoved": "저장된 SMTP 설정이 제거되었습니다",
+    "testEmailSent": "{email}(으)로 테스트 이메일을 보냈습니다",
+    "testFailed": "테스트 실패: {error}",
+    "defaultRecipientsSaved": "기본 수신자가 저장되었습니다",
+    "invitationSent": "초대장을 보냈습니다",
+    "invitationReady": "초대장이 준비되었습니다",
+    "unknownRole": "알 수 없는 역할",
+    "roleUpdated": "역할이 업데이트되었습니다",
+    "accountDeactivated": "계정이 비활성화되었습니다",
+    "accountReactivated": "계정이 다시 활성화되었습니다",
+    "invitationRevoked": "초대가 취소되었습니다",
+    "paymentUpdated": "결제가 업데이트되었습니다",
+    "paymentRecorded": "결제가 기록되었습니다",
+    "paymentDeleted": "결제가 삭제되었습니다",
+    "sessionRevoked": "세션이 해지되었습니다",
+    "noOtherSessions": "다른 세션이 없습니다",
+    "signedOutOthers": "다른 세션 {count}개에서 로그아웃했습니다",
+    "sharePasswordRequired": "비밀번호를 입력하거나 자동 생성되도록 하십시오.",
+    "shareLinkCreated": "공유 링크가 생성되었습니다.",
+    "templateSaved": "템플릿이 저장되었으며, 앞으로의 문서에 사용됩니다",
+    "templateReset": "템플릿이 기본 제공 기본값으로 초기화되었습니다",
+    "templateImported": "템플릿을 가져왔습니다",
+    "profileTemplateCleared": "프로필이 다시 인스턴스 템플릿을 사용합니다",
+    "operatorSaved": "운영자 정보가 저장되었습니다. 이제 법적 고지 페이지에 표시됩니다."
+  }
+}

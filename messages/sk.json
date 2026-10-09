@@ -1,0 +1,1978 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Domov okinvo",
+    "save": "Uložiť",
+    "cancel": "Zrušiť",
+    "continue": "Pokračovať",
+    "saving": "Ukladá sa…",
+    "detect": "Zistiť",
+    "yes": "Áno",
+    "no": "Nie",
+    "choose": "Vybrať…",
+    "remove": "Odstrániť",
+    "tryAgain": "Skúsiť znova",
+    "dashboard": "Prehľad",
+    "goToDashboard": "Prejsť na prehľad",
+    "or": "alebo",
+    "invoice": "Faktúra",
+    "creditNote": "Dobropis",
+    "downloadPdf": "Stiahnuť PDF",
+    "edit": "Upraviť",
+    "delete": "Odstrániť",
+    "downloadDocx": "Stiahnuť DOCX",
+    "none": "Žiadne",
+    "dismiss": "Zavrieť",
+    "all": "Všetky",
+    "previous": "Predchádzajúca",
+    "next": "Ďalšia",
+    "go": "Použiť",
+    "search": "Hľadať",
+    "status": "Stav",
+    "total": "Spolu",
+    "currency": "Mena",
+    "from": "Od",
+    "to": "Do",
+    "reason": "Dôvod",
+    "history": "História",
+    "archive": "Archivovať",
+    "restore": "Obnoviť",
+    "showArchived": "Zobraziť archivované",
+    "hideArchived": "Skryť archivované",
+    "archived": "Archivované",
+    "default": "Predvolené",
+    "setDefault": "Nastaviť ako predvolené",
+    "revoke": "Zrušiť platnosť",
+    "copy": "Kopírovať",
+    "copied": "Skopírované",
+    "active": "Aktívne",
+    "pagination": "Stránkovanie",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Prehľad",
+      "invoices": "Faktúry",
+      "creditNotes": "Dobropisy",
+      "clients": "Klienti",
+      "services": "Služby",
+      "products": "Produkty"
+    },
+    "primaryNav": "Hlavná navigácia",
+    "settings": "Nastavenia",
+    "openMenu": "Otvoriť ponuku",
+    "navigation": "Navigácia",
+    "pagesAndAccount": "Stránky a účet",
+    "collapseSidebar": "Zbaliť bočný panel",
+    "collapseSidebarHint": "Zbaliť bočný panel ([)",
+    "expandSidebar": "Rozbaliť bočný panel",
+    "expandSidebarHint": "Rozbaliť bočný panel ([)",
+    "theme": {
+      "label": "Motív",
+      "system": "Systémový",
+      "light": "Svetlý",
+      "dark": "Tmavý",
+      "current": "Motív: {mode}",
+      "switchTo": "Motív: {mode}. Prepnúť na {next}"
+    },
+    "userMenu": {
+      "label": "Ponuka účtu pre {name}",
+      "profile": "Profil",
+      "logOut": "Odhlásiť sa"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Prihlásenie",
+      "title": "Prihlásenie",
+      "subtitle": "Vstúpiť môžu iba účty na zozname povolených.",
+      "failed": "Prihlásenie zlyhalo.",
+      "noMethod": "Nie je nastavený žiadny spôsob prihlásenia. Nastavte dvojicu poskytovateľa, napríklad <code>AUTH_GITHUB_ID</code> / <code>AUTH_GITHUB_SECRET</code>, alebo <code>AUTH_PASSWORD_SIGNIN=true</code> v súbore <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Tento účet nie je na tejto inštancii povolený alebo bol deaktivovaný.",
+        "signin": "Prihlásenie sa nedokončilo. Skúste to prosím znova."
+      }
+    },
+    "password": {
+      "name": "Meno",
+      "email": "E-mail",
+      "password": "Heslo",
+      "signingIn": "Prihlasovanie…",
+      "createAccount": "Vytvoriť účet",
+      "signIn": "Prihlásiť sa",
+      "haveAPassword": "Už mám heslo",
+      "firstTime": "Ste tu prvýkrát? Nastavte si heslo",
+      "failed": "Prihlásenie zlyhalo."
+    },
+    "social": {
+      "redirecting": "Presmerovanie…",
+      "continueWith": "Pokračovať cez {provider}",
+      "failed": "Prihlásenie sa nepodarilo spustiť."
+    },
+    "error": {
+      "metaTitle": "Chyba prihlásenia",
+      "title": "Prihlásenie zlyhalo",
+      "body": "Poskytovateľ identity vrátil <code>{value}</code>. Ak vaša adresa nie je na zozname povolených tejto inštancie, požiadajte vlastníka o jej pridanie.",
+      "back": "Späť na prihlásenie"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Nastavenia",
+      "profiles": "Profily",
+      "paymentMethods": "Spôsoby platby",
+      "templates": "Šablóny",
+      "email": "E-mail",
+      "security": "Zabezpečenie",
+      "users": "Používatelia",
+      "data": "Údaje",
+      "legal": "Právne informácie",
+      "account": "Účet",
+      "appearance": "Vzhľad",
+      "api": "API",
+      "status": "Stav"
+    },
+    "account": {
+      "metaTitle": "Účet",
+      "title": "Účet",
+      "description": "Vaša fotografia, meno, región, jazyk a časové pásmo.",
+      "photo": {
+        "title": "Fotografia",
+        "description": "Zobrazuje sa v bočnom paneli a v ponuke používateľa."
+      },
+      "form": {
+        "title": "Účet",
+        "description": "Ako sa zobrazujete a kedy je „dnes“.",
+        "displayName": "Zobrazované meno",
+        "signInEmail": "Prihlasovací e-mail",
+        "signInEmailHint": "Vaša identita na tejto inštancii; tu sa nedá upraviť.",
+        "timezone": "Časové pásmo",
+        "timezoneHint": "„Dnes“ pre dátumy vystavenia, dátumy splatnosti a prehľad",
+        "regionTitle": "Región",
+        "regionDescription": "Predvolené hodnoty pre nové profily vystavovateľa a prehľad, kým profil neexistuje.",
+        "country": "Krajina",
+        "currency": "Mena",
+        "suggested": "Odporúčané pre túto krajinu:",
+        "language": "Jazyk",
+        "languageHint": "Jazyk samotnej aplikácie. Dokumenty používajú vlastné nastavenie jazyka každého profilu.",
+        "machineTranslated": "Tento jazyk bol preložený strojovo. Opravy sú vítané: <link>vylepšite ho na GitHube</link>.",
+        "save": "Uložiť predvoľby"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerika",
+        "Asia": "Ázia",
+        "Europe": "Európa",
+        "MiddleEast": "Blízky východ",
+        "Oceania": "Oceánia",
+        "Constructed": "Umelé jazyky"
+      },
+      "privacy": {
+        "title": "Súkromie",
+        "description": "okinvo nastavuje iba súbory cookie potrebné na fungovanie. Žiadna analytika, žiadne sledovanie.",
+        "cookiePolicy": "Zásady používania súborov cookie",
+        "showNoticeAgain": "Znova zobraziť oznámenie o súboroch cookie"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Zmeniť fotografiu",
+      "addPhoto": "Pridať fotografiu",
+      "hint": "PNG, JPEG alebo WebP. Všade sa zobrazuje ako kruh; pred uložením ju môžete priblížiť a posunúť.",
+      "tooLarge": "Táto fotografia je príliš veľká.",
+      "uploadFailed": "Nahrávanie zlyhalo.",
+      "choose": "Vybrať profilovú fotografiu",
+      "dialogTitle": "Umiestnite fotografiu",
+      "dialogDescription": "Presúvajte ťahaním, približujte kolieskom alebo štipnutím. Kruh vidia všetci.",
+      "zoom": "Priblíženie",
+      "save": "Uložiť fotografiu"
+    },
+    "appearance": {
+      "metaTitle": "Vzhľad",
+      "title": "Vzhľad",
+      "description": "Motív a akcentová farba, uložené vo vašom účte.",
+      "theme": {
+        "title": "Motív",
+        "description": "Riaďte sa systémom alebo pripnite svetlý či tmavý.",
+        "label": "Motív",
+        "system": "Podľa systému",
+        "systemHint": "Prepína sa s vaším operačným systémom",
+        "light": "Svetlý",
+        "lightHint": "Biele plátno",
+        "dark": "Tmavý",
+        "darkHint": "Takmer čierne plátno"
+      },
+      "accent": {
+        "title": "Akcent",
+        "description": "Používa sa pre hlavné tlačidlo, rámčeky zamerania a značku aktívnej stránky. Mätová zodpovedá značke.",
+        "label": "Akcentová farba"
+      },
+      "accents": {
+        "mint": "Mätová",
+        "lavender": "Levanduľová",
+        "sky": "Nebeská",
+        "peach": "Broskyňová",
+        "butter": "Maslová",
+        "rose": "Ružová",
+        "sage": "Šalviová",
+        "lilac": "Orgovánová"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Profily vystavovateľa",
+      "title": "Profily vystavovateľa",
+      "description": "Právne identity, z ktorých fakturujete. Predvolená vypĺňa nové faktúry.",
+      "breadcrumb": "Profily",
+      "newProfile": "Nový profil",
+      "emptyTitle": "Zatiaľ žiadny profil vystavovateľa",
+      "emptyDescription": "Vytvorte identitu, z ktorej fakturujete: fyzickú osobu s PAN alebo vašu spoločnosť.",
+      "createProfile": "Vytvoriť profil",
+      "columns": {
+        "label": "Označenie",
+        "legalName": "Právny názov",
+        "type": "Typ",
+        "country": "Krajina",
+        "currency": "Mena",
+        "regime": "Režim",
+        "status": "Stav"
+      },
+      "types": {
+        "company": "Spoločnosť",
+        "individual": "Fyzická osoba"
+      },
+      "makeDefaultTitle": "Nastaviť {label} ako predvolený?",
+      "makeDefaultDescription": "Nové faktúry sa budú začínať z tohto profilu.",
+      "restoreTitle": "Obnoviť {label}?",
+      "archiveTitle": "Archivovať {label}?",
+      "archiveDescription": "Zmizne z výberov; existujúce faktúry zostanú nedotknuté.",
+      "new": {
+        "metaTitle": "Nový profil vystavovateľa",
+        "title": "Nový profil vystavovateľa",
+        "prefilled": "Vyplnené podľa vašich odpovedí; skontrolujte adresu a daňové údaje a potom uložte."
+      },
+      "edit": {
+        "metaTitle": "Upraviť profil vystavovateľa",
+        "template": "Šablóna",
+        "deleteTitle": "Odstrániť {label}?",
+        "deleteDescription": "Možné iba vtedy, keď na tento profil neodkazuje žiadna faktúra ani dobropis. Inak ho archivujte."
+      },
+      "template": {
+        "metaTitle": "Šablóna profilu",
+        "title": "Šablóna pre {label}",
+        "ownTemplate": "Vlastná šablóna",
+        "instanceTemplate": "Šablóna inštancie",
+        "resetTitle": "Znova použiť šablónu inštancie?",
+        "resetDescription": "Vlastná konfigurácia tohto profilu sa odstráni; vystavené dokumenty to neovplyvní.",
+        "useInstance": "Použiť šablónu inštancie",
+        "usingInstanceTitle": "Používa sa šablóna inštancie",
+        "usingInstanceDescription": "Dokumenty z tohto profilu sa riadia nastavením Nastavenia → Šablóny. Môžete sa rozhodnúť pre samostatné prispôsobenie.",
+        "customise": "Použiť pre tento profil inú šablónu",
+        "openInstance": "Otvoriť šablónu inštancie"
+      },
+      "form": {
+        "identityTitle": "Identita",
+        "identityDescription": "Od koho je faktúra.",
+        "type": "Typ",
+        "label": "Označenie",
+        "labelHint": "Zobrazuje sa iba vo výberoch",
+        "legalName": "Právny názov",
+        "tradeName": "Obchodný názov",
+        "designation": "Funkcia",
+        "email": "E-mail",
+        "phone": "Telefón",
+        "website": "Webové sídlo",
+        "addressTitle": "Adresa",
+        "taxTitle": "Daňové identifikátory",
+        "taxDescription": "Iba tie, ktoré sa na vás vzťahujú; tlač sa riadi nastavením každej faktúry.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Britské VAT číslo",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "Šifrované v úložisku",
+        "lutNumber": "Číslo LUT",
+        "lutNumberHint": "Pre export bez IGST",
+        "lutFiscalYear": "Finančný rok LUT",
+        "lutFiscalYearHint": "napr. 2026-27",
+        "defaultsTitle": "Predvolené hodnoty",
+        "baseCurrency": "Základná mena",
+        "locale": "Jazyk dokumentov",
+        "localeHint": "Formátovanie čísel a dátumov na dokumentoch",
+        "fiscalYearStart": "Fiškálny rok začína v mesiaci",
+        "months": {
+          "january": "január",
+          "february": "február",
+          "march": "marec",
+          "april": "apríl",
+          "may": "máj",
+          "june": "jún",
+          "july": "júl",
+          "august": "august",
+          "september": "september",
+          "october": "október",
+          "november": "november",
+          "december": "december"
+        },
+        "taxRegime": "Predvolený daňový režim",
+        "regimes": {
+          "indiaGst": "Indická GST",
+          "ukVat": "Britská DPH (VAT)",
+          "usSalesTax": "Americká daň z predaja",
+          "none": "Bez dane"
+        },
+        "invoiceNumberFormat": "Formát čísla faktúry",
+        "invoiceNumberFormatHint": "Tokeny: {tokens}",
+        "creditNoteNumberFormat": "Formát čísla dobropisu",
+        "tdsRate": "Očakávaná sadzba TDS (%)",
+        "tdsRateHint": "Informatívne, tlačí sa ako očakávaná zrážka",
+        "defaultNotes": "Predvolené poznámky",
+        "defaultTerms": "Predvolené podmienky",
+        "printTitle": "Čo sa tlačí predvolene",
+        "printDescription": "Každá faktúra tieto hodnoty skopíruje a môže ich zmeniť samostatne.",
+        "emailTitle": "E-mail",
+        "emailDescription": "Predvolené hodnoty pre editor odosielania. Zástupné symboly: {placeholders}",
+        "emailCc": "Predvolená kópia (CC)",
+        "emailBcc": "Predvolená skrytá kópia (BCC)",
+        "commaSeparated": "Oddelené čiarkami",
+        "invoiceSubject": "Predmet faktúry",
+        "invoiceSubjectHint": "Prázdne pole použije vstavanú šablónu",
+        "creditNoteSubject": "Predmet dobropisu",
+        "invoiceBody": "Text faktúry",
+        "creditNoteBody": "Text dobropisu",
+        "artworkTitle": "Grafika",
+        "artworkDescription": "PNG, JPEG alebo WebP do 2 MB; podpis a pečiatka si zachovajú priehľadnosť.",
+        "logo": "Logo",
+        "signature": "Podpis",
+        "stamp": "Pečiatka",
+        "transparentPng": "Priehľadné PNG",
+        "save": "Uložiť profil"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Spôsoby platby",
+      "title": "Spôsoby platby",
+      "description": "Ako vám klienti platia. Údaje sú šifrované a pri vystavení sa zmrazia do každej faktúry.",
+      "newMethod": "Nový spôsob",
+      "emptyTitle": "Zatiaľ žiadne spôsoby platby",
+      "emptyDescription": "Pridajte bankový účet, UPI ID alebo peňaženku, aby faktúry klientom povedali, kam platiť.",
+      "addMethod": "Pridať spôsob",
+      "columns": {
+        "name": "Názov",
+        "type": "Typ",
+        "currency": "Mena",
+        "status": "Stav"
+      },
+      "types": {
+        "bankTransfer": "Bankový prevod",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Vlastný"
+      },
+      "makeDefaultTitle": "Nastaviť {name} ako predvolený?",
+      "restoreTitle": "Obnoviť {name}?",
+      "archiveTitle": "Archivovať {name}?",
+      "archiveDescription": "Vystavené faktúry si ponechajú snímku, ktorá sa na nich vytlačila.",
+      "new": {
+        "metaTitle": "Nový spôsob platby",
+        "title": "Nový spôsob platby"
+      },
+      "edit": {
+        "metaTitle": "Upraviť spôsob platby",
+        "title": "Upraviť {name}",
+        "deleteTitle": "Odstrániť {name}?",
+        "deleteDescription": "Možné iba vtedy, keď naň neodkazuje žiadna faktúra ani platba. Inak ho archivujte."
+      },
+      "form": {
+        "name": "Názov",
+        "nameHint": "Tlačí sa ako nadpis platobného bloku",
+        "type": "Typ",
+        "currency": "Mena",
+        "currencyHint": "Voliteľné; zobrazuje sa iba pre kontext",
+        "anyCurrency": "Akákoľvek",
+        "instructions": "Pokyny",
+        "instructionsHint": "Tlačí sa pod údajmi",
+        "isDefault": "Predvolený spôsob",
+        "isDefaultDescription": "Predvybraný pri nových faktúrach",
+        "isActive": "Aktívny",
+        "detailsTitle": "Údaje",
+        "detailsDescription": "Šifrované v úložisku; pri vystavení sa zmrazia do každej faktúry.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "Meno príjemcu",
+        "lines": "Riadky",
+        "linesHint": "Jeden riadok na jeden záznam, tlačí sa tak, ako je",
+        "accountEmail": "E-mail / meno účtu",
+        "bank": {
+          "accountHolder": "Majiteľ účtu",
+          "accountNumber": "Číslo účtu",
+          "bankName": "Názov banky",
+          "branch": "Pobočka",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Smerový kód / sort code"
+        },
+        "save": "Uložiť spôsob platby"
+      }
+    },
+    "templates": {
+      "metaTitle": "Šablóny dokumentov",
+      "title": "Šablóny dokumentov",
+      "customised": "Prispôsobená",
+      "builtIn": "Vstavaná predvolená",
+      "description": "Ako vyzerajú faktúry a dobropisy. Vystavené dokumenty si ponechajú šablónu, s ktorou boli vystavené.",
+      "resetTitle": "Obnoviť vstavanú predvolenú šablónu?",
+      "resetDescription": "Vaše prispôsobenie sa odstráni; už vystavené dokumenty to neovplyvní.",
+      "reset": "Obnoviť",
+      "resetTrigger": "Obnoviť predvolené",
+      "importTitle": "Import",
+      "importDescription": "Obnovte skôr exportovanú konfiguráciu.",
+      "overridesTitle": "Prepísania pre jednotlivé profily",
+      "overridesDescription": "Profil sa môže na stránke úprav rozhodnúť pre vlastnú šablónu.",
+      "noOverrides": "Každý profil používa šablónu inštancie.",
+      "import": {
+        "json": "JSON šablóny",
+        "jsonHint": "Vložte súbor vytvorený funkciou Export JSON; chýbajúce kľúče sa nahradia predvolenými",
+        "importing": "Importuje sa…",
+        "submit": "Importovať"
+      },
+      "form": {
+        "templateTitle": "Šablóna",
+        "templateDescription": "Šesť vstavaných; nižšie uvedené prispôsobenie sa vzťahuje na tú, ktorú vyberiete.",
+        "templateGroup": "Šablóna",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Moderná a vzdušná, bezpätkové písmo, akcentová čiara pod hlavičkou."
+          },
+          "classic": {
+            "name": "Klasická",
+            "character": "Tradičná tabuľka s orámovaním, pätkové nadpisy, rámčeky pri súčtoch."
+          },
+          "compact": {
+            "name": "Kompaktná",
+            "character": "Hustý rozvrh pre dlhé zoznamy položiek; menšie písmo, menej oddeľovačov."
+          },
+          "minimal": {
+            "name": "Minimalistická",
+            "character": "Pokojná a priestranná: bez čiar a rámčekov, jemné popisky, veľa miesta."
+          },
+          "letterhead": {
+            "name": "Hlavičkový papier",
+            "character": "Vaše logo a názov na farebnom páse alebo obrázku v hornej časti každej strany."
+          },
+          "modern": {
+            "name": "Moderná",
+            "character": "Hlavička s farebným pásom; strany, hlavička tabuľky a súčty na jemnom akcentovom podklade."
+          }
+        },
+        "paperTitle": "Papier a písmo",
+        "paperSize": "Veľkosť papiera",
+        "paperLetter": "Letter",
+        "margins": "Okraje",
+        "marginsNormal": "Normálne",
+        "marginsNarrow": "Úzke",
+        "headingFont": "Písmo nadpisov",
+        "bodyFont": "Písmo textu",
+        "fontSans": "Bezpätkové",
+        "fontSerif": "Pätkové",
+        "tableStyle": "Štýl tabuľky",
+        "tableRuled": "Linajková",
+        "tableZebra": "Pruhovaná",
+        "tablePlain": "Jednoduchá",
+        "accentColour": "Akcentová farba",
+        "textColour": "Farba textu",
+        "logoPosition": "Poloha loga",
+        "positionLeft": "Vľavo",
+        "positionCentre": "Na stred",
+        "positionRight": "Vpravo",
+        "logoHeight": "Výška loga (mm)",
+        "documentTitle": "Názov dokumentu",
+        "titleAuto": "Automaticky (s ohľadom na GST)",
+        "titleCustom": "Vlastný",
+        "titlePlaceholder": "napr. ZÁLOHOVÁ FAKTÚRA",
+        "qrPosition": "Poloha QR kódu",
+        "qrFooter": "Päta",
+        "qrHeader": "Hlavička",
+        "qrBesideTotals": "Vedľa súčtov",
+        "amountInWords": "Suma slovami",
+        "wordsBelowTotal": "Pod súčtami",
+        "wordsFooter": "Päta",
+        "wordsHidden": "Skryté",
+        "subtotalRow": "Riadok medzisúčtu",
+        "discountRow": "Riadok zľavy",
+        "taxLines": "Riadky dane",
+        "tdsExpected": "Očakávaná TDS",
+        "roundingRow": "Riadok zaokrúhlenia",
+        "pageNumbers": "Čísla strán",
+        "headerTitle": "Hlavička",
+        "headerDescription": "Farebný pás alebo obrázok v hornej časti každej strany. Hlavičkový papier a Moderná zobrazujú pás, pokiaľ nevyberiete inak.",
+        "headerStyle": "Štýl hlavičky",
+        "headerNone": "Žiadna",
+        "headerBand": "Farebný pás",
+        "headerImage": "Obrázok",
+        "bandColour": "Farba pásu",
+        "bandColourHex": "Farba pásu (hex)",
+        "headerImageLabel": "Obrázok hlavičky",
+        "headerImageHint": "PNG, JPEG alebo WebP so šírkou do 2400 px; roztiahne sa na šírku strany.",
+        "imageOpacity": "Priehľadnosť obrázka",
+        "headerHeight": "Výška hlavičky (mm)",
+        "bandText": "Text na páse",
+        "bandTextAuto": "Automaticky (podľa farby pásu)",
+        "bandTextLight": "Svetlý",
+        "bandTextDark": "Tmavý",
+        "textTitle": "Text",
+        "headerNote": "Poznámka v hlavičke",
+        "footer": "Päta",
+        "signatureCaption": "Popis podpisu",
+        "draftWatermark": "Vodoznak konceptu",
+        "labelsTitle": "Popisky",
+        "labelsDescription": "Ponechajte pole prázdne, ak chcete zachovať predvolené znenie.",
+        "save": "Uložiť šablónu",
+        "downloadSample": "Stiahnuť ukážkové PDF",
+        "exportJson": "Exportovať JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "E-mail",
+      "title": "E-mail",
+      "configuredSettings": "Nastavené v Nastaveniach",
+      "configuredEnv": "Nastavené prostredím",
+      "notConfigured": "Nenastavené: postup cez poštovú aplikáciu",
+      "description": "Dokumenty sa odosielajú z editora s priloženým uloženým PDF. Nastavenia tu prepisujú SMTP_* v prostredí.",
+      "sendTest": "Odoslať testovací e-mail na {email}",
+      "removeTitle": "Odstrániť uložené nastavenia SMTP?",
+      "removeEnvTakesOver": "Prevezmú sa hodnoty SMTP_* z prostredia.",
+      "removeFallsBack": "E-mail sa vráti k postupu cez poštovú aplikáciu.",
+      "removeTrigger": "Odstrániť uložené nastavenia",
+      "smtpTitle": "Server SMTP",
+      "smtpFromEnv": "Momentálne sa preberá z prostredia; uloženie tu ho prepíše.",
+      "smtpPasswordNote": "Heslo je v úložisku šifrované a už sa nikdy nezobrazí.",
+      "defaultsTitle": "Predvolení príjemcovia",
+      "defaultsDescription": "CC/BCC pre celú inštanciu; profily vystavovateľa pridávajú vlastné.",
+      "sentTitle": "Odoslaná pošta",
+      "sentDescription": "Posledných 50 pokusov vrátane zlyhaní a manuálnych odoslaní.",
+      "smtp": {
+        "host": "Hostiteľ",
+        "port": "Port",
+        "security": "Zabezpečenie",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Žiadne (relé v LAN)",
+        "user": "Používateľské meno",
+        "password": "Heslo",
+        "passwordStored": "Uložené a šifrované; ak ho chcete ponechať, nechajte pole prázdne",
+        "passwordEncrypted": "Šifrované v úložisku",
+        "from": "Adresa odosielateľa",
+        "fromName": "Meno odosielateľa",
+        "replyTo": "Adresa pre odpoveď",
+        "save": "Uložiť nastavenia SMTP"
+      },
+      "defaults": {
+        "cc": "Predvolená kópia (CC)",
+        "ccHint": "Pridáva sa do každého editora; oddelené čiarkami",
+        "bcc": "Predvolená skrytá kópia (BCC)",
+        "save": "Uložiť predvolené"
+      }
+    },
+    "security": {
+      "metaTitle": "Zabezpečenie",
+      "title": "Zabezpečenie",
+      "description": "Kde ste prihlásení a všetko, čo sa zmenilo.",
+      "sessions": {
+        "title": "Aktívne relácie",
+        "description": "Zrušenie relácie okamžite odhlási dané zariadenie.",
+        "signOutOthers": {
+          "title": "Odhlásiť všade inde?",
+          "description": "Zrušia sa všetky relácie okrem tejto.",
+          "confirm": "Odhlásiť ostatné",
+          "trigger": "Odhlásiť všade inde"
+        },
+        "columns": {
+          "device": "Zariadenie",
+          "ipAddress": "IP adresa",
+          "signedIn": "Prihlásené",
+          "lastSeen": "Naposledy videné",
+          "expires": "Platnosť do"
+        },
+        "thisDevice": "Toto zariadenie",
+        "revokeTitle": "Zrušiť túto reláciu?",
+        "unknownDevice": "Neznáme zariadenie",
+        "unknownBrowser": "Neznámy",
+        "agentOnOs": "{browser} v systéme {os}"
+      },
+      "audit": {
+        "title": "Protokol auditu",
+        "count": "{count, plural, one {# udalosť} few {# udalosti} other {# udalostí}}",
+        "entity": "Entita",
+        "actionContains": "Akcia obsahuje",
+        "filter": "Filtrovať",
+        "reset": "Obnoviť",
+        "columns": {
+          "when": "Kedy",
+          "who": "Kto",
+          "action": "Akcia",
+          "entity": "Entita",
+          "summary": "Zhrnutie"
+        },
+        "empty": "Týmto filtrom nezodpovedá žiadna udalosť.",
+        "system": "Systém",
+        "changes": "Zmeny",
+        "page": "Strana {page} z {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Používatelia",
+      "title": "Používatelia",
+      "description": "Kto sa môže prihlásiť do tejto inštancie a čo smie robiť.",
+      "roles": {
+        "owner": "Vlastník",
+        "editor": "Editor",
+        "viewer": "Čitateľ"
+      },
+      "roleHints": {
+        "owner": "Všetko vrátane nastavení a členov",
+        "editor": "Klienti, katalóg, faktúry, dobropisy, platby, e-mail",
+        "viewer": "Iba na čítanie"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Rola používateľa {email}",
+      "invite": {
+        "title": "Pozvať niekoho",
+        "description": "Prihlási sa pozvanou adresou (poskytovateľ identity alebo heslo) a získa vami vybranú rolu.",
+        "sent": "Pozvánka bola odoslaná e-mailom na {email}.",
+        "readyWithError": "Pozvánka pre {email} je pripravená. E-mail sa nepodarilo odoslať ({error}); pošlite im tento odkaz:",
+        "readyNoSmtp": "Pozvánka pre {email} je pripravená. Nie je nastavený SMTP; pošlite im tento odkaz:",
+        "copyLink": "Kopírovať odkaz",
+        "email": "E-mail",
+        "emailPlaceholder": "osoba@example.com",
+        "role": "Rola",
+        "submit": "Pozvať",
+        "inviting": "Pozýva sa…"
+      },
+      "members": {
+        "title": "Členovia",
+        "description": "Vždy zostane aspoň jeden aktívny vlastník.",
+        "columns": {
+          "person": "Osoba",
+          "role": "Rola",
+          "lastSignIn": "Posledné prihlásenie",
+          "status": "Stav"
+        },
+        "nameYou": "{name} (vy)",
+        "deactivated": "Deaktivovaný",
+        "reactivate": {
+          "title": "Znova aktivovať {email}?",
+          "description": "Môže sa znova prihlásiť s predchádzajúcou rolou.",
+          "confirm": "Znova aktivovať"
+        },
+        "deactivate": {
+          "title": "Deaktivovať {email}?",
+          "description": "Všetky relácie sa okamžite ukončia a nebude sa môcť prihlásiť, kým ho znova neaktivujete. Jeho história zostane.",
+          "confirm": "Deaktivovať"
+        }
+      },
+      "invitations": {
+        "title": "Čakajúce pozvánky",
+        "description": "Adresy, ktoré sa môžu prihlásiť, ale ešte to neurobili.",
+        "columns": {
+          "email": "E-mail",
+          "role": "Rola",
+          "invited": "Pozvaný"
+        },
+        "empty": "Žiadne čakajúce pozvánky.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Zrušiť pozvánku pre {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Údaje",
+      "title": "Údaje",
+      "description": "Všetko je prenosné: súbory údajov ako CSV alebo Excel, úplná snímka na migráciu, PDF pre vášho účtovníka a odskúšaná záložná rutina.",
+      "period": {
+        "fiscalYear": "Fiškálny rok",
+        "fiscalYearHint": "Prepíše dátumy",
+        "issuer": "Vystavovateľ"
+      },
+      "exportAll": {
+        "title": "Exportovať všetky údaje",
+        "description": "ZIP s každým súborom údajov ako CSV plus <mono>data.json</mono>, relačná snímka všetkých tabuliek. Šifrované polia (údaje o spôsoboch platby, heslo SMTP) sa nezahŕňajú; zoznam nájdete v súbore README vo vnútri.",
+        "download": "Stiahnuť ZIP okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "Exportovať dokumenty",
+        "description": "PDF každej vystavenej a stornovanej faktúry a dobropisu za obdobie, pomenované číslom, s <mono>index.csv</mono> obsahujúcim čísla, súčty a haše. Chýbajúce PDF sa vygenerujú počas exportu.",
+        "docx": "Zahrnúť aj kópiu každého dokumentu vo formáte DOCX",
+        "download": "Stiahnuť ZIP dokumentov"
+      },
+      "datasets": {
+        "title": "Súbory údajov",
+        "description": "Rovnaké exporty, aké ponúkajú indexové stránky, s obdobím a vystavovateľom použitými na všetky. Platby používajú rozsah dátumov; klienti a služby obdobie ignorujú.",
+        "columns": {
+          "dataset": "Súbor údajov",
+          "filters": "Použité filtre",
+          "download": "Stiahnuť"
+        },
+        "names": {
+          "invoices": "Register faktúr",
+          "invoiceItems": "Riadkové položky faktúr",
+          "payments": "Kniha platieb",
+          "creditNotes": "Register dobropisov",
+          "clients": "Klienti",
+          "services": "Služby",
+          "gstSummary": "Súhrn GST",
+          "tdsSummary": "Súhrn TDS"
+        },
+        "filters": {
+          "periodIssuer": "obdobie, vystavovateľ",
+          "dateRangeIssuer": "rozsah dátumov, vystavovateľ",
+          "includesArchived": "vrátane archivovaných"
+        }
+      },
+      "backups": {
+        "title": "Zálohy",
+        "notWired": "Nie je pripojená žiadna záložná služba",
+        "noRun": "Zatiaľ nebežala žiadna záloha",
+        "lastOk": "Posledná záloha prebehla v poriadku",
+        "lastFailed": "Posledná záloha zlyhala",
+        "description": "Služba Compose <mono>backup</mono> podľa <mono>BACKUP_CRON</mono> vytvára výpis Postgresu a archivuje zväzok úložiska, uchováva históriu <mono>BACKUP_RETENTION_DAYS</mono> v zväzku <mono>backups</mono> a zapisuje stavový súbor, ktorý táto stránka číta.",
+        "finished": "Dokončené",
+        "databaseDump": "Výpis databázy",
+        "storageArchive": "Archív úložiska",
+        "size": "Veľkosť",
+        "sizeMb": "{size} MB",
+        "error": "Chyba",
+        "runNow": "Spustite jednu teraz alebo obnovte z dvojice súborov:",
+        "restoreDrill": "Postup obnovy sa v CI nacvičuje skriptom <mono>scripts/restore-drill.sh</mono>: naplnenie údajmi, záloha, vymazanie, obnova a porovnanie počtov riadkov a haša PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "Právne informácie",
+      "metaDescription": "Kto prevádzkuje túto inštanciu: údaje vytlačené na verejných právnych stránkach.",
+      "title": "Právne informácie",
+      "description": "Verejné právne stránky tlačia tieto údaje. Kým nie je vyplnené každé pole, stránky zobrazujú zvýraznené zástupné texty.",
+      "operator": {
+        "title": "Údaje prevádzkovateľa",
+        "complete": "Kompletné",
+        "missing": "Chýba {count}: {fields}",
+        "description": "Vy ako osoba alebo spoločnosť prevádzkujúca túto inštanciu ste prevádzkovateľom, na ktorého sa dokumenty odvolávajú. Nič odtiaľto sa nikam neodosiela; tlačí sa to na stránkach nižšie."
+      },
+      "fieldLabels": {
+        "legalName": "Právny názov prevádzkovateľa",
+        "entityType": "Typ subjektu",
+        "address": "Adresa prevádzkovateľa",
+        "country": "Krajina prevádzkovateľa",
+        "contactEmail": "Kontaktný e-mail",
+        "privacyEmail": "E-mail pre ochranu súkromia",
+        "dpoEmail": "E-mail zodpovednej osoby pre ochranu údajov",
+        "governingLaw": "Rozhodné právo",
+        "venue": "Miesto riešenia sporov",
+        "effectiveDate": "Dátum účinnosti"
+      },
+      "publicPages": {
+        "title": "Verejné stránky",
+        "description": "Odkazy z prihlasovacej stránky, zdieľaného prehliadača a oznámenia o súboroch cookie.",
+        "terms": "Podmienky používania služby",
+        "acceptableUse": "Zásady prijateľného používania",
+        "privacy": "Zásady ochrany osobných údajov",
+        "cookies": "Zásady používania súborov cookie",
+        "dataRetention": "Uchovávanie údajov",
+        "security": "Zabezpečenie",
+        "licenses": "Licencie a oznámenia tretích strán"
+      },
+      "form": {
+        "legalName": "Právny názov",
+        "entityType": "Typ subjektu",
+        "individual": "Fyzická osoba / samostatne zárobkovo činná osoba",
+        "company": "Spoločnosť / registrovaný subjekt",
+        "address": "Adresa",
+        "addressHint": "Tlačí sa v Podmienkach a Zásadách ochrany osobných údajov ako poštová adresa prevádzkovateľa.",
+        "country": "Krajina",
+        "effectiveDate": "Dátum účinnosti",
+        "contactEmail": "Kontaktný e-mail",
+        "privacyEmail": "E-mail pre ochranu súkromia",
+        "privacyEmailHint": "Sem smerujú žiadosti dotknutých osôb; môže ísť o kontaktnú adresu.",
+        "dpoEmail": "E-mail zodpovednej osoby pre ochranu údajov",
+        "dpoEmailHint": "Iba ak ste ju určili.",
+        "governingLaw": "Rozhodné právo",
+        "governingLawHint": "Napríklad „právo Indie“ alebo „právo Anglicka a Walesu“.",
+        "venue": "Miesto riešenia sporov",
+        "venueHint": "Napríklad „súdy v Bengaluru, Karnataka“.",
+        "submit": "Uložiť údaje prevádzkovateľa"
+      }
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Kľúče API pre skripty, SDK a klientov MCP s príkladmi curl.",
+      "title": "API",
+      "description": "Kľúče pre skripty, SDK a klientov MCP. Kľúč môže robiť najviac to, čo vaša rola; zobrazí sa iba raz.",
+      "create": {
+        "title": "Vytvoriť kľúč",
+        "description": "Posielajte ho ako <mono>Authorization: Bearer okv_…</mono>. Nedávajte ho do zdrojového kódu ani do záznamov chatu; ak unikne, zrušte jeho platnosť nižšie."
+      },
+      "keys": {
+        "title": "Kľúče",
+        "descriptionOwner": "Každý kľúč tejto inštancie; vlastníci môžu zrušiť ktorýkoľvek z nich.",
+        "descriptionOwn": "Vaše kľúče.",
+        "columns": {
+          "name": "Názov",
+          "prefix": "Predpona",
+          "scopes": "Rozsahy",
+          "owner": "Vlastník",
+          "lastUsed": "Naposledy použitý",
+          "expires": "Platnosť do",
+          "status": "Stav"
+        },
+        "empty": "Zatiaľ žiadne kľúče API.",
+        "never": "nikdy",
+        "revoked": "Zrušený",
+        "expired": "Vypršal",
+        "revokeTitle": "Zrušiť {name}?",
+        "revokeDescription": "Klienti používajúci tento kľúč okamžite prestanú fungovať.",
+        "activeCount": "{count, plural, one {# aktívny kľúč.} few {# aktívne kľúče.} other {# aktívnych kľúčov.}}"
+      },
+      "examples": {
+        "title": "Príklady",
+        "description": "Nahraďte <mono>$OKINVO_KEY</mono> kľúčom. Verzované REST API, jeho dokument OpenAPI (<mono>/api/openapi.json</mono>), SDK pre TypeScript a server MCP prídu s ďalšími úlohami plánu v1.1; koncový bod stavu funguje už dnes.",
+        "rateLimit": "Volania nad limit odpovedajú kódom 429 s hlavičkou <mono>Retry-After</mono> (120 požiadaviek za minútu na kľúč). Rozsahy kľúča sú obmedzené aktuálnou rolou jeho vlastníka."
+      },
+      "form": {
+        "copyKey": "Kopírovať kľúč API",
+        "name": "Názov",
+        "namePlaceholder": "napr. účtovný skript",
+        "expires": "Platnosť do",
+        "in30Days": "Za 30 dní",
+        "in90Days": "Za 90 dní",
+        "inAYear": "Za rok",
+        "never": "Nikdy",
+        "scopes": "Rozsahy",
+        "submit": "Vytvoriť kľúč API",
+        "creating": "Vytvára sa…"
+      },
+      "scopes": {
+        "invoicesRead": "Čítať faktúry",
+        "invoicesCreate": "Vytvárať a vystavovať faktúry",
+        "creditNotesRead": "Čítať dobropisy",
+        "creditNotesCreate": "Vytvárať a vystavovať dobropisy",
+        "catalogueRead": "Čítať klientov, služby a produkty",
+        "documentsRead": "Sťahovať uložené PDF a kópie DOCX",
+        "statusRead": "Čítať stav inštancie"
+      }
+    },
+    "status": {
+      "metaTitle": "Stav",
+      "metaDescription": "Verzia, databáza, úložisko, e-mail a stav záloh tejto inštancie.",
+      "title": "Stav",
+      "description": "Čo táto inštancia spúšťa a či jej súčasti odpovedajú.",
+      "recheck": "Skontrolovať znova",
+      "health": {
+        "ok": "V poriadku",
+        "warning": "Upozornenie",
+        "failed": "Zlyhalo",
+        "na": "Nenastavené"
+      },
+      "overall": {
+        "ok": "Všetko v poriadku",
+        "degraded": "Znížený výkon",
+        "failed": "Zlyhalo"
+      },
+      "version": "Zostavenie {hasSha, select, yes {<mono>{sha}</mono>} other {(sha neznáme)}} · zostavené {built} · Node <mono>{node}</mono> · beží {uptime} · skontrolované {checked}",
+      "dateUnknown": "(dátum neznámy)",
+      "uptime": {
+        "days": "{d} d {h} h {m} min",
+        "hours": "{h} h {m} min",
+        "minutes": "{m} min"
+      },
+      "rows": {
+        "database": "Databáza",
+        "storage": "Úložisko",
+        "rateLimiting": "Obmedzenie počtu požiadaviek",
+        "email": "E-mail",
+        "backups": "Zálohy"
+      },
+      "db": {
+        "detail": "{latency} ms · posledná migrácia <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # nedokončených migrácií}}",
+        "noMigration": "žiadna"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · zápis, čítanie a odstránenie skúšobného objektu za {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "Úložisko <mono>{store}</mono> {store, select, memory {(jedna replika)} other {(zdieľané medzi replikami)}}",
+      "smtp": {
+        "configured": "SMTP z {source, select, settings {the settings page} env {the environment} other {}} · posledný test {lastTest} · za posledných 24 h: {sent} odoslaných, {failed} zlyhaných",
+        "none": "Žiadny server SMTP; editor ponúka „Otvoriť v poštovej aplikácii“. <link>Nastaviť</link>"
+      },
+      "backups": {
+        "notWired": "Nie je pripojená žiadna záložná služba (BACKUP_STATUS_FILE nie je nastavený).",
+        "noRun": "Záložná služba je pripojená; zatiaľ nebol zaznamenaný žiadny beh.",
+        "ok": "Posledný beh uspel o {finishedAt}{days, plural, =0 {} one { · uchovávanie # deň} few { · uchovávanie # dni} other { · uchovávanie # dní}}",
+        "failed": "Posledný beh zlyhal: {error} o {finishedAt}{days, plural, =0 {} one { · uchovávanie # deň} few { · uchovávanie # dni} other { · uchovávanie # dní}}"
+      },
+      "footer": "Rovnaká správa je dostupná ako JSON na <mono>/api/health/status</mono> pre monitorovanie (prihlásená relácia alebo kľúč API)."
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Vitajte",
+    "progress": "Priebeh",
+    "steps": {
+      "aboutYou": "O vás",
+      "howYouUse": "Ako to budete používať",
+      "allSet": "Hotovo"
+    },
+    "step1": {
+      "title": "Povedzte nám o sebe",
+      "subtitle": "Týmto sa nastavia predvolené hodnoty; každú z nich môžete neskôr zmeniť v Nastaveniach.",
+      "name": "Meno",
+      "email": "E-mail",
+      "emailHint": "Vaša prihlasovacia identita. Neskôr ju možno zmeniť v Nastavenia → Zabezpečenie.",
+      "country": "Krajina",
+      "currency": "Uprednostňovaná mena",
+      "currencyHint": "Používa sa pre nové profily a prehľad, kým profil neexistuje."
+    },
+    "step2": {
+      "title": "Ako budete používať okinvo?",
+      "subtitle": "Mení sa iba predvolené nastavenie; nič nie je zamknuté.",
+      "usage": "Použitie",
+      "personal": "Osobná fakturácia",
+      "personalHint": "Práca na voľnej nohe vo vlastnom mene",
+      "business": "Firemná fakturácia",
+      "businessHint": "Faktúry od registrovanej firmy",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "VAT číslo",
+        "other": "Daňové identifikačné číslo"
+      },
+      "taxQuestion": {
+        "IN": "Máte GSTIN?",
+        "GB": "Ste registrovaný platiteľ VAT?",
+        "other": "Máte daňové identifikačné číslo, ktoré sa má tlačiť na faktúry?"
+      }
+    },
+    "step3": {
+      "title": "Všetko je pripravené",
+      "body": "Ďalej vytvorte svoj prvý profil vystavovateľa: meno, adresu a daňové údaje, ktoré sa tlačia na vaše faktúry. Vyplnili sme, čo ste nám povedali.",
+      "go": "Prejsť na profily",
+      "opening": "Otvára sa…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Podmienky",
+      "privacy": "Súkromie",
+      "cookies": "Cookies",
+      "security": "Zabezpečenie"
+    },
+    "cookieNotice": {
+      "label": "Oznámenie o súboroch cookie",
+      "body": "Používame iba nevyhnutne potrebné súbory cookie: vašu reláciu a predvoľby zobrazenia. Žiadna analytika, žiadne sledovanie.",
+      "policy": "Zásady používania súborov cookie",
+      "gotIt": "Rozumiem"
+    },
+    "nav": {
+      "label": "Právne informácie",
+      "cookies": "Cookies",
+      "privacy": "Súkromie",
+      "terms": "Podmienky",
+      "acceptableUse": "Prijateľné používanie",
+      "retention": "Uchovávanie",
+      "security": "Zabezpečenie",
+      "licences": "Licencie"
+    },
+    "operatorNotice": "okinvo je softvér na vlastnú prevádzku; za jeho používanie zodpovedá prevádzkovateľ tejto inštancie.",
+    "doc": {
+      "effectiveOn": "Účinné od <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Obsah"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Právny názov prevádzkovateľa",
+        "entityType": "Typ subjektu",
+        "address": "Adresa prevádzkovateľa",
+        "country": "Krajina prevádzkovateľa",
+        "contactEmail": "Kontaktný e-mail",
+        "privacyEmail": "E-mail pre ochranu súkromia",
+        "dpoEmail": "E-mail zodpovednej osoby pre ochranu údajov",
+        "governingLaw": "Rozhodné právo",
+        "venue": "Miesto riešenia sporov",
+        "effectiveDate": "Dátum účinnosti"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Nenájdené",
+      "title": "Na tejto adrese nie je nič",
+      "body": "Odkaz môže byť zastaraný alebo dokument, na ktorý odkazoval, nebol nikdy vystavený."
+    },
+    "forbidden": {
+      "metaTitle": "Nepovolené",
+      "title": "Tento účet to nemôže urobiť",
+      "body": "Vaša rola to nepovoľuje. Požiadajte vlastníka o prístup alebo sa prihláste účtom, ktorý ho má."
+    },
+    "error": {
+      "title": "Niečo sa pokazilo",
+      "body": "Táto požiadavka nič nezmenila. Skúste to znova; ak sa to bude opakovať, podrobnosti sú v protokole servera.",
+      "digest": "chyba {digest}",
+      "generic": "chyba"
+    },
+    "appNotFound": {
+      "title": "Nenájdené",
+      "body": "Tento záznam neexistuje alebo bol odstránený, kým ste si ho prezerali.",
+      "back": "Späť na prehľad"
+    },
+    "validation": {
+      "required": "povinné",
+      "tooLong": "najviac {max} znakov",
+      "invalidEmail": "musí byť platný e-mail",
+      "invalidDate": "musí byť kalendárny dátum v tvare RRRR-MM-DD",
+      "invalidAmount": "musí byť číslo",
+      "wholeNumber": "musí byť celé číslo",
+      "greaterThanZero": "musí byť väčšie ako nula",
+      "fixFields": "Opravte prosím zvýraznené polia.",
+      "charset": "Povolené sú iba štandardné znaky klávesnice."
+    }
+  },
+  "verify": {
+    "metaTitle": "Overiť dokument",
+    "heading": "Overenie dokumentu",
+    "rateLimited": "Príliš veľa kontrol z tejto adresy. Skúste to prosím o minútu.",
+    "notFound": {
+      "title": "Taký dokument neexistuje",
+      "body": "Tento odkaz nezodpovedá žiadnemu vystavenému dokumentu. Skontrolujte QR kód alebo odkaz, ktorý ste dostali, alebo kontaktujte vystavovateľa."
+    },
+    "status": {
+      "void": "Stornované",
+      "valid": "Platné"
+    },
+    "issuedBy": "Vystavil",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Vystavené pre",
+    "issueDate": "Dátum vystavenia",
+    "total": "Spolu",
+    "voided": "Tento dokument vystavovateľ stornoval a už nie je platný.",
+    "storedCopies": {
+      "title": "Uložené kópie",
+      "description": "SHA-256 každej verzie PDF, ktorú vystavovateľ uchováva. Vyberte svoju kópiu a porovnajte ju vo vašom prehliadači: nič sa nenahráva.",
+      "empty": "Zatiaľ nebolo vygenerované žiadne PDF.",
+      "protectedVersion": "Kópia chránená heslom {version}",
+      "version": "Verzia {version}"
+    },
+    "check": {
+      "label": "Skontrolovať vašu kópiu",
+      "hashing": "Počíta sa haš…",
+      "match": "Vaša kópia presne zodpovedá verzii {version}.",
+      "mismatch": "Vaša kópia nezodpovedá žiadnej uloženej verzii."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Zdieľaný dokument",
+      "rateLimited": "Príliš veľa požiadaviek z tejto adresy. Skúste to prosím o minútu.",
+      "unavailable": {
+        "title": "Tento odkaz nie je dostupný",
+        "body": "Mohol vypršať alebo ho vystavovateľ zrušil. Požiadajte ho o nový."
+      },
+      "lockedTitleInvoice": "Faktúra od {issuer}",
+      "lockedTitleCreditNote": "Dobropis od {issuer}",
+      "lockedBody": "Tento dokument je chránený heslom. Zadajte heslo, ktoré vám dal vystavovateľ.",
+      "void": "Stornované",
+      "protectedPdf": "PDF sa otvorí s rovnakým heslom. Dá sa čítať a tlačiť; kopírovanie a úpravy sú zamknuté.",
+      "byline": "Od {issuer} pre {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Heslo",
+      "limited": "Príliš veľa pokusov. Počkajte prosím pätnásť minút a skúste to znova.",
+      "wrong": "Heslo nie je správne.",
+      "submit": "Otvoriť dokument"
+    },
+    "dialog": {
+      "trigger": "Zdieľať",
+      "title": "Zdieľať tento dokument",
+      "description": "Ktokoľvek s odkazom si ho môže zobraziť a stiahnuť, kým nevyprší jeho platnosť alebo ho nezrušíte. Heslo chráni aj samotné PDF: otvorí sa s heslom a dá sa čítať a tlačiť, nie upravovať ani kopírovať.",
+      "link": "Odkaz",
+      "copyLink": "Kopírovať odkaz",
+      "password": "Heslo",
+      "copyPassword": "Kopírovať heslo",
+      "sendSeparately": "Pošlite heslo oddelene od odkazu. Môžete ho znova vidieť v zozname nižšie.",
+      "copy": "Kopírovať",
+      "copied": "Skopírované",
+      "expires": "Platnosť do",
+      "expiry": {
+        "d7": "Za 7 dní",
+        "d30": "Za 30 dní",
+        "d90": "Za 90 dní",
+        "never": "Nikdy"
+      },
+      "protection": "Ochrana",
+      "protectionOptions": {
+        "auto": "Heslo: vygenerovať prístupovú frázu",
+        "manual": "Heslo: zvoliť vlastné",
+        "none": "Bez hesla (otvorený odkaz)"
+      },
+      "passwordHint": "Aspoň 8 znakov.",
+      "strength": "Sila: {label}",
+      "strengthLabels": {
+        "veryWeak": "veľmi slabé",
+        "weak": "slabé",
+        "fair": "primerané",
+        "good": "dobré",
+        "strong": "silné"
+      },
+      "creating": "Vytvára sa…",
+      "create": "Vytvoriť odkaz",
+      "activeLinks": "Aktívne odkazy",
+      "passwordProtected": "Chránené heslom",
+      "openLink": "Otvoriť odkaz",
+      "linkExpires": "{kind} · platnosť do {date}",
+      "linkNeverExpires": "{kind} · bez vypršania platnosti",
+      "revoke": {
+        "title": "Zrušiť tento odkaz?",
+        "description": "Odkaz okamžite prestane fungovať pre všetkých, ktorí ho majú.",
+        "label": "Zrušiť platnosť"
+      },
+      "linkPassword": "Heslo: <code>{password}</code>",
+      "counts": "{views, plural, one {# zobrazenie} few {# zobrazenia} other {# zobrazení}} · {downloads, plural, one {# stiahnutie} few {# stiahnutia} other {# stiahnutí}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Dobropisy",
+      "title": "Dobropisy",
+      "description": "Vystavené k vystaveným faktúram; každý pri vystavení znižuje zostatok svojej faktúry.",
+      "newCreditNote": "Nový dobropis",
+      "filters": {
+        "from": "Od",
+        "to": "Do",
+        "issuer": "Vystavovateľ",
+        "client": "Klient",
+        "status": "Stav",
+        "search": "Hľadať",
+        "all": "Všetky",
+        "searchPlaceholder": "Číslo, dôvod, klient",
+        "go": "Použiť"
+      },
+      "statuses": {
+        "DRAFT": "Koncept",
+        "ISSUED": "Vystavený",
+        "SENT": "Odoslaný",
+        "VOID": "Stornovaný"
+      },
+      "empty": {
+        "title": "Zatiaľ žiadne dobropisy",
+        "description": "Otvorte vystavenú faktúru a vyberte „Dobropis“, aby ste znížili sumu, ktorú dlhuje."
+      },
+      "noMatch": "Týmto filtrom nezodpovedá žiadny dobropis.",
+      "columns": {
+        "number": "Číslo",
+        "against": "K faktúre",
+        "client": "Klient",
+        "issueDate": "Dátum vystavenia",
+        "reason": "Dôvod",
+        "total": "Spolu",
+        "status": "Stav"
+      },
+      "draft": "Koncept"
+    },
+    "new": {
+      "metaTitle": "Nový dobropis",
+      "title": "Nový dobropis",
+      "description": "Dobropis sa vystavuje k vystavenej faktúre a znižuje jej zostatok.",
+      "nothingToCredit": {
+        "title": "Nie je čo dobropisovať",
+        "description": "Dobropisy vyžadujú vystavenú faktúru s nevyrovnaným zostatkom.",
+        "openInvoices": "Otvoriť faktúry"
+      },
+      "whichInvoice": "Ktorá faktúra?",
+      "invoice": "Faktúra",
+      "invoiceOption": "{number} · {client} · zostatok {balance}",
+      "issuedOnly": "Dobropisy sa vystavujú iba k vystaveným faktúram.",
+      "invoiceFallback": "Faktúra"
+    },
+    "edit": {
+      "metaTitle": "Upraviť dobropis",
+      "title": "Upraviť koncept dobropisu",
+      "immutable": "Vystavené dobropisy sú nemenné.",
+      "draft": "Koncept"
+    },
+    "detail": {
+      "metaTitle": "Dobropis",
+      "draftTitle": "Koncept dobropisu",
+      "meta": "{client} · k faktúre <invoice>{number}</invoice> · vystavené <mono>{date}</mono>",
+      "previewPdf": "Náhľad PDF",
+      "issue": {
+        "title": "Vystaviť tento dobropis?",
+        "description": "Pridelí sa číslo, zostatok faktúry sa zníži a dokument sa stane nemenným.",
+        "label": "Vystaviť"
+      },
+      "deleteDraft": {
+        "title": "Odstrániť tento koncept?"
+      },
+      "sendByEmail": "Odoslať e-mailom",
+      "markSent": {
+        "title": "Označiť ako odoslaný?",
+        "label": "Označiť ako odoslaný"
+      },
+      "void": {
+        "title": "Stornovať tento dobropis?",
+        "description": "Zostatok faktúry sa obnoví; číslo sa nikdy nepoužije znova.",
+        "reason": "Dôvod",
+        "label": "Stornovať"
+      },
+      "voided": "Stornované {date}: {reason}",
+      "amounts": {
+        "title": "Sumy",
+        "reason": "Dôvod",
+        "creditAmount": "Suma dobropisu",
+        "total": "Spolu",
+        "balanceNow": "Aktuálny zostatok faktúry",
+        "sent": "Odoslaný"
+      },
+      "documents": {
+        "title": "Uložené dokumenty",
+        "description": "Uchováva sa každá verzia; stránka overenia uvádza všetky haše.",
+        "regenerateTitle": "Vygenerovať novú verziu PDF?",
+        "generate": "Vygenerovať",
+        "newVersion": "Nová verzia",
+        "renderedOnFirstDownload": "PDF sa vygeneruje pri prvom stiahnutí.",
+        "protectedCopy": "Kópia chránená heslom {version}",
+        "version": "Verzia {version}",
+        "verificationLink": "Odkaz na overenie: <link>{path}…</link>"
+      },
+      "draftsPreview": "Náhľad konceptov je naživo v editore."
+    },
+    "send": {
+      "metaTitle": "Odoslať dobropis",
+      "title": "Odoslať <mono>{number}</mono>",
+      "previousSends": "Predchádzajúce odoslania"
+    },
+    "builder": {
+      "against": "K faktúre <mono>{number}</mono>",
+      "summary": "{client} · spolu {total} · zostatok {balance} · zdaniteľný rozsah ≈ {headroom}",
+      "issueDate": "Dátum vystavenia",
+      "creditAmount": "Suma dobropisu (bez dane)",
+      "creditAmountHint": "Daň sa pomerne rozdelí z daňových riadkov faktúry",
+      "reason": "Dôvod",
+      "picker": {
+        "title": "Vypočítať z riadkov faktúry",
+        "description": "Označte celé riadky alebo percento; tým sa iba vyplní suma vyššie.",
+        "line": "Riadok",
+        "subtotal": "Medzisúčet",
+        "credit": "Dobropis",
+        "percent": "%",
+        "creditLine": "Riadok dobropisu {position}",
+        "percentOfLine": "Percento z riadku {position}"
+      },
+      "saveDraft": "Uložiť koncept",
+      "issuing": "Vystavuje sa…",
+      "saveAndIssue": "Uložiť a vystaviť"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Prijatá platba",
+        "REFUND": "Vrátená platba",
+        "WRITE_OFF": "Odpis"
+      },
+      "editTitle": "Upraviť záznam",
+      "recordTitle": "Zaznamenať platbu",
+      "description": "Sumy sú v mene faktúry ({currency}); zrazená TDS je súčasťou uplatnenej sumy.",
+      "kind": "Druh",
+      "date": "Dátum",
+      "amountRefunded": "Vrátená suma (záporná)",
+      "amountApplied": "Uplatnená suma",
+      "refundHint": "Zadajte zápornú sumu, napr. -500",
+      "tdsDeducted": "Zrazená TDS",
+      "tdsHint": "Daň, ktorú klient zadržal; započítava sa do uplatnenej sumy",
+      "bankFees": "Bankové poplatky",
+      "receivedInto": "Prijaté na",
+      "noMethod": "-",
+      "reference": "Referencia",
+      "referenceHint": "UTR, ID transakcie, číslo šeku",
+      "otherCurrency": "Prijaté v inej mene",
+      "amountReceived": "Prijatá suma",
+      "receivedCurrency": "Mena prijatia",
+      "exchangeRate": "Výmenný kurz",
+      "exchangeRateHint": "1 prijatá jednotka = ? {currency}",
+      "notes": "Poznámky",
+      "receipt": "Potvrdenka",
+      "receiptHint": "PNG, JPEG, WebP alebo PDF do 10 MB",
+      "saveChanges": "Uložiť zmeny",
+      "record": "Zaznamenať"
+    }
+  },
+  "documents": {
+    "ui": {
+      "pageEstimate": "cca {count, plural, one {# strana} few {# strany} other {# strán}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Správa",
+      "description": "Predvyplnené zo šablón profilu vystavovateľa. Nič sa neodošle, kým nekliknete na Odoslať.",
+      "to": "Komu",
+      "toHint": "Oddelené čiarkami",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Predmet",
+      "body": "Text",
+      "bodyHint": "Obyčajný text; odkazy sa stanú klikateľnými",
+      "attachment": "Príloha",
+      "attachmentHint": "Uložená kópia s názvom <mono>{name}</mono> (alebo .docx); jej obsah sa nedá zmeniť.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Odosiela sa…",
+      "send": "Odoslať",
+      "openInMailApp": "Otvoriť v poštovej aplikácii",
+      "noSmtp": "Nie je nastavený žiadny server SMTP (Nastavenia → E-mail). Otvorte koncept v poštovej aplikácii, pripojte stiahnuté PDF a potom ho nižšie označte ako odoslaný.",
+      "markAsSent": "Označiť ako odoslané"
+    },
+    "sentLog": {
+      "when": "Kedy",
+      "document": "Dokument",
+      "to": "Komu",
+      "subject": "Predmet",
+      "status": "Stav",
+      "empty": "Zatiaľ nič neodoslané.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "odoslané",
+        "FAILED": "zlyhalo",
+        "MANUAL": "manuálne"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Ahoj, {name}",
+    "fiscalYear": "Fiškálny rok {year}",
+    "fiscalYearWithBase": "Fiškálny rok {year} · základná mena {currency} ({profile})",
+    "newCreditNote": "Nový dobropis",
+    "welcomeTitle": "Vitajte v {appName}",
+    "welcomeDescription": "Začnite vytvorením profilu vystavovateľa, z ktorého fakturujete, potom pridajte klienta a svoju prvú faktúru.",
+    "createProfile": "Vytvoriť váš profil",
+    "tiles": {
+      "outstanding": "Nezaplatené",
+      "overdue": "Po splatnosti",
+      "billedThisFy": "Fakturované tento FR",
+      "receivedThisFy": "Prijaté tento FR",
+      "drafts": "Koncepty",
+      "invoiceCount": "{count, plural, one {# faktúra} few {# faktúry} other {# faktúr}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Platby mínus vrátenia, pri zaznamenanom kurze",
+      "awaitingIssue": "čaká na vystavenie",
+      "nothingPending": "nič nečaká"
+    },
+    "recentInvoices": "Posledné faktúry",
+    "allInvoices": "Všetky faktúry",
+    "noInvoicesYet": "Zatiaľ žiadne faktúry.",
+    "columns": {
+      "number": "Číslo",
+      "client": "Klient",
+      "issued": "Vystavené"
+    },
+    "topClients": "Najlepší klienti podľa nezaplatenej sumy",
+    "nothingOutstanding": "Nič nie je nezaplatené."
+  },
+  "exports": {
+    "export": "Exportovať",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Faktúry",
+      "newInvoice": "Nová faktúra",
+      "draft": "Koncept",
+      "aDraft": "koncept",
+      "statuses": {
+        "draft": "Koncept",
+        "issued": "Vystavená",
+        "sent": "Odoslaná",
+        "partiallyPaid": "Čiastočne zaplatená",
+        "paid": "Zaplatená",
+        "overdue": "Po splatnosti",
+        "void": "Stornovaná"
+      },
+      "lifecycle": {
+        "draft": "koncept",
+        "issued": "vystavená",
+        "void": "stornovaná"
+      },
+      "units": {
+        "hour": "Hodina",
+        "day": "Deň",
+        "fixed": "Paušál",
+        "milestone": "Míľnik",
+        "unit": "Jednotka"
+      },
+      "unitsLower": {
+        "hour": "hodina",
+        "day": "deň",
+        "fixed": "paušál",
+        "milestone": "míľnik",
+        "unit": "jednotka"
+      },
+      "supplyTypes": {
+        "intraState": "v rámci štátu",
+        "interState": "medzi štátmi",
+        "exportLut": "export LUT",
+        "exportWithTax": "export s daňou",
+        "reverseCharge": "prenesenie daňovej povinnosti",
+        "notApplicable": "neuplatňuje sa"
+      }
+    },
+    "list": {
+      "description": "Koncepty, vystavené a stornované faktúry; stavy sa odvodzujú od platieb a dátumov splatnosti.",
+      "fiscalYear": "Fiškálny rok",
+      "issuer": "Vystavovateľ",
+      "client": "Klient",
+      "searchPlaceholder": "Číslo, objednávka, klient",
+      "emptyTitle": "Zatiaľ žiadne faktúry",
+      "emptyDescription": "Vytvorte svoju prvú faktúru: vyberte klienta, pridajte riadky, sledujte náhľad a potom ju vystavte.",
+      "columns": {
+        "number": "Číslo",
+        "client": "Klient",
+        "issuer": "Vystavovateľ",
+        "issueDate": "Dátum vystavenia",
+        "due": "Splatnosť",
+        "balance": "Zostatok"
+      },
+      "noMatches": "Týmto filtrom nezodpovedá žiadna faktúra.",
+      "count": "{count, plural, one {# faktúra} few {# faktúry} other {# faktúr}}",
+      "countPaged": "{count, plural, one {# faktúra} few {# faktúry} other {# faktúr}} · strana {page} z {pages}",
+      "register": "register"
+    },
+    "new": {
+      "noProfileTitle": "Najprv vytvorte profil vystavovateľa",
+      "noProfileDescription": "Faktúra sa vystavuje z právnej identity: nastavte svoj profil s daňovými identifikátormi a číslovaním.",
+      "createProfile": "Vytvoriť profil"
+    },
+    "edit": {
+      "metaTitle": "Upraviť faktúru",
+      "title": "Upraviť koncept",
+      "immutableFlash": "Vystavené faktúry sú nemenné. Na opravu použite „Stornovať a vystaviť znova“."
+    },
+    "detail": {
+      "metaTitle": "Faktúra",
+      "draftInvoice": "Koncept faktúry",
+      "issuedDue": "Vystavené <mono>{issued}</mono>, splatné <mono>{due}</mono>",
+      "replaces": "Nahrádza {number}",
+      "replacedBy": "Nahradená faktúrou {number}",
+      "previewPdf": "Náhľad PDF",
+      "issueTitle": "Vystaviť túto faktúru?",
+      "issueDescription": "Pridelí sa číslo a dokument sa stane nemenným.",
+      "issue": "Vystaviť",
+      "deleteDraftTitle": "Odstrániť tento koncept?",
+      "sendByEmail": "Odoslať e-mailom",
+      "recordPayment": "Zaznamenať platbu",
+      "creditNote": "Dobropis",
+      "markSentTitle": "Označiť ako odoslanú?",
+      "markSentDescription": "Zaznamená, že klient túto faktúru dostal.",
+      "markSent": "Označiť ako odoslanú",
+      "voidReissueTitle": "Stornovať a vystaviť znova?",
+      "voidReissueDescription": "Originál sa stornuje a otvorí sa prepojený koncept s rovnakým obsahom na úpravu.",
+      "voidReissue": "Stornovať a vystaviť znova",
+      "voidTitle": "Stornovať túto faktúru?",
+      "voidDescription": "Možné iba bez zaznamenaných platieb; číslo sa nikdy nepoužije znova.",
+      "void": "Stornovať",
+      "voided": "Stornované {date}: {reason}",
+      "amounts": "Sumy",
+      "subtotal": "Medzisúčet",
+      "discount": "Zľava",
+      "discountPercent": "Zľava ({percent})",
+      "rounding": "Zaokrúhlenie",
+      "tdsExpected": "Očakávaná TDS ({percent})",
+      "paid": "Zaplatené",
+      "credited": "Dobropisované",
+      "balanceDue": "Zostáva zaplatiť",
+      "supply": "Dodanie",
+      "fxToBase": "Kurz k základnej mene",
+      "poReference": "Referencia objednávky",
+      "sent": "Odoslaná",
+      "lineItems": "Riadkové položky",
+      "columns": {
+        "description": "Popis",
+        "sacHsn": "SAC/HSN",
+        "qty": "Množ.",
+        "rate": "Sadzba",
+        "tax": "Daň",
+        "amount": "Suma"
+      },
+      "creditNotes": "Dobropisy",
+      "storedDocuments": "Uložené dokumenty",
+      "storedDocumentsHint": "Uchováva sa každá verzia; stránka overenia uvádza všetky haše.",
+      "regenerateTitle": "Vygenerovať novú verziu PDF?",
+      "regenerateDescription": "Vygeneruje sa znova zo zmrazenej snímky (napríklad po oprave renderovania). Predchádzajúce verzie zostanú.",
+      "regenerate": "Vygenerovať",
+      "newVersion": "Nová verzia",
+      "renderedOnFirstDownload": "PDF sa vygeneruje pri prvom stiahnutí.",
+      "protectedCopy": "Kópia chránená heslom {version}",
+      "version": "Verzia {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Odkaz na overenie:",
+      "draftPreviewHint": "Náhľad konceptov je naživo v editore; stranu zobrazíte otvorením <link>PDF s vodoznakom</link>."
+    },
+    "history": {
+      "metaTitle": "História faktúry",
+      "title": "História <mono>{number}</mono>",
+      "reissueChain": "Reťaz opätovných vystavení",
+      "replaces": "Nahrádza <link>{number}</link>",
+      "replacedBy": "Nahradená faktúrou <link>{number}</link>",
+      "auditTrail": "Auditná stopa",
+      "columns": {
+        "when": "Kedy",
+        "who": "Kto",
+        "action": "Akcia",
+        "summary": "Zhrnutie"
+      },
+      "noEvents": "Zatiaľ žiadne udalosti.",
+      "system": "Systém",
+      "emails": "E-maily"
+    },
+    "payments": {
+      "title": "Platby",
+      "description": "{client} · spolu {total}",
+      "backToInvoice": "Späť na faktúru",
+      "ledger": "Kniha",
+      "columns": {
+        "date": "Dátum",
+        "kind": "Druh",
+        "applied": "Uplatnené",
+        "tds": "TDS",
+        "received": "Prijaté",
+        "reference": "Referencia",
+        "balance": "Zostatok"
+      },
+      "noPayments": "Zatiaľ nie sú zaznamenané žiadne platby.",
+      "kinds": {
+        "payment": "Platba",
+        "refund": "Vrátenie",
+        "writeOff": "Odpis"
+      },
+      "receipt": "Potvrdenka",
+      "deleteEntryTitle": "Odstrániť tento záznam?",
+      "deleteEntryDescription": "Zostatok faktúry sa prepočíta.",
+      "totals": "Súčty",
+      "invoiceTotal": "Spolu za faktúru",
+      "credited": "Dobropisované",
+      "refunds": "Vrátenia",
+      "writeOffs": "Odpisy",
+      "tdsDeducted": "Zrazená TDS",
+      "bankFees": "Bankové poplatky",
+      "balanceDue": "Zostáva zaplatiť",
+      "onlyIssued": "Platby prijímajú iba vystavené faktúry."
+    },
+    "send": {
+      "metaTitle": "Odoslať faktúru",
+      "title": "Odoslať <mono>{number}</mono>",
+      "alreadySent": "Už je označená ako odoslaná; ďalšie odoslanie pridá ďalší záznam v protokole.",
+      "previousSends": "Predchádzajúce odoslania"
+    },
+    "builder": {
+      "parties": "Strany",
+      "issuerProfile": "Profil vystavovateľa",
+      "client": "Klient",
+      "archivedOption": "{label} (archivované)",
+      "issueDate": "Dátum vystavenia",
+      "dueDate": "Dátum splatnosti",
+      "fxRate": "Kurz k základnej mene",
+      "fxHint": "1 {currency} = ? {base} (iba na vykazovanie)",
+      "poReference": "Referencia objednávky",
+      "lineItems": "Riadkové položky",
+      "lineItemsHint": "Vyberte z katalógu a skopírujte jeho hodnoty alebo zadajte riadok ručne.",
+      "taxDiscountTds": "Daň, zľava a TDS",
+      "taxRegime": "Daňový režim",
+      "regimes": {
+        "indiaGst": "Indická GST",
+        "ukVat": "Britská DPH (VAT)",
+        "usSalesTax": "Americká daň z predaja",
+        "none": "Bez dane"
+      },
+      "reverseCharge": "Prenesenie daňovej povinnosti",
+      "reverseChargeHint": "Daň platí príjemca",
+      "discount": "Zľava",
+      "percent": "Percento",
+      "amount": "Suma",
+      "rounding": "Úprava zaokrúhlenia",
+      "roundingHint": "Voliteľné, na celú jednotku; musí byť menšie ako 1",
+      "round": "Zaokrúhliť",
+      "tdsRate": "Očakávaná sadzba TDS (%)",
+      "tdsRateHint": "Informatívne; tlačí sa, keď je zapnutý rozpis TDS",
+      "paymentMethods": "Spôsoby platby",
+      "paymentMethodsHint": "Tlačia sa v poradí, v akom sú označené.",
+      "noPaymentMethods": "Žiadne aktívne spôsoby platby. <link>Pridať</link>.",
+      "whatPrints": "Čo sa tlačí",
+      "whatPrintsHint": "Začína od predvolených hodnôt profilu vystavovateľa.",
+      "notesAndTerms": "Poznámky a podmienky",
+      "notes": "Poznámky",
+      "terms": "Podmienky",
+      "saveDraft": "Uložiť koncept",
+      "issuing": "Vystavuje sa…",
+      "saveAndIssue": "Uložiť a vystaviť",
+      "subtotal": "Medzisúčet",
+      "tax": "Daň",
+      "tdsExpected": "Očakávaná TDS",
+      "netExpected": "Očakávaná čistá suma"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Pridať z katalógu…",
+      "services": "Služby",
+      "products": "Produkty",
+      "addLine": "Pridať riadok",
+      "columns": {
+        "description": "Popis",
+        "sacHsn": "SAC/HSN",
+        "qty": "Množ.",
+        "unit": "Jednotka",
+        "rate": "Sadzba",
+        "taxPercent": "Daň %"
+      },
+      "aria": {
+        "description": "Popis riadku {line}",
+        "sacHsn": "SAC/HSN riadku {line}",
+        "quantity": "Množstvo riadku {line}",
+        "unit": "Jednotka riadku {line}",
+        "rate": "Sadzba riadku {line}",
+        "taxRate": "Daňová sadzba riadku {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Oslobodené",
+      "moveUp": "Posunúť vyššie",
+      "moveDown": "Posunúť nižšie",
+      "removeLine": "Odstrániť riadok",
+      "shortcutHint": "Ctrl/⌘+Enter v popise pridá riadok.",
+      "addFromCatalogueAria": "Pridať z katalógu"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Údaje vystavovateľa",
+        "client": "Údaje klienta",
+        "document": "Sekcie dokumentu"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Obchodný názov",
+        "showDesignation": "Funkcia",
+        "showEmail": "E-mail",
+        "showPhone": "Telefón",
+        "showWebsite": "Webové sídlo",
+        "showFullAddress": "Úplná adresa",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Podpis",
+        "showStamp": "Pečiatka",
+        "showContactPerson": "Kontaktná osoba",
+        "showBillingAddress": "Fakturačná adresa",
+        "showShippingAddress": "Dodacia adresa",
+        "showTaxIdentifier": "Daňový identifikátor",
+        "showPlaceOfSupply": "Miesto dodania",
+        "showDueDate": "Dátum splatnosti",
+        "showPaymentTerms": "Platobné podmienky",
+        "showSacCodeColumn": "Stĺpec kódu SAC",
+        "showQuantityColumn": "Stĺpec množstva",
+        "showUnitPriceColumn": "Stĺpec jednotkovej ceny",
+        "showTaxColumn": "Stĺpec dane",
+        "showTdsBreakdown": "Rozpis TDS",
+        "showQrVerification": "Overenie QR kódom",
+        "showNotes": "Poznámky",
+        "showTerms": "Podmienky",
+        "showReplacesReference": "Referencia nahradenia",
+        "showAmountInWords": "Suma slovami",
+        "showSupplyStatement": "Vyhlásenie o dodaní",
+        "showRoundingLine": "Riadok zaokrúhlenia",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Klienti",
+      "description": "Všetci, ktorým fakturujete. Klienti s faktúrami sa archivujú, nikdy neodstraňujú.",
+      "newClient": "Nový klient",
+      "searchPlaceholder": "Hľadať podľa mena",
+      "searchLabel": "Hľadať klientov",
+      "emptyTitle": "Zatiaľ žiadni klienti",
+      "emptyDescription": "Pridajte ľudí a spoločnosti, ktorým fakturujete; ich mena a platobné podmienky vyplnia každú faktúru.",
+      "addClient": "Pridať klienta",
+      "noMatch": "„{q}“ nezodpovedá žiadny klient.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Názov",
+        "contact": "Kontakt",
+        "email": "E-mail",
+        "country": "Krajina",
+        "currency": "Mena",
+        "terms": "Podmienky",
+        "status": "Stav"
+      }
+    },
+    "new": {
+      "title": "Nový klient"
+    },
+    "edit": {
+      "metaTitle": "Upraviť klienta",
+      "title": "Upraviť {name}"
+    },
+    "detail": {
+      "metaTitle": "Klient",
+      "newInvoice": "Nová faktúra",
+      "restoreTitle": "Obnoviť tohto klienta?",
+      "archiveTitle": "Archivovať tohto klienta?",
+      "archiveDescription": "Zmizne z výberov; faktúry a história zostanú nedotknuté.",
+      "deleteTitle": "Odstrániť tohto klienta?",
+      "deleteDescription": "Možné iba vtedy, keď na klienta neodkazuje žiadna faktúra.",
+      "details": "Podrobnosti",
+      "contact": "Kontakt",
+      "email": "E-mail",
+      "phone": "Telefón",
+      "country": "Krajina",
+      "gstState": "GST {code}",
+      "taxId": "Daňové ID",
+      "currency": "Mena",
+      "paymentTerms": "Platobné podmienky",
+      "paymentTermsDays": "{days} dní",
+      "expectedTds": "Očakávaná TDS",
+      "notes": "Poznámky",
+      "addresses": "Adresy",
+      "billing": "Fakturačná",
+      "shipping": "Dodacia",
+      "lifetime": "Celkovo",
+      "openRegister": "Otvoriť register",
+      "noIssued": "Zatiaľ žiadne vystavené faktúry.",
+      "noIssuedWithDrafts": "Zatiaľ žiadne vystavené faktúry (koncepty: {drafts}).",
+      "firstLatest": "Prvá faktúra <mono>{first}</mono>, posledná <mono>{latest}</mono>{drafts, plural, =0 {} one { · # koncept} few { · # koncepty} other { · # konceptov}}",
+      "lifetimeColumns": {
+        "currency": "Mena",
+        "invoices": "Faktúry",
+        "billed": "Fakturované",
+        "received": "Prijaté",
+        "credited": "Dobropisované",
+        "outstanding": "Nezaplatené",
+        "overdue": "Po splatnosti"
+      },
+      "recentInvoices": "Posledné faktúry",
+      "noInvoices": "Zatiaľ žiadne faktúry pre tohto klienta.",
+      "recentColumns": {
+        "number": "Číslo",
+        "issueDate": "Dátum vystavenia",
+        "due": "Splatnosť",
+        "total": "Spolu",
+        "balance": "Zostatok",
+        "status": "Stav"
+      }
+    },
+    "form": {
+      "cardTitle": "Klient",
+      "displayName": "Zobrazované meno",
+      "contactPerson": "Kontaktná osoba",
+      "email": "E-mail",
+      "phone": "Telefón",
+      "taxIdType": "Typ daňového ID",
+      "taxIdTypeNone": "Žiadne",
+      "taxId": "Daňové ID",
+      "currency": "Mena",
+      "paymentTerms": "Platobné podmienky (dni)",
+      "expectedTdsRate": "Očakávaná sadzba TDS (%)",
+      "notes": "Poznámky",
+      "billingAddress": "Fakturačná adresa",
+      "shippingAddress": "Dodacia adresa",
+      "differentFromBilling": "Odlišná od fakturačnej",
+      "save": "Uložiť klienta"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Hodina",
+      "DAY": "Deň",
+      "FIXED": "Paušál",
+      "MILESTONE": "Míľnik",
+      "UNIT": "Jednotka"
+    },
+    "list": {
+      "activate": "Aktivovať",
+      "deactivate": "Deaktivovať",
+      "archiveDescription": "Existujúce riadky faktúr si ponechajú skopírované hodnoty.",
+      "deleteDescription": "Možné iba vtedy, keď naň neodkazuje žiadny riadok faktúry. Inak ho archivujte.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Názov",
+        "unit": "Jednotka",
+        "rate": "Sadzba",
+        "price": "Cena",
+        "currency": "Mena",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Daň",
+        "status": "Stav"
+      }
+    },
+    "services": {
+      "title": "Služby",
+      "description": "Váš katalóg. Výber služby skopíruje jej hodnoty do riadku faktúry.",
+      "newService": "Nová služba",
+      "emptyTitle": "Zatiaľ žiadne služby",
+      "emptyDescription": "Pridajte, čo predávate - hodinový dizajn, míľnik s pevným poplatkom - s kódom SAC/HSN a daňovou sadzbou.",
+      "addService": "Pridať službu",
+      "restoreTitle": "Obnoviť {name}?",
+      "archiveTitle": "Archivovať {name}?",
+      "deleteTitle": "Odstrániť {name}?",
+      "editMetaTitle": "Upraviť službu",
+      "editTitle": "Upraviť {name}"
+    },
+    "products": {
+      "title": "Produkty",
+      "description": "Tovar, ktorý predávate, každý s SKU. Výber produktu skopíruje jeho hodnoty do riadku faktúry.",
+      "newProduct": "Nový produkt",
+      "emptyTitle": "Zatiaľ žiadne produkty",
+      "emptyDescription": "Pridajte tovar, ktorý predávate, s SKU, kódom HSN, jednotkovou cenou a daňovou sadzbou.",
+      "addProduct": "Pridať produkt",
+      "restoreTitle": "Obnoviť {sku}?",
+      "archiveTitle": "Archivovať {sku}?",
+      "deleteTitle": "Odstrániť {sku}?",
+      "editMetaTitle": "Upraviť produkt",
+      "editTitle": "Upraviť {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Jedinečný kód vytlačený pod popisom riadku",
+      "name": "Názov",
+      "unit": "Jednotka",
+      "defaultRate": "Predvolená sadzba",
+      "unitPrice": "Jednotková cena",
+      "currency": "Mena",
+      "sacHsnCode": "Kód SAC / HSN",
+      "sacHsnHint": "Povinné na faktúrach s GST",
+      "hsnCode": "Kód HSN",
+      "hsnHint": "Povinné na faktúrach s GST pri tovare",
+      "defaultTaxRate": "Predvolená daňová sadzba (%)",
+      "description": "Popis",
+      "descriptionHint": "Predvyplní popis riadku",
+      "active": "Aktívny",
+      "serviceInactiveHint": "Neaktívne služby sa nezobrazujú vo výbere faktúry",
+      "productInactiveHint": "Neaktívne produkty sa nezobrazujú vo výbere faktúry",
+      "saveService": "Uložiť službu",
+      "saveProduct": "Uložiť produkt"
+    },
+    "tags": {
+      "legend": "Profily",
+      "hint": "Označte profily vystavovateľa, ktoré to predávajú. Ak nenecháte označený žiadny, ponúkne sa každému profilu."
+    }
+  },
+  "address": {
+    "line1": "Riadok adresy 1",
+    "line2": "Riadok adresy 2",
+    "city": "Mesto",
+    "stateRegion": "Štát / región",
+    "postalCode": "PSČ",
+    "country": "Krajina",
+    "state": "Štát",
+    "gstStateCodeHint": "Kód štátu GST {code}",
+    "pickStateHint": "Vyberte štát pre kód štátu GST",
+    "stateRegionCode": "Kód štátu / regiónu",
+    "stateRegionCodePlaceholder": "napr. CA"
+  },
+  "assets": {
+    "tooLarge": "Tento súbor je príliš veľký.",
+    "unsupportedReceipt": "Použite obrázok PNG, JPEG, WebP alebo PDF.",
+    "unsupportedImage": "Použite obrázok PNG, JPEG alebo WebP.",
+    "uploadFailed": "Nahrávanie zlyhalo.",
+    "uploading": "Nahráva sa…"
+  },
+  "ui": {
+    "breadcrumb": "Cesta stránky",
+    "close": "Zavrieť",
+    "closeMenu": "Zavrieť ponuku",
+    "inputCharset": "Povolené sú iba štandardné znaky klávesnice.",
+    "confirm": {
+      "working": "Pracuje sa…"
+    },
+    "statusPill": {
+      "DRAFT": "Koncept",
+      "ISSUED": "Vystavená",
+      "SENT": "Odoslaná",
+      "PARTIALLY_PAID": "Čiastočne zaplatená",
+      "PAID": "Zaplatená",
+      "OVERDUE": "Po splatnosti",
+      "VOID": "Stornovaná"
+    },
+    "activePill": {
+      "active": "Aktívne",
+      "archived": "Archivované",
+      "inactive": "Neaktívne"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Niečo sa pokazilo.",
+    "fixFields": "Opravte prosím zvýraznené polia.",
+    "accountSaved": "Predvoľby účtu boli uložené",
+    "apiKeyCreated": "Kľúč API bol vytvorený. Skopírujte ho teraz: zobrazí sa iba raz.",
+    "saved": "{name} bolo uložené",
+    "savedProfile": "Profil {label} bol uložený",
+    "clientArchived": "Klient bol archivovaný",
+    "clientRestored": "Klient bol obnovený",
+    "clientDeleted": "Klient bol odstránený",
+    "productArchived": "Produkt bol archivovaný",
+    "productRestored": "Produkt bol obnovený",
+    "productActivated": "Produkt bol aktivovaný",
+    "productDeactivated": "Produkt bol deaktivovaný",
+    "serviceArchived": "Služba bola archivovaná",
+    "serviceRestored": "Služba bola obnovená",
+    "serviceActivated": "Služba bola aktivovaná",
+    "serviceDeactivated": "Služba bola deaktivovaná",
+    "defaultProfileUpdated": "Predvolený profil bol aktualizovaný",
+    "profileArchived": "Profil bol archivovaný",
+    "profileRestored": "Profil bol obnovený",
+    "profileDeleted": "Profil bol odstránený",
+    "defaultPaymentMethodUpdated": "Predvolený spôsob platby bol aktualizovaný",
+    "paymentMethodArchived": "Spôsob platby bol archivovaný",
+    "paymentMethodRestored": "Spôsob platby bol obnovený",
+    "paymentMethodDeleted": "Spôsob platby bol odstránený",
+    "issued": "Vystavené {number}",
+    "savedAsDraft": "Uložené ako koncept. {reason}",
+    "draftSaved": "Koncept bol uložený",
+    "invoiceVoided": "Faktúra bola stornovaná",
+    "originalVoided": "Originál bol stornovaný; upravte náhradný koncept",
+    "markedAsSent": "Označené ako odoslané",
+    "draftDeleted": "Koncept bol odstránený",
+    "generatedPdf": "Bola vygenerovaná verzia PDF {version}",
+    "creditNoteVoided": "Dobropis bol stornovaný; zostatok faktúry bol obnovený",
+    "draftCreditNoteDeleted": "Koncept dobropisu bol odstránený",
+    "mailRefused": "Poštový server správu odmietol: {error}. Pokus bol zaznamenaný.",
+    "unknownError": "neznáma chyba",
+    "sentTo": "Odoslané na {recipients}",
+    "smtpSaved": "Nastavenia SMTP boli uložené",
+    "smtpRemoved": "Uložené nastavenia SMTP boli odstránené",
+    "testEmailSent": "Testovací e-mail bol odoslaný na {email}",
+    "testFailed": "Test zlyhal: {error}",
+    "defaultRecipientsSaved": "Predvolení príjemcovia boli uložení",
+    "invitationSent": "Pozvánka bola odoslaná",
+    "invitationReady": "Pozvánka je pripravená",
+    "unknownRole": "Neznáma rola",
+    "roleUpdated": "Rola bola aktualizovaná",
+    "accountDeactivated": "Účet bol deaktivovaný",
+    "accountReactivated": "Účet bol znova aktivovaný",
+    "invitationRevoked": "Pozvánka bola zrušená",
+    "paymentUpdated": "Platba bola aktualizovaná",
+    "paymentRecorded": "Platba bola zaznamenaná",
+    "paymentDeleted": "Platba bola odstránená",
+    "sessionRevoked": "Relácia bola zrušená",
+    "noOtherSessions": "Žiadne iné relácie",
+    "signedOutOthers": "Odhlásené z {count} ďalších relácií",
+    "sharePasswordRequired": "Zadajte heslo alebo nechajte jedno vygenerovať.",
+    "shareLinkCreated": "Odkaz na zdieľanie bol vytvorený.",
+    "templateSaved": "Šablóna bola uložená; budúce dokumenty ju použijú",
+    "templateReset": "Šablóna bola obnovená na vstavanú predvolenú",
+    "templateImported": "Šablóna bola importovaná",
+    "profileTemplateCleared": "Profil opäť používa šablónu inštancie",
+    "operatorSaved": "Údaje prevádzkovateľa boli uložené. Právne stránky ich teraz zobrazujú."
+  }
+}
