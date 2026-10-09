@@ -32,7 +32,6 @@ const STRENGTH_KEY = {
 
 function CopyButton({ value, label }: { value: string; label: string }) {
   const t = useTranslations("share.dialog");
-  const locale = useLocale();
   const [done, setDone] = React.useState(false);
   return (
     <Button
