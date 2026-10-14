@@ -64,6 +64,7 @@ spec:
               valueFrom: { secretKeyRef: { name: okinvo-secrets, key: POSTGRES_PASSWORD } }
           securityContext:
             allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true # Wiki.js writes only under /wiki/data (cache, uploads) and /tmp
             capabilities:
               drop: ["ALL"]
           volumeMounts:
