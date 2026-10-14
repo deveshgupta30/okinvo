@@ -1,6 +1,8 @@
 import type { Address, PaymentMethodsSnapshot, TaxRegime } from "@/lib/schemas";
 import type { UnitType } from "@/lib/schemas/service-input";
 import type { SupplyType } from "@/lib/tax";
+import { D, type Decimal } from "@/lib/money";
+import type { CreditNoteDto } from "@/server/dal/credit-notes";
 import type { InvoiceDto } from "@/server/dal/invoices";
 
 /**
@@ -83,6 +85,10 @@ export interface EInvoiceInput {
   poReference?: string | undefined;
   buyerReference?: string | undefined;
   notes?: string | undefined;
+  /** Payment terms text printed on the invoice. */
+  terms?: string | undefined;
+  /** For a credit note: the invoice it corrects. */
+  creditedInvoice?: { number: string; issueDate: string } | undefined;
 }
 
 const def = <T>(v: T | null | undefined): T | undefined => (v === null ? undefined : v);
@@ -171,5 +177,105 @@ export function einvoiceInputFromInvoice(inv: InvoiceDto): EInvoiceInput {
     poReference: def(inv.poReference),
     buyerReference: c.buyerReference,
     notes: def(inv.notes),
+    terms: def(inv.terms),
+  };
+}
+
+/**
+ * An issued credit note as e-invoice input. A credit note carries an amount and a reason, not
+ * items (SPEC §4.8): it becomes one line per taxable amount, the rate being the sum of the tax
+ * lines on that amount (CGST 9 + SGST 9 = 18), described by the reason.
+ */
+export function einvoiceInputFromCreditNote(cn: CreditNoteDto): EInvoiceInput {
+  if (!cn.snapshot || !cn.number) {
+    throw new Error("Only issued credit notes have the snapshots an e-invoice is built from.");
+  }
+  const { issuer: i, client: c, invoice } = cn.snapshot;
+  const byAmount = new Map<string, { rate: Decimal; taxAmount: Decimal }>();
+  for (const t of cn.taxLines) {
+    const cur = byAmount.get(t.taxableAmount) ?? { rate: D(0), taxAmount: D(0) };
+    byAmount.set(t.taxableAmount, {
+      rate: cur.rate.plus(t.rate),
+      taxAmount: cur.taxAmount.plus(t.taxAmount),
+    });
+  }
+  const groups =
+    byAmount.size > 0
+      ? [...byAmount.entries()]
+      : [[cn.subtotal, { rate: D(0), taxAmount: D(0) }] as const];
+  const lines: EInvoiceLine[] = groups.map(([taxable, g], idx) => ({
+    position: idx + 1,
+    description: cn.reason,
+    unitType: "FIXED",
+    quantity: "1.000",
+    unitPrice: taxable,
+    lineSubtotal: taxable,
+    taxRate: g.rate.toString(),
+    taxExempt: false,
+    taxAmount: g.taxAmount.toFixed(2),
+    lineTotal: D(taxable).plus(g.taxAmount).toFixed(2),
+  }));
+  return {
+    kind: "CREDIT_NOTE",
+    number: cn.number,
+    issueDate: cn.issueDate,
+    currency: cn.currency,
+    fxRateToBase: "1",
+    taxRegime: invoice.taxRegime,
+    supplyType: cn.supplyType,
+    isReverseCharge: cn.supplyType === "REVERSE_CHARGE",
+    placeOfSupply: invoice.placeOfSupply,
+    documentLocale: cn.documentLocale,
+    issuer: {
+      legalName: i.legalName,
+      tradeName: i.tradeName,
+      gstin: i.gstin,
+      pan: i.pan,
+      email: i.email,
+      phone: i.phone,
+      address: i.address,
+      addressLines: i.addressLines,
+      countryCode: i.countryCode,
+      stateCode: i.stateCode,
+      gstStateCode: i.gstStateCode,
+      electronicAddress: i.electronicAddress,
+      electronicAddressScheme: i.electronicAddressScheme,
+    },
+    client: {
+      legalName: c.displayName,
+      taxIdType: c.taxIdType,
+      taxId: c.taxId,
+      email: c.email,
+      phone: c.phone,
+      address: c.address,
+      addressLines: c.billingAddressLines,
+      countryCode: c.countryCode,
+      stateCode: c.stateCode,
+      gstStateCode: c.gstStateCode,
+      electronicAddress: c.electronicAddress,
+      electronicAddressScheme: c.electronicAddressScheme,
+      paymentTermsDays: c.paymentTermsDays,
+    },
+    lines,
+    taxLines: cn.taxLines.map((t) => ({
+      taxType: t.taxType,
+      rate: t.rate,
+      taxableAmount: t.taxableAmount,
+      taxAmount: t.taxAmount,
+    })),
+    totals: {
+      subtotal: cn.subtotal,
+      discountAmount: "0.00",
+      taxableAmount: cn.subtotal,
+      taxAmount: cn.taxAmount,
+      roundingAdjustment: cn.roundingAdjustment,
+      total: cn.total,
+      tdsRate: "0",
+      tdsExpected: "0.00",
+    },
+    paymentMethods: [],
+    buyerReference: c.buyerReference,
+    notes: cn.reason,
+    creditedInvoice: { number: invoice.number, issueDate: invoice.issueDate },
   };
 }

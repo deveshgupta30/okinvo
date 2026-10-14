@@ -29,7 +29,7 @@ import {
 import { requireRole } from "@/server/auth";
 import { hasRole } from "@/server/dal/authz";
 import { assetUrl, renderInputFromInvoice, verificationQr } from "@/server/dal/documents";
-import { einvoiceConnectorFor } from "@/server/dal/einvoice-settings";
+import { einvoiceConnectorFor, euProfileFor } from "@/server/dal/einvoice-settings";
 import { NotFoundError } from "@/server/dal/errors";
 import { getInvoice } from "@/server/dal/invoices";
 import { listShareLinks } from "@/server/dal/share-links";
@@ -75,6 +75,7 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
   const isDraft = inv.status === "DRAFT";
   const isIssued = inv.status === "ISSUED";
   const latestDoc = inv.documents[inv.documents.length - 1] ?? null;
+  const euProfile = !isDraft && (await euProfileFor(inv.issuerProfileId)) === "EN16931";
   const shareLinks = !isDraft && canEdit ? await listShareLinks(actor, "INVOICE", id) : [];
   const showEInvoice = isIssued && inv.taxRegime === "INDIA_GST" && inv.issuer.einvoiceEnabled;
   const einvoiceConnector = showEInvoice ? await einvoiceConnectorFor(inv.issuerProfileId) : null;
@@ -198,6 +199,16 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
                   <Button asChild variant="secondary">
                     <a href={`/api/documents/einvoice/${id}?format=gst`}>{t("downloadEInvoice")}</a>
                   </Button>
+                ) : null}
+                {euProfile ? (
+                  <>
+                    <Button asChild variant="secondary">
+                      <a href={`/api/documents/einvoice/${id}?format=cii`}>{tc("downloadCii")}</a>
+                    </Button>
+                    <Button asChild variant="secondary">
+                      <a href={`/api/documents/einvoice/${id}?format=ubl`}>{tc("downloadUbl")}</a>
+                    </Button>
+                  </>
                 ) : null}
                 {isIssued && canEdit ? (
                   <>

@@ -263,6 +263,28 @@ describe.skipIf(!url)("invoice DAL", () => {
       expect(res.status).toBe(200);
       expect(res.headers.get("content-disposition")).toContain("-einvoice.json");
       expect(((await res.json()) as { DocDtls: { No: string } }).DocDtls.No).toBe(issued.number);
+      // the EN 16931 outputs serve XML under their own file names
+      for (const format of ["cii", "ubl"] as const) {
+        const xml = await route.GET(
+          new Request(`http://127.0.0.1:3000/api/documents/einvoice/${d.id}?format=${format}`, {
+            headers: { authorization: `Bearer ${key}` },
+          }),
+          { params: Promise.resolve({ id: d.id }) },
+        );
+        expect(xml.status).toBe(200);
+        expect(xml.headers.get("content-type")).toContain("application/xml");
+        expect(xml.headers.get("content-disposition")).toContain(`-${format}.xml`);
+        const body = await xml.text();
+        expect(body).toContain(format === "cii" ? "rsm:CrossIndustryInvoice" : "<Invoice");
+        expect(body).toContain(issued.number!);
+      }
+      const bad = await route.GET(
+        new Request(`http://127.0.0.1:3000/api/documents/einvoice/${d.id}?format=pdf`, {
+          headers: { authorization: `Bearer ${key}` },
+        }),
+        { params: Promise.resolve({ id: d.id }) },
+      );
+      expect(bad.status).toBe(400);
     } finally {
       await prisma.apiKey.deleteMany({ where: { userId: keyUserId } });
       await prisma.auditEvent.deleteMany({ where: { actorId: keyUserId } }).catch(() => undefined);
