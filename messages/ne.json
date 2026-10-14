@@ -840,6 +840,9 @@
         "username": "प्रयोगकर्ता नाम",
         "password": "पासवर्ड",
         "gstin": "GSTIN",
+        "publicKey": "IRP सार्वजनिक कुञ्जी (PEM)",
+        "publicKeyHint": "साइन इन गरेपछि पोर्टलबाट डाउनलोड गर्नुहोस्; यसले IRP लाई पठाइने प्रमाणपत्रहरूलाई बेरेर सुरक्षित राख्छ.",
+        "publicKeyStored": "सुरक्षित गरिएको छ; राख्न खाली छोड्नुहोस्.",
         "secretStored": "इन्क्रिप्ट गरेर राखिएको; राख्न खाली छोड्नुहोस्।",
         "secretEncrypted": "भण्डारणमा इन्क्रिप्ट गरेर राखिएको।"
       },
@@ -1399,7 +1402,11 @@
       "taxId": "कर ID",
       "void": "रद्द",
       "draftWatermark": "मस्यौदा - कर बिजक होइन",
-      "paymentTermsDays": "{days} दिन"
+      "paymentTermsDays": "{days} दिन",
+      "irn": "IRN",
+      "ackNo": "प्राप्ति नं.",
+      "ackDate": "प्राप्ति मिति",
+      "einvoiceCancelled": "ई-बिजक रद्द"
     },
     "ui": {
       "pageEstimate": "लगभग {count, plural, one {# पृष्ठ} other {# पृष्ठ}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "यी फिल्टरसँग मेल खाने कुनै बिजक छैन।",
       "count": "{count, plural, one {# बिजक} other {# बिजक}}",
       "countPaged": "{count, plural, one {# बिजक} other {# बिजक}} · {pages} मध्ये पृष्ठ {page}",
-      "register": "दर्ता"
+      "register": "दर्ता",
+      "einvoice": "ई-बिजक",
+      "einvoiceFilters": {
+        "registered": "IRN दर्ता भएको",
+        "none": "दर्ता भएको छैन",
+        "cancelled": "IRN रद्द"
+      }
     },
     "new": {
       "noProfileTitle": "पहिले जारीकर्ता प्रोफाइल बनाउनुहोस्",
@@ -1611,7 +1624,41 @@
       "version": "संस्करण {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "प्रमाणीकरण लिङ्क:",
-      "draftPreviewHint": "मस्यौदाको पूर्वावलोकन सम्पादकमै प्रत्यक्ष देखिन्छ; पृष्ठ हेर्न <link>वाटरमार्क भएको PDF</link> खोल्नुहोस्।"
+      "draftPreviewHint": "मस्यौदाको पूर्वावलोकन सम्पादकमै प्रत्यक्ष देखिन्छ; पृष्ठ हेर्न <link>वाटरमार्क भएको PDF</link> खोल्नुहोस्।",
+      "einvoice": {
+        "title": "ई-बिजक (भारत)",
+        "description": "यो बिजकलाई इनभ्वाइस रजिस्ट्रेसन पोर्टलमा दर्ता गर्ने कार्य; दर्ता भएको कागजातमा यसको IRN र पोर्टलको हस्ताक्षरित QR छापिन्छ.",
+        "connector": "कनेक्टर",
+        "connectors": {
+          "manual": "म्यानुअल",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "यो प्रोफाइलका लागि सेटिङहरू > ई-इनभ्वाइसिङ अन्तर्गत कुनै कनेक्टर कन्फिगर गरिएको छैन.",
+        "statuses": {
+          "none": "दर्ता भएको छैन",
+          "generated": "JSON तयार",
+          "registered": "दर्ता भयो",
+          "cancelled": "रद्द",
+          "failed": "दर्ता असफल"
+        },
+        "irn": "IRN",
+        "ackNo": "प्राप्ति नं.",
+        "ackDate": "प्राप्ति मिति",
+        "cancelReason": "रद्दीकरण",
+        "generate": "IRN सिर्जना गर्नुहोस्",
+        "pasteLabel": "IRP प्रतिक्रिया",
+        "pasteHint": "यो बिजकको ई-बिजक JSON का लागि पोर्टल वा तपाईंको GSP ले फर्काएको JSON टाँस्नुहोस् (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN अभिलेख गर्नुहोस्",
+        "cancelReasonLabel": "रद्दीकरणको कारण",
+        "cancelReasons": {
+          "1": "दोहोरिएको",
+          "2": "डेटा प्रविष्टिमा गल्ती",
+          "3": "अर्डर रद्द",
+          "4": "अन्य"
+        },
+        "cancel": "IRN रद्द गर्नुहोस्",
+        "cancelWindow": "पोर्टलले प्राप्ति पुष्टिको 24 घण्टाभित्र रद्द गर्न दिन्छ."
+      }
     },
     "history": {
       "metaTitle": "बिजकको इतिहास",
@@ -2078,6 +2125,9 @@
     "templateImported": "टेम्प्लेट आयात गरियो",
     "profileTemplateCleared": "प्रोफाइलले फेरि इन्स्टेन्स टेम्प्लेट प्रयोग गर्छ",
     "operatorSaved": "सञ्चालकको विवरण सुरक्षित गरियो। कानुनी पृष्ठहरूले अब यिनलाई देखाउँछन्।",
-    "einvoiceSettingsSaved": "ई-इनभ्वाइसिङ सेटिङहरू सुरक्षित गरियो"
+    "einvoiceSettingsSaved": "ई-इनभ्वाइसिङ सेटिङहरू सुरक्षित गरियो",
+    "irnRegistered": "IRN {irn} दर्ता भयो; PDF त्यसै सहित पुनः तयार गरियो",
+    "irnRecorded": "IRN अभिलेख गरियो; PDF त्यसै सहित पुनः तयार गरियो",
+    "irnCancelled": "IRN रद्द गरियो; PDF पुनः तयार गरियो"
   }
 }

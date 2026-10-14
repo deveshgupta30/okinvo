@@ -840,6 +840,9 @@
         "username": "Username",
         "password": "Password",
         "gstin": "GSTIN",
+        "publicKey": "ܩܠܝܕܐ ܓܘܢܝܐ ܕ IRP (PEM)",
+        "publicKeyHint": "ܚܬ ܐܢܗ ܡܢ ܦܘܪܛܠ ܒܬܪ ܥܠܬܐ؛ ܐܘܟܝܠܐ ܕܡܬܫܕܪܝܢ ܠ IRP ܡܟܣܝ.",
+        "publicKeyStored": "ܡܛܝܪ؛ ܫܒܘܩ ܣܪܝܩܐ ܠܡܛܪ.",
         "secretStored": "ܢܛܝܪ encrypted; ܫܒܘܩ ܣܪܝܩܐ ܕܬܢܛܪܝܘܗܝ.",
         "secretEncrypted": "ܢܛܝܪ encrypted ܒܙܒܢܐ ܕܢܛܝܪܘܬܐ."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ܡܘܙܗܘܬܐ ܕܡܟܣܐ",
       "void": "ܒܛܝܠܐ",
       "draftWatermark": "ܪܫܘܡܐ - ܠܐ ܚܘܫܒܢܐ ܕܡܟܣܐ",
-      "paymentTermsDays": "{days} ܝܘܡܢ̈ܐ"
+      "paymentTermsDays": "{days} ܝܘܡܢ̈ܐ",
+      "irn": "IRN",
+      "ackNo": "ܡܢܝܢܐ ܕܩܘܒܠܐ",
+      "ackDate": "ܝܘܡܢܐ ܕܩܘܒܠܐ",
+      "einvoiceCancelled": "ܚܘܫܒܢܐ ܐܠܩܛܪܘܢܝܐ ܒܛܝܠ"
     },
     "ui": {
       "pageEstimate": "approx. {count, plural, one {# page} other {# pages}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "ܠܝܬ invoices ܕܡܬܚܘܬܝܢ ܠfilters ܗܠܝܢ.",
       "count": "{count, plural, one {# invoice} other {# invoices}}",
       "countPaged": "{count, plural, one {# invoice} other {# invoices}} · page {page} of {pages}",
-      "register": "register"
+      "register": "register",
+      "einvoice": "ܚܘܫܒܢܐ ܐܠܩܛܪܘܢܝܐ",
+      "einvoiceFilters": {
+        "registered": "IRN ܪܫܝܡ",
+        "none": "ܠܐ ܪܫܝܡ",
+        "cancelled": "IRN ܒܛܝܠ"
+      }
     },
     "new": {
       "noProfileTitle": "ܒܪܝ issuer profile ܩܕܡܝܐ",
@@ -1611,7 +1624,41 @@
       "version": "Version {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Verification link:",
-      "draftPreviewHint": "Drafts preview live ܒeditor; ܦܬܚ <link>watermarked PDF</link> ܕܬܚܙܐ ܠܦܬܝܬܐ."
+      "draftPreviewHint": "Drafts preview live ܒeditor; ܦܬܚ <link>watermarked PDF</link> ܕܬܚܙܐ ܠܦܬܝܬܐ.",
+      "einvoice": {
+        "title": "ܚܘܫܒܢܐ ܐܠܩܛܪܘܢܝܐ (ܗܢܕܘ)",
+        "description": "ܪܫܘܡܐ ܕܗܢܐ ܚܘܫܒܢܐ ܒܦܘܪܛܠ ܕܪܫܘܡܐ ܕܚܘܫܒܢܐ؛ ܡܟܬܒܢܘܬܐ ܪܫܝܡܬܐ ܡܛܒܥܐ IRN ܕܝܠܗ ܘ QR ܚܬܝܡܐ ܕܦܘܪܛܠ.",
+        "connector": "ܡܚܒܪܢܐ",
+        "connectors": {
+          "manual": "ܐܝܕܝܐ",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "ܠܐ ܐܝܬ ܡܚܒܪܢܐ ܡܬܬܩܢ ܠܗܢܐ ܦܪܘܦܐܝܠ ܬܚܝܬ Settings > E-invoicing.",
+        "statuses": {
+          "none": "ܠܐ ܪܫܝܡ",
+          "generated": "JSON ܐܬܒܪܝ",
+          "registered": "ܪܫܝܡ",
+          "cancelled": "ܒܛܝܠ",
+          "failed": "ܪܫܡܐ ܦܫܠ"
+        },
+        "irn": "IRN",
+        "ackNo": "ܡܢܝܢܐ ܕܩܘܒܠܐ",
+        "ackDate": "ܝܘܡܢܐ ܕܩܘܒܠܐ",
+        "cancelReason": "ܒܛܠܢܐ",
+        "generate": "ܒܪܝ IRN",
+        "pasteLabel": "ܦܘܪܥܢܐ ܕ IRP",
+        "pasteHint": "ܠܨܘܩ JSON ܕܗܦܟ ܦܘܪܛܠ ܐܘ GSP ܕܝܠܟ ܠܚܘܫܒܢܐ ܐܠܩܛܪܘܢܝܐ JSON ܕܗܢܐ ܚܘܫܒܢܐ (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "ܪܫܘܡ IRN",
+        "cancelReasonLabel": "ܥܠܬܐ ܕܒܛܠܢܐ",
+        "cancelReasons": {
+          "1": "ܬܪܝܢܐ",
+          "2": "ܛܥܝܘܬܐ ܒܡܥܠܝܬܐ ܕܝܕܥܬܐ",
+          "3": "ܦܘܩܕܢܐ ܒܛܝܠ",
+          "4": "ܐܚܪܢܐ"
+        },
+        "cancel": "ܒܛܠ IRN",
+        "cancelWindow": "ܦܘܪܛܠ ܡܫܪܐ ܒܛܠܢܐ ܒܬܘܟ 24 ܫܥܐ ܡܢ ܩܘܒܠܐ."
+      }
     },
     "history": {
       "metaTitle": "Invoice history",
@@ -2078,6 +2125,9 @@
     "templateImported": "Template ܐܬܝܒܠ",
     "profileTemplateCleared": "Profile ܡܣܬܥܡܠ ܬܘܒ instance template",
     "operatorSaved": "Operator details ܐܬܢܛܪܘ. Legal pages ܡܚܘܝܢ ܠܗܘܢ ܗܫܐ.",
-    "einvoiceSettingsSaved": "E-invoicing settings ܐܬܢܛܪܘ"
+    "einvoiceSettingsSaved": "E-invoicing settings ܐܬܢܛܪܘ",
+    "irnRegistered": "IRN {irn} ܐܬܪܫܡ؛ PDF ܐܬܒܪܝ ܡܚܕܬ ܥܡܗ",
+    "irnRecorded": "IRN ܐܬܩܒܥ؛ PDF ܐܬܒܪܝ ܡܚܕܬ ܥܡܗ",
+    "irnCancelled": "IRN ܐܬܒܛܠ؛ PDF ܐܬܒܪܝ ܡܚܕܬ"
   }
 }

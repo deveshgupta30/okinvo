@@ -126,6 +126,8 @@ export const InvoiceFiltersSchema = z.object({
     z.enum(["DRAFT", "ISSUED", "SENT", "PARTIALLY_PAID", "PAID", "OVERDUE", "VOID"]),
   ),
   currency: fOptional(CurrencySchema),
+  /** E-invoice registration (spec §9e). */
+  einvoice: fOptional(z.enum(["registered", "none", "cancelled"])),
   q: fOptional(z.string().trim().max(80)),
   page: z.coerce.number().int().min(1).default(1),
 });

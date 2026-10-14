@@ -840,6 +840,9 @@
         "username": "Korisničko ime",
         "password": "Lozinka",
         "gstin": "GSTIN",
+        "publicKey": "Javni ključ IRP-a (PEM)",
+        "publicKeyHint": "Preuzmite ga s portala nakon prijave; njime se omotavaju vjerodajnice poslane IRP-u.",
+        "publicKeyStored": "Pohranjeno; ostavite prazno da ga zadržite.",
         "secretStored": "Pohranjeno šifrirano; ostavite prazno da ostane isto.",
         "secretEncrypted": "Pohranjeno šifrirano u mirovanju."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Porezni broj",
       "void": "PONIŠTENO",
       "draftWatermark": "NACRT - nije porezni račun",
-      "paymentTermsDays": "{days} dana"
+      "paymentTermsDays": "{days} dana",
+      "irn": "IRN",
+      "ackNo": "Br. potvrde",
+      "ackDate": "Datum potvrde",
+      "einvoiceCancelled": "E-RAČUN PONIŠTEN"
     },
     "ui": {
       "pageEstimate": "oko {count, plural, one {# stranica} few {# stranice} other {# stranica}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Nijedan račun ne odgovara ovim filtrima.",
       "count": "{count, plural, one {# račun} few {# računa} other {# računa}}",
       "countPaged": "{count, plural, one {# račun} few {# računa} other {# računa}} · stranica {page} od {pages}",
-      "register": "registar"
+      "register": "registar",
+      "einvoice": "E-račun",
+      "einvoiceFilters": {
+        "registered": "IRN registriran",
+        "none": "Nije registriran",
+        "cancelled": "IRN poništen"
+      }
     },
     "new": {
       "noProfileTitle": "Prvo izradite profil izdavatelja",
@@ -1611,7 +1624,41 @@
       "version": "Verzija {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Poveznica za provjeru:",
-      "draftPreviewHint": "Nacrti se pregledavaju uživo u uređivaču; otvorite <link>PDF s vodenim žigom</link> da vidite stranicu."
+      "draftPreviewHint": "Nacrti se pregledavaju uživo u uređivaču; otvorite <link>PDF s vodenim žigom</link> da vidite stranicu.",
+      "einvoice": {
+        "title": "E-račun (Indija)",
+        "description": "Registracija ovog računa na Invoice Registration Portalu; registrirani dokument ispisuje svoj IRN i potpisani QR portala.",
+        "connector": "Konektor",
+        "connectors": {
+          "manual": "Ručno",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Za ovaj profil nije postavljen nijedan konektor u Postavke > E-računi.",
+        "statuses": {
+          "none": "Nije registriran",
+          "generated": "JSON generiran",
+          "registered": "Registriran",
+          "cancelled": "Poništen",
+          "failed": "Registracija nije uspjela"
+        },
+        "irn": "IRN",
+        "ackNo": "Br. potvrde",
+        "ackDate": "Datum potvrde",
+        "cancelReason": "Poništenje",
+        "generate": "Generiraj IRN",
+        "pasteLabel": "Odgovor IRP-a",
+        "pasteHint": "Zalijepite JSON koji je portal ili vaš GSP vratio za JSON e-računa ovog računa (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Zabilježi IRN",
+        "cancelReasonLabel": "Razlog poništenja",
+        "cancelReasons": {
+          "1": "Duplikat",
+          "2": "Pogreška pri unosu podataka",
+          "3": "Narudžba otkazana",
+          "4": "Ostalo"
+        },
+        "cancel": "Poništi IRN",
+        "cancelWindow": "Portal dopušta poništenje unutar 24 sata od potvrde."
+      }
     },
     "history": {
       "metaTitle": "Povijest računa",
@@ -2078,6 +2125,9 @@
     "templateImported": "Predložak uvezen",
     "profileTemplateCleared": "Profil ponovno koristi predložak instance",
     "operatorSaved": "Podaci o operatoru spremljeni. Pravne ih stranice sada prikazuju.",
-    "einvoiceSettingsSaved": "Postavke e-računa spremljene"
+    "einvoiceSettingsSaved": "Postavke e-računa spremljene",
+    "irnRegistered": "IRN {irn} registriran; PDF je ponovno generiran s njim",
+    "irnRecorded": "IRN zabilježen; PDF je ponovno generiran s njim",
+    "irnCancelled": "IRN poništen; PDF je ponovno generiran"
   }
 }

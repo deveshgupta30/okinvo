@@ -840,6 +840,9 @@
         "username": "वापरकर्तानाव",
         "password": "पासवर्ड",
         "gstin": "GSTIN",
+        "publicKey": "IRP सार्वजनिक की (PEM)",
+        "publicKeyHint": "साइन इन केल्यानंतर पोर्टलवरून डाउनलोड करा; ती IRP ला पाठवल्या जाणाऱ्या क्रेडेन्शियल्सना सुरक्षित गुंडाळते.",
+        "publicKeyStored": "संग्रहित; ठेवण्यासाठी रिकामे सोडा.",
         "secretStored": "एन्क्रिप्ट करून साठवलेले; ठेवण्यासाठी रिकामे सोडा.",
         "secretEncrypted": "साठवणुकीत एन्क्रिप्ट करून साठवलेले."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "कर ID",
       "void": "रद्द",
       "draftWatermark": "मसुदा - कर बीजक नाही",
-      "paymentTermsDays": "{days} दिवस"
+      "paymentTermsDays": "{days} दिवस",
+      "irn": "IRN",
+      "ackNo": "पोच क्र.",
+      "ackDate": "पोच दिनांक",
+      "einvoiceCancelled": "ई-बीजक रद्द"
     },
     "ui": {
       "pageEstimate": "अंदाजे {count, plural, one {# पृष्ठ} other {# पृष्ठे}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "या फिल्टरशी जुळणारी बीजके नाहीत.",
       "count": "{count, plural, one {# बीजक} other {# बीजके}}",
       "countPaged": "{count, plural, one {# बीजक} other {# बीजके}} · {pages} पैकी पृष्ठ {page}",
-      "register": "नोंदवही"
+      "register": "नोंदवही",
+      "einvoice": "ई-बीजक",
+      "einvoiceFilters": {
+        "registered": "IRN नोंदणीकृत",
+        "none": "नोंदणी नाही",
+        "cancelled": "IRN रद्द"
+      }
     },
     "new": {
       "noProfileTitle": "आधी जारीकर्ता प्रोफाइल तयार करा",
@@ -1611,7 +1624,41 @@
       "version": "आवृत्ती {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "सत्यापन लिंक:",
-      "draftPreviewHint": "मसुद्यांचे पूर्वावलोकन संपादकात थेट दिसते; पृष्ठ पाहण्यासाठी <link>वॉटरमार्क असलेली PDF</link> उघडा."
+      "draftPreviewHint": "मसुद्यांचे पूर्वावलोकन संपादकात थेट दिसते; पृष्ठ पाहण्यासाठी <link>वॉटरमार्क असलेली PDF</link> उघडा.",
+      "einvoice": {
+        "title": "ई-बीजक (भारत)",
+        "description": "या बीजकाची इनव्हॉइस रजिस्ट्रेशन पोर्टलवर नोंदणी; नोंदणीकृत दस्तऐवजावर त्याचा IRN आणि पोर्टलचा स्वाक्षरीकृत QR छापला जातो.",
+        "connector": "कनेक्टर",
+        "connectors": {
+          "manual": "मॅन्युअल",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "या प्रोफाइलसाठी सेटिंग्ज > ई-इनव्हॉइसिंग मध्ये कोणताही कनेक्टर कॉन्फिगर केलेला नाही.",
+        "statuses": {
+          "none": "नोंदणी नाही",
+          "generated": "JSON तयार",
+          "registered": "नोंदणीकृत",
+          "cancelled": "रद्द",
+          "failed": "नोंदणी अयशस्वी"
+        },
+        "irn": "IRN",
+        "ackNo": "पोच क्र.",
+        "ackDate": "पोच दिनांक",
+        "cancelReason": "रद्दीकरण",
+        "generate": "IRN तयार करा",
+        "pasteLabel": "IRP प्रतिसाद",
+        "pasteHint": "या बीजकाच्या ई-बीजक JSON साठी पोर्टल किंवा तुमच्या GSP ने दिलेला JSON येथे पेस्ट करा (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN नोंदवा",
+        "cancelReasonLabel": "रद्द करण्याचे कारण",
+        "cancelReasons": {
+          "1": "प्रत",
+          "2": "डेटा नोंदणीतील चूक",
+          "3": "ऑर्डर रद्द",
+          "4": "इतर"
+        },
+        "cancel": "IRN रद्द करा",
+        "cancelWindow": "पोर्टल पोचपावतीपासून 24 तासांच्या आत रद्द करण्याची परवानगी देते."
+      }
     },
     "history": {
       "metaTitle": "बीजकाचा इतिहास",
@@ -2078,6 +2125,9 @@
     "templateImported": "टेम्प्लेट आयात केले",
     "profileTemplateCleared": "प्रोफाइल पुन्हा इन्स्टन्स टेम्प्लेट वापरते",
     "operatorSaved": "संचालकाचे तपशील जतन केले. कायदेशीर पृष्ठे आता ते दाखवतात.",
-    "einvoiceSettingsSaved": "ई-इनव्हॉइसिंग सेटिंग्ज जतन केल्या"
+    "einvoiceSettingsSaved": "ई-इनव्हॉइसिंग सेटिंग्ज जतन केल्या",
+    "irnRegistered": "IRN {irn} नोंदणीकृत झाला; PDF त्यासह पुन्हा तयार केला",
+    "irnRecorded": "IRN नोंदवला गेला; PDF त्यासह पुन्हा तयार केला",
+    "irnCancelled": "IRN रद्द केला; PDF पुन्हा तयार केला"
   }
 }

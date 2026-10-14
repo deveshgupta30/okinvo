@@ -840,6 +840,9 @@
         "username": "Kullanıcı adı",
         "password": "Parola",
         "gstin": "GSTIN",
+        "publicKey": "IRP genel anahtarı (PEM)",
+        "publicKeyHint": "Oturum açtıktan sonra portaldan indirin; IRP’ye gönderilen kimlik bilgilerini sarmalar.",
+        "publicKeyStored": "Kaydedildi; korumak için boş bırakın.",
         "secretStored": "Şifrelenmiş olarak saklanır; korumak için boş bırakın.",
         "secretEncrypted": "Beklemede şifrelenmiş olarak saklanır."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Vergi kimliği",
       "void": "İPTAL",
       "draftWatermark": "TASLAK - vergi faturası değildir",
-      "paymentTermsDays": "{days} gün"
+      "paymentTermsDays": "{days} gün",
+      "irn": "IRN",
+      "ackNo": "Onay no",
+      "ackDate": "Onay tarihi",
+      "einvoiceCancelled": "E-FATURA İPTAL EDİLDİ"
     },
     "ui": {
       "pageEstimate": "yaklaşık {count, plural, one {# sayfa} other {# sayfa}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Bu filtrelerle eşleşen fatura yok.",
       "count": "{count, plural, one {# fatura} other {# fatura}}",
       "countPaged": "{count, plural, one {# fatura} other {# fatura}} · sayfa {page} / {pages}",
-      "register": "kayıt"
+      "register": "kayıt",
+      "einvoice": "E-fatura",
+      "einvoiceFilters": {
+        "registered": "IRN kaydedildi",
+        "none": "Kaydedilmedi",
+        "cancelled": "IRN iptal edildi"
+      }
     },
     "new": {
       "noProfileTitle": "Önce bir düzenleyen profili oluşturun",
@@ -1611,7 +1624,41 @@
       "version": "Sürüm {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Doğrulama bağlantısı:",
-      "draftPreviewHint": "Taslaklar düzenleyicide canlı önizlenir; sayfayı görmek için <link>filigranlı PDF</link>’i açın."
+      "draftPreviewHint": "Taslaklar düzenleyicide canlı önizlenir; sayfayı görmek için <link>filigranlı PDF</link>’i açın.",
+      "einvoice": {
+        "title": "E-fatura (Hindistan)",
+        "description": "Bu faturanın Invoice Registration Portal’a kaydı; kaydedilmiş bir belge IRN’sini ve portalın imzalı QR kodunu basar.",
+        "connector": "Bağlayıcı",
+        "connectors": {
+          "manual": "Manuel",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Bu profil için Ayarlar > E-fatura altında yapılandırılmış bir bağlayıcı yok.",
+        "statuses": {
+          "none": "Kaydedilmedi",
+          "generated": "JSON oluşturuldu",
+          "registered": "Kaydedildi",
+          "cancelled": "İptal edildi",
+          "failed": "Kayıt başarısız oldu"
+        },
+        "irn": "IRN",
+        "ackNo": "Onay no",
+        "ackDate": "Onay tarihi",
+        "cancelReason": "İptal",
+        "generate": "IRN oluştur",
+        "pasteLabel": "IRP yanıtı",
+        "pasteHint": "Portalın veya GSP’nizin bu faturanın e-fatura JSON’u için döndürdüğü JSON’u yapıştırın (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN’yi kaydet",
+        "cancelReasonLabel": "İptal nedeni",
+        "cancelReasons": {
+          "1": "Mükerrer",
+          "2": "Veri girişi hatası",
+          "3": "Sipariş iptal edildi",
+          "4": "Diğer"
+        },
+        "cancel": "IRN’yi iptal et",
+        "cancelWindow": "Portal, onaydan sonraki 24 saat içinde iptale izin verir."
+      }
     },
     "history": {
       "metaTitle": "Fatura geçmişi",
@@ -2078,6 +2125,9 @@
     "templateImported": "Şablon içe aktarıldı",
     "profileTemplateCleared": "Profil yeniden örnek şablonunu kullanıyor",
     "operatorSaved": "İşletmeci bilgileri kaydedildi. Hukuki sayfalar artık bunları gösteriyor.",
-    "einvoiceSettingsSaved": "E-fatura ayarları kaydedildi"
+    "einvoiceSettingsSaved": "E-fatura ayarları kaydedildi",
+    "irnRegistered": "IRN {irn} kaydedildi; PDF onunla yeniden oluşturuldu",
+    "irnRecorded": "IRN kaydedildi; PDF onunla yeniden oluşturuldu",
+    "irnCancelled": "IRN iptal edildi; PDF yeniden oluşturuldu"
   }
 }

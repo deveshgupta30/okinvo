@@ -840,6 +840,9 @@
         "username": "ব্যৱহাৰকাৰীৰ নাম",
         "password": "পাছৱৰ্ড",
         "gstin": "GSTIN",
+        "publicKey": "IRP ৰ পাব্লিক কী (PEM)",
+        "publicKeyHint": "ছাইন ইন কৰাৰ পিছত পৰ্টেলৰ পৰা ডাউনলোড কৰক; ই IRP লৈ পঠিওৱা ক্ৰেডেনশ্বিয়লসমূহ মেৰিয়াই সুৰক্ষিত কৰে।",
+        "publicKeyStored": "সংৰক্ষিত; ৰাখিবলৈ খালী এৰি দিয়ক।",
         "secretStored": "এনক্ৰিপ্ট কৰি ৰখা; ৰাখিবলৈ খালী ৰাখক।",
         "secretEncrypted": "সংৰক্ষণত এনক্ৰিপ্ট কৰি ৰখা।"
       },
@@ -1399,7 +1402,11 @@
       "taxId": "কৰ আইডি",
       "void": "বাতিল",
       "draftWatermark": "খচৰা - কৰ ইনভইচ নহয়",
-      "paymentTermsDays": "{days} দিন"
+      "paymentTermsDays": "{days} দিন",
+      "irn": "IRN",
+      "ackNo": "প্ৰাপ্তি নং",
+      "ackDate": "প্ৰাপ্তিৰ তাৰিখ",
+      "einvoiceCancelled": "ই-ইনভইচ বাতিল"
     },
     "ui": {
       "pageEstimate": "প্ৰায় {count, plural, one {# পৃষ্ঠা} other {# পৃষ্ঠা}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "এই ফিল্টাৰবোৰৰ সৈতে কোনো ইনভইচ নিমিলে।",
       "count": "{count, plural, one {# খন ইনভইচ} other {# খন ইনভইচ}}",
       "countPaged": "{count, plural, one {# খন ইনভইচ} other {# খন ইনভইচ}} · পৃষ্ঠা {page} / {pages}",
-      "register": "ৰেজিষ্টাৰ"
+      "register": "ৰেজিষ্টাৰ",
+      "einvoice": "ই-ইনভইচ",
+      "einvoiceFilters": {
+        "registered": "IRN পঞ্জীভুক্ত",
+        "none": "পঞ্জীভুক্ত নহয়",
+        "cancelled": "IRN বাতিল"
+      }
     },
     "new": {
       "noProfileTitle": "প্ৰথমে এটা ইছুকাৰী প্ৰফাইল সৃষ্টি কৰক",
@@ -1611,7 +1624,41 @@
       "version": "সংস্কৰণ {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "পৰীক্ষণৰ লিংক:",
-      "draftPreviewHint": "খচৰাৰ পূৰ্বদৰ্শন সম্পাদকত পোনপটীয়াকৈ দেখা যায়; পৃষ্ঠাখন চাবলৈ <link>ৱাটাৰমাৰ্কযুক্ত PDF</link> খোলক।"
+      "draftPreviewHint": "খচৰাৰ পূৰ্বদৰ্শন সম্পাদকত পোনপটীয়াকৈ দেখা যায়; পৃষ্ঠাখন চাবলৈ <link>ৱাটাৰমাৰ্কযুক্ত PDF</link> খোলক।",
+      "einvoice": {
+        "title": "ই-ইনভইচ (ভাৰত)",
+        "description": "ইনভইচ ৰেজিষ্ট্ৰেচন পৰ্টেলত এই ইনভইচৰ পঞ্জীয়ন; পঞ্জীভুক্ত নথিত ইয়াৰ IRN আৰু পৰ্টেলৰ স্বাক্ষৰিত QR ছপা হয়।",
+        "connector": "কনেক্টৰ",
+        "connectors": {
+          "manual": "মেনুৱেল",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "এই প্ৰফাইলৰ বাবে ছেটিংছ > ই-ইনভইচিং ত কোনো কনেক্টৰ কনফিগাৰ কৰা হোৱা নাই।",
+        "statuses": {
+          "none": "পঞ্জীভুক্ত নহয়",
+          "generated": "JSON সৃষ্টি হৈছে",
+          "registered": "পঞ্জীভুক্ত",
+          "cancelled": "বাতিল",
+          "failed": "পঞ্জীয়ন ব্যৰ্থ"
+        },
+        "irn": "IRN",
+        "ackNo": "প্ৰাপ্তি নং",
+        "ackDate": "প্ৰাপ্তিৰ তাৰিখ",
+        "cancelReason": "বাতিলকৰণ",
+        "generate": "IRN সৃষ্টি কৰক",
+        "pasteLabel": "IRP ৰ সঁহাৰি",
+        "pasteHint": "এই ইনভইচৰ ই-ইনভইচ JSON ৰ বাবে পৰ্টেল বা আপোনাৰ GSP এ দিয়া JSON পেষ্ট কৰক (Irn, AckNo, AckDt, SignedQRCode)।",
+        "record": "IRN ৰেকৰ্ড কৰক",
+        "cancelReasonLabel": "বাতিলৰ কাৰণ",
+        "cancelReasons": {
+          "1": "নকল",
+          "2": "ডাটা এণ্ট্ৰিৰ ভুল",
+          "3": "অৰ্ডাৰ বাতিল",
+          "4": "অন্যান্য"
+        },
+        "cancel": "IRN বাতিল কৰক",
+        "cancelWindow": "পৰ্টেলে প্ৰাপ্তি স্বীকাৰৰ 24 ঘণ্টাৰ ভিতৰত বাতিলকৰণৰ অনুমতি দিয়ে।"
+      }
     },
     "history": {
       "metaTitle": "ইনভইচৰ ইতিহাস",
@@ -2078,6 +2125,9 @@
     "templateImported": "টেমপ্লেট ইম্পৰ্ট কৰা হ’ল",
     "profileTemplateCleared": "প্ৰফাইলে পুনৰ ইনষ্টেঞ্চ টেমপ্লেট ব্যৱহাৰ কৰিছে",
     "operatorSaved": "পৰিচালকৰ বিৱৰণ সংৰক্ষিত হ’ল। আইনী পৃষ্ঠাবোৰে এতিয়া এইবোৰ দেখুৱায়।",
-    "einvoiceSettingsSaved": "ই-ইনভইচিং ছেটিংছ সংৰক্ষণ কৰা হ’ল"
+    "einvoiceSettingsSaved": "ই-ইনভইচিং ছেটিংছ সংৰক্ষণ কৰা হ’ল",
+    "irnRegistered": "IRN {irn} পঞ্জীভুক্ত হ’ল; PDF সেইটোৰ সৈতে পুনৰ সৃষ্টি কৰা হ’ল",
+    "irnRecorded": "IRN ৰেকৰ্ড কৰা হ’ল; PDF সেইটোৰ সৈতে পুনৰ সৃষ্টি কৰা হ’ল",
+    "irnCancelled": "IRN বাতিল কৰা হ’ল; PDF পুনৰ সৃষ্টি কৰা হ’ল"
   }
 }

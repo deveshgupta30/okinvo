@@ -840,6 +840,9 @@
         "username": "Кулланучы исеме",
         "password": "Пароль",
         "gstin": "GSTIN",
+        "publicKey": "IRP ачык ачкычы (PEM)",
+        "publicKeyHint": "Аны порталга кергәннән соң йөкләп алыгыз; ул IRP-ка җибәрелә торган мәгълүматларны шифрлый.",
+        "publicKeyStored": "Сакланган; калдыру өчен буш калдырыгыз.",
         "secretStored": "Шифрланган хәлдә саклана; саклап калу өчен буш калдырыгыз.",
         "secretEncrypted": "Шифрланган хәлдә саклана."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Салым ID",
       "void": "ФАСЫЛ ИТЕЛГӘН",
       "draftWatermark": "ЧАГЫШТЫРМА - салым счеты түгел",
-      "paymentTermsDays": "{days} көн"
+      "paymentTermsDays": "{days} көн",
+      "irn": "IRN",
+      "ackNo": "Раслау номеры",
+      "ackDate": "Раслау датасы",
+      "einvoiceCancelled": "ЭЛЕКТРОН СЧЕТ БЕТЕРЕЛГӘН"
     },
     "ui": {
       "pageEstimate": "якынча {count, plural, other {# бит}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Бу фильтрларга туры килә торган счетлар юк.",
       "count": "{count, plural, other {# счет}}",
       "countPaged": "{count, plural, other {# счет}} · {pages} битнең {page}-се",
-      "register": "реестр"
+      "register": "реестр",
+      "einvoice": "Электрон счет",
+      "einvoiceFilters": {
+        "registered": "IRN теркәлгән",
+        "none": "Теркәлмәгән",
+        "cancelled": "IRN бетерелгән"
+      }
     },
     "new": {
       "noProfileTitle": "Башта бирүче профилен булдырыгыз",
@@ -1611,7 +1624,41 @@
       "version": "Версия {version}",
       "sizeKb": "{size} КБ",
       "verificationLink": "Тикшерү сылтамасы:",
-      "draftPreviewHint": "Проектлар редакторда туры эфирда карала; битне күрер өчен <link>ватермаркалы PDF-ны</link> ачыгыз."
+      "draftPreviewHint": "Проектлар редакторда туры эфирда карала; битне күрер өчен <link>ватермаркалы PDF-ны</link> ачыгыз.",
+      "einvoice": {
+        "title": "Электрон счет (Индия)",
+        "description": "Бу счетны счетларны теркәү порталында (Invoice Registration Portal) теркәү; теркәлгән документта IRN һәм порталның имзаланган QR коды басыла.",
+        "connector": "Коннектор",
+        "connectors": {
+          "manual": "Кул белән",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Бу профиль өчен коннектор көйләнмәгән: Көйләүләр > Электрон счетлар.",
+        "statuses": {
+          "none": "Теркәлмәгән",
+          "generated": "JSON барлыкка китерелгән",
+          "registered": "Теркәлгән",
+          "cancelled": "Бетерелгән",
+          "failed": "Теркәү уңышсыз"
+        },
+        "irn": "IRN",
+        "ackNo": "Раслау номеры",
+        "ackDate": "Раслау датасы",
+        "cancelReason": "Бетерү",
+        "generate": "IRN булдыру",
+        "pasteLabel": "IRP җаваба",
+        "pasteHint": "Портал яки GSP бу счетның электрон счет JSON-ы өчен кайтарган JSON-ны кертегез (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN язу",
+        "cancelReasonLabel": "Бетерү сәбәбе",
+        "cancelReasons": {
+          "1": "Дубликат",
+          "2": "Мәгълүмат кертү хатасы",
+          "3": "Заказ баш тартылган",
+          "4": "Башка"
+        },
+        "cancel": "IRN бетерү",
+        "cancelWindow": "Портал раслаудан соң 24 сәгать эчендә бетерүгә рөхсәт итә."
+      }
     },
     "history": {
       "metaTitle": "Счет тарихы",
@@ -2078,6 +2125,9 @@
     "templateImported": "Шаблон импортланды",
     "profileTemplateCleared": "Профиль инстанс шаблонын яңадан куллана",
     "operatorSaved": "Оператор мәгълүматлары сакланды. Хокукый битләр хәзер аларны күрсәтә.",
-    "einvoiceSettingsSaved": "Электрон счетлар көйләүләре сакланды"
+    "einvoiceSettingsSaved": "Электрон счетлар көйләүләре сакланды",
+    "irnRegistered": "IRN {irn} теркәлде; PDF аның белән яңадан булдырылды",
+    "irnRecorded": "IRN язылды; PDF аның белән яңадан булдырылды",
+    "irnCancelled": "IRN бетерелде; PDF яңадан булдырылды"
   }
 }

@@ -840,6 +840,9 @@
         "username": "Innde huutinoowo",
         "password": "Finndeere",
         "gstin": "GSTIN",
+        "publicKey": "Dabere IRP kuuɗiingo (PEM)",
+        "publicKeyHint": "Ronndo ɗum diga portaal caggal sigaareji; ɗum wuuɓa kaŋŋe nastinaaɗe e IRP.",
+        "publicKeyStored": "Hisaama; acc ɗum meeɗaa ngam hoornugo.",
         "secretStored": "Hisnaama kisndi; acc ɗum duuɗaama ngam ɗum heddo.",
         "secretEncrypted": "Hisnaama kisndi."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID taks",
       "void": "ANNULÉ",
       "draftWatermark": "BROUILLON - wonaa faktiir taks",
-      "paymentTermsDays": "{days} nyalaade"
+      "paymentTermsDays": "{days} nyalaade",
+      "irn": "IRN",
+      "ackNo": "Limngal ɗum’o",
+      "ackDate": "Ñalnde ɗum’o",
+      "einvoiceCancelled": "E-FAKTIIR ANILANKA"
     },
     "ui": {
       "pageEstimate": "ɓurnude {count, plural, one {ɗemngal #} other {ɗemɗe #}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Alaa faktiir yaadi e suɓol ɗin.",
       "count": "{count, plural, one {faktiir #} other {faktiir #}}",
       "countPaged": "{count, plural, one {faktiir #} other {faktiir #}} · ɗemngal {page} e {pages}",
-      "register": "registar"
+      "register": "registar",
+      "einvoice": "E-faktiir",
+      "einvoiceFilters": {
+        "registered": "IRN winndaama",
+        "none": "Winndaaka",
+        "cancelled": "IRN anilaama"
+      }
     },
     "new": {
       "noProfileTitle": "Waɗu poroofiil yaltinoowo adii",
@@ -1611,7 +1624,41 @@
       "version": "Wersiyoŋ {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Jokkirgo ndaarugo:",
-      "draftPreviewHint": "Ɗiɗɗi ana ndaarete e editor; uddit <link>PDF e maandaare ndiyam</link> ngam yi’ugo ɗemngal."
+      "draftPreviewHint": "Ɗiɗɗi ana ndaarete e editor; uddit <link>PDF e maandaare ndiyam</link> ngam yi’ugo ɗemngal.",
+      "einvoice": {
+        "title": "E-faktiir (Hindu)",
+        "description": "Winndugo faktiir ndii e Invoice Registration Portal; dokimaa winndaaɗo winndata IRN mum e QR hippaaɗo ka portaal.",
+        "connector": "Hawtugo",
+        "connectors": {
+          "manual": "Junngo",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Alaa hawtugo teeltaaɗo ngam poroofiil ndii les Settingi > E-faktiir.",
+        "statuses": {
+          "none": "Winndaaka",
+          "generated": "JSON waɗaama",
+          "registered": "Winndaama",
+          "cancelled": "Anilaama",
+          "failed": "Winndugo salii"
+        },
+        "irn": "IRN",
+        "ackNo": "Limngal ɗum’o",
+        "ackDate": "Ñalnde ɗum’o",
+        "cancelReason": "Anilugo",
+        "generate": "Waɗ IRN",
+        "pasteLabel": "Jaabawol IRP",
+        "pasteHint": "Nasta JSON ka portaal malla GSP maa hokki ngam JSON e-faktiir faktiir ndii (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Winndu IRN",
+        "cancelReasonLabel": "Sabaabu anilugo",
+        "cancelReasons": {
+          "1": "Laabi ɗiɗi",
+          "2": "Kuule winndugo",
+          "3": "Ndikka ammaama",
+          "4": "Goɗɗum"
+        },
+        "cancel": "Anil IRN",
+        "cancelWindow": "Portaal ɗum yaadi anilugo nder hoɗɗe 24 caggal limngal ɗum’o."
+      }
     },
     "history": {
       "metaTitle": "Taariha faktiir",
@@ -2078,6 +2125,9 @@
     "templateImported": "Taaje ronndaama",
     "profileTemplateCleared": "Poroofiil ana huutinira taaje instans fahin",
     "operatorSaved": "Keeri yahdinoowo hisnaama. Ɗemɗe sariya ana hollira ɗum jooni.",
-    "einvoiceSettingsSaved": "Settingi fakituuji elektoronik hisnaama"
+    "einvoiceSettingsSaved": "Settingi fakituuji elektoronik hisnaama",
+    "irnRegistered": "IRN {irn} winndaama; PDF waɗaama koo e mum",
+    "irnRecorded": "IRN winndaama; PDF waɗaama koo e mum",
+    "irnCancelled": "IRN anilaama; PDF waɗaama koo"
   }
 }

@@ -840,6 +840,9 @@
         "username": "Nome d’utilizatore",
         "password": "Parolla d’ordine",
         "gstin": "GSTIN",
+        "publicKey": "Chjave pubblica di l’IRP (PEM)",
+        "publicKeyHint": "Scaricatela da u portale dopu avè fattu l’accessu; imbusteghja e credenziali mandate à l’IRP.",
+        "publicKeyStored": "Cunservata; lasciate viotu per mantenela.",
         "secretStored": "Arregistratu cifratu; lasciate viotu per cunservallu.",
         "secretEncrypted": "Arregistratu cifratu."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID fiscale",
       "void": "ANNULLATA",
       "draftWatermark": "BOZZA - micca una fattura fiscale",
-      "paymentTermsDays": "{days} ghjorni"
+      "paymentTermsDays": "{days} ghjorni",
+      "irn": "IRN",
+      "ackNo": "N. di cunferma",
+      "ackDate": "Data di cunferma",
+      "einvoiceCancelled": "E-FATTURA ANNULLATA"
     },
     "ui": {
       "pageEstimate": "circa {count, plural, one {# pagina} other {# pagine}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Nisuna fattura currisponde à sti filtri.",
       "count": "{count, plural, one {# fattura} other {# fatture}}",
       "countPaged": "{count, plural, one {# fattura} other {# fatture}} · pagina {page} di {pages}",
-      "register": "registru"
+      "register": "registru",
+      "einvoice": "E-fattura",
+      "einvoiceFilters": {
+        "registered": "IRN arregistratu",
+        "none": "Micca arregistrata",
+        "cancelled": "IRN annullatu"
+      }
     },
     "new": {
       "noProfileTitle": "Create prima un prufile d’emittente",
@@ -1611,7 +1624,41 @@
       "version": "Versione {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Ligame di verificazione:",
-      "draftPreviewHint": "L’anteprima di e bozze hè in direttu in l’editore; apre <link>u PDF cù filigrana</link> per vede a pagina."
+      "draftPreviewHint": "L’anteprima di e bozze hè in direttu in l’editore; apre <link>u PDF cù filigrana</link> per vede a pagina.",
+      "einvoice": {
+        "title": "E-fattura (India)",
+        "description": "Arregistramentu di sta fattura nantu à l’Invoice Registration Portal; un documentu arregistratu stampa u so IRN è u QR firmatu di u portale.",
+        "connector": "Cunnettore",
+        "connectors": {
+          "manual": "Manuale",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Nisun cunnettore ùn hè cunfiguratu per stu prufile in Paràmetri > E-fattura.",
+        "statuses": {
+          "none": "Micca arregistrata",
+          "generated": "JSON generatu",
+          "registered": "Arregistrata",
+          "cancelled": "Annullata",
+          "failed": "Arregistramentu fiascatu"
+        },
+        "irn": "IRN",
+        "ackNo": "N. di cunferma",
+        "ackDate": "Data di cunferma",
+        "cancelReason": "Annullamentu",
+        "generate": "Generà l’IRN",
+        "pasteLabel": "Risposta di l’IRP",
+        "pasteHint": "Incollate u JSON chì u portale o u vostru GSP hà rimandatu per u JSON di e-fattura di sta fattura (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Arregistrà l’IRN",
+        "cancelReasonLabel": "Mutivu di l’annullamentu",
+        "cancelReasons": {
+          "1": "Duplicatu",
+          "2": "Sbagliu di intrata di dati",
+          "3": "Ordine annullatu",
+          "4": "Altri"
+        },
+        "cancel": "Annullà l’IRN",
+        "cancelWindow": "U portale permette l’annullamentu in 24 ore dopu a cunferma."
+      }
     },
     "history": {
       "metaTitle": "Storicu di a fattura",
@@ -2078,6 +2125,9 @@
     "templateImported": "Mudellu impurtatu",
     "profileTemplateCleared": "U prufile impiega torna u mudellu di l’istanza",
     "operatorSaved": "Dettagli di l’operatore arregistrati. E pagine legali i mostranu avà.",
-    "einvoiceSettingsSaved": "Paràmetri di l’e-fattura arregistrati"
+    "einvoiceSettingsSaved": "Paràmetri di l’e-fattura arregistrati",
+    "irnRegistered": "IRN {irn} arregistratu; u PDF hè statu rigeneratu cun ellu",
+    "irnRecorded": "IRN arregistratu; u PDF hè statu rigeneratu cun ellu",
+    "irnCancelled": "IRN annullatu; u PDF hè statu rigeneratu"
   }
 }

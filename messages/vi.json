@@ -840,6 +840,9 @@
         "username": "Tên người dùng",
         "password": "Mật khẩu",
         "gstin": "GSTIN",
+        "publicKey": "Khóa công khai IRP (PEM)",
+        "publicKeyHint": "Tải về từ cổng sau khi đăng nhập; khóa này bao bọc thông tin xác thực gửi đến IRP.",
+        "publicKeyStored": "Đã lưu; để trống để giữ nguyên.",
         "secretStored": "Được lưu dạng mã hóa; để trống để giữ nguyên.",
         "secretEncrypted": "Được lưu dạng mã hóa khi lưu trữ."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Mã số thuế",
       "void": "HỦY",
       "draftWatermark": "BẢN NHÁP - không phải hóa đơn thuế",
-      "paymentTermsDays": "{days} ngày"
+      "paymentTermsDays": "{days} ngày",
+      "irn": "IRN",
+      "ackNo": "Số xác nhận",
+      "ackDate": "Ngày xác nhận",
+      "einvoiceCancelled": "HÓA ĐƠN ĐIỆN TỬ ĐÃ HỦY"
     },
     "ui": {
       "pageEstimate": "khoảng {count, plural, other {# trang}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Không có hóa đơn nào khớp với bộ lọc này.",
       "count": "{count, plural, other {# hóa đơn}}",
       "countPaged": "{count, plural, other {# hóa đơn}} · trang {page} / {pages}",
-      "register": "sổ"
+      "register": "sổ",
+      "einvoice": "Hóa đơn điện tử",
+      "einvoiceFilters": {
+        "registered": "Đã đăng ký IRN",
+        "none": "Chưa đăng ký",
+        "cancelled": "Đã hủy IRN"
+      }
     },
     "new": {
       "noProfileTitle": "Hãy tạo hồ sơ bên phát hành trước",
@@ -1611,7 +1624,41 @@
       "version": "Phiên bản {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Liên kết xác minh:",
-      "draftPreviewHint": "Bản nháp được xem trước trực tiếp trong trình soạn thảo; hãy mở <link>tệp PDF có hình mờ</link> để xem trang."
+      "draftPreviewHint": "Bản nháp được xem trước trực tiếp trong trình soạn thảo; hãy mở <link>tệp PDF có hình mờ</link> để xem trang.",
+      "einvoice": {
+        "title": "Hóa đơn điện tử (Ấn Độ)",
+        "description": "Đăng ký hóa đơn này với Invoice Registration Portal; tài liệu đã đăng ký sẽ in kèm IRN và mã QR có chữ ký của cổng.",
+        "connector": "Trình kết nối",
+        "connectors": {
+          "manual": "Thủ công",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Chưa cấu hình trình kết nối nào cho hồ sơ này trong Cài đặt > Hóa đơn điện tử.",
+        "statuses": {
+          "none": "Chưa đăng ký",
+          "generated": "Đã tạo JSON",
+          "registered": "Đã đăng ký",
+          "cancelled": "Đã hủy",
+          "failed": "Đăng ký không thành công"
+        },
+        "irn": "IRN",
+        "ackNo": "Số xác nhận",
+        "ackDate": "Ngày xác nhận",
+        "cancelReason": "Hủy",
+        "generate": "Tạo IRN",
+        "pasteLabel": "Phản hồi IRP",
+        "pasteHint": "Dán JSON mà cổng hoặc GSP của bạn trả về cho JSON hóa đơn điện tử của hóa đơn này (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Ghi nhận IRN",
+        "cancelReasonLabel": "Lý do hủy",
+        "cancelReasons": {
+          "1": "Trùng lặp",
+          "2": "Lỗi nhập dữ liệu",
+          "3": "Đơn hàng bị hủy",
+          "4": "Khác"
+        },
+        "cancel": "Hủy IRN",
+        "cancelWindow": "Cổng cho phép hủy trong vòng 24 giờ kể từ khi xác nhận."
+      }
     },
     "history": {
       "metaTitle": "Lịch sử hóa đơn",
@@ -2078,6 +2125,9 @@
     "templateImported": "Đã nhập mẫu",
     "profileTemplateCleared": "Hồ sơ lại dùng mẫu của phiên bản",
     "operatorSaved": "Đã lưu thông tin bên vận hành. Các trang pháp lý giờ hiển thị thông tin này.",
-    "einvoiceSettingsSaved": "Đã lưu cài đặt hóa đơn điện tử"
+    "einvoiceSettingsSaved": "Đã lưu cài đặt hóa đơn điện tử",
+    "irnRegistered": "Đã đăng ký IRN {irn}; PDF đã được tạo lại kèm IRN",
+    "irnRecorded": "Đã ghi nhận IRN; PDF đã được tạo lại kèm IRN",
+    "irnCancelled": "Đã hủy IRN; PDF đã được tạo lại"
   }
 }

@@ -1,4 +1,5 @@
 import "server-only";
+import { EInvoiceStateSchema, type EInvoiceState } from "@/lib/schemas/einvoice-state";
 import { Prisma, type DocumentFormat } from "@/generated/prisma/client";
 import {
   addDays,
@@ -86,9 +87,12 @@ export interface InvoiceListRow {
   issuerLabel: string;
   locale: string;
   sentAt: string | null;
+  /** E-invoice registration status (spec §9e); NONE until a JSON is generated. */
+  einvoiceStatus: EInvoiceState["status"];
 }
 
 export interface InvoiceDto extends InvoiceListRow {
+  einvoice: EInvoiceState | null;
   fiscalYear: string | null;
   sequenceNumber: number | null;
   issuedAt: string | null;
@@ -253,6 +257,8 @@ function toDto(row: DetailRow, today: DateString): InvoiceDto {
     terms: row.terms,
     displayConfig: mergeDisplayConfig(row.displayConfig),
     documentLocale: row.documentLocale,
+    einvoice: parseEInvoice(row.einvoice),
+    einvoiceStatus: parseEInvoice(row.einvoice)?.status ?? "NONE",
     templateSnapshot: row.templateSnapshot ? mergeTemplateConfig(row.templateSnapshot) : null,
     issuerSnapshot: parseSnapshot(IssuerSnapshotSchema, row.issuerSnapshot),
     clientSnapshot: parseSnapshot(ClientSnapshotSchema, row.clientSnapshot),
@@ -388,6 +394,13 @@ async function loadParties(tx: Tx, input: InvoiceDraftInput) {
     }
   }
   return { issuer, client };
+}
+
+/** The stored registration state; a stale or absent value reads as NONE. */
+function parseEInvoice(value: unknown): EInvoiceState | null {
+  if (value === null || value === undefined) return null;
+  const parsed = EInvoiceStateSchema.safeParse(value);
+  return parsed.success ? parsed.data : null;
 }
 
 function draftData(input: InvoiceDraftInput, c: Computed, placeOfSupply: string | null) {
@@ -841,6 +854,23 @@ export async function listInvoices(
       ...(filters.issuerProfileId ? { issuerProfileId: filters.issuerProfileId } : {}),
       ...(filters.clientId ? { clientId: filters.clientId } : {}),
       ...(filters.currency ? { currency: filters.currency } : {}),
+      ...(filters.einvoice === "registered"
+        ? { einvoice: { path: ["status"], equals: "REGISTERED" } }
+        : filters.einvoice === "cancelled"
+          ? { einvoice: { path: ["status"], equals: "CANCELLED" } }
+          : filters.einvoice === "none"
+            ? {
+                // nested so the search's own OR stays intact
+                AND: [
+                  {
+                    OR: [
+                      { einvoice: { equals: Prisma.DbNull } },
+                      { einvoice: { path: ["status"], equals: "NONE" } },
+                    ],
+                  },
+                ],
+              }
+            : {}),
       ...(filters.status === "DRAFT" || filters.status === "VOID"
         ? { status: filters.status }
         : {}),
@@ -898,6 +928,7 @@ export async function listInvoices(
     issuerLabel: r.issuerProfile.label,
     locale: r.issuerProfile.locale,
     sentAt: r.sentAt?.toISOString() ?? null,
+    einvoiceStatus: parseEInvoice(r.einvoice)?.status ?? "NONE",
   }));
   // Derived statuses (PAID, OVERDUE, …) depend on "today" in the viewer's zone, so filter here.
   return filters.status ? list.filter((r) => r.displayStatus === filters.status) : list;

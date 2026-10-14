@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Amount, Mono } from "@/components/ui/mono";
 import { PageHeader } from "@/components/ui/page-header";
 import { Select } from "@/components/ui/select";
-import { StatusPill } from "@/components/ui/status-pill";
+import { Pill, StatusPill } from "@/components/ui/status-pill";
 import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/table";
 import { formatDate, formatMoney } from "@/lib/format";
 import { STATUS_LABELS } from "@/lib/invoices";
@@ -152,6 +152,14 @@ export default async function InvoicesPage({
             ))}
           </Select>
         </Field>
+        <Field label={t("einvoice")} htmlFor="einvoice">
+          <Select id="einvoice" name="einvoice" defaultValue={filters.einvoice ?? ""}>
+            <option value="">{tc("all")}</option>
+            <option value="registered">{t("einvoiceFilters.registered")}</option>
+            <option value="none">{t("einvoiceFilters.none")}</option>
+            <option value="cancelled">{t("einvoiceFilters.cancelled")}</option>
+          </Select>
+        </Field>
         <Field label={tc("currency")} htmlFor="currency">
           <Select id="currency" name="currency" defaultValue={filters.currency ?? ""}>
             <option value="">{tc("all")}</option>
@@ -237,7 +245,14 @@ export default async function InvoicesPage({
                       </Amount>
                     </TD>
                     <TD label={tc("status")}>
-                      <StatusPill status={r.displayStatus} />
+                      <span className="inline-flex flex-wrap items-center gap-1">
+                        <StatusPill status={r.displayStatus} />
+                        {r.einvoiceStatus === "REGISTERED" ? (
+                          <Pill tone="success">{t("einvoiceFilters.registered")}</Pill>
+                        ) : r.einvoiceStatus === "CANCELLED" ? (
+                          <Pill tone="warning">{t("einvoiceFilters.cancelled")}</Pill>
+                        ) : null}
+                      </span>
                     </TD>
                   </TR>
                 ))

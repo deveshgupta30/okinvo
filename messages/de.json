@@ -840,6 +840,9 @@
         "username": "Benutzername",
         "password": "Passwort",
         "gstin": "GSTIN",
+        "publicKey": "Öffentlicher IRP-Schlüssel (PEM)",
+        "publicKeyHint": "Laden Sie ihn nach der Anmeldung vom Portal herunter; er verschlüsselt die an die IRP gesendeten Zugangsdaten.",
+        "publicKeyStored": "Gespeichert; leer lassen, um ihn zu behalten.",
         "secretStored": "Verschlüsselt gespeichert; leer lassen, um es beizubehalten.",
         "secretEncrypted": "Verschlüsselt gespeichert."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Steuer-ID",
       "void": "UNGÜLTIG",
       "draftWatermark": "ENTWURF - keine Steuerrechnung",
-      "paymentTermsDays": "{days} Tage"
+      "paymentTermsDays": "{days} Tage",
+      "irn": "IRN",
+      "ackNo": "Bestätigungsnr.",
+      "ackDate": "Bestätigungsdatum",
+      "einvoiceCancelled": "E-RECHNUNG STORNIERT"
     },
     "ui": {
       "pageEstimate": "ca. {count, plural, one {# Seite} other {# Seiten}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Keine Rechnungen entsprechen diesen Filtern.",
       "count": "{count, plural, one {# Rechnung} other {# Rechnungen}}",
       "countPaged": "{count, plural, one {# Rechnung} other {# Rechnungen}} · Seite {page} von {pages}",
-      "register": "Register"
+      "register": "Register",
+      "einvoice": "E-Rechnung",
+      "einvoiceFilters": {
+        "registered": "IRN registriert",
+        "none": "Nicht registriert",
+        "cancelled": "IRN storniert"
+      }
     },
     "new": {
       "noProfileTitle": "Erstellen Sie zuerst ein Ausstellerprofil",
@@ -1611,7 +1624,41 @@
       "version": "Version {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Prüflink:",
-      "draftPreviewHint": "Entwürfe werden live im Editor vorgeschaut; öffnen Sie <link>das PDF mit Wasserzeichen</link>, um die Seite zu sehen."
+      "draftPreviewHint": "Entwürfe werden live im Editor vorgeschaut; öffnen Sie <link>das PDF mit Wasserzeichen</link>, um die Seite zu sehen.",
+      "einvoice": {
+        "title": "E-Rechnung (Indien)",
+        "description": "Registrierung dieser Rechnung beim Invoice Registration Portal; ein registriertes Dokument druckt seine IRN und den signierten QR-Code des Portals.",
+        "connector": "Anbindung",
+        "connectors": {
+          "manual": "Manuell",
+          "nic": "NIC-IRP-API"
+        },
+        "notConfigured": "Für dieses Profil ist unter Einstellungen > E-Rechnung keine Anbindung konfiguriert.",
+        "statuses": {
+          "none": "Nicht registriert",
+          "generated": "JSON erzeugt",
+          "registered": "Registriert",
+          "cancelled": "Storniert",
+          "failed": "Registrierung fehlgeschlagen"
+        },
+        "irn": "IRN",
+        "ackNo": "Bestätigungsnr.",
+        "ackDate": "Bestätigungsdatum",
+        "cancelReason": "Stornierung",
+        "generate": "IRN erzeugen",
+        "pasteLabel": "IRP-Antwort",
+        "pasteHint": "Fügen Sie das JSON ein, das das Portal oder Ihr GSP für das E-Rechnungs-JSON dieser Rechnung zurückgegeben hat (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN erfassen",
+        "cancelReasonLabel": "Stornierungsgrund",
+        "cancelReasons": {
+          "1": "Duplikat",
+          "2": "Dateneingabefehler",
+          "3": "Auftrag storniert",
+          "4": "Sonstiges"
+        },
+        "cancel": "IRN stornieren",
+        "cancelWindow": "Das Portal erlaubt eine Stornierung innerhalb von 24 Stunden nach der Bestätigung."
+      }
     },
     "history": {
       "metaTitle": "Rechnungsverlauf",
@@ -2078,6 +2125,9 @@
     "templateImported": "Vorlage importiert",
     "profileTemplateCleared": "Das Profil verwendet wieder die Instanzvorlage",
     "operatorSaved": "Angaben zum Betreiber gespeichert. Die Rechtsseiten zeigen sie nun an.",
-    "einvoiceSettingsSaved": "E-Rechnungs-Einstellungen gespeichert"
+    "einvoiceSettingsSaved": "E-Rechnungs-Einstellungen gespeichert",
+    "irnRegistered": "IRN {irn} registriert; das PDF wurde damit neu erzeugt",
+    "irnRecorded": "IRN erfasst; das PDF wurde damit neu erzeugt",
+    "irnCancelled": "IRN storniert; das PDF wurde neu erzeugt"
   }
 }

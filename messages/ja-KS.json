@@ -840,6 +840,9 @@
         "username": "ユーザー名",
         "password": "パスワード",
         "gstin": "GSTIN",
+        "publicKey": "IRP 公開鍵(PEM)",
+        "publicKeyHint": "ポータルにサインインしてからダウンロードします。IRP に送信する認証情報の暗号化に使われます。",
+        "publicKeyStored": "保存済みです。変更しない場合は空欄のままにしてください。",
         "secretStored": "暗号化して保存されます。変更しない場合は空欄のままにしてください。",
         "secretEncrypted": "保存時に暗号化されます。"
       },
@@ -1399,7 +1402,11 @@
       "taxId": "税ID",
       "void": "無効",
       "draftWatermark": "下書き - 税務請求書ではありません",
-      "paymentTermsDays": "{days}日"
+      "paymentTermsDays": "{days}日",
+      "irn": "IRN",
+      "ackNo": "確認番号",
+      "ackDate": "確認日",
+      "einvoiceCancelled": "電子インボイス取消済み"
     },
     "ui": {
       "pageEstimate": "約 {count, plural, other {# ページ}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "この条件に一致する請求書はありません。",
       "count": "{count, plural, other {# 件の請求書}}",
       "countPaged": "{count, plural, other {# 件の請求書}} · {page} / {pages} ページ",
-      "register": "台帳"
+      "register": "台帳",
+      "einvoice": "電子インボイス",
+      "einvoiceFilters": {
+        "registered": "IRN 登録済み",
+        "none": "未登録",
+        "cancelled": "IRN 取消済み"
+      }
     },
     "new": {
       "noProfileTitle": "先に発行者プロフィールを作成してください",
@@ -1611,7 +1624,41 @@
       "version": "バージョン {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "検証リンク:",
-      "draftPreviewHint": "下書きはエディターでリアルタイムにプレビューされます。ページを確認するには<link>透かし入りの PDF</link>を開いてください。"
+      "draftPreviewHint": "下書きはエディターでリアルタイムにプレビューされます。ページを確認するには<link>透かし入りの PDF</link>を開いてください。",
+      "einvoice": {
+        "title": "電子インボイス(インド)",
+        "description": "このインボイスをインボイス登録ポータル(Invoice Registration Portal)に登録します。登録済みの書類には IRN とポータルの署名付き QR コードが印刷されます。",
+        "connector": "コネクター",
+        "connectors": {
+          "manual": "手動",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "このプロフィールにはコネクターが設定されていません。「設定 > 電子インボイス」で設定してください。",
+        "statuses": {
+          "none": "未登録",
+          "generated": "JSON 生成済み",
+          "registered": "登録済み",
+          "cancelled": "取消済み",
+          "failed": "登録に失敗しました"
+        },
+        "irn": "IRN",
+        "ackNo": "確認番号",
+        "ackDate": "確認日",
+        "cancelReason": "取消理由",
+        "generate": "IRN を生成",
+        "pasteLabel": "IRP の応答",
+        "pasteHint": "このインボイスの電子インボイス JSON に対してポータルまたは GSP が返した JSON(Irn、AckNo、AckDt、SignedQRCode)を貼り付けてください。",
+        "record": "IRN を記録",
+        "cancelReasonLabel": "取消理由",
+        "cancelReasons": {
+          "1": "重複",
+          "2": "データ入力ミス",
+          "3": "注文の取消",
+          "4": "その他"
+        },
+        "cancel": "IRN を取り消す",
+        "cancelWindow": "ポータルで取り消せるのは、確認から 24 時間以内です。"
+      }
     },
     "history": {
       "metaTitle": "請求書の履歴",
@@ -2078,6 +2125,9 @@
     "templateImported": "テンプレートをインポートしましたで",
     "profileTemplateCleared": "プロフィールはインスタンスのテンプレートに戻りました",
     "operatorSaved": "運営者の情報を保存しましたで。法的ページに表示されますさかい、おおきに。",
-    "einvoiceSettingsSaved": "電子インボイス設定を保存しましたで"
+    "einvoiceSettingsSaved": "電子インボイス設定を保存しましたで",
+    "irnRegistered": "IRN {irn} を登録しました。PDF を再生成しました",
+    "irnRecorded": "IRN を記録しました。PDF を再生成しました",
+    "irnCancelled": "IRN を取り消しました。PDF を再生成しました"
   }
 }

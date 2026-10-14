@@ -840,6 +840,9 @@
         "username": "Jeneng panganggo",
         "password": "Tembung sandhi",
         "gstin": "GSTIN",
+        "publicKey": "Kunci umum IRP (PEM)",
+        "publicKeyHint": "Undhuh saka portal sawise mlebu; kunci iki mbungkus kredensial sing dikirim menyang IRP.",
+        "publicKeyStored": "Disimpen; kosongake supaya tetep.",
         "secretStored": "Disimpen kaenkripsi; kosongake kanggo njaga.",
         "secretEncrypted": "Disimpen kaenkripsi."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID pajak",
       "void": "BATAL",
       "draftWatermark": "DRAF - dudu faktur pajak",
-      "paymentTermsDays": "{days} dina"
+      "paymentTermsDays": "{days} dina",
+      "irn": "IRN",
+      "ackNo": "No. pangakuan",
+      "ackDate": "Tanggal pangakuan",
+      "einvoiceCancelled": "E-FAKTUR DIBATALAKE"
     },
     "ui": {
       "pageEstimate": "kira-kira {count, plural, other {# kaca}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Ora ana faktur sing cocog karo saringan iki.",
       "count": "{count, plural, other {# faktur}}",
       "countPaged": "{count, plural, other {# faktur}} · kaca {page} saka {pages}",
-      "register": "register"
+      "register": "register",
+      "einvoice": "E-faktur",
+      "einvoiceFilters": {
+        "registered": "IRN kedaftar",
+        "none": "Durung kedaftar",
+        "cancelled": "IRN dibatalake"
+      }
     },
     "new": {
       "noProfileTitle": "Gawe profil penerbit luwih dhisik",
@@ -1611,7 +1624,41 @@
       "version": "Versi {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Pranala verifikasi:",
-      "draftPreviewHint": "Draf dipratinjau langsung ing panyunting; bukak <link>PDF kanthi watermark</link> kanggo ndeleng kaca."
+      "draftPreviewHint": "Draf dipratinjau langsung ing panyunting; bukak <link>PDF kanthi watermark</link> kanggo ndeleng kaca.",
+      "einvoice": {
+        "title": "E-faktur (India)",
+        "description": "Pendaftaran faktur iki ing Invoice Registration Portal; dokumen sing wis kedaftar nyithak IRN-e lan QR sing ditandatangani portal.",
+        "connector": "Konektor",
+        "connectors": {
+          "manual": "Manual",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Durung ana konektor sing dikonfigurasi kanggo profil iki ing Setelan > E-faktur.",
+        "statuses": {
+          "none": "Durung kedaftar",
+          "generated": "JSON digawe",
+          "registered": "Kedaftar",
+          "cancelled": "Dibatalake",
+          "failed": "Pendaftaran gagal"
+        },
+        "irn": "IRN",
+        "ackNo": "No. pangakuan",
+        "ackDate": "Tanggal pangakuan",
+        "cancelReason": "Pembatalan",
+        "generate": "Gawe IRN",
+        "pasteLabel": "Wangsulan IRP",
+        "pasteHint": "Tempelake JSON sing dibalekake portal utawa GSP panjenengan kanggo JSON e-faktur saka faktur iki (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Cathet IRN",
+        "cancelReasonLabel": "Alesan pembatalan",
+        "cancelReasons": {
+          "1": "Duplikat",
+          "2": "Kesalahan input data",
+          "3": "Pesenan dibatalake",
+          "4": "Liyane"
+        },
+        "cancel": "Batalake IRN",
+        "cancelWindow": "Portal ngidini pembatalan sajrone 24 jam sawise pangakuan."
+      }
     },
     "history": {
       "metaTitle": "Riwayat faktur",
@@ -2078,6 +2125,9 @@
     "templateImported": "Cithakan diimpor",
     "profileTemplateCleared": "Profil nganggo cithakan instans maneh",
     "operatorSaved": "Rincian operator disimpen. Kaca hukum saiki nuduhake iki.",
-    "einvoiceSettingsSaved": "Setelan e-faktur disimpen"
+    "einvoiceSettingsSaved": "Setelan e-faktur disimpen",
+    "irnRegistered": "IRN {irn} kedaftar; PDF digawe maneh nganggo IRN kuwi",
+    "irnRecorded": "IRN dicathet; PDF digawe maneh nganggo IRN kuwi",
+    "irnCancelled": "IRN dibatalake; PDF digawe maneh"
   }
 }

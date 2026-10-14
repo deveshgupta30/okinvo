@@ -840,6 +840,9 @@
         "username": "ਵਰਤੋਂਕਾਰ ਨਾਮ",
         "password": "ਪਾਸਵਰਡ",
         "gstin": "GSTIN",
+        "publicKey": "IRP ਜਨਤਕ ਕੁੰਜੀ (PEM)",
+        "publicKeyHint": "ਸਾਈਨ ਇਨ ਕਰਨ ਮਗਰੋਂ ਇਸਨੂੰ ਪੋਰਟਲ ਤੋਂ ਡਾਊਨਲੋਡ ਕਰੋ; ਇਹ IRP ਨੂੰ ਭੇਜੇ ਜਾਂਦੇ ਕ੍ਰੈਡੈਂਸ਼ੀਅਲ ਨੂੰ ਲਪੇਟ ਕੇ ਸੁਰੱਖਿਅਤ ਕਰਦੀ ਹੈ।",
+        "publicKeyStored": "ਸੰਭਾਲੀ ਹੋਈ ਹੈ; ਰੱਖਣ ਲਈ ਖਾਲੀ ਛੱਡੋ।",
         "secretStored": "ਇਨਕ੍ਰਿਪਟ ਕਰਕੇ ਸਟੋਰ ਕੀਤਾ; ਰੱਖਣ ਲਈ ਖਾਲੀ ਛੱਡੋ।",
         "secretEncrypted": "ਸਟੋਰੇਜ ਵਿੱਚ ਇਨਕ੍ਰਿਪਟ ਕਰਕੇ ਰੱਖਿਆ।"
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ਟੈਕਸ ID",
       "void": "ਰੱਦ",
       "draftWatermark": "ਖਰੜਾ - ਟੈਕਸ ਇਨਵੌਇਸ ਨਹੀਂ",
-      "paymentTermsDays": "{days} ਦਿਨ"
+      "paymentTermsDays": "{days} ਦਿਨ",
+      "irn": "IRN",
+      "ackNo": "ਪ੍ਰਾਪਤੀ ਨੰ.",
+      "ackDate": "ਪ੍ਰਾਪਤੀ ਮਿਤੀ",
+      "einvoiceCancelled": "ਈ-ਇਨਵੌਇਸ ਰੱਦ"
     },
     "ui": {
       "pageEstimate": "ਲਗਭਗ {count, plural, one {# ਪੰਨਾ} other {# ਪੰਨੇ}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "ਇਹਨਾਂ ਫਿਲਟਰਾਂ ਨਾਲ ਕੋਈ ਇਨਵੌਇਸ ਮੇਲ ਨਹੀਂ ਖਾਂਦਾ।",
       "count": "{count, plural, one {# ਇਨਵੌਇਸ} other {# ਇਨਵੌਇਸ}}",
       "countPaged": "{count, plural, one {# ਇਨਵੌਇਸ} other {# ਇਨਵੌਇਸ}} · ਪੰਨਾ {page} / {pages}",
-      "register": "ਰਜਿਸਟਰ"
+      "register": "ਰਜਿਸਟਰ",
+      "einvoice": "ਈ-ਇਨਵੌਇਸ",
+      "einvoiceFilters": {
+        "registered": "IRN ਰਜਿਸਟਰ ਹੋਇਆ",
+        "none": "ਰਜਿਸਟਰ ਨਹੀਂ",
+        "cancelled": "IRN ਰੱਦ"
+      }
     },
     "new": {
       "noProfileTitle": "ਪਹਿਲਾਂ ਜਾਰੀਕਰਤਾ ਪ੍ਰੋਫ਼ਾਈਲ ਬਣਾਓ",
@@ -1611,7 +1624,41 @@
       "version": "ਸੰਸਕਰਣ {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "ਪੁਸ਼ਟੀ ਲਿੰਕ:",
-      "draftPreviewHint": "ਡਰਾਫਟ ਦੀ ਪੂਰਵ-ਝਲਕ ਸੰਪਾਦਕ ਵਿੱਚ ਲਾਈਵ ਦਿਖਦੀ ਹੈ; ਪੰਨਾ ਦੇਖਣ ਲਈ <link>ਵਾਟਰਮਾਰਕ ਵਾਲੀ PDF</link> ਖੋਲ੍ਹੋ।"
+      "draftPreviewHint": "ਡਰਾਫਟ ਦੀ ਪੂਰਵ-ਝਲਕ ਸੰਪਾਦਕ ਵਿੱਚ ਲਾਈਵ ਦਿਖਦੀ ਹੈ; ਪੰਨਾ ਦੇਖਣ ਲਈ <link>ਵਾਟਰਮਾਰਕ ਵਾਲੀ PDF</link> ਖੋਲ੍ਹੋ।",
+      "einvoice": {
+        "title": "ਈ-ਇਨਵੌਇਸ (ਭਾਰਤ)",
+        "description": "ਇਨਵੌਇਸ ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਪੋਰਟਲ ਉੱਤੇ ਇਸ ਇਨਵੌਇਸ ਦੀ ਰਜਿਸਟ੍ਰੇਸ਼ਨ; ਰਜਿਸਟਰ ਹੋਏ ਦਸਤਾਵੇਜ਼ ਉੱਤੇ ਉਸਦਾ IRN ਅਤੇ ਪੋਰਟਲ ਦਾ ਹਸਤਾਖਰਿਤ QR ਛਪਦਾ ਹੈ।",
+        "connector": "ਕਨੈਕਟਰ",
+        "connectors": {
+          "manual": "ਮੈਨੂਅਲ",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "ਇਸ ਪ੍ਰੋਫ਼ਾਈਲ ਲਈ ਸੈਟਿੰਗਾਂ > ਈ-ਇਨਵੌਇਸਿੰਗ ਹੇਠ ਕੋਈ ਕਨੈਕਟਰ ਸੰਰਚਿਤ ਨਹੀਂ ਹੈ।",
+        "statuses": {
+          "none": "ਰਜਿਸਟਰ ਨਹੀਂ",
+          "generated": "JSON ਤਿਆਰ",
+          "registered": "ਰਜਿਸਟਰ ਹੋਇਆ",
+          "cancelled": "ਰੱਦ",
+          "failed": "ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਅਸਫਲ"
+        },
+        "irn": "IRN",
+        "ackNo": "ਪ੍ਰਾਪਤੀ ਨੰ.",
+        "ackDate": "ਪ੍ਰਾਪਤੀ ਮਿਤੀ",
+        "cancelReason": "ਰੱਦ ਕਰਨਾ",
+        "generate": "IRN ਬਣਾਓ",
+        "pasteLabel": "IRP ਜਵਾਬ",
+        "pasteHint": "ਇਸ ਇਨਵੌਇਸ ਦੇ ਈ-ਇਨਵੌਇਸ JSON ਲਈ ਪੋਰਟਲ ਜਾਂ ਤੁਹਾਡੇ GSP ਵੱਲੋਂ ਮੋੜਿਆ ਗਿਆ JSON ਪੇਸਟ ਕਰੋ (Irn, AckNo, AckDt, SignedQRCode)।",
+        "record": "IRN ਦਰਜ ਕਰੋ",
+        "cancelReasonLabel": "ਰੱਦ ਕਰਨ ਦਾ ਕਾਰਨ",
+        "cancelReasons": {
+          "1": "ਡੁਪਲੀਕੇਟ",
+          "2": "ਡਾਟਾ ਐਂਟਰੀ ਵਿੱਚ ਗਲਤੀ",
+          "3": "ਆਰਡਰ ਰੱਦ",
+          "4": "ਹੋਰ"
+        },
+        "cancel": "IRN ਰੱਦ ਕਰੋ",
+        "cancelWindow": "ਪੋਰਟਲ ਪ੍ਰਾਪਤੀ ਤੋਂ 24 ਘੰਟਿਆਂ ਦੇ ਅੰਦਰ ਰੱਦ ਕਰਨ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।"
+      }
     },
     "history": {
       "metaTitle": "ਇਨਵੌਇਸ ਇਤਿਹਾਸ",
@@ -2078,6 +2125,9 @@
     "templateImported": "ਟੈਮਪਲੇਟ ਇੰਪੋਰਟ ਕੀਤਾ ਗਿਆ",
     "profileTemplateCleared": "ਪ੍ਰੋਫ਼ਾਈਲ ਦੁਬਾਰਾ ਇੰਸਟੈਂਸ ਟੈਮਪਲੇਟ ਵਰਤਦੀ ਹੈ",
     "operatorSaved": "ਸੰਚਾਲਕ ਦੇ ਵੇਰਵੇ ਸੰਭਾਲੇ ਗਏ। ਕਾਨੂੰਨੀ ਪੰਨੇ ਹੁਣ ਇਹ ਦਿਖਾਉਂਦੇ ਹਨ।",
-    "einvoiceSettingsSaved": "ਈ-ਇਨਵੌਇਸਿੰਗ ਸੈਟਿੰਗਾਂ ਸੰਭਾਲੀਆਂ ਗਈਆਂ"
+    "einvoiceSettingsSaved": "ਈ-ਇਨਵੌਇਸਿੰਗ ਸੈਟਿੰਗਾਂ ਸੰਭਾਲੀਆਂ ਗਈਆਂ",
+    "irnRegistered": "IRN {irn} ਰਜਿਸਟਰ ਹੋਇਆ; PDF ਉਸ ਸਮੇਤ ਮੁੜ ਬਣਾਇਆ ਗਿਆ",
+    "irnRecorded": "IRN ਦਰਜ ਹੋਇਆ; PDF ਉਸ ਸਮੇਤ ਮੁੜ ਬਣਾਇਆ ਗਿਆ",
+    "irnCancelled": "IRN ਰੱਦ ਹੋਇਆ; PDF ਮੁੜ ਬਣਾਇਆ ਗਿਆ"
   }
 }

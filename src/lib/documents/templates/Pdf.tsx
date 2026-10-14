@@ -306,6 +306,11 @@ export function DocumentPdf({
             {vm.watermark}
           </Text>
         ) : null}
+        {vm.einvoice?.cancelled ? (
+          <Text run={run} fixed style={st.watermark}>
+            {vm.text.einvoiceCancelled}
+          </Text>
+        ) : null}
 
         {s.headerStyle === "band" ? <View fixed style={st.bandFill} /> : null}
         {s.headerStyle === "image" && images.header ? (
@@ -443,6 +448,19 @@ export function DocumentPdf({
                 </View>
               ) : null}
             </View>
+            {vm.einvoice ? (
+              <View style={{ marginTop: 4 }}>
+                <Text run={run} style={st.metaLabel}>
+                  {vm.text.irn}
+                </Text>
+                <Text run={run} style={st.small}>
+                  {vm.einvoice.irn}
+                </Text>
+                <Text run={run} style={[st.small, st.muted]}>
+                  {vm.text.ackNo} {vm.einvoice.ackNo} · {vm.text.ackDate} {vm.einvoice.ackDate}
+                </Text>
+              </View>
+            ) : null}
             {vm.poReference ? (
               <Text run={run} style={[st.muted, { marginTop: 4 }]}>
                 {vm.labels.poReference}: {vm.poReference}

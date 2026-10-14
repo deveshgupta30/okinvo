@@ -840,6 +840,9 @@
         "username": "Zita remushandisi",
         "password": "Password",
         "gstin": "GSTIN",
+        "publicKey": "IRP public key (PEM)",
+        "publicKeyHint": "Idhawunirodhe kubva paportal mushure mekupinda; inavanzira macredentials anotumirwa kuIRP.",
+        "publicKeyStored": "Yakachengetwa; siya isina chinhu kuti uichengete.",
         "secretStored": "Yakachengetwa yakavanzwa; siya isina chinhu kuti uichengete.",
         "secretEncrypted": "Yakachengetwa yakavanzwa."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Tax ID",
       "void": "YAMBOPEDZWA",
       "draftWatermark": "DRAFT - haisi tax invoice",
-      "paymentTermsDays": "mazuva {days}"
+      "paymentTermsDays": "mazuva {days}",
+      "irn": "IRN",
+      "ackNo": "Nhamba yekugamuchirwa",
+      "ackDate": "Zuva rekugamuchirwa",
+      "einvoiceCancelled": "E-INVOICE YAKAKANZURWA"
     },
     "ui": {
       "pageEstimate": "anenge {count, plural, one {peji #} other {mapeji #}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Hapana maivoisi anofanana nemafilter aya.",
       "count": "{count, plural, one {# invoice} other {# maivoisi}}",
       "countPaged": "{count, plural, one {# invoice} other {# maivoisi}} · peji {page} ye{pages}",
-      "register": "rejista"
+      "register": "rejista",
+      "einvoice": "E-invoice",
+      "einvoiceFilters": {
+        "registered": "IRN yakanyoreswa",
+        "none": "Haina kunyoreswa",
+        "cancelled": "IRN yakakanzurwa"
+      }
     },
     "new": {
       "noProfileTitle": "Gadzira issuer profile kutanga",
@@ -1611,7 +1624,41 @@
       "version": "Version {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Link yekutarisa:",
-      "draftPreviewHint": "Madraft anoonekwa mueditor; vhura <link>PDF ine watermark</link> kuti uone peji."
+      "draftPreviewHint": "Madraft anoonekwa mueditor; vhura <link>PDF ine watermark</link> kuti uone peji.",
+      "einvoice": {
+        "title": "E-invoice (India)",
+        "description": "Kunyoresa invoice iyi paInvoice Registration Portal; gwaro rakanyoreswa rinodhinda IRN yaro neQR yakasainwa yeportal.",
+        "connector": "Connector",
+        "connectors": {
+          "manual": "Manual",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Hapana connector yakagadziridzwa pa profile iyi pasi peSettings > E-invoicing.",
+        "statuses": {
+          "none": "Haina kunyoreswa",
+          "generated": "JSON yagadzirwa",
+          "registered": "Yakanyoreswa",
+          "cancelled": "Yakakanzurwa",
+          "failed": "Kunyoresa kwakundikana"
+        },
+        "irn": "IRN",
+        "ackNo": "Nhamba yekugamuchirwa",
+        "ackDate": "Zuva rekugamuchirwa",
+        "cancelReason": "Kukanzura",
+        "generate": "Gadzira IRN",
+        "pasteLabel": "Mhinduro yeIRP",
+        "pasteHint": "Namira JSON yakadzoserwa neportal kana neGSP yako pa e-invoice JSON yeinvoice iyi (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Rekodha IRN",
+        "cancelReasonLabel": "Chikonzero chekukanzura",
+        "cancelReasons": {
+          "1": "Chakapetwa",
+          "2": "Kukanganisa pakuisa data",
+          "3": "Order yakakanzurwa",
+          "4": "Zvimwe"
+        },
+        "cancel": "Kanzura IRN",
+        "cancelWindow": "Portal inobvumira kukanzura mukati memaawa 24 mushure mekugamuchirwa."
+      }
     },
     "history": {
       "metaTitle": "Nhoroondo yeinvoice",
@@ -2078,6 +2125,9 @@
     "templateImported": "Template yaimportwa",
     "profileTemplateCleared": "Profile inoshandisa template yeinstance zvakare",
     "operatorSaved": "Zvikamu zveoperator zvachengetedzwa. Mapeji emutemo ava kuzviratidza.",
-    "einvoiceSettingsSaved": "Marongero e-invoicing akachengetedzwa"
+    "einvoiceSettingsSaved": "Marongero e-invoicing akachengetedzwa",
+    "irnRegistered": "IRN {irn} yanyoreswa; PDF yagadzirwa zvakare nayo",
+    "irnRecorded": "IRN yarekodhwa; PDF yagadzirwa zvakare nayo",
+    "irnCancelled": "IRN yakanzurwa; PDF yagadzirwa zvakare"
   }
 }

@@ -840,6 +840,9 @@
         "username": "Používateľské meno",
         "password": "Heslo",
         "gstin": "GSTIN",
+        "publicKey": "Verejný kľúč IRP (PEM)",
+        "publicKeyHint": "Stiahnite si ho z portálu po prihlásení; šifruje prihlasovacie údaje odosielané do IRP.",
+        "publicKeyStored": "Uložené; ak ho chcete zachovať, nechajte prázdne.",
         "secretStored": "Uložené zašifrované; ak ho chcete zachovať, nechajte prázdne.",
         "secretEncrypted": "Uložené zašifrované."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "IČ DPH",
       "void": "ZRUŠENÉ",
       "draftWatermark": "NÁVRH - nie je daňová faktúra",
-      "paymentTermsDays": "{days} dní"
+      "paymentTermsDays": "{days} dní",
+      "irn": "IRN",
+      "ackNo": "Č. potvrdenia",
+      "ackDate": "Dátum potvrdenia",
+      "einvoiceCancelled": "E-FAKTÚRA ZRUŠENÁ"
     },
     "ui": {
       "pageEstimate": "cca {count, plural, one {# strana} few {# strany} other {# strán}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Týmto filtrom nezodpovedá žiadna faktúra.",
       "count": "{count, plural, one {# faktúra} few {# faktúry} other {# faktúr}}",
       "countPaged": "{count, plural, one {# faktúra} few {# faktúry} other {# faktúr}} · strana {page} z {pages}",
-      "register": "register"
+      "register": "register",
+      "einvoice": "E-faktúra",
+      "einvoiceFilters": {
+        "registered": "IRN registrované",
+        "none": "Neregistrovaná",
+        "cancelled": "IRN zrušené"
+      }
     },
     "new": {
       "noProfileTitle": "Najprv vytvorte profil vystavovateľa",
@@ -1611,7 +1624,41 @@
       "version": "Verzia {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Odkaz na overenie:",
-      "draftPreviewHint": "Náhľad konceptov je naživo v editore; stranu zobrazíte otvorením <link>PDF s vodoznakom</link>."
+      "draftPreviewHint": "Náhľad konceptov je naživo v editore; stranu zobrazíte otvorením <link>PDF s vodoznakom</link>.",
+      "einvoice": {
+        "title": "E-faktúra (India)",
+        "description": "Registrácia tejto faktúry v Invoice Registration Portal; registrovaný doklad obsahuje svoje IRN a podpísaný QR kód portálu.",
+        "connector": "Konektor",
+        "connectors": {
+          "manual": "Manuálny",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Pre tento profil nie je v Nastavenia > E-fakturácia nastavený žiadny konektor.",
+        "statuses": {
+          "none": "Neregistrovaná",
+          "generated": "JSON vygenerovaný",
+          "registered": "Registrovaná",
+          "cancelled": "Zrušená",
+          "failed": "Registrácia zlyhala"
+        },
+        "irn": "IRN",
+        "ackNo": "Č. potvrdenia",
+        "ackDate": "Dátum potvrdenia",
+        "cancelReason": "Zrušenie",
+        "generate": "Vygenerovať IRN",
+        "pasteLabel": "Odpoveď IRP",
+        "pasteHint": "Vložte JSON, ktorý portál alebo váš GSP vrátil pre JSON e-faktúry tejto faktúry (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Zaznamenať IRN",
+        "cancelReasonLabel": "Dôvod zrušenia",
+        "cancelReasons": {
+          "1": "Duplicita",
+          "2": "Chyba pri zadávaní údajov",
+          "3": "Objednávka zrušená",
+          "4": "Iné"
+        },
+        "cancel": "Zrušiť IRN",
+        "cancelWindow": "Portál umožňuje zrušenie do 24 hodín od potvrdenia."
+      }
     },
     "history": {
       "metaTitle": "História faktúry",
@@ -2078,6 +2125,9 @@
     "templateImported": "Šablóna bola importovaná",
     "profileTemplateCleared": "Profil opäť používa šablónu inštancie",
     "operatorSaved": "Údaje prevádzkovateľa boli uložené. Právne stránky ich teraz zobrazujú.",
-    "einvoiceSettingsSaved": "Nastavenia e-fakturácie boli uložené"
+    "einvoiceSettingsSaved": "Nastavenia e-fakturácie boli uložené",
+    "irnRegistered": "IRN {irn} zaregistrované; PDF bolo znova vygenerované s ním",
+    "irnRecorded": "IRN zaznamenané; PDF bolo znova vygenerované s ním",
+    "irnCancelled": "IRN zrušené; PDF bolo znova vygenerované"
   }
 }

@@ -63,6 +63,7 @@ describe("EInvoiceSettingsSchema", () => {
               username: "user",
               passwordEnc: "v1:def",
               gstin: "29ABCDE1234F1Z5",
+              publicKeyPem: "-----BEGIN PUBLIC KEY-----\nMIIB\n-----END PUBLIC KEY-----",
             },
           },
           eu: { profile: "EN16931" },

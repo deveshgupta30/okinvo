@@ -840,6 +840,9 @@
         "username": "صارف نام",
         "password": "پاس ورڈ",
         "gstin": "GSTIN",
+        "publicKey": "IRP پبلک کلید (PEM)",
+        "publicKeyHint": "سائن ان کرنے کے بعد اسے پورٹل سے ڈاؤن لوڈ کریں؛ یہ IRP کو بھیجی جانے والی اسناد کو لپیٹتی ہے۔",
+        "publicKeyStored": "محفوظ ہے؛ برقرار رکھنے کے لیے خالی چھوڑیں۔",
         "secretStored": "خفیہ کردہ حالت میں محفوظ؛ برقرار رکھنے کے لیے خالی چھوڑیں۔",
         "secretEncrypted": "خفیہ کردہ حالت میں محفوظ۔"
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ٹیکس شناخت",
       "void": "منسوخ",
       "draftWatermark": "مسودہ - ٹیکس انوائس نہیں",
-      "paymentTermsDays": "{days} دن"
+      "paymentTermsDays": "{days} دن",
+      "irn": "IRN",
+      "ackNo": "رسید نمبر",
+      "ackDate": "رسید کی تاریخ",
+      "einvoiceCancelled": "برقی انوائس منسوخ"
     },
     "ui": {
       "pageEstimate": "تقریباً {count, plural, one {# صفحہ} other {# صفحات}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "ان فلٹرز سے کوئی انوائس مطابقت نہیں رکھتی۔",
       "count": "{count, plural, one {# انوائس} other {# انوائسز}}",
       "countPaged": "{count, plural, one {# انوائس} other {# انوائسز}} · صفحہ {page} از {pages}",
-      "register": "رجسٹر"
+      "register": "رجسٹر",
+      "einvoice": "برقی انوائس",
+      "einvoiceFilters": {
+        "registered": "IRN رجسٹرڈ",
+        "none": "رجسٹر نہیں",
+        "cancelled": "IRN منسوخ"
+      }
     },
     "new": {
       "noProfileTitle": "پہلے جاری کنندہ پروفائل بنائیں",
@@ -1611,7 +1624,41 @@
       "version": "ورژن {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "تصدیقی لنک:",
-      "draftPreviewHint": "مسودوں کا پیش منظر ایڈیٹر میں براہ راست نظر آتا ہے؛ صفحہ دیکھنے کے لیے <link>واٹر مارک والی PDF</link> کھولیں۔"
+      "draftPreviewHint": "مسودوں کا پیش منظر ایڈیٹر میں براہ راست نظر آتا ہے؛ صفحہ دیکھنے کے لیے <link>واٹر مارک والی PDF</link> کھولیں۔",
+      "einvoice": {
+        "title": "برقی انوائس (بھارت)",
+        "description": "اس انوائس کی انوائس رجسٹریشن پورٹل (Invoice Registration Portal) پر رجسٹریشن؛ رجسٹرڈ دستاویز پر اس کا IRN اور پورٹل کا دستخط شدہ QR پرنٹ ہوتا ہے۔",
+        "connector": "کنیکٹر",
+        "connectors": {
+          "manual": "دستی",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "اس پروفائل کے لیے کوئی کنیکٹر ترتیب نہیں دیا گیا: ترتیبات > برقی انوائسز۔",
+        "statuses": {
+          "none": "رجسٹر نہیں",
+          "generated": "JSON تیار",
+          "registered": "رجسٹرڈ",
+          "cancelled": "منسوخ",
+          "failed": "رجسٹریشن ناکام"
+        },
+        "irn": "IRN",
+        "ackNo": "رسید نمبر",
+        "ackDate": "رسید کی تاریخ",
+        "cancelReason": "منسوخی",
+        "generate": "IRN بنائیں",
+        "pasteLabel": "IRP جواب",
+        "pasteHint": "وہ JSON چسپاں کریں جو پورٹل یا آپ کے GSP نے اس انوائس کے برقی انوائس JSON کے لیے واپس کیا (Irn, AckNo, AckDt, SignedQRCode)۔",
+        "record": "IRN درج کریں",
+        "cancelReasonLabel": "منسوخی کی وجہ",
+        "cancelReasons": {
+          "1": "نقل",
+          "2": "ڈیٹا اندراج میں غلطی",
+          "3": "آرڈر منسوخ ہو گیا",
+          "4": "دیگر"
+        },
+        "cancel": "IRN منسوخ کریں",
+        "cancelWindow": "پورٹل رسید کے 24 گھنٹوں کے اندر منسوخی کی اجازت دیتا ہے۔"
+      }
     },
     "history": {
       "metaTitle": "انوائس کا تاریخچہ",
@@ -2078,6 +2125,9 @@
     "templateImported": "ٹیمپلیٹ درآمد ہو گیا",
     "profileTemplateCleared": "پروفائل دوبارہ انسٹینس ٹیمپلیٹ استعمال کرتا ہے",
     "operatorSaved": "آپریٹر کی تفصیلات محفوظ ہو گئیں۔ قانونی صفحات اب انہیں دکھاتے ہیں۔",
-    "einvoiceSettingsSaved": "برقی انوائس ترتیبات محفوظ ہو گئیں"
+    "einvoiceSettingsSaved": "برقی انوائس ترتیبات محفوظ ہو گئیں",
+    "irnRegistered": "IRN {irn} رجسٹر ہو گیا؛ PDF اس کے ساتھ دوبارہ تیار کیا گیا",
+    "irnRecorded": "IRN درج ہو گیا؛ PDF اس کے ساتھ دوبارہ تیار کیا گیا",
+    "irnCancelled": "IRN منسوخ ہو گیا؛ PDF دوبارہ تیار کیا گیا"
   }
 }

@@ -840,6 +840,9 @@
         "username": "Gebruikersnaam",
         "password": "Wachtwoord",
         "gstin": "GSTIN",
+        "publicKey": "Openbare IRP-sleutel (PEM)",
+        "publicKeyHint": "Download hem van het portaal nadat u zich hebt aangemeld; hij verpakt de gegevens die naar de IRP worden verzonden.",
+        "publicKeyStored": "Opgeslagen; laat leeg om hem te behouden.",
         "secretStored": "Versleuteld opgeslagen; laat leeg om het te behouden.",
         "secretEncrypted": "Versleuteld opgeslagen."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Belastingnummer",
       "void": "ONGELDIG",
       "draftWatermark": "ONTWERP - geen btw-factuur",
-      "paymentTermsDays": "{days} dagen"
+      "paymentTermsDays": "{days} dagen",
+      "irn": "IRN",
+      "ackNo": "Ontvangstnr.",
+      "ackDate": "Ontvangstdatum",
+      "einvoiceCancelled": "E-FACTUUR GEANNULEERD"
     },
     "ui": {
       "pageEstimate": "ca. {count, plural, one {# pagina} other {# pagina’s}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Geen facturen voldoen aan deze filters.",
       "count": "{count, plural, one {# factuur} other {# facturen}}",
       "countPaged": "{count, plural, one {# factuur} other {# facturen}} · pagina {page} van {pages}",
-      "register": "register"
+      "register": "register",
+      "einvoice": "E-factuur",
+      "einvoiceFilters": {
+        "registered": "IRN geregistreerd",
+        "none": "Niet geregistreerd",
+        "cancelled": "IRN geannuleerd"
+      }
     },
     "new": {
       "noProfileTitle": "Maak eerst een uitgeversprofiel aan",
@@ -1611,7 +1624,41 @@
       "version": "Versie {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Verificatielink:",
-      "draftPreviewHint": "Ontwerpen worden live voorvertoond in de editor; open <link>de PDF met watermerk</link> om de pagina te zien."
+      "draftPreviewHint": "Ontwerpen worden live voorvertoond in de editor; open <link>de PDF met watermerk</link> om de pagina te zien.",
+      "einvoice": {
+        "title": "E-factuur (India)",
+        "description": "Registratie van deze factuur bij het Invoice Registration Portal; een geregistreerd document toont zijn IRN en de ondertekende QR-code van het portaal.",
+        "connector": "Connector",
+        "connectors": {
+          "manual": "Handmatig",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Voor dit profiel is geen connector ingesteld onder Instellingen > E-facturatie.",
+        "statuses": {
+          "none": "Niet geregistreerd",
+          "generated": "JSON gegenereerd",
+          "registered": "Geregistreerd",
+          "cancelled": "Geannuleerd",
+          "failed": "Registratie mislukt"
+        },
+        "irn": "IRN",
+        "ackNo": "Ontvangstnr.",
+        "ackDate": "Ontvangstdatum",
+        "cancelReason": "Annulering",
+        "generate": "IRN genereren",
+        "pasteLabel": "IRP-antwoord",
+        "pasteHint": "Plak de JSON die het portaal of uw GSP heeft teruggegeven voor de e-factuur-JSON van deze factuur (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN registreren",
+        "cancelReasonLabel": "Reden van annulering",
+        "cancelReasons": {
+          "1": "Dubbel",
+          "2": "Fout bij gegevensinvoer",
+          "3": "Bestelling geannuleerd",
+          "4": "Overige"
+        },
+        "cancel": "IRN annuleren",
+        "cancelWindow": "Het portaal staat annulering toe binnen 24 uur na de ontvangstbevestiging."
+      }
     },
     "history": {
       "metaTitle": "Factuurgeschiedenis",
@@ -2078,6 +2125,9 @@
     "templateImported": "Sjabloon geïmporteerd",
     "profileTemplateCleared": "Het profiel gebruikt opnieuw het instantiesjabloon",
     "operatorSaved": "Gegevens van de beheerder opgeslagen. De juridische pagina’s tonen ze nu.",
-    "einvoiceSettingsSaved": "E-facturatie-instellingen opgeslagen"
+    "einvoiceSettingsSaved": "E-facturatie-instellingen opgeslagen",
+    "irnRegistered": "IRN {irn} geregistreerd; de pdf is opnieuw gegenereerd met dit IRN",
+    "irnRecorded": "IRN geregistreerd; de pdf is opnieuw gegenereerd met dit IRN",
+    "irnCancelled": "IRN geannuleerd; de pdf is opnieuw gegenereerd"
   }
 }

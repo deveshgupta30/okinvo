@@ -840,6 +840,9 @@
         "username": "Uzantnomo",
         "password": "Pasvorto",
         "gstin": "GSTIN",
+        "publicKey": "Publika ŝlosilo de IRP (PEM)",
+        "publicKeyHint": "Elŝutu ĝin de la portalo post ensaluto; ĝi envolvas la akreditaĵojn senditajn al la IRP.",
+        "publicKeyStored": "Konservita; lasu malplena por konservi ĝin.",
         "secretStored": "Konservita ĉifrite; lasu malplena por konservi ĝin.",
         "secretEncrypted": "Konservita ĉifrite en ripozo."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Imposta ID",
       "void": "NULIGITA",
       "draftWatermark": "MALNETO - ne imposta fakturo",
-      "paymentTermsDays": "{days} tagoj"
+      "paymentTermsDays": "{days} tagoj",
+      "irn": "IRN",
+      "ackNo": "Konfirma nr.",
+      "ackDate": "Konfirma dato",
+      "einvoiceCancelled": "E-FAKTURO NULIGITA"
     },
     "ui": {
       "pageEstimate": "ĉ. {count, plural, one {# paĝo} other {# paĝoj}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Neniu fakturo kongruas kun ĉi tiuj filtriloj.",
       "count": "{count, plural, one {# fakturo} other {# fakturoj}}",
       "countPaged": "{count, plural, one {# fakturo} other {# fakturoj}} · paĝo {page} el {pages}",
-      "register": "registro"
+      "register": "registro",
+      "einvoice": "E-fakturo",
+      "einvoiceFilters": {
+        "registered": "IRN registrita",
+        "none": "Ne registrita",
+        "cancelled": "IRN nuligita"
+      }
     },
     "new": {
       "noProfileTitle": "Unue kreu eldonantan profilon",
@@ -1611,7 +1624,41 @@
       "version": "Versio {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Kontrola ligilo:",
-      "draftPreviewHint": "Malnetoj antaŭvidiĝas vive en la redaktilo; malfermu <link>la PDF kun akvomarko</link> por vidi la paĝon."
+      "draftPreviewHint": "Malnetoj antaŭvidiĝas vive en la redaktilo; malfermu <link>la PDF kun akvomarko</link> por vidi la paĝon.",
+      "einvoice": {
+        "title": "E-fakturo (Barato)",
+        "description": "Registrado de ĉi tiu fakturo ĉe la Invoice Registration Portal; registrita dokumento presas sian IRN kaj la subskribitan QR-kodon de la portalo.",
+        "connector": "Konektilo",
+        "connectors": {
+          "manual": "Mana",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Neniu konektilo estas agordita por ĉi tiu profilo en Agordoj > E-fakturado.",
+        "statuses": {
+          "none": "Ne registrita",
+          "generated": "JSON generita",
+          "registered": "Registrita",
+          "cancelled": "Nuligita",
+          "failed": "Registrado malsukcesis"
+        },
+        "irn": "IRN",
+        "ackNo": "Konfirma nr.",
+        "ackDate": "Konfirma dato",
+        "cancelReason": "Nuligo",
+        "generate": "Generi IRN",
+        "pasteLabel": "Respondo de IRP",
+        "pasteHint": "Algluu la JSON, kiun la portalo aŭ via GSP resendis por la e-faktura JSON de ĉi tiu fakturo (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Registri IRN",
+        "cancelReasonLabel": "Kialo de nuligo",
+        "cancelReasons": {
+          "1": "Duobligo",
+          "2": "Eraro pri datenenigo",
+          "3": "Mendo nuligita",
+          "4": "Aliaj"
+        },
+        "cancel": "Nuligi IRN",
+        "cancelWindow": "La portalo permesas nuligon ene de 24 horoj post la konfirmo."
+      }
     },
     "history": {
       "metaTitle": "Historio de fakturo",
@@ -2078,6 +2125,9 @@
     "templateImported": "Ŝablono importita",
     "profileTemplateCleared": "Profilo denove uzas la ŝablonon de la instanco",
     "operatorSaved": "Detaloj de funkciiganto konservitaj. La juraj paĝoj nun montras ilin.",
-    "einvoiceSettingsSaved": "E-fakturadaj agordoj konservitaj"
+    "einvoiceSettingsSaved": "E-fakturadaj agordoj konservitaj",
+    "irnRegistered": "IRN {irn} registrita; la PDF estis regenerita kun ĝi",
+    "irnRecorded": "IRN registrita; la PDF estis regenerita kun ĝi",
+    "irnCancelled": "IRN nuligita; la PDF estis regenerita"
   }
 }

@@ -840,6 +840,9 @@
         "username": "يوزرنيم",
         "password": "پاسورڊ",
         "gstin": "GSTIN",
+        "publicKey": "IRP جي عوامي ڪنجي (PEM)",
+        "publicKeyHint": "سائن ان ڪرڻ کان پوءِ پورٽل تان ڊائونلوڊ ڪريو؛ اها IRP ڏانهن موڪليل سندن کي ويڙهي ٿي.",
+        "publicKeyStored": "محفوظ ٿيل؛ رکڻ لاءِ خالي ڇڏيو.",
         "secretStored": "ڳجهي ڪوڊ ۾ محفوظ ٿيل؛ رکڻ لاءِ خالي ڇڏيو.",
         "secretEncrypted": "اسٽوريج ۾ ڳجهي ڪوڊ ۾ محفوظ."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ٽيڪس ID",
       "void": "منسوخ",
       "draftWatermark": "مسودو - ٽيڪس انوائس ناهي",
-      "paymentTermsDays": "{days} ڏينهن"
+      "paymentTermsDays": "{days} ڏينهن",
+      "irn": "IRN",
+      "ackNo": "رسيد نمبر",
+      "ackDate": "رسيد جي تاريخ",
+      "einvoiceCancelled": "اي-انوائس منسوخ"
     },
     "ui": {
       "pageEstimate": "اٽڪل {count, plural, one {# صفحو} other {# صفحا}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "انهن فلٽرن سان ڪو انوائس ميل نٿو کائي.",
       "count": "{count, plural, one {# انوائس} other {# انوائسون}}",
       "countPaged": "{count, plural, one {# انوائس} other {# انوائسون}} · صفحو {page} / {pages}",
-      "register": "رجسٽر"
+      "register": "رجسٽر",
+      "einvoice": "اي-انوائس",
+      "einvoiceFilters": {
+        "registered": "IRN رجسٽر ٿيل",
+        "none": "رجسٽر ٿيل ناهي",
+        "cancelled": "IRN منسوخ"
+      }
     },
     "new": {
       "noProfileTitle": "پهرين جاري ڪندڙ پروفائل ٺاهيو",
@@ -1611,7 +1624,41 @@
       "version": "ورزن {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "تصديق لنڪ:",
-      "draftPreviewHint": "مسودن جو پريويو ايڊيٽر ۾ لائيو ڏيکاريو وڃي ٿو؛ صفحو ڏسڻ لاءِ <link>واٽر مارڪ وارو PDF</link> کوليو."
+      "draftPreviewHint": "مسودن جو پريويو ايڊيٽر ۾ لائيو ڏيکاريو وڃي ٿو؛ صفحو ڏسڻ لاءِ <link>واٽر مارڪ وارو PDF</link> کوليو.",
+      "einvoice": {
+        "title": "اي-انوائس (ڀارت)",
+        "description": "هن انوائس جي انوائس رجسٽريشن پورٽل ۾ رجسٽريشن؛ رجسٽر ٿيل دستاويز تي ان جو IRN ۽ پورٽل جو دستخط ٿيل QR ڇپجي ٿو.",
+        "connector": "ڪنيڪٽر",
+        "connectors": {
+          "manual": "دستي",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "هن پروفائل لاءِ سيٽنگون > اي-انوائسنگ ۾ ڪو ڪنيڪٽر ترتيب ڏنل ناهي.",
+        "statuses": {
+          "none": "رجسٽر ٿيل ناهي",
+          "generated": "JSON ٺهيل",
+          "registered": "رجسٽر ٿيل",
+          "cancelled": "منسوخ",
+          "failed": "رجسٽريشن ناڪام"
+        },
+        "irn": "IRN",
+        "ackNo": "رسيد نمبر",
+        "ackDate": "رسيد جي تاريخ",
+        "cancelReason": "منسوخي",
+        "generate": "IRN ٺاهيو",
+        "pasteLabel": "IRP جو جواب",
+        "pasteHint": "هن انوائس جي اي-انوائس JSON لاءِ پورٽل يا توهان جي GSP جيڪو JSON موٽايو آهي سو پيسٽ ڪريو (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN رڪارڊ ڪريو",
+        "cancelReasonLabel": "منسوخي جو سبب",
+        "cancelReasons": {
+          "1": "نقل",
+          "2": "ڊيٽا داخل ڪرڻ ۾ غلطي",
+          "3": "آرڊر منسوخ",
+          "4": "ٻيو"
+        },
+        "cancel": "IRN منسوخ ڪريو",
+        "cancelWindow": "پورٽل رسيد کان 24 ڪلاڪن اندر منسوخي جي اجازت ڏئي ٿو."
+      }
     },
     "history": {
       "metaTitle": "انوائس جي تاريخ",
@@ -2078,6 +2125,9 @@
     "templateImported": "ٽيمپليٽ امپورٽ ٿيو",
     "profileTemplateCleared": "پروفائل ٻيهر انسٽنس ٽيمپليٽ استعمال ڪري ٿو",
     "operatorSaved": "آپريٽر جا تفصيل محفوظ ٿيا. قانوني صفحا هاڻي انهن کي ڏيکارين ٿا.",
-    "einvoiceSettingsSaved": "اي-انوائسنگ سيٽنگون محفوظ ٿيون"
+    "einvoiceSettingsSaved": "اي-انوائسنگ سيٽنگون محفوظ ٿيون",
+    "irnRegistered": "IRN {irn} رجسٽر ٿيو؛ PDF ان سان گڏ ٻيهر ٺاهيو ويو",
+    "irnRecorded": "IRN رڪارڊ ٿيو؛ PDF ان سان گڏ ٻيهر ٺاهيو ويو",
+    "irnCancelled": "IRN منسوخ ٿيو؛ PDF ٻيهر ٺاهيو ويو"
   }
 }

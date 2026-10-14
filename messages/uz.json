@@ -840,6 +840,9 @@
         "username": "Foydalanuvchi nomi",
         "password": "Parol",
         "gstin": "GSTIN",
+        "publicKey": "IRP ochiq kaliti (PEM)",
+        "publicKeyHint": "Tizimga kirgandan so’ng uni portaldan yuklab oling; u IRP’ga yuboriladigan hisob ma’lumotlarini o’raydi.",
+        "publicKeyStored": "Saqlangan; saqlab qolish uchun bo’sh qoldiring.",
         "secretStored": "Shifrlangan holda saqlanadi; saqlab qolish uchun bo’sh qoldiring.",
         "secretEncrypted": "Shifrlangan holda saqlanadi."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Soliq identifikatori",
       "void": "BEKOR QILINGAN",
       "draftWatermark": "QORALAMA - soliq hisob-fakturasi emas",
-      "paymentTermsDays": "{days} kun"
+      "paymentTermsDays": "{days} kun",
+      "irn": "IRN",
+      "ackNo": "Tasdiq raqami",
+      "ackDate": "Tasdiq sanasi",
+      "einvoiceCancelled": "E-HISOB-FAKTURA BEKOR QILINDI"
     },
     "ui": {
       "pageEstimate": "taxminan {count, plural, one {# sahifa} other {# sahifa}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Bu filtrlarga mos hisob-faktura yoʻq.",
       "count": "{count, plural, one {# hisob-faktura} other {# hisob-faktura}}",
       "countPaged": "{count, plural, one {# hisob-faktura} other {# hisob-faktura}} · {pages} sahifadan {page}-sahifa",
-      "register": "reyestr"
+      "register": "reyestr",
+      "einvoice": "E-hisob-faktura",
+      "einvoiceFilters": {
+        "registered": "IRN ro’yxatdan o’tgan",
+        "none": "Ro’yxatdan o’tmagan",
+        "cancelled": "IRN bekor qilingan"
+      }
     },
     "new": {
       "noProfileTitle": "Avval chiqaruvchi profilini yarating",
@@ -1611,7 +1624,41 @@
       "version": "Versiya {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Tekshirish havolasi:",
-      "draftPreviewHint": "Qoralamalar tahrirlovchida jonli koʻrinadi; sahifani koʻrish uchun <link>suv belgili PDF</link>ni oching."
+      "draftPreviewHint": "Qoralamalar tahrirlovchida jonli koʻrinadi; sahifani koʻrish uchun <link>suv belgili PDF</link>ni oching.",
+      "einvoice": {
+        "title": "E-hisob-faktura (Hindiston)",
+        "description": "Ushbu hisob-fakturani Invoice Registration Portal’da ro’yxatdan o’tkazish; ro’yxatdan o’tgan hujjatda uning IRN raqami va portalning imzolangan QR kodi chop etiladi.",
+        "connector": "Ulagich",
+        "connectors": {
+          "manual": "Qo’lda",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Bu profil uchun Sozlamalar > E-hisob-faktura bo’limida ulagich sozlanmagan.",
+        "statuses": {
+          "none": "Ro’yxatdan o’tmagan",
+          "generated": "JSON yaratildi",
+          "registered": "Ro’yxatdan o’tgan",
+          "cancelled": "Bekor qilingan",
+          "failed": "Ro’yxatdan o’tkazish muvaffaqiyatsiz tugadi"
+        },
+        "irn": "IRN",
+        "ackNo": "Tasdiq raqami",
+        "ackDate": "Tasdiq sanasi",
+        "cancelReason": "Bekor qilish",
+        "generate": "IRN yaratish",
+        "pasteLabel": "IRP javobi",
+        "pasteHint": "Portal yoki GSP’ingiz ushbu hisob-fakturaning e-hisob-faktura JSON’i uchun qaytargan JSON’ni joylashtiring (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN’ni yozib olish",
+        "cancelReasonLabel": "Bekor qilish sababi",
+        "cancelReasons": {
+          "1": "Dublikat",
+          "2": "Ma’lumot kiritishdagi xato",
+          "3": "Buyurtma bekor qilindi",
+          "4": "Boshqa"
+        },
+        "cancel": "IRN’ni bekor qilish",
+        "cancelWindow": "Portal tasdiqlangandan keyin 24 soat ichida bekor qilishga ruxsat beradi."
+      }
     },
     "history": {
       "metaTitle": "Hisob-faktura tarixi",
@@ -2078,6 +2125,9 @@
     "templateImported": "Shablon import qilindi",
     "profileTemplateCleared": "Profil yana nusxa shablonidan foydalanadi",
     "operatorSaved": "Operator maʼlumotlari saqlandi. Huquqiy sahifalar endi ularni koʻrsatadi.",
-    "einvoiceSettingsSaved": "E-hisob-faktura sozlamalari saqlandi"
+    "einvoiceSettingsSaved": "E-hisob-faktura sozlamalari saqlandi",
+    "irnRegistered": "IRN {irn} ro’yxatdan o’tkazildi; PDF u bilan qayta yaratildi",
+    "irnRecorded": "IRN yozib olindi; PDF u bilan qayta yaratildi",
+    "irnCancelled": "IRN bekor qilindi; PDF qayta yaratildi"
   }
 }

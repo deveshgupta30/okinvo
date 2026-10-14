@@ -840,6 +840,9 @@
         "username": "Nome utente",
         "password": "Password",
         "gstin": "GSTIN",
+        "publicKey": "Chiave pubblica IRP (PEM)",
+        "publicKeyHint": "Scaricala dal portale dopo aver effettuato l’accesso; protegge le credenziali inviate all’IRP.",
+        "publicKeyStored": "Salvata; lascia vuoto per mantenerla.",
         "secretStored": "Archiviato cifrato; lascia vuoto per mantenerlo.",
         "secretEncrypted": "Archiviato cifrato a riposo."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID fiscale",
       "void": "ANNULLATA",
       "draftWatermark": "BOZZA - non è una fattura fiscale",
-      "paymentTermsDays": "{days} giorni"
+      "paymentTermsDays": "{days} giorni",
+      "irn": "IRN",
+      "ackNo": "N. conferma",
+      "ackDate": "Data conferma",
+      "einvoiceCancelled": "FATTURA ELETTRONICA ANNULLATA"
     },
     "ui": {
       "pageEstimate": "circa {count, plural, one {# pagina} other {# pagine}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Nessuna fattura corrisponde a questi filtri.",
       "count": "{count, plural, one {# fattura} other {# fatture}}",
       "countPaged": "{count, plural, one {# fattura} other {# fatture}} · pagina {page} di {pages}",
-      "register": "registro"
+      "register": "registro",
+      "einvoice": "Fattura elettronica",
+      "einvoiceFilters": {
+        "registered": "IRN registrato",
+        "none": "Non registrata",
+        "cancelled": "IRN annullato"
+      }
     },
     "new": {
       "noProfileTitle": "Crea prima un profilo emittente",
@@ -1611,7 +1624,41 @@
       "version": "Versione {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Link di verifica:",
-      "draftPreviewHint": "L’anteprima delle bozze è in tempo reale nell’editor; apri <link>il PDF con filigrana</link> per vedere la pagina."
+      "draftPreviewHint": "L’anteprima delle bozze è in tempo reale nell’editor; apri <link>il PDF con filigrana</link> per vedere la pagina.",
+      "einvoice": {
+        "title": "Fattura elettronica (India)",
+        "description": "Registrazione di questa fattura presso l’Invoice Registration Portal; un documento registrato riporta il proprio IRN e il QR firmato del portale.",
+        "connector": "Connettore",
+        "connectors": {
+          "manual": "Manuale",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Nessun connettore è configurato per questo profilo in Impostazioni > Fatturazione elettronica.",
+        "statuses": {
+          "none": "Non registrata",
+          "generated": "JSON generato",
+          "registered": "Registrata",
+          "cancelled": "Annullata",
+          "failed": "Registrazione non riuscita"
+        },
+        "irn": "IRN",
+        "ackNo": "N. conferma",
+        "ackDate": "Data conferma",
+        "cancelReason": "Annullamento",
+        "generate": "Genera IRN",
+        "pasteLabel": "Risposta IRP",
+        "pasteHint": "Incolla il JSON restituito dal portale o dal tuo GSP per il JSON della fattura elettronica di questa fattura (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Registra IRN",
+        "cancelReasonLabel": "Motivo dell’annullamento",
+        "cancelReasons": {
+          "1": "Duplicato",
+          "2": "Errore di inserimento dati",
+          "3": "Ordine annullato",
+          "4": "Altro"
+        },
+        "cancel": "Annulla IRN",
+        "cancelWindow": "Il portale consente l’annullamento entro 24 ore dalla conferma."
+      }
     },
     "history": {
       "metaTitle": "Cronologia della fattura",
@@ -2078,6 +2125,9 @@
     "templateImported": "Modello importato",
     "profileTemplateCleared": "Il profilo usa di nuovo il modello dell’istanza",
     "operatorSaved": "Dati dell’operatore salvati. Le pagine legali ora li mostrano.",
-    "einvoiceSettingsSaved": "Impostazioni di fatturazione elettronica salvate"
+    "einvoiceSettingsSaved": "Impostazioni di fatturazione elettronica salvate",
+    "irnRegistered": "IRN {irn} registrato; il PDF è stato rigenerato con esso",
+    "irnRecorded": "IRN registrato; il PDF è stato rigenerato con esso",
+    "irnCancelled": "IRN annullato; il PDF è stato rigenerato"
   }
 }

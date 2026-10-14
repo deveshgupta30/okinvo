@@ -840,6 +840,9 @@
         "username": "Корисничко име",
         "password": "Лозинка",
         "gstin": "GSTIN",
+        "publicKey": "IRP јавни кључ (PEM)",
+        "publicKeyHint": "Преузмите га са портала након пријављивања; њиме се шифрују акредитиви послати IRP-у.",
+        "publicKeyStored": "Сачувано; оставите празно да бисте га задржали.",
         "secretStored": "Чува се шифровано; оставите празно да задржите.",
         "secretEncrypted": "Чува се шифровано."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Порески ИД",
       "void": "ПОНИШТЕНО",
       "draftWatermark": "НАЦРТ - није порески рачун",
-      "paymentTermsDays": "{days} дана"
+      "paymentTermsDays": "{days} дана",
+      "irn": "IRN",
+      "ackNo": "Број потврде",
+      "ackDate": "Датум потврде",
+      "einvoiceCancelled": "ЕЛЕКТРОНСКИ РАЧУН ПОНИШТЕН"
     },
     "ui": {
       "pageEstimate": "око {count, plural, one {# странице} few {# странице} other {# страница}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Ниједан рачун не одговара овим филтерима.",
       "count": "{count, plural, one {# рачун} few {# рачуна} other {# рачуна}}",
       "countPaged": "{count, plural, one {# рачун} few {# рачуна} other {# рачуна}} · страница {page} од {pages}",
-      "register": "регистар"
+      "register": "регистар",
+      "einvoice": "Електронски рачун",
+      "einvoiceFilters": {
+        "registered": "IRN регистрован",
+        "none": "Није регистровано",
+        "cancelled": "IRN поништен"
+      }
     },
     "new": {
       "noProfileTitle": "Прво направите профил издаваоца",
@@ -1611,7 +1624,41 @@
       "version": "Верзија {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Веза за проверу:",
-      "draftPreviewHint": "Преглед нацрта је уживо у уређивачу; отворите <link>PDF са воденим жигом</link> да видите страницу."
+      "draftPreviewHint": "Преглед нацрта је уживо у уређивачу; отворите <link>PDF са воденим жигом</link> да видите страницу.",
+      "einvoice": {
+        "title": "Електронски рачун (Индија)",
+        "description": "Регистрација овог рачуна на порталу за регистрацију рачуна (Invoice Registration Portal); регистровани документ се штампа са IRN-ом и потписаним QR кодом портала.",
+        "connector": "Конектор",
+        "connectors": {
+          "manual": "Ручно",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "За овај профил није подешен конектор: Подешавања > Електронски рачуни.",
+        "statuses": {
+          "none": "Није регистровано",
+          "generated": "JSON генерисан",
+          "registered": "Регистровано",
+          "cancelled": "Поништено",
+          "failed": "Регистрација није успела"
+        },
+        "irn": "IRN",
+        "ackNo": "Број потврде",
+        "ackDate": "Датум потврде",
+        "cancelReason": "Поништавање",
+        "generate": "Генериши IRN",
+        "pasteLabel": "IRP одговор",
+        "pasteHint": "Налепите JSON који је портал или ваш GSP вратио за JSON електронског рачуна овог рачуна (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Евидентирај IRN",
+        "cancelReasonLabel": "Разлог поништавања",
+        "cancelReasons": {
+          "1": "Дупликат",
+          "2": "Грешка при уносу података",
+          "3": "Поруџбина отказана",
+          "4": "Остало"
+        },
+        "cancel": "Поништи IRN",
+        "cancelWindow": "Портал дозвољава поништавање у року од 24 сата од потврде."
+      }
     },
     "history": {
       "metaTitle": "Историја рачуна",
@@ -2078,6 +2125,9 @@
     "templateImported": "Шаблон је увезен",
     "profileTemplateCleared": "Профил поново користи шаблон инстанце",
     "operatorSaved": "Подаци о оператеру су сачувани. Правне странице их сада приказују.",
-    "einvoiceSettingsSaved": "Подешавања електронских рачуна су сачувана"
+    "einvoiceSettingsSaved": "Подешавања електронских рачуна су сачувана",
+    "irnRegistered": "IRN {irn} је регистрован; PDF је поново генерисан са њим",
+    "irnRecorded": "IRN је евидентиран; PDF је поново генерисан са њим",
+    "irnCancelled": "IRN је поништен; PDF је поново генерисан"
   }
 }

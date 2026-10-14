@@ -840,6 +840,9 @@
         "username": "שם משתמש",
         "password": "סיסמה",
         "gstin": "GSTIN",
+        "publicKey": "מפתח ציבורי של IRP (PEM)",
+        "publicKeyHint": "הורידו אותו מהפורטל לאחר הכניסה; הוא עוטף את פרטי הגישה הנשלחים ל-IRP.",
+        "publicKeyStored": "נשמר; השאירו ריק כדי לשמור אותו.",
         "secretStored": "נשמר מוצפן; השאירו ריק כדי לשמור אותו.",
         "secretEncrypted": "נשמר מוצפן."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "מזהה מס",
       "void": "מבוטל",
       "draftWatermark": "טיוטה - אינה חשבונית מס",
-      "paymentTermsDays": "{days} ימים"
+      "paymentTermsDays": "{days} ימים",
+      "irn": "IRN",
+      "ackNo": "מספר אישור",
+      "ackDate": "תאריך אישור",
+      "einvoiceCancelled": "חשבונית אלקטרונית בוטלה"
     },
     "ui": {
       "pageEstimate": "כ-{count, plural, one {עמוד אחד} two {# עמודים} other {# עמודים}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "אין חשבוניות התואמות למסננים אלה.",
       "count": "{count, plural, one {חשבונית אחת} two {# חשבוניות} other {# חשבוניות}}",
       "countPaged": "{count, plural, one {חשבונית אחת} two {# חשבוניות} other {# חשבוניות}} · עמוד {page} מתוך {pages}",
-      "register": "רישום"
+      "register": "רישום",
+      "einvoice": "חשבונית אלקטרונית",
+      "einvoiceFilters": {
+        "registered": "IRN רשום",
+        "none": "לא רשומה",
+        "cancelled": "IRN בוטל"
+      }
     },
     "new": {
       "noProfileTitle": "צרו תחילה פרופיל מנפיק",
@@ -1611,7 +1624,41 @@
       "version": "גרסה {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "קישור אימות:",
-      "draftPreviewHint": "טיוטות מוצגות בזמן אמת בעורך; פתחו את <link>ה-PDF עם סימן המים</link> כדי לראות את העמוד."
+      "draftPreviewHint": "טיוטות מוצגות בזמן אמת בעורך; פתחו את <link>ה-PDF עם סימן המים</link> כדי לראות את העמוד.",
+      "einvoice": {
+        "title": "חשבונית אלקטרונית (הודו)",
+        "description": "רישום חשבונית זו בפורטל רישום החשבוניות (Invoice Registration Portal); מסמך רשום מודפס עם ה-IRN והקוד QR החתום של הפורטל.",
+        "connector": "מחבר",
+        "connectors": {
+          "manual": "ידני",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "לא הוגדר מחבר עבור פרופיל זה: הגדרות > חשבוניות אלקטרוניות.",
+        "statuses": {
+          "none": "לא רשומה",
+          "generated": "JSON נוצר",
+          "registered": "רשומה",
+          "cancelled": "בוטלה",
+          "failed": "הרישום נכשל"
+        },
+        "irn": "IRN",
+        "ackNo": "מספר אישור",
+        "ackDate": "תאריך אישור",
+        "cancelReason": "ביטול",
+        "generate": "יצירת IRN",
+        "pasteLabel": "תגובת IRP",
+        "pasteHint": "הדביקו את ה-JSON שהפורטל או ה-GSP שלכם החזירו עבור ה-JSON של החשבונית האלקטרונית של חשבונית זו (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "תיעוד IRN",
+        "cancelReasonLabel": "סיבת הביטול",
+        "cancelReasons": {
+          "1": "כפילות",
+          "2": "שגיאת הזנת נתונים",
+          "3": "ההזמנה בוטלה",
+          "4": "אחר"
+        },
+        "cancel": "ביטול IRN",
+        "cancelWindow": "הפורטל מאפשר ביטול בתוך 24 שעות מרגע האישור."
+      }
     },
     "history": {
       "metaTitle": "היסטוריית חשבונית",
@@ -2078,6 +2125,9 @@
     "templateImported": "התבנית יובאה",
     "profileTemplateCleared": "הפרופיל משתמש שוב בתבנית המופע",
     "operatorSaved": "פרטי המפעיל נשמרו. העמודים המשפטיים מציגים אותם כעת.",
-    "einvoiceSettingsSaved": "הגדרות החשבוניות האלקטרוניות נשמרו"
+    "einvoiceSettingsSaved": "הגדרות החשבוניות האלקטרוניות נשמרו",
+    "irnRegistered": "IRN {irn} נרשם; ה-PDF נוצר מחדש איתו",
+    "irnRecorded": "IRN נרשם; ה-PDF נוצר מחדש איתו",
+    "irnCancelled": "IRN בוטל; ה-PDF נוצר מחדש"
   }
 }

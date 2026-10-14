@@ -840,6 +840,9 @@
         "username": "İstifadəçi adı",
         "password": "Parol",
         "gstin": "GSTIN",
+        "publicKey": "IRP açıq açarı (PEM)",
+        "publicKeyHint": "Daxil olduqdan sonra portaldan endirin; IRP-yə göndərilən etimadnamələri qablaşdırır.",
+        "publicKeyStored": "Saxlanıb; saxlamaq üçün boş buraxın.",
         "secretStored": "Şifrələnmiş saxlanılır; saxlamaq üçün boş buraxın.",
         "secretEncrypted": "Şifrələnmiş saxlanılır."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Vergi ID",
       "void": "LƏĞV EDİLİB",
       "draftWatermark": "QARALAMA - vergi fakturası deyil",
-      "paymentTermsDays": "{days} gün"
+      "paymentTermsDays": "{days} gün",
+      "irn": "IRN",
+      "ackNo": "Təsdiq №",
+      "ackDate": "Təsdiq tarixi",
+      "einvoiceCancelled": "E-QAİMƏ LƏĞV EDİLİB"
     },
     "ui": {
       "pageEstimate": "təxminən {count, plural, one {# səhifə} other {# səhifə}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Bu filtrlərə uyğun faktura yoxdur.",
       "count": "{count, plural, one {# faktura} other {# faktura}}",
       "countPaged": "{count, plural, one {# faktura} other {# faktura}} · səhifə {page} / {pages}",
-      "register": "reyestr"
+      "register": "reyestr",
+      "einvoice": "E-qaimə",
+      "einvoiceFilters": {
+        "registered": "IRN qeydiyyatdan keçib",
+        "none": "Qeydiyyatdan keçməyib",
+        "cancelled": "IRN ləğv edilib"
+      }
     },
     "new": {
       "noProfileTitle": "Əvvəlcə emitent profili yaradın",
@@ -1611,7 +1624,41 @@
       "version": "Versiya {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Təsdiq keçidi:",
-      "draftPreviewHint": "Layihələrə redaktorda canlı önbaxış göstərilir; səhifəni görmək üçün <link>su nişanlı PDF-i</link> açın."
+      "draftPreviewHint": "Layihələrə redaktorda canlı önbaxış göstərilir; səhifəni görmək üçün <link>su nişanlı PDF-i</link> açın.",
+      "einvoice": {
+        "title": "E-qaimə (Hindistan)",
+        "description": "Bu qaimənin Invoice Registration Portal-da qeydiyyatı; qeydiyyatdan keçmiş sənəd öz IRN-ni və portalın imzalanmış QR-ını çap edir.",
+        "connector": "Bağlayıcı",
+        "connectors": {
+          "manual": "Əl ilə",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Bu profil üçün Parametrlər > E-qaimə bölməsində bağlayıcı konfiqurasiya edilməyib.",
+        "statuses": {
+          "none": "Qeydiyyatdan keçməyib",
+          "generated": "JSON yaradılıb",
+          "registered": "Qeydiyyatdan keçib",
+          "cancelled": "Ləğv edilib",
+          "failed": "Qeydiyyat uğursuz oldu"
+        },
+        "irn": "IRN",
+        "ackNo": "Təsdiq №",
+        "ackDate": "Təsdiq tarixi",
+        "cancelReason": "Ləğvetmə",
+        "generate": "IRN yarat",
+        "pasteLabel": "IRP cavabı",
+        "pasteHint": "Portalın və ya GSP-nizin bu qaimənin e-qaimə JSON-u üçün qaytardığı JSON-u yapışdırın (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN-i qeyd et",
+        "cancelReasonLabel": "Ləğv səbəbi",
+        "cancelReasons": {
+          "1": "Dublikat",
+          "2": "Məlumat daxiletmə xətası",
+          "3": "Sifariş ləğv edilib",
+          "4": "Digər"
+        },
+        "cancel": "IRN-i ləğv et",
+        "cancelWindow": "Portal təsdiqdən sonra 24 saat ərzində ləğvə icazə verir."
+      }
     },
     "history": {
       "metaTitle": "Faktura tarixçəsi",
@@ -2078,6 +2125,9 @@
     "templateImported": "Şablon idxal edildi",
     "profileTemplateCleared": "Profil yenidən instans şablonundan istifadə edir",
     "operatorSaved": "Operator məlumatları yadda saxlanıldı. Hüquqi səhifələr indi onları göstərir.",
-    "einvoiceSettingsSaved": "E-qaimə parametrləri yadda saxlanıldı"
+    "einvoiceSettingsSaved": "E-qaimə parametrləri yadda saxlanıldı",
+    "irnRegistered": "IRN {irn} qeydiyyatdan keçdi; PDF onunla yenidən yaradıldı",
+    "irnRecorded": "IRN qeyd edildi; PDF onunla yenidən yaradıldı",
+    "irnCancelled": "IRN ləğv edildi; PDF yenidən yaradıldı"
   }
 }

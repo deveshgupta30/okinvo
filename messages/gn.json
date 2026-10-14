@@ -840,6 +840,9 @@
         "username": "Puruhára téra",
         "password": "Ñe’ẽñemi",
         "gstin": "GSTIN",
+        "publicKey": "IRP yvy marandu (PEM)",
+        "publicKeyHint": "Emboguejy portal guive eike rire; ojejapo ñe’ẽme’ẽ IRP-pe jehekýi.",
+        "publicKeyStored": "Oñeñongatu; emoĩ’ỹ eñongatu hag̃ua.",
         "secretStored": "Oñeñongatu cifrado; eheja ñuhã eguereko hag̃ua.",
         "secretEncrypted": "Oñeñongatu cifrado."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID impuesto",
       "void": "ÑEMOÑE’Ẽ’ỸVA",
       "draftWatermark": "BORRADOR - ndaha’éi factura impuesto",
-      "paymentTermsDays": "{days} ára"
+      "paymentTermsDays": "{days} ára",
+      "irn": "IRN",
+      "ackNo": "Marandu papapy",
+      "ackDate": "Marandu ára",
+      "einvoiceCancelled": "E-FACTURA OMOÑEPYRŨVA"
     },
     "ui": {
       "pageEstimate": "ha’e {count, plural, other {# kuatiarogue}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Ndaipóri factura ko filtro-pe.",
       "count": "{count, plural, other {# factura}}",
       "countPaged": "{count, plural, other {# factura}} · kuatiarogue {page} {pages} guive",
-      "register": "registro"
+      "register": "registro",
+      "einvoice": "E-factura",
+      "einvoiceFilters": {
+        "registered": "IRN ñemboheraguapy",
+        "none": "Noñemboheraguapýi",
+        "cancelled": "IRN omboguepyre"
+      }
     },
     "new": {
       "noProfileTitle": "Embojapo peteĩha emisor perfil",
@@ -1611,7 +1624,41 @@
       "version": "Versión {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Verificación link:",
-      "draftPreviewHint": "Borrador oñemoĩ hesakã editor-pe; embojuruja <link>marca de agua reheve PDF</link> ehecha hag̃ua kuatiarogue."
+      "draftPreviewHint": "Borrador oñemoĩ hesakã editor-pe; embojuruja <link>marca de agua reheve PDF</link> ehecha hag̃ua kuatiarogue.",
+      "einvoice": {
+        "title": "E-factura (India)",
+        "description": "Ko factura ñemboheraguapy Invoice Registration Portal-pe; peteĩ documento ojehero’ỹva oñemoĩ IRN ha portal QR ojeguerekóva ñe’ẽme’ẽ.",
+        "connector": "Mbojoaju",
+        "connectors": {
+          "manual": "Ñandejára’ỹ",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Ko perfil-pe ndojejapói mbojoaju Ñemboheko > E-facturación guýpe.",
+        "statuses": {
+          "none": "Noñemboheraguapýi",
+          "generated": "JSON ojejapóva",
+          "registered": "Ñemboheraguapy",
+          "cancelled": "Omoñepyrũva",
+          "failed": "Ñemboheraguapy ojavy"
+        },
+        "irn": "IRN",
+        "ackNo": "Marandu papapy",
+        "ackDate": "Marandu ára",
+        "cancelReason": "Mbogue",
+        "generate": "Ejapo IRN",
+        "pasteLabel": "IRP ñembohovái",
+        "pasteHint": "Emoĩ JSON portal térã nde GSP ome’ẽva ko factura e-factura JSON-pe guarã (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Eñongatu IRN",
+        "cancelReasonLabel": "Mbogue rehegua",
+        "cancelReasons": {
+          "1": "Mokõi jey",
+          "2": "Papyrusu juky",
+          "3": "Ñe’ẽme’ẽ omboguepyre",
+          "4": "Ambue"
+        },
+        "cancel": "Emboguejy IRN",
+        "cancelWindow": "Portal omoneĩ mbogue 24 aravo ndive marandu rire."
+      }
     },
     "history": {
       "metaTitle": "Factura tembiasakue",
@@ -2078,6 +2125,9 @@
     "templateImported": "Plantilla oñemoĩ",
     "profileTemplateCleared": "Perfil ojepuru jey instancia plantilla",
     "operatorSaved": "Operador mba’e oñeñongatu. Léi kuatiarogue ohechauka ko’ágã.",
-    "einvoiceSettingsSaved": "E-facturación ñemboheko oñeñongatu"
+    "einvoiceSettingsSaved": "E-facturación ñemboheko oñeñongatu",
+    "irnRegistered": "IRN {irn} oñemboheraguapy; PDF ojejapo jey hendive",
+    "irnRecorded": "IRN oñeñongatu; PDF ojejapo jey hendive",
+    "irnCancelled": "IRN omboguepyre; PDF ojejapo jey"
   }
 }

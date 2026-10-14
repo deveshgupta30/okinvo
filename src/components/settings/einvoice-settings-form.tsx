@@ -7,6 +7,7 @@ import { SubmitButton } from "@/components/submit-button";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 import { NIC_BASE_URLS } from "@/lib/schemas/einvoice-settings";
 import { saveEInvoiceSettingsAction } from "@/server/actions/einvoice";
 import type { EInvoiceProfileSettingsView } from "@/server/dal/einvoice-settings";
@@ -131,6 +132,19 @@ export function EInvoiceSettingsForm({ settings }: { settings: EInvoiceProfileSe
                   name="nicUsername"
                   autoComplete="off"
                   defaultValue={v("nicUsername", nic?.username)}
+                />
+              </Field>
+              <Field
+                label={t("india.publicKey")}
+                htmlFor="nicPublicKeyPem"
+                error={errors?.nicPublicKeyPem}
+                hint={nic?.hasPublicKey ? t("india.publicKeyStored") : t("india.publicKeyHint")}
+              >
+                <Textarea
+                  id="nicPublicKeyPem"
+                  name="nicPublicKeyPem"
+                  rows={4}
+                  className="font-mono"
                 />
               </Field>
               <Field

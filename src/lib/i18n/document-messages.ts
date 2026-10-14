@@ -19,6 +19,11 @@ export interface DocumentMessages {
     draftWatermark: string;
     /** "{days} days", the payment terms beside the Terms label. */
     paymentTermsDays: string;
+    /** E-invoice registration (spec §9e). */
+    irn: string;
+    ackNo: string;
+    ackDate: string;
+    einvoiceCancelled: string;
   };
 }
 

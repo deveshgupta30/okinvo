@@ -840,6 +840,9 @@
         "username": "Потребителско име",
         "password": "Парола",
         "gstin": "GSTIN",
+        "publicKey": "Публичен ключ на IRP (PEM)",
+        "publicKeyHint": "Изтеглете го от портала след влизане; той обвива идентификационните данни, изпращани към IRP.",
+        "publicKeyStored": "Запазен; оставете празно, за да го запазите.",
         "secretStored": "Съхранява се криптирано; оставете празно, за да се запази.",
         "secretEncrypted": "Съхранява се криптирано."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Данъчен номер",
       "void": "АНУЛИРАНО",
       "draftWatermark": "ЧЕРНОВА - не е данъчна фактура",
-      "paymentTermsDays": "{days} дни"
+      "paymentTermsDays": "{days} дни",
+      "irn": "IRN",
+      "ackNo": "Потв. номер",
+      "ackDate": "Дата на потвърждение",
+      "einvoiceCancelled": "ЕЛЕКТРОННАТА ФАКТУРА Е АНУЛИРАНА"
     },
     "ui": {
       "pageEstimate": "прибл. {count, plural, one {# страница} other {# страници}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Няма фактури, отговарящи на тези филтри.",
       "count": "{count, plural, one {# фактура} other {# фактури}}",
       "countPaged": "{count, plural, one {# фактура} other {# фактури}} · страница {page} от {pages}",
-      "register": "регистър"
+      "register": "регистър",
+      "einvoice": "Електронна фактура",
+      "einvoiceFilters": {
+        "registered": "IRN е регистриран",
+        "none": "Нерегистрирана",
+        "cancelled": "IRN е анулиран"
+      }
     },
     "new": {
       "noProfileTitle": "Първо създайте профил на издател",
@@ -1611,7 +1624,41 @@
       "version": "Версия {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Линк за проверка:",
-      "draftPreviewHint": "Черновите се показват на живо в редактора; отворете <link>PDF с воден знак</link>, за да видите страницата."
+      "draftPreviewHint": "Черновите се показват на живо в редактора; отворете <link>PDF с воден знак</link>, за да видите страницата.",
+      "einvoice": {
+        "title": "Електронна фактура (Индия)",
+        "description": "Регистриране на тази фактура в Invoice Registration Portal; регистриран документ отпечатва своя IRN и подписания QR код на портала.",
+        "connector": "Конектор",
+        "connectors": {
+          "manual": "Ръчно",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "За този профил не е конфигуриран конектор в Настройки > Електронно фактуриране.",
+        "statuses": {
+          "none": "Нерегистрирана",
+          "generated": "JSON е генериран",
+          "registered": "Регистрирана",
+          "cancelled": "Анулирана",
+          "failed": "Регистрацията не беше успешна"
+        },
+        "irn": "IRN",
+        "ackNo": "Потв. номер",
+        "ackDate": "Дата на потвърждение",
+        "cancelReason": "Анулиране",
+        "generate": "Генериране на IRN",
+        "pasteLabel": "Отговор от IRP",
+        "pasteHint": "Поставете JSON, върнат от портала или от вашия GSP за JSON на електронната фактура за тази фактура (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Запис на IRN",
+        "cancelReasonLabel": "Причина за анулиране",
+        "cancelReasons": {
+          "1": "Дубликат",
+          "2": "Грешка при въвеждане на данни",
+          "3": "Поръчката е отменена",
+          "4": "Други"
+        },
+        "cancel": "Анулиране на IRN",
+        "cancelWindow": "Порталът позволява анулиране в рамките на 24 часа след потвърждението."
+      }
     },
     "history": {
       "metaTitle": "История на фактурата",
@@ -2078,6 +2125,9 @@
     "templateImported": "Шаблонът е импортиран",
     "profileTemplateCleared": "Профилът отново използва шаблона на инсталацията",
     "operatorSaved": "Данните за оператора са запазени. Правните страници вече ги показват.",
-    "einvoiceSettingsSaved": "Настройките за е-фактуриране са запазени"
+    "einvoiceSettingsSaved": "Настройките за е-фактуриране са запазени",
+    "irnRegistered": "IRN {irn} е регистриран; PDF е генериран отново с него",
+    "irnRecorded": "IRN е записан; PDF е генериран отново с него",
+    "irnCancelled": "IRN е анулиран; PDF е генериран отново"
   }
 }

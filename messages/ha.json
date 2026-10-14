@@ -840,6 +840,9 @@
         "username": "Sunan mai amfani",
         "password": "Kalmar sirri",
         "gstin": "GSTIN",
+        "publicKey": "Maɓallin jama’a na IRP (PEM)",
+        "publicKeyHint": "Zazzage shi daga portal bayan shiga; yana naɗe bayanan shaida da ake aika wa IRP.",
+        "publicKeyStored": "An adana; bar shi wofi don ci gaba da shi.",
         "secretStored": "An adana a ɓoye; bar shi babu komai don ci gaba da shi.",
         "secretEncrypted": "An adana a ɓoye."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Lambar haraji",
       "void": "BATA DA ƘIMA",
       "draftWatermark": "DRAFT - ba takardar kuɗin haraji ba ce",
-      "paymentTermsDays": "kwana {days}"
+      "paymentTermsDays": "kwana {days}",
+      "irn": "IRN",
+      "ackNo": "Lambar karɓa",
+      "ackDate": "Ranar karɓa",
+      "einvoiceCancelled": "AN SOKE E-TAKARDAR KUƊI"
     },
     "ui": {
       "pageEstimate": "kusan {count, plural, one {shafi #} other {shafuka #}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Babu takardun kuɗi da suka dace da waɗannan matattara.",
       "count": "{count, plural, one {takardar kuɗi #} other {takardun kuɗi #}}",
       "countPaged": "{count, plural, one {takardar kuɗi #} other {takardun kuɗi #}} · shafi na {page} daga {pages}",
-      "register": "rajista"
+      "register": "rajista",
+      "einvoice": "E-takardar kuɗi",
+      "einvoiceFilters": {
+        "registered": "An yi rajistar IRN",
+        "none": "Ba a yi rajista ba",
+        "cancelled": "An soke IRN"
+      }
     },
     "new": {
       "noProfileTitle": "Ƙirƙiri bayanan martabar mai bayarwa tukuna",
@@ -1611,7 +1624,41 @@
       "version": "Juzu’i {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Mahaɗin tabbatarwa:",
-      "draftPreviewHint": "Ana nuna daftarori kai tsaye a mai gyara; buɗe <link>PDF mai alamar ruwa</link> don ganin shafin."
+      "draftPreviewHint": "Ana nuna daftarori kai tsaye a mai gyara; buɗe <link>PDF mai alamar ruwa</link> don ganin shafin.",
+      "einvoice": {
+        "title": "E-takardar kuɗi (Indiya)",
+        "description": "Rajistar wannan takardar kuɗi a Invoice Registration Portal; takardar da aka yi wa rajista tana buga IRN ɗinta da QR mai sa hannu na portal.",
+        "connector": "Mahaɗi",
+        "connectors": {
+          "manual": "Da hannu",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Babu mahaɗin da aka saita don wannan bayanan martaba a ƙarƙashin Saituna > E-takardar kuɗi.",
+        "statuses": {
+          "none": "Ba a yi rajista ba",
+          "generated": "An ƙirƙiri JSON",
+          "registered": "An yi rajista",
+          "cancelled": "An soke",
+          "failed": "Rajista ta kasa"
+        },
+        "irn": "IRN",
+        "ackNo": "Lambar karɓa",
+        "ackDate": "Ranar karɓa",
+        "cancelReason": "Soke",
+        "generate": "Ƙirƙiri IRN",
+        "pasteLabel": "Amsar IRP",
+        "pasteHint": "Liƙa JSON ɗin da portal ko GSP ɗinka ya dawo da shi don JSON na e-takardar kuɗin wannan takardar (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Adana IRN",
+        "cancelReasonLabel": "Dalilin sokewa",
+        "cancelReasons": {
+          "1": "Maimaici",
+          "2": "Kuskuren shigar da bayanai",
+          "3": "An soke oda",
+          "4": "Wasu"
+        },
+        "cancel": "Soke IRN",
+        "cancelWindow": "Portal yana ba da damar sokewa cikin sa’o’i 24 bayan karɓa."
+      }
     },
     "history": {
       "metaTitle": "Tarihin takardar kuɗi",
@@ -2078,6 +2125,9 @@
     "templateImported": "An shigo da samfuri",
     "profileTemplateCleared": "Bayanan martaba yana sake amfani da samfurin misali",
     "operatorSaved": "An ajiye bayanan mai gudanarwa. Shafukan doka yanzu suna nuna su.",
-    "einvoiceSettingsSaved": "An ajiye saitunan daftarin lantarki"
+    "einvoiceSettingsSaved": "An ajiye saitunan daftarin lantarki",
+    "irnRegistered": "An yi rajistar IRN {irn}; an sake ƙirƙirar PDF da shi",
+    "irnRecorded": "An adana IRN; an sake ƙirƙirar PDF da shi",
+    "irnCancelled": "An soke IRN; an sake ƙirƙirar PDF"
   }
 }

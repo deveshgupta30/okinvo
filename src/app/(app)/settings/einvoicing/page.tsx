@@ -38,7 +38,7 @@ export default async function EInvoicingSettingsPage() {
           </p>
         ) : null}
         {profiles.map((profile, i) => (
-          <Card key={profile.id}>
+          <Card key={profile.id} data-profile-label={profile.label}>
             <CardHeader>
               <div className="flex flex-wrap items-center gap-3">
                 <CardTitle>

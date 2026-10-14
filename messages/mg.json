@@ -840,6 +840,9 @@
         "username": "Anaran’ny mpampiasa",
         "password": "Teny miafina",
         "gstin": "GSTIN",
+        "publicKey": "Fanalahidy ampahibemaso IRP (PEM)",
+        "publicKeyHint": "Alaivo avy amin’ny portaly aorian’ny fidirana; miaro ny mombamomba ampiasaina izay alefa any amin’ny IRP.",
+        "publicKeyStored": "Voatahiry; avelao ho foana raha tiana hotazonina.",
         "secretStored": "Voatahiry voafantina; avelao foana raha tazonina.",
         "secretEncrypted": "Voatahiry voafantina."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID haba",
       "void": "FOANA",
       "draftWatermark": "DRAFITRA - tsy faktiora haba",
-      "paymentTermsDays": "{days} andro"
+      "paymentTermsDays": "{days} andro",
+      "irn": "IRN",
+      "ackNo": "Laharana fanamarinana",
+      "ackDate": "Daty fanamarinana",
+      "einvoiceCancelled": "FAKTIORA ELEKTRONIKA NOFOANA"
     },
     "ui": {
       "pageEstimate": "eo ho eo {count, plural, one {# pejy} other {# pejy}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Tsy misy faktiora mifanaraka amin’ireto sivana ireto.",
       "count": "{count, plural, one {# faktiora} other {# faktiora}}",
       "countPaged": "{count, plural, one {# faktiora} other {# faktiora}} · pejy {page} amin’ny {pages}",
-      "register": "rejistra"
+      "register": "rejistra",
+      "einvoice": "Faktiora elektronika",
+      "einvoiceFilters": {
+        "registered": "IRN voasoratra",
+        "none": "Tsy voasoratra",
+        "cancelled": "IRN nofoanana"
+      }
     },
     "new": {
       "noProfileTitle": "Mamoròna mombamomba mpanao faktiora aloha",
@@ -1611,7 +1624,41 @@
       "version": "Version {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Rohy fanamarinana:",
-      "draftPreviewHint": "Ny rakitsoratra dia jerena mivantana ao amin’ny mpanova; sokafy ny <link>PDF misy watermark</link> mba hijerena ny pejy."
+      "draftPreviewHint": "Ny rakitsoratra dia jerena mivantana ao amin’ny mpanova; sokafy ny <link>PDF misy watermark</link> mba hijerena ny pejy.",
+      "einvoice": {
+        "title": "Faktiora elektronika (India)",
+        "description": "Ny fandrafetana ity faktiora ity ao amin’ny Invoice Registration Portal; ny taratasy voasoratra dia manonta ny IRN-ny sy ny QR sonia avy amin’ny portaly.",
+        "connector": "Mpampifandray",
+        "connectors": {
+          "manual": "Tanana",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Tsy misy mpampifandray voaforona ho an’ity mombamomba ity ao amin’ny Fanamboarana > Faktiora elektronika.",
+        "statuses": {
+          "none": "Tsy voasoratra",
+          "generated": "JSON noforonina",
+          "registered": "Voasoratra",
+          "cancelled": "Nofoanana",
+          "failed": "Tsy tafita ny fandrafetana"
+        },
+        "irn": "IRN",
+        "ackNo": "Laharana fanamarinana",
+        "ackDate": "Daty fanamarinana",
+        "cancelReason": "Fanafoanana",
+        "generate": "Mamorona IRN",
+        "pasteLabel": "Valin’ny IRP",
+        "pasteHint": "Apetraho ny JSON naverin’ny portaly na ny GSP-nao ho an’ny JSON faktiora elektronika an’ity faktiora ity (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Raiketo ny IRN",
+        "cancelReasonLabel": "Antony fanafoanana",
+        "cancelReasons": {
+          "1": "Mitovy",
+          "2": "Hadisoana tamin’ny fampidirana angona",
+          "3": "Nofoanana ny commande",
+          "4": "Hafa"
+        },
+        "cancel": "Foano ny IRN",
+        "cancelWindow": "Ny portaly dia manome alalana ny fanafoanana ao anatin’ny 24 ora aorian’ny fanamarinana."
+      }
     },
     "history": {
       "metaTitle": "Tantaran’ny faktiora",
@@ -2078,6 +2125,9 @@
     "templateImported": "Voatondra ny modely",
     "profileTemplateCleared": "Mampiasa indray ny modelin’ny instance ny mombamomba",
     "operatorSaved": "Voatahiry ny antsipirian’ny mpitantana. Asehon’ny pejy ara-dalàna izao izany.",
-    "einvoiceSettingsSaved": "Voatahiry ny fikirana faktiora elektronika"
+    "einvoiceSettingsSaved": "Voatahiry ny fikirana faktiora elektronika",
+    "irnRegistered": "IRN {irn} voasoratra; noforonina indray ny PDF miaraka aminy",
+    "irnRecorded": "IRN voarakitra; noforonina indray ny PDF miaraka aminy",
+    "irnCancelled": "IRN nofoanana; noforonina indray ny PDF"
   }
 }

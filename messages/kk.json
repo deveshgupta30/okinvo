@@ -840,6 +840,9 @@
         "username": "Пайдаланушы аты",
         "password": "Құпиясөз",
         "gstin": "GSTIN",
+        "publicKey": "IRP жалпыға ортақ кілті (PEM)",
+        "publicKeyHint": "Жүйеге кіргеннен кейін порталдан жүктеп алыңыз; ол IRP-ге жіберілетін тіркелгі деректерін орайды.",
+        "publicKeyStored": "Сақталды; сақтап қалу үшін бос қалдырыңыз.",
         "secretStored": "Шифрланған күйде сақталады; сақтау үшін бос қалдырыңыз.",
         "secretEncrypted": "Шифрланған күйде сақталады."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Салық ID",
       "void": "ЖАРАМСЫЗ",
       "draftWatermark": "ЖОБА - салық шот-фактурасы емес",
-      "paymentTermsDays": "{days} күн"
+      "paymentTermsDays": "{days} күн",
+      "irn": "IRN",
+      "ackNo": "Растау нөмірі",
+      "ackDate": "Растау күні",
+      "einvoiceCancelled": "ЭЛЕКТРОНДЫ ШОТ-ФАКТУРА ЖАРАМСЫЗ ДЕП ТАНЫЛДЫ"
     },
     "ui": {
       "pageEstimate": "шамамен {count, plural, one {# бет} other {# бет}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Бұл сүзгілерге шот-фактура сәйкес келмейді.",
       "count": "{count, plural, one {# шот-фактура} other {# шот-фактура}}",
       "countPaged": "{count, plural, one {# шот-фактура} other {# шот-фактура}} · {pages} беттің {page}-беті",
-      "register": "тізілім"
+      "register": "тізілім",
+      "einvoice": "Электрондық шот-фактура",
+      "einvoiceFilters": {
+        "registered": "IRN тіркелді",
+        "none": "Тіркелмеген",
+        "cancelled": "IRN күші жойылды"
+      }
     },
     "new": {
       "noProfileTitle": "Алдымен шығарушы профилін жасаңыз",
@@ -1611,7 +1624,41 @@
       "version": "Нұсқа {version}",
       "sizeKb": "{size} КБ",
       "verificationLink": "Тексеру сілтемесі:",
-      "draftPreviewHint": "Жобаларды алдын ала қарау редакторда тікелей көрсетіледі; бетті көру үшін <link>су белгісі бар PDF</link> ашыңыз."
+      "draftPreviewHint": "Жобаларды алдын ала қарау редакторда тікелей көрсетіледі; бетті көру үшін <link>су белгісі бар PDF</link> ашыңыз.",
+      "einvoice": {
+        "title": "Электрондық шот-фактура (Үндістан)",
+        "description": "Осы шот-фактураны Invoice Registration Portal жүйесінде тіркеу; тіркелген құжат өзінің IRN және порталдың қол қойылған QR кодын басып шығарады.",
+        "connector": "Қосқыш",
+        "connectors": {
+          "manual": "Қолмен",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Осы профиль үшін Параметрлер > Электрондық шот-фактуралау бөлімінде қосқыш бапталмаған.",
+        "statuses": {
+          "none": "Тіркелмеген",
+          "generated": "JSON жасалды",
+          "registered": "Тіркелді",
+          "cancelled": "Бас тартылды",
+          "failed": "Тіркеу сәтсіз аяқталды"
+        },
+        "irn": "IRN",
+        "ackNo": "Растау нөмірі",
+        "ackDate": "Растау күні",
+        "cancelReason": "Бас тарту",
+        "generate": "IRN жасау",
+        "pasteLabel": "IRP жауабы",
+        "pasteHint": "Портал немесе GSP осы шот-фактураның электрондық шот-фактура JSON үшін қайтарған JSON мәтінін қойыңыз (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN жазу",
+        "cancelReasonLabel": "Бас тарту себебі",
+        "cancelReasons": {
+          "1": "Қайталану",
+          "2": "Деректерді енгізу қатесі",
+          "3": "Тапсырыс күші жойылды",
+          "4": "Басқа"
+        },
+        "cancel": "IRN-нен бас тарту",
+        "cancelWindow": "Портал растаудан кейін 24 сағат ішінде бас тартуға рұқсат береді."
+      }
     },
     "history": {
       "metaTitle": "Шот-фактура тарихы",
@@ -2078,6 +2125,9 @@
     "templateImported": "Үлгі импортталды",
     "profileTemplateCleared": "Профиль инстанс үлгісін қайта қолданады",
     "operatorSaved": "Оператор деректері сақталды. Құқықтық беттер енді оларды көрсетеді.",
-    "einvoiceSettingsSaved": "Электрондық шот-фактура параметрлері сақталды"
+    "einvoiceSettingsSaved": "Электрондық шот-фактура параметрлері сақталды",
+    "irnRegistered": "IRN {irn} тіркелді; PDF онымен қайта жасалды",
+    "irnRecorded": "IRN жазылды; PDF онымен қайта жасалды",
+    "irnCancelled": "IRN күші жойылды; PDF қайта жасалды"
   }
 }

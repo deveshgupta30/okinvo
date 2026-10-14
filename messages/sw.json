@@ -840,6 +840,9 @@
         "username": "Jina la mtumiaji",
         "password": "Nenosiri",
         "gstin": "GSTIN",
+        "publicKey": "Ufunguo wa umma wa IRP (PEM)",
+        "publicKeyHint": "Upakue kutoka kwenye lango baada ya kuingia; hulinda stakabadhi zinazotumwa kwa IRP.",
+        "publicKeyStored": "Umehifadhiwa; acha wazi ili kuuhifadhi.",
         "secretStored": "Imehifadhiwa kwa usimbaji fiche; acha wazi ili kuiweka.",
         "secretEncrypted": "Imehifadhiwa kwa usimbaji fiche."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Kitambulisho cha kodi",
       "void": "IMEFUTWA",
       "draftWatermark": "DRAFTI - si ankara ya kodi",
-      "paymentTermsDays": "siku {days}"
+      "paymentTermsDays": "siku {days}",
+      "irn": "IRN",
+      "ackNo": "Nambari ya uthibitisho",
+      "ackDate": "Tarehe ya uthibitisho",
+      "einvoiceCancelled": "ANKARA YA KIELEKTRONIKI IMEGHAIRIWA"
     },
     "ui": {
       "pageEstimate": "takriban {count, plural, one {ukurasa #} other {kurasa #}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Hakuna ankara zinazolingana na vichujio hivi.",
       "count": "{count, plural, one {ankara #} other {ankara #}}",
       "countPaged": "{count, plural, one {ankara #} other {ankara #}} · ukurasa wa {page} kati ya {pages}",
-      "register": "rejista"
+      "register": "rejista",
+      "einvoice": "Ankara ya kielektroniki",
+      "einvoiceFilters": {
+        "registered": "IRN imesajiliwa",
+        "none": "Haijasajiliwa",
+        "cancelled": "IRN imeghairiwa"
+      }
     },
     "new": {
       "noProfileTitle": "Unda wasifu wa mtoaji kwanza",
@@ -1611,7 +1624,41 @@
       "version": "Toleo {version}",
       "sizeKb": "KB {size}",
       "verificationLink": "Kiungo cha uthibitishaji:",
-      "draftPreviewHint": "Hakiki ya rasimu inaonekana moja kwa moja kwenye kihariri; fungua <link>PDF yenye alama ya maji</link> kuona ukurasa."
+      "draftPreviewHint": "Hakiki ya rasimu inaonekana moja kwa moja kwenye kihariri; fungua <link>PDF yenye alama ya maji</link> kuona ukurasa.",
+      "einvoice": {
+        "title": "Ankara ya kielektroniki (India)",
+        "description": "Usajili wa ankara hii kwenye Invoice Registration Portal; hati iliyosajiliwa huchapisha IRN yake na QR iliyotiwa saini ya lango.",
+        "connector": "Kiunganishi",
+        "connectors": {
+          "manual": "Kwa mkono",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Hakuna kiunganishi kilichosanidiwa kwa wasifu huu katika Mipangilio > Ankara za kielektroniki.",
+        "statuses": {
+          "none": "Haijasajiliwa",
+          "generated": "JSON imetengenezwa",
+          "registered": "Imesajiliwa",
+          "cancelled": "Imeghairiwa",
+          "failed": "Usajili umeshindwa"
+        },
+        "irn": "IRN",
+        "ackNo": "Nambari ya uthibitisho",
+        "ackDate": "Tarehe ya uthibitisho",
+        "cancelReason": "Kughairi",
+        "generate": "Tengeneza IRN",
+        "pasteLabel": "Jibu la IRP",
+        "pasteHint": "Bandika JSON iliyorejeshwa na lango au GSP wako kwa JSON ya ankara ya kielektroniki ya ankara hii (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Hifadhi IRN",
+        "cancelReasonLabel": "Sababu ya kughairi",
+        "cancelReasons": {
+          "1": "Nakala rudufu",
+          "2": "Kosa la kuingiza data",
+          "3": "Agizo limeghairiwa",
+          "4": "Nyingine"
+        },
+        "cancel": "Ghairi IRN",
+        "cancelWindow": "Lango huruhusu kughairi ndani ya saa 24 baada ya uthibitisho."
+      }
     },
     "history": {
       "metaTitle": "Historia ya ankara",
@@ -2078,6 +2125,9 @@
     "templateImported": "Kiolezo kimeingizwa",
     "profileTemplateCleared": "Wasifu unatumia kiolezo cha mfumo tena",
     "operatorSaved": "Maelezo ya mwendeshaji yamehifadhiwa. Kurasa za kisheria sasa zinayaonyesha.",
-    "einvoiceSettingsSaved": "Mipangilio ya ankara za kielektroniki imehifadhiwa"
+    "einvoiceSettingsSaved": "Mipangilio ya ankara za kielektroniki imehifadhiwa",
+    "irnRegistered": "IRN {irn} imesajiliwa; PDF imetengenezwa upya nayo",
+    "irnRecorded": "IRN imehifadhiwa; PDF imetengenezwa upya nayo",
+    "irnCancelled": "IRN imeghairiwa; PDF imetengenezwa upya"
   }
 }

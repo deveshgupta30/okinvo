@@ -840,6 +840,9 @@
         "username": "Uporabniško ime",
         "password": "Geslo",
         "gstin": "GSTIN",
+        "publicKey": "Javni ključ IRP (PEM)",
+        "publicKeyHint": "Prenesite ga s portala po prijavi; šifrira poverilnice, poslane v IRP.",
+        "publicKeyStored": "Shranjeno; pustite prazno, če ga želite obdržati.",
         "secretStored": "Shranjeno šifrirano; pustite prazno, če ga želite obdržati.",
         "secretEncrypted": "Shranjeno šifrirano."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Davčna številka",
       "void": "STORNIRANO",
       "draftWatermark": "OSNUTEK - ni davčni račun",
-      "paymentTermsDays": "{days} dni"
+      "paymentTermsDays": "{days} dni",
+      "irn": "IRN",
+      "ackNo": "Št. potrditve",
+      "ackDate": "Datum potrditve",
+      "einvoiceCancelled": "E-RAČUN PREKLICAN"
     },
     "ui": {
       "pageEstimate": "pribl. {count, plural, one {# stran} two {# strani} few {# strani} other {# strani}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Nobeden račun ne ustreza tem filtrom.",
       "count": "{count, plural, one {# račun} two {# računa} few {# računi} other {# računov}}",
       "countPaged": "{count, plural, one {# račun} two {# računa} few {# računi} other {# računov}} · stran {page} od {pages}",
-      "register": "register"
+      "register": "register",
+      "einvoice": "E-račun",
+      "einvoiceFilters": {
+        "registered": "IRN registriran",
+        "none": "Ni registriran",
+        "cancelled": "IRN preklican"
+      }
     },
     "new": {
       "noProfileTitle": "Najprej ustvarite profil izdajatelja",
@@ -1611,7 +1624,41 @@
       "version": "Različica {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Povezava za preverjanje:",
-      "draftPreviewHint": "Predogled osnutkov je v urejevalniku v živo; za ogled strani odprite <link>PDF z vodnim žigom</link>."
+      "draftPreviewHint": "Predogled osnutkov je v urejevalniku v živo; za ogled strani odprite <link>PDF z vodnim žigom</link>.",
+      "einvoice": {
+        "title": "E-račun (Indija)",
+        "description": "Registracija tega računa v Invoice Registration Portal; registriran dokument natisne svoj IRN in podpisano kodo QR portala.",
+        "connector": "Priključek",
+        "connectors": {
+          "manual": "Ročni",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Za ta profil ni nastavljen noben priključek v Nastavitve > E-računi.",
+        "statuses": {
+          "none": "Ni registriran",
+          "generated": "JSON ustvarjen",
+          "registered": "Registriran",
+          "cancelled": "Preklican",
+          "failed": "Registracija ni uspela"
+        },
+        "irn": "IRN",
+        "ackNo": "Št. potrditve",
+        "ackDate": "Datum potrditve",
+        "cancelReason": "Preklic",
+        "generate": "Ustvari IRN",
+        "pasteLabel": "Odgovor IRP",
+        "pasteHint": "Prilepite JSON, ki ga je portal ali vaš GSP vrnil za JSON e-računa tega računa (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Zabeleži IRN",
+        "cancelReasonLabel": "Razlog za preklic",
+        "cancelReasons": {
+          "1": "Dvojnik",
+          "2": "Napaka pri vnosu podatkov",
+          "3": "Naročilo preklicano",
+          "4": "Drugo"
+        },
+        "cancel": "Prekliči IRN",
+        "cancelWindow": "Portal dovoljuje preklic v 24 urah po potrditvi."
+      }
     },
     "history": {
       "metaTitle": "Zgodovina računa",
@@ -2078,6 +2125,9 @@
     "templateImported": "Predloga je uvožena",
     "profileTemplateCleared": "Profil znova uporablja predlogo instance",
     "operatorSaved": "Podatki upravljavca so shranjeni. Pravne strani jih zdaj prikazujejo.",
-    "einvoiceSettingsSaved": "Nastavitve e-računov so shranjene"
+    "einvoiceSettingsSaved": "Nastavitve e-računov so shranjene",
+    "irnRegistered": "IRN {irn} registriran; PDF je bil znova ustvarjen z njim",
+    "irnRecorded": "IRN zabeležen; PDF je bil znova ustvarjen z njim",
+    "irnCancelled": "IRN preklican; PDF je bil znova ustvarjen"
   }
 }

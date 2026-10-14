@@ -840,6 +840,9 @@
         "username": "Username",
         "password": "Password",
         "gstin": "GSTIN",
+        "publicKey": "Pampublikong key ng IRP (PEM)",
+        "publicKeyHint": "I-download ito mula sa portal pagkatapos mag-sign in; binabalot nito ang mga kredensyal na ipinapadala sa IRP.",
+        "publicKeyStored": "Naka-store; iwanang blangko para panatilihin ito.",
         "secretStored": "Naka-encrypt ang pagkakaimbak; iwanang blangko para panatilihin ito.",
         "secretEncrypted": "Naka-encrypt ang pagkakaimbak."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Tax ID",
       "void": "BALDADO",
       "draftWatermark": "DRAFT - hindi isang tax invoice",
-      "paymentTermsDays": "{days} araw"
+      "paymentTermsDays": "{days} araw",
+      "irn": "IRN",
+      "ackNo": "Ack no.",
+      "ackDate": "Petsa ng ack",
+      "einvoiceCancelled": "KINANSELA ANG E-INVOICE"
     },
     "ui": {
       "pageEstimate": "humigit-kumulang {count, plural, one {# pahina} other {# pahina}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Walang invoice na tumutugma sa mga filter na ito.",
       "count": "{count, plural, one {# invoice} other {# invoice}}",
       "countPaged": "{count, plural, one {# invoice} other {# invoice}} · pahina {page} ng {pages}",
-      "register": "rehistro"
+      "register": "rehistro",
+      "einvoice": "E-invoice",
+      "einvoiceFilters": {
+        "registered": "Nakarehistro ang IRN",
+        "none": "Hindi nakarehistro",
+        "cancelled": "Kinansela ang IRN"
+      }
     },
     "new": {
       "noProfileTitle": "Gumawa muna ng issuer profile",
@@ -1611,7 +1624,41 @@
       "version": "Bersyon {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Link ng pag-verify:",
-      "draftPreviewHint": "Live na nagpi-preview ang mga draft sa editor; buksan ang <link>PDF na may watermark</link> para makita ang pahina."
+      "draftPreviewHint": "Live na nagpi-preview ang mga draft sa editor; buksan ang <link>PDF na may watermark</link> para makita ang pahina.",
+      "einvoice": {
+        "title": "E-invoice (India)",
+        "description": "Pagrerehistro ng invoice na ito sa Invoice Registration Portal; ipinapakita sa naka-rehistrong dokumento ang IRN nito at ang naka-sign na QR ng portal.",
+        "connector": "Connector",
+        "connectors": {
+          "manual": "Manual",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Walang naka-configure na connector para sa profile na ito sa Mga setting > E-invoicing.",
+        "statuses": {
+          "none": "Hindi nakarehistro",
+          "generated": "Nabuo ang JSON",
+          "registered": "Nakarehistro",
+          "cancelled": "Kinansela",
+          "failed": "Nabigo ang pagrerehistro"
+        },
+        "irn": "IRN",
+        "ackNo": "Ack no.",
+        "ackDate": "Petsa ng ack",
+        "cancelReason": "Pagkansela",
+        "generate": "Bumuo ng IRN",
+        "pasteLabel": "Tugon ng IRP",
+        "pasteHint": "I-paste ang JSON na ibinalik ng portal o ng iyong GSP para sa e-invoice JSON ng invoice na ito (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "I-record ang IRN",
+        "cancelReasonLabel": "Dahilan ng pagkansela",
+        "cancelReasons": {
+          "1": "Duplicate",
+          "2": "Pagkakamali sa pag-encode ng data",
+          "3": "Kinansela ang order",
+          "4": "Iba pa"
+        },
+        "cancel": "Kanselahin ang IRN",
+        "cancelWindow": "Pinapayagan ng portal ang pagkansela sa loob ng 24 na oras mula sa acknowledgement."
+      }
     },
     "history": {
       "metaTitle": "Kasaysayan ng invoice",
@@ -2078,6 +2125,9 @@
     "templateImported": "Na-import ang template",
     "profileTemplateCleared": "Gumagamit na muli ang profile ng template ng instance",
     "operatorSaved": "Na-save ang mga detalye ng operator. Ipinapakita na ito ng mga legal na pahina.",
-    "einvoiceSettingsSaved": "Na-save ang mga setting ng e-invoicing"
+    "einvoiceSettingsSaved": "Na-save ang mga setting ng e-invoicing",
+    "irnRegistered": "Nakarehistro ang IRN {irn}; muling nabuo ang PDF gamit ito",
+    "irnRecorded": "Na-record ang IRN; muling nabuo ang PDF gamit ito",
+    "irnCancelled": "Kinansela ang IRN; muling nabuo ang PDF"
   }
 }

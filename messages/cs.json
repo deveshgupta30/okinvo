@@ -840,6 +840,9 @@
         "username": "Uživatelské jméno",
         "password": "Heslo",
         "gstin": "GSTIN",
+        "publicKey": "Veřejný klíč IRP (PEM)",
+        "publicKeyHint": "Stáhněte jej z portálu po přihlášení; zabaluje přihlašovací údaje odesílané do IRP.",
+        "publicKeyStored": "Uloženo; ponechte prázdné, aby zůstalo zachováno.",
         "secretStored": "Uloženo zašifrovaně; nechte prázdné pro ponechání.",
         "secretEncrypted": "Uloženo zašifrovaně."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Daňové ID",
       "void": "STORNO",
       "draftWatermark": "KONCEPT - není daňový doklad",
-      "paymentTermsDays": "{days} dnů"
+      "paymentTermsDays": "{days} dnů",
+      "irn": "IRN",
+      "ackNo": "Č. potvrzení",
+      "ackDate": "Datum potvrzení",
+      "einvoiceCancelled": "E-FAKTURA ZRUŠENA"
     },
     "ui": {
       "pageEstimate": "přibl. {count, plural, one {# strana} few {# strany} many {# strany} other {# stran}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Těmto filtrům neodpovídají žádné faktury.",
       "count": "{count, plural, one {# faktura} few {# faktury} many {# faktury} other {# faktur}}",
       "countPaged": "{count, plural, one {# faktura} few {# faktury} many {# faktury} other {# faktur}} · strana {page} z {pages}",
-      "register": "rejstřík"
+      "register": "rejstřík",
+      "einvoice": "E-faktura",
+      "einvoiceFilters": {
+        "registered": "IRN registrován",
+        "none": "Neregistrováno",
+        "cancelled": "IRN zrušen"
+      }
     },
     "new": {
       "noProfileTitle": "Nejprve vytvořte profil vystavitele",
@@ -1611,7 +1624,41 @@
       "version": "Verze {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Odkaz pro ověření:",
-      "draftPreviewHint": "Náhled konceptů je živě v editoru; stránku zobrazíte otevřením <link>PDF s vodoznakem</link>."
+      "draftPreviewHint": "Náhled konceptů je živě v editoru; stránku zobrazíte otevřením <link>PDF s vodoznakem</link>.",
+      "einvoice": {
+        "title": "E-faktura (Indie)",
+        "description": "Registrace této faktury na Invoice Registration Portal; registrovaný doklad tiskne svůj IRN a podepsaný QR kód portálu.",
+        "connector": "Konektor",
+        "connectors": {
+          "manual": "Ruční",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Pro tento profil není v Nastavení > E-faktura nastaven žádný konektor.",
+        "statuses": {
+          "none": "Neregistrováno",
+          "generated": "JSON vygenerován",
+          "registered": "Registrováno",
+          "cancelled": "Zrušeno",
+          "failed": "Registrace selhala"
+        },
+        "irn": "IRN",
+        "ackNo": "Č. potvrzení",
+        "ackDate": "Datum potvrzení",
+        "cancelReason": "Zrušení",
+        "generate": "Vygenerovat IRN",
+        "pasteLabel": "Odpověď IRP",
+        "pasteHint": "Vložte JSON, který portál nebo váš GSP vrátil pro JSON e-faktury této faktury (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Zaznamenat IRN",
+        "cancelReasonLabel": "Důvod zrušení",
+        "cancelReasons": {
+          "1": "Duplicita",
+          "2": "Chyba při zadávání údajů",
+          "3": "Objednávka zrušena",
+          "4": "Jiné"
+        },
+        "cancel": "Zrušit IRN",
+        "cancelWindow": "Portál umožňuje zrušení do 24 hodin od potvrzení."
+      }
     },
     "history": {
       "metaTitle": "Historie faktury",
@@ -2078,6 +2125,9 @@
     "templateImported": "Šablona importována",
     "profileTemplateCleared": "Profil opět používá šablonu instance",
     "operatorSaved": "Údaje o provozovateli uloženy. Právní stránky je nyní zobrazují.",
-    "einvoiceSettingsSaved": "Nastavení e-faktury uloženo"
+    "einvoiceSettingsSaved": "Nastavení e-faktury uloženo",
+    "irnRegistered": "IRN {irn} registrován; PDF bylo znovu vygenerováno s ním",
+    "irnRecorded": "IRN zaznamenán; PDF bylo znovu vygenerováno s ním",
+    "irnCancelled": "IRN zrušen; PDF bylo znovu vygenerováno"
   }
 }

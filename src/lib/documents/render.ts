@@ -44,7 +44,7 @@ export async function renderPdf(
   if (stamp) images.stamp = stamp;
   if (header) images.header = header;
   const withQr: DocumentViewModel =
-    vm.verifyUrl && !vm.qrDataUrl ? { ...vm, qrDataUrl: await qrDataUrl(vm.verifyUrl) } : vm;
+    vm.qrText && !vm.qrDataUrl ? { ...vm, qrDataUrl: await qrDataUrl(vm.qrText) } : vm;
   // DocumentPdf is a pure function of its props (no hooks), so it is called directly to obtain
   // the <Document> element renderToBuffer expects.
   const element = DocumentPdf({

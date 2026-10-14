@@ -840,6 +840,9 @@
         "username": "Non itilizatè",
         "password": "Modpas",
         "gstin": "GSTIN",
+        "publicKey": "Kle piblik IRP (PEM)",
+        "publicKeyHint": "Telechaje li nan pòtay la apre ou konekte; li pwoteje idantifyan yo voye bay IRP.",
+        "publicKeyStored": "Anrejistre; kite vid pou kenbe li.",
         "secretStored": "Estoke chifre; kite l vid pou kenbe l.",
         "secretEncrypted": "Estoke chifre."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID taks",
       "void": "ANILE",
       "draftWatermark": "BWOUYON - se pa yon fakti taks",
-      "paymentTermsDays": "{days} jou"
+      "paymentTermsDays": "{days} jou",
+      "irn": "IRN",
+      "ackNo": "Nimewo konfimasyon",
+      "ackDate": "Dat konfimasyon",
+      "einvoiceCancelled": "FAKTI ELEKTWONIK ANILE"
     },
     "ui": {
       "pageEstimate": "apeprè {count, plural, one {# paj} other {# paj}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Pa gen okenn faktiri ki koresponn ak filtre sa yo.",
       "count": "{count, plural, one {# faktiri} other {# faktiri}}",
       "countPaged": "{count, plural, one {# faktiri} other {# faktiri}} · paj {page} sou {pages}",
-      "register": "rejis"
+      "register": "rejis",
+      "einvoice": "Fakti elektwonik",
+      "einvoiceFilters": {
+        "registered": "IRN anrejistre",
+        "none": "Pa anrejistre",
+        "cancelled": "IRN anile"
+      }
     },
     "new": {
       "noProfileTitle": "Kreye yon pwofil emetè dabò",
@@ -1611,7 +1624,41 @@
       "version": "Vèsyon {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Lyen verifikasyon:",
-      "draftPreviewHint": "Aperçu bouyon yo parèt an dirèk nan editè a; louvri <link>PDF ak filigran nan</link> pou wè paj la."
+      "draftPreviewHint": "Aperçu bouyon yo parèt an dirèk nan editè a; louvri <link>PDF ak filigran nan</link> pou wè paj la.",
+      "einvoice": {
+        "title": "Fakti elektwonik (End)",
+        "description": "Anrejistreman fakti sa a nan Invoice Registration Portal; yon dokiman anrejistre enprime IRN li ak QR siyen pòtay la.",
+        "connector": "Konektè",
+        "connectors": {
+          "manual": "Manyèl",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Pa gen okenn konektè ki konfigire pou pwofil sa a nan Paramèt > Fakti elektwonik.",
+        "statuses": {
+          "none": "Pa anrejistre",
+          "generated": "JSON jenere",
+          "registered": "Anrejistre",
+          "cancelled": "Anile",
+          "failed": "Anrejistreman echwe"
+        },
+        "irn": "IRN",
+        "ackNo": "Nimewo konfimasyon",
+        "ackDate": "Dat konfimasyon",
+        "cancelReason": "Anilasyon",
+        "generate": "Jenere IRN",
+        "pasteLabel": "Repons IRP",
+        "pasteHint": "Kole JSON pòtay la oswa GSP ou a te retounen pou JSON fakti elektwonik fakti sa a (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Anrejistre IRN",
+        "cancelReasonLabel": "Rezon anilasyon",
+        "cancelReasons": {
+          "1": "Doub",
+          "2": "Erè antre done",
+          "3": "Lòd anile",
+          "4": "Lòt"
+        },
+        "cancel": "Anile IRN",
+        "cancelWindow": "Pòtay la pèmèt yon anilasyon nan 24 èdtan apre konfimasyon an."
+      }
     },
     "history": {
       "metaTitle": "Istorik faktiri",
@@ -2078,6 +2125,9 @@
     "templateImported": "Modèl enpòte",
     "profileTemplateCleared": "Pwofil la itilize modèl enstans lan ankò",
     "operatorSaved": "Detay operatè a anrejistre. Paj legal yo montre yo kounye a.",
-    "einvoiceSettingsSaved": "Paramèt fakti elektwonik anrejistre"
+    "einvoiceSettingsSaved": "Paramèt fakti elektwonik anrejistre",
+    "irnRegistered": "IRN {irn} anrejistre; PDF la te rejenere avèk li",
+    "irnRecorded": "IRN anrejistre; PDF la te rejenere avèk li",
+    "irnCancelled": "IRN anile; PDF la te rejenere"
   }
 }
