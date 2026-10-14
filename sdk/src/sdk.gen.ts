@@ -2,7 +2,7 @@
 
 import type { Client, ClientMeta, Options as Options2, RequestResult, TDataShape } from './client';
 import { client } from './client.gen';
-import type { CreateCreditNoteData, CreateCreditNoteErrors, CreateCreditNoteResponses, CreateInvoiceData, CreateInvoiceErrors, CreateInvoiceResponses, GetCreditNoteData, GetCreditNoteDocxData, GetCreditNoteDocxErrors, GetCreditNoteDocxResponses, GetCreditNoteErrors, GetCreditNotePdfData, GetCreditNotePdfErrors, GetCreditNotePdfResponses, GetCreditNoteResponses, GetInvoiceData, GetInvoiceDocxData, GetInvoiceDocxErrors, GetInvoiceDocxResponses, GetInvoiceErrors, GetInvoicePdfData, GetInvoicePdfErrors, GetInvoicePdfResponses, GetInvoiceResponses, GetStatusData, GetStatusErrors, GetStatusResponses, IssueCreditNoteData, IssueCreditNoteErrors, IssueCreditNoteResponses, IssueInvoiceData, IssueInvoiceErrors, IssueInvoiceResponses, ListClientsData, ListClientsErrors, ListClientsResponses, ListCreditNotesData, ListCreditNotesErrors, ListCreditNotesResponses, ListInvoicesData, ListInvoicesErrors, ListInvoicesResponses, ListPaymentMethodsData, ListPaymentMethodsErrors, ListPaymentMethodsResponses, ListProductsData, ListProductsErrors, ListProductsResponses, ListProfilesData, ListProfilesErrors, ListProfilesResponses, ListServicesData, ListServicesErrors, ListServicesResponses } from './types.gen';
+import type { CreateCreditNoteData, CreateCreditNoteErrors, CreateCreditNoteResponses, CreateInvoiceData, CreateInvoiceErrors, CreateInvoiceResponses, GetCreditNoteData, GetCreditNoteDocxData, GetCreditNoteDocxErrors, GetCreditNoteDocxResponses, GetCreditNoteErrors, GetCreditNoteFacturXData, GetCreditNoteFacturXErrors, GetCreditNoteFacturXResponses, GetCreditNotePdfData, GetCreditNotePdfErrors, GetCreditNotePdfResponses, GetCreditNoteResponses, GetInvoiceData, GetInvoiceDocxData, GetInvoiceDocxErrors, GetInvoiceDocxResponses, GetInvoiceErrors, GetInvoiceFacturXData, GetInvoiceFacturXErrors, GetInvoiceFacturXResponses, GetInvoicePdfData, GetInvoicePdfErrors, GetInvoicePdfResponses, GetInvoiceResponses, GetStatusData, GetStatusErrors, GetStatusResponses, IssueCreditNoteData, IssueCreditNoteErrors, IssueCreditNoteResponses, IssueInvoiceData, IssueInvoiceErrors, IssueInvoiceResponses, ListClientsData, ListClientsErrors, ListClientsResponses, ListCreditNotesData, ListCreditNotesErrors, ListCreditNotesResponses, ListInvoicesData, ListInvoicesErrors, ListInvoicesResponses, ListPaymentMethodsData, ListPaymentMethodsErrors, ListPaymentMethodsResponses, ListProductsData, ListProductsErrors, ListProductsResponses, ListProfilesData, ListProfilesErrors, ListProfilesResponses, ListServicesData, ListServicesErrors, ListServicesResponses } from './types.gen';
 
 export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean, TResponse = unknown> = Options2<TData, ThrowOnError, TResponse> & {
     /**
@@ -89,6 +89,17 @@ export const getInvoiceDocx = <ThrowOnError extends boolean = false>(options: Op
 });
 
 /**
+ * Download the Factur-X PDF/A-3 copy (EN 16931 XML embedded)
+ *
+ * Scope: `documents:read`.
+ */
+export const getInvoiceFacturX = <ThrowOnError extends boolean = false>(options: Options<GetInvoiceFacturXData, ThrowOnError>): RequestResult<GetInvoiceFacturXResponses, GetInvoiceFacturXErrors, ThrowOnError> => (options.client ?? client).get<GetInvoiceFacturXResponses, GetInvoiceFacturXErrors, ThrowOnError>({
+    security: [{ scheme: 'bearer', type: 'http' }],
+    url: '/invoices/{id}/facturx',
+    ...options
+});
+
+/**
  * List credit notes
  *
  * Scope: `credit_notes:read`.
@@ -155,6 +166,17 @@ export const getCreditNotePdf = <ThrowOnError extends boolean = false>(options: 
 export const getCreditNoteDocx = <ThrowOnError extends boolean = false>(options: Options<GetCreditNoteDocxData, ThrowOnError>): RequestResult<GetCreditNoteDocxResponses, GetCreditNoteDocxErrors, ThrowOnError> => (options.client ?? client).get<GetCreditNoteDocxResponses, GetCreditNoteDocxErrors, ThrowOnError>({
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/credit-notes/{id}/docx',
+    ...options
+});
+
+/**
+ * Download the Factur-X PDF/A-3 copy (EN 16931 XML embedded)
+ *
+ * Scope: `documents:read`.
+ */
+export const getCreditNoteFacturX = <ThrowOnError extends boolean = false>(options: Options<GetCreditNoteFacturXData, ThrowOnError>): RequestResult<GetCreditNoteFacturXResponses, GetCreditNoteFacturXErrors, ThrowOnError> => (options.client ?? client).get<GetCreditNoteFacturXResponses, GetCreditNoteFacturXErrors, ThrowOnError>({
+    security: [{ scheme: 'bearer', type: 'http' }],
+    url: '/credit-notes/{id}/facturx',
     ...options
 });
 

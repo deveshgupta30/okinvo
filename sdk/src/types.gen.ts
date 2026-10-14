@@ -817,6 +817,56 @@ export type GetInvoiceDocxResponses = {
 
 export type GetInvoiceDocxResponse = GetInvoiceDocxResponses[keyof GetInvoiceDocxResponses];
 
+export type GetInvoiceFacturXData = {
+    body?: never;
+    path: {
+        /**
+         * Record id
+         */
+        id: string;
+    };
+    query?: never;
+    url: '/invoices/{id}/facturx';
+};
+
+export type GetInvoiceFacturXErrors = {
+    /**
+     * Validation or charset failure
+     */
+    400: ErrorEnvelope;
+    /**
+     * No or invalid credentials
+     */
+    401: ErrorEnvelope;
+    /**
+     * Missing scope or forbidden by role
+     */
+    403: ErrorEnvelope;
+    /**
+     * No such record
+     */
+    404: ErrorEnvelope;
+    /**
+     * The record's state does not allow this
+     */
+    409: ErrorEnvelope;
+    /**
+     * Rate limited; see Retry-After
+     */
+    429: ErrorEnvelope;
+};
+
+export type GetInvoiceFacturXError = GetInvoiceFacturXErrors[keyof GetInvoiceFacturXErrors];
+
+export type GetInvoiceFacturXResponses = {
+    /**
+     * The file
+     */
+    200: Blob | File;
+};
+
+export type GetInvoiceFacturXResponse = GetInvoiceFacturXResponses[keyof GetInvoiceFacturXResponses];
+
 export type ListCreditNotesData = {
     body?: never;
     path?: never;
@@ -1128,6 +1178,56 @@ export type GetCreditNoteDocxResponses = {
 };
 
 export type GetCreditNoteDocxResponse = GetCreditNoteDocxResponses[keyof GetCreditNoteDocxResponses];
+
+export type GetCreditNoteFacturXData = {
+    body?: never;
+    path: {
+        /**
+         * Record id
+         */
+        id: string;
+    };
+    query?: never;
+    url: '/credit-notes/{id}/facturx';
+};
+
+export type GetCreditNoteFacturXErrors = {
+    /**
+     * Validation or charset failure
+     */
+    400: ErrorEnvelope;
+    /**
+     * No or invalid credentials
+     */
+    401: ErrorEnvelope;
+    /**
+     * Missing scope or forbidden by role
+     */
+    403: ErrorEnvelope;
+    /**
+     * No such record
+     */
+    404: ErrorEnvelope;
+    /**
+     * The record's state does not allow this
+     */
+    409: ErrorEnvelope;
+    /**
+     * Rate limited; see Retry-After
+     */
+    429: ErrorEnvelope;
+};
+
+export type GetCreditNoteFacturXError = GetCreditNoteFacturXErrors[keyof GetCreditNoteFacturXErrors];
+
+export type GetCreditNoteFacturXResponses = {
+    /**
+     * The file
+     */
+    200: Blob | File;
+};
+
+export type GetCreditNoteFacturXResponse = GetCreditNoteFacturXResponses[keyof GetCreditNoteFacturXResponses];
 
 export type ListClientsData = {
     body?: never;
