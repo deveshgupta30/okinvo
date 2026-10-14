@@ -26,6 +26,7 @@ import {
 import { requireRole } from "@/server/auth";
 import { hasRole } from "@/server/dal/authz";
 import { getCreditNote } from "@/server/dal/credit-notes";
+import { euProfileFor } from "@/server/dal/einvoice-settings";
 import { assetUrl, verificationQr } from "@/server/dal/documents";
 import { NotFoundError } from "@/server/dal/errors";
 import { listShareLinks } from "@/server/dal/share-links";
@@ -51,6 +52,7 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
   const money = (v: string) => formatMoney(v, cn.currency, cn.locale);
   const isDraft = cn.status === "DRAFT";
   const latestDoc = cn.documents[cn.documents.length - 1] ?? null;
+  const euProfile = !isDraft && (await euProfileFor(cn.issuerProfileId)) === "EN16931";
 
   let preview: React.ReactNode = null;
   if (!isDraft && cn.snapshot) {
@@ -152,6 +154,20 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
                     {tc("downloadDocx")}
                   </a>
                 </Button>
+                {euProfile ? (
+                  <>
+                    <Button asChild variant="secondary">
+                      <a href={`/api/documents/einvoice/${id}?format=cii&kind=creditNote`}>
+                        {tc("downloadCii")}
+                      </a>
+                    </Button>
+                    <Button asChild variant="secondary">
+                      <a href={`/api/documents/einvoice/${id}?format=ubl&kind=creditNote`}>
+                        {tc("downloadUbl")}
+                      </a>
+                    </Button>
+                  </>
+                ) : null}
                 {cn.status === "ISSUED" && canEdit ? (
                   <>
                     <ShareDialog
