@@ -2463,3 +2463,237 @@ export const FONT_FILES: Record<FontId, FontFace[]> = {
     },
   ],
 };
+
+/** The Noto script families (spec §9c), one entry per shipped subset face, keyed by family name. */
+export const SCRIPT_FONT_FILES: Record<string, FontFace[]> = {
+  "Noto Sans": [
+    { weight: 400, style: "normal", file: "noto-sans/noto-sans-greek-400-normal.woff" },
+    { weight: 700, style: "normal", file: "noto-sans/noto-sans-greek-700-normal.woff" },
+    { weight: 400, style: "normal", file: "noto-sans/noto-sans-greek-ext-400-normal.woff" },
+    { weight: 700, style: "normal", file: "noto-sans/noto-sans-greek-ext-700-normal.woff" },
+    { weight: 400, style: "normal", file: "noto-sans/noto-sans-cyrillic-400-normal.woff" },
+    { weight: 700, style: "normal", file: "noto-sans/noto-sans-cyrillic-700-normal.woff" },
+    { weight: 400, style: "normal", file: "noto-sans/noto-sans-cyrillic-ext-400-normal.woff" },
+    { weight: 700, style: "normal", file: "noto-sans/noto-sans-cyrillic-ext-700-normal.woff" },
+  ],
+  "Noto Sans Armenian": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-armenian/noto-sans-armenian-armenian-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-armenian/noto-sans-armenian-armenian-700-normal.woff",
+    },
+  ],
+  "Noto Sans Hebrew": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-hebrew/noto-sans-hebrew-hebrew-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-hebrew/noto-sans-hebrew-hebrew-700-normal.woff",
+    },
+  ],
+  "Noto Sans Arabic": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-arabic/noto-sans-arabic-arabic-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-arabic/noto-sans-arabic-arabic-700-normal.woff",
+    },
+  ],
+  "Noto Sans Syriac": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-syriac/noto-sans-syriac-syriac-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-syriac/noto-sans-syriac-syriac-700-normal.woff",
+    },
+  ],
+  "Noto Sans Devanagari": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-devanagari/noto-sans-devanagari-devanagari-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-devanagari/noto-sans-devanagari-devanagari-700-normal.woff",
+    },
+  ],
+  "Noto Sans Bengali": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-bengali/noto-sans-bengali-bengali-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-bengali/noto-sans-bengali-bengali-700-normal.woff",
+    },
+  ],
+  "Noto Sans Gurmukhi": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-gurmukhi/noto-sans-gurmukhi-gurmukhi-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-gurmukhi/noto-sans-gurmukhi-gurmukhi-700-normal.woff",
+    },
+  ],
+  "Noto Sans Gujarati": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-gujarati/noto-sans-gujarati-gujarati-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-gujarati/noto-sans-gujarati-gujarati-700-normal.woff",
+    },
+  ],
+  "Noto Sans Oriya": [
+    { weight: 400, style: "normal", file: "noto-sans-oriya/noto-sans-oriya-oriya-400-normal.woff" },
+    { weight: 700, style: "normal", file: "noto-sans-oriya/noto-sans-oriya-oriya-700-normal.woff" },
+  ],
+  "Noto Sans Tamil": [
+    { weight: 400, style: "normal", file: "noto-sans-tamil/noto-sans-tamil-tamil-400-normal.woff" },
+    { weight: 700, style: "normal", file: "noto-sans-tamil/noto-sans-tamil-tamil-700-normal.woff" },
+  ],
+  "Noto Sans Telugu": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-telugu/noto-sans-telugu-telugu-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-telugu/noto-sans-telugu-telugu-700-normal.woff",
+    },
+  ],
+  "Noto Sans Kannada": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-kannada/noto-sans-kannada-kannada-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-kannada/noto-sans-kannada-kannada-700-normal.woff",
+    },
+  ],
+  "Noto Sans Malayalam": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-malayalam/noto-sans-malayalam-malayalam-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-malayalam/noto-sans-malayalam-malayalam-700-normal.woff",
+    },
+  ],
+  "Noto Sans Sinhala": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-sinhala/noto-sans-sinhala-sinhala-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-sinhala/noto-sans-sinhala-sinhala-700-normal.woff",
+    },
+  ],
+  "Noto Sans Thai": [
+    { weight: 400, style: "normal", file: "noto-sans-thai/noto-sans-thai-thai-400-normal.woff" },
+    { weight: 700, style: "normal", file: "noto-sans-thai/noto-sans-thai-thai-700-normal.woff" },
+  ],
+  "Noto Sans Lao": [
+    { weight: 400, style: "normal", file: "noto-sans-lao/noto-sans-lao-lao-400-normal.woff" },
+    { weight: 700, style: "normal", file: "noto-sans-lao/noto-sans-lao-lao-700-normal.woff" },
+  ],
+  "Noto Sans Myanmar": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-myanmar/noto-sans-myanmar-myanmar-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-myanmar/noto-sans-myanmar-myanmar-700-normal.woff",
+    },
+  ],
+  "Noto Sans Georgian": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-georgian/noto-sans-georgian-georgian-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-georgian/noto-sans-georgian-georgian-700-normal.woff",
+    },
+  ],
+  "Noto Sans Ethiopic": [
+    {
+      weight: 400,
+      style: "normal",
+      file: "noto-sans-ethiopic/noto-sans-ethiopic-ethiopic-400-normal.woff",
+    },
+    {
+      weight: 700,
+      style: "normal",
+      file: "noto-sans-ethiopic/noto-sans-ethiopic-ethiopic-700-normal.woff",
+    },
+  ],
+  "Noto Sans Khmer": [
+    { weight: 400, style: "normal", file: "noto-sans-khmer/noto-sans-khmer-khmer-400-normal.woff" },
+    { weight: 700, style: "normal", file: "noto-sans-khmer/noto-sans-khmer-khmer-700-normal.woff" },
+  ],
+};
+
+/** The CJK variable fonts (google/fonts @ 4a943f60f1e99b2e5a2778aa34ba82adf77e4615), registered at weight 400. */
+export const CJK_FONT_FILES: Record<string, { file: string; sha256: string }> = {
+  "Noto Sans SC": {
+    file: "cjk/NotoSansSC[wght].ttf",
+    sha256: "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+  },
+  "Noto Sans TC": {
+    file: "cjk/NotoSansTC[wght].ttf",
+    sha256: "864727d210d54f2537bbe23b3a839436c3992af72de9322af5270897246bd44f",
+  },
+  "Noto Sans JP": {
+    file: "cjk/NotoSansJP[wght].ttf",
+    sha256: "c2f3b4d463500a2ddcd3849cded1fceeb9fd6d1c32e6cbecd568453ba50fc68f",
+  },
+  "Noto Sans KR": {
+    file: "cjk/NotoSansKR[wght].ttf",
+    sha256: "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+  },
+};

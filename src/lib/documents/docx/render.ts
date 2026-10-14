@@ -821,7 +821,7 @@ export async function renderDocx(
   config: TemplateConfig,
   images: DocxImages = {},
 ): Promise<Buffer> {
-  const s = templateStyle(config);
+  const s = templateStyle(config, vm.locale);
   const pageW = twips(s.paper.width);
   const pageH = twips(s.paper.height);
   const margin = twips(s.margin);

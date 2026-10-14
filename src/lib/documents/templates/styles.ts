@@ -1,4 +1,5 @@
 import type { TemplateConfig, TemplateId } from "@/lib/schemas";
+import { isRtl } from "@/lib/i18n/languages";
 import { fontFamily } from "../fonts/catalog";
 
 /** Points per millimetre (PDF user units). */
@@ -74,10 +75,12 @@ export interface TemplateStyle {
   qrPosition: TemplateConfig["qr"]["position"];
   pageNumbers: boolean;
   wordsPosition: TemplateConfig["totals"]["amountInWords"];
+  /** Right-to-left document language (spec §9c): text columns align right, the table mirrors. */
+  rtl: boolean;
 }
 
 /** Derives every number and colour both renderers use from the template config (R2: variants). */
-export function templateStyle(config: TemplateConfig): TemplateStyle {
+export function templateStyle(config: TemplateConfig, locale?: string): TemplateStyle {
   const variant = config.templateId;
   const minimal = variant === "minimal";
   const tinted = variant === "modern";
@@ -121,6 +124,7 @@ export function templateStyle(config: TemplateConfig): TemplateStyle {
     qrPosition: config.qr.position,
     pageNumbers: config.pageNumbers,
     wordsPosition: config.totals.amountInWords,
+    rtl: locale !== undefined && isRtl(locale),
   };
 }
 

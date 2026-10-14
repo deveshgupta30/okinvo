@@ -1,8 +1,14 @@
-import { existsSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { FONT_CATALOG, FONT_IDS, fontFamily } from "@/lib/documents/fonts/catalog";
-import { FONT_FILES } from "@/lib/documents/fonts/registry.generated";
+import {
+  CJK_FONT_FILES,
+  FONT_FILES,
+  SCRIPT_FONT_FILES,
+} from "@/lib/documents/fonts/registry.generated";
+import { CJK_FAMILIES, SCRIPT_FAMILIES } from "@/lib/documents/fonts/scripts";
 import { mergeTemplateConfig } from "@/lib/schemas";
 
 /**
@@ -58,5 +64,32 @@ describe("font catalogue", () => {
       mergeTemplateConfig({ font: { heading: "playfair-display", body: "lato" } }).font,
     ).toEqual({ heading: "playfair-display", body: "lato" });
     expect(() => mergeTemplateConfig({ font: { heading: "comic-sans", body: "lato" } })).toThrow();
+  });
+});
+
+/** Script coverage (spec §9c): every Noto family a run can switch to is vendored and pinned. */
+describe("script fonts", () => {
+  it("ships 400 and 700 of a subset face for every script family", () => {
+    for (const family of SCRIPT_FAMILIES) {
+      if ((CJK_FAMILIES as readonly string[]).includes(family)) continue;
+      const faces = SCRIPT_FONT_FILES[family];
+      expect(faces, family).toBeDefined();
+      expect(faces!.map((f) => f.weight)).toEqual(expect.arrayContaining([400, 700]));
+      for (const face of faces!) {
+        expect(face.file).toMatch(/^noto-sans[a-z-]*\/noto-sans[a-z-]*-\d{3}-normal\.woff$/);
+        expect(existsSync(path.join("public", "fonts", face.file)), face.file).toBe(true);
+      }
+    }
+  });
+
+  it("ships the four CJK variable fonts at their pinned hashes", () => {
+    for (const family of CJK_FAMILIES) {
+      const f = CJK_FONT_FILES[family];
+      expect(f, family).toBeDefined();
+      const file = path.join("public", "fonts", f!.file);
+      expect(existsSync(file), f!.file).toBe(true);
+      const sha = createHash("sha256").update(readFileSync(file)).digest("hex");
+      expect(sha, family).toBe(f!.sha256);
+    }
   });
 });

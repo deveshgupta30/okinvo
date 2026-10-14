@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import type { TemplateConfig } from "@/lib/schemas";
+import { SCRIPT_FAMILIES } from "../fonts/scripts";
 import { pageOf } from "../page-text";
 import type { DocumentViewModel } from "../view-model";
 import { templateStyle } from "./styles";
@@ -18,7 +19,8 @@ export function DocumentPreview({
   config: TemplateConfig;
   className?: string;
 }) {
-  const s = templateStyle(config);
+  const s = templateStyle(config, vm.locale);
+  const stack = SCRIPT_FAMILIES.map((f) => `"${f}"`).join(", ");
   const px = (pt: number) => `${(pt * 96) / 72}px`;
   const base = (pt: number): CSSProperties => ({ fontSize: px(pt) });
   const muted: CSSProperties = { color: s.muted };
@@ -71,12 +73,13 @@ export function DocumentPreview({
     <div
       className={className}
       data-document-preview
+      dir={s.rtl ? "rtl" : "ltr"}
       style={{
         position: "relative",
         overflow: "hidden",
         background: "#ffffff",
         color: s.text,
-        fontFamily: `"${s.body}", sans-serif`,
+        fontFamily: `"${s.body}", ${stack}, sans-serif`,
         fontSize: px(s.base),
         lineHeight: 1.35,
         width: px(s.paper.width),
