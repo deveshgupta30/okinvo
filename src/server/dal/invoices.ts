@@ -133,10 +133,11 @@ export interface InvoiceDto extends InvoiceListRow {
     id: string;
     label: string;
     legalName: string;
+    gstin: string | null;
+    einvoiceEnabled: boolean;
     locale: string;
     baseCurrency: string;
     fiscalYearStartMonth: number;
-    gstin: string | null;
   };
   client: { id: string; displayName: string; email: string | null; paymentTermsDays: number };
   documents: {
@@ -174,6 +175,7 @@ const DETAIL_INCLUDE = {
       baseCurrency: true,
       fiscalYearStartMonth: true,
       gstin: true,
+      einvoiceEnabled: true,
     },
   },
   client: { select: { id: true, displayName: true, email: true, paymentTermsDays: true } },

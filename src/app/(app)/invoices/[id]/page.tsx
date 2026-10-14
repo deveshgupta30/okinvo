@@ -183,6 +183,11 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
                     {tc("downloadDocx")}
                   </a>
                 </Button>
+                {inv.taxRegime === "INDIA_GST" && inv.issuer.einvoiceEnabled && inv.issuer.gstin ? (
+                  <Button asChild variant="secondary">
+                    <a href={`/api/documents/einvoice/${id}?format=gst`}>{t("downloadEInvoice")}</a>
+                  </Button>
+                ) : null}
                 {isIssued && canEdit ? (
                   <>
                     <ShareDialog kind="INVOICE" id={id} links={shareLinks} />
