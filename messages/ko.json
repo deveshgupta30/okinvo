@@ -130,6 +130,7 @@
       "users": "사용자",
       "data": "데이터",
       "legal": "법적 고지",
+      "einvoicing": "전자 청구서",
       "account": "계정",
       "appearance": "화면 모양",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "IGST 없는 수출용",
         "lutFiscalYear": "LUT 회계연도",
         "lutFiscalYearHint": "예: 2026-27",
+        "einvoiceTitle": "전자 청구서",
+        "einvoiceDescription": "이 프로필이 전자 청구서에서 자신을 식별하는 방식입니다. 커넥터와 자격 증명은 설정 > 전자 청구서에 있습니다.",
+        "electronicAddress": "전자 주소",
+        "electronicAddressHint": "이 발행자의 Peppol 또는 EN 16931 식별자로, 판매자의 전자 주소로 인쇄됩니다.",
+        "electronicAddressScheme": "전자 주소 체계",
+        "electronicAddressSchemeNone": "체계 없음",
+        "einvoiceEnabled": "이 프로필에 전자 청구서 사용",
+        "einvoiceEnabledHint": "발행된 문서에 GST 전자 청구서 JSON, Factur-X, UBL 다운로드와 IRN 등록을 제공합니다.",
         "defaultsTitle": "기본값",
         "baseCurrency": "기준 통화",
         "locale": "문서 로캘",
@@ -803,6 +812,45 @@
         "venueHint": "예: “카르나타카주 벵갈루루 소재 법원”",
         "submit": "운영자 정보 저장"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "전자 청구서",
+      "title": "전자 청구서",
+      "description": "발행자 프로필별 설정입니다. 인도 전자 청구서를 등록하는 커넥터와 Factur-X 및 UBL 출력이 따르는 유럽 프로필을 정합니다. 자격 증명은 암호화되어 저장되며 다시 표시되지 않습니다.",
+      "noProfiles": "먼저 발행자 프로필을 만드세요.",
+      "profile": "발행자 프로필",
+      "enabled": "사용",
+      "disabled": "사용 안 함",
+      "enabledHint": "설정 > 프로필에서 프로필별로 전자 청구서를 켜거나 끌 수 있습니다.",
+      "india": {
+        "title": "인도 (GST 전자 청구서, IRN)",
+        "description": "IRN은 여기서 선택한 커넥터를 통해 등록됩니다. 수동 커넥터는 포털의 응답을 직접 입력받습니다.",
+        "connector": "커넥터",
+        "connectorNone": "끔",
+        "connectorManual": "수동 (IRP 응답 붙여넣기)",
+        "connectorNic": "NIC IRP API (샌드박스 또는 프로덕션)",
+        "nicUnverified": "NIC 커넥터는 공개된 API를 따르며 녹화된 픽스처로만 테스트되었습니다. 자격 증명이 제공될 때까지 실제 샌드박스에서는 검증되지 않았습니다.",
+        "env": "환경",
+        "sandbox": "샌드박스",
+        "production": "프로덕션",
+        "baseUrl": "기본 URL",
+        "baseUrlHint": "환경의 기본값을 사용하려면 비워 두세요.",
+        "clientId": "클라이언트 ID",
+        "clientSecret": "클라이언트 시크릿",
+        "username": "사용자 이름",
+        "password": "비밀번호",
+        "gstin": "GSTIN",
+        "secretStored": "암호화되어 저장됨. 유지하려면 비워 두세요.",
+        "secretEncrypted": "저장 시 암호화됩니다."
+      },
+      "eu": {
+        "title": "유럽 (Factur-X, UBL)",
+        "description": "이 버전에서는 EN 16931이 유일한 프로필이며, Factur-X와 UBL 다운로드가 이를 사용합니다.",
+        "profile": "프로필",
+        "profileNone": "끔",
+        "en16931": "EN 16931"
+      },
+      "save": "전자 청구서 설정 저장"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "예상 TDS 세율 (%)",
       "preferredLanguage": "문서 언어",
       "preferredLanguageFollow": "발행자 프로필 따르기",
+      "buyerReference": "구매자 참조",
+      "buyerReferenceHint": "전자 청구서에 구매자 자체 참조(주문 또는 비용 센터 번호)로 인쇄됩니다.",
+      "electronicAddress": "전자 주소",
+      "electronicAddressHint": "이 고객이 전자 청구서를 수신하는 Peppol 또는 EN 16931 식별자입니다.",
+      "electronicAddressScheme": "전자 주소 체계",
+      "electronicAddressSchemeNone": "체계 없음",
       "notes": "메모",
       "billingAddress": "청구 주소",
       "shippingAddress": "배송 주소",
@@ -2022,6 +2076,7 @@
     "templateReset": "템플릿이 기본 제공 기본값으로 초기화되었습니다",
     "templateImported": "템플릿을 가져왔습니다",
     "profileTemplateCleared": "프로필이 다시 인스턴스 템플릿을 사용합니다",
-    "operatorSaved": "운영자 정보가 저장되었습니다. 이제 법적 고지 페이지에 표시됩니다."
+    "operatorSaved": "운영자 정보가 저장되었습니다. 이제 법적 고지 페이지에 표시됩니다.",
+    "einvoiceSettingsSaved": "전자 청구서 설정을 저장했습니다"
   }
 }

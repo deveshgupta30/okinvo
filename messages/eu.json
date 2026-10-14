@@ -130,6 +130,7 @@
       "users": "Erabiltzaileak",
       "data": "Datuak",
       "legal": "Lege-informazioa",
+      "einvoicing": "E-fakturazioa",
       "account": "Kontua",
       "appearance": "Itxura",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "IGST gabeko esportazioetarako",
         "lutFiscalYear": "LUTaren ekitaldi fiskala",
         "lutFiscalYearHint": "adib. 2026-27",
+        "einvoiceTitle": "E-fakturazioa",
+        "einvoiceDescription": "Profil honek e-fakturetan nola identifikatzen duen bere burua; konektorea eta kredentzialak Ezarpenak > E-fakturazioa atalean daude.",
+        "electronicAddress": "Helbide elektronikoa",
+        "electronicAddressHint": "Jaulkitzaile honen Peppol edo EN 16931 identifikatzailea, saltzailearen helbide elektroniko gisa inprimatua.",
+        "electronicAddressScheme": "Helbide elektronikoaren eskema",
+        "electronicAddressSchemeNone": "Eskemarik ez",
+        "einvoiceEnabled": "E-fakturazioa gaituta profil honetan",
+        "einvoiceEnabledHint": "GST e-fakturaren JSON, Factur-X eta UBL deskargak eta IRN erregistroa eskaintzen ditu jaulkitako dokumentuetan.",
         "defaultsTitle": "Balio lehenetsiak",
         "baseCurrency": "Oinarrizko moneta",
         "locale": "Dokumentuen lokalizazioa",
@@ -803,6 +812,45 @@
         "venueHint": "Adibidez, “Bengaluruko (Karnataka) epaitegiak”.",
         "submit": "Gorde operadorearen xehetasunak"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fakturazioa",
+      "title": "E-fakturazioa",
+      "description": "Jaulkitzaile-profil bakoitzeko: zein konektorek erregistratzen dituen Indiako e-fakturak eta zein profil europarrek jarraitzen duten Factur-X eta UBL irteerek. Kredentzialak zifratuta gordetzen dira eta ez dira berriro erakusten.",
+      "noProfiles": "Sortu lehenik jaulkitzaile-profil bat.",
+      "profile": "Jaulkitzaile-profila",
+      "enabled": "Gaituta",
+      "disabled": "Desgaituta",
+      "enabledHint": "Aktibatu edo desaktibatu e-fakturazioa profil bakoitzeko Ezarpenak > Profilak atalean.",
+      "india": {
+        "title": "India (GST e-faktura, IRN)",
+        "description": "IRN hemen hautatutako konektorearen bidez erregistratzen da; eskuzko konektoreak atariaren erantzuna eskuz hartzen du.",
+        "connector": "Konektorea",
+        "connectorNone": "Desaktibatuta",
+        "connectorManual": "Eskuzkoa (itsatsi IRP erantzuna)",
+        "connectorNic": "NIC IRP API (sandbox edo produkzioa)",
+        "nicUnverified": "NIC konektoreak argitaratutako APIa jarraitzen du eta grabatutako datuekin soilik probatu da; ez dago egiaztatuta sandbox errealarekin, kredentzialak eman arte.",
+        "env": "Ingurunea",
+        "sandbox": "Sandbox",
+        "production": "Produkzioa",
+        "baseUrl": "Oinarrizko URLa",
+        "baseUrlHint": "Utzi hutsik ingurunearen balio lehenetsia erabiltzeko.",
+        "clientId": "Bezero-IDa",
+        "clientSecret": "Bezero-sekretua",
+        "username": "Erabiltzaile-izena",
+        "password": "Pasahitza",
+        "gstin": "GSTIN",
+        "secretStored": "Zifratuta gordeta; utzi hutsik mantentzeko.",
+        "secretEncrypted": "Zifratuta gordeta."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 da bertsio honetako profil bakarra; Factur-X eta UBL deskargek hau erabiltzen dute.",
+        "profile": "Profila",
+        "profileNone": "Desaktibatuta",
+        "en16931": "EN 16931"
+      },
+      "save": "Gorde e-fakturazioaren ezarpenak"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Espero den TDS tasa (%)",
       "preferredLanguage": "Dokumentuaren hizkuntza",
       "preferredLanguageFollow": "Jarraitu igorlearen profila",
+      "buyerReference": "Eroslearen erreferentzia",
+      "buyerReferenceHint": "E-fakturetan erosleak berak emandako erreferentzia gisa inprimatzen da (eskaera-zenbakia edo kostu-zentroaren zenbakia).",
+      "electronicAddress": "Helbide elektronikoa",
+      "electronicAddressHint": "Bezero honek e-fakturak jasotzeko erabiltzen duen Peppol edo EN 16931 identifikatzailea.",
+      "electronicAddressScheme": "Helbide elektronikoaren eskema",
+      "electronicAddressSchemeNone": "Eskemarik ez",
       "notes": "Oharrak",
       "billingAddress": "Fakturazio-helbidea",
       "shippingAddress": "Bidalketa-helbidea",
@@ -2022,6 +2076,7 @@
     "templateReset": "Txantiloia integratutako lehenetsira berrezarrita",
     "templateImported": "Txantiloia inportatuta",
     "profileTemplateCleared": "Profilak berriro instantziaren txantiloia erabiltzen du",
-    "operatorSaved": "Operadorearen xehetasunak gordeta. Lege-orriek orain erakusten dituzte."
+    "operatorSaved": "Operadorearen xehetasunak gordeta. Lege-orriek orain erakusten dituzte.",
+    "einvoiceSettingsSaved": "E-fakturazioaren ezarpenak gordeta"
   }
 }

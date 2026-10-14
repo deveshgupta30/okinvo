@@ -51,6 +51,10 @@ export interface ProfileDto {
   usTaxId: string | null;
   lutNumber: string | null;
   lutFiscalYear: string | null;
+  /** E-invoicing (spec §9e): Peppol electronic address and whether documents are registered. */
+  electronicAddress: string | null;
+  electronicAddressScheme: string | null;
+  einvoiceEnabled: boolean;
   baseCurrency: string;
   locale: string;
   fiscalYearStartMonth: number;
@@ -110,6 +114,9 @@ function toDto(row: RowWithAssets): ProfileDto {
     usTaxId: row.usTaxIdEnc ? decryptField(row.usTaxIdEnc, fieldKey()) : null,
     lutNumber: row.lutNumber,
     lutFiscalYear: row.lutFiscalYear,
+    electronicAddress: row.electronicAddress,
+    electronicAddressScheme: row.electronicAddressScheme,
+    einvoiceEnabled: row.einvoiceEnabled,
     baseCurrency: row.baseCurrency,
     locale: row.locale,
     fiscalYearStartMonth: row.fiscalYearStartMonth,
@@ -162,6 +169,9 @@ function toData(input: ProfileInput) {
     usTaxIdEnc: input.usTaxId ? encryptField(input.usTaxId, fieldKey()) : null,
     lutNumber: input.lutNumber ?? null,
     lutFiscalYear: input.lutFiscalYear ?? null,
+    electronicAddress: input.electronicAddress ?? null,
+    electronicAddressScheme: input.electronicAddressScheme ?? null,
+    einvoiceEnabled: input.einvoiceEnabled,
     baseCurrency: input.baseCurrency,
     locale: input.locale,
     fiscalYearStartMonth: input.fiscalYearStartMonth,

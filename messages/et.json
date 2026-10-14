@@ -130,6 +130,7 @@
       "users": "Kasutajad",
       "data": "Andmed",
       "legal": "Õiguslik teave",
+      "einvoicing": "E-arved",
       "account": "Konto",
       "appearance": "Välimus",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Ekspordiks ilma IGST-ta",
         "lutFiscalYear": "LUT-i majandusaasta",
         "lutFiscalYearHint": "nt 2026-27",
+        "einvoiceTitle": "E-arved",
+        "einvoiceDescription": "Kuidas see profiil e-arvetel ennast tuvastab; liidestus ja volitused asuvad jaotises Seaded > E-arved.",
+        "electronicAddress": "Elektrooniline aadress",
+        "electronicAddressHint": "Selle väljastaja Peppoli või EN 16931 identifikaator, mis prinditakse müüja elektroonilise aadressina.",
+        "electronicAddressScheme": "Elektroonilise aadressi skeem",
+        "electronicAddressSchemeNone": "Skeem puudub",
+        "einvoiceEnabled": "E-arved on selle profiili jaoks lubatud",
+        "einvoiceEnabledHint": "Pakub GST e-arve JSON-i, Factur-X ja UBL allalaadimisi ning IRN-i registreerimist profiili väljastatud dokumentidel.",
         "defaultsTitle": "Vaikeväärtused",
         "baseCurrency": "Baasvaluuta",
         "locale": "Dokumendi lokaat",
@@ -803,6 +812,45 @@
         "venueHint": "Näiteks \"Bengaluru kohtud, Karnataka\".",
         "submit": "Salvesta haldaja andmed"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-arved",
+      "title": "E-arved",
+      "description": "Väljastajaprofiili kaupa: milline liidestus registreerib India e-arveid ja millist Euroopa profiili Factur-X ja UBL väljundid järgivad. Volitused salvestatakse krüptituna ja neid ei kuvata enam kunagi.",
+      "noProfiles": "Looge kõigepealt väljastajaprofiil.",
+      "profile": "Väljastajaprofiil",
+      "enabled": "Lubatud",
+      "disabled": "Keelatud",
+      "enabledHint": "E-arveid saab profiili kaupa sisse või välja lülitada jaotises Seaded > Profiilid.",
+      "india": {
+        "title": "India (GST e-arve, IRN)",
+        "description": "IRN registreeritakse siin valitud liidestuse kaudu; käsitsi liidestus võtab portaali vastuse käsitsi.",
+        "connector": "Liidestus",
+        "connectorNone": "Väljas",
+        "connectorManual": "Käsitsi (kleebi IRP vastus)",
+        "connectorNic": "NIC IRP API (liivakast või toodang)",
+        "nicUnverified": "NIC liidestus järgib avaldatud API-t ja on testitud ainult salvestatud andmetega; see on tõendamata reaalse liivakastiga, kuni volitused on olemas.",
+        "env": "Keskkond",
+        "sandbox": "Liivakast",
+        "production": "Toodang",
+        "baseUrl": "Baas-URL",
+        "baseUrlHint": "Jätke tühjaks keskkonna vaikeväärtuse jaoks.",
+        "clientId": "Kliendi ID",
+        "clientSecret": "Kliendi saladus",
+        "username": "Kasutajanimi",
+        "password": "Parool",
+        "gstin": "GSTIN",
+        "secretStored": "Salvestatud krüptituna; jätke tühjaks, et see säilitada.",
+        "secretEncrypted": "Salvestatud krüptituna."
+      },
+      "eu": {
+        "title": "Euroopa (Factur-X, UBL)",
+        "description": "EN 16931 on selles versioonis ainus profiil; Factur-X ja UBL allalaadimised kasutavad seda.",
+        "profile": "Profiil",
+        "profileNone": "Väljas",
+        "en16931": "EN 16931"
+      },
+      "save": "Salvesta e-arvete seaded"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Oodatav TDS-i määr (%)",
       "preferredLanguage": "Dokumendi keel",
       "preferredLanguageFollow": "Järgi väljastaja profiili",
+      "buyerReference": "Ostja viide",
+      "buyerReferenceHint": "Prinditakse e-arvetele ostja enda viitena (tellimuse või kulukoha number).",
+      "electronicAddress": "Elektrooniline aadress",
+      "electronicAddressHint": "Peppoli või EN 16931 identifikaator, mille all see klient e-arveid vastu võtab.",
+      "electronicAddressScheme": "Elektroonilise aadressi skeem",
+      "electronicAddressSchemeNone": "Skeem puudub",
       "notes": "Märkused",
       "billingAddress": "Arveldusaadress",
       "shippingAddress": "Tarneaadress",
@@ -2022,6 +2076,7 @@
     "templateReset": "Mall lähtestatud sisseehitatud vaikemallile",
     "templateImported": "Mall imporditud",
     "profileTemplateCleared": "Profiil kasutab taas instantsi malli",
-    "operatorSaved": "Haldaja andmed salvestatud. Õiguslikud lehed näitavad neid nüüd."
+    "operatorSaved": "Haldaja andmed salvestatud. Õiguslikud lehed näitavad neid nüüd.",
+    "einvoiceSettingsSaved": "E-arvete seaded salvestatud"
   }
 }

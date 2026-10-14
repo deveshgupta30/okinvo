@@ -130,6 +130,7 @@
       "users": "Bikarhêner",
       "data": "Dane",
       "legal": "Yasayî",
+      "einvoicing": "E-fatûre",
       "account": "Hesab",
       "appearance": "Xuyang",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Ji bo hinardeyên bê IGST",
         "lutFiscalYear": "Sala darayî ya LUT",
         "lutFiscalYearHint": "mînak 2026-27",
+        "einvoiceTitle": "E-fatûre",
+        "einvoiceDescription": "Ev profîl di e-fatûreyan de çawa xwe dide nasîn; girêdêr û agahiyên têketinê di Mîheng > E-fatûre de ne.",
+        "electronicAddress": "Navnîşana elektronîk",
+        "electronicAddressHint": "Nasnameya Peppol an EN 16931 ya vê derxerê, wekî navnîşana elektronîk a firoşkar tê çapkirin.",
+        "electronicAddressScheme": "Şemaya navnîşana elektronîk",
+        "electronicAddressSchemeNone": "Şema tune",
+        "einvoiceEnabled": "E-fatûre ji bo vê profîlê çalak e",
+        "einvoiceEnabledHint": "Li ser belgeyên wê yên derxistî daxistina JSON a e-fatûreya GST, Factur-X û UBL û tomarkirina IRN pêşkêş dike.",
         "defaultsTitle": "Berdest",
         "baseCurrency": "Diravê bingehîn",
         "locale": "Zimanê herêmî yê belgeyê",
@@ -803,6 +812,45 @@
         "venueHint": "Mînak “dadgehên Bengaluru, Karnataka”.",
         "submit": "Hûrguliyên operatorê tomar bike"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fatûre",
+      "title": "E-fatûre",
+      "description": "Ji bo her profîla derxer: kîjan girêdêr e-fatûreyên Hindî tomar dike, û derketinên Factur-X û UBL kîjan profîla Ewropayî dişopînin. Agahiyên têketinê şîfrekirî tên hilanîn û careke din nayên nîşandan.",
+      "noProfiles": "Pêşî profîla derxer biafirîne.",
+      "profile": "Profîla derxer",
+      "enabled": "Çalak",
+      "disabled": "Neçalak",
+      "enabledHint": "E-fatûreyê ji bo her profîlê di Mîheng > Profîl de vekin an bigirin.",
+      "india": {
+        "title": "Hindistan (e-fatûreya GST, IRN)",
+        "description": "IRN bi riya girêdêra ku li vir hatiye hilbijartin tê tomarkirin; girêdêra destî bersiva portalê bi dest werdigire.",
+        "connector": "Girêdêr",
+        "connectorNone": "Girtî",
+        "connectorManual": "Destî (bersiva IRP bi cih bike)",
+        "connectorNic": "API ya NIC IRP (sandbox an hilberîn)",
+        "nicUnverified": "Girêdêra NIC API ya weşandî dişopîne û tenê bi fixtureyên tomarkirî hatiye ceribandin; heta ku agahiyên têketinê neyên dayîn li ser sandboxeke rastîn nehatiye piştrastkirin.",
+        "env": "Jîngeh",
+        "sandbox": "Sandbox",
+        "production": "Hilberîn",
+        "baseUrl": "URL a bingehîn",
+        "baseUrlHint": "Ji bo nirxa bingehîn a jîngehê vala bihêle.",
+        "clientId": "Nasnameya muşterî",
+        "clientSecret": "Veşartoka muşterî",
+        "username": "Navê bikarhêner",
+        "password": "Şîfre",
+        "gstin": "GSTIN",
+        "secretStored": "Şîfrekirî tê hilanîn; ji bo domandina wê vala bihêle.",
+        "secretEncrypted": "Şîfrekirî tê hilanîn."
+      },
+      "eu": {
+        "title": "Ewropa (Factur-X, UBL)",
+        "description": "EN 16931 di vê guhertoyê de profîla yekane ye; daxistinên Factur-X û UBL wê bi kar tînin.",
+        "profile": "Profîl",
+        "profileNone": "Girtî",
+        "en16931": "EN 16931"
+      },
+      "save": "Mîhengên e-fatûreyê tomar bike"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Rêjeya TDS ya hêvîkirî (%)",
       "preferredLanguage": "Zimanê belgeyê",
       "preferredLanguageFollow": "Profîla derxerê bişopîne",
+      "buyerReference": "Referansa kiriyar",
+      "buyerReferenceHint": "Di e-fatûreyan de wekî referansa taybet a kiriyar tê çapkirin (hejmara ferman an navenda lêçûnê).",
+      "electronicAddress": "Navnîşana elektronîk",
+      "electronicAddressHint": "Nasnameya Peppol an EN 16931 ya ku ev muşterî e-fatûreyan bi wê werdigire.",
+      "electronicAddressScheme": "Şemaya navnîşana elektronîk",
+      "electronicAddressSchemeNone": "Şema tune",
       "notes": "Nîşe",
       "billingAddress": "Navnîşana fatûreyê",
       "shippingAddress": "Navnîşana şandinê",
@@ -2022,6 +2076,7 @@
     "templateReset": "Şablon vegeriya berdesta hundirîn",
     "templateImported": "Şablon hate têxistin",
     "profileTemplateCleared": "Profîl dîsa şablona mînakê bi kar tîne",
-    "operatorSaved": "Hûrguliyên operatorê hatin tomarkirin. Rûpelên yasayî niha wan nîşan didin."
+    "operatorSaved": "Hûrguliyên operatorê hatin tomarkirin. Rûpelên yasayî niha wan nîşan didin.",
+    "einvoiceSettingsSaved": "Mîhengên e-fatûreyê hatin tomarkirin"
   }
 }

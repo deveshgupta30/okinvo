@@ -130,6 +130,7 @@
       "users": "Kullanıcılar",
       "data": "Veri",
       "legal": "Hukuki",
+      "einvoicing": "E-fatura",
       "account": "Hesap",
       "appearance": "Görünüm",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "IGST’siz ihracat için",
         "lutFiscalYear": "LUT mali yılı",
         "lutFiscalYearHint": "örn. 2026-27",
+        "einvoiceTitle": "E-fatura",
+        "einvoiceDescription": "Bu profilin e-faturalarda kendini nasıl tanımladığı; bağlayıcı ve kimlik bilgileri Ayarlar > E-fatura altındadır.",
+        "electronicAddress": "Elektronik adres",
+        "electronicAddressHint": "Bu düzenleyenin Peppol veya EN 16931 tanımlayıcısı; satıcının elektronik adresi olarak basılır.",
+        "electronicAddressScheme": "Elektronik adres şeması",
+        "electronicAddressSchemeNone": "Şema yok",
+        "einvoiceEnabled": "Bu profil için e-fatura etkin",
+        "einvoiceEnabledHint": "Düzenlenmiş belgeleri için GST e-fatura JSON, Factur-X ve UBL indirmelerini ve IRN kaydını sunar.",
         "defaultsTitle": "Varsayılanlar",
         "baseCurrency": "Ana para birimi",
         "locale": "Belge yerel ayarı",
@@ -803,6 +812,45 @@
         "venueHint": "Örneğin \"Bengaluru, Karnataka mahkemeleri\".",
         "submit": "İşletmeci bilgilerini kaydet"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fatura",
+      "title": "E-fatura",
+      "description": "Düzenleyen profili başına: Hindistan e-faturalarını hangi bağlayıcının kaydettiği ve Factur-X ile UBL çıktılarının hangi Avrupa profilini izlediği. Kimlik bilgileri şifrelenmiş olarak saklanır ve bir daha gösterilmez.",
+      "noProfiles": "Önce bir düzenleyen profili oluşturun.",
+      "profile": "Düzenleyen profili",
+      "enabled": "Etkin",
+      "disabled": "Devre dışı",
+      "enabledHint": "E-faturayı profil başına Ayarlar > Profiller altından açın veya kapatın.",
+      "india": {
+        "title": "Hindistan (GST e-fatura, IRN)",
+        "description": "IRN, burada seçilen bağlayıcı üzerinden kaydedilir; manuel bağlayıcı portalın yanıtını elle alır.",
+        "connector": "Bağlayıcı",
+        "connectorNone": "Kapalı",
+        "connectorManual": "Manuel (IRP yanıtını yapıştırın)",
+        "connectorNic": "NIC IRP API (sandbox veya production)",
+        "nicUnverified": "NIC bağlayıcısı yayımlanmış API’yi izler ve yalnızca kayıtlı test verileriyle sınanmıştır; kimlik bilgileri sağlanana kadar canlı bir sandbox üzerinde doğrulanmamıştır.",
+        "env": "Ortam",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "Temel URL",
+        "baseUrlHint": "Ortamın varsayılanı için boş bırakın.",
+        "clientId": "İstemci kimliği",
+        "clientSecret": "İstemci gizli anahtarı",
+        "username": "Kullanıcı adı",
+        "password": "Parola",
+        "gstin": "GSTIN",
+        "secretStored": "Şifrelenmiş olarak saklanır; korumak için boş bırakın.",
+        "secretEncrypted": "Beklemede şifrelenmiş olarak saklanır."
+      },
+      "eu": {
+        "title": "Avrupa (Factur-X, UBL)",
+        "description": "Bu sürümdeki tek profil EN 16931’dir; Factur-X ve UBL indirmeleri onu kullanır.",
+        "profile": "Profil",
+        "profileNone": "Kapalı",
+        "en16931": "EN 16931"
+      },
+      "save": "E-fatura ayarlarını kaydet"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Beklenen TDS oranı (%)",
       "preferredLanguage": "Belge dili",
       "preferredLanguageFollow": "Düzenleyen profilini izle",
+      "buyerReference": "Alıcı referansı",
+      "buyerReferenceHint": "E-faturalarda alıcının kendi referansı (sipariş veya masraf merkezi numarası) olarak basılır.",
+      "electronicAddress": "Elektronik adres",
+      "electronicAddressHint": "Bu müşterinin e-faturaları aldığı Peppol veya EN 16931 tanımlayıcısı.",
+      "electronicAddressScheme": "Elektronik adres şeması",
+      "electronicAddressSchemeNone": "Şema yok",
       "notes": "Notlar",
       "billingAddress": "Fatura adresi",
       "shippingAddress": "Teslimat adresi",
@@ -2022,6 +2076,7 @@
     "templateReset": "Şablon yerleşik varsayılana sıfırlandı",
     "templateImported": "Şablon içe aktarıldı",
     "profileTemplateCleared": "Profil yeniden örnek şablonunu kullanıyor",
-    "operatorSaved": "İşletmeci bilgileri kaydedildi. Hukuki sayfalar artık bunları gösteriyor."
+    "operatorSaved": "İşletmeci bilgileri kaydedildi. Hukuki sayfalar artık bunları gösteriyor.",
+    "einvoiceSettingsSaved": "E-fatura ayarları kaydedildi"
   }
 }

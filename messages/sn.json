@@ -130,6 +130,7 @@
       "users": "Vashandisi",
       "data": "Data",
       "legal": "Zvemutemo",
+      "einvoicing": "E-invoicing",
       "account": "Akaundi",
       "appearance": "Maitiro ekuonekwa",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Yekutengesa kunze kwenyika pasina IGST",
         "lutFiscalYear": "Gore remari reLUT",
         "lutFiscalYearHint": "semuenzaniso 2026-27",
+        "einvoiceTitle": "E-invoicing",
+        "einvoiceDescription": "Maitiro anozivikanisa nawo profile iyi mu e-invoice; connector nemacredentials zviri pasi peSettings > E-invoicing.",
+        "electronicAddress": "Kero yemagetsi",
+        "electronicAddressHint": "Chiziviso chePeppol kana cheEN 16931 chemuburitsi uyu, chinodhindwa sekero yemagetsi yemutengesi.",
+        "electronicAddressScheme": "Chirongwa chekero yemagetsi",
+        "electronicAddressSchemeNone": "Hapana chirongwa",
+        "einvoiceEnabled": "E-invoicing yakavhurwa pa profile iyi",
+        "einvoiceEnabledHint": "Inopa kudhawunirodha kweGST e-invoice JSON, Factur-X neUBL nekunyoresa IRN pamadhocumenti ayo akaburitswa.",
         "defaultsTitle": "Zvinosarudzwa kare",
         "baseCurrency": "Mari huru",
         "locale": "Locale yezvinyorwa",
@@ -803,6 +812,45 @@
         "venueHint": "Semuenzaniso “makhoti eBengaluru, Karnataka”.",
         "submit": "Chengetedza zvikamu zveoperator"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-invoicing",
+      "title": "E-invoicing",
+      "description": "Pa issuer profile imwe neimwe: connector ipi inonyoresa ma e-invoice eIndia, uye profile yeEurope ipi iyo mafaera eFactur-X neUBL anotevera. Macredentials anochengetwa akavanzwa uye haatongoratidzwi zvakare.",
+      "noProfiles": "Tanga makaita issuer profile.",
+      "profile": "Issuer profile",
+      "enabled": "Yakavhurwa",
+      "disabled": "Yakavharwa",
+      "enabledHint": "Vhura kana vhara e-invoicing pa profile imwe neimwe pasi peSettings > Maprofile.",
+      "india": {
+        "title": "India (GST e-invoice, IRN)",
+        "description": "IRN inonyoreswa kuburikidza neconnector yasarudzwa pano; manual connector inogamuchira mhinduro yeportal inoiswa nemaoko.",
+        "connector": "Connector",
+        "connectorNone": "Yakavharwa",
+        "connectorManual": "Manual (namira mhinduro yeIRP)",
+        "connectorNic": "NIC IRP API (sandbox kana production)",
+        "nicUnverified": "NIC connector inotevera API yakaburitswa uye yakaedzwa chete nema fixtures akarekodhwa; haina kutarisirwa pa sandbox chaiyo kusvika macredentials aiswa.",
+        "env": "Nharaunda",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "Base URL",
+        "baseUrlHint": "Siya isina chinhu kuti ushandise yakajairwa yenharaunda.",
+        "clientId": "Client id",
+        "clientSecret": "Client secret",
+        "username": "Zita remushandisi",
+        "password": "Password",
+        "gstin": "GSTIN",
+        "secretStored": "Yakachengetwa yakavanzwa; siya isina chinhu kuti uichengete.",
+        "secretEncrypted": "Yakachengetwa yakavanzwa."
+      },
+      "eu": {
+        "title": "Europe (Factur-X, UBL)",
+        "description": "EN 16931 ndiyo profile chete muvhezheni iyi; kudhawunirodha kweFactur-X neUBL kunoishandisa.",
+        "profile": "Profile",
+        "profileNone": "Yakavharwa",
+        "en16931": "EN 16931"
+      },
+      "save": "Chengetedza marongero e-invoicing"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Mwero weTDS unotarisirwa (%)",
       "preferredLanguage": "Mutauro wedhokumendi",
       "preferredLanguageFollow": "Tevera profile yemupi",
+      "buyerReference": "Reference yemutengi",
+      "buyerReferenceHint": "Inodhindwa mu e-invoice sereferensi yemutengi pachake (nhamba yeodha kana yecost-centre).",
+      "electronicAddress": "Kero yemagetsi",
+      "electronicAddressHint": "Chiziviso chePeppol kana cheEN 16931 icho mutengi uyu anogamuchira nacho ma e-invoice.",
+      "electronicAddressScheme": "Chirongwa chekero yemagetsi",
+      "electronicAddressSchemeNone": "Hapana chirongwa",
       "notes": "Manotsi",
       "billingAddress": "Kero yekubhadharisa",
       "shippingAddress": "Kero yekutumira",
@@ -2022,6 +2076,7 @@
     "templateReset": "Template yadzoserwa kudefault yakavakirwa",
     "templateImported": "Template yaimportwa",
     "profileTemplateCleared": "Profile inoshandisa template yeinstance zvakare",
-    "operatorSaved": "Zvikamu zveoperator zvachengetedzwa. Mapeji emutemo ava kuzviratidza."
+    "operatorSaved": "Zvikamu zveoperator zvachengetedzwa. Mapeji emutemo ava kuzviratidza.",
+    "einvoiceSettingsSaved": "Marongero e-invoicing akachengetedzwa"
   }
 }

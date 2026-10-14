@@ -130,6 +130,7 @@
       "users": "Usuários",
       "data": "Dados",
       "legal": "Jurídico",
+      "einvoicing": "E-fatura",
       "account": "Conta",
       "appearance": "Aparência",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Para exportações sem IGST",
         "lutFiscalYear": "Ano fiscal do LUT",
         "lutFiscalYearHint": "ex.: 2026-27",
+        "einvoiceTitle": "E-fatura",
+        "einvoiceDescription": "Como este perfil se identifica nas e-faturas; o conector e as credenciais ficam em Configurações > E-fatura.",
+        "electronicAddress": "Endereço eletrônico",
+        "electronicAddressHint": "O identificador Peppol ou EN 16931 deste emissor, impresso como o endereço eletrônico do vendedor.",
+        "electronicAddressScheme": "Esquema do endereço eletrônico",
+        "electronicAddressSchemeNone": "Sem esquema",
+        "einvoiceEnabled": "E-fatura ativada para este perfil",
+        "einvoiceEnabledHint": "Oferece nos documentos emitidos os downloads da e-fatura GST em JSON, Factur-X e UBL e o registro do IRN.",
         "defaultsTitle": "Padrões",
         "baseCurrency": "Moeda base",
         "locale": "Localidade do documento",
@@ -803,6 +812,45 @@
         "venueHint": "Por exemplo “os tribunais de Bengaluru, Karnataka”.",
         "submit": "Salvar dados do operador"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fatura",
+      "title": "E-fatura",
+      "description": "Por perfil de emissor: qual conector registra as e-faturas indianas e qual perfil europeu os arquivos Factur-X e UBL seguem. As credenciais são armazenadas criptografadas e nunca são exibidas novamente.",
+      "noProfiles": "Crie primeiro um perfil de emissor.",
+      "profile": "Perfil de emissor",
+      "enabled": "Ativada",
+      "disabled": "Desativada",
+      "enabledHint": "Ative ou desative a e-fatura por perfil em Configurações > Perfis.",
+      "india": {
+        "title": "Índia (e-fatura GST, IRN)",
+        "description": "O IRN é registrado pelo conector escolhido aqui; o conector manual recebe a resposta do portal inserida manualmente.",
+        "connector": "Conector",
+        "connectorNone": "Desativado",
+        "connectorManual": "Manual (cole a resposta do IRP)",
+        "connectorNic": "NIC IRP API (sandbox ou produção)",
+        "nicUnverified": "O conector NIC segue a API publicada e foi testado apenas com dados gravados; não foi verificado em um sandbox real até que as credenciais sejam fornecidas.",
+        "env": "Ambiente",
+        "sandbox": "Sandbox",
+        "production": "Produção",
+        "baseUrl": "URL base",
+        "baseUrlHint": "Deixe em branco para usar o padrão do ambiente.",
+        "clientId": "ID do cliente",
+        "clientSecret": "Segredo do cliente",
+        "username": "Nome de usuário",
+        "password": "Senha",
+        "gstin": "GSTIN",
+        "secretStored": "Armazenado criptografado; deixe em branco para mantê-lo.",
+        "secretEncrypted": "Armazenado criptografado em repouso."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 é o único perfil nesta versão; os downloads Factur-X e UBL o utilizam.",
+        "profile": "Perfil",
+        "profileNone": "Desativado",
+        "en16931": "EN 16931"
+      },
+      "save": "Salvar configurações de e-fatura"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Alíquota de TDS esperada (%)",
       "preferredLanguage": "Idioma do documento",
       "preferredLanguageFollow": "Seguir o perfil do emissor",
+      "buyerReference": "Referência do comprador",
+      "buyerReferenceHint": "Impressa nas e-faturas como a referência do próprio comprador (um número de pedido ou de centro de custo).",
+      "electronicAddress": "Endereço eletrônico",
+      "electronicAddressHint": "O identificador Peppol ou EN 16931 sob o qual este cliente recebe e-faturas.",
+      "electronicAddressScheme": "Esquema do endereço eletrônico",
+      "electronicAddressSchemeNone": "Sem esquema",
       "notes": "Observações",
       "billingAddress": "Endereço de cobrança",
       "shippingAddress": "Endereço de entrega",
@@ -2022,6 +2076,7 @@
     "templateReset": "Modelo restaurado ao padrão integrado",
     "templateImported": "Modelo importado",
     "profileTemplateCleared": "O perfil voltou a usar o modelo da instância",
-    "operatorSaved": "Dados do operador salvos. As páginas jurídicas agora os exibem."
+    "operatorSaved": "Dados do operador salvos. As páginas jurídicas agora os exibem.",
+    "einvoiceSettingsSaved": "Configurações de e-fatura salvas"
   }
 }

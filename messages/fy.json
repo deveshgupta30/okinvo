@@ -130,6 +130,7 @@
       "users": "Brûkers",
       "data": "Gegevens",
       "legal": "Juridysk",
+      "einvoicing": "E-fakturearring",
       "account": "Account",
       "appearance": "Uterlik",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Foar eksport sûnder IGST",
         "lutFiscalYear": "LUT-boekjier",
         "lutFiscalYearHint": "bgl. 2026-27",
+        "einvoiceTitle": "E-fakturearring",
+        "einvoiceDescription": "Hoe dit profyl himsels yn e-fakturen identifisearret; de keppeling en de oanmeldgegevens steane ûnder Ynstellingen > E-fakturearring.",
+        "electronicAddress": "Elektroanysk adres",
+        "electronicAddressHint": "De Peppol- of EN 16931-identifikaasje fan dizze útjouwer, printe as elektroanysk adres fan de ferkeaper.",
+        "electronicAddressScheme": "Skema foar elektroanysk adres",
+        "electronicAddressSchemeNone": "Gjin skema",
+        "einvoiceEnabled": "E-fakturearring ynskeakele foar dit profyl",
+        "einvoiceEnabledHint": "Biedt de downloads fan GST-e-faktuer-JSON, Factur-X en UBL en de IRN-registraasje oan op de útjûne dokuminten.",
         "defaultsTitle": "Standerts",
         "baseCurrency": "Basisfaluta",
         "locale": "Dokumintlokaal",
@@ -803,6 +812,45 @@
         "venueHint": "Bygelyks \"de rjochtbank fan Ljouwert, Fryslân\".",
         "submit": "Gegevens eksploitant opslaan"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fakturearring",
+      "title": "E-fakturearring",
+      "description": "Per útjouwerprofyl: hokker keppeling Yndiaaske e-fakturen registrearret en hokker Europeesk profyl de Factur-X- en UBL-útfier folget. Oanmeldgegevens wurde fersifere opslein en nea wer toand.",
+      "noProfiles": "Meitsje earst in útjouwerprofyl.",
+      "profile": "Útjouwerprofyl",
+      "enabled": "Ynskeakele",
+      "disabled": "Útskeakele",
+      "enabledHint": "Skeakelje e-fakturearring per profyl yn of út ûnder Ynstellingen > Profilen.",
+      "india": {
+        "title": "Yndia (GST-e-faktuer, IRN)",
+        "description": "De IRN wurdt registrearre fia de hjir keazen keppeling; de hânmjittige keppeling nimt it antwurd fan it portaal mei de hân oer.",
+        "connector": "Keppeling",
+        "connectorNone": "Út",
+        "connectorManual": "Hânmjittich (plak it IRP-antwurd)",
+        "connectorNic": "NIC IRP-API (sânbak of produksje)",
+        "nicUnverified": "De NIC-keppeling folget de publisearre API en is allinnich tsjin opnommen testgegevens testen; it is net ferifiearre tsjin in echte sânbak oant oanmeldgegevens opjûn wurde.",
+        "env": "Omjouwing",
+        "sandbox": "Sânbak",
+        "production": "Produksje",
+        "baseUrl": "Basis-URL",
+        "baseUrlHint": "Lit leech foar de standert fan de omjouwing.",
+        "clientId": "Klant-id",
+        "clientSecret": "Klantgeheim",
+        "username": "Brûkersnamme",
+        "password": "Wachtwurd",
+        "gstin": "GSTIN",
+        "secretStored": "Fersifere opslein; lit leech om it te behâlden.",
+        "secretEncrypted": "Fersifere opslein."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 is it ienige profyl yn dizze ferzje; de Factur-X- en UBL-downloads brûke it.",
+        "profile": "Profyl",
+        "profileNone": "Út",
+        "en16931": "EN 16931"
+      },
+      "save": "E-fakturearringsynstellingen opslaan"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Ferwachte TDS-taryf (%)",
       "preferredLanguage": "Dokumintetaal",
       "preferredLanguageFollow": "Folgje it útjouwerprofyl",
+      "buyerReference": "Keaperreferinsje",
+      "buyerReferenceHint": "Wurdt yn e-fakturen printe as eigen referinsje fan de keaper (in bestel- of kostenplakkenûmer).",
+      "electronicAddress": "Elektroanysk adres",
+      "electronicAddressHint": "De Peppol- of EN 16931-identifikaasje wêrûnder dizze klant e-fakturen ûntfangt.",
+      "electronicAddressScheme": "Skema foar elektroanysk adres",
+      "electronicAddressSchemeNone": "Gjin skema",
       "notes": "Opmerkingen",
       "billingAddress": "Faktueradres",
       "shippingAddress": "Ferstjoeradres",
@@ -2022,6 +2076,7 @@
     "templateReset": "Sjabloan weromset nei de ynboude standert",
     "templateImported": "Sjabloan ymportearre",
     "profileTemplateCleared": "Profyl brûkt it ynstânsjesjabloan wer",
-    "operatorSaved": "Gegevens eksploitant opslein. De juridyske siden litte se no sjen."
+    "operatorSaved": "Gegevens eksploitant opslein. De juridyske siden litte se no sjen.",
+    "einvoiceSettingsSaved": "E-fakturearringsynstellingen opslein"
   }
 }

@@ -130,6 +130,7 @@
       "users": "استعمال ڪندڙ",
       "data": "ڊيٽا",
       "legal": "قانوني",
+      "einvoicing": "اي-انوائسنگ",
       "account": "اڪائونٽ",
       "appearance": "ظاهري شڪل",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "IGST کان سواءِ برآمدات لاءِ",
         "lutFiscalYear": "LUT مالي سال",
         "lutFiscalYearHint": "مثال طور 2026-27",
+        "einvoiceTitle": "اي-انوائسنگ",
+        "einvoiceDescription": "هي پروفائل اي-انوائسز ۾ پنهنجي سڃاڻپ ڪيئن ڪرائي ٿو؛ ڪنيڪٽر ۽ سندون سيٽنگون > اي-انوائسنگ ۾ آهن.",
+        "electronicAddress": "اليڪٽرانڪ پتو",
+        "electronicAddressHint": "هن جاري ڪندڙ جو Peppol يا EN 16931 سڃاڻپ ڪندڙ، جيڪو وڪرو ڪندڙ جي اليڪٽرانڪ پتي طور ڇپجي ٿو.",
+        "electronicAddressScheme": "اليڪٽرانڪ پتي جي اسڪيم",
+        "electronicAddressSchemeNone": "ڪا اسڪيم ناهي",
+        "einvoiceEnabled": "هن پروفائل لاءِ اي-انوائسنگ فعال",
+        "einvoiceEnabledHint": "ان جي جاري ڪيل دستاويزن تي GST اي-انوائس JSON، Factur-X ۽ UBL ڊائونلوڊ ۽ IRN رجسٽريشن پيش ڪري ٿو.",
         "defaultsTitle": "ڊفالٽس",
         "baseCurrency": "بنيادي ڪرنسي",
         "locale": "دستاويز لوڪيل",
@@ -803,6 +812,45 @@
         "venueHint": "مثال طور “Bengaluru، Karnataka جون عدالتون”.",
         "submit": "آپريٽر جا تفصيل محفوظ ڪريو"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "اي-انوائسنگ",
+      "title": "اي-انوائسنگ",
+      "description": "في جاري ڪندڙ پروفائل: ڪهڙو ڪنيڪٽر هندستاني اي-انوائسز رجسٽر ڪري ٿو، ۽ Factur-X ۽ UBL آئوٽ پٽ ڪهڙي يورپي پروفائل جي پيروي ڪن ٿا. سندون ڳجهي ڪوڊ ۾ محفوظ ڪيون وڃن ٿيون ۽ ٻيهر نه ڏيکاريون وڃن ٿيون.",
+      "noProfiles": "پهرين هڪ جاري ڪندڙ پروفائل ٺاهيو.",
+      "profile": "جاري ڪندڙ پروفائل",
+      "enabled": "فعال",
+      "disabled": "غير فعال",
+      "enabledHint": "اي-انوائسنگ کي في پروفائل سيٽنگون > پروفائل ۾ آن يا آف ڪريو.",
+      "india": {
+        "title": "هندستان (GST اي-انوائس، IRN)",
+        "description": "IRN هتي چونڊيل ڪنيڪٽر ذريعي رجسٽر ٿئي ٿو؛ دستي ڪنيڪٽر پورٽل جو جواب هٿ سان وٺي ٿو.",
+        "connector": "ڪنيڪٽر",
+        "connectorNone": "بند",
+        "connectorManual": "دستي (IRP جواب پيسٽ ڪريو)",
+        "connectorNic": "NIC IRP API (سينڊ باڪس يا پروڊڪشن)",
+        "nicUnverified": "NIC ڪنيڪٽر شايع ٿيل API جي پيروي ڪري ٿو ۽ صرف رڪارڊ ٿيل فڪسچرز تي آزمايو ويو آهي؛ سندون ملڻ تائين لائيو سينڊ باڪس تي ان جي تصديق نه ٿي آهي.",
+        "env": "ماحول",
+        "sandbox": "سينڊ باڪس",
+        "production": "پروڊڪشن",
+        "baseUrl": "بنيادي URL",
+        "baseUrlHint": "ماحول جي ڊفالٽ لاءِ خالي ڇڏيو.",
+        "clientId": "ڪلائنٽ آئي ڊي",
+        "clientSecret": "ڪلائنٽ سيڪريٽ",
+        "username": "يوزرنيم",
+        "password": "پاسورڊ",
+        "gstin": "GSTIN",
+        "secretStored": "ڳجهي ڪوڊ ۾ محفوظ ٿيل؛ رکڻ لاءِ خالي ڇڏيو.",
+        "secretEncrypted": "اسٽوريج ۾ ڳجهي ڪوڊ ۾ محفوظ."
+      },
+      "eu": {
+        "title": "يورپ (Factur-X، UBL)",
+        "description": "هن ورزن ۾ EN 16931 ئي واحد پروفائل آهي؛ Factur-X ۽ UBL ڊائونلوڊ ان کي استعمال ڪن ٿا.",
+        "profile": "پروفائل",
+        "profileNone": "بند",
+        "en16931": "EN 16931"
+      },
+      "save": "اي-انوائسنگ سيٽنگون محفوظ ڪريو"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "متوقع TDS شرح (%)",
       "preferredLanguage": "دستاويز جي ٻولي",
       "preferredLanguageFollow": "جاري ڪندڙ جي پروفائيل جي پيروي ڪريو",
+      "buyerReference": "خريدار جو حوالو",
+      "buyerReferenceHint": "اي-انوائسز ۾ خريدار جي پنهنجي حوالي (آرڊر يا ڪاسٽ-سينٽر نمبر) طور ڇپجي ٿو.",
+      "electronicAddress": "اليڪٽرانڪ پتو",
+      "electronicAddressHint": "Peppol يا EN 16931 سڃاڻپ ڪندڙ، جنهن تحت هي ڪلائنٽ اي-انوائسز وصول ڪري ٿو.",
+      "electronicAddressScheme": "اليڪٽرانڪ پتي جي اسڪيم",
+      "electronicAddressSchemeNone": "ڪا اسڪيم ناهي",
       "notes": "نوٽس",
       "billingAddress": "بلنگ پتو",
       "shippingAddress": "شپنگ پتو",
@@ -2022,6 +2076,7 @@
     "templateReset": "ٽيمپليٽ اندروني ڊفالٽ تي ري سيٽ ٿيو",
     "templateImported": "ٽيمپليٽ امپورٽ ٿيو",
     "profileTemplateCleared": "پروفائل ٻيهر انسٽنس ٽيمپليٽ استعمال ڪري ٿو",
-    "operatorSaved": "آپريٽر جا تفصيل محفوظ ٿيا. قانوني صفحا هاڻي انهن کي ڏيکارين ٿا."
+    "operatorSaved": "آپريٽر جا تفصيل محفوظ ٿيا. قانوني صفحا هاڻي انهن کي ڏيکارين ٿا.",
+    "einvoiceSettingsSaved": "اي-انوائسنگ سيٽنگون محفوظ ٿيون"
   }
 }

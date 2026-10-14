@@ -130,6 +130,7 @@
       "users": "ተጠቀምቲ",
       "data": "ዳታ",
       "legal": "ሕጋዊ",
+      "einvoicing": "ኤሌክትሮኒክ ደረሰኛ",
       "account": "ሕሳብ",
       "appearance": "ገጽታ",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "ንኤክስፖርት ብዘይ IGST",
         "lutFiscalYear": "ዓመት ፋይናንስ LUT",
         "lutFiscalYearHint": "ንኣብነት 2026-27",
+        "einvoiceTitle": "ኤሌክትሮኒክ ደረሰኛ",
+        "einvoiceDescription": "እዚ ፕሮፋይል ኣብ ኤሌክትሮኒክ ደረሰኛታት ርእሱ ብኸመይ ከም ዘለልይ፤ እቲ መላግቦን መርትዖታትን ኣብ ቅጥዕታት > ኤሌክትሮኒክ ደረሰኛ ኣለዉ።",
+        "electronicAddress": "ኤሌክትሮኒክ ኣድራሻ",
+        "electronicAddressHint": "ናይዚ ኣውጻኢ ናይ Peppol ወይ EN 16931 መለለዪ፤ ከም ናይ ሻያጢ ኤሌክትሮኒክ ኣድራሻ ይሕተም።",
+        "electronicAddressScheme": "ዕቅድ ኤሌክትሮኒክ ኣድራሻ",
+        "electronicAddressSchemeNone": "ዕቅድ የለን",
+        "einvoiceEnabled": "ንዚ ፕሮፋይል ኤሌክትሮኒክ ደረሰኛ ተኸፊቱ",
+        "einvoiceEnabledHint": "ኣብቶም ዝወጹ ሰነዳቱ ናይ GST ኤሌክትሮኒክ ደረሰኛ JSON፣ Factur-X ን UBL ን ኣውራድን ምዝገባ IRN ን የቕርብ።",
         "defaultsTitle": "ቀዳማይ ምርጫታት",
         "baseCurrency": "መሰረታዊ ሞንዲ",
         "locale": "ሎኬል ሰነድ",
@@ -803,6 +812,45 @@
         "venueHint": "ንኣብነት “ቤት ፍርዲ Bengaluru፣ Karnataka”።",
         "submit": "ዝርዝራት ኣካይዲ ዕቅብ"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "ኤሌክትሮኒክ ደረሰኛ",
+      "title": "ኤሌክትሮኒክ ደረሰኛ",
+      "description": "ብፕሮፋይል ኣውጻኢ፤ እቲ ናይ ህንዲ ኤሌክትሮኒክ ደረሰኛታት ዝመዝግብ መላግቦ ኣየናይ ምዃኑ፣ ውፅኢታት Factur-X ን UBL ን ዝስዕብዎ ናይ ኤውሮጳ ፕሮፋይል ኣየናይ ምዃኑ። መርትዖታት ተመስጢሩ ይቕመጥ፣ ዳግም ኣይርአን።",
+      "noProfiles": "ቐዳምነት ፕሮፋይል ኣውጻኢ ፍጠሩ።",
+      "profile": "ፕሮፋይል ኣውጻኢ",
+      "enabled": "ተኸፊቱ",
+      "disabled": "ተዓጽዩ",
+      "enabledHint": "ኤሌክትሮኒክ ደረሰኛ ብፕሮፋይል ኣብ ቅጥዕታት > ፕሮፋይላት ኣብርሁ ወይ ኣጥፍኡ።",
+      "india": {
+        "title": "ህንዲ (GST ኤሌክትሮኒክ ደረሰኛ፣ IRN)",
+        "description": "IRN ኣብዚ ብዝተመርጸ መላግቦ ይምዝገብ፤ ናይ ኢድ መላግቦ ምላሽ ፖርታል ብኢድ ይቕበል።",
+        "connector": "መላግቦ",
+        "connectorNone": "ጠፊኡ",
+        "connectorManual": "ብኢድ (ምላሽ IRP ለጥፉ)",
+        "connectorNic": "NIC IRP API (ሳንድቦክስ ወይ ፕሮዳክሽን)",
+        "nicUnverified": "እቲ NIC መላግቦ እቲ ዝሓተመ API ይስዕብ፤ ኣብ ዝተመዝገቡ ኣብነታት ጥራይ ተፈቲኑ ኣሎ፤ መርትዖታት ክሳብ ዝወሃብ ኣብ ቀጥታ ሳንድቦክስ ኣይተረጋገጸን።",
+        "env": "ኣከባቢ",
+        "sandbox": "ሳንድቦክስ",
+        "production": "ፕሮዳክሽን",
+        "baseUrl": "መሰረት URL",
+        "baseUrlHint": "ንናይ ኣከባቢ ቀዳማይ ባዶ ሓድግዎ።",
+        "clientId": "መለለዪ ዓሚል",
+        "clientSecret": "ምስጢር ዓሚል",
+        "username": "ስም ተጠቃሚ",
+        "password": "መሕለፊ ቃል",
+        "gstin": "GSTIN",
+        "secretStored": "ተመስጢሩ ተቐሚጡ፤ ንምሕላው ባዶ ሓድግዎ።",
+        "secretEncrypted": "ኣብ ምዕቃብ ተመስጢሩ ይቕመጥ።"
+      },
+      "eu": {
+        "title": "ኤውሮጳ (Factur-X፣ UBL)",
+        "description": "ኣብዚ ሕታም EN 16931 ጥራይ እዩ ፕሮፋይል፤ ኣውራድ Factur-X ን UBL ን ይጥቀምሉ።",
+        "profile": "ፕሮፋይል",
+        "profileNone": "ጠፊኡ",
+        "en16931": "EN 16931"
+      },
+      "save": "ቅጥዕታት ኤሌክትሮኒክ ደረሰኛ ዕቅብ"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "ዝተጸበየ ተመን TDS (%)",
       "preferredLanguage": "ቋንቋ ሰነድ",
       "preferredLanguageFollow": "ፕሮፋይል ኣዋጻኢ ስዓብ",
+      "buyerReference": "መወከሲ ዓሻይ",
+      "buyerReferenceHint": "ኣብ ኤሌክትሮኒክ ደረሰኛታት ናይ ዓሻይ ብሕታዊ መወከሲ (ቊጽሪ ትእዛዝ ወይ ማእከል ወጻኢ) ኮይኑ ይሕተም።",
+      "electronicAddress": "ኤሌክትሮኒክ ኣድራሻ",
+      "electronicAddressHint": "እዚ ዓሚል ኤሌክትሮኒክ ደረሰኛታት ዝቕበለሉ ናይ Peppol ወይ EN 16931 መለለዪ።",
+      "electronicAddressScheme": "ዕቅድ ኤሌክትሮኒክ ኣድራሻ",
+      "electronicAddressSchemeNone": "ዕቅድ የለን",
       "notes": "ምስክርነታት",
       "billingAddress": "ኣድራሻ ምሕታት",
       "shippingAddress": "ኣድራሻ ምልኣኽ",
@@ -2022,6 +2076,7 @@
     "templateReset": "ቴምፕሌት ናብ ዝተሃንጸ ቀዳማይ ምርጫ ተመሊሱ",
     "templateImported": "ቴምፕሌት ኣትዩ",
     "profileTemplateCleared": "ፕሮፋይል ደጊሙ ቴምፕሌት ኢንስታንስ ይጥቀም",
-    "operatorSaved": "ዝርዝራት ኣካይዲ ተዓቂቡ። ሕጋውያን ገጻት ሕጂ የርእይዎም።"
+    "operatorSaved": "ዝርዝራት ኣካይዲ ተዓቂቡ። ሕጋውያን ገጻት ሕጂ የርእይዎም።",
+    "einvoiceSettingsSaved": "ቅጥዕታት ኤሌክትሮኒክ ደረሰኛ ተዓቂቡ"
   }
 }

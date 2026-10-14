@@ -130,6 +130,7 @@
       "users": "Gebruikers",
       "data": "Data",
       "legal": "Regsinligting",
+      "einvoicing": "E-faktuur",
       "account": "Rekening",
       "appearance": "Voorkoms",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Vir uitvoere sonder IGST",
         "lutFiscalYear": "LUT-boekjaar",
         "lutFiscalYearHint": "bv. 2026-27",
+        "einvoiceTitle": "E-faktuur",
+        "einvoiceDescription": "Hoe hierdie profiel homself in e-fakture identifiseer; die koppelaar en magtigingsbewyse is onder Instellings > E-faktuur.",
+        "electronicAddress": "Elektroniese adres",
+        "electronicAddressHint": "Die Peppol- of EN 16931-identifiseerder van hierdie uitreiker, gedruk as die verkoper se elektroniese adres.",
+        "electronicAddressScheme": "Skema vir elektroniese adres",
+        "electronicAddressSchemeNone": "Geen skema",
+        "einvoiceEnabled": "E-faktuur geaktiveer vir hierdie profiel",
+        "einvoiceEnabledHint": "Bied die GST-e-faktuur-JSON-, Factur-X- en UBL-aflaaie en die IRN-registrasie op die profiel se uitgereikte dokumente aan.",
         "defaultsTitle": "Verstekke",
         "baseCurrency": "Basisgeldeenheid",
         "locale": "Dokumentlokale",
@@ -803,6 +812,45 @@
         "venueHint": "Byvoorbeeld \"die howe van Bengaluru, Karnataka\".",
         "submit": "Stoor bedryfsbesonderhede"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-faktuur",
+      "title": "E-faktuur",
+      "description": "Per uitreikerprofiel: watter koppelaar Indiese e-fakture registreer, en watter Europese profiel die Factur-X- en UBL-uitvoer volg. Magtigingsbewyse word geënkripteer gestoor en word nooit weer gewys nie.",
+      "noProfiles": "Skep eers ’n uitreikerprofiel.",
+      "profile": "Uitreikerprofiel",
+      "enabled": "Geaktiveer",
+      "disabled": "Gedeaktiveer",
+      "enabledHint": "Skakel e-faktuur aan of af per profiel onder Instellings > Profiele.",
+      "india": {
+        "title": "Indië (GST-e-faktuur, IRN)",
+        "description": "Die IRN word geregistreer deur die koppelaar wat hier gekies is; die handmatige koppelaar neem die portaal se antwoord met die hand.",
+        "connector": "Koppelaar",
+        "connectorNone": "Af",
+        "connectorManual": "Handmatig (plak die IRP-antwoord)",
+        "connectorNic": "NIC IRP API (sandbox of produksie)",
+        "nicUnverified": "Die NIC-koppelaar volg die gepubliseerde API en is slegs teen opgetekende toetsdata getoets; dit is nie teen ’n regte sandbox geverifieer totdat magtigingsbewyse verskaf word nie.",
+        "env": "Omgewing",
+        "sandbox": "Sandbox",
+        "production": "Produksie",
+        "baseUrl": "Basis-URL",
+        "baseUrlHint": "Los leeg vir die omgewing se verstek.",
+        "clientId": "Kliënt-ID",
+        "clientSecret": "Kliëntgeheim",
+        "username": "Gebruikersnaam",
+        "password": "Wagwoord",
+        "gstin": "GSTIN",
+        "secretStored": "Geënkripteer gestoor; los leeg om dit te behou.",
+        "secretEncrypted": "Geënkripteer gestoor."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 is die enigste profiel in hierdie weergawe; Factur-X- en UBL-aflaaie gebruik dit.",
+        "profile": "Profiel",
+        "profileNone": "Af",
+        "en16931": "EN 16931"
+      },
+      "save": "Stoor e-faktuurinstellings"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Verwagte TDS-koers (%)",
       "preferredLanguage": "Dokumenttaal",
       "preferredLanguageFollow": "Volg die uitreikerprofiel",
+      "buyerReference": "Koperverwysing",
+      "buyerReferenceHint": "Gedruk in e-fakture as die koper se eie verwysing (’n bestelling- of kostesentrumnommer).",
+      "electronicAddress": "Elektroniese adres",
+      "electronicAddressHint": "Die Peppol- of EN 16931-identifiseerder waaronder hierdie kliënt e-fakture ontvang.",
+      "electronicAddressScheme": "Skema vir elektroniese adres",
+      "electronicAddressSchemeNone": "Geen skema",
       "notes": "Aantekeninge",
       "billingAddress": "Faktuuradres",
       "shippingAddress": "Afleweringsadres",
@@ -2022,6 +2076,7 @@
     "templateReset": "Sjabloon na die ingeboude verstek herstel",
     "templateImported": "Sjabloon ingevoer",
     "profileTemplateCleared": "Profiel gebruik weer die instansiesjabloon",
-    "operatorSaved": "Bedryfsbesonderhede gestoor. Die regsbladsye wys dit nou."
+    "operatorSaved": "Bedryfsbesonderhede gestoor. Die regsbladsye wys dit nou.",
+    "einvoiceSettingsSaved": "E-faktuurinstellings gestoor"
   }
 }

@@ -130,6 +130,7 @@
       "users": "Notendur",
       "data": "Gögn",
       "legal": "Lagalegt",
+      "einvoicing": "Rafrænir reikningar",
       "account": "Aðgangur",
       "appearance": "Útlit",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Fyrir útflutning án IGST",
         "lutFiscalYear": "LUT-reikningsár",
         "lutFiscalYearHint": "t.d. 2026-27",
+        "einvoiceTitle": "Rafrænir reikningar",
+        "einvoiceDescription": "Hvernig þessi prófíll auðkennir sig á rafrænum reikningum; tengingin og auðkenningargögnin eru undir Stillingar > Rafrænir reikningar.",
+        "electronicAddress": "Rafrænt heimilisfang",
+        "electronicAddressHint": "Peppol- eða EN 16931-auðkenni þessa útgefanda, prentað sem rafrænt heimilisfang seljanda.",
+        "electronicAddressScheme": "Gerð rafræns heimilisfangs",
+        "electronicAddressSchemeNone": "Engin gerð",
+        "einvoiceEnabled": "Rafrænir reikningar virkir fyrir þennan prófíl",
+        "einvoiceEnabledHint": "Býður upp á niðurhal á GST-rafreikningi í JSON, Factur-X og UBL og IRN-skráningu á útgefnum skjölum hans.",
         "defaultsTitle": "Sjálfgildi",
         "baseCurrency": "Grunngjaldmiðill",
         "locale": "Staðfærsla skjala",
@@ -803,6 +812,45 @@
         "venueHint": "Til dæmis „Héraðsdómur Reykjavíkur“.",
         "submit": "Vista upplýsingar um rekstraraðila"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "Rafrænir reikningar",
+      "title": "Rafrænir reikningar",
+      "description": "Fyrir hvern útgefandaprófíl: hvaða tenging skráir indverska rafræna reikninga og hvaða evrópska prófíl Factur-X- og UBL-úttak fylgja. Auðkenningargögn eru vistuð dulkóðuð og aldrei sýnd aftur.",
+      "noProfiles": "Búðu fyrst til útgefandaprófíl.",
+      "profile": "Útgefandaprófíll",
+      "enabled": "Virkt",
+      "disabled": "Óvirkt",
+      "enabledHint": "Kveiktu eða slökktu á rafrænum reikningum fyrir hvern prófíl undir Stillingar > Prófílar.",
+      "india": {
+        "title": "Indland (GST-rafreikningur, IRN)",
+        "description": "IRN er skráð í gegnum tenginguna sem valin er hér; handvirka tengingin tekur við svari gáttarinnar í höndunum.",
+        "connector": "Tenging",
+        "connectorNone": "Slökkt",
+        "connectorManual": "Handvirkt (límdu IRP-svarið)",
+        "connectorNic": "NIC IRP API (prófunarumhverfi eða framleiðsla)",
+        "nicUnverified": "NIC-tengingin fylgir útgefnu API og er aðeins prófuð með upptekin gögn; hún er óstaðfest gegn raunverulegu prófunarumhverfi þar til auðkenningargögn eru veitt.",
+        "env": "Umhverfi",
+        "sandbox": "Prófunarumhverfi",
+        "production": "Framleiðsla",
+        "baseUrl": "Grunn-URL",
+        "baseUrlHint": "Skildu eftir autt fyrir sjálfgefið umhverfisins.",
+        "clientId": "Auðkenni biðlara",
+        "clientSecret": "Leyndarmál biðlara",
+        "username": "Notandanafn",
+        "password": "Lykilorð",
+        "gstin": "GSTIN",
+        "secretStored": "Vistað dulkóðað; skildu eftir autt til að halda því.",
+        "secretEncrypted": "Vistað dulkóðað í hvíld."
+      },
+      "eu": {
+        "title": "Evrópa (Factur-X, UBL)",
+        "description": "EN 16931 er eini prófíllinn í þessari útgáfu; niðurhal Factur-X og UBL notar hann.",
+        "profile": "Prófíll",
+        "profileNone": "Slökkt",
+        "en16931": "EN 16931"
+      },
+      "save": "Vista stillingar rafrænna reikninga"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Áætlað TDS-hlutfall (%)",
       "preferredLanguage": "Tungumál skjals",
       "preferredLanguageFollow": "Fylgja prófíl útgefanda",
+      "buyerReference": "Tilvísun kaupanda",
+      "buyerReferenceHint": "Prentast á rafrænum reikningum sem eigin tilvísun kaupanda (pöntunar- eða kostnaðarstaðarnúmer).",
+      "electronicAddress": "Rafrænt heimilisfang",
+      "electronicAddressHint": "Peppol- eða EN 16931-auðkennið sem þessi viðskiptavinur fær rafræna reikninga undir.",
+      "electronicAddressScheme": "Gerð rafræns heimilisfangs",
+      "electronicAddressSchemeNone": "Engin gerð",
       "notes": "Athugasemdir",
       "billingAddress": "Reikningsheimilisfang",
       "shippingAddress": "Sendingarheimilisfang",
@@ -2022,6 +2076,7 @@
     "templateReset": "Sniðmát endurstillt á innbyggt sjálfgefið",
     "templateImported": "Sniðmát flutt inn",
     "profileTemplateCleared": "Prófíllinn notar sniðmát kerfisins aftur",
-    "operatorSaved": "Upplýsingar um rekstraraðila vistaðar. Lagasíðurnar sýna þær nú."
+    "operatorSaved": "Upplýsingar um rekstraraðila vistaðar. Lagasíðurnar sýna þær nú.",
+    "einvoiceSettingsSaved": "Stillingar rafrænna reikninga vistaðar"
   }
 }

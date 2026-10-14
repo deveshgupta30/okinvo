@@ -130,6 +130,7 @@
       "users": "کاربران",
       "data": "داده‌ها",
       "legal": "حقوقی",
+      "einvoicing": "فاکتور الکترونیکی",
       "account": "حساب",
       "appearance": "ظاهر",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "برای صادرات بدون IGST",
         "lutFiscalYear": "سال مالی LUT",
         "lutFiscalYearHint": "مثلاً 2026-27",
+        "einvoiceTitle": "فاکتور الکترونیکی",
+        "einvoiceDescription": "این نمایه چگونه خود را در فاکتورهای الکترونیکی معرفی می‌کند؛ رابط و اطلاعات دسترسی در تنظیمات > فاکتور الکترونیکی قرار دارند.",
+        "electronicAddress": "نشانی الکترونیکی",
+        "electronicAddressHint": "شناسه Peppol یا EN 16931 این صادرکننده که به عنوان نشانی الکترونیکی فروشنده چاپ می‌شود.",
+        "electronicAddressScheme": "طرح نشانی الکترونیکی",
+        "electronicAddressSchemeNone": "بدون طرح",
+        "einvoiceEnabled": "فاکتور الکترونیکی برای این نمایه فعال است",
+        "einvoiceEnabledHint": "دانلودهای GST e-invoice JSON، Factur-X و UBL و ثبت IRN را روی اسناد صادرشده آن ارائه می‌دهد.",
         "defaultsTitle": "پیش‌فرض‌ها",
         "baseCurrency": "ارز پایه",
         "locale": "محلی‌سازی سند",
@@ -803,6 +812,45 @@
         "venueHint": "برای مثال «دادگاه‌های بنگلور، کارناتاکا».",
         "submit": "ذخیره جزئیات بهره‌بردار"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "فاکتور الکترونیکی",
+      "title": "فاکتور الکترونیکی",
+      "description": "برای هر نمایه صادرکننده: کدام رابط فاکتورهای الکترونیکی هند را ثبت می‌کند و خروجی‌های Factur-X و UBL از کدام نمایه اروپایی پیروی می‌کنند. اطلاعات دسترسی رمزگذاری‌شده ذخیره می‌شوند و دیگر نمایش داده نمی‌شوند.",
+      "noProfiles": "ابتدا یک نمایه صادرکننده ایجاد کنید.",
+      "profile": "نمایه صادرکننده",
+      "enabled": "فعال",
+      "disabled": "غیرفعال",
+      "enabledHint": "فاکتور الکترونیکی را برای هر نمایه در تنظیمات > نمایه‌ها روشن یا خاموش کنید.",
+      "india": {
+        "title": "هند (GST e-invoice, IRN)",
+        "description": "IRN از طریق رابط انتخاب‌شده در اینجا ثبت می‌شود؛ رابط دستی پاسخ پورتال را که به صورت دستی وارد شده می‌پذیرد.",
+        "connector": "رابط",
+        "connectorNone": "خاموش",
+        "connectorManual": "دستی (پاسخ IRP را جای‌گذاری کنید)",
+        "connectorNic": "NIC IRP API (sandbox یا production)",
+        "nicUnverified": "رابط NIC از API منتشرشده پیروی می‌کند و فقط با نمونه‌های ضبط‌شده آزمایش شده است؛ تا زمانی که اطلاعات دسترسی ارائه نشود، روی sandbox واقعی تأیید نشده است.",
+        "env": "محیط",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "URL پایه",
+        "baseUrlHint": "برای پیش‌فرض محیط خالی بگذارید.",
+        "clientId": "شناسه مشتری",
+        "clientSecret": "رمز مشتری",
+        "username": "نام کاربری",
+        "password": "گذرواژه",
+        "gstin": "GSTIN",
+        "secretStored": "رمزگذاری‌شده ذخیره شده است؛ برای حفظ آن خالی بگذارید.",
+        "secretEncrypted": "رمزگذاری‌شده ذخیره می‌شود."
+      },
+      "eu": {
+        "title": "اروپا (Factur-X, UBL)",
+        "description": "EN 16931 تنها نمایه در این نسخه است؛ دانلودهای Factur-X و UBL از آن استفاده می‌کنند.",
+        "profile": "نمایه",
+        "profileNone": "خاموش",
+        "en16931": "EN 16931"
+      },
+      "save": "ذخیره تنظیمات فاکتور الکترونیکی"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "نرخ مورد انتظار TDS (%)",
       "preferredLanguage": "زبان سند",
       "preferredLanguageFollow": "پیروی از نمایهٔ صادرکننده",
+      "buyerReference": "ارجاع خریدار",
+      "buyerReferenceHint": "در فاکتورهای الکترونیکی به عنوان ارجاع خود خریدار (شماره سفارش یا مرکز هزینه) چاپ می‌شود.",
+      "electronicAddress": "نشانی الکترونیکی",
+      "electronicAddressHint": "شناسه Peppol یا EN 16931 که این مشتری فاکتورهای الکترونیکی را با آن دریافت می‌کند.",
+      "electronicAddressScheme": "طرح نشانی الکترونیکی",
+      "electronicAddressSchemeNone": "بدون طرح",
       "notes": "یادداشت‌ها",
       "billingAddress": "نشانی صورت‌حساب",
       "shippingAddress": "نشانی ارسال",
@@ -2022,6 +2076,7 @@
     "templateReset": "قالب به پیش‌فرض داخلی بازنشانی شد",
     "templateImported": "قالب درون‌ریزی شد",
     "profileTemplateCleared": "نمایه دوباره از قالب نمونه استفاده می‌کند",
-    "operatorSaved": "جزئیات بهره‌بردار ذخیره شد. صفحه‌های حقوقی اکنون آن‌ها را نشان می‌دهند."
+    "operatorSaved": "جزئیات بهره‌بردار ذخیره شد. صفحه‌های حقوقی اکنون آن‌ها را نشان می‌دهند.",
+    "einvoiceSettingsSaved": "تنظیمات فاکتور الکترونیکی ذخیره شد"
   }
 }

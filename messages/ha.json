@@ -130,6 +130,7 @@
       "users": "Masu amfani",
       "data": "Bayanai",
       "legal": "Na doka",
+      "einvoicing": "Daftarin lantarki",
       "account": "Asusu",
       "appearance": "Kamanni",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Don fitar da kaya ba tare da IGST ba",
         "lutFiscalYear": "Shekarar kuɗi ta LUT",
         "lutFiscalYearHint": "misali 2026-27",
+        "einvoiceTitle": "Daftarin lantarki",
+        "einvoiceDescription": "Yadda wannan bayanin martaba ke bayyana kansa a cikin daftarin lantarki; mahaɗin da bayanan shaidar shiga suna ƙarƙashin Saituna > Daftarin lantarki.",
+        "electronicAddress": "Adireshin lantarki",
+        "electronicAddressHint": "Mai gano Peppol ko EN 16931 na wannan mai bayarwa, ana buga shi a matsayin adireshin lantarki na mai sayarwa.",
+        "electronicAddressScheme": "Tsarin adireshin lantarki",
+        "electronicAddressSchemeNone": "Babu tsari",
+        "einvoiceEnabled": "An kunna daftarin lantarki don wannan bayanin martaba",
+        "einvoiceEnabledHint": "Yana ba da saukar da GST e-invoice JSON, Factur-X da UBL da rajistar IRN a kan takardunsa da aka bayar.",
         "defaultsTitle": "Abubuwan asali",
         "baseCurrency": "Kuɗin tushe",
         "locale": "Yaren takardu",
@@ -803,6 +812,45 @@
         "venueHint": "Misali \"kotunan Bengaluru, Karnataka\".",
         "submit": "Ajiye bayanan mai gudanarwa"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "Daftarin lantarki",
+      "title": "Daftarin lantarki",
+      "description": "Ga kowane bayanin martabar mai bayarwa: wane mahaɗi ne ke yin rajistar daftarin lantarki na Indiya, da kuma wace bayanin martaba ta Turai ce fitarwar Factur-X da UBL ke bi. Ana adana bayanan shaidar shiga a ɓoye kuma ba a sake nuna su.",
+      "noProfiles": "Ƙirƙiri bayanin martabar mai bayarwa tukuna.",
+      "profile": "Bayanin martabar mai bayarwa",
+      "enabled": "An kunna",
+      "disabled": "A kashe",
+      "enabledHint": "Kunna ko kashe daftarin lantarki ga kowane bayanin martaba a ƙarƙashin Saituna > Bayanan martaba.",
+      "india": {
+        "title": "Indiya (GST e-invoice, IRN)",
+        "description": "Ana yin rajistar IRN ta mahaɗin da aka zaɓa a nan; mahaɗin da hannu yana karɓar amsar tashar da hannu.",
+        "connector": "Mahaɗi",
+        "connectorNone": "A kashe",
+        "connectorManual": "Da hannu (liƙa amsar IRP)",
+        "connectorNic": "NIC IRP API (sandbox ko samarwa)",
+        "nicUnverified": "Mahaɗin NIC yana bin API da aka wallafa kuma an gwada shi ne kawai da bayanan da aka naɗa; ba a tabbatar da shi da sandbox na gaske ba har sai an bayar da bayanan shaidar shiga.",
+        "env": "Muhalli",
+        "sandbox": "Sandbox",
+        "production": "Samarwa",
+        "baseUrl": "Tushen URL",
+        "baseUrlHint": "Bar shi babu komai don tsohuwar muhalli.",
+        "clientId": "Id na abokin ciniki",
+        "clientSecret": "Sirrin abokin ciniki",
+        "username": "Sunan mai amfani",
+        "password": "Kalmar sirri",
+        "gstin": "GSTIN",
+        "secretStored": "An adana a ɓoye; bar shi babu komai don ci gaba da shi.",
+        "secretEncrypted": "An adana a ɓoye."
+      },
+      "eu": {
+        "title": "Turai (Factur-X, UBL)",
+        "description": "EN 16931 ita ce bayanin martaba ɗaya tilo a wannan sigar; saukar da Factur-X da UBL suna amfani da ita.",
+        "profile": "Bayanin martaba",
+        "profileNone": "A kashe",
+        "en16931": "EN 16931"
+      },
+      "save": "Ajiye saitunan daftarin lantarki"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Adadin TDS da ake tsammani (%)",
       "preferredLanguage": "Harshen takarda",
       "preferredLanguageFollow": "Bi bayanin martabar mai bayarwa",
+      "buyerReference": "Bayanin mai saye",
+      "buyerReferenceHint": "Ana buga shi a cikin daftarin lantarki a matsayin bayanin mai saye na kansa (lambar oda ko ta cibiyar kuɗi).",
+      "electronicAddress": "Adireshin lantarki",
+      "electronicAddressHint": "Mai gano Peppol ko EN 16931 da wannan abokin ciniki ke karɓar daftarin lantarki a ƙarƙashinsa.",
+      "electronicAddressScheme": "Tsarin adireshin lantarki",
+      "electronicAddressSchemeNone": "Babu tsari",
       "notes": "Bayanai",
       "billingAddress": "Adireshin takardar kuɗi",
       "shippingAddress": "Adireshin jigilar kaya",
@@ -2022,6 +2076,7 @@
     "templateReset": "An mayar da samfuri zuwa na asali da ke ciki",
     "templateImported": "An shigo da samfuri",
     "profileTemplateCleared": "Bayanan martaba yana sake amfani da samfurin misali",
-    "operatorSaved": "An ajiye bayanan mai gudanarwa. Shafukan doka yanzu suna nuna su."
+    "operatorSaved": "An ajiye bayanan mai gudanarwa. Shafukan doka yanzu suna nuna su.",
+    "einvoiceSettingsSaved": "An ajiye saitunan daftarin lantarki"
   }
 }

@@ -130,6 +130,7 @@
       "users": "Użytkownicy",
       "data": "Dane",
       "legal": "Informacje prawne",
+      "einvoicing": "E-fakturowanie",
       "account": "Konto",
       "appearance": "Wygląd",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Dla eksportu bez IGST",
         "lutFiscalYear": "Rok finansowy LUT",
         "lutFiscalYearHint": "np. 2026-27",
+        "einvoiceTitle": "E-fakturowanie",
+        "einvoiceDescription": "Jak ten profil identyfikuje się w e-fakturach; konektor i dane uwierzytelniające znajdują się w Ustawienia > E-fakturowanie.",
+        "electronicAddress": "Adres elektroniczny",
+        "electronicAddressHint": "Identyfikator Peppol lub EN 16931 tego wystawcy, drukowany jako adres elektroniczny sprzedawcy.",
+        "electronicAddressScheme": "Schemat adresu elektronicznego",
+        "electronicAddressSchemeNone": "Brak schematu",
+        "einvoiceEnabled": "E-fakturowanie włączone dla tego profilu",
+        "einvoiceEnabledHint": "Udostępnia w wystawionych dokumentach pobieranie e-faktury GST w formacie JSON, Factur-X i UBL oraz rejestrację IRN.",
         "defaultsTitle": "Wartości domyślne",
         "baseCurrency": "Waluta bazowa",
         "locale": "Ustawienia regionalne dokumentu",
@@ -803,6 +812,45 @@
         "venueHint": "Na przykład „sądy w Bengaluru, Karnataka”.",
         "submit": "Zapisz dane operatora"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fakturowanie",
+      "title": "E-fakturowanie",
+      "description": "Dla każdego profilu wystawcy: który konektor rejestruje indyjskie e-faktury i którego europejskiego profilu używają pliki Factur-X i UBL. Dane uwierzytelniające są przechowywane w postaci zaszyfrowanej i nigdy nie są ponownie wyświetlane.",
+      "noProfiles": "Najpierw utwórz profil wystawcy.",
+      "profile": "Profil wystawcy",
+      "enabled": "Włączone",
+      "disabled": "Wyłączone",
+      "enabledHint": "Włącz lub wyłącz e-fakturowanie dla każdego profilu w Ustawienia > Profile.",
+      "india": {
+        "title": "Indie (e-faktura GST, IRN)",
+        "description": "IRN jest rejestrowany przez wybrany tutaj konektor; konektor ręczny przyjmuje odpowiedź portalu wprowadzoną ręcznie.",
+        "connector": "Konektor",
+        "connectorNone": "Wyłączony",
+        "connectorManual": "Ręczny (wklej odpowiedź IRP)",
+        "connectorNic": "NIC IRP API (sandbox lub produkcja)",
+        "nicUnverified": "Konektor NIC jest zgodny z opublikowanym API i przetestowany wyłącznie na zarejestrowanych danych testowych; do czasu podania danych uwierzytelniających nie został zweryfikowany w działającym sandboxie.",
+        "env": "Środowisko",
+        "sandbox": "Sandbox",
+        "production": "Produkcja",
+        "baseUrl": "Bazowy URL",
+        "baseUrlHint": "Pozostaw puste, aby użyć domyślnego dla środowiska.",
+        "clientId": "Identyfikator klienta",
+        "clientSecret": "Sekret klienta",
+        "username": "Nazwa użytkownika",
+        "password": "Hasło",
+        "gstin": "GSTIN",
+        "secretStored": "Przechowywane w postaci zaszyfrowanej; pozostaw puste, aby zachować.",
+        "secretEncrypted": "Przechowywane w postaci zaszyfrowanej."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "W tej wersji jedynym profilem jest EN 16931; korzystają z niego pliki Factur-X i UBL.",
+        "profile": "Profil",
+        "profileNone": "Wyłączony",
+        "en16931": "EN 16931"
+      },
+      "save": "Zapisz ustawienia e-fakturowania"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Oczekiwana stawka TDS (%)",
       "preferredLanguage": "Język dokumentu",
       "preferredLanguageFollow": "Zgodnie z profilem wystawcy",
+      "buyerReference": "Numer referencyjny nabywcy",
+      "buyerReferenceHint": "Drukowany w e-fakturach jako własny numer referencyjny nabywcy (numer zamówienia lub miejsca powstawania kosztów).",
+      "electronicAddress": "Adres elektroniczny",
+      "electronicAddressHint": "Identyfikator Peppol lub EN 16931, pod którym ten klient odbiera e-faktury.",
+      "electronicAddressScheme": "Schemat adresu elektronicznego",
+      "electronicAddressSchemeNone": "Brak schematu",
       "notes": "Uwagi",
       "billingAddress": "Adres do faktury",
       "shippingAddress": "Adres dostawy",
@@ -2022,6 +2076,7 @@
     "templateReset": "Szablon przywrócony do wbudowanego domyślnego",
     "templateImported": "Szablon zaimportowany",
     "profileTemplateCleared": "Profil znów używa szablonu instancji",
-    "operatorSaved": "Zapisano dane operatora. Strony prawne je teraz pokazują."
+    "operatorSaved": "Zapisano dane operatora. Strony prawne je teraz pokazują.",
+    "einvoiceSettingsSaved": "Zapisano ustawienia e-fakturowania"
   }
 }

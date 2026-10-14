@@ -130,6 +130,7 @@
       "users": "Felhasználók",
       "data": "Adatok",
       "legal": "Jogi tudnivalók",
+      "einvoicing": "E-számlázás",
       "account": "Fiók",
       "appearance": "Megjelenés",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "IGST nélküli exporthoz",
         "lutFiscalYear": "LUT pénzügyi év",
         "lutFiscalYearHint": "pl. 2026-27",
+        "einvoiceTitle": "E-számlázás",
+        "einvoiceDescription": "Hogyan azonosítja magát ez a profil az e-számlákon; az összekötő és a hitelesítő adatok a Beállítások > E-számlázás oldalon vannak.",
+        "electronicAddress": "Elektronikus cím",
+        "electronicAddressHint": "Ennek a kiállítónak a Peppol vagy EN 16931 azonosítója, amely az eladó elektronikus címeként jelenik meg.",
+        "electronicAddressScheme": "Elektronikus cím sémája",
+        "electronicAddressSchemeNone": "Nincs séma",
+        "einvoiceEnabled": "E-számlázás engedélyezve ehhez a profilhoz",
+        "einvoiceEnabledHint": "A kiállított dokumentumokon felkínálja a GST e-számla JSON, a Factur-X és az UBL letöltését, valamint az IRN regisztrálását.",
         "defaultsTitle": "Alapértelmezések",
         "baseCurrency": "Alappénznem",
         "locale": "Dokumentumok területi beállítása",
@@ -803,6 +812,45 @@
         "venueHint": "Például \"a budapesti bíróságok\".",
         "submit": "Üzemeltetői adatok mentése"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-számlázás",
+      "title": "E-számlázás",
+      "description": "Kiállítói profilonként: melyik összekötő regisztrálja az indiai e-számlákat, és melyik európai profilt követi a Factur-X és az UBL kimenet. A hitelesítő adatok titkosítva tárolódnak, és többé nem jelennek meg.",
+      "noProfiles": "Először hozzon létre egy kiállítói profilt.",
+      "profile": "Kiállítói profil",
+      "enabled": "Engedélyezve",
+      "disabled": "Letiltva",
+      "enabledHint": "Az e-számlázás profilonként kapcsolható be vagy ki a Beállítások > Profilok oldalon.",
+      "india": {
+        "title": "India (GST e-számla, IRN)",
+        "description": "Az IRN regisztrációja az itt választott összekötőn keresztül történik; a kézi összekötő a portál válaszát kézzel fogadja.",
+        "connector": "Összekötő",
+        "connectorNone": "Ki",
+        "connectorManual": "Kézi (illessze be az IRP válaszát)",
+        "connectorNic": "NIC IRP API (sandbox vagy éles)",
+        "nicUnverified": "A NIC összekötő a közzétett API-t követi, és csak rögzített tesztadatokkal van tesztelve; élő sandboxon nem ellenőrzött, amíg nem adnak meg hitelesítő adatokat.",
+        "env": "Környezet",
+        "sandbox": "Sandbox",
+        "production": "Éles",
+        "baseUrl": "Alap URL",
+        "baseUrlHint": "Hagyja üresen a környezet alapértelmezett értékéhez.",
+        "clientId": "Kliensazonosító",
+        "clientSecret": "Kliens titkos kulcsa",
+        "username": "Felhasználónév",
+        "password": "Jelszó",
+        "gstin": "GSTIN",
+        "secretStored": "Titkosítva tárolva; hagyja üresen a megtartásához.",
+        "secretEncrypted": "Titkosítva tárolva."
+      },
+      "eu": {
+        "title": "Európa (Factur-X, UBL)",
+        "description": "Ebben a verzióban az EN 16931 az egyetlen profil; a Factur-X és az UBL letöltések ezt használják.",
+        "profile": "Profil",
+        "profileNone": "Ki",
+        "en16931": "EN 16931"
+      },
+      "save": "E-számlázási beállítások mentése"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Várható TDS-kulcs (%)",
       "preferredLanguage": "Dokumentum nyelve",
       "preferredLanguageFollow": "A kiállítói profil követése",
+      "buyerReference": "Vevői hivatkozás",
+      "buyerReferenceHint": "Az e-számlákon a vevő saját hivatkozásaként jelenik meg (rendelés- vagy költséghelyszám).",
+      "electronicAddress": "Elektronikus cím",
+      "electronicAddressHint": "A Peppol vagy EN 16931 azonosító, amelyen ez az ügyfél az e-számlákat fogadja.",
+      "electronicAddressScheme": "Elektronikus cím sémája",
+      "electronicAddressSchemeNone": "Nincs séma",
       "notes": "Megjegyzések",
       "billingAddress": "Számlázási cím",
       "shippingAddress": "Szállítási cím",
@@ -2022,6 +2076,7 @@
     "templateReset": "A sablon visszaállt a beépített alapértelmezésre",
     "templateImported": "Sablon importálva",
     "profileTemplateCleared": "A profil újra a példány sablonját használja",
-    "operatorSaved": "Üzemeltetői adatok mentve. A jogi oldalak most már ezeket mutatják."
+    "operatorSaved": "Üzemeltetői adatok mentve. A jogi oldalak most már ezeket mutatják.",
+    "einvoiceSettingsSaved": "E-számlázási beállítások mentve"
   }
 }

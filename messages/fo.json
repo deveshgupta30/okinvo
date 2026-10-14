@@ -130,6 +130,7 @@
       "users": "Brúkarar",
       "data": "Dáta",
       "legal": "Løgfrøði",
+      "einvoicing": "E-rokning",
       "account": "Konta",
       "appearance": "Útsjóndur",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Fyri útflutning uttan IGST",
         "lutFiscalYear": "LUT roknskaparár",
         "lutFiscalYearHint": "t.d. 2026-27",
+        "einvoiceTitle": "E-rokning",
+        "einvoiceDescription": "Hvussu hesin vangin kennir seg á e-rokningum; sambindingin og atgongdarupplýsingarnar eru undir Stillingar > E-rokning.",
+        "electronicAddress": "Elektroniskt bústaðarfang",
+        "electronicAddressHint": "Peppol- ella EN 16931-kennarin hjá hesum útgevara, prentaður sum elektroniskt bústaðarfang seljarans.",
+        "electronicAddressScheme": "Skipan fyri elektroniskt bústaðarfang",
+        "electronicAddressSchemeNone": "Eingin skipan",
+        "einvoiceEnabled": "E-rokning virkin fyri hendan vangan",
+        "einvoiceEnabledHint": "Bjóðar niðurtøkur av GST e-rokning JSON, Factur-X og UBL og IRN-skráseting á útgivnum skjølum hansara.",
         "defaultsTitle": "Sjálvvirði",
         "baseCurrency": "Grundgjaldoyra",
         "locale": "Skjalamálstilling",
@@ -803,6 +812,45 @@
         "venueHint": "Til dømis “rættirnir í Bengaluru, Karnataka”.",
         "submit": "Goym upplýsingar um rekstrarhavara"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-rokning",
+      "title": "E-rokning",
+      "description": "Fyri hvønn útgevaravanga: hvør sambinding skrásetur indiskar e-rokningar, og hvønn evropeiskan vanga Factur-X og UBL úttøkini fylgja. Atgongdarupplýsingar verða goymdar bronglaðar og verða ongantíð víst aftur.",
+      "noProfiles": "Stovna fyrst ein útgevaravanga.",
+      "profile": "Útgevaravangi",
+      "enabled": "Virkið",
+      "disabled": "Óvirkið",
+      "enabledHint": "Tendra ella sløkk e-rokning fyri hvønn vanga undir Stillingar > Vangar.",
+      "india": {
+        "title": "India (GST e-rokning, IRN)",
+        "description": "IRN verður skrásett gjøgnum sambindingina, sum er valt her; handsambindingin tekur ímóti svari portalsins við hond.",
+        "connector": "Sambinding",
+        "connectorNone": "Sløkt",
+        "connectorManual": "Við hond (set IRP-svarið inn)",
+        "connectorNic": "NIC IRP API (sandkassi ella framleiðsla)",
+        "nicUnverified": "NIC-sambindingin fylgir útgivna APIinum og er bert royndur móti upptiknum royndardátum; hon er ikki váttað móti livandi sandkassa, fyrr enn atgongdarupplýsingar eru givnar.",
+        "env": "Umhvørvi",
+        "sandbox": "Sandkassi",
+        "production": "Framleiðsla",
+        "baseUrl": "Grunn-URL",
+        "baseUrlHint": "Lat standa tómt fyri forsettan umhvørvisins.",
+        "clientId": "Kunda-ID",
+        "clientSecret": "Kunda loyniorð",
+        "username": "Brúkaranavn",
+        "password": "Loyniorð",
+        "gstin": "GSTIN",
+        "secretStored": "Goymt bronglað; lat standa tómt fyri at varðveita tað.",
+        "secretEncrypted": "Goymt bronglað í hvíld."
+      },
+      "eu": {
+        "title": "Evropa (Factur-X, UBL)",
+        "description": "EN 16931 er einasti vangin í hesi útgávu; niðurtøkur av Factur-X og UBL brúka hann.",
+        "profile": "Vangi",
+        "profileNone": "Sløkt",
+        "en16931": "EN 16931"
+      },
+      "save": "Goym stillingar fyri e-rokning"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Væntað TDS-gjald (%)",
       "preferredLanguage": "Skjalamál",
       "preferredLanguageFollow": "Fylg útgevaraprofilinum",
+      "buyerReference": "Keypara tilvísing",
+      "buyerReferenceHint": "Prentað á e-rokningar sum egin tilvísing keyparans (ein pantanar- ella kostnaðarstaðarnummar).",
+      "electronicAddress": "Elektroniskt bústaðarfang",
+      "electronicAddressHint": "Peppol- ella EN 16931-kennarin, sum hesin kundin móttekur e-rokningar undir.",
+      "electronicAddressScheme": "Skipan fyri elektroniskt bústaðarfang",
+      "electronicAddressSchemeNone": "Eingin skipan",
       "notes": "Viðmerkingar",
       "billingAddress": "Rokningaradressa",
       "shippingAddress": "Sendingaradressa",
@@ -2022,6 +2076,7 @@
     "templateReset": "Fyrimynd endursett til innbygda sjálvvirðið",
     "templateImported": "Fyrimynd innlisin",
     "profileTemplateCleared": "Vangin brúkar aftur fyrimynd uppsetingarinnar",
-    "operatorSaved": "Upplýsingar um rekstrarhavara goymdar. Løgfrøðisíðurnar vísa tær nú."
+    "operatorSaved": "Upplýsingar um rekstrarhavara goymdar. Løgfrøðisíðurnar vísa tær nú.",
+    "einvoiceSettingsSaved": "Stillingar fyri e-rokning goymdar"
   }
 }

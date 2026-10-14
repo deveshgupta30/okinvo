@@ -130,6 +130,7 @@
       "users": "Users",
       "data": "Data",
       "legal": "Legal",
+      "einvoicing": "E-invoicing",
       "account": "Account",
       "appearance": "Appearance",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "ܠexports ܕܠܐ IGST",
         "lutFiscalYear": "LUT financial year",
         "lutFiscalYearHint": "ܐܝܟ 2026-27",
+        "einvoiceTitle": "E-invoicing",
+        "einvoiceDescription": "ܐܝܟܢܐ ܕܗܢܐ profile ܡܘܕܥ ܢܦܫܗ ܒe-invoices; connector ܘcredentials ܒSettings > E-invoicing ܐܝܬܝܗܘܢ.",
+        "electronicAddress": "Electronic address",
+        "electronicAddressHint": "Peppol ܐܘ EN 16931 identifier ܕܗܢܐ issuer, ܡܬܛܒܥ ܐܝܟ electronic address ܕseller.",
+        "electronicAddressScheme": "Electronic address scheme",
+        "electronicAddressSchemeNone": "ܠܝܬ scheme",
+        "einvoiceEnabled": "E-invoicing ܡܦܥܠ ܠܗܢܐ profile",
+        "einvoiceEnabledHint": "ܡܦܪܩ ܠܗܘܢ GST e-invoice JSON, Factur-X ܘUBL downloads ܘIRN registration ܥܠ documents ܕܐܬܦܩܘ ܕܗܢܐ profile.",
         "defaultsTitle": "Defaults",
         "baseCurrency": "Base currency",
         "locale": "Document locale",
@@ -803,6 +812,45 @@
         "venueHint": "ܐܝܟ “the courts of Bengaluru, Karnataka”.",
         "submit": "ܢܛܘܪ operator details"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-invoicing",
+      "title": "E-invoicing",
+      "description": "ܠܟܠ issuer profile: ܐܝܢܐ connector ܡܪܫܡ Indian e-invoices, ܘܐܝܢܐ European profile ܡܬܒܥܐ ܒFactur-X ܘUBL outputs. Credentials ܢܛܝܪܢ encrypted ܘܠܐ ܡܬܚܙܝܢ ܬܘܒ.",
+      "noProfiles": "ܩܕܡܝܬ ܒܪܝ issuer profile.",
+      "profile": "Issuer profile",
+      "enabled": "ܡܦܥܠ",
+      "disabled": "ܠܐ ܡܦܥܠ",
+      "enabledHint": "ܐܦܬܚ ܐܘ ܣܓܘܪ e-invoicing ܠܟܠ profile ܒSettings > Profiles.",
+      "india": {
+        "title": "India (GST e-invoice, IRN)",
+        "description": "IRN ܡܬܪܫܡ ܒconnector ܕܗܪܟܐ ܐܬܓܒܝ; manual connector ܫܩܠ ܬܘܒܬܐ ܕportal ܒܐܝܕܐ.",
+        "connector": "Connector",
+        "connectorNone": "ܣܓܝܪ",
+        "connectorManual": "Manual (paste ܠIRP response)",
+        "connectorNic": "NIC IRP API (sandbox ܐܘ production)",
+        "nicUnverified": "NIC connector ܐܬܪܗܒ API ܕܐܬܦܪܣܡ ܘܐܬܒܚܪ ܒfixtures ܕܐܬܪܫܡܘ ܒܠܚܘܕ; ܠܐ ܐܬܚܪܪ ܥܠ live sandbox ܥܕܡܐ ܕcredentials ܢܬܝܗܒܘܢ.",
+        "env": "Environment",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "Base URL",
+        "baseUrlHint": "ܫܒܘܩ ܣܪܝܩܐ ܠdefault ܕܗܘ environment.",
+        "clientId": "Client id",
+        "clientSecret": "Client secret",
+        "username": "Username",
+        "password": "Password",
+        "gstin": "GSTIN",
+        "secretStored": "ܢܛܝܪ encrypted; ܫܒܘܩ ܣܪܝܩܐ ܕܬܢܛܪܝܘܗܝ.",
+        "secretEncrypted": "ܢܛܝܪ encrypted ܒܙܒܢܐ ܕܢܛܝܪܘܬܐ."
+      },
+      "eu": {
+        "title": "Europe (Factur-X, UBL)",
+        "description": "EN 16931 ܗܘ ܐܝܚܝܕܝܐ profile ܒܗܢܐ version; Factur-X ܘUBL downloads ܡܣܬܐܢܝܢ ܒܗ.",
+        "profile": "Profile",
+        "profileNone": "ܣܓܝܪ",
+        "en16931": "EN 16931"
+      },
+      "save": "ܢܛܘܪ E-invoicing settings"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Expected TDS rate (%)",
       "preferredLanguage": "ܠܫܢܐ ܕܡܟܬܒܘܬܐ",
       "preferredLanguageFollow": "ܐܢܚ ܒܬܪ ܦܪܘܦܐܝܠ ܕܡܦܩܢܐ",
+      "buyerReference": "Buyer reference",
+      "buyerReferenceHint": "ܡܬܛܒܥ ܒe-invoices ܐܝܟ reference ܕܙܒܢܐ (order ܐܘ cost-centre number).",
+      "electronicAddress": "Electronic address",
+      "electronicAddressHint": "ܗܘ Peppol ܐܘ EN 16931 identifier ܕܗܢܐ client ܡܩܒܠ ܬܚܘܬܗ e-invoices.",
+      "electronicAddressScheme": "Electronic address scheme",
+      "electronicAddressSchemeNone": "ܠܝܬ scheme",
       "notes": "Notes",
       "billingAddress": "Billing address",
       "shippingAddress": "Shipping address",
@@ -2022,6 +2076,7 @@
     "templateReset": "Template ܗܦܟ ܠbuilt-in default",
     "templateImported": "Template ܐܬܝܒܠ",
     "profileTemplateCleared": "Profile ܡܣܬܥܡܠ ܬܘܒ instance template",
-    "operatorSaved": "Operator details ܐܬܢܛܪܘ. Legal pages ܡܚܘܝܢ ܠܗܘܢ ܗܫܐ."
+    "operatorSaved": "Operator details ܐܬܢܛܪܘ. Legal pages ܡܚܘܝܢ ܠܗܘܢ ܗܫܐ.",
+    "einvoiceSettingsSaved": "E-invoicing settings ܐܬܢܛܪܘ"
   }
 }

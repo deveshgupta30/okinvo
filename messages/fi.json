@@ -130,6 +130,7 @@
       "users": "Käyttäjät",
       "data": "Tiedot",
       "legal": "Oikeudelliset tiedot",
+      "einvoicing": "Verkkolaskutus",
       "account": "Tili",
       "appearance": "Ulkoasu",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Viennille ilman IGST:tä",
         "lutFiscalYear": "LUT-tilikausi",
         "lutFiscalYearHint": "esim. 2026-27",
+        "einvoiceTitle": "Verkkolaskutus",
+        "einvoiceDescription": "Miten tämä profiili tunnistautuu verkkolaskuissa; liitin ja tunnistetiedot ovat kohdassa Asetukset > Verkkolaskutus.",
+        "electronicAddress": "Sähköinen osoite",
+        "electronicAddressHint": "Tämän laskuttajan Peppol- tai EN 16931 -tunnus, joka tulostetaan myyjän sähköisenä osoitteena.",
+        "electronicAddressScheme": "Sähköisen osoitteen järjestelmä",
+        "electronicAddressSchemeNone": "Ei järjestelmää",
+        "einvoiceEnabled": "Verkkolaskutus käytössä tälle profiilille",
+        "einvoiceEnabledHint": "Tarjoaa annetuille asiakirjoille GST-verkkolaskun JSON-, Factur-X- ja UBL-lataukset sekä IRN-rekisteröinnin.",
         "defaultsTitle": "Oletukset",
         "baseCurrency": "Perusvaluutta",
         "locale": "Asiakirjojen kieliasetus",
@@ -803,6 +812,45 @@
         "venueHint": "Esimerkiksi ”Bengalurun tuomioistuimet, Karnataka”.",
         "submit": "Tallenna ylläpitäjän tiedot"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "Verkkolaskutus",
+      "title": "Verkkolaskutus",
+      "description": "Laskuttajaprofiilikohtaisesti: mikä liitin rekisteröi Intian verkkolaskut ja mitä eurooppalaista profiilia Factur-X- ja UBL-tiedostot noudattavat. Tunnistetiedot tallennetaan salattuina, eikä niitä näytetä enää uudelleen.",
+      "noProfiles": "Luo ensin laskuttajaprofiili.",
+      "profile": "Laskuttajaprofiili",
+      "enabled": "Käytössä",
+      "disabled": "Pois käytöstä",
+      "enabledHint": "Ota verkkolaskutus käyttöön tai pois käytöstä profiilikohtaisesti kohdassa Asetukset > Profiilit.",
+      "india": {
+        "title": "Intia (GST-verkkolasku, IRN)",
+        "description": "IRN rekisteröidään tässä valitun liittimen kautta; manuaalinen liitin ottaa portaalin vastauksen käsin.",
+        "connector": "Liitin",
+        "connectorNone": "Pois",
+        "connectorManual": "Manuaalinen (liitä IRP:n vastaus)",
+        "connectorNic": "NIC IRP API (sandbox tai tuotanto)",
+        "nicUnverified": "NIC-liitin noudattaa julkaistua rajapintaa ja on testattu vain tallennetuilla testiaineistoilla; sitä ei ole varmennettu oikeassa sandboxissa ennen kuin tunnistetiedot annetaan.",
+        "env": "Ympäristö",
+        "sandbox": "Sandbox",
+        "production": "Tuotanto",
+        "baseUrl": "Perus-URL",
+        "baseUrlHint": "Jätä tyhjäksi käyttääksesi ympäristön oletusarvoa.",
+        "clientId": "Asiakastunnus",
+        "clientSecret": "Asiakassalaisuus",
+        "username": "Käyttäjätunnus",
+        "password": "Salasana",
+        "gstin": "GSTIN",
+        "secretStored": "Tallennettu salattuna; jätä tyhjäksi säilyttääksesi sen.",
+        "secretEncrypted": "Tallennettu salattuna."
+      },
+      "eu": {
+        "title": "Eurooppa (Factur-X, UBL)",
+        "description": "EN 16931 on tässä versiossa ainoa profiili; Factur-X- ja UBL-lataukset käyttävät sitä.",
+        "profile": "Profiili",
+        "profileNone": "Pois",
+        "en16931": "EN 16931"
+      },
+      "save": "Tallenna verkkolaskutuksen asetukset"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Odotettu TDS-prosentti (%)",
       "preferredLanguage": "Asiakirjan kieli",
       "preferredLanguageFollow": "Noudata laskuttajan profiilia",
+      "buyerReference": "Ostajan viite",
+      "buyerReferenceHint": "Tulostetaan verkkolaskuihin ostajan omana viitteenä (tilaus- tai kustannuspaikkanumero).",
+      "electronicAddress": "Sähköinen osoite",
+      "electronicAddressHint": "Peppol- tai EN 16931 -tunnus, jolla tämä asiakas vastaanottaa verkkolaskuja.",
+      "electronicAddressScheme": "Sähköisen osoitteen järjestelmä",
+      "electronicAddressSchemeNone": "Ei järjestelmää",
       "notes": "Huomautukset",
       "billingAddress": "Laskutusosoite",
       "shippingAddress": "Toimitusosoite",
@@ -2022,6 +2076,7 @@
     "templateReset": "Mallipohja palautettu sisäänrakennettuun oletukseen",
     "templateImported": "Mallipohja tuotu",
     "profileTemplateCleared": "Profiili käyttää taas instanssin mallipohjaa",
-    "operatorSaved": "Ylläpitäjän tiedot tallennettu. Oikeudelliset sivut näyttävät ne nyt."
+    "operatorSaved": "Ylläpitäjän tiedot tallennettu. Oikeudelliset sivut näyttävät ne nyt.",
+    "einvoiceSettingsSaved": "Verkkolaskutuksen asetukset tallennettu"
   }
 }

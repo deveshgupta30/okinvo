@@ -130,6 +130,7 @@
       "users": "Brukarar",
       "data": "Data",
       "legal": "Juridisk",
+      "einvoicing": "E-fakturering",
       "account": "Konto",
       "appearance": "Utsjånad",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "For eksport utan IGST",
         "lutFiscalYear": "LUT-rekneskapsår",
         "lutFiscalYearHint": "t.d. 2026-27",
+        "einvoiceTitle": "E-fakturering",
+        "einvoiceDescription": "Korleis denne profilen identifiserer seg i e-fakturaer; koplinga og legitimasjonen finst under Innstillingar > E-fakturering.",
+        "electronicAddress": "Elektronisk adresse",
+        "electronicAddressHint": "Peppol- eller EN 16931-identifikatoren til denne utstedaren, skriven ut som seljaren si elektroniske adresse.",
+        "electronicAddressScheme": "Skjema for elektronisk adresse",
+        "electronicAddressSchemeNone": "Ingen skjema",
+        "einvoiceEnabled": "E-fakturering aktivert for denne profilen",
+        "einvoiceEnabledHint": "Tilbyr nedlasting av GST e-faktura-JSON, Factur-X og UBL samt IRN-registrering på utstedde dokument.",
         "defaultsTitle": "Standardverdiar",
         "baseCurrency": "Basisvaluta",
         "locale": "Språkinnstilling for dokument",
@@ -803,6 +812,45 @@
         "venueHint": "Til dømes \"domstolane i Bengaluru, Karnataka\".",
         "submit": "Lagre opplysningar om drivaren"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fakturering",
+      "title": "E-fakturering",
+      "description": "Per utstedarprofil: kva kopling som registrerer indiske e-fakturaer, og kva europeisk profil Factur-X- og UBL-utdataa følgjer. Legitimasjon vert lagra kryptert og vert aldri vist att.",
+      "noProfiles": "Opprett ein utstedarprofil først.",
+      "profile": "Utstedarprofil",
+      "enabled": "Aktivert",
+      "disabled": "Deaktivert",
+      "enabledHint": "Slå e-fakturering av eller på per profil under Innstillingar > Profilar.",
+      "india": {
+        "title": "India (GST e-faktura, IRN)",
+        "description": "IRN vert registrert via koplinga som er vald her; den manuelle koplinga tek imot svaret frå portalen for hand.",
+        "connector": "Kopling",
+        "connectorNone": "Av",
+        "connectorManual": "Manuell (lim inn IRP-svaret)",
+        "connectorNic": "NIC IRP-API (sandkasse eller produksjon)",
+        "nicUnverified": "NIC-koplinga følgjer det publiserte API-et og er berre testa mot innspelte fixtures; ho er ikkje verifisert mot ei ekte sandkasse før legitimasjon er oppgitt.",
+        "env": "Miljø",
+        "sandbox": "Sandkasse",
+        "production": "Produksjon",
+        "baseUrl": "Basis-URL",
+        "baseUrlHint": "La stå tomt for standardverdien til miljøet.",
+        "clientId": "Klient-ID",
+        "clientSecret": "Klienthemmelegheit",
+        "username": "Brukarnamn",
+        "password": "Passord",
+        "gstin": "GSTIN",
+        "secretStored": "Lagra kryptert; la stå tomt for å behalde han.",
+        "secretEncrypted": "Lagra kryptert."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 er den einaste profilen i denne versjonen; Factur-X- og UBL-nedlastingane brukar han.",
+        "profile": "Profil",
+        "profileNone": "Av",
+        "en16931": "EN 16931"
+      },
+      "save": "Lagre innstillingar for e-fakturering"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Venta TDS-sats (%)",
       "preferredLanguage": "Dokumentspråk",
       "preferredLanguageFollow": "Følg utstedarprofilen",
+      "buyerReference": "Kjøpar sin referanse",
+      "buyerReferenceHint": "Vert skriven ut i e-fakturaer som kjøparen sin eigen referanse (eit ordre- eller kostnadsstadnummer).",
+      "electronicAddress": "Elektronisk adresse",
+      "electronicAddressHint": "Peppol- eller EN 16931-identifikatoren denne kunden tek imot e-fakturaer under.",
+      "electronicAddressScheme": "Skjema for elektronisk adresse",
+      "electronicAddressSchemeNone": "Ingen skjema",
       "notes": "Merknader",
       "billingAddress": "Fakturaadresse",
       "shippingAddress": "Leveringsadresse",
@@ -2022,6 +2076,7 @@
     "templateReset": "Mal tilbakestilt til innebygd standard",
     "templateImported": "Mal importert",
     "profileTemplateCleared": "Profilen brukar instansmalen igjen",
-    "operatorSaved": "Opplysningar om drivaren lagra. Dei juridiske sidene viser dei no."
+    "operatorSaved": "Opplysningar om drivaren lagra. Dei juridiske sidene viser dei no.",
+    "einvoiceSettingsSaved": "Innstillingar for e-fakturering lagra"
   }
 }

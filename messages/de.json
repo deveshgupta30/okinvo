@@ -130,6 +130,7 @@
       "users": "Benutzer",
       "data": "Daten",
       "legal": "Rechtliches",
+      "einvoicing": "E-Rechnung",
       "account": "Konto",
       "appearance": "Darstellung",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Für Exporte ohne IGST",
         "lutFiscalYear": "LUT-Geschäftsjahr",
         "lutFiscalYearHint": "z. B. 2026-27",
+        "einvoiceTitle": "E-Rechnung",
+        "einvoiceDescription": "Wie sich dieses Profil in E-Rechnungen identifiziert; Connector und Zugangsdaten befinden sich unter Einstellungen > E-Rechnung.",
+        "electronicAddress": "Elektronische Adresse",
+        "electronicAddressHint": "Die Peppol- oder EN-16931-Kennung dieses Ausstellers, gedruckt als elektronische Adresse des Verkäufers.",
+        "electronicAddressScheme": "Schema der elektronischen Adresse",
+        "electronicAddressSchemeNone": "Kein Schema",
+        "einvoiceEnabled": "E-Rechnung für dieses Profil aktiviert",
+        "einvoiceEnabledHint": "Bietet GST-E-Rechnungs-JSON, Factur-X- und UBL-Downloads sowie die IRN-Registrierung für die ausgestellten Dokumente.",
         "defaultsTitle": "Standardwerte",
         "baseCurrency": "Basiswährung",
         "locale": "Dokument-Locale",
@@ -803,6 +812,45 @@
         "venueHint": "Zum Beispiel \"die Gerichte von Bengaluru, Karnataka\".",
         "submit": "Angaben zum Betreiber speichern"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-Rechnung",
+      "title": "E-Rechnung",
+      "description": "Pro Ausstellerprofil: welcher Connector indische E-Rechnungen registriert und welchem europäischen Profil die Factur-X- und UBL-Ausgaben folgen. Zugangsdaten werden verschlüsselt gespeichert und nie wieder angezeigt.",
+      "noProfiles": "Legen Sie zuerst ein Ausstellerprofil an.",
+      "profile": "Ausstellerprofil",
+      "enabled": "Aktiviert",
+      "disabled": "Deaktiviert",
+      "enabledHint": "E-Rechnung pro Profil unter Einstellungen > Profile ein- oder ausschalten.",
+      "india": {
+        "title": "Indien (GST-E-Rechnung, IRN)",
+        "description": "Die IRN wird über den hier gewählten Connector registriert; der manuelle Connector übernimmt die Antwort des Portals von Hand.",
+        "connector": "Connector",
+        "connectorNone": "Aus",
+        "connectorManual": "Manuell (IRP-Antwort einfügen)",
+        "connectorNic": "NIC-IRP-API (Sandbox oder Produktion)",
+        "nicUnverified": "Der NIC-Connector folgt der veröffentlichten API und wurde nur mit aufgezeichneten Testdaten geprüft; er ist gegen eine Live-Sandbox nicht verifiziert, bis Zugangsdaten vorliegen.",
+        "env": "Umgebung",
+        "sandbox": "Sandbox",
+        "production": "Produktion",
+        "baseUrl": "Basis-URL",
+        "baseUrlHint": "Leer lassen für den Standard der Umgebung.",
+        "clientId": "Client-ID",
+        "clientSecret": "Client-Secret",
+        "username": "Benutzername",
+        "password": "Passwort",
+        "gstin": "GSTIN",
+        "secretStored": "Verschlüsselt gespeichert; leer lassen, um es beizubehalten.",
+        "secretEncrypted": "Verschlüsselt gespeichert."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 ist das einzige Profil in dieser Version; Factur-X- und UBL-Downloads verwenden es.",
+        "profile": "Profil",
+        "profileNone": "Aus",
+        "en16931": "EN 16931"
+      },
+      "save": "E-Rechnungs-Einstellungen speichern"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Erwarteter TDS-Satz (%)",
       "preferredLanguage": "Dokumentsprache",
       "preferredLanguageFollow": "Dem Ausstellerprofil folgen",
+      "buyerReference": "Käuferreferenz",
+      "buyerReferenceHint": "Wird in E-Rechnungen als eigene Referenz des Käufers gedruckt (Bestell- oder Kostenstellennummer).",
+      "electronicAddress": "Elektronische Adresse",
+      "electronicAddressHint": "Die Peppol- oder EN-16931-Kennung, unter der dieser Kunde E-Rechnungen empfängt.",
+      "electronicAddressScheme": "Schema der elektronischen Adresse",
+      "electronicAddressSchemeNone": "Kein Schema",
       "notes": "Notizen",
       "billingAddress": "Rechnungsadresse",
       "shippingAddress": "Lieferadresse",
@@ -2022,6 +2076,7 @@
     "templateReset": "Vorlage auf den integrierten Standard zurückgesetzt",
     "templateImported": "Vorlage importiert",
     "profileTemplateCleared": "Das Profil verwendet wieder die Instanzvorlage",
-    "operatorSaved": "Angaben zum Betreiber gespeichert. Die Rechtsseiten zeigen sie nun an."
+    "operatorSaved": "Angaben zum Betreiber gespeichert. Die Rechtsseiten zeigen sie nun an.",
+    "einvoiceSettingsSaved": "E-Rechnungs-Einstellungen gespeichert"
   }
 }

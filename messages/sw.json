@@ -130,6 +130,7 @@
       "users": "Watumiaji",
       "data": "Data",
       "legal": "Kisheria",
+      "einvoicing": "Ankara za kielektroniki",
       "account": "Akaunti",
       "appearance": "Mwonekano",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Kwa mauzo ya nje bila IGST",
         "lutFiscalYear": "Mwaka wa fedha wa LUT",
         "lutFiscalYearHint": "k.m. 2026-27",
+        "einvoiceTitle": "Ankara za kielektroniki",
+        "einvoiceDescription": "Jinsi wasifu huu unavyojitambulisha kwenye ankara za kielektroniki; kiunganishi na vitambulisho vya kuingia viko chini ya Mipangilio > Ankara za kielektroniki.",
+        "electronicAddress": "Anwani ya kielektroniki",
+        "electronicAddressHint": "Kitambulisho cha Peppol au EN 16931 cha mtoaji huyu, kinachochapishwa kama anwani ya kielektroniki ya muuzaji.",
+        "electronicAddressScheme": "Mpango wa anwani ya kielektroniki",
+        "electronicAddressSchemeNone": "Hakuna mpango",
+        "einvoiceEnabled": "Ankara za kielektroniki zimewashwa kwa wasifu huu",
+        "einvoiceEnabledHint": "Hutoa upakuaji wa JSON ya ankara ya kielektroniki ya GST, Factur-X na UBL pamoja na usajili wa IRN kwenye hati zake zilizotolewa.",
         "defaultsTitle": "Chaguo-msingi",
         "baseCurrency": "Sarafu ya msingi",
         "locale": "Lugha ya eneo ya hati",
@@ -803,6 +812,45 @@
         "venueHint": "Kwa mfano “mahakama za Bengaluru, Karnataka”.",
         "submit": "Hifadhi maelezo ya mwendeshaji"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "Ankara za kielektroniki",
+      "title": "Ankara za kielektroniki",
+      "description": "Kwa kila wasifu wa mtoaji: ni kiunganishi kipi kinasajili ankara za kielektroniki za India, na ni wasifu upi wa Ulaya unaofuatwa na matokeo ya Factur-X na UBL. Vitambulisho vya kuingia huhifadhiwa kwa usimbaji fiche na havionyeshwi tena.",
+      "noProfiles": "Tengeneza wasifu wa mtoaji kwanza.",
+      "profile": "Wasifu wa mtoaji",
+      "enabled": "Imewashwa",
+      "disabled": "Imezimwa",
+      "enabledHint": "Washa au zima ankara za kielektroniki kwa kila wasifu chini ya Mipangilio > Wasifu.",
+      "india": {
+        "title": "India (ankara ya kielektroniki ya GST, IRN)",
+        "description": "IRN husajiliwa kupitia kiunganishi kilichochaguliwa hapa; kiunganishi cha mkono hupokea jibu la lango kwa mkono.",
+        "connector": "Kiunganishi",
+        "connectorNone": "Imezimwa",
+        "connectorManual": "Kwa mkono (bandika jibu la IRP)",
+        "connectorNic": "API ya NIC IRP (sandbox au uzalishaji)",
+        "nicUnverified": "Kiunganishi cha NIC kinafuata API iliyochapishwa na kimejaribiwa kwa data zilizorekodiwa tu; hakijathibitishwa kwenye sandbox halisi hadi vitambulisho vya kuingia vitolewe.",
+        "env": "Mazingira",
+        "sandbox": "Sandbox",
+        "production": "Uzalishaji",
+        "baseUrl": "URL ya msingi",
+        "baseUrlHint": "Acha wazi kwa chaguo-msingi la mazingira.",
+        "clientId": "Kitambulisho cha mteja",
+        "clientSecret": "Siri ya mteja",
+        "username": "Jina la mtumiaji",
+        "password": "Nenosiri",
+        "gstin": "GSTIN",
+        "secretStored": "Imehifadhiwa kwa usimbaji fiche; acha wazi ili kuiweka.",
+        "secretEncrypted": "Imehifadhiwa kwa usimbaji fiche."
+      },
+      "eu": {
+        "title": "Ulaya (Factur-X, UBL)",
+        "description": "EN 16931 ndiyo wasifu pekee katika toleo hili; upakuaji wa Factur-X na UBL huutumia.",
+        "profile": "Wasifu",
+        "profileNone": "Imezimwa",
+        "en16931": "EN 16931"
+      },
+      "save": "Hifadhi mipangilio ya ankara za kielektroniki"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Kiwango cha TDS kinachotarajiwa (%)",
       "preferredLanguage": "Lugha ya hati",
       "preferredLanguageFollow": "Fuata wasifu wa mtoaji",
+      "buyerReference": "Marejeleo ya mnunuzi",
+      "buyerReferenceHint": "Huchapishwa kwenye ankara za kielektroniki kama marejeleo ya mnunuzi mwenyewe (nambari ya agizo au ya kituo cha gharama).",
+      "electronicAddress": "Anwani ya kielektroniki",
+      "electronicAddressHint": "Kitambulisho cha Peppol au EN 16931 ambacho mteja huyu hupokelea ankara za kielektroniki.",
+      "electronicAddressScheme": "Mpango wa anwani ya kielektroniki",
+      "electronicAddressSchemeNone": "Hakuna mpango",
       "notes": "Maelezo",
       "billingAddress": "Anwani ya kutoza",
       "shippingAddress": "Anwani ya kusafirishia",
@@ -2022,6 +2076,7 @@
     "templateReset": "Kiolezo kimerudishwa kwenye chaguo-msingi lililojengewa ndani",
     "templateImported": "Kiolezo kimeingizwa",
     "profileTemplateCleared": "Wasifu unatumia kiolezo cha mfumo tena",
-    "operatorSaved": "Maelezo ya mwendeshaji yamehifadhiwa. Kurasa za kisheria sasa zinayaonyesha."
+    "operatorSaved": "Maelezo ya mwendeshaji yamehifadhiwa. Kurasa za kisheria sasa zinayaonyesha.",
+    "einvoiceSettingsSaved": "Mipangilio ya ankara za kielektroniki imehifadhiwa"
   }
 }

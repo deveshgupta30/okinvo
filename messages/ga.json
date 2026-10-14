@@ -130,6 +130,7 @@
       "users": "Úsáideoirí",
       "data": "Sonraí",
       "legal": "Dlíthiúil",
+      "einvoicing": "E-sonrascú",
       "account": "Cuntas",
       "appearance": "Cuma",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Le haghaidh onnmhairithe gan IGST",
         "lutFiscalYear": "Bliain airgeadais LUT",
         "lutFiscalYearHint": "m.sh. 2026-27",
+        "einvoiceTitle": "E-sonrascú",
+        "einvoiceDescription": "Conas a aithníonn an phróifíl seo í féin in e-sonraisc; tá an nascóir agus na dintiúir faoi Socruithe > E-sonrascú.",
+        "electronicAddress": "Seoladh leictreonach",
+        "electronicAddressHint": "An t-aitheantóir Peppol nó EN 16931 den eisitheoir seo, priontáilte mar sheoladh leictreonach an díoltóra.",
+        "electronicAddressScheme": "Scéim an tseolta leictreonaigh",
+        "electronicAddressSchemeNone": "Gan scéim",
+        "einvoiceEnabled": "E-sonrascú cumasaithe don phróifíl seo",
+        "einvoiceEnabledHint": "Cuireann sé ar fáil íoslódálacha de JSON an e-sonraisc GST, Factur-X agus UBL agus clárú IRN ar a doiciméid eisithe.",
         "defaultsTitle": "Réamhshocruithe",
         "baseCurrency": "Bunairgeadra",
         "locale": "Logchaighdeán doiciméad",
@@ -803,6 +812,45 @@
         "venueHint": "Mar shampla \"cúirteanna Bhaile Átha Cliath\".",
         "submit": "Sábháil sonraí an oibreora"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-sonrascú",
+      "title": "E-sonrascú",
+      "description": "I bpróifíl eisitheora ar leith: cén nascóir a chláraíonn e-sonraisc Indiacha, agus cén phróifíl Eorpach a leanann aschuir Factur-X agus UBL. Stóráiltear dintiúir criptithe agus ní thaispeántar arís iad.",
+      "noProfiles": "Cruthaigh próifíl eisitheora ar dtús.",
+      "profile": "Próifíl eisitheora",
+      "enabled": "Cumasaithe",
+      "disabled": "Díchumasaithe",
+      "enabledHint": "Cuir an t-e-sonrascú air nó as de réir próifíle faoi Socruithe > Próifílí.",
+      "india": {
+        "title": "An India (e-sonrasc GST, IRN)",
+        "description": "Cláraítear an IRN tríd an nascóir a roghnaítear anseo; glacann an nascóir láimhe le freagra an tairsigh de láimh.",
+        "connector": "Nascóir",
+        "connectorNone": "As",
+        "connectorManual": "Láimhe (greamaigh freagra IRP)",
+        "connectorNic": "API NIC IRP (bosca gainimh nó táirgeadh)",
+        "nicUnverified": "Leanann an nascóir NIC an API foilsithe agus ní thástáiltear é ach i gcoinne feistis taifeadta; níl sé fíoraithe i gcoinne bosca gainimh beo go dtí go soláthraítear dintiúir.",
+        "env": "Timpeallacht",
+        "sandbox": "Bosca gainimh",
+        "production": "Táirgeadh",
+        "baseUrl": "URL bunúsach",
+        "baseUrlHint": "Fág bán don réamhshocrú don timpeallacht.",
+        "clientId": "Id an chliaint",
+        "clientSecret": "Rún an chliaint",
+        "username": "Ainm úsáideora",
+        "password": "Pasfhocal",
+        "gstin": "GSTIN",
+        "secretStored": "Stóráilte criptithe; fág bán chun é a choinneáil.",
+        "secretEncrypted": "Stóráilte criptithe i stad."
+      },
+      "eu": {
+        "title": "An Eoraip (Factur-X, UBL)",
+        "description": "Is é EN 16931 an t-aon phróifíl sa leagan seo; úsáideann íoslódálacha Factur-X agus UBL é.",
+        "profile": "Próifíl",
+        "profileNone": "As",
+        "en16931": "EN 16931"
+      },
+      "save": "Sábháil socruithe an e-sonrascaithe"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Ráta TDS ionchais (%)",
       "preferredLanguage": "Teanga an doiciméid",
       "preferredLanguageFollow": "Lean próifíl an eisitheora",
+      "buyerReference": "Tagairt an cheannaitheora",
+      "buyerReferenceHint": "Priontáilte in e-sonraisc mar thagairt féin an cheannaitheora (uimhir ordaithe nó lárionaid costais).",
+      "electronicAddress": "Seoladh leictreonach",
+      "electronicAddressHint": "An t-aitheantóir Peppol nó EN 16931 faoina nglacann an cliant seo le e-sonraisc.",
+      "electronicAddressScheme": "Scéim an tseolta leictreonaigh",
+      "electronicAddressSchemeNone": "Gan scéim",
       "notes": "Nótaí",
       "billingAddress": "Seoladh billeála",
       "shippingAddress": "Seoladh seachadta",
@@ -2022,6 +2076,7 @@
     "templateReset": "Athshocraíodh an teimpléad go dtí an réamhshocrú ionsuite",
     "templateImported": "Iompórtáladh an teimpléad",
     "profileTemplateCleared": "Úsáideann an phróifíl teimpléad an cháis arís",
-    "operatorSaved": "Sábháladh sonraí an oibreora. Taispeánann na leathanaigh dhlíthiúla anois iad."
+    "operatorSaved": "Sábháladh sonraí an oibreora. Taispeánann na leathanaigh dhlíthiúla anois iad.",
+    "einvoiceSettingsSaved": "Sábháladh socruithe an e-sonrascaithe"
   }
 }

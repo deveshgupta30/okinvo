@@ -130,6 +130,7 @@
       "users": "Përdoruesit",
       "data": "Të dhënat",
       "legal": "Ligjore",
+      "einvoicing": "E-faturimi",
       "account": "Llogaria",
       "appearance": "Pamja",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Për eksporte pa IGST",
         "lutFiscalYear": "Viti financiar LUT",
         "lutFiscalYearHint": "p.sh. 2026-27",
+        "einvoiceTitle": "E-faturimi",
+        "einvoiceDescription": "Si identifikohet ky profil në e-faturat; lidhësi dhe kredencialet ndodhen te Cilësimet > E-faturimi.",
+        "electronicAddress": "Adresa elektronike",
+        "electronicAddressHint": "Identifikuesi Peppol ose EN 16931 i këtij lëshuesi, i shtypur si adresa elektronike e shitësit.",
+        "electronicAddressScheme": "Skema e adresës elektronike",
+        "electronicAddressSchemeNone": "Pa skemë",
+        "einvoiceEnabled": "E-faturimi i aktivizuar për këtë profil",
+        "einvoiceEnabledHint": "Ofron te dokumentet e lëshuara shkarkimet e e-faturës GST në JSON, Factur-X dhe UBL dhe regjistrimin e IRN.",
         "defaultsTitle": "Parazgjedhjet",
         "baseCurrency": "Monedha bazë",
         "locale": "Vendndodhja e dokumentit",
@@ -803,6 +812,45 @@
         "venueHint": "Për shembull “gjykatat e Bengalurut, Karnataka”.",
         "submit": "Ruaj detajet e operatorit"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-faturimi",
+      "title": "E-faturimi",
+      "description": "Për çdo profil lëshuesi: cili lidhës regjistron e-faturat indiane dhe cilin profil evropian ndjekin skedarët Factur-X dhe UBL. Kredencialet ruhen të enkriptuara dhe nuk shfaqen më kurrë.",
+      "noProfiles": "Krijoni fillimisht një profil lëshuesi.",
+      "profile": "Profili i lëshuesit",
+      "enabled": "Aktiv",
+      "disabled": "Joaktiv",
+      "enabledHint": "Aktivizoni ose çaktivizoni e-faturimin për çdo profil te Cilësimet > Profilet.",
+      "india": {
+        "title": "India (e-faturë GST, IRN)",
+        "description": "IRN regjistrohet përmes lidhësit të zgjedhur këtu; lidhësi manual merr me dorë përgjigjen e portalit.",
+        "connector": "Lidhësi",
+        "connectorNone": "Joaktiv",
+        "connectorManual": "Manual (ngjitni përgjigjen e IRP)",
+        "connectorNic": "NIC IRP API (sandbox ose prodhim)",
+        "nicUnverified": "Lidhësi NIC ndjek API-n e publikuar dhe është testuar vetëm me të dhëna të regjistruara; nuk është verifikuar në një sandbox real derisa të jepen kredencialet.",
+        "env": "Mjedisi",
+        "sandbox": "Sandbox",
+        "production": "Prodhim",
+        "baseUrl": "URL bazë",
+        "baseUrlHint": "Lëreni bosh për vlerën e paracaktuar të mjedisit.",
+        "clientId": "ID e klientit",
+        "clientSecret": "Sekreti i klientit",
+        "username": "Emri i përdoruesit",
+        "password": "Fjalëkalimi",
+        "gstin": "GSTIN",
+        "secretStored": "Ruhet i enkriptuar; lëreni bosh për ta mbajtur.",
+        "secretEncrypted": "Ruhet i enkriptuar në pushim."
+      },
+      "eu": {
+        "title": "Evropa (Factur-X, UBL)",
+        "description": "EN 16931 është i vetmi profil në këtë version; shkarkimet Factur-X dhe UBL e përdorin atë.",
+        "profile": "Profili",
+        "profileNone": "Joaktiv",
+        "en16931": "EN 16931"
+      },
+      "save": "Ruaj cilësimet e e-faturimit"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Norma e pritur TDS (%)",
       "preferredLanguage": "Gjuha e dokumentit",
       "preferredLanguageFollow": "Ndiq profilin e lëshuesit",
+      "buyerReference": "Referenca e blerësit",
+      "buyerReferenceHint": "Shtypet në e-faturat si referenca e vetë blerësit (një numër porosie ose qendre kostoje).",
+      "electronicAddress": "Adresa elektronike",
+      "electronicAddressHint": "Identifikuesi Peppol ose EN 16931 me të cilin ky klient merr e-fatura.",
+      "electronicAddressScheme": "Skema e adresës elektronike",
+      "electronicAddressSchemeNone": "Pa skemë",
       "notes": "Shënime",
       "billingAddress": "Adresa e faturimit",
       "shippingAddress": "Adresa e dërgesës",
@@ -2022,6 +2076,7 @@
     "templateReset": "Shablloni u rivendos te i integruari i parazgjedhur",
     "templateImported": "Shablloni u importua",
     "profileTemplateCleared": "Profili përdor sërish shabllonin e instancës",
-    "operatorSaved": "Detajet e operatorit u ruajtën. Faqet ligjore tani i shfaqin."
+    "operatorSaved": "Detajet e operatorit u ruajtën. Faqet ligjore tani i shfaqin.",
+    "einvoiceSettingsSaved": "Cilësimet e e-faturimit u ruajtën"
   }
 }

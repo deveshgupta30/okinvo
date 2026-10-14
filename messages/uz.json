@@ -130,6 +130,7 @@
       "users": "Foydalanuvchilar",
       "data": "Maʼlumotlar",
       "legal": "Huquqiy",
+      "einvoicing": "E-hisob-faktura",
       "account": "Hisob",
       "appearance": "Koʻrinish",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "IGSTsiz eksport uchun",
         "lutFiscalYear": "LUT moliyaviy yili",
         "lutFiscalYearHint": "masalan, 2026-27",
+        "einvoiceTitle": "E-hisob-faktura",
+        "einvoiceDescription": "Bu profil elektron hisob-fakturalarda o’zini qanday aniqlashi; ulagich va hisob ma’lumotlari Sozlamalar > E-hisob-faktura bo’limida saqlanadi.",
+        "electronicAddress": "Elektron manzil",
+        "electronicAddressHint": "Ushbu chiqaruvchining Peppol yoki EN 16931 identifikatori, sotuvchining elektron manzili sifatida chop etiladi.",
+        "electronicAddressScheme": "Elektron manzil sxemasi",
+        "electronicAddressSchemeNone": "Sxemasiz",
+        "einvoiceEnabled": "Bu profil uchun e-hisob-faktura yoqilgan",
+        "einvoiceEnabledHint": "Chiqarilgan hujjatlarida GST e-hisob-faktura JSON, Factur-X va UBL yuklab olish hamda IRN ro’yxatdan o’tkazishni taklif qiladi.",
         "defaultsTitle": "Standart qiymatlar",
         "baseCurrency": "Asosiy valyuta",
         "locale": "Hujjat lokali",
@@ -803,6 +812,45 @@
         "venueHint": "Masalan, “Bengalur, Karnataka sudlari”.",
         "submit": "Operator maʼlumotlarini saqlash"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-hisob-faktura",
+      "title": "E-hisob-faktura",
+      "description": "Chiqaruvchi profili bo’yicha: Hindiston e-hisob-fakturalarini qaysi ulagich ro’yxatdan o’tkazishi va Factur-X hamda UBL chiqishlari qaysi Yevropa profiliga amal qilishi. Hisob ma’lumotlari shifrlangan holda saqlanadi va qayta ko’rsatilmaydi.",
+      "noProfiles": "Avval chiqaruvchi profilini yarating.",
+      "profile": "Chiqaruvchi profili",
+      "enabled": "Yoqilgan",
+      "disabled": "O’chirilgan",
+      "enabledHint": "E-hisob-fakturani har bir profil uchun Sozlamalar > Profillar bo’limida yoqing yoki o’chiring.",
+      "india": {
+        "title": "Hindiston (GST e-hisob-faktura, IRN)",
+        "description": "IRN bu yerda tanlangan ulagich orqali ro’yxatdan o’tkaziladi; qo’lda ulagich portal javobini qo’lda qabul qiladi.",
+        "connector": "Ulagich",
+        "connectorNone": "O’chirilgan",
+        "connectorManual": "Qo’lda (IRP javobini joylashtiring)",
+        "connectorNic": "NIC IRP API (sandbox yoki production)",
+        "nicUnverified": "NIC ulagichi e’lon qilingan API’ga amal qiladi va faqat yozib olingan namunalarda sinovdan o’tgan; hisob ma’lumotlari kiritilmaguncha jonli sandbox’da tekshirilmagan.",
+        "env": "Muhit",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "Asosiy URL",
+        "baseUrlHint": "Muhitning standart qiymati uchun bo’sh qoldiring.",
+        "clientId": "Mijoz identifikatori",
+        "clientSecret": "Mijoz siri",
+        "username": "Foydalanuvchi nomi",
+        "password": "Parol",
+        "gstin": "GSTIN",
+        "secretStored": "Shifrlangan holda saqlanadi; saqlab qolish uchun bo’sh qoldiring.",
+        "secretEncrypted": "Shifrlangan holda saqlanadi."
+      },
+      "eu": {
+        "title": "Yevropa (Factur-X, UBL)",
+        "description": "Ushbu versiyada faqat EN 16931 profili mavjud; Factur-X va UBL yuklab olishlari undan foydalanadi.",
+        "profile": "Profil",
+        "profileNone": "O’chirilgan",
+        "en16931": "EN 16931"
+      },
+      "save": "E-hisob-faktura sozlamalarini saqlash"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Kutilayotgan TDS stavkasi (%)",
       "preferredLanguage": "Hujjat tili",
       "preferredLanguageFollow": "Chiqaruvchi profiliga amal qilish",
+      "buyerReference": "Xaridor havolasi",
+      "buyerReferenceHint": "Elektron hisob-fakturalarda xaridorning o’z havolasi sifatida chop etiladi (buyurtma yoki xarajat markazi raqami).",
+      "electronicAddress": "Elektron manzil",
+      "electronicAddressHint": "Bu mijoz elektron hisob-fakturalarni qabul qiladigan Peppol yoki EN 16931 identifikatori.",
+      "electronicAddressScheme": "Elektron manzil sxemasi",
+      "electronicAddressSchemeNone": "Sxemasiz",
       "notes": "Izohlar",
       "billingAddress": "Hisob-kitob manzili",
       "shippingAddress": "Yetkazib berish manzili",
@@ -2022,6 +2076,7 @@
     "templateReset": "Shablon ichki standartga qaytarildi",
     "templateImported": "Shablon import qilindi",
     "profileTemplateCleared": "Profil yana nusxa shablonidan foydalanadi",
-    "operatorSaved": "Operator maʼlumotlari saqlandi. Huquqiy sahifalar endi ularni koʻrsatadi."
+    "operatorSaved": "Operator maʼlumotlari saqlandi. Huquqiy sahifalar endi ularni koʻrsatadi.",
+    "einvoiceSettingsSaved": "E-hisob-faktura sozlamalari saqlandi"
   }
 }

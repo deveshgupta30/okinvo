@@ -130,6 +130,7 @@
       "users": "ユーザー",
       "data": "データ",
       "legal": "法的情報",
+      "einvoicing": "電子インボイス",
       "account": "アカウント",
       "appearance": "外観",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "IGST なしの輸出用",
         "lutFiscalYear": "LUT 会計年度",
         "lutFiscalYearHint": "例: 2026-27",
+        "einvoiceTitle": "電子インボイス",
+        "einvoiceDescription": "このプロフィールが電子インボイスで自身を示す方法です。コネクターと認証情報は「設定 > 電子インボイス」にあります。",
+        "electronicAddress": "電子アドレス",
+        "electronicAddressHint": "この発行者の Peppol または EN 16931 の識別子で、販売者の電子アドレスとして印字されます。",
+        "electronicAddressScheme": "電子アドレスのスキーム",
+        "electronicAddressSchemeNone": "スキームなし",
+        "einvoiceEnabled": "このプロフィールで電子インボイスを有効にする",
+        "einvoiceEnabledHint": "発行済みの書類で、GST 電子インボイス JSON、Factur-X、UBL のダウンロードと IRN の登録を利用できるようになります。",
         "defaultsTitle": "既定値",
         "baseCurrency": "基準通貨",
         "locale": "書類のロケール",
@@ -803,6 +812,45 @@
         "venueHint": "例:「カルナータカ州ベンガルールの裁判所」。",
         "submit": "運営者の情報を保存"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "電子インボイス",
+      "title": "電子インボイス",
+      "description": "発行者プロフィールごとに、インドの電子インボイスを登録するコネクターと、Factur-X および UBL の出力が従う欧州プロファイルを設定します。認証情報は暗号化して保存され、再表示されません。",
+      "noProfiles": "先に発行者プロフィールを作成してください。",
+      "profile": "発行者プロフィール",
+      "enabled": "有効",
+      "disabled": "無効",
+      "enabledHint": "電子インボイスの有効/無効は「設定 > プロフィール」でプロフィールごとに切り替えます。",
+      "india": {
+        "title": "インド(GST 電子インボイス、IRN)",
+        "description": "IRN はここで選択したコネクターを通じて登録されます。手動コネクターは、ポータルの応答を手動で受け取ります。",
+        "connector": "コネクター",
+        "connectorNone": "オフ",
+        "connectorManual": "手動(IRP の応答を貼り付け)",
+        "connectorNic": "NIC IRP API(サンドボックスまたは本番)",
+        "nicUnverified": "NIC コネクターは公開されている API に従い、記録済みのフィクスチャでのみテストされています。認証情報が提供されるまで、実際のサンドボックスでは未検証です。",
+        "env": "環境",
+        "sandbox": "サンドボックス",
+        "production": "本番",
+        "baseUrl": "ベース URL",
+        "baseUrlHint": "空欄の場合は、その環境の既定値が使われます。",
+        "clientId": "クライアント ID",
+        "clientSecret": "クライアントシークレット",
+        "username": "ユーザー名",
+        "password": "パスワード",
+        "gstin": "GSTIN",
+        "secretStored": "暗号化して保存されます。変更しない場合は空欄のままにしてください。",
+        "secretEncrypted": "保存時に暗号化されます。"
+      },
+      "eu": {
+        "title": "欧州(Factur-X、UBL)",
+        "description": "このバージョンでは EN 16931 が唯一のプロファイルで、Factur-X と UBL のダウンロードはこれを使用します。",
+        "profile": "プロファイル",
+        "profileNone": "オフ",
+        "en16931": "EN 16931"
+      },
+      "save": "電子インボイス設定を保存"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "予想 TDS 率 (%)",
       "preferredLanguage": "書類の言語",
       "preferredLanguageFollow": "発行者プロフィールに従う",
+      "buyerReference": "購入者参照番号",
+      "buyerReferenceHint": "購入者自身の参照番号(注文番号またはコストセンター番号)として電子インボイスに印字されます。",
+      "electronicAddress": "電子アドレス",
+      "electronicAddressHint": "この取引先が電子インボイスを受け取る際の Peppol または EN 16931 の識別子です。",
+      "electronicAddressScheme": "電子アドレスのスキーム",
+      "electronicAddressSchemeNone": "スキームなし",
       "notes": "備考",
       "billingAddress": "請求先住所",
       "shippingAddress": "配送先住所",
@@ -2022,6 +2076,7 @@
     "templateReset": "テンプレートを組み込みの既定に戻しました",
     "templateImported": "テンプレートをインポートしましたで",
     "profileTemplateCleared": "プロフィールはインスタンスのテンプレートに戻りました",
-    "operatorSaved": "運営者の情報を保存しましたで。法的ページに表示されますさかい、おおきに。"
+    "operatorSaved": "運営者の情報を保存しましたで。法的ページに表示されますさかい、おおきに。",
+    "einvoiceSettingsSaved": "電子インボイス設定を保存しましたで"
   }
 }

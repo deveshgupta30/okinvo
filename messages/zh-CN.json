@@ -130,6 +130,7 @@
       "users": "用户",
       "data": "数据",
       "legal": "法律",
+      "einvoicing": "电子发票",
       "account": "账户",
       "appearance": "外观",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "适用于免 IGST 的出口",
         "lutFiscalYear": "LUT 财政年度",
         "lutFiscalYearHint": "例如 2026-27",
+        "einvoiceTitle": "电子发票",
+        "einvoiceDescription": "此档案在电子发票中表明身份的方式;连接器和凭据位于“设置 > 电子发票”。",
+        "electronicAddress": "电子地址",
+        "electronicAddressHint": "该开具方的 Peppol 或 EN 16931 标识符,打印为卖方的电子地址。",
+        "electronicAddressScheme": "电子地址方案",
+        "electronicAddressSchemeNone": "无方案",
+        "einvoiceEnabled": "此档案启用电子发票",
+        "einvoiceEnabledHint": "在其已开具的文件上提供 GST 电子发票 JSON、Factur-X 和 UBL 下载,以及 IRN 注册。",
         "defaultsTitle": "默认值",
         "baseCurrency": "本位币",
         "locale": "文档区域设置",
@@ -803,6 +812,45 @@
         "venueHint": "例如“卡纳塔克邦班加罗尔法院”。",
         "submit": "保存运营者详细信息"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "电子发票",
+      "title": "电子发票",
+      "description": "按开具方档案设置:由哪个连接器注册印度电子发票,以及 Factur-X 和 UBL 输出遵循的欧洲档案。凭据加密存储,之后不再显示。",
+      "noProfiles": "请先创建开具方档案。",
+      "profile": "开具方档案",
+      "enabled": "已启用",
+      "disabled": "已停用",
+      "enabledHint": "请在“设置 > 开具方档案”中按档案开启或关闭电子发票。",
+      "india": {
+        "title": "印度(GST 电子发票、IRN)",
+        "description": "IRN 通过此处选择的连接器注册;手动连接器则手动录入门户的响应。",
+        "connector": "连接器",
+        "connectorNone": "关闭",
+        "connectorManual": "手动(粘贴 IRP 响应)",
+        "connectorNic": "NIC IRP API(沙盒或生产环境)",
+        "nicUnverified": "NIC 连接器遵循已发布的 API,仅使用录制的测试数据验证;在提供凭据之前,尚未针对真实沙盒验证。",
+        "env": "环境",
+        "sandbox": "沙盒",
+        "production": "生产环境",
+        "baseUrl": "基础 URL",
+        "baseUrlHint": "留空则使用该环境的默认值。",
+        "clientId": "客户端 ID",
+        "clientSecret": "客户端密钥",
+        "username": "用户名",
+        "password": "密码",
+        "gstin": "GSTIN",
+        "secretStored": "已加密存储;留空则保留现有内容。",
+        "secretEncrypted": "静态时已加密存储。"
+      },
+      "eu": {
+        "title": "欧洲(Factur-X、UBL)",
+        "description": "此版本仅支持 EN 16931 档案;Factur-X 和 UBL 下载均使用该档案。",
+        "profile": "档案",
+        "profileNone": "关闭",
+        "en16931": "EN 16931"
+      },
+      "save": "保存电子发票设置"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "预期 TDS 税率 (%)",
       "preferredLanguage": "文档语言",
       "preferredLanguageFollow": "跟随开票方资料",
+      "buyerReference": "买方参考编号",
+      "buyerReferenceHint": "作为买方自身的参考编号(订单或成本中心编号)打印在电子发票上。",
+      "electronicAddress": "电子地址",
+      "electronicAddressHint": "该客户接收电子发票所用的 Peppol 或 EN 16931 标识符。",
+      "electronicAddressScheme": "电子地址方案",
+      "electronicAddressSchemeNone": "无方案",
       "notes": "备注",
       "billingAddress": "账单地址",
       "shippingAddress": "送货地址",
@@ -2022,6 +2076,7 @@
     "templateReset": "模板已重置为内置默认",
     "templateImported": "模板已导入",
     "profileTemplateCleared": "档案已改回使用实例模板",
-    "operatorSaved": "运营者详细信息已保存。法律页面现在会显示这些内容。"
+    "operatorSaved": "运营者详细信息已保存。法律页面现在会显示这些内容。",
+    "einvoiceSettingsSaved": "电子发票设置已保存"
   }
 }

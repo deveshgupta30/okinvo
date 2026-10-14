@@ -252,6 +252,9 @@ model IssuerProfile {
   usTaxIdEnc             String?    // encrypted EIN/SSN
   lutNumber              String?
   lutFiscalYear          String?    // "2026-27"
+  electronicAddress       String?   // e-invoicing (spec §9e): Peppol electronic address
+  electronicAddressScheme String?   // its EAS code
+  einvoiceEnabled        Boolean    @default(false)
 
   baseCurrency           String     @default("INR") @db.VarChar(3)
   locale                 String     @default("en-IN") // document formatting only; "today" uses User.timezone
@@ -325,6 +328,9 @@ model Client {
   defaultTdsRate   Decimal?   @db.Decimal(5, 2)
   notes            String?
   preferredLocale  String?    // the language this client's documents print in (SPEC §4.10)
+  buyerReference   String?    // e-invoicing (spec §9e): the buyer's own reference
+  electronicAddress       String?  // Peppol electronic address
+  electronicAddressScheme String?  // its EAS code (src/lib/einvoice/eas.ts)
 
   archivedAt       DateTime?
   createdAt        DateTime   @default(now())
@@ -527,6 +533,7 @@ model Invoice {
   terms              String?
   displayConfig      Json           // DisplayConfigSchema
   documentLocale     String         @default("en-US") // the language the document prints in (SPEC §4.10)
+  einvoice           Json?          // EInvoiceStateSchema (spec §9e)
   templateSnapshot   Json?          // TemplateConfigSchema frozen at issue (§12.2)
 
   issuerSnapshot         Json?      // IssuerSnapshotSchema (incl. decrypted-for-print tax IDs the config allows)
@@ -658,6 +665,7 @@ model CreditNote {
   total             Decimal        @default(0) @db.Decimal(14, 2)
   displayConfig     Json
   documentLocale    String         @default("en-US") // copied from the invoice (SPEC §4.10)
+  einvoice          Json?          // EInvoiceStateSchema (spec §9e)
   templateSnapshot  Json?          // TemplateConfigSchema frozen at issue
   snapshot          Json?          // issuer + client + invoice header, frozen at issue
   verificationToken String         @unique // SHA-256 hex of the token in the verify URL

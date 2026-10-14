@@ -1,5 +1,6 @@
 import { z } from "zod";
-import { fDecimal, fEmailList, fInt, fOptional } from "@/lib/forms";
+import { EAS_CODES } from "@/lib/einvoice/eas";
+import { fBool, fDecimal, fEmailList, fInt, fOptional } from "@/lib/forms";
 import { hasFiscalYearToken, NumberFormatSchema } from "@/lib/numbering";
 import { AddressSchema, CountryCodeSchema } from "./address";
 import { CurrencySchema } from "./currency";
@@ -51,6 +52,10 @@ export const ProfileInputSchema = z
     usTaxId: short(20),
     lutNumber: short(40),
     lutFiscalYear: fOptional(z.string().regex(/^\d{4}(-\d{2})?$/, "e.g. 2026-27")),
+    /** E-invoicing (spec §9e): the issuer's Peppol electronic address and the per-profile switch. */
+    electronicAddress: short(100),
+    electronicAddressScheme: fOptional(z.enum(EAS_CODES, { error: "unknown scheme" })),
+    einvoiceEnabled: fBool.default(false),
     baseCurrency: CurrencySchema,
     locale: z.enum(LOCALES),
     fiscalYearStartMonth: fInt.pipe(z.number().min(1).max(12)),
@@ -85,6 +90,13 @@ export const ProfileInputSchema = z
     }
     if (v.lutNumber && !v.lutFiscalYear) {
       ctx.addIssue({ code: "custom", path: ["lutFiscalYear"], message: "required with an LUT" });
+    }
+    if (Boolean(v.electronicAddress) !== Boolean(v.electronicAddressScheme)) {
+      ctx.addIssue({
+        code: "custom",
+        path: [v.electronicAddress ? "electronicAddressScheme" : "electronicAddress"],
+        message: "the electronic address and its scheme go together",
+      });
     }
     // {YYYY}/{YY} change in January while the sequence resets at the fiscal-year start: unless
     // the two coincide, a calendar-year format can repeat a number (e.g. 2027-001 twice).

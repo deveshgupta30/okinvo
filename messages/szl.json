@@ -130,6 +130,7 @@
       "users": "Używacze",
       "data": "Dane",
       "legal": "Prawne",
+      "einvoicing": "E-fakturowanie",
       "account": "Kōnto",
       "appearance": "Wyglōnd",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Dlŏ eksportu bez IGST",
         "lutFiscalYear": "Rok finansowy LUT",
         "lutFiscalYearHint": "np. 2026-27",
+        "einvoiceTitle": "E-fakturowanie",
+        "einvoiceDescription": "Jak tyn profil sie ôzpoznowo w e-fakturach; kōnektor i dane dostympu sōm we Sztelōnki > E-fakturowanie.",
+        "electronicAddress": "Elektroniczny adres",
+        "electronicAddressHint": "Identyfikator Peppol abo EN 16931 tego wystawcy, drukowany jako elektroniczny adres sprzedowocy.",
+        "electronicAddressScheme": "Schymat elektronicznego adresu",
+        "electronicAddressSchemeNone": "Bez schymatu",
+        "einvoiceEnabled": "E-fakturowanie włōnczōne dlŏ tego profilu",
+        "einvoiceEnabledHint": "Dowo przi wystawionych dokumyntach pobiyranie e-faktury GST we JSON, Factur-X i UBL ôraz registracyjŏ IRN.",
         "defaultsTitle": "Wyjściowe",
         "baseCurrency": "Waluta bazowo",
         "locale": "Godka dokumyntōw",
@@ -803,6 +812,45 @@
         "venueHint": "Na przikład „sōndy w Bengaluru, Karnataka“.",
         "submit": "Spamiyntej dane ôperatora"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fakturowanie",
+      "title": "E-fakturowanie",
+      "description": "Dlŏ kŏżdego profilu wystawcy: kery kōnektor registruje indyjske e-faktury i kerego europejskigo profilu trzimajōm sie zbiory Factur-X i UBL. Dane dostympu sōm przechowywane zaszyfrowane i niy sōm pokazowane zaś.",
+      "noProfiles": "Naprzōd stworz profil wystawcy.",
+      "profile": "Profil wystawcy",
+      "enabled": "Włōnczōne",
+      "disabled": "Wyłōnczōne",
+      "enabledHint": "Włōncz abo wyłōncz e-fakturowanie dlŏ kŏżdego profilu we Sztelōnki > Profile.",
+      "india": {
+        "title": "Indyje (e-faktura GST, IRN)",
+        "description": "IRN je registrowany przez kōnektor wybrany tukej; ręczny kōnektor bierze ôdpowiydź portalu wpisanŏ ręcznie.",
+        "connector": "Kōnektor",
+        "connectorNone": "Wyłōnczōny",
+        "connectorManual": "Ręczny (wklej ôdpowiydź IRP)",
+        "connectorNic": "NIC IRP API (sandbox abo produkcyjŏ)",
+        "nicUnverified": "Kōnektor NIC trzimo sie ôpublikowanego API i je przetestowany yno na zapisanych danych; niy je zweryfikowany na prawdziwym sandboksie, aże dostanie dane dostympu.",
+        "env": "Ôtoczyniy",
+        "sandbox": "Sandbox",
+        "production": "Produkcyjŏ",
+        "baseUrl": "Bazowy URL",
+        "baseUrlHint": "Ôstow puste, coby użyć domyślnego dlŏ ôtoczyniŏ.",
+        "clientId": "Identyfikator klijynta",
+        "clientSecret": "Sekret klijynta",
+        "username": "Miano używŏcza",
+        "password": "Hasło",
+        "gstin": "GSTIN",
+        "secretStored": "Przechowywane zaszyfrowane; ôstow puste, coby ôstało.",
+        "secretEncrypted": "Przechowywane zaszyfrowane."
+      },
+      "eu": {
+        "title": "Eurōpa (Factur-X, UBL)",
+        "description": "EN 16931 je jedynym profilym w tyj wersyji; zbiory Factur-X i UBL go używajōm.",
+        "profile": "Profil",
+        "profileNone": "Wyłōnczōny",
+        "en16931": "EN 16931"
+      },
+      "save": "Spamiyntej sztelōnki e-fakturowaniŏ"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Spodziywano stawka TDS (%)",
       "preferredLanguage": "Gŏdka dokumyntu",
       "preferredLanguageFollow": "Trzymej sie profilu wystawcy",
+      "buyerReference": "Referyncyjŏ kupiyrza",
+      "buyerReferenceHint": "Drukowane w e-fakturach jako włŏsno referyncyjŏ kupiyrza (numer zamōwiynio abo placu kosztōw).",
+      "electronicAddress": "Elektroniczny adres",
+      "electronicAddressHint": "Identyfikator Peppol abo EN 16931, pod kerym tyn klijynt dostowo e-faktury.",
+      "electronicAddressScheme": "Schymat elektronicznego adresu",
+      "electronicAddressSchemeNone": "Bez schymatu",
       "notes": "Uwagi",
       "billingAddress": "Adres do faktury",
       "shippingAddress": "Adres dostawy",
@@ -2022,6 +2076,7 @@
     "templateReset": "Szablōn wrōcōny do wbudowanego wyjściowego",
     "templateImported": "Szablōn zaimportowany",
     "profileTemplateCleared": "Profil używo zaś szablōnu instancyji",
-    "operatorSaved": "Dane ôperatora spamiyntane. Zajty prawne teroz je pokazujōm."
+    "operatorSaved": "Dane ôperatora spamiyntane. Zajty prawne teroz je pokazujōm.",
+    "einvoiceSettingsSaved": "Sztelōnki e-fakturowaniŏ spamiyntane"
   }
 }

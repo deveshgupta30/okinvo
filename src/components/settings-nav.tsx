@@ -15,6 +15,7 @@ const ITEMS = [
   { href: "/settings/users", key: "users", minRole: "OWNER" },
   { href: "/settings/data", key: "data", minRole: "OWNER" },
   { href: "/settings/legal", key: "legal", minRole: "OWNER" },
+  { href: "/settings/einvoicing", key: "einvoicing", minRole: "OWNER" },
   { href: "/settings/account", key: "account", minRole: "VIEWER" },
   { href: "/settings/appearance", key: "appearance", minRole: "VIEWER" },
   { href: "/settings/api", key: "api", minRole: "VIEWER" },

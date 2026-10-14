@@ -57,3 +57,30 @@ test("Status: the database row is OK and the version is shown", async ({ page })
   expect(json.db.health).toBe("ok");
   expect(json.version.app).toMatch(/^\d+\.\d+\.\d+/);
 });
+
+test("E-invoicing: every profile gets a card and the manual connector saves", async ({ page }) => {
+  await signInAs(page, EMAIL, "Smoke Owner");
+  await page.goto("/settings/einvoicing");
+  await expect(page.getByRole("heading", { name: "E-invoicing", level: 1 })).toBeVisible();
+  const card = page
+    .locator("form")
+    .filter({ has: page.locator("#indiaConnector") })
+    .first();
+  await expect(card).toBeVisible();
+  await card.locator("#indiaConnector").selectOption("manual");
+  await card.locator("#euProfile").selectOption("EN16931");
+  await card.getByRole("button", { name: "Save e-invoicing settings" }).click();
+  await expect(card.getByText("E-invoicing settings saved")).toBeVisible();
+  await page.reload();
+  const again = page
+    .locator("form")
+    .filter({ has: page.locator("#indiaConnector") })
+    .first();
+  await expect(again.locator("#indiaConnector")).toHaveValue("manual");
+  await expect(again.locator("#euProfile")).toHaveValue("EN16931");
+  // leave the shared profile the way other runs expect it
+  await again.locator("#indiaConnector").selectOption("");
+  await again.locator("#euProfile").selectOption("");
+  await again.getByRole("button", { name: "Save e-invoicing settings" }).click();
+  await expect(again.getByText("E-invoicing settings saved")).toBeVisible();
+});

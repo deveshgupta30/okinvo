@@ -130,6 +130,7 @@
       "users": "Uživatelé",
       "data": "Data",
       "legal": "Právní informace",
+      "einvoicing": "E-faktura",
       "account": "Účet",
       "appearance": "Vzhled",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Pro export bez IGST",
         "lutFiscalYear": "Finanční rok LUT",
         "lutFiscalYearHint": "např. 2026-27",
+        "einvoiceTitle": "E-faktura",
+        "einvoiceDescription": "Jak se tento profil identifikuje na e-fakturách; konektor a přihlašovací údaje jsou v Nastavení > E-faktura.",
+        "electronicAddress": "Elektronická adresa",
+        "electronicAddressHint": "Identifikátor Peppol nebo EN 16931 tohoto vystavitele, tištěný jako elektronická adresa prodávajícího.",
+        "electronicAddressScheme": "Schéma elektronické adresy",
+        "electronicAddressSchemeNone": "Bez schématu",
+        "einvoiceEnabled": "E-faktura povolena pro tento profil",
+        "einvoiceEnabledHint": "Nabízí stahování GST e-invoice JSON, Factur-X a UBL a registraci IRN u vystavených dokladů tohoto profilu.",
         "defaultsTitle": "Výchozí hodnoty",
         "baseCurrency": "Základní měna",
         "locale": "Jazyk dokladů",
@@ -803,6 +812,45 @@
         "venueHint": "Například „soudy v Bengalúru, Karnátaka“.",
         "submit": "Uložit údaje o provozovateli"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-faktura",
+      "title": "E-faktura",
+      "description": "Podle profilu vystavitele: který konektor registruje indické e-faktury a kterým evropským profilem se řídí výstupy Factur-X a UBL. Přihlašovací údaje se ukládají zašifrované a nikdy se znovu nezobrazují.",
+      "noProfiles": "Nejprve vytvořte profil vystavitele.",
+      "profile": "Profil vystavitele",
+      "enabled": "Povoleno",
+      "disabled": "Zakázáno",
+      "enabledHint": "E-fakturu zapnete nebo vypnete pro každý profil v Nastavení > Profily.",
+      "india": {
+        "title": "Indie (GST e-faktura, IRN)",
+        "description": "IRN se registruje přes zde zvolený konektor; ruční konektor přebírá odpověď portálu ručně.",
+        "connector": "Konektor",
+        "connectorNone": "Vypnuto",
+        "connectorManual": "Ruční (vložte odpověď IRP)",
+        "connectorNic": "NIC IRP API (sandbox nebo production)",
+        "nicUnverified": "Konektor NIC sleduje zveřejněné API a byl testován pouze na zaznamenaných datech; dokud nejsou zadány přihlašovací údaje, není ověřen proti živému sandboxu.",
+        "env": "Prostředí",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "Základní URL",
+        "baseUrlHint": "Nechte prázdné pro výchozí hodnotu prostředí.",
+        "clientId": "ID klienta",
+        "clientSecret": "Tajný klíč klienta",
+        "username": "Uživatelské jméno",
+        "password": "Heslo",
+        "gstin": "GSTIN",
+        "secretStored": "Uloženo zašifrovaně; nechte prázdné pro ponechání.",
+        "secretEncrypted": "Uloženo zašifrovaně."
+      },
+      "eu": {
+        "title": "Evropa (Factur-X, UBL)",
+        "description": "EN 16931 je v této verzi jediný profil; používají ho stahování Factur-X a UBL.",
+        "profile": "Profil",
+        "profileNone": "Vypnuto",
+        "en16931": "EN 16931"
+      },
+      "save": "Uložit nastavení e-faktury"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Očekávaná sazba TDS (%)",
       "preferredLanguage": "Jazyk dokumentu",
       "preferredLanguageFollow": "Podle profilu vystavovatele",
+      "buyerReference": "Reference kupujícího",
+      "buyerReferenceHint": "Tiskne se na e-fakturách jako vlastní reference kupujícího (číslo objednávky nebo nákladového střediska).",
+      "electronicAddress": "Elektronická adresa",
+      "electronicAddressHint": "Identifikátor Peppol nebo EN 16931, pod kterým tento klient přijímá e-faktury.",
+      "electronicAddressScheme": "Schéma elektronické adresy",
+      "electronicAddressSchemeNone": "Bez schématu",
       "notes": "Poznámky",
       "billingAddress": "Fakturační adresa",
       "shippingAddress": "Dodací adresa",
@@ -2022,6 +2076,7 @@
     "templateReset": "Šablona obnovena na vestavěnou výchozí",
     "templateImported": "Šablona importována",
     "profileTemplateCleared": "Profil opět používá šablonu instance",
-    "operatorSaved": "Údaje o provozovateli uloženy. Právní stránky je nyní zobrazují."
+    "operatorSaved": "Údaje o provozovateli uloženy. Právní stránky je nyní zobrazují.",
+    "einvoiceSettingsSaved": "Nastavení e-faktury uloženo"
   }
 }

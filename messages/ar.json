@@ -130,6 +130,7 @@
       "users": "المستخدمون",
       "data": "البيانات",
       "legal": "القانونية",
+      "einvoicing": "الفواتير الإلكترونية",
       "account": "الحساب",
       "appearance": "المظهر",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "للصادرات بدون IGST",
         "lutFiscalYear": "السنة المالية لـ LUT",
         "lutFiscalYearHint": "مثال: 2026-27",
+        "einvoiceTitle": "الفواتير الإلكترونية",
+        "einvoiceDescription": "كيف يعرّف هذا الملف نفسه في الفواتير الإلكترونية؛ يوجد الموصّل وبيانات الاعتماد ضمن الإعدادات > الفواتير الإلكترونية.",
+        "electronicAddress": "العنوان الإلكتروني",
+        "electronicAddressHint": "معرّف Peppol أو EN 16931 لهذا المُصدِر، يُطبع بوصفه العنوان الإلكتروني للبائع.",
+        "electronicAddressScheme": "مخطط العنوان الإلكتروني",
+        "electronicAddressSchemeNone": "بلا مخطط",
+        "einvoiceEnabled": "الفواتير الإلكترونية مفعّلة لهذا الملف",
+        "einvoiceEnabledHint": "يتيح تنزيلات GST e-invoice JSON وFactur-X وUBL وتسجيل IRN على مستنداته الصادرة.",
         "defaultsTitle": "الإعدادات الافتراضية",
         "baseCurrency": "العملة الأساسية",
         "locale": "الإعداد المحلي للمستند",
@@ -803,6 +812,45 @@
         "venueHint": "على سبيل المثال «محاكم بنغالورو، كارناتاكا».",
         "submit": "حفظ تفاصيل المشغّل"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "الفواتير الإلكترونية",
+      "title": "الفواتير الإلكترونية",
+      "description": "لكل ملف مُصدِر: أي موصّل يسجّل الفواتير الإلكترونية الهندية، وأي ملف أوروبي تتبعه مخرجات Factur-X وUBL. تُخزَّن بيانات الاعتماد مشفرة ولا تُعرض مرة أخرى.",
+      "noProfiles": "أنشئ ملف مُصدِر أولاً.",
+      "profile": "ملف المُصدِر",
+      "enabled": "مفعّل",
+      "disabled": "معطّل",
+      "enabledHint": "فعّل الفواتير الإلكترونية أو عطّلها لكل ملف ضمن الإعدادات > الملفات الشخصية.",
+      "india": {
+        "title": "الهند (GST e-invoice, IRN)",
+        "description": "يُسجَّل IRN عبر الموصّل المختار هنا؛ ويستقبل الموصّل اليدوي استجابة البوابة المُدخلة يدوياً.",
+        "connector": "الموصّل",
+        "connectorNone": "متوقف",
+        "connectorManual": "يدوي (الصق استجابة IRP)",
+        "connectorNic": "NIC IRP API (sandbox أو production)",
+        "nicUnverified": "يتبع موصّل NIC واجهة API المنشورة ويُختبر على عينات مسجلة فقط؛ وهو غير مُتحقَّق منه على sandbox حقيقية إلى أن تُقدَّم بيانات الاعتماد.",
+        "env": "البيئة",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "عنوان URL الأساسي",
+        "baseUrlHint": "اتركه فارغاً لاستخدام الافتراضي للبيئة.",
+        "clientId": "معرّف العميل",
+        "clientSecret": "سر العميل",
+        "username": "اسم المستخدم",
+        "password": "كلمة المرور",
+        "gstin": "GSTIN",
+        "secretStored": "مخزّن مشفراً؛ اتركه فارغاً للإبقاء عليه.",
+        "secretEncrypted": "مخزّن مشفراً."
+      },
+      "eu": {
+        "title": "أوروبا (Factur-X, UBL)",
+        "description": "EN 16931 هو الملف الوحيد في هذا الإصدار؛ وتستخدمه تنزيلات Factur-X وUBL.",
+        "profile": "الملف",
+        "profileNone": "متوقف",
+        "en16931": "EN 16931"
+      },
+      "save": "حفظ إعدادات الفواتير الإلكترونية"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "معدل TDS المتوقع (%)",
       "preferredLanguage": "لغة المستند",
       "preferredLanguageFollow": "اتباع الملف التعريفي للمُصدر",
+      "buyerReference": "مرجع المشتري",
+      "buyerReferenceHint": "يُطبع في الفواتير الإلكترونية بوصفه المرجع الخاص بالمشتري (رقم طلب أو مركز تكلفة).",
+      "electronicAddress": "العنوان الإلكتروني",
+      "electronicAddressHint": "معرّف Peppol أو EN 16931 الذي يستلم هذا العميل الفواتير الإلكترونية بموجبه.",
+      "electronicAddressScheme": "مخطط العنوان الإلكتروني",
+      "electronicAddressSchemeNone": "بلا مخطط",
       "notes": "ملاحظات",
       "billingAddress": "عنوان الفوترة",
       "shippingAddress": "عنوان الشحن",
@@ -2022,6 +2076,7 @@
     "templateReset": "أُعيد ضبط القالب إلى الافتراضي المدمج",
     "templateImported": "تم استيراد القالب",
     "profileTemplateCleared": "يستخدم الملف قالب النسخة مجددًا",
-    "operatorSaved": "تم حفظ تفاصيل المشغّل. تعرضها الصفحات القانونية الآن."
+    "operatorSaved": "تم حفظ تفاصيل المشغّل. تعرضها الصفحات القانونية الآن.",
+    "einvoiceSettingsSaved": "تم حفظ إعدادات الفواتير الإلكترونية"
   }
 }

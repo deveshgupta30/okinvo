@@ -130,6 +130,7 @@
       "users": "Abakoresha",
       "data": "Amakuru",
       "legal": "Amategeko",
+      "einvoicing": "Fagitire za elegitoronike",
       "account": "Konti",
       "appearance": "Isura",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Ku byoherezwa hanze nta IGST",
         "lutFiscalYear": "Umwaka w’imari wa LUT",
         "lutFiscalYearHint": "urugero 2026-27",
+        "einvoiceTitle": "Fagitire za elegitoronike",
+        "einvoiceDescription": "Uko uyu mwirondoro wiyerekana muri fagitire za elegitoronike; umuhuza n’ibyangombwa byo kwinjira biri muri Igenamiterere > Fagitire za elegitoronike.",
+        "electronicAddress": "Aderesi ya elegitoronike",
+        "electronicAddressHint": "Indangamuntu ya Peppol cyangwa EN 16931 y’uyu utanga, icapwa nka aderesi ya elegitoronike y’ugurisha.",
+        "electronicAddressScheme": "Uburyo bwa aderesi ya elegitoronike",
+        "electronicAddressSchemeNone": "Nta buryo",
+        "einvoiceEnabled": "Fagitire za elegitoronike zafunguwe kuri uyu mwirondoro",
+        "einvoiceEnabledHint": "Itanga gukuramo fagitire ya elegitoronike ya GST muri JSON, Factur-X na UBL no kwandikisha IRN ku nyandiko zatanzwe zawo.",
         "defaultsTitle": "Ibisanzwe",
         "baseCurrency": "Ifaranga ry’ibanze",
         "locale": "Ururimi rw’inyandiko",
@@ -803,6 +812,45 @@
         "venueHint": "Urugero “inkiko z’i Kigali”.",
         "submit": "Bika amakuru y’ukoresha"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "Fagitire za elegitoronike",
+      "title": "Fagitire za elegitoronike",
+      "description": "Kuri buri mwirondoro w’utanga: umuhuza wandikisha fagitire za elegitoronike z’u Buhinde, n’umwirondoro w’u Burayi ukurikizwa n’ibisohoka bya Factur-X na UBL. Ibyangombwa byo kwinjira bibikwa byabitswe mu ibanga kandi ntibyongera kwerekanwa.",
+      "noProfiles": "Banza ushyireho umwirondoro w’utanga.",
+      "profile": "Umwirondoro w’utanga",
+      "enabled": "Byafunguwe",
+      "disabled": "Byafunzwe",
+      "enabledHint": "Fungura cyangwa funga fagitire za elegitoronike kuri buri mwirondoro muri Igenamiterere > Imirondoro.",
+      "india": {
+        "title": "U Buhinde (fagitire ya elegitoronike ya GST, IRN)",
+        "description": "IRN yandikwa binyuze ku muhuza watoranyijwe hano; umuhuza w’intoki yakira igisubizo cy’urubuga mu ntoki.",
+        "connector": "Umuhuza",
+        "connectorNone": "Bifunzwe",
+        "connectorManual": "Mu ntoki (shyiramo igisubizo cya IRP)",
+        "connectorNic": "NIC IRP API (sandbox cyangwa production)",
+        "nicUnverified": "Umuhuza wa NIC akurikiza API yasohotse kandi yageragejwe gusa ku makuru yafashwe; ntiyigeze isuzumwa kuri sandbox nyayo kugeza ibyangombwa byo kwinjira bitanzwe.",
+        "env": "Ibidukikije",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "URL y’ibanze",
+        "baseUrlHint": "Reka ubusa ku gisanzwe cy’ibidukikije.",
+        "clientId": "Id y’umukiriya",
+        "clientSecret": "Ibanga ry’umukiriya",
+        "username": "Izina ry’umukoresha",
+        "password": "Ijambobanga",
+        "gstin": "GSTIN",
+        "secretStored": "Cyabitswe mu ibanga; reka ubusa ngo kigumeho.",
+        "secretEncrypted": "Cyabitswe mu ibanga."
+      },
+      "eu": {
+        "title": "Uburayi (Factur-X, UBL)",
+        "description": "EN 16931 ni wo mwirondoro wonyine muri iyi verisiyo; gukuramo Factur-X na UBL biwukoresha.",
+        "profile": "Umwirondoro",
+        "profileNone": "Bifunzwe",
+        "en16931": "EN 16931"
+      },
+      "save": "Bika igenamiterere rya fagitire za elegitoronike"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Igipimo giteganyijwe cya TDS (%)",
       "preferredLanguage": "Ururimi rw’inyandiko",
       "preferredLanguageFollow": "Kurikiza profayili y’utanga inyemezabuguzi",
+      "buyerReference": "Icyitonderwa cy’ugura",
+      "buyerReferenceHint": "Icapwa kuri fagitire za elegitoronike nk’icyitonderwa bwite cy’ugura (nomero y’itumiza cyangwa y’ikigo cy’ibiciro).",
+      "electronicAddress": "Aderesi ya elegitoronike",
+      "electronicAddressHint": "Indangamuntu ya Peppol cyangwa EN 16931 uyu mukiriya yakiriraho fagitire za elegitoronike.",
+      "electronicAddressScheme": "Uburyo bwa aderesi ya elegitoronike",
+      "electronicAddressSchemeNone": "Nta buryo",
       "notes": "Inyandiko",
       "billingAddress": "Aderesi ya fagitire",
       "shippingAddress": "Aderesi yo kohereza",
@@ -2022,6 +2076,7 @@
     "templateReset": "Inyandikorugero yagaruwe ku isanzwe yubatswemo",
     "templateImported": "Inyandikorugero yinjijwe",
     "profileTemplateCleared": "Umwirondoro wongeye gukoresha inyandikorugero ya sisitemu",
-    "operatorSaved": "Amakuru y’ukoresha yabitswe. Impapuro z’amategeko ubu zirayerekana."
+    "operatorSaved": "Amakuru y’ukoresha yabitswe. Impapuro z’amategeko ubu zirayerekana.",
+    "einvoiceSettingsSaved": "Igenamiterere rya fagitire za elegitoronike ryabitswe"
   }
 }

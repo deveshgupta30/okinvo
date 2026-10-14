@@ -130,6 +130,7 @@
       "users": "Itilizatè",
       "data": "Done",
       "legal": "Legal",
+      "einvoicing": "Fakti elektwonik",
       "account": "Kont",
       "appearance": "Aparans",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Pou ekspòtasyon san IGST",
         "lutFiscalYear": "Ane finansye LUT",
         "lutFiscalYearHint": "egz. 2026-27",
+        "einvoiceTitle": "Fakti elektwonik",
+        "einvoiceDescription": "Ki jan pwofil sa a idantifye tèt li nan fakti elektwonik yo; konektè a ak idantifyan koneksyon yo nan Paramèt > Fakti elektwonik.",
+        "electronicAddress": "Adrès elektwonik",
+        "electronicAddressHint": "Idantifyan Peppol oswa EN 16931 emetè sa a, ki enprime kòm adrès elektwonik vandè a.",
+        "electronicAddressScheme": "Plan adrès elektwonik",
+        "electronicAddressSchemeNone": "Pa gen plan",
+        "einvoiceEnabled": "Fakti elektwonik aktive pou pwofil sa a",
+        "einvoiceEnabledHint": "Ofri telechajman JSON fakti elektwonik GST, Factur-X ak UBL ak anrejistreman IRN sou dokiman li yo ki emèt.",
         "defaultsTitle": "Valè pa defo",
         "baseCurrency": "Lajan de baz",
         "locale": "Lokal dokiman",
@@ -803,6 +812,45 @@
         "venueHint": "Pa egzanp “tribinal Bengaluru, Karnataka”.",
         "submit": "Anrejistre detay operatè a"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "Fakti elektwonik",
+      "title": "Fakti elektwonik",
+      "description": "Pou chak pwofil emetè: ki konektè ki anrejistre fakti elektwonik End yo, ak ki pwofil Ewopeyen sorti Factur-X ak UBL yo swiv. Idantifyan koneksyon yo estoke chifre epi yo pa janm montre ankò.",
+      "noProfiles": "Kreye yon pwofil emetè dabò.",
+      "profile": "Pwofil emetè",
+      "enabled": "Aktive",
+      "disabled": "Dezaktive",
+      "enabledHint": "Aktive oswa dezaktive fakti elektwonik pou chak pwofil nan Paramèt > Pwofil.",
+      "india": {
+        "title": "End (fakti elektwonik GST, IRN)",
+        "description": "IRN anrejistre atravè konektè ki chwazi isit la; konektè manyèl la resevwa repons pòtal la alamen.",
+        "connector": "Konektè",
+        "connectorNone": "Dezaktive",
+        "connectorManual": "Manyèl (kole repons IRP a)",
+        "connectorNic": "API NIC IRP (sandbox oswa pwodiksyon)",
+        "nicUnverified": "Konektè NIC a swiv API pibliye a epi li teste sèlman ak done anrejistre; li pa verifye sou yon vrè sandbox jiskaske yo bay idantifyan koneksyon.",
+        "env": "Anviwònman",
+        "sandbox": "Sandbox",
+        "production": "Pwodiksyon",
+        "baseUrl": "URL de baz",
+        "baseUrlHint": "Kite l vid pou valè pa default anviwònman an.",
+        "clientId": "Id kliyan",
+        "clientSecret": "Sekrè kliyan",
+        "username": "Non itilizatè",
+        "password": "Modpas",
+        "gstin": "GSTIN",
+        "secretStored": "Estoke chifre; kite l vid pou kenbe l.",
+        "secretEncrypted": "Estoke chifre."
+      },
+      "eu": {
+        "title": "Ewòp (Factur-X, UBL)",
+        "description": "EN 16931 se sèl pwofil nan vèsyon sa a; telechajman Factur-X ak UBL yo itilize l.",
+        "profile": "Pwofil",
+        "profileNone": "Dezaktive",
+        "en16931": "EN 16931"
+      },
+      "save": "Anrejistre paramèt fakti elektwonik"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "To TDS ki espere (%)",
       "preferredLanguage": "Lang dokiman an",
       "preferredLanguageFollow": "Swiv pwofil moun k ap bay la",
+      "buyerReference": "Referans achtè a",
+      "buyerReferenceHint": "Enprime nan fakti elektwonik yo kòm pwòp referans achtè a (yon nimewo kòmand oswa sant depans).",
+      "electronicAddress": "Adrès elektwonik",
+      "electronicAddressHint": "Idantifyan Peppol oswa EN 16931 kliyan sa a resevwa fakti elektwonik anba li.",
+      "electronicAddressScheme": "Plan adrès elektwonik",
+      "electronicAddressSchemeNone": "Pa gen plan",
       "notes": "Nòt",
       "billingAddress": "Adrès faktirasyon",
       "shippingAddress": "Adrès livrezon",
@@ -2022,6 +2076,7 @@
     "templateReset": "Modèl la reyinisyalize sou pa defo entegre a",
     "templateImported": "Modèl enpòte",
     "profileTemplateCleared": "Pwofil la itilize modèl enstans lan ankò",
-    "operatorSaved": "Detay operatè a anrejistre. Paj legal yo montre yo kounye a."
+    "operatorSaved": "Detay operatè a anrejistre. Paj legal yo montre yo kounye a.",
+    "einvoiceSettingsSaved": "Paramèt fakti elektwonik anrejistre"
   }
 }
