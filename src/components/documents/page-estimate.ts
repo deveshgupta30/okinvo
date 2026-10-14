@@ -8,7 +8,10 @@
 export const CONTINUATION_CHROME = 0.14;
 
 export function estimatePages(contentHeight: number, pageHeight: number): number {
-  if (!(pageHeight > 0) || !(contentHeight > pageHeight)) return 1;
-  const usable = pageHeight * (1 - CONTINUATION_CHROME);
-  return 1 + Math.ceil((contentHeight - pageHeight) / usable);
+  // scrollHeight is an integer while the page height is fractional (A4: 1122.52 px): a sheet
+  // that is exactly one page tall reports the next whole pixel, which is still one page
+  const page = Math.ceil(pageHeight);
+  if (!(page > 0) || !(contentHeight > page)) return 1;
+  const usable = page * (1 - CONTINUATION_CHROME);
+  return 1 + Math.ceil((contentHeight - page) / usable);
 }

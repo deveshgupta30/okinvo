@@ -1,7 +1,12 @@
 import path from "node:path";
 import { Font } from "@react-pdf/renderer";
 import { FONT_CATALOG } from "./fonts/catalog";
-import { FONT_FILES, SYMBOL_FILE } from "./fonts/registry.generated";
+import {
+  CJK_FONT_FILES,
+  FONT_FILES,
+  SCRIPT_FONT_FILES,
+  SYMBOL_FILE,
+} from "./fonts/registry.generated";
 import { SYMBOL_FAMILY } from "./templates/styles";
 
 const FONT_DIR = path.join(process.cwd(), "public", "fonts");
@@ -25,6 +30,17 @@ export function registerFonts(): void {
         fontStyle: x.style,
       })),
     });
+  }
+  // Script coverage (spec §9c): one Noto family per script, 400 and 700 of each subset face,
+  // and the CJK variable fonts at their default (regular) weight.
+  for (const [family, faces] of Object.entries(SCRIPT_FONT_FILES)) {
+    Font.register({
+      family,
+      fonts: faces.map((x) => ({ src: file(x.file), fontWeight: x.weight, fontStyle: x.style })),
+    });
+  }
+  for (const [family, f] of Object.entries(CJK_FONT_FILES)) {
+    Font.register({ family, src: file(f.file) });
   }
   // Currency symbols (₹ U+20B9 lives only in the latin-ext subsets).
   Font.register({ family: SYMBOL_FAMILY, src: file(SYMBOL_FILE) });

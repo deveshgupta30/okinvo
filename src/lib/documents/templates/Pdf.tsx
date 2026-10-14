@@ -4,7 +4,7 @@ import {
   Image,
   Page,
   StyleSheet,
-  Text,
+  Text as PlainText,
   View,
   type DocumentProps,
   type TextProps,
@@ -14,6 +14,7 @@ import type { TemplateConfig } from "@/lib/schemas";
 import { PROTECT_PERMISSIONS, type ProtectOptions } from "../protect";
 import { pageOf } from "../page-text";
 import type { DocumentViewModel, TotalsRow } from "../view-model";
+import { RunText as Text } from "./run-text";
 import { SYMBOL_FAMILY, splitCurrency, templateStyle, type TemplateStyle } from "./styles";
 
 export interface PdfImages {
@@ -38,13 +39,14 @@ function Money({ value, style }: { value: string; style?: TextProps["style"] }) 
   const { prefix, number, suffix } = splitCurrency(value);
   const needsSymbol = /[^\x00-\x7F]/.test(prefix + suffix);
   const styleProp = style ? { style } : {};
-  if (!needsSymbol) return <Text {...styleProp}>{value}</Text>;
+  // digits and symbols only: the plain primitive, no script runs to cut
+  if (!needsSymbol) return <PlainText {...styleProp}>{value}</PlainText>;
   return (
-    <Text {...styleProp}>
-      {prefix ? <Text style={{ fontFamily: SYMBOL_FAMILY }}>{prefix}</Text> : null}
+    <PlainText {...styleProp}>
+      {prefix ? <PlainText style={{ fontFamily: SYMBOL_FAMILY }}>{prefix}</PlainText> : null}
       {number}
-      {suffix ? <Text style={{ fontFamily: SYMBOL_FAMILY }}>{suffix}</Text> : null}
-    </Text>
+      {suffix ? <PlainText style={{ fontFamily: SYMBOL_FAMILY }}>{suffix}</PlainText> : null}
+    </PlainText>
   );
 }
 
@@ -59,12 +61,18 @@ function makeStyles(s: TemplateStyle) {
       paddingBottom: s.margin + 18,
       paddingHorizontal: s.margin,
       lineHeight: 1.35,
+      // RTL document language (spec §9c): text aligns right; numbers keep their own alignment
+      textAlign: s.rtl ? "right" : "left",
     },
     heading: { fontFamily: s.heading, fontWeight: 600 },
     muted: { color: s.muted },
     small: { fontSize: s.base - 1.5 },
     mono: { fontFamily: s.body },
-    header: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start" },
+    header: {
+      flexDirection: s.rtl ? "row-reverse" : "row",
+      justifyContent: "space-between",
+      alignItems: "flex-start",
+    },
     bandFill: {
       position: "absolute",
       top: 0,
@@ -128,7 +136,7 @@ function makeStyles(s: TemplateStyle) {
       borderColor: s.hairline,
     },
     th: {
-      flexDirection: "row",
+      flexDirection: s.rtl ? "row-reverse" : "row",
       backgroundColor: s.tinted ? s.tint : s.tableBorders ? "#f3f4f6" : "transparent",
       borderBottomWidth: 1,
       borderBottomColor: s.tableBorders ? s.hairline : s.accentRule ? s.accent : s.hairline,
@@ -139,7 +147,7 @@ function makeStyles(s: TemplateStyle) {
       fontWeight: 500,
     },
     tr: {
-      flexDirection: "row",
+      flexDirection: s.rtl ? "row-reverse" : "row",
       paddingVertical: pad + 1,
       paddingHorizontal: pad,
       borderBottomWidth: s.tableStyle === "plain" ? 0 : 0.5,
@@ -148,7 +156,11 @@ function makeStyles(s: TemplateStyle) {
     zebra: { backgroundColor: s.zebra },
     cell: { paddingRight: 4 },
     num: { textAlign: "right" },
-    totalsWrap: { flexDirection: "row", justifyContent: "flex-end", marginTop: 10 },
+    totalsWrap: {
+      flexDirection: "row",
+      justifyContent: s.rtl ? "flex-start" : "flex-end",
+      marginTop: 10,
+    },
     totals: {
       width: "46%",
       borderWidth: s.boxedTotals ? 1 : 0,
@@ -238,21 +250,25 @@ export function DocumentPdf({
   createdAt,
   protect,
 }: Props): ReactElement<DocumentProps> {
-  const s = templateStyle(config);
+  const s = templateStyle(config, vm.locale);
   const st = makeStyles(s);
   const w = widths(vm.columns);
+  // every string below prints through script runs bound to this document's language
+  const run = { base: s.body, locale: vm.locale };
   const docLabel = vm.kind === "CREDIT_NOTE" ? vm.labels.creditNote : vm.labels.invoice;
   const totalsRows = (rows: TotalsRow[]) =>
     rows.map((r) => (
       <View key={r.key} style={r.emphasis ? [st.totalRow, st.totalEmphasis] : st.totalRow}>
-        <Text>{r.label}</Text>
+        <Text run={run}>{r.label}</Text>
         <Money value={r.value} />
       </View>
     ));
   const qr = vm.qrDataUrl ? (
     <View style={{ alignItems: "center", width: 80 }}>
       <Image src={vm.qrDataUrl} style={st.qr} />
-      <Text style={[st.small, st.muted, { marginTop: 2 }]}>{vm.text.scanToVerify}</Text>
+      <Text run={run} style={[st.small, st.muted, { marginTop: 2 }]}>
+        {vm.text.scanToVerify}
+      </Text>
     </View>
   ) : null;
 
@@ -286,7 +302,7 @@ export function DocumentPdf({
     >
       <Page size={[s.paper.width, s.paper.height]} style={st.page}>
         {vm.watermark ? (
-          <Text fixed style={st.watermark}>
+          <Text run={run} fixed style={st.watermark}>
             {vm.watermark}
           </Text>
         ) : null}
@@ -306,18 +322,25 @@ export function DocumentPdf({
             >
               {logo}
               <View>
-                <Text style={[st.heading, { fontSize: s.base + 5, color: bandText }]}>
+                <Text run={run} style={[st.heading, { fontSize: s.base + 5, color: bandText }]}>
                   {vm.issuer.legalName}
                 </Text>
                 {vm.issuer.tradeName ? (
-                  <Text style={{ color: bandText, opacity: 0.8 }}>{vm.issuer.tradeName}</Text>
+                  <Text run={run} style={{ color: bandText, opacity: 0.8 }}>
+                    {vm.issuer.tradeName}
+                  </Text>
                 ) : null}
               </View>
             </View>
             <View style={{ alignItems: "flex-end" }}>
-              <Text style={[st.title, { color: bandText }]}>{vm.title}</Text>
+              <Text run={run} style={[st.title, { color: bandText }]}>
+                {vm.title}
+              </Text>
               {vm.number ? (
-                <Text style={[st.heading, { fontSize: s.base + 2, marginTop: 2, color: bandText }]}>
+                <Text
+                  run={run}
+                  style={[st.heading, { fontSize: s.base + 2, marginTop: 2, color: bandText }]}
+                >
                   {vm.number}
                 </Text>
               ) : null}
@@ -339,25 +362,41 @@ export function DocumentPdf({
             {inBand ? null : logo}
             <View>
               {inBand ? null : (
-                <Text style={[st.heading, { fontSize: s.base + 3 }]}>{vm.issuer.legalName}</Text>
+                <Text run={run} style={[st.heading, { fontSize: s.base + 3 }]}>
+                  {vm.issuer.legalName}
+                </Text>
               )}
               {vm.issuer.tradeName && !inBand ? (
-                <Text style={st.muted}>{vm.issuer.tradeName}</Text>
+                <Text run={run} style={st.muted}>
+                  {vm.issuer.tradeName}
+                </Text>
               ) : null}
               {vm.issuer.addressLines.map((l, i) => (
-                <Text key={i} style={st.muted}>
+                <Text run={run} key={i} style={st.muted}>
                   {l}
                 </Text>
               ))}
-              {vm.issuer.email ? <Text style={st.muted}>{vm.issuer.email}</Text> : null}
-              {vm.issuer.phone ? <Text style={st.muted}>{vm.issuer.phone}</Text> : null}
-              {vm.issuer.website ? <Text style={st.muted}>{vm.issuer.website}</Text> : null}
-              {vm.issuer.gstin ? <Text>GSTIN {vm.issuer.gstin}</Text> : null}
-              {vm.issuer.pan ? <Text>PAN {vm.issuer.pan}</Text> : null}
-              {vm.issuer.cin ? <Text>CIN {vm.issuer.cin}</Text> : null}
-              {vm.issuer.ukVatNumber ? <Text>VAT {vm.issuer.ukVatNumber}</Text> : null}
+              {vm.issuer.email ? (
+                <Text run={run} style={st.muted}>
+                  {vm.issuer.email}
+                </Text>
+              ) : null}
+              {vm.issuer.phone ? (
+                <Text run={run} style={st.muted}>
+                  {vm.issuer.phone}
+                </Text>
+              ) : null}
+              {vm.issuer.website ? (
+                <Text run={run} style={st.muted}>
+                  {vm.issuer.website}
+                </Text>
+              ) : null}
+              {vm.issuer.gstin ? <Text run={run}>GSTIN {vm.issuer.gstin}</Text> : null}
+              {vm.issuer.pan ? <Text run={run}>PAN {vm.issuer.pan}</Text> : null}
+              {vm.issuer.cin ? <Text run={run}>CIN {vm.issuer.cin}</Text> : null}
+              {vm.issuer.ukVatNumber ? <Text run={run}>VAT {vm.issuer.ukVatNumber}</Text> : null}
               {vm.issuer.lutNumber ? (
-                <Text>
+                <Text run={run}>
                   LUT {vm.issuer.lutNumber}
                   {vm.issuer.lutFiscalYear ? ` (${vm.issuer.lutFiscalYear})` : ""}
                 </Text>
@@ -365,64 +404,98 @@ export function DocumentPdf({
             </View>
           </View>
           <View style={{ alignItems: "flex-end" }}>
-            {inBand ? null : <Text style={st.title}>{vm.title}</Text>}
+            {inBand ? null : (
+              <Text run={run} style={st.title}>
+                {vm.title}
+              </Text>
+            )}
             {vm.number && !inBand ? (
-              <Text style={[st.heading, { fontSize: s.base + 2, marginTop: 2 }]}>{vm.number}</Text>
+              <Text run={run} style={[st.heading, { fontSize: s.base + 2, marginTop: 2 }]}>
+                {vm.number}
+              </Text>
             ) : null}
-            {vm.replaces ? <Text style={st.muted}>{vm.replaces}</Text> : null}
+            {vm.replaces ? (
+              <Text run={run} style={st.muted}>
+                {vm.replaces}
+              </Text>
+            ) : null}
             <View style={[st.meta, { justifyContent: "flex-end" }]}>
               <View>
-                <Text style={st.metaLabel}>{vm.labels.issueDate}</Text>
-                <Text>{vm.issueDate}</Text>
+                <Text run={run} style={st.metaLabel}>
+                  {vm.labels.issueDate}
+                </Text>
+                <Text run={run}>{vm.issueDate}</Text>
               </View>
               {vm.dueDate ? (
                 <View>
-                  <Text style={st.metaLabel}>{vm.labels.dueDate}</Text>
-                  <Text>{vm.dueDate}</Text>
+                  <Text run={run} style={st.metaLabel}>
+                    {vm.labels.dueDate}
+                  </Text>
+                  <Text run={run}>{vm.dueDate}</Text>
                 </View>
               ) : null}
               {vm.paymentTerms ? (
                 <View>
-                  <Text style={st.metaLabel}>{vm.labels.terms}</Text>
-                  <Text>{vm.paymentTerms}</Text>
+                  <Text run={run} style={st.metaLabel}>
+                    {vm.labels.terms}
+                  </Text>
+                  <Text run={run}>{vm.paymentTerms}</Text>
                 </View>
               ) : null}
             </View>
             {vm.poReference ? (
-              <Text style={[st.muted, { marginTop: 4 }]}>
+              <Text run={run} style={[st.muted, { marginTop: 4 }]}>
                 {vm.labels.poReference}: {vm.poReference}
               </Text>
             ) : null}
             {s.qrPosition === "header" ? <View style={{ marginTop: 6 }}>{qr}</View> : null}
           </View>
         </View>
-        {vm.headerNote ? <Text style={[st.muted, { marginTop: 6 }]}>{vm.headerNote}</Text> : null}
+        {vm.headerNote ? (
+          <Text run={run} style={[st.muted, { marginTop: 6 }]}>
+            {vm.headerNote}
+          </Text>
+        ) : null}
         <View style={st.headerRule} />
 
         {/* Parties */}
         <View style={st.parties}>
           <View style={st.party}>
-            <Text style={st.eyebrow}>{vm.labels.billTo}</Text>
-            <Text style={st.heading}>{vm.client.displayName}</Text>
-            {vm.client.contactPerson ? <Text>{vm.client.contactPerson}</Text> : null}
+            <Text run={run} style={st.eyebrow}>
+              {vm.labels.billTo}
+            </Text>
+            <Text run={run} style={st.heading}>
+              {vm.client.displayName}
+            </Text>
+            {vm.client.contactPerson ? <Text run={run}>{vm.client.contactPerson}</Text> : null}
             {vm.client.billingAddressLines.map((l, i) => (
-              <Text key={i} style={st.muted}>
+              <Text run={run} key={i} style={st.muted}>
                 {l}
               </Text>
             ))}
-            {vm.client.email ? <Text style={st.muted}>{vm.client.email}</Text> : null}
-            {vm.client.phone ? <Text style={st.muted}>{vm.client.phone}</Text> : null}
+            {vm.client.email ? (
+              <Text run={run} style={st.muted}>
+                {vm.client.email}
+              </Text>
+            ) : null}
+            {vm.client.phone ? (
+              <Text run={run} style={st.muted}>
+                {vm.client.phone}
+              </Text>
+            ) : null}
             {vm.client.taxId ? (
-              <Text>
+              <Text run={run}>
                 {vm.client.taxIdType ?? vm.text.taxId} {vm.client.taxId}
               </Text>
             ) : null}
           </View>
           {vm.client.shippingAddressLines?.length ? (
             <View style={st.party}>
-              <Text style={st.eyebrow}>{vm.labels.shipTo}</Text>
+              <Text run={run} style={st.eyebrow}>
+                {vm.labels.shipTo}
+              </Text>
               {vm.client.shippingAddressLines.map((l, i) => (
-                <Text key={i} style={st.muted}>
+                <Text run={run} key={i} style={st.muted}>
                   {l}
                 </Text>
               ))}
@@ -432,22 +505,26 @@ export function DocumentPdf({
             <View style={st.party}>
               {vm.placeOfSupply ? (
                 <>
-                  <Text style={st.eyebrow}>{vm.labels.placeOfSupply}</Text>
-                  <Text>{vm.placeOfSupply}</Text>
+                  <Text run={run} style={st.eyebrow}>
+                    {vm.labels.placeOfSupply}
+                  </Text>
+                  <Text run={run}>{vm.placeOfSupply}</Text>
                 </>
               ) : null}
               {vm.creditNote ? (
                 <View style={{ marginTop: vm.placeOfSupply ? 6 : 0 }}>
-                  <Text style={st.eyebrow}>
+                  <Text run={run} style={st.eyebrow}>
                     Against{" "}
                     {docLabel === vm.labels.creditNote
                       ? vm.labels.invoice.toLowerCase()
                       : "invoice"}
                   </Text>
-                  <Text>
+                  <Text run={run}>
                     {vm.creditNote.againstNumber} · {vm.creditNote.againstDate}
                   </Text>
-                  <Text style={[st.muted, { marginTop: 2 }]}>{vm.creditNote.reason}</Text>
+                  <Text run={run} style={[st.muted, { marginTop: 2 }]}>
+                    {vm.creditNote.reason}
+                  </Text>
                 </View>
               ) : null}
             </View>
@@ -458,24 +535,40 @@ export function DocumentPdf({
         {vm.items.length > 0 ? (
           <View style={st.table}>
             <View style={st.th} fixed>
-              <Text style={[st.cell, { width: w.pos }]}>#</Text>
-              <Text style={[st.cell, { width: w.desc }]}>{vm.labels.description}</Text>
+              <Text run={run} style={[st.cell, { width: w.pos }]}>
+                #
+              </Text>
+              <Text run={run} style={[st.cell, { width: w.desc }]}>
+                {vm.labels.description}
+              </Text>
               {vm.columns.sac ? (
-                <Text style={[st.cell, { width: w.sac }]}>{vm.labels.sacHsn}</Text>
+                <Text run={run} style={[st.cell, { width: w.sac }]}>
+                  {vm.labels.sacHsn}
+                </Text>
               ) : null}
               {vm.columns.qty ? (
-                <Text style={[st.cell, st.num, { width: w.qty }]}>{vm.labels.qty}</Text>
+                <Text run={run} style={[st.cell, st.num, { width: w.qty }]}>
+                  {vm.labels.qty}
+                </Text>
               ) : null}
               {vm.columns.qty ? (
-                <Text style={[st.cell, { width: w.unit }]}>{vm.labels.unit}</Text>
+                <Text run={run} style={[st.cell, { width: w.unit }]}>
+                  {vm.labels.unit}
+                </Text>
               ) : null}
               {vm.columns.rate ? (
-                <Text style={[st.cell, st.num, { width: w.rate }]}>{vm.labels.rate}</Text>
+                <Text run={run} style={[st.cell, st.num, { width: w.rate }]}>
+                  {vm.labels.rate}
+                </Text>
               ) : null}
               {vm.columns.tax ? (
-                <Text style={[st.cell, st.num, { width: w.tax }]}>{vm.labels.tax}</Text>
+                <Text run={run} style={[st.cell, st.num, { width: w.tax }]}>
+                  {vm.labels.tax}
+                </Text>
               ) : null}
-              <Text style={[st.cell, st.num, { width: w.amount }]}>{vm.labels.amount}</Text>
+              <Text run={run} style={[st.cell, st.num, { width: w.amount }]}>
+                {vm.labels.amount}
+              </Text>
             </View>
             {vm.items.map((it, idx) => (
               <View
@@ -483,29 +576,43 @@ export function DocumentPdf({
                 style={s.tableStyle === "zebra" && idx % 2 === 1 ? [st.tr, st.zebra] : st.tr}
                 wrap={false}
               >
-                <Text style={[st.cell, { width: w.pos }]}>{it.position}</Text>
-                <Text style={[st.cell, { width: w.desc }]}>
+                <Text run={run} style={[st.cell, { width: w.pos }]}>
+                  {it.position}
+                </Text>
+                <Text run={run} style={[st.cell, { width: w.desc }]}>
                   {it.sku ? `${it.description}\nSKU ${it.sku}` : it.description}
                 </Text>
                 {vm.columns.sac ? (
-                  <Text style={[st.cell, { width: w.sac }]}>{it.sacHsnCode ?? ""}</Text>
+                  <Text run={run} style={[st.cell, { width: w.sac }]}>
+                    {it.sacHsnCode ?? ""}
+                  </Text>
                 ) : null}
                 {vm.columns.qty ? (
-                  <Text style={[st.cell, st.num, { width: w.qty }]}>{it.qty}</Text>
+                  <Text run={run} style={[st.cell, st.num, { width: w.qty }]}>
+                    {it.qty}
+                  </Text>
                 ) : null}
                 {vm.columns.qty ? (
-                  <Text style={[st.cell, { width: w.unit }]}>{it.unit}</Text>
+                  <Text run={run} style={[st.cell, { width: w.unit }]}>
+                    {it.unit}
+                  </Text>
                 ) : null}
                 {vm.columns.rate ? (
-                  <Text style={[st.cell, st.num, { width: w.rate }]}>{it.rate}</Text>
+                  <Text run={run} style={[st.cell, st.num, { width: w.rate }]}>
+                    {it.rate}
+                  </Text>
                 ) : null}
                 {vm.columns.tax ? (
                   <View style={[st.cell, { width: w.tax }]}>
-                    <Text style={st.num}>{it.taxAmount}</Text>
-                    <Text style={[st.num, st.small, st.muted]}>{it.taxRate}</Text>
+                    <Text run={run} style={st.num}>
+                      {it.taxAmount}
+                    </Text>
+                    <Text run={run} style={[st.num, st.small, st.muted]}>
+                      {it.taxRate}
+                    </Text>
                   </View>
                 ) : null}
-                <Text style={[st.cell, st.num, { width: w.amount }]}>
+                <Text run={run} style={[st.cell, st.num, { width: w.amount }]}>
                   {vm.columns.tax ? it.lineSubtotal : it.lineTotal}
                 </Text>
               </View>
@@ -520,30 +627,46 @@ export function DocumentPdf({
             <View style={st.totals}>{totalsRows(vm.totals.rows)}</View>
           </View>
           {vm.totals.amountInWords && s.wordsPosition === "below-total" ? (
-            <Text style={st.words}>
-              <Text style={st.muted}>{vm.labels.amountInWords}: </Text>
+            <Text run={run} style={st.words}>
+              <Text run={run} style={st.muted}>
+                {vm.labels.amountInWords}:{" "}
+              </Text>
               {vm.totals.amountInWords}
             </Text>
           ) : null}
         </View>
-        {vm.supplyStatement ? <Text style={st.statement}>{vm.supplyStatement}</Text> : null}
+        {vm.supplyStatement ? (
+          <Text run={run} style={st.statement}>
+            {vm.supplyStatement}
+          </Text>
+        ) : null}
 
         {/* Payment details */}
         {vm.paymentMethods.length > 0 ? (
           <View style={st.section} minPresenceAhead={40}>
-            <Text style={st.sectionTitle}>{vm.labels.paymentDetails}</Text>
+            <Text run={run} style={st.sectionTitle}>
+              {vm.labels.paymentDetails}
+            </Text>
             <View style={{ flexDirection: "row", gap: 18, flexWrap: "wrap" }}>
               {vm.paymentMethods.map((m, i) => (
                 <View key={i} style={{ minWidth: "40%" }}>
-                  <Text style={{ fontWeight: 500 }}>{m.name}</Text>
+                  <Text run={run} style={{ fontWeight: 500 }}>
+                    {m.name}
+                  </Text>
                   {m.lines.map((l, j) => (
                     <View key={j} style={st.payLine}>
-                      {l.label ? <Text style={st.payLabel}>{l.label}</Text> : null}
-                      <Text>{l.value}</Text>
+                      {l.label ? (
+                        <Text run={run} style={st.payLabel}>
+                          {l.label}
+                        </Text>
+                      ) : null}
+                      <Text run={run}>{l.value}</Text>
                     </View>
                   ))}
                   {m.instructions ? (
-                    <Text style={[st.muted, st.small]}>{m.instructions}</Text>
+                    <Text run={run} style={[st.muted, st.small]}>
+                      {m.instructions}
+                    </Text>
                   ) : null}
                 </View>
               ))}
@@ -553,14 +676,20 @@ export function DocumentPdf({
 
         {vm.notes ? (
           <View style={st.section} minPresenceAhead={30}>
-            <Text style={st.sectionTitle}>{vm.labels.notes}</Text>
-            <Text>{vm.notes}</Text>
+            <Text run={run} style={st.sectionTitle}>
+              {vm.labels.notes}
+            </Text>
+            <Text run={run}>{vm.notes}</Text>
           </View>
         ) : null}
         {vm.terms ? (
           <View style={st.section} minPresenceAhead={30}>
-            <Text style={st.sectionTitle}>{vm.labels.terms}</Text>
-            <Text style={st.muted}>{vm.terms}</Text>
+            <Text run={run} style={st.sectionTitle}>
+              {vm.labels.terms}
+            </Text>
+            <Text run={run} style={st.muted}>
+              {vm.terms}
+            </Text>
           </View>
         ) : null}
 
@@ -569,13 +698,17 @@ export function DocumentPdf({
           <View style={{ flex: 1 }}>
             {s.qrPosition === "footer" ? qr : null}
             {vm.totals.amountInWords && s.wordsPosition === "footer" ? (
-              <Text style={st.words}>
-                <Text style={st.muted}>{vm.labels.amountInWords}: </Text>
+              <Text run={run} style={st.words}>
+                <Text run={run} style={st.muted}>
+                  {vm.labels.amountInWords}:{" "}
+                </Text>
                 {vm.totals.amountInWords}
               </Text>
             ) : null}
             {vm.footer ? (
-              <Text style={[st.muted, st.small, { marginTop: 6 }]}>{vm.footer}</Text>
+              <Text run={run} style={[st.muted, st.small, { marginTop: 6 }]}>
+                {vm.footer}
+              </Text>
             ) : null}
           </View>
           {vm.showSignature || vm.showStamp ? (
@@ -588,19 +721,24 @@ export function DocumentPdf({
                   <Image src={images.signature} style={{ height: 36, objectFit: "contain" }} />
                 ) : null}
               </View>
-              <Text style={{ fontWeight: 500, marginTop: 4 }}>{vm.issuer.legalName}</Text>
-              <Text style={[st.muted, st.small]}>{vm.signatureCaption}</Text>
+              <Text run={run} style={{ fontWeight: 500, marginTop: 4 }}>
+                {vm.issuer.legalName}
+              </Text>
+              <Text run={run} style={[st.muted, st.small]}>
+                {vm.signatureCaption}
+              </Text>
             </View>
           ) : null}
         </View>
 
         <View style={st.pageFooter} fixed>
-          <Text>
+          <Text run={run}>
             {vm.number ? `${docLabel} ${vm.number}` : vm.title}
             {vm.isVoid ? ` · ${vm.text.void}` : ""}
           </Text>
           {s.pageNumbers ? (
             <Text
+              run={run}
               render={({ pageNumber, totalPages }) =>
                 pageOf(vm.text.pageOf, pageNumber, totalPages)
               }

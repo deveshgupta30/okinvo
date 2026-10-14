@@ -104,14 +104,13 @@ export async function signInExisting(page: Page, email: string): Promise<void> {
 
 /** The onboarding wizard marks itself hydrated; controlled inputs ignore clicks before that. */
 /**
- * Creates an issuer profile, a client and a one-line invoice through the UI and issues it; returns
- * the invoice page URL. Specs about documents reuse this instead of repeating the flow.
+ * Creates an issuer profile and a client through the UI, both named after `stamp`, so a spec
+ * works on parties of its own rather than whatever the shared database's default profile is.
  */
-export async function issueSimpleInvoice(
+export async function createIssuerAndClient(
   page: Page,
   stamp: string,
-  o: { documentLocale?: string } = {},
-): Promise<string> {
+): Promise<{ profileLabel: string; clientName: string }> {
   const profileLabel = `${stamp} profile`;
   const clientName = `${stamp} client`;
   await page.goto("/settings/profiles/new");
@@ -131,7 +130,19 @@ export async function issueSimpleInvoice(
   await page.locator('[id="billingAddress.city"]').fill("Bengaluru");
   await page.getByRole("button", { name: "Save client" }).click();
   await expect(page.getByRole("heading", { name: clientName })).toBeVisible();
+  return { profileLabel, clientName };
+}
 
+/**
+ * Creates an issuer profile, a client and a one-line invoice through the UI and issues it; returns
+ * the invoice page URL. Specs about documents reuse this instead of repeating the flow.
+ */
+export async function issueSimpleInvoice(
+  page: Page,
+  stamp: string,
+  o: { documentLocale?: string } = {},
+): Promise<string> {
+  const { profileLabel, clientName } = await createIssuerAndClient(page, stamp);
   await page.goto("/invoices/new");
   await page.locator("#issuerProfileId").selectOption({ label: profileLabel });
   await page.locator("#clientId").selectOption({ label: clientName });

@@ -12,6 +12,12 @@ describe("estimatePages", () => {
     expect(estimatePages(1123, 1123)).toBe(1);
     expect(estimatePages(0, 1123)).toBe(1);
   });
+  it("treats a sheet rounded up to the next pixel as one page", () => {
+    // A4 is 1122.52 px at 96 dpi; browsers report scrollHeight as an integer, so an empty sheet
+    // whose min-height is the page height measures 1123 px
+    expect(estimatePages(1123, 1122.52)).toBe(1);
+    expect(estimatePages(1124, 1122.52)).toBe(2);
+  });
   it("adds a page for every further slice of usable height", () => {
     // 14% of the page is chrome on continuation pages → 965.78 px usable at A4 (1123 px)
     expect(estimatePages(1124, 1123)).toBe(2);

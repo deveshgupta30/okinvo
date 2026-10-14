@@ -17,7 +17,19 @@ export default defineConfig({
   expect: { timeout: 30_000 },
   use: { baseURL: origin, trace: "retain-on-failure" },
   projects: [
-    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+    {
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
+      testIgnore: /templates\.spec\.ts$/,
+    },
+    // The templates spec saves the instance template, which every live preview reads, so it
+    // runs on its own after the parallel specs instead of racing their page estimates.
+    {
+      name: "chromium-templates",
+      use: { ...devices["Desktop Chrome"] },
+      testMatch: /templates\.spec\.ts$/,
+      dependencies: ["chromium"],
+    },
     // Phone layout: the specs that assert the shell, the smoke checks and the mobile pass.
     {
       name: "mobile",
