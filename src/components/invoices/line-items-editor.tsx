@@ -159,7 +159,7 @@ export function LineItemsEditor({
       {/* Narrower than the columns need (a 1440 px laptop with the sidebar open), the table
           scrolls inside its card rather than squeezing the inputs to nothing. */}
       <div className="overflow-x-auto rounded-lg border border-hairline">
-        <table className="w-full min-w-[50rem] border-collapse text-app-table">
+        <table className="w-full min-w-[48rem] border-collapse text-app-table">
           <thead className="bg-surface-2 text-app-label text-ink-subtle">
             <tr>
               <th className="px-2 py-2 text-left font-medium">#</th>
@@ -227,7 +227,7 @@ export function LineItemsEditor({
                     onKeyDown={rowKeyDown(i)}
                   />
                 </td>
-                <td className="w-24 px-2 py-2">
+                <td className="w-20 px-2 py-2">
                   <Input
                     name={`items[${i}].quantity`}
                     aria-label={t("aria.quantity", { line: i + 1 })}
@@ -240,7 +240,7 @@ export function LineItemsEditor({
                     onKeyDown={rowKeyDown(i)}
                   />
                 </td>
-                <td className="w-28 px-2 py-2">
+                <td className="w-24 px-2 py-2">
                   <Select
                     name={`items[${i}].unitType`}
                     aria-label={t("aria.unit", { line: i + 1 })}

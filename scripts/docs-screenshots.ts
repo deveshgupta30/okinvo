@@ -78,6 +78,7 @@ async function newContext(
   browser: Browser,
   theme: Theme,
   mobile: boolean,
+  o: { sidebar?: "collapsed" } = {},
 ): Promise<BrowserContext> {
   const context = await browser.newContext({
     baseURL: ORIGIN,
@@ -92,6 +93,7 @@ async function newContext(
   await context.addCookies([
     { name: "okinvo.cookie-notice", value: "1", url: ORIGIN },
     { name: "okinvo.theme", value: theme, url: ORIGIN },
+    ...(o.sidebar ? [{ name: "okinvo.sidebar", value: o.sidebar, url: ORIGIN }] : []),
   ]);
   return context;
 }
@@ -132,10 +134,19 @@ async function desktop(browser: Browser, theme: Theme, ids: DemoIds): Promise<vo
     ["template-editor", `/settings/profiles/${ids.profileId}/template`],
   ];
   for (const [name, url] of simple) {
-    if (!wanted(name)) continue;
+    if (!wanted(name) || name === "builder") continue;
     await open(page, url);
-    if (name === "builder") await page.locator("[data-document-preview]").first().waitFor();
     await shoot(page, name, theme);
+  }
+  if (wanted("builder")) {
+    // shown with the sidebar collapsed: the line-item table then fits beside the preview
+    const narrow = await newContext(browser, theme, false, { sidebar: "collapsed" });
+    const editor = await narrow.newPage();
+    await signIn(editor, DEMO_EMAIL);
+    await open(editor, simple.find(([n]) => n === "builder")![1]);
+    await editor.locator("[data-document-preview]").first().waitFor();
+    await shoot(editor, "builder", theme);
+    await narrow.close();
   }
 
   if (wanted("share")) {

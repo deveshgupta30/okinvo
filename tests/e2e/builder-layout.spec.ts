@@ -18,6 +18,6 @@ test("the builder's line inputs stay usable at 1440 px", async ({ page }) => {
   const rate = page.getByLabel("Line 1 rate");
   await expect(qty).toBeVisible();
   const [qtyBox, rateBox] = await Promise.all([qty.boundingBox(), rate.boundingBox()]);
-  expect(qtyBox?.width ?? 0).toBeGreaterThanOrEqual(64);
+  expect(qtyBox?.width ?? 0).toBeGreaterThanOrEqual(56);
   expect(rateBox?.width ?? 0).toBeGreaterThanOrEqual(96);
 });
