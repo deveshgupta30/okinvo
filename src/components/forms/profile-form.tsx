@@ -11,10 +11,12 @@ import { FormMessage } from "@/components/forms/form-message";
 import { SubmitButton } from "@/components/submit-button";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { EAS } from "@/lib/einvoice/eas";
 import { PLACEHOLDER_HELP } from "@/lib/email/templates";
 import { COMMON_CURRENCIES, DEFAULT_DISPLAY_CONFIG, TAX_REGIMES } from "@/lib/schemas";
 import { LOCALES } from "@/lib/schemas/profile-input";
@@ -230,6 +232,57 @@ export function ProfileForm({
                 defaultValue={v("lutFiscalYear", profile?.lutFiscalYear)}
               />
             </Field>
+          </FieldGroup>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <div>
+            <CardTitle>{t("einvoiceTitle")}</CardTitle>
+            <CardDescription>{t("einvoiceDescription")}</CardDescription>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <FieldGroup>
+            <Field
+              label={t("electronicAddress")}
+              htmlFor="electronicAddress"
+              error={errors?.electronicAddress}
+              hint={t("electronicAddressHint")}
+            >
+              <Input
+                id="electronicAddress"
+                name="electronicAddress"
+                className="font-mono"
+                defaultValue={v("electronicAddress", profile?.electronicAddress)}
+              />
+            </Field>
+            <Field
+              label={t("electronicAddressScheme")}
+              htmlFor="electronicAddressScheme"
+              error={errors?.electronicAddressScheme}
+            >
+              <Select
+                id="electronicAddressScheme"
+                name="electronicAddressScheme"
+                defaultValue={v("electronicAddressScheme", profile?.electronicAddressScheme)}
+              >
+                <option value="">{t("electronicAddressSchemeNone")}</option>
+                {EAS.map((e) => (
+                  <option key={e.code} value={e.code}>
+                    {e.code} · {e.name}
+                  </option>
+                ))}
+              </Select>
+            </Field>
+            <Checkbox
+              id="einvoiceEnabled"
+              name="einvoiceEnabled"
+              label={t("einvoiceEnabled")}
+              description={t("einvoiceEnabledHint")}
+              defaultChecked={profile?.einvoiceEnabled ?? false}
+            />
           </FieldGroup>
         </CardContent>
       </Card>

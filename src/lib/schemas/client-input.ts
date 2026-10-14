@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { fDecimal, fInt, fOptional } from "@/lib/forms";
+import { EAS_CODES } from "@/lib/einvoice/eas";
 import { LANGUAGE_TAGS } from "@/lib/i18n/languages";
 import { AddressSchema, CountryCodeSchema } from "./address";
 import { CurrencySchema } from "./currency";
@@ -29,8 +30,19 @@ export const ClientInputSchema = z
     notes: fOptional(z.string().trim().max(2000)),
     /** The language this client's documents print in; empty follows the issuer profile. */
     preferredLocale: fOptional(z.enum(LANGUAGE_TAGS, { error: "unknown language" })),
+    /** E-invoicing (spec §9e): the buyer's own reference and its Peppol electronic address. */
+    buyerReference: short(80),
+    electronicAddress: short(100),
+    electronicAddressScheme: fOptional(z.enum(EAS_CODES, { error: "unknown scheme" })),
   })
   .superRefine((v, ctx) => {
+    if (Boolean(v.electronicAddress) !== Boolean(v.electronicAddressScheme)) {
+      ctx.addIssue({
+        code: "custom",
+        path: [v.electronicAddress ? "electronicAddressScheme" : "electronicAddress"],
+        message: "the electronic address and its scheme go together",
+      });
+    }
     if (v.taxIdType && !v.taxId) {
       ctx.addIssue({ code: "custom", path: ["taxId"], message: "required with a tax ID type" });
     }

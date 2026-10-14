@@ -130,6 +130,7 @@
       "users": "Utents",
       "data": "Dâts",
       "legal": "Leçs",
+      "einvoicing": "E-fatureazion",
       "account": "Account",
       "appearance": "Aspiet",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Par espuartazions cence IGST",
         "lutFiscalYear": "An finanziari LUT",
         "lutFiscalYearHint": "par es. 2026-27",
+        "einvoiceTitle": "E-fatureazion",
+        "einvoiceDescription": "Come che chest profîl si identifiche tes e-fatures; il conetôr e lis credenziâls a son in Impostazions > E-fatureazion.",
+        "electronicAddress": "Indirizi eletronic",
+        "electronicAddressHint": "L’identificatîf Peppol o EN 16931 di chest emitent, stampât come indirizi eletronic dal vendidôr.",
+        "electronicAddressScheme": "Schema dal indirizi eletronic",
+        "electronicAddressSchemeNone": "Nissun schema",
+        "einvoiceEnabled": "E-fatureazion ativade par chest profîl",
+        "einvoiceEnabledHint": "Al ufrìs i scjamaments de e-fature GST in JSON, di Factur-X e di UBL e la regjistrazion IRN sui siei documents emetûts.",
         "defaultsTitle": "Predefinîts",
         "baseCurrency": "Valude di base",
         "locale": "Locale dai documents",
@@ -803,6 +812,45 @@
         "venueHint": "Par esempli \"i tribunâi di Udin, Friûl\".",
         "submit": "Salve i detais dal operadôr"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fatureazion",
+      "title": "E-fatureazion",
+      "description": "Par profîl di emitent: ce conetôr al regjistre lis e-fatures indianis e ce profîl european a seguin i files Factur-X e UBL. Lis credenziâls a vegnin salvadis cifradis e no si viodin mai plui.",
+      "noProfiles": "Cree prime un profîl di emitent.",
+      "profile": "Profîl di emitent",
+      "enabled": "Ativât",
+      "disabled": "Disativât",
+      "enabledHint": "Ative o disative la e-fatureazion par profîl in Impostazions > Profîi.",
+      "india": {
+        "title": "Indie (e-fature GST, IRN)",
+        "description": "L’IRN al ven regjistrât midiant dal conetôr sielzût culì; il conetôr manuâl al cjape a man la rispueste dal portâl.",
+        "connector": "Conetôr",
+        "connectorNone": "Disativât",
+        "connectorManual": "Manuâl (incolle la rispueste IRP)",
+        "connectorNic": "API NIC IRP (sandbox o produzion)",
+        "nicUnverified": "Il conetôr NIC al segue la API publicade e al è provât dome cun fixtures regjistradis; nol è verificât cuintri une sandbox vive fintremai che no vegnin furnidis lis credenziâls.",
+        "env": "Ambient",
+        "sandbox": "Sandbox",
+        "production": "Produzion",
+        "baseUrl": "URL di base",
+        "baseUrlHint": "Lassile vueide pal valôr predefinît dal ambient.",
+        "clientId": "Id dal client",
+        "clientSecret": "Segret dal client",
+        "username": "Non utent",
+        "password": "Password",
+        "gstin": "GSTIN",
+        "secretStored": "Salvât cifrât; lassilu vueit par tignîlu.",
+        "secretEncrypted": "Salvât cifrât a ripôs."
+      },
+      "eu": {
+        "title": "Europe (Factur-X, UBL)",
+        "description": "EN 16931 al è l’unic profîl in cheste version; i scjamaments Factur-X e UBL lu doprin.",
+        "profile": "Profîl",
+        "profileNone": "Disativât",
+        "en16931": "EN 16931"
+      },
+      "save": "Salve lis impostazions de e-fatureazion"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Aliquote TDS spietade (%)",
       "preferredLanguage": "Lenghe dal document",
       "preferredLanguageFollow": "Cjapâ il profîl dal emitent",
+      "buyerReference": "Riferiment dal compradôr",
+      "buyerReferenceHint": "Stampât tes e-fatures come riferiment propri dal compradôr (un numar di ordin o di centri di cost).",
+      "electronicAddress": "Indirizi eletronic",
+      "electronicAddressHint": "L’identificatîf Peppol o EN 16931 cun cui chest client al ricêf lis e-fatures.",
+      "electronicAddressScheme": "Schema dal indirizi eletronic",
+      "electronicAddressSchemeNone": "Nissun schema",
       "notes": "Notis",
       "billingAddress": "Indirizi di fature",
       "shippingAddress": "Indirizi di spedizion",
@@ -2022,6 +2076,7 @@
     "templateReset": "Model ripristinât al predefinît integrât",
     "templateImported": "Model impuartât",
     "profileTemplateCleared": "Il profîl al dopre di gnûf il model de istance",
-    "operatorSaved": "Detais dal operadôr salvâts. Lis pagjinis leçâls ju mostrin cumò."
+    "operatorSaved": "Detais dal operadôr salvâts. Lis pagjinis leçâls ju mostrin cumò.",
+    "einvoiceSettingsSaved": "Impostazions de e-fatureazion salvadis"
   }
 }

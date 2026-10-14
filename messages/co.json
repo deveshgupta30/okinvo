@@ -130,6 +130,7 @@
       "users": "Utilizatori",
       "data": "Dati",
       "legal": "Infurmazioni legali",
+      "einvoicing": "E-fattura",
       "account": "Contu",
       "appearance": "Apparenza",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Per l’esportazioni senza IGST",
         "lutFiscalYear": "Annu fiscale LUT",
         "lutFiscalYearHint": "per ex. 2026-27",
+        "einvoiceTitle": "E-fattura",
+        "einvoiceDescription": "Cumu stu prufile s’identifica in l’e-fatture; u cunnettore è e credenziali sò in Paràmetri > E-fattura.",
+        "electronicAddress": "Indirizzu elettronicu",
+        "electronicAddressHint": "L’identificatore Peppol o EN 16931 di st’emittente, stampatu cum’è indirizzu elettronicu di u venditore.",
+        "electronicAddressScheme": "Schema di l’indirizzu elettronicu",
+        "electronicAddressSchemeNone": "Nisun schema",
+        "einvoiceEnabled": "E-fattura attivata per stu prufile",
+        "einvoiceEnabledHint": "Prupone i scaricamenti GST e-invoice JSON, Factur-X è UBL è a registrazione IRN nant’à i so documenti emessi.",
         "defaultsTitle": "Valori predefiniti",
         "baseCurrency": "Munita di basa",
         "locale": "Lingua di i ducumenti",
@@ -803,6 +812,45 @@
         "venueHint": "Per esempiu “i tribunali di Bengaluru, Karnataka”.",
         "submit": "Arregistrà i dettagli di l’operatore"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fattura",
+      "title": "E-fattura",
+      "description": "Per prufile d’emittente: quale cunnettore registra l’e-fatture indiane, è quale prufile auropeu seguitanu l’esciute Factur-X è UBL. E credenziali sò arregistrate cifrate è ùn so mai più mostre.",
+      "noProfiles": "Create prima un prufile d’emittente.",
+      "profile": "Prufile d’emittente",
+      "enabled": "Attivatu",
+      "disabled": "Disattivatu",
+      "enabledHint": "Attivate o disattivate l’e-fattura per prufile in Paràmetri > Prufili.",
+      "india": {
+        "title": "India (GST e-invoice, IRN)",
+        "description": "L’IRN hè arregistratu per mezu di u cunnettore sceltu quì; u cunnettore manuale piglia a risposta di u portale à manu.",
+        "connector": "Cunnettore",
+        "connectorNone": "Spentu",
+        "connectorManual": "Manuale (incollate a risposta IRP)",
+        "connectorNic": "NIC IRP API (sandbox o production)",
+        "nicUnverified": "U cunnettore NIC seguita l’API pubblicata è hè statu pruvatu solu nant’à dati arregistrati; ùn hè micca verificatu nant’à un sandbox veru finu à chì e credenziali sianu furnite.",
+        "env": "Ambiente",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "URL di basa",
+        "baseUrlHint": "Lasciate viotu per u valore predefinitu di l’ambiente.",
+        "clientId": "ID di u cliente",
+        "clientSecret": "Sicretu di u cliente",
+        "username": "Nome d’utilizatore",
+        "password": "Parolla d’ordine",
+        "gstin": "GSTIN",
+        "secretStored": "Arregistratu cifratu; lasciate viotu per cunservallu.",
+        "secretEncrypted": "Arregistratu cifratu."
+      },
+      "eu": {
+        "title": "Auropa (Factur-X, UBL)",
+        "description": "EN 16931 hè u solu prufile in sta versione; i scaricamenti Factur-X è UBL l’utilizanu.",
+        "profile": "Prufile",
+        "profileNone": "Spentu",
+        "en16931": "EN 16931"
+      },
+      "save": "Arregistrà i paràmetri di l’e-fattura"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Tassu TDS previstu (%)",
       "preferredLanguage": "Lingua di u documentu",
       "preferredLanguageFollow": "Seguità u prufile di l’emittente",
+      "buyerReference": "Riferimentu di u cumpratore",
+      "buyerReferenceHint": "Stampatu nant’à l’e-fatture cum’è riferimentu propiu di u cumpratore (un numeru d’ordine o di centru di costu).",
+      "electronicAddress": "Indirizzu elettronicu",
+      "electronicAddressHint": "L’identificatore Peppol o EN 16931 sottu à u quale stu cliente riceve l’e-fatture.",
+      "electronicAddressScheme": "Schema di l’indirizzu elettronicu",
+      "electronicAddressSchemeNone": "Nisun schema",
       "notes": "Note",
       "billingAddress": "Indirizzu di fatturazione",
       "shippingAddress": "Indirizzu di spedizione",
@@ -2022,6 +2076,7 @@
     "templateReset": "Mudellu ripristinatu à u predefinitu integratu",
     "templateImported": "Mudellu impurtatu",
     "profileTemplateCleared": "U prufile impiega torna u mudellu di l’istanza",
-    "operatorSaved": "Dettagli di l’operatore arregistrati. E pagine legali i mostranu avà."
+    "operatorSaved": "Dettagli di l’operatore arregistrati. E pagine legali i mostranu avà.",
+    "einvoiceSettingsSaved": "Paràmetri di l’e-fattura arregistrati"
   }
 }

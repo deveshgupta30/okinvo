@@ -130,6 +130,7 @@
       "users": "Uzantoj",
       "data": "Datumoj",
       "legal": "Jura",
+      "einvoicing": "E-fakturado",
       "account": "Konto",
       "appearance": "Aspekto",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Por eksportoj sen IGST",
         "lutFiscalYear": "LUT-financa jaro",
         "lutFiscalYearHint": "ekz. 2026-27",
+        "einvoiceTitle": "E-fakturado",
+        "einvoiceDescription": "Kiel ĉi tiu profilo identigas sin en e-fakturoj; la konektilo kaj la akreditaĵoj troviĝas en Agordoj > E-fakturado.",
+        "electronicAddress": "Elektronika adreso",
+        "electronicAddressHint": "La Peppol- aŭ EN 16931-identigilo de ĉi tiu eldonanto, presita kiel la elektronika adreso de la vendisto.",
+        "electronicAddressScheme": "Skemo de elektronika adreso",
+        "electronicAddressSchemeNone": "Neniu skemo",
+        "einvoiceEnabled": "E-fakturado ebligita por ĉi tiu profilo",
+        "einvoiceEnabledHint": "Proponas elŝutojn de GST e-faktura JSON, Factur-X kaj UBL kaj la registradon de IRN sur ĝiaj eldonitaj dokumentoj.",
         "defaultsTitle": "Implicitaj valoroj",
         "baseCurrency": "Baza valuto",
         "locale": "Lokaĵaro de dokumentoj",
@@ -803,6 +812,45 @@
         "venueHint": "Ekzemple “la tribunaloj de Bengaluro, Karnatako”.",
         "submit": "Konservi detalojn de funkciiganto"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fakturado",
+      "title": "E-fakturado",
+      "description": "Laŭ eldonanta profilo: kiu konektilo registras hindajn e-fakturojn, kaj kiun eŭropan profilon sekvas la eligoj Factur-X kaj UBL. Akreditaĵoj estas konservataj ĉifritaj kaj neniam plu montriĝas.",
+      "noProfiles": "Kreu unue eldonantan profilon.",
+      "profile": "Eldonanta profilo",
+      "enabled": "Ebligita",
+      "disabled": "Malebligita",
+      "enabledHint": "Ŝaltu aŭ malŝaltu e-fakturadon laŭ profilo en Agordoj > Profiloj.",
+      "india": {
+        "title": "Barato (GST e-faktura, IRN)",
+        "description": "La IRN estas registrata per la ĉi tie elektita konektilo; la mana konektilo akceptas la respondon de la portalo permane.",
+        "connector": "Konektilo",
+        "connectorNone": "Malŝaltita",
+        "connectorManual": "Mana (algluu la IRP-respondon)",
+        "connectorNic": "NIC IRP API (sandbox aŭ produktado)",
+        "nicUnverified": "La NIC-konektilo sekvas la publikigitan API-on kaj estas provita nur kun registritaj datumoj; ĝi ne estas kontrolita kontraŭ viva sandbox ĝis akreditaĵoj estos liveritaj.",
+        "env": "Medio",
+        "sandbox": "Sandbox",
+        "production": "Produktado",
+        "baseUrl": "Baza URL",
+        "baseUrlHint": "Lasu malplena por la defaŭlto de la medio.",
+        "clientId": "Klienta identigilo",
+        "clientSecret": "Klienta sekreto",
+        "username": "Uzantnomo",
+        "password": "Pasvorto",
+        "gstin": "GSTIN",
+        "secretStored": "Konservita ĉifrite; lasu malplena por konservi ĝin.",
+        "secretEncrypted": "Konservita ĉifrite en ripozo."
+      },
+      "eu": {
+        "title": "Eŭropo (Factur-X, UBL)",
+        "description": "EN 16931 estas la sola profilo en ĉi tiu versio; la elŝutoj Factur-X kaj UBL uzas ĝin.",
+        "profile": "Profilo",
+        "profileNone": "Malŝaltita",
+        "en16931": "EN 16931"
+      },
+      "save": "Konservi e-fakturadajn agordojn"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Atendata TDS-takso (%)",
       "preferredLanguage": "Lingvo de la dokumento",
       "preferredLanguageFollow": "Sekvi la profilon de la eldonanto",
+      "buyerReference": "Aĉetanta referenco",
+      "buyerReferenceHint": "Presita en e-fakturoj kiel la propra referenco de la aĉetanto (mendo- aŭ kostocentra numero).",
+      "electronicAddress": "Elektronika adreso",
+      "electronicAddressHint": "La Peppol- aŭ EN 16931-identigilo, sub kiu ĉi tiu kliento ricevas e-fakturojn.",
+      "electronicAddressScheme": "Skemo de elektronika adreso",
+      "electronicAddressSchemeNone": "Neniu skemo",
       "notes": "Notoj",
       "billingAddress": "Fakturada adreso",
       "shippingAddress": "Sendada adreso",
@@ -2022,6 +2076,7 @@
     "templateReset": "Ŝablono restarigita al la enkonstruita implicita",
     "templateImported": "Ŝablono importita",
     "profileTemplateCleared": "Profilo denove uzas la ŝablonon de la instanco",
-    "operatorSaved": "Detaloj de funkciiganto konservitaj. La juraj paĝoj nun montras ilin."
+    "operatorSaved": "Detaloj de funkciiganto konservitaj. La juraj paĝoj nun montras ilin.",
+    "einvoiceSettingsSaved": "E-fakturadaj agordoj konservitaj"
   }
 }

@@ -130,6 +130,7 @@
       "users": "Naudotojai",
       "data": "Duomenys",
       "legal": "Teisinė informacija",
+      "einvoicing": "E-sąskaitos",
       "account": "Paskyra",
       "appearance": "Išvaizda",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Eksportui be IGST",
         "lutFiscalYear": "LUT finansiniai metai",
         "lutFiscalYearHint": "pvz., 2026-27",
+        "einvoiceTitle": "E-sąskaitos",
+        "einvoiceDescription": "Kaip šis profilis identifikuoja save e-sąskaitose; jungtis ir prisijungimo duomenys yra skiltyje Nustatymai > E-sąskaitos.",
+        "electronicAddress": "Elektroninis adresas",
+        "electronicAddressHint": "Šio išrašytojo Peppol arba EN 16931 identifikatorius, spausdinamas kaip pardavėjo elektroninis adresas.",
+        "electronicAddressScheme": "Elektroninio adreso schema",
+        "electronicAddressSchemeNone": "Be schemos",
+        "einvoiceEnabled": "E-sąskaitos šiam profiliui įjungtos",
+        "einvoiceEnabledHint": "Išrašytiems dokumentams siūlo GST e-sąskaitos JSON, Factur-X ir UBL atsisiuntimus bei IRN registravimą.",
         "defaultsTitle": "Numatytosios reikšmės",
         "baseCurrency": "Bazinė valiuta",
         "locale": "Dokumentų lokalė",
@@ -803,6 +812,45 @@
         "venueHint": "Pavyzdžiui, \"Vilniaus teismai\".",
         "submit": "Išsaugoti valdytojo duomenis"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-sąskaitos",
+      "title": "E-sąskaitos",
+      "description": "Kiekvienam išrašytojo profiliui: kuri jungtis registruoja Indijos e-sąskaitas ir kurio Europos profilio laikosi Factur-X bei UBL išvestys. Prisijungimo duomenys saugomi užšifruoti ir daugiau nerodomi.",
+      "noProfiles": "Pirmiausia sukurkite išrašytojo profilį.",
+      "profile": "Išrašytojo profilis",
+      "enabled": "Įjungta",
+      "disabled": "Išjungta",
+      "enabledHint": "Įjunkite arba išjunkite e-sąskaitas kiekvienam profiliui skiltyje Nustatymai > Profiliai.",
+      "india": {
+        "title": "Indija (GST e-sąskaita, IRN)",
+        "description": "IRN registruojamas per čia pasirinktą jungtį; rankinė jungtis portalo atsakymą gauna ranka.",
+        "connector": "Jungtis",
+        "connectorNone": "Išjungta",
+        "connectorManual": "Rankinė (įklijuokite IRP atsakymą)",
+        "connectorNic": "NIC IRP API (smėlio dėžė arba gamyba)",
+        "nicUnverified": "NIC jungtis seka paskelbtą API ir išbandyta tik su įrašytais duomenimis; ji nepatikrinta tikroje smėlio dėžėje, kol nepateikti prisijungimo duomenys.",
+        "env": "Aplinka",
+        "sandbox": "Smėlio dėžė",
+        "production": "Gamyba",
+        "baseUrl": "Bazinis URL",
+        "baseUrlHint": "Palikite tuščią, kad būtų naudojama numatytoji aplinkos reikšmė.",
+        "clientId": "Kliento ID",
+        "clientSecret": "Kliento paslaptis",
+        "username": "Naudotojo vardas",
+        "password": "Slaptažodis",
+        "gstin": "GSTIN",
+        "secretStored": "Saugoma užšifruota; palikite tuščią, kad išliktų.",
+        "secretEncrypted": "Saugoma užšifruota."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 yra vienintelis šios versijos profilis; Factur-X ir UBL atsisiuntimai jį naudoja.",
+        "profile": "Profilis",
+        "profileNone": "Išjungta",
+        "en16931": "EN 16931"
+      },
+      "save": "Išsaugoti e-sąskaitų nustatymus"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Numatomas TDS tarifas (%)",
       "preferredLanguage": "Dokumento kalba",
       "preferredLanguageFollow": "Naudoti išrašytojo profilį",
+      "buyerReference": "Pirkėjo nuoroda",
+      "buyerReferenceHint": "Spausdinama e-sąskaitose kaip paties pirkėjo nuoroda (užsakymo arba išlaidų centro numeris).",
+      "electronicAddress": "Elektroninis adresas",
+      "electronicAddressHint": "Peppol arba EN 16931 identifikatorius, kuriuo šis klientas gauna e-sąskaitas.",
+      "electronicAddressScheme": "Elektroninio adreso schema",
+      "electronicAddressSchemeNone": "Be schemos",
       "notes": "Pastabos",
       "billingAddress": "Atsiskaitymo adresas",
       "shippingAddress": "Pristatymo adresas",
@@ -2022,6 +2076,7 @@
     "templateReset": "Šablonas atkurtas į integruotąjį numatytąjį",
     "templateImported": "Šablonas importuotas",
     "profileTemplateCleared": "Profilis vėl naudoja egzemplioriaus šabloną",
-    "operatorSaved": "Valdytojo duomenys išsaugoti. Teisiniai puslapiai juos dabar rodo."
+    "operatorSaved": "Valdytojo duomenys išsaugoti. Teisiniai puslapiai juos dabar rodo.",
+    "einvoiceSettingsSaved": "E-sąskaitų nustatymai išsaugoti"
   }
 }

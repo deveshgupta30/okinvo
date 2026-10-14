@@ -130,6 +130,7 @@
       "users": "Lietotāji",
       "data": "Dati",
       "legal": "Juridiskā informācija",
+      "einvoicing": "E-rēķini",
       "account": "Konts",
       "appearance": "Izskats",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Eksportam bez IGST",
         "lutFiscalYear": "LUT finanšu gads",
         "lutFiscalYearHint": "piem., 2026-27",
+        "einvoiceTitle": "E-rēķini",
+        "einvoiceDescription": "Kā šis profils sevi identificē e-rēķinos; savienotājs un akreditācijas dati ir sadaļā Iestatījumi > E-rēķini.",
+        "electronicAddress": "Elektroniskā adrese",
+        "electronicAddressHint": "Šī izrakstītāja Peppol vai EN 16931 identifikators, kas tiek drukāts kā pārdevēja elektroniskā adrese.",
+        "electronicAddressScheme": "Elektroniskās adreses shēma",
+        "electronicAddressSchemeNone": "Nav shēmas",
+        "einvoiceEnabled": "E-rēķini šim profilam ir iespējoti",
+        "einvoiceEnabledHint": "Izsniegtajiem dokumentiem piedāvā GST e-rēķina JSON, Factur-X un UBL lejupielādes un IRN reģistrāciju.",
         "defaultsTitle": "Noklusējumi",
         "baseCurrency": "Bāzes valūta",
         "locale": "Dokumentu lokalizācija",
@@ -803,6 +812,45 @@
         "venueHint": "Piemēram, \"Rīgas tiesas\".",
         "submit": "Saglabāt uzturētāja datus"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-rēķini",
+      "title": "E-rēķini",
+      "description": "Katram izrakstītāja profilam: kurš savienotājs reģistrē Indijas e-rēķinus un kuru Eiropas profilu izmanto Factur-X un UBL izvades. Akreditācijas dati tiek glabāti šifrēti un vairs netiek rādīti.",
+      "noProfiles": "Vispirms izveidojiet izrakstītāja profilu.",
+      "profile": "Izrakstītāja profils",
+      "enabled": "Iespējots",
+      "disabled": "Atspējots",
+      "enabledHint": "Ieslēdziet vai izslēdziet e-rēķinus katram profilam sadaļā Iestatījumi > Profili.",
+      "india": {
+        "title": "Indija (GST e-rēķins, IRN)",
+        "description": "IRN tiek reģistrēts ar šeit izvēlēto savienotāju; manuālais savienotājs portāla atbildi saņem ar roku.",
+        "connector": "Savienotājs",
+        "connectorNone": "Izslēgts",
+        "connectorManual": "Manuāli (ielīmējiet IRP atbildi)",
+        "connectorNic": "NIC IRP API (smilškaste vai ražošana)",
+        "nicUnverified": "NIC savienotājs seko publicētajam API un ir pārbaudīts tikai ar ierakstītiem datiem; tas nav pārbaudīts reālā smilškastē, kamēr nav norādīti akreditācijas dati.",
+        "env": "Vide",
+        "sandbox": "Smilškaste",
+        "production": "Ražošana",
+        "baseUrl": "Pamata URL",
+        "baseUrlHint": "Atstājiet tukšu, lai izmantotu vides noklusējumu.",
+        "clientId": "Klienta ID",
+        "clientSecret": "Klienta noslēpums",
+        "username": "Lietotājvārds",
+        "password": "Parole",
+        "gstin": "GSTIN",
+        "secretStored": "Glabāts šifrēts; atstājiet tukšu, lai paturētu.",
+        "secretEncrypted": "Glabāts šifrēts."
+      },
+      "eu": {
+        "title": "Eiropa (Factur-X, UBL)",
+        "description": "EN 16931 ir vienīgais profils šajā versijā; Factur-X un UBL lejupielādes to izmanto.",
+        "profile": "Profils",
+        "profileNone": "Izslēgts",
+        "en16931": "EN 16931"
+      },
+      "save": "Saglabāt e-rēķinu iestatījumus"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Paredzamā TDS likme (%)",
       "preferredLanguage": "Dokumenta valoda",
       "preferredLanguageFollow": "Izmantot izsniedzēja profilu",
+      "buyerReference": "Pircēja atsauce",
+      "buyerReferenceHint": "E-rēķinos tiek drukāta kā paša pircēja atsauce (pasūtījuma vai izmaksu centra numurs).",
+      "electronicAddress": "Elektroniskā adrese",
+      "electronicAddressHint": "Peppol vai EN 16931 identifikators, ar kuru šis klients saņem e-rēķinus.",
+      "electronicAddressScheme": "Elektroniskās adreses shēma",
+      "electronicAddressSchemeNone": "Nav shēmas",
       "notes": "Piezīmes",
       "billingAddress": "Norēķinu adrese",
       "shippingAddress": "Piegādes adrese",
@@ -2022,6 +2076,7 @@
     "templateReset": "Veidne atiestatīta uz iebūvēto noklusējumu",
     "templateImported": "Veidne importēta",
     "profileTemplateCleared": "Profils atkal izmanto instances veidni",
-    "operatorSaved": "Uzturētāja dati saglabāti. Juridiskās lapas tagad tos rāda."
+    "operatorSaved": "Uzturētāja dati saglabāti. Juridiskās lapas tagad tos rāda.",
+    "einvoiceSettingsSaved": "E-rēķinu iestatījumi saglabāti"
   }
 }

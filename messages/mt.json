@@ -130,6 +130,7 @@
       "users": "Utenti",
       "data": "Dejta",
       "legal": "Legali",
+      "einvoicing": "E-fatturar",
       "account": "Kont",
       "appearance": "Dehra",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Għal esportazzjonijiet mingħajr IGST",
         "lutFiscalYear": "Sena finanzjarja LUT",
         "lutFiscalYearHint": "eż. 2026-27",
+        "einvoiceTitle": "E-fatturar",
+        "einvoiceDescription": "Kif dan il-profil jidentifika lilu nnifsu fl-e-fatturi; il-konnettur u l-kredenzjali jinsabu f’Issettjar > E-fatturar.",
+        "electronicAddress": "Indirizz elettroniku",
+        "electronicAddressHint": "L-identifikatur Peppol jew EN 16931 ta’ dan il-ħarrieġ, stampat bħala l-indirizz elettroniku tal-bejjiegħ.",
+        "electronicAddressScheme": "Skema tal-indirizz elettroniku",
+        "electronicAddressSchemeNone": "L-ebda skema",
+        "einvoiceEnabled": "E-fatturar attivat għal dan il-profil",
+        "einvoiceEnabledHint": "Joffri t-tniżżil tal-JSON tal-e-fattura GST, Factur-X u UBL u r-reġistrazzjoni tal-IRN fuq id-dokumenti maħruġa tiegħu.",
         "defaultsTitle": "Valuri default",
         "baseCurrency": "Munita bażi",
         "locale": "Lokal tad-dokumenti",
@@ -803,6 +812,45 @@
         "venueHint": "Pereżempju \"il-qrati ta’ Bengaluru, Karnataka\".",
         "submit": "Ssejvja d-dettalji tal-operatur"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fatturar",
+      "title": "E-fatturar",
+      "description": "Għal kull profil tal-ħruġ: liema konnettur jirreġistra l-e-fatturi Indjani, u liema profil Ewropew isegwu l-outputs Factur-X u UBL. Il-kredenzjali jinħażnu kriptati u ma jintwerewx aktar.",
+      "noProfiles": "Oħloq profil tal-ħruġ l-ewwel.",
+      "profile": "Profil tal-ħruġ",
+      "enabled": "Attivat",
+      "disabled": "Diżattivat",
+      "enabledHint": "Attiva jew itfi l-e-fatturar għal kull profil f’Issettjar > Profili.",
+      "india": {
+        "title": "l-Indja (e-fattura GST, IRN)",
+        "description": "L-IRN jiġi rreġistrat permezz tal-konnettur magħżul hawnhekk; il-konnettur manwali jieħu r-risposta tal-portal bl-idejn.",
+        "connector": "Konnettur",
+        "connectorNone": "Mitfi",
+        "connectorManual": "Manwali (waħħal ir-risposta tal-IRP)",
+        "connectorNic": "API NIC IRP (sandbox jew produzzjoni)",
+        "nicUnverified": "Il-konnettur NIC isegwi l-API ppubblikata u ġie ttestjat biss b’fixtures irreġistrati; mhux ivverifikat fuq sandbox ħaj sakemm jiġu pprovduti l-kredenzjali.",
+        "env": "Ambjent",
+        "sandbox": "Sandbox",
+        "production": "Produzzjoni",
+        "baseUrl": "URL bażi",
+        "baseUrlHint": "Ħallih vojt għad-default tal-ambjent.",
+        "clientId": "Id tal-klijent",
+        "clientSecret": "Sigriet tal-klijent",
+        "username": "Isem l-utent",
+        "password": "Password",
+        "gstin": "GSTIN",
+        "secretStored": "Maħżun kriptat; ħallih vojt biex iżżommu.",
+        "secretEncrypted": "Maħżun kriptat."
+      },
+      "eu": {
+        "title": "Ewropa (Factur-X, UBL)",
+        "description": "EN 16931 huwa l-unika profil f’din il-verżjoni; it-tniżżil ta’ Factur-X u UBL jużah.",
+        "profile": "Profil",
+        "profileNone": "Mitfi",
+        "en16931": "EN 16931"
+      },
+      "save": "Issejvja l-issettjar tal-e-fatturar"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Rata mistennija tat-TDS (%)",
       "preferredLanguage": "Lingwa tad-dokument",
       "preferredLanguageFollow": "Segwi l-profil tal-hriġ",
+      "buyerReference": "Referenza tax-xerrej",
+      "buyerReferenceHint": "Stampata fl-e-fatturi bħala r-referenza proprja tax-xerrej (numru ta’ ordni jew ta’ ċentru tal-ispiża).",
+      "electronicAddress": "Indirizz elettroniku",
+      "electronicAddressHint": "L-identifikatur Peppol jew EN 16931 li bih dan il-klijent jirċievi e-fatturi.",
+      "electronicAddressScheme": "Skema tal-indirizz elettroniku",
+      "electronicAddressSchemeNone": "L-ebda skema",
       "notes": "Noti",
       "billingAddress": "Indirizz tal-fatturar",
       "shippingAddress": "Indirizz tal-konsenja",
@@ -2022,6 +2076,7 @@
     "templateReset": "Mudell irrisettjat għad-default integrat",
     "templateImported": "Mudell importat",
     "profileTemplateCleared": "Il-profil juża l-mudell tal-istanza mill-ġdid",
-    "operatorSaved": "Dettalji tal-operatur issejvjati. Il-paġni legali issa juruhom."
+    "operatorSaved": "Dettalji tal-operatur issejvjati. Il-paġni legali issa juruhom.",
+    "einvoiceSettingsSaved": "Issettjar tal-e-fatturar issejvjat"
   }
 }

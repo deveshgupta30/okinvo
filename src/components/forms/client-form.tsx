@@ -14,6 +14,7 @@ import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { EAS } from "@/lib/einvoice/eas";
 import { LANGUAGES } from "@/lib/i18n/languages";
 import { COMMON_CURRENCIES, TAX_ID_TYPES } from "@/lib/schemas";
 import { saveClient } from "@/server/actions/clients";
@@ -125,6 +126,49 @@ export function ClientForm({ client }: { client: ClientDto | null }) {
                 {LANGUAGES.map((l) => (
                   <option key={l.tag} value={l.tag} lang={l.tag}>
                     {l.name}
+                  </option>
+                ))}
+              </Select>
+            </Field>
+            <Field
+              label={t("buyerReference")}
+              htmlFor="buyerReference"
+              error={errors?.buyerReference}
+              hint={t("buyerReferenceHint")}
+            >
+              <Input
+                id="buyerReference"
+                name="buyerReference"
+                defaultValue={v("buyerReference", client?.buyerReference)}
+              />
+            </Field>
+            <Field
+              label={t("electronicAddress")}
+              htmlFor="electronicAddress"
+              error={errors?.electronicAddress}
+              hint={t("electronicAddressHint")}
+            >
+              <Input
+                id="electronicAddress"
+                name="electronicAddress"
+                className="font-mono"
+                defaultValue={v("electronicAddress", client?.electronicAddress)}
+              />
+            </Field>
+            <Field
+              label={t("electronicAddressScheme")}
+              htmlFor="electronicAddressScheme"
+              error={errors?.electronicAddressScheme}
+            >
+              <Select
+                id="electronicAddressScheme"
+                name="electronicAddressScheme"
+                defaultValue={v("electronicAddressScheme", client?.electronicAddressScheme)}
+              >
+                <option value="">{t("electronicAddressSchemeNone")}</option>
+                {EAS.map((e) => (
+                  <option key={e.code} value={e.code}>
+                    {e.code} · {e.name}
                   </option>
                 ))}
               </Select>

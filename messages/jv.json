@@ -130,6 +130,7 @@
       "users": "Pangguna",
       "data": "Data",
       "legal": "Hukum",
+      "einvoicing": "E-faktur",
       "account": "Akun",
       "appearance": "Tampilan",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Kanggo ekspor tanpa IGST",
         "lutFiscalYear": "Taun finansial LUT",
         "lutFiscalYearHint": "contone 2026-27",
+        "einvoiceTitle": "E-faktur",
+        "einvoiceDescription": "Carane profil iki ngenali awake dhewe ing e-faktur; konektor lan kredensial ana ing Setelan > E-faktur.",
+        "electronicAddress": "Alamat elektronik",
+        "electronicAddressHint": "Pangenal Peppol utawa EN 16931 saka penerbit iki, dicithak minangka alamat elektronik penjual.",
+        "electronicAddressScheme": "Skema alamat elektronik",
+        "electronicAddressSchemeNone": "Tanpa skema",
+        "einvoiceEnabled": "E-faktur diaktifake kanggo profil iki",
+        "einvoiceEnabledHint": "Nyedhiyakake undhuhan GST e-invoice JSON, Factur-X lan UBL sarta pendaftaran IRN ing dokumen sing diterbitake.",
         "defaultsTitle": "Standar",
         "baseCurrency": "Mata uang dhasar",
         "locale": "Lokal dokumen",
@@ -803,6 +812,45 @@
         "venueHint": "Contone \"pengadilan Bengaluru, Karnataka\".",
         "submit": "Simpen rincian operator"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-faktur",
+      "title": "E-faktur",
+      "description": "Saben profil penerbit: konektor endi sing ndaftarake e-faktur India, lan profil Eropa endi sing dituruti output Factur-X lan UBL. Kredensial disimpen kaenkripsi lan ora bakal ditampilake maneh.",
+      "noProfiles": "Gawe profil penerbit dhisik.",
+      "profile": "Profil penerbit",
+      "enabled": "Aktif",
+      "disabled": "Nonaktif",
+      "enabledHint": "Aktifake utawa pateni e-faktur saben profil ing Setelan > Profil.",
+      "india": {
+        "title": "India (GST e-invoice, IRN)",
+        "description": "IRN didaftarake liwat konektor sing dipilih ing kene; konektor manual nampa wangsulan portal kanthi manual.",
+        "connector": "Konektor",
+        "connectorNone": "Mati",
+        "connectorManual": "Manual (tempelake wangsulan IRP)",
+        "connectorNic": "NIC IRP API (sandbox utawa production)",
+        "nicUnverified": "Konektor NIC nuruti API sing diterbitake lan mung dites nganggo data rekaman; durung diverifikasi nganggo sandbox nyata nganti kredensial diwenehake.",
+        "env": "Lingkungan",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "URL dasar",
+        "baseUrlHint": "Kosongake kanggo nilai bawaan lingkungan.",
+        "clientId": "ID klien",
+        "clientSecret": "Rahasia klien",
+        "username": "Jeneng panganggo",
+        "password": "Tembung sandhi",
+        "gstin": "GSTIN",
+        "secretStored": "Disimpen kaenkripsi; kosongake kanggo njaga.",
+        "secretEncrypted": "Disimpen kaenkripsi."
+      },
+      "eu": {
+        "title": "Eropa (Factur-X, UBL)",
+        "description": "EN 16931 mung profil ing versi iki; undhuhan Factur-X lan UBL nggunakake.",
+        "profile": "Profil",
+        "profileNone": "Mati",
+        "en16931": "EN 16931"
+      },
+      "save": "Simpen setelan e-faktur"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Tarif TDS sing dikarepake (%)",
       "preferredLanguage": "Basa dokumen",
       "preferredLanguageFollow": "Tututi profil penerbit",
+      "buyerReference": "Referensi panuku",
+      "buyerReferenceHint": "Dicithak ing e-faktur minangka referensi darbeke panuku dhewe (nomer pesenan utawa pusat biaya).",
+      "electronicAddress": "Alamat elektronik",
+      "electronicAddressHint": "Pangenal Peppol utawa EN 16931 sing digunakake klien iki kanggo nampa e-faktur.",
+      "electronicAddressScheme": "Skema alamat elektronik",
+      "electronicAddressSchemeNone": "Tanpa skema",
       "notes": "Cathetan",
       "billingAddress": "Alamat penagihan",
       "shippingAddress": "Alamat pangiriman",
@@ -2022,6 +2076,7 @@
     "templateReset": "Cithakan direset menyang standar bawaan",
     "templateImported": "Cithakan diimpor",
     "profileTemplateCleared": "Profil nganggo cithakan instans maneh",
-    "operatorSaved": "Rincian operator disimpen. Kaca hukum saiki nuduhake iki."
+    "operatorSaved": "Rincian operator disimpen. Kaca hukum saiki nuduhake iki.",
+    "einvoiceSettingsSaved": "Setelan e-faktur disimpen"
   }
 }

@@ -130,6 +130,7 @@
       "users": "Puruhára",
       "data": "Dato",
       "legal": "Léi",
+      "einvoicing": "E-facturación",
       "account": "Cuenta",
       "appearance": "Hechaukaha",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Ñemoherakuã IGST’upe",
         "lutFiscalYear": "LUT ary fiscal",
         "lutFiscalYearHint": "ejemplo 2026-27",
+        "einvoiceTitle": "E-facturación",
+        "einvoiceDescription": "Mba’éichapa ko perfil ojekuaauka e-factúrape; conector ha credenciales oĩ Ñemboheko > E-facturación-pe.",
+        "electronicAddress": "Dirección electrónica",
+        "electronicAddressHint": "Peppol térã EN 16931 ñemoñe’ẽ ko emisor-pe guarã, oñemboguatáva vendedor dirección electrónica ramo.",
+        "electronicAddressScheme": "Dirección electrónica esquema",
+        "electronicAddressSchemeNone": "Esquema ỹre",
+        "einvoiceEnabled": "E-facturación oñemyendy ko perfil-pe guarã",
+        "einvoiceEnabledHint": "Ome’ẽ GST e-factúra JSON, Factur-X ha UBL ñemboguejy ha IRN ñemoĩ umi documento emitido-pe.",
         "defaultsTitle": "Jepivegua",
         "baseCurrency": "Togue ypykue",
         "locale": "Documento ñe’ẽ",
@@ -803,6 +812,45 @@
         "venueHint": "Ejemplo \"Bengaluru, Karnataka tribunal\".",
         "submit": "Ñongatu operador mba’e"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-facturación",
+      "title": "E-facturación",
+      "description": "Emisor perfil rupi: mba’e conector ñemoĩ India e-factúra ha mba’e perfil europeo ohupyty Factur-X ha UBL. Credenciales oñeñongatu cifrado ha ndojekuaa jey.",
+      "noProfiles": "Emoheñói raẽ peteĩ emisor perfil.",
+      "profile": "Emisor perfil",
+      "enabled": "Oñemyendy",
+      "disabled": "Ndoñemyendýi",
+      "enabledHint": "Emyendy térã emopa e-facturación perfil rupi Ñemboheko > Perfil-pe.",
+      "india": {
+        "title": "India (GST e-factúra, IRN)",
+        "description": "IRN oñemoĩ ko’ápe poravopyre conector rupi; manual conector ohupyty portal ñembohovái po rupi.",
+        "connector": "Conector",
+        "connectorNone": "Ojepe’a",
+        "connectorManual": "Manual (emoĩ IRP ñembohovái)",
+        "connectorNic": "NIC IRP API (sandbox térã producción)",
+        "nicUnverified": "NIC conector oiko API ñemoherakuãva rapykuére ha oñeha’ã añoite grabado fixture-pe; ndojehechaukapy sandbox añeteguápe oñeme’ẽ peve credenciales.",
+        "env": "Ambiente",
+        "sandbox": "Sandbox",
+        "production": "Producción",
+        "baseUrl": "URL base",
+        "baseUrlHint": "Ejapo ñuhã ambiente por defecto-pe guarã.",
+        "clientId": "Cliente id",
+        "clientSecret": "Cliente secreto",
+        "username": "Puruhára téra",
+        "password": "Ñe’ẽñemi",
+        "gstin": "GSTIN",
+        "secretStored": "Oñeñongatu cifrado; eheja ñuhã eguereko hag̃ua.",
+        "secretEncrypted": "Oñeñongatu cifrado."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 ha’e peteĩ añoite perfil ko versión-pe; Factur-X ha UBL ñemboguejy oiporu.",
+        "profile": "Perfil",
+        "profileNone": "Ojepe’a",
+        "en16931": "EN 16931"
+      },
+      "save": "Eñongatu e-facturación ñemboheko"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "TDS tasa ojeha’arõva (%)",
       "preferredLanguage": "Ñe’ẽ kuatiañe’ẽgua",
       "preferredLanguageFollow": "Ñemoirũ perfil omoherakuãvape",
+      "buyerReference": "Comprador referencia",
+      "buyerReferenceHint": "Oñemboguatáva e-factúrape comprador referencia ypykuépe (peteĩ pedido térã centro de costo papapy).",
+      "electronicAddress": "Dirección electrónica",
+      "electronicAddressHint": "Peppol térã EN 16931 ñemoñe’ẽ ko cliente ohupytýva e-factúra.",
+      "electronicAddressScheme": "Dirección electrónica esquema",
+      "electronicAddressSchemeNone": "Esquema ỹre",
       "notes": "Nota",
       "billingAddress": "Factura dirección",
       "shippingAddress": "Ñemondo dirección",
@@ -2022,6 +2076,7 @@
     "templateReset": "Plantilla ojevy jepivegua ñemoĩva-pe",
     "templateImported": "Plantilla oñemoĩ",
     "profileTemplateCleared": "Perfil ojepuru jey instancia plantilla",
-    "operatorSaved": "Operador mba’e oñeñongatu. Léi kuatiarogue ohechauka ko’ágã."
+    "operatorSaved": "Operador mba’e oñeñongatu. Léi kuatiarogue ohechauka ko’ágã.",
+    "einvoiceSettingsSaved": "E-facturación ñemboheko oñeñongatu"
   }
 }

@@ -5,7 +5,8 @@ import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { diffForAudit } from "./audit-redact";
 
-export type SettingKey = "documentTemplate" | "smtp" | "emailDefaults" | "legalOperator";
+export type SettingKey =
+  "documentTemplate" | "smtp" | "emailDefaults" | "legalOperator" | "einvoice";
 
 /** Typed read of an AppSetting row; null when unset or when the stored value no longer parses. */
 export async function getSetting<T>(

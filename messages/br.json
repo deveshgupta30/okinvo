@@ -130,6 +130,7 @@
       "users": "Implijerien",
       "data": "Roadennoù",
       "legal": "Lezennel",
+      "einvoicing": "E-fakturenn",
       "account": "Kont",
       "appearance": "Neuz",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Evit ar ezporzhiadoù hep IGST",
         "lutFiscalYear": "Bloavezh arc’hant LUT",
         "lutFiscalYearHint": "da skouer 2026-27",
+        "einvoiceTitle": "E-fakturenn",
+        "einvoiceDescription": "Penaos e anavezo ar profil-mañ e-unan er c’h-fakturennoù; ar c’henstrollad hag an titouroù kevreañ a zo e Arventennoù > E-fakturenn.",
+        "electronicAddress": "Chomlec’h elektronek",
+        "electronicAddressHint": "An identifier Peppol pe EN 16931 eus an embanner-mañ, moullet evel chomlec’h elektronek ar gwerzhour.",
+        "electronicAddressScheme": "Brastres ar chomlec’h elektronek",
+        "electronicAddressSchemeNone": "Brastres ebet",
+        "einvoiceEnabled": "E-fakturenn gweredekaet evit ar profil-mañ",
+        "einvoiceEnabledHint": "Kinnig a ra an enkargadurioù GST e-invoice JSON, Factur-X ha UBL hag enrolladur IRN war an teulioù embannet.",
         "defaultsTitle": "Talvoudoù dre ziouer",
         "baseCurrency": "Moneiz diazez",
         "locale": "Yezh an teulioù",
@@ -803,6 +812,45 @@
         "venueHint": "Da skouer “lezioù Bengaluru, Karnataka”.",
         "submit": "Enrollañ titouroù an oberataer"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fakturenn",
+      "title": "E-fakturenn",
+      "description": "Dre brofil embanner: pe genstrollad a enrol an e-fakturennoù indian, ha pe brofil europat a heuilh ar produioù Factur-X ha UBL. An titouroù kevreañ a zo enrollet kuzhet ha ne vint ket diskouezet en-dro.",
+      "noProfiles": "Krouit un profil embanner da gentañ.",
+      "profile": "Profil embanner",
+      "enabled": "Gweredekaet",
+      "disabled": "Diweredekaet",
+      "enabledHint": "Lakait an e-fakturenn en-dro pe éteint dre brofil e Arventennoù > Profiloù.",
+      "india": {
+        "title": "India (GST e-invoice, IRN)",
+        "description": "An IRN a vez enrollet dre ar c’henstrollad dibabet amañ; ar c’henstrollad dornel a gemer respont ar poltred gant an dorn.",
+        "connector": "Kenstrollad",
+        "connectorNone": "Distaget",
+        "connectorManual": "Dornel (pegit respont IRP)",
+        "connectorNic": "NIC IRP API (sandbox pe production)",
+        "nicUnverified": "Ar c’henstrollad NIC a heuilh an API embannet ha taolet eo bet hepken war roadennoù enrollet; n’eo ket gwiriekaet war ur sandbox gwir betek ma vo pourchaset an titouroù kevreañ.",
+        "env": "Endro",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "URL diazez",
+        "baseUrlHint": "Leuskel goullo evit talvoudegezh ziouer an endro.",
+        "clientId": "ID ar c’hliant",
+        "clientSecret": "Kuzh ar c’hliant",
+        "username": "Anv implijer",
+        "password": "Ger-tremen",
+        "gstin": "GSTIN",
+        "secretStored": "Enrollet kuzhet; leuskel goullo evit e virout.",
+        "secretEncrypted": "Enrollet kuzhet."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 eo ar profil nemetañ er stumm-mañ; an enkargadurioù Factur-X ha UBL a implij anezhañ.",
+        "profile": "Profil",
+        "profileNone": "Distaget",
+        "en16931": "EN 16931"
+      },
+      "save": "Enrollañ arventennoù an e-fakturenn"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Feur TDS gortozet (%)",
       "preferredLanguage": "Yezh an teul",
       "preferredLanguageFollow": "Heuliañ profil an embanner",
+      "buyerReference": "Daveadenn ar prenour",
+      "buyerReferenceHint": "Moullet er c’h-fakturennoù dre vras evel daveadenn ar prenour e-unan (niverenn urzh pe greizenn goust).",
+      "electronicAddress": "Chomlec’h elektronek",
+      "electronicAddressHint": "An identifier Peppol pe EN 16931 a resev ar gliant-mañ e-fakturennoù dindan.",
+      "electronicAddressScheme": "Brastres ar chomlec’h elektronek",
+      "electronicAddressSchemeNone": "Brastres ebet",
       "notes": "Notennoù",
       "billingAddress": "Chomlec’h faktur",
       "shippingAddress": "Chomlec’h kasadenn",
@@ -2022,6 +2076,7 @@
     "templateReset": "Patrom distroet d’an talvoud enframmet dre ziouer",
     "templateImported": "Patrom enporzhiet",
     "profileTemplateCleared": "Ar profil a implij patrom an doare en-dro",
-    "operatorSaved": "Titouroù an oberataer enrollet. Diskouez a ra ar pajennoù lezennel anezho bremañ."
+    "operatorSaved": "Titouroù an oberataer enrollet. Diskouez a ra ar pajennoù lezennel anezho bremañ.",
+    "einvoiceSettingsSaved": "Arventennoù an e-fakturenn enrollet"
   }
 }

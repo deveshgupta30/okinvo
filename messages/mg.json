@@ -130,6 +130,7 @@
       "users": "Mpampiasa",
       "data": "Angona",
       "legal": "Lalàna",
+      "einvoicing": "Faktiora elektronika",
       "account": "Kaonty",
       "appearance": "Endrika",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Ho an’ny entana avoaka tsy misy IGST",
         "lutFiscalYear": "Taona ara-bola LUT",
         "lutFiscalYearHint": "ohatra 2026-27",
+        "einvoiceTitle": "Faktiora elektronika",
+        "einvoiceDescription": "Ny fomba famantarana ity mombamomba ity ao amin’ny faktiora elektronika; ny mpampifandray sy ny fanalahidy dia ao amin’ny Fikirana > Faktiora elektronika.",
+        "electronicAddress": "Adiresy elektronika",
+        "electronicAddressHint": "Ny mari-pamantarana Peppol na EN 16931 an’ity mpanao faktiora ity, voatonta ho adiresy elektronikan’ny mpivarotra.",
+        "electronicAddressScheme": "Rafitry ny adiresy elektronika",
+        "electronicAddressSchemeNone": "Tsy misy rafitra",
+        "einvoiceEnabled": "Alefa ny faktiora elektronika ho an’ity mombamomba ity",
+        "einvoiceEnabledHint": "Manolotra ny fampidinana JSON faktiora elektronika GST, Factur-X ary UBL sy ny fisoratana IRN amin’ireo antontan-taratasa navoaka.",
         "defaultsTitle": "Mahazatra",
         "baseCurrency": "Vola fototra",
         "locale": "Locale ny antontan-taratasy",
@@ -803,6 +812,45 @@
         "venueHint": "Ohatra \"ny fitsarana any Antananarivo\".",
         "submit": "Tehirizo ny antsipirian’ny mpitantana"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "Faktiora elektronika",
+      "title": "Faktiora elektronika",
+      "description": "Isaky ny mombamomba mpanao faktiora: iza ny mpampifandray misoratra ny faktiora elektronika indiana, ary inona ny mombamomba eoropeana arahin’ny vokatra Factur-X sy UBL. Ny fanalahidy dia tahirizina voafantina ary tsy asehoina intsony.",
+      "noProfiles": "Mamorona mombamomba mpanao faktiora aloha.",
+      "profile": "Mombamomba mpanao faktiora",
+      "enabled": "Alefa",
+      "disabled": "Voatsahatra",
+      "enabledHint": "Alefaso na vonoy ny faktiora elektronika isaky ny mombamomba ao amin’ny Fikirana > Mombamomba.",
+      "india": {
+        "title": "India (faktiora elektronika GST, IRN)",
+        "description": "Ny IRN dia soratana amin’ny alalan’ny mpampifandray voafidy eto; ny mpampifandray manokana dia mandray amin’ny tanana ny valin’ny portail.",
+        "connector": "Mpampifandray",
+        "connectorNone": "Tsy alefa",
+        "connectorManual": "Manokana (apetaho ny valin’ny IRP)",
+        "connectorNic": "API NIC IRP (sandbox na famokarana)",
+        "nicUnverified": "Ny mpampifandray NIC dia manaraka ny API navoaka ary nandramana tamin’ny angona voarakitra ihany; tsy voamarina amin’ny sandbox tena izy raha mbola tsy omena ny fanalahidy.",
+        "env": "Tontolo",
+        "sandbox": "Sandbox",
+        "production": "Famokarana",
+        "baseUrl": "URL fototra",
+        "baseUrlHint": "Avelao foana ho an’ny sanda tsy fantatra amin’ny tontolo.",
+        "clientId": "Id mpanjifa",
+        "clientSecret": "Tsiambaratelon’ny mpanjifa",
+        "username": "Anaran’ny mpampiasa",
+        "password": "Teny miafina",
+        "gstin": "GSTIN",
+        "secretStored": "Voatahiry voafantina; avelao foana raha tazonina.",
+        "secretEncrypted": "Voatahiry voafantina."
+      },
+      "eu": {
+        "title": "Eoropa (Factur-X, UBL)",
+        "description": "EN 16931 ihany no mombamomba ao amin’ity dikan-teny ity; ampiasain’ny fampidinana Factur-X sy UBL izy.",
+        "profile": "Mombamomba",
+        "profileNone": "Tsy alefa",
+        "en16931": "EN 16931"
+      },
+      "save": "Tahirizo ny fikirana faktiora elektronika"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Taha TDS andrasana (%)",
       "preferredLanguage": "Fiteny amin’ny antontan-taratasy",
       "preferredLanguageFollow": "Araho ny mombamomba ny mpamoaka",
+      "buyerReference": "Fanondroana ny mpividy",
+      "buyerReferenceHint": "Voatonta amin’ny faktiora elektronika ho fanondroana ny mpividy mihitsy (laharan’ny baiko na ivon’ny vidiny).",
+      "electronicAddress": "Adiresy elektronika",
+      "electronicAddressHint": "Ny mari-pamantarana Peppol na EN 16931 ahazoan’ity mpanjifa ity faktiora elektronika.",
+      "electronicAddressScheme": "Rafitry ny adiresy elektronika",
+      "electronicAddressSchemeNone": "Tsy misy rafitra",
       "notes": "Naoty",
       "billingAddress": "Adiresy fanaovana faktiora",
       "shippingAddress": "Adiresy fandefasana",
@@ -2022,6 +2076,7 @@
     "templateReset": "Naverina amin’ny mahazatra mpiara-misy ny modely",
     "templateImported": "Voatondra ny modely",
     "profileTemplateCleared": "Mampiasa indray ny modelin’ny instance ny mombamomba",
-    "operatorSaved": "Voatahiry ny antsipirian’ny mpitantana. Asehon’ny pejy ara-dalàna izao izany."
+    "operatorSaved": "Voatahiry ny antsipirian’ny mpitantana. Asehon’ny pejy ara-dalàna izao izany.",
+    "einvoiceSettingsSaved": "Voatahiry ny fikirana faktiora elektronika"
   }
 }

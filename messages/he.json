@@ -130,6 +130,7 @@
       "users": "משתמשים",
       "data": "נתונים",
       "legal": "משפטי",
+      "einvoicing": "חשבוניות אלקטרוניות",
       "account": "חשבון",
       "appearance": "מראה",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "ליצוא ללא IGST",
         "lutFiscalYear": "שנת כספים של LUT",
         "lutFiscalYearHint": "לדוגמה 2026-27",
+        "einvoiceTitle": "חשבוניות אלקטרוניות",
+        "einvoiceDescription": "האופן שבו פרופיל זה מזדהה בחשבוניות אלקטרוניות; המחבר ופרטי הגישה נמצאים בהגדרות > חשבוניות אלקטרוניות.",
+        "electronicAddress": "כתובת אלקטרונית",
+        "electronicAddressHint": "מזהה Peppol או EN 16931 של מנפיק זה, מודפס ככתובת האלקטרונית של המוכר.",
+        "electronicAddressScheme": "סכמת כתובת אלקטרונית",
+        "electronicAddressSchemeNone": "ללא סכמה",
+        "einvoiceEnabled": "חשבוניות אלקטרוניות מופעלות עבור פרופיל זה",
+        "einvoiceEnabledHint": "מציע במסמכים שהונפקו את הורדות GST e-invoice JSON, Factur-X ו-UBL ואת רישום ה-IRN.",
         "defaultsTitle": "ברירות מחדל",
         "baseCurrency": "מטבע בסיס",
         "locale": "שפת המסמך",
@@ -803,6 +812,45 @@
         "venueHint": "לדוגמה ״בתי המשפט בבנגלור, קרנטקה״.",
         "submit": "שמירת פרטי המפעיל"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "חשבוניות אלקטרוניות",
+      "title": "חשבוניות אלקטרוניות",
+      "description": "לכל פרופיל מנפיק: איזה מחבר רושם חשבוניות אלקטרוניות הודיות, ולאיזה פרופיל אירופי עוקבים פלטי Factur-X ו-UBL. פרטי הגישה נשמרים מוצפנים ואינם מוצגים שוב.",
+      "noProfiles": "צרו תחילה פרופיל מנפיק.",
+      "profile": "פרופיל מנפיק",
+      "enabled": "מופעל",
+      "disabled": "מושבת",
+      "enabledHint": "הפעילו או השביתו חשבוניות אלקטרוניות לכל פרופיל בהגדרות > פרופילים.",
+      "india": {
+        "title": "הודו (GST e-invoice, IRN)",
+        "description": "ה-IRN נרשם דרך המחבר שנבחר כאן; המחבר הידני מקבל את תגובת הפורטל שהוזנה ידנית.",
+        "connector": "מחבר",
+        "connectorNone": "כבוי",
+        "connectorManual": "ידני (הדביקו את תגובת IRP)",
+        "connectorNic": "NIC IRP API (sandbox או production)",
+        "nicUnverified": "מחבר NIC פועל לפי ה-API שפורסם ונבדק רק מול דוגמאות מוקלטות; הוא לא אומת מול sandbox חי עד שיסופקו פרטי גישה.",
+        "env": "סביבה",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "כתובת URL בסיסית",
+        "baseUrlHint": "השאירו ריק לברירת המחדל של הסביבה.",
+        "clientId": "מזהה לקוח",
+        "clientSecret": "סוד לקוח",
+        "username": "שם משתמש",
+        "password": "סיסמה",
+        "gstin": "GSTIN",
+        "secretStored": "נשמר מוצפן; השאירו ריק כדי לשמור אותו.",
+        "secretEncrypted": "נשמר מוצפן."
+      },
+      "eu": {
+        "title": "אירופה (Factur-X, UBL)",
+        "description": "EN 16931 הוא הפרופיל היחיד בגרסה זו; הורדות Factur-X ו-UBL משתמשות בו.",
+        "profile": "פרופיל",
+        "profileNone": "כבוי",
+        "en16931": "EN 16931"
+      },
+      "save": "שמירת הגדרות חשבוניות אלקטרוניות"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "שיעור TDS צפוי (%)",
       "preferredLanguage": "שפת המסמך",
       "preferredLanguageFollow": "לפי פרופיל המנפיק",
+      "buyerReference": "הפניית קונה",
+      "buyerReferenceHint": "מודפס בחשבוניות אלקטרוניות כהפניה העצמית של הקונה (מספר הזמנה או מרכז עלות).",
+      "electronicAddress": "כתובת אלקטרונית",
+      "electronicAddressHint": "מזהה Peppol או EN 16931 שתחתיו לקוח זה מקבל חשבוניות אלקטרוניות.",
+      "electronicAddressScheme": "סכמת כתובת אלקטרונית",
+      "electronicAddressSchemeNone": "ללא סכמה",
       "notes": "הערות",
       "billingAddress": "כתובת לחיוב",
       "shippingAddress": "כתובת למשלוח",
@@ -2022,6 +2076,7 @@
     "templateReset": "התבנית אופסה לברירת המחדל המובנית",
     "templateImported": "התבנית יובאה",
     "profileTemplateCleared": "הפרופיל משתמש שוב בתבנית המופע",
-    "operatorSaved": "פרטי המפעיל נשמרו. העמודים המשפטיים מציגים אותם כעת."
+    "operatorSaved": "פרטי המפעיל נשמרו. העמודים המשפטיים מציגים אותם כעת.",
+    "einvoiceSettingsSaved": "הגדרות החשבוניות האלקטרוניות נשמרו"
   }
 }

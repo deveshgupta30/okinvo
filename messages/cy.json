@@ -130,6 +130,7 @@
       "users": "Defnyddwyr",
       "data": "Data",
       "legal": "Cyfreithiol",
+      "einvoicing": "E-anfonebu",
       "account": "Cyfrif",
       "appearance": "Golwg",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Ar gyfer allforion heb IGST",
         "lutFiscalYear": "Blwyddyn ariannol LUT",
         "lutFiscalYearHint": "e.e. 2026-27",
+        "einvoiceTitle": "E-anfonebu",
+        "einvoiceDescription": "Sut mae’r proffil hwn yn ei adnabod ei hun mewn e-anfonebau; mae’r cysylltydd a’r manylion mewngofnodi o dan Gosodiadau > E-anfonebu.",
+        "electronicAddress": "Cyfeiriad electronig",
+        "electronicAddressHint": "Dynodydd Peppol neu EN 16931 y cyflwynydd hwn, wedi’i argraffu fel cyfeiriad electronig y gwerthwr.",
+        "electronicAddressScheme": "Cynllun cyfeiriad electronig",
+        "electronicAddressSchemeNone": "Dim cynllun",
+        "einvoiceEnabled": "E-anfonebu wedi’i alluogi ar gyfer y proffil hwn",
+        "einvoiceEnabledHint": "Yn cynnig lawrlwythiadau JSON e-anfoneb GST, Factur-X ac UBL a chofrestru IRN ar ei ddogfennau a gyflwynwyd.",
         "defaultsTitle": "Rhagosodiadau",
         "baseCurrency": "Arian cyfred sylfaenol",
         "locale": "Locale y ddogfen",
@@ -803,6 +812,45 @@
         "venueHint": "Er enghraifft \"llysoedd Bengaluru, Karnataka\".",
         "submit": "Cadw manylion y gweithredwr"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-anfonebu",
+      "title": "E-anfonebu",
+      "description": "Fesul proffil cyflwynydd: pa gysylltydd sy’n cofrestru e-anfonebau Indiaidd, a pha broffil Ewropeaidd y mae allbynnau Factur-X ac UBL yn ei ddilyn. Mae’r manylion mewngofnodi’n cael eu storio wedi’u hamgryptio ac ni chânt eu dangos eto.",
+      "noProfiles": "Crëwch broffil cyflwynydd yn gyntaf.",
+      "profile": "Proffil cyflwynydd",
+      "enabled": "Wedi’i alluogi",
+      "disabled": "Wedi’i analluogi",
+      "enabledHint": "Trowch e-anfonebu ymlaen neu i ffwrdd fesul proffil o dan Gosodiadau > Proffiliau.",
+      "india": {
+        "title": "India (e-anfoneb GST, IRN)",
+        "description": "Mae’r IRN yn cael ei gofrestru drwy’r cysylltydd a ddewiswyd yma; mae’r cysylltydd â llaw yn derbyn ymateb y porth â llaw.",
+        "connector": "Cysylltydd",
+        "connectorNone": "I ffwrdd",
+        "connectorManual": "Â llaw (gludwch ymateb yr IRP)",
+        "connectorNic": "API NIC IRP (blwch tywod neu gynhyrchu)",
+        "nicUnverified": "Mae’r cysylltydd NIC yn dilyn yr API cyhoeddedig ac wedi’i brofi yn erbyn data wedi’i recordio yn unig; nid yw wedi’i wirio yn erbyn blwch tywod byw nes y cyflenwir manylion mewngofnodi.",
+        "env": "Amgylchedd",
+        "sandbox": "Blwch tywod",
+        "production": "Cynhyrchu",
+        "baseUrl": "URL sylfaen",
+        "baseUrlHint": "Gadewch yn wag am ragosodiad yr amgylchedd.",
+        "clientId": "ID cleient",
+        "clientSecret": "Cyfrinach cleient",
+        "username": "Enw defnyddiwr",
+        "password": "Cyfrinair",
+        "gstin": "GSTIN",
+        "secretStored": "Wedi’i storio wedi’i amgryptio; gadewch yn wag i’w gadw.",
+        "secretEncrypted": "Wedi’i storio wedi’i amgryptio wrth orffwys."
+      },
+      "eu": {
+        "title": "Ewrop (Factur-X, UBL)",
+        "description": "EN 16931 yw’r unig broffil yn y fersiwn hon; mae lawrlwythiadau Factur-X ac UBL yn ei ddefnyddio.",
+        "profile": "Proffil",
+        "profileNone": "I ffwrdd",
+        "en16931": "EN 16931"
+      },
+      "save": "Cadw gosodiadau e-anfonebu"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Cyfradd TDS ddisgwyliedig (%)",
       "preferredLanguage": "Iaith y ddogfen",
       "preferredLanguageFollow": "Dilyn proffil y cyhoeddwr",
+      "buyerReference": "Cyfeirnod y prynwr",
+      "buyerReferenceHint": "Wedi’i argraffu mewn e-anfonebau fel cyfeirnod y prynwr ei hun (rhif archeb neu ganolfan gost).",
+      "electronicAddress": "Cyfeiriad electronig",
+      "electronicAddressHint": "Yr dynodydd Peppol neu EN 16931 y mae’r cleient hwn yn derbyn e-anfonebau oddi tano.",
+      "electronicAddressScheme": "Cynllun cyfeiriad electronig",
+      "electronicAddressSchemeNone": "Dim cynllun",
       "notes": "Nodiadau",
       "billingAddress": "Cyfeiriad bilio",
       "shippingAddress": "Cyfeiriad cludo",
@@ -2022,6 +2076,7 @@
     "templateReset": "Ailosodwyd y templed i’r rhagosodiad mewnol",
     "templateImported": "Mewnforiwyd y templed",
     "profileTemplateCleared": "Mae’r proffil yn defnyddio templed yr enghraifft eto",
-    "operatorSaved": "Cadwyd manylion y gweithredwr. Mae’r tudalennau cyfreithiol yn eu dangos nawr."
+    "operatorSaved": "Cadwyd manylion y gweithredwr. Mae’r tudalennau cyfreithiol yn eu dangos nawr.",
+    "einvoiceSettingsSaved": "Cadwyd gosodiadau e-anfonebu"
   }
 }

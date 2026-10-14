@@ -130,6 +130,7 @@
       "users": "Brugere",
       "data": "Data",
       "legal": "Juridisk",
+      "einvoicing": "E-fakturering",
       "account": "Konto",
       "appearance": "Udseende",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Til eksport uden IGST",
         "lutFiscalYear": "LUT-regnskabsår",
         "lutFiscalYearHint": "fx 2026-27",
+        "einvoiceTitle": "E-fakturering",
+        "einvoiceDescription": "Hvordan denne profil identificerer sig på e-fakturaer; connectoren og legitimationsoplysningerne findes under Indstillinger > E-fakturering.",
+        "electronicAddress": "Elektronisk adresse",
+        "electronicAddressHint": "Udstederens Peppol- eller EN 16931-identifikator, vist som sælgers elektroniske adresse.",
+        "electronicAddressScheme": "Skema for elektronisk adresse",
+        "electronicAddressSchemeNone": "Intet skema",
+        "einvoiceEnabled": "E-fakturering aktiveret for denne profil",
+        "einvoiceEnabledHint": "Tilbyder download af GST e-faktura-JSON, Factur-X og UBL samt IRN-registrering på profilens udstedte dokumenter.",
         "defaultsTitle": "Standardværdier",
         "baseCurrency": "Basisvaluta",
         "locale": "Dokumentets sprog og format",
@@ -803,6 +812,45 @@
         "venueHint": "For eksempel \"domstolene i Bengaluru, Karnataka\".",
         "submit": "Gem operatøroplysninger"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fakturering",
+      "title": "E-fakturering",
+      "description": "Pr. udstederprofil: hvilken connector der registrerer indiske e-fakturaer, og hvilken europæisk profil Factur-X- og UBL-outputtet følger. Legitimationsoplysninger gemmes krypteret og vises aldrig igen.",
+      "noProfiles": "Opret først en udstederprofil.",
+      "profile": "Udstederprofil",
+      "enabled": "Aktiveret",
+      "disabled": "Deaktiveret",
+      "enabledHint": "Slå e-fakturering til eller fra pr. profil under Indstillinger > Profiler.",
+      "india": {
+        "title": "Indien (GST e-faktura, IRN)",
+        "description": "IRN registreres via den connector, der er valgt her; den manuelle connector tager imod portalens svar manuelt.",
+        "connector": "Connector",
+        "connectorNone": "Fra",
+        "connectorManual": "Manuel (indsæt IRP-svaret)",
+        "connectorNic": "NIC IRP API (sandbox eller produktion)",
+        "nicUnverified": "NIC-connectoren følger den offentliggjorte API og er kun testet mod optagede testdata; den er ikke verificeret mod en live sandbox, før der er angivet legitimationsoplysninger.",
+        "env": "Miljø",
+        "sandbox": "Sandbox",
+        "production": "Produktion",
+        "baseUrl": "Basis-URL",
+        "baseUrlHint": "Lad feltet stå tomt for miljøets standard.",
+        "clientId": "Klient-id",
+        "clientSecret": "Klienthemmelighed",
+        "username": "Brugernavn",
+        "password": "Adgangskode",
+        "gstin": "GSTIN",
+        "secretStored": "Gemt krypteret; lad feltet stå tomt for at beholde den.",
+        "secretEncrypted": "Gemt krypteret i hvile."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 er den eneste profil i denne version; Factur-X- og UBL-downloads bruger den.",
+        "profile": "Profil",
+        "profileNone": "Fra",
+        "en16931": "EN 16931"
+      },
+      "save": "Gem indstillinger for e-fakturering"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Forventet TDS-sats (%)",
       "preferredLanguage": "Dokumentsprog",
       "preferredLanguageFollow": "Følg udstederprofilen",
+      "buyerReference": "Købers reference",
+      "buyerReferenceHint": "Vises på e-fakturaer som købers egen reference (et ordre- eller omkostningsstedsnummer).",
+      "electronicAddress": "Elektronisk adresse",
+      "electronicAddressHint": "Den Peppol- eller EN 16931-identifikator, som denne kunde modtager e-fakturaer under.",
+      "electronicAddressScheme": "Skema for elektronisk adresse",
+      "electronicAddressSchemeNone": "Intet skema",
       "notes": "Noter",
       "billingAddress": "Faktureringsadresse",
       "shippingAddress": "Leveringsadresse",
@@ -2022,6 +2076,7 @@
     "templateReset": "Skabelon nulstillet til den indbyggede standard",
     "templateImported": "Skabelon importeret",
     "profileTemplateCleared": "Profilen bruger igen instansskabelonen",
-    "operatorSaved": "Operatøroplysninger gemt. De juridiske sider viser dem nu."
+    "operatorSaved": "Operatøroplysninger gemt. De juridiske sider viser dem nu.",
+    "einvoiceSettingsSaved": "Indstillinger for e-fakturering gemt"
   }
 }

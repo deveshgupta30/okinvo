@@ -130,6 +130,7 @@
       "users": "Utilizatori",
       "data": "Date",
       "legal": "Juridic",
+      "einvoicing": "E-factura",
       "account": "Cont",
       "appearance": "Aspect",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Pentru exporturi fără IGST",
         "lutFiscalYear": "An financiar LUT",
         "lutFiscalYearHint": "de ex. 2026-27",
+        "einvoiceTitle": "E-factura",
+        "einvoiceDescription": "Cum se identifică acest profil în e-facturi; conectorul și datele de autentificare se află în Setări > E-factura.",
+        "electronicAddress": "Adresă electronică",
+        "electronicAddressHint": "Identificatorul Peppol sau EN 16931 al acestui emitent, tipărit ca adresă electronică a vânzătorului.",
+        "electronicAddressScheme": "Schema adresei electronice",
+        "electronicAddressSchemeNone": "Fără schemă",
+        "einvoiceEnabled": "E-factura activată pentru acest profil",
+        "einvoiceEnabledHint": "Oferă pe documentele emise descărcările e-facturii GST în format JSON, Factur-X și UBL și înregistrarea IRN.",
         "defaultsTitle": "Valori implicite",
         "baseCurrency": "Moneda de bază",
         "locale": "Setare regională a documentului",
@@ -803,6 +812,45 @@
         "venueHint": "De exemplu „instanțele din Bengaluru, Karnataka”.",
         "submit": "Salvează datele operatorului"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-factura",
+      "title": "E-factura",
+      "description": "Pentru fiecare profil de emitent: ce conector înregistrează e-facturile indiene și ce profil european urmează fișierele Factur-X și UBL. Datele de autentificare sunt stocate criptat și nu mai sunt afișate niciodată.",
+      "noProfiles": "Creați mai întâi un profil de emitent.",
+      "profile": "Profil de emitent",
+      "enabled": "Activat",
+      "disabled": "Dezactivat",
+      "enabledHint": "Activați sau dezactivați e-factura pentru fiecare profil în Setări > Profiluri.",
+      "india": {
+        "title": "India (e-factura GST, IRN)",
+        "description": "IRN este înregistrat prin conectorul ales aici; conectorul manual preia manual răspunsul portalului.",
+        "connector": "Conector",
+        "connectorNone": "Oprit",
+        "connectorManual": "Manual (lipiți răspunsul IRP)",
+        "connectorNic": "NIC IRP API (sandbox sau producție)",
+        "nicUnverified": "Conectorul NIC urmează API-ul publicat și este testat doar pe date înregistrate; nu este verificat într-un sandbox real până la furnizarea datelor de autentificare.",
+        "env": "Mediu",
+        "sandbox": "Sandbox",
+        "production": "Producție",
+        "baseUrl": "URL de bază",
+        "baseUrlHint": "Lăsați gol pentru valoarea implicită a mediului.",
+        "clientId": "ID client",
+        "clientSecret": "Secret client",
+        "username": "Nume utilizator",
+        "password": "Parolă",
+        "gstin": "GSTIN",
+        "secretStored": "Stocat criptat; lăsați gol pentru a-l păstra.",
+        "secretEncrypted": "Stocat criptat în repaus."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 este singurul profil din această versiune; descărcările Factur-X și UBL îl folosesc.",
+        "profile": "Profil",
+        "profileNone": "Oprit",
+        "en16931": "EN 16931"
+      },
+      "save": "Salvează setările e-facturii"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Cota TDS preconizată (%)",
       "preferredLanguage": "Limba documentului",
       "preferredLanguageFollow": "Urmează profilul emitentului",
+      "buyerReference": "Referința cumpărătorului",
+      "buyerReferenceHint": "Tipărită în e-facturi ca referință proprie a cumpărătorului (un număr de comandă sau de centru de cost).",
+      "electronicAddress": "Adresă electronică",
+      "electronicAddressHint": "Identificatorul Peppol sau EN 16931 sub care acest client primește e-facturi.",
+      "electronicAddressScheme": "Schema adresei electronice",
+      "electronicAddressSchemeNone": "Fără schemă",
       "notes": "Note",
       "billingAddress": "Adresa de facturare",
       "shippingAddress": "Adresa de livrare",
@@ -2022,6 +2076,7 @@
     "templateReset": "Șablonul a fost resetat la valoarea implicită încorporată",
     "templateImported": "Șablon importat",
     "profileTemplateCleared": "Profilul folosește din nou șablonul instanței",
-    "operatorSaved": "Datele operatorului au fost salvate. Paginile juridice le afișează acum."
+    "operatorSaved": "Datele operatorului au fost salvate. Paginile juridice le afișează acum.",
+    "einvoiceSettingsSaved": "Setările e-facturii au fost salvate"
   }
 }

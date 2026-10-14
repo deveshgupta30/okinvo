@@ -130,6 +130,7 @@
       "users": "Người dùng",
       "data": "Dữ liệu",
       "legal": "Pháp lý",
+      "einvoicing": "Hóa đơn điện tử",
       "account": "Tài khoản",
       "appearance": "Giao diện",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Cho xuất khẩu không có IGST",
         "lutFiscalYear": "Năm tài chính LUT",
         "lutFiscalYearHint": "ví dụ 2026-27",
+        "einvoiceTitle": "Hóa đơn điện tử",
+        "einvoiceDescription": "Cách hồ sơ này tự nhận diện trên hóa đơn điện tử; trình kết nối và thông tin xác thực nằm trong Cài đặt > Hóa đơn điện tử.",
+        "electronicAddress": "Địa chỉ điện tử",
+        "electronicAddressHint": "Mã định danh Peppol hoặc EN 16931 của bên phát hành này, được in làm địa chỉ điện tử của bên bán.",
+        "electronicAddressScheme": "Lược đồ địa chỉ điện tử",
+        "electronicAddressSchemeNone": "Không có lược đồ",
+        "einvoiceEnabled": "Bật hóa đơn điện tử cho hồ sơ này",
+        "einvoiceEnabledHint": "Cung cấp các bản tải xuống hóa đơn điện tử GST dạng JSON, Factur-X và UBL cùng việc đăng ký IRN cho các tài liệu đã phát hành của hồ sơ.",
         "defaultsTitle": "Mặc định",
         "baseCurrency": "Tiền tệ cơ sở",
         "locale": "Ngôn ngữ chứng từ",
@@ -803,6 +812,45 @@
         "venueHint": "Ví dụ \"các tòa án tại Bengaluru, Karnataka\".",
         "submit": "Lưu thông tin bên vận hành"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "Hóa đơn điện tử",
+      "title": "Hóa đơn điện tử",
+      "description": "Theo từng hồ sơ bên phát hành: trình kết nối nào đăng ký hóa đơn điện tử của Ấn Độ và hồ sơ châu Âu nào mà đầu ra Factur-X và UBL tuân theo. Thông tin xác thực được lưu dạng mã hóa và không bao giờ hiển thị lại.",
+      "noProfiles": "Hãy tạo hồ sơ bên phát hành trước.",
+      "profile": "Hồ sơ bên phát hành",
+      "enabled": "Đã bật",
+      "disabled": "Đã tắt",
+      "enabledHint": "Bật hoặc tắt hóa đơn điện tử theo từng hồ sơ trong Cài đặt > Hồ sơ.",
+      "india": {
+        "title": "Ấn Độ (hóa đơn điện tử GST, IRN)",
+        "description": "IRN được đăng ký qua trình kết nối chọn tại đây; trình kết nối thủ công nhận phản hồi của cổng thông tin do nhập tay.",
+        "connector": "Trình kết nối",
+        "connectorNone": "Tắt",
+        "connectorManual": "Thủ công (dán phản hồi IRP)",
+        "connectorNic": "NIC IRP API (sandbox hoặc production)",
+        "nicUnverified": "Trình kết nối NIC tuân theo API đã công bố và chỉ được kiểm thử với dữ liệu ghi sẵn; chưa được xác minh trên sandbox thực cho đến khi có thông tin xác thực.",
+        "env": "Môi trường",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "URL gốc",
+        "baseUrlHint": "Để trống để dùng mặc định của môi trường.",
+        "clientId": "Client id",
+        "clientSecret": "Client secret",
+        "username": "Tên người dùng",
+        "password": "Mật khẩu",
+        "gstin": "GSTIN",
+        "secretStored": "Được lưu dạng mã hóa; để trống để giữ nguyên.",
+        "secretEncrypted": "Được lưu dạng mã hóa khi lưu trữ."
+      },
+      "eu": {
+        "title": "Châu Âu (Factur-X, UBL)",
+        "description": "EN 16931 là hồ sơ duy nhất trong phiên bản này; các bản tải xuống Factur-X và UBL dùng hồ sơ đó.",
+        "profile": "Hồ sơ",
+        "profileNone": "Tắt",
+        "en16931": "EN 16931"
+      },
+      "save": "Lưu cài đặt hóa đơn điện tử"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Thuế suất TDS dự kiến (%)",
       "preferredLanguage": "Ngôn ngữ tài liệu",
       "preferredLanguageFollow": "Theo hồ sơ bên phát hành",
+      "buyerReference": "Mã tham chiếu của bên mua",
+      "buyerReferenceHint": "Được in trên hóa đơn điện tử làm mã tham chiếu riêng của bên mua (số đơn hàng hoặc số trung tâm chi phí).",
+      "electronicAddress": "Địa chỉ điện tử",
+      "electronicAddressHint": "Mã định danh Peppol hoặc EN 16931 mà khách hàng này dùng để nhận hóa đơn điện tử.",
+      "electronicAddressScheme": "Lược đồ địa chỉ điện tử",
+      "electronicAddressSchemeNone": "Không có lược đồ",
       "notes": "Ghi chú",
       "billingAddress": "Địa chỉ thanh toán",
       "shippingAddress": "Địa chỉ giao hàng",
@@ -2022,6 +2076,7 @@
     "templateReset": "Đã đặt lại mẫu về mặc định tích hợp",
     "templateImported": "Đã nhập mẫu",
     "profileTemplateCleared": "Hồ sơ lại dùng mẫu của phiên bản",
-    "operatorSaved": "Đã lưu thông tin bên vận hành. Các trang pháp lý giờ hiển thị thông tin này."
+    "operatorSaved": "Đã lưu thông tin bên vận hành. Các trang pháp lý giờ hiển thị thông tin này.",
+    "einvoiceSettingsSaved": "Đã lưu cài đặt hóa đơn điện tử"
   }
 }

@@ -130,6 +130,7 @@
       "users": "صارفین",
       "data": "ڈیٹا",
       "legal": "قانونی",
+      "einvoicing": "برقی انوائسز",
       "account": "اکاؤنٹ",
       "appearance": "ظاہری شکل",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "IGST کے بغیر برآمدات کے لیے",
         "lutFiscalYear": "LUT مالی سال",
         "lutFiscalYearHint": "مثلاً 2026-27",
+        "einvoiceTitle": "برقی انوائسز",
+        "einvoiceDescription": "یہ پروفائل برقی انوائسز میں اپنی شناخت کیسے کراتا ہے؛ کنیکٹر اور اسناد ترتیبات > برقی انوائسز میں موجود ہیں۔",
+        "electronicAddress": "برقی پتہ",
+        "electronicAddressHint": "اس جاری کنندہ کا Peppol یا EN 16931 شناخت کنندہ، جو فروخت کنندہ کے برقی پتے کے طور پر چھپتا ہے۔",
+        "electronicAddressScheme": "برقی پتے کی اسکیم",
+        "electronicAddressSchemeNone": "کوئی اسکیم نہیں",
+        "einvoiceEnabled": "اس پروفائل کے لیے برقی انوائسز فعال ہیں",
+        "einvoiceEnabledHint": "اس کی جاری کردہ دستاویزات پر GST e-invoice JSON، Factur-X اور UBL ڈاؤن لوڈز اور IRN رجسٹریشن پیش کرتا ہے۔",
         "defaultsTitle": "ڈیفالٹ",
         "baseCurrency": "بنیادی کرنسی",
         "locale": "دستاویز کا لوکیل",
@@ -803,6 +812,45 @@
         "venueHint": "مثلاً “بنگلورو، کرناٹک کی عدالتیں”۔",
         "submit": "آپریٹر کی تفصیلات محفوظ کریں"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "برقی انوائسز",
+      "title": "برقی انوائسز",
+      "description": "ہر جاری کنندہ پروفائل کے لیے: کون سا کنیکٹر بھارتی برقی انوائسز رجسٹر کرتا ہے، اور Factur-X اور UBL آؤٹ پٹ کس یورپی پروفائل کی پیروی کرتے ہیں۔ اسناد خفیہ کردہ حالت میں محفوظ ہوتی ہیں اور دوبارہ نہیں دکھائی جاتیں۔",
+      "noProfiles": "پہلے جاری کنندہ پروفائل بنائیں۔",
+      "profile": "جاری کنندہ پروفائل",
+      "enabled": "فعال",
+      "disabled": "غیر فعال",
+      "enabledHint": "ترتیبات > پروفائلز میں ہر پروفائل کے لیے برقی انوائسز آن یا آف کریں۔",
+      "india": {
+        "title": "بھارت (GST e-invoice, IRN)",
+        "description": "IRN یہاں منتخب کردہ کنیکٹر کے ذریعے رجسٹر ہوتا ہے؛ دستی کنیکٹر پورٹل کا جواب ہاتھ سے لیتا ہے۔",
+        "connector": "کنیکٹر",
+        "connectorNone": "بند",
+        "connectorManual": "دستی (IRP جواب چسپاں کریں)",
+        "connectorNic": "NIC IRP API (sandbox یا production)",
+        "nicUnverified": "NIC کنیکٹر شائع شدہ API کی پیروی کرتا ہے اور صرف ریکارڈ شدہ نمونوں پر جانچا گیا ہے؛ اسناد فراہم کیے جانے تک یہ حقیقی sandbox پر غیر تصدیق شدہ ہے۔",
+        "env": "ماحول",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "بنیادی URL",
+        "baseUrlHint": "ماحول کی ڈیفالٹ کے لیے خالی چھوڑیں۔",
+        "clientId": "کلائنٹ آئی ڈی",
+        "clientSecret": "کلائنٹ خفیہ کوڈ",
+        "username": "صارف نام",
+        "password": "پاس ورڈ",
+        "gstin": "GSTIN",
+        "secretStored": "خفیہ کردہ حالت میں محفوظ؛ برقرار رکھنے کے لیے خالی چھوڑیں۔",
+        "secretEncrypted": "خفیہ کردہ حالت میں محفوظ۔"
+      },
+      "eu": {
+        "title": "یورپ (Factur-X, UBL)",
+        "description": "اس ورژن میں EN 16931 واحد پروفائل ہے؛ Factur-X اور UBL ڈاؤن لوڈز اسے استعمال کرتے ہیں۔",
+        "profile": "پروفائل",
+        "profileNone": "بند",
+        "en16931": "EN 16931"
+      },
+      "save": "برقی انوائس ترتیبات محفوظ کریں"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "متوقع TDS شرح (%)",
       "preferredLanguage": "دستاویز کی زبان",
       "preferredLanguageFollow": "جاری کنندہ کے پروفائل کی پیروی کریں",
+      "buyerReference": "خریدار کا حوالہ",
+      "buyerReferenceHint": "برقی انوائسز میں خریدار کے اپنے حوالے (آرڈر یا لاگتی مرکز کا نمبر) کے طور پر چھپتا ہے۔",
+      "electronicAddress": "برقی پتہ",
+      "electronicAddressHint": "Peppol یا EN 16931 شناخت کنندہ جس کے تحت یہ کلائنٹ برقی انوائسز وصول کرتا ہے۔",
+      "electronicAddressScheme": "برقی پتے کی اسکیم",
+      "electronicAddressSchemeNone": "کوئی اسکیم نہیں",
       "notes": "نوٹس",
       "billingAddress": "بلنگ کا پتہ",
       "shippingAddress": "ترسیل کا پتہ",
@@ -2022,6 +2076,7 @@
     "templateReset": "ٹیمپلیٹ بلٹ اِن ڈیفالٹ پر ری سیٹ ہو گیا",
     "templateImported": "ٹیمپلیٹ درآمد ہو گیا",
     "profileTemplateCleared": "پروفائل دوبارہ انسٹینس ٹیمپلیٹ استعمال کرتا ہے",
-    "operatorSaved": "آپریٹر کی تفصیلات محفوظ ہو گئیں۔ قانونی صفحات اب انہیں دکھاتے ہیں۔"
+    "operatorSaved": "آپریٹر کی تفصیلات محفوظ ہو گئیں۔ قانونی صفحات اب انہیں دکھاتے ہیں۔",
+    "einvoiceSettingsSaved": "برقی انوائس ترتیبات محفوظ ہو گئیں"
   }
 }

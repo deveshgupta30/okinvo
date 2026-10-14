@@ -130,6 +130,7 @@
       "users": "Korisnici",
       "data": "Podaci",
       "legal": "Pravne informacije",
+      "einvoicing": "E-računi",
       "account": "Račun",
       "appearance": "Izgled",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Za izvoz bez IGST-a",
         "lutFiscalYear": "LUT financijska godina",
         "lutFiscalYearHint": "npr. 2026-27",
+        "einvoiceTitle": "E-računi",
+        "einvoiceDescription": "Kako se ovaj profil identificira u e-računima; konektor i vjerodajnice nalaze se u Postavke > E-računi.",
+        "electronicAddress": "Elektronička adresa",
+        "electronicAddressHint": "Peppol ili EN 16931 identifikator ovog izdavatelja, ispisan kao elektronička adresa prodavatelja.",
+        "electronicAddressScheme": "Shema elektroničke adrese",
+        "electronicAddressSchemeNone": "Bez sheme",
+        "einvoiceEnabled": "E-računi omogućeni za ovaj profil",
+        "einvoiceEnabledHint": "Nudi preuzimanje GST e-računa u JSON-u, Factur-X i UBL te IRN registraciju na njegovim izdanim dokumentima.",
         "defaultsTitle": "Zadane vrijednosti",
         "baseCurrency": "Osnovna valuta",
         "locale": "Jezik dokumenata",
@@ -803,6 +812,45 @@
         "venueHint": "Na primjer \"sudovi u Bengaluruu, Karnataka\".",
         "submit": "Spremi podatke o operatoru"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-računi",
+      "title": "E-računi",
+      "description": "Po profilu izdavatelja: koji konektor registrira indijske e-račune i koji europski profil slijede Factur-X i UBL izlazi. Vjerodajnice se pohranjuju šifrirane i više se ne prikazuju.",
+      "noProfiles": "Prvo izradite profil izdavatelja.",
+      "profile": "Profil izdavatelja",
+      "enabled": "Omogućeno",
+      "disabled": "Onemogućeno",
+      "enabledHint": "Uključite ili isključite e-račune po profilu u Postavke > Profili.",
+      "india": {
+        "title": "Indija (GST e-račun, IRN)",
+        "description": "IRN se registrira putem ovdje odabranog konektora; ručni konektor preuzima odgovor portala ručno.",
+        "connector": "Konektor",
+        "connectorNone": "Isključeno",
+        "connectorManual": "Ručno (zalijepite IRP odgovor)",
+        "connectorNic": "NIC IRP API (sandbox ili produkcija)",
+        "nicUnverified": "NIC konektor slijedi objavljeni API i testiran je samo na snimljenim podacima; nije provjeren na stvarnom sandboxu dok se ne unesu vjerodajnice.",
+        "env": "Okruženje",
+        "sandbox": "Sandbox",
+        "production": "Produkcija",
+        "baseUrl": "Osnovni URL",
+        "baseUrlHint": "Ostavite prazno za zadanu vrijednost okruženja.",
+        "clientId": "ID klijenta",
+        "clientSecret": "Tajna klijenta",
+        "username": "Korisničko ime",
+        "password": "Lozinka",
+        "gstin": "GSTIN",
+        "secretStored": "Pohranjeno šifrirano; ostavite prazno da ostane isto.",
+        "secretEncrypted": "Pohranjeno šifrirano u mirovanju."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 jedini je profil u ovoj verziji; preuzimanja Factur-X i UBL koriste ga.",
+        "profile": "Profil",
+        "profileNone": "Isključeno",
+        "en16931": "EN 16931"
+      },
+      "save": "Spremi postavke e-računa"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Očekivana stopa TDS-a (%)",
       "preferredLanguage": "Jezik dokumenta",
       "preferredLanguageFollow": "Prati profil izdavatelja",
+      "buyerReference": "Referenca kupca",
+      "buyerReferenceHint": "Ispisuje se u e-računima kao kupčeva vlastita referenca (broj narudžbe ili mjesta troška).",
+      "electronicAddress": "Elektronička adresa",
+      "electronicAddressHint": "Peppol ili EN 16931 identifikator pod kojim ovaj klijent prima e-račune.",
+      "electronicAddressScheme": "Shema elektroničke adrese",
+      "electronicAddressSchemeNone": "Bez sheme",
       "notes": "Napomene",
       "billingAddress": "Adresa za naplatu",
       "shippingAddress": "Adresa za dostavu",
@@ -2022,6 +2076,7 @@
     "templateReset": "Predložak vraćen na ugrađeni zadani",
     "templateImported": "Predložak uvezen",
     "profileTemplateCleared": "Profil ponovno koristi predložak instance",
-    "operatorSaved": "Podaci o operatoru spremljeni. Pravne ih stranice sada prikazuju."
+    "operatorSaved": "Podaci o operatoru spremljeni. Pravne ih stranice sada prikazuju.",
+    "einvoiceSettingsSaved": "Postavke e-računa spremljene"
   }
 }

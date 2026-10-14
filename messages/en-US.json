@@ -127,6 +127,7 @@
       "users": "Users",
       "data": "Data",
       "legal": "Legal",
+      "einvoicing": "E-invoicing",
       "account": "Account",
       "appearance": "Appearance",
       "api": "API",
@@ -293,6 +294,14 @@
         "lutNumberHint": "For exports without IGST",
         "lutFiscalYear": "LUT financial year",
         "lutFiscalYearHint": "e.g. 2026-27",
+        "einvoiceTitle": "E-invoicing",
+        "einvoiceDescription": "How this profile identifies itself in e-invoices; the connector and credentials live under Settings > E-invoicing.",
+        "electronicAddress": "Electronic address",
+        "electronicAddressHint": "The Peppol or EN 16931 identifier of this issuer, printed as the seller's electronic address.",
+        "electronicAddressScheme": "Electronic address scheme",
+        "electronicAddressSchemeNone": "No scheme",
+        "einvoiceEnabled": "E-invoicing enabled for this profile",
+        "einvoiceEnabledHint": "Offers the GST e-invoice JSON, Factur-X and UBL downloads and the IRN registration on its issued documents.",
         "defaultsTitle": "Defaults",
         "baseCurrency": "Base currency",
         "locale": "Document locale",
@@ -800,6 +809,45 @@
         "venueHint": "For example \"the courts of Bengaluru, Karnataka\".",
         "submit": "Save operator details"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-invoicing",
+      "title": "E-invoicing",
+      "description": "Per issuer profile: which connector registers Indian e-invoices, and which European profile the Factur-X and UBL outputs follow. Credentials are stored encrypted and never shown again.",
+      "noProfiles": "Create an issuer profile first.",
+      "profile": "Issuer profile",
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "enabledHint": "Switch e-invoicing on or off per profile under Settings > Profiles.",
+      "india": {
+        "title": "India (GST e-invoice, IRN)",
+        "description": "The IRN is registered through the connector chosen here; the manual connector takes the portal's response by hand.",
+        "connector": "Connector",
+        "connectorNone": "Off",
+        "connectorManual": "Manual (paste the IRP response)",
+        "connectorNic": "NIC IRP API (sandbox or production)",
+        "nicUnverified": "The NIC connector follows the published API and is tested against recorded fixtures only; it is unverified against a live sandbox until credentials are supplied.",
+        "env": "Environment",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "Base URL",
+        "baseUrlHint": "Leave blank for the environment's default.",
+        "clientId": "Client id",
+        "clientSecret": "Client secret",
+        "username": "Username",
+        "password": "Password",
+        "gstin": "GSTIN",
+        "secretStored": "Stored encrypted; leave blank to keep it.",
+        "secretEncrypted": "Stored encrypted at rest."
+      },
+      "eu": {
+        "title": "Europe (Factur-X, UBL)",
+        "description": "EN 16931 is the only profile in this version; Factur-X and UBL downloads use it.",
+        "profile": "Profile",
+        "profileNone": "Off",
+        "en16931": "EN 16931"
+      },
+      "save": "Save e-invoicing settings"
     },
     "api": {
       "metaTitle": "API",
@@ -1828,6 +1876,12 @@
       "expectedTdsRate": "Expected TDS rate (%)",
       "preferredLanguage": "Document language",
       "preferredLanguageFollow": "Follow the issuer profile",
+      "buyerReference": "Buyer reference",
+      "buyerReferenceHint": "Printed in e-invoices as the buyer's own reference (an order or cost-centre number).",
+      "electronicAddress": "Electronic address",
+      "electronicAddressHint": "The Peppol or EN 16931 identifier this client receives e-invoices under.",
+      "electronicAddressScheme": "Electronic address scheme",
+      "electronicAddressSchemeNone": "No scheme",
       "notes": "Notes",
       "billingAddress": "Billing address",
       "shippingAddress": "Shipping address",
@@ -2019,6 +2073,7 @@
     "templateReset": "Template reset to the built-in default",
     "templateImported": "Template imported",
     "profileTemplateCleared": "Profile uses the instance template again",
-    "operatorSaved": "Operator details saved. The legal pages now show them."
+    "operatorSaved": "Operator details saved. The legal pages now show them.",
+    "einvoiceSettingsSaved": "E-invoicing settings saved"
   }
 }

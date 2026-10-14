@@ -130,6 +130,7 @@
       "users": "Pengguna",
       "data": "Data",
       "legal": "Hukum",
+      "einvoicing": "E-faktur",
       "account": "Akun",
       "appearance": "Tampilan",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Untuk ekspor tanpa IGST",
         "lutFiscalYear": "Tahun keuangan LUT",
         "lutFiscalYearHint": "mis. 2026-27",
+        "einvoiceTitle": "E-faktur",
+        "einvoiceDescription": "Cara profil ini mengidentifikasi dirinya di e-faktur; konektor dan kredensial ada di Pengaturan > E-faktur.",
+        "electronicAddress": "Alamat elektronik",
+        "electronicAddressHint": "Pengenal Peppol atau EN 16931 dari penerbit ini, dicetak sebagai alamat elektronik penjual.",
+        "electronicAddressScheme": "Skema alamat elektronik",
+        "electronicAddressSchemeNone": "Tanpa skema",
+        "einvoiceEnabled": "E-faktur diaktifkan untuk profil ini",
+        "einvoiceEnabledHint": "Menyediakan unduhan GST e-invoice JSON, Factur-X dan UBL serta pendaftaran IRN pada dokumen yang diterbitkan profil ini.",
         "defaultsTitle": "Bawaan",
         "baseCurrency": "Mata uang dasar",
         "locale": "Lokal dokumen",
@@ -803,6 +812,45 @@
         "venueHint": "Misalnya \"pengadilan Bengaluru, Karnataka\".",
         "submit": "Simpan rincian operator"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-faktur",
+      "title": "E-faktur",
+      "description": "Per profil penerbit: konektor mana yang mendaftarkan e-faktur India, dan profil Eropa mana yang diikuti keluaran Factur-X dan UBL. Kredensial disimpan terenkripsi dan tidak pernah ditampilkan lagi.",
+      "noProfiles": "Buat profil penerbit terlebih dahulu.",
+      "profile": "Profil penerbit",
+      "enabled": "Aktif",
+      "disabled": "Nonaktif",
+      "enabledHint": "Aktifkan atau nonaktifkan e-faktur per profil di Pengaturan > Profil.",
+      "india": {
+        "title": "India (GST e-invoice, IRN)",
+        "description": "IRN didaftarkan melalui konektor yang dipilih di sini; konektor manual menerima respons portal secara manual.",
+        "connector": "Konektor",
+        "connectorNone": "Nonaktif",
+        "connectorManual": "Manual (tempel respons IRP)",
+        "connectorNic": "NIC IRP API (sandbox atau production)",
+        "nicUnverified": "Konektor NIC mengikuti API yang dipublikasikan dan hanya diuji dengan data rekaman; belum diverifikasi dengan sandbox sungguhan sampai kredensial disediakan.",
+        "env": "Lingkungan",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "URL dasar",
+        "baseUrlHint": "Biarkan kosong untuk nilai bawaan lingkungan.",
+        "clientId": "ID klien",
+        "clientSecret": "Rahasia klien",
+        "username": "Nama pengguna",
+        "password": "Kata sandi",
+        "gstin": "GSTIN",
+        "secretStored": "Disimpan terenkripsi; biarkan kosong untuk mempertahankannya.",
+        "secretEncrypted": "Disimpan terenkripsi."
+      },
+      "eu": {
+        "title": "Eropa (Factur-X, UBL)",
+        "description": "EN 16931 adalah satu-satunya profil di versi ini; unduhan Factur-X dan UBL menggunakannya.",
+        "profile": "Profil",
+        "profileNone": "Nonaktif",
+        "en16931": "EN 16931"
+      },
+      "save": "Simpan pengaturan e-faktur"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Tarif TDS yang diharapkan (%)",
       "preferredLanguage": "Bahasa dokumen",
       "preferredLanguageFollow": "Ikuti profil penerbit",
+      "buyerReference": "Referensi pembeli",
+      "buyerReferenceHint": "Dicetak di e-faktur sebagai referensi milik pembeli sendiri (nomor pesanan atau pusat biaya).",
+      "electronicAddress": "Alamat elektronik",
+      "electronicAddressHint": "Pengenal Peppol atau EN 16931 yang digunakan klien ini untuk menerima e-faktur.",
+      "electronicAddressScheme": "Skema alamat elektronik",
+      "electronicAddressSchemeNone": "Tanpa skema",
       "notes": "Catatan",
       "billingAddress": "Alamat penagihan",
       "shippingAddress": "Alamat pengiriman",
@@ -2022,6 +2076,7 @@
     "templateReset": "Templat disetel ulang ke bawaan sistem",
     "templateImported": "Templat diimpor",
     "profileTemplateCleared": "Profil kembali menggunakan templat instans",
-    "operatorSaved": "Rincian operator disimpan. Halaman hukum kini menampilkannya."
+    "operatorSaved": "Rincian operator disimpan. Halaman hukum kini menampilkannya.",
+    "einvoiceSettingsSaved": "Pengaturan e-faktur disimpan"
   }
 }

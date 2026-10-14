@@ -130,6 +130,7 @@
       "users": "ተጠቃሚዎች",
       "data": "ውሂብ",
       "legal": "ሕጋዊ",
+      "einvoicing": "ኤሌክትሮኒክ ደረሰኝ",
       "account": "መለያ",
       "appearance": "ገጽታ",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "ያለ IGST ለሚላኩ ዕቃዎች",
         "lutFiscalYear": "LUT የፋይናንስ ዓመት",
         "lutFiscalYearHint": "ለምሳሌ 2026-27",
+        "einvoiceTitle": "ኤሌክትሮኒክ ደረሰኝ",
+        "einvoiceDescription": "ይህ መገለጫ በኤሌክትሮኒክ ደረሰኞች ውስጥ ራሱን እንዴት እንደሚለይ፤ ማገናኛውና ምስክርነቶቹ በቅንብሮች > ኤሌክትሮኒክ ደረሰኝ ስር ናቸው።",
+        "electronicAddress": "የኤሌክትሮኒክ አድራሻ",
+        "electronicAddressHint": "የዚህ አውጪ የPeppol ወይም EN 16931 መለያ፤ እንደ የሻጩ ኤሌክትሮኒክ አድራሻ ይታተማል።",
+        "electronicAddressScheme": "የኤሌክትሮኒክ አድራሻ እቅድ",
+        "electronicAddressSchemeNone": "ምንም እቅድ የለም",
+        "einvoiceEnabled": "ለዚህ መገለጫ ኤሌክትሮኒክ ደረሰኝ ነቅቷል",
+        "einvoiceEnabledHint": "በወጡት ሰነዶቹ ላይ የGST ኤሌክትሮኒክ ደረሰኝ JSON፣ Factur-X እና UBL ማውረዶችን እንዲሁም የIRN ምዝገባን ያቀርባል።",
         "defaultsTitle": "ነባሪዎች",
         "baseCurrency": "መሠረታዊ ገንዘብ",
         "locale": "የሰነድ ቋንቋ ቅንብር",
@@ -803,6 +812,45 @@
         "venueHint": "ለምሳሌ “የቤንጋሉሩ፣ ካርናታካ ፍርድ ቤቶች”።",
         "submit": "የኦፕሬተር ዝርዝሮችን አስቀምጥ"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "ኤሌክትሮኒክ ደረሰኝ",
+      "title": "ኤሌክትሮኒክ ደረሰኝ",
+      "description": "በአውጪ መገለጫ ደረጃ፡ የህንድ ኤሌክትሮኒክ ደረሰኞችን የሚመዘግበው ማገናኛ የትኛው እንደሆነ፣ እና የFactur-X እና UBL ውጤቶች የሚከተሉት የአውሮፓ መገለጫ የትኛው እንደሆነ። ምስክርነቶች ተመስጥረው ይቀመጣሉ እንጂ ዳግም አይታዩም።",
+      "noProfiles": "መጀመሪያ የአውጪ መገለጫ ይፍጠሩ።",
+      "profile": "የአውጪ መገለጫ",
+      "enabled": "ነቅቷል",
+      "disabled": "ተሰናክሏል",
+      "enabledHint": "ኤሌክትሮኒክ ደረሰኝን በቅንብሮች > መገለጫዎች ስር ለእያንዳንዱ መገለጫ ያብሩ ወይም ያጥፉ።",
+      "india": {
+        "title": "ህንድ (GST ኤሌክትሮኒክ ደረሰኝ፣ IRN)",
+        "description": "IRN እዚህ በተመረጠው ማገናኛ በኩል ይመዘገባል፤ በእጅ የሚሠራው ማገናኛ የፖርታሉን ምላሽ በእጅ ይቀበላል።",
+        "connector": "ማገናኛ",
+        "connectorNone": "ጠፍቷል",
+        "connectorManual": "በእጅ (የIRP ምላሽን ይለጥፉ)",
+        "connectorNic": "NIC IRP API (ሳንድቦክስ ወይም ምርት)",
+        "nicUnverified": "የNIC ማገናኛ የታተመውን API ይከተላል፤ የተመዘገቡ ናሙናዎች ላይ ብቻ ተፈትኗል፤ ምስክርነቶች እስኪቀርቡ ድረስ በቀጥታ ሳንድቦክስ ላይ አልተረጋገጠም።",
+        "env": "አካባቢ",
+        "sandbox": "ሳንድቦክስ",
+        "production": "ምርት",
+        "baseUrl": "መሠረት URL",
+        "baseUrlHint": "ለአካባቢው ነባሪ ባዶ ይተዉ።",
+        "clientId": "የደንበኛ መታወቂያ",
+        "clientSecret": "የደንበኛ ሚስጥር",
+        "username": "የተጠቃሚ ስም",
+        "password": "የይለፍ ቃል",
+        "gstin": "GSTIN",
+        "secretStored": "ተመስጥሮ ተቀምጧል፤ ለማቆየት ባዶ ይተዉ።",
+        "secretEncrypted": "ሲቀመጥ ተመስጥሮ ይቀመጣል።"
+      },
+      "eu": {
+        "title": "አውሮፓ (Factur-X፣ UBL)",
+        "description": "በዚህ ስሪት EN 16931 ብቸኛው መገለጫ ነው፤ የFactur-X እና UBL ማውረዶች ይጠቀሙበታል።",
+        "profile": "መገለጫ",
+        "profileNone": "ጠፍቷል",
+        "en16931": "EN 16931"
+      },
+      "save": "የኤሌክትሮኒክ ደረሰኝ ቅንብሮችን አስቀምጥ"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "የሚጠበቅ የTDS ተመን (%)",
       "preferredLanguage": "የሰነድ ቋንቋ",
       "preferredLanguageFollow": "የአውጪውን መገለጫ ተከተል",
+      "buyerReference": "የገዢ ማጣቀሻ",
+      "buyerReferenceHint": "በኤሌክትሮኒክ ደረሰኞች ላይ የገዢው ራሱ ማጣቀሻ (የትዕዛዝ ወይም የወጪ ማዕከል ቁጥር) ሆኖ ይታተማል።",
+      "electronicAddress": "የኤሌክትሮኒክ አድራሻ",
+      "electronicAddressHint": "ይህ ደንበኛ ኤሌክትሮኒክ ደረሰኞችን የሚቀበልበት የPeppol ወይም EN 16931 መለያ።",
+      "electronicAddressScheme": "የኤሌክትሮኒክ አድራሻ እቅድ",
+      "electronicAddressSchemeNone": "ምንም እቅድ የለም",
       "notes": "ማስታወሻዎች",
       "billingAddress": "የክፍያ መጠየቂያ አድራሻ",
       "shippingAddress": "የመላኪያ አድራሻ",
@@ -2022,6 +2076,7 @@
     "templateReset": "ንድፍ ወደ አብሮ የተሰራው ነባሪ ተመልሷል",
     "templateImported": "ንድፍ ገብቷል",
     "profileTemplateCleared": "መገለጫው የምሳሌውን ንድፍ እንደገና ይጠቀማል",
-    "operatorSaved": "የኦፕሬተር ዝርዝሮች ተቀምጠዋል። ሕጋዊ ገጾቹ አሁን ያሳያቸዋል።"
+    "operatorSaved": "የኦፕሬተር ዝርዝሮች ተቀምጠዋል። ሕጋዊ ገጾቹ አሁን ያሳያቸዋል።",
+    "einvoiceSettingsSaved": "የኤሌክትሮኒክ ደረሰኝ ቅንብሮች ተቀምጠዋል"
   }
 }

@@ -130,6 +130,7 @@
       "users": "Karberî",
       "data": "Dadeyî",
       "legal": "Hıqûqî",
+      "einvoicing": "E-fatura",
       "account": "Hesab",
       "appearance": "Asayış",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Seba exportê bê IGST",
         "lutFiscalYear": "Serê malî yê LUT",
         "lutFiscalYearHint": "sey 2026-27",
+        "einvoiceTitle": "E-fatura",
+        "einvoiceDescription": "Profîl ê-fakturanê de xo senî mıwecid keno; connector û delilê dekerdışi Eyarî > E-fatura de yê.",
+        "electronicAddress": "Adresa elektronîkî",
+        "electronicAddressHint": "Mıwecidnayoğê Peppol yan EN 16931 yo issueri, sey adresa elektronîkîya fruştoği çap beno.",
+        "electronicAddressScheme": "Şemayê adresa elektronîkî",
+        "electronicAddressSchemeNone": "Şema çıniya",
+        "einvoiceEnabled": "E-fatura ê no profîli rê akerde",
+        "einvoiceEnabledHint": "Ê-fakturaya GST (JSON), Factur-X û UBL ra dayışê waşteyî û qeydê IRN ê dokumanê weşanıyayeyan rê teklif keno.",
         "defaultsTitle": "Standardî",
         "baseCurrency": "Pereyê bingehî",
         "locale": "Locale yê dokumentan",
@@ -803,6 +812,45 @@
         "venueHint": "Sey “dadgehê Bengaluru, Karnataka”.",
         "submit": "Teferruatê operatori qeyd bıke"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fatura",
+      "title": "E-fatura",
+      "description": "Profîlê issueri ra: kamci connector ê-fakturayê Hindıstanî qeyd keno û Factur-X û UBL pê kamci profîlê Ewropayî şınê. Delilê dekerdışi şifrekerde qeyd beni û nika tepya nêmocnene.",
+      "noProfiles": "Verêna profîlê issueri vıraze.",
+      "profile": "Profîlê issueri",
+      "enabled": "Akerde",
+      "disabled": "Racêrde",
+      "enabledHint": "E-fatura profîl bı profîl Eyarî > Profîlî de ak yan racêr.",
+      "india": {
+        "title": "Hindıstan (GST ê-fatura, IRN)",
+        "description": "IRN pê connector ke tiya de weçîno qeyd beno; connector ê destî cewabê portalî pê dest gêno.",
+        "connector": "Connector",
+        "connectorNone": "Racêrde",
+        "connectorManual": "Destî (cewabê IRP bıçaşne)",
+        "connectorNic": "NIC IRP API (sandbox yan production)",
+        "nicUnverified": "Connector ê NIC API ya weşanıyaye şino û tenya pê dadeyanê qeydkerdeyan test biyo; hetanî delilê dekerdışi nêdîyaye, sandboxa zindiya ser o nêtesdîq biyo.",
+        "env": "Çevre",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "URL ya bınî",
+        "baseUrlHint": "Pêroyê çevreyî rê vındar verde.",
+        "clientId": "Idê muşterî",
+        "clientSecret": "Nımıtışê muşterî",
+        "username": "Nameyê karberi",
+        "password": "Parola",
+        "gstin": "GSTIN",
+        "secretStored": "Şifrekerde qeyd beno; vındar verde ke bımano.",
+        "secretEncrypted": "Şifrekerde qeyd beno."
+      },
+      "eu": {
+        "title": "Ewropa (Factur-X, UBL)",
+        "description": "EN 16931 no versiyon de tenya profîl o; waştışê Factur-X û UBL aye kar benê.",
+        "profile": "Profîl",
+        "profileNone": "Racêrde",
+        "en16931": "EN 16931"
+      },
+      "save": "Eyarê ê-fakturayî qeyd bıke"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Raxê TDSê hêvîyo (%)",
       "preferredLanguage": "Zıwanê dokumanî",
       "preferredLanguageFollow": "Profîlê vıraştoxî ra şo",
+      "buyerReference": "Referansê kıriyaoği",
+      "buyerReferenceHint": "Ê-fakturanê de sey referansê xoserê kıriyaoği (numreya sipariş yan cayê masrafî) çap beno.",
+      "electronicAddress": "Adresa elektronîkî",
+      "electronicAddressHint": "Mıwecidnayoğê Peppol yan EN 16931 ke no miştari ê-fakturayan bınê aye de gêno.",
+      "electronicAddressScheme": "Şemayê adresa elektronîkî",
+      "electronicAddressSchemeNone": "Şema çıniya",
       "notes": "Notî",
       "billingAddress": "Adresê faturakerdışi",
       "shippingAddress": "Adresê erdışi",
@@ -2022,6 +2076,7 @@
     "templateReset": "Şablon standardê ca de estêyi rê peyser şiyo",
     "templateImported": "Şablon import biyo",
     "profileTemplateCleared": "Profîl fına şablonê instanceyi ğerreno",
-    "operatorSaved": "Teferruatê operatori qeyd biyê. Pelê hıqûqiyan nıka mocnenê."
+    "operatorSaved": "Teferruatê operatori qeyd biyê. Pelê hıqûqiyan nıka mocnenê.",
+    "einvoiceSettingsSaved": "Eyarê ê-fakturayî qeyd bi"
   }
 }

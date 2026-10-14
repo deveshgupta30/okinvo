@@ -130,6 +130,7 @@
       "users": "کاروونکي",
       "data": "ډاټا",
       "legal": "قانوني",
+      "einvoicing": "بریښنايي انوایسونه",
       "account": "حساب",
       "appearance": "بڼه",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "پرته له IGST صادراتو لپاره",
         "lutFiscalYear": "LUT مالي کال",
         "lutFiscalYearHint": "مثلاً 2026-27",
+        "einvoiceTitle": "بریښنايي انوایسونه",
+        "einvoiceDescription": "دا پروفایل په بریښنايي انوایسونو کې ځان څنګه پېژني؛ نښلونکی او د ننوتلو معلومات په تنظیمات > بریښنايي انوایسونه کې دي.",
+        "electronicAddress": "بریښنايي پته",
+        "electronicAddressHint": "د دې صادرونکي د Peppol یا EN 16931 پېژندنه، د پلورونکي د بریښنايي پتې په توګه چاپېږي.",
+        "electronicAddressScheme": "د بریښنايي پتې طرحه",
+        "electronicAddressSchemeNone": "بې طرحې",
+        "einvoiceEnabled": "د دې پروفایل لپاره بریښنايي انوایسونه فعال دي",
+        "einvoiceEnabledHint": "د هغه په صادرو شویو سندونو کې د GST e-invoice JSON، Factur-X او UBL ډاونلوډونه او د IRN ثبت وړاندې کوي.",
         "defaultsTitle": "ډیفالټونه",
         "baseCurrency": "بنسټیز اسعار",
         "locale": "د سند locale",
@@ -803,6 +812,45 @@
         "venueHint": "د بېلګې په توګه «د بنګلور، کرناټکا محکمې».",
         "submit": "د چلوونکي توضیحات خوندي کړئ"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "بریښنايي انوایسونه",
+      "title": "بریښنايي انوایسونه",
+      "description": "د هر صادرونکي پروفایل لپاره: کوم نښلونکی د هند بریښنايي انوایسونه ثبتوي، او د Factur-X او UBL محصولات کوم اروپايي پروفایل تعقیبوي. د ننوتلو معلومات کوډ شوي خوندي کېږي او بیا نه ښودل کېږي.",
+      "noProfiles": "لومړی د صادرونکي پروفایل جوړ کړئ.",
+      "profile": "د صادرونکي پروفایل",
+      "enabled": "فعال",
+      "disabled": "غیرفعال",
+      "enabledHint": "بریښنايي انوایسونه د هر پروفایل لپاره په تنظیمات > پروفایلونه کې فعال یا غیرفعال کړئ.",
+      "india": {
+        "title": "هند (GST e-invoice, IRN)",
+        "description": "IRN د دلته ټاکل شوي نښلونکي له لارې ثبتېږي؛ لاسي نښلونکی د پورټل ځواب چې په لاس داخل شوی وي ترلاسه کوي.",
+        "connector": "نښلونکی",
+        "connectorNone": "بند",
+        "connectorManual": "لاسي (د IRP ځواب لکه کړئ)",
+        "connectorNic": "NIC IRP API (sandbox یا production)",
+        "nicUnverified": "د NIC نښلونکی خپور شوی API تعقیبوي او یوازې په ثبت شویو نمونو آزمویل شوی؛ تر هغه چې د ننوتلو معلومات ورکړل شي، په ریښتینې sandbox کې نه دی تایید شوی.",
+        "env": "چاپېریال",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "اساسي URL",
+        "baseUrlHint": "د چاپېریال د ډیفالټ لپاره خالي پرېږدئ.",
+        "clientId": "د مشتري پېژندنه",
+        "clientSecret": "د مشتري راز",
+        "username": "کارن نوم",
+        "password": "پټنوم",
+        "gstin": "GSTIN",
+        "secretStored": "کوډ شوی خوندي دی؛ د ساتلو لپاره خالي پرېږدئ.",
+        "secretEncrypted": "کوډ شوی خوندي دی."
+      },
+      "eu": {
+        "title": "اروپا (Factur-X, UBL)",
+        "description": "EN 16931 پدې نسخه کې یوازینی پروفایل دی؛ د Factur-X او UBL ډاونلوډونه یې کاروي.",
+        "profile": "پروفایل",
+        "profileNone": "بند",
+        "en16931": "EN 16931"
+      },
+      "save": "د بریښنايي انوایس تنظیمات خوندي کړئ"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "متوقع TDS نرخ (%)",
       "preferredLanguage": "د سند ژبه",
       "preferredLanguageFollow": "د صادرونکي پروفایل تعقیب کړئ",
+      "buyerReference": "د پېرودونکي مرجع",
+      "buyerReferenceHint": "په بریښنايي انوایسونو کې د پېرودونکي د خپل مرجع په توګه چاپېږي (د امر یا لګښت مرکز شمېره).",
+      "electronicAddress": "بریښنايي پته",
+      "electronicAddressHint": "د Peppol یا EN 16931 پېژندنه چې دا مشتری د هغې لاندې بریښنايي انوایسونه ترلاسه کوي.",
+      "electronicAddressScheme": "د بریښنايي پتې طرحه",
+      "electronicAddressSchemeNone": "بې طرحې",
       "notes": "یادښتونه",
       "billingAddress": "د بیل پته",
       "shippingAddress": "د لېږد پته",
@@ -2022,6 +2076,7 @@
     "templateReset": "کينډه داخلي ډیفالټ ته بېرته وټاکل شوه",
     "templateImported": "کينډه وارده شوه",
     "profileTemplateCleared": "پروفایل بیا د انسټانس کينډه کاروي",
-    "operatorSaved": "د چلوونکي توضیحات خوندي شول. قانوني پاڼې اوس دا ښیي."
+    "operatorSaved": "د چلوونکي توضیحات خوندي شول. قانوني پاڼې اوس دا ښیي.",
+    "einvoiceSettingsSaved": "د بریښنايي انوایس تنظیمات خوندي شول"
   }
 }

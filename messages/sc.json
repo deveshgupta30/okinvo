@@ -130,6 +130,7 @@
       "users": "Impitadores",
       "data": "Datos",
       "legal": "Legale",
+      "einvoicing": "E-fattura",
       "account": "Contu",
       "appearance": "Aspetu",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Pro esportatziones sena IGST",
         "lutFiscalYear": "Annu finantziàriu LUT",
         "lutFiscalYearHint": "pro esempru 2026-27",
+        "einvoiceTitle": "E-fattura",
+        "einvoiceDescription": "Comente custu profilu s’identificat in is e-fatturas; su connettore e is credentziales sunt in Cunfiguratziones > E-fattura.",
+        "electronicAddress": "Indiritzu eletrònicu",
+        "electronicAddressHint": "S’identificadore Peppol o EN 16931 de custu emitente, imprentadu comente indiritzu eletrònicu de su bendidore.",
+        "electronicAddressScheme": "Ischema de s’indiritzu eletrònicu",
+        "electronicAddressSchemeNone": "Peruna ischema",
+        "einvoiceEnabled": "E-fattura ativada pro custu profilu",
+        "einvoiceEnabledHint": "Ofertat in is documentos emitidos is iscarrigamentos de s’e-fattura GST in JSON, Factur-X e UBL e sa registratzione de s’IRN.",
         "defaultsTitle": "Valores predefinidos",
         "baseCurrency": "Moneda de base",
         "locale": "Impostatzione regionale de su documentu",
@@ -803,6 +812,45 @@
         "venueHint": "Pro esempru “sos tribunales de Bengaluru, Karnataka”.",
         "submit": "Sarva sos detàllios de s’operadore"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fattura",
+      "title": "E-fattura",
+      "description": "Pro cada profilu de emitente: cale connettore registrat is e-fatturas indianas e cale profilu europeu sighint is archìvios Factur-X e UBL. Is credentziales sunt sarvadas tzifradas e non benint mai mustradas ancora.",
+      "noProfiles": "Crea in antis unu profilu de emitente.",
+      "profile": "Profilu de emitente",
+      "enabled": "Ativadu",
+      "disabled": "Disativadu",
+      "enabledHint": "Ativa o disativa s’e-fattura pro cada profilu in Cunfiguratziones > Profilos.",
+      "india": {
+        "title": "Ìndia (e-fattura GST, IRN)",
+        "description": "S’IRN benit registradu cun su connettore sèberadu inoghe; su connettore manuale retzit a manu sa risposta de su portale.",
+        "connector": "Connettore",
+        "connectorNone": "Istudadu",
+        "connectorManual": "Manuale (incolla sa risposta de s’IRP)",
+        "connectorNic": "NIC IRP API (sandbox o produtzione)",
+        "nicUnverified": "Su connettore NIC sighit s’API pubblicada e est proadu isceti cun datos registrados; no est verificadu in unu sandbox reale fintzas a cando non benint fornidas is credentziales.",
+        "env": "Ambiente",
+        "sandbox": "Sandbox",
+        "production": "Produtzione",
+        "baseUrl": "URL de base",
+        "baseUrlHint": "Lassa bòidu pro s’ambiente predefinidu.",
+        "clientId": "ID de su cliente",
+        "clientSecret": "Segretu de su cliente",
+        "username": "Nùmene utente",
+        "password": "Crae",
+        "gstin": "GSTIN",
+        "secretStored": "Sarvadu tzifradu; lassa bòidu pro lu mantènnere.",
+        "secretEncrypted": "Sarvadu tzifradu in riposu."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 est su profilu ùnicu in custa versione; is iscarrigamentos Factur-X e UBL ddu impreant.",
+        "profile": "Profilu",
+        "profileNone": "Istudadu",
+        "en16931": "EN 16931"
+      },
+      "save": "Sarva is cunfiguratziones de s’e-fattura"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Aliquota TDS atesa (%)",
       "preferredLanguage": "Limba de su documentu",
       "preferredLanguageFollow": "Sighire su profilu de s’emitente",
+      "buyerReference": "Riferimentu de s’acuistadore",
+      "buyerReferenceHint": "Imprentadu in is e-fatturas comente riferimentu pròpiu de s’acuistadore (unu nùmeru de cumanda o de tzentru de costu).",
+      "electronicAddress": "Indiritzu eletrònicu",
+      "electronicAddressHint": "S’identificadore Peppol o EN 16931 cun su cale custu cliente retzit e-fatturas.",
+      "electronicAddressScheme": "Ischema de s’indiritzu eletrònicu",
+      "electronicAddressSchemeNone": "Peruna ischema",
       "notes": "Notas",
       "billingAddress": "Indiritzu de faturatzione",
       "shippingAddress": "Indiritzu de ispeditzione",
@@ -2022,6 +2076,7 @@
     "templateReset": "Modellu ripristinadu a su predefinidu integradu",
     "templateImported": "Modellu importadu",
     "profileTemplateCleared": "Su profilu imprea torra su modellu de s’istàntzia",
-    "operatorSaved": "Detàllios de s’operadore sarvados. Sas pàginas legales mustrant como."
+    "operatorSaved": "Detàllios de s’operadore sarvados. Sas pàginas legales mustrant como.",
+    "einvoiceSettingsSaved": "Cunfiguratziones de s’e-fattura sarvadas"
   }
 }

@@ -130,6 +130,7 @@
       "users": "Mga user",
       "data": "Data",
       "legal": "Legal",
+      "einvoicing": "E-invoicing",
       "account": "Account",
       "appearance": "Hitsura",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Para sa mga export na walang IGST",
         "lutFiscalYear": "Taon ng pananalapi ng LUT",
         "lutFiscalYearHint": "hal. 2026-27",
+        "einvoiceTitle": "E-invoicing",
+        "einvoiceDescription": "Kung paano nakikilala ng profile na ito ang sarili sa mga e-invoice; ang connector at mga credential ay nasa Mga setting > E-invoicing.",
+        "electronicAddress": "Electronic address",
+        "electronicAddressHint": "Ang Peppol o EN 16931 identifier ng issuer na ito, na inilalagay bilang electronic address ng nagbebenta.",
+        "electronicAddressScheme": "Scheme ng electronic address",
+        "electronicAddressSchemeNone": "Walang scheme",
+        "einvoiceEnabled": "Naka-enable ang e-invoicing para sa profile na ito",
+        "einvoiceEnabledHint": "Nag-aalok ng mga download ng GST e-invoice JSON, Factur-X at UBL, at ng pagrehistro ng IRN sa mga naibigay nitong dokumento.",
         "defaultsTitle": "Mga default",
         "baseCurrency": "Batayang pera",
         "locale": "Locale ng dokumento",
@@ -803,6 +812,45 @@
         "venueHint": "Halimbawa, “ang mga hukuman ng Bengaluru, Karnataka”.",
         "submit": "I-save ang mga detalye ng operator"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-invoicing",
+      "title": "E-invoicing",
+      "description": "Kada issuer profile: kung aling connector ang nagrerehistro ng mga e-invoice ng India, at kung aling European profile ang sinusunod ng mga output ng Factur-X at UBL. Naka-encrypt ang pag-iimbak ng mga credential at hindi na muling ipapakita.",
+      "noProfiles": "Gumawa muna ng issuer profile.",
+      "profile": "Issuer profile",
+      "enabled": "Naka-enable",
+      "disabled": "Naka-disable",
+      "enabledHint": "I-on o i-off ang e-invoicing kada profile sa Mga setting > Mga profile.",
+      "india": {
+        "title": "India (GST e-invoice, IRN)",
+        "description": "Ang IRN ay nirerehistro sa pamamagitan ng connector na pinili rito; ang manual connector ay tumatanggap ng tugon ng portal nang mano-mano.",
+        "connector": "Connector",
+        "connectorNone": "Naka-off",
+        "connectorManual": "Manual (i-paste ang tugon ng IRP)",
+        "connectorNic": "NIC IRP API (sandbox o production)",
+        "nicUnverified": "Sinusunod ng NIC connector ang nailathalang API at nasubok lamang sa mga naitalang fixture; hindi pa ito napatutunayan sa live na sandbox hanggang makapagbigay ng mga credential.",
+        "env": "Environment",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "Base URL",
+        "baseUrlHint": "Iwanang blangko para sa default ng environment.",
+        "clientId": "Client id",
+        "clientSecret": "Client secret",
+        "username": "Username",
+        "password": "Password",
+        "gstin": "GSTIN",
+        "secretStored": "Naka-encrypt ang pagkakaimbak; iwanang blangko para panatilihin ito.",
+        "secretEncrypted": "Naka-encrypt ang pagkakaimbak."
+      },
+      "eu": {
+        "title": "Europe (Factur-X, UBL)",
+        "description": "Ang EN 16931 lamang ang profile sa bersyong ito; ito ang ginagamit ng mga download ng Factur-X at UBL.",
+        "profile": "Profile",
+        "profileNone": "Naka-off",
+        "en16931": "EN 16931"
+      },
+      "save": "I-save ang mga setting ng e-invoicing"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Inaasahang rate ng TDS (%)",
       "preferredLanguage": "Wika ng dokumento",
       "preferredLanguageFollow": "Sundin ang profile ng nag-isyu",
+      "buyerReference": "Reference ng buyer",
+      "buyerReferenceHint": "Inilalagay sa mga e-invoice bilang sariling reference ng buyer (numero ng order o cost centre).",
+      "electronicAddress": "Electronic address",
+      "electronicAddressHint": "Ang Peppol o EN 16931 identifier kung saan tumatanggap ng mga e-invoice ang client na ito.",
+      "electronicAddressScheme": "Scheme ng electronic address",
+      "electronicAddressSchemeNone": "Walang scheme",
       "notes": "Mga tala",
       "billingAddress": "Address ng pagsingil",
       "shippingAddress": "Address ng padadalhan",
@@ -2022,6 +2076,7 @@
     "templateReset": "Naibalik ang template sa built-in na default",
     "templateImported": "Na-import ang template",
     "profileTemplateCleared": "Gumagamit na muli ang profile ng template ng instance",
-    "operatorSaved": "Na-save ang mga detalye ng operator. Ipinapakita na ito ng mga legal na pahina."
+    "operatorSaved": "Na-save ang mga detalye ng operator. Ipinapakita na ito ng mga legal na pahina.",
+    "einvoiceSettingsSaved": "Na-save ang mga setting ng e-invoicing"
   }
 }

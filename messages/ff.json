@@ -130,6 +130,7 @@
       "users": "Huutinooɓe",
       "data": "Daata",
       "legal": "Sariya",
+      "einvoicing": "Fakituuji elektoronik",
       "account": "Konto",
       "appearance": "Mbaydi",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Ngam yaltingo bannda IGST",
         "lutFiscalYear": "Hitaande ceede LUT",
         "lutFiscalYearHint": "tun. 2026-27",
+        "einvoiceTitle": "Fakituuji elektoronik",
+        "einvoiceDescription": "Noy poroofiil ndin anndinirta nder fakituuji elektoronik; konektoor e kaalisi naatol ngoni les Settingi > Fakituuji elektoronik.",
+        "electronicAddress": "Ardees elektoronik",
+        "electronicAddressHint": "Anndinoowo Peppol walla EN 16931 ngo yaltinoowo oo, winndaa no ardees elektoronik njeeygoowo.",
+        "electronicAddressScheme": "Sheema ardees elektoronik",
+        "electronicAddressSchemeNone": "Walaa sheema",
+        "einvoiceEnabled": "Fakituuji elektoronik hurminaama ngam poroofiil ndin",
+        "einvoiceEnabledHint": "Hokkitoo jippinaadi GST e-fakituur JSON, Factur-X e UBL e winndugol IRN dow dokimaa mum yaltinaaɗi.",
         "defaultsTitle": "Defoo",
         "baseCurrency": "Ceede fuɗɗoode",
         "locale": "Locale dokimaa’i",
@@ -803,6 +812,45 @@
         "venueHint": "Tun. \"suudu sariya Dakar\".",
         "submit": "Hisnu keeri yahdinoowo"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "Fakituuji elektoronik",
+      "title": "Fakituuji elektoronik",
+      "description": "Dow poroofiil yaltinoowo kala: konektoor ngoo winndata fakituuji elektoronik Hindu, e poroofiil Orop ngiin Factur-X e UBL ndeenata. Kaalisi naatol cuuɗaa hisnaama e ɗum mbaawataa yiyeede fahin.",
+      "noProfiles": "Waɗ poroofiil yaltinoowo adan.",
+      "profile": "Poroofiil yaltinoowo",
+      "enabled": "Hurminaama",
+      "disabled": "Maaɗaama",
+      "enabledHint": "Hurmin walla maaɗ fakituuji elektoronik dow poroofiil kala les Settingi > Poroofiil.",
+      "india": {
+        "title": "Hindu (GST e-fakituur, IRN)",
+        "description": "IRN winndaa ɗum nder konektoor suɓaaɗo ɗoo; konektoor junngo hoo ɗaɓɓitoo jawaabu portaal ngoo junngo.",
+        "connector": "Konektoor",
+        "connectorNone": "Maaɗaama",
+        "connectorManual": "Junngo (hawtu jawaabu IRP)",
+        "connectorNic": "NIC IRP API (sandbox walla produksiyoon)",
+        "nicUnverified": "Konektoor NIC ndeenata API winndaaɗum e ɗum sappaaka tan e yeeso kitaaɓe cuuɗaaɗe; ɗum ɗaminaaka e sandbox nanndi haa kaalisi naatol hokkaa.",
+        "env": "Nokkuure",
+        "sandbox": "Sandbox",
+        "production": "Produksiyoon",
+        "baseUrl": "URL fuɗɗoode",
+        "baseUrlHint": "Acc ɗum duuɗaama ngam nokkuure ndee.",
+        "clientId": "Id kiliyaan",
+        "clientSecret": "Sirru kiliyaan",
+        "username": "Innde huutinoowo",
+        "password": "Finndeere",
+        "gstin": "GSTIN",
+        "secretStored": "Hisnaama kisndi; acc ɗum duuɗaama ngam ɗum heddo.",
+        "secretEncrypted": "Hisnaama kisndi."
+      },
+      "eu": {
+        "title": "Orop (Factur-X, UBL)",
+        "description": "EN 16931 woni poroofiil gooto tan nder yeeso ndu; jippinaadi Factur-X e UBL kuutiniray ɗum.",
+        "profile": "Poroofiil",
+        "profileNone": "Maaɗaama",
+        "en16931": "EN 16931"
+      },
+      "save": "Hisnu settingi fakituuji elektoronik"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Njoɓdi TDS ɗi tefaaɗi (%)",
       "preferredLanguage": "Ɗemngal ɗum-mi",
       "preferredLanguageFollow": "Ɗon yaha e profil jahdoowo",
+      "buyerReference": "Referaans sooninoowo",
+      "buyerReferenceHint": "Ɗum winndaa nder fakituuji elektoronik no referaans sooninoowo mum (limgal ordaa walla sentaar cuɓal).",
+      "electronicAddress": "Ardees elektoronik",
+      "electronicAddressHint": "Anndinoowo Peppol walla EN 16931 ngo kiliyaan oo ndaaroo fakituuji elektoronik les mum.",
+      "electronicAddressScheme": "Sheema ardees elektoronik",
+      "electronicAddressSchemeNone": "Walaa sheema",
       "notes": "Noteeji",
       "billingAddress": "Aderes faktiir",
       "shippingAddress": "Aderes yaltingo",
@@ -2022,6 +2076,7 @@
     "templateReset": "Taaje hootii e defoo e sistem",
     "templateImported": "Taaje ronndaama",
     "profileTemplateCleared": "Poroofiil ana huutinira taaje instans fahin",
-    "operatorSaved": "Keeri yahdinoowo hisnaama. Ɗemɗe sariya ana hollira ɗum jooni."
+    "operatorSaved": "Keeri yahdinoowo hisnaama. Ɗemɗe sariya ana hollira ɗum jooni.",
+    "einvoiceSettingsSaved": "Settingi fakituuji elektoronik hisnaama"
   }
 }

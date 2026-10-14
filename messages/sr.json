@@ -130,6 +130,7 @@
       "users": "Корисници",
       "data": "Подаци",
       "legal": "Правне информације",
+      "einvoicing": "Електронски рачуни",
       "account": "Налог",
       "appearance": "Изглед",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "За извоз без IGST",
         "lutFiscalYear": "LUT финансијска година",
         "lutFiscalYearHint": "нпр. 2026-27",
+        "einvoiceTitle": "Електронски рачуни",
+        "einvoiceDescription": "Како овај профил себе идентификује у електронским рачунима; конектор и акредитиви налазе се у Подешавања > Електронски рачуни.",
+        "electronicAddress": "Електронска адреса",
+        "electronicAddressHint": "Peppol или EN 16931 идентификатор овог издаваоца, штампа се као електронска адреса продавца.",
+        "electronicAddressScheme": "Шема електронске адресе",
+        "electronicAddressSchemeNone": "Без шеме",
+        "einvoiceEnabled": "Електронски рачуни су укључени за овај профил",
+        "einvoiceEnabledHint": "Нуди преузимање GST e-invoice JSON, Factur-X и UBL и регистрацију IRN за његове издате документе.",
         "defaultsTitle": "Подразумеване вредности",
         "baseCurrency": "Основна валута",
         "locale": "Локална поставка докумената",
@@ -803,6 +812,45 @@
         "venueHint": "На пример „судови у Бангалору, Карнатака“.",
         "submit": "Сачувај податке о оператеру"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "Електронски рачуни",
+      "title": "Електронски рачуни",
+      "description": "По профилу издаваоца: који конектор региструје индијске електронске рачуне и којег европског профила се држе Factur-X и UBL излази. Акредитиви се чувају шифровано и више се не приказују.",
+      "noProfiles": "Прво направите профил издаваоца.",
+      "profile": "Профил издаваоца",
+      "enabled": "Укључено",
+      "disabled": "Искључено",
+      "enabledHint": "Укључите или искључите електронске рачуне по профилу у Подешавања > Профили.",
+      "india": {
+        "title": "Индија (GST e-invoice, IRN)",
+        "description": "IRN се региструје преко овде изабраног конектора; ручни конектор прима одговор портала унет ручно.",
+        "connector": "Конектор",
+        "connectorNone": "Искључено",
+        "connectorManual": "Ручно (налепите IRP одговор)",
+        "connectorNic": "NIC IRP API (sandbox или production)",
+        "nicUnverified": "NIC конектор прати објављени API и тестиран је само на снимљеним узорцима; није проверен на правом sandbox окружењу док се не унесу акредитиви.",
+        "env": "Окружење",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "Основни URL",
+        "baseUrlHint": "Оставите празно за подразумевану вредност окружења.",
+        "clientId": "ИД клијента",
+        "clientSecret": "Тајна клијента",
+        "username": "Корисничко име",
+        "password": "Лозинка",
+        "gstin": "GSTIN",
+        "secretStored": "Чува се шифровано; оставите празно да задржите.",
+        "secretEncrypted": "Чува се шифровано."
+      },
+      "eu": {
+        "title": "Европа (Factur-X, UBL)",
+        "description": "EN 16931 је једини профил у овој верзији; Factur-X и UBL преузимања га користе.",
+        "profile": "Профил",
+        "profileNone": "Искључено",
+        "en16931": "EN 16931"
+      },
+      "save": "Сачувај подешавања електронских рачуна"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Очекивана стопа TDS (%)",
       "preferredLanguage": "Језик документа",
       "preferredLanguageFollow": "Прати профил издаваоца",
+      "buyerReference": "Референца купца",
+      "buyerReferenceHint": "Штампа се у електронским рачунима као сопствена референца купца (број наруџбенице или места трошка).",
+      "electronicAddress": "Електронска адреса",
+      "electronicAddressHint": "Peppol или EN 16931 идентификатор под којим овај клијент прима електронске рачуне.",
+      "electronicAddressScheme": "Шема електронске адресе",
+      "electronicAddressSchemeNone": "Без шеме",
       "notes": "Напомене",
       "billingAddress": "Адреса за рачуне",
       "shippingAddress": "Адреса за испоруку",
@@ -2022,6 +2076,7 @@
     "templateReset": "Шаблон је враћен на уграђени подразумевани",
     "templateImported": "Шаблон је увезен",
     "profileTemplateCleared": "Профил поново користи шаблон инстанце",
-    "operatorSaved": "Подаци о оператеру су сачувани. Правне странице их сада приказују."
+    "operatorSaved": "Подаци о оператеру су сачувани. Правне странице их сада приказују.",
+    "einvoiceSettingsSaved": "Подешавања електронских рачуна су сачувана"
   }
 }

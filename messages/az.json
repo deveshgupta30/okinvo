@@ -130,6 +130,7 @@
       "users": "İstifadəçilər",
       "data": "Məlumatlar",
       "legal": "Hüquqi məlumat",
+      "einvoicing": "E-qaimə",
       "account": "Hesab",
       "appearance": "Görünüş",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "IGST-siz ixrac üçün",
         "lutFiscalYear": "LUT maliyyə ili",
         "lutFiscalYearHint": "məs. 2026-27",
+        "einvoiceTitle": "E-qaimə",
+        "einvoiceDescription": "Bu profilin e-qaimələrdə özünü necə tanıtdığı; bağlayıcı və giriş məlumatları Parametrlər > E-qaimə bölməsindədir.",
+        "electronicAddress": "Elektron ünvan",
+        "electronicAddressHint": "Bu emitentin Peppol və ya EN 16931 identifikatoru, satıcının elektron ünvanı kimi çap olunur.",
+        "electronicAddressScheme": "Elektron ünvan sxemi",
+        "electronicAddressSchemeNone": "Sxem yoxdur",
+        "einvoiceEnabled": "Bu profil üçün e-qaimə aktivdir",
+        "einvoiceEnabledHint": "Profilin buraxılmış sənədlərində GST e-qaimə JSON, Factur-X və UBL yükləmələrini və IRN qeydiyyatını təklif edir.",
         "defaultsTitle": "Susmaya görə dəyərlər",
         "baseCurrency": "Əsas valyuta",
         "locale": "Sənəd lokalı",
@@ -803,6 +812,45 @@
         "venueHint": "Məsələn, \"Benqaluru, Karnataka məhkəmələri\".",
         "submit": "Operator məlumatlarını yadda saxla"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-qaimə",
+      "title": "E-qaimə",
+      "description": "Hər emitent profili üzrə: Hindistan e-qaimələrini hansı bağlayıcı qeydiyyata alır və Factur-X ilə UBL çıxışları hansı Avropa profilinə uyğundur. Giriş məlumatları şifrələnmiş saxlanılır və bir daha göstərilmir.",
+      "noProfiles": "Əvvəlcə emitent profili yaradın.",
+      "profile": "Emitent profili",
+      "enabled": "Aktiv",
+      "disabled": "Deaktiv",
+      "enabledHint": "E-qaiməni Parametrlər > Profillər bölməsində hər profil üzrə yandırın və ya söndürün.",
+      "india": {
+        "title": "Hindistan (GST e-qaimə, IRN)",
+        "description": "IRN burada seçilmiş bağlayıcı vasitəsilə qeydiyyata alınır; əl ilə bağlayıcı portalın cavabını əllə qəbul edir.",
+        "connector": "Bağlayıcı",
+        "connectorNone": "Söndürülüb",
+        "connectorManual": "Əl ilə (IRP cavabını yapışdırın)",
+        "connectorNic": "NIC IRP API (sandbox və ya production)",
+        "nicUnverified": "NIC bağlayıcısı dərc olunmuş API-yə uyğundur və yalnız qeydə alınmış test məlumatları ilə sınaqdan keçirilib; giriş məlumatları verilənədək real sandbox ilə yoxlanılmayıb.",
+        "env": "Mühit",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "Baza URL",
+        "baseUrlHint": "Mühitin standart dəyəri üçün boş buraxın.",
+        "clientId": "Müştəri ID",
+        "clientSecret": "Müştəri sirri",
+        "username": "İstifadəçi adı",
+        "password": "Parol",
+        "gstin": "GSTIN",
+        "secretStored": "Şifrələnmiş saxlanılır; saxlamaq üçün boş buraxın.",
+        "secretEncrypted": "Şifrələnmiş saxlanılır."
+      },
+      "eu": {
+        "title": "Avropa (Factur-X, UBL)",
+        "description": "Bu versiyada yalnız EN 16931 profili var; Factur-X və UBL yükləmələri ondan istifadə edir.",
+        "profile": "Profil",
+        "profileNone": "Söndürülüb",
+        "en16931": "EN 16931"
+      },
+      "save": "E-qaimə parametrlərini yadda saxla"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Gözlənilən TDS dərəcəsi (%)",
       "preferredLanguage": "Sənəd dili",
       "preferredLanguageFollow": "Təqdimatçı profilinə uyğun",
+      "buyerReference": "Alıcı arayışı",
+      "buyerReferenceHint": "E-qaimələrdə alıcının öz arayışı kimi çap olunur (sifariş və ya xərc mərkəzi nömrəsi).",
+      "electronicAddress": "Elektron ünvan",
+      "electronicAddressHint": "Bu müştərinin e-qaimələri aldığı Peppol və ya EN 16931 identifikatoru.",
+      "electronicAddressScheme": "Elektron ünvan sxemi",
+      "electronicAddressSchemeNone": "Sxem yoxdur",
       "notes": "Qeydlər",
       "billingAddress": "Hesablaşma ünvanı",
       "shippingAddress": "Çatdırılma ünvanı",
@@ -2022,6 +2076,7 @@
     "templateReset": "Şablon daxili susmaya görə şablona sıfırlandı",
     "templateImported": "Şablon idxal edildi",
     "profileTemplateCleared": "Profil yenidən instans şablonundan istifadə edir",
-    "operatorSaved": "Operator məlumatları yadda saxlanıldı. Hüquqi səhifələr indi onları göstərir."
+    "operatorSaved": "Operator məlumatları yadda saxlanıldı. Hüquqi səhifələr indi onları göstərir.",
+    "einvoiceSettingsSaved": "E-qaimə parametrləri yadda saxlanıldı"
   }
 }

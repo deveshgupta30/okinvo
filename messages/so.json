@@ -130,6 +130,7 @@
       "users": "Isticmaalayaal",
       "data": "Xog",
       "legal": "Sharci",
+      "einvoicing": "E-invoice",
       "account": "Akoon",
       "appearance": "Muuqaal",
       "api": "API",
@@ -296,6 +297,14 @@
         "lutNumberHint": "Dhoofinta aan IGST lahayn",
         "lutFiscalYear": "Sannadka maaliyadeed ee LUT",
         "lutFiscalYearHint": "tusaale 2026-27",
+        "einvoiceTitle": "E-invoice",
+        "einvoiceDescription": "Sida faahfaahintani isu aqoonsato e-invoice-yada; isku xiraha iyo aqoonsiyada waxay ku jiraan Dejinta > E-invoice.",
+        "electronicAddress": "Cinwaanka elektarooniga ah",
+        "electronicAddressHint": "Aqoonsiga Peppol ama EN 16931 ee bixiyahan, oo loo daabaco sidii cinwaanka elektarooniga ah ee iibiyaha.",
+        "electronicAddressScheme": "Nidaamka cinwaanka elektarooniga ah",
+        "electronicAddressSchemeNone": "Nidaam la’aan",
+        "einvoiceEnabled": "E-invoice waa la shaqeeyey faahfaahintan",
+        "einvoiceEnabledHint": "Waxay bixisaa soo dejinta GST e-invoice JSON, Factur-X iyo UBL iyo diiwaangelinta IRN ee dukumentiyadeeda la soo saaray.",
         "defaultsTitle": "Qiyamka caadiga ah",
         "baseCurrency": "Lacagta aasaasiga ah",
         "locale": "Luqadda dukumentiga",
@@ -803,6 +812,45 @@
         "venueHint": "Tusaale ahaan \"maxkamadaha Bengaluru, Karnataka\".",
         "submit": "Kaydi faahfaahinta hawlwadeenka"
       }
+    },
+    "einvoicing": {
+      "metaTitle": "E-invoice",
+      "title": "E-invoice",
+      "description": "Faahfaahin kasta oo bixiye: sidee isku xiraha u diiwaangeliyaa e-invoice-yada Hindiya, iyo sidee Factur-X iyo UBL u raacaan faahfaahinta Yurub. Aqoonsiyada waa la kaydiyaa si sir ah mana la tusi doono mar kale.",
+      "noProfiles": "Marka hore samee faahfaahin bixiye.",
+      "profile": "Faahfaahinta bixiyaha",
+      "enabled": "La shaqeeyey",
+      "disabled": "La joojiyey",
+      "enabledHint": "Daar ama demi e-invoice faahfaahin kasta oo ku jirta Dejinta > Faahfaahinno.",
+      "india": {
+        "title": "Hindiya (GST e-invoice, IRN)",
+        "description": "IRN waxaa lagu diiwaangeliyaa isku xirahan la doortay; isku xiraha gacanta wuxuu gacanta ku qaataa jawaabta albaabka.",
+        "connector": "Isku xiraha",
+        "connectorNone": "Dansan",
+        "connectorManual": "Gacanta (ku dhaji jawaabta IRP)",
+        "connectorNic": "NIC IRP API (sandbox ama production)",
+        "nicUnverified": "Isku xiraha NIC wuxuu raacaa API-ga la daabacay, waxaana lagu tijaabiyey kaliya xog la duubay; lama xaqiijin sandbox nool ilaa la helo aqoonsiyada.",
+        "env": "Deegaanka",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "URL-ka salka ah",
+        "baseUrlHint": "Ka tag madhan si aad u isticmaasho kan caadiga ah ee deegaanka.",
+        "clientId": "Aqoonsiga macmiilka",
+        "clientSecret": "Sirta macmiilka",
+        "username": "Magaca isticmaalaha",
+        "password": "Erayga sirta ah",
+        "gstin": "GSTIN",
+        "secretStored": "Waa la kaydiyey si sir ah; ka tag madhan si aad u hayso.",
+        "secretEncrypted": "Waxaa la kaydiyey si sir ah."
+      },
+      "eu": {
+        "title": "Yurub (Factur-X, UBL)",
+        "description": "EN 16931 waa faahfaahinta kaliya ee nooca hadda ah; soo dejinta Factur-X iyo UBL way isticmaalaan.",
+        "profile": "Faahfaahin",
+        "profileNone": "Dansan",
+        "en16931": "EN 16931"
+      },
+      "save": "Kaydi dejinta e-invoice"
     },
     "api": {
       "metaTitle": "API",
@@ -1831,6 +1879,12 @@
       "expectedTdsRate": "Heerka TDS la filayo (%)",
       "preferredLanguage": "Luqadda dukumentiga",
       "preferredLanguageFollow": "Raac profile-ka bixiyaha",
+      "buyerReference": "Tixraaca iibsadaha",
+      "buyerReferenceHint": "Waxaa lagu daabacaa e-invoice-yada sidii tixraaca iibsadaha laftiisa (lambar dalab ama xarun kharash).",
+      "electronicAddress": "Cinwaanka elektarooniga ah",
+      "electronicAddressHint": "Aqoonsiga Peppol ama EN 16931 ee macmiilkani ku helo e-invoice-yada.",
+      "electronicAddressScheme": "Nidaamka cinwaanka elektarooniga ah",
+      "electronicAddressSchemeNone": "Nidaam la’aan",
       "notes": "Xusuusyo",
       "billingAddress": "Cinwaanka biilka",
       "shippingAddress": "Cinwaanka gaarsiinta",
@@ -2022,6 +2076,7 @@
     "templateReset": "Qaabka waa la celiyey caadiga ah ee lagu dhex dhisay",
     "templateImported": "Qaabka waa la soo geliyey",
     "profileTemplateCleared": "Faahfaahintu mar kale waxay isticmaashaa qaabka nusxada",
-    "operatorSaved": "Faahfaahinta hawlwadeenka waa la kaydiyey. Boggagga sharcigu hadda way muujinayaan."
+    "operatorSaved": "Faahfaahinta hawlwadeenka waa la kaydiyey. Boggagga sharcigu hadda way muujinayaan.",
+    "einvoiceSettingsSaved": "Dejinta e-invoice waa la kaydiyey"
   }
 }
