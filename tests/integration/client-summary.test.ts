@@ -138,7 +138,7 @@ describe.skipIf(!url)("client summary", () => {
     await cns.issueCreditNote(actor, cn.id);
     // B: 2360 issued, due in the past → overdue in full.
     await inv.issueInvoice(actor, (await draft("2026-04-01", "2026-04-15", "2")).id);
-    // C: a draft — never counted.
+    // C: a draft - never counted.
     await draft("2026-06-01", "2026-06-30", "1");
   });
 

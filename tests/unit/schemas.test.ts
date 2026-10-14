@@ -288,7 +288,7 @@ describe("PaymentMethodDetailsSchema", () => {
     ).toContain("accountEmail");
   });
 
-  it("requires 1–10 custom lines of at most 120 characters", () => {
+  it("requires 1-10 custom lines of at most 120 characters", () => {
     expect(
       PaymentMethodDetailsSchema.parse({
         type: "CUSTOM",

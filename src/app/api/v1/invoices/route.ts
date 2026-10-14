@@ -11,7 +11,7 @@ import { listInvoices } from "@/server/dal/invoices";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-/** GET /api/v1/invoices — the register, newest first, cursor-paginated (scope invoices:read). */
+/** GET /api/v1/invoices - the register, newest first, cursor-paginated (scope invoices:read). */
 export const GET = withApi(async (request: Request) => {
   const actor = await requireApiActor("invoices:read", request.headers);
   if (!isActor(actor)) return actor;
@@ -29,7 +29,7 @@ export const GET = withApi(async (request: Request) => {
 /** Loose body: the draft input without the display config, which defaults from the profile. */
 const BodySchema = z.looseObject({ issuerProfileId: z.string().min(1) });
 
-/** POST /api/v1/invoices — a draft (scope invoices:create); issue it with /issue. */
+/** POST /api/v1/invoices - a draft (scope invoices:create); issue it with /issue. */
 export const POST = withApi(async (request: Request) => {
   const actor = await requireApiActor("invoices:create", request.headers);
   if (!isActor(actor)) return actor;

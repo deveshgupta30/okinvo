@@ -72,7 +72,7 @@ export function validateCatalogue(file, base) {
         `${file}: "${key}" placeholders differ (${placeholders(value) || "none"} vs ${placeholders(baseKeys.get(key)) || "none"})`,
       );
     for (const p of icuProblems(value)) problems.push(`${file}: "${key}" ${p}`);
-    if (/[–—]/.test(value)) problems.push(`${file}: "${key}" contains an em or en dash`);
+    if (/[- - ]/.test(value)) problems.push(`${file}: "${key}" contains an em or en dash`);
     if (value.trim() === "" && baseKeys.get(key).trim() !== "")
       problems.push(`${file}: "${key}" is empty`);
   }

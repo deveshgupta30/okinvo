@@ -9,7 +9,7 @@ import { listProfiles } from "@/server/dal/profiles";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-/** GET /api/v1/profiles — issuer profiles without secrets (scope catalogue:read). */
+/** GET /api/v1/profiles - issuer profiles without secrets (scope catalogue:read). */
 export const GET = withApi(async (request: Request) => {
   const actor = await requireApiActor("catalogue:read", request.headers);
   if (!isActor(actor)) return actor;

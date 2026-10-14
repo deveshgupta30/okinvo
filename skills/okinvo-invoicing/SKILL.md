@@ -27,13 +27,13 @@ otherwise. `reference.md` beside this file lists every endpoint and tool.
   accepted in any text; other characters answer `400 bad_charset`.
 - **Create, then issue.** `create_invoice` / `POST /invoices` saves a *draft*: nothing is numbered
   or frozen. `issue_invoice` / `POST /invoices/{id}/issue` allocates the number, freezes the
-  document and renders its PDF. Issuing is **irreversible** — confirm the draft with the user
+  document and renders its PDF. Issuing is **irreversible** - confirm the draft with the user
   before issuing when anything is uncertain.
 - **Ids come from the instance.** Look up `issuerProfileId` with `list_profiles` and `clientId`
   with `list_clients` (search by name with `q`); never invent them.
 - **Tax regime** must match the issuer: `INDIA_GST`, `UK_VAT`, `US_SALES_TAX` or `NONE`. The
   profile's `defaultTaxRegime` is the right default. Item `taxRate` is a percent string.
-- Lists are cursor-paginated: pass `limit` (1–100) and the returned `nextCursor` back as
+- Lists are cursor-paginated: pass `limit` (1-100) and the returned `nextCursor` back as
   `cursor` until it is `null`.
 
 ## Hard limits
@@ -87,7 +87,7 @@ then `POST /api/v1/invoices/{id}/issue`.
 
 ### Fetch the PDF
 
-MCP: read the resource `okinvo://invoices/<id>/pdf` — the content is `application/pdf` as a
+MCP: read the resource `okinvo://invoices/<id>/pdf` - the content is `application/pdf` as a
 base64 `blob`. Credit notes: `okinvo://credit-notes/<id>/pdf`. Both need the `documents:read`
 scope.
 
@@ -104,4 +104,4 @@ REST errors are `{ "error": { "code", "message", "issues?" } }` with codes `unau
 `insufficient_scope`, `forbidden`, `not_found`, `validation`, `bad_charset`, `conflict`,
 `invariant`, `rate_limited`, `method_not_allowed`. MCP tools report the same codes as an in-band
 tool error (`isError: true`, text `code: message` plus the field issues). Read the issues back to
-the user — they name the field and what was wrong.
+the user - they name the field and what was wrong.

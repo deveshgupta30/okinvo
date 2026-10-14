@@ -1,5 +1,5 @@
 /**
- * Writes openapi/okinvo.json — the committed, deterministic OpenAPI document the SDK is generated
+ * Writes openapi/okinvo.json - the committed, deterministic OpenAPI document the SDK is generated
  * from (`pnpm openapi:export`). The server URL is a placeholder; a running instance serves its
  * own document at /api/openapi.json with its real APP_URL.
  */

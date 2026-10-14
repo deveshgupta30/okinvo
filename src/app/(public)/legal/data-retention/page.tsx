@@ -26,7 +26,7 @@ const SECTIONS = [
 const ROWS: [string, string, string][] = [
   [
     "Issued invoices and credit notes (data, PDF/DOCX copies, hashes)",
-    "Statutory record period for the issuer's country — 6 years in the UK, 8 years under Indian GST law (72 months from the annual return), up to 10 years where company law requires — counted from the end of the financial year of issue",
+    "Statutory record period for the issuer's country - 6 years in the UK, 8 years under Indian GST law (72 months from the annual return), up to 10 years where company law requires - counted from the end of the financial year of issue",
     "Legal obligation",
   ],
   [

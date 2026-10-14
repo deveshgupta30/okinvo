@@ -52,7 +52,7 @@ Any MCP client that speaks Streamable HTTP with a static bearer header works the
 `skills/okinvo-invoicing/` is an [Agent Skill](https://agentskills.io): `SKILL.md` tells an
 agent when and how to use the API or the MCP tools (ids first, create then issue, decimal strings,
 the hard limits) and `reference.md` lists every endpoint, tool and resource. Install it by copying
-the folder into the agent's skills directory — for Claude Code, `.claude/skills/okinvo-invoicing/`
+the folder into the agent's skills directory - for Claude Code, `.claude/skills/okinvo-invoicing/`
 in a project or `~/.claude/skills/okinvo-invoicing/` for every project.
 
 ## Tools and resources
@@ -71,7 +71,7 @@ Tool inputs are the REST request bodies; outputs are the REST DTOs (also returne
 `structuredContent`). Validation and lookup failures come back as in-band tool errors with the
 same codes as the REST error envelope. Requests are rate-limited per key (120/min), bodies are
 capped at 1 MB and checked against the keyboard-character rule, and `GET`/`DELETE` on `/api/mcp`
-answer 405 — there is no session to open or close.
+answer 405 - there is no session to open or close.
 
 ## Trying it by hand
 

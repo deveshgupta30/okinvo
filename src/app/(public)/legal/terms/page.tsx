@@ -84,7 +84,7 @@ export default async function TermsPage() {
           large, and the operator may decline to admit anyone.
         </p>
         <p>
-          Public pages — the document verification page and share links — are available to anyone
+          Public pages - the document verification page and share links - are available to anyone
           who holds the corresponding link. Those visitors are bound by these terms only to the
           extent they use the page: they may view and download what the link exposes and nothing
           else.
@@ -195,7 +195,7 @@ export default async function TermsPage() {
         </p>
         <ul>
           <li>
-            an <strong>SMTP server</strong> to send invoices by e-mail — messages you send pass
+            an <strong>SMTP server</strong> to send invoices by e-mail - messages you send pass
             through it;
           </li>
           <li>
@@ -204,7 +204,7 @@ export default async function TermsPage() {
           </li>
           <li>
             an <strong>identity provider</strong> (such as Google, GitHub, Keycloak or Casdoor) for
-            sign-in — that provider sees that you signed in and shares your name, e-mail and picture
+            sign-in - that provider sees that you signed in and shares your name, e-mail and picture
             with the service;
           </li>
           <li>

@@ -16,7 +16,7 @@ import { paginate } from "./paginate";
 
 /**
  * "Export documents" (SPEC §4.11): every issued or voided invoice and credit-note PDF of a fiscal
- * year or date range, named by number, plus an `index.csv` — the accountant hand-off. A document
+ * year or date range, named by number, plus an `index.csv` - the accountant hand-off. A document
  * that was never rendered (or whose render failed at issue) is rendered here through the same
  * idempotent `ensureDocument` (plan R10), one at a time as the archive streams, so the first bytes
  * leave before the last PDF is produced. The index is written last because it is built on the way.

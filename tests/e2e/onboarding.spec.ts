@@ -22,7 +22,7 @@ test("a new owner is walked through onboarding into a prefilled profile, once", 
     return;
   }
 
-  // Step 1 — identity: a country is preselected from the browser; pick India explicitly.
+  // Step 1 - identity: a country is preselected from the browser; pick India explicitly.
   await expect(page.getByRole("heading", { name: /Tell us about you/ })).toBeVisible();
   await waitHydrated(page);
   const country = page.getByLabel("Country");
@@ -34,7 +34,7 @@ test("a new owner is walked through onboarding into a prefilled profile, once", 
   await page.getByLabel("Name").fill("Onboard Owner");
   await page.getByRole("button", { name: "Continue" }).click();
 
-  // Step 2 — usage and GSTIN
+  // Step 2 - usage and GSTIN
   await expect(page.getByRole("heading", { name: /How will you use okinvo/ })).toBeVisible();
   await waitHydrated(page);
   await page.getByRole("radio", { name: /Business invoicing/ }).check();
@@ -46,7 +46,7 @@ test("a new owner is walked through onboarding into a prefilled profile, once", 
   await gstin.fill("27AAPFU0939F1ZV");
   await page.getByRole("button", { name: "Continue" }).click();
 
-  // Step 3 — done
+  // Step 3 - done
   await expect(page.getByRole("heading", { name: /You're set/ })).toBeVisible();
   await waitHydrated(page);
   await page.getByRole("button", { name: /Go to profiles/ }).click();

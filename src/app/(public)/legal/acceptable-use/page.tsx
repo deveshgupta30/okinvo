@@ -132,7 +132,7 @@ export default async function AcceptableUsePage() {
           <li>
             <strong>MCP clients.</strong> The MCP server lets an AI assistant view, draft and issue
             documents under your credentials; it deliberately cannot delete anything. You remain
-            responsible for what your assistant does with your key — review what it drafts before it
+            responsible for what your assistant does with your key - review what it drafts before it
             is issued, and do not grant it to assistants you do not control.
           </li>
           <li>

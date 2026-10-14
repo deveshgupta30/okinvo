@@ -10,8 +10,8 @@ import { cursorArgs } from "./datasets/shared";
 import { paginate } from "./paginate";
 
 /**
- * "Export all data" (SPEC §4.11): every dataset as CSV, plus `data.json` — a full relational
- * snapshot for migration or re-import — and a README describing it. Encrypted columns and the
+ * "Export all data" (SPEC §4.11): every dataset as CSV, plus `data.json` - a full relational
+ * snapshot for migration or re-import - and a README describing it. Encrypted columns and the
  * SMTP setting never leave the database; the README lists exactly what was left out.
  */
 export const SNAPSHOT_SCHEMA_VERSION = 1;
@@ -243,7 +243,7 @@ export async function* snapshotJsonChunks(exportedAt: string): AsyncGenerator<st
 
 export function readme(exportedAt: string): string {
   return [
-    "okinvo — export all data",
+    "okinvo - export all data",
     "",
     `Exported at: ${exportedAt}`,
     `App version: ${APP_VERSION}`,
@@ -258,13 +258,13 @@ export function readme(exportedAt: string): string {
     "                     Amounts are decimal strings; dates and instants are ISO 8601.",
     "",
     "What is NOT in data.json",
-    `  Columns: ${EXCLUDED_FIELDS.join(", ")} — encrypted at rest: payment-method details, US`,
+    `  Columns: ${EXCLUDED_FIELDS.join(", ")} - encrypted at rest: payment-method details, US`,
     "           tax ids, the SMTP password, the payment-method snapshot printed on each issued",
     "           invoice, and the verify-link tokens (their SHA-256 hashes are included). Re-enter",
     "           payment methods after a re-import; stored PDFs keep what they printed.",
     "  Note: invoice snapshots of the issuer and client (names, addresses, tax ids) are included",
     "        as they appear on the documents.",
-    `  Settings: ${EXCLUDED_SETTINGS.join(", ")} — the SMTP configuration.`,
+    `  Settings: ${EXCLUDED_SETTINGS.join(", ")} - the SMTP configuration.`,
     "  Tables: session, account, verification (sign-in state), rateLimitBucket (transient).",
     "  Blobs: PDFs, logos, signatures, stamps and receipts live in the storage volume; the",
     "         documents and assets tables carry their storage keys and SHA-256 hashes.",

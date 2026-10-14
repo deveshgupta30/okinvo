@@ -3,7 +3,7 @@
 Self-hosted invoicing for an independent professional or a small business: issuer profiles
 (individual and company), clients, a service and product catalogue, immutable numbered invoices
 with PDF, DOCX and QR verification, a payments ledger with TDS, credit notes, e-mail sending,
-share links, CSV/XLSX exports and accountant hand-offs — on your own Docker host or Kubernetes
+share links, CSV/XLSX exports and accountant hand-offs - on your own Docker host or Kubernetes
 cluster, with no outbound dependencies.
 
 [![ci](https://github.com/deveshgupta30/okinvo/actions/workflows/ci.yml/badge.svg)](https://github.com/deveshgupta30/okinvo/actions/workflows/ci.yml)
@@ -14,8 +14,8 @@ cluster, with no outbound dependencies.
 
 A single Next.js application in front of PostgreSQL and a document store, built for one
 freelancer or contractor who bills as an individual, through their own company, or both. It
-covers the whole lifecycle — client and catalogue → invoice builder with live preview → issue
-(immutable PDF + verification QR) → send → payments → credit notes → exports — and nothing else.
+covers the whole lifecycle - client and catalogue → invoice builder with live preview → issue
+(immutable PDF + verification QR) → send → payments → credit notes → exports - and nothing else.
 There is no SaaS tier, no telemetry and no call home: every font, script and dataset ships in the
 image, so an air-gapped instance works unchanged.
 
@@ -43,7 +43,7 @@ generated from a seeded demo instance with `pnpm docs:screenshots`.
   lines, discounts, India GST (CGST/SGST/IGST, exports under LUT, reverse charge), UK VAT and
   plain-rate regimes, expected TDS, display configuration per document, page-count estimate.
 - **Issue** allocates a gap-free number inside one transaction, snapshots everything and stores a
-  hashed PDF; issued documents never change — fix with void, void-and-reissue or a credit note.
+  hashed PDF; issued documents never change - fix with void, void-and-reissue or a credit note.
 - **Documents**: six templates (ledger, classic, compact, minimal, letterhead, modern), a
   100-family Google font catalogue vendored offline, header bands or letterhead images, A4 and
   Letter, DOCX copies, password-protected PDF copies (AES-256, print-only), the public
@@ -226,9 +226,9 @@ Responses are `{ data }` or `{ data: [...], nextCursor }`; errors are `{ error: 
 issues? } }`. There is no delete or update over the API (405). Every instance serves its OpenAPI
 3.1 document at `/api/openapi.json`; `openapi/okinvo.json` is the committed copy and `sdk/` the
 generated TypeScript client (`sdk/README.md`). The MCP server at `POST /api/mcp` (Streamable
-HTTP, stateless) exposes the same operations as tools scoped by the key — `list_invoices`,
+HTTP, stateless) exposes the same operations as tools scoped by the key - `list_invoices`,
 `create_invoice`, `issue_invoice`, … and the issued PDFs as `okinvo://invoices/{id}/pdf`
-resources — with no delete, void, payment or settings tools; `docs/mcp.md` has the `.mcp.json`
+resources - with no delete, void, payment or settings tools; `docs/mcp.md` has the `.mcp.json`
 and Claude Desktop snippets and the `skills/okinvo-invoicing` skill teaches an agent the
 workflow.
 
@@ -294,5 +294,5 @@ stopping the app. `scripts/restore-drill.sh` proves the procedure in CI.
 
 ## License
 
-Apache License 2.0 — see `LICENSE` and `NOTICE`. Bundled third-party works and their licences
+Apache License 2.0 - see `LICENSE` and `NOTICE`. Bundled third-party works and their licences
 are listed in `THIRD_PARTY_NOTICES.md` (`pnpm notices` regenerates it) and on `/legal/licenses`.

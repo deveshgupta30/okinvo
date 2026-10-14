@@ -15,7 +15,7 @@ const base64Bytes = (bytes: number) =>
     { message: `must be ${bytes} random bytes, base64-encoded (scripts/gen-secrets.sh)` },
   );
 
-/** dotenv `KEY=` lines arrive as "" — treat them as unset so optionals and defaults apply. */
+/** dotenv `KEY=` lines arrive as "" - treat them as unset so optionals and defaults apply. */
 const stripEmpty = (input: unknown): unknown => {
   if (!input || typeof input !== "object") return input;
   return Object.fromEntries(
@@ -40,7 +40,7 @@ const objectSchema = z
       .string()
       .min(32, "at least 32 characters")
       .refine((v) => !v.startsWith("replace-me"), {
-        message: "still the .env.example placeholder — run scripts/gen-secrets.sh",
+        message: "still the .env.example placeholder - run scripts/gen-secrets.sh",
       }),
     AUTH_ALLOWED_EMAILS: z.string().default(""),
     AUTH_PASSWORD_SIGNIN: z.stringbool().default(false), // email+password (allow-list still applies); e2e/CI and IdP-less owners

@@ -9,7 +9,7 @@ import { listPaymentMethods } from "@/server/dal/payment-methods";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-/** GET /api/v1/payment-methods — names and types only, never the details (catalogue:read). */
+/** GET /api/v1/payment-methods - names and types only, never the details (catalogue:read). */
 export const GET = withApi(async (request: Request) => {
   const actor = await requireApiActor("catalogue:read", request.headers);
   if (!isActor(actor)) return actor;

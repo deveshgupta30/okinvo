@@ -5,7 +5,7 @@ import { CountryCodeSchema } from "./address";
 
 /**
  * Who operates this instance (spec §6.4): the details the legal pages print. Everything is
- * optional in storage — a fresh instance has nothing — and each page renders an unset field as a
+ * optional in storage - a fresh instance has nothing - and each page renders an unset field as a
  * highlighted placeholder until the owner fills it in at Settings → Legal.
  */
 const text = (max: number) => fOptional(z.string().trim().min(1).max(max));

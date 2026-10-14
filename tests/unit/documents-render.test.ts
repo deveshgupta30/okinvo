@@ -73,7 +73,7 @@ describe("renderPdf", () => {
   it("watermarks drafts and prints no number", async () => {
     const config = DEFAULT_TEMPLATE_CONFIG;
     const { verifyUrl: _omit, ...rest } = sampleViewModel(config);
-    const vm = { ...rest, isDraft: true, number: null, watermark: "DRAFT — not a tax invoice" };
+    const vm = { ...rest, isDraft: true, number: null, watermark: "DRAFT - not a tax invoice" };
     const text = await textOf(await renderPdf(vm, config, { assets: noAssets }));
     expect(text).toContain("DRAFT");
     expect(text).not.toContain("INV/26-27/042");

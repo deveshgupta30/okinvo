@@ -19,7 +19,7 @@ export interface AssetDto {
   sha256: string;
 }
 
-/** Store a validated upload: blob first, row second — an orphan blob is harmless, a dangling row is not. */
+/** Store a validated upload: blob first, row second - an orphan blob is harmless, a dangling row is not. */
 export async function createAsset(
   actor: Actor,
   kind: AssetKind,

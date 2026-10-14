@@ -34,7 +34,7 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v7
-      - name: repository — vulnerabilities, secrets, misconfigurations
+      - name: repository - vulnerabilities, secrets, misconfigurations
         run: |
           set -euo pipefail
           repo="${GITHUB_WORKSPACE//\\//}"
@@ -44,9 +44,9 @@ jobs:
             --ignore-unfixed --skip-version-check --timeout 15m --ignorefile .trivyignore.yaml --skip-dirs "$SKIP_DIRS" \
             --format table --output /repo/trivy-fs.txt . || status=$?
           cat trivy-fs.txt
-          { echo '### Trivy — repository'; echo '```'; cat trivy-fs.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          { echo '### Trivy - repository'; echo '```'; cat trivy-fs.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
           exit "$status"
-      - name: configuration — Compose, Kustomize and the Dockerfile
+      - name: configuration - Compose, Kustomize and the Dockerfile
         run: |
           set -euo pipefail
           repo="${GITHUB_WORKSPACE//\\//}"
@@ -55,7 +55,7 @@ jobs:
             --severity HIGH,CRITICAL --exit-code 1 --skip-version-check --timeout 15m --ignorefile .trivyignore.yaml \
             --skip-dirs "$SKIP_DIRS,public" --format table --output /repo/trivy-config.txt . || status=$?
           cat trivy-config.txt
-          { echo '### Trivy — configuration'; echo '```'; cat trivy-config.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          { echo '### Trivy - configuration'; echo '```'; cat trivy-config.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
           exit "$status"
       - if: always()
         run: rm -f trivy-fs.txt trivy-config.txt

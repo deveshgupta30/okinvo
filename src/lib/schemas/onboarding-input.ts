@@ -5,7 +5,7 @@ import { isValidGstin, normaliseGstin } from "@/lib/tax/gstin";
 import { USAGES } from "./account-input";
 import { CurrencySchema } from "./currency";
 
-/** Step 1 — "Tell us about you": name, country, currency (the e-mail is the sign-in identity). */
+/** Step 1 - "Tell us about you": name, country, currency (the e-mail is the sign-in identity). */
 export const OnboardingStep1Schema = z.object({
   name: z.string().trim().min(1, "required").max(120),
   countryCode: z
@@ -18,7 +18,7 @@ export const OnboardingStep1Schema = z.object({
 export type OnboardingStep1 = z.infer<typeof OnboardingStep1Schema>;
 
 /**
- * Step 2 — usage and, for India or the UK, the tax registration. `countryCode` is carried from
+ * Step 2 - usage and, for India or the UK, the tax registration. `countryCode` is carried from
  * step 1 so the right validator runs; `taxId` is normalised and only kept when claimed.
  */
 export const OnboardingStep2Schema = z

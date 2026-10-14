@@ -22,7 +22,7 @@ FROM deps AS migrate
 COPY prisma ./prisma
 COPY prisma.config.ts ./
 # The schema engine is fetched by @prisma/engines' postinstall (allow-listed in package.json
-# `pnpm.onlyBuiltDependencies`). Verify it is present now — the runtime network has no egress —
+# `pnpm.onlyBuiltDependencies`). Verify it is present now - the runtime network has no egress - 
 # and let the unprivileged user own the directory so the CLI never tries to write as root.
 # pnpm (installed by npm in `base`) is self-contained; the migration image never runs npm, npx,
 # corepack or yarn, so they leave with their bundled dependencies (Trivy flags npm's).

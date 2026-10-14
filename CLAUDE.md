@@ -1,4 +1,4 @@
-# CLAUDE.md — okinvo
+# CLAUDE.md - okinvo
 
 Personal project of **deveshgupta30** (`keshav.gupta@hotmail.com`). It is unrelated to any employer or other organisation: do not pull in external company context, knowledge bases, memory or connectors, and do not save anything about this project to memory.
 
@@ -10,7 +10,7 @@ If `MEMORY.md` exists at the repo root (local, gitignored), read it before anyth
 |---|---|
 | `SPEC.md` | **What** we build: domain rules (lifecycle, numbering, tax, money, exports). Authoritative for behaviour. |
 | `IMPLEMENTATION_PLAN_v2.md` | **How** we build it: stack, schema, auth, storage, Docker/K8s, CI. Current. |
-| `IMPLEMENTATION_PLAN.md` | The original v1 plan, kept verbatim for history. **Superseded — do not implement from it.** |
+| `IMPLEMENTATION_PLAN.md` | The original v1 plan, kept verbatim for history. **Superseded - do not implement from it.** |
 | `DESIGN.md` (+ `DESIGN.light.md` from M0) | UI design tokens in the `design.md` format (Linear-derived dark canvas, single lavender accent); the light file holds the inverse-light overrides under the same token names. Source of truth for colours, type, radius and spacing; `src/app/tokens.css` is generated from both. App mapping, status palette and light values: v2 §24. |
 
 If code and these docs disagree, fix whichever is wrong and say so; don't silently diverge.
@@ -22,8 +22,8 @@ Node 24 LTS · pnpm 10 · Next.js 16 (App Router, `proxy.ts` not `middleware.ts`
 ## Non-negotiable rules
 
 - **Money:** `Decimal` (decimal.js / Prisma Decimal) end to end. Never `number` for amounts. Round half-up to the currency's minor units (`roundMoney(v, currency)`, never a bare `toDecimalPlaces(2)`) only at the points `SPEC.md` §4.6 defines. All money math lives in `src/lib/money`.
-- **Dates:** document dates are calendar dates handled as `YYYY-MM-DD` strings at every boundary; instants are UTC `Date`s. Never construct a `Date` from a bare `YYYY-MM-DD` string. "Today" is `todayIn(actor.timezone)` (`src/lib/dates.ts`) in the signed-in user's timezone — never the server's.
-- **Validation:** Zod at every boundary — env (`src/lib/env.ts`), server actions, route handlers, and every `Json` column (schemas in `src/lib/schemas`).
+- **Dates:** document dates are calendar dates handled as `YYYY-MM-DD` strings at every boundary; instants are UTC `Date`s. Never construct a `Date` from a bare `YYYY-MM-DD` string. "Today" is `todayIn(actor.timezone)` (`src/lib/dates.ts`) in the signed-in user's timezone - never the server's.
+- **Validation:** Zod at every boundary - env (`src/lib/env.ts`), server actions, route handlers, and every `Json` column (schemas in `src/lib/schemas`).
 - **Input charset:** every text field accepts only standard keyboard characters (`src/lib/input-charset.ts`, SPEC §6.6). `parseForm`/`parseObject` enforce it ahead of the schema; a route handler that parses its own input calls `findDisallowed`/`assertKeyboardInput`; new text inputs use the shared `Input`/`Textarea`. Never add a raw SQL statement or a shell call that takes user input.
 - **UI text:** every user-visible string in `src/app` and `src/components` comes from the next-intl catalogues (`messages/<locale>.json`, en-US is the source of truth) through `useTranslations` / `getTranslations`; never a bare English literal in JSX, never a locale in the URL. `pnpm i18n:check` guards the catalogues and the keys the code uses. Documents keep the issuer profile's locale (SPEC §8.1).
 - **Authorization:** every server action and route handler calls `requireUser()` / `requireOwner()` from `src/server/auth`: the only public exceptions are `/api/health/live|ready`, `/api/openapi.json`, `/verify/*`, the share viewer `/i/*` and the legal pages `/legal/*`, which are public by design (rate-limited, token-gated, never payment data). `/api/v1/*` routes and the MCP server `/api/mcp` call `requireApiActor(scope, request.headers)` (API key or JWT, scopes capped by the user's current role). `proxy.ts` is a convenience redirect, never the security boundary.
@@ -31,7 +31,7 @@ Node 24 LTS · pnpm 10 · Next.js 16 (App Router, `proxy.ts` not `middleware.ts`
 - **Immutability:** an `ISSUED` invoice or credit note is never updated except for `sentAt`, void fields, payments and credit notes. Enforce in the DAL, not just the UI.
 - **Numbering:** only `allocateDocumentNumber()` in `src/lib/numbering` may assign numbers, and only inside the issue transaction.
 - **Storage:** all blobs go through `src/lib/storage` (`StorageAdapter`). Store **keys**, never URLs. Nothing in blob storage is publicly reachable; serve via `/api/assets` and `/api/documents`.
-- **Secrets & PII:** encrypted fields go through `src/lib/crypto` only. No secrets in the repo, compose files or manifests — env only. `.env.example` is the contract.
+- **Secrets & PII:** encrypted fields go through `src/lib/crypto` only. No secrets in the repo, compose files or manifests - env only. `.env.example` is the contract.
 - **Exports:** every text cell passes the formula-injection guard in `src/lib/exports/guard.ts`.
 - **Soft delete/archive:** use the Prisma client extension in `src/lib/db`; never hand-write `archivedAt: null` filters.
 - **Audit:** state-changing DAL functions call `audit()` inside the same transaction.
@@ -73,14 +73,14 @@ scripts/restore-drill.sh          (backup → wipe → restore against its own "
 docker compose up -d --build      (M5 adds scripts/release.sh → docker.io/deveshgupta30/okinvo)
 ```
 
-`next lint` no longer exists in Next 16 — run `eslint` directly.
+`next lint` no longer exists in Next 16 - run `eslint` directly.
 
 ## Testing expectations
 
-- Unit (Vitest): money, tax engine, numbering, status derivation, balance recalculation, export guard, crypto. These are the bug magnets — test first.
+- Unit (Vitest): money, tax engine, numbering, status derivation, balance recalculation, export guard, crypto. These are the bug magnets - test first.
 - Integration: DAL against a real Postgres (Docker), especially the issue transaction and concurrent number allocation.
 - E2E (Playwright): sign-in → create profile/client → build → issue → download → verify → record payment → credit note → export.
-- A change to `SPEC.md` §4.6–4.9 rules requires a matching test change in the same commit.
+- A change to `SPEC.md` §4.6-4.9 rules requires a matching test change in the same commit.
 
 ## Git / delivery
 
@@ -97,8 +97,8 @@ No Redis or other extra infrastructure; no managed cloud services; no `any`; no 
 
 # This is NOT the Next.js you know
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+This version has breaking changes - APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+This block is written and re-added by `next dev` - verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->

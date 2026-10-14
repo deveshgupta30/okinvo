@@ -194,7 +194,7 @@ describe.skipIf(!url)("export datasets", () => {
       actor,
       (await draft("2026-06-01", [hour("2"), { ...hour("4", "5"), description: "Printing" }])).id,
     );
-    // Invoice 3: a draft — in the register, never in the GST/TDS summaries.
+    // Invoice 3: a draft - in the register, never in the GST/TDS summaries.
     const i3 = await draft("2026-06-15", [hour("1")]);
     numbers = [i1.number, i2.number, i3.number];
   });

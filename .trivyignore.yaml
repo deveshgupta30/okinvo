@@ -4,7 +4,7 @@ vulnerabilities:
   - id: CVE-2026-40345
     statement: >-
       deepmerge-ts 7.x is pulled in by @prisma/config (prisma 7.10). It only merges the Prisma
-      config object at startup — never user input — so recursive-graph stack exhaustion cannot be
+      config object at startup - never user input - so recursive-graph stack exhaustion cannot be
       triggered by a request. Drop this entry when Prisma ships a build on deepmerge-ts 8.
   - id: GHSA-3f6p-5ww8-9rcr
     statement: >-

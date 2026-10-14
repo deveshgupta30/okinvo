@@ -73,5 +73,5 @@ Light counterpart of `DESIGN.md`. Only `colors` are declared; typography, roundi
 ## Colors
 
 - **Ink** (#000000) on canvas is 21:1; **Ink Subtle** moves to #62666d (5.77:1) because the dark file's #8a8f98 is only 3.25:1 on white.
-- **Primary** stays #5e6ad2 (4.70:1 — buttons, focus, indicators); body-size links use **Link** #4a55bd (6.32:1).
-- **Success / Warning / Danger** are #1a7f37 / #c2410c / #b91c1c — the dark values fail AA on white (3.17 / 2.23 / 3.48).
+- **Primary** stays #5e6ad2 (4.70:1 - buttons, focus, indicators); body-size links use **Link** #4a55bd (6.32:1).
+- **Success / Warning / Danger** are #1a7f37 / #c2410c / #b91c1c - the dark values fail AA on white (3.17 / 2.23 / 3.48).

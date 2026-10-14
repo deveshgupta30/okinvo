@@ -52,7 +52,7 @@ services:
       retries: 5
       start_period: 30s
 
-  migrate: # only needs the database URL — no env_file, so it never sees app secrets
+  migrate: # only needs the database URL - no env_file, so it never sees app secrets
     image: docker.io/deveshgupta30/okinvo:${OKINVO_VERSION:-latest}-migrate
     build: { context: ., dockerfile: docker/Dockerfile, target: migrate }
     environment:
@@ -86,7 +86,7 @@ services:
   backup: # nightly pg_dump + storage tarball into the backups volume (docker/backup/backup.sh)
     image: postgres:18.6-alpine
     restart: unless-stopped
-    environment: # only what the scripts need — never the app's secrets (no env_file here)
+    environment: # only what the scripts need - never the app's secrets (no env_file here)
       PGHOST: postgres
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}

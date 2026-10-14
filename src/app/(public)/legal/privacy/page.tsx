@@ -73,11 +73,11 @@ export default async function PrivacyPage() {
         <p>There are two kinds of people whose data the instance holds:</p>
         <ul>
           <li>
-            <strong>Users</strong> — the owner, editors and viewers who sign in. For their data the
+            <strong>Users</strong> - the owner, editors and viewers who sign in. For their data the
             operator is the controller.
           </li>
           <li>
-            <strong>Clients and contacts</strong> — the businesses and people a user invoices. A
+            <strong>Clients and contacts</strong> - the businesses and people a user invoices. A
             user who enters client data decides why it is held and is responsible for having a
             lawful basis; the operator holds it to provide the service. Where the user is the
             operator's own business, the operator is the controller; where a user invoices in their
@@ -140,7 +140,7 @@ export default async function PrivacyPage() {
           </li>
           <li>
             <strong>Share link statistics</strong>: view and download counts and the time of the
-            last view per link — no IP address and no identity of the viewer.
+            last view per link - no IP address and no identity of the viewer.
           </li>
           <li>
             <strong>Usage counters</strong> (only if the operator enabled local analytics): the
@@ -162,7 +162,7 @@ export default async function PrivacyPage() {
           </li>
           <li>
             <strong>Legitimate interests</strong>: security logging, rate limiting, audit records,
-            backups and fraud prevention — interests the operator has weighed against users' and
+            backups and fraud prevention - interests the operator has weighed against users' and
             clients' privacy and found proportionate because the data is minimal and kept briefly.
           </li>
           <li>
@@ -198,7 +198,7 @@ export default async function PrivacyPage() {
           <li>
             <strong>Visitors of the verification page</strong> see the issuer's legal name and tax
             registration, the client's display name, the document number, date and total, its
-            validity, and the hashes of stored copies — never payment status, never drafts.
+            validity, and the hashes of stored copies - never payment status, never drafts.
           </li>
           <li>
             <strong>Authorities and advisers</strong>: the operator may disclose records to tax
