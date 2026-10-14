@@ -1,7 +1,7 @@
 /**
  * The input charset (SPEC.md §6.6): every text field, on the client and at every server boundary,
- * accepts only the characters on a standard keyboard. Anything else — curly quotes, dashes,
- * accented or non-Latin letters, control characters, zero-width marks — is rejected before a
+ * accepts only the characters on a standard keyboard. Anything else (curly quotes, typographic dashes,
+ * accented or non-Latin letters, control characters, zero-width marks) is rejected before a
  * schema sees it. Browser-safe: the shared Input/Textarea components strip as you type.
  *
  * The set is the owner's list verbatim, plus the whitespace a keyboard produces (space, tab,
