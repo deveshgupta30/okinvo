@@ -324,6 +324,7 @@ model Client {
   paymentTermsDays Int        @default(30)
   defaultTdsRate   Decimal?   @db.Decimal(5, 2)
   notes            String?
+  preferredLocale  String?    // the language this client's documents print in (SPEC §4.10)
 
   archivedAt       DateTime?
   createdAt        DateTime   @default(now())
@@ -525,6 +526,7 @@ model Invoice {
   notes              String?
   terms              String?
   displayConfig      Json           // DisplayConfigSchema
+  documentLocale     String         @default("en-US") // the language the document prints in (SPEC §4.10)
   templateSnapshot   Json?          // TemplateConfigSchema frozen at issue (§12.2)
 
   issuerSnapshot         Json?      // IssuerSnapshotSchema (incl. decrypted-for-print tax IDs the config allows)
@@ -655,6 +657,7 @@ model CreditNote {
   roundingAdjustment Decimal       @default(0) @db.Decimal(14, 2) // absorbs the invoice's rounding when the whole taxable amount is credited
   total             Decimal        @default(0) @db.Decimal(14, 2)
   displayConfig     Json
+  documentLocale    String         @default("en-US") // copied from the invoice (SPEC §4.10)
   templateSnapshot  Json?          // TemplateConfigSchema frozen at issue
   snapshot          Json?          // issuer + client + invoice header, frozen at issue
   verificationToken String         @unique // SHA-256 hex of the token in the verify URL

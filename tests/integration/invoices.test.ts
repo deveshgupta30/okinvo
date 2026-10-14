@@ -132,6 +132,10 @@ describe.skipIf(!url)("invoice DAL", () => {
 
   afterAll(async () => {
     await prisma.payment.deleteMany({ where: { invoice: { poReference: tag } } });
+    await prisma.creditNoteTaxLine.deleteMany({
+      where: { creditNote: { invoice: { poReference: tag } } },
+    });
+    await prisma.creditNote.deleteMany({ where: { invoice: { poReference: tag } } });
     await prisma.document.deleteMany({ where: { invoice: { poReference: tag } } });
     await prisma.invoice.deleteMany({ where: { replacesInvoice: { poReference: tag } } });
     await prisma.invoice.deleteMany({ where: { poReference: tag } });
@@ -234,6 +238,29 @@ describe.skipIf(!url)("invoice DAL", () => {
     expect(issued.displayStatus).toBe("ISSUED");
     const events = await prisma.auditEvent.findMany({ where: { entityId: d.id } });
     expect(events.map((e) => e.action)).toContain("invoice.issued");
+  });
+
+  it("prints in its own language, fixed at issue whatever the client prefers later", async () => {
+    const d = await inv.createDraft(actor, draftInput({ documentLocale: "de" }));
+    ids.invoices.push(d.id);
+    expect(d.documentLocale).toBe("de");
+    const issued = await inv.issueInvoice(actor, d.id);
+    expect(issued.documentLocale).toBe("de");
+    // the client's preference changing afterwards does not touch the issued document
+    await prisma.client.update({ where: { id: clientId }, data: { preferredLocale: "fr-FR" } });
+    expect((await inv.getInvoice(actor, d.id)).documentLocale).toBe("de");
+    const { renderInputFromInvoice } = await import("@/server/dal/documents");
+    expect(renderInputFromInvoice(await inv.getInvoice(actor, d.id)).locale).toBe("de");
+    // a credit note copies its invoice's language
+    const cn = await import("@/server/dal/credit-notes");
+    const note = await cn.createCreditNoteDraft(actor, {
+      invoiceId: d.id,
+      reason: "Language check",
+      subtotal: "100.00",
+      issueDate: "2026-04-16",
+    });
+    expect(note.documentLocale).toBe("de");
+    await prisma.client.update({ where: { id: clientId }, data: { preferredLocale: null } });
   });
 
   it("leaves no gap when an issue fails validation", async () => {

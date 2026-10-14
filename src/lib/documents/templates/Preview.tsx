@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import type { TemplateConfig } from "@/lib/schemas";
+import { pageOf } from "../page-text";
 import type { DocumentViewModel } from "../view-model";
 import { templateStyle } from "./styles";
 
@@ -30,7 +31,7 @@ export function DocumentPreview({
     <div style={{ width: px(80), textAlign: "center" }}>
       {/* eslint-disable-next-line @next/next/no-img-element -- data URL generated server-side */}
       <img src={vm.qrDataUrl} alt="Verification QR" style={{ width: px(64), height: px(64) }} />
-      <div style={{ ...muted, ...base(s.base - 1.5) }}>Scan to verify</div>
+      <div style={{ ...muted, ...base(s.base - 1.5) }}>{vm.text.scanToVerify}</div>
     </div>
   ) : vm.verifyUrl ? (
     <div
@@ -253,7 +254,7 @@ export function DocumentPreview({
             ) : null}
             {vm.paymentTerms ? (
               <div>
-                <div style={{ ...muted, ...base(s.base - 1) }}>Terms</div>
+                <div style={{ ...muted, ...base(s.base - 1) }}>{vm.labels.terms}</div>
                 <div>{vm.paymentTerms}</div>
               </div>
             ) : null}
@@ -310,7 +311,7 @@ export function DocumentPreview({
           {vm.client.phone ? <div style={muted}>{vm.client.phone}</div> : null}
           {vm.client.taxId ? (
             <div>
-              {vm.client.taxIdType ?? "Tax ID"} {vm.client.taxId}
+              {vm.client.taxIdType ?? vm.text.taxId} {vm.client.taxId}
             </div>
           ) : null}
         </div>
@@ -620,9 +621,9 @@ export function DocumentPreview({
       >
         <span>
           {vm.number ? `${docLabel} ${vm.number}` : vm.title}
-          {vm.isVoid ? " · VOID" : ""}
+          {vm.isVoid ? ` · ${vm.text.void}` : ""}
         </span>
-        {s.pageNumbers ? <span>Page 1 of 1</span> : null}
+        {s.pageNumbers ? <span>{pageOf(vm.text.pageOf, 1, 1)}</span> : null}
       </div>
     </div>
   );

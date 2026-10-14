@@ -1308,6 +1308,51 @@
     }
   },
   "documents": {
+    "labels": {
+      "billTo": "ⴼⴰⵜⵓⵔⴰ ⵉ",
+      "shipTo": "ⴰⵣⵏ ⵉ",
+      "invoice": "ⴼⴰⵜⵓⵔⴰ",
+      "creditNote": "ⴽⵔⵉⴷⵉ ⵏ ⵓⵙⵏⴼⵍ",
+      "issueDate": "ⴰⵙⵙ ⵏ ⵓⵙⵓⴼⵖ",
+      "dueDate": "ⴰⵙⵙ ⵏ ⵓⵙⵍⴽⵉⵎ",
+      "number": "ⵓⵜⵜⵓⵏ",
+      "description": "ⴰⵙⵏⵜⵍ",
+      "sacHsn": "SAC/HSN",
+      "qty": "ⵜⴰⵎⵏⴰⴹⵜ",
+      "unit": "ⵓⵏⵉⵜⵉ",
+      "rate": "ⵜⴰⵎⵏ",
+      "tax": "ⴹⴰⵔⵉⴱⴰ",
+      "amount": "ⵎⴰⴱⵍⴰⵖ",
+      "subtotal": "ⴰⵎⵓⵏ ⴰⵎⵥⵥⵉⴰⵏ",
+      "discount": "ⵜⴰⵅⴼⵉⴹⵜ",
+      "taxable": "ⵎⴰⴱⵍⴰⵖ ⵏ ⵜⵎⴹⵔⵉⴱⵜ",
+      "total": "ⴰⵎⵓⵏ",
+      "amountDue": "ⵎⴰⴱⵍⴰⵖ ⴰⵎⵙⵍⴽⵉⵎ",
+      "tdsExpected": "TDS ⵉⵜⵜⵓⵔⵊⵓⵏ",
+      "netExpected": "ⴰⵎⴰⴷⴷⴰⵢ ⵉⵜⵜⵓⵔⵊⵓⵏ",
+      "rounding": "ⴰⵙⵎⴰⵍⵍⵓⵍ",
+      "paymentDetails": "ⵉⵎⵍⴰⵏ ⵏ ⵓⵙⵍⴽⵉⵎ",
+      "notes": "ⵜⵉⵎⵍⴰⵍⵉⵏ",
+      "terms": "ⵉⵙⵡⵉⵔⵏ",
+      "placeOfSupply": "ⴰⵙⵖⵓⵏ ⵏ ⵓⵙⵓⴼⵖ",
+      "poReference": "ⴰⵙⵏⵜⵍ PO",
+      "amountInWords": "ⵎⴰⴱⵍⴰⵖ ⴳ ⵜⵡⵓⵔⵉⵡⵉⵏ",
+      "signature": "ⴰⵙⵉⴼⵉⴹ ⵉⵎⵓⵔⵔⵓⵙⵏ"
+    },
+    "title": {
+      "taxInvoice": "ⴼⴰⵜⵓⵔⴰ ⵏ ⵜⴹⴰⵔⵉⴱⵜ",
+      "billOfSupply": "ⴼⴰⵜⵓⵔⴰ ⵏ ⵓⵙⵓⴼⵖ",
+      "invoice": "ⴼⴰⵜⵓⵔⴰ",
+      "creditNote": "ⴽⵔⵉⴷⵉ ⵏ ⵓⵙⵏⴼⵍ"
+    },
+    "text": {
+      "pageOf": "ⵜⴰⵙⵏⴰ {page} ⵙⴳ {total}",
+      "scanToVerify": "ⵙⴽⴰⵏⵉ ⵉ ⵓⵙⵙⵓⵏⵏⴰⴹ",
+      "taxId": "ⴰⵙⵙⵉⵍⴰⵏ ⵏ ⵜⴹⴰⵔⵉⴱⵜ",
+      "void": "ⵉⵜⵜⵓⵙⵔⵙ",
+      "draftWatermark": "ⴰⵙⵖⵉⵍ - ⵓⵔ ⵉⵍⵍⵉ ⴼⴰⵜⵓⵔⴰ ⵏ ⵜⴹⴰⵔⵉⴱⵜ",
+      "paymentTermsDays": "{days} days"
+    },
     "ui": {
       "pageEstimate": "approx. {count, plural, one {# page} other {# pages}}"
     }
@@ -1610,6 +1655,8 @@
       "noPaymentMethods": "No active payment methods. <link>Add one</link>.",
       "whatPrints": "What prints",
       "whatPrintsHint": "Starts from the issuer profile's defaults.",
+      "documentLanguage": "Document language",
+      "documentLanguageHint": "Labels, dates and amounts print in this language; the client’s preference, else the profile’s.",
       "notesAndTerms": "Notes and terms",
       "notes": "Notes",
       "terms": "Terms",
@@ -1782,6 +1829,8 @@
       "currency": "Currency",
       "paymentTerms": "Payment terms (days)",
       "expectedTdsRate": "Expected TDS rate (%)",
+      "preferredLanguage": "Document language",
+      "preferredLanguageFollow": "Follow the issuer profile",
       "notes": "Notes",
       "billingAddress": "Billing address",
       "shippingAddress": "Shipping address",

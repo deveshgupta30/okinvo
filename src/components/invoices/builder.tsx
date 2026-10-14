@@ -5,7 +5,7 @@ import { D } from "@/lib/money";
 
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { useActionState, useDeferredValue, useMemo, useState } from "react";
+import { useActionState, useDeferredValue, useEffect, useMemo, useState } from "react";
 import { ScaledPreview } from "@/components/documents/scaled-preview";
 import { DisplayConfigFields } from "@/components/forms/display-config-fields";
 import { FormMessage } from "@/components/forms/form-message";
@@ -22,11 +22,34 @@ import { Textarea } from "@/components/ui/textarea";
 import { addDays } from "@/lib/dates";
 import { buildDocumentViewModel, DocumentPreview, PAPER } from "@/lib/documents";
 import { formatMoney } from "@/lib/format";
+import { DEFAULT_DOCUMENT_MESSAGES, type DocumentMessages } from "@/lib/i18n/document-messages";
+import { DEFAULT_LOCALE, languagesByRegion, type Region } from "@/lib/i18n/languages";
+import { matchLocale } from "@/lib/i18n/resolve";
 import { previewFromBuilder, type BuilderValues } from "@/lib/invoices/client-preview";
 import { COMMON_CURRENCIES, DEFAULT_TEMPLATE_CONFIG, TAX_REGIMES } from "@/lib/schemas";
 import { GST_RATES, UK_VAT_RATES } from "@/lib/tax";
 import { saveDraft } from "@/server/actions/invoices";
 import type { BuilderContext } from "@/server/dal/invoice-builder";
+
+/** Region → its `settings.account.regions` catalogue key (the same grouping as the account page). */
+const REGION_KEY = {
+  Africa: "Africa",
+  Americas: "Americas",
+  Asia: "Asia",
+  Europe: "Europe",
+  "Middle East": "MiddleEast",
+  Oceania: "Oceania",
+  Constructed: "Constructed",
+} as const satisfies Record<Region, string>;
+
+/** The client's preferred document language, else the profile's locale, else en-US (SPEC §4.10). */
+const defaultDocumentLocale = (
+  client: { preferredLocale: string | null } | null,
+  profile: { locale: string } | null,
+) =>
+  client?.preferredLocale ??
+  (profile ? matchLocale([profile.locale]) : undefined) ??
+  DEFAULT_LOCALE;
 
 /** Tax regime → its `invoices.builder.regimes` catalogue key. */
 const REGIME_KEY = {
@@ -61,6 +84,27 @@ export function InvoiceBuilder({
   const profile = context.profiles.find((p) => p.id === values.issuerProfileId) ?? null;
   const client = context.clients.find((c) => c.id === values.clientId) ?? null;
   const config = (profile && context.templateConfigs[profile.id]) ?? DEFAULT_TEMPLATE_CONFIG;
+  const tr = useTranslations("settings.account.regions");
+
+  // The live preview prints in the chosen document language: its strings come from the server
+  // once per language and are kept for the session.
+  const [messagesByLocale, setMessagesByLocale] = useState<Record<string, DocumentMessages>>({
+    [DEFAULT_LOCALE]: DEFAULT_DOCUMENT_MESSAGES,
+  });
+  const documentLocale = values.documentLocale || DEFAULT_LOCALE;
+  useEffect(() => {
+    if (messagesByLocale[documentLocale]) return;
+    let cancelled = false;
+    fetch(`/api/documents/messages?locale=${encodeURIComponent(documentLocale)}`)
+      .then((r) => (r.ok ? (r.json() as Promise<DocumentMessages>) : DEFAULT_DOCUMENT_MESSAGES))
+      .catch(() => DEFAULT_DOCUMENT_MESSAGES)
+      .then((m) => {
+        if (!cancelled) setMessagesByLocale((s) => ({ ...s, [documentLocale]: m }));
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [documentLocale, messagesByLocale]);
 
   const preview = useMemo(() => {
     const p = context.profiles.find((x) => x.id === deferred.issuerProfileId) ?? null;
@@ -75,9 +119,10 @@ export function InvoiceBuilder({
       assetUrl: (id) => `/api/assets/id/${id}`,
       config,
       draft: true,
+      messages: messagesByLocale[deferred.documentLocale] ?? DEFAULT_DOCUMENT_MESSAGES,
     });
     return { ...result, vm };
-  }, [deferred, context, config]);
+  }, [deferred, context, config, messagesByLocale]);
 
   const set = <K extends keyof BuilderValues>(key: K, v: BuilderValues[K]) =>
     setValues((s) => ({ ...s, [key]: v }));
@@ -93,6 +138,7 @@ export function InvoiceBuilder({
       notes: s.notes || (p?.defaultNotes ?? ""),
       terms: s.terms || (p?.defaultTerms ?? ""),
       tdsRate: client?.defaultTdsRate ?? p?.defaultTdsRate ?? s.tdsRate,
+      documentLocale: defaultDocumentLocale(client, p ?? null),
     }));
   };
   const onClient = (id: string) => {
@@ -103,6 +149,7 @@ export function InvoiceBuilder({
       currency: c?.currency ?? s.currency,
       dueDate: c ? addDays(s.issueDate || context.today, c.paymentTermsDays) : s.dueDate,
       tdsRate: c?.defaultTdsRate ?? profile?.defaultTdsRate ?? s.tdsRate,
+      documentLocale: defaultDocumentLocale(c ?? null, profile),
     }));
   };
 
@@ -417,12 +464,39 @@ export function InvoiceBuilder({
             </div>
           </CardHeader>
           <CardContent>
-            <DisplayConfigFields
-              key={values.issuerProfileId}
-              prefix="display"
-              config={values.displayConfig}
-              onChange={(cfg) => set("displayConfig", cfg)}
-            />
+            <FieldGroup>
+              <Field
+                label={t("documentLanguage")}
+                htmlFor="documentLocale"
+                error={errors?.documentLocale}
+                hint={t("documentLanguageHint")}
+              >
+                <Select
+                  id="documentLocale"
+                  name="documentLocale"
+                  value={documentLocale}
+                  onChange={(e) => set("documentLocale", e.target.value)}
+                >
+                  {languagesByRegion().map((group) => (
+                    <optgroup key={group.region} label={tr(REGION_KEY[group.region])}>
+                      {group.languages.map((l) => (
+                        <option key={l.tag} value={l.tag} lang={l.tag}>
+                          {l.name}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ))}
+                </Select>
+              </Field>
+            </FieldGroup>
+            <div className="mt-6">
+              <DisplayConfigFields
+                key={values.issuerProfileId}
+                prefix="display"
+                config={values.displayConfig}
+                onChange={(cfg) => set("displayConfig", cfg)}
+              />
+            </div>
           </CardContent>
         </Card>
 

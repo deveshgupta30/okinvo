@@ -20,6 +20,7 @@ import {
 } from "docx";
 import type { TemplateConfig } from "@/lib/schemas";
 import { PT_PER_MM, templateStyle, type TemplateStyle } from "../templates/styles";
+import { splitPageOf } from "../page-text";
 import type { DocumentViewModel } from "../view-model";
 
 /**
@@ -212,7 +213,7 @@ function metaBlock(ctx: Ctx, withTitle: boolean): Paragraph[] {
     );
   const meta: [string, string][] = [[vm.labels.issueDate, vm.issueDate]];
   if (vm.dueDate) meta.push([vm.labels.dueDate, vm.dueDate]);
-  if (vm.paymentTerms) meta.push(["Terms", vm.paymentTerms]);
+  if (vm.paymentTerms) meta.push([vm.labels.terms, vm.paymentTerms]);
   for (const [label, value] of meta) {
     out.push(
       para([run(`${label}  `, { color: hex(s.muted), size: half(s.base - 1) }), run(value)], {
@@ -401,7 +402,10 @@ function partiesSection(ctx: Ctx): Table {
       ],
       { muted: true },
     ),
-    ...lines(ctx, vm.client.taxId ? [`${vm.client.taxIdType ?? "Tax ID"} ${vm.client.taxId}`] : []),
+    ...lines(
+      ctx,
+      vm.client.taxId ? [`${vm.client.taxIdType ?? vm.text.taxId} ${vm.client.taxId}`] : [],
+    ),
   ]);
   if (vm.client.shippingAddressLines?.length) {
     columns.push([
@@ -743,7 +747,7 @@ function closingRow(ctx: Ctx): (Paragraph | Table)[] {
     if (p)
       left.push(
         p,
-        para([run("Scan to verify", { color: hex(s.muted), size: half(s.base - 1.5) })], {
+        para([run(vm.text.scanToVerify, { color: hex(s.muted), size: half(s.base - 1.5) })], {
           spacing: { after: 0 },
         }),
       );
@@ -840,25 +844,28 @@ export async function renderDocx(
       new Paragraph({
         tabStops: [{ type: "right", position: contentWidth }],
         children: [
-          run(`${vm.number ? `${docLabel} ${vm.number}` : vm.title}${vm.isVoid ? " · VOID" : ""}`, {
-            color: hex(s.muted),
-            size: half(s.base - 2),
-          }),
+          run(
+            `${vm.number ? `${docLabel} ${vm.number}` : vm.title}${vm.isVoid ? ` · ${vm.text.void}` : ""}`,
+            {
+              color: hex(s.muted),
+              size: half(s.base - 2),
+            },
+          ),
           new TextRun({ children: ["\t"] }),
           ...(s.pageNumbers
             ? [
-                new TextRun({ text: "Page ", color: hex(s.muted), size: half(s.base - 2) }),
-                new TextRun({
-                  children: [PageNumber.CURRENT],
-                  color: hex(s.muted),
-                  size: half(s.base - 2),
-                }),
-                new TextRun({ text: " of ", color: hex(s.muted), size: half(s.base - 2) }),
-                new TextRun({
-                  children: [PageNumber.TOTAL_PAGES],
-                  color: hex(s.muted),
-                  size: half(s.base - 2),
-                }),
+                ...splitPageOf(vm.text.pageOf).map(
+                  (part) =>
+                    new TextRun({
+                      ...(part === "{page}"
+                        ? { children: [PageNumber.CURRENT] }
+                        : part === "{total}"
+                          ? { children: [PageNumber.TOTAL_PAGES] }
+                          : { text: part }),
+                      color: hex(s.muted),
+                      size: half(s.base - 2),
+                    }),
+                ),
               ]
             : []),
         ],

@@ -89,6 +89,10 @@ export const InvoiceCreateBody = z
     poReference: z.string().max(80).optional(),
     notes: z.string().max(2000).optional(),
     terms: z.string().max(2000).optional(),
+    documentLocale: z.string().optional().meta({
+      description: "Language tag the document prints in; defaults to en-US",
+      example: "de",
+    }),
   })
   .meta({
     id: "InvoiceCreateInput",

@@ -376,9 +376,23 @@ describe.skipIf(!url)("REST API v1", () => {
     expect(((await c.json()) as { data: { id: string }[] }).data.map((x) => x.id)).toContain(
       clientId,
     );
-    const p = await profiles.GET(req("/api/v1/profiles", { key: readKey }), {});
-    const pj = (await p.json()) as { data: Record<string, unknown>[] };
-    const mine = pj.data.find((x) => x.id === profileId)!;
+    // the shared dev database holds many profiles from e2e runs: walk the pages to ours
+    let cursor: string | null = null;
+    let mine: Record<string, unknown> | undefined;
+    do {
+      const p = await profiles.GET(
+        req(`/api/v1/profiles?limit=100${cursor ? `&cursor=${cursor}` : ""}`, { key: readKey }),
+        {},
+      );
+      expect(p.status).toBe(200);
+      const pj = (await p.json()) as {
+        data: Record<string, unknown>[];
+        nextCursor: string | null;
+      };
+      mine = pj.data.find((x) => x.id === profileId);
+      cursor = pj.nextCursor;
+    } while (!mine && cursor);
+    if (!mine) throw new Error("the test profile is missing from /api/v1/profiles");
     expect(mine.legalName).toBe(`${tag} Person`);
     expect(mine).not.toHaveProperty("panNumber");
     expect(mine).not.toHaveProperty("emailInvoiceBody");
