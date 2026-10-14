@@ -265,7 +265,7 @@ Format rules:
 
 **Settings → Data** additionally offers:
 - **Export all data**: a ZIP containing every dataset above as CSV *and* a `data.json` with the full relational snapshot (for migration / re-import later).
-- **Export documents**: a ZIP of all issued invoice and credit-note PDFs for a chosen FY or date range, named by number and grouped by issuer — the accountant hand-off. Options add the DOCX copies and, for EN 16931 profiles, the Factur-X PDF/A-3 copies.
+- **Export documents**: a ZIP of all issued invoice and credit-note PDFs for a chosen FY or date range, named by number and grouped by issuer: the accountant hand-off. Options add the DOCX copies and, for EN 16931 profiles, the Factur-X PDF/A-3 copies.
 
 ### 4.12 Verification page (`/verify/[token]`)
 

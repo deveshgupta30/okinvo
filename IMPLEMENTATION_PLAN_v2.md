@@ -1684,7 +1684,7 @@ docker compose run --rm app node scripts/rotate-key.js --old "$OLD" --new "$NEW"
 
 Each milestone ends with its tests green in CI and a short `docs/changelog.md` entry.
 
-**Status (2026-10-15):** M0–M5 delivered on `feat/initial-version-okinvo` and v1.1 on `feature/v1-core-onboarding-ui-mcp` (see `docs/changelog.md`). Deviations recorded along the way: TypeScript 6 (TS 7 blocked by typescript-eslint), hand-written UI primitives instead of `shadcn add`, a `postgres` rate-limit store wired in M5, `AUTH_PASSWORD_SIGNIN` for IdP-less installs and CI, the NIC IRP connector verified against recorded fixtures only, and the Compact-ICC sRGB profile as the Factur-X output intent.
+**Status (2026-10-15):** M0 to M5 delivered on `feat/initial-version-okinvo` and v1.1 on `feature/v1-core-onboarding-ui-mcp` (see `docs/changelog.md`). Deviations recorded along the way: TypeScript 6 (TS 7 blocked by typescript-eslint), hand-written UI primitives instead of `shadcn add`, a `postgres` rate-limit store wired in M5, `AUTH_PASSWORD_SIGNIN` for IdP-less installs and CI, the NIC IRP connector verified against recorded fixtures only, and the Compact-ICC sRGB profile as the Factur-X output intent.
 
 ---
 
@@ -1784,7 +1784,7 @@ Status pills (Linear product style): colour at 12 % alpha as background, colour 
 
 **Fonts (your §10.2).** `Inter` variable for display and body, with the `SF Pro Display, -apple-system, system-ui, Segoe UI, Roboto` fallback stack DESIGN.md documents; `JetBrains Mono` (fallback `SF Mono, ui-monospace, Menlo`) for currency figures, invoice numbers and dates. Self-hosted via `@fontsource-variable/inter 5.3.0` and `@fontsource/jetbrains-mono 5.3.0`. Inter is already the PDF body font, so UI and documents share a voice. `font-feature-settings: "tnum"` on the Inter numerals that remain (dashboard tiles).
 
-**Density.** Sidebar 240px (collapsible to a 64px icon rail, state in the `okinvo.sidebar` cookie; a drawer behind a menu button below `md`), no top bar — a 48px breadcrumb + actions row inside the content area, Linear-style. Content max-width 1280px. Table rows 40px (36px in compact mode), inputs and buttons 32px tall, card padding 24px (16px in dense panels), builder split 7 : 5 with the preview sticky. Command palette (`⌘K`: new invoice, go to client, search numbers) on `surface-3` — M4, optional.
+**Density.** Sidebar 240px (collapsible to a 64px icon rail, state in the `okinvo.sidebar` cookie; a drawer behind a menu button below `md`), no top bar: a 48px breadcrumb + actions row inside the content area, Linear-style. Content max-width 1280px. Table rows 40px (36px in compact mode), inputs and buttons 32px tall, card padding 24px (16px in dense panels), builder split 7 : 5 with the preview sticky. Command palette (`⌘K`: new invoice, go to client, search numbers) on `surface-3` — M4, optional.
 
 **Theme modes (your §10.1): dark, inverse light, system — all in v1.** Dark is DESIGN.md verbatim. The inverse light theme starts from your three values (`#ffffff` canvas, `#f5f6f6` surface-1, `#000000` ink) and fills in the rest so every text pair is AA-verified:
 
