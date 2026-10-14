@@ -21,8 +21,16 @@ image, so an air-gapped instance works unchanged.
 
 ## Screenshots
 
-_Screenshots of the dashboard, the builder, a rendered invoice and the share viewer are added
-with the documentation site (plan Task 45)._
+| Dashboard | Invoice builder |
+|---|---|
+| ![Dashboard](docs/wiki/assets/dashboard-dark.png) | ![Invoice builder with live preview](docs/wiki/assets/builder-dark.png) |
+
+| Issued invoice | Share viewer |
+|---|---|
+| ![An issued invoice with its ledger and preview](docs/wiki/assets/invoice-dark.png) | ![The public share viewer](docs/wiki/assets/share-viewer-dark.png) |
+
+Both themes and the phone layouts are in the [user guide](docs/wiki/index.md); the images are
+generated from a seeded demo instance with `pnpm docs:screenshots`.
 
 ## Features
 
@@ -237,8 +245,13 @@ lists languages without a catalogue and `… validate messages/<tag>.json` check
 
 ## Documentation site
 
-A Wiki.js profile with the user guide and screenshots is part of the v1.1 plan (sub-project G).
-Until then: `SPEC.md`, `IMPLEMENTATION_PLAN_v2.md`, `DESIGN.md` and `docs/changelog.md`.
+The user guide lives in [`docs/wiki/`](docs/wiki/index.md) (getting started, every screen,
+operations, API, security, FAQ) and reads fine on GitHub. To serve it as a site, start the
+optional Wiki.js profile (`docker compose --profile docs up -d`, on `DOCS_DOMAIN`) and publish
+the pages with `pnpm docs:sync` (`WIKI_URL`, `WIKI_TOKEN`; `--dry-run` shows the plan).
+Screenshots are regenerated with `pnpm docs:screenshots` against a dev server seeded by
+`pnpm docs:seed`. The engineering documents are `SPEC.md`, `IMPLEMENTATION_PLAN_v2.md`,
+`DESIGN.md` and `docs/changelog.md`.
 
 ## Using okinvo
 
