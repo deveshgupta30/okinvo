@@ -1679,11 +1679,12 @@ docker compose run --rm app node scripts/rotate-key.js --old "$OLD" --new "$NEW"
 | M3 | **Money in, mail out** | Payments ledger with TDS/FX/fees/receipts; balances; derived statuses; amount-based credit notes (apportioned tax, PDF); dashboard; SMTP transport, Settings → Email, send composer with Mailpit-backed tests. |
 | M4 | **Exports, data & polish** | Eight CSV/XLSX datasets; ZIP bundles; Settings → Data; backup service + restore drill in CI; `classic` and `compact` templates; full template customisation UI with import/export. |
 | M5 | **Hardening & K8s** | Nonce CSP, rate limits, container hardening, `release.sh`, first tagged image on Docker Hub, Kustomize base + overlays validated on a local cluster (kind/k3d). |
-| v1.1 | | Viewer role, DOCX, payment reminders through the composer, import from `data.json`. |
+| v1.1 | **Delivered 2026-10-15** | Shell and identity (brand, accents, avatars, collapsible sidebar, mobile drawer), onboarding wizard and account preferences, roles and members, products and profile tags, six templates with the vendored font catalogue and header bands, input charset, 115 UI languages, API keys + REST v1 + OpenAPI + SDK + MCP + skill, legal pages, cookie notice, status page, DOCX copies, share links and protected copies, translated documents with script fonts, e-invoicing (GST JSON, IRN connectors, EN 16931 CII/UBL, Factur-X), documentation site (`docs/wiki`, Wiki.js profile). Plan: `docs/superpowers/plans/2026-10-02-v1-1-full-scope.md`. |
+| v1.2 | | Payment reminders through the composer, import from `data.json`. |
 
 Each milestone ends with its tests green in CI and a short `docs/changelog.md` entry.
 
-**Status (2026-10-01):** M0–M4 delivered on `feat/initial-version-okinvo` (see `docs/changelog.md`); M5 in progress. Deviations recorded along the way: TypeScript 6 (TS 7 blocked by typescript-eslint), hand-written UI primitives instead of `shadcn add`, a `postgres` rate-limit store wired in M5, and `AUTH_PASSWORD_SIGNIN` for IdP-less installs and CI.
+**Status (2026-10-15):** M0–M5 delivered on `feat/initial-version-okinvo` and v1.1 on `feature/v1-core-onboarding-ui-mcp` (see `docs/changelog.md`). Deviations recorded along the way: TypeScript 6 (TS 7 blocked by typescript-eslint), hand-written UI primitives instead of `shadcn add`, a `postgres` rate-limit store wired in M5, `AUTH_PASSWORD_SIGNIN` for IdP-less installs and CI, the NIC IRP connector verified against recorded fixtures only, and the Compact-ICC sRGB profile as the Factur-X output intent.
 
 ---
 
@@ -1783,7 +1784,7 @@ Status pills (Linear product style): colour at 12 % alpha as background, colour 
 
 **Fonts (your §10.2).** `Inter` variable for display and body, with the `SF Pro Display, -apple-system, system-ui, Segoe UI, Roboto` fallback stack DESIGN.md documents; `JetBrains Mono` (fallback `SF Mono, ui-monospace, Menlo`) for currency figures, invoice numbers and dates. Self-hosted via `@fontsource-variable/inter 5.3.0` and `@fontsource/jetbrains-mono 5.3.0`. Inter is already the PDF body font, so UI and documents share a voice. `font-feature-settings: "tnum"` on the Inter numerals that remain (dashboard tiles).
 
-**Density.** Sidebar 240px (collapsible to 56px icon rail), no top bar — a 48px breadcrumb + actions row inside the content area, Linear-style. Content max-width 1280px. Table rows 40px (36px in compact mode), inputs and buttons 32px tall, card padding 24px (16px in dense panels), builder split 7 : 5 with the preview sticky. Command palette (`⌘K`: new invoice, go to client, search numbers) on `surface-3` — M4, optional.
+**Density.** Sidebar 240px (collapsible to a 64px icon rail, state in the `okinvo.sidebar` cookie; a drawer behind a menu button below `md`), no top bar — a 48px breadcrumb + actions row inside the content area, Linear-style. Content max-width 1280px. Table rows 40px (36px in compact mode), inputs and buttons 32px tall, card padding 24px (16px in dense panels), builder split 7 : 5 with the preview sticky. Command palette (`⌘K`: new invoice, go to client, search numbers) on `surface-3` — M4, optional.
 
 **Theme modes (your §10.1): dark, inverse light, system — all in v1.** Dark is DESIGN.md verbatim. The inverse light theme starts from your three values (`#ffffff` canvas, `#f5f6f6` surface-1, `#000000` ink) and fills in the rest so every text pair is AA-verified:
 
@@ -1816,7 +1817,9 @@ Mechanics: `tokens.css` emits `:root` (dark) and `[data-theme="light"]`. "System
 | Forms | inputs per `text-input`; labels `app-label`; helper text `app-caption` `ink-subtle`; errors `semantic-danger` text + border; required marker in `ink-subtle`, not lavender |
 | Builder | left form on `canvas`, right preview panel on `surface-1` with `hairline` and `rounded-xl` (DESIGN.md's product-screenshot frame — the document *is* the protagonist here) |
 | Cards / stat tiles | `surface-1`, `hairline`, `rounded-lg`, 24px; dashboard figures in `app-title` with tabular numerals |
-| Sheet / drawer | `surface-1`, `hairline-strong` edge, 200 ms slide |
+| Sheet / drawer | `surface-1`, `hairline-strong` edge, 200 ms slide; the mobile navigation drawer is the sidebar in a left sheet with a close button |
+| User menu / avatar | avatar: circle, `surface-3` with initials in `app-label` until a photo is uploaded (cropped to a circle, re-encoded PNG, `UPLOAD_MAX_IMAGE_MB`); the sidebar footer holds the theme switch and the user menu (account, sign out) |
+| Accent | `primary`, `primary-hover`, `primary-focus` and `link` come from the eight `accent-<id>-*` colour sets in `DESIGN.md` / `DESIGN.light.md`, applied as `:root[data-accent="<id>"]` overrides in `tokens.css`; mint is the default; chosen under Settings → Appearance, mirrored to the `okinvo.accent` cookie so the first paint is right |
 | Dialog | `surface-2`, `hairline-strong`, overlay 60 %; destructive confirm uses `semantic-danger-fill` |
 | Dropdown / combobox / date picker | `surface-3`, `hairline-strong`, `rounded-md`; selected row `surface-4` |
 | Tabs / segmented control | `pricing-tab-default` / `-selected` tokens (pill on `surface-2`) |

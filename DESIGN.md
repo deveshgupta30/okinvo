@@ -691,6 +691,24 @@ Linear's depth is carried by surface ladder + hairline borders. The brand resist
 **`footer`** — Dense link grid on `{colors.canvas}` with the Linear wordmark left.
 - Background `{colors.canvas}`, text `{colors.ink-subtle}`, type `{typography.caption}`, padding 64px 32px.
 
+### App additions (okinvo)
+
+Components the app needed beyond the marketing site, styled from the same tokens (`IMPLEMENTATION_PLAN_v2.md` §24.6).
+
+**`sheet`**: side panel: the mobile navigation drawer and any slide-in detail.
+- Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.body}`, 1px `{colors.hairline-strong}` edge on the open side, no radius on the screen edge, padding 16px.
+- Overlay `{colors.canvas}` at 60% opacity. 200ms ease-out slide; no motion under `prefers-reduced-motion`.
+- A close button (icon only, 16px Lucide `x`) sits top right; focus is trapped while open.
+
+**`dropdown-menu`**: menus from the user avatar, the register row actions and the export control.
+- Background `{colors.surface-3}`, text `{colors.ink}`, type `{typography.body-sm}`, rounded `{rounded.md}`, padding 4px, 1px `{colors.hairline-strong}` border.
+- Items: padding 6px 8px, rounded `{rounded.sm}`; hover and keyboard focus `{colors.surface-4}`; a destructive item uses `{colors.semantic-danger}` text; separators are 1px `{colors.hairline}`.
+- 150ms fade; opens below the trigger, flips when there is no room.
+
+**`avatar`**: the signed-in person, members in Settings → Users, the dashboard greeting.
+- Circle, 32px in the sidebar footer and rows, 64px on the Account page. Background `{colors.surface-3}`, initials in `{typography.caption}` `{colors.ink}` until a photo is uploaded; the photo is cropped to the circle and never stretched.
+- No ring except the 2px `{colors.primary-focus}` focus ring when the avatar is the menu trigger.
+
 ## Do's and Don'ts
 
 ### Do

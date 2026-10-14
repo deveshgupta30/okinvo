@@ -26,7 +26,8 @@ Node 24 LTS · pnpm 10 · Next.js 16 (App Router, `proxy.ts` not `middleware.ts`
 - **Validation:** Zod at every boundary — env (`src/lib/env.ts`), server actions, route handlers, and every `Json` column (schemas in `src/lib/schemas`).
 - **Input charset:** every text field accepts only standard keyboard characters (`src/lib/input-charset.ts`, SPEC §6.6). `parseForm`/`parseObject` enforce it ahead of the schema; a route handler that parses its own input calls `findDisallowed`/`assertKeyboardInput`; new text inputs use the shared `Input`/`Textarea`. Never add a raw SQL statement or a shell call that takes user input.
 - **UI text:** every user-visible string in `src/app` and `src/components` comes from the next-intl catalogues (`messages/<locale>.json`, en-US is the source of truth) through `useTranslations` / `getTranslations`; never a bare English literal in JSX, never a locale in the URL. `pnpm i18n:check` guards the catalogues and the keys the code uses. Documents keep the issuer profile's locale (SPEC §8.1).
-- **Authorization:** every server action and route handler calls `requireUser()` / `requireOwner()` from `src/server/auth` — the only public exceptions are `/api/health/live|ready`, `/api/openapi.json`, `/verify/*`, the share viewer `/i/*` and the legal pages `/legal/*`, which are public by design (rate-limited, token-gated, never payment data). `/api/v1/*` routes call `requireApiActor(scope, request.headers)`. `proxy.ts` is a convenience redirect, never the security boundary.
+- **Authorization:** every server action and route handler calls `requireUser()` / `requireOwner()` from `src/server/auth`: the only public exceptions are `/api/health/live|ready`, `/api/openapi.json`, `/verify/*`, the share viewer `/i/*` and the legal pages `/legal/*`, which are public by design (rate-limited, token-gated, never payment data). `/api/v1/*` routes and the MCP server `/api/mcp` call `requireApiActor(scope, request.headers)` (API key or JWT, scopes capped by the user's current role). `proxy.ts` is a convenience redirect, never the security boundary.
+- **Roles:** `OWNER`, `EDITOR`, `VIEWER` (`src/server/actor.ts`). The DAL is the boundary: settings functions call `requireRole(actor, "OWNER")`, writes call `requireWriter`, reads need a signed-in actor; pages pass the lowest role that may open them and the UI hides what the role cannot do. At least one active owner must remain.
 - **Immutability:** an `ISSUED` invoice or credit note is never updated except for `sentAt`, void fields, payments and credit notes. Enforce in the DAL, not just the UI.
 - **Numbering:** only `allocateDocumentNumber()` in `src/lib/numbering` may assign numbers, and only inside the issue transaction.
 - **Storage:** all blobs go through `src/lib/storage` (`StorageAdapter`). Store **keys**, never URLs. Nothing in blob storage is publicly reachable; serve via `/api/assets` and `/api/documents`.
@@ -34,9 +35,10 @@ Node 24 LTS · pnpm 10 · Next.js 16 (App Router, `proxy.ts` not `middleware.ts`
 - **Exports:** every text cell passes the formula-injection guard in `src/lib/exports/guard.ts`.
 - **Soft delete/archive:** use the Prisma client extension in `src/lib/db`; never hand-write `archivedAt: null` filters.
 - **Audit:** state-changing DAL functions call `audit()` inside the same transaction.
-- **Templates:** issued documents render from the `templateSnapshot` stored on the invoice/credit note, never from current settings. Template config is parameters only — no user markup, CSS or fonts reach the renderer.
+- **Templates:** issued documents render from the `templateSnapshot` stored on the invoice/credit note, never from current settings. Template config is parameters only: no user markup, CSS or fonts reach the renderer.
+- **Derived documents:** the stored PDF is the canonical, verifiable document. DOCX copies, password-protected copies and Factur-X PDF/A-3 copies are their own `Document` rows (own `format`, version sequence and hash) rendered from the same snapshot; they never replace or rewrite the canonical PDF, and only an e-invoice registration regenerates it as a new version.
 - **Email:** nothing is sent without an explicit click in the composer; bodies are plain text; attachments only from stored `Document` rows; every attempt is logged in `EmailMessage`.
-- **Design:** colours, type, radius and spacing come from `DESIGN.md` through the generated `src/app/tokens.css` — never a hex literal in a component, never edit `tokens.css` by hand. Lavender (`primary`) only for the brand mark, the one primary button per view, focus rings and the active-nav indicator; link text uses the `link` token. `shadcn add` may append oklch `:root`/`.dark` blocks to `globals.css` — delete them; the mapping block there is the only source. Status colours only from the status palette (v2 §24.5). Amounts, document numbers and dates use JetBrains Mono (`app-amount` / `app-mono`), amounts right-aligned. Both themes ship: every component must read correctly under `:root` (dark) and `[data-theme="light"]` — never a dark-only colour.
+- **Design:** colours, type, radius and spacing come from `DESIGN.md` through the generated `src/app/tokens.css`: never a hex literal in a component, never edit `tokens.css` by hand. The accent (`primary`: mint by default, one of the eight pastels a user picks under Settings → Appearance, applied as `:root[data-accent]` token overrides from `DESIGN.md`) only for the brand mark, the one primary button per view, focus rings and the active-nav indicator; link text uses the `link` token; never name an accent colour in a component. `shadcn add` may append oklch `:root`/`.dark` blocks to `globals.css`: delete them; the mapping block there is the only source. Status colours only from the status palette (v2 §24.5). Amounts, document numbers and dates use JetBrains Mono (`app-amount` / `app-mono`), amounts right-aligned. Both themes ship: every component must read correctly under `:root` (dark) and `[data-theme="light"]` — never a dark-only colour.
 
 ## Layout (planned)
 
@@ -48,8 +50,12 @@ src/lib/db         Prisma client + extensions     src/lib/exports    datasets, C
 src/lib/money      Decimal helpers                src/lib/storage    StorageAdapter + drivers
 src/lib/email      SMTP transport, composer       src/lib/format     Intl + amount-in-words
 src/lib/schemas    Zod schemas for Json columns   prisma/            schema + migrations
+src/lib/i18n       language table, next-intl      messages/          catalogues (en-US is the source)
+src/lib/api        v1 handlers, OpenAPI, MCP      src/lib/einvoice   GST JSON, IRP, CII/UBL, Factur-X
+src/components/shell  sidebar, drawer, user menu  sdk/               generated TypeScript client
+skills/            agent skill (okinvo-invoicing) docs/wiki/         user guide + generated screenshots
 docker/            Dockerfile, Caddy, backup      k8s/               Kustomize base + overlays
-scripts/           release, backup, restore       tests/             unit, integration, e2e
+scripts/           release, backup, restore, docs tests/             unit, integration, e2e
 compose.yml        production stack (repo root)   compose.dev.yml    postgres (+s3) for dev and CI
 ```
 
@@ -61,6 +67,8 @@ pnpm lint · pnpm typecheck · pnpm format · pnpm format:check
 pnpm test · pnpm test:watch · pnpm test:e2e
 pnpm db:up · pnpm db:down · pnpm db:generate · pnpm db:migrate · pnpm db:migrate:dev · pnpm db:reset · pnpm db:studio · pnpm db:check · pnpm db:seed
 pnpm design:tokens [--check] · pnpm design:lint
+pnpm i18n:check · pnpm openapi:export · pnpm sdk:generate · pnpm sdk:check · pnpm notices[:check] · pnpm fonts:vendor · pnpm env:docs[:check]
+pnpm docs:seed · pnpm docs:screenshots · pnpm docs:sync      (user guide: demo data, screenshots, Wiki.js publish)
 scripts/restore-drill.sh          (backup → wipe → restore against its own "drill" database; runs in CI)
 docker compose up -d --build      (M5 adds scripts/release.sh → docker.io/deveshgupta30/okinvo)
 ```
