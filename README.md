@@ -191,7 +191,7 @@ at boot; a placeholder secret stops the process on purpose.
 | `SMTP_REPLY_TO` | string |  |  |  |
 | `RATE_LIMIT_STORE` | memory \| postgres | `memory` |  | memory \| postgres |
 | `OKINVO_BUILD_SHA` | string |  |  | Build provenance baked into the image (docker/Dockerfile ARG → ENV); shown on Settings → Status. |
-| `OKINVO_BUILD_DATE` | string |  |  |  |
+| `OKINVO_BUILD_DATE` | string |  |  | same, from BUILD_DATE |
 | `UPLOAD_MAX_IMAGE_MB` | number | `2` |  |  |
 | `UPLOAD_MAX_RECEIPT_MB` | number | `10` |  |  |
 

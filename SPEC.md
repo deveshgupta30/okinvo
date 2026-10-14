@@ -26,7 +26,7 @@ A self-hosted invoicing system for **one freelancer / contractor** who bills eit
 
 ### 1.2 Non-goals (v1)
 
-Multi-user tenancy, online payment collection, recurring invoices, e-invoicing (India IRP / e-way bill), inventory, expenses, time tracking, DOCX output (v1.1), payment reminders (v1.1), mobile app, user-coded templates (templates are parameterised, see 4.17).
+Multi-tenant workspaces (one instance holds one business's data, whatever the number of members), online payment collection, recurring invoices, e-way bills, inventory, expenses, time tracking, payment reminders (v1.2), mobile app, user-coded templates (templates are parameterised, see 4.17).
 
 ---
 
@@ -34,9 +34,10 @@ Multi-user tenancy, online payment collection, recurring invoices, e-invoicing (
 
 | Role | Who | Access |
 |---|---|---|
-| **Owner** | The person running the instance. Any identity on the allow-list. | Everything. |
-| **Viewer** *(v1.1)* | An accountant. | Read-only on invoices, payments, credit notes, clients, exports. No settings. |
-| **Public verifier** | Anyone scanning an invoice QR. | The verification page for that one token only. |
+| **Owner** | The person running the instance: the first account, and anyone invited as owner. | Everything: settings, members, templates, legal and e-invoicing configuration, all exports. |
+| **Editor** *(v1.1)* | A colleague who bills. | Clients, catalogue, invoices, credit notes, payments, e-mail, share links, exports of those datasets; their own account only. |
+| **Viewer** *(v1.1)* | An accountant. | Read-only on registers, documents, dashboard and the exports of what they can read. No settings. |
+| **Public verifier** | Anyone scanning an invoice QR, or opening a share link. | The verification page for that one token, or the shared document behind its link (and password). |
 
 ---
 
@@ -68,7 +69,7 @@ Multi-user tenancy, online payment collection, recurring invoices, e-invoicing (
 
 - Sign-in via **Google**, **GitHub**, **Keycloak**, **Casdoor** or **any OpenID Connect provider**. A provider appears on the sign-in page only if its credentials are configured.
 - **Allow-list.** `AUTH_ALLOWED_EMAILS` is a comma-separated list of exact emails and/or `*@domain` patterns. A sign-in whose verified email is not on the list is rejected *before* a user record is created. If the list is empty the app refuses to start.
-- Every allow-listed identity is an **Owner** in v1. Viewer mapping arrives with v1.1.
+- The first account is an **Owner**. Members invited from Settings → Users (an `AllowedEmail` row) sign in with the role of their invitation; the env allow-list admits owners. At least one active owner must always remain (§2, 9b).
 - Accounts from different providers with the same verified email are linked to one user.
 - **Sessions** are server-side and revocable. Settings → Security lists active sessions (device, IP, last seen) with per-session and "sign out everywhere" revocation.
 - Sign-in, sign-out and session revocation are audited.
@@ -234,7 +235,7 @@ changes. Tags never affect lines already on a document.
 
 - Look and feel come from the active document template and its customisation (4.17), chosen in Settings — never on the invoice form. Three built-ins ship in v1.
 - Fonts embedded; must include `₹`, `£`, `€` and Devanagari-free Latin coverage. Logo/signature/stamp embedded at print resolution.
-- **Script fonts (v1.1).** Text in a non-Latin script prints from the matching Noto Sans family (Devanagari, Bengali, Gurmukhi, Gujarati, Oriya, Tamil, Telugu, Kannada, Malayalam, Sinhala, Thai, Lao, Myanmar, Khmer, Arabic, Hebrew, Syriac, Georgian, Armenian, Ethiopic, Greek, Cyrillic; Han, kana and hangul from Noto Sans SC/TC/JP/KR chosen by the document language), run by run, so a Latin template font and a Hindi client name share a line. Limitations: CJK prints in the regular weight only; the amount in words stays English; right-to-left languages right-align the text columns and mirror the items table, but mixed-direction lines are laid out in logical order.
+- **Script fonts (v1.1).** Text in a non-Latin script prints from the matching Noto Sans family (Devanagari, Bengali, Gurmukhi, Gujarati, Oriya, Tamil, Telugu, Kannada, Malayalam, Sinhala, Thai, Lao, Myanmar, Khmer, Arabic, Hebrew, Syriac, Georgian, Armenian, Ethiopic, Greek, Cyrillic; Han, kana and hangul from Noto Sans SC/TC/JP/KR chosen by the document language), run by run, so a Latin template font and the Devanagari labels of a Hindi document share a page. Typed text is keyboard characters only (§6.6), so non-Latin text on a document comes from the document language's catalogue. Limitations: CJK prints in the regular weight only; the amount in words stays English; right-to-left languages right-align the text columns and mirror the items table, but mixed-direction lines are laid out in logical order.
 - Locale-aware formatting from the issuer profile: number grouping (`12,34,567.00` for `en-IN`), date format, currency display (`₹` / `INR` per config).
 - **Document language (v1.1).** Every invoice and credit note carries a `documentLocale` (one of the UI languages). Its fixed strings (labels, title, page footer, verification caption, watermarks) print from that language's catalogue, template label overrides still winning; dates and amounts format in that language, except that an issuer whose own locale is a regional variant of it keeps that variant (an `en-IN` issuer printing in English keeps lakh grouping). The builder defaults the language from the client's preferred document language, else the issuer profile's locale, else `en-US`; a credit note copies its invoice's language. Like everything else on an issued document it never changes afterwards.
 - File naming: `INV-26-27-001.pdf`, `CN-26-27-002.pdf`.
@@ -252,6 +253,7 @@ Every index page has an **Export** control (format + the page's current filters)
 | **Credit notes register** | FY or date range, issuer, client, status | number, status, issue date, against invoice, client, currency, subtotal, tax, total, reason |
 | **Clients** | active/archived | all client fields |
 | **Services** | active/archived | all service fields |
+| **Products** | active/archived | all product fields including the SKU |
 | **GST summary** | FY or date range, issuer | one row per invoice per tax rate: invoice number, date, client GSTIN, place of supply, supply type, rate, taxable, CGST, SGST, IGST, total — laid out to map onto GSTR-1 B2B / export tables |
 | **TDS summary** | FY, issuer | one row per client: client, PAN/tax ID, invoices count, taxable billed, TDS expected, TDS actually deducted (from payments) |
 
@@ -263,7 +265,7 @@ Format rules:
 
 **Settings → Data** additionally offers:
 - **Export all data**: a ZIP containing every dataset above as CSV *and* a `data.json` with the full relational snapshot (for migration / re-import later).
-- **Export documents**: a ZIP of all issued invoice and credit-note PDFs for a chosen FY or date range, named by number — the accountant hand-off.
+- **Export documents**: a ZIP of all issued invoice and credit-note PDFs for a chosen FY or date range, named by number and grouped by issuer — the accountant hand-off. Options add the DOCX copies and, for EN 16931 profiles, the Factur-X PDF/A-3 copies.
 
 ### 4.12 Verification page (`/verify/[token]`)
 
@@ -283,7 +285,13 @@ Unknown or malformed tokens return a generic "no such document" page with identi
 | Email | SMTP settings (or "configured by environment" status); send test email; default CC/BCC; sent-mail log — see 4.16 |
 | Security | active sessions with revoke; audit log viewer (filter by entity, action, date) |
 | Data | export all data; export documents; backup instructions and last-backup indicator |
-| Account | display name; timezone (auto-detected, editable); theme: system / light / dark |
+| Users | members with role, last sign-in and status; invite by e-mail with a role; change role; deactivate / reactivate (owners only) |
+| Legal | the operator details that fill the public `/legal/*` pages |
+| E-invoicing | per issuer profile: GST e-invoicing on/off, connector (manual / NIC with encrypted credentials), EU profile (none / EN 16931) |
+| Account | photo and name; sign-in e-mail (read-only); region (country, currency); language; timezone (auto-detected, editable); privacy card (cookies list, show the notice again) |
+| Appearance | theme: system / light / dark; accent (eight pastels, mint default) |
+| API | API keys: create (name, scopes, expiry; shown once), revoke |
+| Status | version and build, database, storage probe, rate-limit store, SMTP, backups, e-mail counts; `/api/health/status` |
 
 ### 4.14 Dashboard (`/`)
 
@@ -401,7 +409,7 @@ Machine endpoints: `/api/auth/*`, `/api/uploads`, `/api/assets/[...key]` (authen
 | Accessibility | Keyboard-operable builder; WCAG 2.1 AA colour contrast in every shipped theme; form errors announced. |
 | Design | The UI follows `DESIGN.md` (Linear-derived: near-black canvas, four-step surface ladder, single lavender accent used scarcely, 8px radius, hairline borders). Dark, inverse-light and system modes all ship in v1 with AA-verified palettes (see `IMPLEMENTATION_PLAN_v2.md` §24.5). Amounts, document numbers and dates render in the mono face. PDFs are always light. |
 | Browsers | Latest two versions of Chrome, Firefox, Safari, Edge. Desktop-first; register and overview pages usable on a phone. |
-| Localisation | English UI. Locale-aware number/date/currency formatting per issuer profile. |
+| Localisation | 115 UI languages from the next-intl catalogues (`messages/<tag>.json`, en-US the source of truth, machine-translated catalogues marked); every document carries its own language (4.10); locale-aware number/date/currency formatting per issuer profile and document language. |
 | Time | Server stores UTC instants for events and plain calendar dates for document dates; "today" is computed in the signed-in user's timezone. |
 
 ---
@@ -421,5 +429,6 @@ plus space, tab and newline. Backslash and the pipe are not on the list. The sha
 | Phase | Scope |
 |---|---|
 | **v1.0** | Everything in §4 except items marked v1.1. |
-| **v1.1** | Viewer role; DOCX export; payment reminders through the email composer; import from the `data.json` export. |
-| **v2** | Recurring invoices; additional templates; multiple owners per instance (workspaces); optional e-invoicing hooks. |
+| **v1.1** (delivered 2026-10-15) | Editor and viewer roles with invitations; first-run wizard, account region and language, accents and avatars, mobile shell; products with SKUs and profile tags; six templates with a 100-family font catalogue and header bands; DOCX copies; share links and password-protected copies; API keys, REST v1, OpenAPI, SDK, MCP server and agent skill; 115 UI languages, translated documents with script fonts; e-invoicing (GST INV-01 JSON, manual and NIC IRN connectors, EN 16931 CII and UBL, Factur-X PDF/A-3); legal pages, cookie notice, status page; documentation site. |
+| **v1.2** | Payment reminders through the e-mail composer; import from the `data.json` export. |
+| **v2** | Recurring invoices; additional templates; multi-tenant workspaces; sending e-invoices to access points. |
