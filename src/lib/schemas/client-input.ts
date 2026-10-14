@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { fDecimal, fInt, fOptional } from "@/lib/forms";
+import { LANGUAGE_TAGS } from "@/lib/i18n/languages";
 import { AddressSchema, CountryCodeSchema } from "./address";
 import { CurrencySchema } from "./currency";
 import { TAX_ID_TYPES } from "./snapshots";
@@ -26,6 +27,8 @@ export const ClientInputSchema = z
       { message: "must be between 0 and 100" },
     ),
     notes: fOptional(z.string().trim().max(2000)),
+    /** The language this client's documents print in; empty follows the issuer profile. */
+    preferredLocale: fOptional(z.enum(LANGUAGE_TAGS, { error: "unknown language" })),
   })
   .superRefine((v, ctx) => {
     if (v.taxIdType && !v.taxId) {

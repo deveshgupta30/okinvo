@@ -47,4 +47,10 @@ test("letterhead with an uploaded header image at half opacity", async ({ page }
 
   await page.getByRole("button", { name: "Save template" }).click();
   await expect(page.getByText(/saved/i).first()).toBeVisible();
+
+  // Leave the shared instance template as other specs (and the next run) expect it: the image
+  // header makes every preview taller and would skew the page estimate elsewhere.
+  await page.getByRole("button", { name: "Reset to defaults" }).click();
+  await page.getByRole("dialog").getByRole("button", { name: "Reset" }).click();
+  await expect(page.getByText("Template reset to the built-in default")).toBeVisible();
 });

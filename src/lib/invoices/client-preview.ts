@@ -47,6 +47,8 @@ export interface BuilderValues {
   tdsRate: string;
   paymentMethodIds: string[];
   displayConfig: DisplayConfig;
+  /** The language the document prints in (SPEC §4.10). */
+  documentLocale: string;
   poReference: string;
   notes: string;
   terms: string;
@@ -259,7 +261,7 @@ export function previewFromBuilder(values: BuilderValues, ctx: PreviewContext): 
     issueDate: issueDate || "2000-01-01",
     dueDate: DateStringSchema.safeParse(values.dueDate).success ? values.dueDate : null,
     currency,
-    locale: profile?.locale ?? "en-IN",
+    locale: values.documentLocale || "en-US",
     issuer,
     client: clientSnap,
     paymentMethods,

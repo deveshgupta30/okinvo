@@ -12,6 +12,7 @@ import {
 import type { ReactElement } from "react";
 import type { TemplateConfig } from "@/lib/schemas";
 import { PROTECT_PERMISSIONS, type ProtectOptions } from "../protect";
+import { pageOf } from "../page-text";
 import type { DocumentViewModel, TotalsRow } from "../view-model";
 import { SYMBOL_FAMILY, splitCurrency, templateStyle, type TemplateStyle } from "./styles";
 
@@ -251,7 +252,7 @@ export function DocumentPdf({
   const qr = vm.qrDataUrl ? (
     <View style={{ alignItems: "center", width: 80 }}>
       <Image src={vm.qrDataUrl} style={st.qr} />
-      <Text style={[st.small, st.muted, { marginTop: 2 }]}>Scan to verify</Text>
+      <Text style={[st.small, st.muted, { marginTop: 2 }]}>{vm.text.scanToVerify}</Text>
     </View>
   ) : null;
 
@@ -382,7 +383,7 @@ export function DocumentPdf({
               ) : null}
               {vm.paymentTerms ? (
                 <View>
-                  <Text style={st.metaLabel}>Terms</Text>
+                  <Text style={st.metaLabel}>{vm.labels.terms}</Text>
                   <Text>{vm.paymentTerms}</Text>
                 </View>
               ) : null}
@@ -413,7 +414,7 @@ export function DocumentPdf({
             {vm.client.phone ? <Text style={st.muted}>{vm.client.phone}</Text> : null}
             {vm.client.taxId ? (
               <Text>
-                {vm.client.taxIdType ?? "Tax ID"} {vm.client.taxId}
+                {vm.client.taxIdType ?? vm.text.taxId} {vm.client.taxId}
               </Text>
             ) : null}
           </View>
@@ -596,10 +597,14 @@ export function DocumentPdf({
         <View style={st.pageFooter} fixed>
           <Text>
             {vm.number ? `${docLabel} ${vm.number}` : vm.title}
-            {vm.isVoid ? " · VOID" : ""}
+            {vm.isVoid ? ` · ${vm.text.void}` : ""}
           </Text>
           {s.pageNumbers ? (
-            <Text render={({ pageNumber, totalPages }) => `Page ${pageNumber} of ${totalPages}`} />
+            <Text
+              render={({ pageNumber, totalPages }) =>
+                pageOf(vm.text.pageOf, pageNumber, totalPages)
+              }
+            />
           ) : null}
         </View>
       </Page>

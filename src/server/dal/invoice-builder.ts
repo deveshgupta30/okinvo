@@ -1,6 +1,8 @@
 import "server-only";
 import { addDays, todayIn } from "@/lib/dates";
 import { prisma } from "@/lib/db";
+import { DEFAULT_LOCALE } from "@/lib/i18n/languages";
+import { matchLocale } from "@/lib/i18n/resolve";
 import type { BuilderProfile, BuilderValues } from "@/lib/invoices/client-preview";
 import type { TemplateConfig } from "@/lib/schemas";
 import type { Actor } from "@/server/actor";
@@ -49,6 +51,18 @@ export interface BuilderContext {
   today: string;
 }
 
+/** The client's preferred document language, else the profile's locale, else en-US (SPEC §4.10). */
+export function defaultDocumentLocale(
+  client: Pick<ClientDto, "preferredLocale"> | null,
+  profile: Pick<ProfileDto, "locale"> | null,
+): string {
+  return (
+    client?.preferredLocale ??
+    (profile ? matchLocale([profile.locale]) : undefined) ??
+    DEFAULT_LOCALE
+  );
+}
+
 export function valuesFromInvoice(inv: InvoiceDto): BuilderValues {
   return {
     issuerProfileId: inv.issuerProfileId,
@@ -71,6 +85,7 @@ export function valuesFromInvoice(inv: InvoiceDto): BuilderValues {
       ...(i.productId ? { productId: i.productId } : {}),
       ...(i.sku ? { sku: i.sku } : {}),
     })),
+    documentLocale: inv.documentLocale,
     discountType: inv.discountType ?? "",
     discountValue: inv.discountValue ?? "",
     roundingAdjustment:
@@ -146,6 +161,7 @@ export async function builderContext(
       paymentMethodIds: methods.filter((m) => m.isDefault).map((m) => m.id),
       displayConfig:
         profile?.defaultDisplayConfig ?? (await import("@/lib/schemas")).DEFAULT_DISPLAY_CONFIG,
+      documentLocale: defaultDocumentLocale(client, profile),
       poReference: "",
       notes: profile?.defaultNotes ?? "",
       terms: profile?.defaultTerms ?? "",

@@ -60,6 +60,8 @@ export interface CreditNoteDto extends CreditNoteListRow {
   supplyType: SupplyType;
   taxLines: TaxLineDto[];
   displayConfig: DisplayConfig;
+  /** The language the document prints in, copied from the invoice (SPEC §4.10). */
+  documentLocale: string;
   templateSnapshot: TemplateConfig | null;
   snapshot: CreditNoteSnapshot | null;
   verificationToken: string;
@@ -147,6 +149,7 @@ function toDto(row: Row): CreditNoteDto {
       taxAmount: m(t.taxAmount),
     })),
     displayConfig: mergeDisplayConfig(row.displayConfig),
+    documentLocale: row.documentLocale,
     templateSnapshot: row.templateSnapshot ? mergeTemplateConfig(row.templateSnapshot) : null,
     snapshot: parseSnapshot(CreditNoteSnapshotSchema, row.snapshot),
     verificationToken: tokenFromRow(row.verificationTokenEnc),
@@ -270,6 +273,7 @@ export async function createCreditNoteDraft(
         taxAmount: toMoneyString(credit.taxAmount, c),
         total: toMoneyString(credit.total, c),
         displayConfig: json(input.displayConfig ?? mergeDisplayConfig(invoice.displayConfig)),
+        documentLocale: invoice.documentLocale,
         ...tokenFields(),
         taxLines: {
           create: credit.taxLines.map((t) => ({

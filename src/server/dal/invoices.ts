@@ -119,6 +119,8 @@ export interface InvoiceDto extends InvoiceListRow {
   notes: string | null;
   terms: string | null;
   displayConfig: DisplayConfig;
+  /** The language the document prints in (SPEC §4.10); fixed once issued like everything else. */
+  documentLocale: string;
   templateSnapshot: TemplateConfig | null;
   issuerSnapshot: IssuerSnapshot | null;
   clientSnapshot: ClientSnapshot | null;
@@ -248,6 +250,7 @@ function toDto(row: DetailRow, today: DateString): InvoiceDto {
     notes: row.notes,
     terms: row.terms,
     displayConfig: mergeDisplayConfig(row.displayConfig),
+    documentLocale: row.documentLocale,
     templateSnapshot: row.templateSnapshot ? mergeTemplateConfig(row.templateSnapshot) : null,
     issuerSnapshot: parseSnapshot(IssuerSnapshotSchema, row.issuerSnapshot),
     clientSnapshot: parseSnapshot(ClientSnapshotSchema, row.clientSnapshot),
@@ -403,6 +406,7 @@ function draftData(input: InvoiceDraftInput, c: Computed, placeOfSupply: string 
     notes: input.notes ?? null,
     terms: input.terms ?? null,
     displayConfig: json(input.displayConfig),
+    documentLocale: input.documentLocale,
     ...totalsData(c, input.currency),
     balanceDue: toMoneyString(c.totals.total, input.currency),
     items: { create: itemsCreate(input, c) },
@@ -752,6 +756,7 @@ export async function voidAndReissue(actor: Actor, id: string, reason: string): 
         notes: old.notes,
         terms: old.terms,
         displayConfig: old.displayConfig as Prisma.InputJsonValue,
+        documentLocale: old.documentLocale,
         replacesInvoiceId: old.id,
         ...tokenFields(),
         items: {

@@ -107,7 +107,11 @@ export async function signInExisting(page: Page, email: string): Promise<void> {
  * Creates an issuer profile, a client and a one-line invoice through the UI and issues it; returns
  * the invoice page URL. Specs about documents reuse this instead of repeating the flow.
  */
-export async function issueSimpleInvoice(page: Page, stamp: string): Promise<string> {
+export async function issueSimpleInvoice(
+  page: Page,
+  stamp: string,
+  o: { documentLocale?: string } = {},
+): Promise<string> {
   const profileLabel = `${stamp} profile`;
   const clientName = `${stamp} client`;
   await page.goto("/settings/profiles/new");
@@ -134,6 +138,7 @@ export async function issueSimpleInvoice(page: Page, stamp: string): Promise<str
   await page.getByLabel("Line 1 description").fill("Shared work");
   await page.getByLabel("Line 1 quantity").fill("1");
   await page.getByLabel("Line 1 rate").fill("1000");
+  if (o.documentLocale) await page.locator("#documentLocale").selectOption(o.documentLocale);
   await page.getByRole("button", { name: "Save and issue" }).click();
   await expect(page).toHaveURL(/\/invoices\/[^/]+$/);
   return page.url();

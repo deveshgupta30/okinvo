@@ -1308,6 +1308,51 @@
     }
   },
   "documents": {
+    "labels": {
+      "billTo": "請求先",
+      "shipTo": "納品先",
+      "invoice": "請求書",
+      "creditNote": "クレジットノート",
+      "issueDate": "発行日",
+      "dueDate": "支払期日",
+      "number": "番号",
+      "description": "品名・摘要",
+      "sacHsn": "SAC/HSN",
+      "qty": "数量",
+      "unit": "単位",
+      "rate": "単価",
+      "tax": "税",
+      "amount": "金額",
+      "subtotal": "小計",
+      "discount": "値引き",
+      "taxable": "課税対象額",
+      "total": "合計",
+      "amountDue": "ご請求額",
+      "tdsExpected": "源泉税(TDS)見込額",
+      "netExpected": "差引受取見込額",
+      "rounding": "端数調整",
+      "paymentDetails": "お支払い情報",
+      "notes": "備考",
+      "terms": "条件",
+      "placeOfSupply": "供給地",
+      "poReference": "発注書番号",
+      "amountInWords": "金額(文字表記)",
+      "signature": "承認署名者"
+    },
+    "title": {
+      "taxInvoice": "税務請求書",
+      "billOfSupply": "納品書(非課税)",
+      "invoice": "請求書",
+      "creditNote": "クレジットノート"
+    },
+    "text": {
+      "pageOf": "{total} ページ中 {page} ページ",
+      "scanToVerify": "スキャンして検証",
+      "taxId": "税ID",
+      "void": "無効",
+      "draftWatermark": "下書き - 税務請求書ではありません",
+      "paymentTermsDays": "{days}日"
+    },
     "ui": {
       "pageEstimate": "約 {count, plural, other {# ページ}}"
     }
@@ -1610,6 +1655,8 @@
       "noPaymentMethods": "有効な支払い方法がありません。<link>追加する</link>。",
       "whatPrints": "印刷内容",
       "whatPrintsHint": "発行者プロフィールの既定値から始まります。",
+      "documentLanguage": "書類の言語",
+      "documentLanguageHint": "ラベル、日付、金額はこの言語で印刷されます。取引先の設定を優先し、なければプロフィールの言語を使用します。",
       "notesAndTerms": "備考と条件",
       "notes": "備考",
       "terms": "条件",
@@ -1782,6 +1829,8 @@
       "currency": "通貨",
       "paymentTerms": "支払条件（日数）",
       "expectedTdsRate": "予想 TDS 率 (%)",
+      "preferredLanguage": "書類の言語",
+      "preferredLanguageFollow": "発行者プロフィールに従う",
       "notes": "備考",
       "billingAddress": "請求先住所",
       "shippingAddress": "配送先住所",

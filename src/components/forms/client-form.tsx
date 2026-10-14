@@ -14,6 +14,7 @@ import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { LANGUAGES } from "@/lib/i18n/languages";
 import { COMMON_CURRENCIES, TAX_ID_TYPES } from "@/lib/schemas";
 import { saveClient } from "@/server/actions/clients";
 import type { ClientDto } from "@/server/dal/clients";
@@ -106,6 +107,24 @@ export function ClientForm({ client }: { client: ClientDto | null }) {
                 {COMMON_CURRENCIES.map((c) => (
                   <option key={c} value={c}>
                     {c}
+                  </option>
+                ))}
+              </Select>
+            </Field>
+            <Field
+              label={t("preferredLanguage")}
+              htmlFor="preferredLocale"
+              error={errors?.preferredLocale}
+            >
+              <Select
+                id="preferredLocale"
+                name="preferredLocale"
+                defaultValue={v("preferredLocale", client?.preferredLocale)}
+              >
+                <option value="">{t("preferredLanguageFollow")}</option>
+                {LANGUAGES.map((l) => (
+                  <option key={l.tag} value={l.tag} lang={l.tag}>
+                    {l.name}
                   </option>
                 ))}
               </Select>

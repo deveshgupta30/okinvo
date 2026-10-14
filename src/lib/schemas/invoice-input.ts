@@ -4,6 +4,7 @@ import { SkuSchema } from "./product-input";
 import { fBool, fDecimal, fOptional } from "@/lib/forms";
 import { D, minorUnits } from "@/lib/money";
 import { GST_RATES, UK_VAT_RATES } from "@/lib/tax";
+import { LANGUAGE_TAGS } from "@/lib/i18n/languages";
 import { CurrencySchema } from "./currency";
 import { DisplayConfigSchema } from "./display-config";
 import { UNIT_TYPES } from "./service-input";
@@ -60,6 +61,8 @@ export const InvoiceDraftInputSchema = z
       .default("0.00"),
     paymentMethodIds: z.array(z.string().min(1)).max(10).default([]),
     displayConfig: DisplayConfigSchema,
+    /** The language the document prints in (SPEC §4.10). */
+    documentLocale: z.enum(LANGUAGE_TAGS, { error: "unknown language" }).default("en-US"),
     poReference: fOptional(z.string().trim().max(80)),
     notes: fOptional(z.string().trim().max(2000)),
     terms: fOptional(z.string().trim().max(2000)),

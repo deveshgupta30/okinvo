@@ -45,6 +45,10 @@ export type InvoiceCreateInput = {
     poReference?: string;
     notes?: string;
     terms?: string;
+    /**
+     * Language tag the document prints in; defaults to en-US
+     */
+    documentLocale?: string;
 };
 
 export type InvoiceItemInput = {

@@ -15,6 +15,7 @@ import {
   type RenderInput,
 } from "@/lib/documents/view-model";
 import { env } from "@/lib/env";
+import { documentMessages } from "@/lib/i18n/document-messages";
 import { buildSnapshots } from "@/lib/invoices/snapshots";
 import { safeFileStem } from "@/lib/numbering";
 import {
@@ -80,7 +81,7 @@ export function renderInputFromInvoice(inv: InvoiceDto): RenderInput {
     issueDate: inv.issueDate,
     dueDate: inv.dueDate,
     currency: inv.currency,
-    locale: inv.issuerSnapshot.locale,
+    locale: inv.documentLocale,
     issuer: inv.issuerSnapshot,
     client: inv.clientSnapshot,
     paymentMethods: inv.paymentMethodsSnapshot ?? [],
@@ -239,6 +240,7 @@ async function renderStored(
     assetUrl,
     config: doc.config,
     draft: false,
+    messages: await documentMessages(doc.input.locale),
   });
   const pdf =
     format === "DOCX"
@@ -452,7 +454,13 @@ export async function renderCreditNoteDraftPreview(
     status: "DRAFT",
   });
   const config = await resolveTemplateConfig(prisma, cn.issuerProfileId);
-  const vm = buildDocumentViewModel(input, { appUrl: env.APP_URL, assetUrl, config, draft: true });
+  const vm = buildDocumentViewModel(input, {
+    appUrl: env.APP_URL,
+    assetUrl,
+    config,
+    draft: true,
+    messages: await documentMessages(input.locale),
+  });
   return renderPdf(vm, config, { assets: readAssetBytes });
 }
 
@@ -463,7 +471,13 @@ export async function renderDraftPreview(actor: Actor, invoiceId: string): Promi
     throw new InvariantError("Only drafts are previewed; download the stored PDF.");
   const input = await renderInputForDraft(prisma, inv);
   const config = await resolveTemplateConfig(prisma, inv.issuerProfileId);
-  const vm = buildDocumentViewModel(input, { appUrl: env.APP_URL, assetUrl, config, draft: true });
+  const vm = buildDocumentViewModel(input, {
+    appUrl: env.APP_URL,
+    assetUrl,
+    config,
+    draft: true,
+    messages: await documentMessages(input.locale),
+  });
   return renderPdf(vm, config, { assets: readAssetBytes });
 }
 
@@ -496,6 +510,7 @@ export async function issuedDocumentView(
     assetUrl: (assetId) => inline.get(assetId) ?? assetUrl(assetId),
     config: doc.config,
     draft: false,
+    messages: await documentMessages(doc.input.locale),
   });
   const withQr = vm.verifyUrl ? { ...vm, qrDataUrl: await qrDataUrl(vm.verifyUrl) } : vm;
   return { vm: withQr, config: doc.config };
