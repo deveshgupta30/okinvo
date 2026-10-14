@@ -8,7 +8,9 @@ services:
     image: caddy:2.11.4-alpine
     restart: unless-stopped
     ports: ["80:80", "443:443", "443:443/udp"]
-    environment: { APP_DOMAIN: "${APP_DOMAIN:?set APP_DOMAIN in .env}" }
+    environment:
+      APP_DOMAIN: "${APP_DOMAIN:?set APP_DOMAIN in .env}"
+      DOCS_DOMAIN: "${DOCS_DOMAIN:-docs.localhost}" # the Wiki.js host (profile docs); a 502 while the profile is down
     volumes:
       - ./docker/Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_data:/data
@@ -70,7 +72,9 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
-    volumes: [pg_data:/var/lib/postgresql] # postgres:18 image: mount the parent, not …/data
+    volumes:
+      - pg_data:/var/lib/postgresql # postgres:18 image: mount the parent, not …/data
+      - ./docker/postgres/initdb:/docker-entrypoint-initdb.d:ro # first init only: creates the `wiki` database
     security_opt: [no-new-privileges:true]
     networks: [data]
     healthcheck:
@@ -114,6 +118,27 @@ services:
       interval: 10s
       timeout: 3s
       retries: 5
+
+  wiki: # documentation site, only with: docker compose --profile docs up (k8s: overlays/with-docs)
+    profiles: [docs]
+    image: ghcr.io/requarks/wiki:2.5
+    restart: unless-stopped
+    environment: # its own `wiki` database on the bundled Postgres (docker/postgres/initdb/10-wiki.sh)
+      DB_TYPE: postgres
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_USER: ${POSTGRES_USER}
+      DB_PASS: ${POSTGRES_PASSWORD}
+      DB_NAME: wiki
+    security_opt: [no-new-privileges:true]
+    networks: [web, data]
+    depends_on: { postgres: { condition: service_healthy } }
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/healthz"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+      start_period: 60s
 
 networks:
   web: {}

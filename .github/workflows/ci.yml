@@ -110,10 +110,10 @@ jobs:
           set -euo pipefail
           out="${RUNNER_TEMP//\\//}/k8s" # forward slashes: Docker Desktop on Windows accepts C:/… bind mounts
           mkdir -p "$out"
-          for o in compose-parity with-seaweedfs; do
+          for o in compose-parity with-seaweedfs with-docs; do
             kubectl kustomize --load-restrictor LoadRestrictionsNone "k8s/overlays/$o" > "$out/$o.yaml"
           done
-          docker run --rm -v "$out:/m" ghcr.io/yannh/kubeconform:v0.7.0 -strict -summary /m/compose-parity.yaml /m/with-seaweedfs.yaml
+          docker run --rm -v "$out:/m" ghcr.io/yannh/kubeconform:v0.7.0 -strict -summary /m/compose-parity.yaml /m/with-seaweedfs.yaml /m/with-docs.yaml
       - run: bash -n scripts/release.sh scripts/restore-drill.sh docker/backup/backup.sh docker/backup/restore.sh
 
   e2e:
