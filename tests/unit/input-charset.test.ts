@@ -28,24 +28,37 @@ describe("keyboard charset", () => {
   });
 
   it("rejects everything else, including backslash, pipe and look-alikes", () => {
-    for (const bad of ["\\", "|", "—", "–", "“", "’", "ß", "é", "₹", "日", "​", "\u0000"]) {
+    for (const bad of [
+      "\\",
+      "|",
+      "\u2014",
+      "\u2013",
+      "“",
+      "’",
+      "ß",
+      "é",
+      "₹",
+      "日",
+      "​",
+      "\u0000",
+    ]) {
       expect(isKeyboardText(`abc${bad}def`), JSON.stringify(bad)).toBe(false);
       expect(firstDisallowed(`abc${bad}def`)).toBe(bad);
     }
-    expect(stripToKeyboard("Müller — Co|\\ 1")).toBe("Mller  Co 1");
+    expect(stripToKeyboard("Müller \u2014 Co|\\ 1")).toBe("Mller  Co 1");
   });
 
   it("the HTML pattern accepts the single-line set and nothing more", () => {
     const re = new RegExp(`^(?:${KEYBOARD_INPUT_PATTERN})$`);
     expect(re.test(KEYBOARD_CHARS + " ")).toBe(true);
-    expect(re.test("a—b")).toBe(false);
+    expect(re.test("a\u2014b")).toBe(false);
     expect(re.test("a\\b")).toBe(false);
     expect(re.test("a|b")).toBe(false);
   });
 
   it("finds offending strings and keys anywhere in a submitted value", () => {
-    expect(findDisallowed({ a: "ok", b: { c: ["fine", "bad—"] } })).toEqual([
-      { path: "b.c.1", char: "—" },
+    expect(findDisallowed({ a: "ok", b: { c: ["fine", "bad\u2014"] } })).toEqual([
+      { path: "b.c.1", char: "\u2014" },
     ]);
     expect(findDisallowed({ ké: "x" })).toEqual([{ path: "ké", char: "é" }]);
     expect(findDisallowed("plain")).toEqual([]);
@@ -71,7 +84,7 @@ describe("parseForm / parseObject enforce the charset before the schema", () => 
     const schema = z.object({ notes: z.string(), tags: z.array(z.string()) });
     const r = parseObject(schema, { notes: "Paid by NEFT; ref #42 (Q2)", tags: ["a", "b-c"] });
     expect(r.ok).toBe(true);
-    const bad = parseObject(schema, { notes: "ok", tags: ["a", "b–c"] });
+    const bad = parseObject(schema, { notes: "ok", tags: ["a", "b\u2013c"] });
     expect(bad.ok).toBe(false);
     if (!bad.ok) expect(bad.fieldErrors["tags.1"]).toEqual([INPUT_CHARSET_MESSAGE]);
   });

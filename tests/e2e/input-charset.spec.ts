@@ -14,7 +14,7 @@ test("a client name loses the characters that are not on the keyboard", async ({
   await page.goto("/clients/new");
   const name = page.locator("#displayName");
   await expect(name).toBeVisible();
-  await name.pressSequentially("Müller — Co|\\ Ltd");
+  await name.pressSequentially("Müller \u2014 Co|\\ Ltd");
   await expect(name).toHaveValue("Mller  Co Ltd");
 
   // pasting is filtered the same way
