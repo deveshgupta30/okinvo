@@ -34,6 +34,8 @@ export interface IssuerForSnapshot {
   stampAssetId: string | null;
   locale: string;
   baseCurrency: string;
+  electronicAddress?: string | null;
+  electronicAddressScheme?: string | null;
 }
 
 export interface ClientForSnapshot {
@@ -49,6 +51,9 @@ export interface ClientForSnapshot {
   taxIdType: "GSTIN" | "VAT" | "EIN" | "OTHER" | null;
   taxId: string | null;
   paymentTermsDays: number;
+  buyerReference?: string | null;
+  electronicAddress?: string | null;
+  electronicAddressScheme?: string | null;
 }
 
 export interface MethodForSnapshot {
@@ -101,6 +106,10 @@ export function buildSnapshots(p: {
     stampAssetId: opt(d.issuer.showStamp, i.stampAssetId),
     locale: i.locale,
     baseCurrency: i.baseCurrency,
+    // e-invoicing reads the full address whatever the print config hides (spec §9e)
+    address: i.address,
+    electronicAddress: i.electronicAddress ?? undefined,
+    electronicAddressScheme: i.electronicAddressScheme ?? undefined,
   });
   const client = ClientSnapshotSchema.parse({
     displayName: c.displayName,
@@ -118,6 +127,10 @@ export function buildSnapshots(p: {
     taxIdType: opt(d.client.showTaxIdentifier, c.taxIdType),
     taxId: opt(d.client.showTaxIdentifier, c.taxId),
     paymentTermsDays: c.paymentTermsDays,
+    address: c.billingAddress,
+    buyerReference: c.buyerReference ?? undefined,
+    electronicAddress: c.electronicAddress ?? undefined,
+    electronicAddressScheme: c.electronicAddressScheme ?? undefined,
   });
   const paymentMethods = PaymentMethodsSnapshotSchema.parse(
     p.methods.map((m) => ({
