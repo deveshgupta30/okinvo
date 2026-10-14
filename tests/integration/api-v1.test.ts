@@ -293,7 +293,7 @@ describe.skipIf(!url)("REST API v1", () => {
       req("/api/v1/invoices", {
         method: "POST",
         key: fullKey,
-        json: { ...draftBody(), notes: "em - dash" },
+        json: { ...draftBody(), notes: "em 2014 dash" },
       }),
       {},
     );
