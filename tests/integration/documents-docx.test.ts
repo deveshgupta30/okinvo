@@ -148,8 +148,20 @@ describe.skipIf(!url)("DOCX documents", () => {
     // the canonical PDF row is unchanged
     const again = await docs.ensureDocument("INVOICE", invoiceId);
     expect(again.id).toBe(pdf.id);
+    // the Factur-X copy (spec §9e) is its own PDF_A3 version with the XML embedded
+    const fx = await docs.ensureDocument("INVOICE", invoiceId, { format: "PDF_A3" });
+    expect(fx.format).toBe("PDF_A3");
+    expect(fx.filename).toMatch(/-facturx\.pdf$/);
+    expect(fx.storageKey).toMatch(/-v1-facturx\.pdf$/);
+    expect((await docs.ensureDocument("INVOICE", invoiceId, { format: "PDF_A3" })).id).toBe(fx.id);
+    const fxBytes = await bytesOf((await docs.getDocumentStream(actor, fx.id)).stream);
+    expect(fxBytes.subarray(0, 8).toString()).toBe("%PDF-1.7");
+    const raw = fxBytes.toString("latin1");
+    expect(raw).toContain("factur-x.xml");
+    expect(raw).toContain("/GTS_PDFA1");
+    expect(raw).toContain("/AFRelationship /Alternative");
     expect(again.sha256).toBe(pdf.sha256);
-    expect(await prisma.document.count({ where: { invoiceId } })).toBe(2);
+    expect(await prisma.document.count({ where: { invoiceId } })).toBe(3);
   }, 120_000);
 
   it("refuses a DOCX for a draft", async () => {

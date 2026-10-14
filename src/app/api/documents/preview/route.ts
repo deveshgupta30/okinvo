@@ -45,13 +45,17 @@ export async function GET(request: Request): Promise<Response> {
       const config = mergeTemplateConfig(partial);
       return pdfResponse(await renderSamplePdf(config), "okinvo-sample.pdf");
     }
-    const wantDocx = url.searchParams.get("format") === "docx";
-    const docxResponse = async (kind: "INVOICE" | "CREDIT_NOTE", id: string) => {
-      const doc = await ensureDocument(kind, id, { format: "DOCX" });
+    const want = url.searchParams.get("format");
+    const copyFormat = want === "docx" ? "DOCX" : want === "facturx" ? "PDF_A3" : null;
+    const copyResponse = async (kind: "INVOICE" | "CREDIT_NOTE", id: string) => {
+      const doc = await ensureDocument(kind, id, { format: copyFormat ?? "DOCX" });
       const { stream } = await getDocumentStream(actor, doc.id);
       return new Response(Readable.toWeb(stream) as ReadableStream, {
         headers: {
-          "Content-Type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "Content-Type":
+            copyFormat === "PDF_A3"
+              ? "application/pdf"
+              : "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
           "Content-Disposition": `attachment; filename="${doc.filename}"`,
           "Cache-Control": "private, max-age=0, no-store",
           "X-Content-Type-Options": "nosniff",
@@ -60,7 +64,7 @@ export async function GET(request: Request): Promise<Response> {
     };
     const invoiceId = url.searchParams.get("invoice");
     if (invoiceId) {
-      if (wantDocx) return docxResponse("INVOICE", invoiceId);
+      if (copyFormat) return copyResponse("INVOICE", invoiceId);
       try {
         return pdfResponse(await renderDraftPreview(actor, invoiceId), "invoice-draft.pdf");
       } catch (e) {
@@ -80,7 +84,7 @@ export async function GET(request: Request): Promise<Response> {
     }
     const creditNoteId = url.searchParams.get("creditNote");
     if (creditNoteId) {
-      if (wantDocx) return docxResponse("CREDIT_NOTE", creditNoteId);
+      if (copyFormat) return copyResponse("CREDIT_NOTE", creditNoteId);
       try {
         return pdfResponse(
           await renderCreditNoteDraftPreview(actor, creditNoteId),

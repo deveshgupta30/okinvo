@@ -9,7 +9,12 @@ import { todayIn } from "@/lib/dates";
 import { CreditNoteInputSchema } from "@/lib/schemas/credit-note-input";
 import { InvoiceDraftInputSchema } from "@/lib/schemas/invoice-input";
 import { createCreditNoteDraft, type CreditNoteDto } from "@/server/dal/credit-notes";
-import { ensureDocument, getDocumentStream, type DocumentDto } from "@/server/dal/documents";
+import {
+  ensureDocument,
+  getDocumentStream,
+  type DocumentDto,
+  type StoredFormat,
+} from "@/server/dal/documents";
 import { createDraft, type InvoiceDto } from "@/server/dal/invoices";
 import { getProfile } from "@/server/dal/profiles";
 import {
@@ -184,7 +189,7 @@ export async function documentBytes(
   actor: Actor,
   kind: DocumentKind,
   id: string,
-  format: "PDF" | "DOCX",
+  format: StoredFormat,
 ): Promise<{ document: DocumentDto; bytes: Buffer }> {
   const doc = await ensureDocument(kind, id, { format });
   const { document, stream } = await getDocumentStream(actor, doc.id);
@@ -195,6 +200,7 @@ export async function documentBytes(
 
 const CONTENT_TYPES = {
   PDF: "application/pdf",
+  PDF_A3: "application/pdf",
   DOCX: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 } as const;
 
@@ -203,7 +209,7 @@ export async function documentResponse(
   actor: Actor,
   kind: DocumentKind,
   id: string,
-  format: "PDF" | "DOCX",
+  format: StoredFormat,
 ): Promise<Response> {
   const doc = await ensureDocument(kind, id, { format });
   const { document, stream } = await getDocumentStream(actor, doc.id);

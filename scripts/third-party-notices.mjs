@@ -33,6 +33,13 @@ Wordlist #1" (1 296 words), used for generated passphrases.
 (\`src/lib/documents/fonts/catalog.ts\` lists each family, package and licence). All are under the
 SIL Open Font License 1.1 except Roboto Slab (Apache License 2.0). Licence texts ship with each
 \`@fontsource/<family>\` package.
+
+## Compact ICC Profiles (sRGB output intent)
+
+\`src/lib/einvoice/icc/sRGB-v2-magic.icc\` is the "sRGB-v2-magic" profile from Clinton Ingram's
+Compact-ICC-Profiles (https://github.com/saucecontrol/Compact-ICC-Profiles), released under the
+CC0 1.0 Universal public domain dedication. It is embedded as the output intent of Factur-X
+PDF/A-3 files.
 `;
 
 /**

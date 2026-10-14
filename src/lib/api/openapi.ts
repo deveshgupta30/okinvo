@@ -332,6 +332,17 @@ export function buildOpenApi(appUrl: string) {
           extraErrors: [409],
         }),
       },
+      "/invoices/{id}/facturx": {
+        get: op({
+          id: "getInvoiceFacturX",
+          summary: "Download the Factur-X PDF/A-3 copy (EN 16931 XML embedded)",
+          scope: "documents:read",
+          tag: "Invoices",
+          params: { path: IdParam },
+          ok: { binary: "application/pdf" },
+          extraErrors: [409],
+        }),
+      },
       "/credit-notes": {
         get: op({
           id: "listCreditNotes",
@@ -391,6 +402,17 @@ export function buildOpenApi(appUrl: string) {
           tag: "Credit notes",
           params: { path: IdParam },
           ok: { binary: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" },
+          extraErrors: [409],
+        }),
+      },
+      "/credit-notes/{id}/facturx": {
+        get: op({
+          id: "getCreditNoteFacturX",
+          summary: "Download the Factur-X PDF/A-3 copy (EN 16931 XML embedded)",
+          scope: "documents:read",
+          tag: "Credit notes",
+          params: { path: IdParam },
+          ok: { binary: "application/pdf" },
           extraErrors: [409],
         }),
       },

@@ -23,6 +23,13 @@ Wordlist #1" (1 296 words), used for generated passphrases.
 SIL Open Font License 1.1 except Roboto Slab (Apache License 2.0). Licence texts ship with each
 `@fontsource/<family>` package.
 
+## Compact ICC Profiles (sRGB output intent)
+
+`src/lib/einvoice/icc/sRGB-v2-magic.icc` is the "sRGB-v2-magic" profile from Clinton Ingram's
+Compact-ICC-Profiles (https://github.com/saucecontrol/Compact-ICC-Profiles), released under the
+CC0 1.0 Universal public domain dedication. It is embedded as the output intent of Factur-X
+PDF/A-3 files.
+
 ## Package licences (production dependencies)
 
 ### (MIT AND Zlib) (1)
@@ -35,7 +42,7 @@ SIL Open Font License 1.1 except Roboto Slab (Apache License 2.0). Licence texts
 
 ### 0BSD (1)
 
-- tslib 2.8.1 - Microsoft Corp. (https://www.typescriptlang.org/)
+- tslib 1.14.1, 2.8.1 - Microsoft Corp. (https://www.typescriptlang.org/)
 
 ### Apache-2.0 (67)
 
@@ -199,7 +206,7 @@ SIL Open Font License 1.1 except Roboto Slab (Apache License 2.0). Licence texts
 - yargs-parser 18.1.3 - Ben Coe (https://github.com/yargs/yargs-parser#readme)
 - zod-to-json-schema 3.25.2 - Stefan Terdell (https://github.com/StefanTerdell/zod-to-json-schema#readme)
 
-### MIT (514)
+### MIT (523)
 
 - @babel/code-frame 7.29.7 - The Babel Team (https://babel.dev/docs/en/next/babel-code-frame)
 - @babel/compat-data 7.29.7 - The Babel Team (https://github.com/babel/babel#readme)
@@ -257,9 +264,15 @@ SIL Open Font License 1.1 except Roboto Slab (Apache License 2.0). Licence texts
 - @next/swc-win32-x64-msvc 16.3.8 (https://github.com/vercel/next.js#readme)
 - @noble/ciphers 1.3.0, 2.4.0 - Paul Miller (https://paulmillr.com/noble/)
 - @noble/hashes 1.8.0, 2.4.0 - Paul Miller (https://paulmillr.com/noble/)
+- @oozcitak/dom 2.0.2 - Ozgur Ozcitak (http://github.com/oozcitak/dom)
+- @oozcitak/infra 2.0.2 - Ozgur Ozcitak (http://github.com/oozcitak/infra)
+- @oozcitak/url 3.0.0 - Ozgur Ozcitak (http://github.com/oozcitak/url)
+- @oozcitak/util 10.0.0 - Ozgur Ozcitak (http://github.com/oozcitak/util)
 - @oxc-project/types 0.152.0 - Boshen and oxc contributors (https://oxc.rs)
 - @parcel/watcher 2.6.0 (https://github.com/parcel-bundler/watcher#readme)
 - @parcel/watcher-win32-x64 2.6.0 (https://github.com/parcel-bundler/watcher#readme)
+- @pdf-lib/standard-fonts 1.0.0 - Andrew Dillon (https://github.com/Hopding/standard-fonts)
+- @pdf-lib/upng 1.0.1 - photopea (https://github.com/Hopding/upng#readme)
 - @pinojs/redact 0.4.0 - Matteo Collina (https://github.com/pinojs/redact#readme)
 - @radix-ui/number 1.1.3 (https://radix-ui.com/primitives)
 - @radix-ui/primitive 1.1.3, 1.1.7 (https://radix-ui.com/primitives)
@@ -523,6 +536,7 @@ SIL Open Font License 1.1 except Roboto Slab (Apache License 2.0). Licence texts
 - jiti 2.7.0 (https://github.com/unjs/jiti#readme)
 - jose 6.2.12 - Filip Skokan (https://github.com/panva/jose)
 - js-tokens 4.0.0, 10.0.0 - Simon Lydell (https://github.com/lydell/js-tokens#readme)
+- js-yaml 4.3.2 - Vladimir Zapparov (https://github.com/nodeca/js-yaml#readme)
 - jsesc 3.1.0 - Mathias Bynens (https://mths.be/jsesc)
 - json-schema-traverse 1.0.0 - Evgeny Poberezkin (https://github.com/epoberezkin/json-schema-traverse#readme)
 - json5 2.2.3 - Aseem Kishore (http://json5.org/)
@@ -587,6 +601,7 @@ SIL Open Font License 1.1 except Roboto Slab (Apache License 2.0). Licence texts
 - path-key 3.1.1 - Sindre Sorhus (https://github.com/sindresorhus/path-key#readme)
 - path-to-regexp 8.4.2 (https://github.com/pillarjs/path-to-regexp#readme)
 - pathe 2.0.3 (https://github.com/unjs/pathe#readme)
+- pdf-lib 1.17.1 - Andrew Dillon (https://pdf-lib.js.org)
 - pdfkit 0.20.1 - Devon Govett (http://pdfkit.org/)
 - perfect-debounce 2.1.0 (https://github.com/unjs/perfect-debounce#readme)
 - pg 8.23.1 - Brian Carlson (https://github.com/brianc/node-postgres)
@@ -707,6 +722,7 @@ SIL Open Font License 1.1 except Roboto Slab (Apache License 2.0). Licence texts
 - wrap-ansi 6.2.0 - Sindre Sorhus (https://github.com/chalk/wrap-ansi#readme)
 - xml 1.0.1 - Dylan Greene (http://github.com/dylang/node-xml)
 - xml-js 1.6.11 - Yousuf Almarzooqi (https://github.com/nashwaan/xml-js#readme)
+- xmlbuilder2 4.0.3 - Ozgur Ozcitak (https://github.com/oozcitak/xmlbuilder2)
 - xmlchars 2.2.0 - Louis-Dominique Dubeau (https://github.com/lddubeau/xmlchars#readme)
 - xtend 4.0.2 - Raynos (https://github.com/Raynos/xtend)
 - yargs 15.4.1 (https://yargs.js.org/)
@@ -739,6 +755,10 @@ SIL Open Font License 1.1 except Roboto Slab (Apache License 2.0). Licence texts
 - @fontsource-variable/inter 5.3.0 - Google Inc. (https://fontsource.org/fonts/inter)
 - @fontsource/jetbrains-mono 5.3.0 - Google Inc. (https://fontsource.org/fonts/jetbrains-mono)
 
+### Python-2.0 (1)
+
+- argparse 2.0.1 (https://github.com/nodeca/argparse#readme)
+
 ### Unknown (1)
 
 - buffers 0.1.1 - James Halliday (https://github.com/substack/node-buffers#readme)
@@ -749,4 +769,4 @@ SIL Open Font License 1.1 except Roboto Slab (Apache License 2.0). Licence texts
 - postgres 3.4.7 - Rasmus Porsager (https://github.com/porsager/postgres)
 - robust-predicates 3.0.3 - Vladimir Agafonkin (https://github.com/mourner/robust-predicates#readme)
 
-_664 packages under 20 licences._
+_674 packages under 21 licences._

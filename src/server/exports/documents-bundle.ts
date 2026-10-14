@@ -94,6 +94,20 @@ export async function* documentsBundleEntries(
         body: async () => (await storage.get(docx.storageKey)).stream,
       };
     }
+    if (f.facturx) {
+      const fx = await ensureDocument("INVOICE", inv.id, { format: "PDF_A3" });
+      yield {
+        name: documentFileName(
+          "INVOICE",
+          inv.number,
+          fx.version,
+          folderFor(inv.issuerProfile.label),
+          "pdf",
+          "facturx",
+        ),
+        body: async () => (await storage.get(fx.storageKey)).stream,
+      };
+    }
   }
 
   const creditNotes = paginate((cursor, take) =>
@@ -148,6 +162,20 @@ export async function* documentsBundleEntries(
           "docx",
         ),
         body: async () => (await storage.get(docx.storageKey)).stream,
+      };
+    }
+    if (f.facturx) {
+      const fx = await ensureDocument("CREDIT_NOTE", cn.id, { format: "PDF_A3" });
+      yield {
+        name: documentFileName(
+          "CREDIT_NOTE",
+          cn.number,
+          fx.version,
+          folderFor(cn.issuerProfile.label),
+          "pdf",
+          "facturx",
+        ),
+        body: async () => (await storage.get(fx.storageKey)).stream,
       };
     }
   }

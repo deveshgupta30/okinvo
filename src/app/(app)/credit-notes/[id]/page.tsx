@@ -166,6 +166,11 @@ export default async function CreditNotePage({ params }: { params: Promise<{ id:
                         {tc("downloadUbl")}
                       </a>
                     </Button>
+                    <Button asChild variant="secondary">
+                      <a href={`/api/documents/preview?creditNote=${id}&format=facturx`}>
+                        {tc("downloadFacturX")}
+                      </a>
+                    </Button>
                   </>
                 ) : null}
                 {cn.status === "ISSUED" && canEdit ? (
