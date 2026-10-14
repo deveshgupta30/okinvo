@@ -31,6 +31,7 @@
     "env:docs:check": "node scripts/env-docs.mjs --check",
     "i18n:check": "node scripts/i18n-check.mjs --strict",
     "openapi:export": "tsx scripts/openapi-export.ts",
+    "docs:sync": "tsx scripts/wiki-sync.ts",
     "sdk:generate": "pnpm openapi:export && openapi-ts",
     "sdk:check": "pnpm sdk:generate && git diff --exit-code --stat -- openapi sdk/src",
     "db:up": "docker compose -f compose.dev.yml up -d --wait postgres",
