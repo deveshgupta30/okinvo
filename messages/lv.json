@@ -840,6 +840,9 @@
         "username": "Lietotājvārds",
         "password": "Parole",
         "gstin": "GSTIN",
+        "publicKey": "IRP publiskā atslēga (PEM)",
+        "publicKeyHint": "Lejupielādējiet to portālā pēc pieteikšanās; tā aizsargā IRP nosūtītos akreditācijas datus.",
+        "publicKeyStored": "Saglabāta; atstājiet tukšu, lai paturētu.",
         "secretStored": "Glabāts šifrēts; atstājiet tukšu, lai paturētu.",
         "secretEncrypted": "Glabāts šifrēts."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Nodokļu ID",
       "void": "ANULĒTS",
       "draftWatermark": "MELNRAKSTS - nav nodokļu rēķins",
-      "paymentTermsDays": "{days} dienas"
+      "paymentTermsDays": "{days} dienas",
+      "irn": "IRN",
+      "ackNo": "Apstiprinājuma nr.",
+      "ackDate": "Apstiprinājuma datums",
+      "einvoiceCancelled": "E-RĒĶINS ANULĒTS"
     },
     "ui": {
       "pageEstimate": "apm. {count, plural, zero {# lappušu} one {# lappuse} other {# lappuses}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Neviens rēķins neatbilst šiem filtriem.",
       "count": "{count, plural, zero {# rēķinu} one {# rēķins} other {# rēķini}}",
       "countPaged": "{count, plural, zero {# rēķinu} one {# rēķins} other {# rēķini}} · {page}. lappuse no {pages}",
-      "register": "reģistrs"
+      "register": "reģistrs",
+      "einvoice": "E-rēķins",
+      "einvoiceFilters": {
+        "registered": "IRN reģistrēts",
+        "none": "Nav reģistrēts",
+        "cancelled": "IRN anulēts"
+      }
     },
     "new": {
       "noProfileTitle": "Vispirms izveidojiet izrakstītāja profilu",
@@ -1611,7 +1624,41 @@
       "version": "Versija {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Pārbaudes saite:",
-      "draftPreviewHint": "Melnrakstu priekšskatījums ir redzams redaktorā; atveriet <link>PDF ar ūdenszīmi</link>, lai redzētu lappusi."
+      "draftPreviewHint": "Melnrakstu priekšskatījums ir redzams redaktorā; atveriet <link>PDF ar ūdenszīmi</link>, lai redzētu lappusi.",
+      "einvoice": {
+        "title": "E-rēķins (Indija)",
+        "description": "Šī rēķina reģistrācija Invoice Registration Portal; reģistrēts dokuments tiek drukāts ar savu IRN un portāla parakstīto QR.",
+        "connector": "Savienotājs",
+        "connectors": {
+          "manual": "Manuāli",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Šim profilam nav konfigurēts neviens savienotājs sadaļā Iestatījumi > E-rēķini.",
+        "statuses": {
+          "none": "Nav reģistrēts",
+          "generated": "JSON ģenerēts",
+          "registered": "Reģistrēts",
+          "cancelled": "Anulēts",
+          "failed": "Reģistrācija neizdevās"
+        },
+        "irn": "IRN",
+        "ackNo": "Apstiprinājuma nr.",
+        "ackDate": "Apstiprinājuma datums",
+        "cancelReason": "Anulēšana",
+        "generate": "Ģenerēt IRN",
+        "pasteLabel": "IRP atbilde",
+        "pasteHint": "Ielīmējiet JSON, ko portāls vai jūsu GSP atgrieza par šī rēķina e-rēķina JSON (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Ierakstīt IRN",
+        "cancelReasonLabel": "Anulēšanas iemesls",
+        "cancelReasons": {
+          "1": "Dublikāts",
+          "2": "Datu ievades kļūda",
+          "3": "Pasūtījums atcelts",
+          "4": "Cits"
+        },
+        "cancel": "Anulēt IRN",
+        "cancelWindow": "Portāls atļauj anulēšanu 24 stundu laikā pēc apstiprinājuma."
+      }
     },
     "history": {
       "metaTitle": "Rēķina vēsture",
@@ -2078,6 +2125,9 @@
     "templateImported": "Veidne importēta",
     "profileTemplateCleared": "Profils atkal izmanto instances veidni",
     "operatorSaved": "Uzturētāja dati saglabāti. Juridiskās lapas tagad tos rāda.",
-    "einvoiceSettingsSaved": "E-rēķinu iestatījumi saglabāti"
+    "einvoiceSettingsSaved": "E-rēķinu iestatījumi saglabāti",
+    "irnRegistered": "IRN {irn} reģistrēts; PDF tika atkārtoti ģenerēts ar to",
+    "irnRecorded": "IRN ierakstīts; PDF tika atkārtoti ģenerēts ar to",
+    "irnCancelled": "IRN anulēts; PDF tika atkārtoti ģenerēts"
   }
 }

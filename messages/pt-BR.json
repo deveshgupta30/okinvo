@@ -840,6 +840,9 @@
         "username": "Nome de usuário",
         "password": "Senha",
         "gstin": "GSTIN",
+        "publicKey": "Chave pública do IRP (PEM)",
+        "publicKeyHint": "Baixe-a no portal depois de entrar; ela protege as credenciais enviadas ao IRP.",
+        "publicKeyStored": "Armazenada; deixe em branco para mantê-la.",
         "secretStored": "Armazenado criptografado; deixe em branco para mantê-lo.",
         "secretEncrypted": "Armazenado criptografado em repouso."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID fiscal",
       "void": "ANULADA",
       "draftWatermark": "RASCUNHO - não é uma fatura fiscal",
-      "paymentTermsDays": "{days} dias"
+      "paymentTermsDays": "{days} dias",
+      "irn": "IRN",
+      "ackNo": "N.º de confirmação",
+      "ackDate": "Data de confirmação",
+      "einvoiceCancelled": "E-FATURA CANCELADA"
     },
     "ui": {
       "pageEstimate": "cerca de {count, plural, one {# página} other {# páginas}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Nenhuma fatura corresponde a esses filtros.",
       "count": "{count, plural, one {# fatura} other {# faturas}}",
       "countPaged": "{count, plural, one {# fatura} other {# faturas}} · página {page} de {pages}",
-      "register": "registro"
+      "register": "registro",
+      "einvoice": "E-fatura",
+      "einvoiceFilters": {
+        "registered": "IRN registrado",
+        "none": "Não registrada",
+        "cancelled": "IRN cancelado"
+      }
     },
     "new": {
       "noProfileTitle": "Crie primeiro um perfil de emissor",
@@ -1611,7 +1624,41 @@
       "version": "Versão {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Link de verificação:",
-      "draftPreviewHint": "Os rascunhos são pré-visualizados ao vivo no editor; abra <link>o PDF com marca d’água</link> para ver a página."
+      "draftPreviewHint": "Os rascunhos são pré-visualizados ao vivo no editor; abra <link>o PDF com marca d’água</link> para ver a página.",
+      "einvoice": {
+        "title": "E-fatura (Índia)",
+        "description": "Registro desta fatura no Invoice Registration Portal; um documento registrado imprime seu IRN e o QR assinado do portal.",
+        "connector": "Conector",
+        "connectors": {
+          "manual": "Manual",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Nenhum conector está configurado para este perfil em Configurações > E-fatura.",
+        "statuses": {
+          "none": "Não registrada",
+          "generated": "JSON gerado",
+          "registered": "Registrada",
+          "cancelled": "Cancelada",
+          "failed": "Falha no registro"
+        },
+        "irn": "IRN",
+        "ackNo": "N.º de confirmação",
+        "ackDate": "Data de confirmação",
+        "cancelReason": "Cancelamento",
+        "generate": "Gerar IRN",
+        "pasteLabel": "Resposta do IRP",
+        "pasteHint": "Cole o JSON que o portal ou seu GSP retornou para o JSON de e-fatura desta fatura (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Registrar IRN",
+        "cancelReasonLabel": "Motivo do cancelamento",
+        "cancelReasons": {
+          "1": "Duplicidade",
+          "2": "Erro de digitação dos dados",
+          "3": "Pedido cancelado",
+          "4": "Outros"
+        },
+        "cancel": "Cancelar IRN",
+        "cancelWindow": "O portal permite o cancelamento em até 24 horas após a confirmação."
+      }
     },
     "history": {
       "metaTitle": "Histórico da fatura",
@@ -2078,6 +2125,9 @@
     "templateImported": "Modelo importado",
     "profileTemplateCleared": "O perfil voltou a usar o modelo da instância",
     "operatorSaved": "Dados do operador salvos. As páginas jurídicas agora os exibem.",
-    "einvoiceSettingsSaved": "Configurações de e-fatura salvas"
+    "einvoiceSettingsSaved": "Configurações de e-fatura salvas",
+    "irnRegistered": "IRN {irn} registrado; o PDF foi gerado novamente com ele",
+    "irnRecorded": "IRN registrado; o PDF foi gerado novamente com ele",
+    "irnCancelled": "IRN cancelado; o PDF foi gerado novamente"
   }
 }

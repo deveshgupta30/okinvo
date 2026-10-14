@@ -106,6 +106,7 @@ export function renderInputFromInvoice(inv: InvoiceDto): RenderInput {
     notes: inv.notes,
     terms: inv.terms,
     displayConfig: inv.displayConfig,
+    einvoice: inv.einvoice,
     replaces: inv.replaces,
     verificationToken: inv.verificationToken,
   };
@@ -245,7 +246,7 @@ async function renderStored(
   const pdf =
     format === "DOCX"
       ? await renderDocx(
-          vm.verifyUrl ? { ...vm, qrDataUrl: await qrDataUrl(vm.verifyUrl) } : vm,
+          vm.qrText ? { ...vm, qrDataUrl: await qrDataUrl(vm.qrText) } : vm,
           doc.config,
           await docxImages(vm, doc.config),
         )
@@ -512,14 +513,14 @@ export async function issuedDocumentView(
     draft: false,
     messages: await documentMessages(doc.input.locale),
   });
-  const withQr = vm.verifyUrl ? { ...vm, qrDataUrl: await qrDataUrl(vm.verifyUrl) } : vm;
+  const withQr = vm.qrText ? { ...vm, qrDataUrl: await qrDataUrl(vm.qrText) } : vm;
   return { vm: withQr, config: doc.config };
 }
 
 /** Settings → Templates sample PDF for any config (not necessarily the saved one). */
 export async function renderSamplePdf(config: TemplateConfig): Promise<Buffer> {
   const vm = sampleViewModel(config);
-  const withQr = vm.verifyUrl ? { ...vm, qrDataUrl: await qrDataUrl(vm.verifyUrl) } : vm;
+  const withQr = vm.qrText ? { ...vm, qrDataUrl: await qrDataUrl(vm.qrText) } : vm;
   return renderPdf(withQr, config, { assets: readAssetBytes });
 }
 

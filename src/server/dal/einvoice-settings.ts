@@ -28,6 +28,7 @@ export interface EInvoiceProfileSettingsView {
       gstin: string;
       hasClientSecret: boolean;
       hasPassword: boolean;
+      hasPublicKey: boolean;
     };
   };
   eu?: { profile: "EN16931" };
@@ -54,6 +55,7 @@ function view(
         gstin: n.gstin,
         hasClientSecret: Boolean(n.clientSecretEnc),
         hasPassword: Boolean(n.passwordEnc),
+        hasPublicKey: Boolean(n.publicKeyPem),
       };
     }
   }
@@ -94,8 +96,11 @@ export async function saveEInvoiceProfileSettings(
     const passwordEnc = input.nicPassword
       ? encryptField(input.nicPassword, key)
       : prior?.passwordEnc;
-    if (!clientSecretEnc || !passwordEnc) {
-      throw new InvariantError("The NIC client secret and password are required the first time.");
+    const publicKeyPem = input.nicPublicKeyPem || prior?.publicKeyPem;
+    if (!clientSecretEnc || !passwordEnc || !publicKeyPem) {
+      throw new InvariantError(
+        "The NIC client secret, password and the IRP public key are required the first time.",
+      );
     }
     next.india = {
       connector: "nic",
@@ -107,6 +112,7 @@ export async function saveEInvoiceProfileSettings(
         username: input.nicUsername ?? "",
         passwordEnc,
         gstin: input.nicGstin ?? "",
+        publicKeyPem,
       },
     };
   }
@@ -138,6 +144,12 @@ export async function resolveNicCredentials(profileId: string): Promise<
     clientSecret: decryptField(clientSecretEnc, key),
     password: decryptField(passwordEnc, key),
   };
+}
+
+/** Which Indian connector a profile uses (no secrets); null when none is configured. */
+export async function einvoiceConnectorFor(profileId: string): Promise<"manual" | "nic" | null> {
+  const all = await load();
+  return all.profiles[profileId]?.india?.connector ?? null;
 }
 
 /** The EU profile a document's CII/UBL output follows; null when e-invoicing is off for the profile. */

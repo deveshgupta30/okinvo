@@ -840,6 +840,9 @@
         "username": "Username",
         "password": "Password",
         "gstin": "GSTIN",
+        "publicKey": "IRP public key (PEM)",
+        "publicKeyHint": "Download it from the portal after signing in; it wraps the credentials sent to the IRP.",
+        "publicKeyStored": "Stored; leave blank to keep it.",
         "secretStored": "Stored encrypted; leave blank to keep it.",
         "secretEncrypted": "Stored encrypted at rest."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Tax ID",
       "void": "VOID",
       "draftWatermark": "DRAFT - not a tax invoice",
-      "paymentTermsDays": "{days} days"
+      "paymentTermsDays": "{days} days",
+      "irn": "IRN",
+      "ackNo": "Ack no.",
+      "ackDate": "Ack date",
+      "einvoiceCancelled": "E-INVOICE CANCELLED"
     },
     "ui": {
       "pageEstimate": "approx. {count, plural, one {# page} other {# pages}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "No invoices match these filters.",
       "count": "{count, plural, one {# invoice} other {# invoices}}",
       "countPaged": "{count, plural, one {# invoice} other {# invoices}} · page {page} of {pages}",
-      "register": "register"
+      "register": "register",
+      "einvoice": "E-invoice",
+      "einvoiceFilters": {
+        "registered": "IRN registered",
+        "none": "Not registered",
+        "cancelled": "IRN cancelled"
+      }
     },
     "new": {
       "noProfileTitle": "Create an issuer profile first",
@@ -1611,7 +1624,41 @@
       "version": "Version {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Verification link:",
-      "draftPreviewHint": "Drafts preview live in the editor; open <link>the watermarked PDF</link> to see the page."
+      "draftPreviewHint": "Drafts preview live in the editor; open <link>the watermarked PDF</link> to see the page.",
+      "einvoice": {
+        "title": "E-invoice (India)",
+        "description": "Registration of this invoice with the Invoice Registration Portal; a registered document prints its IRN and the portal’s signed QR.",
+        "connector": "Connector",
+        "connectors": {
+          "manual": "Manual",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "No connector is configured for this profile under Settings > E-invoicing.",
+        "statuses": {
+          "none": "Not registered",
+          "generated": "JSON generated",
+          "registered": "Registered",
+          "cancelled": "Cancelled",
+          "failed": "Registration failed"
+        },
+        "irn": "IRN",
+        "ackNo": "Ack no.",
+        "ackDate": "Ack date",
+        "cancelReason": "Cancellation",
+        "generate": "Generate IRN",
+        "pasteLabel": "IRP response",
+        "pasteHint": "Paste the JSON the portal or your GSP returned for the e-invoice JSON of this invoice (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Record IRN",
+        "cancelReasonLabel": "Cancellation reason",
+        "cancelReasons": {
+          "1": "Duplicate",
+          "2": "Data entry mistake",
+          "3": "Order cancelled",
+          "4": "Others"
+        },
+        "cancel": "Cancel IRN",
+        "cancelWindow": "The portal allows a cancellation within 24 hours of the acknowledgement."
+      }
     },
     "history": {
       "metaTitle": "Invoice history",
@@ -2078,6 +2125,9 @@
     "templateImported": "Template imported",
     "profileTemplateCleared": "Profile uses the instance template again",
     "operatorSaved": "Operator details saved. The legal pages now show them.",
-    "einvoiceSettingsSaved": "E-invoicing settings saved"
+    "einvoiceSettingsSaved": "E-invoicing settings saved",
+    "irnRegistered": "IRN {irn} registered; the PDF was regenerated with it",
+    "irnRecorded": "IRN recorded; the PDF was regenerated with it",
+    "irnCancelled": "IRN cancelled; the PDF was regenerated"
   }
 }

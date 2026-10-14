@@ -840,6 +840,9 @@
         "username": "کارن نوم",
         "password": "پټنوم",
         "gstin": "GSTIN",
+        "publicKey": "د IRP عمومي کیلي (PEM)",
+        "publicKeyHint": "له ننوتلو وروسته یې له پورټل څخه ښکته کړئ؛ دا هغه د ننوتلو معلومات پټوي چې IRP ته لیږل کېږي.",
+        "publicKeyStored": "خوندي شو؛ د ساتلو لپاره یې خالي پرېږدئ.",
         "secretStored": "کوډ شوی خوندي دی؛ د ساتلو لپاره خالي پرېږدئ.",
         "secretEncrypted": "کوډ شوی خوندي دی."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "د مالیې پیژند",
       "void": "باطل شوی",
       "draftWatermark": "مسوده - مالیاتي بیل نه دی",
-      "paymentTermsDays": "{days} ورځې"
+      "paymentTermsDays": "{days} ورځې",
+      "irn": "IRN",
+      "ackNo": "د تایید شمېره",
+      "ackDate": "د تایید نېټه",
+      "einvoiceCancelled": "بریښنايي بیل لغوه شو"
     },
     "ui": {
       "pageEstimate": "نږدې {count, plural, one {# پاڼه} other {# پاڼې}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "هېڅ بیل له دې فلټرونو سره سمون نه لري.",
       "count": "{count, plural, one {# بیل} other {# بیلونه}}",
       "countPaged": "{count, plural, one {# بیل} other {# بیلونه}} · پاڼه {page} له {pages}",
-      "register": "راجستر"
+      "register": "راجستر",
+      "einvoice": "بریښنايي بیل",
+      "einvoiceFilters": {
+        "registered": "IRN ثبت شو",
+        "none": "ثبت شوی نه دی",
+        "cancelled": "IRN لغوه شو"
+      }
     },
     "new": {
       "noProfileTitle": "لومړی د صادرونکي پروفایل جوړ کړئ",
@@ -1611,7 +1624,41 @@
       "version": "نسخه {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "د تایید لینک:",
-      "draftPreviewHint": "د مسودو مخکتنه په مدیر کې ژوندۍ ښودل کیږي؛ د پاڼې لیدلو لپاره <link>د واټرمارک لرونکی PDF</link> پرانیزئ."
+      "draftPreviewHint": "د مسودو مخکتنه په مدیر کې ژوندۍ ښودل کیږي؛ د پاڼې لیدلو لپاره <link>د واټرمارک لرونکی PDF</link> پرانیزئ.",
+      "einvoice": {
+        "title": "بریښنايي بیل (هند)",
+        "description": "د دې بیل ثبتول د بیلونو د ثبت په پورټل (Invoice Registration Portal) کې؛ ثبت شوی سند د IRN او د پورټل له لاسلیک شوي QR کوډ سره چاپېږي.",
+        "connector": "نښلوونکی",
+        "connectors": {
+          "manual": "لاسي",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "د دې پروفایل لپاره هیڅ نښلوونکی نه دی تنظیم شوی: تنظیمات > بریښنايي بیلونه.",
+        "statuses": {
+          "none": "ثبت شوی نه دی",
+          "generated": "JSON جوړ شو",
+          "registered": "ثبت شو",
+          "cancelled": "لغوه شو",
+          "failed": "ثبتول ناکام شو"
+        },
+        "irn": "IRN",
+        "ackNo": "د تایید شمېره",
+        "ackDate": "د تایید نېټه",
+        "cancelReason": "لغوه کول",
+        "generate": "IRN جوړول",
+        "pasteLabel": "د IRP ځواب",
+        "pasteHint": "هغه JSON ولګوئ چې پورټل یا ستاسو GSP د دې بیل د بریښنايي بیل JSON لپاره بیرته کړ (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN ثبتول",
+        "cancelReasonLabel": "د لغوه کولو لامل",
+        "cancelReasons": {
+          "1": "تکرار",
+          "2": "د معلوماتو د ننوتلو تېروتنه",
+          "3": "فرمایش لغوه شو",
+          "4": "نور"
+        },
+        "cancel": "IRN لغوه کړئ",
+        "cancelWindow": "پورټل د تایید څخه وروسته په 24 ساعتونو کې لغوه کول اجازه ورکوي."
+      }
     },
     "history": {
       "metaTitle": "د بیل تاریخچه",
@@ -2078,6 +2125,9 @@
     "templateImported": "کينډه وارده شوه",
     "profileTemplateCleared": "پروفایل بیا د انسټانس کينډه کاروي",
     "operatorSaved": "د چلوونکي توضیحات خوندي شول. قانوني پاڼې اوس دا ښیي.",
-    "einvoiceSettingsSaved": "د بریښنايي انوایس تنظیمات خوندي شول"
+    "einvoiceSettingsSaved": "د بریښنايي انوایس تنظیمات خوندي شول",
+    "irnRegistered": "IRN {irn} ثبت شو؛ PDF ورسره بیا جوړ شو",
+    "irnRecorded": "IRN خوندي شو؛ PDF ورسره بیا جوړ شو",
+    "irnCancelled": "IRN لغوه شو؛ PDF بیا جوړ شو"
   }
 }

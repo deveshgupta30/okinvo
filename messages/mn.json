@@ -840,6 +840,9 @@
         "username": "Хэрэглэгчийн нэр",
         "password": "Нууц үг",
         "gstin": "GSTIN",
+        "publicKey": "IRP-ийн нийтийн түлхүүр (PEM)",
+        "publicKeyHint": "Нэвтэрсний дараа порталаас татаж авна уу; энэ нь IRP руу илгээх итгэмжлэлийг боож өгдөг.",
+        "publicKeyStored": "Хадгалсан; хэвээр үлдээхийн тулд хоосон орхино уу.",
         "secretStored": "Шифрлэж хадгалагдсан; хэвээр үлдээхийн тулд хоосон орхино уу.",
         "secretEncrypted": "Шифрлэж хадгалагдсан."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Татварын ID",
       "void": "ХҮЧИНГҮЙ",
       "draftWatermark": "НООРОГ - татварын нэхэмжлэх биш",
-      "paymentTermsDays": "{days} хоног"
+      "paymentTermsDays": "{days} хоног",
+      "irn": "IRN",
+      "ackNo": "Баталгааны дугаар",
+      "ackDate": "Баталгааны огноо",
+      "einvoiceCancelled": "ЦАХИМ НЭХЭМЖЛЭХ ЦУЦЛАГДСАН"
     },
     "ui": {
       "pageEstimate": "ойролцоогоор {count, plural, one {# хуудас} other {# хуудас}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Эдгээр шүүлтүүрт тохирох нэхэмжлэх алга.",
       "count": "{count, plural, one {# нэхэмжлэх} other {# нэхэмжлэх}}",
       "countPaged": "{count, plural, one {# нэхэмжлэх} other {# нэхэмжлэх}} · {pages}-ийн {page}-р хуудас",
-      "register": "бүртгэл"
+      "register": "бүртгэл",
+      "einvoice": "Цахим нэхэмжлэх",
+      "einvoiceFilters": {
+        "registered": "IRN бүртгэгдсэн",
+        "none": "Бүртгээгүй",
+        "cancelled": "IRN цуцлагдсан"
+      }
     },
     "new": {
       "noProfileTitle": "Эхлээд гаргагчийн профайл үүсгэнэ үү",
@@ -1611,7 +1624,41 @@
       "version": "Хувилбар {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Баталгаажуулах холбоос:",
-      "draftPreviewHint": "Ноорогийг засварлагч дотор шууд урьдчилан харна; хуудсыг харахын тулд <link>ус тэмдэгтэй PDF</link>-ийг нээнэ үү."
+      "draftPreviewHint": "Ноорогийг засварлагч дотор шууд урьдчилан харна; хуудсыг харахын тулд <link>ус тэмдэгтэй PDF</link>-ийг нээнэ үү.",
+      "einvoice": {
+        "title": "Цахим нэхэмжлэх (Энэтхэг)",
+        "description": "Энэ нэхэмжлэхийг Invoice Registration Portal-д бүртгэх; бүртгэгдсэн баримт өөрийн IRN болон порталын гарын үсэгтэй QR кодыг хэвлэнэ.",
+        "connector": "Холбогч",
+        "connectors": {
+          "manual": "Гараар",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Энэ профайлд Тохиргоо > Цахим нэхэмжлэх хэсэгт холбогч тохируулаагүй байна.",
+        "statuses": {
+          "none": "Бүртгээгүй",
+          "generated": "JSON үүсгэсэн",
+          "registered": "Бүртгэгдсэн",
+          "cancelled": "Цуцлагдсан",
+          "failed": "Бүртгэл амжилтгүй боллоо"
+        },
+        "irn": "IRN",
+        "ackNo": "Баталгааны дугаар",
+        "ackDate": "Баталгааны огноо",
+        "cancelReason": "Цуцлалт",
+        "generate": "IRN үүсгэх",
+        "pasteLabel": "IRP-ийн хариу",
+        "pasteHint": "Портал эсвэл таны GSP энэ нэхэмжлэхийн цахим нэхэмжлэхийн JSON-д буцаасан JSON-г буулгана уу (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN бүртгэх",
+        "cancelReasonLabel": "Цуцлах шалтгаан",
+        "cancelReasons": {
+          "1": "Давхардал",
+          "2": "Мэдээлэл оруулахад гарсан алдаа",
+          "3": "Захиалга цуцлагдсан",
+          "4": "Бусад"
+        },
+        "cancel": "IRN цуцлах",
+        "cancelWindow": "Портал баталгаажуулснаас хойш 24 цагийн дотор цуцлахыг зөвшөөрдөг."
+      }
     },
     "history": {
       "metaTitle": "Нэхэмжлэхийн түүх",
@@ -2078,6 +2125,9 @@
     "templateImported": "Загвар импортлогдлоо",
     "profileTemplateCleared": "Профайл серверийн загварыг дахин ашиглана",
     "operatorSaved": "Операторын мэдээлэл хадгалагдлаа. Хууль зүйн хуудсууд одоо үүнийг харуулна.",
-    "einvoiceSettingsSaved": "Цахим нэхэмжлэхийн тохиргоо хадгалагдлаа"
+    "einvoiceSettingsSaved": "Цахим нэхэмжлэхийн тохиргоо хадгалагдлаа",
+    "irnRegistered": "IRN {irn} бүртгэгдлээ; PDF-г түүгээр дахин үүсгэлээ",
+    "irnRecorded": "IRN бүртгэгдлээ; PDF-г түүгээр дахин үүсгэлээ",
+    "irnCancelled": "IRN цуцлагдлаа; PDF-г дахин үүсгэлээ"
   }
 }

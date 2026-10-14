@@ -840,6 +840,9 @@
         "username": "ଉପଯୋଗକର୍ତ୍ତା ନାମ",
         "password": "ପାସୱାର୍ଡ",
         "gstin": "GSTIN",
+        "publicKey": "IRP ପବ୍ଲିକ୍ କୀ (PEM)",
+        "publicKeyHint": "ସାଇନ୍ ଇନ୍ କରିବା ପରେ ପୋର୍ଟାଲରୁ ଡାଉନଲୋଡ୍ କରନ୍ତୁ; ଏହା IRP କୁ ପଠାଯାଉଥିବା କ୍ରେଡେନ୍ସିଆଲ୍ ସୁରକ୍ଷିତ କରେ।",
+        "publicKeyStored": "ସଂରକ୍ଷିତ; ରଖିବାକୁ ଖାଲି ଛାଡ଼ନ୍ତୁ।",
         "secretStored": "ଏନକ୍ରିପ୍ଟେଡ୍ ଭାବେ ସଂରକ୍ଷିତ; ରଖିବାକୁ ଖାଲି ଛାଡ଼ନ୍ତୁ।",
         "secretEncrypted": "ସଂରକ୍ଷଣ ସମୟରେ ଏନକ୍ରିପ୍ଟେଡ୍।"
       },
@@ -1399,7 +1402,11 @@
       "taxId": "କର ଆଇଡି",
       "void": "ବାତିଲ୍",
       "draftWatermark": "ଡ୍ରାଫ୍ଟ - କର ଇନଭଏସ୍ ନୁହେଁ",
-      "paymentTermsDays": "{days} ଦିନ"
+      "paymentTermsDays": "{days} ଦିନ",
+      "irn": "IRN",
+      "ackNo": "ସ୍ୱୀକୃତି ନଂ.",
+      "ackDate": "ସ୍ୱୀକୃତି ତାରିଖ",
+      "einvoiceCancelled": "ଇ-ଇନଭଏସ୍ ବାତିଲ୍"
     },
     "ui": {
       "pageEstimate": "ପ୍ରାୟ {count, plural, one {# ପୃଷ୍ଠା} other {# ପୃଷ୍ଠା}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "ଏହି ଫିଲ୍ଟର୍ ସହ କୌଣସି ଇନଭଏସ୍ ମେଳ ଖାଉନାହିଁ।",
       "count": "{count, plural, one {# ଟି ଇନଭଏସ୍} other {# ଟି ଇନଭଏସ୍}}",
       "countPaged": "{count, plural, one {# ଟି ଇନଭଏସ୍} other {# ଟି ଇନଭଏସ୍}} · ପୃଷ୍ଠା {page} / {pages}",
-      "register": "ରେଜିଷ୍ଟର୍"
+      "register": "ରେଜିଷ୍ଟର୍",
+      "einvoice": "ଇ-ଇନଭଏସ୍",
+      "einvoiceFilters": {
+        "registered": "IRN ପଞ୍ଜୀକୃତ",
+        "none": "ପଞ୍ଜୀକୃତ ନୁହେଁ",
+        "cancelled": "IRN ବାତିଲ୍"
+      }
     },
     "new": {
       "noProfileTitle": "ପ୍ରଥମେ ଏକ ଇସ୍ୟୁଅର୍ ପ୍ରୋଫାଇଲ୍ ତିଆରି କରନ୍ତୁ",
@@ -1611,7 +1624,41 @@
       "version": "ସଂସ୍କରଣ {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "ଯାଞ୍ଚ ଲିଙ୍କ୍:",
-      "draftPreviewHint": "ଡ୍ରାଫ୍ଟର ପୂର୍ବାବଲୋକନ ଏଡିଟର୍ ରେ ଲାଇଭ୍ ଦେଖାଯାଏ; ପୃଷ୍ଠା ଦେଖିବାକୁ <link>ୱାଟରମାର୍କ ଥିବା PDF</link> ଖୋଲନ୍ତୁ।"
+      "draftPreviewHint": "ଡ୍ରାଫ୍ଟର ପୂର୍ବାବଲୋକନ ଏଡିଟର୍ ରେ ଲାଇଭ୍ ଦେଖାଯାଏ; ପୃଷ୍ଠା ଦେଖିବାକୁ <link>ୱାଟରମାର୍କ ଥିବା PDF</link> ଖୋଲନ୍ତୁ।",
+      "einvoice": {
+        "title": "ଇ-ଇନଭଏସ୍ (ଭାରତ)",
+        "description": "ଏହି ଇନଭଏସ୍‌ର ଇନଭଏସ୍ ରେଜିଷ୍ଟ୍ରେସନ୍ ପୋର୍ଟାଲରେ ପଞ୍ଜୀକରଣ; ପଞ୍ଜୀକୃତ ଦଲିଲରେ ଏହାର IRN ଏବଂ ପୋର୍ଟାଲର ସ୍ୱାକ୍ଷରିତ QR ମୁଦ୍ରିତ ହୁଏ।",
+        "connector": "କନେକ୍ଟର",
+        "connectors": {
+          "manual": "ମାନୁଆଲ୍",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "ଏହି ପ୍ରୋଫାଇଲ୍ ପାଇଁ ସେଟିଂସ୍ > ଇ-ଇନଭଏସିଂ ଅଧୀନରେ କୌଣସି କନେକ୍ଟର ବିନ୍ୟାସିତ ନାହିଁ।",
+        "statuses": {
+          "none": "ପଞ୍ଜୀକୃତ ନୁହେଁ",
+          "generated": "JSON ପ୍ରସ୍ତୁତ",
+          "registered": "ପଞ୍ଜୀକୃତ",
+          "cancelled": "ବାତିଲ୍",
+          "failed": "ପଞ୍ଜୀକରଣ ବିଫଳ"
+        },
+        "irn": "IRN",
+        "ackNo": "ସ୍ୱୀକୃତି ନଂ.",
+        "ackDate": "ସ୍ୱୀକୃତି ତାରିଖ",
+        "cancelReason": "ବାତିଲକରଣ",
+        "generate": "IRN ତିଆରି କରନ୍ତୁ",
+        "pasteLabel": "IRP ପ୍ରତିକ୍ରିୟା",
+        "pasteHint": "ଏହି ଇନଭଏସ୍‌ର ଇ-ଇନଭଏସ୍ JSON ପାଇଁ ପୋର୍ଟାଲ୍ କିମ୍ବା ଆପଣଙ୍କ GSP ଦେଇଥିବା JSON ପେଷ୍ଟ କରନ୍ତୁ (Irn, AckNo, AckDt, SignedQRCode)।",
+        "record": "IRN ରେକର୍ଡ କରନ୍ତୁ",
+        "cancelReasonLabel": "ବାତିଲକରଣର କାରଣ",
+        "cancelReasons": {
+          "1": "ଡୁପ୍ଲିକେଟ୍",
+          "2": "ତଥ୍ୟ ପ୍ରବିଷ୍ଟିରେ ତ୍ରୁଟି",
+          "3": "ଅର୍ଡର ବାତିଲ୍ ହୋଇଛି",
+          "4": "ଅନ୍ୟାନ୍ୟ"
+        },
+        "cancel": "IRN ବାତିଲ୍ କରନ୍ତୁ",
+        "cancelWindow": "ପୋର୍ଟାଲ୍ ସ୍ୱୀକୃତିର 24 ଘଣ୍ଟା ମଧ୍ୟରେ ବାତିଲକରଣ ଅନୁମତି ଦିଏ।"
+      }
     },
     "history": {
       "metaTitle": "ଇନଭଏସ୍ ଇତିହାସ",
@@ -2078,6 +2125,9 @@
     "templateImported": "ଟେମ୍ପଲେଟ୍ ଆମଦାନି ହେଲା",
     "profileTemplateCleared": "ପ୍ରୋଫାଇଲ୍ ପୁଣି ଇନଷ୍ଟାନ୍ସ ଟେମ୍ପଲେଟ୍ ବ୍ୟବହାର କରେ",
     "operatorSaved": "ଅପରେଟର୍ ବିବରଣୀ ସେଭ୍ ହେଲା। ଆଇନଗତ ପୃଷ୍ଠା ଏବେ ସେଗୁଡ଼ିକ ଦେଖାଏ।",
-    "einvoiceSettingsSaved": "ଇ-ଇନଭଏସିଂ ସେଟିଂସ୍ ସେଭ୍ ହେଲା"
+    "einvoiceSettingsSaved": "ଇ-ଇନଭଏସିଂ ସେଟିଂସ୍ ସେଭ୍ ହେଲା",
+    "irnRegistered": "IRN {irn} ପଞ୍ଜୀକୃତ ହେଲା; PDF ଏହା ସହିତ ପୁନଃ ପ୍ରସ୍ତୁତ ହେଲା",
+    "irnRecorded": "IRN ରେକର୍ଡ ହେଲା; PDF ଏହା ସହିତ ପୁନଃ ପ୍ରସ୍ତୁତ ହେଲା",
+    "irnCancelled": "IRN ବାତିଲ୍ ହେଲା; PDF ପୁନଃ ପ୍ରସ୍ତୁତ ହେଲା"
   }
 }

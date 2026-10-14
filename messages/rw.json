@@ -840,6 +840,9 @@
         "username": "Izina ry’umukoresha",
         "password": "Ijambobanga",
         "gstin": "GSTIN",
+        "publicKey": "Urufunguzo rusange rwa IRP (PEM)",
+        "publicKeyHint": "Rukure kuri portal umaze kwinjira; rurinda amakuru y’ibanga yoherezwa kuri IRP.",
+        "publicKeyStored": "Cyabitswe; reka ubusa kugira ngo ugikomeze.",
         "secretStored": "Cyabitswe mu ibanga; reka ubusa ngo kigumeho.",
         "secretEncrypted": "Cyabitswe mu ibanga."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Nomero y’umusoro",
       "void": "BYAHAGARIKIWE",
       "draftWatermark": "IMYITEGURE - si fagitire y’umusoro",
-      "paymentTermsDays": "iminsi {days}"
+      "paymentTermsDays": "iminsi {days}",
+      "irn": "IRN",
+      "ackNo": "Nimero y’ibyemezo",
+      "ackDate": "Itariki y’ibyemezo",
+      "einvoiceCancelled": "FAGITIRE YA E YAKUWEMO"
     },
     "ui": {
       "pageEstimate": "hafi {count, plural, =1 {urupapuro #} other {impapuro #}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Nta fagitire zihuye n’iyi myunguruzo.",
       "count": "{count, plural, =1 {fagitire #} other {fagitire #}}",
       "countPaged": "{count, plural, =1 {fagitire #} other {fagitire #}} · urupapuro {page} muri {pages}",
-      "register": "urutonde"
+      "register": "urutonde",
+      "einvoice": "Fagitire ya e",
+      "einvoiceFilters": {
+        "registered": "IRN yanditswe",
+        "none": "Ntiyanditswe",
+        "cancelled": "IRN yakuweho"
+      }
     },
     "new": {
       "noProfileTitle": "Banza ukore umwirondoro w’utanga",
@@ -1611,7 +1624,41 @@
       "version": "Verisiyo {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Link yo kwemeza:",
-      "draftPreviewHint": "Inyandiko z’ibanze zirebwa mbere mu mwanya wo guhindura; fungura <link>PDF ifite ikimenyetso</link> kugira ngo urebe urupapuro."
+      "draftPreviewHint": "Inyandiko z’ibanze zirebwa mbere mu mwanya wo guhindura; fungura <link>PDF ifite ikimenyetso</link> kugira ngo urebe urupapuro.",
+      "einvoice": {
+        "title": "Fagitire ya e (Ubuhinde)",
+        "description": "Kwandikisha iyi fagitire muri Invoice Registration Portal; inyandiko yanditswe icapa IRN yayo na QR yasinywe ya portal.",
+        "connector": "Umuhuza",
+        "connectors": {
+          "manual": "Intoki",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Nta muhuza washyizweho kuri uyu murimo muri Igenamiterere > Fagitire ya e.",
+        "statuses": {
+          "none": "Ntiyanditswe",
+          "generated": "JSON yakozwe",
+          "registered": "Yanditswe",
+          "cancelled": "Yakuweho",
+          "failed": "Kwandikisha byanze"
+        },
+        "irn": "IRN",
+        "ackNo": "Nimero y’ibyemezo",
+        "ackDate": "Itariki y’ibyemezo",
+        "cancelReason": "Gukuraho",
+        "generate": "Kora IRN",
+        "pasteLabel": "Igisubizo cya IRP",
+        "pasteHint": "Shyiramo JSON portal cyangwa GSP yawe yagaruye ku JSON ya fagitire ya e y’iyi fagitire (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Bika IRN",
+        "cancelReasonLabel": "Impamvu yo gukuraho",
+        "cancelReasons": {
+          "1": "Kwigana",
+          "2": "Ikosa mu kwinjiza amakuru",
+          "3": "Itegeko ryahagaritswe",
+          "4": "Ibindi"
+        },
+        "cancel": "Kuraho IRN",
+        "cancelWindow": "Portal yemera gukuraho mu masaha 24 nyuma y’ibyemezo."
+      }
     },
     "history": {
       "metaTitle": "Amateka ya fagitire",
@@ -2078,6 +2125,9 @@
     "templateImported": "Inyandikorugero yinjijwe",
     "profileTemplateCleared": "Umwirondoro wongeye gukoresha inyandikorugero ya sisitemu",
     "operatorSaved": "Amakuru y’ukoresha yabitswe. Impapuro z’amategeko ubu zirayerekana.",
-    "einvoiceSettingsSaved": "Igenamiterere rya fagitire za elegitoronike ryabitswe"
+    "einvoiceSettingsSaved": "Igenamiterere rya fagitire za elegitoronike ryabitswe",
+    "irnRegistered": "IRN {irn} yanditswe; PDF yongeye gukorwa iriho",
+    "irnRecorded": "IRN yabitswe; PDF yongeye gukorwa iriho",
+    "irnCancelled": "IRN yakuweho; PDF yongeye gukorwa"
   }
 }

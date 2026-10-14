@@ -840,6 +840,9 @@
         "username": "Notandanafn",
         "password": "Lykilorð",
         "gstin": "GSTIN",
+        "publicKey": "Opinber lykill IRP (PEM)",
+        "publicKeyHint": "Sæktu hann á gáttina eftir innskráningu; hann ver auðkenni sem send eru til IRP.",
+        "publicKeyStored": "Vistað; skildu eftir autt til að halda því.",
         "secretStored": "Vistað dulkóðað; skildu eftir autt til að halda því.",
         "secretEncrypted": "Vistað dulkóðað í hvíld."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Skattnúmer",
       "void": "ÓGILT",
       "draftWatermark": "DRÖG - ekki skattreikningur",
-      "paymentTermsDays": "{days} dagar"
+      "paymentTermsDays": "{days} dagar",
+      "irn": "IRN",
+      "ackNo": "Staðfestingarnr.",
+      "ackDate": "Staðfestingardags.",
+      "einvoiceCancelled": "RAFRÆNN REIKNINGUR AFTURKALLAÐUR"
     },
     "ui": {
       "pageEstimate": "um það bil {count, plural, one {# blaðsíða} other {# blaðsíður}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Engir reikningar passa við þessar síur.",
       "count": "{count, plural, one {# reikningur} other {# reikningar}}",
       "countPaged": "{count, plural, one {# reikningur} other {# reikningar}} · síða {page} af {pages}",
-      "register": "skrá"
+      "register": "skrá",
+      "einvoice": "Rafrænn reikningur",
+      "einvoiceFilters": {
+        "registered": "IRN skráð",
+        "none": "Ekki skráður",
+        "cancelled": "IRN afturkallað"
+      }
     },
     "new": {
       "noProfileTitle": "Búðu fyrst til útgefandaprófíl",
@@ -1611,7 +1624,41 @@
       "version": "Útgáfa {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Staðfestingartengill:",
-      "draftPreviewHint": "Forskoðun draga birtist beint í ritlinum; opnaðu <link>PDF með vatnsmerki</link> til að sjá síðuna."
+      "draftPreviewHint": "Forskoðun draga birtist beint í ritlinum; opnaðu <link>PDF með vatnsmerki</link> til að sjá síðuna.",
+      "einvoice": {
+        "title": "Rafrænn reikningur (Indland)",
+        "description": "Skráning þessa reiknings hjá Invoice Registration Portal; skráð skjal prentar IRN sitt og undirritaðan QR-kóða gáttarinnar.",
+        "connector": "Tengill",
+        "connectors": {
+          "manual": "Handvirkt",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Enginn tengill er stilltur fyrir þennan prófíl undir Stillingar > Rafrænir reikningar.",
+        "statuses": {
+          "none": "Ekki skráður",
+          "generated": "JSON búið til",
+          "registered": "Skráður",
+          "cancelled": "Afturkallaður",
+          "failed": "Skráning mistókst"
+        },
+        "irn": "IRN",
+        "ackNo": "Staðfestingarnr.",
+        "ackDate": "Staðfestingardags.",
+        "cancelReason": "Afturköllun",
+        "generate": "Búa til IRN",
+        "pasteLabel": "Svar IRP",
+        "pasteHint": "Límdu inn JSON sem gáttin eða GSP þinn skilaði fyrir JSON rafræns reiknings þessa reiknings (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Skrá IRN",
+        "cancelReasonLabel": "Ástæða afturköllunar",
+        "cancelReasons": {
+          "1": "Tvítekning",
+          "2": "Innsláttarvilla",
+          "3": "Pöntun afturkölluð",
+          "4": "Annað"
+        },
+        "cancel": "Afturkalla IRN",
+        "cancelWindow": "Gáttin leyfir afturköllun innan 24 klukkustunda frá staðfestingu."
+      }
     },
     "history": {
       "metaTitle": "Saga reiknings",
@@ -2078,6 +2125,9 @@
     "templateImported": "Sniðmát flutt inn",
     "profileTemplateCleared": "Prófíllinn notar sniðmát kerfisins aftur",
     "operatorSaved": "Upplýsingar um rekstraraðila vistaðar. Lagasíðurnar sýna þær nú.",
-    "einvoiceSettingsSaved": "Stillingar rafrænna reikninga vistaðar"
+    "einvoiceSettingsSaved": "Stillingar rafrænna reikninga vistaðar",
+    "irnRegistered": "IRN {irn} skráð; PDF var búið til aftur með því",
+    "irnRecorded": "IRN skráð; PDF var búið til aftur með því",
+    "irnCancelled": "IRN afturkallað; PDF var búið til aftur"
   }
 }

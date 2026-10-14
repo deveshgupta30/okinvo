@@ -840,6 +840,9 @@
         "username": "Isem l-utent",
         "password": "Password",
         "gstin": "GSTIN",
+        "publicKey": "Ċavetta pubblika tal-IRP (PEM)",
+        "publicKeyHint": "Niżżilha mill-portal wara li tidħol; tipproteġi l-kredenzjali mibgħuta lill-IRP.",
+        "publicKeyStored": "Maħżuna; ħalliha vojta biex iżżommha.",
         "secretStored": "Maħżun kriptat; ħallih vojt biex iżżommu.",
         "secretEncrypted": "Maħżun kriptat."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID tat-taxxa",
       "void": "ANNULLAT",
       "draftWatermark": "DRAFT - mhix fattura tat-taxxa",
-      "paymentTermsDays": "{days} jum"
+      "paymentTermsDays": "{days} jum",
+      "irn": "IRN",
+      "ackNo": "Nru tal-konferma",
+      "ackDate": "Data tal-konferma",
+      "einvoiceCancelled": "E-FATTURA MSEJJAĦ"
     },
     "ui": {
       "pageEstimate": "madwar {count, plural, one {# paġna} two {# paġni} few {# paġni} many {# paġna} other {# paġna}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Ebda fattura ma taqbel ma’ dawn il-filtri.",
       "count": "{count, plural, one {# fattura} two {# fatturi} few {# fatturi} many {# fattura} other {# fattura}}",
       "countPaged": "{count, plural, one {# fattura} two {# fatturi} few {# fatturi} many {# fattura} other {# fattura}} · paġna {page} minn {pages}",
-      "register": "reġistru"
+      "register": "reġistru",
+      "einvoice": "E-fattura",
+      "einvoiceFilters": {
+        "registered": "IRN irreġistrat",
+        "none": "Mhux irreġistrata",
+        "cancelled": "IRN ikkanċellat"
+      }
     },
     "new": {
       "noProfileTitle": "Oħloq profil tal-ħruġ l-ewwel",
@@ -1611,7 +1624,41 @@
       "version": "Verżjoni {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Link tal-verifika:",
-      "draftPreviewHint": "L-abbozzi jidhru live fl-editur; iftaħ <link>il-PDF bil-watermark</link> biex tara l-paġna."
+      "draftPreviewHint": "L-abbozzi jidhru live fl-editur; iftaħ <link>il-PDF bil-watermark</link> biex tara l-paġna.",
+      "einvoice": {
+        "title": "E-fattura (l-Indja)",
+        "description": "Ir-reġistrazzjoni ta’ din il-fattura mal-Invoice Registration Portal; dokument irreġistrat jistampa l-IRN tiegħu u l-QR iffirmat tal-portal.",
+        "connector": "Konnettur",
+        "connectors": {
+          "manual": "Manwali",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Ebda konnettur mhu kkonfigurat għal dan il-profil taħt Issettjar > E-fatturar.",
+        "statuses": {
+          "none": "Mhux irreġistrata",
+          "generated": "JSON ġġenerat",
+          "registered": "Irreġistrata",
+          "cancelled": "Ikkanċellata",
+          "failed": "Ir-reġistrazzjoni falliet"
+        },
+        "irn": "IRN",
+        "ackNo": "Nru tal-konferma",
+        "ackDate": "Data tal-konferma",
+        "cancelReason": "Kanċellazzjoni",
+        "generate": "Iġġenera IRN",
+        "pasteLabel": "Tweġiba tal-IRP",
+        "pasteHint": "Waħħal il-JSON li l-portal jew il-GSP tiegħek irritorna għall-JSON tal-e-fattura ta’ din il-fattura (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Irreġistra IRN",
+        "cancelReasonLabel": "Raġuni tal-kanċellazzjoni",
+        "cancelReasons": {
+          "1": "Duplikat",
+          "2": "Żball fl-input tad-data",
+          "3": "Ordni kkanċellat",
+          "4": "Oħrajn"
+        },
+        "cancel": "Ikkanċella IRN",
+        "cancelWindow": "Il-portal jippermetti kanċellazzjoni fi żmien 24 siegħa mill-konferma."
+      }
     },
     "history": {
       "metaTitle": "Storja tal-fattura",
@@ -2078,6 +2125,9 @@
     "templateImported": "Mudell importat",
     "profileTemplateCleared": "Il-profil juża l-mudell tal-istanza mill-ġdid",
     "operatorSaved": "Dettalji tal-operatur issejvjati. Il-paġni legali issa juruhom.",
-    "einvoiceSettingsSaved": "Issettjar tal-e-fatturar issejvjat"
+    "einvoiceSettingsSaved": "Issettjar tal-e-fatturar issejvjat",
+    "irnRegistered": "IRN {irn} irreġistrat; il-PDF ġie ġġenerat mill-ġdid miegħu",
+    "irnRecorded": "IRN irreġistrat; il-PDF ġie ġġenerat mill-ġdid miegħu",
+    "irnCancelled": "IRN ikkanċellat; il-PDF ġie ġġenerat mill-ġdid"
   }
 }

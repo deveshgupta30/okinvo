@@ -262,6 +262,15 @@ export function DocumentPreview({
               </div>
             ) : null}
           </div>
+          {vm.einvoice ? (
+            <div style={{ marginTop: px(4) }} data-einvoice>
+              <div style={{ ...muted, ...base(s.base - 1) }}>{vm.text.irn}</div>
+              <div style={{ ...base(s.base - 1.5), wordBreak: "break-all" }}>{vm.einvoice.irn}</div>
+              <div style={{ ...muted, ...base(s.base - 1.5) }}>
+                {vm.text.ackNo} {vm.einvoice.ackNo} · {vm.text.ackDate} {vm.einvoice.ackDate}
+              </div>
+            </div>
+          ) : null}
           {vm.poReference ? (
             <div style={{ ...muted, marginTop: px(4) }}>
               {vm.labels.poReference}: {vm.poReference}

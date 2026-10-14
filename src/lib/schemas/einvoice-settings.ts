@@ -31,6 +31,8 @@ export const NicCredentialsSchema = z
     username: z.string().trim().min(1).max(200),
     passwordEnc: ciphertext,
     gstin: z.string().regex(GSTIN_RE, "not a valid GSTIN"),
+    /** The IRP's RSA public key (PEM) that wraps the credentials; downloaded from the portal. */
+    publicKeyPem: z.string().min(1).max(8000),
   })
   .strict();
 export type NicCredentials = z.infer<typeof NicCredentialsSchema>;
@@ -77,6 +79,8 @@ export const EInvoiceProfileSettingsInputSchema = z
     nicUsername: fOptional(z.string().trim().max(200)),
     nicPassword: fOptional(z.string().max(500)),
     nicGstin: fOptional(z.string().trim().toUpperCase().regex(GSTIN_RE, "not a valid GSTIN")),
+    /** Blank keeps the stored key. */
+    nicPublicKeyPem: fOptional(z.string().trim().max(8000)),
     euProfile: fOptional(z.enum(EU_PROFILES)),
   })
   .superRefine((v, ctx) => {

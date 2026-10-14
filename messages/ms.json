@@ -840,6 +840,9 @@
         "username": "Nama pengguna",
         "password": "Kata laluan",
         "gstin": "GSTIN",
+        "publicKey": "Kunci awam IRP (PEM)",
+        "publicKeyHint": "Muat turun daripada portal selepas log masuk; ia membungkus bukti kelayakan yang dihantar kepada IRP.",
+        "publicKeyStored": "Disimpan; biarkan kosong untuk mengekalkannya.",
         "secretStored": "Disimpan dengan penyulitan; biarkan kosong untuk mengekalkannya.",
         "secretEncrypted": "Disimpan dengan penyulitan."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID cukai",
       "void": "BATAL",
       "draftWatermark": "DRAF - bukan invois cukai",
-      "paymentTermsDays": "{days} hari"
+      "paymentTermsDays": "{days} hari",
+      "irn": "IRN",
+      "ackNo": "No. perakuan",
+      "ackDate": "Tarikh perakuan",
+      "einvoiceCancelled": "E-INVOIS DIBATALKAN"
     },
     "ui": {
       "pageEstimate": "kira-kira {count, plural, other {# halaman}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Tiada invois sepadan dengan tapisan ini.",
       "count": "{count, plural, other {# invois}}",
       "countPaged": "{count, plural, other {# invois}} · halaman {page} daripada {pages}",
-      "register": "daftar"
+      "register": "daftar",
+      "einvoice": "E-invois",
+      "einvoiceFilters": {
+        "registered": "IRN didaftarkan",
+        "none": "Belum didaftarkan",
+        "cancelled": "IRN dibatalkan"
+      }
     },
     "new": {
       "noProfileTitle": "Cipta profil penerbit dahulu",
@@ -1611,7 +1624,41 @@
       "version": "Versi {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Pautan pengesahan:",
-      "draftPreviewHint": "Draf dipratonton secara langsung dalam penyunting; buka <link>PDF bertera air</link> untuk melihat halaman."
+      "draftPreviewHint": "Draf dipratonton secara langsung dalam penyunting; buka <link>PDF bertera air</link> untuk melihat halaman.",
+      "einvoice": {
+        "title": "E-invois (India)",
+        "description": "Pendaftaran invois ini dengan Invoice Registration Portal; dokumen yang didaftarkan mencetak IRN-nya dan QR bertandatangan portal.",
+        "connector": "Penyambung",
+        "connectors": {
+          "manual": "Manual",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Tiada penyambung dikonfigurasikan untuk profil ini di bawah Tetapan > E-invois.",
+        "statuses": {
+          "none": "Belum didaftarkan",
+          "generated": "JSON dijana",
+          "registered": "Didaftarkan",
+          "cancelled": "Dibatalkan",
+          "failed": "Pendaftaran gagal"
+        },
+        "irn": "IRN",
+        "ackNo": "No. perakuan",
+        "ackDate": "Tarikh perakuan",
+        "cancelReason": "Pembatalan",
+        "generate": "Jana IRN",
+        "pasteLabel": "Respons IRP",
+        "pasteHint": "Tampal JSON yang dikembalikan oleh portal atau GSP anda untuk JSON e-invois bagi invois ini (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Rekod IRN",
+        "cancelReasonLabel": "Sebab pembatalan",
+        "cancelReasons": {
+          "1": "Pendua",
+          "2": "Kesilapan kemasukan data",
+          "3": "Pesanan dibatalkan",
+          "4": "Lain-lain"
+        },
+        "cancel": "Batalkan IRN",
+        "cancelWindow": "Portal membenarkan pembatalan dalam tempoh 24 jam selepas perakuan."
+      }
     },
     "history": {
       "metaTitle": "Sejarah invois",
@@ -2078,6 +2125,9 @@
     "templateImported": "Templat diimport",
     "profileTemplateCleared": "Profil menggunakan templat instans semula",
     "operatorSaved": "Butiran pengendali disimpan. Halaman perundangan kini memaparkannya.",
-    "einvoiceSettingsSaved": "Tetapan e-invois disimpan"
+    "einvoiceSettingsSaved": "Tetapan e-invois disimpan",
+    "irnRegistered": "IRN {irn} didaftarkan; PDF dijana semula bersamanya",
+    "irnRecorded": "IRN direkodkan; PDF dijana semula bersamanya",
+    "irnCancelled": "IRN dibatalkan; PDF dijana semula"
   }
 }

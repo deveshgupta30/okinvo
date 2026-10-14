@@ -840,6 +840,9 @@
         "username": "Magaca isticmaalaha",
         "password": "Erayga sirta ah",
         "gstin": "GSTIN",
+        "publicKey": "Furaha guud ee IRP (PEM)",
+        "publicKeyHint": "Ka soo deg albaabka kadib marka aad gasho; wuxuu xidhaa aqoonsiga loo diro IRP.",
+        "publicKeyStored": "La keydiyay; ka dhig madhan si aad u haysato.",
         "secretStored": "Waa la kaydiyey si sir ah; ka tag madhan si aad u hayso.",
         "secretEncrypted": "Waxaa la kaydiyey si sir ah."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Aqoonsiga canshuurta",
       "void": "BAATIL",
       "draftWatermark": "KOOBI - ma aha rasiid canshuur",
-      "paymentTermsDays": "{days} maalmood"
+      "paymentTermsDays": "{days} maalmood",
+      "irn": "IRN",
+      "ackNo": "Lambarka xaqiijinta",
+      "ackDate": "Taariikhda xaqiijinta",
+      "einvoiceCancelled": "RASIIDKA E-INVOICE WAA LA BURIYAY"
     },
     "ui": {
       "pageEstimate": "qiyaastii {count, plural, one {# bog} other {# bog}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Rasiidyo shaandhadaan la jaan qaadaya ma jiraan.",
       "count": "{count, plural, one {# rasiid} other {# rasiid}}",
       "countPaged": "{count, plural, one {# rasiid} other {# rasiid}} · bogga {page} ee {pages}",
-      "register": "diiwaan"
+      "register": "diiwaan",
+      "einvoice": "E-invoice",
+      "einvoiceFilters": {
+        "registered": "IRN la diiwaangeliyay",
+        "none": "Lama diiwaangelin",
+        "cancelled": "IRN la buriyay"
+      }
     },
     "new": {
       "noProfileTitle": "Marka hore samee faahfaahin bixiye",
@@ -1611,7 +1624,41 @@
       "version": "Nooca {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Xiriirka xaqiijinta:",
-      "draftPreviewHint": "Qabyada horu-eegiddooda toos ayaa looga arkaa tafatiraha; fur <link>PDF-ka calaamadda biyaha leh</link> si aad u aragto bogga."
+      "draftPreviewHint": "Qabyada horu-eegiddooda toos ayaa looga arkaa tafatiraha; fur <link>PDF-ka calaamadda biyaha leh</link> si aad u aragto bogga.",
+      "einvoice": {
+        "title": "E-invoice (Hindiya)",
+        "description": "Diiwaangelinta rasiidkan ee Albaabka Diiwaangelinta Rasiidyada; dukumiinti la diiwaangeliyay wuxuu daabacaa IRN-kiisa iyo QR-ka saxiixan ee albaabka.",
+        "connector": "Isku xiraha",
+        "connectors": {
+          "manual": "Gacanta",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Profile-kan isku xire looma habeynin ee Dejinta > E-invoice.",
+        "statuses": {
+          "none": "Lama diiwaangelin",
+          "generated": "JSON la sameeyay",
+          "registered": "La diiwaangeliyay",
+          "cancelled": "La buriyay",
+          "failed": "Diiwaangelintu way fashilantay"
+        },
+        "irn": "IRN",
+        "ackNo": "Lambarka xaqiijinta",
+        "ackDate": "Taariikhda xaqiijinta",
+        "cancelReason": "Buriid",
+        "generate": "Samee IRN",
+        "pasteLabel": "Jawaabta IRP",
+        "pasteHint": "Dheji JSON-ka uu albaabku ama GSP-gaagu soo celiyay ee JSON-ka e-invoice ee rasiidkan (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Diiwaan geli IRN",
+        "cancelReasonLabel": "Sababta buridda",
+        "cancelReasons": {
+          "1": "Nuqul labaad",
+          "2": "Khalad gelinta xogta",
+          "3": "Dalabka waa la joojiyay",
+          "4": "Kuwa kale"
+        },
+        "cancel": "Buri IRN",
+        "cancelWindow": "Albaabku wuxuu oggolaanayaa buridda 24 saacadood gudahood marka la xaqiijiyo."
+      }
     },
     "history": {
       "metaTitle": "Taariikhda rasiidka",
@@ -2078,6 +2125,9 @@
     "templateImported": "Qaabka waa la soo geliyey",
     "profileTemplateCleared": "Faahfaahintu mar kale waxay isticmaashaa qaabka nusxada",
     "operatorSaved": "Faahfaahinta hawlwadeenka waa la kaydiyey. Boggagga sharcigu hadda way muujinayaan.",
-    "einvoiceSettingsSaved": "Dejinta e-invoice waa la kaydiyey"
+    "einvoiceSettingsSaved": "Dejinta e-invoice waa la kaydiyey",
+    "irnRegistered": "IRN {irn} waa la diiwaangeliyay; PDF-ka waa lagu cusboonaysiiyay",
+    "irnRecorded": "IRN waa la diiwaangeliyay; PDF-ka waa lagu cusboonaysiiyay",
+    "irnCancelled": "IRN waa la buriyay; PDF-ka waa la cusboonaysiiyay"
   }
 }

@@ -840,6 +840,9 @@
         "username": "ስም ተጠቃሚ",
         "password": "መሕለፊ ቃል",
         "gstin": "GSTIN",
+        "publicKey": "ህዝባዊ መፍትሕ IRP (PEM)",
+        "publicKeyHint": "ምስ ኣተኻ ብድሕሪኡ ካብ ፖርታል ኣውርዶ፤ ናብ IRP ዝለኣኽ ምስክር ወረቐት ይጠቕልል።",
+        "publicKeyStored": "ተቐሚጡ፤ ንምዕቃብ ባዶ ሕደግ።",
         "secretStored": "ተመስጢሩ ተቐሚጡ፤ ንምሕላው ባዶ ሓድግዎ።",
         "secretEncrypted": "ኣብ ምዕቃብ ተመስጢሩ ይቕመጥ።"
       },
@@ -1399,7 +1402,11 @@
       "taxId": "መለለዪ ግብሪ",
       "void": "ተሰሪዙ",
       "draftWatermark": "ኣብነት - ናይ ግብሪ ኢንቮይስ ኣይኮነን",
-      "paymentTermsDays": "{days} መዓልታት"
+      "paymentTermsDays": "{days} መዓልታት",
+      "irn": "IRN",
+      "ackNo": "ናይ ምቕባል ቁጽሪ",
+      "ackDate": "ናይ ምቕባል ዕለት",
+      "einvoiceCancelled": "ኤሌክትሮኒክ ደረሰኛ ተሰሪዙ"
     },
     "ui": {
       "pageEstimate": "ኣስታት {count, plural, one {# ገጽ} other {# ገጻት}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "ምስዞም ምጽራያት ዝሰማማዕ ኢንቮይስ የለን።",
       "count": "{count, plural, one {# ኢንቮይስ} other {# ኢንቮይሳት}}",
       "countPaged": "{count, plural, one {# ኢንቮይስ} other {# ኢንቮይሳት}} · ገጽ {page} ካብ {pages}",
-      "register": "መዝገብ"
+      "register": "መዝገብ",
+      "einvoice": "ኤሌክትሮኒክ ደረሰኛ",
+      "einvoiceFilters": {
+        "registered": "IRN ዝተመዝገበ",
+        "none": "ዘይተመዝገበ",
+        "cancelled": "IRN ዝተሰረዘ"
+      }
     },
     "new": {
       "noProfileTitle": "ቅድም ፕሮፋይል ኣውጻኢ ፍጠሩ",
@@ -1611,7 +1624,41 @@
       "version": "ስሪት {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "ሊንክ ምርግጋጽ:",
-      "draftPreviewHint": "ድራፍታት ኣብ ኣዐራሪ ብቐጥታ ይረኣዩ፤ እቲ ገጽ ንምርካብ <link>ዋተርማርክ ዘለዎ PDF</link> ክፈቱ።"
+      "draftPreviewHint": "ድራፍታት ኣብ ኣዐራሪ ብቐጥታ ይረኣዩ፤ እቲ ገጽ ንምርካብ <link>ዋተርማርክ ዘለዎ PDF</link> ክፈቱ።",
+      "einvoice": {
+        "title": "ኤሌክትሮኒክ ደረሰኛ (ህንዲ)",
+        "description": "እዚ ደረሰኛ ኣብ ናይ ኢንቮይስ ምዝገባ ፖርታል ምምዝጋብ፤ ዝተመዝገበ ሰነድ IRN ከምኡውን ናይ ፖርታል ዝተፈረመ QR የሕትም።",
+        "connector": "ኣራኻቢ",
+        "connectors": {
+          "manual": "ብኢድ",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "ንእዚ ፕሮፋይል ኣብ ቅጥዕታት > ኤሌክትሮኒክ ደረሰኛ ዝኾነ ኣራኻቢ ኣይተዋቐረን።",
+        "statuses": {
+          "none": "ኣይተመዝገበን",
+          "generated": "JSON ተፈጢሩ",
+          "registered": "ተመዝጊቡ",
+          "cancelled": "ተሰሪዙ",
+          "failed": "ምዝገባ ኣይሰለጠን"
+        },
+        "irn": "IRN",
+        "ackNo": "ናይ ምቕባል ቁጽሪ",
+        "ackDate": "ናይ ምቕባል ዕለት",
+        "cancelReason": "ስረዛ",
+        "generate": "IRN ፍጠር",
+        "pasteLabel": "ምላሽ IRP",
+        "pasteHint": "ንኤሌክትሮኒክ ደረሰኛ JSON ናይዚ ደረሰኛ ፖርታል ወይ GSP ዝመለሶ JSON ለጥፍ (Irn, AckNo, AckDt, SignedQRCode)።",
+        "record": "IRN ምዝግብ",
+        "cancelReasonLabel": "ምኽንያት ስረዛ",
+        "cancelReasons": {
+          "1": "ድግምግማ",
+          "2": "ጌጋ ምእታው ዳታ",
+          "3": "ትእዛዝ ተሰሪዙ",
+          "4": "ካልእ"
+        },
+        "cancel": "IRN ሰርዝ",
+        "cancelWindow": "ፖርታል ካብ ምቕባል ኣብ ውሽጢ 24 ሰዓታት ምስራዝ የፍቅድ።"
+      }
     },
     "history": {
       "metaTitle": "ታሪኽ ኢንቮይስ",
@@ -2078,6 +2125,9 @@
     "templateImported": "ቴምፕሌት ኣትዩ",
     "profileTemplateCleared": "ፕሮፋይል ደጊሙ ቴምፕሌት ኢንስታንስ ይጥቀም",
     "operatorSaved": "ዝርዝራት ኣካይዲ ተዓቂቡ። ሕጋውያን ገጻት ሕጂ የርእይዎም።",
-    "einvoiceSettingsSaved": "ቅጥዕታት ኤሌክትሮኒክ ደረሰኛ ተዓቂቡ"
+    "einvoiceSettingsSaved": "ቅጥዕታት ኤሌክትሮኒክ ደረሰኛ ተዓቂቡ",
+    "irnRegistered": "IRN {irn} ተመዝጊቡ፤ PDF ምስኡ ከም ሓዳስ ተፈጢሩ",
+    "irnRecorded": "IRN ተመዝጊቡ ተቐሚጡ፤ PDF ምስኡ ከም ሓዳስ ተፈጢሩ",
+    "irnCancelled": "IRN ተሰሪዙ፤ PDF ከም ሓዳስ ተፈጢሩ"
   }
 }

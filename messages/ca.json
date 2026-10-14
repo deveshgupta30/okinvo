@@ -840,6 +840,9 @@
         "username": "Nom d’usuari",
         "password": "Contrasenya",
         "gstin": "GSTIN",
+        "publicKey": "Clau pública de l’IRP (PEM)",
+        "publicKeyHint": "Baixeu-la del portal després d’iniciar la sessió; embolcalla les credencials enviades a l’IRP.",
+        "publicKeyStored": "Desada; deixeu-ho en blanc per mantenir-la.",
         "secretStored": "Desat xifrat; deixeu-ho en blanc per mantenir-lo.",
         "secretEncrypted": "Desat xifrat."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID fiscal",
       "void": "ANUL·LADA",
       "draftWatermark": "ESBORRANY - no és una factura fiscal",
-      "paymentTermsDays": "{days} dies"
+      "paymentTermsDays": "{days} dies",
+      "irn": "IRN",
+      "ackNo": "Núm. d’acusament",
+      "ackDate": "Data d’acusament",
+      "einvoiceCancelled": "FACTURA ELECTRÒNICA ANUL·LADA"
     },
     "ui": {
       "pageEstimate": "aprox. {count, plural, one {# pàgina} other {# pàgines}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Cap factura coincideix amb aquests filtres.",
       "count": "{count, plural, one {# factura} other {# factures}}",
       "countPaged": "{count, plural, one {# factura} other {# factures}} · pàgina {page} de {pages}",
-      "register": "registre"
+      "register": "registre",
+      "einvoice": "Factura electrònica",
+      "einvoiceFilters": {
+        "registered": "IRN registrat",
+        "none": "No registrada",
+        "cancelled": "IRN anul·lat"
+      }
     },
     "new": {
       "noProfileTitle": "Crea primer un perfil d’emissor",
@@ -1611,7 +1624,41 @@
       "version": "Versió {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Enllaç de verificació:",
-      "draftPreviewHint": "La previsualització dels esborranys és en directe a l’editor; obre <link>el PDF amb marca d’aigua</link> per veure la pàgina."
+      "draftPreviewHint": "La previsualització dels esborranys és en directe a l’editor; obre <link>el PDF amb marca d’aigua</link> per veure la pàgina.",
+      "einvoice": {
+        "title": "Factura electrònica (Índia)",
+        "description": "Registre d’aquesta factura al Invoice Registration Portal; un document registrat imprimeix el seu IRN i el QR signat del portal.",
+        "connector": "Connector",
+        "connectors": {
+          "manual": "Manual",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "No hi ha cap connector configurat per a aquest perfil a Configuració > Factura electrònica.",
+        "statuses": {
+          "none": "No registrada",
+          "generated": "JSON generat",
+          "registered": "Registrada",
+          "cancelled": "Anul·lada",
+          "failed": "El registre ha fallat"
+        },
+        "irn": "IRN",
+        "ackNo": "Núm. d’acusament",
+        "ackDate": "Data d’acusament",
+        "cancelReason": "Anul·lació",
+        "generate": "Genera l’IRN",
+        "pasteLabel": "Resposta de l’IRP",
+        "pasteHint": "Enganxeu el JSON que el portal o el vostre GSP ha retornat per al JSON de factura electrònica d’aquesta factura (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Registra l’IRN",
+        "cancelReasonLabel": "Motiu de l’anul·lació",
+        "cancelReasons": {
+          "1": "Duplicat",
+          "2": "Error d’entrada de dades",
+          "3": "Comanda cancel·lada",
+          "4": "Altres"
+        },
+        "cancel": "Anul·la l’IRN",
+        "cancelWindow": "El portal permet l’anul·lació dins de les 24 hores posteriors a l’acusament."
+      }
     },
     "history": {
       "metaTitle": "Historial de la factura",
@@ -2078,6 +2125,9 @@
     "templateImported": "Plantilla importada",
     "profileTemplateCleared": "El perfil torna a usar la plantilla de la instància",
     "operatorSaved": "S’han desat les dades de l’operador. Les pàgines legals ja les mostren.",
-    "einvoiceSettingsSaved": "S’ha desat la configuració de la factura electrònica"
+    "einvoiceSettingsSaved": "S’ha desat la configuració de la factura electrònica",
+    "irnRegistered": "IRN {irn} registrat; el PDF s’ha regenerat amb ell",
+    "irnRecorded": "IRN registrat; el PDF s’ha regenerat amb ell",
+    "irnCancelled": "IRN anul·lat; el PDF s’ha regenerat"
   }
 }

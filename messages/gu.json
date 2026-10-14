@@ -840,6 +840,9 @@
         "username": "વપરાશકર્તા નામ",
         "password": "પાસવર્ડ",
         "gstin": "GSTIN",
+        "publicKey": "IRP પબ્લિક કી (PEM)",
+        "publicKeyHint": "સાઇન ઇન કર્યા પછી પોર્ટલ પરથી ડાઉનલોડ કરો; તે IRP ને મોકલાતી ક્રેડેન્શિયલ્સને સુરક્ષિત કરે છે.",
+        "publicKeyStored": "સંગ્રહિત; જાળવી રાખવા ખાલી છોડો.",
         "secretStored": "એન્ક્રિપ્ટેડ સંગ્રહાયેલ; રાખવા માટે ખાલી છોડો.",
         "secretEncrypted": "સંગ્રહ સમયે એન્ક્રિપ્ટેડ."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "કર ID",
       "void": "રદ",
       "draftWatermark": "ડ્રાફ્ટ - કર ઇન્વોઇસ નથી",
-      "paymentTermsDays": "{days} દિવસ"
+      "paymentTermsDays": "{days} દિવસ",
+      "irn": "IRN",
+      "ackNo": "સ્વીકૃતિ નં.",
+      "ackDate": "સ્વીકૃતિ તારીખ",
+      "einvoiceCancelled": "ઈ-ઇન્વોઇસ રદ"
     },
     "ui": {
       "pageEstimate": "આશરે {count, plural, one {# પૃષ્ઠ} other {# પૃષ્ઠ}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "આ ફિલ્ટર સાથે કોઈ ઇન્વોઇસ મેળ ખાતું નથી.",
       "count": "{count, plural, one {# ઇન્વોઇસ} other {# ઇન્વોઇસ}}",
       "countPaged": "{count, plural, one {# ઇન્વોઇસ} other {# ઇન્વોઇસ}} · પૃષ્ઠ {page} / {pages}",
-      "register": "રજિસ્ટર"
+      "register": "રજિસ્ટર",
+      "einvoice": "ઈ-ઇન્વોઇસ",
+      "einvoiceFilters": {
+        "registered": "IRN નોંધાયેલ",
+        "none": "નોંધાયેલ નથી",
+        "cancelled": "IRN રદ"
+      }
     },
     "new": {
       "noProfileTitle": "પહેલા ઇશ્યુઅર પ્રોફાઇલ બનાવો",
@@ -1611,7 +1624,41 @@
       "version": "વર્ઝન {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "ચકાસણી લિંક:",
-      "draftPreviewHint": "ડ્રાફ્ટનું પૂર્વદર્શન એડિટરમાં લાઇવ દેખાય છે; પૃષ્ઠ જોવા માટે <link>વૉટરમાર્ક વાળું PDF</link> ખોલો."
+      "draftPreviewHint": "ડ્રાફ્ટનું પૂર્વદર્શન એડિટરમાં લાઇવ દેખાય છે; પૃષ્ઠ જોવા માટે <link>વૉટરમાર્ક વાળું PDF</link> ખોલો.",
+      "einvoice": {
+        "title": "ઈ-ઇન્વોઇસ (ભારત)",
+        "description": "આ ઇન્વોઇસની ઇન્વોઇસ રજિસ્ટ્રેશન પોર્ટલ પર નોંધણી; નોંધાયેલ દસ્તાવેજ પર તેનો IRN અને પોર્ટલનો સહી કરેલો QR છપાય છે.",
+        "connector": "કનેક્ટર",
+        "connectors": {
+          "manual": "મેન્યુઅલ",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "આ પ્રોફાઇલ માટે સેટિંગ્સ > ઈ-ઇન્વોઇસિંગ હેઠળ કોઈ કનેક્ટર ગોઠવાયેલું નથી.",
+        "statuses": {
+          "none": "નોંધાયેલ નથી",
+          "generated": "JSON બન્યું",
+          "registered": "નોંધાયેલ",
+          "cancelled": "રદ",
+          "failed": "નોંધણી નિષ્ફળ"
+        },
+        "irn": "IRN",
+        "ackNo": "સ્વીકૃતિ નં.",
+        "ackDate": "સ્વીકૃતિ તારીખ",
+        "cancelReason": "રદ કરવું",
+        "generate": "IRN બનાવો",
+        "pasteLabel": "IRP પ્રતિસાદ",
+        "pasteHint": "આ ઇન્વોઇસના ઈ-ઇન્વોઇસ JSON માટે પોર્ટલ અથવા તમારા GSP એ આપેલ JSON પેસ્ટ કરો (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN નોંધો",
+        "cancelReasonLabel": "રદ કરવાનું કારણ",
+        "cancelReasons": {
+          "1": "ડુપ્લિકેટ",
+          "2": "ડેટા એન્ટ્રીમાં ભૂલ",
+          "3": "ઓર્ડર રદ થયો",
+          "4": "અન્ય"
+        },
+        "cancel": "IRN રદ કરો",
+        "cancelWindow": "પોર્ટલ સ્વીકૃતિના 24 કલાકની અંદર રદ કરવાની મંજૂરી આપે છે."
+      }
     },
     "history": {
       "metaTitle": "ઇન્વોઇસ ઇતિહાસ",
@@ -2078,6 +2125,9 @@
     "templateImported": "ટેમ્પ્લેટ આયાત થયું",
     "profileTemplateCleared": "પ્રોફાઇલ ફરી ઇન્સ્ટન્સ ટેમ્પ્લેટ વાપરે છે",
     "operatorSaved": "ઑપરેટરની વિગતો સચવાઈ. કાનૂની પૃષ્ઠો હવે તે બતાવે છે.",
-    "einvoiceSettingsSaved": "ઈ-ઇન્વોઇસિંગ સેટિંગ્સ સચવાઈ"
+    "einvoiceSettingsSaved": "ઈ-ઇન્વોઇસિંગ સેટિંગ્સ સચવાઈ",
+    "irnRegistered": "IRN {irn} નોંધાયો; PDF તેની સાથે ફરીથી બનાવાયું",
+    "irnRecorded": "IRN નોંધાયો; PDF તેની સાથે ફરીથી બનાવાયું",
+    "irnCancelled": "IRN રદ થયો; PDF ફરીથી બનાવાયું"
   }
 }

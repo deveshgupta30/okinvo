@@ -840,6 +840,9 @@
         "username": "Корисничко име",
         "password": "Лозинка",
         "gstin": "GSTIN",
+        "publicKey": "Јавен клуч на IRP (PEM)",
+        "publicKeyHint": "Преземете го од порталот по најавата; тој ги обвива акредитивите што се испраќаат до IRP.",
+        "publicKeyStored": "Зачуван; оставете празно за да се задржи.",
         "secretStored": "Се чува шифрирано; оставете празно за да се задржи.",
         "secretEncrypted": "Се чува шифрирано."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Даночен ID",
       "void": "ПОНИШТЕНО",
       "draftWatermark": "НАЦРТ - не е даночна фактура",
-      "paymentTermsDays": "{days} дена"
+      "paymentTermsDays": "{days} дена",
+      "irn": "IRN",
+      "ackNo": "Бр. на потврда",
+      "ackDate": "Датум на потврда",
+      "einvoiceCancelled": "ЕЛЕКТРОНСКАТА ФАКТУРА Е ПОНИШТЕНА"
     },
     "ui": {
       "pageEstimate": "приближно {count, plural, one {# страница} other {# страници}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Ниту една фактура не одговара на овие филтри.",
       "count": "{count, plural, one {# фактура} other {# фактури}}",
       "countPaged": "{count, plural, one {# фактура} other {# фактури}} · страница {page} од {pages}",
-      "register": "регистар"
+      "register": "регистар",
+      "einvoice": "Електронска фактура",
+      "einvoiceFilters": {
+        "registered": "IRN е регистриран",
+        "none": "Нерегистрирана",
+        "cancelled": "IRN е поништен"
+      }
     },
     "new": {
       "noProfileTitle": "Прво создајте профил на издавач",
@@ -1611,7 +1624,41 @@
       "version": "Верзија {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Врска за верификација:",
-      "draftPreviewHint": "Нацртите се прегледуваат во живо во уредникот; отворете го <link>PDF со воден жиг</link> за да ја видите страницата."
+      "draftPreviewHint": "Нацртите се прегледуваат во живо во уредникот; отворете го <link>PDF со воден жиг</link> за да ја видите страницата.",
+      "einvoice": {
+        "title": "Електронска фактура (Индија)",
+        "description": "Регистрирање на оваа фактура во Invoice Registration Portal; регистриран документ го печати својот IRN и потпишаниот QR-код на порталот.",
+        "connector": "Конектор",
+        "connectors": {
+          "manual": "Рачно",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "За овој профил не е конфигуриран конектор во Поставки > Електронско фактурирање.",
+        "statuses": {
+          "none": "Нерегистрирана",
+          "generated": "JSON е генериран",
+          "registered": "Регистрирана",
+          "cancelled": "Поништена",
+          "failed": "Регистрацијата не успеа"
+        },
+        "irn": "IRN",
+        "ackNo": "Бр. на потврда",
+        "ackDate": "Датум на потврда",
+        "cancelReason": "Поништување",
+        "generate": "Генерирај IRN",
+        "pasteLabel": "Одговор од IRP",
+        "pasteHint": "Залепете го JSON што го вратил порталот или вашиот GSP за JSON на електронската фактура на оваа фактура (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Запиши IRN",
+        "cancelReasonLabel": "Причина за поништување",
+        "cancelReasons": {
+          "1": "Дупликат",
+          "2": "Грешка при внесување податоци",
+          "3": "Нарачката е откажана",
+          "4": "Друго"
+        },
+        "cancel": "Поништи IRN",
+        "cancelWindow": "Порталот дозволува поништување во рок од 24 часа од потврдата."
+      }
     },
     "history": {
       "metaTitle": "Историја на фактура",
@@ -2078,6 +2125,9 @@
     "templateImported": "Шаблонот е увезен",
     "profileTemplateCleared": "Профилот повторно го користи шаблонот на серверот",
     "operatorSaved": "Податоците за операторот се зачувани. Правните страници сега ги прикажуваат.",
-    "einvoiceSettingsSaved": "Поставките за е-фактурирање се зачувани"
+    "einvoiceSettingsSaved": "Поставките за е-фактурирање се зачувани",
+    "irnRegistered": "IRN {irn} е регистриран; PDF е повторно генериран со него",
+    "irnRecorded": "IRN е запишан; PDF е повторно генериран со него",
+    "irnCancelled": "IRN е поништен; PDF е повторно генериран"
   }
 }

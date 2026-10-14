@@ -214,6 +214,10 @@ function metaBlock(ctx: Ctx, withTitle: boolean): Paragraph[] {
   const meta: [string, string][] = [[vm.labels.issueDate, vm.issueDate]];
   if (vm.dueDate) meta.push([vm.labels.dueDate, vm.dueDate]);
   if (vm.paymentTerms) meta.push([vm.labels.terms, vm.paymentTerms]);
+  if (vm.einvoice) {
+    meta.push([vm.text.irn, vm.einvoice.irn]);
+    meta.push([vm.text.ackNo, `${vm.einvoice.ackNo} · ${vm.text.ackDate} ${vm.einvoice.ackDate}`]);
+  }
   for (const [label, value] of meta) {
     out.push(
       para([run(`${label}  `, { color: hex(s.muted), size: half(s.base - 1) }), run(value)], {

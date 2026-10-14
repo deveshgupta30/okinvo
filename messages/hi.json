@@ -840,6 +840,9 @@
         "username": "उपयोगकर्ता नाम",
         "password": "पासवर्ड",
         "gstin": "GSTIN",
+        "publicKey": "IRP सार्वजनिक कुंजी (PEM)",
+        "publicKeyHint": "साइन इन करने के बाद इसे पोर्टल से डाउनलोड करें; यह IRP को भेजे जाने वाले क्रेडेंशियल को सुरक्षित लपेटती है.",
+        "publicKeyStored": "संग्रहीत; रखने के लिए खाली छोड़ें.",
         "secretStored": "एन्क्रिप्टेड रूप में संग्रहीत; रखने के लिए खाली छोड़ें।",
         "secretEncrypted": "संग्रहण में एन्क्रिप्टेड रूप में रखा जाता है।"
       },
@@ -1399,7 +1402,11 @@
       "taxId": "कर पहचान",
       "void": "रद्द",
       "draftWatermark": "ड्राफ़्ट - कर इनवॉइस नहीं",
-      "paymentTermsDays": "{days} दिन"
+      "paymentTermsDays": "{days} दिन",
+      "irn": "IRN",
+      "ackNo": "पावती सं.",
+      "ackDate": "पावती तिथि",
+      "einvoiceCancelled": "ई-इनवॉइस रद्द"
     },
     "ui": {
       "pageEstimate": "लगभग {count, plural, one {# पृष्ठ} other {# पृष्ठ}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "इन फ़िल्टरों से कोई इनवॉइस मेल नहीं खाता।",
       "count": "{count, plural, one {# इनवॉइस} other {# इनवॉइस}}",
       "countPaged": "{count, plural, one {# इनवॉइस} other {# इनवॉइस}} · पृष्ठ {page} / {pages}",
-      "register": "रजिस्टर"
+      "register": "रजिस्टर",
+      "einvoice": "ई-इनवॉइस",
+      "einvoiceFilters": {
+        "registered": "IRN पंजीकृत",
+        "none": "पंजीकृत नहीं",
+        "cancelled": "IRN रद्द"
+      }
     },
     "new": {
       "noProfileTitle": "पहले जारीकर्ता प्रोफ़ाइल बनाएँ",
@@ -1611,7 +1624,41 @@
       "version": "संस्करण {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "सत्यापन लिंक:",
-      "draftPreviewHint": "ड्राफ़्ट का पूर्वावलोकन संपादक में लाइव दिखता है; पृष्ठ देखने के लिए <link>वॉटरमार्क वाली PDF</link> खोलें।"
+      "draftPreviewHint": "ड्राफ़्ट का पूर्वावलोकन संपादक में लाइव दिखता है; पृष्ठ देखने के लिए <link>वॉटरमार्क वाली PDF</link> खोलें।",
+      "einvoice": {
+        "title": "ई-इनवॉइस (भारत)",
+        "description": "इनवॉइस रजिस्ट्रेशन पोर्टल पर इस इनवॉइस का पंजीकरण; पंजीकृत दस्तावेज़ पर उसका IRN और पोर्टल का हस्ताक्षरित QR छपता है.",
+        "connector": "कनेक्टर",
+        "connectors": {
+          "manual": "मैन्युअल",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "इस प्रोफ़ाइल के लिए सेटिंग्स > ई-इनवॉइसिंग में कोई कनेक्टर कॉन्फ़िगर नहीं है.",
+        "statuses": {
+          "none": "पंजीकृत नहीं",
+          "generated": "JSON तैयार",
+          "registered": "पंजीकृत",
+          "cancelled": "रद्द",
+          "failed": "पंजीकरण विफल"
+        },
+        "irn": "IRN",
+        "ackNo": "पावती सं.",
+        "ackDate": "पावती तिथि",
+        "cancelReason": "रद्दीकरण",
+        "generate": "IRN बनाएँ",
+        "pasteLabel": "IRP प्रतिक्रिया",
+        "pasteHint": "इस इनवॉइस के ई-इनवॉइस JSON के लिए पोर्टल या आपके GSP से मिला JSON यहाँ चिपकाएँ (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN दर्ज करें",
+        "cancelReasonLabel": "रद्दीकरण का कारण",
+        "cancelReasons": {
+          "1": "डुप्लिकेट",
+          "2": "डेटा प्रविष्टि में गलती",
+          "3": "ऑर्डर रद्द",
+          "4": "अन्य"
+        },
+        "cancel": "IRN रद्द करें",
+        "cancelWindow": "पोर्टल पावती के 24 घंटे के भीतर रद्दीकरण की अनुमति देता है."
+      }
     },
     "history": {
       "metaTitle": "इनवॉइस इतिहास",
@@ -2078,6 +2125,9 @@
     "templateImported": "टेम्पलेट आयात किया गया",
     "profileTemplateCleared": "प्रोफ़ाइल फिर से इंस्टेंस टेम्पलेट का उपयोग करती है",
     "operatorSaved": "संचालक का विवरण सहेजा गया। कानूनी पृष्ठ अब इन्हें दिखाते हैं।",
-    "einvoiceSettingsSaved": "ई-इनवॉइसिंग सेटिंग्स सहेजी गईं"
+    "einvoiceSettingsSaved": "ई-इनवॉइसिंग सेटिंग्स सहेजी गईं",
+    "irnRegistered": "IRN {irn} पंजीकृत हुआ; PDF उसके साथ फिर से बनाया गया",
+    "irnRecorded": "IRN दर्ज हुआ; PDF उसके साथ फिर से बनाया गया",
+    "irnCancelled": "IRN रद्द हुआ; PDF फिर से बनाया गया"
   }
 }

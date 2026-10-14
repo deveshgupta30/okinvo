@@ -840,6 +840,9 @@
         "username": "Brukernavn",
         "password": "Passord",
         "gstin": "GSTIN",
+        "publicKey": "Offentlig IRP-nøkkel (PEM)",
+        "publicKeyHint": "Last den ned fra portalen etter at du har logget inn; den beskytter legitimasjonen som sendes til IRP.",
+        "publicKeyStored": "Lagret; la feltet stå tomt for å beholde den.",
         "secretStored": "Lagret kryptert; la stå tomt for å beholde den.",
         "secretEncrypted": "Lagret kryptert."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Skatte-ID",
       "void": "UGYLDIG",
       "draftWatermark": "UTKAST - ikke en MVA-faktura",
-      "paymentTermsDays": "{days} dager"
+      "paymentTermsDays": "{days} dager",
+      "irn": "IRN",
+      "ackNo": "Bekreftelsesnr.",
+      "ackDate": "Bekreftelsesdato",
+      "einvoiceCancelled": "E-FAKTURA ANNULLERT"
     },
     "ui": {
       "pageEstimate": "ca. {count, plural, one {# side} other {# sider}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Ingen fakturaer samsvarer med disse filtrene.",
       "count": "{count, plural, one {# faktura} other {# fakturaer}}",
       "countPaged": "{count, plural, one {# faktura} other {# fakturaer}} · side {page} av {pages}",
-      "register": "register"
+      "register": "register",
+      "einvoice": "E-faktura",
+      "einvoiceFilters": {
+        "registered": "IRN registrert",
+        "none": "Ikke registrert",
+        "cancelled": "IRN annullert"
+      }
     },
     "new": {
       "noProfileTitle": "Opprett en utstederprofil først",
@@ -1611,7 +1624,41 @@
       "version": "Versjon {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Verifiseringslenke:",
-      "draftPreviewHint": "Forhåndsvisning av utkast vises direkte i redigeringsprogrammet; åpne <link>PDF-en med vannmerke</link> for å se siden."
+      "draftPreviewHint": "Forhåndsvisning av utkast vises direkte i redigeringsprogrammet; åpne <link>PDF-en med vannmerke</link> for å se siden.",
+      "einvoice": {
+        "title": "E-faktura (India)",
+        "description": "Registrering av denne fakturaen i Invoice Registration Portal; et registrert dokument skrives ut med sitt IRN og portalens signerte QR.",
+        "connector": "Kobling",
+        "connectors": {
+          "manual": "Manuell",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Ingen kobling er konfigurert for denne profilen under Innstillinger > E-fakturering.",
+        "statuses": {
+          "none": "Ikke registrert",
+          "generated": "JSON generert",
+          "registered": "Registrert",
+          "cancelled": "Annullert",
+          "failed": "Registreringen mislyktes"
+        },
+        "irn": "IRN",
+        "ackNo": "Bekreftelsesnr.",
+        "ackDate": "Bekreftelsesdato",
+        "cancelReason": "Annullering",
+        "generate": "Generer IRN",
+        "pasteLabel": "IRP-svar",
+        "pasteHint": "Lim inn JSON-en portalen eller GSP-en din returnerte for e-faktura-JSON-en til denne fakturaen (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Registrer IRN",
+        "cancelReasonLabel": "Årsak til annullering",
+        "cancelReasons": {
+          "1": "Duplikat",
+          "2": "Feil ved dataregistrering",
+          "3": "Bestilling kansellert",
+          "4": "Annet"
+        },
+        "cancel": "Annuller IRN",
+        "cancelWindow": "Portalen tillater annullering innen 24 timer etter bekreftelsen."
+      }
     },
     "history": {
       "metaTitle": "Fakturahistorikk",
@@ -2078,6 +2125,9 @@
     "templateImported": "Mal importert",
     "profileTemplateCleared": "Profilen bruker instansmalen igjen",
     "operatorSaved": "Opplysninger om driveren lagret. De juridiske sidene viser dem nå.",
-    "einvoiceSettingsSaved": "Innstillinger for e-fakturering lagret"
+    "einvoiceSettingsSaved": "Innstillinger for e-fakturering lagret",
+    "irnRegistered": "IRN {irn} registrert; PDF-en ble generert på nytt med den",
+    "irnRecorded": "IRN registrert; PDF-en ble generert på nytt med den",
+    "irnCancelled": "IRN annullert; PDF-en ble generert på nytt"
   }
 }

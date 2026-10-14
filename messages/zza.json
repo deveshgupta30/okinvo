@@ -840,6 +840,9 @@
         "username": "Nameyê karberi",
         "password": "Parola",
         "gstin": "GSTIN",
+        "publicKey": "Kilîtê gşti yê IRP (PEM)",
+        "publicKeyHint": "Dıma ke dekewtış kerd, portal ra bıdowırne; ena kilît, IRP rê rışiyaye melumatan vêşan keno.",
+        "publicKeyStored": "Qeyd biya; ser ra verdarê, ke bimano mekerê.",
         "secretStored": "Şifrekerde qeyd beno; vındar verde ke bımano.",
         "secretEncrypted": "Şifrekerde qeyd beno."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID-ya Taxi",
       "void": "BITAL",
       "draftWatermark": "DRAFT - fatureya taxi niya",
-      "paymentTermsDays": "{days} roc"
+      "paymentTermsDays": "{days} roc",
+      "irn": "IRN",
+      "ackNo": "Hesabê tesdiqi",
+      "ackDate": "Tarixê tesdiqi",
+      "einvoiceCancelled": "E-FATURE TERK BIYA"
     },
     "ui": {
       "pageEstimate": "tewqiren {count, plural, one {# pel} other {# pelî}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Ena filtran rê fature nêvîneno.",
       "count": "{count, plural, one {# fature} other {# faturey}}",
       "countPaged": "{count, plural, one {# fature} other {# faturey}} · pele {page} ra {pages}",
-      "register": "register"
+      "register": "register",
+      "einvoice": "E-fature",
+      "einvoiceFilters": {
+        "registered": "IRN qeyd biyo",
+        "none": "Qeyd nêbiyo",
+        "cancelled": "IRN terk biyo"
+      }
     },
     "new": {
       "noProfileTitle": "Verê profîlê issueri vıraze",
@@ -1611,7 +1624,41 @@
       "version": "Versiyon {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Linkê verifyi:",
-      "draftPreviewHint": "Draftî editorî de zîndî preview benê; <link>PDFê watermarkî</link> ra ke ke pele bıvîno."
+      "draftPreviewHint": "Draftî editorî de zîndî preview benê; <link>PDFê watermarkî</link> ra ke ke pele bıvîno.",
+      "einvoice": {
+        "title": "E-fature (Hindistan)",
+        "description": "Qeydkerdışê ena fature de Invoice Registration Portal; dokumanê qeydbiyayî IRN û QR’ya îmzakerde ya portali çap keno.",
+        "connector": "Girêdayox",
+        "connectors": {
+          "manual": "Destî",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Eyarî > E-faturekerdış bin de ena profîl rê girêdayox nêveti vıraşte.",
+        "statuses": {
+          "none": "Qeyd nêbiyo",
+          "generated": "JSON viraziya",
+          "registered": "Qeyd biyo",
+          "cancelled": "Terk biya",
+          "failed": "Qeydkerdış nêbi"
+        },
+        "irn": "IRN",
+        "ackNo": "Hesabê tesdiqi",
+        "ackDate": "Tarixê tesdiqi",
+        "cancelReason": "Terkkerdış",
+        "generate": "IRN vıraz",
+        "pasteLabel": "Cabê IRP",
+        "pasteHint": "JSON ke portal ya zi GSP’ya to ena fature rê, E-fature JSON rê vergeto, ena ca de bıdane (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN qeyd bık",
+        "cancelReasonLabel": "Sebebê terkkerdışi",
+        "cancelReasons": {
+          "1": "Dı reyî",
+          "2": "Xetaya dekerdışê data",
+          "3": "Sipariş terk biya",
+          "4": "Bîn"
+        },
+        "cancel": "IRN terk bık",
+        "cancelWindow": "Portal 24 saetan de tesdiqi dıma terkkerdışi qebul keno."
+      }
     },
     "history": {
       "metaTitle": "Tarixçeyê faturey",
@@ -2078,6 +2125,9 @@
     "templateImported": "Şablon import biyo",
     "profileTemplateCleared": "Profîl fına şablonê instanceyi ğerreno",
     "operatorSaved": "Teferruatê operatori qeyd biyê. Pelê hıqûqiyan nıka mocnenê.",
-    "einvoiceSettingsSaved": "Eyarê ê-fakturayî qeyd bi"
+    "einvoiceSettingsSaved": "Eyarê ê-fakturayî qeyd bi",
+    "irnRegistered": "IRN {irn} qeyd biyo; PDF pê ey ra reyna viraziya",
+    "irnRecorded": "IRN qeyd biyo; PDF pê ey ra reyna viraziya",
+    "irnCancelled": "IRN terk biyo; PDF reyna viraziya"
   }
 }

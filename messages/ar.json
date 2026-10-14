@@ -840,6 +840,9 @@
         "username": "اسم المستخدم",
         "password": "كلمة المرور",
         "gstin": "GSTIN",
+        "publicKey": "المفتاح العام لـ IRP (PEM)",
+        "publicKeyHint": "نزّله من البوابة بعد تسجيل الدخول؛ فهو يغلف بيانات الاعتماد المرسلة إلى IRP.",
+        "publicKeyStored": "تم الحفظ؛ اتركه فارغًا للإبقاء عليه.",
         "secretStored": "مخزّن مشفراً؛ اتركه فارغاً للإبقاء عليه.",
         "secretEncrypted": "مخزّن مشفراً."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "الرقم الضريبي",
       "void": "ملغاة",
       "draftWatermark": "مسودة - ليست فاتورة ضريبية",
-      "paymentTermsDays": "{days} أيام"
+      "paymentTermsDays": "{days} أيام",
+      "irn": "IRN",
+      "ackNo": "رقم الإقرار",
+      "ackDate": "تاريخ الإقرار",
+      "einvoiceCancelled": "الفاتورة الإلكترونية ملغاة"
     },
     "ui": {
       "pageEstimate": "نحو {count, plural, zero {لا صفحات} one {صفحة واحدة} two {صفحتين} few {# صفحات} many {# صفحة} other {# صفحة}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "لا توجد فواتير تطابق هذه المرشحات.",
       "count": "{count, plural, zero {لا فواتير} one {فاتورة واحدة} two {فاتورتان} few {# فواتير} many {# فاتورة} other {# فاتورة}}",
       "countPaged": "{count, plural, zero {لا فواتير} one {فاتورة واحدة} two {فاتورتان} few {# فواتير} many {# فاتورة} other {# فاتورة}} · الصفحة {page} من {pages}",
-      "register": "السجل"
+      "register": "السجل",
+      "einvoice": "الفاتورة الإلكترونية",
+      "einvoiceFilters": {
+        "registered": "IRN مسجل",
+        "none": "غير مسجلة",
+        "cancelled": "IRN ملغى"
+      }
     },
     "new": {
       "noProfileTitle": "أنشئ ملف مُصدِر أولًا",
@@ -1611,7 +1624,41 @@
       "version": "الإصدار {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "رابط التحقق:",
-      "draftPreviewHint": "تُعرض معاينة المسودات مباشرةً في المحرر؛ افتح <link>ملف PDF ذا العلامة المائية</link> لرؤية الصفحة."
+      "draftPreviewHint": "تُعرض معاينة المسودات مباشرةً في المحرر؛ افتح <link>ملف PDF ذا العلامة المائية</link> لرؤية الصفحة.",
+      "einvoice": {
+        "title": "الفاتورة الإلكترونية (الهند)",
+        "description": "تسجيل هذه الفاتورة في بوابة تسجيل الفواتير (Invoice Registration Portal)؛ يطبع المستند المسجل رقم IRN ورمز QR الموقع من البوابة.",
+        "connector": "الموصل",
+        "connectors": {
+          "manual": "يدوي",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "لم يتم إعداد موصل لهذا الملف الشخصي: الإعدادات > الفواتير الإلكترونية.",
+        "statuses": {
+          "none": "غير مسجلة",
+          "generated": "تم إنشاء JSON",
+          "registered": "مسجلة",
+          "cancelled": "ملغاة",
+          "failed": "فشل التسجيل"
+        },
+        "irn": "IRN",
+        "ackNo": "رقم الإقرار",
+        "ackDate": "تاريخ الإقرار",
+        "cancelReason": "الإلغاء",
+        "generate": "إنشاء IRN",
+        "pasteLabel": "استجابة IRP",
+        "pasteHint": "الصق JSON الذي أعادته البوابة أو GSP الخاص بك لملف JSON للفاتورة الإلكترونية لهذه الفاتورة (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "تسجيل IRN",
+        "cancelReasonLabel": "سبب الإلغاء",
+        "cancelReasons": {
+          "1": "مكررة",
+          "2": "خطأ في إدخال البيانات",
+          "3": "تم إلغاء الطلب",
+          "4": "أخرى"
+        },
+        "cancel": "إلغاء IRN",
+        "cancelWindow": "تتيح البوابة الإلغاء خلال 24 ساعة من الإقرار."
+      }
     },
     "history": {
       "metaTitle": "سجل الفاتورة",
@@ -2078,6 +2125,9 @@
     "templateImported": "تم استيراد القالب",
     "profileTemplateCleared": "يستخدم الملف قالب النسخة مجددًا",
     "operatorSaved": "تم حفظ تفاصيل المشغّل. تعرضها الصفحات القانونية الآن.",
-    "einvoiceSettingsSaved": "تم حفظ إعدادات الفواتير الإلكترونية"
+    "einvoiceSettingsSaved": "تم حفظ إعدادات الفواتير الإلكترونية",
+    "irnRegistered": "تم تسجيل IRN {irn}؛ وأُعيد إنشاء ملف PDF به",
+    "irnRecorded": "تم تسجيل IRN؛ وأُعيد إنشاء ملف PDF به",
+    "irnCancelled": "تم إلغاء IRN؛ وأُعيد إنشاء ملف PDF"
   }
 }

@@ -3,11 +3,13 @@ import {
   amountInWords,
   formatAmount,
   formatDate,
+  formatDateTime,
   formatMoney,
   formatPercent,
   formatQuantity,
 } from "@/lib/format";
 import { DEFAULT_DOCUMENT_MESSAGES, type DocumentMessages } from "@/lib/i18n/document-messages";
+import type { EInvoiceState } from "@/lib/schemas/einvoice-state";
 import { formattingLocale } from "@/lib/i18n/formatting-locale";
 import { D } from "@/lib/money";
 import {
@@ -83,6 +85,8 @@ export interface RenderInput {
   notes: string | null;
   terms: string | null;
   displayConfig: DisplayConfig;
+  /** E-invoice registration printed on the document (spec §9e). */
+  einvoice?: EInvoiceState | null;
   replaces?: { number: string | null } | null;
   verificationToken: string;
   creditNote?: { reason: string; againstNumber: string; againstDate: DateString } | undefined;
@@ -141,8 +145,12 @@ export interface DocumentViewModel {
   notes?: string;
   terms?: string;
   verifyUrl?: string;
-  /** PNG data URL of the verification QR; filled by the server for PDFs and issued previews. */
+  /** What the QR encodes: the IRP's signed QR when registered, else the verification URL. */
+  qrText?: string;
+  /** PNG data URL of the QR; filled by the server for PDFs and issued previews. */
   qrDataUrl?: string;
+  /** IRN, acknowledgement and cancellation as printed on a registered e-invoice. */
+  einvoice?: { irn: string; ackNo: string; ackDate: string; cancelled: boolean };
   creditNote?: { reason: string; againstNumber: string; againstDate: string };
   showLogo: boolean;
   showSignature: boolean;
@@ -368,7 +376,19 @@ export function buildDocumentViewModel(input: RenderInput, o: ViewModelOptions):
   if (d.document.showNotes && input.notes?.trim()) vm.notes = input.notes.trim();
   if (d.document.showTerms && input.terms?.trim()) vm.terms = input.terms.trim();
   if (verifyUrl) vm.verifyUrl = verifyUrl;
-  if (verifyUrl && o.qrDataUrl) vm.qrDataUrl = o.qrDataUrl;
+  const e = input.einvoice;
+  if (e && e.irn && (e.status === "REGISTERED" || e.status === "CANCELLED")) {
+    vm.einvoice = {
+      irn: e.irn,
+      ackNo: e.ackNo ?? "",
+      ackDate: e.ackDate ? formatDateTime(new Date(e.ackDate), locale, "Asia/Kolkata") : "",
+      cancelled: e.status === "CANCELLED",
+    };
+    // the IRP's signed QR replaces the okinvo verification QR on a registered document
+    if (e.signedQr && !isDraft) vm.qrText = e.signedQr;
+  }
+  if (!vm.qrText && verifyUrl) vm.qrText = verifyUrl;
+  if (vm.qrText && o.qrDataUrl) vm.qrDataUrl = o.qrDataUrl;
   if (input.creditNote) {
     vm.creditNote = {
       reason: input.creditNote.reason,

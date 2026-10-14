@@ -840,6 +840,9 @@
         "username": "用戶名稱",
         "password": "密碼",
         "gstin": "GSTIN",
+        "publicKey": "IRP 公開金鑰(PEM)",
+        "publicKeyHint": "登入入口網站後下載;它用於加密傳送至 IRP 的憑證。",
+        "publicKeyStored": "已儲存;留空則保留現有內容。",
         "secretStored": "已加密儲存;留空則保留現有內容。",
         "secretEncrypted": "靜態時已加密儲存。"
       },
@@ -1399,7 +1402,11 @@
       "taxId": "稅籍編號",
       "void": "作廢",
       "draftWatermark": "草稿 - 非稅務發票",
-      "paymentTermsDays": "{days} 日"
+      "paymentTermsDays": "{days} 日",
+      "irn": "IRN",
+      "ackNo": "確認編號",
+      "ackDate": "確認日期",
+      "einvoiceCancelled": "電子發票已作廢"
     },
     "ui": {
       "pageEstimate": "約 {count, plural, other {# 頁}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "沒有符合這些篩選條件的發票。",
       "count": "{count, plural, other {# 張發票}}",
       "countPaged": "{count, plural, other {# 張發票}} · 第 {page} 頁，共 {pages} 頁",
-      "register": "登記簿"
+      "register": "登記簿",
+      "einvoice": "電子發票",
+      "einvoiceFilters": {
+        "registered": "IRN 已註冊",
+        "none": "未註冊",
+        "cancelled": "IRN 已取消"
+      }
     },
     "new": {
       "noProfileTitle": "請先建立開立者設定檔",
@@ -1611,7 +1624,41 @@
       "version": "版本 {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "驗證連結：",
-      "draftPreviewHint": "草稿可在編輯器中即時預覽；開啟<link>含浮水印的 PDF</link>即可查看頁面。"
+      "draftPreviewHint": "草稿可在編輯器中即時預覽；開啟<link>含浮水印的 PDF</link>即可查看頁面。",
+      "einvoice": {
+        "title": "電子發票(印度)",
+        "description": "向發票登記入口網站(Invoice Registration Portal)註冊此發票;已註冊的文件會印出其 IRN 及入口網站的簽署 QR 碼。",
+        "connector": "連接器",
+        "connectors": {
+          "manual": "手動",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "此設定檔尚未設定連接器,請至「設定 > 電子發票」設定。",
+        "statuses": {
+          "none": "未註冊",
+          "generated": "已產生 JSON",
+          "registered": "已註冊",
+          "cancelled": "已取消",
+          "failed": "註冊失敗"
+        },
+        "irn": "IRN",
+        "ackNo": "確認編號",
+        "ackDate": "確認日期",
+        "cancelReason": "取消原因",
+        "generate": "產生 IRN",
+        "pasteLabel": "IRP 回應",
+        "pasteHint": "請貼上入口網站或您的 GSP 針對此發票的電子發票 JSON 所傳回的 JSON(Irn、AckNo、AckDt、SignedQRCode)。",
+        "record": "記錄 IRN",
+        "cancelReasonLabel": "取消原因",
+        "cancelReasons": {
+          "1": "重複",
+          "2": "資料輸入錯誤",
+          "3": "訂單已取消",
+          "4": "其他"
+        },
+        "cancel": "取消 IRN",
+        "cancelWindow": "入口網站僅允許在確認後 24 小時內取消。"
+      }
     },
     "history": {
       "metaTitle": "發票歷程記錄",
@@ -2078,6 +2125,9 @@
     "templateImported": "範本已匯入",
     "profileTemplateCleared": "設定檔已改回使用實例範本",
     "operatorSaved": "營運者詳細資料已儲存。法律頁面現在會顯示這些內容。",
-    "einvoiceSettingsSaved": "已儲存電子發票設定"
+    "einvoiceSettingsSaved": "已儲存電子發票設定",
+    "irnRegistered": "IRN {irn} 已註冊,PDF 已重新產生",
+    "irnRecorded": "IRN 已記錄,PDF 已重新產生",
+    "irnCancelled": "IRN 已取消,PDF 已重新產生"
   }
 }

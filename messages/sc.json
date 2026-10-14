@@ -840,6 +840,9 @@
         "username": "Nùmene utente",
         "password": "Crae",
         "gstin": "GSTIN",
+        "publicKey": "Crae pùblica IRP (PEM)",
+        "publicKeyHint": "Iscàrrigala dae su portale a pustis de s’ingressu; incarta is credentziales imbiadas a s’IRP.",
+        "publicKeyStored": "Sarvada; lassa bòidu pro mantènnere·la.",
         "secretStored": "Sarvadu tzifradu; lassa bòidu pro lu mantènnere.",
         "secretEncrypted": "Sarvadu tzifradu in riposu."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID fiscale",
       "void": "ANNULLADU",
       "draftWatermark": "BOZZA - no est una fatura fiscale",
-      "paymentTermsDays": "{days} dies"
+      "paymentTermsDays": "{days} dies",
+      "irn": "IRN",
+      "ackNo": "Nr. de cunfirma",
+      "ackDate": "Data de cunfirma",
+      "einvoiceCancelled": "E-FATTURA ANNULLADA"
     },
     "ui": {
       "pageEstimate": "cir. {count, plural, one {# pàgina} other {# pàginas}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Peruna fatura currispondet a custos filtros.",
       "count": "{count, plural, one {# fatura} other {# faturas}}",
       "countPaged": "{count, plural, one {# fatura} other {# faturas}} · pàgina {page} de {pages}",
-      "register": "registru"
+      "register": "registru",
+      "einvoice": "E-fattura",
+      "einvoiceFilters": {
+        "registered": "IRN registradu",
+        "none": "No registrada",
+        "cancelled": "IRN annulladu"
+      }
     },
     "new": {
       "noProfileTitle": "Crea in antis unu profilu de emitente",
@@ -1611,7 +1624,41 @@
       "version": "Versione {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Ligàmene de verìfica:",
-      "draftPreviewHint": "Sas bozzas si bident in anteprima in s’editore; aberi <link>su PDF cun filigrana</link> pro bìdere sa pàgina."
+      "draftPreviewHint": "Sas bozzas si bident in anteprima in s’editore; aberi <link>su PDF cun filigrana</link> pro bìdere sa pàgina.",
+      "einvoice": {
+        "title": "E-fattura (Ìndia)",
+        "description": "Registratzione de custa fattura in s’Invoice Registration Portal; unu documentu registradu istampat s’IRN suu e su QR firmadu de su portale.",
+        "connector": "Connettore",
+        "connectors": {
+          "manual": "Manuale",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Pro custu profilu perunu connettore est cunfiguradu in Cunfiguratziones > E-fattura.",
+        "statuses": {
+          "none": "No registrada",
+          "generated": "JSON generadu",
+          "registered": "Registrada",
+          "cancelled": "Annullada",
+          "failed": "Registratzione faddida"
+        },
+        "irn": "IRN",
+        "ackNo": "Nr. de cunfirma",
+        "ackDate": "Data de cunfirma",
+        "cancelReason": "Annullamentu",
+        "generate": "Genera IRN",
+        "pasteLabel": "Risposta de s’IRP",
+        "pasteHint": "Incolla su JSON torradu dae su portale o dae su GSP tuo pro su JSON de e-fattura de custa fattura (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Registra IRN",
+        "cancelReasonLabel": "Motivu de s’annullamentu",
+        "cancelReasons": {
+          "1": "Duplicadu",
+          "2": "Errore in s’inserimentu de datos",
+          "3": "Cumanda annullada",
+          "4": "Àteru"
+        },
+        "cancel": "Annulla IRN",
+        "cancelWindow": "Su portale permitit s’annullamentu intro de 24 oras dae sa cunfirma."
+      }
     },
     "history": {
       "metaTitle": "Cronologia de sa fatura",
@@ -2078,6 +2125,9 @@
     "templateImported": "Modellu importadu",
     "profileTemplateCleared": "Su profilu imprea torra su modellu de s’istàntzia",
     "operatorSaved": "Detàllios de s’operadore sarvados. Sas pàginas legales mustrant como.",
-    "einvoiceSettingsSaved": "Cunfiguratziones de s’e-fattura sarvadas"
+    "einvoiceSettingsSaved": "Cunfiguratziones de s’e-fattura sarvadas",
+    "irnRegistered": "IRN {irn} registradu; su PDF est istadu generadu torra cun issu",
+    "irnRecorded": "IRN registradu; su PDF est istadu generadu torra cun issu",
+    "irnCancelled": "IRN annulladu; su PDF est istadu generadu torra"
   }
 }

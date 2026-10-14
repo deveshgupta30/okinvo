@@ -840,6 +840,9 @@
         "username": "Nome de usuario",
         "password": "Contrasinal",
         "gstin": "GSTIN",
+        "publicKey": "Chave pública do IRP (PEM)",
+        "publicKeyHint": "Descárgaa do portal despois de iniciar sesión; envolve as credenciais enviadas ao IRP.",
+        "publicKeyStored": "Gardada; deixa en branco para conservala.",
         "secretStored": "Gardado cifrado; déixao en branco para mantelo.",
         "secretEncrypted": "Gardado cifrado en repouso."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID fiscal",
       "void": "ANULADA",
       "draftWatermark": "BORRADOR - non é unha factura fiscal",
-      "paymentTermsDays": "{days} días"
+      "paymentTermsDays": "{days} días",
+      "irn": "IRN",
+      "ackNo": "N.º de acuse",
+      "ackDate": "Data de acuse",
+      "einvoiceCancelled": "E-FACTURA ANULADA"
     },
     "ui": {
       "pageEstimate": "aprox. {count, plural, one {# páxina} other {# páxinas}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Ningunha factura coincide con estes filtros.",
       "count": "{count, plural, one {# factura} other {# facturas}}",
       "countPaged": "{count, plural, one {# factura} other {# facturas}} · páxina {page} de {pages}",
-      "register": "rexistro"
+      "register": "rexistro",
+      "einvoice": "E-factura",
+      "einvoiceFilters": {
+        "registered": "IRN rexistrado",
+        "none": "Non rexistrada",
+        "cancelled": "IRN anulado"
+      }
     },
     "new": {
       "noProfileTitle": "Crea primeiro un perfil de emisor",
@@ -1611,7 +1624,41 @@
       "version": "Versión {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Ligazón de verificación:",
-      "draftPreviewHint": "Os borradores móstranse en directo no editor; abre <link>o PDF con marca de auga</link> para ver a páxina."
+      "draftPreviewHint": "Os borradores móstranse en directo no editor; abre <link>o PDF con marca de auga</link> para ver a páxina.",
+      "einvoice": {
+        "title": "E-factura (India)",
+        "description": "Rexistro desta factura no Invoice Registration Portal; un documento rexistrado imprime o seu IRN e o QR asinado do portal.",
+        "connector": "Conector",
+        "connectors": {
+          "manual": "Manual",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Non hai ningún conector configurado para este perfil en Configuración > E-facturación.",
+        "statuses": {
+          "none": "Non rexistrada",
+          "generated": "JSON xerado",
+          "registered": "Rexistrada",
+          "cancelled": "Anulada",
+          "failed": "Fallou o rexistro"
+        },
+        "irn": "IRN",
+        "ackNo": "N.º de acuse",
+        "ackDate": "Data de acuse",
+        "cancelReason": "Anulación",
+        "generate": "Xerar IRN",
+        "pasteLabel": "Resposta do IRP",
+        "pasteHint": "Pega o JSON que devolveu o portal ou o teu GSP para o JSON da e-factura desta factura (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Rexistrar IRN",
+        "cancelReasonLabel": "Motivo da anulación",
+        "cancelReasons": {
+          "1": "Duplicado",
+          "2": "Erro de introdución de datos",
+          "3": "Pedido cancelado",
+          "4": "Outros"
+        },
+        "cancel": "Anular IRN",
+        "cancelWindow": "O portal permite a anulación dentro das 24 horas posteriores ao acuse."
+      }
     },
     "history": {
       "metaTitle": "Historial da factura",
@@ -2078,6 +2125,9 @@
     "templateImported": "Modelo importado",
     "profileTemplateCleared": "O perfil volve usar o modelo da instancia",
     "operatorSaved": "Datos do operador gardados. As páxinas legais móstranos agora.",
-    "einvoiceSettingsSaved": "Configuración da facturación electrónica gardada"
+    "einvoiceSettingsSaved": "Configuración da facturación electrónica gardada",
+    "irnRegistered": "IRN {irn} rexistrado; o PDF foi rexenerado con el",
+    "irnRecorded": "IRN rexistrado; o PDF foi rexenerado con el",
+    "irnCancelled": "IRN anulado; o PDF foi rexenerado"
   }
 }

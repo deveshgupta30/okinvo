@@ -840,6 +840,9 @@
         "username": "Kasutajanimi",
         "password": "Parool",
         "gstin": "GSTIN",
+        "publicKey": "IRP avalik võti (PEM)",
+        "publicKeyHint": "Laadige see pärast sisselogimist portaalist alla; see krüpteerib IRP-le saadetavad volitused.",
+        "publicKeyStored": "Salvestatud; jätke tühjaks, et see alles jätta.",
         "secretStored": "Salvestatud krüptituna; jätke tühjaks, et see säilitada.",
         "secretEncrypted": "Salvestatud krüptituna."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Maksukohustuslase ID",
       "void": "TÜHISTATUD",
       "draftWatermark": "PÕHIVERSIOON - ei ole maksuarve",
-      "paymentTermsDays": "{days} päeva"
+      "paymentTermsDays": "{days} päeva",
+      "irn": "IRN",
+      "ackNo": "Kinnituse nr",
+      "ackDate": "Kinnituse kuupäev",
+      "einvoiceCancelled": "E-ARVE TÜHISTATUD"
     },
     "ui": {
       "pageEstimate": "ca {count, plural, one {# lehekülg} other {# lehekülge}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Ükski arve ei vasta neile filtritele.",
       "count": "{count, plural, one {# arve} other {# arvet}}",
       "countPaged": "{count, plural, one {# arve} other {# arvet}} · lehekülg {page} / {pages}",
-      "register": "register"
+      "register": "register",
+      "einvoice": "E-arve",
+      "einvoiceFilters": {
+        "registered": "IRN registreeritud",
+        "none": "Registreerimata",
+        "cancelled": "IRN tühistatud"
+      }
     },
     "new": {
       "noProfileTitle": "Looge esmalt väljastajaprofiil",
@@ -1611,7 +1624,41 @@
       "version": "Versioon {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Kontrolllink:",
-      "draftPreviewHint": "Mustandid kuvatakse otse redaktoris; lehe nägemiseks avage <link>vesimärgiga PDF</link>."
+      "draftPreviewHint": "Mustandid kuvatakse otse redaktoris; lehe nägemiseks avage <link>vesimärgiga PDF</link>.",
+      "einvoice": {
+        "title": "E-arve (India)",
+        "description": "Selle arve registreerimine Invoice Registration Portalis; registreeritud dokumendile trükitakse selle IRN ja portaali allkirjastatud QR-kood.",
+        "connector": "Ühendus",
+        "connectors": {
+          "manual": "Käsitsi",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Sellele profiilile pole jaotises Seaded > E-arved ühendust seadistatud.",
+        "statuses": {
+          "none": "Registreerimata",
+          "generated": "JSON loodud",
+          "registered": "Registreeritud",
+          "cancelled": "Tühistatud",
+          "failed": "Registreerimine ebaõnnestus"
+        },
+        "irn": "IRN",
+        "ackNo": "Kinnituse nr",
+        "ackDate": "Kinnituse kuupäev",
+        "cancelReason": "Tühistamine",
+        "generate": "Loo IRN",
+        "pasteLabel": "IRP vastus",
+        "pasteHint": "Kleepige JSON, mille portaal või teie GSP selle arve e-arve JSON-i kohta tagastas (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Salvesta IRN",
+        "cancelReasonLabel": "Tühistamise põhjus",
+        "cancelReasons": {
+          "1": "Duplikaat",
+          "2": "Andmesisestuse viga",
+          "3": "Tellimus tühistatud",
+          "4": "Muu"
+        },
+        "cancel": "Tühista IRN",
+        "cancelWindow": "Portaal lubab tühistada 24 tunni jooksul pärast kinnitust."
+      }
     },
     "history": {
       "metaTitle": "Arve ajalugu",
@@ -2078,6 +2125,9 @@
     "templateImported": "Mall imporditud",
     "profileTemplateCleared": "Profiil kasutab taas instantsi malli",
     "operatorSaved": "Haldaja andmed salvestatud. Õiguslikud lehed näitavad neid nüüd.",
-    "einvoiceSettingsSaved": "E-arvete seaded salvestatud"
+    "einvoiceSettingsSaved": "E-arvete seaded salvestatud",
+    "irnRegistered": "IRN {irn} registreeritud; PDF loodi selle abil uuesti",
+    "irnRecorded": "IRN salvestatud; PDF loodi selle abil uuesti",
+    "irnCancelled": "IRN tühistatud; PDF loodi uuesti"
   }
 }

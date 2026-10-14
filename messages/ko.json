@@ -840,6 +840,9 @@
         "username": "사용자 이름",
         "password": "비밀번호",
         "gstin": "GSTIN",
+        "publicKey": "IRP 공개 키 (PEM)",
+        "publicKeyHint": "로그인 후 포털에서 다운로드하세요. IRP로 전송되는 자격 증명을 감싸는 데 사용됩니다.",
+        "publicKeyStored": "저장됨. 유지하려면 비워 두세요.",
         "secretStored": "암호화되어 저장됨. 유지하려면 비워 두세요.",
         "secretEncrypted": "저장 시 암호화됩니다."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "세금 ID",
       "void": "무효",
       "draftWatermark": "초안 - 세금 청구서 아님",
-      "paymentTermsDays": "{days}일"
+      "paymentTermsDays": "{days}일",
+      "irn": "IRN",
+      "ackNo": "승인 번호",
+      "ackDate": "승인 일자",
+      "einvoiceCancelled": "전자 청구서 취소됨"
     },
     "ui": {
       "pageEstimate": "약 {count, plural, other {#페이지}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "이 필터와 일치하는 청구서가 없습니다.",
       "count": "{count, plural, other {청구서 #건}}",
       "countPaged": "{count, plural, other {청구서 #건}} · {pages}페이지 중 {page}페이지",
-      "register": "대장"
+      "register": "대장",
+      "einvoice": "전자 청구서",
+      "einvoiceFilters": {
+        "registered": "IRN 등록됨",
+        "none": "미등록",
+        "cancelled": "IRN 취소됨"
+      }
     },
     "new": {
       "noProfileTitle": "먼저 발행자 프로필을 만드십시오",
@@ -1611,7 +1624,41 @@
       "version": "버전 {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "확인 링크:",
-      "draftPreviewHint": "초안은 편집기에서 실시간으로 미리 볼 수 있습니다. 페이지를 보려면 <link>워터마크가 있는 PDF</link>를 여십시오."
+      "draftPreviewHint": "초안은 편집기에서 실시간으로 미리 볼 수 있습니다. 페이지를 보려면 <link>워터마크가 있는 PDF</link>를 여십시오.",
+      "einvoice": {
+        "title": "전자 청구서 (인도)",
+        "description": "이 청구서를 Invoice Registration Portal에 등록합니다. 등록된 문서에는 IRN과 포털의 서명된 QR이 인쇄됩니다.",
+        "connector": "커넥터",
+        "connectors": {
+          "manual": "수동",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "이 프로필에는 설정 > 전자 청구서에 구성된 커넥터가 없습니다.",
+        "statuses": {
+          "none": "미등록",
+          "generated": "JSON 생성됨",
+          "registered": "등록됨",
+          "cancelled": "취소됨",
+          "failed": "등록 실패"
+        },
+        "irn": "IRN",
+        "ackNo": "승인 번호",
+        "ackDate": "승인 일자",
+        "cancelReason": "취소",
+        "generate": "IRN 생성",
+        "pasteLabel": "IRP 응답",
+        "pasteHint": "이 청구서의 전자 청구서 JSON에 대해 포털 또는 GSP가 반환한 JSON을 붙여넣으세요 (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN 기록",
+        "cancelReasonLabel": "취소 사유",
+        "cancelReasons": {
+          "1": "중복",
+          "2": "데이터 입력 오류",
+          "3": "주문 취소",
+          "4": "기타"
+        },
+        "cancel": "IRN 취소",
+        "cancelWindow": "포털은 승인 후 24시간 이내에 취소를 허용합니다."
+      }
     },
     "history": {
       "metaTitle": "청구서 이력",
@@ -2078,6 +2125,9 @@
     "templateImported": "템플릿을 가져왔습니다",
     "profileTemplateCleared": "프로필이 다시 인스턴스 템플릿을 사용합니다",
     "operatorSaved": "운영자 정보가 저장되었습니다. 이제 법적 고지 페이지에 표시됩니다.",
-    "einvoiceSettingsSaved": "전자 청구서 설정을 저장했습니다"
+    "einvoiceSettingsSaved": "전자 청구서 설정을 저장했습니다",
+    "irnRegistered": "IRN {irn}이(가) 등록되었으며 PDF가 다시 생성되었습니다",
+    "irnRecorded": "IRN이 기록되었으며 PDF가 다시 생성되었습니다",
+    "irnCancelled": "IRN이 취소되었으며 PDF가 다시 생성되었습니다"
   }
 }

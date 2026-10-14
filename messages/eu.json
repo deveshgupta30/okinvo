@@ -840,6 +840,9 @@
         "username": "Erabiltzaile-izena",
         "password": "Pasahitza",
         "gstin": "GSTIN",
+        "publicKey": "IRP gako publikoa (PEM)",
+        "publicKeyHint": "Deskargatu atarian saioa hasi ondoren; IRP-ra bidalitako kredentzialak biltzen ditu.",
+        "publicKeyStored": "Gordeta; utzi hutsik mantentzeko.",
         "secretStored": "Zifratuta gordeta; utzi hutsik mantentzeko.",
         "secretEncrypted": "Zifratuta gordeta."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Zerga-IDa",
       "void": "BALIOGABETUA",
       "draftWatermark": "DRAFT - ez da zerga-faktura",
-      "paymentTermsDays": "{days} egun"
+      "paymentTermsDays": "{days} egun",
+      "irn": "IRN",
+      "ackNo": "Aitorpen zk.",
+      "ackDate": "Aitorpen data",
+      "einvoiceCancelled": "E-FAKTURA EZEZTATUA"
     },
     "ui": {
       "pageEstimate": "gutxi gorabehera {count, plural, one {# orri} other {# orri}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Ez dago iragazki hauekin bat datorren fakturarik.",
       "count": "{count, plural, one {# faktura} other {# faktura}}",
       "countPaged": "{count, plural, one {# faktura} other {# faktura}} · {page}. orria, {pages} orritatik",
-      "register": "erregistroa"
+      "register": "erregistroa",
+      "einvoice": "E-faktura",
+      "einvoiceFilters": {
+        "registered": "IRN erregistratuta",
+        "none": "Erregistratu gabe",
+        "cancelled": "IRN ezeztatuta"
+      }
     },
     "new": {
       "noProfileTitle": "Sortu lehenik jaulkitzaile-profil bat",
@@ -1611,7 +1624,41 @@
       "version": "{version}. bertsioa",
       "sizeKb": "{size} KB",
       "verificationLink": "Egiaztapen-esteka:",
-      "draftPreviewHint": "Zirriborroen aurrebista zuzenean ikusten da editorean; ireki <link>ur-markadun PDFa</link> orria ikusteko."
+      "draftPreviewHint": "Zirriborroen aurrebista zuzenean ikusten da editorean; ireki <link>ur-markadun PDFa</link> orria ikusteko.",
+      "einvoice": {
+        "title": "E-faktura (India)",
+        "description": "Faktura hau Invoice Registration Portal-en erregistratzea; erregistratutako dokumentuak bere IRN eta atariaren QR sinatua inprimatzen ditu.",
+        "connector": "Konektorea",
+        "connectors": {
+          "manual": "Eskuz",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Profil honetarako ez dago konektorerik konfiguratuta Ezarpenak > E-fakturazioa atalean.",
+        "statuses": {
+          "none": "Erregistratu gabe",
+          "generated": "JSON sortuta",
+          "registered": "Erregistratuta",
+          "cancelled": "Ezeztatuta",
+          "failed": "Erregistroak huts egin du"
+        },
+        "irn": "IRN",
+        "ackNo": "Aitorpen zk.",
+        "ackDate": "Aitorpen data",
+        "cancelReason": "Ezeztapena",
+        "generate": "Sortu IRN",
+        "pasteLabel": "IRP erantzuna",
+        "pasteHint": "Itsatsi atariak edo zure GSP-k faktura honen e-fakturaren JSON-erako itzuli duen JSON-a (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Erregistratu IRN",
+        "cancelReasonLabel": "Ezeztapenaren arrazoia",
+        "cancelReasons": {
+          "1": "Bikoiztua",
+          "2": "Datuak sartzean egindako akatsa",
+          "3": "Eskaera ezeztatuta",
+          "4": "Besteak"
+        },
+        "cancel": "Ezeztatu IRN",
+        "cancelWindow": "Atariak aitorpenetik 24 orduko epean ezeztatzea onartzen du."
+      }
     },
     "history": {
       "metaTitle": "Fakturaren historia",
@@ -2078,6 +2125,9 @@
     "templateImported": "Txantiloia inportatuta",
     "profileTemplateCleared": "Profilak berriro instantziaren txantiloia erabiltzen du",
     "operatorSaved": "Operadorearen xehetasunak gordeta. Lege-orriek orain erakusten dituzte.",
-    "einvoiceSettingsSaved": "E-fakturazioaren ezarpenak gordeta"
+    "einvoiceSettingsSaved": "E-fakturazioaren ezarpenak gordeta",
+    "irnRegistered": "{irn} IRN erregistratuta; PDFa berarekin berriro sortu da",
+    "irnRecorded": "IRN erregistratuta; PDFa berarekin berriro sortu da",
+    "irnCancelled": "IRN ezeztatuta; PDFa berriro sortu da"
   }
 }

@@ -840,6 +840,9 @@
         "username": "Brûkersnamme",
         "password": "Wachtwurd",
         "gstin": "GSTIN",
+        "publicKey": "Iepenbiere IRP-kaai (PEM)",
+        "publicKeyHint": "Download him fan it portaal nei it oanmelden; hy ferpakt de gegevens dy’t nei de IRP stjoerd wurde.",
+        "publicKeyStored": "Bewarre; lit leech om him te hâlden.",
         "secretStored": "Fersifere opslein; lit leech om it te behâlden.",
         "secretEncrypted": "Fersifere opslein."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Belesting-ID",
       "void": "UNGELDICH",
       "draftWatermark": "KONSEPT - gjin belestingfaktuer",
-      "paymentTermsDays": "{days} dagen"
+      "paymentTermsDays": "{days} dagen",
+      "irn": "IRN",
+      "ackNo": "Erkenningsnr.",
+      "ackDate": "Erkenningsdatum",
+      "einvoiceCancelled": "E-FAKTUER ANNULEARRE"
     },
     "ui": {
       "pageEstimate": "sa’n {count, plural, one {# side} other {# siden}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Gjin faktueren passe by dizze filters.",
       "count": "{count, plural, one {# faktuer} other {# faktueren}}",
       "countPaged": "{count, plural, one {# faktuer} other {# faktueren}} · side {page} fan {pages}",
-      "register": "register"
+      "register": "register",
+      "einvoice": "E-faktuer",
+      "einvoiceFilters": {
+        "registered": "IRN registrearre",
+        "none": "Net registrearre",
+        "cancelled": "IRN annulearre"
+      }
     },
     "new": {
       "noProfileTitle": "Meitsje earst in útjouwerprofyl oan",
@@ -1611,7 +1624,41 @@
       "version": "Ferzje {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Kontrôlekeppeling:",
-      "draftPreviewHint": "Konsepten wurde live werjûn yn de bewurker; iepenje <link>de PDF mei wettermerk</link> om de side te sjen."
+      "draftPreviewHint": "Konsepten wurde live werjûn yn de bewurker; iepenje <link>de PDF mei wettermerk</link> om de side te sjen.",
+      "einvoice": {
+        "title": "E-faktuer (Yndia)",
+        "description": "Registraasje fan dizze faktuer by it Invoice Registration Portal; in registrearre dokumint printet syn IRN en de ûndertekene QR fan it portaal.",
+        "connector": "Keppeling",
+        "connectors": {
+          "manual": "Hânmjittich",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Foar dit profyl is gjin keppeling ynsteld ûnder Ynstellingen > E-fakturearring.",
+        "statuses": {
+          "none": "Net registrearre",
+          "generated": "JSON oanmakke",
+          "registered": "Registrearre",
+          "cancelled": "Annulearre",
+          "failed": "Registraasje mislearre"
+        },
+        "irn": "IRN",
+        "ackNo": "Erkenningsnr.",
+        "ackDate": "Erkenningsdatum",
+        "cancelReason": "Annulearring",
+        "generate": "IRN oanmeitsje",
+        "pasteLabel": "IRP-antwurd",
+        "pasteHint": "Plak de JSON dy’t it portaal of jo GSP weromjûn hat foar de e-faktuer-JSON fan dizze faktuer (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN fêstlizze",
+        "cancelReasonLabel": "Reden foar annulearring",
+        "cancelReasons": {
+          "1": "Dûbel",
+          "2": "Ynfierflater",
+          "3": "Bestelling annulearre",
+          "4": "Oars"
+        },
+        "cancel": "IRN annulearje",
+        "cancelWindow": "It portaal lit annulearring ta binnen 24 oeren nei de erkenning."
+      }
     },
     "history": {
       "metaTitle": "Faktuerskiednis",
@@ -2078,6 +2125,9 @@
     "templateImported": "Sjabloan ymportearre",
     "profileTemplateCleared": "Profyl brûkt it ynstânsjesjabloan wer",
     "operatorSaved": "Gegevens eksploitant opslein. De juridyske siden litte se no sjen.",
-    "einvoiceSettingsSaved": "E-fakturearringsynstellingen opslein"
+    "einvoiceSettingsSaved": "E-fakturearringsynstellingen opslein",
+    "irnRegistered": "IRN {irn} registrearre; de PDF is opnij makke mei it IRN",
+    "irnRecorded": "IRN fêstlein; de PDF is opnij makke mei it IRN",
+    "irnCancelled": "IRN annulearre; de PDF is opnij makke"
   }
 }

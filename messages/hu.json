@@ -840,6 +840,9 @@
         "username": "Felhasználónév",
         "password": "Jelszó",
         "gstin": "GSTIN",
+        "publicKey": "IRP nyilvános kulcs (PEM)",
+        "publicKeyHint": "Bejelentkezés után töltse le a portálról; ez védi az IRP-nek küldött hitelesítő adatokat.",
+        "publicKeyStored": "Mentve; hagyja üresen a megtartásához.",
         "secretStored": "Titkosítva tárolva; hagyja üresen a megtartásához.",
         "secretEncrypted": "Titkosítva tárolva."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Adóazonosító",
       "void": "ÉRVÉNYTELEN",
       "draftWatermark": "VÁZLAT - nem ÁFÁS számla",
-      "paymentTermsDays": "{days} nap"
+      "paymentTermsDays": "{days} nap",
+      "irn": "IRN",
+      "ackNo": "Visszaigazolás sz.",
+      "ackDate": "Visszaigazolás dátuma",
+      "einvoiceCancelled": "E-SZÁMLA SZTORNÓZVA"
     },
     "ui": {
       "pageEstimate": "kb. {count, plural, one {# oldal} other {# oldal}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Egyetlen számla sem felel meg ezeknek a szűrőknek.",
       "count": "{count, plural, one {# számla} other {# számla}}",
       "countPaged": "{count, plural, one {# számla} other {# számla}} · {page}. oldal / {pages}",
-      "register": "nyilvántartás"
+      "register": "nyilvántartás",
+      "einvoice": "E-számla",
+      "einvoiceFilters": {
+        "registered": "IRN regisztrálva",
+        "none": "Nincs regisztrálva",
+        "cancelled": "IRN sztornózva"
+      }
     },
     "new": {
       "noProfileTitle": "Először hozzon létre egy kiállítói profilt",
@@ -1611,7 +1624,41 @@
       "version": "{version}. verzió",
       "sizeKb": "{size} KB",
       "verificationLink": "Ellenőrző hivatkozás:",
-      "draftPreviewHint": "A piszkozatok előnézete élőben látható a szerkesztőben; az oldal megtekintéséhez nyissa meg a <link>vízjeles PDF-et</link>."
+      "draftPreviewHint": "A piszkozatok előnézete élőben látható a szerkesztőben; az oldal megtekintéséhez nyissa meg a <link>vízjeles PDF-et</link>.",
+      "einvoice": {
+        "title": "E-számla (India)",
+        "description": "A számla regisztrálása az Invoice Registration Portalon; a regisztrált dokumentum az IRN-jével és a portál aláírt QR-kódjával kerül nyomtatásra.",
+        "connector": "Összekötő",
+        "connectors": {
+          "manual": "Kézi",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Ehhez a profilhoz nincs összekötő beállítva a Beállítások > E-számlázás menüben.",
+        "statuses": {
+          "none": "Nincs regisztrálva",
+          "generated": "JSON létrehozva",
+          "registered": "Regisztrálva",
+          "cancelled": "Sztornózva",
+          "failed": "A regisztráció sikertelen"
+        },
+        "irn": "IRN",
+        "ackNo": "Visszaigazolás sz.",
+        "ackDate": "Visszaigazolás dátuma",
+        "cancelReason": "Sztornózás",
+        "generate": "IRN generálása",
+        "pasteLabel": "IRP-válasz",
+        "pasteHint": "Illessze be a portál vagy a GSP által a számla e-számla JSON-jához visszaadott JSON-t (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN rögzítése",
+        "cancelReasonLabel": "Sztornózás oka",
+        "cancelReasons": {
+          "1": "Duplikátum",
+          "2": "Adatbeviteli hiba",
+          "3": "Megrendelés lemondva",
+          "4": "Egyéb"
+        },
+        "cancel": "IRN sztornózása",
+        "cancelWindow": "A portál a visszaigazolástól számított 24 órán belül engedi a sztornózást."
+      }
     },
     "history": {
       "metaTitle": "Számla előzményei",
@@ -2078,6 +2125,9 @@
     "templateImported": "Sablon importálva",
     "profileTemplateCleared": "A profil újra a példány sablonját használja",
     "operatorSaved": "Üzemeltetői adatok mentve. A jogi oldalak most már ezeket mutatják.",
-    "einvoiceSettingsSaved": "E-számlázási beállítások mentve"
+    "einvoiceSettingsSaved": "E-számlázási beállítások mentve",
+    "irnRegistered": "IRN {irn} regisztrálva; a PDF újra létrejött vele",
+    "irnRecorded": "IRN rögzítve; a PDF újra létrejött vele",
+    "irnCancelled": "IRN sztornózva; a PDF újra létrejött"
   }
 }

@@ -840,6 +840,9 @@
         "username": "Brugernavn",
         "password": "Adgangskode",
         "gstin": "GSTIN",
+        "publicKey": "IRP-offentlig nøgle (PEM)",
+        "publicKeyHint": "Download den fra portalen, når du er logget ind; den omslutter de legitimationsoplysninger, der sendes til IRP.",
+        "publicKeyStored": "Gemt; lad feltet stå tomt for at beholde den.",
         "secretStored": "Gemt krypteret; lad feltet stå tomt for at beholde den.",
         "secretEncrypted": "Gemt krypteret i hvile."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Skatte-ID",
       "void": "ANNULLERET",
       "draftWatermark": "KLADDE - ikke en momsfaktura",
-      "paymentTermsDays": "{days} dage"
+      "paymentTermsDays": "{days} dage",
+      "irn": "IRN",
+      "ackNo": "Bekræftelsesnr.",
+      "ackDate": "Bekræftelsesdato",
+      "einvoiceCancelled": "E-FAKTURA ANNULLERET"
     },
     "ui": {
       "pageEstimate": "ca. {count, plural, one {# side} other {# sider}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Ingen fakturaer matcher disse filtre.",
       "count": "{count, plural, one {# faktura} other {# fakturaer}}",
       "countPaged": "{count, plural, one {# faktura} other {# fakturaer}} · side {page} af {pages}",
-      "register": "register"
+      "register": "register",
+      "einvoice": "E-faktura",
+      "einvoiceFilters": {
+        "registered": "IRN registreret",
+        "none": "Ikke registreret",
+        "cancelled": "IRN annulleret"
+      }
     },
     "new": {
       "noProfileTitle": "Opret først en udstederprofil",
@@ -1611,7 +1624,41 @@
       "version": "Version {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Bekræftelseslink:",
-      "draftPreviewHint": "Kladder vises live i editoren; åbn <link>PDF’en med vandmærke</link> for at se siden."
+      "draftPreviewHint": "Kladder vises live i editoren; åbn <link>PDF’en med vandmærke</link> for at se siden.",
+      "einvoice": {
+        "title": "E-faktura (Indien)",
+        "description": "Registrering af denne faktura på Invoice Registration Portal; et registreret dokument udskriver sit IRN og portalens signerede QR-kode.",
+        "connector": "Forbindelse",
+        "connectors": {
+          "manual": "Manuel",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Der er ikke konfigureret nogen forbindelse for denne profil under Indstillinger > E-fakturering.",
+        "statuses": {
+          "none": "Ikke registreret",
+          "generated": "JSON genereret",
+          "registered": "Registreret",
+          "cancelled": "Annulleret",
+          "failed": "Registrering mislykkedes"
+        },
+        "irn": "IRN",
+        "ackNo": "Bekræftelsesnr.",
+        "ackDate": "Bekræftelsesdato",
+        "cancelReason": "Annullering",
+        "generate": "Generér IRN",
+        "pasteLabel": "IRP-svar",
+        "pasteHint": "Indsæt den JSON, som portalen eller din GSP returnerede for e-faktura-JSON’en til denne faktura (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Registrér IRN",
+        "cancelReasonLabel": "Årsag til annullering",
+        "cancelReasons": {
+          "1": "Dublet",
+          "2": "Indtastningsfejl",
+          "3": "Ordre annulleret",
+          "4": "Andet"
+        },
+        "cancel": "Annullér IRN",
+        "cancelWindow": "Portalen tillader annullering inden for 24 timer efter bekræftelsen."
+      }
     },
     "history": {
       "metaTitle": "Fakturahistorik",
@@ -2078,6 +2125,9 @@
     "templateImported": "Skabelon importeret",
     "profileTemplateCleared": "Profilen bruger igen instansskabelonen",
     "operatorSaved": "Operatøroplysninger gemt. De juridiske sider viser dem nu.",
-    "einvoiceSettingsSaved": "Indstillinger for e-fakturering gemt"
+    "einvoiceSettingsSaved": "Indstillinger for e-fakturering gemt",
+    "irnRegistered": "IRN {irn} registreret; PDF’en blev genereret igen med det",
+    "irnRecorded": "IRN registreret; PDF’en blev genereret igen med det",
+    "irnCancelled": "IRN annulleret; PDF’en blev genereret igen"
   }
 }

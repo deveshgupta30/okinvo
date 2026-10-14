@@ -840,6 +840,9 @@
         "username": "Anv implijer",
         "password": "Ger-tremen",
         "gstin": "GSTIN",
+        "publicKey": "Alc’hwez foran an IRP (PEM)",
+        "publicKeyHint": "Pellgargit anezhi diouzh al lec’hienn goude bezañ kevreet; he c’hrogañ a ra an titouroù-kevreañ a gaser d’an IRP.",
+        "publicKeyStored": "Enrollet; leit goullo evit miret anezhi.",
         "secretStored": "Enrollet kuzhet; leuskel goullo evit e virout.",
         "secretEncrypted": "Enrollet kuzhet."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID tailhañ",
       "void": "NULLET",
       "draftWatermark": "BRASKEUDENN - n’eo ket ur faktur tailhañ",
-      "paymentTermsDays": "{days} devezh"
+      "paymentTermsDays": "{days} devezh",
+      "irn": "IRN",
+      "ackNo": "Niv. kadarnaat",
+      "ackDate": "Deiziad kadarnaat",
+      "einvoiceCancelled": "E-FAKTURENN NULLET"
     },
     "ui": {
       "pageEstimate": "tost da {count, plural, other {# pajenn}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Fakturenn ebet ne glot gant ar siloù-mañ.",
       "count": "{count, plural, other {# fakturenn}}",
       "countPaged": "{count, plural, other {# fakturenn}} · pajenn {page} diwar {pages}",
-      "register": "rol"
+      "register": "rol",
+      "einvoice": "E-fakturenn",
+      "einvoiceFilters": {
+        "registered": "IRN enrollet",
+        "none": "N’eo ket enrollet",
+        "cancelled": "IRN nullet"
+      }
     },
     "new": {
       "noProfileTitle": "Krouit ur profil embanner da gentañ",
@@ -1611,7 +1624,41 @@
       "version": "Stumm {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Liamm gwiriañ:",
-      "draftPreviewHint": "Rakwelet e vez ar brouilhedoù war-eeun er skriver; digorit <link>ar PDF gant an dourenn</link> evit gwelet ar bajenn."
+      "draftPreviewHint": "Rakwelet e vez ar brouilhedoù war-eeun er skriver; digorit <link>ar PDF gant an dourenn</link> evit gwelet ar bajenn.",
+      "einvoice": {
+        "title": "E-fakturenn (India)",
+        "description": "Enrolladur ar fakturenn-mañ el lec’hienn Invoice Registration Portal; un teul enrollet a voull e IRN hag QR sinet al lec’hienn.",
+        "connector": "Kenstrollad",
+        "connectors": {
+          "manual": "Dornel",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Kenstrollad ebet n’eo bet kefluniet evit ar profil-mañ e Arventennoù > E-fakturenn.",
+        "statuses": {
+          "none": "N’eo ket enrollet",
+          "generated": "JSON ganet",
+          "registered": "Enrollet",
+          "cancelled": "Nullet",
+          "failed": "C’hwitet eo an enrolladur"
+        },
+        "irn": "IRN",
+        "ackNo": "Niv. kadarnaat",
+        "ackDate": "Deiziad kadarnaat",
+        "cancelReason": "Nullañ",
+        "generate": "Genel un IRN",
+        "pasteLabel": "Respont an IRP",
+        "pasteHint": "Pegit ar JSON adkaset gant al lec’hienn pe ho GSP evit JSON e-fakturenn ar fakturenn-mañ (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Enrollañ an IRN",
+        "cancelReasonLabel": "Abeg an nullañ",
+        "cancelReasons": {
+          "1": "Eilad",
+          "2": "Fazi enkadañ roadennoù",
+          "3": "Urzh nullet",
+          "4": "Re all"
+        },
+        "cancel": "Nullañ an IRN",
+        "cancelWindow": "Al lec’hienn a aotre an nullañ e-pad 24 eurvezh goude ar c’hadarnaat."
+      }
     },
     "history": {
       "metaTitle": "Istor ar fakturenn",
@@ -2078,6 +2125,9 @@
     "templateImported": "Patrom enporzhiet",
     "profileTemplateCleared": "Ar profil a implij patrom an doare en-dro",
     "operatorSaved": "Titouroù an oberataer enrollet. Diskouez a ra ar pajennoù lezennel anezho bremañ.",
-    "einvoiceSettingsSaved": "Arventennoù an e-fakturenn enrollet"
+    "einvoiceSettingsSaved": "Arventennoù an e-fakturenn enrollet",
+    "irnRegistered": "IRN {irn} enrollet; adgeneret eo bet ar PDF ganti",
+    "irnRecorded": "IRN enrollet; adgeneret eo bet ar PDF ganti",
+    "irnCancelled": "IRN nullet; adgeneret eo bet ar PDF"
   }
 }

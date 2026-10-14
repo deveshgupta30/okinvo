@@ -840,6 +840,9 @@
         "username": "Nom d’utilisateur",
         "password": "Mot de passe",
         "gstin": "GSTIN",
+        "publicKey": "Clé publique de l’IRP (PEM)",
+        "publicKeyHint": "Téléchargez-la depuis le portail après connexion ; elle chiffre les identifiants envoyés à l’IRP.",
+        "publicKeyStored": "Enregistrée ; laissez vide pour la conserver.",
         "secretStored": "Stocké chiffré; laissez vide pour le conserver.",
         "secretEncrypted": "Stocké chiffré au repos."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Identifiant fiscal",
       "void": "ANNULÉE",
       "draftWatermark": "BROUILLON - n’est pas une facture fiscale",
-      "paymentTermsDays": "{days} jours"
+      "paymentTermsDays": "{days} jours",
+      "irn": "IRN",
+      "ackNo": "N° d’accusé",
+      "ackDate": "Date d’accusé",
+      "einvoiceCancelled": "FACTURE ÉLECTRONIQUE ANNULÉE"
     },
     "ui": {
       "pageEstimate": "env. {count, plural, one {# page} other {# pages}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Aucune facture ne correspond à ces filtres.",
       "count": "{count, plural, one {# facture} other {# factures}}",
       "countPaged": "{count, plural, one {# facture} other {# factures}} · page {page} sur {pages}",
-      "register": "registre"
+      "register": "registre",
+      "einvoice": "Facture électronique",
+      "einvoiceFilters": {
+        "registered": "IRN enregistré",
+        "none": "Non enregistrée",
+        "cancelled": "IRN annulé"
+      }
     },
     "new": {
       "noProfileTitle": "Créez d’abord un profil émetteur",
@@ -1611,7 +1624,41 @@
       "version": "Version {version}",
       "sizeKb": "{size} Ko",
       "verificationLink": "Lien de vérification :",
-      "draftPreviewHint": "L’aperçu des brouillons s’affiche en direct dans l’éditeur ; ouvrez <link>le PDF filigrané</link> pour voir la page."
+      "draftPreviewHint": "L’aperçu des brouillons s’affiche en direct dans l’éditeur ; ouvrez <link>le PDF filigrané</link> pour voir la page.",
+      "einvoice": {
+        "title": "Facture électronique (Inde)",
+        "description": "Enregistrement de cette facture auprès de l’Invoice Registration Portal ; un document enregistré imprime son IRN et le QR signé du portail.",
+        "connector": "Connecteur",
+        "connectors": {
+          "manual": "Manuel",
+          "nic": "API NIC IRP"
+        },
+        "notConfigured": "Aucun connecteur n’est configuré pour ce profil dans Paramètres > Facturation électronique.",
+        "statuses": {
+          "none": "Non enregistrée",
+          "generated": "JSON généré",
+          "registered": "Enregistrée",
+          "cancelled": "Annulée",
+          "failed": "Échec de l’enregistrement"
+        },
+        "irn": "IRN",
+        "ackNo": "N° d’accusé",
+        "ackDate": "Date d’accusé",
+        "cancelReason": "Annulation",
+        "generate": "Générer l’IRN",
+        "pasteLabel": "Réponse de l’IRP",
+        "pasteHint": "Collez le JSON renvoyé par le portail ou votre GSP pour le JSON de facture électronique de cette facture (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Enregistrer l’IRN",
+        "cancelReasonLabel": "Motif d’annulation",
+        "cancelReasons": {
+          "1": "Doublon",
+          "2": "Erreur de saisie",
+          "3": "Commande annulée",
+          "4": "Autres"
+        },
+        "cancel": "Annuler l’IRN",
+        "cancelWindow": "Le portail autorise une annulation dans les 24 heures suivant l’accusé de réception."
+      }
     },
     "history": {
       "metaTitle": "Historique de la facture",
@@ -2078,6 +2125,9 @@
     "templateImported": "Modèle importé",
     "profileTemplateCleared": "Le profil utilise de nouveau le modèle de l’instance",
     "operatorSaved": "Informations de l’exploitant enregistrées. Les pages légales les affichent désormais.",
-    "einvoiceSettingsSaved": "Paramètres de facturation électronique enregistrés"
+    "einvoiceSettingsSaved": "Paramètres de facturation électronique enregistrés",
+    "irnRegistered": "IRN {irn} enregistré ; le PDF a été régénéré avec celui-ci",
+    "irnRecorded": "IRN enregistré ; le PDF a été régénéré avec celui-ci",
+    "irnCancelled": "IRN annulé ; le PDF a été régénéré"
   }
 }

@@ -840,6 +840,9 @@
         "username": "Username",
         "password": "Password",
         "gstin": "GSTIN",
+        "publicKey": "ⴰⵙⵖⵓⵏ ⴰⵎⴰⵜⵜⴰⵢ ⵏ IRP (PEM)",
+        "publicKeyHint": "ⵙⵙⵓⴼⵖ-ⵜ ⵙⴳ ⵓⴱⵓⵔⵟⴰⵍ ⴷⴼⴼⵉⵔ ⵓⵙⵙⵓⴼⵖ; ⵜⵙⵙⵓⴼⵍ ⵉⵙⵎⴹⴰⵏ ⵉⵜⵜⵓⵣⵏⵏ ⵉ IRP.",
+        "publicKeyStored": "ⵉⵜⵜⵓⵙⵙⴽⵍ; ⵊⵊ-ⵜ ⵉⴼⴰⴷⴷⵏ ⴰⴼⴰⵏ ⴰⴷ ⵜⵜⵓⵙⵙⴽⵍ.",
         "secretStored": "Stored encrypted; leave blank to keep it.",
         "secretEncrypted": "Stored encrypted at rest."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ⴰⵙⵙⵉⵍⴰⵏ ⵏ ⵜⴹⴰⵔⵉⴱⵜ",
       "void": "ⵉⵜⵜⵓⵙⵔⵙ",
       "draftWatermark": "ⴰⵙⵖⵉⵍ - ⵓⵔ ⵉⵍⵍⵉ ⴼⴰⵜⵓⵔⴰ ⵏ ⵜⴹⴰⵔⵉⴱⵜ",
-      "paymentTermsDays": "{days} days"
+      "paymentTermsDays": "{days} days",
+      "irn": "IRN",
+      "ackNo": "ⵓⵟⵟⵓⵏ ⵏ ⵉⵙⵜⵉⵍⴰⵎ",
+      "ackDate": "ⵜⴰⵔⵉⵅ ⵏ ⵉⵙⵜⵉⵍⴰⵎ",
+      "einvoiceCancelled": "ⴼⴰⵜⵓⵔⴰ ⵜⴰⵍⵉⴽⵜⵕⵓⵏⵉⵜ ⵜⵜⵓⵙⵙⵍⵖⵉ"
     },
     "ui": {
       "pageEstimate": "approx. {count, plural, one {# page} other {# pages}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "No invoices match these filters.",
       "count": "{count, plural, one {# invoice} other {# invoices}}",
       "countPaged": "{count, plural, one {# invoice} other {# invoices}} · page {page} of {pages}",
-      "register": "register"
+      "register": "register",
+      "einvoice": "ⴼⴰⵜⵓⵔⴰ ⵜⴰⵍⵉⴽⵜⵕⵓⵏⵉⵜ",
+      "einvoiceFilters": {
+        "registered": "IRN ⵉⵜⵜⵓⵙⵙⵊⵉⵍⵏ",
+        "none": "ⵓⵔ ⵉⵜⵜⵓⵙⵙⵊⵉⵍ",
+        "cancelled": "IRN ⵉⵜⵜⵓⵙⵙⵍⵖⵉⵏ"
+      }
     },
     "new": {
       "noProfileTitle": "Create an issuer profile first",
@@ -1611,7 +1624,41 @@
       "version": "Version {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Verification link:",
-      "draftPreviewHint": "Drafts preview live in the editor; open <link>the watermarked PDF</link> to see the page."
+      "draftPreviewHint": "Drafts preview live in the editor; open <link>the watermarked PDF</link> to see the page.",
+      "einvoice": {
+        "title": "ⴼⴰⵜⵓⵔⴰ ⵜⴰⵍⵉⴽⵜⵕⵓⵏⵉⵜ (ⵍⵀⵏⴷ)",
+        "description": "ⴰⵙⵙⵊⵉⵍ ⵏ ⵜⴼⴰⵜⵓⵔⴰ ⵜⴰ ⴳ ⵓⴱⵓⵔⵟⴰⵍ ⵏ ⵓⵙⵙⵊⵉⵍ ⵏ ⵜⴼⴰⵜⵓⵔⵉⵏ; ⵓⵙⵏⴼⵍ ⵉⵜⵜⵓⵙⵙⵊⵉⵍⵏ ⵉⵜⵜⵓⵙⵜⵓⴼⵜ IRN ⵏⵏⵙ ⴷ QR ⵉⵜⵜⵓⵙⵖⴰⵍ ⵏ ⵓⴱⵓⵔⵟⴰⵍ.",
+        "connector": "ⴰⵔⴱⴰⵟ",
+        "connectors": {
+          "manual": "ⵢⴰⴷⵡⵉ",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "ⵓⵔ ⵍⵍⵉⵏ ⴰⵔⴱⴰⵟ ⵉⵜⵜⵓⵙⵙⵎⵔⵙⵏ ⵉ ⵓⵏⵙⴰⵖ ⴰ ⴳ Settings > E-invoicing.",
+        "statuses": {
+          "none": "ⵓⵔ ⵉⵜⵜⵓⵙⵙⵊⵉⵍ",
+          "generated": "JSON ⵉⵜⵜⵓⵙⴽⵔ",
+          "registered": "ⵉⵜⵜⵓⵙⵙⵊⵉⵍ",
+          "cancelled": "ⵉⵜⵜⵓⵙⵙⵍⵖⵉ",
+          "failed": "ⴰⵙⵙⵊⵉⵍ ⵓⵔ ⵉⵙⵏⵍⵍⵉ"
+        },
+        "irn": "IRN",
+        "ackNo": "ⵓⵟⵟⵓⵏ ⵏ ⵉⵙⵜⵉⵍⴰⵎ",
+        "ackDate": "ⵜⴰⵔⵉⵅ ⵏ ⵉⵙⵜⵉⵍⴰⵎ",
+        "cancelReason": "ⴰⵙⵙⵍⵖⵉ",
+        "generate": "ⵙⴽⵔ IRN",
+        "pasteLabel": "ⴰⵔⵣⵣⵓ ⵏ IRP",
+        "pasteHint": "ⵙⵙⵓⴷⵎ JSON ⵉⵙⵙⴼⵍⵍⵉⵏ ⵓⴱⵓⵔⵟⴰⵍ ⵏⵖ GSP ⵏⵏⴽ ⵉ JSON ⵏ ⵜⴼⴰⵜⵓⵔⴰ ⵜⴰⵍⵉⴽⵜⵕⵓⵏⵉⵜ ⵏ ⵜⴼⴰⵜⵓⵔⴰ ⵜⴰ (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "ⵙⵙⵊⵉⵍ IRN",
+        "cancelReasonLabel": "ⴰⵙⴱⴱⴰⴱ ⵏ ⵓⵙⵙⵍⵖⵉ",
+        "cancelReasons": {
+          "1": "ⵜⵓⵔⴰⵔⵉ",
+          "2": "ⴰⵣⵎⵎⵓⵎ ⴳ ⵓⵙⵎⴹⴼⵉ ⵏ ⵉⵙⴼⴽⴰ",
+          "3": "ⴰⵙⵙⵡⵓⵔ ⵉⵜⵜⵓⵙⵙⵍⵖⵉ",
+          "4": "ⵢⴰⵏ ⴰⵏⵏⴰⵜ"
+        },
+        "cancel": "ⵙⵙⵍⵖⵉ IRN",
+        "cancelWindow": "ⴰⴱⵓⵔⵟⴰⵍ ⵉⵙⵙⵓⴼⵖ ⴰⵙⵙⵍⵖⵉ ⴳ 24 ⵏ ⵜⵙⴰⵄⵉⵏ ⴷⴼⴼⵉⵔ ⵉⵙⵜⵉⵍⴰⵎ."
+      }
     },
     "history": {
       "metaTitle": "Invoice history",
@@ -2078,6 +2125,9 @@
     "templateImported": "Template imported",
     "profileTemplateCleared": "Profile uses the instance template again",
     "operatorSaved": "Operator details saved. The legal pages now show them.",
-    "einvoiceSettingsSaved": "E-invoicing settings saved"
+    "einvoiceSettingsSaved": "E-invoicing settings saved",
+    "irnRegistered": "IRN {irn} ⵉⵜⵜⵓⵙⵙⵊⵉⵍ; PDF ⵉⵜⵜⵓⵙⴽⵔ ⴷⵉⴳⵙ ⵜⵎⵙⵙⵓⵍⵜ",
+    "irnRecorded": "IRN ⵉⵜⵜⵓⵙⵙⴽⵍ; PDF ⵉⵜⵜⵓⵙⴽⵔ ⴷⵉⴳⵙ ⵜⵎⵙⵙⵓⵍⵜ",
+    "irnCancelled": "IRN ⵉⵜⵜⵓⵙⵙⵍⵖⵉ; PDF ⵉⵜⵜⵓⵙⴽⵔ ⵜⵎⵙⵙⵓⵍⵜ"
   }
 }

@@ -840,6 +840,9 @@
         "username": "Ainm úsáideora",
         "password": "Pasfhocal",
         "gstin": "GSTIN",
+        "publicKey": "Eochair phoiblí IRP (PEM)",
+        "publicKeyHint": "Íoslódáil ón tsolas í tar éis duit síniú isteach; clúdaíonn sí na dintiúir a sheoltar chuig an IRP.",
+        "publicKeyStored": "Stóráilte; fág bán é chun é a choinneáil.",
         "secretStored": "Stóráilte criptithe; fág bán chun é a choinneáil.",
         "secretEncrypted": "Stóráilte criptithe i stad."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Aitheantas cánach",
       "void": "NEAMHBHAILÍ",
       "draftWatermark": "DRÉACHT - ní sonraisc cánach é",
-      "paymentTermsDays": "{days} lá"
+      "paymentTermsDays": "{days} lá",
+      "irn": "IRN",
+      "ackNo": "Uimh. admhála",
+      "ackDate": "Dáta admhála",
+      "einvoiceCancelled": "E-SONRAISC CEALAITHE"
     },
     "ui": {
       "pageEstimate": "thart ar {count, plural, one {# leathanach} two {# leathanach} few {# leathanaigh} many {# leathanach} other {# leathanach}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Níl aon sonraisc ag teacht leis na scagairí seo.",
       "count": "{count, plural, one {# sonraisc} two {# sonraisc} few {# sonraisc} many {# sonraisc} other {# sonraisc}}",
       "countPaged": "{count, plural, one {# sonraisc} two {# sonraisc} few {# sonraisc} many {# sonraisc} other {# sonraisc}} · leathanach {page} de {pages}",
-      "register": "clár"
+      "register": "clár",
+      "einvoice": "E-sonraisc",
+      "einvoiceFilters": {
+        "registered": "IRN cláraithe",
+        "none": "Gan cláriú",
+        "cancelled": "IRN cealaithe"
+      }
     },
     "new": {
       "noProfileTitle": "Cruthaigh próifíl eisitheora ar dtús",
@@ -1611,7 +1624,41 @@
       "version": "Leagan {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Nasc fíorúcháin:",
-      "draftPreviewHint": "Déantar réamhamharc ar dhréachtaí beo san eagarthóir; oscail <link>an PDF le comhartha uisce</link> chun an leathanach a fheiceáil."
+      "draftPreviewHint": "Déantar réamhamharc ar dhréachtaí beo san eagarthóir; oscail <link>an PDF le comhartha uisce</link> chun an leathanach a fheiceáil.",
+      "einvoice": {
+        "title": "E-sonraisc (an Ind)",
+        "description": "Clárú an tsonraisc seo leis an Invoice Registration Portal; priontálann doiciméad cláraithe a IRN agus cód QR sínithe an tsolais.",
+        "connector": "Nascóir",
+        "connectors": {
+          "manual": "De láimh",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Níl nascóir ar bith cumraithe don phróifíl seo faoi Socruithe > E-sonrascú.",
+        "statuses": {
+          "none": "Gan cláriú",
+          "generated": "JSON ginte",
+          "registered": "Cláraithe",
+          "cancelled": "Cealaithe",
+          "failed": "Theip ar an gclárú"
+        },
+        "irn": "IRN",
+        "ackNo": "Uimh. admhála",
+        "ackDate": "Dáta admhála",
+        "cancelReason": "Cealú",
+        "generate": "Gin IRN",
+        "pasteLabel": "Freagra IRP",
+        "pasteHint": "Greamaigh an JSON a d’fhill an tsoláthar nó do GSP le haghaidh JSON e-sonraisc an tsonraisc seo (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Taifead IRN",
+        "cancelReasonLabel": "Cúis an chealaithe",
+        "cancelReasons": {
+          "1": "Dúblach",
+          "2": "Botún ionchuir sonraí",
+          "3": "Ordú cealaithe",
+          "4": "Eile"
+        },
+        "cancel": "Cealaigh IRN",
+        "cancelWindow": "Ceadaíonn an tsolas cealú laistigh de 24 uair an chloig ón admháil."
+      }
     },
     "history": {
       "metaTitle": "Stair an tsonraisc",
@@ -2078,6 +2125,9 @@
     "templateImported": "Iompórtáladh an teimpléad",
     "profileTemplateCleared": "Úsáideann an phróifíl teimpléad an cháis arís",
     "operatorSaved": "Sábháladh sonraí an oibreora. Taispeánann na leathanaigh dhlíthiúla anois iad.",
-    "einvoiceSettingsSaved": "Sábháladh socruithe an e-sonrascaithe"
+    "einvoiceSettingsSaved": "Sábháladh socruithe an e-sonrascaithe",
+    "irnRegistered": "IRN {irn} cláraithe; athghintear an PDF leis",
+    "irnRecorded": "IRN taifeadta; athghintear an PDF leis",
+    "irnCancelled": "IRN cealaithe; athghintear an PDF"
   }
 }

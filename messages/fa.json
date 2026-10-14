@@ -840,6 +840,9 @@
         "username": "نام کاربری",
         "password": "گذرواژه",
         "gstin": "GSTIN",
+        "publicKey": "کلید عمومی IRP (PEM)",
+        "publicKeyHint": "پس از ورود، آن را از پورتال دانلود کنید؛ اطلاعات هویتی ارسالی به IRP را رمزگذاری می‌کند.",
+        "publicKeyStored": "ذخیره شد؛ برای حفظ آن خالی بگذارید.",
         "secretStored": "رمزگذاری‌شده ذخیره شده است؛ برای حفظ آن خالی بگذارید.",
         "secretEncrypted": "رمزگذاری‌شده ذخیره می‌شود."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "شناسه مالیاتی",
       "void": "باطل",
       "draftWatermark": "پیش‌نویس - فاکتور مالیاتی نیست",
-      "paymentTermsDays": "{days} روز"
+      "paymentTermsDays": "{days} روز",
+      "irn": "IRN",
+      "ackNo": "شماره تأییدیه",
+      "ackDate": "تاریخ تأییدیه",
+      "einvoiceCancelled": "فاکتور الکترونیکی ابطال شد"
     },
     "ui": {
       "pageEstimate": "حدود {count, plural, one {# صفحه} other {# صفحه}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "هیچ فاکتوری با این فیلترها مطابقت ندارد.",
       "count": "{count, plural, one {# فاکتور} other {# فاکتور}}",
       "countPaged": "{count, plural, one {# فاکتور} other {# فاکتور}} · صفحه {page} از {pages}",
-      "register": "دفتر"
+      "register": "دفتر",
+      "einvoice": "فاکتور الکترونیکی",
+      "einvoiceFilters": {
+        "registered": "IRN ثبت شده",
+        "none": "ثبت نشده",
+        "cancelled": "IRN ابطال شده"
+      }
     },
     "new": {
       "noProfileTitle": "ابتدا یک نمایه صادرکننده بسازید",
@@ -1611,7 +1624,41 @@
       "version": "نسخه {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "پیوند تأیید:",
-      "draftPreviewHint": "پیش‌نمایش پیش‌نویس‌ها به‌صورت زنده در ویرایشگر نشان داده می‌شود؛ برای دیدن صفحه، <link>PDF واترمارک‌دار</link> را باز کنید."
+      "draftPreviewHint": "پیش‌نمایش پیش‌نویس‌ها به‌صورت زنده در ویرایشگر نشان داده می‌شود؛ برای دیدن صفحه، <link>PDF واترمارک‌دار</link> را باز کنید.",
+      "einvoice": {
+        "title": "فاکتور الکترونیکی (هند)",
+        "description": "ثبت این فاکتور در پورتال ثبت فاکتور (Invoice Registration Portal)؛ سند ثبت‌شده همراه با IRN و کد QR امضاشده پورتال چاپ می‌شود.",
+        "connector": "رابط",
+        "connectors": {
+          "manual": "دستی",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "برای این نمایه رابطی پیکربندی نشده است: تنظیمات > فاکتور الکترونیکی.",
+        "statuses": {
+          "none": "ثبت نشده",
+          "generated": "JSON ساخته شد",
+          "registered": "ثبت شده",
+          "cancelled": "ابطال شده",
+          "failed": "ثبت ناموفق بود"
+        },
+        "irn": "IRN",
+        "ackNo": "شماره تأییدیه",
+        "ackDate": "تاریخ تأییدیه",
+        "cancelReason": "ابطال",
+        "generate": "ساخت IRN",
+        "pasteLabel": "پاسخ IRP",
+        "pasteHint": "JSON بازگردانده‌شده توسط پورتال یا GSP خود را برای JSON فاکتور الکترونیکی این فاکتور جای‌گذاری کنید (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "ثبت IRN",
+        "cancelReasonLabel": "دلیل ابطال",
+        "cancelReasons": {
+          "1": "تکراری",
+          "2": "اشتباه در ورود داده",
+          "3": "سفارش لغو شد",
+          "4": "سایر"
+        },
+        "cancel": "ابطال IRN",
+        "cancelWindow": "پورتال ابطال را تا 24 ساعت پس از تأییدیه مجاز می‌داند."
+      }
     },
     "history": {
       "metaTitle": "تاریخچه فاکتور",
@@ -2078,6 +2125,9 @@
     "templateImported": "قالب درون‌ریزی شد",
     "profileTemplateCleared": "نمایه دوباره از قالب نمونه استفاده می‌کند",
     "operatorSaved": "جزئیات بهره‌بردار ذخیره شد. صفحه‌های حقوقی اکنون آن‌ها را نشان می‌دهند.",
-    "einvoiceSettingsSaved": "تنظیمات فاکتور الکترونیکی ذخیره شد"
+    "einvoiceSettingsSaved": "تنظیمات فاکتور الکترونیکی ذخیره شد",
+    "irnRegistered": "IRN {irn} ثبت شد؛ PDF با آن دوباره ساخته شد",
+    "irnRecorded": "IRN ثبت شد؛ PDF با آن دوباره ساخته شد",
+    "irnCancelled": "IRN ابطال شد؛ PDF دوباره ساخته شد"
   }
 }

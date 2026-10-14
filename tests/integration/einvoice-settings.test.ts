@@ -96,6 +96,7 @@ describe.skipIf(!url)("e-invoice settings", () => {
       nicUsername: "api-user",
       nicPassword: "p4ssword-value",
       nicGstin: "29ABCDE1234F1Z5",
+      nicPublicKeyPem: "-----BEGIN PUBLIC KEY-----\nMIIB\n-----END PUBLIC KEY-----",
       euProfile: "EN16931",
     });
     expect(saved.india?.nic?.hasClientSecret).toBe(true);
@@ -114,6 +115,7 @@ describe.skipIf(!url)("e-invoice settings", () => {
     expect(creds?.clientSecret).toBe("s3cret-value");
     expect(creds?.password).toBe("p4ssword-value");
     expect(creds?.gstin).toBe("29ABCDE1234F1Z5");
+    expect(creds?.publicKeyPem).toContain("BEGIN PUBLIC KEY");
     expect(await dal.euProfileFor(profileId)).toBe("EN16931");
 
     const events = await prisma.auditEvent.findMany({

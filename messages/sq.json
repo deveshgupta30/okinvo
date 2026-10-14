@@ -840,6 +840,9 @@
         "username": "Emri i përdoruesit",
         "password": "Fjalëkalimi",
         "gstin": "GSTIN",
+        "publicKey": "Çelësi publik i IRP (PEM)",
+        "publicKeyHint": "Shkarkojeni nga portali pasi të hyni; ai mbështjell kredencialet që dërgohen te IRP.",
+        "publicKeyStored": "Ruajtur; lëreni bosh për ta mbajtur.",
         "secretStored": "Ruhet i enkriptuar; lëreni bosh për ta mbajtur.",
         "secretEncrypted": "Ruhet i enkriptuar në pushim."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "NIPT",
       "void": "ANULUAR",
       "draftWatermark": "DRAFT - nuk është faturë tatimore",
-      "paymentTermsDays": "{days} ditë"
+      "paymentTermsDays": "{days} ditë",
+      "irn": "IRN",
+      "ackNo": "Nr. i konfirmimit",
+      "ackDate": "Data e konfirmimit",
+      "einvoiceCancelled": "E-FATURA U ANULUA"
     },
     "ui": {
       "pageEstimate": "rreth {count, plural, one {# faqe} other {# faqesh}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Asnjë faturë nuk përputhet me këto filtra.",
       "count": "{count, plural, one {# faturë} other {# fatura}}",
       "countPaged": "{count, plural, one {# faturë} other {# fatura}} · faqja {page} nga {pages}",
-      "register": "regjistri"
+      "register": "regjistri",
+      "einvoice": "E-faturë",
+      "einvoiceFilters": {
+        "registered": "IRN i regjistruar",
+        "none": "I paregjistruar",
+        "cancelled": "IRN i anuluar"
+      }
     },
     "new": {
       "noProfileTitle": "Krijoni më parë një profil lëshuesi",
@@ -1611,7 +1624,41 @@
       "version": "Versioni {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Lidhja e verifikimit:",
-      "draftPreviewHint": "Skicat shihen drejtpërdrejt në redaktues; hapni <link>PDF-në me filigram</link> për të parë faqen."
+      "draftPreviewHint": "Skicat shihen drejtpërdrejt në redaktues; hapni <link>PDF-në me filigram</link> për të parë faqen.",
+      "einvoice": {
+        "title": "E-faturë (India)",
+        "description": "Regjistrimi i kësaj fature në Invoice Registration Portal; një dokument i regjistruar printon IRN-në e tij dhe QR-në e nënshkruar të portalit.",
+        "connector": "Lidhës",
+        "connectors": {
+          "manual": "Manual",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Për këtë profil nuk është konfiguruar asnjë lidhës te Cilësimet > E-faturimi.",
+        "statuses": {
+          "none": "I paregjistruar",
+          "generated": "JSON u gjenerua",
+          "registered": "I regjistruar",
+          "cancelled": "I anuluar",
+          "failed": "Regjistrimi dështoi"
+        },
+        "irn": "IRN",
+        "ackNo": "Nr. i konfirmimit",
+        "ackDate": "Data e konfirmimit",
+        "cancelReason": "Anulimi",
+        "generate": "Gjenero IRN",
+        "pasteLabel": "Përgjigjja e IRP",
+        "pasteHint": "Ngjitni JSON-in që portali ose GSP-ja juaj ktheu për JSON-in e e-faturës së kësaj fature (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Regjistro IRN",
+        "cancelReasonLabel": "Arsyeja e anulimit",
+        "cancelReasons": {
+          "1": "Dublikatë",
+          "2": "Gabim në futjen e të dhënave",
+          "3": "Porosia u anulua",
+          "4": "Të tjera"
+        },
+        "cancel": "Anulo IRN",
+        "cancelWindow": "Portali lejon anulimin brenda 24 orëve nga konfirmimi."
+      }
     },
     "history": {
       "metaTitle": "Historiku i faturës",
@@ -2078,6 +2125,9 @@
     "templateImported": "Shablloni u importua",
     "profileTemplateCleared": "Profili përdor sërish shabllonin e instancës",
     "operatorSaved": "Detajet e operatorit u ruajtën. Faqet ligjore tani i shfaqin.",
-    "einvoiceSettingsSaved": "Cilësimet e e-faturimit u ruajtën"
+    "einvoiceSettingsSaved": "Cilësimet e e-faturimit u ruajtën",
+    "irnRegistered": "IRN {irn} u regjistrua; PDF-ja u gjenerua përsëri me të",
+    "irnRecorded": "IRN u regjistrua; PDF-ja u gjenerua përsëri me të",
+    "irnCancelled": "IRN u anulua; PDF-ja u gjenerua përsëri"
   }
 }

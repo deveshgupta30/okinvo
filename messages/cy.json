@@ -840,6 +840,9 @@
         "username": "Enw defnyddiwr",
         "password": "Cyfrinair",
         "gstin": "GSTIN",
+        "publicKey": "Allwedd gyhoeddus IRP (PEM)",
+        "publicKeyHint": "Lawrlwythwch hi o’r porth ar ôl mewngofnodi; mae’n lapio’r manylion mewngofnodi a anfonir i’r IRP.",
+        "publicKeyStored": "Wedi’i chadw; gadewch yn wag i’w chadw.",
         "secretStored": "Wedi’i storio wedi’i amgryptio; gadewch yn wag i’w gadw.",
         "secretEncrypted": "Wedi’i storio wedi’i amgryptio wrth orffwys."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID Treth",
       "void": "DI-RYM",
       "draftWatermark": "DRAFFT - nid anfoneb dreth",
-      "paymentTermsDays": "{days} diwrnod"
+      "paymentTermsDays": "{days} diwrnod",
+      "irn": "IRN",
+      "ackNo": "Rhif cydnabod",
+      "ackDate": "Dyddiad cydnabod",
+      "einvoiceCancelled": "E-ANFONEB WEDI’I DDIDDYMU"
     },
     "ui": {
       "pageEstimate": "tua {count, plural, other {# tudalen}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Nid oes anfonebau’n cyfateb i’r hidlyddion hyn.",
       "count": "{count, plural, other {# anfoneb}}",
       "countPaged": "{count, plural, other {# anfoneb}} · tudalen {page} o {pages}",
-      "register": "cofrestr"
+      "register": "cofrestr",
+      "einvoice": "E-anfoneb",
+      "einvoiceFilters": {
+        "registered": "IRN wedi’i gofrestru",
+        "none": "Heb ei chofrestru",
+        "cancelled": "IRN wedi’i ddiddymu"
+      }
     },
     "new": {
       "noProfileTitle": "Crëwch broffil cyflwynydd yn gyntaf",
@@ -1611,7 +1624,41 @@
       "version": "Fersiwn {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Dolen ddilysu:",
-      "draftPreviewHint": "Mae drafftiau’n rhagolygu’n fyw yn y golygydd; agorwch <link>y PDF gyda dyfrnod</link> i weld y dudalen."
+      "draftPreviewHint": "Mae drafftiau’n rhagolygu’n fyw yn y golygydd; agorwch <link>y PDF gyda dyfrnod</link> i weld y dudalen.",
+      "einvoice": {
+        "title": "E-anfoneb (India)",
+        "description": "Cofrestru’r anfoneb hon gyda’r Invoice Registration Portal; mae dogfen gofrestredig yn argraffu ei IRN a chod QR llofnodedig y porth.",
+        "connector": "Cysylltydd",
+        "connectors": {
+          "manual": "Â llaw",
+          "nic": "API NIC IRP"
+        },
+        "notConfigured": "Nid oes cysylltydd wedi’i ffurfweddu ar gyfer y proffil hwn o dan Gosodiadau > E-anfonebu.",
+        "statuses": {
+          "none": "Heb ei chofrestru",
+          "generated": "JSON wedi’i gynhyrchu",
+          "registered": "Cofrestredig",
+          "cancelled": "Wedi’i ddiddymu",
+          "failed": "Methodd y cofrestru"
+        },
+        "irn": "IRN",
+        "ackNo": "Rhif cydnabod",
+        "ackDate": "Dyddiad cydnabod",
+        "cancelReason": "Diddymu",
+        "generate": "Cynhyrchu IRN",
+        "pasteLabel": "Ymateb IRP",
+        "pasteHint": "Gludwch y JSON a ddychwelodd y porth neu eich GSP ar gyfer JSON e-anfoneb yr anfoneb hon (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Cofnodi IRN",
+        "cancelReasonLabel": "Rheswm dros ddiddymu",
+        "cancelReasons": {
+          "1": "Dyblyg",
+          "2": "Camgymeriad wrth fewnbynnu data",
+          "3": "Archeb wedi’i diddymu",
+          "4": "Arall"
+        },
+        "cancel": "Diddymu IRN",
+        "cancelWindow": "Mae’r porth yn caniatáu diddymu o fewn 24 awr i’r cydnabyddiaeth."
+      }
     },
     "history": {
       "metaTitle": "Hanes yr anfoneb",
@@ -2078,6 +2125,9 @@
     "templateImported": "Mewnforiwyd y templed",
     "profileTemplateCleared": "Mae’r proffil yn defnyddio templed yr enghraifft eto",
     "operatorSaved": "Cadwyd manylion y gweithredwr. Mae’r tudalennau cyfreithiol yn eu dangos nawr.",
-    "einvoiceSettingsSaved": "Cadwyd gosodiadau e-anfonebu"
+    "einvoiceSettingsSaved": "Cadwyd gosodiadau e-anfonebu",
+    "irnRegistered": "Cofrestrwyd IRN {irn}; cafodd y PDF ei ail-gynhyrchu gydag ef",
+    "irnRecorded": "Cofnodwyd IRN; cafodd y PDF ei ail-gynhyrchu gydag ef",
+    "irnCancelled": "Diddymwyd IRN; cafodd y PDF ei ail-gynhyrchu"
   }
 }

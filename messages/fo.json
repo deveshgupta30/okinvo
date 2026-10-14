@@ -840,6 +840,9 @@
         "username": "Brúkaranavn",
         "password": "Loyniorð",
         "gstin": "GSTIN",
+        "publicKey": "Almenn IRP-lykil (PEM)",
+        "publicKeyHint": "Tak hann niður frá portalinum eftir innritan; hann umbýtir tær lyklaorð, sum verða send til IRP.",
+        "publicKeyStored": "Goymdur; lat vera tóman fyri at varðveita hann.",
         "secretStored": "Goymt bronglað; lat standa tómt fyri at varðveita tað.",
         "secretEncrypted": "Goymt bronglað í hvíld."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Skatta-ID",
       "void": "ÓGILDAÐ",
       "draftWatermark": "UPPKAST - ikki skattarokning",
-      "paymentTermsDays": "{days} dagar"
+      "paymentTermsDays": "{days} dagar",
+      "irn": "IRN",
+      "ackNo": "Váttanar nr.",
+      "ackDate": "Váttanardagur",
+      "einvoiceCancelled": "E-ROKNING ÓGILDAÐ"
     },
     "ui": {
       "pageEstimate": "umleið {count, plural, one {# síða} other {# síður}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Ongar rokningar samsvara við hesar filtur.",
       "count": "{count, plural, one {# rokning} other {# rokningar}}",
       "countPaged": "{count, plural, one {# rokning} other {# rokningar}} · síða {page} av {pages}",
-      "register": "skrá"
+      "register": "skrá",
+      "einvoice": "E-rokning",
+      "einvoiceFilters": {
+        "registered": "IRN skrásett",
+        "none": "Ikki skrásett",
+        "cancelled": "IRN ógildað"
+      }
     },
     "new": {
       "noProfileTitle": "Stovna fyrst ein útgevaravanga",
@@ -1611,7 +1624,41 @@
       "version": "Útgáva {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Kanningarleinkja:",
-      "draftPreviewHint": "Uppskot hava beinleiðis forskoðan í rættaranum; opna <link>PDF-ina við vatnmerki</link> fyri at síggja síðuna."
+      "draftPreviewHint": "Uppskot hava beinleiðis forskoðan í rættaranum; opna <link>PDF-ina við vatnmerki</link> fyri at síggja síðuna.",
+      "einvoice": {
+        "title": "E-rokning (India)",
+        "description": "Skráseting av hesi rokning á Invoice Registration Portal; eitt skrásett skjal prentar sítt IRN og undirskrivaða QR-kotu portalsins.",
+        "connector": "Tengi",
+        "connectors": {
+          "manual": "Manuelt",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Einki tengi er sett upp til hesa vangan undir Stillingar > E-rokning.",
+        "statuses": {
+          "none": "Ikki skrásett",
+          "generated": "JSON framleitt",
+          "registered": "Skrásett",
+          "cancelled": "Ógildað",
+          "failed": "Skráseting miseydnaðist"
+        },
+        "irn": "IRN",
+        "ackNo": "Váttanar nr.",
+        "ackDate": "Váttanardagur",
+        "cancelReason": "Ógilding",
+        "generate": "Framleið IRN",
+        "pasteLabel": "Svar frá IRP",
+        "pasteHint": "Set inn JSON, sum portalurin ella tín GSP sendi aftur til e-rokning-JSON hjá hesi rokning (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Skráset IRN",
+        "cancelReasonLabel": "Orsøk til ógilding",
+        "cancelReasons": {
+          "1": "Tvíritan",
+          "2": "Villa í dataskráseting",
+          "3": "Pantan ógildað",
+          "4": "Annað"
+        },
+        "cancel": "Ógilda IRN",
+        "cancelWindow": "Portalurin loyvir ógilding innan 24 tímar eftir váttanina."
+      }
     },
     "history": {
       "metaTitle": "Rokningarsøga",
@@ -2078,6 +2125,9 @@
     "templateImported": "Fyrimynd innlisin",
     "profileTemplateCleared": "Vangin brúkar aftur fyrimynd uppsetingarinnar",
     "operatorSaved": "Upplýsingar um rekstrarhavara goymdar. Løgfrøðisíðurnar vísa tær nú.",
-    "einvoiceSettingsSaved": "Stillingar fyri e-rokning goymdar"
+    "einvoiceSettingsSaved": "Stillingar fyri e-rokning goymdar",
+    "irnRegistered": "IRN {irn} skrásett; PDF varð framleitt av nýggjum við tí",
+    "irnRecorded": "IRN skrásett; PDF varð framleitt av nýggjum við tí",
+    "irnCancelled": "IRN ógildað; PDF varð framleitt av nýggjum"
   }
 }

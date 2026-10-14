@@ -840,6 +840,9 @@
         "username": "የተጠቃሚ ስም",
         "password": "የይለፍ ቃል",
         "gstin": "GSTIN",
+        "publicKey": "የIRP ይፋዊ ቁልፍ (PEM)",
+        "publicKeyHint": "ከገቡ በኋላ ከፖርታሉ ያውርዱት፤ ወደ IRP የሚላኩትን ምስክርነቶች ይጠቅልላል።",
+        "publicKeyStored": "ተቀምጧል፤ ለማቆየት ባዶ ይተዉ።",
         "secretStored": "ተመስጥሮ ተቀምጧል፤ ለማቆየት ባዶ ይተዉ።",
         "secretEncrypted": "ሲቀመጥ ተመስጥሮ ይቀመጣል።"
       },
@@ -1399,7 +1402,11 @@
       "taxId": "የታክስ መታወቂያ",
       "void": "ተሰርዟል",
       "draftWatermark": "ረቂቅ - የታክስ ደረሰኝ አይደለም",
-      "paymentTermsDays": "{days} ቀናት"
+      "paymentTermsDays": "{days} ቀናት",
+      "irn": "IRN",
+      "ackNo": "የእውቅና ቁጥር",
+      "ackDate": "የእውቅና ቀን",
+      "einvoiceCancelled": "ኤሌክትሮኒክ ደረሰኝ ተሰርዟል"
     },
     "ui": {
       "pageEstimate": "ግምታዊ {count, plural, one {# ገጽ} other {# ገጾች}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "ከእነዚህ ማጣሪያዎች ጋር የሚዛመድ ደረሰኝ የለም።",
       "count": "{count, plural, one {# ደረሰኝ} other {# ደረሰኞች}}",
       "countPaged": "{count, plural, one {# ደረሰኝ} other {# ደረሰኞች}} · ገጽ {page} ከ{pages}",
-      "register": "መዝገብ"
+      "register": "መዝገብ",
+      "einvoice": "ኤሌክትሮኒክ ደረሰኝ",
+      "einvoiceFilters": {
+        "registered": "IRN የተመዘገበ",
+        "none": "ያልተመዘገበ",
+        "cancelled": "IRN የተሰረዘ"
+      }
     },
     "new": {
       "noProfileTitle": "መጀመሪያ የሰጪ መገለጫ ይፍጠሩ",
@@ -1611,7 +1624,41 @@
       "version": "ስሪት {version}",
       "sizeKb": "{size} ኪባ",
       "verificationLink": "የማረጋገጫ አገናኝ፦",
-      "draftPreviewHint": "ረቂቆች በአርታዒው ውስጥ በቀጥታ ይታያሉ፤ ገጹን ለማየት <link>የውሃ ምልክት ያለውን PDF</link> ይክፈቱ።"
+      "draftPreviewHint": "ረቂቆች በአርታዒው ውስጥ በቀጥታ ይታያሉ፤ ገጹን ለማየት <link>የውሃ ምልክት ያለውን PDF</link> ይክፈቱ።",
+      "einvoice": {
+        "title": "ኤሌክትሮኒክ ደረሰኝ (ህንድ)",
+        "description": "ይህን ደረሰኝ በኢንቮይስ ምዝገባ ፖርታል ማስመዝገብ፤ የተመዘገበ ሰነድ IRN እና የፖርታሉን የተፈረመ QR ያትማል።",
+        "connector": "ማገናኛ",
+        "connectors": {
+          "manual": "በእጅ",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "ለዚህ መገለጫ በቅንብሮች > ኤሌክትሮኒክ ደረሰኝ ስር ምንም ማገናኛ አልተዋቀረም።",
+        "statuses": {
+          "none": "ያልተመዘገበ",
+          "generated": "JSON ተፈጥሯል",
+          "registered": "ተመዝግቧል",
+          "cancelled": "ተሰርዟል",
+          "failed": "ምዝገባ አልተሳካም"
+        },
+        "irn": "IRN",
+        "ackNo": "የእውቅና ቁጥር",
+        "ackDate": "የእውቅና ቀን",
+        "cancelReason": "ስረዛ",
+        "generate": "IRN ፍጠር",
+        "pasteLabel": "የIRP ምላሽ",
+        "pasteHint": "ለዚህ ደረሰኝ የኤሌክትሮኒክ ደረሰኝ JSON ፖርታሉ ወይም GSP የመለሰውን JSON ይለጥፉ (Irn, AckNo, AckDt, SignedQRCode)።",
+        "record": "IRN መዝግብ",
+        "cancelReasonLabel": "የስረዛ ምክንያት",
+        "cancelReasons": {
+          "1": "ተደጋጋሚ",
+          "2": "የመረጃ ማስገባት ስህተት",
+          "3": "ትዕዛዝ ተሰርዟል",
+          "4": "ሌላ"
+        },
+        "cancel": "IRN ሰርዝ",
+        "cancelWindow": "ፖርታሉ ከእውቅናው በ24 ሰዓታት ውስጥ መሰረዝን ይፈቅዳል።"
+      }
     },
     "history": {
       "metaTitle": "የደረሰኝ ታሪክ",
@@ -2078,6 +2125,9 @@
     "templateImported": "ንድፍ ገብቷል",
     "profileTemplateCleared": "መገለጫው የምሳሌውን ንድፍ እንደገና ይጠቀማል",
     "operatorSaved": "የኦፕሬተር ዝርዝሮች ተቀምጠዋል። ሕጋዊ ገጾቹ አሁን ያሳያቸዋል።",
-    "einvoiceSettingsSaved": "የኤሌክትሮኒክ ደረሰኝ ቅንብሮች ተቀምጠዋል"
+    "einvoiceSettingsSaved": "የኤሌክትሮኒክ ደረሰኝ ቅንብሮች ተቀምጠዋል",
+    "irnRegistered": "IRN {irn} ተመዝግቧል፤ PDF ከእሱ ጋር እንደገና ተፈጥሯል",
+    "irnRecorded": "IRN ተመዝግቦ ተቀምጧል፤ PDF ከእሱ ጋር እንደገና ተፈጥሯል",
+    "irnCancelled": "IRN ተሰርዟል፤ PDF እንደገና ተፈጥሯል"
   }
 }

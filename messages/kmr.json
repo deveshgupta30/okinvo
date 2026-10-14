@@ -840,6 +840,9 @@
         "username": "Navê bikarhêner",
         "password": "Şîfre",
         "gstin": "GSTIN",
+        "publicKey": "Mifteya giştî ya IRP (PEM)",
+        "publicKeyHint": "Piştî têketinê wê ji portalê dakêşe; ew nasnameyên ku ji IRP re tên şandin diparêze.",
+        "publicKeyStored": "Hatiye tomarkirin; ji bo ku bimîne vala bihêle.",
         "secretStored": "Şîfrekirî tê hilanîn; ji bo domandina wê vala bihêle.",
         "secretEncrypted": "Şîfrekirî tê hilanîn."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Nasnameya bacê",
       "void": "BETAL",
       "draftWatermark": "PÊŞNIVÎS - ne fatûreyeke bacê ye",
-      "paymentTermsDays": "{days} roj"
+      "paymentTermsDays": "{days} roj",
+      "irn": "IRN",
+      "ackNo": "Hejmara erêkirinê",
+      "ackDate": "Dîroka erêkirinê",
+      "einvoiceCancelled": "E-FATÛRE BETAL KIRIYE"
     },
     "ui": {
       "pageEstimate": "nêzîkî {count, plural, one {# rûpel} other {# rûpel}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Tu fatûre bi van parzûnan re nahev tên.",
       "count": "{count, plural, one {# fatûre} other {# fatûre}}",
       "countPaged": "{count, plural, one {# fatûre} other {# fatûre}} · rûpela {page} ji {pages}",
-      "register": "tomar"
+      "register": "tomar",
+      "einvoice": "E-fatûre",
+      "einvoiceFilters": {
+        "registered": "IRN tomarkirî",
+        "none": "Nehatiye tomarkirin",
+        "cancelled": "IRN betal kirî"
+      }
     },
     "new": {
       "noProfileTitle": "Pêşî profîleke derxer çêke",
@@ -1611,7 +1624,41 @@
       "version": "Guherto {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Girêdana pejirandinê:",
-      "draftPreviewHint": "Pêşdîtina pêşnivîsan zindî di edîtorê de ye; <link>PDF ya bi ava-nîşanê</link> veke da ku rûpelê bibînî."
+      "draftPreviewHint": "Pêşdîtina pêşnivîsan zindî di edîtorê de ye; <link>PDF ya bi ava-nîşanê</link> veke da ku rûpelê bibînî.",
+      "einvoice": {
+        "title": "E-fatûre (Hindistan)",
+        "description": "Tomarkirina vê fatûreyê li Invoice Registration Portal; belgeyek tomarkirî IRN a xwe û QR a îmzekirî ya portalê çap dike.",
+        "connector": "Girêdan",
+        "connectors": {
+          "manual": "Destî",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Ji bo vê profîlê di Mîheng > E-fatûre de tu girêdan nehatiye mîhengkirin.",
+        "statuses": {
+          "none": "Nehatiye tomarkirin",
+          "generated": "JSON hat çêkirin",
+          "registered": "Hatiye tomarkirin",
+          "cancelled": "Betal kirî",
+          "failed": "Tomarkirin têk çû"
+        },
+        "irn": "IRN",
+        "ackNo": "Hejmara erêkirinê",
+        "ackDate": "Dîroka erêkirinê",
+        "cancelReason": "Betalkirin",
+        "generate": "IRN çêke",
+        "pasteLabel": "Bersiva IRP",
+        "pasteHint": "JSON ya ku portal an GSP a te ji bo JSON ya e-fatûreya vê fatûreyê vegerandiye bixe (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN tomar bike",
+        "cancelReasonLabel": "Sedema betalkirinê",
+        "cancelReasons": {
+          "1": "Dubare",
+          "2": "Çewtiya têketina daneyan",
+          "3": "Ferman betal kirî",
+          "4": "Yên din"
+        },
+        "cancel": "IRN betal bike",
+        "cancelWindow": "Portal betalkirinê di nav 24 demjimêran de piştî erêkirinê dihêle."
+      }
     },
     "history": {
       "metaTitle": "Dîroka fatûreyê",
@@ -2078,6 +2125,9 @@
     "templateImported": "Şablon hate têxistin",
     "profileTemplateCleared": "Profîl dîsa şablona mînakê bi kar tîne",
     "operatorSaved": "Hûrguliyên operatorê hatin tomarkirin. Rûpelên yasayî niha wan nîşan didin.",
-    "einvoiceSettingsSaved": "Mîhengên e-fatûreyê hatin tomarkirin"
+    "einvoiceSettingsSaved": "Mîhengên e-fatûreyê hatin tomarkirin",
+    "irnRegistered": "IRN {irn} hat tomarkirin; PDF pê re ji nû ve hat çêkirin",
+    "irnRecorded": "IRN hat tomarkirin; PDF pê re ji nû ve hat çêkirin",
+    "irnCancelled": "IRN hat betalkirin; PDF ji nû ve hat çêkirin"
   }
 }

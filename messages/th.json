@@ -840,6 +840,9 @@
         "username": "ชื่อผู้ใช้",
         "password": "รหัสผ่าน",
         "gstin": "GSTIN",
+        "publicKey": "กุญแจสาธารณะ IRP (PEM)",
+        "publicKeyHint": "ดาวน์โหลดจากพอร์ทัลหลังลงชื่อเข้าใช้ ใช้ห่อหุ้มข้อมูลรับรองที่ส่งไปยัง IRP",
+        "publicKeyStored": "จัดเก็บแล้ว เว้นว่างไว้เพื่อคงค่าเดิม",
         "secretStored": "จัดเก็บแบบเข้ารหัส เว้นว่างไว้เพื่อคงค่าเดิม",
         "secretEncrypted": "เข้ารหัสขณะจัดเก็บ"
       },
@@ -1399,7 +1402,11 @@
       "taxId": "เลขประจำตัวผู้เสียภาษี",
       "void": "ยกเลิก",
       "draftWatermark": "ฉบับร่าง - ไม่ใช่ใบกำกับภาษี",
-      "paymentTermsDays": "{days} วัน"
+      "paymentTermsDays": "{days} วัน",
+      "irn": "IRN",
+      "ackNo": "เลขที่ตอบรับ",
+      "ackDate": "วันที่ตอบรับ",
+      "einvoiceCancelled": "ยกเลิกใบแจ้งหนี้อิเล็กทรอนิกส์"
     },
     "ui": {
       "pageEstimate": "ประมาณ {count, plural, other {# หน้า}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "ไม่มีใบแจ้งหนี้ที่ตรงกับตัวกรองเหล่านี้",
       "count": "{count, plural, other {# ใบแจ้งหนี้}}",
       "countPaged": "{count, plural, other {# ใบแจ้งหนี้}} · หน้า {page} จาก {pages}",
-      "register": "ทะเบียน"
+      "register": "ทะเบียน",
+      "einvoice": "ใบแจ้งหนี้อิเล็กทรอนิกส์",
+      "einvoiceFilters": {
+        "registered": "ลงทะเบียน IRN แล้ว",
+        "none": "ยังไม่ลงทะเบียน",
+        "cancelled": "ยกเลิก IRN แล้ว"
+      }
     },
     "new": {
       "noProfileTitle": "สร้างโปรไฟล์ผู้ออกเอกสารก่อน",
@@ -1611,7 +1624,41 @@
       "version": "เวอร์ชัน {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "ลิงก์ตรวจสอบ:",
-      "draftPreviewHint": "ฉบับร่างแสดงตัวอย่างสดในตัวแก้ไข เปิด <link>PDF ที่มีลายน้ำ</link> เพื่อดูหน้ากระดาษ"
+      "draftPreviewHint": "ฉบับร่างแสดงตัวอย่างสดในตัวแก้ไข เปิด <link>PDF ที่มีลายน้ำ</link> เพื่อดูหน้ากระดาษ",
+      "einvoice": {
+        "title": "ใบแจ้งหนี้อิเล็กทรอนิกส์ (อินเดีย)",
+        "description": "การลงทะเบียนใบแจ้งหนี้นี้กับ Invoice Registration Portal เอกสารที่ลงทะเบียนแล้วจะพิมพ์ IRN และ QR ที่ลงลายมือชื่อจากพอร์ทัล",
+        "connector": "ตัวเชื่อมต่อ",
+        "connectors": {
+          "manual": "ด้วยตนเอง",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "ยังไม่ได้ตั้งค่าตัวเชื่อมต่อสำหรับโปรไฟล์นี้ใน การตั้งค่า > ใบแจ้งหนี้อิเล็กทรอนิกส์",
+        "statuses": {
+          "none": "ยังไม่ลงทะเบียน",
+          "generated": "สร้าง JSON แล้ว",
+          "registered": "ลงทะเบียนแล้ว",
+          "cancelled": "ยกเลิกแล้ว",
+          "failed": "ลงทะเบียนล้มเหลว"
+        },
+        "irn": "IRN",
+        "ackNo": "เลขที่ตอบรับ",
+        "ackDate": "วันที่ตอบรับ",
+        "cancelReason": "การยกเลิก",
+        "generate": "สร้าง IRN",
+        "pasteLabel": "การตอบกลับจาก IRP",
+        "pasteHint": "วาง JSON ที่พอร์ทัลหรือ GSP ของคุณส่งกลับมาสำหรับ JSON ใบแจ้งหนี้อิเล็กทรอนิกส์ของใบแจ้งหนี้นี้ (Irn, AckNo, AckDt, SignedQRCode)",
+        "record": "บันทึก IRN",
+        "cancelReasonLabel": "เหตุผลในการยกเลิก",
+        "cancelReasons": {
+          "1": "ซ้ำ",
+          "2": "ป้อนข้อมูลผิดพลาด",
+          "3": "ยกเลิกคำสั่งซื้อ",
+          "4": "อื่น ๆ"
+        },
+        "cancel": "ยกเลิก IRN",
+        "cancelWindow": "พอร์ทัลอนุญาตให้ยกเลิกได้ภายใน 24 ชั่วโมงหลังการตอบรับ"
+      }
     },
     "history": {
       "metaTitle": "ประวัติใบแจ้งหนี้",
@@ -2078,6 +2125,9 @@
     "templateImported": "นำเข้าเทมเพลตแล้ว",
     "profileTemplateCleared": "โปรไฟล์กลับไปใช้เทมเพลตของระบบแล้ว",
     "operatorSaved": "บันทึกรายละเอียดผู้ดำเนินการแล้ว หน้ากฎหมายจะแสดงข้อมูลนี้",
-    "einvoiceSettingsSaved": "บันทึกการตั้งค่าใบแจ้งหนี้อิเล็กทรอนิกส์แล้ว"
+    "einvoiceSettingsSaved": "บันทึกการตั้งค่าใบแจ้งหนี้อิเล็กทรอนิกส์แล้ว",
+    "irnRegistered": "ลงทะเบียน IRN {irn} แล้ว สร้าง PDF ใหม่พร้อม IRN แล้ว",
+    "irnRecorded": "บันทึก IRN แล้ว สร้าง PDF ใหม่พร้อม IRN แล้ว",
+    "irnCancelled": "ยกเลิก IRN แล้ว สร้าง PDF ใหม่แล้ว"
   }
 }

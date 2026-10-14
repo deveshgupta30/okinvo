@@ -840,6 +840,9 @@
         "username": "Nazwa użytkownika",
         "password": "Hasło",
         "gstin": "GSTIN",
+        "publicKey": "Klucz publiczny IRP (PEM)",
+        "publicKeyHint": "Pobierz go z portalu po zalogowaniu; szyfruje dane uwierzytelniające wysyłane do IRP.",
+        "publicKeyStored": "Zapisano; pozostaw puste, aby go zachować.",
         "secretStored": "Przechowywane w postaci zaszyfrowanej; pozostaw puste, aby zachować.",
         "secretEncrypted": "Przechowywane w postaci zaszyfrowanej."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "NIP / ID podatkowy",
       "void": "ANULOWANA",
       "draftWatermark": "PROJEKT - nie jest fakturą VAT",
-      "paymentTermsDays": "{days} dni"
+      "paymentTermsDays": "{days} dni",
+      "irn": "IRN",
+      "ackNo": "Nr potw.",
+      "ackDate": "Data potw.",
+      "einvoiceCancelled": "E-FAKTURA ANULOWANA"
     },
     "ui": {
       "pageEstimate": "ok. {count, plural, one {# strona} few {# strony} many {# stron} other {# strony}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Żadne faktury nie pasują do tych filtrów.",
       "count": "{count, plural, one {# faktura} few {# faktury} many {# faktur} other {# faktury}}",
       "countPaged": "{count, plural, one {# faktura} few {# faktury} many {# faktur} other {# faktury}} · strona {page} z {pages}",
-      "register": "rejestr"
+      "register": "rejestr",
+      "einvoice": "E-faktura",
+      "einvoiceFilters": {
+        "registered": "IRN zarejestrowany",
+        "none": "Niezarejestrowana",
+        "cancelled": "IRN anulowany"
+      }
     },
     "new": {
       "noProfileTitle": "Najpierw utwórz profil wystawcy",
@@ -1611,7 +1624,41 @@
       "version": "Wersja {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Link weryfikacyjny:",
-      "draftPreviewHint": "Podgląd szkiców jest na żywo w edytorze; otwórz <link>PDF ze znakiem wodnym</link>, aby zobaczyć stronę."
+      "draftPreviewHint": "Podgląd szkiców jest na żywo w edytorze; otwórz <link>PDF ze znakiem wodnym</link>, aby zobaczyć stronę.",
+      "einvoice": {
+        "title": "E-faktura (Indie)",
+        "description": "Rejestracja tej faktury w Invoice Registration Portal; zarejestrowany dokument zawiera numer IRN i podpisany kod QR portalu.",
+        "connector": "Konektor",
+        "connectors": {
+          "manual": "Ręczny",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Dla tego profilu nie skonfigurowano konektora w Ustawienia > E-fakturowanie.",
+        "statuses": {
+          "none": "Niezarejestrowana",
+          "generated": "Wygenerowano JSON",
+          "registered": "Zarejestrowana",
+          "cancelled": "Anulowana",
+          "failed": "Rejestracja nie powiodła się"
+        },
+        "irn": "IRN",
+        "ackNo": "Nr potwierdzenia",
+        "ackDate": "Data potwierdzenia",
+        "cancelReason": "Anulowanie",
+        "generate": "Wygeneruj IRN",
+        "pasteLabel": "Odpowiedź IRP",
+        "pasteHint": "Wklej JSON zwrócony przez portal lub Twojego GSP dla e-faktury JSON tej faktury (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Zapisz IRN",
+        "cancelReasonLabel": "Powód anulowania",
+        "cancelReasons": {
+          "1": "Duplikat",
+          "2": "Błąd przy wprowadzaniu danych",
+          "3": "Zamówienie anulowane",
+          "4": "Inne"
+        },
+        "cancel": "Anuluj IRN",
+        "cancelWindow": "Portal zezwala na anulowanie w ciągu 24 godzin od potwierdzenia."
+      }
     },
     "history": {
       "metaTitle": "Historia faktury",
@@ -2078,6 +2125,9 @@
     "templateImported": "Szablon zaimportowany",
     "profileTemplateCleared": "Profil znów używa szablonu instancji",
     "operatorSaved": "Zapisano dane operatora. Strony prawne je teraz pokazują.",
-    "einvoiceSettingsSaved": "Zapisano ustawienia e-fakturowania"
+    "einvoiceSettingsSaved": "Zapisano ustawienia e-fakturowania",
+    "irnRegistered": "IRN {irn} zarejestrowany; PDF został wygenerowany ponownie z tym numerem",
+    "irnRecorded": "IRN zapisany; PDF został wygenerowany ponownie z tym numerem",
+    "irnCancelled": "IRN anulowany; PDF został wygenerowany ponownie"
   }
 }

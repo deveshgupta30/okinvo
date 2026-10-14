@@ -840,6 +840,9 @@
         "username": "ব্যবহারকারীর নাম",
         "password": "পাসওয়ার্ড",
         "gstin": "GSTIN",
+        "publicKey": "IRP পাবলিক কী (PEM)",
+        "publicKeyHint": "সাইন ইন করার পর পোর্টাল থেকে ডাউনলোড করুন; এটি IRP-তে পাঠানো ক্রেডেনশিয়াল মুড়ে সুরক্ষিত করে।",
+        "publicKeyStored": "সংরক্ষিত; রাখতে ফাঁকা রাখুন।",
         "secretStored": "এনক্রিপ্ট করে রাখা; রাখতে চাইলে ফাঁকা রাখুন।",
         "secretEncrypted": "সংরক্ষণের সময় এনক্রিপ্ট করে রাখা।"
       },
@@ -1399,7 +1402,11 @@
       "taxId": "কর আইডি",
       "void": "বাতিল",
       "draftWatermark": "খসড়া - কর ইনভয়েস নয়",
-      "paymentTermsDays": "{days} দিন"
+      "paymentTermsDays": "{days} দিন",
+      "irn": "IRN",
+      "ackNo": "প্রাপ্তি নং",
+      "ackDate": "প্রাপ্তির তারিখ",
+      "einvoiceCancelled": "ই-ইনভয়েস বাতিল"
     },
     "ui": {
       "pageEstimate": "আনুমানিক {count, plural, one {# পৃষ্ঠা} other {# পৃষ্ঠা}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "এই ফিল্টারগুলোর সাথে কোনো ইনভয়েস মেলে না।",
       "count": "{count, plural, one {#টি ইনভয়েস} other {#টি ইনভয়েস}}",
       "countPaged": "{count, plural, one {#টি ইনভয়েস} other {#টি ইনভয়েস}} · পৃষ্ঠা {page} / {pages}",
-      "register": "রেজিস্টার"
+      "register": "রেজিস্টার",
+      "einvoice": "ই-ইনভয়েস",
+      "einvoiceFilters": {
+        "registered": "IRN নিবন্ধিত",
+        "none": "নিবন্ধিত নয়",
+        "cancelled": "IRN বাতিল"
+      }
     },
     "new": {
       "noProfileTitle": "আগে একটি ইস্যুকারী প্রোফাইল তৈরি করুন",
@@ -1611,7 +1624,41 @@
       "version": "সংস্করণ {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "যাচাইয়ের লিংক:",
-      "draftPreviewHint": "ড্রাফটের প্রিভিউ সম্পাদকে সরাসরি দেখা যায়; পৃষ্ঠাটি দেখতে <link>ওয়াটারমার্ক সহ PDF</link> খুলুন।"
+      "draftPreviewHint": "ড্রাফটের প্রিভিউ সম্পাদকে সরাসরি দেখা যায়; পৃষ্ঠাটি দেখতে <link>ওয়াটারমার্ক সহ PDF</link> খুলুন।",
+      "einvoice": {
+        "title": "ই-ইনভয়েস (ভারত)",
+        "description": "ইনভয়েস রেজিস্ট্রেশন পোর্টালে এই ইনভয়েসের নিবন্ধন; নিবন্ধিত নথিতে তার IRN এবং পোর্টালের স্বাক্ষরিত QR ছাপা হয়।",
+        "connector": "কানেক্টর",
+        "connectors": {
+          "manual": "ম্যানুয়াল",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "এই প্রোফাইলের জন্য সেটিংস > ই-ইনভয়েসিং-এ কোনো কানেক্টর কনফিগার করা নেই।",
+        "statuses": {
+          "none": "নিবন্ধিত নয়",
+          "generated": "JSON তৈরি হয়েছে",
+          "registered": "নিবন্ধিত",
+          "cancelled": "বাতিল",
+          "failed": "নিবন্ধন ব্যর্থ"
+        },
+        "irn": "IRN",
+        "ackNo": "প্রাপ্তি নং",
+        "ackDate": "প্রাপ্তির তারিখ",
+        "cancelReason": "বাতিলকরণ",
+        "generate": "IRN তৈরি করুন",
+        "pasteLabel": "IRP-র প্রতিক্রিয়া",
+        "pasteHint": "এই ইনভয়েসের ই-ইনভয়েস JSON-এর জন্য পোর্টাল বা আপনার GSP যে JSON ফেরত দিয়েছে তা পেস্ট করুন (Irn, AckNo, AckDt, SignedQRCode)।",
+        "record": "IRN রেকর্ড করুন",
+        "cancelReasonLabel": "বাতিলের কারণ",
+        "cancelReasons": {
+          "1": "সদৃশ",
+          "2": "ডেটা এন্ট্রিতে ভুল",
+          "3": "অর্ডার বাতিল",
+          "4": "অন্যান্য"
+        },
+        "cancel": "IRN বাতিল করুন",
+        "cancelWindow": "পোর্টাল প্রাপ্তি স্বীকারের 24 ঘণ্টার মধ্যে বাতিলের অনুমতি দেয়।"
+      }
     },
     "history": {
       "metaTitle": "ইনভয়েসের ইতিহাস",
@@ -2078,6 +2125,9 @@
     "templateImported": "টেমপ্লেট ইমপোর্ট হয়েছে",
     "profileTemplateCleared": "প্রোফাইল আবার ইনস্ট্যান্স টেমপ্লেট ব্যবহার করছে",
     "operatorSaved": "পরিচালকের বিবরণ সংরক্ষিত হয়েছে। আইনি পৃষ্ঠাগুলো এখন এগুলো দেখায়।",
-    "einvoiceSettingsSaved": "ই-ইনভয়েসিং সেটিংস সংরক্ষিত হয়েছে"
+    "einvoiceSettingsSaved": "ই-ইনভয়েসিং সেটিংস সংরক্ষিত হয়েছে",
+    "irnRegistered": "IRN {irn} নিবন্ধিত হয়েছে; PDF তা সহ পুনরায় তৈরি হয়েছে",
+    "irnRecorded": "IRN রেকর্ড হয়েছে; PDF তা সহ পুনরায় তৈরি হয়েছে",
+    "irnCancelled": "IRN বাতিল হয়েছে; PDF পুনরায় তৈরি হয়েছে"
   }
 }

@@ -840,6 +840,9 @@
         "username": "Nume utilizator",
         "password": "Parolă",
         "gstin": "GSTIN",
+        "publicKey": "Cheia publică IRP (PEM)",
+        "publicKeyHint": "Descărcați-o din portal după autentificare; criptează datele de autentificare trimise către IRP.",
+        "publicKeyStored": "Stocată; lăsați gol pentru a o păstra.",
         "secretStored": "Stocat criptat; lăsați gol pentru a-l păstra.",
         "secretEncrypted": "Stocat criptat în repaus."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Cod fiscal",
       "void": "ANULAT",
       "draftWatermark": "CIORNĂ - nu este factură fiscală",
-      "paymentTermsDays": "{days} zile"
+      "paymentTermsDays": "{days} zile",
+      "irn": "IRN",
+      "ackNo": "Nr. confirmare",
+      "ackDate": "Data confirmării",
+      "einvoiceCancelled": "E-FACTURĂ ANULATĂ"
     },
     "ui": {
       "pageEstimate": "aprox. {count, plural, one {# pagină} few {# pagini} other {# de pagini}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Nicio factură nu corespunde acestor filtre.",
       "count": "{count, plural, one {# factură} few {# facturi} other {# de facturi}}",
       "countPaged": "{count, plural, one {# factură} few {# facturi} other {# de facturi}} · pagina {page} din {pages}",
-      "register": "registru"
+      "register": "registru",
+      "einvoice": "E-factura",
+      "einvoiceFilters": {
+        "registered": "IRN înregistrat",
+        "none": "Neînregistrată",
+        "cancelled": "IRN anulat"
+      }
     },
     "new": {
       "noProfileTitle": "Creați mai întâi un profil de emitent",
@@ -1611,7 +1624,41 @@
       "version": "Versiunea {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Link de verificare:",
-      "draftPreviewHint": "Ciornele se previzualizează direct în editor; deschideți <link>PDF-ul cu filigran</link> pentru a vedea pagina."
+      "draftPreviewHint": "Ciornele se previzualizează direct în editor; deschideți <link>PDF-ul cu filigran</link> pentru a vedea pagina.",
+      "einvoice": {
+        "title": "E-factură (India)",
+        "description": "Înregistrarea acestei facturi în Invoice Registration Portal; un document înregistrat afișează IRN-ul și codul QR semnat al portalului.",
+        "connector": "Conector",
+        "connectors": {
+          "manual": "Manual",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Niciun conector nu este configurat pentru acest profil în Setări > E-factura.",
+        "statuses": {
+          "none": "Neînregistrată",
+          "generated": "JSON generat",
+          "registered": "Înregistrată",
+          "cancelled": "Anulată",
+          "failed": "Înregistrare eșuată"
+        },
+        "irn": "IRN",
+        "ackNo": "Nr. confirmare",
+        "ackDate": "Data confirmării",
+        "cancelReason": "Anulare",
+        "generate": "Generați IRN",
+        "pasteLabel": "Răspuns IRP",
+        "pasteHint": "Lipiți JSON-ul returnat de portal sau de GSP-ul dvs. pentru JSON-ul de e-factură al acestei facturi (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Înregistrați IRN",
+        "cancelReasonLabel": "Motivul anulării",
+        "cancelReasons": {
+          "1": "Duplicat",
+          "2": "Eroare de introducere a datelor",
+          "3": "Comandă anulată",
+          "4": "Altele"
+        },
+        "cancel": "Anulați IRN",
+        "cancelWindow": "Portalul permite anularea în 24 de ore de la confirmare."
+      }
     },
     "history": {
       "metaTitle": "Istoricul facturii",
@@ -2078,6 +2125,9 @@
     "templateImported": "Șablon importat",
     "profileTemplateCleared": "Profilul folosește din nou șablonul instanței",
     "operatorSaved": "Datele operatorului au fost salvate. Paginile juridice le afișează acum.",
-    "einvoiceSettingsSaved": "Setările e-facturii au fost salvate"
+    "einvoiceSettingsSaved": "Setările e-facturii au fost salvate",
+    "irnRegistered": "IRN {irn} înregistrat; PDF-ul a fost regenerat cu acesta",
+    "irnRecorded": "IRN înregistrat; PDF-ul a fost regenerat cu acesta",
+    "irnCancelled": "IRN anulat; PDF-ul a fost regenerat"
   }
 }

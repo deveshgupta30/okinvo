@@ -840,6 +840,9 @@
         "username": "Käyttäjätunnus",
         "password": "Salasana",
         "gstin": "GSTIN",
+        "publicKey": "IRP:n julkinen avain (PEM)",
+        "publicKeyHint": "Lataa se portaalista kirjautumisen jälkeen; se suojaa IRP:lle lähetettävät tunnistetiedot.",
+        "publicKeyStored": "Tallennettu; jätä tyhjäksi, jos haluat säilyttää sen.",
         "secretStored": "Tallennettu salattuna; jätä tyhjäksi säilyttääksesi sen.",
         "secretEncrypted": "Tallennettu salattuna."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Verotunniste",
       "void": "MITÄTÖITY",
       "draftWatermark": "LUONNOS - ei ole verolasku",
-      "paymentTermsDays": "{days} päivää"
+      "paymentTermsDays": "{days} päivää",
+      "irn": "IRN",
+      "ackNo": "Vahvistusnro",
+      "ackDate": "Vahvistuspäivä",
+      "einvoiceCancelled": "VERKKOLASKU PERUTTU"
     },
     "ui": {
       "pageEstimate": "noin {count, plural, one {# sivu} other {# sivua}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Mikään lasku ei vastaa näitä suodattimia.",
       "count": "{count, plural, one {# lasku} other {# laskua}}",
       "countPaged": "{count, plural, one {# lasku} other {# laskua}} · sivu {page} / {pages}",
-      "register": "rekisteri"
+      "register": "rekisteri",
+      "einvoice": "Verkkolasku",
+      "einvoiceFilters": {
+        "registered": "IRN rekisteröity",
+        "none": "Ei rekisteröity",
+        "cancelled": "IRN peruttu"
+      }
     },
     "new": {
       "noProfileTitle": "Luo ensin laskuttajaprofiili",
@@ -1611,7 +1624,41 @@
       "version": "Versio {version}",
       "sizeKb": "{size} kt",
       "verificationLink": "Vahvistuslinkki:",
-      "draftPreviewHint": "Luonnosten esikatselu on reaaliaikaisesti editorissa; avaa <link>vesileimattu PDF</link> nähdäksesi sivun."
+      "draftPreviewHint": "Luonnosten esikatselu on reaaliaikaisesti editorissa; avaa <link>vesileimattu PDF</link> nähdäksesi sivun.",
+      "einvoice": {
+        "title": "Verkkolasku (Intia)",
+        "description": "Tämän laskun rekisteröinti Invoice Registration Portal -portaaliin; rekisteröidylle asiakirjalle tulostuvat sen IRN ja portaalin allekirjoitettu QR-koodi.",
+        "connector": "Liitin",
+        "connectors": {
+          "manual": "Manuaalinen",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Tälle profiilille ei ole määritetty liitintä kohdassa Asetukset > Verkkolaskutus.",
+        "statuses": {
+          "none": "Ei rekisteröity",
+          "generated": "JSON luotu",
+          "registered": "Rekisteröity",
+          "cancelled": "Peruttu",
+          "failed": "Rekisteröinti epäonnistui"
+        },
+        "irn": "IRN",
+        "ackNo": "Vahvistusnro",
+        "ackDate": "Vahvistuspäivä",
+        "cancelReason": "Peruutus",
+        "generate": "Luo IRN",
+        "pasteLabel": "IRP:n vastaus",
+        "pasteHint": "Liitä JSON, jonka portaali tai GSP palautti tämän laskun verkkolasku-JSONille (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Tallenna IRN",
+        "cancelReasonLabel": "Peruutuksen syy",
+        "cancelReasons": {
+          "1": "Kaksoiskappale",
+          "2": "Tietojen syöttövirhe",
+          "3": "Tilaus peruttu",
+          "4": "Muu"
+        },
+        "cancel": "Peruuta IRN",
+        "cancelWindow": "Portaali sallii peruutuksen 24 tunnin kuluessa vahvistuksesta."
+      }
     },
     "history": {
       "metaTitle": "Laskun historia",
@@ -2078,6 +2125,9 @@
     "templateImported": "Mallipohja tuotu",
     "profileTemplateCleared": "Profiili käyttää taas instanssin mallipohjaa",
     "operatorSaved": "Ylläpitäjän tiedot tallennettu. Oikeudelliset sivut näyttävät ne nyt.",
-    "einvoiceSettingsSaved": "Verkkolaskutuksen asetukset tallennettu"
+    "einvoiceSettingsSaved": "Verkkolaskutuksen asetukset tallennettu",
+    "irnRegistered": "IRN {irn} rekisteröity; PDF luotiin uudelleen sen kanssa",
+    "irnRecorded": "IRN tallennettu; PDF luotiin uudelleen sen kanssa",
+    "irnCancelled": "IRN peruttu; PDF luotiin uudelleen"
   }
 }

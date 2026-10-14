@@ -5,6 +5,8 @@ import { getTranslations } from "next-intl/server";
 import { ConfirmAction } from "@/components/confirm-action";
 import { ScaledPreview } from "@/components/documents/scaled-preview";
 import { ShareDialog } from "@/components/documents/share-dialog";
+import { EInvoicePanel } from "@/components/invoices/einvoice-panel";
+import { canCancel } from "@/lib/einvoice/gst/connector";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { DescriptionList, Item } from "@/components/ui/description-list";
@@ -27,6 +29,7 @@ import {
 import { requireRole } from "@/server/auth";
 import { hasRole } from "@/server/dal/authz";
 import { assetUrl, renderInputFromInvoice, verificationQr } from "@/server/dal/documents";
+import { einvoiceConnectorFor } from "@/server/dal/einvoice-settings";
 import { NotFoundError } from "@/server/dal/errors";
 import { getInvoice } from "@/server/dal/invoices";
 import { listShareLinks } from "@/server/dal/share-links";
@@ -73,6 +76,9 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
   const isIssued = inv.status === "ISSUED";
   const latestDoc = inv.documents[inv.documents.length - 1] ?? null;
   const shareLinks = !isDraft && canEdit ? await listShareLinks(actor, "INVOICE", id) : [];
+  const showEInvoice = isIssued && inv.taxRegime === "INDIA_GST" && inv.issuer.einvoiceEnabled;
+  const einvoiceConnector = showEInvoice ? await einvoiceConnectorFor(inv.issuerProfileId) : null;
+  const einvoiceState = inv.einvoice ?? { status: "NONE" as const };
   const t = await getTranslations("invoices.detail");
   const ts = await getTranslations("invoices.shared");
   const tc = await getTranslations("common");
@@ -82,9 +88,14 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
     const config = inv.templateSnapshot ?? DEFAULT_TEMPLATE_CONFIG;
     const input = renderInputFromInvoice(inv);
     const verifyUrl = `${env.APP_URL.replace(/\/$/, "")}/verify/${inv.verificationToken}`;
-    const qr = inv.displayConfig.document.showQrVerification
-      ? await verificationQr(verifyUrl)
-      : undefined;
+    const signedQr =
+      inv.einvoice?.status === "REGISTERED" || inv.einvoice?.status === "CANCELLED"
+        ? inv.einvoice.signedQr
+        : undefined;
+    const qr =
+      signedQr || inv.displayConfig.document.showQrVerification
+        ? await verificationQr(signedQr ?? verifyUrl)
+        : undefined;
     const vm = buildDocumentViewModel(input, {
       appUrl: env.APP_URL,
       assetUrl,
@@ -329,6 +340,35 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
               </DescriptionList>
             </CardContent>
           </Card>
+
+          {showEInvoice ? (
+            <Card>
+              <CardHeader>
+                <div>
+                  <CardTitle>{t("einvoice.title")}</CardTitle>
+                  <CardDescription>{t("einvoice.description")}</CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <EInvoicePanel
+                  invoiceId={id}
+                  state={einvoiceState}
+                  connector={einvoiceConnector}
+                  canEdit={canEdit}
+                  cancellable={canCancel(einvoiceState)}
+                  ackDateLabel={
+                    einvoiceState.ackDate
+                      ? formatDateTime(
+                          new Date(einvoiceState.ackDate),
+                          actor.locale,
+                          actor.timezone,
+                        )
+                      : null
+                  }
+                />
+              </CardContent>
+            </Card>
+          ) : null}
 
           <Card>
             <CardHeader>

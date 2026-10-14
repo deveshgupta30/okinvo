@@ -840,6 +840,9 @@
         "username": "Non utent",
         "password": "Password",
         "gstin": "GSTIN",
+        "publicKey": "Clâf publiche IRP (PEM)",
+        "publicKeyHint": "Discjarile dal portâl dopo aver fat l’acès; e invuluce lis credenziâls mandadis al IRP.",
+        "publicKeyStored": "Salvade; lasse vueit par tignîle.",
         "secretStored": "Salvât cifrât; lassilu vueit par tignîlu.",
         "secretEncrypted": "Salvât cifrât a ripôs."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID fiscâl",
       "void": "ANULÂT",
       "draftWatermark": "BOZE - no je une fature fiscâl",
-      "paymentTermsDays": "{days} dîs"
+      "paymentTermsDays": "{days} dîs",
+      "irn": "IRN",
+      "ackNo": "N. di conferme",
+      "ackDate": "Date di conferme",
+      "einvoiceCancelled": "E-FATURE ANULADE"
     },
     "ui": {
       "pageEstimate": "cirche {count, plural, one {# pagjine} other {# pagjinis}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Nissune fature e corispuint a chescj filtris.",
       "count": "{count, plural, one {# fature} other {# faturis}}",
       "countPaged": "{count, plural, one {# fature} other {# faturis}} · pagjine {page} di {pages}",
-      "register": "regjistri"
+      "register": "regjistri",
+      "einvoice": "E-fature",
+      "einvoiceFilters": {
+        "registered": "IRN regjistrât",
+        "none": "No regjistrade",
+        "cancelled": "IRN anulât"
+      }
     },
     "new": {
       "noProfileTitle": "Cree prime un profîl di emitent",
@@ -1611,7 +1624,41 @@
       "version": "Version {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Leam di verifiche:",
-      "draftPreviewHint": "Lis bozzis a àn la anteprime in direte tal editôr; vierç <link>il PDF cu la filigrane</link> par viodi la pagjine."
+      "draftPreviewHint": "Lis bozzis a àn la anteprime in direte tal editôr; vierç <link>il PDF cu la filigrane</link> par viodi la pagjine.",
+      "einvoice": {
+        "title": "E-fature (Indie)",
+        "description": "Regjistrazion di cheste fature sul Invoice Registration Portal; un document regjistrât al stampe il so IRN e il QR firmât dal portâl.",
+        "connector": "Conetôr",
+        "connectors": {
+          "manual": "Manuâl",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Nissun conetôr configurât par chest profîl in Impostazions > E-fatureazion.",
+        "statuses": {
+          "none": "No regjistrade",
+          "generated": "JSON gjenerât",
+          "registered": "Regjistrade",
+          "cancelled": "Anulade",
+          "failed": "Regjistrazion falide"
+        },
+        "irn": "IRN",
+        "ackNo": "N. di conferme",
+        "ackDate": "Date di conferme",
+        "cancelReason": "Anulazion",
+        "generate": "Gjenere IRN",
+        "pasteLabel": "Rispueste IRP",
+        "pasteHint": "Tache il JSON restituît dal portâl o dal to GSP pal JSON de e-fature di cheste fature (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Regjistre IRN",
+        "cancelReasonLabel": "Motîf di anulazion",
+        "cancelReasons": {
+          "1": "Doplicât",
+          "2": "Erôr di inseriment",
+          "3": "Ordin anulât",
+          "4": "Altri"
+        },
+        "cancel": "Anule IRN",
+        "cancelWindow": "Il portâl al permet une anulazion in 24 oris de conferme."
+      }
     },
     "history": {
       "metaTitle": "Storic de fature",
@@ -2078,6 +2125,9 @@
     "templateImported": "Model impuartât",
     "profileTemplateCleared": "Il profîl al dopre di gnûf il model de istance",
     "operatorSaved": "Detais dal operadôr salvâts. Lis pagjinis leçâls ju mostrin cumò.",
-    "einvoiceSettingsSaved": "Impostazions de e-fatureazion salvadis"
+    "einvoiceSettingsSaved": "Impostazions de e-fatureazion salvadis",
+    "irnRegistered": "IRN {irn} regjistrât; il PDF al è stât gjenerât di gnûf cun chel",
+    "irnRecorded": "IRN regjistrât; il PDF al è stât gjenerât di gnûf cun chel",
+    "irnCancelled": "IRN anulât; il PDF al è stât gjenerât di gnûf"
   }
 }

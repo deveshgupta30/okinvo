@@ -840,6 +840,9 @@
         "username": "Naudotojo vardas",
         "password": "Slaptažodis",
         "gstin": "GSTIN",
+        "publicKey": "IRP viešasis raktas (PEM)",
+        "publicKeyHint": "Atsisiųskite jį iš portalo prisijungę; jis apsaugo į IRP siunčiamus prisijungimo duomenis.",
+        "publicKeyStored": "Išsaugota; palikite tuščią, jei norite ją palikti.",
         "secretStored": "Saugoma užšifruota; palikite tuščią, kad išliktų.",
         "secretEncrypted": "Saugoma užšifruota."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Mokesčių ID",
       "void": "ANULIUOTA",
       "draftWatermark": "JUODRAŠTIS - nėra mokesčių sąskaita faktūra",
-      "paymentTermsDays": "{days} d."
+      "paymentTermsDays": "{days} d.",
+      "irn": "IRN",
+      "ackNo": "Patvirtinimo Nr.",
+      "ackDate": "Patvirtinimo data",
+      "einvoiceCancelled": "E-SĄSKAITA ANULIUOTA"
     },
     "ui": {
       "pageEstimate": "apie {count, plural, one {# puslapis} few {# puslapiai} other {# puslapių}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Jokios sąskaitos neatitinka šių filtrų.",
       "count": "{count, plural, one {# sąskaita} few {# sąskaitos} other {# sąskaitų}}",
       "countPaged": "{count, plural, one {# sąskaita} few {# sąskaitos} other {# sąskaitų}} · {page} puslapis iš {pages}",
-      "register": "registras"
+      "register": "registras",
+      "einvoice": "E-sąskaita",
+      "einvoiceFilters": {
+        "registered": "IRN užregistruotas",
+        "none": "Neužregistruota",
+        "cancelled": "IRN anuliuotas"
+      }
     },
     "new": {
       "noProfileTitle": "Pirmiausia sukurkite išrašytojo profilį",
@@ -1611,7 +1624,41 @@
       "version": "Versija {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Patikros nuoroda:",
-      "draftPreviewHint": "Juodraščių peržiūra rodoma rengyklėje; atidarykite <link>PDF su vandenženkliu</link>, kad pamatytumėte puslapį."
+      "draftPreviewHint": "Juodraščių peržiūra rodoma rengyklėje; atidarykite <link>PDF su vandenženkliu</link>, kad pamatytumėte puslapį.",
+      "einvoice": {
+        "title": "E-sąskaita (Indija)",
+        "description": "Šios sąskaitos registracija Invoice Registration Portal; užregistruotas dokumentas spausdinamas su savo IRN ir portalo pasirašytu QR.",
+        "connector": "Jungtis",
+        "connectors": {
+          "manual": "Rankinė",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Šiam profiliui nesukonfigūruota jokia jungtis skiltyje Nustatymai > E-sąskaitos.",
+        "statuses": {
+          "none": "Neužregistruota",
+          "generated": "JSON sugeneruotas",
+          "registered": "Užregistruota",
+          "cancelled": "Anuliuota",
+          "failed": "Registracija nepavyko"
+        },
+        "irn": "IRN",
+        "ackNo": "Patvirtinimo Nr.",
+        "ackDate": "Patvirtinimo data",
+        "cancelReason": "Anuliavimas",
+        "generate": "Generuoti IRN",
+        "pasteLabel": "IRP atsakymas",
+        "pasteHint": "Įklijuokite JSON, kurį portalas ar jūsų GSP grąžino šios sąskaitos e-sąskaitos JSON (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Įrašyti IRN",
+        "cancelReasonLabel": "Anuliavimo priežastis",
+        "cancelReasons": {
+          "1": "Dublikatas",
+          "2": "Duomenų įvedimo klaida",
+          "3": "Užsakymas atšauktas",
+          "4": "Kita"
+        },
+        "cancel": "Anuliuoti IRN",
+        "cancelWindow": "Portalas leidžia anuliuoti per 24 valandas nuo patvirtinimo."
+      }
     },
     "history": {
       "metaTitle": "Sąskaitos istorija",
@@ -2078,6 +2125,9 @@
     "templateImported": "Šablonas importuotas",
     "profileTemplateCleared": "Profilis vėl naudoja egzemplioriaus šabloną",
     "operatorSaved": "Valdytojo duomenys išsaugoti. Teisiniai puslapiai juos dabar rodo.",
-    "einvoiceSettingsSaved": "E-sąskaitų nustatymai išsaugoti"
+    "einvoiceSettingsSaved": "E-sąskaitų nustatymai išsaugoti",
+    "irnRegistered": "IRN {irn} užregistruotas; PDF buvo sugeneruotas iš naujo su juo",
+    "irnRecorded": "IRN įrašytas; PDF buvo sugeneruotas iš naujo su juo",
+    "irnCancelled": "IRN anuliuotas; PDF buvo sugeneruotas iš naujo"
   }
 }

@@ -840,6 +840,9 @@
         "username": "ຊື່ຜູ້ໃຊ້",
         "password": "ລະຫັດຜ່ານ",
         "gstin": "GSTIN",
+        "publicKey": "ກະແຈສາທາລະນະ IRP (PEM)",
+        "publicKeyHint": "ດາວໂຫຼດຈາກພອດທັນຫຼັງຈາກເຂົ້າສູ່ລະບົບ; ມັນໃຊ້ຫໍ່ຂໍ້ມູນຢັ້ງຢືນທີ່ສົ່ງໄປຫາ IRP.",
+        "publicKeyStored": "ຈັດເກັບແລ້ວ; ປະຫວ່າງໄວ້ເພື່ອຮັກສາຄ່າເດີມ.",
         "secretStored": "ເກັບແບບເຂົ້າລະຫັດ; ປະຫວ່າງໄວ້ເພື່ອຮັກສາຄ່າເດີມ.",
         "secretEncrypted": "ເຂົ້າລະຫັດຂະນະຈັດເກັບ."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ເລກປະຈຳຕົວຜູ້ເສຍພາສີ",
       "void": "ຍົກເລີກ",
       "draftWatermark": "ສະບັບຮ່າງ - ບໍ່ແມ່ນໃບກຳກັບພາສີ",
-      "paymentTermsDays": "{days} ມື້"
+      "paymentTermsDays": "{days} ມື້",
+      "irn": "IRN",
+      "ackNo": "ເລກທີຮັບຮູ້",
+      "ackDate": "ວັນທີຮັບຮູ້",
+      "einvoiceCancelled": "ຍົກເລີກໃບແຈ້ງໜີ້ເອເລັກໂຕຣນິກ"
     },
     "ui": {
       "pageEstimate": "ປະມານ {count, plural, other {# ໜ້າ}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "ບໍ່ມີໃບແຈ້ງໜີ້ທີ່ກົງກັບຕົວກັ່ນຕອງເຫຼົ່ານີ້.",
       "count": "{count, plural, other {# ໃບແຈ້ງໜີ້}}",
       "countPaged": "{count, plural, other {# ໃບແຈ້ງໜີ້}} · ໜ້າ {page} ຈາກ {pages}",
-      "register": "ທະບຽນ"
+      "register": "ທະບຽນ",
+      "einvoice": "ໃບແຈ້ງໜີ້ເອເລັກໂຕຣນິກ",
+      "einvoiceFilters": {
+        "registered": "ລົງທະບຽນ IRN ແລ້ວ",
+        "none": "ຍັງບໍ່ໄດ້ລົງທະບຽນ",
+        "cancelled": "ຍົກເລີກ IRN ແລ້ວ"
+      }
     },
     "new": {
       "noProfileTitle": "ສ້າງໂປຣໄຟລ໌ຜູ້ອອກເອກະສານກ່ອນ",
@@ -1611,7 +1624,41 @@
       "version": "ເວີຊັນ {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "ລິ້ງກວດສອບ:",
-      "draftPreviewHint": "ສະບັບຮ່າງເບິ່ງຕົວຢ່າງສົດໃນຕົວແກ້ໄຂ; ເປີດ <link>PDF ທີ່ມີລາຍນ້ຳ</link> ເພື່ອເບິ່ງໜ້າ."
+      "draftPreviewHint": "ສະບັບຮ່າງເບິ່ງຕົວຢ່າງສົດໃນຕົວແກ້ໄຂ; ເປີດ <link>PDF ທີ່ມີລາຍນ້ຳ</link> ເພື່ອເບິ່ງໜ້າ.",
+      "einvoice": {
+        "title": "ໃບແຈ້ງໜີ້ເອເລັກໂຕຣນິກ (ອິນເດຍ)",
+        "description": "ການລົງທະບຽນໃບແຈ້ງໜີ້ນີ້ກັບ Invoice Registration Portal; ເອກະສານທີ່ລົງທະບຽນແລ້ວຈະພິມ IRN ແລະ QR ທີ່ລົງລາຍເຊັນຈາກພອດທັນ.",
+        "connector": "ຕົວເຊື່ອມຕໍ່",
+        "connectors": {
+          "manual": "ດ້ວຍມື",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "ຍັງບໍ່ໄດ້ຕັ້ງຄ່າຕົວເຊື່ອມຕໍ່ສຳລັບໂປຣໄຟລ໌ນີ້ໃນ ການຕັ້ງຄ່າ > ໃບແຈ້ງໜີ້ເອເລັກໂຕຣນິກ.",
+        "statuses": {
+          "none": "ຍັງບໍ່ໄດ້ລົງທະບຽນ",
+          "generated": "ສ້າງ JSON ແລ້ວ",
+          "registered": "ລົງທະບຽນແລ້ວ",
+          "cancelled": "ຍົກເລີກແລ້ວ",
+          "failed": "ການລົງທະບຽນບໍ່ສຳເລັດ"
+        },
+        "irn": "IRN",
+        "ackNo": "ເລກທີຮັບຮູ້",
+        "ackDate": "ວັນທີຮັບຮູ້",
+        "cancelReason": "ການຍົກເລີກ",
+        "generate": "ສ້າງ IRN",
+        "pasteLabel": "ການຕອບກັບຈາກ IRP",
+        "pasteHint": "ວາງ JSON ທີ່ພອດທັນ ຫຼື GSP ຂອງທ່ານສົ່ງກັບມາສຳລັບ JSON ໃບແຈ້ງໜີ້ເອເລັກໂຕຣນິກຂອງໃບແຈ້ງໜີ້ນີ້ (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "ບັນທຶກ IRN",
+        "cancelReasonLabel": "ເຫດຜົນການຍົກເລີກ",
+        "cancelReasons": {
+          "1": "ຊ້ຳກັນ",
+          "2": "ປ້ອນຂໍ້ມູນຜິດພາດ",
+          "3": "ຍົກເລີກຄຳສັ່ງຊື້",
+          "4": "ອື່ນໆ"
+        },
+        "cancel": "ຍົກເລີກ IRN",
+        "cancelWindow": "ພອດທັນອະນຸຍາດໃຫ້ຍົກເລີກໄດ້ພາຍໃນ 24 ຊົ່ວໂມງຫຼັງການຮັບຮູ້."
+      }
     },
     "history": {
       "metaTitle": "ປະຫວັດໃບແຈ້ງໜີ້",
@@ -2078,6 +2125,9 @@
     "templateImported": "ນຳເຂົ້າແມ່ແບບແລ້ວ",
     "profileTemplateCleared": "ໂປຣໄຟລ໌ໃຊ້ແມ່ແບບຂອງ instance ອີກຄັ້ງ",
     "operatorSaved": "ບັນທຶກລາຍລະອຽດຜູ້ດຳເນີນງານແລ້ວ. ໜ້າກົດໝາຍສະແດງມັນດຽວນີ້.",
-    "einvoiceSettingsSaved": "ບັນທຶກການຕັ້ງຄ່າໃບແຈ້ງໜີ້ເອເລັກໂຕຣນິກແລ້ວ"
+    "einvoiceSettingsSaved": "ບັນທຶກການຕັ້ງຄ່າໃບແຈ້ງໜີ້ເອເລັກໂຕຣນິກແລ້ວ",
+    "irnRegistered": "ລົງທະບຽນ IRN {irn} ແລ້ວ; ສ້າງ PDF ໃໝ່ພ້ອມ IRN ແລ້ວ",
+    "irnRecorded": "ບັນທຶກ IRN ແລ້ວ; ສ້າງ PDF ໃໝ່ພ້ອມ IRN ແລ້ວ",
+    "irnCancelled": "ຍົກເລີກ IRN ແລ້ວ; ສ້າງ PDF ໃໝ່ແລ້ວ"
   }
 }

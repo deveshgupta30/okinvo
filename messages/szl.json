@@ -840,6 +840,9 @@
         "username": "Miano używŏcza",
         "password": "Hasło",
         "gstin": "GSTIN",
+        "publicKey": "Publiczny klucz IRP (PEM)",
+        "publicKeyHint": "Ściōngnij go z portalu po zalogowaniu; szyfruje dane dostympu posyłane do IRP.",
+        "publicKeyStored": "Zapisane; sztaw puste, coby go zachować.",
         "secretStored": "Przechowywane zaszyfrowane; ôstow puste, coby ôstało.",
         "secretEncrypted": "Przechowywane zaszyfrowane."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "ID podatkowy",
       "void": "ANULOWANO",
       "draftWatermark": "PROJEKT - niy ma faktura VAT",
-      "paymentTermsDays": "{days} dni"
+      "paymentTermsDays": "{days} dni",
+      "irn": "IRN",
+      "ackNo": "Nr potwierdzyniŏ",
+      "ackDate": "Data potwierdzyniŏ",
+      "einvoiceCancelled": "E-FAKTURA ANULOWANA"
     },
     "ui": {
       "pageEstimate": "ôkoło {count, plural, one {# zajta} few {# zajty} many {# zajt} other {# zajty}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Żŏdno faktura niy pasuje do tych filtrōw.",
       "count": "{count, plural, one {# faktura} few {# faktury} many {# faktur} other {# faktury}}",
       "countPaged": "{count, plural, one {# faktura} few {# faktury} many {# faktur} other {# faktury}} · zajta {page} z {pages}",
-      "register": "rejestr"
+      "register": "rejestr",
+      "einvoice": "E-faktura",
+      "einvoiceFilters": {
+        "registered": "IRN zarejestrowany",
+        "none": "Niyzarejestrowano",
+        "cancelled": "IRN anulowany"
+      }
     },
     "new": {
       "noProfileTitle": "Zrōb nojpiyrw profil wystawcy",
@@ -1611,7 +1624,41 @@
       "version": "Wersyjŏ {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Link weryfikacyjny:",
-      "draftPreviewHint": "Podglōnd szkicōw je na żywo w edytorze; ôtwōrz <link>PDF ze znakym wodnym</link>, coby zobaczyć zajtã."
+      "draftPreviewHint": "Podglōnd szkicōw je na żywo w edytorze; ôtwōrz <link>PDF ze znakym wodnym</link>, coby zobaczyć zajtã.",
+      "einvoice": {
+        "title": "E-faktura (Indyje)",
+        "description": "Registracyjŏ tyj faktury we Invoice Registration Portal; zarejestrowany dokumynt drukuje swōj IRN i podpisany kod QR portalu.",
+        "connector": "Kōnektor",
+        "connectors": {
+          "manual": "Rynczny",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Dlŏ tego profilu niy ma skōnfigurowanego kōnektora we Sztelōnki > E-fakturowanie.",
+        "statuses": {
+          "none": "Niyzarejestrowano",
+          "generated": "Wygynerowano JSON",
+          "registered": "Zarejestrowano",
+          "cancelled": "Anulowano",
+          "failed": "Registracyjŏ sie niy podarziła"
+        },
+        "irn": "IRN",
+        "ackNo": "Nr potwierdzyniŏ",
+        "ackDate": "Data potwierdzyniŏ",
+        "cancelReason": "Anulowanie",
+        "generate": "Wygyneruj IRN",
+        "pasteLabel": "Ôdpowiydź IRP",
+        "pasteHint": "Wkludź JSON, kery portal abo ôd twōj GSP zwrōcił dlŏ e-faktury JSON tyj faktury (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Zapisz IRN",
+        "cancelReasonLabel": "Przicyna anulowaniŏ",
+        "cancelReasons": {
+          "1": "Duplikat",
+          "2": "Fela przi wprowadzaniu danych",
+          "3": "Zamōwiynie anulowane",
+          "4": "Inksze"
+        },
+        "cancel": "Pociep IRN",
+        "cancelWindow": "Portal pozwŏlŏ na anulowanie we ciōngu 24 godzin ôd potwierdzyniŏ."
+      }
     },
     "history": {
       "metaTitle": "Historyjŏ faktury",
@@ -2078,6 +2125,9 @@
     "templateImported": "Szablōn zaimportowany",
     "profileTemplateCleared": "Profil używo zaś szablōnu instancyji",
     "operatorSaved": "Dane ôperatora spamiyntane. Zajty prawne teroz je pokazujōm.",
-    "einvoiceSettingsSaved": "Sztelōnki e-fakturowaniŏ spamiyntane"
+    "einvoiceSettingsSaved": "Sztelōnki e-fakturowaniŏ spamiyntane",
+    "irnRegistered": "IRN {irn} zarejestrowany; PDF bōł zaś wygynerowany z nim",
+    "irnRecorded": "IRN zapisany; PDF bōł zaś wygynerowany z nim",
+    "irnCancelled": "IRN anulowany; PDF bōł zaś wygynerowany"
   }
 }

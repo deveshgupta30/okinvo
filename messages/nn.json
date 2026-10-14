@@ -840,6 +840,9 @@
         "username": "Brukarnamn",
         "password": "Passord",
         "gstin": "GSTIN",
+        "publicKey": "Offentleg IRP-nøkkel (PEM)",
+        "publicKeyHint": "Last han ned frå portalen etter at du har logga inn; han vernar legitimasjonen som blir send til IRP.",
+        "publicKeyStored": "Lagra; la feltet stå tomt for å behalde han.",
         "secretStored": "Lagra kryptert; la stå tomt for å behalde han.",
         "secretEncrypted": "Lagra kryptert."
       },
@@ -1399,7 +1402,11 @@
       "taxId": "Skatte-ID",
       "void": "UGYLDIG",
       "draftWatermark": "UTKAST - ikkje ein MVA-faktura",
-      "paymentTermsDays": "{days} dagar"
+      "paymentTermsDays": "{days} dagar",
+      "irn": "IRN",
+      "ackNo": "Stadfestingsnr.",
+      "ackDate": "Stadfestingsdato",
+      "einvoiceCancelled": "E-FAKTURA ANNULLERT"
     },
     "ui": {
       "pageEstimate": "ca. {count, plural, one {# side} other {# sider}}"
@@ -1540,7 +1547,13 @@
       "noMatches": "Ingen fakturaer samsvarer med desse filtra.",
       "count": "{count, plural, one {# faktura} other {# fakturaer}}",
       "countPaged": "{count, plural, one {# faktura} other {# fakturaer}} · side {page} av {pages}",
-      "register": "register"
+      "register": "register",
+      "einvoice": "E-faktura",
+      "einvoiceFilters": {
+        "registered": "IRN registrert",
+        "none": "Ikkje registrert",
+        "cancelled": "IRN annullert"
+      }
     },
     "new": {
       "noProfileTitle": "Opprett ein utstedarprofil først",
@@ -1611,7 +1624,41 @@
       "version": "Versjon {version}",
       "sizeKb": "{size} KB",
       "verificationLink": "Verifiseringslenkje:",
-      "draftPreviewHint": "Førehandsvising av utkast vert vist direkte i redigeringsprogrammet; opne <link>PDF-en med vassmerke</link> for å sjå sida."
+      "draftPreviewHint": "Førehandsvising av utkast vert vist direkte i redigeringsprogrammet; opne <link>PDF-en med vassmerke</link> for å sjå sida.",
+      "einvoice": {
+        "title": "E-faktura (India)",
+        "description": "Registrering av denne fakturaen i Invoice Registration Portal; eit registrert dokument blir skrive ut med sitt IRN og den signerte QR-koden til portalen.",
+        "connector": "Kopling",
+        "connectors": {
+          "manual": "Manuell",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Ingen kopling er konfigurert for denne profilen under Innstillingar > E-fakturering.",
+        "statuses": {
+          "none": "Ikkje registrert",
+          "generated": "JSON generert",
+          "registered": "Registrert",
+          "cancelled": "Annullert",
+          "failed": "Registreringa mislukkast"
+        },
+        "irn": "IRN",
+        "ackNo": "Stadfestingsnr.",
+        "ackDate": "Stadfestingsdato",
+        "cancelReason": "Annullering",
+        "generate": "Generer IRN",
+        "pasteLabel": "IRP-svar",
+        "pasteHint": "Lim inn JSON-en portalen eller GSP-en din returnerte for e-faktura-JSON-en til denne fakturaen (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Registrer IRN",
+        "cancelReasonLabel": "Årsak til annullering",
+        "cancelReasons": {
+          "1": "Duplikat",
+          "2": "Feil ved dataregistrering",
+          "3": "Bestilling kansellert",
+          "4": "Anna"
+        },
+        "cancel": "Annuller IRN",
+        "cancelWindow": "Portalen tillèt annullering innan 24 timar etter stadfestinga."
+      }
     },
     "history": {
       "metaTitle": "Fakturahistorikk",
@@ -2078,6 +2125,9 @@
     "templateImported": "Mal importert",
     "profileTemplateCleared": "Profilen brukar instansmalen igjen",
     "operatorSaved": "Opplysningar om drivaren lagra. Dei juridiske sidene viser dei no.",
-    "einvoiceSettingsSaved": "Innstillingar for e-fakturering lagra"
+    "einvoiceSettingsSaved": "Innstillingar for e-fakturering lagra",
+    "irnRegistered": "IRN {irn} registrert; PDF-en vart generert på nytt med han",
+    "irnRecorded": "IRN registrert; PDF-en vart generert på nytt med han",
+    "irnCancelled": "IRN annullert; PDF-en vart generert på nytt"
   }
 }
