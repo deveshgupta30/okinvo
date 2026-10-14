@@ -507,7 +507,7 @@ export type ListInvoicesData = {
          */
         cursor?: string;
         /**
-         * 1–100, default 50.
+         * 1-100, default 50.
          */
         limit?: number;
         /**
@@ -876,7 +876,7 @@ export type ListCreditNotesData = {
          */
         cursor?: string;
         /**
-         * 1–100, default 50.
+         * 1-100, default 50.
          */
         limit?: number;
         fy?: string;
@@ -1238,7 +1238,7 @@ export type ListClientsData = {
          */
         cursor?: string;
         /**
-         * 1–100, default 50.
+         * 1-100, default 50.
          */
         limit?: number;
         q?: string;
@@ -1294,7 +1294,7 @@ export type ListProfilesData = {
          */
         cursor?: string;
         /**
-         * 1–100, default 50.
+         * 1-100, default 50.
          */
         limit?: number;
         q?: string;
@@ -1350,7 +1350,7 @@ export type ListServicesData = {
          */
         cursor?: string;
         /**
-         * 1–100, default 50.
+         * 1-100, default 50.
          */
         limit?: number;
         q?: string;
@@ -1406,7 +1406,7 @@ export type ListProductsData = {
          */
         cursor?: string;
         /**
-         * 1–100, default 50.
+         * 1-100, default 50.
          */
         limit?: number;
         q?: string;
@@ -1462,7 +1462,7 @@ export type ListPaymentMethodsData = {
          */
         cursor?: string;
         /**
-         * 1–100, default 50.
+         * 1-100, default 50.
          */
         limit?: number;
         q?: string;

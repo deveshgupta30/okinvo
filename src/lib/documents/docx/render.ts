@@ -25,7 +25,7 @@ import type { DocumentViewModel } from "../view-model";
 
 /**
  * DOCX twin of the PDF (spec §9d): the same view-model and template config, laid out with the
- * `docx` writer — page size and margins, header band or plain header, parties, an items table
+ * `docx` writer - page size and margins, header band or plain header, parties, an items table
  * whose header row repeats on every page, totals, words, payment details, notes, terms, the QR
  * and signature block, and a footer with the number and "Page n of N". Parameters only: nothing
  * the user typed becomes markup, and no font outside the catalogue is referenced.

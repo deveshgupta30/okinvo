@@ -44,7 +44,7 @@ kubectl -n okinvo rollout status deployment/okinvo
 
 The app pod's init container runs `prisma migrate deploy` before the app starts; a failed
 migration keeps the old pod serving (`Recreate` strategy: it keeps the previous pod only until
-the new one is created — take a backup before upgrading).
+the new one is created - take a backup before upgrading).
 
 ## Upgrade
 

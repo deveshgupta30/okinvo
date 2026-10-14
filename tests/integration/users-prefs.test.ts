@@ -5,7 +5,7 @@ import type { Actor } from "@/server/actor";
 /**
  * User preference columns (spec §4.1): accent, country, currency, locale, usage, onboarding
  * and avatar live on the User row, are read through getAccount and written through audited
- * DAL functions — never through Better Auth's update-user route.
+ * DAL functions - never through Better Auth's update-user route.
  */
 const url = process.env.DATABASE_URL;
 if (!url && process.env.CI) throw new Error("DATABASE_URL is required when CI is set");

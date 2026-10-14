@@ -29,7 +29,7 @@ export const GET = withApi(async (request: Request) => {
   );
 });
 
-/** POST /api/v1/credit-notes — a draft against an issued invoice (credit_notes:create). */
+/** POST /api/v1/credit-notes - a draft against an issued invoice (credit_notes:create). */
 export const POST = withApi(async (request: Request) => {
   const actor = await requireApiActor("credit_notes:create", request.headers);
   if (!isActor(actor)) return actor;

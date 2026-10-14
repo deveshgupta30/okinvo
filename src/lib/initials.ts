@@ -13,7 +13,7 @@ function firstGrapheme(word: string): string {
 
 /**
  * Up to two initials for the avatar fallback (spec §3.5): the first letter of the first two
- * words — "Allison Murray Roy" → "AM" — grapheme-safe for scripts with combining marks. An empty
+ * words - "Allison Murray Roy" → "AM" - grapheme-safe for scripts with combining marks. An empty
  * name falls back to the first letter of `fallback` (the e-mail).
  */
 export function initialsOf(name: string, fallback = ""): string {

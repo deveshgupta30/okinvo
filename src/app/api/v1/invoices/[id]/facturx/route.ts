@@ -4,7 +4,7 @@ import { isActor, requireApiActor } from "@/server/auth";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-/** GET /api/v1/invoices/{id}/facturx — the Factur-X PDF/A-3 of an issued invoice (documents:read). */
+/** GET /api/v1/invoices/{id}/facturx - the Factur-X PDF/A-3 of an issued invoice (documents:read). */
 export const GET = withApi(async (request: Request, ctx: { params: Promise<{ id: string }> }) => {
   const actor = await requireApiActor("documents:read", request.headers);
   if (!isActor(actor)) return actor;

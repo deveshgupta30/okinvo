@@ -1,8 +1,8 @@
-# okinvo — Product Specification
+# okinvo - Product Specification
 
 | | |
 |---|---|
-| **Status** | Draft v2 — supersedes the product content of `IMPLEMENTATION_PLAN.md` (v1) |
+| **Status** | Draft v2 - supersedes the product content of `IMPLEMENTATION_PLAN.md` (v1) |
 | **Date** | 2026-09-30 |
 | **Owner** | deveshgupta30 |
 | **Companion docs** | `IMPLEMENTATION_PLAN_v2.md` (how it is built), `CLAUDE.md` (working conventions) |
@@ -13,7 +13,7 @@ This document says **what** okinvo does and the rules it must obey. It deliberat
 
 ## 1. What okinvo is
 
-A self-hosted invoicing system for **one freelancer / contractor** who bills either as an individual or through their own company (or both). It runs entirely on the owner's Docker host or Kubernetes cluster — no managed cloud services. It covers the full lifecycle: client & service catalogue → invoice builder with live preview → issue (immutable PDF + verification QR) → payments ledger → credit notes → exports for the accountant.
+A self-hosted invoicing system for **one freelancer / contractor** who bills either as an individual or through their own company (or both). It runs entirely on the owner's Docker host or Kubernetes cluster - no managed cloud services. It covers the full lifecycle: client & service catalogue → invoice builder with live preview → issue (immutable PDF + verification QR) → payments ledger → credit notes → exports for the accountant.
 
 ### 1.1 Principles
 
@@ -73,7 +73,7 @@ Multi-tenant workspaces (one instance holds one business's data, whatever the nu
 - Accounts from different providers with the same verified email are linked to one user.
 - **Sessions** are server-side and revocable. Settings → Security lists active sessions (device, IP, last seen) with per-session and "sign out everywhere" revocation.
 - Sign-in, sign-out and session revocation are audited.
-- Each user has personal preferences under Settings → Account: **timezone** (auto-detected from the browser at first sign-in, editable) and theme. "Today" everywhere in the app — default issue date, overdue calculation, dashboard periods — is computed in the signed-in user's timezone.
+- Each user has personal preferences under Settings → Account: **timezone** (auto-detected from the browser at first sign-in, editable) and theme. "Today" everywhere in the app - default issue date, overdue calculation, dashboard periods - is computed in the signed-in user's timezone.
 
 ### 4.2 Issuer profiles
 
@@ -83,8 +83,8 @@ Multi-tenant workspaces (one instance holds one business's data, whatever the nu
 | Address | structured: line 1, line 2, city, state, postal code, country (ISO 3166-1 alpha-2), state code (ISO 3166-2 subdivision), GST state code (2-digit, India) |
 | Tax IDs | PAN, GSTIN, CIN, UK VAT number, US EIN/SSN (**encrypted**), LUT number + LUT financial year |
 | Defaults | base currency, locale (`en-IN`, `en-GB`, `en-US`, …) for document formatting, fiscal-year start month, invoice number format, credit-note number format, default tax regime, default expected TDS rate, default display config, default notes, default terms |
-| Email | default CC/BCC; subject and body templates for invoices and credit notes — see 4.16 |
-| Template | optional override of the instance-wide document template — see 4.17 |
+| Email | default CC/BCC; subject and body templates for invoices and credit notes - see 4.16 |
+| Template | optional override of the instance-wide document template - see 4.17 |
 | Assets | logo, signature (transparent PNG), stamp (transparent PNG) |
 
 Rules:
@@ -129,16 +129,16 @@ DRAFT ──issue──▶ ISSUED ──void──▶ VOID
 
 - `DRAFT`: fully editable; no number; can be deleted.
 - `ISSUED`: number allocated, snapshots taken, PDF rendered and stored, everything frozen. Only these may change afterwards: `sentAt`, payments, credit notes, void.
-- `VOID`: requires a reason. Allowed only if no payments are recorded; otherwise use a credit note. A voided number is never reused (voided invoices remain in the register — this is what keeps the sequence gap-free and auditable).
+- `VOID`: requires a reason. Allowed only if no payments are recorded; otherwise use a credit note. A voided number is never reused (voided invoices remain in the register - this is what keeps the sequence gap-free and auditable).
 - **Void & reissue** voids the original and creates a new draft with the same content, linked both ways. The new invoice prints "Replaces INV/…" if the display config allows.
 
-**Derived display status** (never stored), first match wins: `DRAFT`, `VOID`, `PAID` (balance ≤ 0), `OVERDUE` (balance > 0 and the due date has passed — a partial payment does not hide a late balance), `PARTIALLY_PAID` (some payment, balance > 0), `SENT` (`sentAt` set), otherwise `ISSUED`. "Mark as sent" sets `sentAt` manually in v1.
+**Derived display status** (never stored), first match wins: `DRAFT`, `VOID`, `PAID` (balance ≤ 0), `OVERDUE` (balance > 0 and the due date has passed - a partial payment does not hide a late balance), `PARTIALLY_PAID` (some payment, balance > 0), `SENT` (`sentAt` set), otherwise `ISSUED`. "Mark as sent" sets `sentAt` manually in v1.
 
 **Numbering.** Allocated **at issue**, per issuer, per document kind, per fiscal year, strictly consecutive. Drafts never consume numbers. Issue and allocation happen in one transaction; a failed issue leaves no gap.
 
 **Dates.** Issue date defaults to today in the signed-in user's timezone; due date defaults to issue date + client payment terms. Both are calendar dates (no time component).
 
-**Amounts.** Line and total amounts are rounded half-up to the currency's **minor units** — 2 for INR/USD/GBP/EUR, 0 for JPY/KRW — derived from `Intl`. The seven three-decimal currencies (BHD, IQD, JOD, KWD, LYD, OMR, TND) are rejected at validation in v1. Quantities allow three decimals.
+**Amounts.** Line and total amounts are rounded half-up to the currency's **minor units** - 2 for INR/USD/GBP/EUR, 0 for JPY/KRW - derived from `Intl`. The seven three-decimal currencies (BHD, IQD, JOD, KWD, LYD, OMR, TND) are rejected at validation in v1. Quantities allow three decimals.
 
 ```
 round(x)          = half-up to the invoice currency's minor units
@@ -167,7 +167,7 @@ balanceDue        = total − Σ payments.amountApplied − Σ creditNotes.total
 
 **Share links.** An editor can share an issued (or voided) invoice or credit note by a public link `/i/<token>` (32 random bytes; stored hashed for lookup and encrypted so the owner can copy it again), optionally behind a password: a generated six-word passphrase or the owner's own. A password-protected link renders its own password-protected copy (above) when created and only ever serves that copy; the canonical PDF is never reachable through it. The viewer page shows document facts (issuer, client, number, date, total, void status), the same HTML preview the app uses, and a download; it never shows payment status. A right password sets an hour-long cookie scoped to that link; guesses are limited to five per link and address per quarter hour, and unknown, revoked and expired links all answer the same way. Links can expire in 7, 30 or 90 days or never, are revoked at any time, and count views and downloads. Creation and revocation are audited; tokens and passwords never reach the audit log.
 
-**Draft preview.** A draft can be previewed as a PDF at any time; it carries a diagonal "DRAFT — not a tax invoice" watermark, no number and no QR, and is never stored.
+**Draft preview.** A draft can be previewed as a PDF at any time; it carries a diagonal "DRAFT - not a tax invoice" watermark, no number and no QR, and is never stored.
 
 **QR code.** Encodes `https://<host>/verify/<token>`. Optional per display config. The token is rotated at issue, so a QR from a draft preview never resolves.
 
@@ -179,8 +179,8 @@ Regimes: `INDIA_GST`, `UK_VAT`, `US_SALES_TAX`, `NONE`. The regime is chosen per
 
 | Situation | Determination | Tax lines | Printed statement |
 |---|---|---|---|
-| Client in India, same GST state code as issuer | `INTRA_STATE` | `CGST r/2` + `SGST r/2` per rate | — |
-| Client in India, different state | `INTER_STATE` | `IGST r` per rate | — |
+| Client in India, same GST state code as issuer | `INTRA_STATE` | `CGST r/2` + `SGST r/2` per rate | - |
+| Client in India, different state | `INTER_STATE` | `IGST r` per rate | - |
 | Client outside India, issuer has valid LUT for the FY | `EXPORT_LUT` | none (0%) | "Supply meant for export under LUT without payment of IGST" |
 | Client outside India, no LUT | `EXPORT_WITH_TAX` | `IGST r` | "Supply meant for export on payment of IGST" |
 | Reverse charge flagged | `REVERSE_CHARGE` | none on the invoice | "Tax payable on reverse charge basis" |
@@ -227,13 +227,13 @@ changes. Tags never affect lines already on a document.
 ### 4.9 Credit notes
 
 - Issued **against one issued invoice**. Own gap-free sequence (`CN/{FY}/{SEQ:3}`). Same lifecycle as invoices (`DRAFT → ISSUED → VOID`), same immutability, own PDF and verification token.
-- **Amount-based (decided — no line items in v1).** A credit note has a reason and a credit amount *excluding* tax. Tax is apportioned pro-rata across the invoice's tax lines by taxable amount (largest-remainder, so the parts sum exactly), producing the credit note's own tax lines and total. A picker lets the user tick invoice lines (whole, or a percentage) to *compute* the amount; it only fills the amount field.
+- **Amount-based (decided - no line items in v1).** A credit note has a reason and a credit amount *excluding* tax. Tax is apportioned pro-rata across the invoice's tax lines by taxable amount (largest-remainder, so the parts sum exactly), producing the credit note's own tax lines and total. A picker lets the user tick invoice lines (whole, or a percentage) to *compute* the amount; it only fills the amount field.
 - The credit amount may not exceed the invoice's outstanding taxable balance, and the total may not exceed the outstanding balance, at issue time.
 - An issued credit note reduces the invoice balance; a voided one restores it.
 
 ### 4.10 Documents and rendering
 
-- Look and feel come from the active document template and its customisation (4.17), chosen in Settings — never on the invoice form. Three built-ins ship in v1.
+- Look and feel come from the active document template and its customisation (4.17), chosen in Settings - never on the invoice form. Three built-ins ship in v1.
 - Fonts embedded; must include `₹`, `£`, `€` and Devanagari-free Latin coverage. Logo/signature/stamp embedded at print resolution.
 - **Script fonts (v1.1).** Text in a non-Latin script prints from the matching Noto Sans family (Devanagari, Bengali, Gurmukhi, Gujarati, Oriya, Tamil, Telugu, Kannada, Malayalam, Sinhala, Thai, Lao, Myanmar, Khmer, Arabic, Hebrew, Syriac, Georgian, Armenian, Ethiopic, Greek, Cyrillic; Han, kana and hangul from Noto Sans SC/TC/JP/KR chosen by the document language), run by run, so a Latin template font and the Devanagari labels of a Hindi document share a page. Typed text is keyboard characters only (§6.6), so non-Latin text on a document comes from the document language's catalogue. Limitations: CJK prints in the regular weight only; the amount in words stays English; right-to-left languages right-align the text columns and mirror the items table, but mixed-direction lines are laid out in logical order.
 - Locale-aware formatting from the issuer profile: number grouping (`12,34,567.00` for `en-IN`), date format, currency display (`₹` / `INR` per config).
@@ -254,7 +254,7 @@ Every index page has an **Export** control (format + the page's current filters)
 | **Clients** | active/archived | all client fields |
 | **Services** | active/archived | all service fields |
 | **Products** | active/archived | all product fields including the SKU |
-| **GST summary** | FY or date range, issuer | one row per invoice per tax rate: invoice number, date, client GSTIN, place of supply, supply type, rate, taxable, CGST, SGST, IGST, total — laid out to map onto GSTR-1 B2B / export tables |
+| **GST summary** | FY or date range, issuer | one row per invoice per tax rate: invoice number, date, client GSTIN, place of supply, supply type, rate, taxable, CGST, SGST, IGST, total - laid out to map onto GSTR-1 B2B / export tables |
 | **TDS summary** | FY, issuer | one row per client: client, PAN/tax ID, invoices count, taxable billed, TDS expected, TDS actually deducted (from payments) |
 
 Format rules:
@@ -271,7 +271,7 @@ Format rules:
 
 Public, no sign-in, rate-limited, `noindex`.
 
-Shows only: document kind and number, issuer legal name (and GSTIN if the document printed it), client display name, issue date, currency and total, and whether the document is **valid** or **void** (never payment status). Lists the SHA-256 of every stored PDF version and offers a *"check your copy"* control that hashes a user-selected file in the browser and compares — nothing is uploaded.
+Shows only: document kind and number, issuer legal name (and GSTIN if the document printed it), client display name, issue date, currency and total, and whether the document is **valid** or **void** (never payment status). Lists the SHA-256 of every stored PDF version and offers a *"check your copy"* control that hashes a user-selected file in the browser and compares - nothing is uploaded.
 
 Unknown or malformed tokens return a generic "no such document" page with identical timing to a valid lookup. Only issued or voided documents resolve; drafts never do.
 
@@ -281,8 +281,8 @@ Unknown or malformed tokens return a generic "no such document" page with identi
 |---|---|
 | Profiles | list / create / edit / archive issuer profiles; set default; per-profile email templates and optional template override |
 | Payment methods | list / create / edit / archive; set default; reorder |
-| Templates | choose the active document template; customise it with a live preview; reset; export/import config — see 4.17 |
-| Email | SMTP settings (or "configured by environment" status); send test email; default CC/BCC; sent-mail log — see 4.16 |
+| Templates | choose the active document template; customise it with a live preview; reset; export/import config - see 4.17 |
+| Email | SMTP settings (or "configured by environment" status); send test email; default CC/BCC; sent-mail log - see 4.16 |
 | Security | active sessions with revoke; audit log viewer (filter by entity, action, date) |
 | Data | export all data; export documents; backup instructions and last-backup indicator |
 | Users | members with role, last sign-in and status; invite by e-mail with a role; change role; deactivate / reactivate (owners only) |
@@ -307,7 +307,7 @@ Append-only. Every create/update/archive of clients, services, profiles and paym
 
 **Sending a document.** An issued invoice or credit note has a **Send by email** action that opens a composer (its own page) pre-filled from the issuer profile's email templates:
 - To: the client's email. CC/BCC: the instance and issuer defaults. All editable.
-- Subject and body rendered from the templates with placeholders — `{{number}}`, `{{issuerName}}`, `{{clientName}}`, `{{contactPerson}}`, `{{issueDate}}`, `{{dueDate}}`, `{{total}}`, `{{balanceDue}}`, `{{currency}}`, `{{paymentTerms}}`, `{{verifyUrl}}` — and freely editable before sending.
+- Subject and body rendered from the templates with placeholders - `{{number}}`, `{{issuerName}}`, `{{clientName}}`, `{{contactPerson}}`, `{{issueDate}}`, `{{dueDate}}`, `{{total}}`, `{{balanceDue}}`, `{{currency}}`, `{{paymentTerms}}`, `{{verifyUrl}}` - and freely editable before sending.
 - Attachment: the stored PDF for that document. Always attached; cannot be swapped for an arbitrary file.
 - **Nothing is sent until the user clicks Send.** Every attempt creates an email-message record (recipients, subject, body, attached document, provider message id, status `SENT` or `FAILED` with the error) shown on the document's history page and in Settings → Email. The first successful send sets the document's `sentAt`. Sends are audited and rate-limited (30 per hour).
 
@@ -333,14 +333,14 @@ Append-only. Every create/update/archive of clients, services, profiles and paym
 - Accent colour, text colour, table style (ruled / zebra / plain).
 - Heading font and body font, each from a fixed catalogue of 100 Google families (50 sans, 50 serif) vendored into the app; v1 configs that stored a single pairing string are read as the equivalent pair.
 - Logo position (left / right / centre) and height.
-- Header: none, a colour band, or an uploaded image (PNG/JPEG/WebP, stored as PNG no wider than 2400 px) with an opacity (0–1) and height (20–60 mm); the band or image repeats on every page and carries the logo, name, title and number. Text on the band is light or dark automatically from the band colour (images default to dark) or as chosen. `letterhead` and `modern` show a band when the style is "none".
+- Header: none, a colour band, or an uploaded image (PNG/JPEG/WebP, stored as PNG no wider than 2400 px) with an opacity (0-1) and height (20-60 mm); the band or image repeats on every page and carries the logo, name, title and number. Text on the band is light or dark automatically from the band colour (images default to dark) or as chosen. `letterhead` and `modern` show a band when the style is "none".
 - Document title (`TAX INVOICE`, `INVOICE`, `BILL OF SUPPLY`, or custom text) with a GST-appropriate automatic default.
 - Label overrides for the fixed strings (e.g. "Bill to", "Amount due", "Payment details"), length-limited.
 - Which totals rows print (subtotal, discount, per-tax-line, TDS expected, rounding) and where "amount in words" sits (below totals / footer / hidden).
 - Header note, footer text, signature caption, page numbers, QR position, draft watermark text.
 - Reset to defaults; export and import the config as JSON.
 
-**Boundaries.** Templates are parameterised, not user-coded: no custom HTML/CSS and no uploaded fonts in v1. Field *visibility* remains the per-invoice display config (4.6) with defaults from the issuer profile — the template decides how things look, the display config decides what appears.
+**Boundaries.** Templates are parameterised, not user-coded: no custom HTML/CSS and no uploaded fonts in v1. Field *visibility* remains the per-invoice display config (4.6) with defaults from the issuer profile - the template decides how things look, the display config decides what appears.
 
 **Scope and immutability.** One active config applies instance-wide; an issuer profile may opt into its own override ("use a different template for this profile"). The effective config is snapshotted into each document at issue; later changes affect only future documents.
 
@@ -352,7 +352,7 @@ A signed-in user can create **API keys** (Settings → API): `okv_` + 43 random 
 
 ### 4.19 REST API v1
 
-`/api/v1/*` is the versioned, documented surface for scripts, the SDK and the MCP server. It authenticates with an API key (4.18), the 15-minute JWT, or the browser session, and every route names the scope it needs. Responses are enveloped: `{ data }` for one record, `{ data: [...], nextCursor }` for lists (cursor = the last id sent, `limit` 1–100, default 50), `{ error: { code, message, issues? } }` with a stable code (`unauthenticated`, `insufficient_scope`, `forbidden`, `not_found`, `validation`, `bad_charset`, `conflict`, `invariant`, `rate_limited`, `method_not_allowed`) on failure. Bodies are JSON, at most 1 MB, charset-checked, Zod-validated. Routes: invoices (list with the register filters, get, create a draft — display config defaults from the profile — issue, pdf, docx), credit notes (list, get, create a draft against an issued invoice, issue, pdf, docx), clients, profiles (without personal tax ids, mail defaults, template config or asset keys), services and products (optionally only those offered to an issuer), payment methods (names and types only, never details), status. There is no delete or update: `DELETE`, `PUT` and `PATCH` under `/api/v1` and `/api/mcp` answer 405 with an `Allow` header before any handler runs, and corrections go through the same void / re-issue / credit-note paths as the UI. Bearer requests are not cookie-authenticated, so the CSRF origin check does not apply to them. The API is described by an OpenAPI 3.1 document generated from the same Zod schemas (`/api/openapi.json` on every instance; `openapi/okinvo.json` committed) and consumed by a generated TypeScript SDK under `sdk/`; CI fails when either is stale. The MCP server at `POST /api/mcp` (Streamable HTTP, stateless, JSON responses; `GET`/`DELETE` 405) is built per request for the API key's effective scopes: tools `list_invoices`, `get_invoice`, `create_invoice`, `issue_invoice`, `list_credit_notes`, `get_credit_note`, `create_credit_note`, `issue_credit_note`, `list_clients`, `list_profiles`, `list_catalogue`, `get_status` appear only when their scope is held, resources `okinvo://invoices/{id}/pdf` and `okinvo://credit-notes/{id}/pdf` (base64 PDF) need `documents:read`, tool inputs are the REST bodies and outputs the REST DTOs, failures are in-band tool errors carrying the REST error codes, and no delete, void, payment or settings tool exists for any key. The `skills/okinvo-invoicing` skill documents the workflow for agents.
+`/api/v1/*` is the versioned, documented surface for scripts, the SDK and the MCP server. It authenticates with an API key (4.18), the 15-minute JWT, or the browser session, and every route names the scope it needs. Responses are enveloped: `{ data }` for one record, `{ data: [...], nextCursor }` for lists (cursor = the last id sent, `limit` 1-100, default 50), `{ error: { code, message, issues? } }` with a stable code (`unauthenticated`, `insufficient_scope`, `forbidden`, `not_found`, `validation`, `bad_charset`, `conflict`, `invariant`, `rate_limited`, `method_not_allowed`) on failure. Bodies are JSON, at most 1 MB, charset-checked, Zod-validated. Routes: invoices (list with the register filters, get, create a draft - display config defaults from the profile - issue, pdf, docx), credit notes (list, get, create a draft against an issued invoice, issue, pdf, docx), clients, profiles (without personal tax ids, mail defaults, template config or asset keys), services and products (optionally only those offered to an issuer), payment methods (names and types only, never details), status. There is no delete or update: `DELETE`, `PUT` and `PATCH` under `/api/v1` and `/api/mcp` answer 405 with an `Allow` header before any handler runs, and corrections go through the same void / re-issue / credit-note paths as the UI. Bearer requests are not cookie-authenticated, so the CSRF origin check does not apply to them. The API is described by an OpenAPI 3.1 document generated from the same Zod schemas (`/api/openapi.json` on every instance; `openapi/okinvo.json` committed) and consumed by a generated TypeScript SDK under `sdk/`; CI fails when either is stale. The MCP server at `POST /api/mcp` (Streamable HTTP, stateless, JSON responses; `GET`/`DELETE` 405) is built per request for the API key's effective scopes: tools `list_invoices`, `get_invoice`, `create_invoice`, `issue_invoice`, `list_credit_notes`, `get_credit_note`, `create_credit_note`, `issue_credit_note`, `list_clients`, `list_profiles`, `list_catalogue`, `get_status` appear only when their scope is held, resources `okinvo://invoices/{id}/pdf` and `okinvo://credit-notes/{id}/pdf` (base64 PDF) need `documents:read`, tool inputs are the REST bodies and outputs the REST DTOs, failures are in-band tool errors carrying the REST error codes, and no delete, void, payment or settings tool exists for any key. The `skills/okinvo-invoicing` skill documents the workflow for agents.
 
 ### 4.20 e-Invoicing (India)
 
@@ -422,7 +422,7 @@ Every text field accepts only the characters on a standard keyboard:
 abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()_-+=}]{["':;?/>.<,
 ```
 
-plus space, tab and newline. Backslash and the pipe are not on the list. The shared text inputs drop anything else as it is typed or pasted, and every server boundary (server actions through `parseForm`/`parseObject`, route handlers, the sign-up display name) rejects a value containing any other character with the message "Only standard keyboard characters are allowed." — before a schema or the database sees it. Passwords and other credentials are exempt: they are hashed or encrypted and never rendered. Nothing typed into the app is ever interpreted: every database access goes through Prisma's parameterised queries (the only raw statement is the health check's constant `SELECT 1`), nothing shells out, and exported cells still pass the formula-injection guard.
+plus space, tab and newline. Backslash and the pipe are not on the list. The shared text inputs drop anything else as it is typed or pasted, and every server boundary (server actions through `parseForm`/`parseObject`, route handlers, the sign-up display name) rejects a value containing any other character with the message "Only standard keyboard characters are allowed." - before a schema or the database sees it. Passwords and other credentials are exempt: they are hashed or encrypted and never rendered. Nothing typed into the app is ever interpreted: every database access goes through Prisma's parameterised queries (the only raw statement is the health check's constant `SELECT 1`), nothing shells out, and exported cells still pass the formula-injection guard.
 
 ## 7. Release phases
 

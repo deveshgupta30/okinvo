@@ -36,7 +36,7 @@ export default async function SecurityPage() {
       summary={
         <>
           A plain summary of the protections built into okinvo and of the practices the operator,{" "}
-          <Placeholder op={op} field="legalName" />, follows for this instance — and how to tell us
+          <Placeholder op={op} field="legalName" />, follows for this instance - and how to tell us
           about a weakness.
         </>
       }

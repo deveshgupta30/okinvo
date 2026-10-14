@@ -149,7 +149,7 @@ if (invokedDirectly) {
   const next = spliceReadme(readme, block);
   if (process.argv.includes("--check")) {
     if (next !== readme) {
-      console.error("README.md configuration table is stale — run `pnpm env:docs`");
+      console.error("README.md configuration table is stale - run `pnpm env:docs`");
       process.exit(1);
     }
     console.log("env:docs:check ok");

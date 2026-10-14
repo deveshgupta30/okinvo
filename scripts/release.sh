@@ -43,11 +43,11 @@ run() { # print, then execute unless --dry-run
 }
 
 if [ "$DRY_RUN" -eq 0 ] && [ -n "$(git status --porcelain --ignore-submodules)" ]; then
-  echo "release.sh: working tree is dirty (modified or untracked files) — commit, stash or clean first" >&2
+  echo "release.sh: working tree is dirty (modified or untracked files) - commit, stash or clean first" >&2
   exit 1
 fi
 if [ "$DRY_RUN" -eq 0 ] && git rev-parse -q --verify "refs/tags/v$VERSION" >/dev/null; then
-  echo "release.sh: tag v$VERSION already exists — a published version is never rebuilt; bump it" >&2
+  echo "release.sh: tag v$VERSION already exists - a published version is never rebuilt; bump it" >&2
   exit 1
 fi
 
@@ -76,7 +76,7 @@ scan() {
     run docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest \
       image --severity HIGH,CRITICAL --exit-code 1 --ignore-unfixed "$1"
   else
-    echo "release.sh: Trivy not available — $1 NOT scanned" >&2
+    echo "release.sh: Trivy not available - $1 NOT scanned" >&2
   fi
 }
 run docker buildx build -f docker/Dockerfile --target runner --load -t "$IMAGE:$VERSION" "${LABELS[@]}" .

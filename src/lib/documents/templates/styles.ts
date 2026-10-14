@@ -31,7 +31,7 @@ export function textOnBand(hex: string): "light" | "dark" {
   return l >= 0.179 ? "dark" : "light";
 }
 
-/** A pale tint of a colour: the colour blended into white at `amount` (0–1). */
+/** A pale tint of a colour: the colour blended into white at `amount` (0-1). */
 export function tintOf(hex: string, amount: number): string {
   const [r, g, b] = rgb(hex);
   const mix = (c: number) => Math.round(255 - (255 - c) * amount);

@@ -2,7 +2,7 @@
  * CSRF guard for the custom `POST` routes (`/api/uploads`, …; v2 §14): a browser always sends
  * `Origin` on cross-origin and same-origin POSTs, so a present `Origin` must equal the app's own.
  * Without `Origin`, `Sec-Fetch-Site` (every current browser) must say same-origin or none. A
- * request with neither header is not a browser — curl, a health probe, a script — and passes,
+ * request with neither header is not a browser - curl, a health probe, a script - and passes,
  * since CSRF needs a browser to carry the victim's cookies.
  */
 export function originAllowed(headers: Headers, appUrl: string): boolean {

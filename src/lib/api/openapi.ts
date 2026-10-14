@@ -144,7 +144,7 @@ const page = {
     .min(1)
     .max(100)
     .optional()
-    .meta({ description: "1–100, default 50." }),
+    .meta({ description: "1-100, default 50." }),
 };
 const InvoiceListQuery = z.object({
   ...page,

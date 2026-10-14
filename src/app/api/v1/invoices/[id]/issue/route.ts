@@ -7,7 +7,7 @@ import { issueInvoice } from "@/server/dal/invoices";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-/** POST /api/v1/invoices/{id}/issue — allocates the number, freezes and renders (invoices:create). */
+/** POST /api/v1/invoices/{id}/issue - allocates the number, freezes and renders (invoices:create). */
 export const POST = withApi(async (request: Request, ctx: { params: Promise<{ id: string }> }) => {
   const actor = await requireApiActor("invoices:create", request.headers);
   if (!isActor(actor)) return actor;

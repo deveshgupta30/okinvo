@@ -292,7 +292,7 @@ async function renderStored(
   );
   // Stored documents are immutable: never overwrite a blob that already exists at this key. A
   // blob with no row (a crash between put and insert, or a concurrent first render) is adopted
-  // when it is byte-identical to this render — renders are deterministic — else refused.
+  // when it is byte-identical to this render - renders are deterministic - else refused.
   // Encrypted copies are never byte-identical (fresh encryption each time), so an existing blob
   // at a protected key is always a refusal (R9).
   if (await storage.exists(key)) {
@@ -373,7 +373,7 @@ export async function ensureDocument(
 
 /**
  * A password-protected copy (spec §5.5): a new PDF_PROTECTED version rendered from the same
- * snapshot and AES-256 encrypted — opens with the user password, prints, nothing else. The
+ * snapshot and AES-256 encrypted - opens with the user password, prints, nothing else. The
  * canonical PDF is untouched; each call makes a fresh copy (and version) because the recipient's
  * password differs. Passwords never reach the audit log.
  */

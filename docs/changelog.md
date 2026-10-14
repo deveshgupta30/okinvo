@@ -104,7 +104,7 @@ went green on the development branch.
   drill removes root-owned backup files through a container so cleanup cannot fail a passed run.
 - "New credit note" from the dashboard and the register, with an invoice picker.
 
-## M4 — Exports, data and polish (2026-10-01)
+## M4 - Exports, data and polish (2026-10-01)
 
 - Eight CSV/XLSX datasets (invoices register, line items, payments ledger, credit notes, clients,
   services, GST summary, TDS summary) with cursor pagination, formula-injection guard, typed
@@ -119,7 +119,7 @@ went green on the development branch.
 - Client page lifetime totals; error, not-found and forbidden pages; Enter in a line item adds the
   next line instead of submitting the form.
 
-## M3 — Money in, mail out (2026-10-01)
+## M3 - Money in, mail out (2026-10-01)
 
 - Payments ledger with running balance, TDS, FX, bank fees, receipts, write-offs and refunds;
   balances recalculated in the same transaction; derived statuses (sent, partially paid, paid,
@@ -132,7 +132,7 @@ went green on the development branch.
   fallback with "mark as sent", sent log, test email, invoice history page; Mailpit in
   `compose.dev.yml`.
 
-## M2 — Invoices (2026-10-01)
+## M2 - Invoices (2026-10-01)
 
 - Builder with catalogue and ad hoc lines, discounts, rounding, live preview from the same pure
   modules the server uses.
@@ -144,7 +144,7 @@ went green on the development branch.
 - Register with fiscal-year, date, issuer, client, status and currency filters; public
   verification page with hash list and browser-side hash check.
 
-## M1 — Identity and master data (2026-10-01)
+## M1 - Identity and master data (2026-10-01)
 
 - Better Auth with an allow-list enforced at user creation, GitHub, Google, Microsoft, Apple and
   generic OIDC providers, optional password sign-in for environments without an IdP; sessions page;
@@ -153,7 +153,7 @@ went green on the development branch.
   id), clients, service catalogue, payment methods with encrypted details; archive instead of
   delete; audit log viewer.
 
-## M0 — Scaffold (2026-09-30)
+## M0 - Scaffold (2026-09-30)
 
 - Repo tooling (pnpm, TypeScript 6, ESLint, Prettier, Vitest, Playwright), design tokens generated
   from `DESIGN.md`, Next 16 app shell, Prisma 7 schema and first migration, validated environment,

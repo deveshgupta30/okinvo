@@ -9,9 +9,9 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 /**
- * POST /api/mcp — the MCP server over Streamable HTTP (spec §7.4), stateless: every request
+ * POST /api/mcp - the MCP server over Streamable HTTP (spec §7.4), stateless: every request
  * authenticates with a bearer API key, gets a server built for that key's scopes, and is answered
- * as JSON. No sessions, no SSE stream to resume, nothing to delete — GET and DELETE are 405.
+ * as JSON. No sessions, no SSE stream to resume, nothing to delete - GET and DELETE are 405.
  */
 export async function POST(request: Request): Promise<Response> {
   const auth = await requireApiScopes(request.headers);

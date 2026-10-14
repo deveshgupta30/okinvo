@@ -9,7 +9,7 @@ test("liveness and readiness probes", async ({ request }) => {
   expect(live.status()).toBe(200);
   expect(await live.json()).toEqual({ ok: true });
   // Readiness may legitimately be 503 for a moment after a cold start (dev: first Prisma
-  // engine load); it must become — and stay — 200 with the database reported ok.
+  // engine load); it must become - and stay - 200 with the database reported ok.
   await expect
     .poll(async () => (await request.get("/api/health/ready")).status(), { timeout: 15_000 })
     .toBe(200);

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { backupHealth, collectStatus, type StatusProbes } from "@/server/status";
 
-/** Status aggregation (spec §6.5) with injected probes — no database, no storage. */
+/** Status aggregation (spec §6.5) with injected probes - no database, no storage. */
 const now = new Date("2026-10-03T10:00:00Z");
 
 const healthy: StatusProbes = {

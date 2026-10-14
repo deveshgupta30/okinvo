@@ -18,7 +18,7 @@ const P = 1;
 const KEY_LEN = 32;
 
 /**
- * Password hashing for share links (spec §5.6) with Node's scrypt — no dependency. The stored
+ * Password hashing for share links (spec §5.6) with Node's scrypt - no dependency. The stored
  * string carries its own parameters and salt: `scrypt$N$r$p$<salt b64>$<hash b64>`.
  */
 export async function hashPassword(password: string): Promise<string> {
