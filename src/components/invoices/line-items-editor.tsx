@@ -156,8 +156,10 @@ export function LineItemsEditor({
           <Plus /> {t("addLine")}
         </Button>
       </div>
+      {/* Narrower than the columns need (a 1440 px laptop with the sidebar open), the table
+          scrolls inside its card rather than squeezing the inputs to nothing. */}
       <div className="overflow-x-auto rounded-lg border border-hairline">
-        <table className="w-full border-collapse text-app-table">
+        <table className="w-full min-w-[50rem] border-collapse text-app-table">
           <thead className="bg-surface-2 text-app-label text-ink-subtle">
             <tr>
               <th className="px-2 py-2 text-left font-medium">#</th>
@@ -174,7 +176,7 @@ export function LineItemsEditor({
             {rows.map((row, i) => (
               <tr key={i} className="align-top">
                 <td className="px-2 py-2 text-ink-subtle">{i + 1}</td>
-                <td className="min-w-64 px-2 py-2">
+                <td className="min-w-40 px-2 py-2">
                   {row.serviceItemId ? (
                     <input
                       type="hidden"
