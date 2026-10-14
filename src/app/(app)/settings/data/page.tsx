@@ -128,6 +128,7 @@ export default async function DataSettingsPage() {
               <form action="/api/exports/documents" method="get" className="flex flex-col gap-4">
                 <PeriodFields years={years} profiles={profiles} idPrefix="docs" />
                 <Checkbox name="docx" label={t("exportDocuments.docx")} />
+                <Checkbox name="facturx" label={t("exportDocuments.facturx")} />
                 <div>
                   <Button type="submit" variant="secondary">
                     {t("exportDocuments.download")}

@@ -7,6 +7,9 @@ import { prisma, type Tx } from "@/lib/db";
 import { qrDataUrl } from "@/lib/documents/qr";
 import type { ProtectOptions } from "@/lib/documents/protect";
 import { renderDocx } from "@/lib/documents/docx/render";
+import { toCii } from "@/lib/einvoice/cii/build";
+import { toFacturX } from "@/lib/einvoice/facturx/assemble";
+import { einvoiceInputFromCreditNote, einvoiceInputFromInvoice } from "@/lib/einvoice/input";
 import { renderPdf } from "@/lib/documents/render";
 import { sampleViewModel } from "@/lib/documents/sample";
 import {
@@ -166,7 +169,7 @@ function filenameFor(
     : kind === "INVOICE"
       ? "invoice-draft"
       : "credit-note-draft";
-  const suffix = format === "PDF_PROTECTED" ? "-protected" : "";
+  const suffix = format === "PDF_PROTECTED" ? "-protected" : format === "PDF_A3" ? "-facturx" : "";
   const extension = format === "DOCX" ? "docx" : "pdf";
   return version > 1
     ? `${stem}-v${version}${suffix}.${extension}`
@@ -174,6 +177,9 @@ function filenameFor(
 }
 
 type DocRow = Prisma.DocumentGetPayload<object>;
+
+/** The formats ensureDocument renders on demand; PDF_PROTECTED copies go through ensureProtectedDocument. */
+export type StoredFormat = "PDF" | "DOCX" | "PDF_A3";
 
 function toDto(row: DocRow, number: string | null): DocumentDto {
   return {
@@ -209,6 +215,7 @@ async function loadIssued(tx: Tx, kind: DocumentKind, id: string, today: string)
       input: creditNoteRenderInputFromSnapshot(cn),
       config: cn.templateSnapshot ?? (await resolveTemplateConfig(tx, cn.issuerProfileId)),
       number: cn.number,
+      einvoice: () => einvoiceInputFromCreditNote(cn),
       issuerProfileId: cn.issuerProfileId,
       fiscalYear: cn.fiscalYear ?? "unknown",
       issuedAt: cn.issuedAt ? new Date(cn.issuedAt) : new Date(0),
@@ -220,6 +227,7 @@ async function loadIssued(tx: Tx, kind: DocumentKind, id: string, today: string)
     input: renderInputFromInvoice(inv),
     config: inv.templateSnapshot ?? (await resolveTemplateConfig(tx, inv.issuerProfileId)),
     number: inv.number,
+    einvoice: () => einvoiceInputFromInvoice(inv),
     issuerProfileId: inv.issuerProfileId,
     fiscalYear: inv.fiscalYear ?? "unknown",
     issuedAt: inv.issuedAt ? new Date(inv.issuedAt) : new Date(0),
@@ -232,7 +240,7 @@ async function renderStored(
   id: string,
   version: number,
   protect?: ProtectOptions,
-  format: "PDF" | "DOCX" = "PDF",
+  format: StoredFormat = "PDF",
 ): Promise<DocRow> {
   const today = todayIn("UTC");
   const doc = await loadIssued(tx, kind, id, today);
@@ -243,7 +251,7 @@ async function renderStored(
     draft: false,
     messages: await documentMessages(doc.input.locale),
   });
-  const pdf =
+  const rendered =
     format === "DOCX"
       ? await renderDocx(
           vm.qrText ? { ...vm, qrDataUrl: await qrDataUrl(vm.qrText) } : vm,
@@ -255,6 +263,17 @@ async function renderStored(
           createdAt: doc.issuedAt,
           ...(protect ? { protect } : {}),
         });
+  // Factur-X (spec §9e): the canonical render becomes PDF/A-3b with the EN 16931 XML embedded.
+  const pdf =
+    format === "PDF_A3"
+      ? await toFacturX(rendered, toCii(doc.einvoice()), {
+          title: `${vm.title} ${vm.number ?? ""}`.trim(),
+          author: vm.issuer.legalName,
+          created: doc.issuedAt,
+          documentId: sha256Hex(`${kind}:${id}:${version}:facturx`).slice(0, 32),
+          kind,
+        })
+      : rendered;
   const contentType =
     format === "DOCX"
       ? "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
@@ -267,7 +286,7 @@ async function renderStored(
     safeFileStem(doc.number ?? id).toLowerCase(),
     version,
     {
-      ...(protect ? { suffix: "protected" } : {}),
+      ...(protect ? { suffix: "protected" } : format === "PDF_A3" ? { suffix: "facturx" } : {}),
       ...(format === "DOCX" ? { extension: "docx" } : {}),
     },
   );
@@ -322,7 +341,7 @@ async function docxImages(vm: DocumentViewModel, config: TemplateConfig) {
 export async function ensureDocument(
   kind: DocumentKind,
   id: string,
-  o: { format?: "PDF" | "DOCX" } = {},
+  o: { format?: StoredFormat } = {},
 ): Promise<DocumentDto> {
   const format = o.format ?? "PDF";
   const existing = await latestDocument(prisma, kind, id, format);

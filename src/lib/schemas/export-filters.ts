@@ -64,6 +64,7 @@ export type ArchiveExportFilters = z.infer<typeof ArchiveExportFiltersSchema>;
 export const PeriodExportFiltersSchema = z.object({
   /** Documents bundle only: also include a DOCX copy of every document. */
   docx: fBool.optional(),
+  facturx: fBool.optional(),
   fy,
   from: date,
   to: date,

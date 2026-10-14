@@ -91,7 +91,10 @@ export function documentKey(
   fiscalYear: string,
   numberSafe: string,
   version: number,
-  o: { suffix?: "protected" | undefined; extension?: "pdf" | "docx" | undefined } = {},
+  o: {
+    suffix?: "protected" | "facturx" | undefined;
+    extension?: "pdf" | "docx" | undefined;
+  } = {},
 ): string {
   if (!Number.isInteger(version) || version < 1) {
     throw new RangeError(`document version must be a positive integer, got ${String(version)}`);

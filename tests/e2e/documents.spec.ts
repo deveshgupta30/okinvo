@@ -25,6 +25,14 @@ test("an issued invoice downloads as DOCX", async ({ page }) => {
   const pdf = await page.getByRole("link", { name: "Download PDF" }).getAttribute("href");
   const pdfRes = await page.request.get(pdf!);
   expect((await pdfRes.body()).subarray(0, 5).toString()).toBe("%PDF-");
+  // the Factur-X copy is a PDF with the EN 16931 XML embedded (spec §9e)
+  const invoiceId = page.url().split("/invoices/")[1]!.split(/[/?#]/)[0];
+  const fx = await page.request.get(`/api/documents/preview?invoice=${invoiceId}&format=facturx`);
+  expect(fx.status()).toBe(200);
+  expect(fx.headers()["content-disposition"]).toMatch(/-facturx\.pdf"/);
+  const fxBytes = await fx.body();
+  expect(fxBytes.subarray(0, 5).toString()).toBe("%PDF-");
+  expect(fxBytes.toString("latin1")).toContain("factur-x.xml");
 });
 
 test("an invoice issued in German prints German labels", async ({ page }) => {

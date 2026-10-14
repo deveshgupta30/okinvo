@@ -65,11 +65,13 @@ export function documentFileName(
   version: number,
   issuer?: string,
   extension: "pdf" | "docx" = "pdf",
+  variant?: "facturx",
 ): string {
   const folder = kind === "INVOICE" ? "invoices" : "credit-notes";
   const suffix = version > 1 ? `-v${version}` : "";
   const issuerDir = issuer ? `${safeFileStem(issuer)}/` : "";
-  return `${folder}/${issuerDir}${safeFileStem(number)}${suffix}.${extension}`;
+  const tag = variant ? `-${variant}` : "";
+  return `${folder}/${issuerDir}${safeFileStem(number)}${suffix}${tag}.${extension}`;
 }
 
 export interface DocumentIndexRow extends Record<string, string | null> {

@@ -208,6 +208,11 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
                     <Button asChild variant="secondary">
                       <a href={`/api/documents/einvoice/${id}?format=ubl`}>{tc("downloadUbl")}</a>
                     </Button>
+                    <Button asChild variant="secondary">
+                      <a href={`/api/documents/preview?invoice=${id}&format=facturx`}>
+                        {tc("downloadFacturX")}
+                      </a>
+                    </Button>
                   </>
                 ) : null}
                 {isIssued && canEdit ? (
