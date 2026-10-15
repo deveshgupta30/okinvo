@@ -782,6 +782,17 @@ model PageView {
   @@id([day, path])
 }
 
+/// Exchange-rate tables fetched by the optional daily refresh (addendum §5); the bundled copy in
+/// data/exchange-rates.json is the floor. rates: { "INR": "88.5", ... } per USD, decimal strings.
+model ExchangeRateSnapshot {
+  id        String   @id @default(uuid(7))
+  asOf      DateTime @unique @db.Date
+  base      String   @default("USD") @db.VarChar(3)
+  rates     Json
+  source    String
+  createdAt DateTime @default(now())
+}
+
 model AppSetting {
   key       String   @id
   value     Json

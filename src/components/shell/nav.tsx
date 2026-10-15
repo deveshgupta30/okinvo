@@ -2,7 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FileText, LayoutDashboard, Package, Receipt, Users, Wrench } from "lucide-react";
+import {
+  ArrowLeftRight,
+  FileText,
+  LayoutDashboard,
+  Package,
+  Receipt,
+  Users,
+  Wrench,
+} from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { isRtl } from "@/lib/i18n/languages";
@@ -16,6 +24,7 @@ export const NAV = [
   { href: "/clients", key: "clients", icon: Users },
   { href: "/services", key: "services", icon: Wrench },
   { href: "/products", key: "products", icon: Package },
+  { href: "/tools/currency", key: "tools", icon: ArrowLeftRight },
 ] as const;
 
 export function isActivePath(pathname: string, href: string): boolean {
