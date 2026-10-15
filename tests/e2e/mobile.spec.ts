@@ -32,6 +32,21 @@ test("signed-in pages fit the phone width and keep their primary action", async 
   }
 });
 
+test("the dock sits at the bottom, the sidebar is hidden, and the dock navigates", async ({
+  page,
+}) => {
+  await signInAs(page, EMAIL, "Smoke Owner");
+  await page.goto("/");
+  const dock = page.locator("[data-dock]");
+  await expect(dock).toBeVisible();
+  await expect(page.locator("aside[data-sidebar]")).toBeHidden();
+  await dock.getByRole("link", { name: "Invoices" }).click();
+  await expect(page).toHaveURL(/\/invoices$/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Invoices");
+  await dock.getByRole("button", { name: "More" }).click();
+  await expect(page.getByRole("dialog", { name: "Navigation" })).toBeVisible();
+});
+
 test("the invoice builder stacks on a phone and still previews", async ({ page }) => {
   await signInAs(page, EMAIL, "Smoke Owner");
   await page.goto("/invoices/new");
