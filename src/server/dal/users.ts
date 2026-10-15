@@ -1,5 +1,5 @@
 import "server-only";
-import { parseAccent, type AccentId } from "@/lib/accent";
+import { parseAccent, type Accent } from "@/lib/accent";
 import { prisma } from "@/lib/db";
 import type { AccountInput, Usage } from "@/lib/schemas/account-input";
 import { USAGES } from "@/lib/schemas/account-input";
@@ -15,7 +15,7 @@ export interface AccountDto {
   email: string;
   timezone: string | null;
   theme: ThemeMode;
-  accent: AccentId;
+  accent: Accent;
   countryCode: string | null;
   currency: string | null;
   locale: string;
@@ -104,7 +104,7 @@ export async function updateAccount(actor: Actor, input: AccountInput): Promise<
 
 async function setPreference(
   actor: Actor,
-  data: { theme?: ThemeMode; accent?: AccentId },
+  data: { theme?: ThemeMode; accent?: Accent },
   summary: string,
 ): Promise<void> {
   await prisma.$transaction(async (tx) => {
@@ -125,7 +125,7 @@ export async function setTheme(actor: Actor, theme: ThemeMode): Promise<void> {
 }
 
 /** Settings → Appearance accent picker (spec §3.4); mirrored to the okinvo.accent cookie by the caller. */
-export async function setAccent(actor: Actor, accent: AccentId): Promise<void> {
+export async function setAccent(actor: Actor, accent: Accent): Promise<void> {
   await setPreference(actor, { accent }, `Accent set to ${accent}`);
 }
 

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatedSidebarProvider } from "@/components/motion/animated-sidebar";
-import type { AccentId } from "@/lib/accent";
+import type { Accent } from "@/lib/accent";
 import { sidebarCookie, type SidebarState } from "@/lib/sidebar";
 import type { ThemeMode } from "@/lib/theme";
 import { Dock } from "./dock";
@@ -27,7 +27,7 @@ export function AppShell({
   user: ShellUser;
   sidebar: SidebarState;
   theme: ThemeMode;
-  accent: AccentId;
+  accent: Accent;
   /** Before onboarding: no navigation, only the theme toggle and the user menu (log out). */
   minimal?: boolean;
   children: React.ReactNode;

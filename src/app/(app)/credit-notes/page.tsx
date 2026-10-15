@@ -8,11 +8,12 @@ import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { DateField } from "@/components/ui/date-field";
 import { Amount } from "@/components/ui/mono";
 import { PageHeader } from "@/components/ui/page-header";
 import { Select } from "@/components/ui/select";
 import { StatusPill } from "@/components/ui/status-pill";
-import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/table";
+import { ListTable } from "@/components/ui/list-table";
 import { formatDate, formatMoney } from "@/lib/format";
 import { withFlash } from "@/lib/flash";
 import { requireRole } from "@/server/auth";
@@ -78,10 +79,10 @@ export default async function CreditNotesPage({
       />
       <form className="mb-4 grid gap-3 md:grid-cols-3 xl:grid-cols-6" role="search">
         <Field label={t("filters.from")} htmlFor="from">
-          <Input id="from" name="from" type="date" defaultValue={s("from") ?? ""} />
+          <DateField id="from" name="from" defaultValue={s("from") ?? ""} />
         </Field>
         <Field label={t("filters.to")} htmlFor="to">
-          <Input id="to" name="to" type="date" defaultValue={s("to") ?? ""} />
+          <DateField id="to" name="to" defaultValue={s("to") ?? ""} />
         </Field>
         <Field label={t("filters.issuer")} htmlFor="issuerProfileId">
           <Select
@@ -134,52 +135,69 @@ export default async function CreditNotesPage({
       {rows.length === 0 && !filtered ? (
         <EmptyState icon={Receipt} title={t("empty.title")} description={t("empty.description")} />
       ) : (
-        <Table cards>
-          <THead>
-            <TR>
-              <TH>{t("columns.number")}</TH>
-              <TH>{t("columns.against")}</TH>
-              <TH>{t("columns.client")}</TH>
-              <TH>{t("columns.issueDate")}</TH>
-              <TH>{t("columns.reason")}</TH>
-              <TH numeric>{t("columns.total")}</TH>
-              <TH>{t("columns.status")}</TH>
-            </TR>
-          </THead>
-          <TBody>
-            {rows.length === 0 ? (
-              <TableEmpty colSpan={7}>{t("noMatch")}</TableEmpty>
-            ) : (
-              rows.map((r) => (
-                <TR key={r.id}>
-                  <TD label={t("columns.number")} mono>
+        <ListTable
+          empty={t("noMatch")}
+          columns={[
+            { key: "c0", header: t("columns.number") },
+            { key: "c1", header: t("columns.against") },
+            { key: "c2", header: t("columns.client") },
+            { key: "c3", header: t("columns.issueDate") },
+            { key: "c4", header: t("columns.reason") },
+            { key: "c5", header: t("columns.total"), numeric: true },
+            { key: "c6", header: t("columns.status") },
+          ]}
+          rows={rows.map((r) => ({
+            id: r.id,
+            cells: {
+              c0: {
+                node: (
+                  <>
                     <Link href={`/credit-notes/${r.id}`} className="hover:underline">
                       {r.number ?? <span className="text-ink-subtle">{t("draft")}</span>}
                     </Link>
-                  </TD>
-                  <TD label={t("columns.against")} mono>
+                  </>
+                ),
+                mono: true,
+                sort: r.number ?? "",
+              },
+              c1: {
+                node: (
+                  <>
                     <Link href={`/invoices/${r.invoiceId}`} className="hover:underline">
                       {r.invoiceNumber}
                     </Link>
-                  </TD>
-                  <TD label={t("columns.client")}>{r.clientName}</TD>
-                  <TD label={t("columns.issueDate")} mono>
-                    {formatDate(r.issueDate, r.locale)}
-                  </TD>
-                  <TD label={t("columns.reason")} className="max-w-xs truncate text-ink-subtle">
-                    {r.reason}
-                  </TD>
-                  <TD label={t("columns.total")} numeric>
+                  </>
+                ),
+                mono: true,
+                sort: r.invoiceNumber ?? "",
+              },
+              c2: { node: r.clientName, sort: r.clientName },
+              c3: { node: formatDate(r.issueDate, r.locale), mono: true, sort: r.issueDate },
+              c4: {
+                node: r.reason,
+                className: "max-w-xs truncate text-ink-subtle",
+                sort: r.reason,
+              },
+              c5: {
+                node: (
+                  <>
                     <Amount>{formatMoney(r.total, r.currency, r.locale)}</Amount>
-                  </TD>
-                  <TD label={t("columns.status")}>
+                  </>
+                ),
+                numeric: true,
+                sort: Number(r.total),
+              },
+              c6: {
+                node: (
+                  <>
                     <StatusPill status={r.displayStatus} />
-                  </TD>
-                </TR>
-              ))
-            )}
-          </TBody>
-        </Table>
+                  </>
+                ),
+                sort: r.displayStatus,
+              },
+            },
+          }))}
+        />
       )}
     </>
   );

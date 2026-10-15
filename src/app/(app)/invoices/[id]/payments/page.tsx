@@ -10,7 +10,7 @@ import { DescriptionList, Item } from "@/components/ui/description-list";
 import { Amount, Mono } from "@/components/ui/mono";
 import { PageHeader } from "@/components/ui/page-header";
 import { Pill } from "@/components/ui/status-pill";
-import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/table";
+import { ListTable } from "@/components/ui/list-table";
 import { todayIn } from "@/lib/dates";
 import { formatDate, formatMoney } from "@/lib/format";
 import { deletePaymentAction } from "@/server/actions/payments";
@@ -86,40 +86,59 @@ export default async function PaymentsPage({
               <CardTitle>{t("ledger")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <Table>
-                <THead>
-                  <TR>
-                    <TH>{t("columns.date")}</TH>
-                    <TH>{t("columns.kind")}</TH>
-                    <TH numeric>{t("columns.applied")}</TH>
-                    <TH numeric>{t("columns.tds")}</TH>
-                    <TH>{t("columns.received")}</TH>
-                    <TH>{t("columns.reference")}</TH>
-                    <TH numeric>{t("columns.balance")}</TH>
-                    <TH />
-                  </TR>
-                </THead>
-                <TBody>
-                  {ledger.rows.length === 0 ? (
-                    <TableEmpty colSpan={8}>{t("noPayments")}</TableEmpty>
-                  ) : (
-                    ledger.rows.map((p) => (
-                      <TR key={p.id}>
-                        <TD mono>{formatDate(p.paymentDate, invoice.locale)}</TD>
-                        <TD>
+              <ListTable
+                empty={t("noPayments")}
+                columns={[
+                  { key: "c0", header: t("columns.date") },
+                  { key: "c1", header: t("columns.kind") },
+                  { key: "c2", header: t("columns.applied"), numeric: true },
+                  { key: "c3", header: t("columns.tds"), numeric: true },
+                  { key: "c4", header: t("columns.received") },
+                  { key: "c5", header: t("columns.reference") },
+                  { key: "c6", header: t("columns.balance"), numeric: true },
+                  { key: "c7", header: "", sortable: false },
+                ]}
+                rows={ledger.rows.map((p) => ({
+                  id: p.id,
+                  cells: {
+                    c0: {
+                      node: formatDate(p.paymentDate, invoice.locale),
+                      mono: true,
+                      sort: p.paymentDate,
+                    },
+                    c1: {
+                      node: (
+                        <>
                           <Pill tone={KIND[p.kind].tone}>{t(`kinds.${KIND[p.kind].key}`)}</Pill>
-                        </TD>
-                        <TD numeric>
+                        </>
+                      ),
+                      sort: p.kind,
+                    },
+                    c2: {
+                      node: (
+                        <>
                           <Amount>{money(p.amountApplied)}</Amount>
-                        </TD>
-                        <TD numeric>
+                        </>
+                      ),
+                      numeric: true,
+                      sort: Number(p.amountApplied),
+                    },
+                    c3: {
+                      node: (
+                        <>
                           <Amount>
                             {p.tdsDeducted === "0.00" || p.tdsDeducted === "0"
                               ? tc("emptyValue")
                               : money(p.tdsDeducted)}
                           </Amount>
-                        </TD>
-                        <TD className="text-ink-subtle">
+                        </>
+                      ),
+                      numeric: true,
+                      sort: Number(p.tdsDeducted),
+                    },
+                    c4: {
+                      node: (
+                        <>
                           {p.receivedAmount && p.receivedCurrency ? (
                             <Mono>
                               {formatMoney(p.receivedAmount, p.receivedCurrency, invoice.locale)} @{" "}
@@ -128,12 +147,28 @@ export default async function PaymentsPage({
                           ) : (
                             (p.paymentMethodName ?? tc("emptyValue"))
                           )}
-                        </TD>
-                        <TD mono>{p.reference ?? tc("emptyValue")}</TD>
-                        <TD numeric>
+                        </>
+                      ),
+                      className: "text-ink-subtle",
+                      sort: p.paymentMethodName ?? "",
+                    },
+                    c5: {
+                      node: <>{p.reference ?? tc("emptyValue")}</>,
+                      mono: true,
+                      sort: p.reference ?? "",
+                    },
+                    c6: {
+                      node: (
+                        <>
                           <Amount>{money(p.runningBalance)}</Amount>
-                        </TD>
-                        <TD className="text-right whitespace-nowrap">
+                        </>
+                      ),
+                      numeric: true,
+                      sort: Number(p.runningBalance),
+                    },
+                    c7: {
+                      node: (
+                        <>
                           <div className="flex justify-end gap-1">
                             {p.receiptAssetId ? (
                               <Button asChild variant="tertiary" size="sm">
@@ -163,12 +198,13 @@ export default async function PaymentsPage({
                               destructive
                             />
                           </div>
-                        </TD>
-                      </TR>
-                    ))
-                  )}
-                </TBody>
-              </Table>
+                        </>
+                      ),
+                      className: "text-right whitespace-nowrap",
+                    },
+                  },
+                }))}
+              />
             </CardContent>
           </Card>
           <Card>

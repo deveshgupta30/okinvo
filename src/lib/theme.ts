@@ -23,5 +23,5 @@ export const THEME_INIT_SCRIPT =
   'var q=matchMedia("(prefers-color-scheme: light)");' +
   'var s=function(){document.documentElement.setAttribute("data-theme",m==="system"?(q.matches?"light":"dark"):m)};' +
   's();if(m==="system"){q.addEventListener("change",s)}' +
-  `var a=(document.cookie.match(/(?:^|; )okinvo\\.accent=(${ACCENTS.join("|")})(?:;|$)/)||[])[1];` +
-  'if(a){document.documentElement.setAttribute("data-accent",a)}}catch(e){}})();';
+  `var a=(document.cookie.match(/(?:^|; )okinvo\\.accent=(${ACCENTS.join("|")}|custom-[0-9a-f]{6})(?:;|$)/)||[])[1];` +
+  'if(a){document.documentElement.setAttribute("data-accent",a.indexOf("custom-")===0?"custom":a)}}catch(e){}})();';

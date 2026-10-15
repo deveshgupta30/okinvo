@@ -8,6 +8,7 @@ import { SubmitButton } from "@/components/submit-button";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { MultiSelectField } from "@/components/ui/multi-select-field";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
@@ -31,15 +32,12 @@ export function ProfileTags({
     <fieldset className="flex flex-col gap-2">
       <legend className="mb-1 text-app-label text-ink-subtle">{t("legend")}</legend>
       <p className="text-app-caption text-ink-subtle">{t("hint")}</p>
-      {profiles.map((p) => (
-        <Checkbox
-          key={p.id}
-          name="issuerProfileIds"
-          value={p.id}
-          label={p.label}
-          defaultChecked={selected.includes(p.id)}
-        />
-      ))}
+      <MultiSelectField
+        name="issuerProfileIds"
+        label={t("legend")}
+        options={profiles.map((p) => ({ value: p.id, label: p.label }))}
+        defaultValue={selected}
+      />
     </fieldset>
   );
 }

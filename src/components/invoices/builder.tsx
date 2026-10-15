@@ -16,6 +16,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { DateField } from "@/components/ui/date-field";
+import { ComboboxField } from "@/components/ui/combobox-field";
 import { Amount } from "@/components/ui/mono";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
@@ -178,51 +180,50 @@ export function InvoiceBuilder({
                 error={errors?.issuerProfileId}
                 required
               >
-                <Select
+                <ComboboxField
                   id="issuerProfileId"
                   name="issuerProfileId"
+                  label={t("issuerProfile")}
                   value={values.issuerProfileId}
-                  onChange={(e) => onProfile(e.target.value)}
-                >
-                  <option value="">{tc("choose")}</option>
-                  {context.profiles.map((p) => (
-                    <option key={p.id} value={p.id}>
-                      {p.archivedAt ? t("archivedOption", { label: p.label }) : p.label}
-                    </option>
-                  ))}
-                </Select>
+                  onValueChange={onProfile}
+                  placeholder={tc("choose")}
+                  invalid={Boolean(errors?.issuerProfileId)}
+                  options={context.profiles.map((p) => ({
+                    value: p.id,
+                    label: p.archivedAt ? t("archivedOption", { label: p.label }) : p.label,
+                  }))}
+                />
               </Field>
               <Field label={t("client")} htmlFor="clientId" error={errors?.clientId} required>
-                <Select
+                <ComboboxField
                   id="clientId"
                   name="clientId"
+                  label={t("client")}
                   value={values.clientId}
-                  onChange={(e) => onClient(e.target.value)}
-                >
-                  <option value="">{tc("choose")}</option>
-                  {context.clients.map((c) => (
-                    <option key={c.id} value={c.id}>
-                      {c.archivedAt ? t("archivedOption", { label: c.displayName }) : c.displayName}
-                    </option>
-                  ))}
-                </Select>
+                  onValueChange={onClient}
+                  placeholder={tc("choose")}
+                  invalid={Boolean(errors?.clientId)}
+                  options={context.clients.map((c) => ({
+                    value: c.id,
+                    label: c.archivedAt
+                      ? t("archivedOption", { label: c.displayName })
+                      : c.displayName,
+                    ...(c.email ? { keywords: [c.email] } : {}),
+                  }))}
+                />
               </Field>
               <Field label={t("issueDate")} htmlFor="issueDate" error={errors?.issueDate} required>
-                <Input
+                <DateField
                   id="issueDate"
                   name="issueDate"
-                  type="date"
-                  className="font-mono"
                   value={values.issueDate}
                   onChange={(e) => set("issueDate", e.target.value)}
                 />
               </Field>
               <Field label={t("dueDate")} htmlFor="dueDate" error={errors?.dueDate} required>
-                <Input
+                <DateField
                   id="dueDate"
                   name="dueDate"
-                  type="date"
-                  className="font-mono"
                   value={values.dueDate}
                   onChange={(e) => set("dueDate", e.target.value)}
                 />

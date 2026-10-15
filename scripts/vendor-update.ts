@@ -42,6 +42,14 @@ export const BEUI_COMPONENTS: readonly string[] = [
   "@beui/dock",
   "@beui/breadcrumb",
   "@beui/tabs",
+  "@beui/table",
+  "@beui/date-range-picker",
+  "@beui/combobox",
+  "@beui/multi-select",
+  "@beui/digit-swap",
+  "@beui/range-slider",
+  "@beui/color-selector",
+  "@beui/bouncy-accordion",
 ];
 
 export type Subcommand = "fonts" | "wordlist" | "flags" | "rates" | "beui" | "all";

@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { MaskedField } from "@/components/ui/masked-field";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { COMMON_CURRENCIES, PAYMENT_METHOD_TYPES, type PaymentMethodType } from "@/lib/schemas";
@@ -26,6 +27,15 @@ const BANK_FIELDS = [
   "iban",
   "routingCode",
 ] as const;
+
+/** Identifiers a shoulder-surfer should not read off the screen (addendum §3). */
+const MASKED_BANK_FIELDS: ReadonlySet<string> = new Set([
+  "accountNumber",
+  "ifsc",
+  "swift",
+  "iban",
+  "routingCode",
+]);
 
 const TYPE_KEYS = {
   BANK_TRANSFER: "bankTransfer",
@@ -149,7 +159,7 @@ export function PaymentMethodForm({ method }: { method: PaymentMethodDto | null 
                 error={errors?.["details.vpa"]}
                 required
               >
-                <Input
+                <MaskedField
                   id="details.vpa"
                   name="details.vpa"
                   className="font-mono"
@@ -205,12 +215,21 @@ export function PaymentMethodForm({ method }: { method: PaymentMethodDto | null 
                   htmlFor={`details.${key}`}
                   error={errors?.[`details.${key}`]}
                 >
-                  <Input
-                    id={`details.${key}`}
-                    name={`details.${key}`}
-                    className="font-mono"
-                    defaultValue={d(key)}
-                  />
+                  {MASKED_BANK_FIELDS.has(key) ? (
+                    <MaskedField
+                      id={`details.${key}`}
+                      name={`details.${key}`}
+                      className="font-mono"
+                      defaultValue={d(key)}
+                    />
+                  ) : (
+                    <Input
+                      id={`details.${key}`}
+                      name={`details.${key}`}
+                      className="font-mono"
+                      defaultValue={d(key)}
+                    />
+                  )}
                 </Field>
               ))}
             </FieldGroup>

@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { DateField } from "@/components/ui/date-field";
 import { Amount, Mono } from "@/components/ui/mono";
 import { Textarea } from "@/components/ui/textarea";
 import { pickerSubtotal, type PickerSelection } from "@/lib/credit-notes/picker";
@@ -117,11 +118,9 @@ export function CreditNoteBuilder({
           <CardContent>
             <FieldGroup>
               <Field label={t("issueDate")} htmlFor="issueDate" error={errors?.issueDate} required>
-                <Input
+                <DateField
                   id="issueDate"
                   name="issueDate"
-                  type="date"
-                  className="font-mono"
                   value={issueDate}
                   onChange={(e) => setIssueDate(e.target.value)}
                 />

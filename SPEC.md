@@ -289,7 +289,7 @@ Unknown or malformed tokens return a generic "no such document" page with identi
 | Legal | the operator details that fill the public `/legal/*` pages |
 | E-invoicing | per issuer profile: GST e-invoicing on/off, connector (manual / NIC with encrypted credentials), EU profile (none / EN 16931) |
 | Account | photo and name; sign-in e-mail (read-only); region (country, currency); language; timezone (auto-detected, editable); privacy card (cookies list, show the notice again) |
-| Appearance | theme: system / light / dark; accent (eight pastels, mint default) |
+| Appearance | theme: system / light / dark; accent (eight pastels, mint default, or a custom hex) |
 | API | API keys: create (name, scopes, expiry; shown once), revoke |
 | Status | version and build, database, storage probe, rate-limit store, SMTP, backups, e-mail counts; `/api/health/status` |
 

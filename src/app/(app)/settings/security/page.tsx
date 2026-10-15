@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { DateField } from "@/components/ui/date-field";
 import { Mono } from "@/components/ui/mono";
 import { PageHeader } from "@/components/ui/page-header";
 import { Pill } from "@/components/ui/status-pill";
@@ -180,10 +181,10 @@ export default async function SecurityPage({
                 />
               </Field>
               <Field label={tc("from")} htmlFor="from">
-                <Input id="from" name="from" type="date" defaultValue={filters.from ?? ""} />
+                <DateField id="from" name="from" defaultValue={filters.from ?? ""} />
               </Field>
               <Field label={tc("to")} htmlFor="to">
-                <Input id="to" name="to" type="date" defaultValue={filters.to ?? ""} />
+                <DateField id="to" name="to" defaultValue={filters.to ?? ""} />
               </Field>
               <div className="flex items-end gap-2">
                 <Button type="submit" variant="secondary">

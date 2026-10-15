@@ -13,7 +13,7 @@ import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Pill } from "@/components/ui/status-pill";
-import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/table";
+import { ListTable } from "@/components/ui/list-table";
 import { formatDateTime } from "@/lib/format";
 import {
   deactivateMemberAction,
@@ -170,78 +170,102 @@ export function MembersPanel({
           </div>
         </CardHeader>
         <CardContent>
-          <Table cards>
-            <THead>
-              <TR>
-                <TH>{t("members.columns.person")}</TH>
-                <TH>{t("members.columns.role")}</TH>
-                <TH>{t("members.columns.lastSignIn")}</TH>
-                <TH>{t("members.columns.status")}</TH>
-                <TH />
-              </TR>
-            </THead>
-            <TBody>
-              {members.map((m) => {
-                const self = m.id === selfId;
-                return (
-                  <TR key={m.id}>
-                    <TD label={t("members.columns.person")}>
-                      <span className="flex items-center gap-3">
-                        <Avatar name={m.name} email={m.email} src={m.avatarKey} size="sm" />
-                        <span className="flex min-w-0 flex-col">
-                          <span className="truncate text-app-label text-ink">
-                            {self ? t("members.nameYou", { name: m.name }) : m.name}
-                          </span>
-                          <span className="truncate text-app-caption text-ink-subtle">
-                            {m.email}
+          <ListTable
+            empty={null}
+            columns={[
+              { key: "person", header: t("members.columns.person") },
+              { key: "role", header: t("members.columns.role") },
+              { key: "lastSignIn", header: t("members.columns.lastSignIn") },
+              { key: "status", header: t("members.columns.status") },
+              { key: "actions", header: "", sortable: false },
+            ]}
+            rows={members.map((m) => {
+              const self = m.id === selfId;
+              return {
+                id: m.id,
+                cells: {
+                  person: {
+                    node: (
+                      <>
+                        <span className="flex items-center gap-3">
+                          <Avatar name={m.name} email={m.email} src={m.avatarKey} size="sm" />
+                          <span className="flex min-w-0 flex-col">
+                            <span className="truncate text-app-label text-ink">
+                              {self ? t("members.nameYou", { name: m.name }) : m.name}
+                            </span>
+                            <span className="truncate text-app-caption text-ink-subtle">
+                              {m.email}
+                            </span>
                           </span>
                         </span>
-                      </span>
-                    </TD>
-                    <TD label={t("members.columns.role")}>
-                      <RoleSelect member={m} self={self} />
-                    </TD>
-                    <TD label={t("members.columns.lastSignIn")} mono>
-                      {m.lastSignInAt
-                        ? formatDateTime(new Date(m.lastSignInAt), locale, timeZone)
-                        : tc("emptyValue")}
-                    </TD>
-                    <TD label={t("members.columns.status")}>
-                      {m.deactivatedAt ? (
-                        <Pill tone="danger">{t("members.deactivated")}</Pill>
-                      ) : (
-                        <Pill tone="success">{tc("active")}</Pill>
-                      )}
-                    </TD>
-                    <TD label="" className="text-right">
-                      {self ? null : m.deactivatedAt ? (
-                        <ConfirmAction
-                          action={reactivateMemberAction}
-                          title={t("members.reactivate.title", { email: m.email })}
-                          description={t("members.reactivate.description")}
-                          confirmLabel={t("members.reactivate.confirm")}
-                          hidden={{ userId: m.id }}
-                          trigger={t("members.reactivate.confirm")}
-                          size="sm"
-                        />
-                      ) : (
-                        <ConfirmAction
-                          action={deactivateMemberAction}
-                          title={t("members.deactivate.title", { email: m.email })}
-                          description={t("members.deactivate.description")}
-                          confirmLabel={t("members.deactivate.confirm")}
-                          hidden={{ userId: m.id }}
-                          destructive
-                          trigger={t("members.deactivate.confirm")}
-                          size="sm"
-                        />
-                      )}
-                    </TD>
-                  </TR>
-                );
-              })}
-            </TBody>
-          </Table>
+                      </>
+                    ),
+                    sort: m.name,
+                  },
+                  role: {
+                    node: (
+                      <>
+                        <RoleSelect member={m} self={self} />
+                      </>
+                    ),
+                    sort: m.role,
+                  },
+                  lastSignIn: {
+                    node: (
+                      <>
+                        {m.lastSignInAt
+                          ? formatDateTime(new Date(m.lastSignInAt), locale, timeZone)
+                          : tc("emptyValue")}
+                      </>
+                    ),
+                    mono: true,
+                    sort: m.lastSignInAt ?? "",
+                  },
+                  status: {
+                    node: (
+                      <>
+                        {m.deactivatedAt ? (
+                          <Pill tone="danger">{t("members.deactivated")}</Pill>
+                        ) : (
+                          <Pill tone="success">{tc("active")}</Pill>
+                        )}
+                      </>
+                    ),
+                    sort: m.deactivatedAt ? 1 : 0,
+                  },
+                  actions: {
+                    node: (
+                      <>
+                        {self ? null : m.deactivatedAt ? (
+                          <ConfirmAction
+                            action={reactivateMemberAction}
+                            title={t("members.reactivate.title", { email: m.email })}
+                            description={t("members.reactivate.description")}
+                            confirmLabel={t("members.reactivate.confirm")}
+                            hidden={{ userId: m.id }}
+                            trigger={t("members.reactivate.confirm")}
+                            size="sm"
+                          />
+                        ) : (
+                          <ConfirmAction
+                            action={deactivateMemberAction}
+                            title={t("members.deactivate.title", { email: m.email })}
+                            description={t("members.deactivate.description")}
+                            confirmLabel={t("members.deactivate.confirm")}
+                            hidden={{ userId: m.id }}
+                            destructive
+                            trigger={t("members.deactivate.confirm")}
+                            size="sm"
+                          />
+                        )}
+                      </>
+                    ),
+                    className: "text-right",
+                  },
+                },
+              };
+            })}
+          />
         </CardContent>
       </Card>
 
@@ -253,32 +277,36 @@ export function MembersPanel({
           </div>
         </CardHeader>
         <CardContent>
-          <Table cards>
-            <THead>
-              <TR>
-                <TH>{t("invitations.columns.email")}</TH>
-                <TH>{t("invitations.columns.role")}</TH>
-                <TH>{t("invitations.columns.invited")}</TH>
-                <TH />
-              </TR>
-            </THead>
-            <TBody>
-              {invitations.length === 0 ? (
-                <TableEmpty colSpan={4}>{t("invitations.empty")}</TableEmpty>
-              ) : (
-                invitations.map((i) => (
-                  <TR key={i.email}>
-                    <TD label={t("invitations.columns.email")}>{i.email}</TD>
-                    <TD label={t("invitations.columns.role")}>{t(`roles.${ROLE_KEYS[i.role]}`)}</TD>
-                    <TD label={t("invitations.columns.invited")} mono>
+          <ListTable
+            empty={t("invitations.empty")}
+            columns={[
+              { key: "email", header: t("invitations.columns.email") },
+              { key: "role", header: t("invitations.columns.role") },
+              { key: "invited", header: t("invitations.columns.invited") },
+              { key: "actions", header: "", sortable: false },
+            ]}
+            rows={invitations.map((i) => ({
+              id: i.email,
+              cells: {
+                email: { node: <>{i.email}</>, sort: i.email },
+                role: { node: <>{t(`roles.${ROLE_KEYS[i.role]}`)}</>, sort: i.role },
+                invited: {
+                  node: (
+                    <>
                       {i.invitedBy
                         ? t("invitations.invitedAtBy", {
                             date: formatDateTime(new Date(i.invitedAt), locale, timeZone),
                             by: i.invitedBy,
                           })
                         : formatDateTime(new Date(i.invitedAt), locale, timeZone)}
-                    </TD>
-                    <TD label="" className="text-right">
+                    </>
+                  ),
+                  mono: true,
+                  sort: i.invitedAt,
+                },
+                actions: {
+                  node: (
+                    <>
                       <ConfirmAction
                         action={revokeInvitationAction}
                         title={t("invitations.revokeTitle", { email: i.email })}
@@ -288,12 +316,13 @@ export function MembersPanel({
                         trigger={tc("revoke")}
                         size="sm"
                       />
-                    </TD>
-                  </TR>
-                ))
-              )}
-            </TBody>
-          </Table>
+                    </>
+                  ),
+                  className: "text-right",
+                },
+              },
+            }))}
+          />
         </CardContent>
       </Card>
     </div>

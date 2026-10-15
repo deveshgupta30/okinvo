@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { LegalOperatorForm } from "@/components/settings/legal-operator-form";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { BouncyAccordion } from "@/components/motion/bouncy-accordion";
 import { PageHeader } from "@/components/ui/page-header";
 import { Pill } from "@/components/ui/status-pill";
 import { missingLegalFields } from "@/lib/schemas/legal-operator";
@@ -33,49 +33,61 @@ export default async function LegalSettingsPage() {
   return (
     <>
       <PageHeader title={t("title")} description={t("description")} />
-      <div className="flex flex-col gap-6">
-        <Card>
-          <CardHeader>
-            <div className="flex flex-wrap items-center gap-3">
-              <CardTitle>{t("operator.title")}</CardTitle>
-              {missing.length === 0 ? (
-                <Pill tone="success">{t("operator.complete")}</Pill>
-              ) : (
-                <Pill tone="warning">
-                  {t("operator.missing", {
-                    count: missing.length,
-                    fields: missing.map((m) => t(`fieldLabels.${m}`)).join(", "),
-                  })}
-                </Pill>
-              )}
-            </div>
-            <CardDescription>{t("operator.description")}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <LegalOperatorForm initial={op} />
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <div>
-              <CardTitle>{t("publicPages.title")}</CardTitle>
-              <CardDescription>{t("publicPages.description")}</CardDescription>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <ul className="grid gap-2 sm:grid-cols-2">
-              {PAGES.map(([href, key]) => (
-                <li key={href}>
-                  <Link href={href} className="text-link underline-offset-4 hover:underline">
-                    {t(`publicPages.${key}`)}
-                  </Link>{" "}
-                  <span className="app-mono text-app-caption text-ink-tertiary">{href}</span>
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-      </div>
+      <BouncyAccordion
+        defaultValue="operator"
+        classNames={{
+          item: "border-hairline bg-surface-1",
+          trigger: "text-app-body text-ink",
+          title: "text-app-label text-ink",
+          content: "text-app-body text-ink",
+          description: "text-app-body text-ink",
+        }}
+        items={[
+          {
+            id: "operator",
+            title: (
+              <span className="flex flex-wrap items-center gap-3">
+                {t("operator.title")}
+                {missing.length === 0 ? (
+                  <Pill tone="success">{t("operator.complete")}</Pill>
+                ) : (
+                  <Pill tone="warning">
+                    {t("operator.missing", {
+                      count: missing.length,
+                      fields: missing.map((m) => t(`fieldLabels.${m}`)).join(", "),
+                    })}
+                  </Pill>
+                )}
+              </span>
+            ),
+            description: (
+              <div className="flex flex-col gap-4">
+                <p className="text-app-caption text-ink-subtle">{t("operator.description")}</p>
+                <LegalOperatorForm initial={op} />
+              </div>
+            ),
+          },
+          {
+            id: "pages",
+            title: t("publicPages.title"),
+            description: (
+              <div className="flex flex-col gap-4">
+                <p className="text-app-caption text-ink-subtle">{t("publicPages.description")}</p>
+                <ul className="grid gap-2 sm:grid-cols-2">
+                  {PAGES.map(([href, key]) => (
+                    <li key={href}>
+                      <Link href={href} className="text-link underline-offset-4 hover:underline">
+                        {t(`publicPages.${key}`)}
+                      </Link>{" "}
+                      <span className="app-mono text-app-caption text-ink-tertiary">{href}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ),
+          },
+        ]}
+      />
     </>
   );
 }

@@ -8,11 +8,12 @@ import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { DateField } from "@/components/ui/date-field";
 import { Amount, Mono } from "@/components/ui/mono";
 import { PageHeader } from "@/components/ui/page-header";
 import { Select } from "@/components/ui/select";
 import { Pill, StatusPill } from "@/components/ui/status-pill";
-import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/table";
+import { ListTable } from "@/components/ui/list-table";
 import { formatDate, formatMoney } from "@/lib/format";
 import { STATUS_LABELS } from "@/lib/invoices";
 import { COMMON_CURRENCIES } from "@/lib/schemas";
@@ -113,10 +114,10 @@ export default async function InvoicesPage({
           </Select>
         </Field>
         <Field label={tc("from")} htmlFor="from">
-          <Input id="from" name="from" type="date" defaultValue={filters.from ?? ""} />
+          <DateField id="from" name="from" defaultValue={filters.from ?? ""} />
         </Field>
         <Field label={tc("to")} htmlFor="to">
-          <Input id="to" name="to" type="date" defaultValue={filters.to ?? ""} />
+          <DateField id="to" name="to" defaultValue={filters.to ?? ""} />
         </Field>
         <Field label={t("issuer")} htmlFor="issuerProfileId">
           <Select
@@ -200,51 +201,61 @@ export default async function InvoicesPage({
         />
       ) : (
         <>
-          <Table cards>
-            <THead>
-              <TR>
-                <TH>{t("columns.number")}</TH>
-                <TH>{t("columns.client")}</TH>
-                <TH>{t("columns.issuer")}</TH>
-                <TH>{t("columns.issueDate")}</TH>
-                <TH>{t("columns.due")}</TH>
-                <TH numeric>{tc("total")}</TH>
-                <TH numeric>{t("columns.balance")}</TH>
-                <TH>{tc("status")}</TH>
-              </TR>
-            </THead>
-            <TBody>
-              {slice.length === 0 ? (
-                <TableEmpty colSpan={8}>{t("noMatches")}</TableEmpty>
-              ) : (
-                slice.map((r) => (
-                  <TR key={r.id}>
-                    <TD label={t("columns.number")} mono>
+          <ListTable
+            empty={t("noMatches")}
+            columns={[
+              { key: "c0", header: t("columns.number") },
+              { key: "c1", header: t("columns.client") },
+              { key: "c2", header: t("columns.issuer") },
+              { key: "c3", header: t("columns.issueDate") },
+              { key: "c4", header: t("columns.due") },
+              { key: "c5", header: tc("total"), numeric: true },
+              { key: "c6", header: t("columns.balance"), numeric: true },
+              { key: "c7", header: tc("status") },
+            ]}
+            rows={slice.map((r) => ({
+              id: r.id,
+              cells: {
+                c0: {
+                  node: (
+                    <>
                       <Link href={`/invoices/${r.id}`} className="hover:underline">
                         {r.number ?? <span className="text-ink-subtle">{ts("draft")}</span>}
                       </Link>
-                    </TD>
-                    <TD label={t("columns.client")}>{r.clientName}</TD>
-                    <TD label={t("columns.issuer")} className="text-ink-subtle">
-                      {r.issuerLabel}
-                    </TD>
-                    <TD label={t("columns.issueDate")} mono>
-                      {formatDate(r.issueDate, r.locale)}
-                    </TD>
-                    <TD label={t("columns.due")} mono>
-                      {formatDate(r.dueDate, r.locale)}
-                    </TD>
-                    <TD label={tc("total")} numeric>
+                    </>
+                  ),
+                  mono: true,
+                  sort: r.number ?? "",
+                },
+                c1: { node: r.clientName, sort: r.clientName },
+                c2: { node: r.issuerLabel, className: "text-ink-subtle", sort: r.issuerLabel },
+                c3: { node: formatDate(r.issueDate, r.locale), mono: true, sort: r.issueDate },
+                c4: { node: formatDate(r.dueDate, r.locale), mono: true, sort: r.dueDate },
+                c5: {
+                  node: (
+                    <>
                       <Amount>{formatMoney(r.total, r.currency, r.locale)}</Amount>
-                    </TD>
-                    <TD label={t("columns.balance")} numeric>
+                    </>
+                  ),
+                  numeric: true,
+                  sort: Number(r.total),
+                },
+                c6: {
+                  node: (
+                    <>
                       <Amount>
                         {r.status === "ISSUED"
                           ? formatMoney(r.balanceDue, r.currency, r.locale)
                           : tc("emptyValue")}
                       </Amount>
-                    </TD>
-                    <TD label={tc("status")}>
+                    </>
+                  ),
+                  numeric: true,
+                  sort: r.status === "ISSUED" ? Number(r.balanceDue) : -1,
+                },
+                c7: {
+                  node: (
+                    <>
                       <span className="inline-flex flex-wrap items-center gap-1">
                         <StatusPill status={r.displayStatus} />
                         {r.einvoiceStatus === "REGISTERED" ? (
@@ -253,12 +264,13 @@ export default async function InvoicesPage({
                           <Pill tone="warning">{t("einvoiceFilters.cancelled")}</Pill>
                         ) : null}
                       </span>
-                    </TD>
-                  </TR>
-                ))
-              )}
-            </TBody>
-          </Table>
+                    </>
+                  ),
+                  sort: r.displayStatus,
+                },
+              },
+            }))}
+          />
           <div className="mt-3 flex items-center justify-between text-app-caption text-ink-subtle">
             <span>
               {pages > 1

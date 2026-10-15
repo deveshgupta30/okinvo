@@ -30,10 +30,12 @@ test("a product with a SKU is picked into an invoice and printed under the descr
 
   await page.goto("/invoices/new");
   await expect(page.getByLabel("Add from catalogue")).toBeVisible();
-  const picker = page.getByLabel("Add from catalogue");
-  const option = picker.locator("option", { hasText: sku });
+  const picker = page.locator("#catalogue-picker");
+  await picker.click();
+  await picker.fill(sku);
+  const option = page.getByRole("option", { name: new RegExp(sku) });
   await expect(option).toHaveCount(1);
-  await picker.selectOption({ label: await option.textContent().then((t) => t?.trim() ?? "") });
+  await option.click();
   await expect(page.getByText(`SKU ${sku}`).first()).toBeVisible();
   await expect(page.locator("[data-document-preview]")).toContainText(`SKU ${sku}`);
 });

@@ -8,7 +8,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { Input } from "@/components/ui/input";
 import { PageHeader } from "@/components/ui/page-header";
 import { Pill } from "@/components/ui/status-pill";
-import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/table";
+import { ListTable } from "@/components/ui/list-table";
 import { requireRole } from "@/server/auth";
 import { hasRole } from "@/server/dal/authz";
 import { listClients } from "@/server/dal/clients";
@@ -82,52 +82,55 @@ export default async function ClientsPage({
           }
         />
       ) : (
-        <Table cards>
-          <THead>
-            <TR>
-              <TH>{t("columns.name")}</TH>
-              <TH>{t("columns.contact")}</TH>
-              <TH>{t("columns.email")}</TH>
-              <TH>{t("columns.country")}</TH>
-              <TH>{t("columns.currency")}</TH>
-              <TH numeric>{t("columns.terms")}</TH>
-              <TH>{t("columns.status")}</TH>
-            </TR>
-          </THead>
-          <TBody>
-            {clients.length === 0 ? (
-              <TableEmpty colSpan={7}>{t("noMatch", { q })}</TableEmpty>
-            ) : (
-              clients.map((c) => (
-                <TR key={c.id}>
-                  <TD label={t("columns.name")} className="font-medium">
+        <ListTable
+          empty={t("noMatch", { q })}
+          columns={[
+            { key: "c0", header: t("columns.name") },
+            { key: "c1", header: t("columns.contact") },
+            { key: "c2", header: t("columns.email") },
+            { key: "c3", header: t("columns.country") },
+            { key: "c4", header: t("columns.currency") },
+            { key: "c5", header: t("columns.terms"), numeric: true },
+            { key: "c6", header: t("columns.status") },
+          ]}
+          rows={clients.map((c) => ({
+            id: c.id,
+            cells: {
+              c0: {
+                node: (
+                  <>
                     <Link href={`/clients/${c.id}`} className="hover:underline">
                       {c.displayName}
                     </Link>
-                  </TD>
-                  <TD label={t("columns.contact")}>{c.contactPerson ?? tc("emptyValue")}</TD>
-                  <TD label={t("columns.email")}>{c.email ?? tc("emptyValue")}</TD>
-                  <TD label={t("columns.country")} mono>
-                    {c.countryCode}
-                  </TD>
-                  <TD label={t("columns.currency")} mono>
-                    {c.currency}
-                  </TD>
-                  <TD label={t("columns.terms")} numeric>
-                    {t("termsDays", { days: c.paymentTermsDays })}
-                  </TD>
-                  <TD label={t("columns.status")}>
+                  </>
+                ),
+                className: "font-medium",
+                sort: c.displayName,
+              },
+              c1: { node: <>{c.contactPerson ?? tc("emptyValue")}</>, sort: c.contactPerson ?? "" },
+              c2: { node: <>{c.email ?? tc("emptyValue")}</>, sort: c.email ?? "" },
+              c3: { node: c.countryCode, mono: true, sort: c.countryCode },
+              c4: { node: c.currency, mono: true, sort: c.currency },
+              c5: {
+                node: <>{t("termsDays", { days: c.paymentTermsDays })}</>,
+                numeric: true,
+                sort: c.paymentTermsDays,
+              },
+              c6: {
+                node: (
+                  <>
                     {c.archivedAt ? (
                       <Pill>{tp("archived")}</Pill>
                     ) : (
                       <Pill tone="success">{tp("active")}</Pill>
                     )}
-                  </TD>
-                </TR>
-              ))
-            )}
-          </TBody>
-        </Table>
+                  </>
+                ),
+                sort: c.archivedAt ? 1 : 0,
+              },
+            },
+          }))}
+        />
       )}
     </>
   );
