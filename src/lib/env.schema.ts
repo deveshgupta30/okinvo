@@ -87,6 +87,8 @@ const objectSchema = z
     OUTBOUND_ALLOW: z.string().default(""),
     /** 301 plain-http requests to https (health probes exempt); unset = on in production, off elsewhere. */
     FORCE_HTTPS: z.stringbool().optional(),
+    /** Local, cookie-less page-view counts (Settings > Usage); nothing leaves the instance. */
+    ANALYTICS_LOCAL: z.stringbool().default(false),
     /** Build provenance baked into the image (docker/Dockerfile ARG → ENV); shown on Settings → Status. */
     OKINVO_BUILD_SHA: optional,
     OKINVO_BUILD_DATE: optional,

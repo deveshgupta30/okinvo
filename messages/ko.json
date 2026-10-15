@@ -139,7 +139,8 @@
       "account": "계정",
       "appearance": "화면 모양",
       "api": "API",
-      "status": "상태"
+      "status": "상태",
+      "usage": "사용량"
     },
     "account": {
       "metaTitle": "계정",
@@ -970,6 +971,21 @@
         "failed": "마지막 실행이 {finishedAt}에 실패했습니다: {error}{days, plural, =0 {} other { · 보존 기간 #일}}"
       },
       "footer": "같은 보고서를 모니터링용으로 <mono>/api/health/status</mono>에서 JSON으로 제공합니다(로그인된 세션 또는 API 키 필요)."
+    },
+    "usage": {
+      "metaTitle": "사용량",
+      "metaDescription": "이 인스턴스에서 화면별, 일별 페이지 조회수를 로컬로 집계합니다.",
+      "title": "사용량",
+      "description": "각 화면이 열린 횟수를 이 인스턴스에서만 집계합니다: 쿠키도, 주소도 없고 어디로도 전송되지 않습니다.",
+      "last30Days": "최근 30일",
+      "total": "{count, plural, =0 {페이지 조회 없음} other {페이지 조회 #회}}",
+      "off": "집계가 꺼져 있습니다. 이 인스턴스에서 페이지 조회수를 집계하려면 ANALYTICS_LOCAL=true 로 설정하세요.",
+      "empty": "아직 기록된 페이지 조회가 없습니다.",
+      "columns": {
+        "day": "날짜",
+        "path": "화면",
+        "views": "조회수"
+      }
     }
   },
   "onboarding": {

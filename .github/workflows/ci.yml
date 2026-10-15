@@ -137,6 +137,7 @@ jobs:
         env:
           CI: "true"
           E2E_PORT: "3100" # playwright.config.ts: the production server and baseURL use this port
+          E2E_PROD: "1" # tests/e2e/perf.spec.ts: budgets measured against the production build only
           AUTH_PASSWORD_SIGNIN: "true"
           AUTH_ALLOWED_EMAILS: e2e@example.com,smoke@example.com,e2e-onboard@example.com,e2e-i18n@example.com # password sign-up needs exact entries
       - uses: actions/upload-artifact@v7

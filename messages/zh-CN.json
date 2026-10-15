@@ -139,7 +139,8 @@
       "account": "账户",
       "appearance": "外观",
       "api": "API",
-      "status": "状态"
+      "status": "状态",
+      "usage": "使用情况"
     },
     "account": {
       "metaTitle": "账户",
@@ -970,6 +971,21 @@
         "failed": "上次运行失败：{error}，时间 {finishedAt}{days, plural, =0 {} other { · 保留 # 天}}"
       },
       "footer": "同一份报告也可通过 <mono>/api/health/status</mono> 以 JSON 获取，供监控使用（需已登录的会话或 API 密钥）。"
+    },
+    "usage": {
+      "metaTitle": "使用情况",
+      "metaDescription": "此实例上按屏幕和日期统计的页面浏览量，仅在本地计数。",
+      "title": "使用情况",
+      "description": "每个屏幕被打开的次数，仅在此实例上统计：不使用 Cookie，不记录地址，不向任何地方发送数据。",
+      "last30Days": "最近 30 天",
+      "total": "{count, plural, =0 {没有页面浏览} other {# 次页面浏览}}",
+      "off": "计数已关闭。设置 ANALYTICS_LOCAL=true 即可在此实例上统计页面浏览量。",
+      "empty": "尚未记录任何页面浏览。",
+      "columns": {
+        "day": "日期",
+        "path": "屏幕",
+        "views": "浏览量"
+      }
     }
   },
   "onboarding": {

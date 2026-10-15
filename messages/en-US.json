@@ -136,7 +136,8 @@
       "account": "Account",
       "appearance": "Appearance",
       "api": "API",
-      "status": "Status"
+      "status": "Status",
+      "usage": "Usage"
     },
     "account": {
       "metaTitle": "Account",
@@ -967,6 +968,21 @@
         "failed": "Last run failed: {error} at {finishedAt}{days, plural, =0 {} one { · retention # day} other { · retention # days}}"
       },
       "footer": "The same report is available as JSON at <mono>/api/health/status</mono> for monitoring (signed-in session or API key)."
+    },
+    "usage": {
+      "metaTitle": "Usage",
+      "metaDescription": "Page views per screen and day on this instance, counted locally.",
+      "title": "Usage",
+      "description": "How often each screen was opened, counted on this instance only: no cookies, no addresses, nothing sent anywhere.",
+      "last30Days": "Last 30 days",
+      "total": "{count, plural, =0 {No page views} one {# page view} other {# page views}}",
+      "off": "Counting is off. Set ANALYTICS_LOCAL=true to count page views on this instance.",
+      "empty": "No page views recorded yet.",
+      "columns": {
+        "day": "Day",
+        "path": "Screen",
+        "views": "Views"
+      }
     }
   },
   "onboarding": {

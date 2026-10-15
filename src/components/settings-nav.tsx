@@ -20,6 +20,7 @@ const ITEMS = [
   { href: "/settings/appearance", key: "appearance", minRole: "VIEWER" },
   { href: "/settings/api", key: "api", minRole: "VIEWER" },
   { href: "/settings/status", key: "status", minRole: "VIEWER" },
+  { href: "/settings/usage", key: "usage", minRole: "OWNER" },
 ] as const;
 
 const RANK: Record<Role, number> = { VIEWER: 0, EDITOR: 1, OWNER: 2 };

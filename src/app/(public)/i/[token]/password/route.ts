@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { clientIp } from "@/lib/rate-limit";
 import { env } from "@/lib/env";
+import { isHoneypotFilled } from "@/lib/security/honeypot";
 import { originAllowed } from "@/lib/security/origin";
 import { shareCookieName, SHARE_COOKIE_TTL_MS, signShareCookie } from "@/lib/security/share-cookie";
 import { lookupShare, shareCookieSecret, verifySharePassword } from "@/server/dal/share-links";
@@ -32,6 +33,7 @@ export async function POST(
   const limited = await enforceRateLimit(request.headers, "share");
   if (limited) return back("limited");
   const form = await request.formData();
+  if (isHoneypotFilled(form)) return back(); // a bot: looks like success, grants nothing
   const password = String(form.get("password") ?? "");
   const view = await lookupShare(token);
   if (!view) return back("wrong");

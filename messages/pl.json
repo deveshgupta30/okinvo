@@ -139,7 +139,8 @@
       "account": "Konto",
       "appearance": "Wygląd",
       "api": "API",
-      "status": "Status"
+      "status": "Status",
+      "usage": "Użycie"
     },
     "account": {
       "metaTitle": "Konto",
@@ -970,6 +971,21 @@
         "failed": "Ostatnie uruchomienie nie powiodło się: {error} o {finishedAt}{days, plural, =0 {} one { · retencja # dzień} few { · retencja # dni} many { · retencja # dni} other { · retencja # dnia}}"
       },
       "footer": "Ten sam raport jest dostępny jako JSON pod adresem <mono>/api/health/status</mono> na potrzeby monitorowania (zalogowana sesja lub klucz API)."
+    },
+    "usage": {
+      "metaTitle": "Użycie",
+      "metaDescription": "Wyświetlenia stron według ekranu i dnia na tej instancji, liczone lokalnie.",
+      "title": "Użycie",
+      "description": "Ile razy otwarto każdy ekran, liczone tylko na tej instancji: bez plików cookie, bez adresów, nic nie jest nigdzie wysyłane.",
+      "last30Days": "Ostatnie 30 dni",
+      "total": "{count, plural, =0 {Brak wyświetleń stron} one {# wyświetlenie strony} few {# wyświetlenia strony} many {# wyświetleń strony} other {# wyświetlenia strony}}",
+      "off": "Liczenie jest wyłączone. Ustaw ANALYTICS_LOCAL=true, aby liczyć wyświetlenia stron na tej instancji.",
+      "empty": "Nie zarejestrowano jeszcze żadnych wyświetleń stron.",
+      "columns": {
+        "day": "Dzień",
+        "path": "Ekran",
+        "views": "Wyświetlenia"
+      }
     }
   },
   "onboarding": {

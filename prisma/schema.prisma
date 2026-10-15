@@ -23,24 +23,24 @@ model User {
   emailVerified Boolean   @default(false)
   image         String?
   role          UserRole  @default(OWNER)
-  timezone      String?   // IANA zone; filled by the app shell on first render, editable in Settings → Account
-  theme         String?   // "system" | "light" | "dark"; mirrored to the okinvo.theme cookie
+  timezone      String? // IANA zone; filled by the app shell on first render, editable in Settings → Account
+  theme         String? // "system" | "light" | "dark"; mirrored to the okinvo.theme cookie
   accent        String    @default("mint") // src/lib/accent.ts ids; mirrored to the okinvo.accent cookie
-  countryCode   String?   // ISO 3166-1 alpha-2; default for new issuer profiles
-  currency      String?   // ISO 4217; default for new issuer profiles and the empty dashboard
+  countryCode   String? // ISO 3166-1 alpha-2; default for new issuer profiles
+  currency      String? // ISO 4217; default for new issuer profiles and the empty dashboard
   locale        String    @default("en-US") // BCP-47 UI language (src/lib/i18n)
-  usage         String?   // "PERSONAL" | "BUSINESS" from onboarding
+  usage         String? // "PERSONAL" | "BUSINESS" from onboarding
   onboardedAt   DateTime? // null until the first-run wizard completes
   deactivatedAt DateTime? // set by an owner (Settings → Users): no sign-in, sessions ended, rows kept
   avatarAssetId String?   @unique
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
-  avatar        Asset?    @relation("UserAvatar", fields: [avatarAssetId], references: [id], onDelete: SetNull)
-  sessions      Session[]
-  accounts      Account[]
-  auditEvents   AuditEvent[]
-  apiKeys       ApiKey[]
+  avatar      Asset?       @relation("UserAvatar", fields: [avatarAssetId], references: [id], onDelete: SetNull)
+  sessions    Session[]
+  accounts    Account[]
+  auditEvents AuditEvent[]
+  apiKeys     ApiKey[]
 
   @@map("user")
 }
@@ -50,7 +50,7 @@ model User {
 model ApiKey {
   id         String    @id @default(uuid(7))
   name       String
-  prefix     String    // "okv_" + 8 characters, for display
+  prefix     String // "okv_" + 8 characters, for display
   keyHash    String    @unique
   scopes     String[]
   expiresAt  DateTime?
@@ -67,13 +67,13 @@ model ApiKey {
 
 /// An invitation (Settings → Users): the sign-in hook admits the address like the env allow-list.
 model AllowedEmail {
-  id          String   @id @default(uuid(7))
-  email       String   @unique
-  role        UserRole @default(EDITOR)
+  id          String    @id @default(uuid(7))
+  email       String    @unique
+  role        UserRole  @default(EDITOR)
   invitedById String?
-  invitedAt   DateTime @default(now())
+  invitedAt   DateTime  @default(now())
   acceptedAt  DateTime?
-  active      Boolean  @default(true)
+  active      Boolean   @default(true)
 }
 
 model Session {
@@ -86,7 +86,7 @@ model Session {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
   @@map("session")
@@ -107,7 +107,7 @@ model Account {
   createdAt             DateTime  @default(now())
   updatedAt             DateTime  @updatedAt
 
-  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([providerId, accountId])
   @@index([userId])
@@ -229,134 +229,135 @@ enum EmailStatus {
 // ───────────────────────── Master data ─────────────────────────
 
 model IssuerProfile {
-  id                     String     @id @default(uuid(7))
-  type                   IssuerType @default(INDIVIDUAL)
-  isDefault              Boolean    @default(false)
-  label                  String
-  legalName              String
-  tradeName              String?
-  designation            String?
-  email                  String
-  phone                  String?
-  website                String?
+  id          String     @id @default(uuid(7))
+  type        IssuerType @default(INDIVIDUAL)
+  isDefault   Boolean    @default(false)
+  label       String
+  legalName   String
+  tradeName   String?
+  designation String?
+  email       String
+  phone       String?
+  website     String?
 
-  address                Json       // AddressSchema
-  countryCode            String     @db.VarChar(2)
-  stateCode              String?    // ISO 3166-2 subdivision, e.g. "KA"
-  gstStateCode           String?    @db.VarChar(2) // "29"
+  address      Json // AddressSchema
+  countryCode  String  @db.VarChar(2)
+  stateCode    String? // ISO 3166-2 subdivision, e.g. "KA"
+  gstStateCode String? @db.VarChar(2) // "29"
 
-  panNumber              String?
-  gstin                  String?
-  cinNumber              String?
-  ukVatNumber            String?
-  usTaxIdEnc             String?    // encrypted EIN/SSN
-  lutNumber              String?
-  lutFiscalYear          String?    // "2026-27"
-  electronicAddress       String?   // e-invoicing (spec §9e): Peppol electronic address
-  electronicAddressScheme String?   // its EAS code
-  einvoiceEnabled        Boolean    @default(false)
+  panNumber               String?
+  gstin                   String?
+  cinNumber               String?
+  ukVatNumber             String?
+  usTaxIdEnc              String? // encrypted EIN/SSN
+  lutNumber               String?
+  lutFiscalYear           String? // "2026-27"
+  electronicAddress       String? // e-invoicing (spec §9e): Peppol electronic address
+  electronicAddressScheme String? // its EAS code
+  einvoiceEnabled         Boolean @default(false)
 
-  baseCurrency           String     @default("INR") @db.VarChar(3)
-  locale                 String     @default("en-IN") // document formatting only; "today" uses User.timezone
-  fiscalYearStartMonth   Int        @default(4)
-  invoiceNumberFormat    String     @default("INV/{FY}/{SEQ:3}")
-  creditNoteNumberFormat String     @default("CN/{FY}/{SEQ:3}")
-  defaultTaxRegime       TaxRegime  @default(INDIA_GST)
-  defaultTdsRate         Decimal?   @db.Decimal(5, 2)
-  defaultDisplayConfig   Json       // DisplayConfigSchema
+  baseCurrency           String    @default("INR") @db.VarChar(3)
+  locale                 String    @default("en-IN") // document formatting only; "today" uses User.timezone
+  fiscalYearStartMonth   Int       @default(4)
+  invoiceNumberFormat    String    @default("INV/{FY}/{SEQ:3}")
+  creditNoteNumberFormat String    @default("CN/{FY}/{SEQ:3}")
+  defaultTaxRegime       TaxRegime @default(INDIA_GST)
+  defaultTdsRate         Decimal?  @db.Decimal(5, 2)
+  defaultDisplayConfig   Json // DisplayConfigSchema
   defaultNotes           String?
   defaultTerms           String?
 
-  emailCc                String?    // comma-separated defaults for the composer
+  emailCc                String? // comma-separated defaults for the composer
   emailBcc               String?
-  emailInvoiceSubject    String?    // templates with {{placeholders}}; null → built-in default
+  emailInvoiceSubject    String? // templates with {{placeholders}}; null → built-in default
   emailInvoiceBody       String?
   emailCreditNoteSubject String?
   emailCreditNoteBody    String?
-  templateConfigOverride Json?      // TemplateConfigSchema; null → AppSetting.documentTemplate
+  templateConfigOverride Json? // TemplateConfigSchema; null → AppSetting.documentTemplate
 
-  logoAssetId            String?    @unique
-  signatureAssetId       String?    @unique
-  stampAssetId           String?    @unique
-  logo                   Asset?     @relation("IssuerLogo",      fields: [logoAssetId],      references: [id])
-  signature              Asset?     @relation("IssuerSignature", fields: [signatureAssetId], references: [id])
-  stamp                  Asset?     @relation("IssuerStamp",     fields: [stampAssetId],     references: [id])
+  logoAssetId      String? @unique
+  signatureAssetId String? @unique
+  stampAssetId     String? @unique
+  logo             Asset?  @relation("IssuerLogo", fields: [logoAssetId], references: [id])
+  signature        Asset?  @relation("IssuerSignature", fields: [signatureAssetId], references: [id])
+  stamp            Asset?  @relation("IssuerStamp", fields: [stampAssetId], references: [id])
 
-  archivedAt             DateTime?
-  createdAt              DateTime   @default(now())
-  updatedAt              DateTime   @updatedAt
+  archivedAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
 
-  invoices               Invoice[]
-  creditNotes            CreditNote[]
-  sequences              DocumentSequence[]
-  services       ServiceItem[]
-  products       Product[]
+  invoices    Invoice[]
+  creditNotes CreditNote[]
+  sequences   DocumentSequence[]
+  services    ServiceItem[]
+  products    Product[]
 
   @@index([archivedAt])
 }
+
 // Partial unique index (Prisma cannot express it) lives in migration *_partial_unique_indexes:
 // CREATE UNIQUE INDEX "IssuerProfile_single_default"
 //   ON "IssuerProfile" ((true)) WHERE "isDefault" = true AND "archivedAt" IS NULL;
 
 model DocumentSequence {
-  id              String        @id @default(uuid(7))
+  id              String       @id @default(uuid(7))
   issuerProfileId String
   kind            DocumentKind
-  fiscalYear      String        // "2026-27"
-  nextNumber      Int           @default(1)
+  fiscalYear      String // "2026-27"
+  nextNumber      Int          @default(1)
 
-  issuerProfile   IssuerProfile @relation(fields: [issuerProfileId], references: [id])
+  issuerProfile IssuerProfile @relation(fields: [issuerProfileId], references: [id])
 
   @@unique([issuerProfileId, kind, fiscalYear])
 }
 
 model Client {
-  id               String     @id @default(uuid(7))
-  displayName      String
-  contactPerson    String?
-  email            String?
-  phone            String?
-  billingAddress   Json       // AddressSchema
-  shippingAddress  Json?
-  countryCode      String     @db.VarChar(2)
-  stateCode        String?
-  gstStateCode     String?    @db.VarChar(2)
-  taxIdType        TaxIdType?
-  taxId            String?
-  currency         String     @db.VarChar(3)
-  paymentTermsDays Int        @default(30)
-  defaultTdsRate   Decimal?   @db.Decimal(5, 2)
-  notes            String?
-  preferredLocale  String?    // the language this client's documents print in (SPEC §4.10)
-  buyerReference   String?    // e-invoicing (spec §9e): the buyer's own reference
-  electronicAddress       String?  // Peppol electronic address
-  electronicAddressScheme String?  // its EAS code (src/lib/einvoice/eas.ts)
+  id                      String     @id @default(uuid(7))
+  displayName             String
+  contactPerson           String?
+  email                   String?
+  phone                   String?
+  billingAddress          Json // AddressSchema
+  shippingAddress         Json?
+  countryCode             String     @db.VarChar(2)
+  stateCode               String?
+  gstStateCode            String?    @db.VarChar(2)
+  taxIdType               TaxIdType?
+  taxId                   String?
+  currency                String     @db.VarChar(3)
+  paymentTermsDays        Int        @default(30)
+  defaultTdsRate          Decimal?   @db.Decimal(5, 2)
+  notes                   String?
+  preferredLocale         String? // the language this client's documents print in (SPEC §4.10)
+  buyerReference          String? // e-invoicing (spec §9e): the buyer's own reference
+  electronicAddress       String? // Peppol electronic address
+  electronicAddressScheme String? // its EAS code (src/lib/einvoice/eas.ts)
 
-  archivedAt       DateTime?
-  createdAt        DateTime   @default(now())
-  updatedAt        DateTime   @updatedAt
+  archivedAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
 
-  invoices         Invoice[]
-  creditNotes      CreditNote[]
+  invoices    Invoice[]
+  creditNotes CreditNote[]
 
   @@index([displayName])
   @@index([archivedAt])
 }
 
 model ServiceItem {
-  id             String    @id @default(uuid(7))
+  id             String   @id @default(uuid(7))
   name           String
   description    String?
-  unitType       UnitType  @default(HOUR)
-  defaultRate    Decimal   @db.Decimal(14, 2)
-  currency       String    @db.VarChar(3)
+  unitType       UnitType @default(HOUR)
+  defaultRate    Decimal  @db.Decimal(14, 2)
+  currency       String   @db.VarChar(3)
   sacHsnCode     String?
-  defaultTaxRate Decimal   @default(0) @db.Decimal(5, 2)
-  isActive       Boolean   @default(true)
+  defaultTaxRate Decimal  @default(0) @db.Decimal(5, 2)
+  isActive       Boolean  @default(true)
 
-  archivedAt     DateTime?
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
+  archivedAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
 
   invoiceItems   InvoiceItem[]
   issuerProfiles IssuerProfile[] // tags: empty = offered to every profile (spec §5.2)
@@ -366,20 +367,20 @@ model ServiceItem {
 
 /// Goods for sale (spec §5.1): like a service, with a unique SKU and an HSN code for GST.
 model Product {
-  id             String    @id @default(uuid(7))
-  sku            String    @unique
+  id             String   @id @default(uuid(7))
+  sku            String   @unique
   name           String
   description    String?
-  unitType       UnitType  @default(UNIT)
-  unitPrice      Decimal   @db.Decimal(14, 2)
-  currency       String    @db.VarChar(3)
+  unitType       UnitType @default(UNIT)
+  unitPrice      Decimal  @db.Decimal(14, 2)
+  currency       String   @db.VarChar(3)
   hsnCode        String?
-  defaultTaxRate Decimal   @default(0) @db.Decimal(5, 2)
-  isActive       Boolean   @default(true)
+  defaultTaxRate Decimal  @default(0) @db.Decimal(5, 2)
+  isActive       Boolean  @default(true)
 
-  archivedAt     DateTime?
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
+  archivedAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
 
   invoiceItems   InvoiceItem[]
   issuerProfiles IssuerProfile[] // tags: empty = offered to every profile (spec §5.2)
@@ -394,16 +395,17 @@ model PaymentMethodProfile {
   currency     String?           @db.VarChar(3)
   isDefault    Boolean           @default(false)
   isActive     Boolean           @default(true)
-  detailsEnc   String            // encrypted JSON, PaymentMethodDetailsSchema (discriminated on `type`)
+  detailsEnc   String // encrypted JSON, PaymentMethodDetailsSchema (discriminated on `type`)
   instructions String?
 
-  archivedAt   DateTime?
-  createdAt    DateTime          @default(now())
-  updatedAt    DateTime          @updatedAt
+  archivedAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
 
   invoiceLinks InvoicePaymentMethod[]
   payments     Payment[]
 }
+
 // Partial unique index in migration *_partial_unique_indexes:
 // CREATE UNIQUE INDEX "PaymentMethodProfile_single_default"
 //   ON "PaymentMethodProfile" ((true)) WHERE "isDefault" = true AND "archivedAt" IS NULL;
@@ -442,10 +444,10 @@ model Document {
   byteSize     Int
   generatedAt  DateTime       @default(now())
 
-  invoice      Invoice?       @relation(fields: [invoiceId],    references: [id])
-  creditNote   CreditNote?    @relation(fields: [creditNoteId], references: [id])
-  emails       EmailMessage[]
-  shareLinks   ShareLink[]
+  invoice    Invoice?       @relation(fields: [invoiceId], references: [id])
+  creditNote CreditNote?    @relation(fields: [creditNoteId], references: [id])
+  emails     EmailMessage[]
+  shareLinks ShareLink[]
 
   @@unique([invoiceId, format, version])
   @@unique([creditNoteId, format, version])
@@ -474,8 +476,8 @@ model ShareLink {
   createdAt           DateTime     @default(now())
   updatedAt           DateTime     @updatedAt
 
-  invoice           Invoice?    @relation(fields: [invoiceId],           references: [id])
-  creditNote        CreditNote? @relation(fields: [creditNoteId],        references: [id])
+  invoice           Invoice?    @relation(fields: [invoiceId], references: [id])
+  creditNote        CreditNote? @relation(fields: [creditNoteId], references: [id])
   protectedDocument Document?   @relation(fields: [protectedDocumentId], references: [id])
 
   @@index([invoiceId])
@@ -485,76 +487,76 @@ model ShareLink {
 // ───────────────────────── Invoices ─────────────────────────
 
 model Invoice {
-  id                 String         @id @default(uuid(7))
-  issuerProfileId    String
-  clientId           String
-  status             DocumentStatus @default(DRAFT)
+  id              String         @id @default(uuid(7))
+  issuerProfileId String
+  clientId        String
+  status          DocumentStatus @default(DRAFT)
 
-  number             String?        // unique per issuer profile, see @@unique below
-  fiscalYear         String?
-  sequenceNumber     Int?
+  number         String? // unique per issuer profile, see @@unique below
+  fiscalYear     String?
+  sequenceNumber Int?
 
-  issueDate          DateTime       @db.Date
-  dueDate            DateTime       @db.Date
-  issuedAt           DateTime?
-  sentAt             DateTime?
-  voidedAt           DateTime?
-  voidReason         String?
+  issueDate  DateTime  @db.Date
+  dueDate    DateTime  @db.Date
+  issuedAt   DateTime?
+  sentAt     DateTime?
+  voidedAt   DateTime?
+  voidReason String?
 
-  replacesInvoiceId  String?        @unique
-  replacesInvoice    Invoice?       @relation("Reissue", fields: [replacesInvoiceId], references: [id])
-  replacedBy         Invoice?       @relation("Reissue")
+  replacesInvoiceId String?  @unique
+  replacesInvoice   Invoice? @relation("Reissue", fields: [replacesInvoiceId], references: [id])
+  replacedBy        Invoice? @relation("Reissue")
 
-  currency           String         @db.VarChar(3)
-  fxRateToBase       Decimal        @default(1) @db.Decimal(18, 8)
+  currency     String  @db.VarChar(3)
+  fxRateToBase Decimal @default(1) @db.Decimal(18, 8)
 
-  taxRegime          TaxRegime
-  supplyType         SupplyType     @default(NOT_APPLICABLE)
-  placeOfSupply      String?        // "Karnataka (29)"
-  isReverseCharge    Boolean        @default(false)
-  lutNumber          String?        // snapshotted at issue when EXPORT_LUT
+  taxRegime       TaxRegime
+  supplyType      SupplyType @default(NOT_APPLICABLE)
+  placeOfSupply   String? // "Karnataka (29)"
+  isReverseCharge Boolean    @default(false)
+  lutNumber       String? // snapshotted at issue when EXPORT_LUT
 
-  subtotal           Decimal        @default(0) @db.Decimal(14, 2)
+  subtotal           Decimal       @default(0) @db.Decimal(14, 2)
   discountType       DiscountType?
-  discountValue      Decimal?       @db.Decimal(14, 2)
-  discountAmount     Decimal        @default(0) @db.Decimal(14, 2)
-  taxableAmount      Decimal        @default(0) @db.Decimal(14, 2)
-  taxAmount          Decimal        @default(0) @db.Decimal(14, 2)
-  roundingAdjustment Decimal        @default(0) @db.Decimal(14, 2)
-  total              Decimal        @default(0) @db.Decimal(14, 2)
-  tdsRate            Decimal        @default(0) @db.Decimal(5, 2)
-  tdsExpected        Decimal        @default(0) @db.Decimal(14, 2)
-  amountPaid         Decimal        @default(0) @db.Decimal(14, 2)
-  amountCredited     Decimal        @default(0) @db.Decimal(14, 2)
-  balanceDue         Decimal        @default(0) @db.Decimal(14, 2)
+  discountValue      Decimal?      @db.Decimal(14, 2)
+  discountAmount     Decimal       @default(0) @db.Decimal(14, 2)
+  taxableAmount      Decimal       @default(0) @db.Decimal(14, 2)
+  taxAmount          Decimal       @default(0) @db.Decimal(14, 2)
+  roundingAdjustment Decimal       @default(0) @db.Decimal(14, 2)
+  total              Decimal       @default(0) @db.Decimal(14, 2)
+  tdsRate            Decimal       @default(0) @db.Decimal(5, 2)
+  tdsExpected        Decimal       @default(0) @db.Decimal(14, 2)
+  amountPaid         Decimal       @default(0) @db.Decimal(14, 2)
+  amountCredited     Decimal       @default(0) @db.Decimal(14, 2)
+  balanceDue         Decimal       @default(0) @db.Decimal(14, 2)
 
-  poReference        String?
-  notes              String?
-  terms              String?
-  displayConfig      Json           // DisplayConfigSchema
-  documentLocale     String         @default("en-US") // the language the document prints in (SPEC §4.10)
-  einvoice           Json?          // EInvoiceStateSchema (spec §9e)
-  templateSnapshot   Json?          // TemplateConfigSchema frozen at issue (§12.2)
+  poReference      String?
+  notes            String?
+  terms            String?
+  displayConfig    Json // DisplayConfigSchema
+  documentLocale   String  @default("en-US") // the language the document prints in (SPEC §4.10)
+  einvoice         Json? // EInvoiceStateSchema (spec §9e)
+  templateSnapshot Json? // TemplateConfigSchema frozen at issue (§12.2)
 
-  issuerSnapshot         Json?      // IssuerSnapshotSchema (incl. decrypted-for-print tax IDs the config allows)
-  clientSnapshot         Json?
+  issuerSnapshot            Json? // IssuerSnapshotSchema (incl. decrypted-for-print tax IDs the config allows)
+  clientSnapshot            Json?
   paymentMethodsSnapshotEnc String? // encrypted JSON (PaymentMethodsSnapshotSchema): the details the PDF prints
-  verificationToken      String     @unique // SHA-256 hex of the token in the verify URL
-  verificationTokenEnc   String?    // the token itself, encrypted, so links and QR codes can be rebuilt
+  verificationToken         String  @unique // SHA-256 hex of the token in the verify URL
+  verificationTokenEnc      String? // the token itself, encrypted, so links and QR codes can be rebuilt
 
-  createdAt          DateTime       @default(now())
-  updatedAt          DateTime       @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  issuerProfile      IssuerProfile  @relation(fields: [issuerProfileId], references: [id])
-  client             Client         @relation(fields: [clientId],        references: [id])
-  items              InvoiceItem[]
-  taxLines           InvoiceTaxLine[]
-  paymentMethods     InvoicePaymentMethod[]
-  payments           Payment[]
-  creditNotes        CreditNote[]
-  documents          Document[]
-  emails             EmailMessage[]
-  shareLinks         ShareLink[]
+  issuerProfile  IssuerProfile          @relation(fields: [issuerProfileId], references: [id])
+  client         Client                 @relation(fields: [clientId], references: [id])
+  items          InvoiceItem[]
+  taxLines       InvoiceTaxLine[]
+  paymentMethods InvoicePaymentMethod[]
+  payments       Payment[]
+  creditNotes    CreditNote[]
+  documents      Document[]
+  emails         EmailMessage[]
+  shareLinks     ShareLink[]
 
   @@unique([issuerProfileId, number])
   @@index([issuerProfileId, fiscalYear])
@@ -564,26 +566,26 @@ model Invoice {
 }
 
 model InvoiceItem {
-  id            String       @id @default(uuid(7))
+  id            String   @id @default(uuid(7))
   invoiceId     String
   position      Int
   serviceItemId String?
   productId     String?
-  sku           String?      // snapshot of the product's SKU when the line was added
+  sku           String? // snapshot of the product's SKU when the line was added
   description   String
   sacHsnCode    String?
-  unitType      UnitType     @default(HOUR)
-  quantity      Decimal      @db.Decimal(12, 3)
-  unitPrice     Decimal      @db.Decimal(14, 2)
-  lineSubtotal  Decimal      @db.Decimal(14, 2)
-  taxRate       Decimal      @default(0) @db.Decimal(5, 2)
-  taxExempt     Boolean      @default(false) // UK VAT exempt supply
-  taxAmount     Decimal      @default(0) @db.Decimal(14, 2)
-  lineTotal     Decimal      @db.Decimal(14, 2)
+  unitType      UnitType @default(HOUR)
+  quantity      Decimal  @db.Decimal(12, 3)
+  unitPrice     Decimal  @db.Decimal(14, 2)
+  lineSubtotal  Decimal  @db.Decimal(14, 2)
+  taxRate       Decimal  @default(0) @db.Decimal(5, 2)
+  taxExempt     Boolean  @default(false) // UK VAT exempt supply
+  taxAmount     Decimal  @default(0) @db.Decimal(14, 2)
+  lineTotal     Decimal  @db.Decimal(14, 2)
 
-  invoice       Invoice      @relation(fields: [invoiceId],     references: [id], onDelete: Cascade)
-  service       ServiceItem? @relation(fields: [serviceItemId], references: [id], onDelete: SetNull)
-  product       Product?     @relation(fields: [productId],     references: [id], onDelete: SetNull)
+  invoice Invoice      @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  service ServiceItem? @relation(fields: [serviceItemId], references: [id], onDelete: SetNull)
+  product Product?     @relation(fields: [productId], references: [id], onDelete: SetNull)
 
   @@unique([invoiceId, position])
 }
@@ -596,7 +598,7 @@ model InvoiceTaxLine {
   taxableAmount Decimal @db.Decimal(14, 2)
   taxAmount     Decimal @db.Decimal(14, 2)
 
-  invoice       Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
 
   @@unique([invoiceId, taxType, rate])
 }
@@ -606,8 +608,8 @@ model InvoicePaymentMethod {
   paymentMethodProfileId String
   position               Int
 
-  invoice                Invoice              @relation(fields: [invoiceId],              references: [id], onDelete: Cascade)
-  paymentMethod          PaymentMethodProfile @relation(fields: [paymentMethodProfileId], references: [id])
+  invoice       Invoice              @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  paymentMethod PaymentMethodProfile @relation(fields: [paymentMethodProfileId], references: [id])
 
   @@id([invoiceId, paymentMethodProfileId])
 }
@@ -615,26 +617,26 @@ model InvoicePaymentMethod {
 // ───────────────────────── Payments ─────────────────────────
 
 model Payment {
-  id                     String       @id @default(uuid(7))
+  id                     String      @id @default(uuid(7))
   invoiceId              String
-  kind                   PaymentKind  @default(PAYMENT)
-  paymentDate            DateTime     @db.Date
-  amountApplied          Decimal      @db.Decimal(14, 2)  // invoice currency; negative for REFUND
-  tdsDeducted            Decimal      @default(0) @db.Decimal(14, 2)
-  receivedAmount         Decimal?     @db.Decimal(14, 2)
-  receivedCurrency       String?      @db.VarChar(3)
-  exchangeRate           Decimal?     @db.Decimal(18, 8)
-  bankFees               Decimal      @default(0) @db.Decimal(14, 2)
+  kind                   PaymentKind @default(PAYMENT)
+  paymentDate            DateTime    @db.Date
+  amountApplied          Decimal     @db.Decimal(14, 2) // invoice currency; negative for REFUND
+  tdsDeducted            Decimal     @default(0) @db.Decimal(14, 2)
+  receivedAmount         Decimal?    @db.Decimal(14, 2)
+  receivedCurrency       String?     @db.VarChar(3)
+  exchangeRate           Decimal?    @db.Decimal(18, 8)
+  bankFees               Decimal     @default(0) @db.Decimal(14, 2)
   paymentMethodProfileId String?
   reference              String?
   notes                  String?
-  receiptAssetId         String?      @unique
-  createdAt              DateTime     @default(now())
-  updatedAt              DateTime     @updatedAt
+  receiptAssetId         String?     @unique
+  createdAt              DateTime    @default(now())
+  updatedAt              DateTime    @updatedAt
 
-  invoice                Invoice               @relation(fields: [invoiceId],              references: [id])
-  paymentMethod          PaymentMethodProfile? @relation(fields: [paymentMethodProfileId], references: [id])
-  receipt                Asset?                @relation(fields: [receiptAssetId],         references: [id])
+  invoice       Invoice               @relation(fields: [invoiceId], references: [id])
+  paymentMethod PaymentMethodProfile? @relation(fields: [paymentMethodProfileId], references: [id])
+  receipt       Asset?                @relation(fields: [receiptAssetId], references: [id])
 
   @@index([invoiceId])
   @@index([paymentDate])
@@ -643,43 +645,43 @@ model Payment {
 // ───────────────────────── Credit notes ─────────────────────────
 
 model CreditNote {
-  id                String         @id @default(uuid(7))
-  issuerProfileId   String
-  clientId          String
-  invoiceId         String
-  status            DocumentStatus @default(DRAFT)
-  number            String?        // unique per issuer profile, see @@unique below
-  fiscalYear        String?
-  sequenceNumber    Int?
-  issueDate         DateTime       @db.Date
-  issuedAt          DateTime?
-  sentAt            DateTime?
-  voidedAt          DateTime?
-  voidReason        String?
-  reason            String
-  currency          String         @db.VarChar(3)
-  supplyType        SupplyType
-  subtotal          Decimal        @default(0) @db.Decimal(14, 2) // credit amount excl. tax; tax lines apportioned from the invoice
-  taxAmount         Decimal        @default(0) @db.Decimal(14, 2)
-  roundingAdjustment Decimal       @default(0) @db.Decimal(14, 2) // absorbs the invoice's rounding when the whole taxable amount is credited
-  total             Decimal        @default(0) @db.Decimal(14, 2)
-  displayConfig     Json
-  documentLocale    String         @default("en-US") // copied from the invoice (SPEC §4.10)
-  einvoice          Json?          // EInvoiceStateSchema (spec §9e)
-  templateSnapshot  Json?          // TemplateConfigSchema frozen at issue
-  snapshot          Json?          // issuer + client + invoice header, frozen at issue
-  verificationToken String         @unique // SHA-256 hex of the token in the verify URL
-  verificationTokenEnc String?     // the token itself, encrypted
-  createdAt         DateTime       @default(now())
-  updatedAt         DateTime       @updatedAt
+  id                   String         @id @default(uuid(7))
+  issuerProfileId      String
+  clientId             String
+  invoiceId            String
+  status               DocumentStatus @default(DRAFT)
+  number               String? // unique per issuer profile, see @@unique below
+  fiscalYear           String?
+  sequenceNumber       Int?
+  issueDate            DateTime       @db.Date
+  issuedAt             DateTime?
+  sentAt               DateTime?
+  voidedAt             DateTime?
+  voidReason           String?
+  reason               String
+  currency             String         @db.VarChar(3)
+  supplyType           SupplyType
+  subtotal             Decimal        @default(0) @db.Decimal(14, 2) // credit amount excl. tax; tax lines apportioned from the invoice
+  taxAmount            Decimal        @default(0) @db.Decimal(14, 2)
+  roundingAdjustment   Decimal        @default(0) @db.Decimal(14, 2) // absorbs the invoice's rounding when the whole taxable amount is credited
+  total                Decimal        @default(0) @db.Decimal(14, 2)
+  displayConfig        Json
+  documentLocale       String         @default("en-US") // copied from the invoice (SPEC §4.10)
+  einvoice             Json? // EInvoiceStateSchema (spec §9e)
+  templateSnapshot     Json? // TemplateConfigSchema frozen at issue
+  snapshot             Json? // issuer + client + invoice header, frozen at issue
+  verificationToken    String         @unique // SHA-256 hex of the token in the verify URL
+  verificationTokenEnc String? // the token itself, encrypted
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
 
-  issuerProfile     IssuerProfile  @relation(fields: [issuerProfileId], references: [id])
-  client            Client         @relation(fields: [clientId],        references: [id])
-  invoice           Invoice        @relation(fields: [invoiceId],       references: [id])
-  taxLines          CreditNoteTaxLine[]
-  documents         Document[]
-  emails            EmailMessage[]
-  shareLinks        ShareLink[]
+  issuerProfile IssuerProfile       @relation(fields: [issuerProfileId], references: [id])
+  client        Client              @relation(fields: [clientId], references: [id])
+  invoice       Invoice             @relation(fields: [invoiceId], references: [id])
+  taxLines      CreditNoteTaxLine[]
+  documents     Document[]
+  emails        EmailMessage[]
+  shareLinks    ShareLink[]
 
   @@unique([issuerProfileId, number])
   @@index([invoiceId])
@@ -687,14 +689,14 @@ model CreditNote {
 }
 
 model CreditNoteTaxLine {
-  id            String     @id @default(uuid(7))
+  id            String  @id @default(uuid(7))
   creditNoteId  String
   taxType       TaxType
-  rate          Decimal    @db.Decimal(5, 2)
-  taxableAmount Decimal    @db.Decimal(14, 2)
-  taxAmount     Decimal    @db.Decimal(14, 2)
+  rate          Decimal @db.Decimal(5, 2)
+  taxableAmount Decimal @db.Decimal(14, 2)
+  taxAmount     Decimal @db.Decimal(14, 2)
 
-  creditNote    CreditNote @relation(fields: [creditNoteId], references: [id], onDelete: Cascade)
+  creditNote CreditNote @relation(fields: [creditNoteId], references: [id], onDelete: Cascade)
 
   @@unique([creditNoteId, taxType, rate])
 }
@@ -706,7 +708,7 @@ model EmailMessage {
   kind              DocumentKind
   invoiceId         String?
   creditNoteId      String?
-  documentId        String?      // the attached, stored PDF
+  documentId        String? // the attached, stored PDF
   to                String[]
   cc                String[]
   bcc               String[]
@@ -718,9 +720,9 @@ model EmailMessage {
   sentById          String?
   createdAt         DateTime     @default(now())
 
-  invoice           Invoice?     @relation(fields: [invoiceId],    references: [id])
-  creditNote        CreditNote?  @relation(fields: [creditNoteId], references: [id])
-  document          Document?    @relation(fields: [documentId],   references: [id])
+  invoice    Invoice?    @relation(fields: [invoiceId], references: [id])
+  creditNote CreditNote? @relation(fields: [creditNoteId], references: [id])
+  document   Document?   @relation(fields: [documentId], references: [id])
 
   @@index([invoiceId])
   @@index([creditNoteId])
@@ -732,7 +734,7 @@ model EmailMessage {
 model AuditEvent {
   id         String   @id @default(uuid(7))
   actorId    String?
-  action     String   // "invoice.issued", "payment.created", "auth.sign_in", …
+  action     String // "invoice.issued", "payment.created", "auth.sign_in", …
   entityType String
   entityId   String
   summary    String?
@@ -740,23 +742,33 @@ model AuditEvent {
   after      Json?
   ipAddress  String?
   userAgent  String?
-  actorRole  String?  // the actor's role at the time (OWNER | EDITOR | VIEWER)
+  actorRole  String? // the actor's role at the time (OWNER | EDITOR | VIEWER)
   createdAt  DateTime @default(now())
 
-  actor      User?    @relation(fields: [actorId], references: [id], onDelete: SetNull)
+  actor User? @relation(fields: [actorId], references: [id], onDelete: SetNull)
 
   @@index([entityType, entityId])
   @@index([createdAt])
   @@index([actorId])
 }
 
-model RateLimitBucket {          // used only when RATE_LIMIT_STORE=postgres (multi-replica)
+model RateLimitBucket {
   key         String   @id
   count       Int
   windowStart DateTime
 }
 
-model AppSetting {             // keys: documentTemplate (TemplateConfig), smtp (SmtpConfig, password field encrypted), emailDefaults
+/// Local analytics (addendum §2 item 19): one counter per screen per UTC day; no user, address
+/// or agent, so it needs no consent and is off unless ANALYTICS_LOCAL=true.
+model PageView {
+  day   String // YYYY-MM-DD (UTC)
+  path  String // normalised screen path (ids collapsed to :id)
+  count Int    @default(0)
+
+  @@id([day, path])
+}
+
+model AppSetting {
   key       String   @id
   value     Json
   updatedAt DateTime @updatedAt

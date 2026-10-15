@@ -139,7 +139,8 @@
       "account": "Cont",
       "appearance": "Aspect",
       "api": "API",
-      "status": "Stare"
+      "status": "Stare",
+      "usage": "Utilizare"
     },
     "account": {
       "metaTitle": "Cont",
@@ -970,6 +971,21 @@
         "failed": "Ultima rulare a eșuat: {error} la {finishedAt}{days, plural, =0 {} one { · retenție # zi} few { · retenție # zile} other { · retenție # de zile}}"
       },
       "footer": "Același raport este disponibil ca JSON la <mono>/api/health/status</mono> pentru monitorizare (sesiune autentificată sau cheie API)."
+    },
+    "usage": {
+      "metaTitle": "Utilizare",
+      "metaDescription": "Vizualizări de pagină pe ecran și pe zi pe această instanță, numărate local.",
+      "title": "Utilizare",
+      "description": "De câte ori a fost deschis fiecare ecran, numărat doar pe această instanță: fără cookie-uri, fără adrese, nimic nu este trimis nicăieri.",
+      "last30Days": "Ultimele 30 de zile",
+      "total": "{count, plural, =0 {Nicio vizualizare de pagină} one {# vizualizare de pagină} few {# vizualizări de pagină} other {# de vizualizări de pagină}}",
+      "off": "Numărarea este dezactivată. Setați ANALYTICS_LOCAL=true pentru a număra vizualizările de pagină pe această instanță.",
+      "empty": "Nu a fost înregistrată încă nicio vizualizare de pagină.",
+      "columns": {
+        "day": "Zi",
+        "path": "Ecran",
+        "views": "Vizualizări"
+      }
     }
   },
   "onboarding": {

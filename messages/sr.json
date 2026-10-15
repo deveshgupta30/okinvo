@@ -139,7 +139,8 @@
       "account": "Налог",
       "appearance": "Изглед",
       "api": "API",
-      "status": "Стање"
+      "status": "Стање",
+      "usage": "Korišćenje"
     },
     "account": {
       "metaTitle": "Налог",
@@ -970,6 +971,21 @@
         "failed": "Последње покретање није успело: {error} у {finishedAt}{days, plural, =0 {} one { · чување # дан} few { · чување # дана} other { · чување # дана}}"
       },
       "footer": "Исти извештај је доступан као JSON на <mono>/api/health/status</mono> за праћење (пријављена сесија или API кључ)."
+    },
+    "usage": {
+      "metaTitle": "Korišćenje",
+      "metaDescription": "Prikazi stranica po ekranu i danu na ovoj instanci, brojani lokalno.",
+      "title": "Korišćenje",
+      "description": "Koliko često je svaki ekran otvoren, brojano samo na ovoj instanci: bez kolačića, bez adresa, ništa se nigde ne šalje.",
+      "last30Days": "Poslednjih 30 dana",
+      "total": "{count, plural, =0 {Nema prikaza stranica} one {# prikaz stranice} few {# prikaza stranica} other {# prikaza stranica}}",
+      "off": "Brojanje je isključeno. Postavite ANALYTICS_LOCAL=true da biste brojali prikaze stranica na ovoj instanci.",
+      "empty": "Još nema zabeleženih prikaza stranica.",
+      "columns": {
+        "day": "Dan",
+        "path": "Ekran",
+        "views": "Prikazi"
+      }
     }
   },
   "onboarding": {

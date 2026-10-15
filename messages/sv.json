@@ -139,7 +139,8 @@
       "account": "Konto",
       "appearance": "Utseende",
       "api": "API",
-      "status": "Status"
+      "status": "Status",
+      "usage": "Användning"
     },
     "account": {
       "metaTitle": "Konto",
@@ -970,6 +971,21 @@
         "failed": "Senaste körningen misslyckades: {error} {finishedAt}{days, plural, =0 {} one { · lagring # dag} other { · lagring # dagar}}"
       },
       "footer": "Samma rapport finns som JSON på <mono>/api/health/status</mono> för övervakning (inloggad session eller API-nyckel)."
+    },
+    "usage": {
+      "metaTitle": "Användning",
+      "metaDescription": "Sidvisningar per skärm och dag på den här instansen, räknade lokalt.",
+      "title": "Användning",
+      "description": "Hur ofta varje skärm öppnades, räknat enbart på den här instansen: inga cookies, inga adresser, inget skickas någonstans.",
+      "last30Days": "Senaste 30 dagarna",
+      "total": "{count, plural, =0 {Inga sidvisningar} one {# sidvisning} other {# sidvisningar}}",
+      "off": "Räkningen är avstängd. Ange ANALYTICS_LOCAL=true för att räkna sidvisningar på den här instansen.",
+      "empty": "Inga sidvisningar har registrerats ännu.",
+      "columns": {
+        "day": "Dag",
+        "path": "Skärm",
+        "views": "Visningar"
+      }
     }
   },
   "onboarding": {

@@ -411,6 +411,8 @@ Machine endpoints: `/api/auth/*`, `/api/uploads`, `/api/assets/[...key]` (authen
 | Browsers | Latest two versions of Chrome, Firefox, Safari, Edge. Desktop-first; register and overview pages usable on a phone. |
 | Localisation | 115 UI languages from the next-intl catalogues (`messages/<tag>.json`, en-US the source of truth, machine-translated catalogues marked); every document carries its own language (4.10); locale-aware number/date/currency formatting per issuer profile and document language. |
 | Time | Server stores UTC instants for events and plain calendar dates for document dates; "today" is computed in the signed-in user's timezone. |
+| Analytics | None by default and never a third party. With `ANALYTICS_LOCAL=true` the app counts page views per screen per UTC day on the instance itself (no cookie, no address, no user) and shows the last 30 days under Settings → Usage. |
+| Spam | The public forms (sign-in, sign-up, share password) carry a hidden honeypot field; a filled one is dropped silently, on top of the rate limits. |
 
 ---
 

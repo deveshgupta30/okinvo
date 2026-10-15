@@ -139,7 +139,8 @@
       "account": "Konto",
       "appearance": "Udseende",
       "api": "API",
-      "status": "Status"
+      "status": "Status",
+      "usage": "Brug"
     },
     "account": {
       "metaTitle": "Konto",
@@ -970,6 +971,21 @@
         "failed": "Seneste kørsel mislykkedes: {error} kl. {finishedAt}{days, plural, =0 {} one { · opbevaring # dag} other { · opbevaring # dage}}"
       },
       "footer": "Den samme rapport er tilgængelig som JSON på <mono>/api/health/status</mono> til overvågning (logget ind-session eller API-nøgle)."
+    },
+    "usage": {
+      "metaTitle": "Brug",
+      "metaDescription": "Sidevisninger pr. skærm og dag på denne instans, talt lokalt.",
+      "title": "Brug",
+      "description": "Hvor ofte hver skærm er blevet åbnet, talt kun på denne instans: ingen cookies, ingen adresser, intet sendes nogen steder hen.",
+      "last30Days": "Seneste 30 dage",
+      "total": "{count, plural, =0 {Ingen sidevisninger} one {# sidevisning} other {# sidevisninger}}",
+      "off": "Optælling er slået fra. Sæt ANALYTICS_LOCAL=true for at tælle sidevisninger på denne instans.",
+      "empty": "Ingen sidevisninger registreret endnu.",
+      "columns": {
+        "day": "Dag",
+        "path": "Skærm",
+        "views": "Visninger"
+      }
     }
   },
   "onboarding": {

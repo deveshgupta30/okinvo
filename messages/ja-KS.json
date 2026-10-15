@@ -139,7 +139,8 @@
       "account": "アカウント",
       "appearance": "外観",
       "api": "API",
-      "status": "ステータス"
+      "status": "ステータス",
+      "usage": "使われ具合"
     },
     "account": {
       "metaTitle": "アカウント",
@@ -970,6 +971,21 @@
         "failed": "前回の実行は {finishedAt} に失敗: {error}{days, plural, =0 {} other { · 保持期間 # 日}}"
       },
       "footer": "同じレポートを監視用に <mono>/api/health/status</mono> で JSON として取得できます（サインイン済みセッションまたは API キーが必要）。"
+    },
+    "usage": {
+      "metaTitle": "使われ具合",
+      "metaDescription": "このインスタンスの画面ごと・日ごとのページビューや。数えるんはここの中だけやで。",
+      "title": "使われ具合",
+      "description": "画面がどんだけ開かれたか、このインスタンスの中だけで数えとるで。クッキーも住所もなし、外には何も送らへんから安心してや。",
+      "last30Days": "直近30日",
+      "total": "{count, plural, other {ページビュー #件}}",
+      "off": "カウントはオフになっとるで。このインスタンスでページビューを数えたいなら、ANALYTICS_LOCAL=true を設定してな。",
+      "empty": "まだページビューは記録されてへんで。",
+      "columns": {
+        "day": "日",
+        "path": "画面",
+        "views": "表示回数"
+      }
     }
   },
   "onboarding": {
