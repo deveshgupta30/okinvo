@@ -139,7 +139,8 @@
       "account": "Akun",
       "appearance": "Tampilan",
       "api": "API",
-      "status": "Status"
+      "status": "Status",
+      "usage": "Penggunaan"
     },
     "account": {
       "metaTitle": "Akun",
@@ -970,6 +971,21 @@
         "failed": "Proses terakhir gagal: {error} pada {finishedAt}{days, plural, =0 {} other { · retensi # hari}}"
       },
       "footer": "Laporan yang sama tersedia sebagai JSON di <mono>/api/health/status</mono> untuk pemantauan (sesi masuk atau kunci API)."
+    },
+    "usage": {
+      "metaTitle": "Penggunaan",
+      "metaDescription": "Tayangan halaman per layar dan per hari di instans ini, dihitung secara lokal.",
+      "title": "Penggunaan",
+      "description": "Seberapa sering setiap layar dibuka, dihitung hanya di instans ini: tanpa cookie, tanpa alamat, tidak ada yang dikirim ke mana pun.",
+      "last30Days": "30 hari terakhir",
+      "total": "{count, plural, =0 {Tidak ada tayangan halaman} other {# tayangan halaman}}",
+      "off": "Penghitungan nonaktif. Setel ANALYTICS_LOCAL=true untuk menghitung tayangan halaman di instans ini.",
+      "empty": "Belum ada tayangan halaman yang tercatat.",
+      "columns": {
+        "day": "Hari",
+        "path": "Layar",
+        "views": "Tayangan"
+      }
     }
   },
   "onboarding": {

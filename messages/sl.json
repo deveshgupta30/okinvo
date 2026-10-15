@@ -139,7 +139,8 @@
       "account": "Račun",
       "appearance": "Videz",
       "api": "API",
-      "status": "Stanje"
+      "status": "Stanje",
+      "usage": "Uporaba"
     },
     "account": {
       "metaTitle": "Račun",
@@ -970,6 +971,21 @@
         "failed": "Zadnji zagon ni uspel: {error} ob {finishedAt}{days, plural, =0 {} one { · hramba # dan} two { · hramba # dneva} few { · hramba # dnevi} other { · hramba # dni}}"
       },
       "footer": "Isto poročilo je na voljo kot JSON na <mono>/api/health/status</mono> za nadzor (prijavljena seja ali ključ API)."
+    },
+    "usage": {
+      "metaTitle": "Uporaba",
+      "metaDescription": "Ogledi strani po zaslonu in dnevu v tej namestitvi, šteti lokalno.",
+      "title": "Uporaba",
+      "description": "Kako pogosto je bil odprt vsak zaslon, šteto samo v tej namestitvi: brez piškotkov, brez naslovov, nič se ne pošilja drugam.",
+      "last30Days": "Zadnjih 30 dni",
+      "total": "{count, plural, =0 {Ni ogledov strani} one {# ogled strani} two {# ogleda strani} few {# ogledi strani} other {# ogledov strani}}",
+      "off": "Štetje je izklopljeno. Nastavite ANALYTICS_LOCAL=true, da štejete oglede strani v tej namestitvi.",
+      "empty": "Ogledi strani še niso zabeleženi.",
+      "columns": {
+        "day": "Dan",
+        "path": "Zaslon",
+        "views": "Ogledi"
+      }
     }
   },
   "onboarding": {

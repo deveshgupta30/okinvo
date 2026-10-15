@@ -139,7 +139,8 @@
       "account": "Konto",
       "appearance": "Darstellung",
       "api": "API",
-      "status": "Status"
+      "status": "Status",
+      "usage": "Nutzung"
     },
     "account": {
       "metaTitle": "Konto",
@@ -970,6 +971,21 @@
         "failed": "Letzter Lauf fehlgeschlagen: {error} um {finishedAt}{days, plural, =0 {} one { · Aufbewahrung # Tag} other { · Aufbewahrung # Tage}}"
       },
       "footer": "Derselbe Bericht ist als JSON unter <mono>/api/health/status</mono> für das Monitoring verfügbar (angemeldete Sitzung oder API-Schlüssel)."
+    },
+    "usage": {
+      "metaTitle": "Nutzung",
+      "metaDescription": "Seitenaufrufe pro Bildschirm und Tag auf dieser Instanz, lokal gezählt.",
+      "title": "Nutzung",
+      "description": "Wie oft jeder Bildschirm geöffnet wurde, nur auf dieser Instanz gezählt: keine Cookies, keine Adressen, nichts wird irgendwohin gesendet.",
+      "last30Days": "Letzte 30 Tage",
+      "total": "{count, plural, =0 {Keine Seitenaufrufe} one {# Seitenaufruf} other {# Seitenaufrufe}}",
+      "off": "Die Zählung ist deaktiviert. Setzen Sie ANALYTICS_LOCAL=true, um Seitenaufrufe auf dieser Instanz zu zählen.",
+      "empty": "Noch keine Seitenaufrufe erfasst.",
+      "columns": {
+        "day": "Tag",
+        "path": "Bildschirm",
+        "views": "Aufrufe"
+      }
     }
   },
   "onboarding": {

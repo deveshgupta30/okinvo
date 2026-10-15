@@ -139,7 +139,8 @@
       "account": "Konts",
       "appearance": "Izskats",
       "api": "API",
-      "status": "Statuss"
+      "status": "Statuss",
+      "usage": "Lietojums"
     },
     "account": {
       "metaTitle": "Konts",
@@ -970,6 +971,21 @@
         "failed": "Pēdējā palaišana neizdevās: {error} {finishedAt}{days, plural, =0 {} zero { · glabāšana # dienu} one { · glabāšana # diena} other { · glabāšana # dienas}}"
       },
       "footer": "Tas pats pārskats ir pieejams kā JSON adresē <mono>/api/health/status</mono> uzraudzībai (pieteikusies sesija vai API atslēga)."
+    },
+    "usage": {
+      "metaTitle": "Lietojums",
+      "metaDescription": "Lapu skatījumi pa ekrāniem un dienām šajā instancē, uzskaitīti lokāli.",
+      "title": "Lietojums",
+      "description": "Cik reižu katrs ekrāns ir atvērts, uzskaitīts tikai šajā instancē: bez sīkdatnēm, bez adresēm, nekas netiek nekur sūtīts.",
+      "last30Days": "Pēdējās 30 dienas",
+      "total": "{count, plural, =0 {Nav lapu skatījumu} zero {# lapu skatījumu} one {# lapas skatījums} other {# lapu skatījumi}}",
+      "off": "Uzskaite ir izslēgta. Iestatiet ANALYTICS_LOCAL=true, lai šajā instancē uzskaitītu lapu skatījumus.",
+      "empty": "Lapu skatījumi vēl nav reģistrēti.",
+      "columns": {
+        "day": "Diena",
+        "path": "Ekrāns",
+        "views": "Skatījumi"
+      }
     }
   },
   "onboarding": {

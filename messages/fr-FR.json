@@ -139,7 +139,8 @@
       "account": "Compte",
       "appearance": "Apparence",
       "api": "API",
-      "status": "État"
+      "status": "État",
+      "usage": "Utilisation"
     },
     "account": {
       "metaTitle": "Compte",
@@ -970,6 +971,21 @@
         "failed": "Dernière exécution en échec : {error} le {finishedAt}{days, plural, =0 {} one { · conservation # jour} other { · conservation # jours}}"
       },
       "footer": "Le même rapport est disponible en JSON à l’adresse <mono>/api/health/status</mono> pour la supervision (session connectée ou clé d’API)."
+    },
+    "usage": {
+      "metaTitle": "Utilisation",
+      "metaDescription": "Pages vues par écran et par jour sur cette instance, comptées localement.",
+      "title": "Utilisation",
+      "description": "Nombre d'ouvertures de chaque écran, compté uniquement sur cette instance : aucun cookie, aucune adresse, rien n'est envoyé ailleurs.",
+      "last30Days": "30 derniers jours",
+      "total": "{count, plural, =0 {Aucune page vue} one {# page vue} many {# de pages vues} other {# pages vues}}",
+      "off": "Le comptage est désactivé. Définissez ANALYTICS_LOCAL=true pour compter les pages vues sur cette instance.",
+      "empty": "Aucune page vue enregistrée pour le moment.",
+      "columns": {
+        "day": "Jour",
+        "path": "Écran",
+        "views": "Vues"
+      }
     }
   },
   "onboarding": {

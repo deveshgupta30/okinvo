@@ -77,6 +77,7 @@ export function proxy(request: NextRequest): NextResponse {
   // the root layout reads x-nonce for the theme script.
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-nonce", nonce);
+  requestHeaders.set("x-pathname", pathname); // the app layout's local page-view counter
   requestHeaders.set("Content-Security-Policy", csp);
 
   const response = NextResponse.next({ request: { headers: requestHeaders } });

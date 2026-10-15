@@ -139,7 +139,8 @@
       "account": "Conta",
       "appearance": "Aparência",
       "api": "API",
-      "status": "Status"
+      "status": "Status",
+      "usage": "Uso"
     },
     "account": {
       "metaTitle": "Conta",
@@ -970,6 +971,21 @@
         "failed": "Última execução falhou: {error} em {finishedAt}{days, plural, =0 {} one { · retenção de # dia} other { · retenção de # dias}}"
       },
       "footer": "O mesmo relatório está disponível em JSON em <mono>/api/health/status</mono> para monitoramento (sessão autenticada ou chave de API)."
+    },
+    "usage": {
+      "metaTitle": "Uso",
+      "metaDescription": "Visualizações de página por tela e dia nesta instância, contadas localmente.",
+      "title": "Uso",
+      "description": "Quantas vezes cada tela foi aberta, contado somente nesta instância: sem cookies, sem endereços, nada é enviado a lugar nenhum.",
+      "last30Days": "Últimos 30 dias",
+      "total": "{count, plural, =0 {Nenhuma visualização de página} one {# visualização de página} many {# de visualizações de página} other {# visualizações de página}}",
+      "off": "A contagem está desativada. Defina ANALYTICS_LOCAL=true para contar visualizações de página nesta instância.",
+      "empty": "Nenhuma visualização de página registrada ainda.",
+      "columns": {
+        "day": "Dia",
+        "path": "Tela",
+        "views": "Visualizações"
+      }
     }
   },
   "onboarding": {

@@ -139,7 +139,8 @@
       "account": "Účet",
       "appearance": "Vzhled",
       "api": "API",
-      "status": "Stav"
+      "status": "Stav",
+      "usage": "Využití"
     },
     "account": {
       "metaTitle": "Účet",
@@ -970,6 +971,21 @@
         "failed": "Poslední běh selhal: {error} v {finishedAt}{days, plural, =0 {} one { · uchovávání # den} few { · uchovávání # dny} many { · uchovávání # dne} other { · uchovávání # dní}}"
       },
       "footer": "Stejná zpráva je k dispozici jako JSON na <mono>/api/health/status</mono> pro monitorování (přihlášená relace nebo klíč API)."
+    },
+    "usage": {
+      "metaTitle": "Využití",
+      "metaDescription": "Zobrazení stránek podle obrazovky a dne v této instanci, počítáno lokálně.",
+      "title": "Využití",
+      "description": "Kolikrát byla každá obrazovka otevřena, počítáno pouze v této instanci: žádné cookies, žádné adresy, nic se nikam neodesílá.",
+      "last30Days": "Posledních 30 dní",
+      "total": "{count, plural, =0 {Žádná zobrazení stránek} one {# zobrazení stránky} few {# zobrazení stránek} many {# zobrazení stránky} other {# zobrazení stránek}}",
+      "off": "Počítání je vypnuto. Nastavte ANALYTICS_LOCAL=true, aby se v této instanci počítala zobrazení stránek.",
+      "empty": "Zatím nebyla zaznamenána žádná zobrazení stránek.",
+      "columns": {
+        "day": "Den",
+        "path": "Obrazovka",
+        "views": "Zobrazení"
+      }
     }
   },
   "onboarding": {

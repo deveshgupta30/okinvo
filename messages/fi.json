@@ -139,7 +139,8 @@
       "account": "Tili",
       "appearance": "Ulkoasu",
       "api": "API",
-      "status": "Tila"
+      "status": "Tila",
+      "usage": "Käyttö"
     },
     "account": {
       "metaTitle": "Tili",
@@ -970,6 +971,21 @@
         "failed": "Viimeisin ajo epäonnistui: {error} {finishedAt}{days, plural, =0 {} one { · säilytys # päivä} other { · säilytys # päivää}}"
       },
       "footer": "Sama raportti on saatavilla JSON-muodossa osoitteessa <mono>/api/health/status</mono> valvontaa varten (kirjautunut istunto tai API-avain)."
+    },
+    "usage": {
+      "metaTitle": "Käyttö",
+      "metaDescription": "Sivunäytöt näkymää ja päivää kohti tässä instanssissa, laskettuna paikallisesti.",
+      "title": "Käyttö",
+      "description": "Kuinka usein kukin näkymä on avattu, laskettuna vain tässä instanssissa: ei evästeitä, ei osoitteita, mitään ei lähetetä minnekään.",
+      "last30Days": "Viimeiset 30 päivää",
+      "total": "{count, plural, =0 {Ei sivunäyttöjä} one {# sivunäyttö} other {# sivunäyttöä}}",
+      "off": "Laskenta on pois päältä. Aseta ANALYTICS_LOCAL=true laskeaksesi sivunäytöt tässä instanssissa.",
+      "empty": "Sivunäyttöjä ei ole vielä kirjattu.",
+      "columns": {
+        "day": "Päivä",
+        "path": "Näkymä",
+        "views": "Näytöt"
+      }
     }
   },
   "onboarding": {

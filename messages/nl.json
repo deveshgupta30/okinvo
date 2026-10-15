@@ -139,7 +139,8 @@
       "account": "Account",
       "appearance": "Weergave",
       "api": "API",
-      "status": "Status"
+      "status": "Status",
+      "usage": "Gebruik"
     },
     "account": {
       "metaTitle": "Account",
@@ -970,6 +971,21 @@
         "failed": "Laatste uitvoering mislukt: {error} op {finishedAt}{days, plural, =0 {} one { · bewaartermijn # dag} other { · bewaartermijn # dagen}}"
       },
       "footer": "Hetzelfde rapport is als JSON beschikbaar op <mono>/api/health/status</mono> voor monitoring (ingelogde sessie of API-sleutel)."
+    },
+    "usage": {
+      "metaTitle": "Gebruik",
+      "metaDescription": "Paginaweergaven per scherm en dag op deze instantie, lokaal geteld.",
+      "title": "Gebruik",
+      "description": "Hoe vaak elk scherm is geopend, alleen op deze instantie geteld: geen cookies, geen adressen, er wordt nergens iets naartoe verzonden.",
+      "last30Days": "Laatste 30 dagen",
+      "total": "{count, plural, =0 {Geen paginaweergaven} one {# paginaweergave} other {# paginaweergaven}}",
+      "off": "Tellen staat uit. Stel ANALYTICS_LOCAL=true in om paginaweergaven op deze instantie te tellen.",
+      "empty": "Nog geen paginaweergaven geregistreerd.",
+      "columns": {
+        "day": "Dag",
+        "path": "Scherm",
+        "views": "Weergaven"
+      }
     }
   },
   "onboarding": {

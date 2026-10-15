@@ -139,7 +139,8 @@
       "account": "Účet",
       "appearance": "Vzhľad",
       "api": "API",
-      "status": "Stav"
+      "status": "Stav",
+      "usage": "Využitie"
     },
     "account": {
       "metaTitle": "Účet",
@@ -970,6 +971,21 @@
         "failed": "Posledný beh zlyhal: {error} o {finishedAt}{days, plural, =0 {} one { · uchovávanie # deň} few { · uchovávanie # dni} other { · uchovávanie # dní}}"
       },
       "footer": "Rovnaká správa je dostupná ako JSON na <mono>/api/health/status</mono> pre monitorovanie (prihlásená relácia alebo kľúč API)."
+    },
+    "usage": {
+      "metaTitle": "Využitie",
+      "metaDescription": "Zobrazenia stránok podľa obrazovky a dňa v tejto inštancii, počítané lokálne.",
+      "title": "Využitie",
+      "description": "Ako často sa každá obrazovka otvorila, počítané iba v tejto inštancii: bez cookies, bez adries, nič sa nikam neodosiela.",
+      "last30Days": "Posledných 30 dní",
+      "total": "{count, plural, =0 {Žiadne zobrazenia stránok} one {# zobrazenie stránky} few {# zobrazenia stránok} many {# zobrazenia stránok} other {# zobrazení stránok}}",
+      "off": "Počítanie je vypnuté. Nastavte ANALYTICS_LOCAL=true, aby sa v tejto inštancii počítali zobrazenia stránok.",
+      "empty": "Zatiaľ nie sú zaznamenané žiadne zobrazenia stránok.",
+      "columns": {
+        "day": "Deň",
+        "path": "Obrazovka",
+        "views": "Zobrazenia"
+      }
     }
   },
   "onboarding": {

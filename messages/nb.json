@@ -139,7 +139,8 @@
       "account": "Konto",
       "appearance": "Utseende",
       "api": "API",
-      "status": "Status"
+      "status": "Status",
+      "usage": "Bruk"
     },
     "account": {
       "metaTitle": "Konto",
@@ -970,6 +971,21 @@
         "failed": "Siste kjøring mislyktes: {error} {finishedAt}{days, plural, =0 {} one { · oppbevaring # dag} other { · oppbevaring # dager}}"
       },
       "footer": "Den samme rapporten er tilgjengelig som JSON på <mono>/api/health/status</mono> for overvåking (innlogget økt eller API-nøkkel)."
+    },
+    "usage": {
+      "metaTitle": "Bruk",
+      "metaDescription": "Sidevisninger per skjermbilde og dag på denne instansen, talt lokalt.",
+      "title": "Bruk",
+      "description": "Hvor ofte hvert skjermbilde ble åpnet, talt kun på denne instansen: ingen informasjonskapsler, ingen adresser, ingenting sendes noe sted.",
+      "last30Days": "Siste 30 dager",
+      "total": "{count, plural, =0 {Ingen sidevisninger} one {# sidevisning} other {# sidevisninger}}",
+      "off": "Telling er av. Sett ANALYTICS_LOCAL=true for å telle sidevisninger på denne instansen.",
+      "empty": "Ingen sidevisninger registrert ennå.",
+      "columns": {
+        "day": "Dag",
+        "path": "Skjermbilde",
+        "views": "Visninger"
+      }
     }
   },
   "onboarding": {

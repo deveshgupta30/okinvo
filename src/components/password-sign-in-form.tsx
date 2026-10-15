@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { authClient } from "@/lib/auth/client";
+import { HONEYPOT_FIELD, isHoneypotFilled } from "@/lib/security/honeypot";
 
 /**
  * Email + password sign-in (AUTH_PASSWORD_SIGNIN). The first sign-in of an allow-listed address
@@ -22,6 +23,7 @@ export function PasswordSignInForm() {
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
+    if (isHoneypotFilled(form)) return; // a bot filled the hidden field: drop it without a word
     const email = String(form.get("email") ?? "").trim();
     const password = String(form.get("password") ?? "");
     const name = String(form.get("name") ?? "").trim();
@@ -42,6 +44,9 @@ export function PasswordSignInForm() {
 
   return (
     <form onSubmit={submit} className="flex flex-col gap-3" data-testid="password-sign-in">
+      <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+        <input type="text" name={HONEYPOT_FIELD} tabIndex={-1} autoComplete="off" defaultValue="" />
+      </div>
       {mode === "create" ? (
         <div className="flex flex-col gap-1">
           <Label htmlFor="name">{t("name")}</Label>
