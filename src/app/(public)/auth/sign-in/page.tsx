@@ -9,7 +9,11 @@ import { env } from "@/lib/env";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("auth.signIn");
-  return { title: t("metaTitle") };
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    robots: { index: true, follow: true },
+  };
 }
 
 const ERROR_KEYS = ["not_allowed", "signin"] as const;

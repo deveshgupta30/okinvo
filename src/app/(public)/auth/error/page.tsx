@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("auth.error");
-  return { title: t("metaTitle") };
+  return { title: t("metaTitle"), description: t("metaDescription") };
 }
 
 export default async function AuthErrorPage({

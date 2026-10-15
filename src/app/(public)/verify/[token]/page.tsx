@@ -8,7 +8,11 @@ import { enforceRateLimit } from "@/server/rate-limit";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("verify");
-  return { title: t("metaTitle"), robots: { index: false, follow: false } };
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    robots: { index: false, follow: false },
+  };
 }
 
 /** Public, rate-limited, and identical for unknown tokens (SPEC §4.12). */

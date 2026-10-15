@@ -15,7 +15,11 @@ import { PasswordForm } from "./password-form";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("share.viewer");
-  return { title: t("title"), robots: { index: false, follow: false } };
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    robots: { index: false, follow: false },
+  };
 }
 
 const PT_TO_PX = 96 / 72;

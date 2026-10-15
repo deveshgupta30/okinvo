@@ -18,6 +18,7 @@ describe("shouldRedirectToSignIn", () => {
       "/_next/static/x.js",
       "/favicon.ico",
       "/robots.txt",
+      "/sitemap.xml",
       "/icon.svg",
       "/apple-icon.png",
       "/manifest.webmanifest",
