@@ -27,4 +27,33 @@ describe("renderNotices", () => {
     expect(renderNotices(fixture)).toBe(renderNotices(JSON.parse(JSON.stringify(fixture))));
     expect(renderNotices(fixture)).not.toMatch(/\b20\d\d-\d\d-\d\d\b/);
   });
+
+  it("drops platform-specific binary packages so Windows and Linux installs render the same file", () => {
+    const json = {
+      MIT: [
+        { name: "esbuild", version: "0.28.2" },
+        { name: "@esbuild/win32-x64", version: "0.28.2" },
+        { name: "@esbuild/linux-x64", version: "0.28.2" },
+        { name: "lightningcss-win32-x64-msvc", version: "1.33.0" },
+        { name: "@next/swc-linux-x64-gnu", version: "16.3.8" },
+        { name: "@swc/core-darwin-arm64", version: "1.16.13" },
+        { name: "@parcel/watcher-win32-x64", version: "2.6.0" },
+        { name: "linux-tools-helper", version: "1.0.0" },
+      ],
+      "Apache-2.0": [
+        { name: "sharp", version: "0.35.5" },
+        { name: "@img/sharp-win32-x64", version: "0.35.5" },
+        { name: "@img/sharp-libvips-linux-x64", version: "1.2.4" },
+      ],
+    };
+    const out = renderNotices(json);
+    expect(out).not.toMatch(/win32|linux-x64|darwin|libvips/);
+    expect(out).toContain("- esbuild 0.28.2");
+    expect(out).toContain("- sharp 0.35.5");
+    expect(out).toContain("- linux-tools-helper 1.0.0"); // a plain name is not a platform build
+    expect(out).toContain("### MIT (2)");
+    expect(out).toContain("### Apache-2.0 (1)");
+    expect(out).toContain("_3 packages under 2 licences._");
+    expect(out).toMatch(/platform-specific/i);
+  });
 });
