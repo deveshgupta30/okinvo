@@ -1,7 +1,7 @@
 import "server-only";
 import { readFileSync } from "node:fs";
 import path from "node:path";
-import { todayIn, type DateString } from "@/lib/dates";
+import { fromDateString, toDateString, todayIn, type DateString } from "@/lib/dates";
 import { prisma } from "@/lib/db";
 import { createOutboundFetch, parseAllowList, type FetchLike } from "@/lib/net/outbound";
 import { RateTableSchema, type RateTable, type RateTableWithSource } from "@/lib/rates";
@@ -18,6 +18,15 @@ export interface RatesOptions {
 }
 
 let bundled: RateTable | undefined;
+/** The UTC day a refresh was last attempted (success or not) and the request in flight for it. */
+let attemptedDay: DateString | undefined;
+let inFlight: Promise<RateTableWithSource | null> | undefined;
+
+/** Test seam: forget the day marker so a suite can replay "first request of the day". */
+export function resetRatesRefreshState(): void {
+  attemptedDay = undefined;
+  inFlight = undefined;
+}
 
 /** `data/exchange-rates.json`, read once per process: the image always ships one. */
 export function bundledRates(): RateTable {
@@ -30,7 +39,7 @@ export function bundledRates(): RateTable {
 
 function fromRow(row: { asOf: Date; base: string; rates: unknown }): RateTableWithSource {
   const table = RateTableSchema.parse({
-    asOf: row.asOf.toISOString().slice(0, 10),
+    asOf: toDateString(row.asOf),
     base: row.base,
     rates: row.rates,
   });
@@ -54,10 +63,11 @@ async function refresh(o: RatesOptions): Promise<RateTableWithSource | null> {
     const res = await fetchOut(RATES_URL);
     if (!res.ok) return null;
     const table = parseLiveRates(await res.json());
+    const asOf = fromDateString(table.asOf);
     const row = await prisma.exchangeRateSnapshot.upsert({
-      where: { asOf: new Date(table.asOf) },
+      where: { asOf },
       create: {
-        asOf: new Date(table.asOf),
+        asOf,
         base: table.base,
         rates: table.rates,
         source: RATES_HOST,
@@ -70,11 +80,22 @@ async function refresh(o: RatesOptions): Promise<RateTableWithSource | null> {
   }
 }
 
+/** One attempt per UTC day per process, shared by concurrent first requests (review finding 4). */
+function refreshOnce(o: RatesOptions, today: DateString): Promise<RateTableWithSource | null> {
+  if (attemptedDay === today) return inFlight ?? Promise.resolve(null);
+  attemptedDay = today;
+  inFlight = refresh(o).finally(() => {
+    inFlight = undefined;
+  });
+  return inFlight;
+}
+
 /**
  * The table the app converts with (addendum §5): today's stored snapshot if there is one; else,
- * when the instance is online, one refresh for the day (never on a document's request path, the
- * callers are the converter page and the dashboard); else the newest stored snapshot; else the
- * bundle. Never throws for network reasons.
+ * when the instance is online, one refresh attempt for the day (a failure is not retried until
+ * the next day, so an unreachable provider costs one timeout, not one per request; never on a
+ * document's request path, the callers are the converter page and the dashboard); else the
+ * newest stored snapshot; else the bundle. Never throws for network reasons.
  */
 export async function currentRates(o: RatesOptions = {}): Promise<RateTableWithSource> {
   const today = o.today ?? todayIn("UTC");
@@ -82,7 +103,7 @@ export async function currentRates(o: RatesOptions = {}): Promise<RateTableWithS
   if (stored && stored.asOf === today) return stored;
   const online = o.online ?? (await import("@/lib/env")).env.RATES_ONLINE;
   if (online) {
-    const fresh = await refresh({ ...o, today });
+    const fresh = await refreshOnce({ ...o, today }, today);
     if (fresh) return fresh;
   }
   if (stored) return stored;

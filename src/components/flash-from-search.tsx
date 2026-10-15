@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef } from "react";
 import {
   AnimatedToastStack,
@@ -23,6 +24,7 @@ const DURATION_MS = 6000;
  * not repeat the message.
  */
 export function FlashFromSearch() {
+  const tc = useTranslations("common");
   const params = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -48,6 +50,7 @@ export function FlashFromSearch() {
   return (
     <div data-flash-stack role={hasError ? "alert" : "status"}>
       <AnimatedToastStack
+        dismissLabel={tc("dismiss")}
         toasts={stack.toasts}
         onDismiss={dismissToast}
         position="bottom-right"

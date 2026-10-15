@@ -141,6 +141,7 @@ jobs:
           AUTH_PASSWORD_SIGNIN: "true"
           AUTH_ALLOWED_EMAILS: e2e@example.com,smoke@example.com,e2e-onboard@example.com,e2e-i18n@example.com # password sign-up needs exact entries
           FORCE_HTTPS: "false" # the production server is reached over plain http on localhost
+          ANALYTICS_LOCAL: "true" # usage.spec.ts exercises the page-view beacon
       - uses: actions/upload-artifact@v7
         if: failure()
         with: { name: playwright-report, path: playwright-report }

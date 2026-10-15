@@ -11,7 +11,9 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   // One dev server and one small Postgres pool behind every spec: more than a few parallel
   // sessions makes cold-route compiles and connection waits time out rather than run faster.
-  workers: process.env.CI ? 2 : 3,
+  // One worker in CI: the specs share two fixed accounts (smoke@, e2e@) whose UI sign-up and
+  // sign-in race each other across workers, which is where every "flaky" run came from.
+  workers: process.env.CI ? 1 : 3,
   reporter: process.env.CI ? [["github"], ["html", { open: "never" }]] : "list",
   // Dev compiles each route on first hit, so post-navigation assertions need headroom.
   expect: { timeout: 30_000 },
@@ -51,6 +53,8 @@ export default defineConfig({
       // The production server (CI) would otherwise 301 every plain-http request to https
       // (FORCE_HTTPS defaults to on under NODE_ENV=production); the suite talks http to localhost.
       FORCE_HTTPS: "false",
+      // usage.spec.ts: the page-view beacon and Settings > Usage
+      ANALYTICS_LOCAL: "true",
       AUTH_ALLOWED_EMAILS:
         "e2e@example.com,smoke@example.com,e2e-onboard@example.com,e2e-i18n@example.com",
     },

@@ -1,5 +1,6 @@
 import "dotenv/config";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
+import { fromDateString } from "@/lib/dates";
 
 const url = process.env.DATABASE_URL;
 if (!url && process.env.CI) throw new Error("DATABASE_URL is required when CI is set");
@@ -27,13 +28,15 @@ describe.skipIf(!url)("currentRates", () => {
     ({ prisma } = await import("@/lib/db"));
     rates = await import("@/server/dal/rates");
     await prisma.exchangeRateSnapshot.deleteMany({
-      where: { asOf: { gte: new Date("2031-01-01") } },
+      where: { asOf: { gte: fromDateString("2031-01-01") } },
     });
   });
 
+  beforeEach(() => rates.resetRatesRefreshState());
+
   afterAll(async () => {
     await prisma.exchangeRateSnapshot.deleteMany({
-      where: { asOf: { gte: new Date("2031-01-01") } },
+      where: { asOf: { gte: fromDateString("2031-01-01") } },
     });
   });
 
@@ -48,7 +51,9 @@ describe.skipIf(!url)("currentRates", () => {
   it("falls back to the bundle, without throwing, when online but the host is not allowed", async () => {
     const r = await rates.currentRates({ online: true, today, allow: [] });
     expect(r.source).toBe("bundled");
-    expect(await prisma.exchangeRateSnapshot.count({ where: { asOf: new Date(today) } })).toBe(0);
+    expect(
+      await prisma.exchangeRateSnapshot.count({ where: { asOf: fromDateString(today) } }),
+    ).toBe(0);
   });
 
   it("refreshes once a day through the gate and then serves the stored snapshot", async () => {
@@ -76,22 +81,57 @@ describe.skipIf(!url)("currentRates", () => {
     });
     expect(again.source).toBe("live");
     expect(calls).toBe(1); // today's snapshot wins, no second request
-    expect(await prisma.exchangeRateSnapshot.count({ where: { asOf: new Date(today) } })).toBe(1);
+    expect(
+      await prisma.exchangeRateSnapshot.count({ where: { asOf: fromDateString(today) } }),
+    ).toBe(1);
 
     // offline instances still see a stored snapshot for the day
     const offline = await rates.currentRates({ online: false, today });
     expect(offline.source).toBe("live");
   });
 
-  it("keeps the last snapshot when the refresh fails", async () => {
+  it("keeps the last snapshot when the refresh fails, and does not retry that day", async () => {
     const tomorrow = "2031-01-16";
+    let calls = 0;
+    const failing = async () => {
+      calls += 1;
+      return new Response("nope", { status: 503 });
+    };
     const r = await rates.currentRates({
       online: true,
       today: tomorrow,
       allow: ["open.er-api.com"],
-      fetch: async () => new Response("nope", { status: 503 }),
+      fetch: failing,
     });
     expect(r.source).toBe("live");
     expect(r.asOf).toBe(today); // yesterday's stored table, not the bundle
+    expect(calls).toBe(1);
+
+    // the spec's "first request of the day": a failed attempt is not repeated until the next day
+    const again = await rates.currentRates({
+      online: true,
+      today: tomorrow,
+      allow: ["open.er-api.com"],
+      fetch: failing,
+    });
+    expect(again.asOf).toBe(today);
+    expect(calls).toBe(1);
+  });
+
+  it("shares one in-flight refresh between concurrent first requests of a day", async () => {
+    const day = "2031-01-17";
+    let calls = 0;
+    const slow = async () => {
+      calls += 1;
+      await new Promise((r) => setTimeout(r, 50));
+      return new Response(liveBody(day), { headers: { "content-type": "application/json" } });
+    };
+    const results = await Promise.all(
+      [1, 2, 3].map(() =>
+        rates.currentRates({ online: true, today: day, allow: ["open.er-api.com"], fetch: slow }),
+      ),
+    );
+    expect(results.map((r) => r.asOf)).toEqual([day, day, day]);
+    expect(calls).toBe(1);
   });
 });

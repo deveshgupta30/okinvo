@@ -88,7 +88,9 @@ export function AttachmentsUpload({
     >
       <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-surface-3 text-ink">
         {busy ? (
-          <Loader variant="comet" size={14} label="" />
+          <span aria-hidden>
+            <Loader variant="comet" size={14} label="" />
+          </span>
         ) : (
           <Upload aria-hidden className="size-4" strokeWidth={1.5} />
         )}

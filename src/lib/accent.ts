@@ -114,23 +114,53 @@ export type CustomAccentVars = {
   "--accent-custom-primary": string;
   "--accent-custom-on-primary": string;
   "--accent-custom-primary-hover": string;
+  /** Focus ring on the dark canvas (3:1 or better, like the preset focus shades). */
   "--accent-custom-primary-focus": string;
+  /** Focus ring on the light canvas. */
+  "--accent-custom-primary-focus-light": string;
 };
 
+/** WCAG contrast ratio between two `#rrggbb` colours. */
+function contrastRatio(a: string, b: string): number {
+  const la = luminance(a);
+  const lb = luminance(b);
+  return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
+}
+
+/** The colour pulled `amount` (0..1) towards white (255) or black (0). */
+function pulled(hex: string, towards: 0 | 255, amount: number): string {
+  const mix = (i: number) => channel(hex, i) + (towards - channel(hex, i)) * amount;
+  return toHex(mix(0), mix(1), mix(2));
+}
+
+/** The nearest shade of `hex` (pulled towards `towards`) that reads at 3:1 on `canvas`. */
+function focusShade(hex: string, canvas: string, towards: 0 | 255): string {
+  for (let step = 0; step <= 20; step += 1) {
+    const candidate = pulled(hex, towards, step / 20);
+    if (contrastRatio(candidate, canvas) >= 3) return candidate;
+  }
+  return towards === 255 ? "#ffffff" : "#000000";
+}
+
+const CANVAS_DARK = "#010102";
+const CANVAS_LIGHT = "#ffffff";
+
 /**
- * The four primary tokens for a custom accent, derived the way DESIGN.md derives them for the
- * pastels: hover is the colour pulled 6% towards the text that sits on it, focus is the colour.
+ * The primary tokens for a custom accent, derived the way DESIGN.md derives them for the
+ * pastels: the ink with the higher contrast sits on it (not a fixed luminance cut, which picked
+ * white on mid blues and greys at 3:1 where dark ink reads at 6:1), hover is the colour pulled
+ * 6% towards that ink, and the focus ring is the nearest shade that reads at 3:1 on each
+ * theme's canvas, as the eight presets were tuned.
  */
 export function customAccentVars(accent: CustomAccent): CustomAccentVars {
   const hex = accentHex(accent) ?? "#000000";
-  const dark = luminance(hex) < 0.35;
-  const towards = dark ? 255 : 0;
-  const mix = (i: number) => channel(hex, i) + (towards - channel(hex, i)) * 0.06;
+  const dark = contrastRatio(hex, INK_ON_DARK) > contrastRatio(hex, INK_ON_LIGHT);
   return {
     "--accent-custom-primary": hex,
     "--accent-custom-on-primary": dark ? INK_ON_DARK : INK_ON_LIGHT,
-    "--accent-custom-primary-hover": toHex(mix(0), mix(1), mix(2)),
-    "--accent-custom-primary-focus": hex,
+    "--accent-custom-primary-hover": pulled(hex, dark ? 255 : 0, 0.06),
+    "--accent-custom-primary-focus": focusShade(hex, CANVAS_DARK, 255),
+    "--accent-custom-primary-focus-light": focusShade(hex, CANVAS_LIGHT, 0),
   };
 }
 
@@ -145,6 +175,7 @@ export const CUSTOM_ACCENT_VARS = [
   "--accent-custom-on-primary",
   "--accent-custom-primary-hover",
   "--accent-custom-primary-focus",
+  "--accent-custom-primary-focus-light",
 ] as const;
 
 /**

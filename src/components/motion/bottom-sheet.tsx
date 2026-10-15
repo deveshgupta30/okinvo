@@ -30,6 +30,8 @@ export interface BottomSheetProps {
   title?: string;
   description?: string;
   children?: ReactNode;
+  /** okinvo: accessible name of the backdrop close button (translated by the caller). */
+  closeLabel?: string;
   className?: string;
   /** Min drag distance (px) past current snap to dismiss. */
   dismissThreshold?: number;
@@ -45,6 +47,7 @@ export function BottomSheet({
   children,
   className,
   dismissThreshold = 120,
+  closeLabel = "Close bottom sheet",
 }: BottomSheetProps) {
   const [snap, setSnap] = useState(defaultSnap);
   const [mounted, setMounted] = useState(false);
@@ -156,7 +159,7 @@ export function BottomSheet({
           {({ gate }) => (
             <motion.button
               type="button"
-              aria-label="Close bottom sheet"
+              aria-label={closeLabel}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

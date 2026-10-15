@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import * as React from "react";
 import { BottomSheet } from "@/components/motion/bottom-sheet";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
@@ -26,10 +27,12 @@ export function ResponsiveDialog({
   className?: string;
   children: React.ReactNode;
 }) {
+  const tu = useTranslations("ui");
   const isMobile = useIsMobile();
   if (isMobile) {
     return (
       <BottomSheet
+        closeLabel={tu("close")}
         open={open}
         onOpenChange={onOpenChange}
         title={title}

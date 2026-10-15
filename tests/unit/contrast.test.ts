@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ACCENTS } from "@/lib/accent";
+import { ACCENTS, customAccentVars } from "@/lib/accent";
 import { DESIGN_COLORS } from "@/lib/design-colors.generated";
 
 /**
@@ -69,5 +69,27 @@ describe("contrast of the colour tokens", () => {
         );
       }
     });
+  });
+});
+
+/** Review finding 1: a custom colour gets the better of the two inks and a focus shade per theme. */
+describe("custom accent derivation", () => {
+  const samples = ["4f9ad6", "9a9a9a", "f5e6a3", "1b2a49", "ff00ff", "8b5cf6", "e5e5e5", "202020"];
+  it("picks the on-primary ink with the higher contrast", () => {
+    for (const hex of samples) {
+      const vars = customAccentVars(`custom-${hex}`);
+      const chosen = contrast(vars["--accent-custom-primary"], vars["--accent-custom-on-primary"]);
+      const best = Math.max(contrast(`#${hex}`, "#17191e"), contrast(`#${hex}`, "#ffffff"));
+      expect(chosen).toBeCloseTo(best, 5);
+    }
+  });
+  it("derives a focus shade that reads at 3:1 against each theme's canvas", () => {
+    for (const hex of samples) {
+      const vars = customAccentVars(`custom-${hex}`);
+      expect(contrast(vars["--accent-custom-primary-focus"], "#010102")).toBeGreaterThanOrEqual(3);
+      expect(
+        contrast(vars["--accent-custom-primary-focus-light"], "#ffffff"),
+      ).toBeGreaterThanOrEqual(3);
+    }
   });
 });
