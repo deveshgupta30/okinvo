@@ -47,6 +47,11 @@ export default defineConfig([
     },
   },
   {
+    // Launch checklist item 10: every image carries a meaningful alt, or alt="" when decorative.
+    files: ["src/**/*.tsx"],
+    rules: { "jsx-a11y/alt-text": "error" },
+  },
+  {
     // Air-gapped operation (addendum §1): every font ships in the image.
     files: ["src/**/*.{ts,tsx}"],
     rules: {
