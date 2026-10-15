@@ -58,7 +58,7 @@ export function DocumentPreview({
       // eslint-disable-next-line @next/next/no-img-element -- session-gated asset route
       <img
         src={vm.issuer.logoUrl}
-        alt=""
+        alt={vm.issuer.legalName}
         style={{ height: px(s.logoHeight), maxWidth: px(160), objectFit: "contain" }}
       />
     ) : null;
