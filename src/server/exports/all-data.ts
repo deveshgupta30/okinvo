@@ -165,6 +165,13 @@ const TABLES: Table[] = [
       paginate((cursor, take) => prisma.payment.findMany({ ...byId, take, ...cursorArgs(cursor) })),
   },
   {
+    name: "paymentAttachments",
+    rows: () =>
+      paginate((cursor, take) =>
+        prisma.paymentAttachment.findMany({ ...byId, take, ...cursorArgs(cursor) }),
+      ),
+  },
+  {
     name: "creditNotes",
     rows: () =>
       paginate((cursor, take) =>

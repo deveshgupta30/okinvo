@@ -11,6 +11,12 @@ import { diffForAudit } from "./audit-redact";
 import { InvariantError, NotFoundError } from "./errors";
 import { requireWriter } from "./authz";
 import { lockInvoice } from "./locks";
+import {
+  ATTACHMENT_INCLUDE,
+  syncPaymentAttachments,
+  toAttachmentDto,
+  type PaymentAttachmentDto,
+} from "./payment-attachments";
 
 export type PaymentKind = "PAYMENT" | "REFUND" | "WRITE_OFF";
 
@@ -29,7 +35,8 @@ export interface PaymentDto {
   paymentMethodName: string | null;
   reference: string | null;
   notes: string | null;
-  receiptAssetId: string | null;
+  /** Receipts and bills on this entry, in display order (addendum §4). */
+  attachments: PaymentAttachmentDto[];
   createdAt: string;
 }
 
@@ -55,7 +62,10 @@ export interface PaymentLedger {
   };
 }
 
-const INCLUDE = { paymentMethod: { select: { name: true } } } satisfies Prisma.PaymentInclude;
+const INCLUDE = {
+  paymentMethod: { select: { name: true } },
+  ...ATTACHMENT_INCLUDE,
+} satisfies Prisma.PaymentInclude;
 type Row = Prisma.PaymentGetPayload<{ include: typeof INCLUDE }>;
 
 function toDto(row: Row, currency: string): PaymentDto {
@@ -77,7 +87,7 @@ function toDto(row: Row, currency: string): PaymentDto {
     paymentMethodName: row.paymentMethod?.name ?? null,
     reference: row.reference,
     notes: row.notes,
-    receiptAssetId: row.receiptAssetId,
+    attachments: row.attachments.map(toAttachmentDto),
     createdAt: row.createdAt.toISOString(),
   };
 }
@@ -95,7 +105,6 @@ function toData(input: PaymentInput) {
     paymentMethodProfileId: input.paymentMethodProfileId ?? null,
     reference: input.reference ?? null,
     notes: input.notes ?? null,
-    receiptAssetId: input.receiptAssetId ?? null,
   };
 }
 
@@ -112,7 +121,7 @@ function auditView(row: Row) {
     paymentMethodProfileId: row.paymentMethodProfileId,
     reference: row.reference,
     notes: row.notes,
-    receiptAssetId: row.receiptAssetId,
+    attachmentAssetIds: row.attachments.map((a) => a.assetId),
   };
 }
 
@@ -191,8 +200,10 @@ export async function recordPayment(
     assertNotBeforeInvoice(input.paymentDate, invoice.issueDate);
     const balances = await recalculateBalances(tx, invoiceId);
     assertWithinLimits(input, balances, invoice.currency);
-    const row = await tx.payment.create({
-      data: { invoiceId, ...toData(input) },
+    const created = await tx.payment.create({ data: { invoiceId, ...toData(input) } });
+    await syncPaymentAttachments(tx, created.id, input.attachmentAssetIds);
+    const row = await tx.payment.findUniqueOrThrow({
+      where: { id: created.id },
       include: INCLUDE,
     });
     await recalculateBalances(tx, invoiceId);
@@ -231,11 +242,9 @@ export async function updatePayment(
       ),
     };
     assertWithinLimits(input, without, invoice.currency);
-    const row = await tx.payment.update({
-      where: { id: paymentId },
-      data: toData(input),
-      include: INCLUDE,
-    });
+    await tx.payment.update({ where: { id: paymentId }, data: toData(input) });
+    await syncPaymentAttachments(tx, paymentId, input.attachmentAssetIds);
+    const row = await tx.payment.findUniqueOrThrow({ where: { id: paymentId }, include: INCLUDE });
     await recalculateBalances(tx, invoice.id);
     const diff = diffForAudit(auditView(before), auditView(row));
     await audit(tx, actor, "payment.updated", "Payment", paymentId, {

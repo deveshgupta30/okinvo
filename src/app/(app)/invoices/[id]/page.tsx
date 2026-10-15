@@ -6,6 +6,7 @@ import { ConfirmAction } from "@/components/confirm-action";
 import { ScaledPreview } from "@/components/documents/scaled-preview";
 import { ShareDialog } from "@/components/documents/share-dialog";
 import { EInvoicePanel } from "@/components/invoices/einvoice-panel";
+import { PaymentProgress } from "@/components/payments/progress";
 import { canCancel } from "@/lib/einvoice/gst/connector";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -17,6 +18,7 @@ import { TBody, TD, TH, THead, TR, Table } from "@/components/ui/table";
 import { DocumentPreview, PAPER, buildDocumentViewModel } from "@/lib/documents";
 import { env } from "@/lib/env";
 import { formatDate, formatDateTime, formatMoney, formatPercent } from "@/lib/format";
+import { paymentCheckpoints } from "@/lib/payments/progress";
 import { DEFAULT_TEMPLATE_CONFIG } from "@/lib/schemas";
 import {
   deleteDraftAction,
@@ -32,6 +34,7 @@ import { assetUrl, renderInputFromInvoice, verificationQr } from "@/server/dal/d
 import { einvoiceConnectorFor, euProfileFor } from "@/server/dal/einvoice-settings";
 import { NotFoundError } from "@/server/dal/errors";
 import { getInvoice } from "@/server/dal/invoices";
+import { listPayments } from "@/server/dal/payments";
 import { listShareLinks } from "@/server/dal/share-links";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -77,6 +80,17 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
   const latestDoc = inv.documents[inv.documents.length - 1] ?? null;
   const euProfile = !isDraft && (await euProfileFor(inv.issuerProfileId)) === "EN16931";
   const shareLinks = !isDraft && canEdit ? await listShareLinks(actor, "INVOICE", id) : [];
+  const ledgerRows = isDraft ? [] : (await listPayments(actor, id)).rows;
+  const checkpoints = paymentCheckpoints(
+    inv,
+    ledgerRows.map((p) => ({
+      id: p.id,
+      kind: p.kind,
+      amountApplied: p.amountApplied,
+      paymentDate: p.paymentDate,
+      attachmentCount: p.attachments.length,
+    })),
+  );
   const showEInvoice = isIssued && inv.taxRegime === "INDIA_GST" && inv.issuer.einvoiceEnabled;
   const einvoiceConnector = showEInvoice ? await einvoiceConnectorFor(inv.issuerProfileId) : null;
   const einvoiceState = inv.einvoice ?? { status: "NONE" as const };
@@ -356,6 +370,20 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
               </DescriptionList>
             </CardContent>
           </Card>
+
+          {!isDraft ? (
+            <Card>
+              <CardHeader>
+                <div>
+                  <CardTitle>{t("progress.title")}</CardTitle>
+                  <CardDescription>{t("progress.description")}</CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <PaymentProgress steps={checkpoints} currency={inv.currency} locale={inv.locale} />
+              </CardContent>
+            </Card>
+          ) : null}
 
           {showEInvoice ? (
             <Card>

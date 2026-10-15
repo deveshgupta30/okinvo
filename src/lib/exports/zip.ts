@@ -103,6 +103,21 @@ export const DOCUMENT_INDEX_COLUMNS: Column<DocumentIndexRow>[] = [
 ];
 
 /** The `index.csv` of a documents bundle: the accountant's map from number to file and hash. */
+/**
+ * Where a payment's receipt goes in the documents bundle: `receipts/<number>/<date>-<n>.<ext>`
+ * (under the issuer folder when the bundle spans issuers), n counting from 1 per payment.
+ */
+export function receiptFileName(
+  number: string,
+  paymentDate: string,
+  n: number,
+  ext: string,
+  folder?: string,
+): string {
+  const stem = safeFileStem(number);
+  return `${folder ? `${safeFileStem(folder)}/` : ""}receipts/${stem}/${paymentDate}-${n}.${ext}`;
+}
+
 export function documentsIndexCsv(rows: DocumentIndexRow[]): Promise<string> {
   return csvString(DOCUMENT_INDEX_COLUMNS, rows);
 }

@@ -92,6 +92,7 @@ describe.skipIf(!url)("export all data", () => {
       "invoiceTaxLines",
       "invoicePaymentMethods",
       "payments",
+      "paymentAttachments",
       "creditNotes",
       "creditNoteTaxLines",
       "documents",

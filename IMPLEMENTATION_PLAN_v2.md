@@ -711,16 +711,31 @@ model Payment {
   paymentMethodProfileId String?
   reference              String?
   notes                  String?
-  receiptAssetId         String?      @unique
   createdAt              DateTime     @default(now())
   updatedAt              DateTime     @updatedAt
 
   invoice                Invoice               @relation(fields: [invoiceId],              references: [id])
   paymentMethod          PaymentMethodProfile? @relation(fields: [paymentMethodProfileId], references: [id])
-  receipt                Asset?                @relation(fields: [receiptAssetId],         references: [id])
+  attachments            PaymentAttachment[]
 
   @@index([invoiceId])
   @@index([paymentDate])
+}
+
+// Receipts and bills on a payment (v1.1 addendum §4): several per payment, kind RECEIPT, PDF or
+// image; they replaced the single receiptAssetId (migrated across).
+model PaymentAttachment {
+  id        String   @id @default(uuid(7))
+  paymentId String
+  assetId   String
+  position  Int      @default(0)
+  createdAt DateTime @default(now())
+
+  payment   Payment  @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+  asset     Asset    @relation(fields: [assetId],   references: [id])
+
+  @@unique([paymentId, assetId])
+  @@index([paymentId])
 }
 
 // ───────────────────────── Credit notes ─────────────────────────
