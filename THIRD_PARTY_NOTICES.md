@@ -206,7 +206,7 @@ PDF/A-3 files.
 - yargs-parser 18.1.3 - Ben Coe (https://github.com/yargs/yargs-parser#readme)
 - zod-to-json-schema 3.25.2 - Stefan Terdell (https://github.com/StefanTerdell/zod-to-json-schema#readme)
 
-### MIT (523)
+### MIT (529)
 
 - @babel/code-frame 7.29.7 - The Babel Team (https://babel.dev/docs/en/next/babel-code-frame)
 - @babel/compat-data 7.29.7 - The Babel Team (https://github.com/babel/babel#readme)
@@ -353,6 +353,8 @@ PDF/A-3 files.
 - @schummar/icu-type-parser 1.21.5 - Marco Schumacher (https://github.com/schummar/schummar-translate#readme)
 - @standard-schema/spec 1.1.0 - Colin McDonnell (https://standardschema.dev)
 - @standard-schema/utils 0.3.0 - Fabian Hiller (https://github.com/standard-schema/standard-schema#readme)
+- @tanstack/react-virtual 3.14.20 - Tanner Linsley (https://tanstack.com/virtual)
+- @tanstack/virtual-core 3.19.5 - Tanner Linsley (https://tanstack.com/virtual)
 - @tokenizer/inflate 0.4.1 - Borewit (https://github.com/Borewit/tokenizer-inflate#readme)
 - @tokenizer/token 0.3.0 - Borewit (https://github.com/Borewit/tokenizer-token#readme)
 - @types/chai 5.2.3 (https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/chai)
@@ -500,6 +502,7 @@ PDF/A-3 files.
 - find-up 4.1.0 - Sindre Sorhus (https://github.com/sindresorhus/find-up#readme)
 - fontkit 2.0.4 - Devon Govett (https://github.com/foliojs/fontkit#readme)
 - forwarded 0.2.0 (https://github.com/jshttp/forwarded#readme)
+- framer-motion 14.2.0 - Matt Perry (https://github.com/motiondivision/motion#readme)
 - fresh 2.0.0 - TJ Holowaychuk (https://github.com/jshttp/fresh#readme)
 - fs-constants 1.0.0 - Mathias Buus (https://github.com/mafintosh/fs-constants)
 - function-bind 1.1.2 - Raynos (https://github.com/Raynos/function-bind)
@@ -571,6 +574,9 @@ PDF/A-3 files.
 - mime-types 3.0.2 (https://github.com/jshttp/mime-types#readme)
 - minimist 1.2.8 - James Halliday (https://github.com/minimistjs/minimist)
 - mkdirp 0.5.6 - James Halliday (https://github.com/substack/node-mkdirp#readme)
+- motion 14.2.0 - Matt Perry (https://github.com/motiondivision/motion#readme)
+- motion-dom 14.2.0 - Matt Perry (https://github.com/motiondivision/motion#readme)
+- motion-utils 14.1.1 - Matt Perry (https://github.com/motiondivision/motion#readme)
 - ms 2.1.3 (https://github.com/vercel/ms#readme)
 - mysql2 3.15.3 - Andrey Sidorov (https://sidorares.github.io/node-mysql2/docs)
 - named-placeholders 1.1.6 - Andrey Sidorov (https://github.com/mysqljs/named-placeholders#readme)
@@ -769,4 +775,4 @@ PDF/A-3 files.
 - postgres 3.4.7 - Rasmus Porsager (https://github.com/porsager/postgres)
 - robust-predicates 3.0.3 - Vladimir Agafonkin (https://github.com/mourner/robust-predicates#readme)
 
-_674 packages under 21 licences._
+_680 packages under 21 licences._
