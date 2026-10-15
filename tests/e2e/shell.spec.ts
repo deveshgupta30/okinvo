@@ -88,6 +88,28 @@ test("footer order: theme toggle, Settings, user menu with Profile and Log out",
   await expect(page).toHaveURL(/\/auth\/sign-in$/);
 });
 
+test("a flash shows as a toast that dismisses itself, in both themes", async ({
+  page,
+  isMobile,
+}) => {
+  desktopOnly(isMobile);
+  await signInAs(page, EMAIL, "Smoke Owner");
+  const origin = `http://127.0.0.1:${process.env.E2E_PORT ?? "3000"}`;
+  for (const theme of ["dark", "light"] as const) {
+    await page.context().addCookies([{ name: "okinvo.theme", value: theme, url: origin }]);
+    const flash = encodeURIComponent(
+      JSON.stringify({ kind: "success", message: `Saved in ${theme}` }),
+    );
+    await page.goto(`/settings/account?flash=${flash}`);
+    await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
+    const toast = page.locator("[data-flash-stack]").getByText(`Saved in ${theme}`).first();
+    await expect(toast).toBeVisible();
+    // the parameter is gone, so a reload does not repeat the message
+    await expect(page).not.toHaveURL(/flash=/);
+    await expect(toast).toBeHidden({ timeout: 10_000 });
+  }
+});
+
 test("mobile: the top bar's menu opens a drawer that navigates and closes", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await signInAs(page, EMAIL, "Smoke Owner");

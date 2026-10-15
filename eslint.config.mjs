@@ -15,6 +15,13 @@ export default defineConfig([
     "test-results/**",
     "coverage/**",
     ".superpowers/**",
+    // vendored beui components (addendum §3): refreshed by pnpm vendor:update beui, not edited here
+    "src/components/motion/**",
+    "src/lib/hooks/use-dismiss.ts",
+    "src/lib/hooks/use-hover-gesture.ts",
+    "src/lib/hooks/use-tap-gesture.ts",
+    "src/lib/touch.ts",
+    "src/lib/ease.ts",
   ]),
   {
     files: ["**/*.{ts,tsx,mjs}"],

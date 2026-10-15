@@ -200,6 +200,7 @@ export function TemplateForm({
                     className="h-8 w-12 rounded-md border border-input bg-surface-1"
                   />
                   <Input
+                    id="accent-hex"
                     value={config.colors.accent}
                     className="font-mono"
                     onChange={(e) => set("colors", { ...config.colors, accent: e.target.value })}
