@@ -48,6 +48,9 @@ export default defineConfig({
       PORT: port,
       APP_URL: origin,
       AUTH_PASSWORD_SIGNIN: "true",
+      // The production server (CI) would otherwise 301 every plain-http request to https
+      // (FORCE_HTTPS defaults to on under NODE_ENV=production); the suite talks http to localhost.
+      FORCE_HTTPS: "false",
       AUTH_ALLOWED_EMAILS:
         "e2e@example.com,smoke@example.com,e2e-onboard@example.com,e2e-i18n@example.com",
     },

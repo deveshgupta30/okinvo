@@ -9,7 +9,9 @@ went green on the development branch.
   air-gap guard over the production build, `pnpm vendor:update`; meta descriptions, social
   preview, sitemap and robots; alt-text lint, a WCAG contrast test over every token and accent,
   one call to action per view; a broken-link crawl, production performance budgets, honeypot
-  fields on the public forms, and optional local page-view counts at Settings → Usage.
+  fields on the public forms, and optional local page-view counts at Settings → Usage. The
+  end-to-end suite runs its production server with `FORCE_HTTPS=false`, since it talks plain
+  http to localhost.
 
 - beui components (vendored through the shadcn registry, air-gap safe): the shared inputs,
   checkbox, switch, tooltip, status pill, toast stack and loader; the animated sidebar (desktop
