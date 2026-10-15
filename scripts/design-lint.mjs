@@ -3,28 +3,30 @@ import { execSync } from "node:child_process";
 const FILES = ["DESIGN.md", "DESIGN.light.md"];
 
 let failed = false;
-for (const file of FILES) {
-  let stdout = "";
-  try {
-    // Constant command string: the file names are fixed above, so no argument escaping is needed.
-    stdout = execSync(`pnpm exec designmd lint ${file}`, {
-      encoding: "utf8",
-      stdio: ["ignore", "pipe", "pipe"],
-    });
-  } catch (err) {
-    stdout = err.stdout ?? "";
+function lintDesignFiles() {
+  for (const file of FILES) {
+    let stdout = "";
+    try {
+      // Constant command string: the file names are fixed above, so no argument escaping is needed.
+      stdout = execSync(`pnpm exec designmd lint ${file}`, {
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "pipe"],
+      });
+    } catch (err) {
+      stdout = err.stdout ?? "";
+    }
+    let report;
+    try {
+      report = JSON.parse(stdout);
+    } catch {
+      console.error(`${file}: could not parse lint output:\n${stdout}`);
+      process.exit(1);
+    }
+    for (const f of report.findings ?? []) {
+      console.log(`${file} [${f.severity}] ${f.path ?? ""}: ${f.message}`);
+    }
+    if ((report.summary?.errors ?? 0) > 0) failed = true;
   }
-  let report;
-  try {
-    report = JSON.parse(stdout);
-  } catch {
-    console.error(`${file}: could not parse lint output:\n${stdout}`);
-    process.exit(1);
-  }
-  for (const f of report.findings ?? []) {
-    console.log(`${file} [${f.severity}] ${f.path ?? ""}: ${f.message}`);
-  }
-  if ((report.summary?.errors ?? 0) > 0) failed = true;
 }
 // Launch checklist item 20: one clear call to action per view. A page file may hold at most one
 // primary button (the Button default, an explicit variant="primary", or a SubmitButton), and a
@@ -57,6 +59,7 @@ const invokedDirectly =
   path.resolve(process.argv[1]) ===
     path.resolve(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1"));
 if (invokedDirectly) {
+  lintDesignFiles();
   const app = path.resolve(
     path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")),
     "..",
@@ -73,4 +76,4 @@ if (invokedDirectly) {
     }
   }
 }
-process.exit(failed ? 1 : 0);
+if (invokedDirectly) process.exit(failed ? 1 : 0);
