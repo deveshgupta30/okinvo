@@ -34,7 +34,12 @@ export function stripToKeyboard(text: string): string {
 }
 
 /** HTML `pattern` for single-line fields: the keyboard set without tab and newlines. */
-export const KEYBOARD_INPUT_PATTERN = "[A-Za-z0-9 `~!@#$%^&*()_\\-+=}\\]{\\[\"':;?/>.<,]*";
+/**
+ * Also valid under the "v" flag browsers use for the `pattern` attribute: ( ) { } [ ] / - are
+ * escaped inside the class, otherwise Chrome rejects the pattern and skips native validation.
+ */
+export const KEYBOARD_INPUT_PATTERN =
+  "[A-Za-z0-9 `~!@#$%^&*\\(\\)_\\-+=\\}\\]\\{\\[\"':;?\\/>.<,]*";
 
 export interface DisallowedInput {
   /** Dotted path into the submitted value (empty for a bare string). */
