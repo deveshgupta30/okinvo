@@ -4,6 +4,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { idpFormActionOrigins } from "@/lib/auth/idp-origins";
 import { shouldRedirectToSignIn } from "@/lib/auth/redirect";
 import { buildCsp, securityHeaders } from "@/lib/security-headers";
+import { forceHttpsEnabled, shouldForceHttps } from "@/lib/security/force-https";
 import { needsOriginCheck, originAllowed } from "@/lib/security/origin";
 
 /**
@@ -21,6 +22,24 @@ export function proxy(request: NextRequest): NextResponse {
     formActionOrigins: idpFormActionOrigins(process.env),
   });
   const { pathname } = request.nextUrl;
+
+  // Force HTTPS (addendum §1): TLS ends at Caddy or the ingress; a request that arrived over
+  // plain http is sent to the https origin, except the in-network health probes.
+  if (
+    shouldForceHttps(
+      request.headers,
+      pathname,
+      request.nextUrl.protocol,
+      forceHttpsEnabled(process.env.FORCE_HTTPS, process.env.NODE_ENV),
+    )
+  ) {
+    const url = request.nextUrl.clone();
+    url.protocol = "https:";
+    const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host");
+    if (host) url.host = host;
+    url.port = "";
+    return NextResponse.redirect(url, 301);
+  }
 
   // The versioned API and the MCP endpoint never delete or rewrite (SPEC §4.19).
   if (disallowedVerb(request.method, pathname)) {
