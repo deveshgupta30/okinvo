@@ -44,6 +44,17 @@ test("sidebar collapses to a rail, persists across reload, and expands again", a
   }).toPass({ timeout: 60_000 });
 });
 
+test("Ctrl+B (Cmd+B) toggles the sidebar from the keyboard", async ({ page, isMobile }) => {
+  desktopOnly(isMobile);
+  await signInAs(page, EMAIL, "Smoke Owner");
+  const aside = page.locator("aside[data-sidebar]");
+  await expect(aside).toHaveAttribute("data-sidebar", "expanded");
+  await page.keyboard.press("ControlOrMeta+b");
+  await expect(aside).toHaveAttribute("data-sidebar", "collapsed", { timeout: 2_000 });
+  await page.keyboard.press("ControlOrMeta+b");
+  await expect(aside).toHaveAttribute("data-sidebar", "expanded", { timeout: 2_000 });
+});
+
 test("footer order: theme toggle, Settings, user menu with Profile and Log out", async ({
   page,
   isMobile,

@@ -38,6 +38,10 @@ export const BEUI_COMPONENTS: readonly string[] = [
   "@beui/animated-badge",
   "@beui/animated-toast-stack",
   "@beui/loader",
+  "@beui/animated-sidebar",
+  "@beui/dock",
+  "@beui/breadcrumb",
+  "@beui/tabs",
 ];
 
 export type Subcommand = "fonts" | "wordlist" | "flags" | "rates" | "beui" | "all";
@@ -119,13 +123,8 @@ function vendoredFiles(): string[] {
     }
   };
   walk(path.join(ROOT, "src", "components", "motion"));
-  for (const f of [
-    "hooks/use-dismiss.ts",
-    "hooks/use-hover-gesture.ts",
-    "hooks/use-tap-gesture.ts",
-    "touch.ts",
-    "ease.ts",
-  ]) {
+  walk(path.join(ROOT, "src", "lib", "hooks"));
+  for (const f of ["touch.ts", "ease.ts"]) {
     const full = path.join(ROOT, "src", "lib", f);
     if (existsSync(full)) out.push(full);
   }
