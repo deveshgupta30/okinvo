@@ -29,4 +29,12 @@ describe("THEME_INIT_SCRIPT", () => {
     expect(THEME_INIT_SCRIPT).toContain("prefers-color-scheme: light");
     expect(THEME_INIT_SCRIPT).not.toContain("</script");
   });
+  it("applies the accent cookie to data-accent and ignores unknown values", () => {
+    expect(THEME_INIT_SCRIPT).toContain(
+      "okinvo\\.accent=(mint|lavender|sky|peach|butter|rose|sage|lilac|custom-[0-9a-f]{6})",
+    );
+    expect(THEME_INIT_SCRIPT).toContain('setAttribute("data-accent"');
+    // a custom hex maps to the "custom" attribute; its variables come from the server-rendered style
+    expect(THEME_INIT_SCRIPT).toContain('"custom"');
+  });
 });

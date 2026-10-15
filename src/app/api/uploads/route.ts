@@ -1,16 +1,23 @@
 import { env } from "@/lib/env";
 import { UploadError, prepareUpload, type UploadKind } from "@/lib/uploads";
-import { isActor, requireOwnerApi } from "@/server/auth";
+import { isActor, requireActorApi } from "@/server/auth";
 import { createAsset } from "@/server/dal/assets";
 import { enforceRateLimit } from "@/server/rate-limit";
 
 export const runtime = "nodejs";
 
-const KINDS = new Set<UploadKind>(["LOGO", "SIGNATURE", "STAMP", "RECEIPT"]);
+const KINDS = new Set<UploadKind>([
+  "LOGO",
+  "SIGNATURE",
+  "STAMP",
+  "RECEIPT",
+  "AVATAR",
+  "LETTERHEAD",
+]);
 
 /** Multipart `file` + `kind` → validated, normalised, stored asset (v2 §11.2). */
 export async function POST(request: Request): Promise<Response> {
-  const actor = await requireOwnerApi();
+  const actor = await requireActorApi("VIEWER");
   if (!isActor(actor)) return actor;
   const limited = await enforceRateLimit(request.headers, "uploads", actor.userId);
   if (limited) return limited;

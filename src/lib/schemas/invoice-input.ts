@@ -1,8 +1,10 @@
 import { z } from "zod";
 import { DateStringSchema, compareDates } from "@/lib/dates";
+import { SkuSchema } from "./product-input";
 import { fBool, fDecimal, fOptional } from "@/lib/forms";
 import { D, minorUnits } from "@/lib/money";
 import { GST_RATES, UK_VAT_RATES } from "@/lib/tax";
+import { LANGUAGE_TAGS } from "@/lib/i18n/languages";
 import { CurrencySchema } from "./currency";
 import { DisplayConfigSchema } from "./display-config";
 import { UNIT_TYPES } from "./service-input";
@@ -27,6 +29,8 @@ export const InvoiceItemInputSchema = z.object({
   /** UK VAT exempt supply: no VAT, shown as "Exempt" instead of a rate. Absent means taxable. */
   taxExempt: fBool.optional(),
   serviceItemId: fOptional(z.string().max(64)),
+  productId: z.string().max(64).optional(),
+  sku: fOptional(SkuSchema),
 });
 export type InvoiceItemInput = z.infer<typeof InvoiceItemInputSchema>;
 
@@ -57,6 +61,8 @@ export const InvoiceDraftInputSchema = z
       .default("0.00"),
     paymentMethodIds: z.array(z.string().min(1)).max(10).default([]),
     displayConfig: DisplayConfigSchema,
+    /** The language the document prints in (SPEC §4.10). */
+    documentLocale: z.enum(LANGUAGE_TAGS, { error: "unknown language" }).default("en-US"),
     poReference: fOptional(z.string().trim().max(80)),
     notes: fOptional(z.string().trim().max(2000)),
     terms: fOptional(z.string().trim().max(2000)),
@@ -120,6 +126,8 @@ export const InvoiceFiltersSchema = z.object({
     z.enum(["DRAFT", "ISSUED", "SENT", "PARTIALLY_PAID", "PAID", "OVERDUE", "VOID"]),
   ),
   currency: fOptional(CurrencySchema),
+  /** E-invoice registration (spec §9e). */
+  einvoice: fOptional(z.enum(["registered", "none", "cancelled"])),
   q: fOptional(z.string().trim().max(80)),
   page: z.coerce.number().int().min(1).default(1),
 });

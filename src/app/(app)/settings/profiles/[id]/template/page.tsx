@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { ConfirmAction } from "@/components/confirm-action";
 import { TemplateForm } from "@/components/templates/template-form";
 import { Button } from "@/components/ui/button";
@@ -14,7 +15,10 @@ import { NotFoundError } from "@/server/dal/errors";
 import { getProfile } from "@/server/dal/profiles";
 import { resolveTemplateConfig } from "@/server/dal/templates";
 
-export const metadata: Metadata = { title: "Profile template" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("settings.profiles.template");
+  return { title: t("metaTitle") };
+}
 
 export default async function ProfileTemplatePage({
   params,
@@ -24,6 +28,7 @@ export default async function ProfileTemplatePage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const actor = await requireOwner();
+  const t = await getTranslations("settings.profiles");
   const { id } = await params;
   const { customise } = await searchParams;
   const profile = await getProfile(actor, id).catch((e: unknown) => {
@@ -37,25 +42,27 @@ export default async function ProfileTemplatePage({
       <PageHeader
         title={
           <>
-            Template for {profile.label}
+            {t("template.title", { label: profile.label })}
             <Pill tone={profile.templateConfigOverride ? "success" : "neutral"}>
-              {profile.templateConfigOverride ? "Own template" : "Instance template"}
+              {profile.templateConfigOverride
+                ? t("template.ownTemplate")
+                : t("template.instanceTemplate")}
             </Pill>
           </>
         }
         breadcrumb={[
-          { href: "/settings/profiles", label: "Profiles" },
+          { href: "/settings/profiles", label: t("breadcrumb") },
           { href: `/settings/profiles/${id}/edit`, label: profile.label },
         ]}
         actions={
           profile.templateConfigOverride ? (
             <ConfirmAction
               action={clearProfileTemplateAction}
-              title="Use the instance template again?"
-              description="This profile's own configuration is removed; issued documents are unaffected."
-              confirmLabel="Use instance template"
+              title={t("template.resetTitle")}
+              description={t("template.resetDescription")}
+              confirmLabel={t("template.useInstance")}
               hidden={{ profileId: id }}
-              trigger="Use instance template"
+              trigger={t("template.useInstance")}
               triggerVariant="tertiary"
               destructive
             />
@@ -72,22 +79,19 @@ export default async function ProfileTemplatePage({
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Using the instance template</CardTitle>
-              <CardDescription>
-                Documents from this profile follow Settings → Templates. Opt in to customise them
-                separately.
-              </CardDescription>
+              <CardTitle>{t("template.usingInstanceTitle")}</CardTitle>
+              <CardDescription>{t("template.usingInstanceDescription")}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
             <div className="flex gap-2">
               <Button asChild>
                 <Link href={`/settings/profiles/${id}/template?customise=1`}>
-                  Use a different template for this profile
+                  {t("template.customise")}
                 </Link>
               </Button>
               <Button asChild variant="tertiary">
-                <Link href="/settings/templates">Open instance template</Link>
+                <Link href="/settings/templates">{t("template.openInstance")}</Link>
               </Button>
             </div>
           </CardContent>

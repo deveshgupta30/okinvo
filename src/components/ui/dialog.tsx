@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Dialog as RadixDialog } from "radix-ui";
 import { cn } from "@/lib/utils";
 
@@ -14,6 +15,7 @@ export function DialogContent({
   children,
   ...props
 }: React.ComponentProps<typeof RadixDialog.Content>) {
+  const t = useTranslations("ui");
   return (
     <RadixDialog.Portal>
       <RadixDialog.Overlay className="fixed inset-0 z-50 bg-semantic-overlay data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0" />
@@ -27,7 +29,7 @@ export function DialogContent({
         {children}
         <RadixDialog.Close
           className="absolute top-4 right-4 rounded-sm text-ink-subtle hover:text-ink focus-visible:ring-2 focus-visible:ring-ring/50"
-          aria-label="Close"
+          aria-label={t("close")}
         >
           <X className="size-4" strokeWidth={1.5} />
         </RadixDialog.Close>

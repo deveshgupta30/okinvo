@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Faqja kryesore e okinvo",
+    "save": "Ruaj",
+    "cancel": "Anulo",
+    "continue": "Vazhdo",
+    "saving": "Duke ruajtur…",
+    "detect": "Zbulo",
+    "yes": "Po",
+    "no": "Jo",
+    "choose": "Zgjidh…",
+    "remove": "Hiq",
+    "tryAgain": "Provo përsëri",
+    "dashboard": "Paneli",
+    "goToDashboard": "Shko te paneli",
+    "or": "ose",
+    "invoice": "Faturë",
+    "creditNote": "Notë krediti",
+    "downloadPdf": "Shkarko PDF",
+    "edit": "Ndrysho",
+    "delete": "Fshi",
+    "downloadDocx": "Shkarko DOCX",
+    "downloadCii": "Shkarko EN 16931 XML",
+    "downloadUbl": "Shkarko Peppol UBL",
+    "downloadFacturX": "Shkarko Factur-X PDF",
+    "none": "Asnjë",
+    "dismiss": "Mbyll",
+    "all": "Të gjitha",
+    "previous": "Mbrapa",
+    "next": "Para",
+    "go": "Shko",
+    "search": "Kërko",
+    "status": "Statusi",
+    "total": "Totali",
+    "currency": "Monedha",
+    "from": "Nga",
+    "to": "Deri",
+    "reason": "Arsyeja",
+    "history": "Historiku",
+    "archive": "Arkivo",
+    "restore": "Rikthe",
+    "showArchived": "Shfaq të arkivuarat",
+    "hideArchived": "Fshih të arkivuarat",
+    "archived": "I arkivuar",
+    "default": "Parazgjedhur",
+    "setDefault": "Cakto si parazgjedhje",
+    "revoke": "Revoko",
+    "copy": "Kopjo",
+    "copied": "U kopjua",
+    "active": "Aktiv",
+    "pagination": "Faqosja",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Paneli",
+      "invoices": "Faturat",
+      "creditNotes": "Notat e kreditit",
+      "clients": "Klientët",
+      "services": "Shërbimet",
+      "products": "Produktet",
+      "tools": "Monedha"
+    },
+    "primaryNav": "Kryesore",
+    "settings": "Cilësimet",
+    "openMenu": "Hap menunë",
+    "more": "Më shumë",
+    "navigation": "Navigimi",
+    "dock": "Navigim i shpejtë",
+    "pagesAndAccount": "Faqet dhe llogaria",
+    "collapseSidebar": "Palos shiritin anësor",
+    "collapseSidebarHint": "Palos shiritin anësor ([)",
+    "expandSidebar": "Zgjero shiritin anësor",
+    "expandSidebarHint": "Zgjero shiritin anësor ([)",
+    "theme": {
+      "label": "Tema",
+      "system": "Sistemi",
+      "light": "E çelët",
+      "dark": "E errët",
+      "current": "Tema: {mode}",
+      "switchTo": "Tema: {mode}. Kalo te {next}"
+    },
+    "userMenu": {
+      "label": "Menuja e llogarisë për {name}",
+      "profile": "Profili",
+      "logOut": "Dil"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Konvertues monedhash",
+      "title": "Konvertues monedhash",
+      "description": "Konvertoni mes monedhave në të cilat faturoni, me tabelën e kursit të këmbimit që mban kjo instancë.",
+      "amount": "Shuma",
+      "from": "Nga",
+      "to": "Në",
+      "flip": "Këmbe monedhat",
+      "enterAmount": "Shkruani një shumë",
+      "asOf": "Kurset e këmbimit më {date} ({source})",
+      "sources": {
+        "bundled": "të përfshira në aplikacion",
+        "live": "përditësuar në internet"
+      },
+      "note": "Kurset janë vetëm orientuese; kursi në një faturë të lëshuar është ai që keni futur kur e lëshuat."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Hyrje",
+      "metaDescription": "Hyni në okinvo, aplikacionin e faturimit që e strehoni vetë, me ofruesin tuaj të identitetit ose me fjalëkalimin.",
+      "title": "Hyrje",
+      "subtitle": "Mund të hyjnë vetëm llogaritë në listën e lejuar.",
+      "failed": "Hyrja dështoi.",
+      "noMethod": "Asnjë metodë hyrjeje nuk është konfiguruar. Vendosni një çift ofruesi si <code>AUTH_GITHUB_*</code>, ose <code>AUTH_PASSWORD_SIGNIN=true</code>, te <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Kjo llogari nuk lejohet në këtë instancë ose është çaktivizuar.",
+        "signin": "Hyrja nuk u përfundua. Ju lutemi provoni përsëri."
+      }
+    },
+    "password": {
+      "name": "Emri",
+      "email": "Email",
+      "password": "Fjalëkalimi",
+      "signingIn": "Duke hyrë…",
+      "createAccount": "Krijo llogari",
+      "signIn": "Hyr",
+      "haveAPassword": "Kam tashmë një fjalëkalim",
+      "firstTime": "Hera e parë këtu? Vendosni një fjalëkalim",
+      "failed": "Hyrja dështoi."
+    },
+    "social": {
+      "redirecting": "Duke ridrejtuar…",
+      "continueWith": "Vazhdo me {provider}",
+      "failed": "Hyrja nuk mundi të fillojë."
+    },
+    "error": {
+      "metaTitle": "Gabim hyrjeje",
+      "metaDescription": "Hyrja nuk u krye. Faqja shpjegon çfarë shkoi keq dhe si të provoni përsëri.",
+      "title": "Hyrja dështoi",
+      "body": "Ofruesi i identitetit ktheu <code>{value}</code>. Nëse adresa juaj nuk është në listën e lejuar të kësaj instance, kërkojini pronarit ta shtojë.",
+      "back": "Kthehu te hyrja"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Cilësimet",
+      "profiles": "Profilet",
+      "paymentMethods": "Mënyrat e pagesës",
+      "templates": "Shabllonet",
+      "email": "Email",
+      "security": "Siguria",
+      "users": "Përdoruesit",
+      "data": "Të dhënat",
+      "legal": "Ligjore",
+      "einvoicing": "E-faturimi",
+      "account": "Llogaria",
+      "appearance": "Pamja",
+      "api": "API",
+      "status": "Statusi",
+      "usage": "Përdorimi"
+    },
+    "account": {
+      "metaTitle": "Llogaria",
+      "title": "Llogaria",
+      "description": "Fotoja, emri, rajoni, gjuha dhe zona kohore juaj.",
+      "photo": {
+        "title": "Foto",
+        "description": "Shfaqet në shiritin anësor dhe në menunë e përdoruesit."
+      },
+      "form": {
+        "title": "Llogaria",
+        "description": "Si shfaqeni dhe kur është “sot”.",
+        "displayName": "Emri i shfaqur",
+        "signInEmail": "Email-i i hyrjes",
+        "signInEmailHint": "Identiteti juaj në këtë instancë; nuk mund të ndryshohet këtu.",
+        "timezone": "Zona kohore",
+        "timezoneHint": "“Sot” për datat e lëshimit, afatet dhe panelin",
+        "regionTitle": "Rajoni",
+        "regionDescription": "Vlera të parazgjedhura për profilet e reja të lëshuesit dhe për panelin derisa të ekzistojë një profil.",
+        "country": "Shteti",
+        "currency": "Monedha",
+        "suggested": "E sugjeruar për këtë shtet:",
+        "language": "Gjuha",
+        "languageHint": "Gjuha e vetë aplikacionit. Dokumentet përdorin vendndodhjen e secilit profil.",
+        "machineTranslated": "Kjo gjuhë është përkthyer automatikisht. Korrigjimet mirëpriten: <link>përmirësojeni në GitHub</link>.",
+        "save": "Ruaj preferencat"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerikat",
+        "Asia": "Azia",
+        "Europe": "Evropa",
+        "MiddleEast": "Lindja e Mesme",
+        "Oceania": "Oqeania",
+        "Constructed": "Të ndërtuara"
+      },
+      "privacy": {
+        "title": "Privatësia",
+        "description": "okinvo vendos vetëm cookie-t që i duhen për të funksionuar. Pa analitikë, pa gjurmim.",
+        "cookiePolicy": "Politika e cookie-ve",
+        "showNoticeAgain": "Shfaq njoftimin për cookie përsëri"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Ndrysho foton",
+      "addPhoto": "Shto foto",
+      "hint": "PNG, JPEG ose WebP. Shfaqet kudo si rreth; mund ta zmadhoni dhe zhvendosni para ruajtjes.",
+      "tooLarge": "Kjo foto është shumë e madhe.",
+      "uploadFailed": "Ngarkimi dështoi.",
+      "choose": "Zgjidhni një foto profili",
+      "dialogTitle": "Vendosni foton",
+      "dialogDescription": "Tërhiqeni për ta lëvizur, rrotulloni ose shtypni me dy gishta për zmadhim. Rrethi është ajo që shohin të gjithë.",
+      "zoom": "Zmadhimi",
+      "save": "Ruaj foton"
+    },
+    "appearance": {
+      "metaTitle": "Pamja",
+      "title": "Pamja",
+      "description": "Tema dhe ngjyra e theksit, të ruajtura në llogarinë tuaj.",
+      "theme": {
+        "title": "Tema",
+        "description": "Ndiqni sistemin ose fiksoni të çelët apo të errët.",
+        "label": "Tema",
+        "system": "Ndiq sistemin",
+        "systemHint": "Ndryshon me sistemin tuaj operativ",
+        "light": "E çelët",
+        "lightHint": "Sfond i bardhë",
+        "dark": "E errët",
+        "darkHint": "Sfond pothuajse i zi"
+      },
+      "accent": {
+        "title": "Theksi",
+        "description": "Përdoret për butonin kryesor, unazat e fokusit dhe shenjën e faqes aktive. Nenexhiku përputhet me simbolin e markës.",
+        "label": "Ngjyra e theksit",
+        "customHint": "Ose zgjidhni çdo ngjyrë tuajën"
+      },
+      "accents": {
+        "mint": "Nenexhik",
+        "lavender": "Livando",
+        "sky": "Qiell",
+        "peach": "Pjeshkë",
+        "butter": "Gjalpë",
+        "rose": "Trëndafil",
+        "sage": "Sherbelë",
+        "lilac": "Jargavan",
+        "custom": "E personalizuar"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Profilet e lëshuesit",
+      "title": "Profilet e lëshuesit",
+      "description": "Identitetet ligjore nga të cilat faturoni. Ai i parazgjedhuri plotëson faturat e reja.",
+      "breadcrumb": "Profilet",
+      "newProfile": "Profil i ri",
+      "emptyTitle": "Ende pa profil lëshuesi",
+      "emptyDescription": "Krijoni identitetin nga i cili faturoni: një person fizik me PAN, ose kompaninë tuaj.",
+      "createProfile": "Krijo një profil",
+      "columns": {
+        "label": "Etiketa",
+        "legalName": "Emri ligjor",
+        "type": "Lloji",
+        "country": "Shteti",
+        "currency": "Monedha",
+        "regime": "Regjimi",
+        "status": "Statusi"
+      },
+      "types": {
+        "company": "Kompani",
+        "individual": "Person fizik"
+      },
+      "makeDefaultTitle": "Ta bëjmë {label} të parazgjedhur?",
+      "makeDefaultDescription": "Faturat e reja do të nisin nga ky profil.",
+      "restoreTitle": "Të rikthehet {label}?",
+      "archiveTitle": "Të arkivohet {label}?",
+      "archiveDescription": "Zhduket nga listat e zgjedhjes; faturat ekzistuese mbeten të paprekura.",
+      "new": {
+        "metaTitle": "Profil i ri lëshuesi",
+        "title": "Profil i ri lëshuesi",
+        "prefilled": "Plotësuar nga përgjigjet tuaja; kontrolloni adresën dhe të dhënat tatimore, pastaj ruani."
+      },
+      "edit": {
+        "metaTitle": "Ndrysho profilin e lëshuesit",
+        "template": "Shablloni",
+        "deleteTitle": "Të fshihet {label}?",
+        "deleteDescription": "E mundur vetëm kur asnjë faturë ose notë krediti nuk i referohet këtij profili. Përndryshe arkivojeni."
+      },
+      "template": {
+        "metaTitle": "Shablloni i profilit",
+        "title": "Shablloni për {label}",
+        "ownTemplate": "Shabllon i vet",
+        "instanceTemplate": "Shablloni i instancës",
+        "resetTitle": "Të përdoret sërish shablloni i instancës?",
+        "resetDescription": "Konfigurimi i vet i këtij profili hiqet; dokumentet e lëshuara nuk preken.",
+        "useInstance": "Përdor shabllonin e instancës",
+        "usingInstanceTitle": "Po përdoret shablloni i instancës",
+        "usingInstanceDescription": "Dokumentet e këtij profili ndjekin Cilësimet → Shabllonet. Zgjidhni për t’i personalizuar veçmas.",
+        "customise": "Përdor një shabllon tjetër për këtë profil",
+        "openInstance": "Hap shabllonin e instancës"
+      },
+      "form": {
+        "identityTitle": "Identiteti",
+        "identityDescription": "Kush e lëshon faturën.",
+        "type": "Lloji",
+        "label": "Etiketa",
+        "labelHint": "Shfaqet vetëm në listat e zgjedhjes",
+        "legalName": "Emri ligjor",
+        "tradeName": "Emri tregtar",
+        "designation": "Pozicioni",
+        "email": "Email",
+        "phone": "Telefoni",
+        "website": "Faqja e internetit",
+        "addressTitle": "Adresa",
+        "taxTitle": "Identifikuesit tatimorë",
+        "taxDescription": "Vetëm ata që ju vlejnë; shtypja kontrollohet për çdo faturë.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Numri i TVSH-së së MB",
+        "usTaxId": "EIN / SSN i SHBA-së",
+        "usTaxIdHint": "I enkriptuar në pushim",
+        "lutNumber": "Numri LUT",
+        "lutNumberHint": "Për eksporte pa IGST",
+        "lutFiscalYear": "Viti financiar LUT",
+        "lutFiscalYearHint": "p.sh. 2026-27",
+        "einvoiceTitle": "E-faturimi",
+        "einvoiceDescription": "Si identifikohet ky profil në e-faturat; lidhësi dhe kredencialet ndodhen te Cilësimet > E-faturimi.",
+        "electronicAddress": "Adresa elektronike",
+        "electronicAddressHint": "Identifikuesi Peppol ose EN 16931 i këtij lëshuesi, i shtypur si adresa elektronike e shitësit.",
+        "electronicAddressScheme": "Skema e adresës elektronike",
+        "electronicAddressSchemeNone": "Pa skemë",
+        "einvoiceEnabled": "E-faturimi i aktivizuar për këtë profil",
+        "einvoiceEnabledHint": "Ofron te dokumentet e lëshuara shkarkimet e e-faturës GST në JSON, Factur-X dhe UBL dhe regjistrimin e IRN.",
+        "defaultsTitle": "Parazgjedhjet",
+        "baseCurrency": "Monedha bazë",
+        "locale": "Vendndodhja e dokumentit",
+        "localeHint": "Formatimi i numrave dhe datave në dokumente",
+        "fiscalYearStart": "Viti fiskal fillon në",
+        "months": {
+          "january": "janar",
+          "february": "shkurt",
+          "march": "mars",
+          "april": "prill",
+          "may": "maj",
+          "june": "qershor",
+          "july": "korrik",
+          "august": "gusht",
+          "september": "shtator",
+          "october": "tetor",
+          "november": "nëntor",
+          "december": "dhjetor"
+        },
+        "taxRegime": "Regjimi tatimor i parazgjedhur",
+        "regimes": {
+          "indiaGst": "GST i Indisë",
+          "ukVat": "TVSH e MB",
+          "usSalesTax": "Tatimi mbi shitjet i SHBA-së",
+          "none": "Pa tatim"
+        },
+        "invoiceNumberFormat": "Formati i numrit të faturës",
+        "invoiceNumberFormatHint": "Shenja: {tokens}",
+        "creditNoteNumberFormat": "Formati i numrit të notës së kreditit",
+        "tdsRate": "Norma e pritur TDS (%)",
+        "tdsRateHint": "Informuese, shtypet si zbritje e pritur",
+        "defaultNotes": "Shënimet e parazgjedhura",
+        "defaultTerms": "Kushtet e parazgjedhura",
+        "printTitle": "Çfarë shtypet si parazgjedhje",
+        "printDescription": "Çdo faturë i kopjon këto dhe mund t’i ndryshojë një e nga një.",
+        "emailTitle": "Email",
+        "emailDescription": "Parazgjedhje për redaktuesin e dërgimit. Vendmbajtës: {placeholders}",
+        "emailCc": "CC e parazgjedhur",
+        "emailBcc": "BCC e parazgjedhur",
+        "commaSeparated": "Të ndara me presje",
+        "invoiceSubject": "Subjekti i faturës",
+        "invoiceSubjectHint": "I zbrazët përdor shabllonin e integruar",
+        "creditNoteSubject": "Subjekti i notës së kreditit",
+        "invoiceBody": "Trupi i faturës",
+        "creditNoteBody": "Trupi i notës së kreditit",
+        "artworkTitle": "Grafika",
+        "artworkDescription": "PNG, JPEG ose WebP deri në 2 MB; firma dhe vula ruajnë tejdukshmërinë.",
+        "logo": "Logo",
+        "signature": "Firma",
+        "stamp": "Vula",
+        "transparentPng": "PNG e tejdukshme",
+        "save": "Ruaj profilin"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Mënyrat e pagesës",
+      "title": "Mënyrat e pagesës",
+      "description": "Si ju paguajnë klientët. Detajet janë të enkriptuara dhe ngrihen në çdo faturë në lëshim.",
+      "newMethod": "Mënyrë e re",
+      "emptyTitle": "Ende pa mënyra pagese",
+      "emptyDescription": "Shtoni një llogari bankare, një ID UPI ose një portofol, që faturat t’u tregojnë klientëve ku të paguajnë.",
+      "addMethod": "Shto një mënyrë",
+      "columns": {
+        "name": "Emri",
+        "type": "Lloji",
+        "currency": "Monedha",
+        "status": "Statusi"
+      },
+      "types": {
+        "bankTransfer": "Transfertë bankare",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "E personalizuar"
+      },
+      "makeDefaultTitle": "Ta bëjmë {name} të parazgjedhur?",
+      "restoreTitle": "Të rikthehet {name}?",
+      "archiveTitle": "Të arkivohet {name}?",
+      "archiveDescription": "Faturat e lëshuara ruajnë pamjen e shtypur.",
+      "new": {
+        "metaTitle": "Mënyrë e re pagese",
+        "title": "Mënyrë e re pagese"
+      },
+      "edit": {
+        "metaTitle": "Ndrysho mënyrën e pagesës",
+        "title": "Ndrysho {name}",
+        "deleteTitle": "Të fshihet {name}?",
+        "deleteDescription": "E mundur vetëm kur asnjë faturë ose pagesë nuk i referohet. Përndryshe arkivojeni."
+      },
+      "form": {
+        "name": "Emri",
+        "nameHint": "Shtypet si titulli i bllokut të pagesës",
+        "type": "Lloji",
+        "currency": "Monedha",
+        "currencyHint": "Opsionale; shfaqet vetëm për kontekst",
+        "anyCurrency": "Çdo monedhë",
+        "instructions": "Udhëzime",
+        "instructionsHint": "Shtypen nën detaje",
+        "isDefault": "Mënyra e parazgjedhur",
+        "isDefaultDescription": "E parazgjedhur në faturat e reja",
+        "isActive": "Aktive",
+        "detailsTitle": "Detajet",
+        "detailsDescription": "Të enkriptuara në pushim; ngrihen në çdo faturë kur lëshohet.",
+        "vpa": "ID UPI (VPA)",
+        "payeeName": "Emri i përfituesit",
+        "lines": "Rreshta",
+        "linesHint": "Një rresht për çdo rresht, shtypet siç është",
+        "accountEmail": "Email / identifikues i llogarisë",
+        "bank": {
+          "accountHolder": "Mbajtësi i llogarisë",
+          "accountNumber": "Numri i llogarisë",
+          "bankName": "Emri i bankës",
+          "branch": "Dega",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Kodi i drejtimit / sort code"
+        },
+        "save": "Ruaj mënyrën e pagesës"
+      }
+    },
+    "templates": {
+      "metaTitle": "Shabllonet e dokumenteve",
+      "title": "Shabllonet e dokumenteve",
+      "customised": "I personalizuar",
+      "builtIn": "I integruari i parazgjedhur",
+      "description": "Si duken faturat dhe notat e kreditit. Dokumentet e lëshuara ruajnë shabllonin me të cilin u lëshuan.",
+      "resetTitle": "Të rikthehet te i integruari i parazgjedhur?",
+      "resetDescription": "Personalizimi juaj hiqet; dokumentet e lëshuara tashmë nuk preken.",
+      "reset": "Rivendos",
+      "resetTrigger": "Rivendos parazgjedhjet",
+      "importTitle": "Importo",
+      "importDescription": "Rikthe një konfigurim të eksportuar më parë.",
+      "overridesTitle": "Përjashtime sipas profilit",
+      "overridesDescription": "Një profil mund të zgjedhë shabllonin e vet nga faqja e tij e redaktimit.",
+      "noOverrides": "Çdo profil përdor shabllonin e instancës.",
+      "import": {
+        "json": "JSON i shabllonit",
+        "jsonHint": "Ngjitni një skedar të krijuar nga Eksporto JSON; çelësat që mungojnë kthehen te parazgjedhjet",
+        "importing": "Duke importuar…",
+        "submit": "Importo"
+      },
+      "form": {
+        "templateTitle": "Shablloni",
+        "templateDescription": "Gjashtë të integruar; personalizimi më poshtë vlen për cilindo që zgjidhni.",
+        "templateGroup": "Shablloni",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Modern dhe i ajrosur, pa serifë, vijë theksi nën kokën e faqes."
+          },
+          "classic": {
+            "name": "Klasik",
+            "character": "Tabelë tradicionale me kornizë, tituj me serifë, totale në kuti."
+          },
+          "compact": {
+            "name": "Kompakt",
+            "character": "Paraqitje e dendur për lista të gjata artikujsh; shkronja më të vogla, më pak ndarëse."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "I qetë dhe i gjerë: pa vija ose kuti, etiketa të lehta, shumë hapësirë."
+          },
+          "letterhead": {
+            "name": "Letër me kokë",
+            "character": "Logoja dhe emri juaj mbi një shirit ngjyre ose imazh në krye të çdo faqeje."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Kokë me shirit ngjyre; palët, koka e tabelës dhe totalet mbi një nuancë të zbehtë theksi."
+          }
+        },
+        "paperTitle": "Letra dhe shkronjat",
+        "paperSize": "Madhësia e letrës",
+        "paperLetter": "Letter",
+        "margins": "Margjinat",
+        "marginsNormal": "Normale",
+        "marginsNarrow": "Të ngushta",
+        "headingFont": "Shkronjat e titujve",
+        "bodyFont": "Shkronjat e trupit",
+        "fontSans": "Pa serifë",
+        "fontSerif": "Me serifë",
+        "tableStyle": "Stili i tabelës",
+        "tableRuled": "Me vija",
+        "tableZebra": "Zebër",
+        "tablePlain": "E thjeshtë",
+        "accentColour": "Ngjyra e theksit",
+        "textColour": "Ngjyra e tekstit",
+        "logoPosition": "Pozicioni i logos",
+        "positionLeft": "Majtas",
+        "positionCentre": "Në qendër",
+        "positionRight": "Djathtas",
+        "logoHeight": "Lartësia e logos (mm)",
+        "documentTitle": "Titulli i dokumentit",
+        "titleAuto": "Automatik (sipas GST)",
+        "titleCustom": "I personalizuar",
+        "titlePlaceholder": "p.sh. FATURË PROFORMË",
+        "qrPosition": "Pozicioni i QR",
+        "qrFooter": "Fundi",
+        "qrHeader": "Koka",
+        "qrBesideTotals": "Pranë totaleve",
+        "amountInWords": "Shuma me fjalë",
+        "wordsBelowTotal": "Nën totalet",
+        "wordsFooter": "Fundi",
+        "wordsHidden": "E fshehur",
+        "subtotalRow": "Rreshti i nëntotalit",
+        "discountRow": "Rreshti i zbritjes",
+        "taxLines": "Rreshtat e tatimit",
+        "tdsExpected": "TDS e pritur",
+        "roundingRow": "Rreshti i rrumbullakimit",
+        "pageNumbers": "Numrat e faqeve",
+        "headerTitle": "Koka",
+        "headerDescription": "Një shirit ngjyre ose një imazh në krye të çdo faqeje. Letra me kokë dhe Modern shfaqin një shirit, përveç nëse zgjidhni ndryshe.",
+        "headerStyle": "Stili i kokës",
+        "headerNone": "Asnjë",
+        "headerBand": "Shirit ngjyre",
+        "headerImage": "Imazh",
+        "bandColour": "Ngjyra e shiritit",
+        "bandColourHex": "Ngjyra e shiritit (hex)",
+        "headerImageLabel": "Imazhi i kokës",
+        "headerImageHint": "PNG, JPEG ose WebP deri në 2400 px gjerësi; mbulon gjerësinë e faqes.",
+        "imageOpacity": "Tejdukshmëria e imazhit",
+        "headerHeight": "Lartësia e kokës (mm)",
+        "bandText": "Teksti mbi shirit",
+        "bandTextAuto": "Automatik (sipas ngjyrës së shiritit)",
+        "bandTextLight": "I çelët",
+        "bandTextDark": "I errët",
+        "textTitle": "Teksti",
+        "headerNote": "Shënim në kokë",
+        "footer": "Fundi i faqes",
+        "signatureCaption": "Titrimi i firmës",
+        "draftWatermark": "Filigram i skicës",
+        "labelsTitle": "Etiketat",
+        "labelsDescription": "Lëreni një fushë bosh për të ruajtur formulimin e parazgjedhur.",
+        "save": "Ruaj shabllonin",
+        "downloadSample": "Shkarko PDF shembull",
+        "exportJson": "Eksporto JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Email",
+      "title": "Email",
+      "configuredSettings": "Konfiguruar te Cilësimet",
+      "configuredEnv": "Konfiguruar nga mjedisi",
+      "notConfigured": "I pakonfiguruar: rrjedha me aplikacionin e postës",
+      "description": "Dokumentet dërgohen nga redaktuesi me PDF-në e ruajtur bashkëngjitur. Cilësimet këtu mbivendosen mbi SMTP_* në mjedis.",
+      "sendTest": "Dërgo email provë te {email}",
+      "removeTitle": "Të hiqen cilësimet SMTP të ruajtura?",
+      "removeEnvTakesOver": "Merren vlerat SMTP_* të mjedisit.",
+      "removeFallsBack": "Email-i kthehet te rrjedha me aplikacionin e postës.",
+      "removeTrigger": "Hiq cilësimet e ruajtura",
+      "smtpTitle": "Serveri SMTP",
+      "smtpFromEnv": "Aktualisht merret nga mjedisi; ruajtja këtu e mbivendos.",
+      "smtpPasswordNote": "Fjalëkalimi është i enkriptuar në pushim dhe nuk shfaqet më kurrë.",
+      "defaultsTitle": "Marrësit e parazgjedhur",
+      "defaultsDescription": "CC/BCC për gjithë instancën; profilet e lëshuesit shtojnë të vetat.",
+      "sentTitle": "Posta e dërguar",
+      "sentDescription": "50 përpjekjet e fundit, përfshirë dështimet dhe dërgimet manuale.",
+      "smtp": {
+        "host": "Hosti",
+        "port": "Porta",
+        "security": "Siguria",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Asnjë (rele LAN)",
+        "user": "Emri i përdoruesit",
+        "password": "Fjalëkalimi",
+        "passwordStored": "I ruajtur dhe i enkriptuar; lëreni bosh për ta mbajtur",
+        "passwordEncrypted": "I enkriptuar në pushim",
+        "from": "Adresa e dërguesit",
+        "fromName": "Emri i dërguesit",
+        "replyTo": "Përgjigju te",
+        "save": "Ruaj cilësimet SMTP"
+      },
+      "defaults": {
+        "cc": "CC e parazgjedhur",
+        "ccHint": "Shtohet në çdo redaktues; të ndara me presje",
+        "bcc": "BCC e parazgjedhur",
+        "save": "Ruaj parazgjedhjet"
+      }
+    },
+    "security": {
+      "metaTitle": "Siguria",
+      "title": "Siguria",
+      "description": "Ku jeni i kyçur dhe gjithçka që ka ndryshuar.",
+      "sessions": {
+        "title": "Seancat aktive",
+        "description": "Revokimi i një seance e nxjerr menjëherë atë pajisje.",
+        "signOutOthers": {
+          "title": "Të dilni kudo tjetër?",
+          "description": "Çdo seancë përveç kësaj revokohet.",
+          "confirm": "Nxirr të tjerat",
+          "trigger": "Dil kudo tjetër"
+        },
+        "columns": {
+          "device": "Pajisja",
+          "ipAddress": "Adresa IP",
+          "signedIn": "Hyrja",
+          "lastSeen": "Parë së fundmi",
+          "expires": "Skadon"
+        },
+        "thisDevice": "Kjo pajisje",
+        "revokeTitle": "Të revokohet kjo seancë?",
+        "unknownDevice": "Pajisje e panjohur",
+        "unknownBrowser": "E panjohur",
+        "agentOnOs": "{browser} në {os}"
+      },
+      "audit": {
+        "title": "Regjistri i auditimit",
+        "count": "{count, plural, one {# ngjarje} other {# ngjarje}}",
+        "entity": "Entiteti",
+        "actionContains": "Veprimi përmban",
+        "filter": "Filtro",
+        "reset": "Rivendos",
+        "columns": {
+          "when": "Kur",
+          "who": "Kush",
+          "action": "Veprimi",
+          "entity": "Entiteti",
+          "summary": "Përmbledhja"
+        },
+        "empty": "Asnjë ngjarje nuk përputhet me këto filtra.",
+        "system": "Sistemi",
+        "changes": "Ndryshimet",
+        "page": "Faqja {page} nga {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Përdoruesit",
+      "title": "Përdoruesit",
+      "description": "Kush mund të hyjë në këtë instancë dhe çfarë mund të bëjë.",
+      "roles": {
+        "owner": "Pronar",
+        "editor": "Redaktues",
+        "viewer": "Shikues"
+      },
+      "roleHints": {
+        "owner": "Gjithçka, përfshirë cilësimet dhe anëtarët",
+        "editor": "Klientë, katalog, fatura, nota krediti, pagesa, email",
+        "viewer": "Vetëm lexim"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Roli i {email}",
+      "invite": {
+        "title": "Ftoni dikë",
+        "description": "Hyjnë me adresën e ftuar (një ofrues identiteti ose fjalëkalim) dhe marrin rolin që zgjidhni.",
+        "sent": "Ftesa u dërgua me email te {email}.",
+        "readyWithError": "Ftesa për {email} është gati. Email-i nuk u dërgua dot ({error}); dërgojuni këtë lidhje:",
+        "readyNoSmtp": "Ftesa për {email} është gati. Asnjë SMTP nuk është konfiguruar; dërgojuni këtë lidhje:",
+        "copyLink": "Kopjo lidhjen",
+        "email": "Email",
+        "emailPlaceholder": "personi@example.com",
+        "role": "Roli",
+        "submit": "Fto",
+        "inviting": "Duke ftuar…"
+      },
+      "members": {
+        "title": "Anëtarët",
+        "description": "Mbetet gjithmonë të paktën një pronar aktiv.",
+        "columns": {
+          "person": "Personi",
+          "role": "Roli",
+          "lastSignIn": "Hyrja e fundit",
+          "status": "Statusi"
+        },
+        "nameYou": "{name} (ju)",
+        "deactivated": "I çaktivizuar",
+        "reactivate": {
+          "title": "Të riaktivizohet {email}?",
+          "description": "Mund të hyjnë sërish me rolin e mëparshëm.",
+          "confirm": "Riaktivizo"
+        },
+        "deactivate": {
+          "title": "Të çaktivizohet {email}?",
+          "description": "Çdo seancë mbaron tani dhe nuk mund të hyjnë derisa të riaktivizohen. Historiku mbetet.",
+          "confirm": "Çaktivizo"
+        }
+      },
+      "invitations": {
+        "title": "Ftesat në pritje",
+        "description": "Adresa që mund të hyjnë por ende nuk kanë hyrë.",
+        "columns": {
+          "email": "Email",
+          "role": "Roli",
+          "invited": "Ftuar"
+        },
+        "empty": "Asnjë ftesë në pritje.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Të revokohet ftesa për {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Të dhënat",
+      "title": "Të dhënat",
+      "description": "Gjithçka është e bartshme: bashkësi të dhënash si CSV ose Excel, një pamje e plotë për migrim, PDF-të për kontabilistin tuaj dhe një rutinë kopjeruajtjeje e provuar.",
+      "period": {
+        "fiscalYear": "Viti fiskal",
+        "fiscalYearHint": "Mbivendos datat",
+        "issuer": "Lëshuesi"
+      },
+      "exportAll": {
+        "title": "Eksporto të gjitha të dhënat",
+        "description": "Një ZIP me çdo bashkësi të dhënash si CSV plus <mono>data.json</mono>, një pamje relacionale e të gjitha tabelave. Fushat e enkriptuara (detajet e mënyrave të pagesës, fjalëkalimi SMTP) mbeten jashtë; README brenda i liston.",
+        "download": "Shkarko ZIP-in okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "Eksporto dokumentet",
+        "description": "Çdo PDF faturë dhe note krediti e lëshuar dhe e anuluar për një periudhë, e emërtuar sipas numrit, me një <mono>index.csv</mono> numrash, totalesh dhe hash-esh. PDF-të që mungojnë krijohen gjatë rrugës.",
+        "docx": "Përfshi edhe një kopje DOCX të çdo dokumenti",
+        "facturx": "Përfshi edhe një kopje Factur-X PDF/A-3 me EN 16931 XML të ngulitur",
+        "download": "Shkarko ZIP-in e dokumenteve"
+      },
+      "datasets": {
+        "title": "Bashkësitë e të dhënave",
+        "description": "Të njëjtat eksporte që ofrojnë faqet e indeksit, me një periudhë dhe lëshues të zbatuar për të gjitha. Pagesat përdorin intervalin e datave; klientët dhe shërbimet e injorojnë periudhën.",
+        "columns": {
+          "dataset": "Bashkësia e të dhënave",
+          "filters": "Filtrat e zbatuar",
+          "download": "Shkarkim"
+        },
+        "names": {
+          "invoices": "Regjistri i faturave",
+          "invoiceItems": "Rreshtat e faturave",
+          "payments": "Libri i pagesave",
+          "creditNotes": "Regjistri i notave të kreditit",
+          "clients": "Klientët",
+          "services": "Shërbimet",
+          "gstSummary": "Përmbledhja GST",
+          "tdsSummary": "Përmbledhja TDS"
+        },
+        "filters": {
+          "periodIssuer": "periudha, lëshuesi",
+          "dateRangeIssuer": "intervali i datave, lëshuesi",
+          "includesArchived": "përfshin të arkivuarat"
+        }
+      },
+      "backups": {
+        "title": "Kopjeruajtjet",
+        "notWired": "Asnjë shërbim kopjeruajtjeje i lidhur",
+        "noRun": "Ende nuk është kryer asnjë kopjeruajtje",
+        "lastOk": "Kopjeruajtja e fundit u krye me sukses",
+        "lastFailed": "Kopjeruajtja e fundit dështoi",
+        "description": "Shërbimi Compose <mono>backup</mono> nxjerr kopje të Postgres dhe arkivon volumin e ruajtjes sipas <mono>BACKUP_CRON</mono>, mban <mono>BACKUP_RETENTION_DAYS</mono> historik në volumin <mono>backups</mono> dhe shkruan një skedar statusi që e lexon kjo faqe.",
+        "finished": "Përfunduar",
+        "databaseDump": "Kopja e bazës së të dhënave",
+        "storageArchive": "Arkivi i ruajtjes",
+        "size": "Madhësia",
+        "sizeMb": "{size} MB",
+        "error": "Gabim",
+        "runNow": "Ekzekutoni një tani, ose rikthejeni nga një çift skedarësh:",
+        "restoreDrill": "Procedura e rikthimit praktikohet në CI nga <mono>scripts/restore-drill.sh</mono>: mbushje, kopjeruajtje, fshirje, rikthim, pastaj krahasim i numrit të rreshtave dhe i një hash-i PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "Ligjore",
+      "metaDescription": "Kush e operon këtë instancë: detajet e shtypura në faqet ligjore publike.",
+      "title": "Ligjore",
+      "description": "Faqet ligjore publike i shtypin këto detaje. Derisa çdo fushë të plotësohet, faqet shfaqin vendmbajtës të theksuar.",
+      "operator": {
+        "title": "Detajet e operatorit",
+        "complete": "Të plota",
+        "missing": "{count} mungojnë: {fields}",
+        "description": "Ju, si personi ose kompania që operon këtë instancë, jeni operatori ku referohen dokumentet. Asgjë këtu nuk dërgohet diku; shtypet në faqet më poshtë."
+      },
+      "fieldLabels": {
+        "legalName": "Emri ligjor i operatorit",
+        "entityType": "Lloji i entitetit",
+        "address": "Adresa e operatorit",
+        "country": "Shteti i operatorit",
+        "contactEmail": "Email-i i kontaktit",
+        "privacyEmail": "Email-i i privatësisë",
+        "dpoEmail": "Email-i i oficerit të mbrojtjes së të dhënave",
+        "governingLaw": "Ligji në fuqi",
+        "venue": "Vendi i zgjidhjes së mosmarrëveshjeve",
+        "effectiveDate": "Data e hyrjes në fuqi"
+      },
+      "publicPages": {
+        "title": "Faqet publike",
+        "description": "Të lidhura nga faqja e hyrjes, shikuesi i ndarjes dhe njoftimi për cookie.",
+        "terms": "Kushtet e shërbimit",
+        "acceptableUse": "Politika e përdorimit të pranueshëm",
+        "privacy": "Politika e privatësisë",
+        "cookies": "Politika e cookie-ve",
+        "dataRetention": "Ruajtja e të dhënave",
+        "security": "Siguria",
+        "licenses": "Licencat dhe njoftimet e palëve të treta"
+      },
+      "form": {
+        "legalName": "Emri ligjor",
+        "entityType": "Lloji i entitetit",
+        "individual": "Person fizik / ndërmarrës individual",
+        "company": "Kompani / entitet i regjistruar",
+        "address": "Adresa",
+        "addressHint": "Shtypet në Kushte dhe në Politikën e privatësisë si adresa postare e operatorit.",
+        "country": "Shteti",
+        "effectiveDate": "Data e hyrjes në fuqi",
+        "contactEmail": "Email-i i kontaktit",
+        "privacyEmail": "Email-i i privatësisë",
+        "privacyEmailHint": "Ku shkojnë kërkesat e subjekteve të të dhënave; mund të jetë adresa e kontaktit.",
+        "dpoEmail": "Email-i i oficerit të mbrojtjes së të dhënave",
+        "dpoEmailHint": "Vetëm nëse keni caktuar një të tillë.",
+        "governingLaw": "Ligji në fuqi",
+        "governingLawHint": "Për shembull “ligjet e Indisë” ose “ligjet e Anglisë dhe Uellsit”.",
+        "venue": "Vendi i zgjidhjes së mosmarrëveshjeve",
+        "venueHint": "Për shembull “gjykatat e Bengalurut, Karnataka”.",
+        "submit": "Ruaj detajet e operatorit"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-faturimi",
+      "title": "E-faturimi",
+      "description": "Për çdo profil lëshuesi: cili lidhës regjistron e-faturat indiane dhe cilin profil evropian ndjekin skedarët Factur-X dhe UBL. Kredencialet ruhen të enkriptuara dhe nuk shfaqen më kurrë.",
+      "noProfiles": "Krijoni fillimisht një profil lëshuesi.",
+      "profile": "Profili i lëshuesit",
+      "enabled": "Aktiv",
+      "disabled": "Joaktiv",
+      "enabledHint": "Aktivizoni ose çaktivizoni e-faturimin për çdo profil te Cilësimet > Profilet.",
+      "india": {
+        "title": "India (e-faturë GST, IRN)",
+        "description": "IRN regjistrohet përmes lidhësit të zgjedhur këtu; lidhësi manual merr me dorë përgjigjen e portalit.",
+        "connector": "Lidhësi",
+        "connectorNone": "Joaktiv",
+        "connectorManual": "Manual (ngjitni përgjigjen e IRP)",
+        "connectorNic": "NIC IRP API (sandbox ose prodhim)",
+        "nicUnverified": "Lidhësi NIC ndjek API-n e publikuar dhe është testuar vetëm me të dhëna të regjistruara; nuk është verifikuar në një sandbox real derisa të jepen kredencialet.",
+        "env": "Mjedisi",
+        "sandbox": "Sandbox",
+        "production": "Prodhim",
+        "baseUrl": "URL bazë",
+        "baseUrlHint": "Lëreni bosh për vlerën e paracaktuar të mjedisit.",
+        "clientId": "ID e klientit",
+        "clientSecret": "Sekreti i klientit",
+        "username": "Emri i përdoruesit",
+        "password": "Fjalëkalimi",
+        "gstin": "GSTIN",
+        "publicKey": "Çelësi publik i IRP (PEM)",
+        "publicKeyHint": "Shkarkojeni nga portali pasi të hyni; ai mbështjell kredencialet që dërgohen te IRP.",
+        "publicKeyStored": "Ruajtur; lëreni bosh për ta mbajtur.",
+        "secretStored": "Ruhet i enkriptuar; lëreni bosh për ta mbajtur.",
+        "secretEncrypted": "Ruhet i enkriptuar në pushim."
+      },
+      "eu": {
+        "title": "Evropa (Factur-X, UBL)",
+        "description": "EN 16931 është i vetmi profil në këtë version; shkarkimet Factur-X dhe UBL e përdorin atë.",
+        "profile": "Profili",
+        "profileNone": "Joaktiv",
+        "en16931": "EN 16931"
+      },
+      "save": "Ruaj cilësimet e e-faturimit"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Çelësa API për skripte, SDK dhe klientë MCP, me shembuj curl.",
+      "title": "API",
+      "description": "Çelësa për skripte, SDK dhe klientë MCP. Një çelës mund të bëjë më së shumti atë që mund të bëjë roli juaj; shfaqet vetëm një herë.",
+      "create": {
+        "title": "Krijo një çelës",
+        "description": "Dërgojeni si <mono>Authorization: Bearer okv_…</mono>. Mbajeni larg kodit burimor dhe regjistrave të bisedave; revokojeni më poshtë nëse rrjedh."
+      },
+      "keys": {
+        "title": "Çelësat",
+        "descriptionOwner": "Çdo çelës i kësaj instance; pronarët mund t’i revokojnë të gjithë.",
+        "descriptionOwn": "Çelësat tuaj.",
+        "columns": {
+          "name": "Emri",
+          "prefix": "Prefiksi",
+          "scopes": "Shtrirjet",
+          "owner": "Pronari",
+          "lastUsed": "Përdorur së fundmi",
+          "expires": "Skadon",
+          "status": "Statusi"
+        },
+        "empty": "Ende pa çelësa API.",
+        "never": "kurrë",
+        "revoked": "Revokuar",
+        "expired": "Skaduar",
+        "revokeTitle": "Të revokohet {name}?",
+        "revokeDescription": "Klientët që përdorin këtë çelës ndalojnë menjëherë.",
+        "activeCount": "{count, plural, one {# çelës aktiv.} other {# çelësa aktivë.}}"
+      },
+      "examples": {
+        "title": "Shembuj",
+        "description": "Zëvendësoni <mono>$OKINVO_KEY</mono> me një çelës. API REST me version, dokumenti i tij OpenAPI (<mono>/api/openapi.json</mono>), SDK-ja TypeScript dhe serveri MCP vijnë me detyrat e ardhshme të planit v1.1; pika e statusit funksionon sot.",
+        "rateLimit": "Thirrjet mbi kufi marrin përgjigje 429 me kokën <mono>Retry-After</mono> (120 kërkesa në minutë për çelës). Shtrirjet e një çelësi kufizohen nga roli aktual i pronarit të tij."
+      },
+      "form": {
+        "copyKey": "Kopjo çelësin API",
+        "name": "Emri",
+        "namePlaceholder": "p.sh. skript kontabiliteti",
+        "expires": "Skadon",
+        "in30Days": "Pas 30 ditësh",
+        "in90Days": "Pas 90 ditësh",
+        "inAYear": "Pas një viti",
+        "never": "Kurrë",
+        "scopes": "Shtrirjet",
+        "submit": "Krijo çelës API",
+        "creating": "Duke krijuar…"
+      },
+      "scopes": {
+        "invoicesRead": "Lexo faturat",
+        "invoicesCreate": "Krijo dhe lësho fatura",
+        "creditNotesRead": "Lexo notat e kreditit",
+        "creditNotesCreate": "Krijo dhe lësho nota krediti",
+        "catalogueRead": "Lexo klientët, shërbimet dhe produktet",
+        "documentsRead": "Shkarko PDF të ruajtura dhe kopje DOCX",
+        "statusRead": "Lexo statusin e instancës"
+      }
+    },
+    "status": {
+      "metaTitle": "Statusi",
+      "metaDescription": "Versioni, baza e të dhënave, ruajtja, email-i dhe shëndeti i kopjeruajtjeve të kësaj instance.",
+      "title": "Statusi",
+      "description": "Çfarë po ekzekuton kjo instancë dhe nëse pjesët e saj përgjigjen.",
+      "recheck": "Kontrollo përsëri",
+      "health": {
+        "ok": "OK",
+        "warning": "Paralajmërim",
+        "failed": "Dështoi",
+        "na": "I pakonfiguruar"
+      },
+      "overall": {
+        "ok": "Gjithçka mirë",
+        "degraded": "I degraduar",
+        "failed": "Dështoi"
+      },
+      "version": "Ndërtimi {hasSha, select, yes {<mono>{sha}</mono>} other {(sha e panjohur)}} · ndërtuar {built} · Node <mono>{node}</mono> · aktiv prej {uptime} · kontrolluar {checked}",
+      "dateUnknown": "(data e panjohur)",
+      "uptime": {
+        "days": "{d}d {h}h {m}m",
+        "hours": "{h}h {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Baza e të dhënave",
+        "storage": "Ruajtja",
+        "rateLimiting": "Kufizimi i kërkesave",
+        "email": "Email",
+        "backups": "Kopjeruajtjet"
+      },
+      "db": {
+        "detail": "{latency} ms · migrimi i fundit <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # migrime të papërfunduara}}",
+        "noMigration": "asnjë"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · shkrim, lexim dhe fshirje e një objekti prove në {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "ruajtja <mono>{store}</mono> {store, select, memory {(një kopje)} other {(e ndarë mes kopjeve)}}",
+      "smtp": {
+        "configured": "SMTP nga {source, select, settings {the settings page} env {the environment} other {}} · prova e fundit {lastTest} · 24 orët e fundit: {sent} të dërguara, {failed} të dështuara",
+        "none": "Pa server SMTP; redaktuesi ofron “Hap në aplikacionin e postës”. <link>Konfiguro</link>"
+      },
+      "backups": {
+        "notWired": "Asnjë shërbim kopjeruajtjeje i lidhur (BACKUP_STATUS_FILE i paset).",
+        "noRun": "Shërbimi i kopjeruajtjes është i lidhur; ende pa ekzekutim të regjistruar.",
+        "ok": "Ekzekutimi i fundit pati sukses më {finishedAt}{days, plural, =0 {} one { · ruajtje # ditë} other { · ruajtje # ditë}}",
+        "failed": "Ekzekutimi i fundit dështoi: {error} më {finishedAt}{days, plural, =0 {} one { · ruajtje # ditë} other { · ruajtje # ditë}}"
+      },
+      "footer": "I njëjti raport ofrohet si JSON te <mono>/api/health/status</mono> për monitorim (seancë e kyçur ose çelës API)."
+    },
+    "usage": {
+      "metaTitle": "Përdorimi",
+      "metaDescription": "Shfaqjet e faqeve sipas ekranit dhe ditës në këtë instancë, të numëruara lokalisht.",
+      "title": "Përdorimi",
+      "description": "Sa shpesh u hap secili ekran, i numëruar vetëm në këtë instancë: pa cookies, pa adresa, asgjë nuk dërgohet askund.",
+      "last30Days": "30 ditët e fundit",
+      "total": "{count, plural, =0 {Asnjë shfaqje faqeje} one {# shfaqje faqeje} other {# shfaqje faqesh}}",
+      "off": "Numërimi është i çaktivizuar. Vendosni ANALYTICS_LOCAL=true për të numëruar shfaqjet e faqeve në këtë instancë.",
+      "empty": "Ende nuk është regjistruar asnjë shfaqje faqeje.",
+      "columns": {
+        "day": "Dita",
+        "path": "Ekrani",
+        "views": "Shfaqje"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Mirë se vini",
+    "progress": "Përparimi",
+    "steps": {
+      "aboutYou": "Rreth jush",
+      "howYouUse": "Si do ta përdorni",
+      "allSet": "Gjithçka gati"
+    },
+    "step1": {
+      "title": "Na tregoni për veten",
+      "subtitle": "Kjo cakton parazgjedhjet tuaja; çdo vlerë mund të ndryshohet më vonë te Cilësimet.",
+      "name": "Emri",
+      "email": "Email",
+      "emailHint": "Identiteti juaj i hyrjes. Mund të ndryshohet më vonë nga Cilësimet → Siguria.",
+      "country": "Shteti",
+      "currency": "Monedha e preferuar",
+      "currencyHint": "Përdoret për profilet e reja dhe panelin derisa të ekzistojë një profil."
+    },
+    "step2": {
+      "title": "Si do ta përdorni okinvo?",
+      "subtitle": "Ndryshojnë vetëm parazgjedhjet; asgjë nuk është e kyçur.",
+      "usage": "Përdorimi",
+      "personal": "Faturim personal",
+      "personalHint": "Punë e pavarur në emrin tuaj",
+      "business": "Faturim biznesi",
+      "businessHint": "Fatura nga një biznes i regjistruar",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Numri i TVSH-së",
+        "other": "Numri i regjistrimit tatimor"
+      },
+      "taxQuestion": {
+        "IN": "A keni një GSTIN?",
+        "GB": "A jeni i regjistruar për TVSH?",
+        "other": "A keni një numër regjistrimi tatimor për ta shtypur në fatura?"
+      }
+    },
+    "step3": {
+      "title": "Jeni gati",
+      "body": "Më pas, krijoni profilin tuaj të parë lëshuesi: emrin, adresën dhe të dhënat tatimore që shtypen në faturat tuaja. Kemi plotësuar çfarë na thatë.",
+      "go": "Shko te profilet",
+      "opening": "Duke hapur…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Kushtet",
+      "privacy": "Privatësia",
+      "cookies": "Cookie-t",
+      "security": "Siguria"
+    },
+    "cookieNotice": {
+      "label": "Njoftim për cookie",
+      "body": "Përdorim vetëm cookie rreptësisht të nevojshme: seancën tuaj dhe preferencat e shfaqjes. Pa analitikë, pa gjurmim.",
+      "policy": "Politika e cookie-ve",
+      "gotIt": "E mora vesh"
+    },
+    "nav": {
+      "label": "Ligjore",
+      "cookies": "Cookie-t",
+      "privacy": "Privatësia",
+      "terms": "Kushtet",
+      "acceptableUse": "Përdorim i pranueshëm",
+      "retention": "Ruajtja",
+      "security": "Siguria",
+      "licences": "Licencat"
+    },
+    "operatorNotice": "okinvo është softuer i vetëstrehuar; operatori i kësaj instance është përgjegjës për përdorimin e saj.",
+    "doc": {
+      "effectiveOn": "Në fuqi nga <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Përmbajtja"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Emri ligjor i operatorit",
+        "entityType": "Lloji i entitetit",
+        "address": "Adresa e operatorit",
+        "country": "Shteti i operatorit",
+        "contactEmail": "Email-i i kontaktit",
+        "privacyEmail": "Email-i i privatësisë",
+        "dpoEmail": "Email-i i oficerit të mbrojtjes së të dhënave",
+        "governingLaw": "Ligji në fuqi",
+        "venue": "Vendi i zgjidhjes së mosmarrëveshjeve",
+        "effectiveDate": "Data e hyrjes në fuqi"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Nuk u gjet",
+      "title": "Nuk ka asgjë në këtë adresë",
+      "body": "Lidhja mund të jetë e vjetruar, ose dokumenti te i cili tregonte nuk u lëshua kurrë."
+    },
+    "forbidden": {
+      "metaTitle": "Nuk lejohet",
+      "title": "Kjo llogari nuk mund ta bëjë këtë",
+      "body": "Roli juaj nuk e lejon. Kërkoni qasje nga një pronar, ose hyni me një llogari që e ka."
+    },
+    "error": {
+      "title": "Diçka shkoi keq",
+      "body": "Asgjë nuk u ndryshua nga kjo kërkesë. Provoni përsëri; nëse vazhdon, regjistri i serverit ka detajet.",
+      "digest": "gabimi {digest}",
+      "generic": "gabim"
+    },
+    "appNotFound": {
+      "title": "Nuk u gjet",
+      "body": "Ky regjistrim nuk ekziston, ose u fshi ndërsa e shikonit.",
+      "back": "Kthehu te paneli"
+    },
+    "validation": {
+      "required": "e detyrueshme",
+      "tooLong": "më së shumti {max} karaktere",
+      "invalidEmail": "duhet të jetë një email i vlefshëm",
+      "invalidDate": "duhet të jetë një datë kalendarike në formën YYYY-MM-DD",
+      "invalidAmount": "duhet të jetë një numër",
+      "wholeNumber": "duhet të jetë një numër i plotë",
+      "greaterThanZero": "duhet të jetë më e madhe se zero",
+      "fixFields": "Ju lutemi korrigjoni fushat e theksuara.",
+      "charset": "Lejohen vetëm karaktere standarde të tastierës."
+    }
+  },
+  "verify": {
+    "metaTitle": "Verifiko dokumentin",
+    "metaDescription": "Kontrolloni që një faturë ose notë krediti është lëshuar nga dërguesi i saj dhe nuk është ndryshuar.",
+    "heading": "Verifikimi i dokumentit",
+    "rateLimited": "Shumë kontrolle nga kjo adresë. Ju lutemi provoni përsëri pas një minute.",
+    "notFound": {
+      "title": "Nuk ka dokument të tillë",
+      "body": "Kjo lidhje nuk përputhet me asnjë dokument të lëshuar. Kontrolloni kodin QR ose lidhjen që ju dhanë, ose kontaktoni lëshuesin."
+    },
+    "status": {
+      "void": "I anuluar",
+      "valid": "I vlefshëm"
+    },
+    "issuedBy": "Lëshuar nga",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Lëshuar për",
+    "issueDate": "Data e lëshimit",
+    "total": "Totali",
+    "voided": "Ky dokument u anulua nga lëshuesi dhe nuk është më i vlefshëm.",
+    "storedCopies": {
+      "title": "Kopjet e ruajtura",
+      "description": "SHA-256 e çdo versioni PDF që mban lëshuesi. Zgjidhni kopjen tuaj për ta krahasuar në shfletuesin tuaj: asgjë nuk ngarkohet.",
+      "empty": "Ende nuk është krijuar asnjë PDF.",
+      "protectedVersion": "Kopje e mbrojtur me fjalëkalim {version}",
+      "version": "Versioni {version}"
+    },
+    "check": {
+      "label": "Kontrolloni kopjen tuaj",
+      "hashing": "Duke llogaritur hash-in…",
+      "match": "Kopja juaj përputhet saktësisht me versionin {version}.",
+      "mismatch": "Kopja juaj nuk përputhet me asnjë version të ruajtur."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Dokument i ndarë",
+      "metaDescription": "Një dokument i ndarë me ju: shikojeni në internet dhe shkarkoni PDF-në.",
+      "rateLimited": "Shumë kërkesa nga kjo adresë. Ju lutemi provoni përsëri pas një minute.",
+      "unavailable": {
+        "title": "Kjo lidhje nuk është e disponueshme",
+        "body": "Mund të ketë skaduar ose të jetë revokuar nga lëshuesi. Kërkojini një të re."
+      },
+      "lockedTitleInvoice": "Faturë nga {issuer}",
+      "lockedTitleCreditNote": "Notë krediti nga {issuer}",
+      "lockedBody": "Ky dokument është i mbrojtur me fjalëkalim. Futni fjalëkalimin që ju dha lëshuesi.",
+      "void": "I anuluar",
+      "protectedPdf": "PDF hapet me të njëjtin fjalëkalim. Mund të lexohet dhe shtypet; kopjimi dhe redaktimi janë të kyçura.",
+      "byline": "Nga {issuer} për {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Fjalëkalimi",
+      "limited": "Shumë përpjekje. Ju lutemi prisni pesëmbëdhjetë minuta dhe provoni përsëri.",
+      "wrong": "Ky fjalëkalim nuk është i saktë.",
+      "submit": "Hap dokumentin"
+    },
+    "dialog": {
+      "trigger": "Ndaj",
+      "title": "Ndani këtë dokument",
+      "description": "Kushdo me lidhjen mund ta shohë dhe shkarkojë derisa të skadojë ose ta revokoni. Një fjalëkalim mbron edhe vetë PDF-në: hapet me fjalëkalimin dhe mund të lexohet e shtypet, jo të redaktohet ose kopjohet.",
+      "link": "Lidhja",
+      "copyLink": "Kopjo lidhjen",
+      "password": "Fjalëkalimi",
+      "copyPassword": "Kopjo fjalëkalimin",
+      "sendSeparately": "Dërgojeni fjalëkalimin veçmas nga lidhja. Mund ta shihni përsëri në listën më poshtë.",
+      "copy": "Kopjo",
+      "copied": "U kopjua",
+      "expires": "Skadon",
+      "expiry": {
+        "d7": "Pas 7 ditësh",
+        "d30": "Pas 30 ditësh",
+        "d90": "Pas 90 ditësh",
+        "never": "Kurrë"
+      },
+      "protection": "Mbrojtja",
+      "protectionOptions": {
+        "auto": "Fjalëkalim: gjenero një frazë kalimi",
+        "manual": "Fjalëkalim: zgjedh vetë",
+        "none": "Pa fjalëkalim (lidhje e hapur)"
+      },
+      "passwordHint": "Të paktën 8 karaktere.",
+      "strength": "Fuqia: {label}",
+      "strengthLabels": {
+        "veryWeak": "shumë e dobët",
+        "weak": "e dobët",
+        "fair": "e mjaftueshme",
+        "good": "e mirë",
+        "strong": "e fortë"
+      },
+      "creating": "Duke krijuar…",
+      "create": "Krijo lidhje",
+      "activeLinks": "Lidhjet aktive",
+      "passwordProtected": "E mbrojtur me fjalëkalim",
+      "openLink": "Hap lidhjen",
+      "linkExpires": "{kind} · skadon {date}",
+      "linkNeverExpires": "{kind} · nuk skadon kurrë",
+      "revoke": {
+        "title": "Të revokohet kjo lidhje?",
+        "description": "Lidhja ndalon menjëherë për të gjithë ata që e kanë.",
+        "label": "Revoko"
+      },
+      "linkPassword": "Fjalëkalimi: <code>{password}</code>",
+      "counts": "{views, plural, one {# shikim} other {# shikime}} · {downloads, plural, one {# shkarkim} other {# shkarkime}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Notat e kreditit",
+      "title": "Notat e kreditit",
+      "description": "Lëshohen mbi fatura të lëshuara; secila zvogëlon gjendjen e faturës së saj kur lëshohet.",
+      "newCreditNote": "Notë krediti e re",
+      "filters": {
+        "from": "Nga",
+        "to": "Deri",
+        "issuer": "Lëshuesi",
+        "client": "Klienti",
+        "status": "Statusi",
+        "search": "Kërko",
+        "all": "Të gjitha",
+        "searchPlaceholder": "Numri, arsyeja, klienti",
+        "go": "Shko"
+      },
+      "statuses": {
+        "DRAFT": "Skicë",
+        "ISSUED": "E lëshuar",
+        "SENT": "E dërguar",
+        "VOID": "E anuluar"
+      },
+      "empty": {
+        "title": "Ende pa nota krediti",
+        "description": "Hapni një faturë të lëshuar dhe zgjidhni “Notë krediti” për të zvogëluar atë që detyrohet."
+      },
+      "noMatch": "Asnjë notë krediti nuk përputhet me këto filtra.",
+      "columns": {
+        "number": "Numri",
+        "against": "Kundrejt",
+        "client": "Klienti",
+        "issueDate": "Data e lëshimit",
+        "reason": "Arsyeja",
+        "total": "Totali",
+        "status": "Statusi"
+      },
+      "draft": "Skicë"
+    },
+    "new": {
+      "metaTitle": "Notë krediti e re",
+      "title": "Notë krediti e re",
+      "description": "Një notë krediti lëshohet mbi një faturë të lëshuar dhe zvogëlon gjendjen e saj.",
+      "nothingToCredit": {
+        "title": "Asgjë për të kredituar",
+        "description": "Notat e kreditit kërkojnë një faturë të lëshuar me gjendje të papaguar.",
+        "openInvoices": "Hap faturat"
+      },
+      "whichInvoice": "Cila faturë?",
+      "invoice": "Faturë",
+      "invoiceOption": "{number} · {client} · gjendja {balance}",
+      "issuedOnly": "Notat e kreditit lëshohen vetëm mbi fatura të lëshuara.",
+      "invoiceFallback": "Faturë"
+    },
+    "edit": {
+      "metaTitle": "Ndrysho notën e kreditit",
+      "title": "Ndrysho skicën e notës së kreditit",
+      "immutable": "Notat e kreditit të lëshuara nuk ndryshohen.",
+      "draft": "Skicë"
+    },
+    "detail": {
+      "metaTitle": "Notë krediti",
+      "draftTitle": "Skicë note krediti",
+      "meta": "{client} · kundrejt <invoice>{number}</invoice> · lëshuar <mono>{date}</mono>",
+      "previewPdf": "Pamje paraprake PDF",
+      "issue": {
+        "title": "Ta lëshojmë këtë notë krediti?",
+        "description": "Ndahet një numër, gjendja e faturës zvogëlohet dhe dokumenti bëhet i pandryshueshëm.",
+        "label": "Lësho"
+      },
+      "deleteDraft": {
+        "title": "Të fshihet kjo skicë?"
+      },
+      "sendByEmail": "Dërgo me email",
+      "markSent": {
+        "title": "Të shënohet si e dërguar?",
+        "label": "Shëno si të dërguar"
+      },
+      "void": {
+        "title": "Të anulohet kjo notë krediti?",
+        "description": "Gjendja e faturës rikthehet; numri nuk ripërdoret kurrë.",
+        "reason": "Arsyeja",
+        "label": "Anulo"
+      },
+      "voided": "Anuluar më {date}: {reason}",
+      "amounts": {
+        "title": "Shumat",
+        "reason": "Arsyeja",
+        "creditAmount": "Shuma e kreditit",
+        "total": "Totali",
+        "balanceNow": "Gjendja e faturës tani",
+        "sent": "E dërguar"
+      },
+      "documents": {
+        "title": "Dokumentet e ruajtura",
+        "description": "Çdo version ruhet; faqja e verifikimit liston të gjitha hash-et.",
+        "regenerateTitle": "Të krijohet një version i ri PDF?",
+        "generate": "Krijo",
+        "newVersion": "Version i ri",
+        "renderedOnFirstDownload": "PDF krijohet në shkarkimin e parë.",
+        "protectedCopy": "Kopje e mbrojtur me fjalëkalim {version}",
+        "version": "Versioni {version}",
+        "verificationLink": "Lidhja e verifikimit: <link>{path}…</link>"
+      },
+      "draftsPreview": "Skicat shihen drejtpërdrejt në redaktues."
+    },
+    "send": {
+      "metaTitle": "Dërgo notën e kreditit",
+      "title": "Dërgo <mono>{number}</mono>",
+      "previousSends": "Dërgimet e mëparshme"
+    },
+    "builder": {
+      "against": "Kundrejt <mono>{number}</mono>",
+      "summary": "{client} · totali {total} · gjendja {balance} · hapësira e tatueshme ≈ {headroom}",
+      "issueDate": "Data e lëshimit",
+      "creditAmount": "Shuma e kreditit (pa tatim)",
+      "creditAmountHint": "Tatimi shpërndahet nga rreshtat e tatimit të faturës",
+      "reason": "Arsyeja",
+      "picker": {
+        "title": "Llogarit nga rreshtat e faturës",
+        "description": "Shënoni rreshta të plotë ose një përqindje; kjo vetëm plotëson shumën më sipër.",
+        "line": "Rreshti",
+        "subtotal": "Nëntotali",
+        "credit": "Kredia",
+        "percent": "%",
+        "creditLine": "Kredito rreshtin {position}",
+        "percentOfLine": "Përqindja e rreshtit {position}"
+      },
+      "saveDraft": "Ruaj skicën",
+      "issuing": "Duke lëshuar…",
+      "saveAndIssue": "Ruaj dhe lësho"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Pagesë e marrë",
+        "REFUND": "Rimbursim i lëshuar",
+        "WRITE_OFF": "Fshirje borxhi"
+      },
+      "editTitle": "Ndrysho regjistrimin",
+      "recordTitle": "Regjistro një pagesë",
+      "description": "Shumat janë në monedhën e faturës ({currency}); TDS e zbritur është pjesë e shumës së aplikuar.",
+      "kind": "Lloji",
+      "date": "Data",
+      "amountRefunded": "Shuma e rimbursuar (negative)",
+      "amountApplied": "Shuma e aplikuar",
+      "refundHint": "Futni një shumë negative, p.sh. -500",
+      "tdsDeducted": "TDS e zbritur",
+      "tdsHint": "Tatimi që klienti e ka mbajtur; llogaritet te shuma e aplikuar",
+      "bankFees": "Tarifat bankare",
+      "receivedInto": "Marrë në",
+      "noMethod": "-",
+      "reference": "Referenca",
+      "referenceHint": "UTR, ID transaksioni, numri i çekut",
+      "otherCurrency": "Marrë në një monedhë tjetër",
+      "amountReceived": "Shuma e marrë",
+      "receivedCurrency": "Monedha e marrë",
+      "exchangeRate": "Kursi i këmbimit",
+      "exchangeRateHint": "1 njësi e marrë = ? {currency}",
+      "notes": "Shënime",
+      "receiptHint": "PNG, JPEG, WebP ose PDF deri në 10 MB",
+      "receipts": "Faturat e pagesës dhe llogaritë",
+      "receiptN": "Fatura e pagesës {n}",
+      "removeReceipt": "Hiq faturën e pagesës {n}",
+      "saveChanges": "Ruaj ndryshimet",
+      "record": "Regjistro"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Faturohet për",
+      "shipTo": "Dërgohet te",
+      "invoice": "Fatura",
+      "creditNote": "Nota e kreditit",
+      "issueDate": "Data e lëshimit",
+      "dueDate": "Afati i pagesës",
+      "number": "Numri",
+      "description": "Përshkrimi",
+      "sacHsn": "SAC/HSN",
+      "qty": "Sasia",
+      "unit": "Njësia",
+      "rate": "Çmimi",
+      "tax": "Tatimi",
+      "amount": "Shuma",
+      "subtotal": "Nëntotali",
+      "discount": "Zbritja",
+      "taxable": "Shuma e tatueshme",
+      "total": "Totali",
+      "amountDue": "Shuma për t’u paguar",
+      "tdsExpected": "TDS i pritshëm",
+      "netExpected": "Neto e pritshme",
+      "rounding": "Rrumbullakimi",
+      "paymentDetails": "Të dhënat e pagesës",
+      "notes": "Shënime",
+      "terms": "Kushtet",
+      "placeOfSupply": "Vendi i furnizimit",
+      "poReference": "Referenca e porosisë (PO)",
+      "amountInWords": "Shuma me fjalë",
+      "signature": "Nënshkruesi i autorizuar"
+    },
+    "title": {
+      "taxInvoice": "FATURË TATIMORE",
+      "billOfSupply": "FLETË FURNIZIMI",
+      "invoice": "FATURË",
+      "creditNote": "NOTË KREDITI"
+    },
+    "text": {
+      "pageOf": "Faqja {page} nga {total}",
+      "scanToVerify": "Skanoni për verifikim",
+      "taxId": "NIPT",
+      "void": "ANULUAR",
+      "draftWatermark": "DRAFT - nuk është faturë tatimore",
+      "paymentTermsDays": "{days} ditë",
+      "irn": "IRN",
+      "ackNo": "Nr. i konfirmimit",
+      "ackDate": "Data e konfirmimit",
+      "einvoiceCancelled": "E-FATURA U ANULUA"
+    },
+    "ui": {
+      "pageEstimate": "rreth {count, plural, one {# faqe} other {# faqesh}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Mesazhi",
+      "description": "I plotësuar paraprakisht nga shabllonet e profilit të lëshuesit. Asgjë nuk dërgohet derisa të klikoni Dërgo.",
+      "to": "Për",
+      "toHint": "Të ndara me presje",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Subjekti",
+      "body": "Trupi",
+      "bodyHint": "Tekst i thjeshtë; lidhjet bëhen të klikueshme",
+      "attachment": "Bashkëngjitja",
+      "attachmentHint": "Kopja e ruajtur, e emërtuar <mono>{name}</mono> (ose .docx); përmbajtja e saj nuk mund të ndryshohet.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Duke dërguar…",
+      "send": "Dërgo",
+      "openInMailApp": "Hap në aplikacionin e postës",
+      "noSmtp": "Asnjë server SMTP nuk është konfiguruar (Cilësimet → Email). Hapeni skicën në aplikacionin tuaj të postës, bashkëngjitni PDF-në e shkarkuar, pastaj shënojeni si të dërguar më poshtë.",
+      "markAsSent": "Shëno si të dërguar"
+    },
+    "sentLog": {
+      "when": "Kur",
+      "document": "Dokumenti",
+      "to": "Për",
+      "subject": "Subjekti",
+      "status": "Statusi",
+      "empty": "Ende asgjë e dërguar.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "e dërguar",
+        "FAILED": "e dështuar",
+        "MANUAL": "manuale"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Përshëndetje, {name}",
+    "fiscalYear": "Viti fiskal {year}",
+    "fiscalYearWithBase": "Viti fiskal {year} · monedha bazë {currency} ({profile})",
+    "newCreditNote": "Notë krediti e re",
+    "welcomeTitle": "Mirë se vini në {appName}",
+    "welcomeDescription": "Filloni duke krijuar profilin e lëshuesit nga i cili faturoni, pastaj shtoni një klient dhe faturën tuaj të parë.",
+    "createProfile": "Krijoni profilin tuaj",
+    "tiles": {
+      "outstanding": "E papaguar",
+      "overdue": "E vonuar",
+      "billedThisFy": "Faturuar këtë VF",
+      "receivedThisFy": "Marrë këtë VF",
+      "drafts": "Skica",
+      "invoiceCount": "{count, plural, one {# faturë} other {# fatura}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Pagesat minus rimbursimet, me FX të regjistruar",
+      "awaitingIssue": "në pritje të lëshimit",
+      "nothingPending": "asgjë në pritje"
+    },
+    "recentInvoices": "Faturat e fundit",
+    "allInvoices": "Të gjitha faturat",
+    "noInvoicesYet": "Ende pa fatura.",
+    "columns": {
+      "number": "Numri",
+      "client": "Klienti",
+      "issued": "Lëshuar"
+    },
+    "topClients": "Klientët kryesorë sipas shumës së papaguar",
+    "nothingOutstanding": "Asgjë e papaguar."
+  },
+  "exports": {
+    "export": "Eksporto",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Faturat",
+      "newInvoice": "Faturë e re",
+      "draft": "Skicë",
+      "aDraft": "një skicë",
+      "statuses": {
+        "draft": "Skicë",
+        "issued": "E lëshuar",
+        "sent": "E dërguar",
+        "partiallyPaid": "Paguar pjesërisht",
+        "paid": "E paguar",
+        "overdue": "E vonuar",
+        "void": "E anuluar"
+      },
+      "lifecycle": {
+        "draft": "skicë",
+        "issued": "e lëshuar",
+        "void": "e anuluar"
+      },
+      "units": {
+        "hour": "Orë",
+        "day": "Ditë",
+        "fixed": "Fikse",
+        "milestone": "Etapë",
+        "unit": "Njësi"
+      },
+      "unitsLower": {
+        "hour": "orë",
+        "day": "ditë",
+        "fixed": "fikse",
+        "milestone": "etapë",
+        "unit": "njësi"
+      },
+      "supplyTypes": {
+        "intraState": "brenda shtetit",
+        "interState": "mes shteteve",
+        "exportLut": "eksport lut",
+        "exportWithTax": "eksport me tatim",
+        "reverseCharge": "tatim i kundërt",
+        "notApplicable": "nuk zbatohet"
+      }
+    },
+    "list": {
+      "description": "Fatura skicë, të lëshuara dhe të anuluara; statuset rrjedhin nga pagesat dhe afatet.",
+      "fiscalYear": "Viti fiskal",
+      "issuer": "Lëshuesi",
+      "client": "Klienti",
+      "searchPlaceholder": "Numri, PO, klienti",
+      "emptyTitle": "Ende pa fatura",
+      "emptyDescription": "Ndërtoni faturën tuaj të parë: zgjidhni një klient, shtoni rreshta, shikoni pamjen paraprake, pastaj lëshojeni.",
+      "columns": {
+        "number": "Numri",
+        "client": "Klienti",
+        "issuer": "Lëshuesi",
+        "issueDate": "Data e lëshimit",
+        "due": "Afati",
+        "balance": "Gjendja"
+      },
+      "noMatches": "Asnjë faturë nuk përputhet me këto filtra.",
+      "count": "{count, plural, one {# faturë} other {# fatura}}",
+      "countPaged": "{count, plural, one {# faturë} other {# fatura}} · faqja {page} nga {pages}",
+      "register": "regjistri",
+      "einvoice": "E-faturë",
+      "einvoiceFilters": {
+        "registered": "IRN i regjistruar",
+        "none": "I paregjistruar",
+        "cancelled": "IRN i anuluar"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Krijoni më parë një profil lëshuesi",
+      "noProfileDescription": "Një faturë lëshohet nga një identitet ligjor: konfiguroni profilin tuaj me ID-të tatimore dhe numërimin.",
+      "createProfile": "Krijo një profil"
+    },
+    "edit": {
+      "metaTitle": "Ndrysho faturën",
+      "title": "Ndrysho skicën",
+      "immutableFlash": "Faturat e lëshuara nuk ndryshohen. Përdorni “Anulo dhe rilësho” për ta korrigjuar."
+    },
+    "detail": {
+      "metaTitle": "Faturë",
+      "draftInvoice": "Faturë skicë",
+      "issuedDue": "Lëshuar <mono>{issued}</mono>, afati <mono>{due}</mono>",
+      "replaces": "Zëvendëson {number}",
+      "replacedBy": "Zëvendësuar nga {number}",
+      "previewPdf": "Pamje paraprake PDF",
+      "downloadEInvoice": "Shkarko JSON e e-faturës",
+      "issueTitle": "Ta lëshojmë këtë faturë?",
+      "issueDescription": "Ndahet një numër dhe dokumenti bëhet i pandryshueshëm.",
+      "issue": "Lësho",
+      "deleteDraftTitle": "Të fshihet kjo skicë?",
+      "sendByEmail": "Dërgo me email",
+      "recordPayment": "Regjistro pagesë",
+      "progress": {
+        "title": "Ecuria e pagesës",
+        "description": "Ku ndodhet kjo faturë, nga lëshimi deri te një faturë pagese e arkivuar.",
+        "issued": "Lëshuar",
+        "sent": "Dërguar",
+        "payment": "Pagesa u regjistrua",
+        "paymentOn": "Pagesa prej <mono>{amount}</mono> u regjistrua më <mono>{date}</mono>",
+        "paid": "Paguar plotësisht",
+        "receipt": "Fatura e pagesës u bashkëngjit",
+        "done": "përfunduar",
+        "pending": "në pritje"
+      },
+      "creditNote": "Notë krediti",
+      "markSentTitle": "Të shënohet si e dërguar?",
+      "markSentDescription": "Regjistron që klienti e ka marrë këtë faturë.",
+      "markSent": "Shëno si të dërguar",
+      "voidReissueTitle": "Të anulohet dhe rilëshohet?",
+      "voidReissueDescription": "Origjinali anulohet dhe hapet për redaktim një skicë e lidhur me të njëjtën përmbajtje.",
+      "voidReissue": "Anulo dhe rilësho",
+      "voidTitle": "Të anulohet kjo faturë?",
+      "voidDescription": "E mundur vetëm pa pagesa të regjistruara; numri nuk ripërdoret kurrë.",
+      "void": "Anulo",
+      "voided": "Anuluar më {date}: {reason}",
+      "amounts": "Shumat",
+      "subtotal": "Nëntotali",
+      "discount": "Zbritja",
+      "discountPercent": "Zbritja ({percent})",
+      "rounding": "Rrumbullakimi",
+      "tdsExpected": "TDS e pritur ({percent})",
+      "paid": "Paguar",
+      "credited": "Kredituar",
+      "balanceDue": "Gjendja e detyruar",
+      "supply": "Furnizimi",
+      "fxToBase": "FX në bazë",
+      "poReference": "Referenca PO",
+      "sent": "E dërguar",
+      "lineItems": "Rreshtat e faturës",
+      "columns": {
+        "description": "Përshkrimi",
+        "sacHsn": "SAC/HSN",
+        "qty": "Sasia",
+        "rate": "Çmimi",
+        "tax": "Tatimi",
+        "amount": "Shuma"
+      },
+      "creditNotes": "Notat e kreditit",
+      "storedDocuments": "Dokumentet e ruajtura",
+      "storedDocumentsHint": "Çdo version ruhet; faqja e verifikimit liston të gjitha hash-et.",
+      "regenerateTitle": "Të krijohet një version i ri PDF?",
+      "regenerateDescription": "Krijohet përsëri nga pamja e ngrirë (për shembull pas një rregullimi të gjeneratorit). Versionet e mëparshme mbeten.",
+      "regenerate": "Krijo",
+      "newVersion": "Version i ri",
+      "renderedOnFirstDownload": "PDF krijohet në shkarkimin e parë.",
+      "protectedCopy": "Kopje e mbrojtur me fjalëkalim {version}",
+      "version": "Versioni {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Lidhja e verifikimit:",
+      "draftPreviewHint": "Skicat shihen drejtpërdrejt në redaktues; hapni <link>PDF-në me filigram</link> për të parë faqen.",
+      "einvoice": {
+        "title": "E-faturë (India)",
+        "description": "Regjistrimi i kësaj fature në Invoice Registration Portal; një dokument i regjistruar printon IRN-në e tij dhe QR-në e nënshkruar të portalit.",
+        "connector": "Lidhës",
+        "connectors": {
+          "manual": "Manual",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Për këtë profil nuk është konfiguruar asnjë lidhës te Cilësimet > E-faturimi.",
+        "statuses": {
+          "none": "I paregjistruar",
+          "generated": "JSON u gjenerua",
+          "registered": "I regjistruar",
+          "cancelled": "I anuluar",
+          "failed": "Regjistrimi dështoi"
+        },
+        "irn": "IRN",
+        "ackNo": "Nr. i konfirmimit",
+        "ackDate": "Data e konfirmimit",
+        "cancelReason": "Anulimi",
+        "generate": "Gjenero IRN",
+        "pasteLabel": "Përgjigjja e IRP",
+        "pasteHint": "Ngjitni JSON-in që portali ose GSP-ja juaj ktheu për JSON-in e e-faturës së kësaj fature (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Regjistro IRN",
+        "cancelReasonLabel": "Arsyeja e anulimit",
+        "cancelReasons": {
+          "1": "Dublikatë",
+          "2": "Gabim në futjen e të dhënave",
+          "3": "Porosia u anulua",
+          "4": "Të tjera"
+        },
+        "cancel": "Anulo IRN",
+        "cancelWindow": "Portali lejon anulimin brenda 24 orëve nga konfirmimi."
+      }
+    },
+    "history": {
+      "metaTitle": "Historiku i faturës",
+      "title": "Historiku <mono>{number}</mono>",
+      "reissueChain": "Zinxhiri i rilëshimeve",
+      "replaces": "Zëvendëson <link>{number}</link>",
+      "replacedBy": "Zëvendësuar nga <link>{number}</link>",
+      "auditTrail": "Gjurma e auditimit",
+      "columns": {
+        "when": "Kur",
+        "who": "Kush",
+        "action": "Veprimi",
+        "summary": "Përmbledhja"
+      },
+      "noEvents": "Ende pa ngjarje.",
+      "system": "Sistemi",
+      "emails": "Email-et"
+    },
+    "payments": {
+      "title": "Pagesat",
+      "description": "{client} · {total} gjithsej",
+      "backToInvoice": "Kthehu te fatura",
+      "ledger": "Libri",
+      "columns": {
+        "date": "Data",
+        "kind": "Lloji",
+        "applied": "Aplikuar",
+        "tds": "TDS",
+        "received": "Marrë",
+        "reference": "Referenca",
+        "balance": "Gjendja"
+      },
+      "noPayments": "Ende pa pagesa të regjistruara.",
+      "kinds": {
+        "payment": "Pagesë",
+        "refund": "Rimbursim",
+        "writeOff": "Fshirje borxhi"
+      },
+      "receipt": "Faturë arkëtimi",
+      "receiptN": "Fatura e pagesës {n}",
+      "deleteEntryTitle": "Të fshihet ky regjistrim?",
+      "deleteEntryDescription": "Gjendja e faturës rillogaritet.",
+      "totals": "Totalet",
+      "invoiceTotal": "Totali i faturës",
+      "credited": "Kredituar",
+      "refunds": "Rimbursimet",
+      "writeOffs": "Fshirjet e borxhit",
+      "tdsDeducted": "TDS e zbritur",
+      "bankFees": "Tarifat bankare",
+      "balanceDue": "Gjendja e detyruar",
+      "onlyIssued": "Vetëm faturat e lëshuara pranojnë pagesa."
+    },
+    "send": {
+      "metaTitle": "Dërgo faturën",
+      "title": "Dërgo <mono>{number}</mono>",
+      "alreadySent": "Tashmë e shënuar si e dërguar; dërgimi përsëri shton një regjistrim tjetër në regjistër.",
+      "previousSends": "Dërgimet e mëparshme"
+    },
+    "builder": {
+      "parties": "Palët",
+      "issuerProfile": "Profili i lëshuesit",
+      "client": "Klienti",
+      "archivedOption": "{label} (i arkivuar)",
+      "issueDate": "Data e lëshimit",
+      "dueDate": "Afati i pagesës",
+      "fxRate": "Kursi FX ndaj monedhës bazë",
+      "fxHint": "1 {currency} = ? {base} (vetëm për raportim)",
+      "poReference": "Referenca PO",
+      "lineItems": "Rreshtat e faturës",
+      "lineItemsHint": "Zgjidhni nga katalogu për të kopjuar vlerat e tij, ose shkruani një rresht.",
+      "taxDiscountTds": "Tatimi, zbritja dhe TDS",
+      "taxRegime": "Regjimi tatimor",
+      "regimes": {
+        "indiaGst": "GST i Indisë",
+        "ukVat": "TVSH e MB",
+        "usSalesTax": "Tatimi mbi shitjet i SHBA-së",
+        "none": "Pa tatim"
+      },
+      "reverseCharge": "Tatim i kundërt",
+      "reverseChargeHint": "Tatimi paguhet nga marrësi",
+      "discount": "Zbritja",
+      "percent": "Përqindje",
+      "amount": "Shumë",
+      "rounding": "Rregullimi i rrumbullakimit",
+      "roundingHint": "Opsional, në një njësi të plotë; duhet të jetë nën 1",
+      "round": "Rrumbullako",
+      "tdsRate": "Norma e pritur TDS (%)",
+      "tdsRateHint": "Informuese; shtypet kur zbërthimi TDS është i aktivizuar",
+      "paymentMethods": "Mënyrat e pagesës",
+      "paymentMethodsHint": "Shtypen sipas radhës së shënimit.",
+      "noPaymentMethods": "Asnjë mënyrë pagese aktive. <link>Shtoni një</link>.",
+      "whatPrints": "Çfarë shtypet",
+      "whatPrintsHint": "Nis nga parazgjedhjet e profilit të lëshuesit.",
+      "documentLanguage": "Gjuha e dokumentit",
+      "documentLanguageHint": "Etiketat, datat dhe shumat shtypen në këtë gjuhë; preferenca e klientit, përndryshe ajo e profilit.",
+      "notesAndTerms": "Shënime dhe kushte",
+      "notes": "Shënime",
+      "terms": "Kushtet",
+      "saveDraft": "Ruaj skicën",
+      "issuing": "Duke lëshuar…",
+      "saveAndIssue": "Ruaj dhe lësho",
+      "subtotal": "Nëntotali",
+      "tax": "Tatimi",
+      "tdsExpected": "TDS e pritur",
+      "netExpected": "Neto e pritur"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Shto nga katalogu…",
+      "services": "Shërbimet",
+      "products": "Produktet",
+      "addLine": "Shto rresht",
+      "columns": {
+        "description": "Përshkrimi",
+        "sacHsn": "SAC/HSN",
+        "qty": "Sasia",
+        "unit": "Njësia",
+        "rate": "Çmimi",
+        "taxPercent": "Tatimi %"
+      },
+      "aria": {
+        "description": "Përshkrimi i rreshtit {line}",
+        "sacHsn": "SAC/HSN i rreshtit {line}",
+        "quantity": "Sasia e rreshtit {line}",
+        "unit": "Njësia e rreshtit {line}",
+        "rate": "Çmimi i rreshtit {line}",
+        "taxRate": "Norma e tatimit e rreshtit {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "I përjashtuar",
+      "moveUp": "Lëviz sipër",
+      "moveDown": "Lëviz poshtë",
+      "removeLine": "Hiq rreshtin",
+      "shortcutHint": "Ctrl/⌘+Enter në një përshkrim shton një rresht.",
+      "addFromCatalogueAria": "Shto nga katalogu"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Detajet e lëshuesit",
+        "client": "Detajet e klientit",
+        "document": "Seksionet e dokumentit"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Emri tregtar",
+        "showDesignation": "Pozicioni",
+        "showEmail": "Email",
+        "showPhone": "Telefoni",
+        "showWebsite": "Faqja e internetit",
+        "showFullAddress": "Adresa e plotë",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Firma",
+        "showStamp": "Vula",
+        "showContactPerson": "Personi i kontaktit",
+        "showBillingAddress": "Adresa e faturimit",
+        "showShippingAddress": "Adresa e dërgesës",
+        "showTaxIdentifier": "Identifikuesi tatimor",
+        "showPlaceOfSupply": "Vendi i furnizimit",
+        "showDueDate": "Afati i pagesës",
+        "showPaymentTerms": "Kushtet e pagesës",
+        "showSacCodeColumn": "Kolona e kodit SAC",
+        "showQuantityColumn": "Kolona e sasisë",
+        "showUnitPriceColumn": "Kolona e çmimit për njësi",
+        "showTaxColumn": "Kolona e tatimit",
+        "showTdsBreakdown": "Zbërthimi TDS",
+        "showQrVerification": "Verifikimi me QR",
+        "showNotes": "Shënime",
+        "showTerms": "Kushtet",
+        "showReplacesReference": "Referenca e zëvendësimit",
+        "showAmountInWords": "Shuma me fjalë",
+        "showSupplyStatement": "Deklarata e furnizimit",
+        "showRoundingLine": "Rreshti i rrumbullakimit",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Klientët",
+      "description": "Të gjithë ata që faturoni. Klientët me fatura arkivohen, nuk fshihen kurrë.",
+      "newClient": "Klient i ri",
+      "searchPlaceholder": "Kërko sipas emrit",
+      "searchLabel": "Kërko klientë",
+      "emptyTitle": "Ende pa klientë",
+      "emptyDescription": "Shtoni personat dhe kompanitë që faturoni; monedha dhe kushtet e pagesës së tyre plotësojnë çdo faturë.",
+      "addClient": "Shto një klient",
+      "noMatch": "Asnjë klient nuk përputhet me “{q}”.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Emri",
+        "contact": "Kontakti",
+        "email": "Email",
+        "country": "Shteti",
+        "currency": "Monedha",
+        "terms": "Kushtet",
+        "status": "Statusi"
+      }
+    },
+    "new": {
+      "title": "Klient i ri"
+    },
+    "edit": {
+      "metaTitle": "Ndrysho klientin",
+      "title": "Ndrysho {name}"
+    },
+    "detail": {
+      "metaTitle": "Klienti",
+      "newInvoice": "Faturë e re",
+      "restoreTitle": "Të rikthehet ky klient?",
+      "archiveTitle": "Të arkivohet ky klient?",
+      "archiveDescription": "Largohet nga listat e zgjedhjes; faturat dhe historiku mbeten të paprekura.",
+      "deleteTitle": "Të fshihet ky klient?",
+      "deleteDescription": "E mundur vetëm kur asnjë faturë nuk i referohet klientit.",
+      "details": "Detajet",
+      "contact": "Kontakti",
+      "email": "Email",
+      "phone": "Telefoni",
+      "country": "Shteti",
+      "gstState": "GST {code}",
+      "taxId": "ID tatimore",
+      "currency": "Monedha",
+      "paymentTerms": "Kushtet e pagesës",
+      "paymentTermsDays": "{days} ditë",
+      "expectedTds": "TDS e pritur",
+      "notes": "Shënime",
+      "addresses": "Adresat",
+      "billing": "Faturimi",
+      "shipping": "Dërgesa",
+      "lifetime": "Gjithsej",
+      "openRegister": "Hap regjistrin",
+      "noIssued": "Ende pa fatura të lëshuara.",
+      "noIssuedWithDrafts": "Ende pa fatura të lëshuara ({drafts} skicë).",
+      "firstLatest": "Fatura e parë <mono>{first}</mono>, e fundit <mono>{latest}</mono>{drafts, plural, =0 {} one { · # skicë} other { · # skica}}",
+      "lifetimeColumns": {
+        "currency": "Monedha",
+        "invoices": "Faturat",
+        "billed": "Faturuar",
+        "received": "Marrë",
+        "credited": "Kredituar",
+        "outstanding": "E papaguar",
+        "overdue": "E vonuar"
+      },
+      "recentInvoices": "Faturat e fundit",
+      "noInvoices": "Ende pa fatura për këtë klient.",
+      "recentColumns": {
+        "number": "Numri",
+        "issueDate": "Data e lëshimit",
+        "due": "Afati",
+        "total": "Totali",
+        "balance": "Gjendja",
+        "status": "Statusi"
+      }
+    },
+    "form": {
+      "cardTitle": "Klienti",
+      "displayName": "Emri i shfaqur",
+      "contactPerson": "Personi i kontaktit",
+      "email": "Email",
+      "phone": "Telefoni",
+      "taxIdType": "Lloji i ID-së tatimore",
+      "taxIdTypeNone": "Asnjë",
+      "taxId": "ID tatimore",
+      "currency": "Monedha",
+      "paymentTerms": "Kushtet e pagesës (ditë)",
+      "expectedTdsRate": "Norma e pritur TDS (%)",
+      "preferredLanguage": "Gjuha e dokumentit",
+      "preferredLanguageFollow": "Ndiq profilin e lëshuesit",
+      "buyerReference": "Referenca e blerësit",
+      "buyerReferenceHint": "Shtypet në e-faturat si referenca e vetë blerësit (një numër porosie ose qendre kostoje).",
+      "electronicAddress": "Adresa elektronike",
+      "electronicAddressHint": "Identifikuesi Peppol ose EN 16931 me të cilin ky klient merr e-fatura.",
+      "electronicAddressScheme": "Skema e adresës elektronike",
+      "electronicAddressSchemeNone": "Pa skemë",
+      "notes": "Shënime",
+      "billingAddress": "Adresa e faturimit",
+      "shippingAddress": "Adresa e dërgesës",
+      "differentFromBilling": "E ndryshme nga faturimi",
+      "save": "Ruaj klientin"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Orë",
+      "DAY": "Ditë",
+      "FIXED": "Fikse",
+      "MILESTONE": "Etapë",
+      "UNIT": "Njësi"
+    },
+    "list": {
+      "activate": "Aktivizo",
+      "deactivate": "Çaktivizo",
+      "archiveDescription": "Rreshtat ekzistues të faturave ruajnë vlerat e kopjuara.",
+      "deleteDescription": "E mundur vetëm kur asnjë rresht fature nuk i referohet. Përndryshe arkivojeni.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Emri",
+        "unit": "Njësia",
+        "rate": "Çmimi",
+        "price": "Çmimi",
+        "currency": "Monedha",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Tatimi",
+        "status": "Statusi"
+      }
+    },
+    "services": {
+      "title": "Shërbimet",
+      "description": "Katalogu juaj. Zgjedhja e një shërbimi kopjon vlerat e tij në rreshtin e faturës.",
+      "newService": "Shërbim i ri",
+      "emptyTitle": "Ende pa shërbime",
+      "emptyDescription": "Shtoni çfarë shitni - dizajn me orë, një etapë me çmim fiks - me kodin SAC/HSN dhe normën e tatimit.",
+      "addService": "Shto një shërbim",
+      "restoreTitle": "Të rikthehet {name}?",
+      "archiveTitle": "Të arkivohet {name}?",
+      "deleteTitle": "Të fshihet {name}?",
+      "editMetaTitle": "Ndrysho shërbimin",
+      "editTitle": "Ndrysho {name}"
+    },
+    "products": {
+      "title": "Produktet",
+      "description": "Mallrat që shitni, secili me një SKU. Zgjedhja e një produkti kopjon vlerat e tij në rreshtin e faturës.",
+      "newProduct": "Produkt i ri",
+      "emptyTitle": "Ende pa produkte",
+      "emptyDescription": "Shtoni mallrat që shitni me SKU, kod HSN, çmim për njësi dhe normë tatimi.",
+      "addProduct": "Shto një produkt",
+      "restoreTitle": "Të rikthehet {sku}?",
+      "archiveTitle": "Të arkivohet {sku}?",
+      "deleteTitle": "Të fshihet {sku}?",
+      "editMetaTitle": "Ndrysho produktin",
+      "editTitle": "Ndrysho {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Kod unik i shtypur nën përshkrimin e rreshtit",
+      "name": "Emri",
+      "unit": "Njësia",
+      "defaultRate": "Çmimi i parazgjedhur",
+      "unitPrice": "Çmimi për njësi",
+      "currency": "Monedha",
+      "sacHsnCode": "Kodi SAC / HSN",
+      "sacHsnHint": "I detyrueshëm në faturat GST",
+      "hsnCode": "Kodi HSN",
+      "hsnHint": "I detyrueshëm në faturat GST për mallra",
+      "defaultTaxRate": "Norma e parazgjedhur e tatimit (%)",
+      "description": "Përshkrimi",
+      "descriptionHint": "Plotëson përshkrimin e rreshtit",
+      "active": "Aktiv",
+      "serviceInactiveHint": "Shërbimet joaktive mbeten jashtë zgjedhësit të faturës",
+      "productInactiveHint": "Produktet joaktive mbeten jashtë zgjedhësit të faturës",
+      "saveService": "Ruaj shërbimin",
+      "saveProduct": "Ruaj produktin"
+    },
+    "tags": {
+      "legend": "Profilet",
+      "hint": "Shënoni profilet e lëshuesit që e shesin këtë. Lini të gjitha të pashënuara për ta ofruar te çdo profil."
+    }
+  },
+  "address": {
+    "line1": "Adresa, rreshti 1",
+    "line2": "Adresa, rreshti 2",
+    "city": "Qyteti",
+    "stateRegion": "Shteti / rajoni",
+    "postalCode": "Kodi postar",
+    "country": "Shteti",
+    "state": "Shteti",
+    "gstStateCodeHint": "Kodi i shtetit GST {code}",
+    "pickStateHint": "Zgjidhni shtetin për kodin e shtetit GST",
+    "stateRegionCode": "Kodi i shtetit / rajonit",
+    "stateRegionCodePlaceholder": "p.sh. CA"
+  },
+  "assets": {
+    "tooLarge": "Ky skedar është shumë i madh.",
+    "unsupportedReceipt": "Përdorni një imazh PNG, JPEG, WebP ose një PDF.",
+    "unsupportedImage": "Përdorni një imazh PNG, JPEG ose WebP.",
+    "uploadFailed": "Ngarkimi dështoi.",
+    "uploading": "Duke ngarkuar…",
+    "dropHint": "Tërhiqni një skedar këtu, ose zgjidhni një",
+    "dropHintMany": "Zvarritini skedarët këtu, ose zgjidhini",
+    "dropActive": "Lëshojeni për ta ngarkuar"
+  },
+  "ui": {
+    "breadcrumb": "Shtegu i navigimit",
+    "close": "Mbyll",
+    "closeMenu": "Mbyll menunë",
+    "reveal": "Shfaq",
+    "hide": "Fshih",
+    "openCalendar": "Hap kalendarin",
+    "chooseMonth": "Zgjidhni muajin",
+    "chooseYear": "Zgjidhni vitin",
+    "searchOptions": "Shkruani për të kërkuar",
+    "noMatches": "Asnjë përputhje",
+    "pullToRefresh": {
+      "label": "Listë që rifreskohet",
+      "pulling": "Tërhiqni poshtë për të rifreskuar",
+      "release": "Lëshoni për të rifreskuar",
+      "refreshing": "Po rifreskohet"
+    },
+    "inputCharset": "Lejohen vetëm karaktere standarde të tastierës.",
+    "confirm": {
+      "working": "Duke punuar…"
+    },
+    "statusPill": {
+      "DRAFT": "Skicë",
+      "ISSUED": "E lëshuar",
+      "SENT": "E dërguar",
+      "PARTIALLY_PAID": "Paguar pjesërisht",
+      "PAID": "E paguar",
+      "OVERDUE": "E vonuar",
+      "VOID": "E anuluar"
+    },
+    "activePill": {
+      "active": "Aktiv",
+      "archived": "I arkivuar",
+      "inactive": "Joaktiv"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Diçka shkoi keq.",
+    "fixFields": "Ju lutemi korrigjoni fushat e theksuara.",
+    "accountSaved": "Preferencat e llogarisë u ruajtën",
+    "apiKeyCreated": "Çelësi API u krijua. Kopjojeni tani: shfaqet vetëm një herë.",
+    "saved": "{name} u ruajt",
+    "savedProfile": "Profili {label} u ruajt",
+    "clientArchived": "Klienti u arkivua",
+    "clientRestored": "Klienti u rikthye",
+    "clientDeleted": "Klienti u fshi",
+    "productArchived": "Produkti u arkivua",
+    "productRestored": "Produkti u rikthye",
+    "productActivated": "Produkti u aktivizua",
+    "productDeactivated": "Produkti u çaktivizua",
+    "serviceArchived": "Shërbimi u arkivua",
+    "serviceRestored": "Shërbimi u rikthye",
+    "serviceActivated": "Shërbimi u aktivizua",
+    "serviceDeactivated": "Shërbimi u çaktivizua",
+    "defaultProfileUpdated": "Profili i parazgjedhur u përditësua",
+    "profileArchived": "Profili u arkivua",
+    "profileRestored": "Profili u rikthye",
+    "profileDeleted": "Profili u fshi",
+    "defaultPaymentMethodUpdated": "Mënyra e parazgjedhur e pagesës u përditësua",
+    "paymentMethodArchived": "Mënyra e pagesës u arkivua",
+    "paymentMethodRestored": "Mënyra e pagesës u rikthye",
+    "paymentMethodDeleted": "Mënyra e pagesës u fshi",
+    "issued": "{number} u lëshua",
+    "savedAsDraft": "U ruajt si skicë. {reason}",
+    "draftSaved": "Skica u ruajt",
+    "invoiceVoided": "Fatura u anulua",
+    "originalVoided": "Origjinali u anulua; ndryshoni skicën zëvendësuese",
+    "markedAsSent": "U shënua si e dërguar",
+    "draftDeleted": "Skica u fshi",
+    "generatedPdf": "Versioni PDF {version} u krijua",
+    "creditNoteVoided": "Nota e kreditit u anulua; gjendja e faturës u rikthye",
+    "draftCreditNoteDeleted": "Skica e notës së kreditit u fshi",
+    "mailRefused": "Serveri i postës e refuzoi mesazhin: {error}. Përpjekja u regjistrua.",
+    "unknownError": "gabim i panjohur",
+    "sentTo": "U dërgua te {recipients}",
+    "smtpSaved": "Cilësimet SMTP u ruajtën",
+    "smtpRemoved": "Cilësimet SMTP të ruajtura u hoqën",
+    "testEmailSent": "Email-i provë u dërgua te {email}",
+    "testFailed": "Prova dështoi: {error}",
+    "defaultRecipientsSaved": "Marrësit e parazgjedhur u ruajtën",
+    "invitationSent": "Ftesa u dërgua",
+    "invitationReady": "Ftesa është gati",
+    "unknownRole": "Rol i panjohur",
+    "roleUpdated": "Roli u përditësua",
+    "accountDeactivated": "Llogaria u çaktivizua",
+    "accountReactivated": "Llogaria u riaktivizua",
+    "invitationRevoked": "Ftesa u revokua",
+    "paymentUpdated": "Pagesa u përditësua",
+    "paymentRecorded": "Pagesa u regjistrua",
+    "paymentDeleted": "Pagesa u fshi",
+    "sessionRevoked": "Seanca u revokua",
+    "noOtherSessions": "Pa seanca të tjera",
+    "signedOutOthers": "U dolët nga {count} seanca të tjera",
+    "sharePasswordRequired": "Futni një fjalëkalim, ose lëreni të gjenerohet një.",
+    "shareLinkCreated": "Lidhja e ndarjes u krijua.",
+    "templateSaved": "Shablloni u ruajt; dokumentet e ardhshme e përdorin",
+    "templateReset": "Shablloni u rivendos te i integruari i parazgjedhur",
+    "templateImported": "Shablloni u importua",
+    "profileTemplateCleared": "Profili përdor sërish shabllonin e instancës",
+    "operatorSaved": "Detajet e operatorit u ruajtën. Faqet ligjore tani i shfaqin.",
+    "einvoiceSettingsSaved": "Cilësimet e e-faturimit u ruajtën",
+    "irnRegistered": "IRN {irn} u regjistrua; PDF-ja u gjenerua përsëri me të",
+    "irnRecorded": "IRN u regjistrua; PDF-ja u gjenerua përsëri me të",
+    "irnCancelled": "IRN u anulua; PDF-ja u gjenerua përsëri"
+  }
+}

@@ -11,17 +11,21 @@ import {
   saveProfileTemplateOverride,
   saveTemplateConfig,
 } from "@/server/dal/templates";
-import { errorMessage, str, type ActionState, valuesOf } from "./shared";
+import { assertKeyboardInput } from "@/lib/input-charset";
+import { actionT, errorMessage, str, type ActionState, valuesOf } from "./shared";
 
 const PAGE = "/settings/templates";
 
 function parseConfigJson(formData: FormData): unknown {
   const raw = str(formData, "configJson");
+  let parsed: unknown;
   try {
-    return JSON.parse(raw);
+    parsed = JSON.parse(raw);
   } catch {
     throw new Error("The template form sent invalid data.");
   }
+  assertKeyboardInput(parsed); // InputCharsetError carries the field message
+  return parsed;
 }
 
 /** Saves the instance template (scope "instance") or a profile's override (scope = profile id). */
@@ -31,6 +35,7 @@ export async function saveTemplateAction(
   formData: FormData,
 ): Promise<ActionState> {
   const actor = await requireOwner();
+  const t = await actionT();
   const target = scope === "instance" ? PAGE : `/settings/profiles/${scope}/template`;
   try {
     const config = parseConfigJson(formData);
@@ -54,16 +59,15 @@ export async function saveTemplateAction(
   }
   revalidatePath(PAGE);
   revalidatePath("/settings/profiles");
-  redirect(
-    withFlash(target, { kind: "success", message: "Template saved; future documents use it" }),
-  );
+  redirect(withFlash(target, { kind: "success", message: t("templateSaved") }));
 }
 
 export async function resetTemplateAction(): Promise<void> {
   const actor = await requireOwner();
+  const t = await actionT();
   await resetTemplateConfig(actor);
   revalidatePath(PAGE);
-  redirect(withFlash(PAGE, { kind: "success", message: "Template reset to the built-in default" }));
+  redirect(withFlash(PAGE, { kind: "success", message: t("templateReset") }));
 }
 
 export async function importTemplateAction(
@@ -71,6 +75,7 @@ export async function importTemplateAction(
   formData: FormData,
 ): Promise<ActionState> {
   const actor = await requireOwner();
+  const t = await actionT();
   try {
     await importTemplateConfig(actor, str(formData, "json"));
   } catch (e) {
@@ -85,11 +90,12 @@ export async function importTemplateAction(
     throw e;
   }
   revalidatePath(PAGE);
-  redirect(withFlash(PAGE, { kind: "success", message: "Template imported" }));
+  redirect(withFlash(PAGE, { kind: "success", message: t("templateImported") }));
 }
 
 export async function clearProfileTemplateAction(formData: FormData): Promise<void> {
   const actor = await requireOwner();
+  const t = await actionT();
   const profileId = str(formData, "profileId");
   try {
     await saveProfileTemplateOverride(actor, profileId, null);
@@ -97,7 +103,7 @@ export async function clearProfileTemplateAction(formData: FormData): Promise<vo
     redirect(
       withFlash(`/settings/profiles/${profileId}/template`, {
         kind: "error",
-        message: errorMessage(e),
+        message: await errorMessage(e),
       }),
     );
   }
@@ -105,7 +111,7 @@ export async function clearProfileTemplateAction(formData: FormData): Promise<vo
   redirect(
     withFlash(`/settings/profiles/${profileId}/template`, {
       kind: "success",
-      message: "Profile uses the instance template again",
+      message: t("profileTemplateCleared"),
     }),
   );
 }

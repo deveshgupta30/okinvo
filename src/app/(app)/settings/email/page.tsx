@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { ConfirmAction } from "@/components/confirm-action";
 import { EmailDefaultsForm, SmtpForm } from "@/components/email/smtp-form";
 import { SentLog } from "@/components/email/sent-log";
@@ -11,49 +12,52 @@ import { requireOwner } from "@/server/auth";
 import { listEmailMessages } from "@/server/dal/emails";
 import { getSmtpSettings } from "@/server/dal/smtp-settings";
 
-export const metadata: Metadata = { title: "Email" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("settings.email");
+  return { title: t("metaTitle") };
+}
 
 export default async function EmailSettingsPage() {
   const actor = await requireOwner();
+  const t = await getTranslations("settings.email");
+  const tc = await getTranslations("common");
   const [settings, log] = await Promise.all([
     getSmtpSettings(actor),
     listEmailMessages(actor, { limit: 50 }),
   ]);
   const status =
     settings.source === "settings"
-      ? { tone: "success" as const, label: "Configured in Settings" }
+      ? { tone: "success" as const, label: t("configuredSettings") }
       : settings.source === "env"
-        ? { tone: "success" as const, label: "Configured by environment" }
-        : { tone: "warning" as const, label: "Not configured — mail-app flow" };
+        ? { tone: "success" as const, label: t("configuredEnv") }
+        : { tone: "warning" as const, label: t("notConfigured") };
   return (
     <>
       <PageHeader
         title={
           <>
-            Email <Pill tone={status.tone}>{status.label}</Pill>
+            {t("title")} <Pill tone={status.tone}>{status.label}</Pill>
           </>
         }
-        description="Documents are sent from the composer with the stored PDF attached. Settings here override SMTP_* in the environment."
+        description={t("description")}
         actions={
           <>
             {settings.source !== "none" ? (
               <form action={sendTestEmailAction}>
                 <Button type="submit" variant="secondary">
-                  Send test email to {actor.email}
+                  {t("sendTest", { email: actor.email })}
                 </Button>
               </form>
             ) : null}
             {settings.source === "settings" ? (
               <ConfirmAction
                 action={clearSmtpAction}
-                title="Remove the stored SMTP settings?"
+                title={t("removeTitle")}
                 description={
-                  settings.envConfigured
-                    ? "The environment's SMTP_* values take over."
-                    : "Email falls back to the mail-app flow."
+                  settings.envConfigured ? t("removeEnvTakesOver") : t("removeFallsBack")
                 }
-                confirmLabel="Remove"
-                trigger="Remove stored settings"
+                confirmLabel={tc("remove")}
+                trigger={t("removeTrigger")}
                 triggerVariant="tertiary"
                 destructive
               />
@@ -66,13 +70,13 @@ export default async function EmailSettingsPage() {
           <Card>
             <CardHeader>
               <div>
-                <CardTitle>SMTP server</CardTitle>
+                <CardTitle>{t("smtpTitle")}</CardTitle>
                 <CardDescription>
                   {settings.source === "env" && !settings.envConfigured
                     ? ""
                     : settings.source === "env"
-                      ? "Currently taken from the environment; saving here overrides it."
-                      : "The password is encrypted at rest and never shown again."}
+                      ? t("smtpFromEnv")
+                      : t("smtpPasswordNote")}
                 </CardDescription>
               </div>
             </CardHeader>
@@ -83,10 +87,8 @@ export default async function EmailSettingsPage() {
           <Card>
             <CardHeader>
               <div>
-                <CardTitle>Default recipients</CardTitle>
-                <CardDescription>
-                  Instance-wide CC/BCC; issuer profiles add their own.
-                </CardDescription>
+                <CardTitle>{t("defaultsTitle")}</CardTitle>
+                <CardDescription>{t("defaultsDescription")}</CardDescription>
               </div>
             </CardHeader>
             <CardContent>
@@ -97,10 +99,8 @@ export default async function EmailSettingsPage() {
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Sent mail</CardTitle>
-              <CardDescription>
-                The last 50 attempts, including failures and manual sends.
-              </CardDescription>
+              <CardTitle>{t("sentTitle")}</CardTitle>
+              <CardDescription>{t("sentDescription")}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>

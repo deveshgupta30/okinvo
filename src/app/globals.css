@@ -86,6 +86,49 @@
   }
 }
 
+/* Data tables with `cards` (src/components/ui/table.tsx): one card per row on phones, each cell
+   led by its column name (TD `label` → data-label). The header row is for screen readers only. */
+@media (max-width: 767.98px) {
+  .table-cards,
+  .table-cards tbody,
+  .table-cards tr,
+  .table-cards td {
+    display: block;
+  }
+  .table-cards thead {
+    @apply sr-only;
+  }
+  .table-cards tbody {
+    @apply flex flex-col gap-3 divide-y-0;
+  }
+  .table-cards tr {
+    @apply h-auto rounded-lg border border-hairline bg-surface-1 p-2 hover:bg-surface-1;
+  }
+  .table-cards td {
+    @apply flex items-baseline justify-between gap-3 px-2 py-1 text-end;
+  }
+  .table-cards td[data-label]::before {
+    content: attr(data-label);
+    @apply shrink-0 text-app-caption text-ink-subtle;
+  }
+  .table-cards td[data-label=""]::before {
+    content: none;
+  }
+  .table-cards td:not([data-label]) {
+    @apply justify-end;
+  }
+}
+
+/* Touch devices: controls tall enough to hit (spec §3.8); desktop density is unchanged. */
+@media (pointer: coarse) {
+  .touch-target,
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+  select,
+  textarea {
+    min-height: 2.5rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
@@ -93,4 +136,53 @@
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Theme switch: the beui circle-blur reveal through the View Transition API (addendum §3).
+   The toggle sets --theme-vt-origin and data-theme-vt for the duration of the transition. */
+html[data-theme-vt="circle-blur"]::view-transition-old(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+html[data-theme-vt="circle-blur"]::view-transition-new(root) {
+  mix-blend-mode: normal;
+  animation: theme-circle-blur-reveal 700ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes theme-circle-blur-reveal {
+  from {
+    clip-path: circle(0% at var(--theme-vt-origin, 50% 100%));
+    filter: blur(8px);
+  }
+  to {
+    clip-path: circle(150% at var(--theme-vt-origin, 50% 100%));
+    filter: blur(0px);
+  }
+}
+
+/* Custom accent (addendum §3): the four variables are set inline on <html> by the root layout
+   and the accent picker from src/lib/accent.ts; the presets stay in tokens.css. */
+:root[data-accent="custom"] {
+  --color-primary: var(--accent-custom-primary);
+  --color-on-primary: var(--accent-custom-on-primary);
+  --color-primary-hover: var(--accent-custom-primary-hover);
+  --color-primary-focus: var(--accent-custom-primary-focus);
+}
+:root[data-theme="light"][data-accent="custom"] {
+  --color-primary-focus: var(--accent-custom-primary-focus-light);
+}
+
+/* Accent swatches: beui hides each radio with sr-only at the label's corner, which a rounded
+   swatch does not cover; stretch the (invisible) radio over the whole swatch so a click, a tap
+   or a test lands on it. */
+[data-accent-swatches] input[type="radio"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  clip: auto;
+  clip-path: none;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
 }

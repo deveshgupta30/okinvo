@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvon etusivu",
+    "save": "Tallenna",
+    "cancel": "Peruuta",
+    "continue": "Jatka",
+    "saving": "Tallennetaan…",
+    "detect": "Tunnista",
+    "yes": "Kyllä",
+    "no": "Ei",
+    "choose": "Valitse…",
+    "remove": "Poista",
+    "tryAgain": "Yritä uudelleen",
+    "dashboard": "Koontinäyttö",
+    "goToDashboard": "Siirry koontinäyttöön",
+    "or": "tai",
+    "invoice": "Lasku",
+    "creditNote": "Hyvityslasku",
+    "downloadPdf": "Lataa PDF",
+    "edit": "Muokkaa",
+    "delete": "Poista",
+    "downloadDocx": "Lataa DOCX",
+    "downloadCii": "Lataa EN 16931 XML",
+    "downloadUbl": "Lataa Peppol UBL",
+    "downloadFacturX": "Lataa Factur-X PDF",
+    "none": "Ei mitään",
+    "dismiss": "Sulje",
+    "all": "Kaikki",
+    "previous": "Edellinen",
+    "next": "Seuraava",
+    "go": "Siirry",
+    "search": "Haku",
+    "status": "Tila",
+    "total": "Yhteensä",
+    "currency": "Valuutta",
+    "from": "Alkaen",
+    "to": "Asti",
+    "reason": "Syy",
+    "history": "Historia",
+    "archive": "Arkistoi",
+    "restore": "Palauta",
+    "showArchived": "Näytä arkistoidut",
+    "hideArchived": "Piilota arkistoidut",
+    "archived": "Arkistoitu",
+    "default": "Oletus",
+    "setDefault": "Aseta oletukseksi",
+    "revoke": "Peruuta käyttöoikeus",
+    "copy": "Kopioi",
+    "copied": "Kopioitu",
+    "active": "Aktiivinen",
+    "pagination": "Sivutus",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Koontinäyttö",
+      "invoices": "Laskut",
+      "creditNotes": "Hyvityslaskut",
+      "clients": "Asiakkaat",
+      "services": "Palvelut",
+      "products": "Tuotteet",
+      "tools": "Valuutta"
+    },
+    "primaryNav": "Päävalikko",
+    "settings": "Asetukset",
+    "openMenu": "Avaa valikko",
+    "more": "Lisää",
+    "navigation": "Navigointi",
+    "dock": "Pikanavigointi",
+    "pagesAndAccount": "Sivut ja tili",
+    "collapseSidebar": "Tiivistä sivupalkki",
+    "collapseSidebarHint": "Tiivistä sivupalkki ([)",
+    "expandSidebar": "Laajenna sivupalkki",
+    "expandSidebarHint": "Laajenna sivupalkki ([)",
+    "theme": {
+      "label": "Teema",
+      "system": "Järjestelmä",
+      "light": "Vaalea",
+      "dark": "Tumma",
+      "current": "Teema: {mode}",
+      "switchTo": "Teema: {mode}. Vaihda teemaan {next}"
+    },
+    "userMenu": {
+      "label": "Tilivalikko: {name}",
+      "profile": "Profiili",
+      "logOut": "Kirjaudu ulos"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Valuuttamuunnin",
+      "title": "Valuuttamuunnin",
+      "description": "Muunna laskuttamiesi valuuttojen välillä tämän asennuksen valuuttakurssitaulukon avulla.",
+      "amount": "Summa",
+      "from": "Mistä",
+      "to": "Mihin",
+      "flip": "Vaihda valuutat keskenään",
+      "enterAmount": "Syötä summa",
+      "asOf": "Valuuttakurssit {date} ({source})",
+      "sources": {
+        "bundled": "sovelluksen mukana toimitettu",
+        "live": "päivitetty verkosta"
+      },
+      "note": "Kurssit ovat suuntaa antavia; lopullisen laskun kurssi on se, jonka syötit laskua luodessasi."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Kirjautuminen",
+      "metaDescription": "Kirjaudu okinvoon, itse ylläpidettävään laskutussovellukseen, identiteettipalveluntarjoajasi tai salasanasi avulla.",
+      "title": "Kirjaudu sisään",
+      "subtitle": "Vain sallittujen luettelossa olevat tilit pääsevät sisään.",
+      "failed": "Kirjautuminen epäonnistui.",
+      "noMethod": "Kirjautumistapaa ei ole määritetty. Aseta <code>.env</code>-tiedostoon palveluntarjoajan avainpari, kuten <code>AUTH_GITHUB_*</code>, tai <code>AUTH_PASSWORD_SIGNIN=true</code>.",
+      "errors": {
+        "not_allowed": "Tämä tili ei ole sallittu tässä instanssissa tai se on poistettu käytöstä.",
+        "signin": "Kirjautuminen ei valmistunut. Yritä uudelleen."
+      }
+    },
+    "password": {
+      "name": "Nimi",
+      "email": "Sähköposti",
+      "password": "Salasana",
+      "signingIn": "Kirjaudutaan…",
+      "createAccount": "Luo tili",
+      "signIn": "Kirjaudu sisään",
+      "haveAPassword": "Minulla on jo salasana",
+      "firstTime": "Ensimmäistä kertaa täällä? Aseta salasana",
+      "failed": "Kirjautuminen epäonnistui."
+    },
+    "social": {
+      "redirecting": "Ohjataan…",
+      "continueWith": "Jatka palvelulla {provider}",
+      "failed": "Kirjautumista ei voitu aloittaa."
+    },
+    "error": {
+      "metaTitle": "Kirjautumisvirhe",
+      "metaDescription": "Kirjautuminen ei onnistunut. Sivu kertoo, mikä meni pieleen ja miten voit yrittää uudelleen.",
+      "title": "Kirjautuminen epäonnistui",
+      "body": "Tunnistuspalvelu palautti arvon <code>{value}</code>. Jos osoitettasi ei ole tämän instanssin sallittujen luettelossa, pyydä omistajaa lisäämään se.",
+      "back": "Takaisin kirjautumiseen"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Asetukset",
+      "profiles": "Profiilit",
+      "paymentMethods": "Maksutavat",
+      "templates": "Mallipohjat",
+      "email": "Sähköposti",
+      "security": "Turvallisuus",
+      "users": "Käyttäjät",
+      "data": "Tiedot",
+      "legal": "Oikeudelliset tiedot",
+      "einvoicing": "Verkkolaskutus",
+      "account": "Tili",
+      "appearance": "Ulkoasu",
+      "api": "API",
+      "status": "Tila",
+      "usage": "Käyttö"
+    },
+    "account": {
+      "metaTitle": "Tili",
+      "title": "Tili",
+      "description": "Kuvasi, nimesi, alueesi, kielesi ja aikavyöhykkeesi.",
+      "photo": {
+        "title": "Kuva",
+        "description": "Näkyy sivupalkissa ja käyttäjävalikossa."
+      },
+      "form": {
+        "title": "Tili",
+        "description": "Miltä näytät ja mikä on ”tänään”.",
+        "displayName": "Näyttönimi",
+        "signInEmail": "Kirjautumissähköposti",
+        "signInEmailHint": "Identiteettisi tässä instanssissa; sitä ei voi muokata täällä.",
+        "timezone": "Aikavyöhyke",
+        "timezoneHint": "”Tänään” laskujen päivämäärissä, eräpäivissä ja koontinäytössä",
+        "regionTitle": "Alue",
+        "regionDescription": "Uusien laskuttajaprofiilien ja koontinäytön oletukset, kunnes profiili on olemassa.",
+        "country": "Maa",
+        "currency": "Valuutta",
+        "suggested": "Ehdotus tälle maalle:",
+        "language": "Kieli",
+        "languageHint": "Sovelluksen oma kieli. Asiakirjoissa käytetään kunkin profiilin omaa kieliasetusta.",
+        "machineTranslated": "Tämä kieli on konekäännetty. Korjaukset ovat tervetulleita: <link>paranna sitä GitHubissa</link>.",
+        "save": "Tallenna asetukset"
+      },
+      "regions": {
+        "Africa": "Afrikka",
+        "Americas": "Amerikka",
+        "Asia": "Aasia",
+        "Europe": "Eurooppa",
+        "MiddleEast": "Lähi-itä",
+        "Oceania": "Oseania",
+        "Constructed": "Tekokielet"
+      },
+      "privacy": {
+        "title": "Yksityisyys",
+        "description": "okinvo asettaa vain toimintaansa tarvitsemat evästeet. Ei analytiikkaa, ei seurantaa.",
+        "cookiePolicy": "Evästekäytäntö",
+        "showNoticeAgain": "Näytä evästeilmoitus uudelleen"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Vaihda kuva",
+      "addPhoto": "Lisää kuva",
+      "hint": "PNG, JPEG tai WebP. Näytetään kaikkialla ympyränä; voit zoomata ja siirtää kuvaa ennen tallennusta.",
+      "tooLarge": "Kuva on liian suuri.",
+      "uploadFailed": "Lataus epäonnistui.",
+      "choose": "Valitse profiilikuva",
+      "dialogTitle": "Sijoita kuvasi",
+      "dialogDescription": "Siirrä vetämällä, zoomaa vierittämällä tai nipistämällä. Ympyrä on se, minkä kaikki näkevät.",
+      "zoom": "Zoomaus",
+      "save": "Tallenna kuva"
+    },
+    "appearance": {
+      "metaTitle": "Ulkoasu",
+      "title": "Ulkoasu",
+      "description": "Teema ja korostusväri, tallennetaan tilillesi.",
+      "theme": {
+        "title": "Teema",
+        "description": "Seuraa järjestelmää tai lukitse vaalea tai tumma.",
+        "label": "Teema",
+        "system": "Seuraa järjestelmää",
+        "systemHint": "Vaihtuu käyttöjärjestelmäsi mukana",
+        "light": "Vaalea",
+        "lightHint": "Valkoinen tausta",
+        "dark": "Tumma",
+        "darkHint": "Lähes musta tausta"
+      },
+      "accent": {
+        "title": "Korostus",
+        "description": "Käytetään ensisijaisessa painikkeessa, kohdistusrenkaissa ja aktiivisen sivun merkissä. Minttu sopii tunnukseen.",
+        "label": "Korostusväri",
+        "customHint": "Tai valitse mikä tahansa oma värisi"
+      },
+      "accents": {
+        "mint": "Minttu",
+        "lavender": "Laventeli",
+        "sky": "Taivas",
+        "peach": "Persikka",
+        "butter": "Voi",
+        "rose": "Ruusu",
+        "sage": "Salvia",
+        "lilac": "Lila",
+        "custom": "Oma"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Laskuttajaprofiilit",
+      "title": "Laskuttajaprofiilit",
+      "description": "Oikeudelliset identiteetit, joista laskutat. Oletusprofiili esitäyttää uudet laskut.",
+      "breadcrumb": "Profiilit",
+      "newProfile": "Uusi profiili",
+      "emptyTitle": "Ei vielä laskuttajaprofiilia",
+      "emptyDescription": "Luo identiteetti, josta laskutat: yksityishenkilö PAN-tunnuksella tai yrityksesi.",
+      "createProfile": "Luo profiili",
+      "columns": {
+        "label": "Nimike",
+        "legalName": "Virallinen nimi",
+        "type": "Tyyppi",
+        "country": "Maa",
+        "currency": "Valuutta",
+        "regime": "Verojärjestelmä",
+        "status": "Tila"
+      },
+      "types": {
+        "company": "Yritys",
+        "individual": "Yksityishenkilö"
+      },
+      "makeDefaultTitle": "Asetetaanko {label} oletukseksi?",
+      "makeDefaultDescription": "Uudet laskut lähtevät tästä profiilista.",
+      "restoreTitle": "Palautetaanko {label}?",
+      "archiveTitle": "Arkistoidaanko {label}?",
+      "archiveDescription": "Se poistuu valitsimista; olemassa olevat laskut säilyvät ennallaan.",
+      "new": {
+        "metaTitle": "Uusi laskuttajaprofiili",
+        "title": "Uusi laskuttajaprofiili",
+        "prefilled": "Täytetty vastaustesi perusteella; tarkista osoite ja verotiedot ja tallenna sitten."
+      },
+      "edit": {
+        "metaTitle": "Muokkaa laskuttajaprofiilia",
+        "template": "Mallipohja",
+        "deleteTitle": "Poistetaanko {label}?",
+        "deleteDescription": "Mahdollista vain, kun mikään lasku tai hyvityslasku ei viittaa tähän profiiliin. Muuten arkistoi se."
+      },
+      "template": {
+        "metaTitle": "Profiilin mallipohja",
+        "title": "Mallipohja: {label}",
+        "ownTemplate": "Oma mallipohja",
+        "instanceTemplate": "Instanssin mallipohja",
+        "resetTitle": "Käytetäänkö instanssin mallipohjaa uudelleen?",
+        "resetDescription": "Tämän profiilin oma määritys poistetaan; annettuihin asiakirjoihin tämä ei vaikuta.",
+        "useInstance": "Käytä instanssin mallipohjaa",
+        "usingInstanceTitle": "Käytössä instanssin mallipohja",
+        "usingInstanceDescription": "Tämän profiilin asiakirjat noudattavat kohtaa Asetukset → Mallipohjat. Valitse erillinen muokkaus tarvittaessa.",
+        "customise": "Käytä tälle profiilille eri mallipohjaa",
+        "openInstance": "Avaa instanssin mallipohja"
+      },
+      "form": {
+        "identityTitle": "Identiteetti",
+        "identityDescription": "Kuka laskun lähettää.",
+        "type": "Tyyppi",
+        "label": "Nimike",
+        "labelHint": "Näkyy vain valitsimissa",
+        "legalName": "Virallinen nimi",
+        "tradeName": "Kauppanimi",
+        "designation": "Titteli",
+        "email": "Sähköposti",
+        "phone": "Puhelin",
+        "website": "Verkkosivusto",
+        "addressTitle": "Osoite",
+        "taxTitle": "Verotunnisteet",
+        "taxDescription": "Vain ne, jotka koskevat sinua; tulostusta ohjataan laskukohtaisesti.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Britannian ALV-tunnus",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "Salattu tallennuksessa",
+        "lutNumber": "LUT-numero",
+        "lutNumberHint": "Viennille ilman IGST:tä",
+        "lutFiscalYear": "LUT-tilikausi",
+        "lutFiscalYearHint": "esim. 2026-27",
+        "einvoiceTitle": "Verkkolaskutus",
+        "einvoiceDescription": "Miten tämä profiili tunnistautuu verkkolaskuissa; liitin ja tunnistetiedot ovat kohdassa Asetukset > Verkkolaskutus.",
+        "electronicAddress": "Sähköinen osoite",
+        "electronicAddressHint": "Tämän laskuttajan Peppol- tai EN 16931 -tunnus, joka tulostetaan myyjän sähköisenä osoitteena.",
+        "electronicAddressScheme": "Sähköisen osoitteen järjestelmä",
+        "electronicAddressSchemeNone": "Ei järjestelmää",
+        "einvoiceEnabled": "Verkkolaskutus käytössä tälle profiilille",
+        "einvoiceEnabledHint": "Tarjoaa annetuille asiakirjoille GST-verkkolaskun JSON-, Factur-X- ja UBL-lataukset sekä IRN-rekisteröinnin.",
+        "defaultsTitle": "Oletukset",
+        "baseCurrency": "Perusvaluutta",
+        "locale": "Asiakirjojen kieliasetus",
+        "localeHint": "Lukujen ja päivämäärien muotoilu asiakirjoissa",
+        "fiscalYearStart": "Tilikausi alkaa kuussa",
+        "months": {
+          "january": "tammikuu",
+          "february": "helmikuu",
+          "march": "maaliskuu",
+          "april": "huhtikuu",
+          "may": "toukokuu",
+          "june": "kesäkuu",
+          "july": "heinäkuu",
+          "august": "elokuu",
+          "september": "syyskuu",
+          "october": "lokakuu",
+          "november": "marraskuu",
+          "december": "joulukuu"
+        },
+        "taxRegime": "Oletusverojärjestelmä",
+        "regimes": {
+          "indiaGst": "Intian GST",
+          "ukVat": "Britannian ALV",
+          "usSalesTax": "Yhdysvaltain myyntivero",
+          "none": "Ei veroa"
+        },
+        "invoiceNumberFormat": "Laskun numeron muoto",
+        "invoiceNumberFormatHint": "Tunnisteet: {tokens}",
+        "creditNoteNumberFormat": "Hyvityslaskun numeron muoto",
+        "tdsRate": "Odotettu TDS-prosentti (%)",
+        "tdsRateHint": "Tiedoksi, tulostetaan odotettuna pidätyksenä",
+        "defaultNotes": "Oletushuomautukset",
+        "defaultTerms": "Oletusehdot",
+        "printTitle": "Mitä tulostetaan oletuksena",
+        "printDescription": "Jokainen lasku kopioi nämä ja voi muuttaa niitä yksittäin.",
+        "emailTitle": "Sähköposti",
+        "emailDescription": "Lähetyseditorin oletukset. Paikkamerkit: {placeholders}",
+        "emailCc": "Oletus-CC",
+        "emailBcc": "Oletus-BCC",
+        "commaSeparated": "Pilkuin erotettuna",
+        "invoiceSubject": "Laskun otsikko",
+        "invoiceSubjectHint": "Tyhjä käyttää sisäänrakennettua mallia",
+        "creditNoteSubject": "Hyvityslaskun otsikko",
+        "invoiceBody": "Laskun viesti",
+        "creditNoteBody": "Hyvityslaskun viesti",
+        "artworkTitle": "Kuvitus",
+        "artworkDescription": "PNG, JPEG tai WebP enintään 2 Mt; allekirjoitus ja leima säilyttävät läpinäkyvyyden.",
+        "logo": "Logo",
+        "signature": "Allekirjoitus",
+        "stamp": "Leima",
+        "transparentPng": "Läpinäkyvä PNG",
+        "save": "Tallenna profiili"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Maksutavat",
+      "title": "Maksutavat",
+      "description": "Miten asiakkaat maksavat sinulle. Tiedot salataan ja kiinnitetään jokaiseen laskuun laskua annettaessa.",
+      "newMethod": "Uusi maksutapa",
+      "emptyTitle": "Ei vielä maksutapoja",
+      "emptyDescription": "Lisää pankkitili, UPI-tunnus tai lompakko, jotta laskuista selviää, minne asiakkaan tulee maksaa.",
+      "addMethod": "Lisää maksutapa",
+      "columns": {
+        "name": "Nimi",
+        "type": "Tyyppi",
+        "currency": "Valuutta",
+        "status": "Tila"
+      },
+      "types": {
+        "bankTransfer": "Pankkisiirto",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Oma"
+      },
+      "makeDefaultTitle": "Asetetaanko {name} oletukseksi?",
+      "restoreTitle": "Palautetaanko {name}?",
+      "archiveTitle": "Arkistoidaanko {name}?",
+      "archiveDescription": "Annetut laskut säilyttävät tulostetun tilannekuvan.",
+      "new": {
+        "metaTitle": "Uusi maksutapa",
+        "title": "Uusi maksutapa"
+      },
+      "edit": {
+        "metaTitle": "Muokkaa maksutapaa",
+        "title": "Muokkaa: {name}",
+        "deleteTitle": "Poistetaanko {name}?",
+        "deleteDescription": "Mahdollista vain, kun mikään lasku tai maksu ei viittaa siihen. Muuten arkistoi se."
+      },
+      "form": {
+        "name": "Nimi",
+        "nameHint": "Tulostetaan maksulohkon otsikkona",
+        "type": "Tyyppi",
+        "currency": "Valuutta",
+        "currencyHint": "Valinnainen; näytetään vain tiedoksi",
+        "anyCurrency": "Mikä tahansa",
+        "instructions": "Ohjeet",
+        "instructionsHint": "Tulostetaan tietojen alle",
+        "isDefault": "Oletusmaksutapa",
+        "isDefaultDescription": "Esivalittu uusissa laskuissa",
+        "isActive": "Aktiivinen",
+        "detailsTitle": "Tiedot",
+        "detailsDescription": "Salattu tallennuksessa; kiinnitetään jokaiseen laskuun laskua annettaessa.",
+        "vpa": "UPI-tunnus (VPA)",
+        "payeeName": "Saajan nimi",
+        "lines": "Rivit",
+        "linesHint": "Yksi rivi per merkintä, tulostetaan sellaisenaan",
+        "accountEmail": "Tilin sähköposti / tunnus",
+        "bank": {
+          "accountHolder": "Tilinhaltija",
+          "accountNumber": "Tilinumero",
+          "bankName": "Pankin nimi",
+          "branch": "Konttori",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Reititys- / sort-koodi"
+        },
+        "save": "Tallenna maksutapa"
+      }
+    },
+    "templates": {
+      "metaTitle": "Asiakirjamallipohjat",
+      "title": "Asiakirjamallipohjat",
+      "customised": "Muokattu",
+      "builtIn": "Sisäänrakennettu oletus",
+      "description": "Miltä laskut ja hyvityslaskut näyttävät. Annetut asiakirjat säilyttävät mallipohjan, jolla ne annettiin.",
+      "resetTitle": "Palautetaanko sisäänrakennettu oletus?",
+      "resetDescription": "Muokkauksesi poistetaan; jo annettuihin asiakirjoihin tämä ei vaikuta.",
+      "reset": "Palauta",
+      "resetTrigger": "Palauta oletukset",
+      "importTitle": "Tuonti",
+      "importDescription": "Palauta aiemmin viety määritys.",
+      "overridesTitle": "Profiilikohtaiset ohitukset",
+      "overridesDescription": "Profiili voi valita oman mallipohjan muokkaussivultaan.",
+      "noOverrides": "Kaikki profiilit käyttävät instanssin mallipohjaa.",
+      "import": {
+        "json": "Mallipohjan JSON",
+        "jsonHint": "Liitä Vie JSON -toiminnolla luotu tiedosto; puuttuvat avaimet korvataan oletuksilla",
+        "importing": "Tuodaan…",
+        "submit": "Tuo"
+      },
+      "form": {
+        "templateTitle": "Mallipohja",
+        "templateDescription": "Kuusi sisäänrakennettua; alla oleva muokkaus koskee valitsemaasi.",
+        "templateGroup": "Mallipohja",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Moderni ja ilmava, päätteetön kirjasin, korostusviiva otsikon alla."
+          },
+          "classic": {
+            "name": "Klassinen",
+            "character": "Perinteinen kehystetty taulukko, päätteelliset otsikot, kehystetyt summat."
+          },
+          "compact": {
+            "name": "Kompakti",
+            "character": "Tiivis asettelu pitkille rivilistoille; pienempi kirjasin, vähemmän erottimia."
+          },
+          "minimal": {
+            "name": "Minimalistinen",
+            "character": "Rauhallinen ja tilava: ei viivoja tai laatikoita, kevyet otsikot, paljon tilaa."
+          },
+          "letterhead": {
+            "name": "Kirjepaperi",
+            "character": "Logosi ja nimesi värinauhalla tai kuvassa jokaisen sivun yläreunassa."
+          },
+          "modern": {
+            "name": "Moderni",
+            "character": "Värinauhaotsikko; osapuolet, taulukon otsikko ja summat vaalealla korostusvärisävyllä."
+          }
+        },
+        "paperTitle": "Paperi ja kirjasin",
+        "paperSize": "Paperikoko",
+        "paperLetter": "Letter",
+        "margins": "Marginaalit",
+        "marginsNormal": "Normaali",
+        "marginsNarrow": "Kapea",
+        "headingFont": "Otsikkokirjasin",
+        "bodyFont": "Leipätekstin kirjasin",
+        "fontSans": "Päätteetön",
+        "fontSerif": "Päätteellinen",
+        "tableStyle": "Taulukkotyyli",
+        "tableRuled": "Viivoitettu",
+        "tableZebra": "Seeprajuovainen",
+        "tablePlain": "Yksinkertainen",
+        "accentColour": "Korostusväri",
+        "textColour": "Tekstin väri",
+        "logoPosition": "Logon sijainti",
+        "positionLeft": "Vasen",
+        "positionCentre": "Keskellä",
+        "positionRight": "Oikea",
+        "logoHeight": "Logon korkeus (mm)",
+        "documentTitle": "Asiakirjan otsikko",
+        "titleAuto": "Automaattinen (GST-tietoinen)",
+        "titleCustom": "Oma",
+        "titlePlaceholder": "esim. PROFORMALASKU",
+        "qrPosition": "QR-koodin sijainti",
+        "qrFooter": "Alatunniste",
+        "qrHeader": "Ylätunniste",
+        "qrBesideTotals": "Summien vieressä",
+        "amountInWords": "Summa sanoin",
+        "wordsBelowTotal": "Summien alla",
+        "wordsFooter": "Alatunniste",
+        "wordsHidden": "Piilotettu",
+        "subtotalRow": "Välisummarivi",
+        "discountRow": "Alennusrivi",
+        "taxLines": "Verorivit",
+        "tdsExpected": "Odotettu TDS",
+        "roundingRow": "Pyöristysrivi",
+        "pageNumbers": "Sivunumerot",
+        "headerTitle": "Ylätunniste",
+        "headerDescription": "Värinauha tai kuva jokaisen sivun yläreunassa. Kirjepaperi ja Moderni näyttävät nauhan, ellet valitse toisin.",
+        "headerStyle": "Ylätunnisteen tyyli",
+        "headerNone": "Ei mitään",
+        "headerBand": "Värinauha",
+        "headerImage": "Kuva",
+        "bandColour": "Nauhan väri",
+        "bandColourHex": "Nauhan väri (hex)",
+        "headerImageLabel": "Ylätunnisteen kuva",
+        "headerImageHint": "PNG, JPEG tai WebP enintään 2400 px leveä; ulottuu sivun koko leveydelle.",
+        "imageOpacity": "Kuvan peittävyys",
+        "headerHeight": "Ylätunnisteen korkeus (mm)",
+        "bandText": "Nauhan teksti",
+        "bandTextAuto": "Automaattinen (nauhan värin mukaan)",
+        "bandTextLight": "Vaalea",
+        "bandTextDark": "Tumma",
+        "textTitle": "Teksti",
+        "headerNote": "Ylätunnisteen huomautus",
+        "footer": "Alatunniste",
+        "signatureCaption": "Allekirjoituksen kuvateksti",
+        "draftWatermark": "Luonnoksen vesileima",
+        "labelsTitle": "Nimikkeet",
+        "labelsDescription": "Jätä kenttä tyhjäksi, jos haluat säilyttää oletusmuotoilun.",
+        "save": "Tallenna mallipohja",
+        "downloadSample": "Lataa esimerkki-PDF",
+        "exportJson": "Vie JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Sähköposti",
+      "title": "Sähköposti",
+      "configuredSettings": "Määritetty Asetuksissa",
+      "configuredEnv": "Määritetty ympäristöllä",
+      "notConfigured": "Ei määritetty: sähköpostisovelluksen kautta",
+      "description": "Asiakirjat lähetetään editorista tallennettu PDF liitteenä. Täällä tehdyt asetukset ohittavat ympäristön SMTP_*-arvot.",
+      "sendTest": "Lähetä testisähköposti osoitteeseen {email}",
+      "removeTitle": "Poistetaanko tallennetut SMTP-asetukset?",
+      "removeEnvTakesOver": "Ympäristön SMTP_*-arvot otetaan käyttöön.",
+      "removeFallsBack": "Sähköposti palaa sähköpostisovelluksen kautta tehtävään lähetykseen.",
+      "removeTrigger": "Poista tallennetut asetukset",
+      "smtpTitle": "SMTP-palvelin",
+      "smtpFromEnv": "Tällä hetkellä otettu ympäristöstä; tallennus tässä ohittaa sen.",
+      "smtpPasswordNote": "Salasana salataan tallennuksessa, eikä sitä näytetä enää koskaan.",
+      "defaultsTitle": "Oletusvastaanottajat",
+      "defaultsDescription": "Koko instanssin CC/BCC; laskuttajaprofiilit lisäävät omansa.",
+      "sentTitle": "Lähetetyt viestit",
+      "sentDescription": "Viimeiset 50 yritystä, mukaan lukien epäonnistuneet ja manuaaliset lähetykset.",
+      "smtp": {
+        "host": "Palvelin",
+        "port": "Portti",
+        "security": "Suojaus",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Ei mitään (LAN-välityspalvelin)",
+        "user": "Käyttäjänimi",
+        "password": "Salasana",
+        "passwordStored": "Tallennettu ja salattu; jätä tyhjäksi säilyttääksesi sen",
+        "passwordEncrypted": "Salattu tallennuksessa",
+        "from": "Lähettäjän osoite",
+        "fromName": "Lähettäjän nimi",
+        "replyTo": "Vastausosoite",
+        "save": "Tallenna SMTP-asetukset"
+      },
+      "defaults": {
+        "cc": "Oletus-CC",
+        "ccHint": "Lisätään jokaiseen editoriin; pilkuin erotettuna",
+        "bcc": "Oletus-BCC",
+        "save": "Tallenna oletukset"
+      }
+    },
+    "security": {
+      "metaTitle": "Turvallisuus",
+      "title": "Turvallisuus",
+      "description": "Missä olet kirjautuneena ja mitä kaikkea on muuttunut.",
+      "sessions": {
+        "title": "Aktiiviset istunnot",
+        "description": "Istunnon peruuttaminen kirjaa kyseisen laitteen ulos välittömästi.",
+        "signOutOthers": {
+          "title": "Kirjataanko ulos kaikkialta muualta?",
+          "description": "Kaikki muut istunnot paitsi tämä peruutetaan.",
+          "confirm": "Kirjaa muut ulos",
+          "trigger": "Kirjaa ulos kaikkialta muualta"
+        },
+        "columns": {
+          "device": "Laite",
+          "ipAddress": "IP-osoite",
+          "signedIn": "Kirjautunut",
+          "lastSeen": "Viimeksi nähty",
+          "expires": "Vanhenee"
+        },
+        "thisDevice": "Tämä laite",
+        "revokeTitle": "Peruutetaanko tämä istunto?",
+        "unknownDevice": "Tuntematon laite",
+        "unknownBrowser": "Tuntematon",
+        "agentOnOs": "{browser}, {os}"
+      },
+      "audit": {
+        "title": "Tarkastusloki",
+        "count": "{count, plural, one {# tapahtuma} other {# tapahtumaa}}",
+        "entity": "Kohde",
+        "actionContains": "Toiminto sisältää",
+        "filter": "Suodata",
+        "reset": "Nollaa",
+        "columns": {
+          "when": "Milloin",
+          "who": "Kuka",
+          "action": "Toiminto",
+          "entity": "Kohde",
+          "summary": "Yhteenveto"
+        },
+        "empty": "Mikään tapahtuma ei vastaa näitä suodattimia.",
+        "system": "Järjestelmä",
+        "changes": "Muutokset",
+        "page": "Sivu {page} / {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Käyttäjät",
+      "title": "Käyttäjät",
+      "description": "Ketkä voivat kirjautua tähän instanssiin ja mitä he saavat tehdä.",
+      "roles": {
+        "owner": "Omistaja",
+        "editor": "Muokkaaja",
+        "viewer": "Katselija"
+      },
+      "roleHints": {
+        "owner": "Kaikki, mukaan lukien asetukset ja jäsenet",
+        "editor": "Asiakkaat, tuotteet ja palvelut, laskut, hyvityslaskut, maksut, sähköposti",
+        "viewer": "Vain luku"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Käyttäjän {email} rooli",
+      "invite": {
+        "title": "Kutsu joku",
+        "description": "Hän kirjautuu kutsutulla osoitteella (tunnistuspalvelu tai salasana) ja saa valitsemasi roolin.",
+        "sent": "Kutsu lähetettiin sähköpostitse osoitteeseen {email}.",
+        "readyWithError": "Kutsu osoitteelle {email} on valmis. Sähköpostia ei voitu lähettää ({error}); lähetä heille tämä linkki:",
+        "readyNoSmtp": "Kutsu osoitteelle {email} on valmis. SMTP:tä ei ole määritetty; lähetä heille tämä linkki:",
+        "copyLink": "Kopioi linkki",
+        "email": "Sähköposti",
+        "emailPlaceholder": "henkilo@example.com",
+        "role": "Rooli",
+        "submit": "Kutsu",
+        "inviting": "Kutsutaan…"
+      },
+      "members": {
+        "title": "Jäsenet",
+        "description": "Vähintään yksi aktiivinen omistaja säilyy aina.",
+        "columns": {
+          "person": "Henkilö",
+          "role": "Rooli",
+          "lastSignIn": "Viimeisin kirjautuminen",
+          "status": "Tila"
+        },
+        "nameYou": "{name} (sinä)",
+        "deactivated": "Poistettu käytöstä",
+        "reactivate": {
+          "title": "Aktivoidaanko {email} uudelleen?",
+          "description": "Hän voi kirjautua taas aiemmalla roolillaan.",
+          "confirm": "Aktivoi uudelleen"
+        },
+        "deactivate": {
+          "title": "Poistetaanko {email} käytöstä?",
+          "description": "Kaikki istunnot päättyvät nyt, eikä hän voi kirjautua ennen uudelleenaktivointia. Hänen historiansa säilyy.",
+          "confirm": "Poista käytöstä"
+        }
+      },
+      "invitations": {
+        "title": "Odottavat kutsut",
+        "description": "Osoitteet, jotka voivat kirjautua mutta eivät ole vielä kirjautuneet.",
+        "columns": {
+          "email": "Sähköposti",
+          "role": "Rooli",
+          "invited": "Kutsuttu"
+        },
+        "empty": "Ei odottavia kutsuja.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Peruutetaanko osoitteen {email} kutsu?"
+      }
+    },
+    "data": {
+      "metaTitle": "Tiedot",
+      "title": "Tiedot",
+      "description": "Kaikki on siirrettävissä: tietojoukot CSV- tai Excel-muodossa, täysi tilannekuva siirtoa varten, PDF-tiedostot kirjanpitäjällesi ja testattu varmuuskopiointirutiini.",
+      "period": {
+        "fiscalYear": "Tilikausi",
+        "fiscalYearHint": "Ohittaa päivämäärät",
+        "issuer": "Laskuttaja"
+      },
+      "exportAll": {
+        "title": "Vie kaikki tiedot",
+        "description": "ZIP, jossa jokainen tietojoukko CSV-muodossa sekä <mono>data.json</mono>, kaikkien taulujen relaatiotilannekuva. Salatut kentät (maksutavan tiedot, SMTP-salasana) jätetään pois; sisällä oleva README luettelee ne.",
+        "download": "Lataa okinvo-data-ZIP"
+      },
+      "exportDocuments": {
+        "title": "Vie asiakirjat",
+        "description": "Jokaisen jakson aikana annetun ja mitätöidyn laskun ja hyvityslaskun PDF numeron mukaan nimettynä sekä <mono>index.csv</mono>, jossa numerot, summat ja tiivisteet. Puuttuvat PDF-tiedostot luodaan samalla.",
+        "docx": "Sisällytä myös jokaisen asiakirjan DOCX-kopio",
+        "facturx": "Sisällytä myös Factur-X PDF/A-3 -kopio, johon on upotettu EN 16931 XML",
+        "download": "Lataa asiakirjat-ZIP"
+      },
+      "datasets": {
+        "title": "Tietojoukot",
+        "description": "Samat viennit, joita hakemistosivut tarjoavat, kaikkiin sovelletulla jaksolla ja laskuttajalla. Maksut käyttävät päivämääräväliä; asiakkaat ja palvelut ohittavat jakson.",
+        "columns": {
+          "dataset": "Tietojoukko",
+          "filters": "Käytetyt suodattimet",
+          "download": "Lataus"
+        },
+        "names": {
+          "invoices": "Laskurekisteri",
+          "invoiceItems": "Laskurivit",
+          "payments": "Maksukirja",
+          "creditNotes": "Hyvityslaskurekisteri",
+          "clients": "Asiakkaat",
+          "services": "Palvelut",
+          "gstSummary": "GST-yhteenveto",
+          "tdsSummary": "TDS-yhteenveto"
+        },
+        "filters": {
+          "periodIssuer": "jakso, laskuttaja",
+          "dateRangeIssuer": "päivämääräväli, laskuttaja",
+          "includesArchived": "sisältää arkistoidut"
+        }
+      },
+      "backups": {
+        "title": "Varmuuskopiot",
+        "notWired": "Varmuuskopiopalvelua ei ole liitetty",
+        "noRun": "Varmuuskopiota ei ole vielä ajettu",
+        "lastOk": "Viimeisin varmuuskopio onnistui",
+        "lastFailed": "Viimeisin varmuuskopio epäonnistui",
+        "description": "Compose-palvelu <mono>backup</mono> vedostaa Postgresin ja arkistoi tallennustilan ajastuksella <mono>BACKUP_CRON</mono>, säilyttää <mono>BACKUP_RETENTION_DAYS</mono> historiaa <mono>backups</mono>-taltiossa ja kirjoittaa tilatiedoston, jonka tämä sivu lukee.",
+        "finished": "Valmistui",
+        "databaseDump": "Tietokantavedos",
+        "storageArchive": "Tallennustilan arkisto",
+        "size": "Koko",
+        "sizeMb": "{size} Mt",
+        "error": "Virhe",
+        "runNow": "Aja yksi nyt tai palauta tiedostoparista:",
+        "restoreDrill": "Palautusmenettelyä harjoitellaan CI:ssä skriptillä <mono>scripts/restore-drill.sh</mono>: alustus, varmuuskopio, tyhjennys, palautus ja sitten rivimäärien ja PDF-tiivisteen vertailu."
+      }
+    },
+    "legal": {
+      "metaTitle": "Oikeudelliset tiedot",
+      "metaDescription": "Kuka ylläpitää tätä instanssia: julkisille oikeudellisille sivuille tulostettavat tiedot.",
+      "title": "Oikeudelliset tiedot",
+      "description": "Julkiset oikeudelliset sivut tulostavat nämä tiedot. Kunnes jokainen kenttä on täytetty, sivuilla näkyy korostettuja paikkamerkkejä.",
+      "operator": {
+        "title": "Ylläpitäjän tiedot",
+        "complete": "Täydellinen",
+        "missing": "Puuttuu {count}: {fields}",
+        "description": "Sinä, tämän instanssin ylläpitäjänä toimiva henkilö tai yritys, olet se ylläpitäjä, johon asiakirjat viittaavat. Mitään ei lähetetä minnekään; tiedot tulostetaan alla oleville sivuille."
+      },
+      "fieldLabels": {
+        "legalName": "Ylläpitäjän virallinen nimi",
+        "entityType": "Yksikön tyyppi",
+        "address": "Ylläpitäjän osoite",
+        "country": "Ylläpitäjän maa",
+        "contactEmail": "Yhteyssähköposti",
+        "privacyEmail": "Tietosuojasähköposti",
+        "dpoEmail": "Tietosuojavastaavan sähköposti",
+        "governingLaw": "Sovellettava laki",
+        "venue": "Riitojen käsittelypaikka",
+        "effectiveDate": "Voimaantulopäivä"
+      },
+      "publicPages": {
+        "title": "Julkiset sivut",
+        "description": "Linkitetty kirjautumissivulta, jakonäkymästä ja evästeilmoituksesta.",
+        "terms": "Käyttöehdot",
+        "acceptableUse": "Hyväksyttävän käytön käytäntö",
+        "privacy": "Tietosuojakäytäntö",
+        "cookies": "Evästekäytäntö",
+        "dataRetention": "Tietojen säilytys",
+        "security": "Turvallisuus",
+        "licenses": "Lisenssit ja kolmansien osapuolten ilmoitukset"
+      },
+      "form": {
+        "legalName": "Virallinen nimi",
+        "entityType": "Yksikön tyyppi",
+        "individual": "Yksityishenkilö / yksityinen elinkeinonharjoittaja",
+        "company": "Yritys / rekisteröity yksikkö",
+        "address": "Osoite",
+        "addressHint": "Tulostetaan käyttöehtoihin ja tietosuojakäytäntöön ylläpitäjän postiosoitteena.",
+        "country": "Maa",
+        "effectiveDate": "Voimaantulopäivä",
+        "contactEmail": "Yhteyssähköposti",
+        "privacyEmail": "Tietosuojasähköposti",
+        "privacyEmailHint": "Rekisteröityjen pyynnöt tulevat tänne; voi olla sama kuin yhteysosoite.",
+        "dpoEmail": "Tietosuojavastaavan sähköposti",
+        "dpoEmailHint": "Vain jos olet nimittänyt sellaisen.",
+        "governingLaw": "Sovellettava laki",
+        "governingLawHint": "Esimerkiksi ”Intian laki” tai ”Englannin ja Walesin laki”.",
+        "venue": "Riitojen käsittelypaikka",
+        "venueHint": "Esimerkiksi ”Bengalurun tuomioistuimet, Karnataka”.",
+        "submit": "Tallenna ylläpitäjän tiedot"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "Verkkolaskutus",
+      "title": "Verkkolaskutus",
+      "description": "Laskuttajaprofiilikohtaisesti: mikä liitin rekisteröi Intian verkkolaskut ja mitä eurooppalaista profiilia Factur-X- ja UBL-tiedostot noudattavat. Tunnistetiedot tallennetaan salattuina, eikä niitä näytetä enää uudelleen.",
+      "noProfiles": "Luo ensin laskuttajaprofiili.",
+      "profile": "Laskuttajaprofiili",
+      "enabled": "Käytössä",
+      "disabled": "Pois käytöstä",
+      "enabledHint": "Ota verkkolaskutus käyttöön tai pois käytöstä profiilikohtaisesti kohdassa Asetukset > Profiilit.",
+      "india": {
+        "title": "Intia (GST-verkkolasku, IRN)",
+        "description": "IRN rekisteröidään tässä valitun liittimen kautta; manuaalinen liitin ottaa portaalin vastauksen käsin.",
+        "connector": "Liitin",
+        "connectorNone": "Pois",
+        "connectorManual": "Manuaalinen (liitä IRP:n vastaus)",
+        "connectorNic": "NIC IRP API (sandbox tai tuotanto)",
+        "nicUnverified": "NIC-liitin noudattaa julkaistua rajapintaa ja on testattu vain tallennetuilla testiaineistoilla; sitä ei ole varmennettu oikeassa sandboxissa ennen kuin tunnistetiedot annetaan.",
+        "env": "Ympäristö",
+        "sandbox": "Sandbox",
+        "production": "Tuotanto",
+        "baseUrl": "Perus-URL",
+        "baseUrlHint": "Jätä tyhjäksi käyttääksesi ympäristön oletusarvoa.",
+        "clientId": "Asiakastunnus",
+        "clientSecret": "Asiakassalaisuus",
+        "username": "Käyttäjätunnus",
+        "password": "Salasana",
+        "gstin": "GSTIN",
+        "publicKey": "IRP:n julkinen avain (PEM)",
+        "publicKeyHint": "Lataa se portaalista kirjautumisen jälkeen; se suojaa IRP:lle lähetettävät tunnistetiedot.",
+        "publicKeyStored": "Tallennettu; jätä tyhjäksi, jos haluat säilyttää sen.",
+        "secretStored": "Tallennettu salattuna; jätä tyhjäksi säilyttääksesi sen.",
+        "secretEncrypted": "Tallennettu salattuna."
+      },
+      "eu": {
+        "title": "Eurooppa (Factur-X, UBL)",
+        "description": "EN 16931 on tässä versiossa ainoa profiili; Factur-X- ja UBL-lataukset käyttävät sitä.",
+        "profile": "Profiili",
+        "profileNone": "Pois",
+        "en16931": "EN 16931"
+      },
+      "save": "Tallenna verkkolaskutuksen asetukset"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API-avaimet skripteille, SDK:lle ja MCP-asiakkaille sekä curl-esimerkit.",
+      "title": "API",
+      "description": "Avaimet skripteille, SDK:lle ja MCP-asiakkaille. Avain voi tehdä enintään sen, mitä roolisi sallii; se näytetään vain kerran.",
+      "create": {
+        "title": "Luo avain",
+        "description": "Lähetä se muodossa <mono>Authorization: Bearer okv_…</mono>. Älä jätä sitä lähdekoodiin tai keskustelulokeihin; peruuta se alla, jos se vuotaa."
+      },
+      "keys": {
+        "title": "Avaimet",
+        "descriptionOwner": "Tämän instanssin kaikki avaimet; omistajat voivat peruuttaa minkä tahansa niistä.",
+        "descriptionOwn": "Omat avaimesi.",
+        "columns": {
+          "name": "Nimi",
+          "prefix": "Etuliite",
+          "scopes": "Oikeudet",
+          "owner": "Omistaja",
+          "lastUsed": "Viimeksi käytetty",
+          "expires": "Vanhenee",
+          "status": "Tila"
+        },
+        "empty": "Ei vielä API-avaimia.",
+        "never": "ei koskaan",
+        "revoked": "Peruutettu",
+        "expired": "Vanhentunut",
+        "revokeTitle": "Peruutetaanko {name}?",
+        "revokeDescription": "Tätä avainta käyttävät asiakkaat lakkaavat toimimasta heti.",
+        "activeCount": "{count, plural, one {# aktiivinen avain.} other {# aktiivista avainta.}}"
+      },
+      "examples": {
+        "title": "Esimerkkejä",
+        "description": "Korvaa <mono>$OKINVO_KEY</mono> avaimella. Versioitu REST API, sen OpenAPI-dokumentti (<mono>/api/openapi.json</mono>), TypeScript-SDK ja MCP-palvelin tulevat v1.1-suunnitelman seuraavien tehtävien mukana; tilan päätepiste toimii jo nyt.",
+        "rateLimit": "Rajan ylittävät kutsut vastaavat koodilla 429 ja <mono>Retry-After</mono>-otsakkeella (120 pyyntöä minuutissa avainta kohden). Avaimen oikeudet rajoittuvat omistajan nykyiseen rooliin."
+      },
+      "form": {
+        "copyKey": "Kopioi API-avain",
+        "name": "Nimi",
+        "namePlaceholder": "esim. kirjanpitoskripti",
+        "expires": "Vanhenee",
+        "in30Days": "30 päivän kuluttua",
+        "in90Days": "90 päivän kuluttua",
+        "inAYear": "Vuoden kuluttua",
+        "never": "Ei koskaan",
+        "scopes": "Oikeudet",
+        "submit": "Luo API-avain",
+        "creating": "Luodaan…"
+      },
+      "scopes": {
+        "invoicesRead": "Lue laskuja",
+        "invoicesCreate": "Luo ja anna laskuja",
+        "creditNotesRead": "Lue hyvityslaskuja",
+        "creditNotesCreate": "Luo ja anna hyvityslaskuja",
+        "catalogueRead": "Lue asiakkaita, palveluita ja tuotteita",
+        "documentsRead": "Lataa tallennettuja PDF- ja DOCX-kopioita",
+        "statusRead": "Lue instanssin tila"
+      }
+    },
+    "status": {
+      "metaTitle": "Tila",
+      "metaDescription": "Tämän instanssin versio, tietokanta, tallennustila, sähköposti ja varmuuskopioiden kunto.",
+      "title": "Tila",
+      "description": "Mitä tämä instanssi ajaa ja vastaavatko sen osat.",
+      "recheck": "Tarkista uudelleen",
+      "health": {
+        "ok": "OK",
+        "warning": "Varoitus",
+        "failed": "Epäonnistui",
+        "na": "Ei määritetty"
+      },
+      "overall": {
+        "ok": "Kaikki kunnossa",
+        "degraded": "Heikentynyt",
+        "failed": "Epäonnistui"
+      },
+      "version": "Koonti {hasSha, select, yes {<mono>{sha}</mono>} other {(sha tuntematon)}} · koottu {built} · Node <mono>{node}</mono> · käynnissä {uptime} · tarkistettu {checked}",
+      "dateUnknown": "(päivämäärä tuntematon)",
+      "uptime": {
+        "days": "{d} pv {h} t {m} min",
+        "hours": "{h} t {m} min",
+        "minutes": "{m} min"
+      },
+      "rows": {
+        "database": "Tietokanta",
+        "storage": "Tallennustila",
+        "rateLimiting": "Nopeusrajoitus",
+        "email": "Sähköposti",
+        "backups": "Varmuuskopiot"
+      },
+      "db": {
+        "detail": "{latency} ms · viimeisin migraatio <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # keskeneräistä migraatiota}}",
+        "noMigration": "ei mitään"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · koeobjektin kirjoitus, luku ja poisto {latency} ms:ssa",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono>-tallennus {store, select, memory {(yksi replika)} other {(jaettu replikoiden kesken)}}",
+      "smtp": {
+        "configured": "SMTP lähteestä {source, select, settings {the settings page} env {the environment} other {}} · viimeisin testi {lastTest} · viimeiset 24 t: {sent} lähetetty, {failed} epäonnistunut",
+        "none": "Ei SMTP-palvelinta; editori tarjoaa toiminnon ”Avaa sähköpostisovelluksessa”. <link>Määritä</link>"
+      },
+      "backups": {
+        "notWired": "Varmuuskopiopalvelua ei ole liitetty (BACKUP_STATUS_FILE ei ole asetettu).",
+        "noRun": "Varmuuskopiopalvelu on liitetty; ajoja ei ole vielä kirjattu.",
+        "ok": "Viimeisin ajo onnistui {finishedAt}{days, plural, =0 {} one { · säilytys # päivä} other { · säilytys # päivää}}",
+        "failed": "Viimeisin ajo epäonnistui: {error} {finishedAt}{days, plural, =0 {} one { · säilytys # päivä} other { · säilytys # päivää}}"
+      },
+      "footer": "Sama raportti on saatavilla JSON-muodossa osoitteessa <mono>/api/health/status</mono> valvontaa varten (kirjautunut istunto tai API-avain)."
+    },
+    "usage": {
+      "metaTitle": "Käyttö",
+      "metaDescription": "Sivunäytöt näkymää ja päivää kohti tässä instanssissa, laskettuna paikallisesti.",
+      "title": "Käyttö",
+      "description": "Kuinka usein kukin näkymä on avattu, laskettuna vain tässä instanssissa: ei evästeitä, ei osoitteita, mitään ei lähetetä minnekään.",
+      "last30Days": "Viimeiset 30 päivää",
+      "total": "{count, plural, =0 {Ei sivunäyttöjä} one {# sivunäyttö} other {# sivunäyttöä}}",
+      "off": "Laskenta on pois päältä. Aseta ANALYTICS_LOCAL=true laskeaksesi sivunäytöt tässä instanssissa.",
+      "empty": "Sivunäyttöjä ei ole vielä kirjattu.",
+      "columns": {
+        "day": "Päivä",
+        "path": "Näkymä",
+        "views": "Näytöt"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Tervetuloa",
+    "progress": "Edistyminen",
+    "steps": {
+      "aboutYou": "Sinusta",
+      "howYouUse": "Miten käytät sitä",
+      "allSet": "Valmista"
+    },
+    "step1": {
+      "title": "Kerro meille itsestäsi",
+      "subtitle": "Tämä asettaa oletuksesi; jokaista arvoa voi muuttaa myöhemmin Asetuksissa.",
+      "name": "Nimi",
+      "email": "Sähköposti",
+      "emailHint": "Kirjautumisidentiteettisi. Sen voi vaihtaa myöhemmin kohdasta Asetukset → Turvallisuus.",
+      "country": "Maa",
+      "currency": "Ensisijainen valuutta",
+      "currencyHint": "Käytetään uusissa profiileissa ja koontinäytössä, kunnes profiili on olemassa."
+    },
+    "step2": {
+      "title": "Miten käytät okinvoa?",
+      "subtitle": "Vain oletukset muuttuvat; mikään ei lukitu.",
+      "usage": "Käyttö",
+      "personal": "Henkilökohtainen laskutus",
+      "personalHint": "Freelance-työ omalla nimellä",
+      "business": "Yrityslaskutus",
+      "businessHint": "Rekisteröidyn yrityksen laskut",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "ALV-tunnus",
+        "other": "Verotunniste"
+      },
+      "taxQuestion": {
+        "IN": "Onko sinulla GSTIN?",
+        "GB": "Oletko ALV-rekisterissä?",
+        "other": "Onko sinulla verotunniste, joka tulostetaan laskuihin?"
+      }
+    },
+    "step3": {
+      "title": "Kaikki valmista",
+      "body": "Luo seuraavaksi ensimmäinen laskuttajaprofiilisi: nimi, osoite ja verotiedot, jotka tulostetaan laskuihisi. Olemme täyttäneet sen, mitä kerroit meille.",
+      "go": "Siirry profiileihin",
+      "opening": "Avataan…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Ehdot",
+      "privacy": "Tietosuoja",
+      "cookies": "Evästeet",
+      "security": "Turvallisuus"
+    },
+    "cookieNotice": {
+      "label": "Evästeilmoitus",
+      "body": "Käytämme vain ehdottoman välttämättömiä evästeitä: istuntoasi ja näyttöasetuksiasi. Ei analytiikkaa, ei seurantaa.",
+      "policy": "Evästekäytäntö",
+      "gotIt": "Selvä"
+    },
+    "nav": {
+      "label": "Oikeudelliset tiedot",
+      "cookies": "Evästeet",
+      "privacy": "Tietosuoja",
+      "terms": "Ehdot",
+      "acceptableUse": "Hyväksyttävä käyttö",
+      "retention": "Säilytys",
+      "security": "Turvallisuus",
+      "licences": "Lisenssit"
+    },
+    "operatorNotice": "okinvo on itse ylläpidettävä ohjelmisto; tämän instanssin ylläpitäjä vastaa sen käytöstä.",
+    "doc": {
+      "effectiveOn": "Voimassa <mono>{date}</mono> alkaen"
+    },
+    "toc": {
+      "label": "Sisältö"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Ylläpitäjän virallinen nimi",
+        "entityType": "Yksikön tyyppi",
+        "address": "Ylläpitäjän osoite",
+        "country": "Ylläpitäjän maa",
+        "contactEmail": "Yhteyssähköposti",
+        "privacyEmail": "Tietosuojasähköposti",
+        "dpoEmail": "Tietosuojavastaavan sähköposti",
+        "governingLaw": "Sovellettava laki",
+        "venue": "Riitojen käsittelypaikka",
+        "effectiveDate": "Voimaantulopäivä"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Ei löytynyt",
+      "title": "Tässä osoitteessa ei ole mitään",
+      "body": "Linkki voi olla vanhentunut, tai asiakirjaa, johon se osoitti, ei koskaan annettu."
+    },
+    "forbidden": {
+      "metaTitle": "Ei sallittu",
+      "title": "Tämä tili ei voi tehdä sitä",
+      "body": "Roolisi ei salli tätä. Pyydä omistajalta pääsy tai kirjaudu tilillä, jolla se on."
+    },
+    "error": {
+      "title": "Jokin meni pieleen",
+      "body": "Tämä pyyntö ei muuttanut mitään. Yritä uudelleen; jos ongelma toistuu, palvelimen lokissa on lisätietoja.",
+      "digest": "virhe {digest}",
+      "generic": "virhe"
+    },
+    "appNotFound": {
+      "title": "Ei löytynyt",
+      "body": "Tätä tietuetta ei ole olemassa, tai se poistettiin, kun katselit sitä.",
+      "back": "Takaisin koontinäyttöön"
+    },
+    "validation": {
+      "required": "pakollinen",
+      "tooLong": "enintään {max} merkkiä",
+      "invalidEmail": "on oltava kelvollinen sähköpostiosoite",
+      "invalidDate": "on oltava kalenteripäivämäärä muodossa VVVV-KK-PP",
+      "invalidAmount": "on oltava luku",
+      "wholeNumber": "on oltava kokonaisluku",
+      "greaterThanZero": "on oltava nollaa suurempi",
+      "fixFields": "Korjaa korostetut kentät.",
+      "charset": "Vain tavalliset näppäimistömerkit ovat sallittuja."
+    }
+  },
+  "verify": {
+    "metaTitle": "Vahvista asiakirja",
+    "metaDescription": "Tarkista, että lähettäjä on antanut laskun tai hyvityslaskun eikä sitä ole muutettu.",
+    "heading": "Asiakirjan vahvistus",
+    "rateLimited": "Liian monta tarkistusta tästä osoitteesta. Yritä uudelleen minuutin kuluttua.",
+    "notFound": {
+      "title": "Asiakirjaa ei löydy",
+      "body": "Tämä linkki ei vastaa mitään annettua asiakirjaa. Tarkista QR-koodi tai saamasi linkki tai ota yhteyttä laskuttajaan."
+    },
+    "status": {
+      "void": "Mitätöity",
+      "valid": "Voimassa"
+    },
+    "issuedBy": "Antanut",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Annettu vastaanottajalle",
+    "issueDate": "Antopäivä",
+    "total": "Yhteensä",
+    "voided": "Laskuttaja on mitätöinyt tämän asiakirjan, eikä se ole enää voimassa.",
+    "storedCopies": {
+      "title": "Tallennetut kopiot",
+      "description": "Laskuttajan hallussa olevan jokaisen PDF-version SHA-256. Valitse oma kopiosi verrattavaksi selaimessasi: mitään ei lähetetä.",
+      "empty": "PDF:ää ei ole vielä luotu.",
+      "protectedVersion": "Salasanasuojattu kopio {version}",
+      "version": "Versio {version}"
+    },
+    "check": {
+      "label": "Tarkista kopiosi",
+      "hashing": "Lasketaan tiivistettä…",
+      "match": "Kopiosi vastaa täsmälleen versiota {version}.",
+      "mismatch": "Kopiosi ei vastaa mitään tallennettua versiota."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Jaettu asiakirja",
+      "metaDescription": "Sinulle jaettu asiakirja: katso se verkossa ja lataa PDF.",
+      "rateLimited": "Liian monta pyyntöä tästä osoitteesta. Yritä uudelleen minuutin kuluttua.",
+      "unavailable": {
+        "title": "Tämä linkki ei ole käytettävissä",
+        "body": "Se on voinut vanhentua, tai laskuttaja on peruuttanut sen. Pyydä heiltä uusi."
+      },
+      "lockedTitleInvoice": "Lasku lähettäjältä {issuer}",
+      "lockedTitleCreditNote": "Hyvityslasku lähettäjältä {issuer}",
+      "lockedBody": "Tämä asiakirja on salasanasuojattu. Syötä salasana, jonka laskuttaja antoi sinulle.",
+      "void": "Mitätöity",
+      "protectedPdf": "PDF aukeaa samalla salasanalla. Sitä voi lukea ja tulostaa; kopiointi ja muokkaus on estetty.",
+      "byline": "Lähettäjä {issuer}, vastaanottaja {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Salasana",
+      "limited": "Liian monta yritystä. Odota viisitoista minuuttia ja yritä uudelleen.",
+      "wrong": "Salasana ei ole oikein.",
+      "submit": "Avaa asiakirja"
+    },
+    "dialog": {
+      "trigger": "Jaa",
+      "title": "Jaa tämä asiakirja",
+      "description": "Kuka tahansa linkin saanut voi katsella ja ladata sen, kunnes se vanhenee tai peruutat sen. Salasana suojaa myös itse PDF:n: se aukeaa salasanalla, ja sitä voi lukea ja tulostaa, mutta ei muokata tai kopioida.",
+      "link": "Linkki",
+      "copyLink": "Kopioi linkki",
+      "password": "Salasana",
+      "copyPassword": "Kopioi salasana",
+      "sendSeparately": "Lähetä salasana erillään linkistä. Näet sen uudelleen alla olevasta luettelosta.",
+      "copy": "Kopioi",
+      "copied": "Kopioitu",
+      "expires": "Vanhenee",
+      "expiry": {
+        "d7": "7 päivän kuluttua",
+        "d30": "30 päivän kuluttua",
+        "d90": "90 päivän kuluttua",
+        "never": "Ei koskaan"
+      },
+      "protection": "Suojaus",
+      "protectionOptions": {
+        "auto": "Salasana: luo salalause",
+        "manual": "Salasana: valitsen itse",
+        "none": "Ei salasanaa (avoin linkki)"
+      },
+      "passwordHint": "Vähintään 8 merkkiä.",
+      "strength": "Vahvuus: {label}",
+      "strengthLabels": {
+        "veryWeak": "erittäin heikko",
+        "weak": "heikko",
+        "fair": "kohtalainen",
+        "good": "hyvä",
+        "strong": "vahva"
+      },
+      "creating": "Luodaan…",
+      "create": "Luo linkki",
+      "activeLinks": "Aktiiviset linkit",
+      "passwordProtected": "Salasanasuojattu",
+      "openLink": "Avaa linkki",
+      "linkExpires": "{kind} · vanhenee {date}",
+      "linkNeverExpires": "{kind} · ei vanhene koskaan",
+      "revoke": {
+        "title": "Peruutetaanko tämä linkki?",
+        "description": "Linkki lakkaa toimimasta heti kaikilta, joilla se on.",
+        "label": "Peruuta"
+      },
+      "linkPassword": "Salasana: <code>{password}</code>",
+      "counts": "{views, plural, one {# katselu} other {# katselua}} · {downloads, plural, one {# lataus} other {# latausta}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Hyvityslaskut",
+      "title": "Hyvityslaskut",
+      "description": "Laaditaan annettuja laskuja vastaan; kukin pienentää laskunsa saldoa annettaessa.",
+      "newCreditNote": "Uusi hyvityslasku",
+      "filters": {
+        "from": "Alkaen",
+        "to": "Asti",
+        "issuer": "Laskuttaja",
+        "client": "Asiakas",
+        "status": "Tila",
+        "search": "Haku",
+        "all": "Kaikki",
+        "searchPlaceholder": "Numero, syy, asiakas",
+        "go": "Siirry"
+      },
+      "statuses": {
+        "DRAFT": "Luonnos",
+        "ISSUED": "Annettu",
+        "SENT": "Lähetetty",
+        "VOID": "Mitätöity"
+      },
+      "empty": {
+        "title": "Ei vielä hyvityslaskuja",
+        "description": "Avaa annettu lasku ja valitse ”Hyvityslasku” pienentääksesi sen velkaa."
+      },
+      "noMatch": "Mikään hyvityslasku ei vastaa näitä suodattimia.",
+      "columns": {
+        "number": "Numero",
+        "against": "Laskuun",
+        "client": "Asiakas",
+        "issueDate": "Antopäivä",
+        "reason": "Syy",
+        "total": "Yhteensä",
+        "status": "Tila"
+      },
+      "draft": "Luonnos"
+    },
+    "new": {
+      "metaTitle": "Uusi hyvityslasku",
+      "title": "Uusi hyvityslasku",
+      "description": "Hyvityslasku laaditaan annettua laskua vastaan ja se pienentää laskun saldoa.",
+      "nothingToCredit": {
+        "title": "Ei mitään hyvitettävää",
+        "description": "Hyvityslasku vaatii annetun laskun, jolla on avoin saldo.",
+        "openInvoices": "Avaa laskut"
+      },
+      "whichInvoice": "Mikä lasku?",
+      "invoice": "Lasku",
+      "invoiceOption": "{number} · {client} · saldo {balance}",
+      "issuedOnly": "Hyvityslaskuja laaditaan vain annettuja laskuja vastaan.",
+      "invoiceFallback": "Lasku"
+    },
+    "edit": {
+      "metaTitle": "Muokkaa hyvityslaskua",
+      "title": "Muokkaa hyvityslaskuluonnosta",
+      "immutable": "Annetut hyvityslaskut ovat muuttumattomia.",
+      "draft": "Luonnos"
+    },
+    "detail": {
+      "metaTitle": "Hyvityslasku",
+      "draftTitle": "Hyvityslaskuluonnos",
+      "meta": "{client} · laskua <invoice>{number}</invoice> vastaan · annettu <mono>{date}</mono>",
+      "previewPdf": "Esikatsele PDF",
+      "issue": {
+        "title": "Annetaanko tämä hyvityslasku?",
+        "description": "Numero varataan, laskun saldoa pienennetään ja asiakirjasta tulee muuttumaton.",
+        "label": "Anna"
+      },
+      "deleteDraft": {
+        "title": "Poistetaanko tämä luonnos?"
+      },
+      "sendByEmail": "Lähetä sähköpostitse",
+      "markSent": {
+        "title": "Merkitäänkö lähetetyksi?",
+        "label": "Merkitse lähetetyksi"
+      },
+      "void": {
+        "title": "Mitätöidäänkö tämä hyvityslasku?",
+        "description": "Laskun saldo palautetaan; numeroa ei koskaan käytetä uudelleen.",
+        "reason": "Syy",
+        "label": "Mitätöi"
+      },
+      "voided": "Mitätöity {date}: {reason}",
+      "amounts": {
+        "title": "Summat",
+        "reason": "Syy",
+        "creditAmount": "Hyvityssumma",
+        "total": "Yhteensä",
+        "balanceNow": "Laskun saldo nyt",
+        "sent": "Lähetetty"
+      },
+      "documents": {
+        "title": "Tallennetut asiakirjat",
+        "description": "Jokainen versio säilytetään; vahvistussivulla luetellaan kaikki tiivisteet.",
+        "regenerateTitle": "Luodaanko uusi PDF-versio?",
+        "generate": "Luo",
+        "newVersion": "Uusi versio",
+        "renderedOnFirstDownload": "PDF luodaan ensimmäisellä latauksella.",
+        "protectedCopy": "Salasanasuojattu kopio {version}",
+        "version": "Versio {version}",
+        "verificationLink": "Vahvistuslinkki: <link>{path}…</link>"
+      },
+      "draftsPreview": "Luonnosten esikatselu on reaaliaikaisesti editorissa."
+    },
+    "send": {
+      "metaTitle": "Lähetä hyvityslasku",
+      "title": "Lähetä <mono>{number}</mono>",
+      "previousSends": "Aiemmat lähetykset"
+    },
+    "builder": {
+      "against": "Laskua <mono>{number}</mono> vastaan",
+      "summary": "{client} · yhteensä {total} · saldo {balance} · verotettava tila ≈ {headroom}",
+      "issueDate": "Antopäivä",
+      "creditAmount": "Hyvityssumma (ilman veroa)",
+      "creditAmountHint": "Vero jaetaan laskun verorivien suhteessa",
+      "reason": "Syy",
+      "picker": {
+        "title": "Laske laskun riveistä",
+        "description": "Valitse kokonaisia rivejä tai prosenttiosuus; tämä vain täyttää yllä olevan summan.",
+        "line": "Rivi",
+        "subtotal": "Välisumma",
+        "credit": "Hyvitys",
+        "percent": "%",
+        "creditLine": "Hyvitysrivi {position}",
+        "percentOfLine": "Prosenttiosuus rivistä {position}"
+      },
+      "saveDraft": "Tallenna luonnos",
+      "issuing": "Annetaan…",
+      "saveAndIssue": "Tallenna ja anna"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Vastaanotettu maksu",
+        "REFUND": "Annettu palautus",
+        "WRITE_OFF": "Poisto"
+      },
+      "editTitle": "Muokkaa merkintää",
+      "recordTitle": "Kirjaa maksu",
+      "description": "Summat ovat laskun valuutassa ({currency}); pidätetty TDS kuuluu kohdistettuun summaan.",
+      "kind": "Laji",
+      "date": "Päivämäärä",
+      "amountRefunded": "Palautettu summa (negatiivinen)",
+      "amountApplied": "Kohdistettu summa",
+      "refundHint": "Syötä negatiivinen summa, esim. -500",
+      "tdsDeducted": "Pidätetty TDS",
+      "tdsHint": "Asiakkaan pidättämä vero; lasketaan mukaan kohdistettuun summaan",
+      "bankFees": "Pankkikulut",
+      "receivedInto": "Vastaanotettu tilille",
+      "noMethod": "-",
+      "reference": "Viite",
+      "referenceHint": "UTR, tapahtumatunnus, šekin numero",
+      "otherCurrency": "Vastaanotettu toisessa valuutassa",
+      "amountReceived": "Vastaanotettu summa",
+      "receivedCurrency": "Vastaanotettu valuutta",
+      "exchangeRate": "Valuuttakurssi",
+      "exchangeRateHint": "1 vastaanotettu yksikkö = ? {currency}",
+      "notes": "Huomautukset",
+      "receiptHint": "PNG, JPEG, WebP tai PDF enintään 10 Mt",
+      "receipts": "Kuitit ja laskut",
+      "receiptN": "Kuitti {n}",
+      "removeReceipt": "Poista kuitti {n}",
+      "saveChanges": "Tallenna muutokset",
+      "record": "Kirjaa"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Laskutetaan",
+      "shipTo": "Toimitusosoite",
+      "invoice": "Lasku",
+      "creditNote": "Hyvityslasku",
+      "issueDate": "Antopäivä",
+      "dueDate": "Eräpäivä",
+      "number": "Numero",
+      "description": "Kuvaus",
+      "sacHsn": "SAC/HSN",
+      "qty": "Määrä",
+      "unit": "Yksikkö",
+      "rate": "Hinta",
+      "tax": "Vero",
+      "amount": "Summa",
+      "subtotal": "Välisumma",
+      "discount": "Alennus",
+      "taxable": "Verotettava summa",
+      "total": "Yhteensä",
+      "amountDue": "Maksettava summa",
+      "tdsExpected": "Odotettu TDS",
+      "netExpected": "Odotettu nettosumma",
+      "rounding": "Pyöristys",
+      "paymentDetails": "Maksutiedot",
+      "notes": "Huomautukset",
+      "terms": "Ehdot",
+      "placeOfSupply": "Toimituspaikka",
+      "poReference": "Tilausviite (PO)",
+      "amountInWords": "Summa sanoin",
+      "signature": "Valtuutettu allekirjoittaja"
+    },
+    "title": {
+      "taxInvoice": "VEROLASKU",
+      "billOfSupply": "TOIMITUSASIAKIRJA",
+      "invoice": "LASKU",
+      "creditNote": "HYVITYSLASKU"
+    },
+    "text": {
+      "pageOf": "Sivu {page}/{total}",
+      "scanToVerify": "Skannaa tarkistaaksesi",
+      "taxId": "Verotunniste",
+      "void": "MITÄTÖITY",
+      "draftWatermark": "LUONNOS - ei ole verolasku",
+      "paymentTermsDays": "{days} päivää",
+      "irn": "IRN",
+      "ackNo": "Vahvistusnro",
+      "ackDate": "Vahvistuspäivä",
+      "einvoiceCancelled": "VERKKOLASKU PERUTTU"
+    },
+    "ui": {
+      "pageEstimate": "noin {count, plural, one {# sivu} other {# sivua}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Viesti",
+      "description": "Esitäytetty laskuttajaprofiilin mallipohjista. Mitään ei lähetetä ennen kuin napsautat Lähetä.",
+      "to": "Vastaanottaja",
+      "toHint": "Pilkuin erotettuna",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Otsikko",
+      "body": "Viesti",
+      "bodyHint": "Pelkkää tekstiä; linkit muuttuvat napsautettaviksi",
+      "attachment": "Liite",
+      "attachmentHint": "Tallennettu kopio nimellä <mono>{name}</mono> (tai .docx); sen sisältöä ei voi muuttaa.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Lähetetään…",
+      "send": "Lähetä",
+      "openInMailApp": "Avaa sähköpostisovelluksessa",
+      "noSmtp": "SMTP-palvelinta ei ole määritetty (Asetukset → Sähköposti). Avaa luonnos sähköpostisovelluksessa, liitä ladattu PDF ja merkitse se sitten alla lähetetyksi.",
+      "markAsSent": "Merkitse lähetetyksi"
+    },
+    "sentLog": {
+      "when": "Milloin",
+      "document": "Asiakirja",
+      "to": "Vastaanottaja",
+      "subject": "Otsikko",
+      "status": "Tila",
+      "empty": "Mitään ei ole vielä lähetetty.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "lähetetty",
+        "FAILED": "epäonnistui",
+        "MANUAL": "manuaalinen"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Hei, {name}",
+    "fiscalYear": "Tilikausi {year}",
+    "fiscalYearWithBase": "Tilikausi {year} · perusvaluutta {currency} ({profile})",
+    "newCreditNote": "Uusi hyvityslasku",
+    "welcomeTitle": "Tervetuloa palveluun {appName}",
+    "welcomeDescription": "Aloita luomalla laskuttajaprofiili, josta laskutat, ja lisää sitten asiakas ja ensimmäinen laskusi.",
+    "createProfile": "Luo profiilisi",
+    "tiles": {
+      "outstanding": "Avoinna",
+      "overdue": "Erääntynyt",
+      "billedThisFy": "Laskutettu tällä tilikaudella",
+      "receivedThisFy": "Saatu tällä tilikaudella",
+      "drafts": "Luonnokset",
+      "invoiceCount": "{count, plural, one {# lasku} other {# laskua}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Maksut miinus palautukset, kirjatulla kurssilla",
+      "awaitingIssue": "odottaa antamista",
+      "nothingPending": "ei mitään odottamassa"
+    },
+    "recentInvoices": "Viimeisimmät laskut",
+    "allInvoices": "Kaikki laskut",
+    "noInvoicesYet": "Ei vielä laskuja.",
+    "columns": {
+      "number": "Numero",
+      "client": "Asiakas",
+      "issued": "Annettu"
+    },
+    "topClients": "Suurimmat avoimet saldot asiakkaittain",
+    "nothingOutstanding": "Ei avoimia saldoja."
+  },
+  "exports": {
+    "export": "Vie",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Laskut",
+      "newInvoice": "Uusi lasku",
+      "draft": "Luonnos",
+      "aDraft": "luonnos",
+      "statuses": {
+        "draft": "Luonnos",
+        "issued": "Annettu",
+        "sent": "Lähetetty",
+        "partiallyPaid": "Osittain maksettu",
+        "paid": "Maksettu",
+        "overdue": "Erääntynyt",
+        "void": "Mitätöity"
+      },
+      "lifecycle": {
+        "draft": "luonnos",
+        "issued": "annettu",
+        "void": "mitätöity"
+      },
+      "units": {
+        "hour": "Tunti",
+        "day": "Päivä",
+        "fixed": "Kiinteä",
+        "milestone": "Välitavoite",
+        "unit": "Yksikkö"
+      },
+      "unitsLower": {
+        "hour": "tunti",
+        "day": "päivä",
+        "fixed": "kiinteä",
+        "milestone": "välitavoite",
+        "unit": "yksikkö"
+      },
+      "supplyTypes": {
+        "intraState": "osavaltion sisäinen",
+        "interState": "osavaltioiden välinen",
+        "exportLut": "vienti LUT",
+        "exportWithTax": "vienti verolla",
+        "reverseCharge": "käänteinen verovelvollisuus",
+        "notApplicable": "ei sovellu"
+      }
+    },
+    "list": {
+      "description": "Luonnokset, annetut ja mitätöidyt laskut; tilat johdetaan maksuista ja eräpäivistä.",
+      "fiscalYear": "Tilikausi",
+      "issuer": "Laskuttaja",
+      "client": "Asiakas",
+      "searchPlaceholder": "Numero, tilausnumero, asiakas",
+      "emptyTitle": "Ei vielä laskuja",
+      "emptyDescription": "Laadi ensimmäinen laskusi: valitse asiakas, lisää rivit, seuraa esikatselua ja anna lasku sitten.",
+      "columns": {
+        "number": "Numero",
+        "client": "Asiakas",
+        "issuer": "Laskuttaja",
+        "issueDate": "Antopäivä",
+        "due": "Eräpäivä",
+        "balance": "Saldo"
+      },
+      "noMatches": "Mikään lasku ei vastaa näitä suodattimia.",
+      "count": "{count, plural, one {# lasku} other {# laskua}}",
+      "countPaged": "{count, plural, one {# lasku} other {# laskua}} · sivu {page} / {pages}",
+      "register": "rekisteri",
+      "einvoice": "Verkkolasku",
+      "einvoiceFilters": {
+        "registered": "IRN rekisteröity",
+        "none": "Ei rekisteröity",
+        "cancelled": "IRN peruttu"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Luo ensin laskuttajaprofiili",
+      "noProfileDescription": "Lasku annetaan oikeudellisesta identiteetistä: määritä profiilisi verotunnuksineen ja numerointeineen.",
+      "createProfile": "Luo profiili"
+    },
+    "edit": {
+      "metaTitle": "Muokkaa laskua",
+      "title": "Muokkaa luonnosta",
+      "immutableFlash": "Annetut laskut ovat muuttumattomia. Korjaa se toiminnolla ”Mitätöi ja anna uudelleen”."
+    },
+    "detail": {
+      "metaTitle": "Lasku",
+      "draftInvoice": "Laskuluonnos",
+      "issuedDue": "Annettu <mono>{issued}</mono>, erääntyy <mono>{due}</mono>",
+      "replaces": "Korvaa laskun {number}",
+      "replacedBy": "Korvattu laskulla {number}",
+      "previewPdf": "Esikatsele PDF",
+      "downloadEInvoice": "Lataa e-laskun JSON",
+      "issueTitle": "Annetaanko tämä lasku?",
+      "issueDescription": "Numero varataan ja asiakirjasta tulee muuttumaton.",
+      "issue": "Anna",
+      "deleteDraftTitle": "Poistetaanko tämä luonnos?",
+      "sendByEmail": "Lähetä sähköpostitse",
+      "recordPayment": "Kirjaa maksu",
+      "progress": {
+        "title": "Maksun eteneminen",
+        "description": "Missä vaiheessa tämä lasku on, myöntämisestä arkistoituun kuittiin.",
+        "issued": "Annettu",
+        "sent": "Lähetetty",
+        "payment": "Maksu kirjattu",
+        "paymentOn": "Maksu <mono>{amount}</mono> kirjattu <mono>{date}</mono>",
+        "paid": "Maksettu kokonaan",
+        "receipt": "Kuitti liitetty",
+        "done": "valmis",
+        "pending": "odottaa"
+      },
+      "creditNote": "Hyvityslasku",
+      "markSentTitle": "Merkitäänkö lähetetyksi?",
+      "markSentDescription": "Kirjaa, että asiakas on saanut tämän laskun.",
+      "markSent": "Merkitse lähetetyksi",
+      "voidReissueTitle": "Mitätöidäänkö ja annetaanko uudelleen?",
+      "voidReissueDescription": "Alkuperäinen mitätöidään ja samansisältöinen linkitetty luonnos avataan muokattavaksi.",
+      "voidReissue": "Mitätöi ja anna uudelleen",
+      "voidTitle": "Mitätöidäänkö tämä lasku?",
+      "voidDescription": "Mahdollista vain ilman kirjattuja maksuja; numeroa ei koskaan käytetä uudelleen.",
+      "void": "Mitätöi",
+      "voided": "Mitätöity {date}: {reason}",
+      "amounts": "Summat",
+      "subtotal": "Välisumma",
+      "discount": "Alennus",
+      "discountPercent": "Alennus ({percent})",
+      "rounding": "Pyöristys",
+      "tdsExpected": "Odotettu TDS ({percent})",
+      "paid": "Maksettu",
+      "credited": "Hyvitetty",
+      "balanceDue": "Maksettava saldo",
+      "supply": "Toimitus",
+      "fxToBase": "Kurssi perusvaluuttaan",
+      "poReference": "Tilausviite",
+      "sent": "Lähetetty",
+      "lineItems": "Laskurivit",
+      "columns": {
+        "description": "Kuvaus",
+        "sacHsn": "SAC/HSN",
+        "qty": "Määrä",
+        "rate": "Hinta",
+        "tax": "Vero",
+        "amount": "Summa"
+      },
+      "creditNotes": "Hyvityslaskut",
+      "storedDocuments": "Tallennetut asiakirjat",
+      "storedDocumentsHint": "Jokainen versio säilytetään; vahvistussivulla luetellaan kaikki tiivisteet.",
+      "regenerateTitle": "Luodaanko uusi PDF-versio?",
+      "regenerateDescription": "Luodaan uudelleen jäädytetystä tilannekuvasta (esimerkiksi renderöijän korjauksen jälkeen). Aiemmat versiot säilyvät.",
+      "regenerate": "Luo",
+      "newVersion": "Uusi versio",
+      "renderedOnFirstDownload": "PDF luodaan ensimmäisellä latauksella.",
+      "protectedCopy": "Salasanasuojattu kopio {version}",
+      "version": "Versio {version}",
+      "sizeKb": "{size} kt",
+      "verificationLink": "Vahvistuslinkki:",
+      "draftPreviewHint": "Luonnosten esikatselu on reaaliaikaisesti editorissa; avaa <link>vesileimattu PDF</link> nähdäksesi sivun.",
+      "einvoice": {
+        "title": "Verkkolasku (Intia)",
+        "description": "Tämän laskun rekisteröinti Invoice Registration Portal -portaaliin; rekisteröidylle asiakirjalle tulostuvat sen IRN ja portaalin allekirjoitettu QR-koodi.",
+        "connector": "Liitin",
+        "connectors": {
+          "manual": "Manuaalinen",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Tälle profiilille ei ole määritetty liitintä kohdassa Asetukset > Verkkolaskutus.",
+        "statuses": {
+          "none": "Ei rekisteröity",
+          "generated": "JSON luotu",
+          "registered": "Rekisteröity",
+          "cancelled": "Peruttu",
+          "failed": "Rekisteröinti epäonnistui"
+        },
+        "irn": "IRN",
+        "ackNo": "Vahvistusnro",
+        "ackDate": "Vahvistuspäivä",
+        "cancelReason": "Peruutus",
+        "generate": "Luo IRN",
+        "pasteLabel": "IRP:n vastaus",
+        "pasteHint": "Liitä JSON, jonka portaali tai GSP palautti tämän laskun verkkolasku-JSONille (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Tallenna IRN",
+        "cancelReasonLabel": "Peruutuksen syy",
+        "cancelReasons": {
+          "1": "Kaksoiskappale",
+          "2": "Tietojen syöttövirhe",
+          "3": "Tilaus peruttu",
+          "4": "Muu"
+        },
+        "cancel": "Peruuta IRN",
+        "cancelWindow": "Portaali sallii peruutuksen 24 tunnin kuluessa vahvistuksesta."
+      }
+    },
+    "history": {
+      "metaTitle": "Laskun historia",
+      "title": "Historia <mono>{number}</mono>",
+      "reissueChain": "Uudelleenantojen ketju",
+      "replaces": "Korvaa laskun <link>{number}</link>",
+      "replacedBy": "Korvattu laskulla <link>{number}</link>",
+      "auditTrail": "Tarkastusjälki",
+      "columns": {
+        "when": "Milloin",
+        "who": "Kuka",
+        "action": "Toiminto",
+        "summary": "Yhteenveto"
+      },
+      "noEvents": "Ei vielä tapahtumia.",
+      "system": "Järjestelmä",
+      "emails": "Sähköpostit"
+    },
+    "payments": {
+      "title": "Maksut",
+      "description": "{client} · yhteensä {total}",
+      "backToInvoice": "Takaisin laskuun",
+      "ledger": "Kirja",
+      "columns": {
+        "date": "Päivämäärä",
+        "kind": "Laji",
+        "applied": "Kohdistettu",
+        "tds": "TDS",
+        "received": "Vastaanotettu",
+        "reference": "Viite",
+        "balance": "Saldo"
+      },
+      "noPayments": "Maksuja ei ole vielä kirjattu.",
+      "kinds": {
+        "payment": "Maksu",
+        "refund": "Palautus",
+        "writeOff": "Poisto"
+      },
+      "receipt": "Kuitti",
+      "receiptN": "Kuitti {n}",
+      "deleteEntryTitle": "Poistetaanko tämä merkintä?",
+      "deleteEntryDescription": "Laskun saldo lasketaan uudelleen.",
+      "totals": "Summat",
+      "invoiceTotal": "Laskun summa",
+      "credited": "Hyvitetty",
+      "refunds": "Palautukset",
+      "writeOffs": "Poistot",
+      "tdsDeducted": "Pidätetty TDS",
+      "bankFees": "Pankkikulut",
+      "balanceDue": "Maksettava saldo",
+      "onlyIssued": "Vain annetut laskut ottavat vastaan maksuja."
+    },
+    "send": {
+      "metaTitle": "Lähetä lasku",
+      "title": "Lähetä <mono>{number}</mono>",
+      "alreadySent": "On jo merkitty lähetetyksi; uusi lähetys lisää uuden lokimerkinnän.",
+      "previousSends": "Aiemmat lähetykset"
+    },
+    "builder": {
+      "parties": "Osapuolet",
+      "issuerProfile": "Laskuttajaprofiili",
+      "client": "Asiakas",
+      "archivedOption": "{label} (arkistoitu)",
+      "issueDate": "Antopäivä",
+      "dueDate": "Eräpäivä",
+      "fxRate": "Kurssi perusvaluuttaan",
+      "fxHint": "1 {currency} = ? {base} (vain raportointiin)",
+      "poReference": "Tilausviite",
+      "lineItems": "Laskurivit",
+      "lineItemsHint": "Valitse luettelosta kopioidaksesi sen arvot tai kirjoita rivi.",
+      "taxDiscountTds": "Vero, alennus ja TDS",
+      "taxRegime": "Verojärjestelmä",
+      "regimes": {
+        "indiaGst": "Intian GST",
+        "ukVat": "Britannian ALV",
+        "usSalesTax": "Yhdysvaltain myyntivero",
+        "none": "Ei veroa"
+      },
+      "reverseCharge": "Käänteinen verovelvollisuus",
+      "reverseChargeHint": "Veron maksaa vastaanottaja",
+      "discount": "Alennus",
+      "percent": "Prosentti",
+      "amount": "Summa",
+      "rounding": "Pyöristyksen oikaisu",
+      "roundingHint": "Valinnainen, kokonaiseen yksikköön; oltava alle 1",
+      "round": "Pyöristä",
+      "tdsRate": "Odotettu TDS-prosentti (%)",
+      "tdsRateHint": "Tiedoksi; tulostetaan, kun TDS-erittely on päällä",
+      "paymentMethods": "Maksutavat",
+      "paymentMethodsHint": "Tulostetaan valintajärjestyksessä.",
+      "noPaymentMethods": "Ei aktiivisia maksutapoja. <link>Lisää yksi</link>.",
+      "whatPrints": "Mitä tulostetaan",
+      "whatPrintsHint": "Lähtee laskuttajaprofiilin oletuksista.",
+      "documentLanguage": "Asiakirjan kieli",
+      "documentLanguageHint": "Otsikot, päivämäärät ja summat tulostetaan tällä kielellä; asiakkaan valinta, muuten profiilin kieli.",
+      "notesAndTerms": "Huomautukset ja ehdot",
+      "notes": "Huomautukset",
+      "terms": "Ehdot",
+      "saveDraft": "Tallenna luonnos",
+      "issuing": "Annetaan…",
+      "saveAndIssue": "Tallenna ja anna",
+      "subtotal": "Välisumma",
+      "tax": "Vero",
+      "tdsExpected": "Odotettu TDS",
+      "netExpected": "Odotettu netto"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Lisää luettelosta…",
+      "services": "Palvelut",
+      "products": "Tuotteet",
+      "addLine": "Lisää rivi",
+      "columns": {
+        "description": "Kuvaus",
+        "sacHsn": "SAC/HSN",
+        "qty": "Määrä",
+        "unit": "Yksikkö",
+        "rate": "Hinta",
+        "taxPercent": "Vero %"
+      },
+      "aria": {
+        "description": "Rivin {line} kuvaus",
+        "sacHsn": "Rivin {line} SAC/HSN",
+        "quantity": "Rivin {line} määrä",
+        "unit": "Rivin {line} yksikkö",
+        "rate": "Rivin {line} hinta",
+        "taxRate": "Rivin {line} verokanta"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Vapautettu",
+      "moveUp": "Siirrä ylös",
+      "moveDown": "Siirrä alas",
+      "removeLine": "Poista rivi",
+      "shortcutHint": "Ctrl/⌘+Enter kuvauskentässä lisää rivin.",
+      "addFromCatalogueAria": "Lisää luettelosta"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Laskuttajan tiedot",
+        "client": "Asiakkaan tiedot",
+        "document": "Asiakirjan osiot"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Kauppanimi",
+        "showDesignation": "Titteli",
+        "showEmail": "Sähköposti",
+        "showPhone": "Puhelin",
+        "showWebsite": "Verkkosivusto",
+        "showFullAddress": "Koko osoite",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Allekirjoitus",
+        "showStamp": "Leima",
+        "showContactPerson": "Yhteyshenkilö",
+        "showBillingAddress": "Laskutusosoite",
+        "showShippingAddress": "Toimitusosoite",
+        "showTaxIdentifier": "Verotunniste",
+        "showPlaceOfSupply": "Toimituspaikka",
+        "showDueDate": "Eräpäivä",
+        "showPaymentTerms": "Maksuehdot",
+        "showSacCodeColumn": "SAC-koodin sarake",
+        "showQuantityColumn": "Määräsarake",
+        "showUnitPriceColumn": "Yksikköhintasarake",
+        "showTaxColumn": "Verosarake",
+        "showTdsBreakdown": "TDS-erittely",
+        "showQrVerification": "QR-vahvistus",
+        "showNotes": "Huomautukset",
+        "showTerms": "Ehdot",
+        "showReplacesReference": "Korvausviite",
+        "showAmountInWords": "Summa sanoin",
+        "showSupplyStatement": "Toimitusilmoitus",
+        "showRoundingLine": "Pyöristysrivi",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Asiakkaat",
+      "description": "Kaikki, joita laskutat. Laskuja sisältävät asiakkaat arkistoidaan, ei koskaan poisteta.",
+      "newClient": "Uusi asiakas",
+      "searchPlaceholder": "Hae nimellä",
+      "searchLabel": "Hae asiakkaita",
+      "emptyTitle": "Ei vielä asiakkaita",
+      "emptyDescription": "Lisää ihmiset ja yritykset, joita laskutat; heidän valuuttansa ja maksuehtonsa esitäyttävät jokaisen laskun.",
+      "addClient": "Lisää asiakas",
+      "noMatch": "Mikään asiakas ei vastaa hakua ”{q}”.",
+      "termsDays": "{days} pv",
+      "columns": {
+        "name": "Nimi",
+        "contact": "Yhteyshenkilö",
+        "email": "Sähköposti",
+        "country": "Maa",
+        "currency": "Valuutta",
+        "terms": "Ehdot",
+        "status": "Tila"
+      }
+    },
+    "new": {
+      "title": "Uusi asiakas"
+    },
+    "edit": {
+      "metaTitle": "Muokkaa asiakasta",
+      "title": "Muokkaa: {name}"
+    },
+    "detail": {
+      "metaTitle": "Asiakas",
+      "newInvoice": "Uusi lasku",
+      "restoreTitle": "Palautetaanko tämä asiakas?",
+      "archiveTitle": "Arkistoidaanko tämä asiakas?",
+      "archiveDescription": "Se poistuu valitsimista; laskut ja historia säilyvät ennallaan.",
+      "deleteTitle": "Poistetaanko tämä asiakas?",
+      "deleteDescription": "Mahdollista vain, kun mikään lasku ei viittaa asiakkaaseen.",
+      "details": "Tiedot",
+      "contact": "Yhteyshenkilö",
+      "email": "Sähköposti",
+      "phone": "Puhelin",
+      "country": "Maa",
+      "gstState": "GST {code}",
+      "taxId": "Verotunniste",
+      "currency": "Valuutta",
+      "paymentTerms": "Maksuehdot",
+      "paymentTermsDays": "{days} päivää",
+      "expectedTds": "Odotettu TDS",
+      "notes": "Huomautukset",
+      "addresses": "Osoitteet",
+      "billing": "Laskutus",
+      "shipping": "Toimitus",
+      "lifetime": "Yhteensä toistaiseksi",
+      "openRegister": "Avaa rekisteri",
+      "noIssued": "Ei vielä annettuja laskuja.",
+      "noIssuedWithDrafts": "Ei vielä annettuja laskuja (luonnoksia: {drafts}).",
+      "firstLatest": "Ensimmäinen lasku <mono>{first}</mono>, viimeisin <mono>{latest}</mono>{drafts, plural, =0 {} one { · # luonnos} other { · # luonnosta}}",
+      "lifetimeColumns": {
+        "currency": "Valuutta",
+        "invoices": "Laskut",
+        "billed": "Laskutettu",
+        "received": "Saatu",
+        "credited": "Hyvitetty",
+        "outstanding": "Avoinna",
+        "overdue": "Erääntynyt"
+      },
+      "recentInvoices": "Viimeisimmät laskut",
+      "noInvoices": "Tällä asiakkaalla ei ole vielä laskuja.",
+      "recentColumns": {
+        "number": "Numero",
+        "issueDate": "Antopäivä",
+        "due": "Eräpäivä",
+        "total": "Yhteensä",
+        "balance": "Saldo",
+        "status": "Tila"
+      }
+    },
+    "form": {
+      "cardTitle": "Asiakas",
+      "displayName": "Näyttönimi",
+      "contactPerson": "Yhteyshenkilö",
+      "email": "Sähköposti",
+      "phone": "Puhelin",
+      "taxIdType": "Verotunnisteen tyyppi",
+      "taxIdTypeNone": "Ei mitään",
+      "taxId": "Verotunniste",
+      "currency": "Valuutta",
+      "paymentTerms": "Maksuehdot (päivää)",
+      "expectedTdsRate": "Odotettu TDS-prosentti (%)",
+      "preferredLanguage": "Asiakirjan kieli",
+      "preferredLanguageFollow": "Noudata laskuttajan profiilia",
+      "buyerReference": "Ostajan viite",
+      "buyerReferenceHint": "Tulostetaan verkkolaskuihin ostajan omana viitteenä (tilaus- tai kustannuspaikkanumero).",
+      "electronicAddress": "Sähköinen osoite",
+      "electronicAddressHint": "Peppol- tai EN 16931 -tunnus, jolla tämä asiakas vastaanottaa verkkolaskuja.",
+      "electronicAddressScheme": "Sähköisen osoitteen järjestelmä",
+      "electronicAddressSchemeNone": "Ei järjestelmää",
+      "notes": "Huomautukset",
+      "billingAddress": "Laskutusosoite",
+      "shippingAddress": "Toimitusosoite",
+      "differentFromBilling": "Eri kuin laskutusosoite",
+      "save": "Tallenna asiakas"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Tunti",
+      "DAY": "Päivä",
+      "FIXED": "Kiinteä",
+      "MILESTONE": "Välitavoite",
+      "UNIT": "Yksikkö"
+    },
+    "list": {
+      "activate": "Aktivoi",
+      "deactivate": "Poista käytöstä",
+      "archiveDescription": "Olemassa olevat laskurivit säilyttävät kopioidut arvonsa.",
+      "deleteDescription": "Mahdollista vain, kun mikään laskurivi ei viittaa siihen. Muuten arkistoi se.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Nimi",
+        "unit": "Yksikkö",
+        "rate": "Hinta",
+        "price": "Hinta",
+        "currency": "Valuutta",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Vero",
+        "status": "Tila"
+      }
+    },
+    "services": {
+      "title": "Palvelut",
+      "description": "Luettelosi. Palvelun valinta kopioi sen arvot laskuriville.",
+      "newService": "Uusi palvelu",
+      "emptyTitle": "Ei vielä palveluita",
+      "emptyDescription": "Lisää se, mitä myyt - tuntiveloitteinen suunnittelu, kiinteähintainen välitavoite - SAC/HSN-koodeineen ja verokantoineen.",
+      "addService": "Lisää palvelu",
+      "restoreTitle": "Palautetaanko {name}?",
+      "archiveTitle": "Arkistoidaanko {name}?",
+      "deleteTitle": "Poistetaanko {name}?",
+      "editMetaTitle": "Muokkaa palvelua",
+      "editTitle": "Muokkaa: {name}"
+    },
+    "products": {
+      "title": "Tuotteet",
+      "description": "Myymäsi tavarat, kullakin SKU. Tuotteen valinta kopioi sen arvot laskuriville.",
+      "newProduct": "Uusi tuote",
+      "emptyTitle": "Ei vielä tuotteita",
+      "emptyDescription": "Lisää myymäsi tavarat SKU:n, HSN-koodin, yksikköhinnan ja verokannan kanssa.",
+      "addProduct": "Lisää tuote",
+      "restoreTitle": "Palautetaanko {sku}?",
+      "archiveTitle": "Arkistoidaanko {sku}?",
+      "deleteTitle": "Poistetaanko {sku}?",
+      "editMetaTitle": "Muokkaa tuotetta",
+      "editTitle": "Muokkaa: {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Yksilöllinen koodi, joka tulostetaan rivin kuvauksen alle",
+      "name": "Nimi",
+      "unit": "Yksikkö",
+      "defaultRate": "Oletushinta",
+      "unitPrice": "Yksikköhinta",
+      "currency": "Valuutta",
+      "sacHsnCode": "SAC / HSN-koodi",
+      "sacHsnHint": "Pakollinen GST-laskuissa",
+      "hsnCode": "HSN-koodi",
+      "hsnHint": "Pakollinen tavaroiden GST-laskuissa",
+      "defaultTaxRate": "Oletusverokanta (%)",
+      "description": "Kuvaus",
+      "descriptionHint": "Esitäyttää rivin kuvauksen",
+      "active": "Aktiivinen",
+      "serviceInactiveHint": "Ei-aktiiviset palvelut jäävät pois laskun valitsimesta",
+      "productInactiveHint": "Ei-aktiiviset tuotteet jäävät pois laskun valitsimesta",
+      "saveService": "Tallenna palvelu",
+      "saveProduct": "Tallenna tuote"
+    },
+    "tags": {
+      "legend": "Profiilit",
+      "hint": "Valitse laskuttajaprofiilit, jotka myyvät tätä. Jos et valitse yhtään, se tarjotaan kaikille profiileille."
+    }
+  },
+  "address": {
+    "line1": "Osoiterivi 1",
+    "line2": "Osoiterivi 2",
+    "city": "Kaupunki",
+    "stateRegion": "Osavaltio / alue",
+    "postalCode": "Postinumero",
+    "country": "Maa",
+    "state": "Osavaltio",
+    "gstStateCodeHint": "GST-osavaltiokoodi {code}",
+    "pickStateHint": "Valitse osavaltio GST-osavaltiokoodia varten",
+    "stateRegionCode": "Osavaltion / alueen koodi",
+    "stateRegionCodePlaceholder": "esim. CA"
+  },
+  "assets": {
+    "tooLarge": "Tiedosto on liian suuri.",
+    "unsupportedReceipt": "Käytä PNG-, JPEG- tai WebP-kuvaa tai PDF-tiedostoa.",
+    "unsupportedImage": "Käytä PNG-, JPEG- tai WebP-kuvaa.",
+    "uploadFailed": "Lataus epäonnistui.",
+    "uploading": "Ladataan…",
+    "dropHint": "Vedä tiedosto tähän tai valitse tiedosto",
+    "dropHintMany": "Vedä tiedostot tähän tai valitse ne",
+    "dropActive": "Pudota ladataksesi"
+  },
+  "ui": {
+    "breadcrumb": "Polku",
+    "close": "Sulje",
+    "closeMenu": "Sulje valikko",
+    "reveal": "Näytä",
+    "hide": "Piilota",
+    "openCalendar": "Avaa kalenteri",
+    "chooseMonth": "Valitse kuukausi",
+    "chooseYear": "Valitse vuosi",
+    "searchOptions": "Hae kirjoittamalla",
+    "noMatches": "Ei osumia",
+    "pullToRefresh": {
+      "label": "Päivitettävä luettelo",
+      "pulling": "Vedä päivittääksesi",
+      "release": "Vapauta päivittääksesi",
+      "refreshing": "Päivitetään"
+    },
+    "inputCharset": "Vain tavalliset näppäimistömerkit ovat sallittuja.",
+    "confirm": {
+      "working": "Käsitellään…"
+    },
+    "statusPill": {
+      "DRAFT": "Luonnos",
+      "ISSUED": "Annettu",
+      "SENT": "Lähetetty",
+      "PARTIALLY_PAID": "Osittain maksettu",
+      "PAID": "Maksettu",
+      "OVERDUE": "Erääntynyt",
+      "VOID": "Mitätöity"
+    },
+    "activePill": {
+      "active": "Aktiivinen",
+      "archived": "Arkistoitu",
+      "inactive": "Ei aktiivinen"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Jokin meni pieleen.",
+    "fixFields": "Korjaa korostetut kentät.",
+    "accountSaved": "Tilin asetukset tallennettu",
+    "apiKeyCreated": "API-avain luotu. Kopioi se nyt: se näytetään vain kerran.",
+    "saved": "{name} tallennettu",
+    "savedProfile": "Profiili {label} tallennettu",
+    "clientArchived": "Asiakas arkistoitu",
+    "clientRestored": "Asiakas palautettu",
+    "clientDeleted": "Asiakas poistettu",
+    "productArchived": "Tuote arkistoitu",
+    "productRestored": "Tuote palautettu",
+    "productActivated": "Tuote aktivoitu",
+    "productDeactivated": "Tuote poistettu käytöstä",
+    "serviceArchived": "Palvelu arkistoitu",
+    "serviceRestored": "Palvelu palautettu",
+    "serviceActivated": "Palvelu aktivoitu",
+    "serviceDeactivated": "Palvelu poistettu käytöstä",
+    "defaultProfileUpdated": "Oletusprofiili päivitetty",
+    "profileArchived": "Profiili arkistoitu",
+    "profileRestored": "Profiili palautettu",
+    "profileDeleted": "Profiili poistettu",
+    "defaultPaymentMethodUpdated": "Oletusmaksutapa päivitetty",
+    "paymentMethodArchived": "Maksutapa arkistoitu",
+    "paymentMethodRestored": "Maksutapa palautettu",
+    "paymentMethodDeleted": "Maksutapa poistettu",
+    "issued": "Annettu {number}",
+    "savedAsDraft": "Tallennettu luonnoksena. {reason}",
+    "draftSaved": "Luonnos tallennettu",
+    "invoiceVoided": "Lasku mitätöity",
+    "originalVoided": "Alkuperäinen mitätöity; muokkaa korvaavaa luonnosta",
+    "markedAsSent": "Merkitty lähetetyksi",
+    "draftDeleted": "Luonnos poistettu",
+    "generatedPdf": "PDF-versio {version} luotu",
+    "creditNoteVoided": "Hyvityslasku mitätöity; laskun saldo palautettu",
+    "draftCreditNoteDeleted": "Hyvityslaskuluonnos poistettu",
+    "mailRefused": "Postipalvelin hylkäsi viestin: {error}. Yritys kirjattiin.",
+    "unknownError": "tuntematon virhe",
+    "sentTo": "Lähetetty vastaanottajille {recipients}",
+    "smtpSaved": "SMTP-asetukset tallennettu",
+    "smtpRemoved": "Tallennetut SMTP-asetukset poistettu",
+    "testEmailSent": "Testisähköposti lähetetty osoitteeseen {email}",
+    "testFailed": "Testi epäonnistui: {error}",
+    "defaultRecipientsSaved": "Oletusvastaanottajat tallennettu",
+    "invitationSent": "Kutsu lähetetty",
+    "invitationReady": "Kutsu valmis",
+    "unknownRole": "Tuntematon rooli",
+    "roleUpdated": "Rooli päivitetty",
+    "accountDeactivated": "Tili poistettu käytöstä",
+    "accountReactivated": "Tili aktivoitu uudelleen",
+    "invitationRevoked": "Kutsu peruutettu",
+    "paymentUpdated": "Maksu päivitetty",
+    "paymentRecorded": "Maksu kirjattu",
+    "paymentDeleted": "Maksu poistettu",
+    "sessionRevoked": "Istunto peruutettu",
+    "noOtherSessions": "Ei muita istuntoja",
+    "signedOutOthers": "Kirjattu ulos {count} muusta istunnosta",
+    "sharePasswordRequired": "Syötä salasana tai anna sen luoda automaattisesti.",
+    "shareLinkCreated": "Jakolinkki luotu.",
+    "templateSaved": "Mallipohja tallennettu; tulevat asiakirjat käyttävät sitä",
+    "templateReset": "Mallipohja palautettu sisäänrakennettuun oletukseen",
+    "templateImported": "Mallipohja tuotu",
+    "profileTemplateCleared": "Profiili käyttää taas instanssin mallipohjaa",
+    "operatorSaved": "Ylläpitäjän tiedot tallennettu. Oikeudelliset sivut näyttävät ne nyt.",
+    "einvoiceSettingsSaved": "Verkkolaskutuksen asetukset tallennettu",
+    "irnRegistered": "IRN {irn} rekisteröity; PDF luotiin uudelleen sen kanssa",
+    "irnRecorded": "IRN tallennettu; PDF luotiin uudelleen sen kanssa",
+    "irnCancelled": "IRN peruttu; PDF luotiin uudelleen"
+  }
+}

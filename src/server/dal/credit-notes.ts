@@ -1,5 +1,5 @@
 import "server-only";
-import { Prisma } from "@/generated/prisma/client";
+import { Prisma, type DocumentFormat } from "@/generated/prisma/client";
 import { creditNoteTaxLines } from "@/lib/credit-notes/apportion";
 import { compareDates, fromDateString, todayIn, toDateString, type DateString } from "@/lib/dates";
 import { prisma, type Tx } from "@/lib/db";
@@ -60,6 +60,8 @@ export interface CreditNoteDto extends CreditNoteListRow {
   supplyType: SupplyType;
   taxLines: TaxLineDto[];
   displayConfig: DisplayConfig;
+  /** The language the document prints in, copied from the invoice (SPEC §4.10). */
+  documentLocale: string;
   templateSnapshot: TemplateConfig | null;
   snapshot: CreditNoteSnapshot | null;
   verificationToken: string;
@@ -75,6 +77,7 @@ export interface CreditNoteDto extends CreditNoteListRow {
   };
   documents: {
     id: string;
+    format: DocumentFormat;
     version: number;
     sha256: string;
     byteSize: number;
@@ -146,6 +149,7 @@ function toDto(row: Row): CreditNoteDto {
       taxAmount: m(t.taxAmount),
     })),
     displayConfig: mergeDisplayConfig(row.displayConfig),
+    documentLocale: row.documentLocale,
     templateSnapshot: row.templateSnapshot ? mergeTemplateConfig(row.templateSnapshot) : null,
     snapshot: parseSnapshot(CreditNoteSnapshotSchema, row.snapshot),
     verificationToken: tokenFromRow(row.verificationTokenEnc),
@@ -166,6 +170,7 @@ function toDto(row: Row): CreditNoteDto {
     },
     documents: row.documents.map((d) => ({
       id: d.id,
+      format: d.format,
       version: d.version,
       sha256: d.sha256,
       byteSize: d.byteSize,
@@ -268,6 +273,7 @@ export async function createCreditNoteDraft(
         taxAmount: toMoneyString(credit.taxAmount, c),
         total: toMoneyString(credit.total, c),
         displayConfig: json(input.displayConfig ?? mergeDisplayConfig(invoice.displayConfig)),
+        documentLocale: invoice.documentLocale,
         ...tokenFields(),
         taxLines: {
           create: credit.taxLines.map((t) => ({

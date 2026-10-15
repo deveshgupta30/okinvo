@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { fBool, fDecimal, fOptional } from "@/lib/forms";
+import { fBool, fDecimal, fIdList, fOptional } from "@/lib/forms";
 import { CurrencySchema } from "./currency";
 
 export const UNIT_TYPES = ["HOUR", "DAY", "FIXED", "MILESTONE", "UNIT"] as const;
@@ -23,6 +23,8 @@ export const ServiceInputSchema = z.object({
     message: "must be between 0 and 100",
   }),
   isActive: fBool.default(true),
+  /** Issuer profiles this item is offered to; empty = all (spec §5.2). */
+  issuerProfileIds: fIdList,
 });
 
 export type ServiceInput = z.infer<typeof ServiceInputSchema>;

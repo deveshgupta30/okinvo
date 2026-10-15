@@ -32,6 +32,12 @@ export interface ClientDto {
   paymentTermsDays: number;
   defaultTdsRate: string | null;
   notes: string | null;
+  /** The language this client's documents print in; null follows the issuer profile. */
+  preferredLocale: string | null;
+  /** E-invoicing (spec §9e). */
+  buyerReference: string | null;
+  electronicAddress: string | null;
+  electronicAddressScheme: string | null;
   archivedAt: string | null;
   createdAt: string;
   updatedAt: string;
@@ -55,6 +61,10 @@ function toDto(row: Row): ClientDto {
     paymentTermsDays: row.paymentTermsDays,
     defaultTdsRate: row.defaultTdsRate?.toString() ?? null,
     notes: row.notes,
+    preferredLocale: row.preferredLocale,
+    buyerReference: row.buyerReference,
+    electronicAddress: row.electronicAddress,
+    electronicAddressScheme: row.electronicAddressScheme,
     archivedAt: row.archivedAt?.toISOString() ?? null,
     createdAt: row.createdAt.toISOString(),
     updatedAt: row.updatedAt.toISOString(),
@@ -78,6 +88,10 @@ function toData(input: ClientInput) {
     paymentTermsDays: input.paymentTermsDays,
     defaultTdsRate: input.defaultTdsRate ?? null,
     notes: input.notes ?? null,
+    preferredLocale: input.preferredLocale ?? null,
+    buyerReference: input.buyerReference ?? null,
+    electronicAddress: input.electronicAddress ?? null,
+    electronicAddressScheme: input.electronicAddressScheme ?? null,
   };
 }
 

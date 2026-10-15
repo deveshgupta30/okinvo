@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo ana səhifə",
+    "save": "Yadda saxla",
+    "cancel": "Ləğv et",
+    "continue": "Davam et",
+    "saving": "Yadda saxlanılır…",
+    "detect": "Aşkarla",
+    "yes": "Bəli",
+    "no": "Xeyr",
+    "choose": "Seçin…",
+    "remove": "Sil",
+    "tryAgain": "Yenidən cəhd edin",
+    "dashboard": "İdarə paneli",
+    "goToDashboard": "İdarə panelinə keç",
+    "or": "və ya",
+    "invoice": "Faktura",
+    "creditNote": "Kredit qaiməsi",
+    "downloadPdf": "PDF yüklə",
+    "edit": "Redaktə et",
+    "delete": "Sil",
+    "downloadDocx": "DOCX yüklə",
+    "downloadCii": "EN 16931 XML yüklə",
+    "downloadUbl": "Peppol UBL yüklə",
+    "downloadFacturX": "Factur-X PDF yüklə",
+    "none": "Yoxdur",
+    "dismiss": "Bağla",
+    "all": "Hamısı",
+    "previous": "Əvvəlki",
+    "next": "Növbəti",
+    "go": "Keç",
+    "search": "Axtar",
+    "status": "Status",
+    "total": "Cəmi",
+    "currency": "Valyuta",
+    "from": "Başlanğıc",
+    "to": "Son",
+    "reason": "Səbəb",
+    "history": "Tarixçə",
+    "archive": "Arxivlə",
+    "restore": "Bərpa et",
+    "showArchived": "Arxivləşdirilənləri göstər",
+    "hideArchived": "Arxivləşdirilənləri gizlət",
+    "archived": "Arxivləşdirilib",
+    "default": "Susmaya görə",
+    "setDefault": "Susmaya görə təyin et",
+    "revoke": "Ləğv et",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı",
+    "active": "Aktiv",
+    "pagination": "Səhifələmə",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "İdarə paneli",
+      "invoices": "Fakturalar",
+      "creditNotes": "Kredit qaimələri",
+      "clients": "Müştərilər",
+      "services": "Xidmətlər",
+      "products": "Məhsullar",
+      "tools": "Valyuta"
+    },
+    "primaryNav": "Əsas",
+    "settings": "Parametrlər",
+    "openMenu": "Menyunu aç",
+    "more": "Daha çox",
+    "navigation": "Naviqasiya",
+    "dock": "Sürətli naviqasiya",
+    "pagesAndAccount": "Səhifələr və hesab",
+    "collapseSidebar": "Yan paneli yığ",
+    "collapseSidebarHint": "Yan paneli yığ ([)",
+    "expandSidebar": "Yan paneli aç",
+    "expandSidebarHint": "Yan paneli aç ([)",
+    "theme": {
+      "label": "Mövzu",
+      "system": "Sistem",
+      "light": "Açıq",
+      "dark": "Tünd",
+      "current": "Mövzu: {mode}",
+      "switchTo": "Mövzu: {mode}. {next} mövzusuna keç"
+    },
+    "userMenu": {
+      "label": "{name} üçün hesab menyusu",
+      "profile": "Profil",
+      "logOut": "Çıxış"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Valyuta çeviricisi",
+      "title": "Valyuta çeviricisi",
+      "description": "Hesab-faktura kəsdiyiniz valyutalar arasında bu nüsxədəki məzənnə cədvəli ilə çevirmə aparın.",
+      "amount": "Məbləğ",
+      "from": "Haradan",
+      "to": "Hara",
+      "flip": "Valyutaları yerbəyer et",
+      "enterAmount": "Məbləğ daxil edin",
+      "asOf": "Məzənnələr {date} tarixinə ({source})",
+      "sources": {
+        "bundled": "tətbiqlə birgə gəlir",
+        "live": "onlayn yenilənib"
+      },
+      "note": "Məzənnələr məlumat üçündür; verilmiş hesab-fakturadakı məzənnə onu verərkən daxil etdiyiniz məzənnədir."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Giriş",
+      "metaDescription": "Öz serverində quraşdırılan faktura tətbiqi okinvo-ya identifikasiya provayderiniz və ya parolunuzla daxil olun.",
+      "title": "Giriş",
+      "subtitle": "Yalnız icazə siyahısındakı hesablar daxil ola bilər.",
+      "failed": "Giriş alınmadı.",
+      "noMethod": "Heç bir giriş üsulu konfiqurasiya edilməyib. <code>.env</code> faylında <code>AUTH_GITHUB_*</code> kimi provayder cütünü və ya <code>AUTH_PASSWORD_SIGNIN=true</code> təyin edin.",
+      "errors": {
+        "not_allowed": "Bu hesaba bu instansda icazə verilmir və ya deaktiv edilib.",
+        "signin": "Giriş tamamlanmadı. Zəhmət olmasa, yenidən cəhd edin."
+      }
+    },
+    "password": {
+      "name": "Ad",
+      "email": "E-poçt",
+      "password": "Parol",
+      "signingIn": "Daxil olunur…",
+      "createAccount": "Hesab yarat",
+      "signIn": "Daxil ol",
+      "haveAPassword": "Artıq parolum var",
+      "firstTime": "İlk dəfədir? Parol təyin edin",
+      "failed": "Giriş alınmadı."
+    },
+    "social": {
+      "redirecting": "Yönləndirilir…",
+      "continueWith": "{provider} ilə davam et",
+      "failed": "Giriş başlaya bilmədi."
+    },
+    "error": {
+      "metaTitle": "Giriş xətası",
+      "metaDescription": "Giriş tamamlanmadı. Səhifə nəyin səhv getdiyini və yenidən necə cəhd etməli olduğunuzu izah edir.",
+      "title": "Giriş alınmadı",
+      "body": "Kimlik provayderi <code>{value}</code> qaytardı. Ünvanınız bu instansın icazə siyahısında deyilsə, sahibindən onu əlavə etməsini xahiş edin.",
+      "back": "Girişə qayıt"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Parametrlər",
+      "profiles": "Profillər",
+      "paymentMethods": "Ödəniş üsulları",
+      "templates": "Şablonlar",
+      "email": "E-poçt",
+      "security": "Təhlükəsizlik",
+      "users": "İstifadəçilər",
+      "data": "Məlumatlar",
+      "legal": "Hüquqi məlumat",
+      "einvoicing": "E-qaimə",
+      "account": "Hesab",
+      "appearance": "Görünüş",
+      "api": "API",
+      "status": "Status",
+      "usage": "İstifadə"
+    },
+    "account": {
+      "metaTitle": "Hesab",
+      "title": "Hesab",
+      "description": "Şəklinizi, adınızı, regionunuzu, dilinizi və saat qurşağınızı.",
+      "photo": {
+        "title": "Şəkil",
+        "description": "Yan paneldə və istifadəçi menyusunda göstərilir."
+      },
+      "form": {
+        "title": "Hesab",
+        "description": "Necə göründüyünüz və “bu gün”ün nə vaxt olduğu.",
+        "displayName": "Göstərilən ad",
+        "signInEmail": "Giriş e-poçtu",
+        "signInEmailHint": "Bu instansdakı kimliyiniz; burada dəyişdirilə bilməz.",
+        "timezone": "Saat qurşağı",
+        "timezoneHint": "Verilmə tarixləri, son ödəniş tarixləri və idarə paneli üçün “bu gün”",
+        "regionTitle": "Region",
+        "regionDescription": "Yeni emitent profilləri və profil yaranana qədər idarə paneli üçün susmaya görə dəyərlər.",
+        "country": "Ölkə",
+        "currency": "Valyuta",
+        "suggested": "Bu ölkə üçün təklif olunan:",
+        "language": "Dil",
+        "languageHint": "Tətbiqin öz dili. Sənədlər hər profilin öz lokalından istifadə edir.",
+        "machineTranslated": "Bu dil maşın tərcüməsidir. Düzəlişlər məmnuniyyətlə qəbul olunur: <link>GitHub-da təkmilləşdirin</link>.",
+        "save": "Seçimləri yadda saxla"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerika",
+        "Asia": "Asiya",
+        "Europe": "Avropa",
+        "MiddleEast": "Yaxın Şərq",
+        "Oceania": "Okeaniya",
+        "Constructed": "Süni dillər"
+      },
+      "privacy": {
+        "title": "Məxfilik",
+        "description": "okinvo yalnız işləməsi üçün lazım olan çərəzləri təyin edir. Analitika və izləmə yoxdur.",
+        "cookiePolicy": "Çərəz siyasəti",
+        "showNoticeAgain": "Çərəz bildirişini yenidən göstər"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Şəkli dəyiş",
+      "addPhoto": "Şəkil əlavə et",
+      "hint": "PNG, JPEG və ya WebP. Hər yerdə dairə şəklində göstərilir; saxlamazdan əvvəl böyüdüb sürüşdürə bilərsiniz.",
+      "tooLarge": "Bu şəkil çox böyükdür.",
+      "uploadFailed": "Yükləmə alınmadı.",
+      "choose": "Profil şəkli seçin",
+      "dialogTitle": "Şəkli yerləşdirin",
+      "dialogDescription": "Sürüşdürmək üçün dartın, böyütmək üçün fırladın və ya sıxın. Hamının gördüyü dairənin içidir.",
+      "zoom": "Miqyas",
+      "save": "Şəkli yadda saxla"
+    },
+    "appearance": {
+      "metaTitle": "Görünüş",
+      "title": "Görünüş",
+      "description": "Mövzu və vurğu rəngi hesabınızda saxlanılır.",
+      "theme": {
+        "title": "Mövzu",
+        "description": "Sistemi izləyin və ya açıq ya da tünd mövzunu sabitləyin.",
+        "label": "Mövzu",
+        "system": "Sistemi izlə",
+        "systemHint": "Əməliyyat sisteminizlə dəyişir",
+        "light": "Açıq",
+        "lightHint": "Ağ fon",
+        "dark": "Tünd",
+        "darkHint": "Qaraya yaxın fon"
+      },
+      "accent": {
+        "title": "Vurğu",
+        "description": "Əsas düymə, fokus halqaları və aktiv səhifə işarəsi üçün istifadə olunur. Nanə rəngi brend nişanına uyğundur.",
+        "label": "Vurğu rəngi",
+        "customHint": "Və ya özünüzün istənilən rəngini seçin"
+      },
+      "accents": {
+        "mint": "Nanə",
+        "lavender": "Lavanda",
+        "sky": "Səma",
+        "peach": "Şaftalı",
+        "butter": "Kərə yağı",
+        "rose": "Qızılgül",
+        "sage": "Adaçayı",
+        "lilac": "Yasəmən",
+        "custom": "Fərdi"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Emitent profilləri",
+      "title": "Emitent profilləri",
+      "description": "Faktura kəsdiyiniz hüquqi kimliklər. Susmaya görə olan yeni fakturaları əvvəlcədən doldurur.",
+      "breadcrumb": "Profillər",
+      "newProfile": "Yeni profil",
+      "emptyTitle": "Hələ emitent profili yoxdur",
+      "emptyDescription": "Faktura kəsdiyiniz kimliyi yaradın: PAN-ı olan fərdi şəxs və ya şirkətiniz.",
+      "createProfile": "Profil yarat",
+      "columns": {
+        "label": "Etiket",
+        "legalName": "Hüquqi ad",
+        "type": "Növ",
+        "country": "Ölkə",
+        "currency": "Valyuta",
+        "regime": "Rejim",
+        "status": "Status"
+      },
+      "types": {
+        "company": "Şirkət",
+        "individual": "Fərdi şəxs"
+      },
+      "makeDefaultTitle": "{label} susmaya görə təyin edilsin?",
+      "makeDefaultDescription": "Yeni fakturalar bu profildən başlayacaq.",
+      "restoreTitle": "{label} bərpa edilsin?",
+      "archiveTitle": "{label} arxivlənsin?",
+      "archiveDescription": "Seçim siyahılarından yox olur; mövcud fakturalara toxunulmur.",
+      "new": {
+        "metaTitle": "Yeni emitent profili",
+        "title": "Yeni emitent profili",
+        "prefilled": "Cavablarınızdan doldurulub; ünvanı və vergi məlumatlarını yoxlayın, sonra yadda saxlayın."
+      },
+      "edit": {
+        "metaTitle": "Emitent profilini redaktə et",
+        "template": "Şablon",
+        "deleteTitle": "{label} silinsin?",
+        "deleteDescription": "Yalnız heç bir faktura və ya kredit qaiməsi bu profilə istinad etmədikdə mümkündür. Əks halda arxivləyin."
+      },
+      "template": {
+        "metaTitle": "Profil şablonu",
+        "title": "{label} üçün şablon",
+        "ownTemplate": "Xüsusi şablon",
+        "instanceTemplate": "İnstans şablonu",
+        "resetTitle": "İnstans şablonundan yenidən istifadə edilsin?",
+        "resetDescription": "Bu profilin öz konfiqurasiyası silinir; verilmiş sənədlərə təsir etmir.",
+        "useInstance": "İnstans şablonundan istifadə et",
+        "usingInstanceTitle": "İnstans şablonundan istifadə olunur",
+        "usingInstanceDescription": "Bu profilin sənədləri Parametrlər → Şablonlar bölməsini izləyir. Onları ayrıca fərdiləşdirmək üçün qoşulun.",
+        "customise": "Bu profil üçün fərqli şablon istifadə et",
+        "openInstance": "İnstans şablonunu aç"
+      },
+      "form": {
+        "identityTitle": "Kimlik",
+        "identityDescription": "Fakturanın kimdən olduğu.",
+        "type": "Növ",
+        "label": "Etiket",
+        "labelHint": "Yalnız seçim siyahılarında göstərilir",
+        "legalName": "Hüquqi ad",
+        "tradeName": "Ticarət adı",
+        "designation": "Vəzifə",
+        "email": "E-poçt",
+        "phone": "Telefon",
+        "website": "Veb sayt",
+        "addressTitle": "Ünvan",
+        "taxTitle": "Vergi identifikatorları",
+        "taxDescription": "Yalnız sizə aid olanlar; çap hər faktura üçün ayrıca idarə olunur.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Britaniya ƏDV nömrəsi",
+        "usTaxId": "ABŞ EIN / SSN",
+        "usTaxIdHint": "Saxlanılarkən şifrələnir",
+        "lutNumber": "LUT nömrəsi",
+        "lutNumberHint": "IGST-siz ixrac üçün",
+        "lutFiscalYear": "LUT maliyyə ili",
+        "lutFiscalYearHint": "məs. 2026-27",
+        "einvoiceTitle": "E-qaimə",
+        "einvoiceDescription": "Bu profilin e-qaimələrdə özünü necə tanıtdığı; bağlayıcı və giriş məlumatları Parametrlər > E-qaimə bölməsindədir.",
+        "electronicAddress": "Elektron ünvan",
+        "electronicAddressHint": "Bu emitentin Peppol və ya EN 16931 identifikatoru, satıcının elektron ünvanı kimi çap olunur.",
+        "electronicAddressScheme": "Elektron ünvan sxemi",
+        "electronicAddressSchemeNone": "Sxem yoxdur",
+        "einvoiceEnabled": "Bu profil üçün e-qaimə aktivdir",
+        "einvoiceEnabledHint": "Profilin buraxılmış sənədlərində GST e-qaimə JSON, Factur-X və UBL yükləmələrini və IRN qeydiyyatını təklif edir.",
+        "defaultsTitle": "Susmaya görə dəyərlər",
+        "baseCurrency": "Əsas valyuta",
+        "locale": "Sənəd lokalı",
+        "localeHint": "Sənədlərdə rəqəm və tarix formatı",
+        "fiscalYearStart": "Maliyyə ili başlayır",
+        "months": {
+          "january": "Yanvar",
+          "february": "Fevral",
+          "march": "Mart",
+          "april": "Aprel",
+          "may": "May",
+          "june": "İyun",
+          "july": "İyul",
+          "august": "Avqust",
+          "september": "Sentyabr",
+          "october": "Oktyabr",
+          "november": "Noyabr",
+          "december": "Dekabr"
+        },
+        "taxRegime": "Susmaya görə vergi rejimi",
+        "regimes": {
+          "indiaGst": "Hindistan GST",
+          "ukVat": "Britaniya ƏDV",
+          "usSalesTax": "ABŞ satış vergisi",
+          "none": "Vergisiz"
+        },
+        "invoiceNumberFormat": "Faktura nömrəsi formatı",
+        "invoiceNumberFormatHint": "Tokenlər: {tokens}",
+        "creditNoteNumberFormat": "Kredit qaiməsi nömrəsi formatı",
+        "tdsRate": "Gözlənilən TDS dərəcəsi (%)",
+        "tdsRateHint": "Məlumat xarakterlidir, gözlənilən tutulma kimi çap olunur",
+        "defaultNotes": "Susmaya görə qeydlər",
+        "defaultTerms": "Susmaya görə şərtlər",
+        "printTitle": "Susmaya görə çap olunanlar",
+        "printDescription": "Hər faktura bunları köçürür və fərdi qaydada dəyişə bilər.",
+        "emailTitle": "E-poçt",
+        "emailDescription": "Göndərmə redaktoru üçün susmaya görə dəyərlər. Yertutanlar: {placeholders}",
+        "emailCc": "Susmaya görə CC",
+        "emailBcc": "Susmaya görə BCC",
+        "commaSeparated": "Vergüllə ayrılmış",
+        "invoiceSubject": "Faktura mövzusu",
+        "invoiceSubjectHint": "Boş buraxılsa, daxili şablon istifadə olunur",
+        "creditNoteSubject": "Kredit qaiməsi mövzusu",
+        "invoiceBody": "Faktura mətni",
+        "creditNoteBody": "Kredit qaiməsi mətni",
+        "artworkTitle": "Qrafika",
+        "artworkDescription": "2 MB-a qədər PNG, JPEG və ya WebP; imza və möhür şəffaflığı saxlayır.",
+        "logo": "Loqo",
+        "signature": "İmza",
+        "stamp": "Möhür",
+        "transparentPng": "Şəffaf PNG",
+        "save": "Profili yadda saxla"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Ödəniş üsulları",
+      "title": "Ödəniş üsulları",
+      "description": "Müştərilərin sizə necə ödəniş etdiyi. Təfərrüatlar şifrələnir və verilmə zamanı hər fakturaya dondurulur.",
+      "newMethod": "Yeni üsul",
+      "emptyTitle": "Hələ ödəniş üsulu yoxdur",
+      "emptyDescription": "Fakturalar müştərilərə harada ödəniş edəcəklərini bildirsin deyə bank hesabı, UPI ID və ya pul kisəsi əlavə edin.",
+      "addMethod": "Üsul əlavə et",
+      "columns": {
+        "name": "Ad",
+        "type": "Növ",
+        "currency": "Valyuta",
+        "status": "Status"
+      },
+      "types": {
+        "bankTransfer": "Bank köçürməsi",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Xüsusi"
+      },
+      "makeDefaultTitle": "{name} susmaya görə təyin edilsin?",
+      "restoreTitle": "{name} bərpa edilsin?",
+      "archiveTitle": "{name} arxivlənsin?",
+      "archiveDescription": "Verilmiş fakturalar çap etdikləri nüsxəni saxlayır.",
+      "new": {
+        "metaTitle": "Yeni ödəniş üsulu",
+        "title": "Yeni ödəniş üsulu"
+      },
+      "edit": {
+        "metaTitle": "Ödəniş üsulunu redaktə et",
+        "title": "{name} redaktə et",
+        "deleteTitle": "{name} silinsin?",
+        "deleteDescription": "Yalnız heç bir faktura və ya ödəniş ona istinad etmədikdə mümkündür. Əks halda arxivləyin."
+      },
+      "form": {
+        "name": "Ad",
+        "nameHint": "Ödəniş blokunun başlığı kimi çap olunur",
+        "type": "Növ",
+        "currency": "Valyuta",
+        "currencyHint": "İstəyə bağlı; yalnız məlumat üçün göstərilir",
+        "anyCurrency": "İstənilən",
+        "instructions": "Təlimatlar",
+        "instructionsHint": "Təfərrüatların altında çap olunur",
+        "isDefault": "Susmaya görə üsul",
+        "isDefaultDescription": "Yeni fakturalarda əvvəlcədən seçilir",
+        "isActive": "Aktiv",
+        "detailsTitle": "Təfərrüatlar",
+        "detailsDescription": "Saxlanılarkən şifrələnir; verilərkən hər fakturaya köçürülür.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "Alıcının adı",
+        "lines": "Sətirlər",
+        "linesHint": "Hər cərgədə bir sətir, olduğu kimi çap olunur",
+        "accountEmail": "Hesab e-poçtu / istifadəçi adı",
+        "bank": {
+          "accountHolder": "Hesab sahibi",
+          "accountNumber": "Hesab nömrəsi",
+          "bankName": "Bankın adı",
+          "branch": "Filial",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Marşrut / sort kodu"
+        },
+        "save": "Ödəniş üsulunu yadda saxla"
+      }
+    },
+    "templates": {
+      "metaTitle": "Sənəd şablonları",
+      "title": "Sənəd şablonları",
+      "customised": "Fərdiləşdirilib",
+      "builtIn": "Daxili susmaya görə",
+      "description": "Faktura və kredit qaimələrinin görünüşü. Verilmiş sənədlər verildiyi şablonu saxlayır.",
+      "resetTitle": "Daxili susmaya görə şablona qayıdılsın?",
+      "resetDescription": "Fərdiləşdirmə silinir; artıq verilmiş sənədlərə təsir etmir.",
+      "reset": "Sıfırla",
+      "resetTrigger": "Susmaya görə dəyərlərə sıfırla",
+      "importTitle": "İdxal",
+      "importDescription": "Əvvəl ixrac edilmiş konfiqurasiyanı bərpa edin.",
+      "overridesTitle": "Profil üzrə əvəzləmələr",
+      "overridesDescription": "Profil öz redaktə səhifəsindən xüsusi şablon seçə bilər.",
+      "noOverrides": "Hər profil instans şablonundan istifadə edir.",
+      "import": {
+        "json": "Şablon JSON",
+        "jsonHint": "JSON ixracı ilə yaradılmış faylı yapışdırın; çatışmayan açarlar susmaya görə dəyərlərə qayıdır",
+        "importing": "İdxal olunur…",
+        "submit": "İdxal et"
+      },
+      "form": {
+        "templateTitle": "Şablon",
+        "templateDescription": "Altı daxili şablon; aşağıdakı fərdiləşdirmə seçdiyiniz hər birinə tətbiq olunur.",
+        "templateGroup": "Şablon",
+        "templates": {
+          "ledger": {
+            "name": "Mühasibat kitabı",
+            "character": "Müasir və havadar, serifsiz, başlığın altında vurğu xətti."
+          },
+          "classic": {
+            "name": "Klassik",
+            "character": "Ənənəvi çərçivəli cədvəl, serifli başlıqlar, çərçivəyə alınmış yekunlar."
+          },
+          "compact": {
+            "name": "Yığcam",
+            "character": "Uzun siyahılar üçün sıx düzən; kiçik şrift, az ayırıcı."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "Sakit və geniş: xətt və çərçivə yoxdur, yüngül etiketlər, bol boşluq."
+          },
+          "letterhead": {
+            "name": "Blank",
+            "character": "Loqonuz və adınız hər səhifənin yuxarısındakı rəng zolağında və ya şəkildə."
+          },
+          "modern": {
+            "name": "Müasir",
+            "character": "Rəng zolaqlı başlıq; tərəflər, cədvəl başlığı və yekunlar solğun vurğu tonunda."
+          }
+        },
+        "paperTitle": "Kağız və şrift",
+        "paperSize": "Kağız ölçüsü",
+        "paperLetter": "Letter",
+        "margins": "Haşiyələr",
+        "marginsNormal": "Normal",
+        "marginsNarrow": "Dar",
+        "headingFont": "Başlıq şrifti",
+        "bodyFont": "Mətn şrifti",
+        "fontSans": "Serifsiz",
+        "fontSerif": "Serifli",
+        "tableStyle": "Cədvəl üslubu",
+        "tableRuled": "Xətli",
+        "tableZebra": "Zebra",
+        "tablePlain": "Sadə",
+        "accentColour": "Vurğu rəngi",
+        "textColour": "Mətn rəngi",
+        "logoPosition": "Loqo mövqeyi",
+        "positionLeft": "Sol",
+        "positionCentre": "Mərkəz",
+        "positionRight": "Sağ",
+        "logoHeight": "Loqo hündürlüyü (mm)",
+        "documentTitle": "Sənəd başlığı",
+        "titleAuto": "Avtomatik (GST-yə uyğun)",
+        "titleCustom": "Xüsusi",
+        "titlePlaceholder": "məs. PROFORMA FAKTURA",
+        "qrPosition": "QR mövqeyi",
+        "qrFooter": "Altlıq",
+        "qrHeader": "Başlıq",
+        "qrBesideTotals": "Yekunların yanında",
+        "amountInWords": "Məbləğ sözlə",
+        "wordsBelowTotal": "Yekunların altında",
+        "wordsFooter": "Altlıq",
+        "wordsHidden": "Gizli",
+        "subtotalRow": "Aralıq yekun sətri",
+        "discountRow": "Endirim sətri",
+        "taxLines": "Vergi sətirləri",
+        "tdsExpected": "Gözlənilən TDS",
+        "roundingRow": "Yuvarlaqlaşdırma sətri",
+        "pageNumbers": "Səhifə nömrələri",
+        "headerTitle": "Başlıq",
+        "headerDescription": "Hər səhifənin yuxarısında rəng zolağı və ya şəkil. Blank və Müasir şablonları başqa seçim etməsəniz zolaq göstərir.",
+        "headerStyle": "Başlıq üslubu",
+        "headerNone": "Yoxdur",
+        "headerBand": "Rəng zolağı",
+        "headerImage": "Şəkil",
+        "bandColour": "Zolaq rəngi",
+        "bandColourHex": "Zolaq rəngi (hex)",
+        "headerImageLabel": "Başlıq şəkli",
+        "headerImageHint": "2400 px enə qədər PNG, JPEG və ya WebP; səhifənin eni boyunca uzanır.",
+        "imageOpacity": "Şəkil qeyri-şəffaflığı",
+        "headerHeight": "Başlıq hündürlüyü (mm)",
+        "bandText": "Zolaqdakı mətn",
+        "bandTextAuto": "Avtomatik (zolaq rənginə görə)",
+        "bandTextLight": "Açıq",
+        "bandTextDark": "Tünd",
+        "textTitle": "Mətn",
+        "headerNote": "Başlıq qeydi",
+        "footer": "Altlıq",
+        "signatureCaption": "İmza yazısı",
+        "draftWatermark": "Layihə su nişanı",
+        "labelsTitle": "Etiketlər",
+        "labelsDescription": "Susmaya görə ifadəni saxlamaq üçün sahəni boş buraxın.",
+        "save": "Şablonu yadda saxla",
+        "downloadSample": "Nümunə PDF yüklə",
+        "exportJson": "JSON ixrac et"
+      }
+    },
+    "email": {
+      "metaTitle": "E-poçt",
+      "title": "E-poçt",
+      "configuredSettings": "Parametrlərdə konfiqurasiya edilib",
+      "configuredEnv": "Mühit tərəfindən konfiqurasiya edilib",
+      "notConfigured": "Konfiqurasiya edilməyib: poçt tətbiqi axını",
+      "description": "Sənədlər saxlanılmış PDF əlavə edilməklə redaktordan göndərilir. Buradakı parametrlər mühitdəki SMTP_* dəyərlərini əvəz edir.",
+      "sendTest": "{email} ünvanına sınaq e-poçtu göndər",
+      "removeTitle": "Saxlanılmış SMTP parametrləri silinsin?",
+      "removeEnvTakesOver": "Mühitdəki SMTP_* dəyərləri istifadə olunacaq.",
+      "removeFallsBack": "E-poçt poçt tətbiqi axınına qayıdır.",
+      "removeTrigger": "Saxlanılmış parametrləri sil",
+      "smtpTitle": "SMTP serveri",
+      "smtpFromEnv": "Hazırda mühitdən götürülür; burada saxlamaq onu əvəz edir.",
+      "smtpPasswordNote": "Parol saxlanılarkən şifrələnir və bir daha göstərilmir.",
+      "defaultsTitle": "Susmaya görə alıcılar",
+      "defaultsDescription": "İnstans üzrə CC/BCC; emitent profilləri özlərininkini əlavə edir.",
+      "sentTitle": "Göndərilmiş poçt",
+      "sentDescription": "Son 50 cəhd, o cümlədən uğursuzluqlar və əl ilə göndərmələr.",
+      "smtp": {
+        "host": "Host",
+        "port": "Port",
+        "security": "Təhlükəsizlik",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Yoxdur (LAN relay)",
+        "user": "İstifadəçi adı",
+        "password": "Parol",
+        "passwordStored": "Saxlanılıb və şifrələnib; saxlamaq üçün boş buraxın",
+        "passwordEncrypted": "Saxlanılarkən şifrələnir",
+        "from": "Göndərən ünvanı",
+        "fromName": "Göndərənin adı",
+        "replyTo": "Cavab ünvanı",
+        "save": "SMTP parametrlərini yadda saxla"
+      },
+      "defaults": {
+        "cc": "Susmaya görə CC",
+        "ccHint": "Hər redaktora əlavə olunur; vergüllə ayrılmış",
+        "bcc": "Susmaya görə BCC",
+        "save": "Susmaya görə dəyərləri yadda saxla"
+      }
+    },
+    "security": {
+      "metaTitle": "Təhlükəsizlik",
+      "title": "Təhlükəsizlik",
+      "description": "Haradan daxil olduğunuz və nələrin dəyişdiyi.",
+      "sessions": {
+        "title": "Aktiv sessiyalar",
+        "description": "Sessiyanı ləğv etmək həmin cihazdan dərhal çıxış etdirir.",
+        "signOutOthers": {
+          "title": "Başqa yerlərdən çıxış edilsin?",
+          "description": "Bu sessiyadan başqa bütün sessiyalar ləğv edilir.",
+          "confirm": "Digərlərini çıxart",
+          "trigger": "Başqa yerlərdən çıxış et"
+        },
+        "columns": {
+          "device": "Cihaz",
+          "ipAddress": "IP ünvanı",
+          "signedIn": "Giriş",
+          "lastSeen": "Son görülmə",
+          "expires": "Bitir"
+        },
+        "thisDevice": "Bu cihaz",
+        "revokeTitle": "Bu sessiya ləğv edilsin?",
+        "unknownDevice": "Naməlum cihaz",
+        "unknownBrowser": "Naməlum",
+        "agentOnOs": "{os} üzərində {browser}"
+      },
+      "audit": {
+        "title": "Audit jurnalı",
+        "count": "{count, plural, one {# hadisə} other {# hadisə}}",
+        "entity": "Obyekt",
+        "actionContains": "Əməliyyat tərkibi",
+        "filter": "Filtr",
+        "reset": "Sıfırla",
+        "columns": {
+          "when": "Nə vaxt",
+          "who": "Kim",
+          "action": "Əməliyyat",
+          "entity": "Obyekt",
+          "summary": "Xülasə"
+        },
+        "empty": "Bu filtrlərə uyğun hadisə yoxdur.",
+        "system": "Sistem",
+        "changes": "Dəyişikliklər",
+        "page": "Səhifə {page} / {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "İstifadəçilər",
+      "title": "İstifadəçilər",
+      "description": "Bu instansa kimlərin daxil ola biləcəyi və nə edə biləcəkləri.",
+      "roles": {
+        "owner": "Sahib",
+        "editor": "Redaktor",
+        "viewer": "Baxıcı"
+      },
+      "roleHints": {
+        "owner": "Hər şey, o cümlədən parametrlər və üzvlər",
+        "editor": "Müştərilər, kataloq, fakturalar, kredit qaimələri, ödənişlər, e-poçt",
+        "viewer": "Yalnız oxumaq"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "{email} rolu",
+      "invite": {
+        "title": "Kimisə dəvət edin",
+        "description": "Dəvət olunan ünvanla (kimlik provayderi və ya parol) daxil olur və seçdiyiniz rolu alır.",
+        "sent": "Dəvət {email} ünvanına e-poçtla göndərildi.",
+        "readyWithError": "{email} üçün dəvət hazırdır. E-poçt göndərilə bilmədi ({error}); bu keçidi onlara göndərin:",
+        "readyNoSmtp": "{email} üçün dəvət hazırdır. SMTP konfiqurasiya edilməyib; bu keçidi onlara göndərin:",
+        "copyLink": "Keçidi kopyala",
+        "email": "E-poçt",
+        "emailPlaceholder": "sexs@example.com",
+        "role": "Rol",
+        "submit": "Dəvət et",
+        "inviting": "Dəvət edilir…"
+      },
+      "members": {
+        "title": "Üzvlər",
+        "description": "Həmişə ən azı bir aktiv sahib qalır.",
+        "columns": {
+          "person": "Şəxs",
+          "role": "Rol",
+          "lastSignIn": "Son giriş",
+          "status": "Status"
+        },
+        "nameYou": "{name} (siz)",
+        "deactivated": "Deaktiv edilib",
+        "reactivate": {
+          "title": "{email} yenidən aktivləşdirilsin?",
+          "description": "Əvvəlki rolları ilə yenidən daxil ola bilərlər.",
+          "confirm": "Yenidən aktivləşdir"
+        },
+        "deactivate": {
+          "title": "{email} deaktiv edilsin?",
+          "description": "Bütün sessiyalar indi bitir və yenidən aktivləşdirilənə qədər daxil ola bilməzlər. Tarixçələri saxlanılır.",
+          "confirm": "Deaktiv et"
+        }
+      },
+      "invitations": {
+        "title": "Gözləyən dəvətlər",
+        "description": "Daxil ola bilən, lakin hələ daxil olmayan ünvanlar.",
+        "columns": {
+          "email": "E-poçt",
+          "role": "Rol",
+          "invited": "Dəvət olunub"
+        },
+        "empty": "Gözləyən dəvət yoxdur.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "{email} üçün dəvət ləğv edilsin?"
+      }
+    },
+    "data": {
+      "metaTitle": "Məlumatlar",
+      "title": "Məlumatlar",
+      "description": "Hər şey daşına bilər: CSV və ya Excel formatında verilənlər dəstləri, miqrasiya üçün tam snapşot, mühasibiniz üçün PDF-lər və sınaqdan keçmiş ehtiyat nüsxə proseduru.",
+      "period": {
+        "fiscalYear": "Maliyyə ili",
+        "fiscalYearHint": "Tarixləri əvəz edir",
+        "issuer": "Emitent"
+      },
+      "exportAll": {
+        "title": "Bütün məlumatları ixrac et",
+        "description": "Hər verilənlər dəsti CSV formatında və bütün cədvəllərin relyasiya snapşotu olan <mono>data.json</mono> ilə ZIP. Şifrələnmiş sahələr (ödəniş üsulu təfərrüatları, SMTP parolu) daxil edilmir; içindəki README onları sadalayır.",
+        "download": "okinvo-data ZIP yüklə"
+      },
+      "exportDocuments": {
+        "title": "Sənədləri ixrac et",
+        "description": "Dövr üzrə verilmiş və ləğv edilmiş bütün faktura və kredit qaiməsi PDF-ləri nömrəyə görə adlandırılır, nömrələr, yekunlar və heşlərdən ibarət <mono>index.csv</mono> ilə birlikdə. Çatışmayan PDF-lər yol boyu yaradılır.",
+        "docx": "Hər sənədin DOCX nüsxəsini də daxil et",
+        "facturx": "EN 16931 XML daxil edilmiş Factur-X PDF/A-3 nüsxəsini də daxil et",
+        "download": "Sənədlər ZIP yüklə"
+      },
+      "datasets": {
+        "title": "Verilənlər dəstləri",
+        "description": "İndeks səhifələrinin təklif etdiyi eyni ixraclar, hamısına dövr və emitent tətbiq olunur. Ödənişlər tarix aralığından istifadə edir; müştərilər və xidmətlər dövrü nəzərə almır.",
+        "columns": {
+          "dataset": "Verilənlər dəsti",
+          "filters": "Tətbiq olunan filtrlər",
+          "download": "Yüklə"
+        },
+        "names": {
+          "invoices": "Faktura reyestri",
+          "invoiceItems": "Faktura sətirləri",
+          "payments": "Ödənişlər kitabı",
+          "creditNotes": "Kredit qaimələri reyestri",
+          "clients": "Müştərilər",
+          "services": "Xidmətlər",
+          "gstSummary": "GST xülasəsi",
+          "tdsSummary": "TDS xülasəsi"
+        },
+        "filters": {
+          "periodIssuer": "dövr, emitent",
+          "dateRangeIssuer": "tarix aralığı, emitent",
+          "includesArchived": "arxivləşdirilənləri daxil edir"
+        }
+      },
+      "backups": {
+        "title": "Ehtiyat nüsxələr",
+        "notWired": "Ehtiyat nüsxə xidməti qoşulmayıb",
+        "noRun": "Hələ ehtiyat nüsxə işləməyib",
+        "lastOk": "Son ehtiyat nüsxə uğurlu oldu",
+        "lastFailed": "Son ehtiyat nüsxə uğursuz oldu",
+        "description": "Compose <mono>backup</mono> xidməti <mono>BACKUP_CRON</mono> üzrə Postgres dump-ı götürür və yaddaş həcmini arxivləyir, <mono>backups</mono> həcmində <mono>BACKUP_RETENTION_DAYS</mono> günlük tarixçəni saxlayır və bu səhifənin oxuduğu status faylını yazır.",
+        "finished": "Bitib",
+        "databaseDump": "Verilənlər bazası dump-ı",
+        "storageArchive": "Yaddaş arxivi",
+        "size": "Ölçü",
+        "sizeMb": "{size} MB",
+        "error": "Xəta",
+        "runNow": "İndi birini işə salın və ya bir cüt fayldan bərpa edin:",
+        "restoreDrill": "Bərpa proseduru CI-da <mono>scripts/restore-drill.sh</mono> ilə yoxlanılır: toxum məlumatı, ehtiyat nüsxə, silmə, bərpa, sonra sətir sayı və PDF heşinin müqayisəsi."
+      }
+    },
+    "legal": {
+      "metaTitle": "Hüquqi məlumat",
+      "metaDescription": "Bu instansı kimin idarə etdiyi: ictimai hüquqi səhifələrdə çap olunan məlumatlar.",
+      "title": "Hüquqi məlumat",
+      "description": "İctimai hüquqi səhifələr bu məlumatları çap edir. Hər sahə doldurulana qədər səhifələrdə vurğulanmış yertutanlar göstərilir.",
+      "operator": {
+        "title": "Operator məlumatları",
+        "complete": "Tamamlanıb",
+        "missing": "{count} çatışmır: {fields}",
+        "description": "Bu instansı idarə edən şəxs və ya şirkət kimi siz sənədlərdə nəzərdə tutulan operatorsunuz. Burada heç nə heç yerə göndərilmir; aşağıdakı səhifələrdə çap olunur."
+      },
+      "fieldLabels": {
+        "legalName": "Operatorun hüquqi adı",
+        "entityType": "Subyekt növü",
+        "address": "Operatorun ünvanı",
+        "country": "Operatorun ölkəsi",
+        "contactEmail": "Əlaqə e-poçtu",
+        "privacyEmail": "Məxfilik e-poçtu",
+        "dpoEmail": "Məlumatların mühafizəsi üzrə məsul şəxsin e-poçtu",
+        "governingLaw": "Tətbiq olunan hüquq",
+        "venue": "Mübahisələrin həlli yeri",
+        "effectiveDate": "Qüvvəyə minmə tarixi"
+      },
+      "publicPages": {
+        "title": "İctimai səhifələr",
+        "description": "Giriş səhifəsindən, paylaşım görüntüləyicisindən və çərəz bildirişindən keçid verilir.",
+        "terms": "Xidmət şərtləri",
+        "acceptableUse": "Məqbul istifadə siyasəti",
+        "privacy": "Məxfilik siyasəti",
+        "cookies": "Çərəz siyasəti",
+        "dataRetention": "Məlumatların saxlanması",
+        "security": "Təhlükəsizlik",
+        "licenses": "Lisenziyalar və üçüncü tərəf bildirişləri"
+      },
+      "form": {
+        "legalName": "Hüquqi ad",
+        "entityType": "Subyekt növü",
+        "individual": "Fərdi şəxs / fərdi sahibkar",
+        "company": "Şirkət / qeydiyyatdan keçmiş qurum",
+        "address": "Ünvan",
+        "addressHint": "Şərtlərdə və Məxfilik siyasətində operatorun poçt ünvanı kimi çap olunur.",
+        "country": "Ölkə",
+        "effectiveDate": "Qüvvəyə minmə tarixi",
+        "contactEmail": "Əlaqə e-poçtu",
+        "privacyEmail": "Məxfilik e-poçtu",
+        "privacyEmailHint": "Məlumat subyekti sorğularının göndərildiyi yer; əlaqə ünvanı ola bilər.",
+        "dpoEmail": "Məlumatların mühafizəsi üzrə məsul şəxsin e-poçtu",
+        "dpoEmailHint": "Yalnız təyin etmisinizsə.",
+        "governingLaw": "Tətbiq olunan hüquq",
+        "governingLawHint": "Məsələn, \"Hindistan qanunları\" və ya \"İngiltərə və Uels qanunları\".",
+        "venue": "Mübahisələrin həlli yeri",
+        "venueHint": "Məsələn, \"Benqaluru, Karnataka məhkəmələri\".",
+        "submit": "Operator məlumatlarını yadda saxla"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-qaimə",
+      "title": "E-qaimə",
+      "description": "Hər emitent profili üzrə: Hindistan e-qaimələrini hansı bağlayıcı qeydiyyata alır və Factur-X ilə UBL çıxışları hansı Avropa profilinə uyğundur. Giriş məlumatları şifrələnmiş saxlanılır və bir daha göstərilmir.",
+      "noProfiles": "Əvvəlcə emitent profili yaradın.",
+      "profile": "Emitent profili",
+      "enabled": "Aktiv",
+      "disabled": "Deaktiv",
+      "enabledHint": "E-qaiməni Parametrlər > Profillər bölməsində hər profil üzrə yandırın və ya söndürün.",
+      "india": {
+        "title": "Hindistan (GST e-qaimə, IRN)",
+        "description": "IRN burada seçilmiş bağlayıcı vasitəsilə qeydiyyata alınır; əl ilə bağlayıcı portalın cavabını əllə qəbul edir.",
+        "connector": "Bağlayıcı",
+        "connectorNone": "Söndürülüb",
+        "connectorManual": "Əl ilə (IRP cavabını yapışdırın)",
+        "connectorNic": "NIC IRP API (sandbox və ya production)",
+        "nicUnverified": "NIC bağlayıcısı dərc olunmuş API-yə uyğundur və yalnız qeydə alınmış test məlumatları ilə sınaqdan keçirilib; giriş məlumatları verilənədək real sandbox ilə yoxlanılmayıb.",
+        "env": "Mühit",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "Baza URL",
+        "baseUrlHint": "Mühitin standart dəyəri üçün boş buraxın.",
+        "clientId": "Müştəri ID",
+        "clientSecret": "Müştəri sirri",
+        "username": "İstifadəçi adı",
+        "password": "Parol",
+        "gstin": "GSTIN",
+        "publicKey": "IRP açıq açarı (PEM)",
+        "publicKeyHint": "Daxil olduqdan sonra portaldan endirin; IRP-yə göndərilən etimadnamələri qablaşdırır.",
+        "publicKeyStored": "Saxlanıb; saxlamaq üçün boş buraxın.",
+        "secretStored": "Şifrələnmiş saxlanılır; saxlamaq üçün boş buraxın.",
+        "secretEncrypted": "Şifrələnmiş saxlanılır."
+      },
+      "eu": {
+        "title": "Avropa (Factur-X, UBL)",
+        "description": "Bu versiyada yalnız EN 16931 profili var; Factur-X və UBL yükləmələri ondan istifadə edir.",
+        "profile": "Profil",
+        "profileNone": "Söndürülüb",
+        "en16931": "EN 16931"
+      },
+      "save": "E-qaimə parametrlərini yadda saxla"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Skriptlər, SDK və MCP müştəriləri üçün API açarları, curl nümunələri ilə.",
+      "title": "API",
+      "description": "Skriptlər, SDK və MCP müştəriləri üçün açarlar. Açar ən çoxu sizin rolunuzun edə biləcəyini edə bilər; yalnız bir dəfə göstərilir.",
+      "create": {
+        "title": "Açar yarat",
+        "description": "<mono>Authorization: Bearer okv_…</mono> kimi göndərin. Mənbə koduna və söhbət jurnallarına düşməsin; sızarsa, aşağıdan ləğv edin."
+      },
+      "keys": {
+        "title": "Açarlar",
+        "descriptionOwner": "Bu instansın bütün açarları; sahiblər hər hansı birini ləğv edə bilər.",
+        "descriptionOwn": "Açarlarınız.",
+        "columns": {
+          "name": "Ad",
+          "prefix": "Prefiks",
+          "scopes": "Əhatə dairələri",
+          "owner": "Sahib",
+          "lastUsed": "Son istifadə",
+          "expires": "Bitir",
+          "status": "Status"
+        },
+        "empty": "Hələ API açarı yoxdur.",
+        "never": "heç vaxt",
+        "revoked": "Ləğv edilib",
+        "expired": "Müddəti bitib",
+        "revokeTitle": "{name} ləğv edilsin?",
+        "revokeDescription": "Bu açardan istifadə edən müştərilər dərhal işləməyi dayandırır.",
+        "activeCount": "{count, plural, one {# aktiv açar.} other {# aktiv açar.}}"
+      },
+      "examples": {
+        "title": "Nümunələr",
+        "description": "<mono>$OKINVO_KEY</mono> yerinə açarı yazın. Versiyalı REST API, onun OpenAPI sənədi (<mono>/api/openapi.json</mono>), TypeScript SDK və MCP serveri v1.1 planının növbəti tapşırıqları ilə gəlir; status son nöqtəsi bu gün işləyir.",
+        "rateLimit": "Limiti aşan çağırışlara <mono>Retry-After</mono> başlığı ilə 429 cavabı verilir (hər açar üçün dəqiqədə 120 sorğu). Açarın əhatə dairələri sahibinin cari rolu ilə məhdudlaşdırılır."
+      },
+      "form": {
+        "copyKey": "API açarını kopyala",
+        "name": "Ad",
+        "namePlaceholder": "məs. mühasibat skripti",
+        "expires": "Bitir",
+        "in30Days": "30 gündən sonra",
+        "in90Days": "90 gündən sonra",
+        "inAYear": "Bir ildən sonra",
+        "never": "Heç vaxt",
+        "scopes": "Əhatə dairələri",
+        "submit": "API açarı yarat",
+        "creating": "Yaradılır…"
+      },
+      "scopes": {
+        "invoicesRead": "Fakturaları oxumaq",
+        "invoicesCreate": "Faktura yaratmaq və vermək",
+        "creditNotesRead": "Kredit qaimələrini oxumaq",
+        "creditNotesCreate": "Kredit qaiməsi yaratmaq və vermək",
+        "catalogueRead": "Müştəriləri, xidmətləri və məhsulları oxumaq",
+        "documentsRead": "Saxlanılmış PDF və DOCX nüsxələrini yükləmək",
+        "statusRead": "İnstans statusunu oxumaq"
+      }
+    },
+    "status": {
+      "metaTitle": "Status",
+      "metaDescription": "Bu instansın versiyası, verilənlər bazası, yaddaşı, e-poçtu və ehtiyat nüsxə vəziyyəti.",
+      "title": "Status",
+      "description": "Bu instansın nə işlətdiyi və hissələrinin cavab verib-vermədiyi.",
+      "recheck": "Yenidən yoxla",
+      "health": {
+        "ok": "OK",
+        "warning": "Xəbərdarlıq",
+        "failed": "Uğursuz",
+        "na": "Konfiqurasiya edilməyib"
+      },
+      "overall": {
+        "ok": "Hər şey qaydasındadır",
+        "degraded": "Zəifləyib",
+        "failed": "Uğursuz"
+      },
+      "version": "Quruluş {hasSha, select, yes {<mono>{sha}</mono>} other {(sha naməlum)}} · qurulub {built} · Node <mono>{node}</mono> · işləmə müddəti {uptime} · yoxlanılıb {checked}",
+      "dateUnknown": "(tarix naməlum)",
+      "uptime": {
+        "days": "{d}g {h}s {m}d",
+        "hours": "{h}s {m}d",
+        "minutes": "{m}d"
+      },
+      "rows": {
+        "database": "Verilənlər bazası",
+        "storage": "Yaddaş",
+        "rateLimiting": "Sürət məhdudiyyəti",
+        "email": "E-poçt",
+        "backups": "Ehtiyat nüsxələr"
+      },
+      "db": {
+        "detail": "{latency} ms · son miqrasiya <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # bitməmiş miqrasiya}}",
+        "noMigration": "yoxdur"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · sınaq obyektinin yazılması, oxunması və silinməsi {latency} ms-də",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> saxlancı {store, select, memory {(bir replika)} other {(replikalar arasında paylaşılır)}}",
+      "smtp": {
+        "configured": "SMTP mənbəyi {source, select, settings {the settings page} env {the environment} other {}} · son sınaq {lastTest} · son 24 saat: {sent} göndərildi, {failed} uğursuz",
+        "none": "SMTP serveri yoxdur; redaktor “Poçt tətbiqində aç” təklif edir. <link>Konfiqurasiya et</link>"
+      },
+      "backups": {
+        "notWired": "Ehtiyat nüsxə xidməti qoşulmayıb (BACKUP_STATUS_FILE təyin edilməyib).",
+        "noRun": "Ehtiyat nüsxə xidməti qoşulub; hələ icra qeyd olunmayıb.",
+        "ok": "Son icra {finishedAt} tarixində uğurlu oldu{days, plural, =0 {} one { · saxlama # gün} other { · saxlama # gün}}",
+        "failed": "Son icra uğursuz oldu: {error}, {finishedAt}{days, plural, =0 {} one { · saxlama # gün} other { · saxlama # gün}}"
+      },
+      "footer": "Eyni hesabat monitorinq üçün <mono>/api/health/status</mono> ünvanında JSON kimi mövcuddur (daxil olmuş sessiya və ya API açarı)."
+    },
+    "usage": {
+      "metaTitle": "İstifadə",
+      "metaDescription": "Bu quraşdırmada ekran və gün üzrə səhifə baxışları, yerli olaraq sayılır.",
+      "title": "İstifadə",
+      "description": "Hər ekranın nə qədər açıldığı yalnız bu quraşdırmada sayılır: kukilər yoxdur, ünvanlar yoxdur, heç yerə heç nə göndərilmir.",
+      "last30Days": "Son 30 gün",
+      "total": "{count, plural, =0 {Səhifə baxışı yoxdur} one {# səhifə baxışı} other {# səhifə baxışı}}",
+      "off": "Sayma söndürülüb. Bu quraşdırmada səhifə baxışlarını saymaq üçün ANALYTICS_LOCAL=true təyin edin.",
+      "empty": "Hələ heç bir səhifə baxışı qeydə alınmayıb.",
+      "columns": {
+        "day": "Gün",
+        "path": "Ekran",
+        "views": "Baxışlar"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Xoş gəlmisiniz",
+    "progress": "Gedişat",
+    "steps": {
+      "aboutYou": "Haqqınızda",
+      "howYouUse": "Necə istifadə edəcəksiniz",
+      "allSet": "Hazırdır"
+    },
+    "step1": {
+      "title": "Özünüz haqqında danışın",
+      "subtitle": "Bu, susmaya görə dəyərlərinizi təyin edir; hər dəyər sonra Parametrlərdə dəyişdirilə bilər.",
+      "name": "Ad",
+      "email": "E-poçt",
+      "emailHint": "Giriş kimliyiniz. Sonra Parametrlər → Təhlükəsizlik bölməsindən dəyişdirilə bilər.",
+      "country": "Ölkə",
+      "currency": "Üstünlük verilən valyuta",
+      "currencyHint": "Profil yaranana qədər yeni profillər və idarə paneli üçün istifadə olunur."
+    },
+    "step2": {
+      "title": "okinvo-dan necə istifadə edəcəksiniz?",
+      "subtitle": "Yalnız susmaya görə dəyərlər dəyişir; heç nə kilidlənmir.",
+      "usage": "İstifadə",
+      "personal": "Şəxsi fakturalaşdırma",
+      "personalHint": "Öz adınıza sərbəst iş",
+      "business": "Biznes fakturalaşdırması",
+      "businessHint": "Qeydiyyatdan keçmiş bizneslə fakturalar",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "ƏDV nömrəsi",
+        "other": "Vergi qeydiyyat nömrəsi"
+      },
+      "taxQuestion": {
+        "IN": "GSTIN-iniz varmı?",
+        "GB": "ƏDV qeydiyyatındasınızmı?",
+        "other": "Fakturalarda çap olunacaq vergi qeydiyyat nömrəniz varmı?"
+      }
+    },
+    "step3": {
+      "title": "Hər şey hazırdır",
+      "body": "İndi ilk emitent profilinizi yaradın: fakturalarınızda çap olunan ad, ünvan və vergi məlumatları. Bizə dediklərinizi doldurduq.",
+      "go": "Profillərə keç",
+      "opening": "Açılır…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Şərtlər",
+      "privacy": "Məxfilik",
+      "cookies": "Çərəzlər",
+      "security": "Təhlükəsizlik"
+    },
+    "cookieNotice": {
+      "label": "Çərəz bildirişi",
+      "body": "Yalnız mütləq zəruri çərəzlərdən istifadə edirik: sessiyanız və görünüş seçimləriniz. Analitika və izləmə yoxdur.",
+      "policy": "Çərəz siyasəti",
+      "gotIt": "Aydındır"
+    },
+    "nav": {
+      "label": "Hüquqi məlumat",
+      "cookies": "Çərəzlər",
+      "privacy": "Məxfilik",
+      "terms": "Şərtlər",
+      "acceptableUse": "Məqbul istifadə",
+      "retention": "Saxlama",
+      "security": "Təhlükəsizlik",
+      "licences": "Lisenziyalar"
+    },
+    "operatorNotice": "okinvo öz serverində quraşdırılan proqram təminatıdır; bu instansın operatoru onun istifadəsinə görə məsuliyyət daşıyır.",
+    "doc": {
+      "effectiveOn": "Qüvvəyə minmə <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Mündəricat"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Operatorun hüquqi adı",
+        "entityType": "Subyekt növü",
+        "address": "Operatorun ünvanı",
+        "country": "Operatorun ölkəsi",
+        "contactEmail": "Əlaqə e-poçtu",
+        "privacyEmail": "Məxfilik e-poçtu",
+        "dpoEmail": "Məlumatların mühafizəsi üzrə məsul şəxsin e-poçtu",
+        "governingLaw": "Tətbiq olunan hüquq",
+        "venue": "Mübahisələrin həlli yeri",
+        "effectiveDate": "Qüvvəyə minmə tarixi"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Tapılmadı",
+      "title": "Bu ünvanda heç nə yoxdur",
+      "body": "Keçid köhnəlmiş ola bilər və ya göstərdiyi sənəd heç vaxt verilməyib."
+    },
+    "forbidden": {
+      "metaTitle": "İcazə verilmir",
+      "title": "Bu hesab bunu edə bilməz",
+      "body": "Rolunuz buna icazə vermir. Sahibdən giriş istəyin və ya buna malik hesabla daxil olun."
+    },
+    "error": {
+      "title": "Nəsə səhv getdi",
+      "body": "Bu sorğu ilə heç nə dəyişdirilmədi. Yenidən cəhd edin; təkrarlanarsa, server jurnalında təfərrüatlar var.",
+      "digest": "xəta {digest}",
+      "generic": "xəta"
+    },
+    "appNotFound": {
+      "title": "Tapılmadı",
+      "body": "Bu qeyd mövcud deyil və ya siz ona baxarkən silinib.",
+      "back": "İdarə panelinə qayıt"
+    },
+    "validation": {
+      "required": "tələb olunur",
+      "tooLong": "ən çoxu {max} simvol",
+      "invalidEmail": "düzgün e-poçt olmalıdır",
+      "invalidDate": "YYYY-MM-DD formatında təqvim tarixi olmalıdır",
+      "invalidAmount": "rəqəm olmalıdır",
+      "wholeNumber": "tam ədəd olmalıdır",
+      "greaterThanZero": "sıfırdan böyük olmalıdır",
+      "fixFields": "Zəhmət olmasa, vurğulanmış sahələri düzəldin.",
+      "charset": "Yalnız standart klaviatura simvollarına icazə verilir."
+    }
+  },
+  "verify": {
+    "metaTitle": "Sənədi yoxla",
+    "metaDescription": "Fakturanın və ya kredit qeydinin göndərən tərəfindən verildiyini və dəyişdirilmədiyini yoxlayın.",
+    "heading": "Sənədin təsdiqi",
+    "rateLimited": "Bu ünvandan çox sayda yoxlama edildi. Zəhmət olmasa, bir dəqiqə sonra yenidən cəhd edin.",
+    "notFound": {
+      "title": "Belə sənəd yoxdur",
+      "body": "Bu keçid heç bir verilmiş sənədə uyğun gəlmir. QR kodunu və ya aldığınız keçidi yoxlayın və ya emitentlə əlaqə saxlayın."
+    },
+    "status": {
+      "void": "Ləğv edilib",
+      "valid": "Etibarlı"
+    },
+    "issuedBy": "Verən",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Verilən şəxs",
+    "issueDate": "Verilmə tarixi",
+    "total": "Cəmi",
+    "voided": "Bu sənəd emitent tərəfindən ləğv edilib və artıq etibarlı deyil.",
+    "storedCopies": {
+      "title": "Saxlanılmış nüsxələr",
+      "description": "Emitentin saxladığı hər PDF versiyasının SHA-256 heşi. Brauzerinizdə müqayisə etmək üçün nüsxənizi seçin: heç nə yüklənmir.",
+      "empty": "Hələ PDF yaradılmayıb.",
+      "protectedVersion": "Parolla qorunan nüsxə {version}",
+      "version": "Versiya {version}"
+    },
+    "check": {
+      "label": "Nüsxənizi yoxlayın",
+      "hashing": "Heş hesablanır…",
+      "match": "Nüsxəniz {version} versiyasına tam uyğundur.",
+      "mismatch": "Nüsxəniz saxlanılmış heç bir versiyaya uyğun gəlmir."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Paylaşılmış sənəd",
+      "metaDescription": "Sizinlə paylaşılan sənəd: onu onlayn görüntüləyin və PDF faylını yükləyin.",
+      "rateLimited": "Bu ünvandan çox sayda sorğu göndərildi. Zəhmət olmasa, bir dəqiqə sonra yenidən cəhd edin.",
+      "unavailable": {
+        "title": "Bu keçid əlçatan deyil",
+        "body": "Müddəti bitmiş və ya emitent tərəfindən ləğv edilmiş ola bilər. Onlardan yenisini istəyin."
+      },
+      "lockedTitleInvoice": "{issuer} tərəfindən faktura",
+      "lockedTitleCreditNote": "{issuer} tərəfindən kredit qaiməsi",
+      "lockedBody": "Bu sənəd parolla qorunur. Emitentin verdiyi parolu daxil edin.",
+      "void": "Ləğv edilib",
+      "protectedPdf": "PDF eyni parolla açılır. Oxumaq və çap etmək mümkündür; kopyalama və redaktə kilidlidir.",
+      "byline": "{issuer} tərəfindən {client} üçün · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Parol",
+      "limited": "Çox sayda cəhd. Zəhmət olmasa, on beş dəqiqə gözləyib yenidən cəhd edin.",
+      "wrong": "Bu parol düzgün deyil.",
+      "submit": "Sənədi aç"
+    },
+    "dialog": {
+      "trigger": "Paylaş",
+      "title": "Bu sənədi paylaş",
+      "description": "Keçidi olan hər kəs müddəti bitənə və ya siz ləğv edənə qədər onu görə və yükləyə bilər. Parol PDF-in özünü də qoruyur: parolla açılır, oxunub çap edilə bilər, redaktə və kopyalama mümkün deyil.",
+      "link": "Keçid",
+      "copyLink": "Keçidi kopyala",
+      "password": "Parol",
+      "copyPassword": "Parolu kopyala",
+      "sendSeparately": "Parolu keçiddən ayrı göndərin. Onu aşağıdakı siyahıda yenidən görə bilərsiniz.",
+      "copy": "Kopyala",
+      "copied": "Kopyalandı",
+      "expires": "Bitir",
+      "expiry": {
+        "d7": "7 gündən sonra",
+        "d30": "30 gündən sonra",
+        "d90": "90 gündən sonra",
+        "never": "Heç vaxt"
+      },
+      "protection": "Qorunma",
+      "protectionOptions": {
+        "auto": "Parol: parol ifadəsi yarat",
+        "manual": "Parol: özüm seçirəm",
+        "none": "Parolsuz (açıq keçid)"
+      },
+      "passwordHint": "Ən azı 8 simvol.",
+      "strength": "Gücü: {label}",
+      "strengthLabels": {
+        "veryWeak": "çox zəif",
+        "weak": "zəif",
+        "fair": "orta",
+        "good": "yaxşı",
+        "strong": "güclü"
+      },
+      "creating": "Yaradılır…",
+      "create": "Keçid yarat",
+      "activeLinks": "Aktiv keçidlər",
+      "passwordProtected": "Parolla qorunur",
+      "openLink": "Keçidi aç",
+      "linkExpires": "{kind} · bitir {date}",
+      "linkNeverExpires": "{kind} · müddəti bitmir",
+      "revoke": {
+        "title": "Bu keçid ləğv edilsin?",
+        "description": "Keçid onu alan hər kəs üçün dərhal işləməyi dayandırır.",
+        "label": "Ləğv et"
+      },
+      "linkPassword": "Parol: <code>{password}</code>",
+      "counts": "{views, plural, one {# baxış} other {# baxış}} · {downloads, plural, one {# yükləmə} other {# yükləmə}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Kredit qaimələri",
+      "title": "Kredit qaimələri",
+      "description": "Verilmiş fakturalara qarşı tərtib edilir; hər biri verildikdə faktura qalığını azaldır.",
+      "newCreditNote": "Yeni kredit qaiməsi",
+      "filters": {
+        "from": "Başlanğıc",
+        "to": "Son",
+        "issuer": "Emitent",
+        "client": "Müştəri",
+        "status": "Status",
+        "search": "Axtar",
+        "all": "Hamısı",
+        "searchPlaceholder": "Nömrə, səbəb, müştəri",
+        "go": "Keç"
+      },
+      "statuses": {
+        "DRAFT": "Layihə",
+        "ISSUED": "Verilib",
+        "SENT": "Göndərilib",
+        "VOID": "Ləğv edilib"
+      },
+      "empty": {
+        "title": "Hələ kredit qaiməsi yoxdur",
+        "description": "Verilmiş fakturanı açın və borcu azaltmaq üçün “Kredit qaiməsi” seçin."
+      },
+      "noMatch": "Bu filtrlərə uyğun kredit qaiməsi yoxdur.",
+      "columns": {
+        "number": "Nömrə",
+        "against": "Faktura",
+        "client": "Müştəri",
+        "issueDate": "Verilmə tarixi",
+        "reason": "Səbəb",
+        "total": "Cəmi",
+        "status": "Status"
+      },
+      "draft": "Layihə"
+    },
+    "new": {
+      "metaTitle": "Yeni kredit qaiməsi",
+      "title": "Yeni kredit qaiməsi",
+      "description": "Kredit qaiməsi verilmiş fakturaya qarşı tərtib edilir və onun qalığını azaldır.",
+      "nothingToCredit": {
+        "title": "Kreditləşdiriləcək heç nə yoxdur",
+        "description": "Kredit qaimələri üçün qalığı olan verilmiş faktura lazımdır.",
+        "openInvoices": "Fakturaları aç"
+      },
+      "whichInvoice": "Hansı faktura?",
+      "invoice": "Faktura",
+      "invoiceOption": "{number} · {client} · qalıq {balance}",
+      "issuedOnly": "Kredit qaimələri yalnız verilmiş fakturalara qarşı tərtib edilir.",
+      "invoiceFallback": "Faktura"
+    },
+    "edit": {
+      "metaTitle": "Kredit qaiməsini redaktə et",
+      "title": "Layihə kredit qaiməsini redaktə et",
+      "immutable": "Verilmiş kredit qaimələri dəyişdirilə bilməz.",
+      "draft": "Layihə"
+    },
+    "detail": {
+      "metaTitle": "Kredit qaiməsi",
+      "draftTitle": "Layihə kredit qaiməsi",
+      "meta": "{client} · <invoice>{number}</invoice> fakturasına qarşı · verilib <mono>{date}</mono>",
+      "previewPdf": "PDF-ə önbaxış",
+      "issue": {
+        "title": "Bu kredit qaiməsi verilsin?",
+        "description": "Nömrə ayrılır, faktura qalığı azaldılır və sənəd dəyişdirilə bilməz olur.",
+        "label": "Ver"
+      },
+      "deleteDraft": {
+        "title": "Bu layihə silinsin?"
+      },
+      "sendByEmail": "E-poçtla göndər",
+      "markSent": {
+        "title": "Göndərilmiş kimi qeyd edilsin?",
+        "label": "Göndərilmiş kimi qeyd et"
+      },
+      "void": {
+        "title": "Bu kredit qaiməsi ləğv edilsin?",
+        "description": "Faktura qalığı bərpa olunur; nömrə heç vaxt təkrar istifadə edilmir.",
+        "reason": "Səbəb",
+        "label": "Ləğv et"
+      },
+      "voided": "Ləğv edilib {date}: {reason}",
+      "amounts": {
+        "title": "Məbləğlər",
+        "reason": "Səbəb",
+        "creditAmount": "Kredit məbləği",
+        "total": "Cəmi",
+        "balanceNow": "Faktura qalığı indi",
+        "sent": "Göndərilib"
+      },
+      "documents": {
+        "title": "Saxlanılmış sənədlər",
+        "description": "Hər versiya saxlanılır; yoxlama səhifəsi bütün heşləri göstərir.",
+        "regenerateTitle": "Yeni PDF versiyası yaradılsın?",
+        "generate": "Yarat",
+        "newVersion": "Yeni versiya",
+        "renderedOnFirstDownload": "PDF ilk yükləmədə yaradılır.",
+        "protectedCopy": "Parolla qorunan nüsxə {version}",
+        "version": "Versiya {version}",
+        "verificationLink": "Təsdiq keçidi: <link>{path}…</link>"
+      },
+      "draftsPreview": "Layihələrə redaktorda canlı önbaxış göstərilir."
+    },
+    "send": {
+      "metaTitle": "Kredit qaiməsini göndər",
+      "title": "<mono>{number}</mono> göndər",
+      "previousSends": "Əvvəlki göndərmələr"
+    },
+    "builder": {
+      "against": "<mono>{number}</mono> fakturasına qarşı",
+      "summary": "{client} · cəmi {total} · qalıq {balance} · vergiyə cəlb olunan ehtiyat ≈ {headroom}",
+      "issueDate": "Verilmə tarixi",
+      "creditAmount": "Kredit məbləği (vergi xaric)",
+      "creditAmountHint": "Vergi fakturanın vergi sətirlərindən mütənasib bölünür",
+      "reason": "Səbəb",
+      "picker": {
+        "title": "Faktura sətirlərindən hesabla",
+        "description": "Tam sətirləri və ya faiz seçin; bu yalnız yuxarıdakı məbləği doldurur.",
+        "line": "Sətir",
+        "subtotal": "Aralıq yekun",
+        "credit": "Kredit",
+        "percent": "%",
+        "creditLine": "{position}. sətri kreditləşdir",
+        "percentOfLine": "{position}. sətrin faizi"
+      },
+      "saveDraft": "Layihəni yadda saxla",
+      "issuing": "Verilir…",
+      "saveAndIssue": "Yadda saxla və ver"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Alınmış ödəniş",
+        "REFUND": "Verilmiş geri ödəmə",
+        "WRITE_OFF": "Silinmə"
+      },
+      "editTitle": "Qeydi redaktə et",
+      "recordTitle": "Ödəniş qeyd et",
+      "description": "Məbləğlər faktura valyutasındadır ({currency}); tutulmuş TDS tətbiq olunan məbləğin tərkib hissəsidir.",
+      "kind": "Növ",
+      "date": "Tarix",
+      "amountRefunded": "Qaytarılan məbləğ (mənfi)",
+      "amountApplied": "Tətbiq olunan məbləğ",
+      "refundHint": "Mənfi məbləğ daxil edin, məs. -500",
+      "tdsDeducted": "Tutulmuş TDS",
+      "tdsHint": "Müştərinin tutduğu vergi; tətbiq olunan məbləğə daxildir",
+      "bankFees": "Bank komissiyaları",
+      "receivedInto": "Daxil olduğu hesab",
+      "noMethod": "-",
+      "reference": "İstinad",
+      "referenceHint": "UTR, əməliyyat ID, çek nömrəsi",
+      "otherCurrency": "Başqa valyutada alınıb",
+      "amountReceived": "Alınan məbləğ",
+      "receivedCurrency": "Alınan valyuta",
+      "exchangeRate": "Mübadilə məzənnəsi",
+      "exchangeRateHint": "1 alınan vahid = ? {currency}",
+      "notes": "Qeydlər",
+      "receiptHint": "10 MB-a qədər PNG, JPEG, WebP və ya PDF",
+      "receipts": "Qəbzlər və hesablar",
+      "receiptN": "Qəbz {n}",
+      "removeReceipt": "Qəbz {n} silinsin",
+      "saveChanges": "Dəyişiklikləri yadda saxla",
+      "record": "Qeyd et"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Ödəyici",
+      "shipTo": "Çatdırılma ünvanı",
+      "invoice": "Faktura",
+      "creditNote": "Kredit qaiməsi",
+      "issueDate": "Verilmə tarixi",
+      "dueDate": "Son ödəniş tarixi",
+      "number": "Nömrə",
+      "description": "Təsvir",
+      "sacHsn": "SAC/HSN",
+      "qty": "Say",
+      "unit": "Vahid",
+      "rate": "Tarif",
+      "tax": "Vergi",
+      "amount": "Məbləğ",
+      "subtotal": "Aralıq yekun",
+      "discount": "Endirim",
+      "taxable": "Vergiyə cəlb olunan məbləğ",
+      "total": "Cəmi",
+      "amountDue": "Ödənilməli məbləğ",
+      "tdsExpected": "Gözlənilən TDS",
+      "netExpected": "Gözlənilən xalis məbləğ",
+      "rounding": "Yuvarlaqlaşdırma",
+      "paymentDetails": "Ödəniş rekvizitləri",
+      "notes": "Qeydlər",
+      "terms": "Şərtlər",
+      "placeOfSupply": "Təchizat yeri",
+      "poReference": "PO istinadı",
+      "amountInWords": "Məbləğ sözlə",
+      "signature": "İmzalamağa səlahiyyətli şəxs"
+    },
+    "title": {
+      "taxInvoice": "VERGİ FAKTURASI",
+      "billOfSupply": "TƏCHİZAT SƏNƏDİ",
+      "invoice": "FAKTURA",
+      "creditNote": "KREDİT QAİMƏSİ"
+    },
+    "text": {
+      "pageOf": "Səhifə {page} / {total}",
+      "scanToVerify": "Yoxlamaq üçün skan edin",
+      "taxId": "Vergi ID",
+      "void": "LƏĞV EDİLİB",
+      "draftWatermark": "QARALAMA - vergi fakturası deyil",
+      "paymentTermsDays": "{days} gün",
+      "irn": "IRN",
+      "ackNo": "Təsdiq №",
+      "ackDate": "Təsdiq tarixi",
+      "einvoiceCancelled": "E-QAİMƏ LƏĞV EDİLİB"
+    },
+    "ui": {
+      "pageEstimate": "təxminən {count, plural, one {# səhifə} other {# səhifə}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Mesaj",
+      "description": "Emitent profilinin şablonlarından əvvəlcədən doldurulub. Göndər düyməsinə basmayınca heç nə göndərilmir.",
+      "to": "Kimə",
+      "toHint": "Vergüllə ayrılmış",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Mövzu",
+      "body": "Mətn",
+      "bodyHint": "Sadə mətn; keçidlər kliklənə bilən olur",
+      "attachment": "Əlavə",
+      "attachmentHint": "Saxlanılmış nüsxə, adı <mono>{name}</mono> (və ya .docx); məzmunu dəyişdirilə bilməz.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Göndərilir…",
+      "send": "Göndər",
+      "openInMailApp": "Poçt tətbiqində aç",
+      "noSmtp": "SMTP serveri konfiqurasiya edilməyib (Parametrlər → E-poçt). Layihəni poçt tətbiqinizdə açın, yüklənmiş PDF-i əlavə edin, sonra aşağıda göndərilmiş kimi qeyd edin.",
+      "markAsSent": "Göndərilmiş kimi qeyd et"
+    },
+    "sentLog": {
+      "when": "Nə vaxt",
+      "document": "Sənəd",
+      "to": "Kimə",
+      "subject": "Mövzu",
+      "status": "Status",
+      "empty": "Hələ heç nə göndərilməyib.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "göndərilib",
+        "FAILED": "uğursuz",
+        "MANUAL": "əl ilə"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Salam, {name}",
+    "fiscalYear": "Maliyyə ili {year}",
+    "fiscalYearWithBase": "Maliyyə ili {year} · əsas valyuta {currency} ({profile})",
+    "newCreditNote": "Yeni kredit qaiməsi",
+    "welcomeTitle": "{appName} tətbiqinə xoş gəlmisiniz",
+    "welcomeDescription": "Faktura kəsdiyiniz emitent profilini yaradaraq başlayın, sonra müştəri və ilk fakturanızı əlavə edin.",
+    "createProfile": "Profilinizi yaradın",
+    "tiles": {
+      "outstanding": "Ödənilməmiş",
+      "overdue": "Vaxtı keçmiş",
+      "billedThisFy": "Bu maliyyə ilində hesablanıb",
+      "receivedThisFy": "Bu maliyyə ilində alınıb",
+      "drafts": "Layihələr",
+      "invoiceCount": "{count, plural, one {# faktura} other {# faktura}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Ödənişlər çıx geri ödəmələr, qeydə alınmış məzənnə ilə",
+      "awaitingIssue": "verilməsi gözlənilir",
+      "nothingPending": "gözləyən yoxdur"
+    },
+    "recentInvoices": "Son fakturalar",
+    "allInvoices": "Bütün fakturalar",
+    "noInvoicesYet": "Hələ faktura yoxdur.",
+    "columns": {
+      "number": "Nömrə",
+      "client": "Müştəri",
+      "issued": "Verilib"
+    },
+    "topClients": "Ödənilməmiş məbləğə görə ən yaxşı müştərilər",
+    "nothingOutstanding": "Ödənilməmiş heç nə yoxdur."
+  },
+  "exports": {
+    "export": "İxrac",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Fakturalar",
+      "newInvoice": "Yeni faktura",
+      "draft": "Layihə",
+      "aDraft": "layihə",
+      "statuses": {
+        "draft": "Layihə",
+        "issued": "Verilib",
+        "sent": "Göndərilib",
+        "partiallyPaid": "Qismən ödənilib",
+        "paid": "Ödənilib",
+        "overdue": "Vaxtı keçib",
+        "void": "Ləğv edilib"
+      },
+      "lifecycle": {
+        "draft": "layihə",
+        "issued": "verilib",
+        "void": "ləğv edilib"
+      },
+      "units": {
+        "hour": "Saat",
+        "day": "Gün",
+        "fixed": "Sabit",
+        "milestone": "Mərhələ",
+        "unit": "Vahid"
+      },
+      "unitsLower": {
+        "hour": "saat",
+        "day": "gün",
+        "fixed": "sabit",
+        "milestone": "mərhələ",
+        "unit": "vahid"
+      },
+      "supplyTypes": {
+        "intraState": "ştat daxili",
+        "interState": "ştatlararası",
+        "exportLut": "ixrac lut",
+        "exportWithTax": "vergi ilə ixrac",
+        "reverseCharge": "tərs hesablama",
+        "notApplicable": "tətbiq olunmur"
+      }
+    },
+    "list": {
+      "description": "Layihə, verilmiş və ləğv edilmiş fakturalar; statuslar ödənişlərdən və son ödəniş tarixlərindən çıxarılır.",
+      "fiscalYear": "Maliyyə ili",
+      "issuer": "Emitent",
+      "client": "Müştəri",
+      "searchPlaceholder": "Nömrə, PO, müştəri",
+      "emptyTitle": "Hələ faktura yoxdur",
+      "emptyDescription": "İlk fakturanızı qurun: müştəri seçin, sətirlər əlavə edin, önbaxışa baxın, sonra verin.",
+      "columns": {
+        "number": "Nömrə",
+        "client": "Müştəri",
+        "issuer": "Emitent",
+        "issueDate": "Verilmə tarixi",
+        "due": "Son tarix",
+        "balance": "Qalıq"
+      },
+      "noMatches": "Bu filtrlərə uyğun faktura yoxdur.",
+      "count": "{count, plural, one {# faktura} other {# faktura}}",
+      "countPaged": "{count, plural, one {# faktura} other {# faktura}} · səhifə {page} / {pages}",
+      "register": "reyestr",
+      "einvoice": "E-qaimə",
+      "einvoiceFilters": {
+        "registered": "IRN qeydiyyatdan keçib",
+        "none": "Qeydiyyatdan keçməyib",
+        "cancelled": "IRN ləğv edilib"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Əvvəlcə emitent profili yaradın",
+      "noProfileDescription": "Faktura hüquqi kimlikdən verilir: profilinizi vergi ID-ləri və nömrələmə ilə qurun.",
+      "createProfile": "Profil yarat"
+    },
+    "edit": {
+      "metaTitle": "Fakturanı redaktə et",
+      "title": "Layihəni redaktə et",
+      "immutableFlash": "Verilmiş fakturalar dəyişdirilə bilməz. Düzəltmək üçün “Ləğv et və yenidən ver” seçin."
+    },
+    "detail": {
+      "metaTitle": "Faktura",
+      "draftInvoice": "Layihə faktura",
+      "issuedDue": "Verilib <mono>{issued}</mono>, son tarix <mono>{due}</mono>",
+      "replaces": "{number} əvəz edir",
+      "replacedBy": "{number} ilə əvəz olunub",
+      "previewPdf": "PDF-ə önbaxış",
+      "downloadEInvoice": "E-qaimə JSON faylını yüklə",
+      "issueTitle": "Bu faktura verilsin?",
+      "issueDescription": "Nömrə ayrılır və sənəd dəyişdirilə bilməz olur.",
+      "issue": "Ver",
+      "deleteDraftTitle": "Bu layihə silinsin?",
+      "sendByEmail": "E-poçtla göndər",
+      "recordPayment": "Ödəniş qeyd et",
+      "progress": {
+        "title": "Ödəniş irəliləyişi",
+        "description": "Bu qaimənin buraxılışdan faylda qəbzə qədər vəziyyəti.",
+        "issued": "Buraxılıb",
+        "sent": "Göndərilib",
+        "payment": "Ödəniş qeyd edilib",
+        "paymentOn": "<mono>{amount}</mono> məbləğində ödəniş <mono>{date}</mono> tarixində qeyd edilib",
+        "paid": "Tam ödənilib",
+        "receipt": "Qəbz əlavə edilib",
+        "done": "tamamlanıb",
+        "pending": "gözləyir"
+      },
+      "creditNote": "Kredit qaiməsi",
+      "markSentTitle": "Göndərilmiş kimi qeyd edilsin?",
+      "markSentDescription": "Müştərinin bu fakturanı aldığını qeyd edir.",
+      "markSent": "Göndərilmiş kimi qeyd et",
+      "voidReissueTitle": "Ləğv edilib yenidən verilsin?",
+      "voidReissueDescription": "Orijinal ləğv edilir və eyni məzmunlu bağlı layihə redaktə üçün açılır.",
+      "voidReissue": "Ləğv et və yenidən ver",
+      "voidTitle": "Bu faktura ləğv edilsin?",
+      "voidDescription": "Yalnız qeydə alınmış ödəniş olmadıqda mümkündür; nömrə heç vaxt təkrar istifadə edilmir.",
+      "void": "Ləğv et",
+      "voided": "Ləğv edilib {date}: {reason}",
+      "amounts": "Məbləğlər",
+      "subtotal": "Aralıq yekun",
+      "discount": "Endirim",
+      "discountPercent": "Endirim ({percent})",
+      "rounding": "Yuvarlaqlaşdırma",
+      "tdsExpected": "Gözlənilən TDS ({percent})",
+      "paid": "Ödənilib",
+      "credited": "Kreditləşdirilib",
+      "balanceDue": "Ödənilməli qalıq",
+      "supply": "Təchizat",
+      "fxToBase": "Əsas valyutaya məzənnə",
+      "poReference": "PO istinadı",
+      "sent": "Göndərilib",
+      "lineItems": "Sətir maddələri",
+      "columns": {
+        "description": "Təsvir",
+        "sacHsn": "SAC/HSN",
+        "qty": "Say",
+        "rate": "Qiymət",
+        "tax": "Vergi",
+        "amount": "Məbləğ"
+      },
+      "creditNotes": "Kredit qaimələri",
+      "storedDocuments": "Saxlanılmış sənədlər",
+      "storedDocumentsHint": "Hər versiya saxlanılır; yoxlama səhifəsi bütün heşləri göstərir.",
+      "regenerateTitle": "Yeni PDF versiyası yaradılsın?",
+      "regenerateDescription": "Dondurulmuş snapşotdan yenidən yaradılır (məsələn, renderer düzəlişindən sonra). Əvvəlki versiyalar qalır.",
+      "regenerate": "Yarat",
+      "newVersion": "Yeni versiya",
+      "renderedOnFirstDownload": "PDF ilk yükləmədə yaradılır.",
+      "protectedCopy": "Parolla qorunan nüsxə {version}",
+      "version": "Versiya {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Təsdiq keçidi:",
+      "draftPreviewHint": "Layihələrə redaktorda canlı önbaxış göstərilir; səhifəni görmək üçün <link>su nişanlı PDF-i</link> açın.",
+      "einvoice": {
+        "title": "E-qaimə (Hindistan)",
+        "description": "Bu qaimənin Invoice Registration Portal-da qeydiyyatı; qeydiyyatdan keçmiş sənəd öz IRN-ni və portalın imzalanmış QR-ını çap edir.",
+        "connector": "Bağlayıcı",
+        "connectors": {
+          "manual": "Əl ilə",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Bu profil üçün Parametrlər > E-qaimə bölməsində bağlayıcı konfiqurasiya edilməyib.",
+        "statuses": {
+          "none": "Qeydiyyatdan keçməyib",
+          "generated": "JSON yaradılıb",
+          "registered": "Qeydiyyatdan keçib",
+          "cancelled": "Ləğv edilib",
+          "failed": "Qeydiyyat uğursuz oldu"
+        },
+        "irn": "IRN",
+        "ackNo": "Təsdiq №",
+        "ackDate": "Təsdiq tarixi",
+        "cancelReason": "Ləğvetmə",
+        "generate": "IRN yarat",
+        "pasteLabel": "IRP cavabı",
+        "pasteHint": "Portalın və ya GSP-nizin bu qaimənin e-qaimə JSON-u üçün qaytardığı JSON-u yapışdırın (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN-i qeyd et",
+        "cancelReasonLabel": "Ləğv səbəbi",
+        "cancelReasons": {
+          "1": "Dublikat",
+          "2": "Məlumat daxiletmə xətası",
+          "3": "Sifariş ləğv edilib",
+          "4": "Digər"
+        },
+        "cancel": "IRN-i ləğv et",
+        "cancelWindow": "Portal təsdiqdən sonra 24 saat ərzində ləğvə icazə verir."
+      }
+    },
+    "history": {
+      "metaTitle": "Faktura tarixçəsi",
+      "title": "Tarixçə <mono>{number}</mono>",
+      "reissueChain": "Yenidən vermə zənciri",
+      "replaces": "<link>{number}</link> əvəz edir",
+      "replacedBy": "<link>{number}</link> ilə əvəz olunub",
+      "auditTrail": "Audit izi",
+      "columns": {
+        "when": "Nə vaxt",
+        "who": "Kim",
+        "action": "Əməliyyat",
+        "summary": "Xülasə"
+      },
+      "noEvents": "Hələ hadisə yoxdur.",
+      "system": "Sistem",
+      "emails": "E-poçtlar"
+    },
+    "payments": {
+      "title": "Ödənişlər",
+      "description": "{client} · cəmi {total}",
+      "backToInvoice": "Fakturaya qayıt",
+      "ledger": "Kitab",
+      "columns": {
+        "date": "Tarix",
+        "kind": "Növ",
+        "applied": "Tətbiq olunan",
+        "tds": "TDS",
+        "received": "Alınan",
+        "reference": "İstinad",
+        "balance": "Qalıq"
+      },
+      "noPayments": "Hələ ödəniş qeyd edilməyib.",
+      "kinds": {
+        "payment": "Ödəniş",
+        "refund": "Geri ödəmə",
+        "writeOff": "Silinmə"
+      },
+      "receipt": "Qəbz",
+      "receiptN": "Qəbz {n}",
+      "deleteEntryTitle": "Bu qeyd silinsin?",
+      "deleteEntryDescription": "Faktura qalığı yenidən hesablanır.",
+      "totals": "Yekunlar",
+      "invoiceTotal": "Faktura cəmi",
+      "credited": "Kreditləşdirilib",
+      "refunds": "Geri ödəmələr",
+      "writeOffs": "Silinmələr",
+      "tdsDeducted": "Tutulmuş TDS",
+      "bankFees": "Bank komissiyaları",
+      "balanceDue": "Ödənilməli qalıq",
+      "onlyIssued": "Yalnız verilmiş fakturalar ödəniş qəbul edir."
+    },
+    "send": {
+      "metaTitle": "Fakturanı göndər",
+      "title": "<mono>{number}</mono> göndər",
+      "alreadySent": "Artıq göndərilmiş kimi qeyd edilib; yenidən göndərmək jurnala yeni qeyd əlavə edir.",
+      "previousSends": "Əvvəlki göndərmələr"
+    },
+    "builder": {
+      "parties": "Tərəflər",
+      "issuerProfile": "Emitent profili",
+      "client": "Müştəri",
+      "archivedOption": "{label} (arxivləşdirilib)",
+      "issueDate": "Verilmə tarixi",
+      "dueDate": "Son ödəniş tarixi",
+      "fxRate": "Əsas valyutaya məzənnə",
+      "fxHint": "1 {currency} = ? {base} (yalnız hesabat üçün)",
+      "poReference": "PO istinadı",
+      "lineItems": "Sətir maddələri",
+      "lineItemsHint": "Dəyərlərini köçürmək üçün kataloqdan seçin və ya sətir yazın.",
+      "taxDiscountTds": "Vergi, endirim və TDS",
+      "taxRegime": "Vergi rejimi",
+      "regimes": {
+        "indiaGst": "Hindistan GST",
+        "ukVat": "Britaniya ƏDV",
+        "usSalesTax": "ABŞ satış vergisi",
+        "none": "Vergisiz"
+      },
+      "reverseCharge": "Tərs hesablama",
+      "reverseChargeHint": "Vergini alıcı ödəyir",
+      "discount": "Endirim",
+      "percent": "Faiz",
+      "amount": "Məbləğ",
+      "rounding": "Yuvarlaqlaşdırma düzəlişi",
+      "roundingHint": "İstəyə bağlı, tam vahidə qədər; 1-dən az olmalıdır",
+      "round": "Yuvarlaqlaşdır",
+      "tdsRate": "Gözlənilən TDS dərəcəsi (%)",
+      "tdsRateHint": "Məlumat xarakterlidir; TDS bölgüsü aktiv olduqda çap olunur",
+      "paymentMethods": "Ödəniş üsulları",
+      "paymentMethodsHint": "İşarələnmə ardıcıllığı ilə çap olunur.",
+      "noPaymentMethods": "Aktiv ödəniş üsulu yoxdur. <link>Əlavə edin</link>.",
+      "whatPrints": "Çap olunanlar",
+      "whatPrintsHint": "Emitent profilinin susmaya görə dəyərlərindən başlayır.",
+      "documentLanguage": "Sənəd dili",
+      "documentLanguageHint": "Etiketlər, tarixlər və məbləğlər bu dildə çap olunur; müştərinin seçimi, yoxsa profilin dili.",
+      "notesAndTerms": "Qeydlər və şərtlər",
+      "notes": "Qeydlər",
+      "terms": "Şərtlər",
+      "saveDraft": "Layihəni yadda saxla",
+      "issuing": "Verilir…",
+      "saveAndIssue": "Yadda saxla və ver",
+      "subtotal": "Aralıq yekun",
+      "tax": "Vergi",
+      "tdsExpected": "Gözlənilən TDS",
+      "netExpected": "Gözlənilən xalis"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Kataloqdan əlavə et…",
+      "services": "Xidmətlər",
+      "products": "Məhsullar",
+      "addLine": "Sətir əlavə et",
+      "columns": {
+        "description": "Təsvir",
+        "sacHsn": "SAC/HSN",
+        "qty": "Say",
+        "unit": "Vahid",
+        "rate": "Qiymət",
+        "taxPercent": "Vergi %"
+      },
+      "aria": {
+        "description": "{line}. sətrin təsviri",
+        "sacHsn": "{line}. sətrin SAC/HSN-i",
+        "quantity": "{line}. sətrin sayı",
+        "unit": "{line}. sətrin vahidi",
+        "rate": "{line}. sətrin qiyməti",
+        "taxRate": "{line}. sətrin vergi dərəcəsi"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Azad",
+      "moveUp": "Yuxarı apar",
+      "moveDown": "Aşağı apar",
+      "removeLine": "Sətri sil",
+      "shortcutHint": "Təsvirdə Ctrl/⌘+Enter sətir əlavə edir.",
+      "addFromCatalogueAria": "Kataloqdan əlavə et"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Emitent məlumatları",
+        "client": "Müştəri məlumatları",
+        "document": "Sənəd bölmələri"
+      },
+      "fields": {
+        "showLogo": "Loqo",
+        "showTradeName": "Ticarət adı",
+        "showDesignation": "Vəzifə",
+        "showEmail": "E-poçt",
+        "showPhone": "Telefon",
+        "showWebsite": "Veb sayt",
+        "showFullAddress": "Tam ünvan",
+        "showPan": "Pan",
+        "showGstin": "Gstin",
+        "showCin": "Cin",
+        "showLut": "Lut",
+        "showSignature": "İmza",
+        "showStamp": "Möhür",
+        "showContactPerson": "Əlaqə şəxsi",
+        "showBillingAddress": "Hesablaşma ünvanı",
+        "showShippingAddress": "Çatdırılma ünvanı",
+        "showTaxIdentifier": "Vergi identifikatoru",
+        "showPlaceOfSupply": "Təchizat yeri",
+        "showDueDate": "Son ödəniş tarixi",
+        "showPaymentTerms": "Ödəniş şərtləri",
+        "showSacCodeColumn": "SAC kodu sütunu",
+        "showQuantityColumn": "Say sütunu",
+        "showUnitPriceColumn": "Vahid qiyməti sütunu",
+        "showTaxColumn": "Vergi sütunu",
+        "showTdsBreakdown": "TDS bölgüsü",
+        "showQrVerification": "QR təsdiqi",
+        "showNotes": "Qeydlər",
+        "showTerms": "Şərtlər",
+        "showReplacesReference": "Əvəzləmə istinadı",
+        "showAmountInWords": "Məbləğ sözlə",
+        "showSupplyStatement": "Təchizat bəyanatı",
+        "showRoundingLine": "Yuvarlaqlaşdırma sətri",
+        "showSku": "Sku"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Müştərilər",
+      "description": "Faktura kəsdiyiniz hər kəs. Fakturası olan müştərilər arxivləşdirilir, heç vaxt silinmir.",
+      "newClient": "Yeni müştəri",
+      "searchPlaceholder": "Ada görə axtar",
+      "searchLabel": "Müştəriləri axtar",
+      "emptyTitle": "Hələ müştəri yoxdur",
+      "emptyDescription": "Faktura kəsdiyiniz şəxsləri və şirkətləri əlavə edin; onların valyutası və ödəniş şərtləri hər fakturanı əvvəlcədən doldurur.",
+      "addClient": "Müştəri əlavə et",
+      "noMatch": "“{q}” sorğusuna uyğun müştəri yoxdur.",
+      "termsDays": "{days} g",
+      "columns": {
+        "name": "Ad",
+        "contact": "Əlaqə",
+        "email": "E-poçt",
+        "country": "Ölkə",
+        "currency": "Valyuta",
+        "terms": "Şərtlər",
+        "status": "Status"
+      }
+    },
+    "new": {
+      "title": "Yeni müştəri"
+    },
+    "edit": {
+      "metaTitle": "Müştərini redaktə et",
+      "title": "{name} redaktə et"
+    },
+    "detail": {
+      "metaTitle": "Müştəri",
+      "newInvoice": "Yeni faktura",
+      "restoreTitle": "Bu müştəri bərpa edilsin?",
+      "archiveTitle": "Bu müştəri arxivlənsin?",
+      "archiveDescription": "Seçim siyahılarından çıxır; fakturalar və tarixçə toxunulmaz qalır.",
+      "deleteTitle": "Bu müştəri silinsin?",
+      "deleteDescription": "Yalnız heç bir faktura müştəriyə istinad etmədikdə mümkündür.",
+      "details": "Təfərrüatlar",
+      "contact": "Əlaqə",
+      "email": "E-poçt",
+      "phone": "Telefon",
+      "country": "Ölkə",
+      "gstState": "GST {code}",
+      "taxId": "Vergi ID",
+      "currency": "Valyuta",
+      "paymentTerms": "Ödəniş şərtləri",
+      "paymentTermsDays": "{days} gün",
+      "expectedTds": "Gözlənilən TDS",
+      "notes": "Qeydlər",
+      "addresses": "Ünvanlar",
+      "billing": "Hesablaşma",
+      "shipping": "Çatdırılma",
+      "lifetime": "Bütün dövr",
+      "openRegister": "Reyestri aç",
+      "noIssued": "Hələ verilmiş faktura yoxdur.",
+      "noIssuedWithDrafts": "Hələ verilmiş faktura yoxdur ({drafts} layihə).",
+      "firstLatest": "İlk faktura <mono>{first}</mono>, sonuncu <mono>{latest}</mono>{drafts, plural, =0 {} one { · # layihə} other { · # layihə}}",
+      "lifetimeColumns": {
+        "currency": "Valyuta",
+        "invoices": "Fakturalar",
+        "billed": "Hesablanıb",
+        "received": "Alınıb",
+        "credited": "Kreditləşdirilib",
+        "outstanding": "Ödənilməmiş",
+        "overdue": "Vaxtı keçmiş"
+      },
+      "recentInvoices": "Son fakturalar",
+      "noInvoices": "Bu müştəri üçün hələ faktura yoxdur.",
+      "recentColumns": {
+        "number": "Nömrə",
+        "issueDate": "Verilmə tarixi",
+        "due": "Son tarix",
+        "total": "Cəmi",
+        "balance": "Qalıq",
+        "status": "Status"
+      }
+    },
+    "form": {
+      "cardTitle": "Müştəri",
+      "displayName": "Göstərilən ad",
+      "contactPerson": "Əlaqə şəxsi",
+      "email": "E-poçt",
+      "phone": "Telefon",
+      "taxIdType": "Vergi ID növü",
+      "taxIdTypeNone": "Yoxdur",
+      "taxId": "Vergi ID",
+      "currency": "Valyuta",
+      "paymentTerms": "Ödəniş şərtləri (gün)",
+      "expectedTdsRate": "Gözlənilən TDS dərəcəsi (%)",
+      "preferredLanguage": "Sənəd dili",
+      "preferredLanguageFollow": "Təqdimatçı profilinə uyğun",
+      "buyerReference": "Alıcı arayışı",
+      "buyerReferenceHint": "E-qaimələrdə alıcının öz arayışı kimi çap olunur (sifariş və ya xərc mərkəzi nömrəsi).",
+      "electronicAddress": "Elektron ünvan",
+      "electronicAddressHint": "Bu müştərinin e-qaimələri aldığı Peppol və ya EN 16931 identifikatoru.",
+      "electronicAddressScheme": "Elektron ünvan sxemi",
+      "electronicAddressSchemeNone": "Sxem yoxdur",
+      "notes": "Qeydlər",
+      "billingAddress": "Hesablaşma ünvanı",
+      "shippingAddress": "Çatdırılma ünvanı",
+      "differentFromBilling": "Hesablaşma ünvanından fərqlidir",
+      "save": "Müştərini yadda saxla"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Saat",
+      "DAY": "Gün",
+      "FIXED": "Sabit",
+      "MILESTONE": "Mərhələ",
+      "UNIT": "Vahid"
+    },
+    "list": {
+      "activate": "Aktivləşdir",
+      "deactivate": "Deaktiv et",
+      "archiveDescription": "Mövcud faktura sətirləri köçürülmüş dəyərlərini saxlayır.",
+      "deleteDescription": "Yalnız heç bir faktura sətri ona istinad etmədikdə mümkündür. Əks halda arxivləyin.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Ad",
+        "unit": "Vahid",
+        "rate": "Qiymət",
+        "price": "Qiymət",
+        "currency": "Valyuta",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Vergi",
+        "status": "Status"
+      }
+    },
+    "services": {
+      "title": "Xidmətlər",
+      "description": "Kataloqunuz. Xidmət seçmək onun dəyərlərini faktura sətrinə köçürür.",
+      "newService": "Yeni xidmət",
+      "emptyTitle": "Hələ xidmət yoxdur",
+      "emptyDescription": "Satdığınızı əlavə edin - saatlıq dizayn, sabit haqqlı mərhələ - SAC/HSN kodu və vergi dərəcəsi ilə.",
+      "addService": "Xidmət əlavə et",
+      "restoreTitle": "{name} bərpa edilsin?",
+      "archiveTitle": "{name} arxivlənsin?",
+      "deleteTitle": "{name} silinsin?",
+      "editMetaTitle": "Xidməti redaktə et",
+      "editTitle": "{name} redaktə et"
+    },
+    "products": {
+      "title": "Məhsullar",
+      "description": "Satdığınız mallar, hər biri SKU ilə. Məhsul seçmək onun dəyərlərini faktura sətrinə köçürür.",
+      "newProduct": "Yeni məhsul",
+      "emptyTitle": "Hələ məhsul yoxdur",
+      "emptyDescription": "Satdığınız malları SKU, HSN kodu, vahid qiyməti və vergi dərəcəsi ilə əlavə edin.",
+      "addProduct": "Məhsul əlavə et",
+      "restoreTitle": "{sku} bərpa edilsin?",
+      "archiveTitle": "{sku} arxivlənsin?",
+      "deleteTitle": "{sku} silinsin?",
+      "editMetaTitle": "Məhsulu redaktə et",
+      "editTitle": "{sku} redaktə et"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Sətir təsvirinin altında çap olunan unikal kod",
+      "name": "Ad",
+      "unit": "Vahid",
+      "defaultRate": "Susmaya görə qiymət",
+      "unitPrice": "Vahid qiyməti",
+      "currency": "Valyuta",
+      "sacHsnCode": "SAC / HSN kodu",
+      "sacHsnHint": "GST fakturalarında tələb olunur",
+      "hsnCode": "HSN kodu",
+      "hsnHint": "Mallar üçün GST fakturalarında tələb olunur",
+      "defaultTaxRate": "Susmaya görə vergi dərəcəsi (%)",
+      "description": "Təsvir",
+      "descriptionHint": "Sətir təsvirini əvvəlcədən doldurur",
+      "active": "Aktiv",
+      "serviceInactiveHint": "Qeyri-aktiv xidmətlər faktura seçicisində görünmür",
+      "productInactiveHint": "Qeyri-aktiv məhsullar faktura seçicisində görünmür",
+      "saveService": "Xidməti yadda saxla",
+      "saveProduct": "Məhsulu yadda saxla"
+    },
+    "tags": {
+      "legend": "Profillər",
+      "hint": "Bunu satan emitent profillərini işarələyin. Hər profilə təklif etmək üçün hamısını işarəsiz buraxın."
+    }
+  },
+  "address": {
+    "line1": "Ünvan sətri 1",
+    "line2": "Ünvan sətri 2",
+    "city": "Şəhər",
+    "stateRegion": "Ştat / region",
+    "postalCode": "Poçt indeksi",
+    "country": "Ölkə",
+    "state": "Ştat",
+    "gstStateCodeHint": "GST ştat kodu {code}",
+    "pickStateHint": "GST ştat kodu üçün ştatı seçin",
+    "stateRegionCode": "Ştat / region kodu",
+    "stateRegionCodePlaceholder": "məs. CA"
+  },
+  "assets": {
+    "tooLarge": "Bu fayl çox böyükdür.",
+    "unsupportedReceipt": "PNG, JPEG, WebP şəkli və ya PDF istifadə edin.",
+    "unsupportedImage": "PNG, JPEG və ya WebP şəkli istifadə edin.",
+    "uploadFailed": "Yükləmə alınmadı.",
+    "uploading": "Yüklənir…",
+    "dropHint": "Faylı bura sürüşdürün və ya seçin",
+    "dropHintMany": "Faylları bura sürüşdürün və ya seçin",
+    "dropActive": "Yükləmək üçün buraxın"
+  },
+  "ui": {
+    "breadcrumb": "Naviqasiya yolu",
+    "close": "Bağla",
+    "closeMenu": "Menyunu bağla",
+    "reveal": "Göstər",
+    "hide": "Gizlət",
+    "openCalendar": "Təqvimi aç",
+    "chooseMonth": "Ay seçin",
+    "chooseYear": "İl seçin",
+    "searchOptions": "Axtarmaq üçün yazın",
+    "noMatches": "Uyğunluq yoxdur",
+    "pullToRefresh": {
+      "label": "Yenilənə bilən siyahı",
+      "pulling": "Yeniləmək üçün çəkin",
+      "release": "Yeniləmək üçün buraxın",
+      "refreshing": "Yenilənir"
+    },
+    "inputCharset": "Yalnız standart klaviatura simvollarına icazə verilir.",
+    "confirm": {
+      "working": "İcra olunur…"
+    },
+    "statusPill": {
+      "DRAFT": "Layihə",
+      "ISSUED": "Verilib",
+      "SENT": "Göndərilib",
+      "PARTIALLY_PAID": "Qismən ödənilib",
+      "PAID": "Ödənilib",
+      "OVERDUE": "Vaxtı keçib",
+      "VOID": "Ləğv edilib"
+    },
+    "activePill": {
+      "active": "Aktiv",
+      "archived": "Arxivləşdirilib",
+      "inactive": "Qeyri-aktiv"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Nəsə səhv getdi.",
+    "fixFields": "Zəhmət olmasa, vurğulanmış sahələri düzəldin.",
+    "accountSaved": "Hesab seçimləri yadda saxlanıldı",
+    "apiKeyCreated": "API açarı yaradıldı. İndi kopyalayın: yalnız bir dəfə göstərilir.",
+    "saved": "{name} yadda saxlanıldı",
+    "savedProfile": "{label} profili yadda saxlanıldı",
+    "clientArchived": "Müştəri arxivləşdirildi",
+    "clientRestored": "Müştəri bərpa edildi",
+    "clientDeleted": "Müştəri silindi",
+    "productArchived": "Məhsul arxivləşdirildi",
+    "productRestored": "Məhsul bərpa edildi",
+    "productActivated": "Məhsul aktivləşdirildi",
+    "productDeactivated": "Məhsul deaktiv edildi",
+    "serviceArchived": "Xidmət arxivləşdirildi",
+    "serviceRestored": "Xidmət bərpa edildi",
+    "serviceActivated": "Xidmət aktivləşdirildi",
+    "serviceDeactivated": "Xidmət deaktiv edildi",
+    "defaultProfileUpdated": "Susmaya görə profil yeniləndi",
+    "profileArchived": "Profil arxivləşdirildi",
+    "profileRestored": "Profil bərpa edildi",
+    "profileDeleted": "Profil silindi",
+    "defaultPaymentMethodUpdated": "Susmaya görə ödəniş üsulu yeniləndi",
+    "paymentMethodArchived": "Ödəniş üsulu arxivləşdirildi",
+    "paymentMethodRestored": "Ödəniş üsulu bərpa edildi",
+    "paymentMethodDeleted": "Ödəniş üsulu silindi",
+    "issued": "{number} verildi",
+    "savedAsDraft": "Layihə kimi yadda saxlanıldı. {reason}",
+    "draftSaved": "Layihə yadda saxlanıldı",
+    "invoiceVoided": "Faktura ləğv edildi",
+    "originalVoided": "Orijinal ləğv edildi; əvəzedici layihəni redaktə edin",
+    "markedAsSent": "Göndərilmiş kimi qeyd edildi",
+    "draftDeleted": "Layihə silindi",
+    "generatedPdf": "PDF versiyası {version} yaradıldı",
+    "creditNoteVoided": "Kredit qaiməsi ləğv edildi; faktura qalığı bərpa olundu",
+    "draftCreditNoteDeleted": "Layihə kredit qaiməsi silindi",
+    "mailRefused": "Poçt serveri mesajı rədd etdi: {error}. Cəhd jurnala yazıldı.",
+    "unknownError": "naməlum xəta",
+    "sentTo": "{recipients} ünvanına göndərildi",
+    "smtpSaved": "SMTP parametrləri yadda saxlanıldı",
+    "smtpRemoved": "Saxlanılmış SMTP parametrləri silindi",
+    "testEmailSent": "Sınaq e-poçtu {email} ünvanına göndərildi",
+    "testFailed": "Sınaq uğursuz oldu: {error}",
+    "defaultRecipientsSaved": "Susmaya görə alıcılar yadda saxlanıldı",
+    "invitationSent": "Dəvət göndərildi",
+    "invitationReady": "Dəvət hazırdır",
+    "unknownRole": "Naməlum rol",
+    "roleUpdated": "Rol yeniləndi",
+    "accountDeactivated": "Hesab deaktiv edildi",
+    "accountReactivated": "Hesab yenidən aktivləşdirildi",
+    "invitationRevoked": "Dəvət ləğv edildi",
+    "paymentUpdated": "Ödəniş yeniləndi",
+    "paymentRecorded": "Ödəniş qeyd edildi",
+    "paymentDeleted": "Ödəniş silindi",
+    "sessionRevoked": "Sessiya ləğv edildi",
+    "noOtherSessions": "Başqa sessiya yoxdur",
+    "signedOutOthers": "{count} digər sessiyadan çıxış edildi",
+    "sharePasswordRequired": "Parol daxil edin və ya yaradılmasına icazə verin.",
+    "shareLinkCreated": "Paylaşım keçidi yaradıldı.",
+    "templateSaved": "Şablon yadda saxlanıldı; gələcək sənədlər ondan istifadə edəcək",
+    "templateReset": "Şablon daxili susmaya görə şablona sıfırlandı",
+    "templateImported": "Şablon idxal edildi",
+    "profileTemplateCleared": "Profil yenidən instans şablonundan istifadə edir",
+    "operatorSaved": "Operator məlumatları yadda saxlanıldı. Hüquqi səhifələr indi onları göstərir.",
+    "einvoiceSettingsSaved": "E-qaimə parametrləri yadda saxlanıldı",
+    "irnRegistered": "IRN {irn} qeydiyyatdan keçdi; PDF onunla yenidən yaradıldı",
+    "irnRecorded": "IRN qeyd edildi; PDF onunla yenidən yaradıldı",
+    "irnCancelled": "IRN ləğv edildi; PDF yenidən yaradıldı"
+  }
+}

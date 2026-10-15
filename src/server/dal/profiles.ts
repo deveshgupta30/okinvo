@@ -16,7 +16,7 @@ import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { diffForAudit } from "./audit-redact";
 import { InvariantError, NotFoundError } from "./errors";
-import { requireWriter } from "./authz";
+import { requireRole } from "./authz";
 
 const ASSET_INCLUDE = {
   logo: { select: { storageKey: true } },
@@ -51,6 +51,10 @@ export interface ProfileDto {
   usTaxId: string | null;
   lutNumber: string | null;
   lutFiscalYear: string | null;
+  /** E-invoicing (spec §9e): Peppol electronic address and whether documents are registered. */
+  electronicAddress: string | null;
+  electronicAddressScheme: string | null;
+  einvoiceEnabled: boolean;
   baseCurrency: string;
   locale: string;
   fiscalYearStartMonth: number;
@@ -110,6 +114,9 @@ function toDto(row: RowWithAssets): ProfileDto {
     usTaxId: row.usTaxIdEnc ? decryptField(row.usTaxIdEnc, fieldKey()) : null,
     lutNumber: row.lutNumber,
     lutFiscalYear: row.lutFiscalYear,
+    electronicAddress: row.electronicAddress,
+    electronicAddressScheme: row.electronicAddressScheme,
+    einvoiceEnabled: row.einvoiceEnabled,
     baseCurrency: row.baseCurrency,
     locale: row.locale,
     fiscalYearStartMonth: row.fiscalYearStartMonth,
@@ -162,6 +169,9 @@ function toData(input: ProfileInput) {
     usTaxIdEnc: input.usTaxId ? encryptField(input.usTaxId, fieldKey()) : null,
     lutNumber: input.lutNumber ?? null,
     lutFiscalYear: input.lutFiscalYear ?? null,
+    electronicAddress: input.electronicAddress ?? null,
+    electronicAddressScheme: input.electronicAddressScheme ?? null,
+    einvoiceEnabled: input.einvoiceEnabled,
     baseCurrency: input.baseCurrency,
     locale: input.locale,
     fiscalYearStartMonth: input.fiscalYearStartMonth,
@@ -224,7 +234,7 @@ export async function getDefaultProfile(_actor: Actor): Promise<ProfileDto | nul
 }
 
 export async function createProfile(actor: Actor, input: ProfileInput): Promise<ProfileDto> {
-  requireWriter(actor);
+  requireRole(actor, "OWNER");
   return prisma.$transaction(async (tx) => {
     // "Exactly one non-archived profile is default at any time" (SPEC §4.2): the first profile, or
     // the first one created while no default exists, takes the role.
@@ -246,7 +256,7 @@ export async function updateProfile(
   id: string,
   input: ProfileInput,
 ): Promise<ProfileDto> {
-  requireWriter(actor);
+  requireRole(actor, "OWNER");
   return prisma.$transaction(async (tx) => {
     const before = await load(tx, id);
     const row = await tx.issuerProfile.update({
@@ -265,7 +275,7 @@ export async function updateProfile(
 }
 
 export async function setDefaultProfile(actor: Actor, id: string): Promise<void> {
-  requireWriter(actor);
+  requireRole(actor, "OWNER");
   await prisma.$transaction(async (tx) => {
     const target = await load(tx, id);
     if (target.archivedAt) throw new InvariantError("An archived profile cannot be the default");
@@ -279,7 +289,7 @@ export async function setDefaultProfile(actor: Actor, id: string): Promise<void>
 
 /** Archiving hides the profile from pickers; existing documents are unaffected (SPEC §4.2). */
 export async function archiveProfile(actor: Actor, id: string): Promise<void> {
-  requireWriter(actor);
+  requireRole(actor, "OWNER");
   await prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     if (row.archivedAt) return;
@@ -300,7 +310,7 @@ export async function archiveProfile(actor: Actor, id: string): Promise<void> {
 }
 
 export async function unarchiveProfile(actor: Actor, id: string): Promise<void> {
-  requireWriter(actor);
+  requireRole(actor, "OWNER");
   await prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     if (!row.archivedAt) return;
@@ -317,7 +327,7 @@ export async function unarchiveProfile(actor: Actor, id: string): Promise<void> 
 
 /** Deletion is only possible while nothing references the profile (SPEC §4.2). */
 export async function deleteProfile(actor: Actor, id: string): Promise<void> {
-  requireWriter(actor);
+  requireRole(actor, "OWNER");
   await prisma.$transaction(async (tx) => {
     const row = await load(tx, id);
     const invoices = await tx.invoice.count({ where: { issuerProfileId: id } });

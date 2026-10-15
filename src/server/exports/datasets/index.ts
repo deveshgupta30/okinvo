@@ -5,6 +5,7 @@ import { gstSummaryDataset } from "./gst-summary";
 import { invoiceItemsDataset } from "./invoice-items";
 import { invoicesDataset } from "./invoices";
 import { paymentsDataset } from "./payments";
+import { productsDataset } from "./products";
 import { servicesDataset } from "./services";
 import { tdsSummaryDataset } from "./tds-summary";
 import type { AnyDataset } from "./types";
@@ -19,6 +20,7 @@ export const DATASETS: AnyDataset[] = [
   creditNotesDataset,
   clientsDataset,
   servicesDataset,
+  productsDataset,
   gstSummaryDataset,
   tdsSummaryDataset,
 ];

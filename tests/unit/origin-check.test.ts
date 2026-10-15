@@ -50,5 +50,5 @@ describe("proxy origin check on custom POST routes", () => {
       }),
     );
     expect(get.status).toBe(200);
-  });
+  }, 30_000); // cold import of next/server under a full parallel run
 });

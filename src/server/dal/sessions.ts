@@ -17,23 +17,59 @@ export interface SessionDto {
   current: boolean;
 }
 
+/** The fields of the request's own session the list needs. */
+export interface CurrentSession {
+  id: string;
+  ipAddress?: string | null | undefined;
+  userAgent?: string | null | undefined;
+  createdAt: Date;
+  updatedAt: Date;
+  expiresAt: Date;
+}
+
+/**
+ * Marks the request's own session as current and sorts it first. The auth library caps the
+ * list it returns, so an owner with many sessions may not find their current one in it: it is
+ * then added from the request, so Settings > Security always shows this device.
+ */
+export function withCurrentSession(
+  rows: SessionDto[],
+  current: CurrentSession | null,
+): SessionDto[] {
+  if (!current) return rows;
+  const marked = rows.map((r) => (r.id === current.id ? { ...r, current: true } : r));
+  if (!marked.some((r) => r.current)) {
+    marked.push({
+      id: current.id,
+      ipAddress: current.ipAddress ?? null,
+      userAgent: current.userAgent ?? null,
+      createdAt: current.createdAt.toISOString(),
+      updatedAt: current.updatedAt.toISOString(),
+      expiresAt: current.expiresAt.toISOString(),
+      current: true,
+    });
+  }
+  return marked.sort(
+    (a, b) => Number(b.current) - Number(a.current) || b.updatedAt.localeCompare(a.updatedAt),
+  );
+}
+
 /** Active sessions of the signed-in person; tokens never leave the server. */
 export async function listSessions(_actor: Actor): Promise<SessionDto[]> {
   const [h, current] = await Promise.all([headers(), getSession()]);
   const rows = await auth.api.listSessions({ headers: h });
-  return rows
-    .map((s) => ({
+  return withCurrentSession(
+    rows.map((s) => ({
       id: s.id,
       ipAddress: s.ipAddress ?? null,
       userAgent: s.userAgent ?? null,
       createdAt: s.createdAt.toISOString(),
       updatedAt: s.updatedAt.toISOString(),
       expiresAt: s.expiresAt.toISOString(),
-      current: s.id === current?.session.id,
-    }))
-    .sort(
-      (a, b) => Number(b.current) - Number(a.current) || b.updatedAt.localeCompare(a.updatedAt),
-    );
+      current: false,
+    })),
+    current?.session ?? null,
+  );
 }
 
 export async function revokeSessionById(actor: Actor, sessionId: string): Promise<void> {

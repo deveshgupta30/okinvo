@@ -21,6 +21,7 @@ export function creditNoteRenderInput(p: {
     | "issuerSnapshot"
     | "clientSnapshot"
     | "taxLines"
+    | "documentLocale"
   >;
   reason: string;
   subtotal: string;
@@ -64,7 +65,7 @@ export function creditNoteRenderInput(p: {
     issueDate: p.issueDate,
     dueDate: null,
     currency: c,
-    locale: issuer.locale,
+    locale: p.invoice.documentLocale,
     issuer,
     client,
     paymentMethods: [],
@@ -114,7 +115,7 @@ export function creditNoteRenderInputFromSnapshot(cn: CreditNoteDto): RenderInpu
     issueDate: cn.issueDate,
     dueDate: null,
     currency: cn.currency,
-    locale: cn.snapshot.issuer.locale,
+    locale: cn.documentLocale,
     issuer: cn.snapshot.issuer,
     client: cn.snapshot.client,
     paymentMethods: [],

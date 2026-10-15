@@ -1,9 +1,9 @@
-# okinvo — Implementation Plan v2
+# okinvo - Implementation Plan v2
 
 | | |
 |---|---|
 | **Status** | Current. Supersedes `IMPLEMENTATION_PLAN.md` (v1, kept verbatim for history). |
-| **Date** | 2026-09-30 — all versions below were verified against npm, nodejs.org and Docker Hub on this date. |
+| **Date** | 2026-09-30 - all versions below were verified against npm, nodejs.org and Docker Hub on this date. |
 | **Product rules** | `SPEC.md` is authoritative for behaviour; this document is authoritative for technology and infrastructure. |
 
 ---
@@ -27,10 +27,10 @@
 | Verification token | `cuid()` | 32 random bytes, app-generated | cuid v1 is deprecated as predictable. |
 | Migrations | `npx prisma migrate deploy` inside the standalone runner | Dedicated `migrate` image/service/Job | Prisma CLI is not in the standalone output; the runner user can't write to `/app`. |
 | Health | One `/api/health` for liveness and readiness | `/api/health/live` (shallow) and `/api/health/ready` (DB) | Shared probe = restart loops when the DB blips. |
-| Secrets | Hardcoded in compose and manifests | `.env` / `kubectl create secret` out of band | — |
+| Secrets | Hardcoded in compose and manifests | `.env` / `kubectl create secret` out of band | - |
 | Compose | `version: "3.9"`, app and S3 ports published, no proxy | Caddy with automatic TLS in front; nothing else published | Diagram had a proxy, compose didn't. |
 | Kubernetes | 2 replicas, `kubectl exec` migrations, deprecated ingress annotation, no NetworkPolicy | 1 replica default, migration `Job`, `ingressClassName`, NetworkPolicy, hardened `securityContext`, backup `CronJob` | Correctness + the "zero-trust" claim now has something behind it. |
-| Versions | Jan-2025 pins; Next 15.1.4 (CVE-2025-29927), Node 20 (EOL Apr 2026) | Current LTS/stable, verified 2026-09-30; Renovate | — |
+| Versions | Jan-2025 pins; Next 15.1.4 (CVE-2025-29927), Node 20 (EOL Apr 2026) | Current LTS/stable, verified 2026-09-30; Renovate | - |
 | CSP | `'unsafe-inline' 'unsafe-eval'` | Nonce-based CSP from `proxy.ts` | v1's CSP was decorative. |
 | Exports | PDF/DOCX only | **CSV/XLSX for eight datasets + ZIP bundles** (new requirement) | Accountant hand-off; data portability. |
 | DOCX | v1 | v1.1 | Halves the rendering surface for the first release. |
@@ -40,26 +40,26 @@
 | Email | none | SMTP via env **or** Settings; "Send by email" composer that drafts an editable mail with the stored PDF attached; delivery log; `mailto:` fallback | Requested. |
 | Templates | none | Three built-ins chosen and customised in Settings → Templates, optional per-issuer override, snapshotted at issue | Requested; settings-level, never on the invoice form. |
 | Design system | "canonical Linear dark/light design tokens" (unspecified) | `DESIGN.md` (design.md format) is the token source; `src/app/tokens.css` is generated from it and linted in CI; dark + AA-verified inverse light + system modes; app mapping in §24 | One lintable source of truth instead of a vibe. |
-| API keys | Route promised, no model | Dropped from v1 | — |
+| API keys | Route promised, no model | Dropped from v1 | - |
 
 ---
 
 ## 1. Goals and constraints
 
-- **Personal, single-tenant, self-hosted.** Everything — app, database, blob storage, reverse proxy, backups — runs on the owner's Docker host **or** Kubernetes cluster. No managed cloud services of any kind.
+- **Personal, single-tenant, self-hosted.** Everything - app, database, blob storage, reverse proxy, backups - runs on the owner's Docker host **or** Kubernetes cluster. No managed cloud services of any kind.
 - **Finishable.** Prefer fewer moving parts. One app replica is the default; scaling out is supported but not optimised for.
 - **Correct where it matters.** Money, tax, numbering and immutability are tested first and hardest.
 - **Ship images to `docker.io/deveshgupta30/okinvo`.** Release builds happen on the owner's machine (already logged in) and optionally in GitHub Actions.
 
 ---
 
-## 2. Runtime decision — Node, or something else?
+## 2. Runtime decision - Node, or something else?
 
 You asked whether there is a better option than Node. Honest comparison for *this* product (rich builder UI with live preview, signature pad, pixel-faithful PDF, one user, self-hosted):
 
 | Option | Strengths here | Costs here | Verdict |
 |---|---|---|---|
-| **Node 24 LTS + Next.js 16** | Best ecosystem for the UI you described (shadcn, react-pdf sharing one view-model between preview and PDF, signature pad), Better Auth, Prisma; one language across the stack. | Image ~180 MB, ~150–250 MB RSS; Next self-hosting has some sharp edges (standalone output, image optimisation). | **Recommended.** Runtime cost is irrelevant at this scale; UI velocity is the bottleneck. |
+| **Node 24 LTS + Next.js 16** | Best ecosystem for the UI you described (shadcn, react-pdf sharing one view-model between preview and PDF, signature pad), Better Auth, Prisma; one language across the stack. | Image ~180 MB, ~150-250 MB RSS; Next self-hosting has some sharp edges (standalone output, image optimisation). | **Recommended.** Runtime cost is irrelevant at this scale; UI velocity is the bottleneck. |
 | **Bun 1.x** as runtime for the same code | Faster installs and cold starts; drop-in for most of this stack. | Next.js production on Bun is not a first-class path; Prisma/`sharp` native modules occasionally lag. | Use for local tooling if you like; **don't** make it the production runtime yet. |
 | **Go** (templ + HTMX + `chromedp`/`maroto` for PDF) | ~20 MB static image, ~30 MB RSS, single binary, trivial to self-host. | Live-preview builder, signature pad and PDF fidelity are all significantly more work; two languages once you need any real client-side interaction. | Strongest alternative *if* footprint were the goal. It isn't. |
 | **.NET 10** (Blazor + QuestPDF) | QuestPDF is arguably the best invoice-PDF library anywhere; strong typing; Docker story is good. | Blazor Server for the builder is fine but the component ecosystem is thinner; you'd be learning a stack, not shipping. | Good, but only if you already live in .NET. |
@@ -79,7 +79,7 @@ Pin exact versions in `package.json` + `pnpm-lock.yaml`; this table is the recor
 
 | Component | Image / version | Notes |
 |---|---|---|
-| Node.js | `node:24.21.0-alpine` | Active LTS "Krypton". Node 26.10 is Current; LTS from Oct 2026. Local dev machine has 22.21 — upgrade to 24 (`nvm`/`fnm`). |
+| Node.js | `node:24.21.0-alpine` | Active LTS "Krypton". Node 26.10 is Current; LTS from Oct 2026. Local dev machine has 22.21 - upgrade to 24 (`nvm`/`fnm`). |
 | pnpm | `10.34.5` | Installed in the image with `npm i -g pnpm@10.34.5` (Corepack is being removed from Node distributions; don't rely on it). |
 | PostgreSQL | `postgres:18.6-alpine` | 18 has native `uuidv7()`; 19 is beta. |
 | SeaweedFS (optional S3 driver) | `chrislusf/seaweedfs:4.48` | Released 2026-09-28. |
@@ -92,7 +92,7 @@ Pin exact versions in `package.json` + `pnpm-lock.yaml`; this table is the recor
 | `next` | `16.3.8` | App Router, Server Actions, `proxy.ts`, `after()`, Turbopack builds |
 | `react` / `react-dom` | `19.3.0` | |
 | `typescript` | `6.0.3` (M0 outcome) | 7.0.2 was tried first: Next 16 builds and `tsc` are fine on it, but `typescript-eslint 8.71` refuses TS 7.0 (typescript-eslint#10940). Renovate holds `<7` until that lands. |
-| `prisma` / `@prisma/client` / `@prisma/adapter-pg` | `7.10.0` | `prisma-client` generator + `pg` driver adapter (no Rust engine). **Do not** take `8.0.0-rc.*`, which is currently tagged `latest` for the CLI package — install `prisma@7.10.0` explicitly. |
+| `prisma` / `@prisma/client` / `@prisma/adapter-pg` | `7.10.0` | `prisma-client` generator + `pg` driver adapter (no Rust engine). **Do not** take `8.0.0-rc.*`, which is currently tagged `latest` for the CLI package - install `prisma@7.10.0` explicitly. |
 | `pg` | `8.23.1` | |
 | `better-auth` | `1.7.7` | Social providers + `genericOAuth` plugin + Prisma adapter |
 | `zod` | `4.6.5` | |
@@ -107,8 +107,8 @@ Pin exact versions in `package.json` + `pnpm-lock.yaml`; this table is the recor
 | `date-fns` / `@date-fns/tz` | `4.4.0` / `1.5.0` | Calendar-date helpers; timezone-aware "today" |
 | `@react-pdf/renderer` | `4.9.0` | PDF |
 | `@fontsource/inter` / `@fontsource/noto-sans` | `5.3.0` | Embedded fonts (Noto guarantees `₹`) |
-| `@fontsource/ibm-plex-sans` / `@fontsource/source-serif-4` | `5.3.0` | Template font pairings |
-| `@fontsource-variable/inter` / `@fontsource/jetbrains-mono` | `5.3.0` | UI fonts — DESIGN.md's own recommended substitutes for Linear Display/Text/Mono; mono carries amounts, numbers and dates |
+| `@fontsource/<family>` ×100 | `5.3.0` | Document font catalogue (`src/lib/documents/fonts/catalog.ts`), vendored into `public/fonts` by `pnpm fonts:vendor` |
+| `@fontsource-variable/inter` / `@fontsource/jetbrains-mono` | `5.3.0` | UI fonts - DESIGN.md's own recommended substitutes for Linear Display/Text/Mono; mono carries amounts, numbers and dates |
 | `nodemailer` | `10.0.13` | SMTP transport (ships its own types) |
 | `qrcode` | `1.5.4` | QR as SVG for PDF and preview |
 | `signature_pad` | `5.1.4` | Direct use; `react-signature-canvas` is an unmaintained wrapper |
@@ -116,7 +116,7 @@ Pin exact versions in `package.json` + `pnpm-lock.yaml`; this table is the recor
 | `file-type` | `22.1.1` | Magic-byte MIME sniffing |
 | `exceljs` | `4.4.0` | XLSX streaming writer |
 | `csv-stringify` | `6.9.0` | CSV streaming |
-| `archiver` | `8.0.0` | ZIP bundles — ESM-only since 8.0: `new ZipArchive()` instead of the `archiver("zip")` factory |
+| `archiver` | `8.0.0` | ZIP bundles - ESM-only since 8.0: `new ZipArchive()` instead of the `archiver("zip")` factory |
 | `@aws-sdk/client-s3` | `3.1143.0` | S3 driver only (lazy-loaded) |
 | `nanoid` | `6.0.1` | Storage key suffixes |
 | `pino` | `10.3.1` | Structured logs |
@@ -128,13 +128,13 @@ Pin exact versions in `package.json` + `pnpm-lock.yaml`; this table is the recor
 |---|---|
 | `vitest` | `5.0.3` |
 | `@playwright/test` | `1.63.0` |
-| `eslint` / `typescript-eslint` | `9.39.5` / `8.71.0` — ESLint 10 was tried first; `eslint-config-next 16.3.8` depends on `eslint-plugin-react ^7.37`, whose peer range ends at eslint 9 and which calls the removed `context.getFilename`. Renovate holds `<10`. |
+| `eslint` / `typescript-eslint` | `9.39.5` / `8.71.0` - ESLint 10 was tried first; `eslint-config-next 16.3.8` depends on `eslint-plugin-react ^7.37`, whose peer range ends at eslint 9 and which calls the removed `context.getFilename`. Renovate holds `<10`. |
 | `prettier` | `3.9.9` |
 | `jszip` (dev) | `3.10.2` | Reads ZIP bundles back in tests; the version exceljs already pulls in |
 | `@types/node` | `24.x` (match the runtime major, not `26.6.3`) |
 | `pdf-parse` | `2.4.5` (document tests only) |
-| `@google/design.md` | `0.4.0` — lints `DESIGN.md` (`npx @google/design.md lint DESIGN.md`) |
-| `drizzle-orm` (not used) | `0.45.3` — recorded only because it is the alternative if Prisma's lack of partial-index / `FOR UPDATE` support becomes irritating; see §23 |
+| `@google/design.md` | `0.4.0` - lints `DESIGN.md` (`npx @google/design.md lint DESIGN.md`) |
+| `drizzle-orm` (not used) | `0.45.3` - recorded only because it is the alternative if Prisma's lack of partial-index / `FOR UPDATE` support becomes irritating; see §23 |
 
 ---
 
@@ -201,7 +201,7 @@ okinvo/
 │   │   ├── api/exports/[dataset]/route.ts
 │   │   ├── api/health/{live,ready}/route.ts
 │   │   ├── globals.css           # Tailwind 4 entry: imports tokens.css, defines shadcn semantic vars (§24.3)
-│   │   └── tokens.css            # GENERATED from DESIGN.md by scripts/design-tokens.ts — never edited by hand
+│   │   └── tokens.css            # GENERATED from DESIGN.md by scripts/design-tokens.ts - never edited by hand
 │   ├── components/               # shadcn/ui primitives + domain components (InvoicePreview, LineItemsEditor…)
 │   ├── server/                   # server-only: auth helpers, DAL (one module per aggregate), server actions
 │   │   ├── auth.ts               # requireUser / requireOwner
@@ -231,7 +231,7 @@ okinvo/
 │   ├── migrations/               # includes hand-written SQL for partial unique indexes
 │   └── seed.ts                   # dev-only sample data
 ├── prisma.config.ts
-├── compose.yml                   # production stack — run from the repo root: `docker compose up -d`
+├── compose.yml                   # production stack - run from the repo root: `docker compose up -d`
 ├── compose.dev.yml               # postgres (+ seaweedfs) only, for `pnpm dev` and CI
 ├── docker/
 │   ├── Dockerfile
@@ -250,8 +250,8 @@ okinvo/
 ├── .github/workflows/{ci.yml,release.yml}
 ├── .env.example
 ├── renovate.json
-├── DESIGN.md                     # UI design tokens (design.md format), dark = canonical — see §24
-├── DESIGN.light.md               # light-theme overrides, same token names (schema has no modes) — created at M0
+├── DESIGN.md                     # UI design tokens (design.md format), dark = canonical - see §24
+├── DESIGN.light.md               # light-theme overrides, same token names (schema has no modes) - created at M0
 ├── SPEC.md · IMPLEMENTATION_PLAN.md · IMPLEMENTATION_PLAN_v2.md · CLAUDE.md
 ```
 
@@ -279,7 +279,7 @@ As in `SPEC.md` §5. Implementation notes:
 - Encrypted columns are suffixed `Enc` and hold `v1.<iv>.<tag>.<ciphertext>` (base64url).
 - Better Auth owns its four tables; they are generated with `npx @better-auth/cli@latest generate` (the docs' shorter alias is `npx auth@latest generate`) and then kept in the same schema file.
 - Money columns are `Decimal(14, 2)`; values are rounded to the currency's minor units (0 or 2) before storage, so zero-decimal currencies store as `x.00`.
-- The authoritative schema is `prisma/schema.prisma`. The block below is the design reference; note Prisma requires **one enum value per line** — the compact `enum X { A B }` form shown here for brevity does not parse.
+- The authoritative schema is `prisma/schema.prisma`. The block below is the design reference; note Prisma requires **one enum value per line** - the compact `enum X { A B }` form shown here for brevity does not parse.
 
 ### 7.2 `prisma/schema.prisma`
 
@@ -582,7 +582,7 @@ model Invoice {
   clientId           String
   status             DocumentStatus @default(DRAFT)
 
-  number             String?        // @@unique([issuerProfileId, number]) — per issuer, per SPEC §4.6; a global @unique collided across profiles
+  number             String?        // @@unique([issuerProfileId, number]) - per issuer, per SPEC §4.6; a global @unique collided across profiles
   fiscalYear         String?
   sequenceNumber     Int?
 
@@ -628,7 +628,7 @@ model Invoice {
 
   issuerSnapshot         Json?      // IssuerSnapshotSchema (incl. decrypted-for-print tax IDs the config allows)
   clientSnapshot         Json?
-  paymentMethodsSnapshot Json?      // decrypted details, in display order — this is what the PDF prints
+  paymentMethodsSnapshot Json?      // decrypted details, in display order - this is what the PDF prints
   verificationToken      String     @unique
 
   createdAt          DateTime       @default(now())
@@ -711,16 +711,42 @@ model Payment {
   paymentMethodProfileId String?
   reference              String?
   notes                  String?
-  receiptAssetId         String?      @unique
   createdAt              DateTime     @default(now())
   updatedAt              DateTime     @updatedAt
 
   invoice                Invoice               @relation(fields: [invoiceId],              references: [id])
   paymentMethod          PaymentMethodProfile? @relation(fields: [paymentMethodProfileId], references: [id])
-  receipt                Asset?                @relation(fields: [receiptAssetId],         references: [id])
+  attachments            PaymentAttachment[]
 
   @@index([invoiceId])
   @@index([paymentDate])
+}
+
+// Receipts and bills on a payment (v1.1 addendum §4): several per payment, kind RECEIPT, PDF or
+// image; they replaced the single receiptAssetId (migrated across).
+model PaymentAttachment {
+  id        String   @id @default(uuid(7))
+  paymentId String
+  assetId   String
+  position  Int      @default(0)
+  createdAt DateTime @default(now())
+
+  payment   Payment  @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+  asset     Asset    @relation(fields: [assetId],   references: [id])
+
+  @@unique([paymentId, assetId])
+  @@index([paymentId])
+}
+
+// Exchange-rate tables from the optional daily refresh (v1.1 addendum §5); data/exchange-rates.json
+// is the bundled floor. rates: { "INR": "88.5", ... } per USD as decimal strings.
+model ExchangeRateSnapshot {
+  id        String   @id @default(uuid(7))
+  asOf      DateTime @unique @db.Date
+  base      String   @default("USD") @db.VarChar(3)
+  rates     Json
+  source    String
+  createdAt DateTime @default(now())
 }
 
 // ───────────────────────── Credit notes ─────────────────────────
@@ -845,7 +871,7 @@ model AppSetting {             // keys: documentTemplate (TemplateConfig), smtp 
 - `PaymentMethodDetailsSchema`: `z.discriminatedUnion("type", [...])` matching `SPEC.md` §4.5.
 - `IssuerSnapshotSchema`, `ClientSnapshotSchema`, `PaymentMethodsSnapshotSchema`: exactly what the renderer needs, nothing more; snapshots include only the fields the display config permitted at issue time, so a later "show PAN" toggle cannot retroactively leak into a re-render.
 - `TemplateConfigSchema` (§12.2) for `AppSetting.documentTemplate`, `IssuerProfile.templateConfigOverride` and the two `templateSnapshot` columns; `SmtpConfigSchema` and `EmailDefaultsSchema` (§12.4) for the other `AppSetting` keys.
-- `CurrencySchema`: ISO 4217 code whose `minorUnits()` is 0 or 2 — the seven three-decimal currencies are rejected here.
+- `CurrencySchema`: ISO 4217 code whose `minorUnits()` is 0 or 2 - the seven three-decimal currencies are rejected here.
 
 ---
 
@@ -890,7 +916,7 @@ export interface TaxResult {
 export function computeTax(ctx: TaxContext, lines: TaxableLine[]): TaxResult
 ```
 
-`india-gst.ts` implements the table in `SPEC.md` §4.7: split `r` into `CGST r/2 + SGST r/2` for intra-state (per-line tax rounded per component, then aggregated), `IGST r` for inter-state and export-with-tax, zero lines for `EXPORT_LUT`/`REVERSE_CHARGE`/`NOT_APPLICABLE`. Pure functions; table-driven unit tests with the exact rupee expectations. Rounding is per line, per component, to the currency's minor units (decided — `SPEC.md` §4.7); the engine takes the currency and uses `roundMoney`.
+`india-gst.ts` implements the table in `SPEC.md` §4.7: split `r` into `CGST r/2 + SGST r/2` for intra-state (per-line tax rounded per component, then aggregated), `IGST r` for inter-state and export-with-tax, zero lines for `EXPORT_LUT`/`REVERSE_CHARGE`/`NOT_APPLICABLE`. Pure functions; table-driven unit tests with the exact rupee expectations. Rounding is per line, per component, to the currency's minor units (decided - `SPEC.md` §4.7); the engine takes the currency and uses `roundMoney`.
 
 ### 8.3 Totals (`src/lib/invoices/totals.ts`)
 
@@ -952,9 +978,9 @@ export async function issueInvoice(id: string, actor: Actor) {
 ### 8.6 Balances and status
 
 - `recalculateBalances(tx, invoiceId)` recomputes `amountPaid`, `amountCredited`, `balanceDue` from `Payment` and issued `CreditNote` rows. Called by every payment and credit-note DAL mutation, in the same transaction. Single code path.
-- `creditNoteTaxLines(invoice, creditSubtotal, currency)`: the credit subtotal is apportioned **within each tax type** (CGST and SGST each see the whole subtotal split across their rates; IGST/VAT likewise), because intra-state lines carry the same taxable base twice — apportioning across all lines at once would halve the tax. Each line's tax is `roundMoney(part × rate, currency)`; total = subtotal + Σ tax. Pure; fixture-tested for mixed-rate invoices (M3 ruling).
+- `creditNoteTaxLines(invoice, creditSubtotal, currency)`: the credit subtotal is apportioned **within each tax type** (CGST and SGST each see the whole subtotal split across their rates; IGST/VAT likewise), because intra-state lines carry the same taxable base twice - apportioning across all lines at once would halve the tax. Each line's tax is `roundMoney(part × rate, currency)`; total = subtotal + Σ tax. Pure; fixture-tested for mixed-rate invoices (M3 ruling).
 - `displayStatus(invoice, todayInUserTz)` is pure (see `SPEC.md` §4.6) and used by lists, detail pages and exports. `todayFor(user)` = current date in `user.timezone ?? "UTC"` via `@date-fns/tz`.
-- Dashboard "overdue" is a query on `status = 'ISSUED' AND balanceDue > 0 AND dueDate < :today` — no cron.
+- Dashboard "overdue" is a query on `status = 'ISSUED' AND balanceDue > 0 AND dueDate < :today` - no cron.
 
 ### 8.7 Formatting (`src/lib/format`)
 
@@ -1014,7 +1040,7 @@ export const auth = betterAuth({
 - The hook deliberately does **not** require `emailVerified`: Google and GitHub only ever return verified emails, and a generic OIDC provider is configured by the owner and is therefore trusted by definition (many don't emit `email_verified` at all, which would have locked Casdoor users out). The actual account-takeover vector is *linking* accounts by email across providers, so `accountLinking.trustedProviders` defaults to `["google", "github"]`; add an OIDC provider id through `AUTH_LINKING_TRUSTED_PROVIDERS` only if that IdP verifies emails.
 - `cookieCache` stays off. With it on, a revoked session keeps working until the cache expires, which contradicts the security page. One indexed DB read per request is nothing at this scale.
 - E2E tests enable `emailAndPassword` under `NODE_ENV=test` and seed the test user directly; the allow-list hook still applies, so `.env.test` lists the test address.
-- **Verified against the Better Auth docs on 2026-10-01.** `databaseHooks.user.create.before(user, ctx)` returns `{ data }` or `false`, or throws `APIError` — imported from `better-auth/api`. `genericOAuth` config keys are `providerId, clientId, clientSecret, discoveryUrl, scopes, pkce` (PKCE defaults to true). `account.accountLinking.trustedProviders` auto-links even when the provider doesn't assert a verified email; otherwise linking requires one — exactly the behaviour the bullets above rely on. The `cookieCache` docs carry the same revocation caveat. Server session APIs: `auth.api.listSessions / revokeSession({ token }) / revokeOtherSessions / revokeSessions`. Next 16 uses `proxy.ts`. Sign-in page calls `authClient.signIn.social({ provider })` for Google/GitHub and `authClient.signIn.oauth2({ providerId })` (client plugin `genericOAuthClient()`) for OIDC providers.
+- **Verified against the Better Auth docs on 2026-10-01.** `databaseHooks.user.create.before(user, ctx)` returns `{ data }` or `false`, or throws `APIError` - imported from `better-auth/api`. `genericOAuth` config keys are `providerId, clientId, clientSecret, discoveryUrl, scopes, pkce` (PKCE defaults to true). `account.accountLinking.trustedProviders` auto-links even when the provider doesn't assert a verified email; otherwise linking requires one - exactly the behaviour the bullets above rely on. The `cookieCache` docs carry the same revocation caveat. Server session APIs: `auth.api.listSessions / revokeSession({ token }) / revokeOtherSessions / revokeSessions`. Next 16 uses `proxy.ts`. Sign-in page calls `authClient.signIn.social({ provider })` for Google/GitHub and `authClient.signIn.oauth2({ providerId })` (client plugin `genericOAuthClient()`) for OIDC providers.
 - `User.timezone` is null until the app shell's first render, which calls `authClient.updateUser({ timezone: Intl.DateTimeFormat().resolvedOptions().timeZone })` once; editable afterwards in Settings → Account.
 
 ### 9.2 Handler and helpers
@@ -1039,7 +1065,7 @@ export const auth = betterAuth({
 ## 10. Data access layer and authorization
 
 - All reads and writes go through `src/server/dal/*`. Each exported function takes an `Actor` (from `requireOwner()`), validates invariants (e.g. `assertMutable(invoice)`), runs in a transaction where more than one row changes, and writes an `AuditEvent` in that transaction.
-- Server actions are thin: `parse(schema, formData) → dal.fn(actor, input) → revalidatePath`. They return `{ ok: true, data } | { ok: false, fieldErrors }` — never throw to the client.
+- Server actions are thin: `parse(schema, formData) → dal.fn(actor, input) → revalidatePath`. They return `{ ok: true, data } | { ok: false, fieldErrors }` - never throw to the client.
 - The Prisma client is wrapped with an extension that (a) adds `archivedAt: null` to `findMany`/`findFirst` on archivable models unless `includeArchived: true` is passed, and (b) converts `@db.Date` columns to/from `YYYY-MM-DD` strings.
 - `proxy.ts` (Next 16) only redirects unauthenticated *page* navigations and sets the CSP nonce. It is not the security boundary (lesson of CVE-2025-29927).
 
@@ -1061,7 +1087,7 @@ export const storage: StorageAdapter = env.STORAGE_DRIVER === "s3" ? new S3Stora
 ```
 
 - **Local driver** (default): files under `STORAGE_LOCAL_ROOT=/data/storage` (a named volume). Keys are validated against `^[a-z0-9/_\-.]+$` and resolved with `path.resolve` + prefix check to prevent traversal. Writes are atomic (temp file + rename).
-- **S3 driver**: `@aws-sdk/client-s3` with `forcePathStyle: true`, credentials required (no `"any"` fallback), bucket created on boot if missing. Works with SeaweedFS (`s3.json` identities), Garage, or any S3 — all self-hosted.
+- **S3 driver**: `@aws-sdk/client-s3` with `forcePathStyle: true`, credentials required (no `"any"` fallback), bucket created on boot if missing. Works with SeaweedFS (`s3.json` identities), Garage, or any S3 - all self-hosted.
 - Keys: `assets/{kind}/{yyyy}/{assetId}.{ext}`, `documents/{kind}/{fy}/{number-safe}-v{n}.pdf`.
 
 ### 11.2 Uploads (`/api/uploads`)
@@ -1117,8 +1143,8 @@ export const storage: StorageAdapter = env.STORAGE_DRIVER === "s3" ? new S3Stora
 ### 12.3 Verification
 
 - **Verification tokens.** A random token is set when a draft is created (the column is non-null) and **rotated at issue**, so a QR printed on a draft preview never resolves. The verification lookup additionally filters `status IN ('ISSUED', 'VOID')`.
-- **Verification page** reads `Invoice`/`CreditNote` by `verificationToken` (constant-time comparison is unnecessary: the token is a random 256-bit database key; timing on a `@unique` lookup does not leak neighbours), rate-limited 30/min/IP, and returns the same shell for missing tokens. Client-side hash check uses `crypto.subtle.digest` on a file the user picks — nothing is uploaded.
-- **Draft preview PDF.** `/api/documents/preview?invoice=<id>` renders a draft on demand with a diagonal "DRAFT — not a tax invoice" watermark, no number and no QR; it is never stored.
+- **Verification page** reads `Invoice`/`CreditNote` by `verificationToken` (constant-time comparison is unnecessary: the token is a random 256-bit database key; timing on a `@unique` lookup does not leak neighbours), rate-limited 30/min/IP, and returns the same shell for missing tokens. Client-side hash check uses `crypto.subtle.digest` on a file the user picks - nothing is uploaded.
+- **Draft preview PDF.** `/api/documents/preview?invoice=<id>` renders a draft on demand with a diagonal "DRAFT - not a tax invoice" watermark, no number and no QR; it is never stored.
 - **Render race.** Two concurrent downloads of a not-yet-rendered document may both render; the `Document` unique constraint makes the second insert fail, which is caught and the existing row re-read. Idempotent by construction.
 - **DOCX** (v1.1): `docx` package rendering from the same view-model.
 
@@ -1175,7 +1201,7 @@ Applied to every text cell in both writers; unit-tested with the OWASP cases.
 
 | Control | Implementation |
 |---|---|
-| Access | Allow-listed SSO; `requireOwner()` in every DAL entry point. With `AUTH_PASSWORD_SIGNIN=true` (R1) a password sign-up is accepted only for an address listed *exactly* in `AUTH_ALLOWED_EMAILS` — a `*@domain` pattern covers provider sign-ins only — because a password sign-up proves nothing about who owns the address |
+| Access | Allow-listed SSO; `requireOwner()` in every DAL entry point. With `AUTH_PASSWORD_SIGNIN=true` (R1) a password sign-up is accepted only for an address listed *exactly* in `AUTH_ALLOWED_EMAILS` - a `*@domain` pattern covers provider sign-ins only - because a password sign-up proves nothing about who owns the address |
 | Sessions | Server-side, HttpOnly + Secure + SameSite=Lax cookies; 30-day sliding; listed and revocable; revoked on allow-list removal |
 | CSRF | Better Auth origin checks on its endpoints; Next Server Actions enforce same-origin; custom `POST` routes check `Origin` against `APP_URL` |
 | Headers (`proxy.ts` + `next.config.ts`) | `Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-…' 'strict-dynamic'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' <idp-origins>` · `Strict-Transport-Security: max-age=31536000; includeSubDomains` (no `preload` by default; self-hosters opt in) · `X-Content-Type-Options: nosniff` · `Referrer-Policy: strict-origin-when-cross-origin` · `Permissions-Policy: camera=(), microphone=(), geolocation=()` · `Cross-Origin-Opener-Policy: same-origin` |
@@ -1184,7 +1210,7 @@ Applied to every text cell in both writers; unit-tested with the OWASP cases.
 | Uploads | Size caps, magic-byte sniffing, `sharp` re-encode, SVG rejected, keys validated, served with `nosniff` and never inline for PDFs from untrusted sources (receipts are `attachment`) |
 | Rate limiting | Token bucket per client IP (from `X-Forwarded-For` first hop, trusted only when `TRUST_PROXY=true`, which compose/k8s set): `/api/auth/*` 20/min, `/verify/*` 30/min, `/api/uploads` 30/min, `/api/exports/*` 10/min, email sends 30/h. `RATE_LIMIT_STORE=memory` (default) or `postgres` for multi-replica |
 | Email | SMTP password encrypted in `AppSetting`; composer body is plain text rendered to escaped HTML plus a text part; attachments only from stored `Document` rows; recipients validated and capped; nothing sent without an explicit click; every attempt logged |
-| Templates | Parameters only — no user-supplied markup, CSS or fonts reach the renderer; hex-validated colours; length-capped strings; snapshot at issue means settings changes can't rewrite history |
+| Templates | Parameters only - no user-supplied markup, CSS or fonts reach the renderer; hex-validated colours; length-capped strings; snapshot at issue means settings changes can't rewrite history |
 | Secrets | Environment only; `.env` gitignored; `.env.example` committed; `scripts/gen-secrets.sh` generates strong values |
 | Containers | Non-root `uid 1001`, read-only root FS with `/tmp` and `/data` writable, `no-new-privileges`, all capabilities dropped |
 | Network | Only Caddy (or the Ingress) is reachable; app→postgres/seaweedfs on an internal network; K8s `NetworkPolicy` default-deny |
@@ -1307,7 +1333,7 @@ CMD ["node", "server.js"]
 Notes:
 - `.npmrc` (`engine-strict=true`, `save-exact=true`) is created at M0 so the `COPY` succeeds.
 - The `migrate` stage carries the full `node_modules` (~400 MB). Acceptable for a one-shot container; if it bothers you, `pnpm deploy --prod` into a scratch dir with `prisma` promoted to a runtime dependency. If Prisma 7's `migrate deploy` turns out to need a native schema engine on Alpine, add `apk add --no-cache openssl` to that stage.
-- Next writes its image-optimisation cache to `.next/cache`. With `read_only: true` that path must be a tmpfs (see compose / the K8s `emptyDir`) — or set `images.unoptimized: true`, which is fine here because every image is served through `/api/assets` anyway.
+- Next writes its image-optimisation cache to `.next/cache`. With `read_only: true` that path must be a tmpfs (see compose / the K8s `emptyDir`) - or set `images.unoptimized: true`, which is fine here because every image is served through `/api/assets` anyway.
 - Prisma 7's client ships a WASM query compiler; confirm at M0 that Next's standalone output traces the `.wasm` files (`outputFileTracingIncludes` if not).
 
 ### 16.2 `compose.yml` (repo root)
@@ -1462,7 +1488,7 @@ Postgres (published on `127.0.0.1:5432`), Mailpit (`axllent/mailpit`, SMTP `1025
 | `ConfigMap okinvo-config` | Non-secret env only (`APP_URL`, `STORAGE_DRIVER`, `TRUST_PROXY`, `RATE_LIMIT_STORE`, …). |
 | `Secret okinvo-secrets` | **Not in the repo.** Created with `kubectl -n okinvo create secret generic okinvo-secrets --from-env-file=.env.secrets`. Optional overlay for Sealed Secrets / External Secrets if you already run them. |
 | `StatefulSet postgres` | `postgres:18.6-alpine`, PVC 20Gi, env from `secretKeyRef`, `securityContext` (`runAsUser: 70`, `fsGroup: 70`), requests/limits, `pg_isready` probes. |
-| `Deployment app` | `replicas: 1`, `strategy: Recreate` when `STORAGE_DRIVER=local` (RWO volume), `RollingUpdate` when `s3`. **Init container `migrate`** runs the `…:<ver>-migrate` image (`prisma migrate deploy`) before the app container starts — the same semantics as the compose `migrate` service, with no separate Job to sequence. Safe even with several replicas because `migrate deploy` takes a Postgres advisory lock. Full hardening below. Separate liveness (`/api/health/live`) and readiness (`/api/health/ready`) probes. |
+| `Deployment app` | `replicas: 1`, `strategy: Recreate` when `STORAGE_DRIVER=local` (RWO volume), `RollingUpdate` when `s3`. **Init container `migrate`** runs the `…:<ver>-migrate` image (`prisma migrate deploy`) before the app container starts - the same semantics as the compose `migrate` service, with no separate Job to sequence. Safe even with several replicas because `migrate deploy` takes a Postgres advisory lock. Full hardening below. Separate liveness (`/api/health/live`) and readiness (`/api/health/ready`) probes. |
 | `PersistentVolumeClaim app-data` | RWO, 10Gi, mounted at `/data`. |
 | `Service okinvo` | ClusterIP 80 → 3000. |
 | `Ingress okinvo` | `spec.ingressClassName` (default `nginx`, patchable), cert-manager annotation, body-size annotation 25m. |
@@ -1516,9 +1542,9 @@ Overlays: `with-seaweedfs` (adds the StatefulSet, Service, NetworkPolicy rule, `
 
 ## 18. CI/CD and releases
 
-### 18.1 GitHub Actions — `ci.yml` (every push and PR)
+### 18.1 GitHub Actions - `ci.yml` (every push and PR)
 
-Action versions verified 2026-10-01. Every job that needs a database uses `compose.dev.yml` — the same Postgres you run locally — rather than GitHub's `services:` block, so there is one definition and no port clash with the restore drill.
+Action versions verified 2026-10-01. Every job that needs a database uses `compose.dev.yml` - the same Postgres you run locally - rather than GitHub's `services:` block, so there is one definition and no port clash with the restore drill.
 
 ```yaml
 name: ci
@@ -1580,7 +1606,7 @@ jobs:
         with: { image-ref: okinvo:ci, severity: HIGH,CRITICAL, exit-code: "1", ignore-unfixed: true }
 ```
 
-### 18.2 Releases — built on your machine, pushed to Docker Hub
+### 18.2 Releases - built on your machine, pushed to Docker Hub
 
 You said CI should run against your local Docker, which is logged in to `docker.io/deveshgupta30`. Releases therefore run locally by default:
 
@@ -1679,11 +1705,12 @@ docker compose run --rm app node scripts/rotate-key.js --old "$OLD" --new "$NEW"
 | M3 | **Money in, mail out** | Payments ledger with TDS/FX/fees/receipts; balances; derived statuses; amount-based credit notes (apportioned tax, PDF); dashboard; SMTP transport, Settings → Email, send composer with Mailpit-backed tests. |
 | M4 | **Exports, data & polish** | Eight CSV/XLSX datasets; ZIP bundles; Settings → Data; backup service + restore drill in CI; `classic` and `compact` templates; full template customisation UI with import/export. |
 | M5 | **Hardening & K8s** | Nonce CSP, rate limits, container hardening, `release.sh`, first tagged image on Docker Hub, Kustomize base + overlays validated on a local cluster (kind/k3d). |
-| v1.1 | | Viewer role, DOCX, payment reminders through the composer, import from `data.json`. |
+| v1.1 | **Delivered 2026-10-15** | Shell and identity (brand, accents, avatars, collapsible sidebar, mobile drawer), onboarding wizard and account preferences, roles and members, products and profile tags, six templates with the vendored font catalogue and header bands, input charset, 115 UI languages, API keys + REST v1 + OpenAPI + SDK + MCP + skill, legal pages, cookie notice, status page, DOCX copies, share links and protected copies, translated documents with script fonts, e-invoicing (GST JSON, IRN connectors, EN 16931 CII/UBL, Factur-X), documentation site (`docs/wiki`, Wiki.js profile). Plan: `docs/superpowers/plans/2026-10-02-v1-1-full-scope.md`. |
+| v1.2 | | Payment reminders through the composer, import from `data.json`. |
 
 Each milestone ends with its tests green in CI and a short `docs/changelog.md` entry.
 
-**Status (2026-10-01):** M0–M4 delivered on `feat/initial-version-okinvo` (see `docs/changelog.md`); M5 in progress. Deviations recorded along the way: TypeScript 6 (TS 7 blocked by typescript-eslint), hand-written UI primitives instead of `shadcn add`, a `postgres` rate-limit store wired in M5, and `AUTH_PASSWORD_SIGNIN` for IdP-less installs and CI.
+**Status (2026-10-15):** M0 to M5 delivered on `feat/initial-version-okinvo` and v1.1 on `feature/v1-core-onboarding-ui-mcp` (see `docs/changelog.md`). Deviations recorded along the way: TypeScript 6 (TS 7 blocked by typescript-eslint), hand-written UI primitives instead of `shadcn add`, a `postgres` rate-limit store wired in M5, `AUTH_PASSWORD_SIGNIN` for IdP-less installs and CI, the NIC IRP connector verified against recorded fixtures only, and the Compact-ICC sRGB profile as the Factur-X output intent.
 
 ---
 
@@ -1693,34 +1720,34 @@ Resolved 2026-10-01. Kept so the reasoning survives.
 
 | # | Question | Decision | Why |
 |---|---|---|---|
-| 1 | Prisma vs Drizzle | **Prisma 7 stays.** The three raw-SQL spots — two partial unique indexes (migration SQL), the `DocumentSequence` upsert (`numbering/allocate.ts`), the date-string result extension (`lib/db.ts`) — are isolated, ~40 lines in total and already written in this plan. | Prisma returns typed `Decimal`s, which directly serves money-correctness (Drizzle's `numeric` returns strings — one more place to slip); Prisma Studio; nested writes for line items; the schema is already designed in it. Tripwire: a fourth raw-SQL need before M2 → revisit. |
-| 2 | Credit-note line items | **Cut.** Amount + reason; tax lines apportioned pro-rata from the invoice (`money/apportion`, largest-remainder). `CreditNoteItem` removed; `CreditNoteTaxLine` kept. A line picker only computes the amount. | Freelancer credit notes are "cancel milestone 2" or "10 % goodwill" — amounts. Reportable tax is preserved. |
+| 1 | Prisma vs Drizzle | **Prisma 7 stays.** The three raw-SQL spots - two partial unique indexes (migration SQL), the `DocumentSequence` upsert (`numbering/allocate.ts`), the date-string result extension (`lib/db.ts`) - are isolated, ~40 lines in total and already written in this plan. | Prisma returns typed `Decimal`s, which directly serves money-correctness (Drizzle's `numeric` returns strings - one more place to slip); Prisma Studio; nested writes for line items; the schema is already designed in it. Tripwire: a fourth raw-SQL need before M2 → revisit. |
+| 2 | Credit-note line items | **Cut.** Amount + reason; tax lines apportioned pro-rata from the invoice (`money/apportion`, largest-remainder). `CreditNoteItem` removed; `CreditNoteTaxLine` kept. A line picker only computes the amount. | Freelancer credit notes are "cancel milestone 2" or "10 % goodwill" - amounts. Reportable tax is preserved. |
 | 3 | GST rounding | **Per line, per component, half-up to minor units; aggregate afterwards; whole-rupee via `roundingAdjustment`.** | Matches mainstream Indian packages; tables always foot; rate-wise summaries stay within e-invoice ±1 tolerance. Fixtures are written to this rule. |
 | 4 | Timezone | **Per signed-in user** (`User.timezone`, Better Auth additional field, auto-detected from the browser at first sign-in, editable in Settings → Account). `IssuerProfile.timezone` removed; no `APP_TIMEZONE`. | Your call; "today" belongs to the person clicking. Document dates are calendar dates regardless. |
 | 5 | Zero-decimal currencies | **Supported for 0- and 2-minor-unit currencies** via `minorUnits()` from `Intl`; `roundMoney(v, currency)` replaces `round2`. The seven three-decimal currencies are rejected by `CurrencySchema` (money columns stay `Decimal(14,2)`). | Twenty lines removes a footgun; 3-dp support would mean widening every money column for currencies you will never bill in. |
-| 6 | Better Auth API drift | **Verified against the docs** (§9.1). One correction: `APIError` is imported from `better-auth/api`. | — |
+| 6 | Better Auth API drift | **Verified against the docs** (§9.1). One correction: `APIError` is imported from `better-auth/api`. | - |
 | 7 | TypeScript 7 readiness | Try 7.0 at M0; pin 6.x if any tool in the chain objects; Renovate moves it later. | Unchanged from before. |
 | 8 | SMTP | **Both env and Settings**, Settings win; the composer drafts an editable mail with the stored PDF attached and sends only on click; `mailto:` fallback without SMTP (§12.4). | Your call. |
 | 9 | Templates | **Three built-ins; parameterised customisation in Settings → Templates; optional per-issuer override; snapshotted at issue.** No user-coded templates in v1 (§12.2). | Your call. |
-| 10 | LAN-only deployments | `tls internal` documented in §16.3; no separate override file until someone needs it. | — |
-| 11 | Receipts as PDFs | Served as `attachment` only. Accepted. | — |
-| 12 | Kubernetes storage class | Assume the cluster default; `storageClassName` is a one-line Kustomize patch in the overlay. | — |
+| 10 | LAN-only deployments | `tls internal` documented in §16.3; no separate override file until someone needs it. | - |
+| 11 | Receipts as PDFs | Served as `attachment` only. Accepted. | - |
+| 12 | Kubernetes storage class | Assume the cluster default; `storageClassName` is a one-line Kustomize patch in the overlay. | - |
 
 ---
 
-## 24. Design system — applying `DESIGN.md` to the app
+## 24. Design system - applying `DESIGN.md` to the app
 
-`DESIGN.md` (design.md format, front-matter tokens + prose) is the **source of truth for the UI**. It is an extraction of Linear's *marketing* site, so this section says what is adopted verbatim, what is remapped for a dense application, and what is added. Your §10 "Linear Design System UI Specification" (pasted 2026-10-01, preserved as an addendum in `IMPLEMENTATION_PLAN.md`) fixed the three open items — status palette, theme modes (dark / inverse light / system) and font roles — and §24.5 turns them into AA-verified tokens. The `design.md` schema (checked against the package README, 0.4.0) is a flat `colors:` map with no theme modes, so at M0 the status tokens go into `DESIGN.md`'s front matter and the light palette goes into a sibling **`DESIGN.light.md`** with identical token names; both files are linted (the linter also checks WCAG contrast on `components:` entries, which is free regression coverage for §24.4–24.5) and the generator merges them.
+`DESIGN.md` (design.md format, front-matter tokens + prose) is the **source of truth for the UI**. It is an extraction of Linear's *marketing* site, so this section says what is adopted verbatim, what is remapped for a dense application, and what is added. Your §10 "Linear Design System UI Specification" (pasted 2026-10-01, preserved as an addendum in `IMPLEMENTATION_PLAN.md`) fixed the three open items - status palette, theme modes (dark / inverse light / system) and font roles - and §24.5 turns them into AA-verified tokens. The `design.md` schema (checked against the package README, 0.4.0) is a flat `colors:` map with no theme modes, so at M0 the status tokens go into `DESIGN.md`'s front matter and the light palette goes into a sibling **`DESIGN.light.md`** with identical token names; both files are linted (the linter also checks WCAG contrast on `components:` entries, which is free regression coverage for §24.4-24.5) and the generator merges them.
 
 ### 24.1 Pipeline
 
-- `scripts/design-tokens.ts` parses the YAML front matter of `DESIGN.md` (dark, canonical) and `DESIGN.light.md` (light overrides, same token names) and writes `src/app/tokens.css`: a Tailwind 4 `@theme` block (`--color-canvas`, `--color-surface-1`, `--color-ink-subtle`, `--color-hairline`, `--radius-md`, `--font-sans`, …) plus `--text-*` entries for the type scale. DESIGN.md's spacing scale is **not** emitted as named `--spacing-*` tokens: `sm/md/lg/xl` collide with Tailwind's container sizes inside `max-w-*`/`w-*` (M0 found `max-w-sm` resolving to 12 px), and the scale is 4 px-based, i.e. exactly Tailwind's numeric utilities — xxs=1, xs=2, sm=3, md=4, lg=6, xl=8, xxl=12, section=24 (`p-3` is DESIGN.md `sm`); `tokens.css` carries the mapping as comments and the generator rejects non-4 px values. Both themes are emitted: `:root` carries dark, `[data-theme="light"]` the light overrides, so utilities are theme-agnostic. Components use only the generated utilities (`bg-surface-1`, `text-ink-subtle`, `border-hairline`, `rounded-md`). **No hex literals in components**; ESLint rule `no-restricted-syntax` on `#[0-9a-f]{3,8}` in `src/components` and `src/app` enforces it.
+- `scripts/design-tokens.ts` parses the YAML front matter of `DESIGN.md` (dark, canonical) and `DESIGN.light.md` (light overrides, same token names) and writes `src/app/tokens.css`: a Tailwind 4 `@theme` block (`--color-canvas`, `--color-surface-1`, `--color-ink-subtle`, `--color-hairline`, `--radius-md`, `--font-sans`, …) plus `--text-*` entries for the type scale. DESIGN.md's spacing scale is **not** emitted as named `--spacing-*` tokens: `sm/md/lg/xl` collide with Tailwind's container sizes inside `max-w-*`/`w-*` (M0 found `max-w-sm` resolving to 12 px), and the scale is 4 px-based, i.e. exactly Tailwind's numeric utilities - xxs=1, xs=2, sm=3, md=4, lg=6, xl=8, xxl=12, section=24 (`p-3` is DESIGN.md `sm`); `tokens.css` carries the mapping as comments and the generator rejects non-4 px values. Both themes are emitted: `:root` carries dark, `[data-theme="light"]` the light overrides, so utilities are theme-agnostic. Components use only the generated utilities (`bg-surface-1`, `text-ink-subtle`, `border-hairline`, `rounded-md`). **No hex literals in components**; ESLint rule `no-restricted-syntax` on `#[0-9a-f]{3,8}` in `src/components` and `src/app` enforces it.
 - CI runs `npx @google/design.md lint DESIGN.md` and `pnpm design:tokens --check` (regenerate and diff), so a token edit without a regenerated `tokens.css` fails the build.
 - `src/app/globals.css` imports `tokens.css` and maps tokens onto shadcn/ui's semantic variables (§24.3). shadcn components are generated once (`pnpm dlx shadcn@latest add …`) and then owned by the repo.
 
 ### 24.2 Adopted verbatim
 
-Colour tokens (canvas, the four-step surface ladder, three hairlines, the four inks, lavender primary/hover/focus, success), the radius scale (`md` 8px for every button and input, `lg` 12px for cards, `pill` for status pills), the 4px spacing base, the do/don't list (lavender is scarce; no second chromatic accent on chrome; no gradients or shadows — depth is the surface ladder + hairlines; never `#000000` as canvas; never pill-round buttons), and the elevation table (focus ring = 2px `primary-focus` at 50 %).
+Colour tokens (canvas, the four-step surface ladder, three hairlines, the four inks, lavender primary/hover/focus, success), the radius scale (`md` 8px for every button and input, `lg` 12px for cards, `pill` for status pills), the 4px spacing base, the do/don't list (lavender is scarce; no second chromatic accent on chrome; no gradients or shadows - depth is the surface ladder + hairlines; never `#000000` as canvas; never pill-round buttons), and the elevation table (focus ring = 2px `primary-focus` at 50 %).
 
 ### 24.3 Token → shadcn/Tailwind mapping
 
@@ -1751,20 +1778,20 @@ Buttons map 1:1 onto DESIGN.md's `button-primary` / `-secondary` / `-tertiary` /
 | `link #828fff` on `canvas` | 7.27 | link text colour in the app |
 | white on `primary-hover #525dc7` | 5.60 | hovered primary button label (DESIGN.md's original hover `#828fff` was 2.87:1 and was changed) |
 | `ink-subtle` on `canvas` / `surface-1` | 6.42 / 5.86 | secondary text: fine |
-| `ink-tertiary` on `canvas` | 3.62 | disabled text and footnotes only — never for information the user must read |
+| `ink-tertiary` on `canvas` | 3.62 | disabled text and footnotes only - never for information the user must read |
 | `semantic-success` on `canvas` | 6.58 | fine |
 | white on `primary` | 4.70 | primary button label: fine |
 
 ### 24.5 Additions to `DESIGN.md` (approved via your §10; values verified 2026-10-01)
 
-**Status palette (your §10.1).** Three semantic colours and no info blue — issued/sent stay neutral, which keeps the chrome as restrained as DESIGN.md wants. Your dark values pass everywhere; on light surfaces all three fail AA as text (3.17 / 2.23 / 3.48 on white), so each gets a darker light-mode twin:
+**Status palette (your §10.1).** Three semantic colours and no info blue - issued/sent stay neutral, which keeps the chrome as restrained as DESIGN.md wants. Your dark values pass everywhere; on light surfaces all three fail AA as text (3.17 / 2.23 / 3.48 on white), so each gets a darker light-mode twin:
 
 | Token | Dark | On canvas / s1 | Light | On white / light s1 | Use |
 |---|---|---|---|---|---|
 | `semantic-success` | `#27a644` | 6.58 / 6.01 | `#1a7f37` | 5.08 / 4.69 | paid, test email OK, backup OK |
 | `semantic-warning` | `#f2994a` | 9.37 / 8.55 | `#c2410c` | 5.18 / 4.78 | partially paid, LUT expiring, SMTP not configured |
 | `semantic-danger` | `#eb5757` | 5.99 / 5.47 | `#b91c1c` | 6.47 / 5.98 | overdue, void, failed email, validation errors |
-| `semantic-danger-fill` | `#c83a3a` | white label 5.09 | `#c83a3a` | white label 5.09 | destructive confirm-button fill only — `#eb5757` under a white label is 3.48 and fails |
+| `semantic-danger-fill` | `#c83a3a` | white label 5.09 | `#c83a3a` | white label 5.09 | destructive confirm-button fill only - `#eb5757` under a white label is 3.48 and fails |
 
 Status pills (Linear product style): colour at 12 % alpha as background, colour as text, `rounded.pill`, `caption` type, 2px 8px padding. Mapping: `DRAFT` → `ink-subtle` on `surface-2` (the existing `status-badge`); `ISSUED` → `ink-muted` on `surface-2`; `SENT` → the same with a mail icon; `PARTIALLY_PAID` → warning; `PAID` → success; `OVERDUE` → danger; `VOID` → danger per your spec, with the number struck through (if red reads too loud for a non-actionable state, `ink-tertiary` is a one-line change).
 
@@ -1778,26 +1805,26 @@ Status pills (Linear product style): colour at 12 % alpha as background, colour 
 | `app-label` | 14 / 500 / 1.3 / 0 | form labels, table headers (`ink-subtle`) |
 | `app-table` | 13 / 400 / 1.4 / 0 | dense table cells |
 | `app-caption` | 12 / 400 / 1.4 / 0 | meta, pills, helper text |
-| `app-mono` | 13 / 400 JetBrains Mono | invoice and credit-note numbers, dates, tokens, hashes — per your §10.2 |
-| `app-amount` | 13 / 500 JetBrains Mono, `tabular-nums` | every money cell and total, right-aligned — per your §10.2 |
+| `app-mono` | 13 / 400 JetBrains Mono | invoice and credit-note numbers, dates, tokens, hashes - per your §10.2 |
+| `app-amount` | 13 / 500 JetBrains Mono, `tabular-nums` | every money cell and total, right-aligned - per your §10.2 |
 
 **Fonts (your §10.2).** `Inter` variable for display and body, with the `SF Pro Display, -apple-system, system-ui, Segoe UI, Roboto` fallback stack DESIGN.md documents; `JetBrains Mono` (fallback `SF Mono, ui-monospace, Menlo`) for currency figures, invoice numbers and dates. Self-hosted via `@fontsource-variable/inter 5.3.0` and `@fontsource/jetbrains-mono 5.3.0`. Inter is already the PDF body font, so UI and documents share a voice. `font-feature-settings: "tnum"` on the Inter numerals that remain (dashboard tiles).
 
-**Density.** Sidebar 240px (collapsible to 56px icon rail), no top bar — a 48px breadcrumb + actions row inside the content area, Linear-style. Content max-width 1280px. Table rows 40px (36px in compact mode), inputs and buttons 32px tall, card padding 24px (16px in dense panels), builder split 7 : 5 with the preview sticky. Command palette (`⌘K`: new invoice, go to client, search numbers) on `surface-3` — M4, optional.
+**Density.** Sidebar 240px (collapsible to a 64px icon rail, state in the `okinvo.sidebar` cookie; a drawer behind a menu button below `md`), no top bar: a 48px breadcrumb + actions row inside the content area, Linear-style. Content max-width 1280px. Table rows 40px (36px in compact mode), inputs and buttons 32px tall, card padding 24px (16px in dense panels), builder split 7 : 5 with the preview sticky. Command palette (`⌘K`: new invoice, go to client, search numbers) on `surface-3`: M4, optional.
 
-**Theme modes (your §10.1): dark, inverse light, system — all in v1.** Dark is DESIGN.md verbatim. The inverse light theme starts from your three values (`#ffffff` canvas, `#f5f6f6` surface-1, `#000000` ink) and fills in the rest so every text pair is AA-verified:
+**Theme modes (your §10.1): dark, inverse light, system - all in v1.** Dark is DESIGN.md verbatim. The inverse light theme starts from your three values (`#ffffff` canvas, `#f5f6f6` surface-1, `#000000` ink) and fills in the rest so every text pair is AA-verified:
 
 | Token | Dark (DESIGN.md) | Light | Light contrast | Note |
 |---|---|---|---|---|
-| `canvas` | `#010102` | `#ffffff` | — | your value |
-| `surface-1` | `#0f1011` | `#f5f6f6` | — | your value (DESIGN.md `inverse-surface-1`) |
-| `surface-2` | `#141516` | `#eeeff0` | — | hover/lift must get *darker* on light, so not the `#f6f7f7` inverse token |
-| `surface-3` | `#18191a` | `#ffffff` + `hairline-strong` | — | popovers float on white with a border; still no shadows |
-| `surface-4` | `#191a1b` | `#e8e9eb` | — | |
-| `hairline` / `-strong` / `-tertiary` | `#23252a` / `#34343a` / `#3e3e44` | `#e6e7e9` / `#d5d7db` / `#c4c7cc` | — | |
+| `canvas` | `#010102` | `#ffffff` | - | your value |
+| `surface-1` | `#0f1011` | `#f5f6f6` | - | your value (DESIGN.md `inverse-surface-1`) |
+| `surface-2` | `#141516` | `#eeeff0` | - | hover/lift must get *darker* on light, so not the `#f6f7f7` inverse token |
+| `surface-3` | `#18191a` | `#ffffff` + `hairline-strong` | - | popovers float on white with a border; still no shadows |
+| `surface-4` | `#191a1b` | `#e8e9eb` | - | |
+| `hairline` / `-strong` / `-tertiary` | `#23252a` / `#34343a` / `#3e3e44` | `#e6e7e9` / `#d5d7db` / `#c4c7cc` | - | |
 | `ink` | `#f7f8f8` | `#000000` | 21.0 | your value (DESIGN.md `inverse-ink`) |
 | `ink-muted` | `#d0d6e0` | `#3c3f44` | 10.57 | |
-| `ink-subtle` | `#8a8f98` | `#62666d` | 5.77 / 5.33 on s1 | `#8a8f98` on white is 3.25 — fails — so it moves one step darker |
+| `ink-subtle` | `#8a8f98` | `#62666d` | 5.77 / 5.33 on s1 | `#8a8f98` on white is 3.25 - fails - so it moves one step darker |
 | `ink-tertiary` | `#62666d` | `#8a8f98` | 3.25 | disabled and footnotes only, same rule as dark |
 | `primary` | `#5e6ad2` | `#5e6ad2` | 4.70 / 4.34 on s1 | unchanged: buttons, focus ring, active-nav indicator |
 | `link` | `#828fff` | `#4a55bd` | 7.27 dark / 6.32 light | body-size link text |
@@ -1814,9 +1841,11 @@ Mechanics: `tokens.css` emits `:root` (dark) and `[data-theme="light"]`. "System
 | Sidebar nav | `canvas`; items `app-body` `ink-subtle`, active item `surface-2` background + `ink` text + 2px `primary` left indicator (the "link emphasis" use DESIGN.md allows); section eyebrows in `eyebrow` type |
 | Registers (tables) | `hairline` row rules, header `app-label` on `surface-2`, hover `surface-2`, selected `surface-3`; amounts `app-amount` right-aligned; dates and document numbers in `app-mono`; status pills per §24.5 |
 | Forms | inputs per `text-input`; labels `app-label`; helper text `app-caption` `ink-subtle`; errors `semantic-danger` text + border; required marker in `ink-subtle`, not lavender |
-| Builder | left form on `canvas`, right preview panel on `surface-1` with `hairline` and `rounded-xl` (DESIGN.md's product-screenshot frame — the document *is* the protagonist here) |
+| Builder | left form on `canvas`, right preview panel on `surface-1` with `hairline` and `rounded-xl` (DESIGN.md's product-screenshot frame - the document *is* the protagonist here) |
 | Cards / stat tiles | `surface-1`, `hairline`, `rounded-lg`, 24px; dashboard figures in `app-title` with tabular numerals |
-| Sheet / drawer | `surface-1`, `hairline-strong` edge, 200 ms slide |
+| Sheet / drawer | `surface-1`, `hairline-strong` edge, 200 ms slide; the mobile navigation drawer is the sidebar in a left sheet with a close button |
+| User menu / avatar | avatar: circle, `surface-3` with initials in `app-label` until a photo is uploaded (cropped to a circle, re-encoded PNG, `UPLOAD_MAX_IMAGE_MB`); the sidebar footer holds the theme switch and the user menu (account, sign out) |
+| Accent | `primary`, `primary-hover`, `primary-focus` and `link` come from the eight `accent-<id>-*` colour sets in `DESIGN.md` / `DESIGN.light.md`, applied as `:root[data-accent="<id>"]` overrides in `tokens.css`; mint is the default; chosen under Settings → Appearance, mirrored to the `okinvo.accent` cookie so the first paint is right; a ninth, custom swatch stores `custom-<rrggbb>` and applies the four `--accent-custom-*` variables derived in `src/lib/accent.ts` through `:root[data-accent="custom"]` |
 | Dialog | `surface-2`, `hairline-strong`, overlay 60 %; destructive confirm uses `semantic-danger-fill` |
 | Dropdown / combobox / date picker | `surface-3`, `hairline-strong`, `rounded-md`; selected row `surface-4` |
 | Tabs / segmented control | `pricing-tab-default` / `-selected` tokens (pill on `surface-2`) |

@@ -16,6 +16,7 @@ const actor: Actor = {
   name: "O",
   role: "OWNER",
   timezone: "UTC",
+  locale: "en-US",
 };
 const tag = `cn-${Date.now()}`;
 const address = {
@@ -180,6 +181,23 @@ describe.skipIf(!url)("credit notes DAL", () => {
 
     const doc = await docs.ensureDocument("CREDIT_NOTE", issued.id);
     expect(doc.filename).toBe("CN-26-27-001.pdf");
+    // the EN 16931 outputs are built from the credit note's snapshot and reconcile with it
+    const { einvoiceInputFromCreditNote } = await import("@/lib/einvoice/input");
+    const { toUbl } = await import("@/lib/einvoice/ubl/build");
+    const { toCii } = await import("@/lib/einvoice/cii/build");
+    const input = einvoiceInputFromCreditNote(issued);
+    expect(input.kind).toBe("CREDIT_NOTE");
+    expect(input.creditedInvoice?.number).toBe(i.number);
+    expect(input.lines.reduce((n, l) => n + Number(l.lineSubtotal), 0)).toBeCloseTo(
+      Number(issued.subtotal),
+      2,
+    );
+    const ubl = toUbl(input);
+    expect(ubl).toContain("<CreditNote ");
+    expect(ubl).toContain(
+      `<cbc:PayableAmount currencyID="INR">${issued.total}</cbc:PayableAmount>`,
+    );
+    expect(toCii(input)).toContain("<ram:TypeCode>381</ram:TypeCode>");
     const voided = await cns.voidCreditNote(actor, issued.id, "Issued by mistake");
     expect(voided.status).toBe("VOID");
     expect((await inv.getInvoice(actor, i.id)).balanceDue).toBe("11800.00");

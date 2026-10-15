@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "דף הבית של okinvo",
+    "save": "שמירה",
+    "cancel": "ביטול",
+    "continue": "המשך",
+    "saving": "שומר…",
+    "detect": "זיהוי",
+    "yes": "כן",
+    "no": "לא",
+    "choose": "בחירה…",
+    "remove": "הסרה",
+    "tryAgain": "נסו שוב",
+    "dashboard": "לוח בקרה",
+    "goToDashboard": "מעבר ללוח הבקרה",
+    "or": "או",
+    "invoice": "חשבונית",
+    "creditNote": "חשבונית זיכוי",
+    "downloadPdf": "הורדת PDF",
+    "edit": "עריכה",
+    "delete": "מחיקה",
+    "downloadDocx": "הורדת DOCX",
+    "downloadCii": "הורדת EN 16931 XML",
+    "downloadUbl": "הורדת Peppol UBL",
+    "downloadFacturX": "הורדת Factur-X PDF",
+    "none": "ללא",
+    "dismiss": "סגירה",
+    "all": "הכול",
+    "previous": "הקודם",
+    "next": "הבא",
+    "go": "מעבר",
+    "search": "חיפוש",
+    "status": "סטטוס",
+    "total": "סה״כ",
+    "currency": "מטבע",
+    "from": "מתאריך",
+    "to": "עד תאריך",
+    "reason": "סיבה",
+    "history": "היסטוריה",
+    "archive": "העברה לארכיון",
+    "restore": "שחזור",
+    "showArchived": "הצגת הארכיון",
+    "hideArchived": "הסתרת הארכיון",
+    "archived": "בארכיון",
+    "default": "ברירת מחדל",
+    "setDefault": "הגדרה כברירת מחדל",
+    "revoke": "ביטול הרשאה",
+    "copy": "העתקה",
+    "copied": "הועתק",
+    "active": "פעיל",
+    "pagination": "ניווט בין עמודים",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "לוח בקרה",
+      "invoices": "חשבוניות",
+      "creditNotes": "חשבוניות זיכוי",
+      "clients": "לקוחות",
+      "services": "שירותים",
+      "products": "מוצרים",
+      "tools": "מטבע"
+    },
+    "primaryNav": "ניווט ראשי",
+    "settings": "הגדרות",
+    "openMenu": "פתיחת התפריט",
+    "more": "עוד",
+    "navigation": "ניווט",
+    "dock": "ניווט מהיר",
+    "pagesAndAccount": "עמודים וחשבון",
+    "collapseSidebar": "כיווץ סרגל הצד",
+    "collapseSidebarHint": "כיווץ סרגל הצד ([)",
+    "expandSidebar": "הרחבת סרגל הצד",
+    "expandSidebarHint": "הרחבת סרגל הצד ([)",
+    "theme": {
+      "label": "ערכת נושא",
+      "system": "לפי המערכת",
+      "light": "בהירה",
+      "dark": "כהה",
+      "current": "ערכת נושא: {mode}",
+      "switchTo": "ערכת נושא: {mode}. מעבר ל{next}"
+    },
+    "userMenu": {
+      "label": "תפריט החשבון של {name}",
+      "profile": "פרופיל",
+      "logOut": "התנתקות"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "ממיר מטבעות",
+      "title": "ממיר מטבעות",
+      "description": "המירו בין המטבעות שבהם אתם מפיקים חשבוניות, באמצעות טבלת שערי החליפין של מופע זה.",
+      "amount": "סכום",
+      "from": "ממטבע",
+      "to": "למטבע",
+      "flip": "החלפת המטבעות",
+      "enterAmount": "הזינו סכום",
+      "asOf": "שערי חליפין נכון ל-{date} ({source})",
+      "sources": {
+        "bundled": "מצורפים לאפליקציה",
+        "live": "עודכנו באינטרנט"
+      },
+      "note": "השערים הם להכוונה בלבד; השער בחשבונית שהופקה הוא השער שהזנתם בעת ההפקה."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "כניסה",
+      "metaDescription": "היכנסו ל-okinvo, אפליקציית החשבוניות באחסון עצמי, באמצעות ספק הזהות או הסיסמה שלכם.",
+      "title": "כניסה",
+      "subtitle": "רק חשבונות מורשים יכולים להיכנס.",
+      "failed": "הכניסה נכשלה.",
+      "noMethod": "לא הוגדרה שיטת כניסה. הגדירו בקובץ <code>.env</code> זוג פרטי ספק, למשל <code>AUTH_GITHUB_*</code>, או <code>AUTH_PASSWORD_SIGNIN=true</code>.",
+      "errors": {
+        "not_allowed": "החשבון הזה אינו מורשה במופע זה, או שהושבת.",
+        "signin": "הכניסה לא הושלמה. נסו שוב."
+      }
+    },
+    "password": {
+      "name": "שם",
+      "email": "דוא״ל",
+      "password": "סיסמה",
+      "signingIn": "נכנס…",
+      "createAccount": "יצירת חשבון",
+      "signIn": "כניסה",
+      "haveAPassword": "כבר יש לי סיסמה",
+      "firstTime": "פעם ראשונה כאן? הגדירו סיסמה",
+      "failed": "הכניסה נכשלה."
+    },
+    "social": {
+      "redirecting": "מעביר…",
+      "continueWith": "המשך עם {provider}",
+      "failed": "לא ניתן היה להתחיל את הכניסה."
+    },
+    "error": {
+      "metaTitle": "שגיאת כניסה",
+      "metaDescription": "ההתחברות לא הושלמה. הדף מסביר מה השתבש וכיצד לנסות שוב.",
+      "title": "הכניסה נכשלה",
+      "body": "ספק הזהות החזיר <code>{value}</code>. אם הכתובת שלכם אינה ברשימת המורשים של מופע זה, בקשו מהבעלים להוסיף אותה.",
+      "back": "חזרה לכניסה"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "הגדרות",
+      "profiles": "פרופילים",
+      "paymentMethods": "אמצעי תשלום",
+      "templates": "תבניות",
+      "email": "דוא״ל",
+      "security": "אבטחה",
+      "users": "משתמשים",
+      "data": "נתונים",
+      "legal": "משפטי",
+      "einvoicing": "חשבוניות אלקטרוניות",
+      "account": "חשבון",
+      "appearance": "מראה",
+      "api": "API",
+      "status": "סטטוס",
+      "usage": "שימוש"
+    },
+    "account": {
+      "metaTitle": "חשבון",
+      "title": "חשבון",
+      "description": "התמונה, השם, האזור, השפה ואזור הזמן שלכם.",
+      "photo": {
+        "title": "תמונה",
+        "description": "מוצגת בסרגל הצד ובתפריט המשתמש."
+      },
+      "form": {
+        "title": "חשבון",
+        "description": "איך אתם מופיעים ומתי נחשב ״היום״.",
+        "displayName": "שם תצוגה",
+        "signInEmail": "דוא״ל כניסה",
+        "signInEmailHint": "הזהות שלכם במופע זה; לא ניתן לערוך אותה כאן.",
+        "timezone": "אזור זמן",
+        "timezoneHint": "״היום״ לתאריכי הנפקה, תאריכי יעד ולוח הבקרה",
+        "regionTitle": "אזור",
+        "regionDescription": "ברירות מחדל לפרופילי מנפיק חדשים וללוח הבקרה עד שייווצר פרופיל.",
+        "country": "מדינה",
+        "currency": "מטבע",
+        "suggested": "מוצע למדינה זו:",
+        "language": "שפה",
+        "languageHint": "שפת האפליקציה עצמה. מסמכים משתמשים בהגדרות השפה של כל פרופיל.",
+        "machineTranslated": "שפה זו תורגמה במכונה. תיקונים יתקבלו בברכה: <link>שפרו אותה ב-GitHub</link>.",
+        "save": "שמירת העדפות"
+      },
+      "regions": {
+        "Africa": "אפריקה",
+        "Americas": "אמריקה",
+        "Asia": "אסיה",
+        "Europe": "אירופה",
+        "MiddleEast": "המזרח התיכון",
+        "Oceania": "אוקיאניה",
+        "Constructed": "שפות מלאכותיות"
+      },
+      "privacy": {
+        "title": "פרטיות",
+        "description": "okinvo מגדיר רק את העוגיות הדרושות לפעולתו. ללא ניתוח נתונים וללא מעקב.",
+        "cookiePolicy": "מדיניות עוגיות",
+        "showNoticeAgain": "הצגת הודעת העוגיות שוב"
+      }
+    },
+    "avatar": {
+      "changePhoto": "החלפת תמונה",
+      "addPhoto": "הוספת תמונה",
+      "hint": "PNG, JPEG או WebP. מוצגת בעיגול בכל מקום; אפשר להגדיל ולהזיז לפני השמירה.",
+      "tooLarge": "התמונה גדולה מדי.",
+      "uploadFailed": "ההעלאה נכשלה.",
+      "choose": "בחירת תמונת פרופיל",
+      "dialogTitle": "מיקום התמונה",
+      "dialogDescription": "גררו כדי להזיז, גללו או צבטו כדי להתקרב. העיגול הוא מה שכולם רואים.",
+      "zoom": "הגדלה",
+      "save": "שמירת התמונה"
+    },
+    "appearance": {
+      "metaTitle": "מראה",
+      "title": "מראה",
+      "description": "ערכת נושא וצבע הדגשה, נשמרים בחשבון שלכם.",
+      "theme": {
+        "title": "ערכת נושא",
+        "description": "לפי המערכת, או קיבוע של בהירה או כהה.",
+        "label": "ערכת נושא",
+        "system": "לפי המערכת",
+        "systemHint": "מתחלפת יחד עם מערכת ההפעלה",
+        "light": "בהירה",
+        "lightHint": "רקע לבן",
+        "dark": "כהה",
+        "darkHint": "רקע כמעט שחור"
+      },
+      "accent": {
+        "title": "הדגשה",
+        "description": "משמש לכפתור הראשי, למסגרות מיקוד ולסימון העמוד הפעיל. מנטה תואם לסמל המותג.",
+        "label": "צבע הדגשה",
+        "customHint": "או בחר כל צבע משלך"
+      },
+      "accents": {
+        "mint": "מנטה",
+        "lavender": "לבנדר",
+        "sky": "תכלת",
+        "peach": "אפרסק",
+        "butter": "חמאה",
+        "rose": "ורד",
+        "sage": "מרווה",
+        "lilac": "לילך",
+        "custom": "מותאם אישית"
+      }
+    },
+    "profiles": {
+      "metaTitle": "פרופילי מנפיק",
+      "title": "פרופילי מנפיק",
+      "description": "הזהויות המשפטיות שמהן אתם מנפיקים חשבוניות. ברירת המחדל ממלאת מראש חשבוניות חדשות.",
+      "breadcrumb": "פרופילים",
+      "newProfile": "פרופיל חדש",
+      "emptyTitle": "עדיין אין פרופיל מנפיק",
+      "emptyDescription": "צרו את הזהות שמטעמה אתם מנפיקים חשבוניות: יחיד עם PAN, או החברה שלכם.",
+      "createProfile": "יצירת פרופיל",
+      "columns": {
+        "label": "תווית",
+        "legalName": "שם משפטי",
+        "type": "סוג",
+        "country": "מדינה",
+        "currency": "מטבע",
+        "regime": "משטר מס",
+        "status": "סטטוס"
+      },
+      "types": {
+        "company": "חברה",
+        "individual": "יחיד"
+      },
+      "makeDefaultTitle": "להגדיר את {label} כברירת מחדל?",
+      "makeDefaultDescription": "חשבוניות חדשות ייווצרו מפרופיל זה.",
+      "restoreTitle": "לשחזר את {label}?",
+      "archiveTitle": "להעביר את {label} לארכיון?",
+      "archiveDescription": "הוא ייעלם מרשימות הבחירה; חשבוניות קיימות לא ישתנו.",
+      "new": {
+        "metaTitle": "פרופיל מנפיק חדש",
+        "title": "פרופיל מנפיק חדש",
+        "prefilled": "מולא לפי תשובותיכם; בדקו את הכתובת ופרטי המס ואז שמרו."
+      },
+      "edit": {
+        "metaTitle": "עריכת פרופיל מנפיק",
+        "template": "תבנית",
+        "deleteTitle": "למחוק את {label}?",
+        "deleteDescription": "אפשרי רק כל עוד אף חשבונית או חשבונית זיכוי אינה מפנה לפרופיל זה. אחרת, העבירו אותו לארכיון."
+      },
+      "template": {
+        "metaTitle": "תבנית פרופיל",
+        "title": "תבנית עבור {label}",
+        "ownTemplate": "תבנית ייחודית",
+        "instanceTemplate": "תבנית המופע",
+        "resetTitle": "להשתמש שוב בתבנית המופע?",
+        "resetDescription": "ההגדרות הייחודיות של פרופיל זה יוסרו; מסמכים שהונפקו לא יושפעו.",
+        "useInstance": "שימוש בתבנית המופע",
+        "usingInstanceTitle": "נעשה שימוש בתבנית המופע",
+        "usingInstanceDescription": "מסמכים של פרופיל זה עוקבים אחר הגדרות ← תבניות. הפעילו תבנית נפרדת כדי להתאים אותם בנפרד.",
+        "customise": "שימוש בתבנית אחרת עבור פרופיל זה",
+        "openInstance": "פתיחת תבנית המופע"
+      },
+      "form": {
+        "identityTitle": "זהות",
+        "identityDescription": "מי מנפיק את החשבונית.",
+        "type": "סוג",
+        "label": "תווית",
+        "labelHint": "מוצגת ברשימות הבחירה בלבד",
+        "legalName": "שם משפטי",
+        "tradeName": "שם מסחרי",
+        "designation": "תפקיד",
+        "email": "דוא״ל",
+        "phone": "טלפון",
+        "website": "אתר",
+        "addressTitle": "כתובת",
+        "taxTitle": "מזהי מס",
+        "taxDescription": "רק אלה שרלוונטיים אליכם; ההדפסה נקבעת לכל חשבונית בנפרד.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "מספר VAT בבריטניה",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "מוצפן באחסון",
+        "lutNumber": "מספר LUT",
+        "lutNumberHint": "ליצוא ללא IGST",
+        "lutFiscalYear": "שנת כספים של LUT",
+        "lutFiscalYearHint": "לדוגמה 2026-27",
+        "einvoiceTitle": "חשבוניות אלקטרוניות",
+        "einvoiceDescription": "האופן שבו פרופיל זה מזדהה בחשבוניות אלקטרוניות; המחבר ופרטי הגישה נמצאים בהגדרות > חשבוניות אלקטרוניות.",
+        "electronicAddress": "כתובת אלקטרונית",
+        "electronicAddressHint": "מזהה Peppol או EN 16931 של מנפיק זה, מודפס ככתובת האלקטרונית של המוכר.",
+        "electronicAddressScheme": "סכמת כתובת אלקטרונית",
+        "electronicAddressSchemeNone": "ללא סכמה",
+        "einvoiceEnabled": "חשבוניות אלקטרוניות מופעלות עבור פרופיל זה",
+        "einvoiceEnabledHint": "מציע במסמכים שהונפקו את הורדות GST e-invoice JSON, Factur-X ו-UBL ואת רישום ה-IRN.",
+        "defaultsTitle": "ברירות מחדל",
+        "baseCurrency": "מטבע בסיס",
+        "locale": "שפת המסמך",
+        "localeHint": "עיצוב מספרים ותאריכים במסמכים",
+        "fiscalYearStart": "שנת הכספים מתחילה ב",
+        "months": {
+          "january": "ינואר",
+          "february": "פברואר",
+          "march": "מרץ",
+          "april": "אפריל",
+          "may": "מאי",
+          "june": "יוני",
+          "july": "יולי",
+          "august": "אוגוסט",
+          "september": "ספטמבר",
+          "october": "אוקטובר",
+          "november": "נובמבר",
+          "december": "דצמבר"
+        },
+        "taxRegime": "משטר מס ברירת מחדל",
+        "regimes": {
+          "indiaGst": "GST הודי",
+          "ukVat": "VAT בריטי",
+          "usSalesTax": "מס מכירות בארה״ב",
+          "none": "ללא מס"
+        },
+        "invoiceNumberFormat": "תבנית מספר חשבונית",
+        "invoiceNumberFormatHint": "אסימונים: {tokens}",
+        "creditNoteNumberFormat": "תבנית מספר חשבונית זיכוי",
+        "tdsRate": "שיעור TDS צפוי (%)",
+        "tdsRateHint": "לידיעה בלבד, מודפס כניכוי צפוי",
+        "defaultNotes": "הערות ברירת מחדל",
+        "defaultTerms": "תנאי ברירת מחדל",
+        "printTitle": "מה מודפס כברירת מחדל",
+        "printDescription": "כל חשבונית מעתיקה אותם וניתן לשנות אותם בכל אחת בנפרד.",
+        "emailTitle": "דוא״ל",
+        "emailDescription": "ברירות מחדל לטופס השליחה. משתני מקום: {placeholders}",
+        "emailCc": "עותק (CC) כברירת מחדל",
+        "emailBcc": "עותק נסתר (BCC) כברירת מחדל",
+        "commaSeparated": "מופרדים בפסיקים",
+        "invoiceSubject": "נושא החשבונית",
+        "invoiceSubjectHint": "אם ריק, נעשה שימוש בתבנית המובנית",
+        "creditNoteSubject": "נושא חשבונית הזיכוי",
+        "invoiceBody": "גוף החשבונית",
+        "creditNoteBody": "גוף חשבונית הזיכוי",
+        "artworkTitle": "גרפיקה",
+        "artworkDescription": "PNG, JPEG או WebP עד 2 MB; חתימה וחותמת שומרות על שקיפות.",
+        "logo": "לוגו",
+        "signature": "חתימה",
+        "stamp": "חותמת",
+        "transparentPng": "PNG שקוף",
+        "save": "שמירת פרופיל"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "אמצעי תשלום",
+      "title": "אמצעי תשלום",
+      "description": "איך לקוחות משלמים לכם. הפרטים מוצפנים ומקובעים בכל חשבונית בעת ההנפקה.",
+      "newMethod": "אמצעי חדש",
+      "emptyTitle": "עדיין אין אמצעי תשלום",
+      "emptyDescription": "הוסיפו חשבון בנק, מזהה UPI או ארנק כדי שהחשבוניות יציינו ללקוחות היכן לשלם.",
+      "addMethod": "הוספת אמצעי",
+      "columns": {
+        "name": "שם",
+        "type": "סוג",
+        "currency": "מטבע",
+        "status": "סטטוס"
+      },
+      "types": {
+        "bankTransfer": "העברה בנקאית",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "מותאם אישית"
+      },
+      "makeDefaultTitle": "להגדיר את {name} כברירת מחדל?",
+      "restoreTitle": "לשחזר את {name}?",
+      "archiveTitle": "להעביר את {name} לארכיון?",
+      "archiveDescription": "חשבוניות שהונפקו שומרות את התצלום שהודפס.",
+      "new": {
+        "metaTitle": "אמצעי תשלום חדש",
+        "title": "אמצעי תשלום חדש"
+      },
+      "edit": {
+        "metaTitle": "עריכת אמצעי תשלום",
+        "title": "עריכת {name}",
+        "deleteTitle": "למחוק את {name}?",
+        "deleteDescription": "אפשרי רק כל עוד אף חשבונית או תשלום אינם מפנים אליו. אחרת, העבירו אותו לארכיון."
+      },
+      "form": {
+        "name": "שם",
+        "nameHint": "מודפס ככותרת בלוק התשלום",
+        "type": "סוג",
+        "currency": "מטבע",
+        "currencyHint": "אופציונלי; מוצג להקשר בלבד",
+        "anyCurrency": "כל מטבע",
+        "instructions": "הוראות",
+        "instructionsHint": "מודפסות מתחת לפרטים",
+        "isDefault": "אמצעי ברירת מחדל",
+        "isDefaultDescription": "נבחר מראש בחשבוניות חדשות",
+        "isActive": "פעיל",
+        "detailsTitle": "פרטים",
+        "detailsDescription": "מוצפנים באחסון; מקובעים בכל חשבונית בעת ההנפקה.",
+        "vpa": "מזהה UPI (VPA)",
+        "payeeName": "שם המוטב",
+        "lines": "שורות",
+        "linesHint": "שורה אחת לכל שורה, מודפסת כמות שהיא",
+        "accountEmail": "דוא״ל / שם משתמש בחשבון",
+        "bank": {
+          "accountHolder": "בעל החשבון",
+          "accountNumber": "מספר חשבון",
+          "bankName": "שם הבנק",
+          "branch": "סניף",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "קוד ניתוב / sort code"
+        },
+        "save": "שמירת אמצעי תשלום"
+      }
+    },
+    "templates": {
+      "metaTitle": "תבניות מסמכים",
+      "title": "תבניות מסמכים",
+      "customised": "מותאמת אישית",
+      "builtIn": "ברירת המחדל המובנית",
+      "description": "איך נראות חשבוניות וחשבוניות זיכוי. מסמכים שהונפקו שומרים את התבנית שבה הונפקו.",
+      "resetTitle": "לאפס לברירת המחדל המובנית?",
+      "resetDescription": "ההתאמה האישית שלכם תוסר; מסמכים שכבר הונפקו לא יושפעו.",
+      "reset": "איפוס",
+      "resetTrigger": "איפוס לברירות מחדל",
+      "importTitle": "ייבוא",
+      "importDescription": "שחזור הגדרות שיוצאו בעבר.",
+      "overridesTitle": "עקיפות לפי פרופיל",
+      "overridesDescription": "פרופיל יכול לבחור תבנית משלו מדף העריכה שלו.",
+      "noOverrides": "כל הפרופילים משתמשים בתבנית המופע.",
+      "import": {
+        "json": "JSON של התבנית",
+        "jsonHint": "הדביקו קובץ שנוצר ב-Export JSON; מפתחות חסרים יקבלו ברירות מחדל",
+        "importing": "מייבא…",
+        "submit": "ייבוא"
+      },
+      "form": {
+        "templateTitle": "תבנית",
+        "templateDescription": "שש תבניות מובנות; ההתאמה שלהלן חלה על זו שתבחרו.",
+        "templateGroup": "תבנית",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "מודרנית ואוורירית, גופן סנס-סריף, קו הדגשה מתחת לכותרת."
+          },
+          "classic": {
+            "name": "Classic",
+            "character": "טבלה מסורתית עם מסגרות, כותרות בגופן סריף, סכומים בתיבה."
+          },
+          "compact": {
+            "name": "Compact",
+            "character": "פריסה צפופה לרשימות פריטים ארוכות; גופן קטן יותר, פחות מפרידים."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "שקטה ורחבה: ללא קווים ותיבות, תוויות עדינות ומרווח רב."
+          },
+          "letterhead": {
+            "name": "Letterhead",
+            "character": "הלוגו והשם שלכם על פס צבעוני או תמונה בראש כל עמוד."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "כותרת בפס צבעוני; הצדדים, כותרת הטבלה והסכומים על גוון הדגשה בהיר."
+          }
+        },
+        "paperTitle": "נייר וגופנים",
+        "paperSize": "גודל נייר",
+        "paperLetter": "Letter",
+        "margins": "שוליים",
+        "marginsNormal": "רגילים",
+        "marginsNarrow": "צרים",
+        "headingFont": "גופן כותרות",
+        "bodyFont": "גופן גוף הטקסט",
+        "fontSans": "סנס-סריף",
+        "fontSerif": "סריף",
+        "tableStyle": "סגנון טבלה",
+        "tableRuled": "עם קווים",
+        "tableZebra": "זברה",
+        "tablePlain": "פשוטה",
+        "accentColour": "צבע הדגשה",
+        "textColour": "צבע טקסט",
+        "logoPosition": "מיקום הלוגו",
+        "positionLeft": "שמאל",
+        "positionCentre": "מרכז",
+        "positionRight": "ימין",
+        "logoHeight": "גובה הלוגו (מ״מ)",
+        "documentTitle": "כותרת המסמך",
+        "titleAuto": "אוטומטית (בהתאם ל-GST)",
+        "titleCustom": "מותאמת אישית",
+        "titlePlaceholder": "לדוגמה: חשבון פרופורמה",
+        "qrPosition": "מיקום QR",
+        "qrFooter": "כותרת תחתונה",
+        "qrHeader": "כותרת עליונה",
+        "qrBesideTotals": "ליד הסכומים",
+        "amountInWords": "סכום במילים",
+        "wordsBelowTotal": "מתחת לסכומים",
+        "wordsFooter": "כותרת תחתונה",
+        "wordsHidden": "מוסתר",
+        "subtotalRow": "שורת סכום ביניים",
+        "discountRow": "שורת הנחה",
+        "taxLines": "שורות מס",
+        "tdsExpected": "TDS צפוי",
+        "roundingRow": "שורת עיגול",
+        "pageNumbers": "מספרי עמודים",
+        "headerTitle": "כותרת עליונה",
+        "headerDescription": "פס צבעוני או תמונה בראש כל עמוד. Letterhead ו-Modern מציגות פס אלא אם תבחרו אחרת.",
+        "headerStyle": "סגנון הכותרת",
+        "headerNone": "ללא",
+        "headerBand": "פס צבעוני",
+        "headerImage": "תמונה",
+        "bandColour": "צבע הפס",
+        "bandColourHex": "צבע הפס (hex)",
+        "headerImageLabel": "תמונת כותרת",
+        "headerImageHint": "PNG, JPEG או WebP ברוחב של עד 2400 px; נמתחת לרוחב העמוד.",
+        "imageOpacity": "אטימות התמונה",
+        "headerHeight": "גובה הכותרת (מ״מ)",
+        "bandText": "טקסט על הפס",
+        "bandTextAuto": "אוטומטי (לפי צבע הפס)",
+        "bandTextLight": "בהיר",
+        "bandTextDark": "כהה",
+        "textTitle": "טקסט",
+        "headerNote": "הערה בכותרת",
+        "footer": "כותרת תחתונה",
+        "signatureCaption": "כיתוב החתימה",
+        "draftWatermark": "סימן מים לטיוטה",
+        "labelsTitle": "תוויות",
+        "labelsDescription": "השאירו שדה ריק כדי לשמור על הניסוח המוגדר כברירת מחדל.",
+        "save": "שמירת תבנית",
+        "downloadSample": "הורדת PDF לדוגמה",
+        "exportJson": "ייצוא JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "דוא״ל",
+      "title": "דוא״ל",
+      "configuredSettings": "מוגדר בהגדרות",
+      "configuredEnv": "מוגדר על ידי הסביבה",
+      "notConfigured": "לא מוגדר: מצב אפליקציית דואר",
+      "description": "מסמכים נשלחים מטופס השליחה עם ה-PDF השמור מצורף. ההגדרות כאן עוקפות את SMTP_* בסביבה.",
+      "sendTest": "שליחת דוא״ל בדיקה אל {email}",
+      "removeTitle": "להסיר את הגדרות ה-SMTP השמורות?",
+      "removeEnvTakesOver": "ערכי SMTP_* של הסביבה יחליפו אותן.",
+      "removeFallsBack": "הדוא״ל יחזור למצב אפליקציית דואר.",
+      "removeTrigger": "הסרת ההגדרות השמורות",
+      "smtpTitle": "שרת SMTP",
+      "smtpFromEnv": "כרגע נלקח מהסביבה; שמירה כאן עוקפת אותו.",
+      "smtpPasswordNote": "הסיסמה מוצפנת באחסון ולא תוצג שוב.",
+      "defaultsTitle": "נמענים כברירת מחדל",
+      "defaultsDescription": "CC/BCC לכל המופע; פרופילי מנפיק מוסיפים משלהם.",
+      "sentTitle": "דואר שנשלח",
+      "sentDescription": "50 הניסיונות האחרונים, כולל כשלונות ושליחות ידניות.",
+      "smtp": {
+        "host": "מארח",
+        "port": "פורט",
+        "security": "אבטחה",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "ללא (ממסר ברשת מקומית)",
+        "user": "שם משתמש",
+        "password": "סיסמה",
+        "passwordStored": "שמורה ומוצפנת; השאירו ריק כדי לשמור אותה",
+        "passwordEncrypted": "מוצפנת באחסון",
+        "from": "כתובת השולח",
+        "fromName": "שם השולח",
+        "replyTo": "כתובת למענה",
+        "save": "שמירת הגדרות SMTP"
+      },
+      "defaults": {
+        "cc": "CC כברירת מחדל",
+        "ccHint": "מתווסף לכל הודעה; מופרדים בפסיקים",
+        "bcc": "BCC כברירת מחדל",
+        "save": "שמירת ברירות המחדל"
+      }
+    },
+    "security": {
+      "metaTitle": "אבטחה",
+      "title": "אבטחה",
+      "description": "היכן אתם מחוברים, וכל מה ששונה.",
+      "sessions": {
+        "title": "הפעלות פעילות",
+        "description": "ביטול הפעלה מנתק את המכשיר מיד.",
+        "signOutOthers": {
+          "title": "להתנתק מכל שאר המכשירים?",
+          "description": "כל ההפעלות מלבד זו יבוטלו.",
+          "confirm": "התנתקות משאר המכשירים",
+          "trigger": "התנתקות מכל שאר המכשירים"
+        },
+        "columns": {
+          "device": "מכשיר",
+          "ipAddress": "כתובת IP",
+          "signedIn": "זמן כניסה",
+          "lastSeen": "פעילות אחרונה",
+          "expires": "תפוגה"
+        },
+        "thisDevice": "מכשיר זה",
+        "revokeTitle": "לבטל הפעלה זו?",
+        "unknownDevice": "מכשיר לא ידוע",
+        "unknownBrowser": "לא ידוע",
+        "agentOnOs": "{browser} על {os}"
+      },
+      "audit": {
+        "title": "יומן ביקורת",
+        "count": "{count, plural, one {# אירוע} two {# אירועים} other {# אירועים}}",
+        "entity": "ישות",
+        "actionContains": "הפעולה מכילה",
+        "filter": "סינון",
+        "reset": "איפוס",
+        "columns": {
+          "when": "מתי",
+          "who": "מי",
+          "action": "פעולה",
+          "entity": "ישות",
+          "summary": "תקציר"
+        },
+        "empty": "אין אירועים התואמים למסננים אלה.",
+        "system": "מערכת",
+        "changes": "שינויים",
+        "page": "עמוד {page} מתוך {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "משתמשים",
+      "title": "משתמשים",
+      "description": "מי יכול להיכנס למופע זה ומה מותר לו.",
+      "roles": {
+        "owner": "בעלים",
+        "editor": "עורך",
+        "viewer": "צופה"
+      },
+      "roleHints": {
+        "owner": "הכול, כולל הגדרות וחברים",
+        "editor": "לקוחות, קטלוג, חשבוניות, חשבוניות זיכוי, תשלומים, דוא״ל",
+        "viewer": "קריאה בלבד"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "התפקיד של {email}",
+      "invite": {
+        "title": "הזמנת מישהו",
+        "description": "הם נכנסים עם הכתובת שהוזמנה (ספק זהות או סיסמה) ומקבלים את התפקיד שתבחרו.",
+        "sent": "ההזמנה נשלחה בדוא״ל אל {email}.",
+        "readyWithError": "ההזמנה ל-{email} מוכנה. לא ניתן היה לשלוח את הדוא״ל ({error}); שלחו להם את הקישור הזה:",
+        "readyNoSmtp": "ההזמנה ל-{email} מוכנה. לא הוגדר SMTP; שלחו להם את הקישור הזה:",
+        "copyLink": "העתקת קישור",
+        "email": "דוא״ל",
+        "emailPlaceholder": "person@example.com",
+        "role": "תפקיד",
+        "submit": "הזמנה",
+        "inviting": "מזמין…"
+      },
+      "members": {
+        "title": "חברים",
+        "description": "תמיד נשאר לפחות בעלים פעיל אחד.",
+        "columns": {
+          "person": "אדם",
+          "role": "תפקיד",
+          "lastSignIn": "כניסה אחרונה",
+          "status": "סטטוס"
+        },
+        "nameYou": "{name} (אתם)",
+        "deactivated": "מושבת",
+        "reactivate": {
+          "title": "להפעיל מחדש את {email}?",
+          "description": "הם יוכלו להיכנס שוב עם התפקיד הקודם שלהם.",
+          "confirm": "הפעלה מחדש"
+        },
+        "deactivate": {
+          "title": "להשבית את {email}?",
+          "description": "כל ההפעלות יסתיימו עכשיו ולא יהיה ניתן להיכנס עד להפעלה מחדש. ההיסטוריה נשמרת.",
+          "confirm": "השבתה"
+        }
+      },
+      "invitations": {
+        "title": "הזמנות ממתינות",
+        "description": "כתובות שמורשות להיכנס אך טרם נכנסו.",
+        "columns": {
+          "email": "דוא״ל",
+          "role": "תפקיד",
+          "invited": "הוזמן"
+        },
+        "empty": "אין הזמנות ממתינות.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "לבטל את ההזמנה של {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "נתונים",
+      "title": "נתונים",
+      "description": "הכול ניתן להעברה: מערכי נתונים ב-CSV או ב-Excel, תצלום מלא למעבר, קובצי ה-PDF עבור רואה החשבון, ונוהל גיבוי שנבדק.",
+      "period": {
+        "fiscalYear": "שנת כספים",
+        "fiscalYearHint": "עוקפת את התאריכים",
+        "issuer": "מנפיק"
+      },
+      "exportAll": {
+        "title": "ייצוא כל הנתונים",
+        "description": "קובץ ZIP עם כל מערך נתונים כ-CSV וכן <mono>data.json</mono>, תצלום רלציוני של כל הטבלאות. שדות מוצפנים (פרטי אמצעי תשלום, סיסמת SMTP) אינם נכללים; קובץ ה-README שבפנים מפרט אותם.",
+        "download": "הורדת okinvo-data ZIP"
+      },
+      "exportDocuments": {
+        "title": "ייצוא מסמכים",
+        "description": "כל קובצי ה-PDF של חשבוניות וחשבוניות זיכוי שהונפקו ובוטלו בתקופה, ששמותיהם לפי מספר, עם <mono>index.csv</mono> של מספרים, סכומים וגיבובים. קובצי PDF חסרים נוצרים תוך כדי.",
+        "docx": "לכלול גם עותק DOCX של כל מסמך",
+        "facturx": "לכלול גם עותק Factur-X PDF/A-3 עם EN 16931 XML מוטמע",
+        "download": "הורדת ZIP של מסמכים"
+      },
+      "datasets": {
+        "title": "מערכי נתונים",
+        "description": "אותם ייצואים שמציעים עמודי הרשימות, עם תקופה ומנפיק שחלים על כולם. תשלומים משתמשים בטווח התאריכים; לקוחות ושירותים מתעלמים מהתקופה.",
+        "columns": {
+          "dataset": "מערך נתונים",
+          "filters": "מסננים שהוחלו",
+          "download": "הורדה"
+        },
+        "names": {
+          "invoices": "רישום חשבוניות",
+          "invoiceItems": "שורות חשבונית",
+          "payments": "ספר תשלומים",
+          "creditNotes": "רישום חשבוניות זיכוי",
+          "clients": "לקוחות",
+          "services": "שירותים",
+          "gstSummary": "סיכום GST",
+          "tdsSummary": "סיכום TDS"
+        },
+        "filters": {
+          "periodIssuer": "תקופה, מנפיק",
+          "dateRangeIssuer": "טווח תאריכים, מנפיק",
+          "includesArchived": "כולל פריטים בארכיון"
+        }
+      },
+      "backups": {
+        "title": "גיבויים",
+        "notWired": "שירות גיבוי לא מחובר",
+        "noRun": "עדיין לא בוצע גיבוי",
+        "lastOk": "הגיבוי האחרון הצליח",
+        "lastFailed": "הגיבוי האחרון נכשל",
+        "description": "שירות <mono>backup</mono> של Compose יוצר dump של Postgres ומארכב את נפח האחסון לפי <mono>BACKUP_CRON</mono>, שומר היסטוריה של <mono>BACKUP_RETENTION_DAYS</mono> ימים בנפח <mono>backups</mono>, וכותב קובץ סטטוס שהעמוד הזה קורא.",
+        "finished": "הסתיים",
+        "databaseDump": "dump של מסד הנתונים",
+        "storageArchive": "ארכיון האחסון",
+        "size": "גודל",
+        "sizeMb": "{size} MB",
+        "error": "שגיאה",
+        "runNow": "הריצו אחד עכשיו, או שחזרו מזוג קבצים:",
+        "restoreDrill": "נוהל השחזור נבדק ב-CI על ידי <mono>scripts/restore-drill.sh</mono>: אכלוס, גיבוי, מחיקה, שחזור, ואז השוואת מספרי שורות וגיבוב של PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "משפטי",
+      "metaDescription": "מי מפעיל מופע זה: הפרטים המודפסים בעמודים המשפטיים הציבוריים.",
+      "title": "משפטי",
+      "description": "העמודים המשפטיים הציבוריים מדפיסים את הפרטים האלה. עד שכל השדות ימולאו, העמודים יציגו משתני מקום מודגשים.",
+      "operator": {
+        "title": "פרטי המפעיל",
+        "complete": "מלא",
+        "missing": "חסרים {count}: {fields}",
+        "description": "אתם, כאדם או כחברה שמפעילים את המופע, הנכם המפעיל שאליו מתייחסים המסמכים. דבר מכאן אינו נשלח לשום מקום; הוא מודפס בעמודים שלהלן."
+      },
+      "fieldLabels": {
+        "legalName": "השם המשפטי של המפעיל",
+        "entityType": "סוג הישות",
+        "address": "כתובת המפעיל",
+        "country": "מדינת המפעיל",
+        "contactEmail": "דוא״ל ליצירת קשר",
+        "privacyEmail": "דוא״ל לענייני פרטיות",
+        "dpoEmail": "דוא״ל ממונה הגנת מידע",
+        "governingLaw": "הדין החל",
+        "venue": "מקום יישוב מחלוקות",
+        "effectiveDate": "תאריך תחילה"
+      },
+      "publicPages": {
+        "title": "עמודים ציבוריים",
+        "description": "מקושרים מעמוד הכניסה, מציג השיתוף והודעת העוגיות.",
+        "terms": "תנאי שימוש",
+        "acceptableUse": "מדיניות שימוש מקובל",
+        "privacy": "מדיניות פרטיות",
+        "cookies": "מדיניות עוגיות",
+        "dataRetention": "שמירת נתונים",
+        "security": "אבטחה",
+        "licenses": "רישיונות והודעות צד שלישי"
+      },
+      "form": {
+        "legalName": "שם משפטי",
+        "entityType": "סוג הישות",
+        "individual": "יחיד / עוסק עצמאי",
+        "company": "חברה / ישות רשומה",
+        "address": "כתובת",
+        "addressHint": "מודפסת בתנאי השימוש ובמדיניות הפרטיות ככתובת הדואר של המפעיל.",
+        "country": "מדינה",
+        "effectiveDate": "תאריך תחילה",
+        "contactEmail": "דוא״ל ליצירת קשר",
+        "privacyEmail": "דוא״ל לענייני פרטיות",
+        "privacyEmailHint": "לשם נשלחות בקשות של נושאי מידע; יכול להיות כתובת יצירת הקשר.",
+        "dpoEmail": "דוא״ל ממונה הגנת מידע",
+        "dpoEmailHint": "רק אם מיניתם כזה.",
+        "governingLaw": "הדין החל",
+        "governingLawHint": "לדוגמה ״הדין בהודו״ או ״הדין באנגליה וולס״.",
+        "venue": "מקום יישוב מחלוקות",
+        "venueHint": "לדוגמה ״בתי המשפט בבנגלור, קרנטקה״.",
+        "submit": "שמירת פרטי המפעיל"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "חשבוניות אלקטרוניות",
+      "title": "חשבוניות אלקטרוניות",
+      "description": "לכל פרופיל מנפיק: איזה מחבר רושם חשבוניות אלקטרוניות הודיות, ולאיזה פרופיל אירופי עוקבים פלטי Factur-X ו-UBL. פרטי הגישה נשמרים מוצפנים ואינם מוצגים שוב.",
+      "noProfiles": "צרו תחילה פרופיל מנפיק.",
+      "profile": "פרופיל מנפיק",
+      "enabled": "מופעל",
+      "disabled": "מושבת",
+      "enabledHint": "הפעילו או השביתו חשבוניות אלקטרוניות לכל פרופיל בהגדרות > פרופילים.",
+      "india": {
+        "title": "הודו (GST e-invoice, IRN)",
+        "description": "ה-IRN נרשם דרך המחבר שנבחר כאן; המחבר הידני מקבל את תגובת הפורטל שהוזנה ידנית.",
+        "connector": "מחבר",
+        "connectorNone": "כבוי",
+        "connectorManual": "ידני (הדביקו את תגובת IRP)",
+        "connectorNic": "NIC IRP API (sandbox או production)",
+        "nicUnverified": "מחבר NIC פועל לפי ה-API שפורסם ונבדק רק מול דוגמאות מוקלטות; הוא לא אומת מול sandbox חי עד שיסופקו פרטי גישה.",
+        "env": "סביבה",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "כתובת URL בסיסית",
+        "baseUrlHint": "השאירו ריק לברירת המחדל של הסביבה.",
+        "clientId": "מזהה לקוח",
+        "clientSecret": "סוד לקוח",
+        "username": "שם משתמש",
+        "password": "סיסמה",
+        "gstin": "GSTIN",
+        "publicKey": "מפתח ציבורי של IRP (PEM)",
+        "publicKeyHint": "הורידו אותו מהפורטל לאחר הכניסה; הוא עוטף את פרטי הגישה הנשלחים ל-IRP.",
+        "publicKeyStored": "נשמר; השאירו ריק כדי לשמור אותו.",
+        "secretStored": "נשמר מוצפן; השאירו ריק כדי לשמור אותו.",
+        "secretEncrypted": "נשמר מוצפן."
+      },
+      "eu": {
+        "title": "אירופה (Factur-X, UBL)",
+        "description": "EN 16931 הוא הפרופיל היחיד בגרסה זו; הורדות Factur-X ו-UBL משתמשות בו.",
+        "profile": "פרופיל",
+        "profileNone": "כבוי",
+        "en16931": "EN 16931"
+      },
+      "save": "שמירת הגדרות חשבוניות אלקטרוניות"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "מפתחות API לסקריפטים, ל-SDK וללקוחות MCP, עם דוגמאות curl.",
+      "title": "API",
+      "description": "מפתחות לסקריפטים, ל-SDK וללקוחות MCP. מפתח יכול לעשות לכל היותר מה שהתפקיד שלכם מאפשר; הוא מוצג פעם אחת.",
+      "create": {
+        "title": "יצירת מפתח",
+        "description": "שלחו אותו כ-<mono>Authorization: Bearer okv_…</mono>. אל תשמרו אותו בקוד מקור וביומני צ׳אט; בטלו אותו להלן אם דלף."
+      },
+      "keys": {
+        "title": "מפתחות",
+        "descriptionOwner": "כל המפתחות של מופע זה; בעלים יכולים לבטל כל אחד מהם.",
+        "descriptionOwn": "המפתחות שלכם.",
+        "columns": {
+          "name": "שם",
+          "prefix": "קידומת",
+          "scopes": "הרשאות",
+          "owner": "בעלים",
+          "lastUsed": "שימוש אחרון",
+          "expires": "תפוגה",
+          "status": "סטטוס"
+        },
+        "empty": "עדיין אין מפתחות API.",
+        "never": "לעולם לא",
+        "revoked": "בוטל",
+        "expired": "פג תוקף",
+        "revokeTitle": "לבטל את {name}?",
+        "revokeDescription": "לקוחות שמשתמשים במפתח זה יפסיקו לעבוד מיד.",
+        "activeCount": "{count, plural, one {מפתח פעיל אחד.} two {# מפתחות פעילים.} other {# מפתחות פעילים.}}"
+      },
+      "examples": {
+        "title": "דוגמאות",
+        "description": "החליפו את <mono>$OKINVO_KEY</mono> במפתח. ה-REST API הממוספר, מסמך ה-OpenAPI שלו (<mono>/api/openapi.json</mono>), ה-SDK ל-TypeScript ושרת ה-MCP יגיעו במשימות הבאות של תוכנית v1.1; נקודת הקצה של הסטטוס פועלת כבר היום.",
+        "rateLimit": "קריאות מעבר למכסה נענות ב-429 עם כותרת <mono>Retry-After</mono> (120 בקשות לדקה לכל מפתח). ההרשאות של מפתח מוגבלות לתפקיד הנוכחי של הבעלים שלו."
+      },
+      "form": {
+        "copyKey": "העתקת מפתח API",
+        "name": "שם",
+        "namePlaceholder": "לדוגמה: סקריפט הנהלת חשבונות",
+        "expires": "תפוגה",
+        "in30Days": "בעוד 30 ימים",
+        "in90Days": "בעוד 90 ימים",
+        "inAYear": "בעוד שנה",
+        "never": "לעולם לא",
+        "scopes": "הרשאות",
+        "submit": "יצירת מפתח API",
+        "creating": "יוצר…"
+      },
+      "scopes": {
+        "invoicesRead": "קריאת חשבוניות",
+        "invoicesCreate": "יצירה והנפקה של חשבוניות",
+        "creditNotesRead": "קריאת חשבוניות זיכוי",
+        "creditNotesCreate": "יצירה והנפקה של חשבוניות זיכוי",
+        "catalogueRead": "קריאת לקוחות, שירותים ומוצרים",
+        "documentsRead": "הורדת קובצי PDF ועותקי DOCX שמורים",
+        "statusRead": "קריאת סטטוס המופע"
+      }
+    },
+    "status": {
+      "metaTitle": "סטטוס",
+      "metaDescription": "גרסה, מסד נתונים, אחסון, דוא״ל ומצב הגיבויים של מופע זה.",
+      "title": "סטטוס",
+      "description": "מה המופע הזה מריץ והאם חלקיו מגיבים.",
+      "recheck": "בדיקה מחדש",
+      "health": {
+        "ok": "תקין",
+        "warning": "אזהרה",
+        "failed": "נכשל",
+        "na": "לא מוגדר"
+      },
+      "overall": {
+        "ok": "הכול תקין",
+        "degraded": "ביצועים מופחתים",
+        "failed": "נכשל"
+      },
+      "version": "בנייה {hasSha, select, yes {<mono>{sha}</mono>} other {(sha לא ידוע)}} · נבנתה {built} · Node <mono>{node}</mono> · פעיל {uptime} · נבדק {checked}",
+      "dateUnknown": "(תאריך לא ידוע)",
+      "uptime": {
+        "days": "{d} ימים {h} שעות {m} דקות",
+        "hours": "{h} שעות {m} דקות",
+        "minutes": "{m} דקות"
+      },
+      "rows": {
+        "database": "מסד נתונים",
+        "storage": "אחסון",
+        "rateLimiting": "הגבלת קצב",
+        "email": "דוא״ל",
+        "backups": "גיבויים"
+      },
+      "db": {
+        "detail": "{latency} ms · מיגרציה אחרונה <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · מיגרציות שלא הסתיימו: #}}",
+        "noMigration": "אין"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · כתיבה, קריאה ומחיקה של אובייקט בדיקה תוך {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "אחסון <mono>{store}</mono> {store, select, memory {(רפליקה אחת)} other {(משותף בין רפליקות)}}",
+      "smtp": {
+        "configured": "SMTP מתוך {source, select, settings {the settings page} env {the environment} other {}} · בדיקה אחרונה {lastTest} · ב-24 השעות האחרונות: נשלחו {sent}, נכשלו {failed}",
+        "none": "אין שרת SMTP; טופס השליחה מציע ״פתיחה באפליקציית דואר״. <link>הגדרה</link>"
+      },
+      "backups": {
+        "notWired": "שירות גיבוי לא מחובר (BACKUP_STATUS_FILE לא הוגדר).",
+        "noRun": "שירות הגיבוי מחובר; עדיין לא נרשמה הרצה.",
+        "ok": "ההרצה האחרונה הצליחה ב-{finishedAt}{days, plural, =0 {} one { · שמירה ליום #} two { · שמירה ל-# ימים} other { · שמירה ל-# ימים}}",
+        "failed": "ההרצה האחרונה נכשלה: {error} ב-{finishedAt}{days, plural, =0 {} one { · שמירה ליום #} two { · שמירה ל-# ימים} other { · שמירה ל-# ימים}}"
+      },
+      "footer": "אותו דוח זמין כ-JSON בכתובת <mono>/api/health/status</mono> לניטור (הפעלה מחוברת או מפתח API)."
+    },
+    "usage": {
+      "metaTitle": "שימוש",
+      "metaDescription": "צפיות בדפים לפי מסך וליום במופע זה, נספרות מקומית.",
+      "title": "שימוש",
+      "description": "כמה פעמים נפתח כל מסך, נספר במופע זה בלבד: ללא עוגיות, ללא כתובות, שום דבר לא נשלח לשום מקום.",
+      "last30Days": "30 הימים האחרונים",
+      "total": "{count, plural, =0 {אין צפיות בדפים} one {צפייה אחת בדף} two {# צפיות בדפים} other {# צפיות בדפים}}",
+      "off": "הספירה כבויה. הגדירו ANALYTICS_LOCAL=true כדי לספור צפיות בדפים במופע זה.",
+      "empty": "עדיין לא נרשמו צפיות בדפים.",
+      "columns": {
+        "day": "יום",
+        "path": "מסך",
+        "views": "צפיות"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "ברוכים הבאים",
+    "progress": "התקדמות",
+    "steps": {
+      "aboutYou": "עליכם",
+      "howYouUse": "איך תשתמשו",
+      "allSet": "הכול מוכן"
+    },
+    "step1": {
+      "title": "ספרו לנו עליכם",
+      "subtitle": "זה קובע את ברירות המחדל; כל ערך ניתן לשינוי מאוחר יותר בהגדרות.",
+      "name": "שם",
+      "email": "דוא״ל",
+      "emailHint": "זהות הכניסה שלכם. ניתן לשנותה מאוחר יותר דרך הגדרות ← אבטחה.",
+      "country": "מדינה",
+      "currency": "מטבע מועדף",
+      "currencyHint": "משמש לפרופילים חדשים וללוח הבקרה עד שייווצר פרופיל."
+    },
+    "step2": {
+      "title": "איך תשתמשו ב-okinvo?",
+      "subtitle": "רק ברירות המחדל משתנות; שום דבר אינו ננעל.",
+      "usage": "שימוש",
+      "personal": "הנפקה אישית",
+      "personalHint": "עבודה עצמאית על שמכם",
+      "business": "הנפקה עסקית",
+      "businessHint": "חשבוניות מעסק רשום",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "מספר VAT",
+        "other": "מספר רישום מס"
+      },
+      "taxQuestion": {
+        "IN": "האם יש לכם GSTIN?",
+        "GB": "האם אתם רשומים ל-VAT?",
+        "other": "האם יש לכם מספר רישום מס להדפסה בחשבוניות?"
+      }
+    },
+    "step3": {
+      "title": "הכול מוכן",
+      "body": "בשלב הבא צרו את פרופיל המנפיק הראשון שלכם: השם, הכתובת ופרטי המס שמודפסים בחשבוניות. מילאנו את מה שסיפרתם לנו.",
+      "go": "מעבר לפרופילים",
+      "opening": "פותח…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "תנאים",
+      "privacy": "פרטיות",
+      "cookies": "עוגיות",
+      "security": "אבטחה"
+    },
+    "cookieNotice": {
+      "label": "הודעת עוגיות",
+      "body": "אנו משתמשים רק בעוגיות הכרחיות בהחלט: ההפעלה שלכם והעדפות התצוגה. ללא ניתוח נתונים וללא מעקב.",
+      "policy": "מדיניות עוגיות",
+      "gotIt": "הבנתי"
+    },
+    "nav": {
+      "label": "משפטי",
+      "cookies": "עוגיות",
+      "privacy": "פרטיות",
+      "terms": "תנאים",
+      "acceptableUse": "שימוש מקובל",
+      "retention": "שמירה",
+      "security": "אבטחה",
+      "licences": "רישיונות"
+    },
+    "operatorNotice": "okinvo היא תוכנה לאירוח עצמי; מפעיל מופע זה אחראי לשימוש בה.",
+    "doc": {
+      "effectiveOn": "בתוקף מ-<mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "תוכן עניינים"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "השם המשפטי של המפעיל",
+        "entityType": "סוג הישות",
+        "address": "כתובת המפעיל",
+        "country": "מדינת המפעיל",
+        "contactEmail": "דוא״ל ליצירת קשר",
+        "privacyEmail": "דוא״ל לענייני פרטיות",
+        "dpoEmail": "דוא״ל ממונה הגנת מידע",
+        "governingLaw": "הדין החל",
+        "venue": "מקום יישוב מחלוקות",
+        "effectiveDate": "תאריך תחילה"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "לא נמצא",
+      "title": "אין כלום בכתובת זו",
+      "body": "ייתכן שהקישור ישן, או שהמסמך שאליו הוביל מעולם לא הונפק."
+    },
+    "forbidden": {
+      "metaTitle": "אין הרשאה",
+      "title": "החשבון הזה אינו יכול לבצע זאת",
+      "body": "התפקיד שלכם אינו מאפשר זאת. בקשו מבעלים לתת גישה, או היכנסו עם חשבון בעל הרשאה."
+    },
+    "error": {
+      "title": "משהו השתבש",
+      "body": "הבקשה הזו לא שינתה דבר. נסו שוב; אם זה חוזר, הפרטים מופיעים ביומן השרת.",
+      "digest": "שגיאה {digest}",
+      "generic": "שגיאה"
+    },
+    "appNotFound": {
+      "title": "לא נמצא",
+      "body": "הרשומה הזו אינה קיימת, או שנמחקה בזמן שצפיתם בה.",
+      "back": "חזרה ללוח הבקרה"
+    },
+    "validation": {
+      "required": "שדה חובה",
+      "tooLong": "לכל היותר {max} תווים",
+      "invalidEmail": "חייב להיות דוא״ל תקין",
+      "invalidDate": "חייב להיות תאריך לוח שנה בתבנית YYYY-MM-DD",
+      "invalidAmount": "חייב להיות מספר",
+      "wholeNumber": "חייב להיות מספר שלם",
+      "greaterThanZero": "חייב להיות גדול מאפס",
+      "fixFields": "אנא תקנו את השדות המסומנים.",
+      "charset": "מותרים רק תווי מקלדת סטנדרטיים."
+    }
+  },
+  "verify": {
+    "metaTitle": "אימות מסמך",
+    "metaDescription": "ודאו שחשבונית או הודעת זיכוי הונפקו על ידי השולח ולא שונו.",
+    "heading": "אימות מסמך",
+    "rateLimited": "יותר מדי בדיקות מכתובת זו. נסו שוב בעוד דקה.",
+    "notFound": {
+      "title": "אין מסמך כזה",
+      "body": "הקישור הזה אינו תואם אף מסמך שהונפק. בדקו את קוד ה-QR או את הקישור שקיבלתם, או פנו למנפיק."
+    },
+    "status": {
+      "void": "מבוטל",
+      "valid": "תקף"
+    },
+    "issuedBy": "הונפק על ידי",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "הונפק עבור",
+    "issueDate": "תאריך הנפקה",
+    "total": "סה״כ",
+    "voided": "המסמך הזה בוטל על ידי המנפיק ואינו תקף עוד.",
+    "storedCopies": {
+      "title": "עותקים שמורים",
+      "description": "SHA-256 של כל גרסת PDF שברשות המנפיק. בחרו את העותק שלכם כדי להשוות אותו בדפדפן: דבר אינו מועלה.",
+      "empty": "עדיין לא נוצר PDF.",
+      "protectedVersion": "עותק מוגן בסיסמה {version}",
+      "version": "גרסה {version}"
+    },
+    "check": {
+      "label": "בדיקת העותק שלכם",
+      "hashing": "מחשב גיבוב…",
+      "match": "העותק שלכם תואם בדיוק לגרסה {version}.",
+      "mismatch": "העותק שלכם אינו תואם אף גרסה שמורה."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "מסמך משותף",
+      "metaDescription": "מסמך ששותף איתכם: צפו בו באינטרנט והורידו את ה-PDF.",
+      "rateLimited": "יותר מדי בקשות מכתובת זו. נסו שוב בעוד דקה.",
+      "unavailable": {
+        "title": "הקישור הזה אינו זמין",
+        "body": "ייתכן שפג תוקפו או שבוטל על ידי המנפיק. בקשו ממנו קישור חדש."
+      },
+      "lockedTitleInvoice": "חשבונית מאת {issuer}",
+      "lockedTitleCreditNote": "חשבונית זיכוי מאת {issuer}",
+      "lockedBody": "המסמך הזה מוגן בסיסמה. הזינו את הסיסמה שקיבלתם מהמנפיק.",
+      "void": "מבוטל",
+      "protectedPdf": "ה-PDF נפתח עם אותה סיסמה. ניתן לקרוא ולהדפיס אותו; העתקה ועריכה חסומות.",
+      "byline": "מאת {issuer} אל {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "סיסמה",
+      "limited": "יותר מדי ניסיונות. המתינו חמש עשרה דקות ונסו שוב.",
+      "wrong": "הסיסמה שגויה.",
+      "submit": "פתיחת המסמך"
+    },
+    "dialog": {
+      "trigger": "שיתוף",
+      "title": "שיתוף המסמך",
+      "description": "כל מי שיש לו את הקישור יכול לצפות במסמך ולהוריד אותו עד שיפוג תוקפו או שתבטלו אותו. סיסמה מגנה גם על ה-PDF עצמו: הוא נפתח עם הסיסמה וניתן לקרוא ולהדפיס אותו, אך לא לערוך או להעתיק.",
+      "link": "קישור",
+      "copyLink": "העתקת קישור",
+      "password": "סיסמה",
+      "copyPassword": "העתקת סיסמה",
+      "sendSeparately": "שלחו את הסיסמה בנפרד מהקישור. תוכלו לראות אותה שוב ברשימה שלהלן.",
+      "copy": "העתקה",
+      "copied": "הועתק",
+      "expires": "תפוגה",
+      "expiry": {
+        "d7": "בעוד 7 ימים",
+        "d30": "בעוד 30 ימים",
+        "d90": "בעוד 90 ימים",
+        "never": "לעולם לא"
+      },
+      "protection": "הגנה",
+      "protectionOptions": {
+        "auto": "סיסמה: יצירת צירוף מילים",
+        "manual": "סיסמה: בחירה עצמית",
+        "none": "ללא סיסמה (קישור פתוח)"
+      },
+      "passwordHint": "לפחות 8 תווים.",
+      "strength": "חוזק: {label}",
+      "strengthLabels": {
+        "veryWeak": "חלשה מאוד",
+        "weak": "חלשה",
+        "fair": "בינונית",
+        "good": "טובה",
+        "strong": "חזקה"
+      },
+      "creating": "יוצר…",
+      "create": "יצירת קישור",
+      "activeLinks": "קישורים פעילים",
+      "passwordProtected": "מוגן בסיסמה",
+      "openLink": "פתיחת הקישור",
+      "linkExpires": "{kind} · פג תוקף ב-{date}",
+      "linkNeverExpires": "{kind} · ללא תפוגה",
+      "revoke": {
+        "title": "לבטל את הקישור הזה?",
+        "description": "הקישור יפסיק לעבוד מיד עבור כל מי שיש לו אותו.",
+        "label": "ביטול"
+      },
+      "linkPassword": "סיסמה: <code>{password}</code>",
+      "counts": "{views, plural, one {צפייה אחת} two {# צפיות} other {# צפיות}} · {downloads, plural, one {הורדה אחת} two {# הורדות} other {# הורדות}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "חשבוניות זיכוי",
+      "title": "חשבוניות זיכוי",
+      "description": "מונפקות כנגד חשבוניות שהונפקו; כל אחת מפחיתה את יתרת החשבונית שלה עם ההנפקה.",
+      "newCreditNote": "חשבונית זיכוי חדשה",
+      "filters": {
+        "from": "מתאריך",
+        "to": "עד תאריך",
+        "issuer": "מנפיק",
+        "client": "לקוח",
+        "status": "סטטוס",
+        "search": "חיפוש",
+        "all": "הכול",
+        "searchPlaceholder": "מספר, סיבה, לקוח",
+        "go": "מעבר"
+      },
+      "statuses": {
+        "DRAFT": "טיוטה",
+        "ISSUED": "הונפקה",
+        "SENT": "נשלחה",
+        "VOID": "מבוטלת"
+      },
+      "empty": {
+        "title": "עדיין אין חשבוניות זיכוי",
+        "description": "פתחו חשבונית שהונפקה ובחרו ״חשבונית זיכוי״ כדי להפחית את הסכום לתשלום."
+      },
+      "noMatch": "אין חשבוניות זיכוי התואמות למסננים אלה.",
+      "columns": {
+        "number": "מספר",
+        "against": "כנגד",
+        "client": "לקוח",
+        "issueDate": "תאריך הנפקה",
+        "reason": "סיבה",
+        "total": "סה״כ",
+        "status": "סטטוס"
+      },
+      "draft": "טיוטה"
+    },
+    "new": {
+      "metaTitle": "חשבונית זיכוי חדשה",
+      "title": "חשבונית זיכוי חדשה",
+      "description": "חשבונית זיכוי מונפקת כנגד חשבונית שהונפקה ומפחיתה את יתרתה.",
+      "nothingToCredit": {
+        "title": "אין מה לזכות",
+        "description": "חשבוניות זיכוי דורשות חשבונית שהונפקה ובעלת יתרה פתוחה.",
+        "openInvoices": "פתיחת החשבוניות"
+      },
+      "whichInvoice": "איזו חשבונית?",
+      "invoice": "חשבונית",
+      "invoiceOption": "{number} · {client} · יתרה {balance}",
+      "issuedOnly": "חשבוניות זיכוי מונפקות רק כנגד חשבוניות שהונפקו.",
+      "invoiceFallback": "חשבונית"
+    },
+    "edit": {
+      "metaTitle": "עריכת חשבונית זיכוי",
+      "title": "עריכת טיוטת חשבונית זיכוי",
+      "immutable": "חשבוניות זיכוי שהונפקו אינן ניתנות לשינוי.",
+      "draft": "טיוטה"
+    },
+    "detail": {
+      "metaTitle": "חשבונית זיכוי",
+      "draftTitle": "טיוטת חשבונית זיכוי",
+      "meta": "{client} · כנגד <invoice>{number}</invoice> · הונפקה <mono>{date}</mono>",
+      "previewPdf": "תצוגה מקדימה של PDF",
+      "issue": {
+        "title": "להנפיק את חשבונית הזיכוי?",
+        "description": "יוקצה מספר, יתרת החשבונית תופחת והמסמך יהפוך לבלתי ניתן לשינוי.",
+        "label": "הנפקה"
+      },
+      "deleteDraft": {
+        "title": "למחוק את הטיוטה?"
+      },
+      "sendByEmail": "שליחה בדוא״ל",
+      "markSent": {
+        "title": "לסמן כנשלחה?",
+        "label": "סימון כנשלחה"
+      },
+      "void": {
+        "title": "לבטל את חשבונית הזיכוי?",
+        "description": "יתרת החשבונית תוחזר; המספר לעולם אינו בשימוש חוזר.",
+        "reason": "סיבה",
+        "label": "ביטול"
+      },
+      "voided": "בוטלה ב-{date}: {reason}",
+      "amounts": {
+        "title": "סכומים",
+        "reason": "סיבה",
+        "creditAmount": "סכום הזיכוי",
+        "total": "סה״כ",
+        "balanceNow": "יתרת החשבונית כעת",
+        "sent": "נשלחה"
+      },
+      "documents": {
+        "title": "מסמכים שמורים",
+        "description": "כל גרסה נשמרת; עמוד האימות מפרט את כל הגיבובים.",
+        "regenerateTitle": "ליצור גרסת PDF חדשה?",
+        "generate": "יצירה",
+        "newVersion": "גרסה חדשה",
+        "renderedOnFirstDownload": "ה-PDF נוצר בהורדה הראשונה.",
+        "protectedCopy": "עותק מוגן בסיסמה {version}",
+        "version": "גרסה {version}",
+        "verificationLink": "קישור אימות: <link>{path}…</link>"
+      },
+      "draftsPreview": "טיוטות מוצגות בזמן אמת בעורך."
+    },
+    "send": {
+      "metaTitle": "שליחת חשבונית זיכוי",
+      "title": "שליחת <mono>{number}</mono>",
+      "previousSends": "שליחות קודמות"
+    },
+    "builder": {
+      "against": "כנגד <mono>{number}</mono>",
+      "summary": "{client} · סה״כ {total} · יתרה {balance} · מרווח חייב במס ≈ {headroom}",
+      "issueDate": "תאריך הנפקה",
+      "creditAmount": "סכום הזיכוי (ללא מס)",
+      "creditAmountHint": "המס מחולק לפי שורות המס של החשבונית",
+      "reason": "סיבה",
+      "picker": {
+        "title": "חישוב משורות החשבונית",
+        "description": "סמנו שורות שלמות או אחוז; הפעולה רק ממלאת את הסכום שלמעלה.",
+        "line": "שורה",
+        "subtotal": "סכום ביניים",
+        "credit": "זיכוי",
+        "percent": "%",
+        "creditLine": "זיכוי לשורה {position}",
+        "percentOfLine": "אחוז משורה {position}"
+      },
+      "saveDraft": "שמירת טיוטה",
+      "issuing": "מנפיק…",
+      "saveAndIssue": "שמירה והנפקה"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "תשלום שהתקבל",
+        "REFUND": "החזר שניתן",
+        "WRITE_OFF": "מחיקת חוב"
+      },
+      "editTitle": "עריכת רשומה",
+      "recordTitle": "רישום תשלום",
+      "description": "הסכומים במטבע החשבונית ({currency}); TDS שנוכה הוא חלק מהסכום שהוחל.",
+      "kind": "סוג",
+      "date": "תאריך",
+      "amountRefunded": "סכום ההחזר (שלילי)",
+      "amountApplied": "הסכום שהוחל",
+      "refundHint": "הזינו סכום שלילי, לדוגמה -500",
+      "tdsDeducted": "TDS שנוכה",
+      "tdsHint": "מס שהלקוח ניכה במקור; נספר במסגרת הסכום שהוחל",
+      "bankFees": "עמלות בנק",
+      "receivedInto": "התקבל לחשבון",
+      "noMethod": "-",
+      "reference": "אסמכתה",
+      "referenceHint": "UTR, מזהה עסקה, מספר שיק",
+      "otherCurrency": "התקבל במטבע אחר",
+      "amountReceived": "הסכום שהתקבל",
+      "receivedCurrency": "מטבע הקבלה",
+      "exchangeRate": "שער חליפין",
+      "exchangeRateHint": "יחידה אחת שהתקבלה = ? {currency}",
+      "notes": "הערות",
+      "receiptHint": "PNG, JPEG, WebP או PDF עד 10 MB",
+      "receipts": "קבלות וחשבוניות",
+      "receiptN": "קבלה {n}",
+      "removeReceipt": "הסרת קבלה {n}",
+      "saveChanges": "שמירת שינויים",
+      "record": "רישום"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "חיוב ל",
+      "shipTo": "משלוח ל",
+      "invoice": "חשבונית",
+      "creditNote": "חשבונית זיכוי",
+      "issueDate": "תאריך הנפקה",
+      "dueDate": "תאריך יעד",
+      "number": "מספר",
+      "description": "תיאור",
+      "sacHsn": "SAC/HSN",
+      "qty": "כמות",
+      "unit": "יחידה",
+      "rate": "מחיר",
+      "tax": "מס",
+      "amount": "סכום",
+      "subtotal": "סכום ביניים",
+      "discount": "הנחה",
+      "taxable": "סכום החייב במס",
+      "total": "סה״כ",
+      "amountDue": "סכום לתשלום",
+      "tdsExpected": "TDS צפוי",
+      "netExpected": "סכום נטו צפוי",
+      "rounding": "עיגול",
+      "paymentDetails": "פרטי תשלום",
+      "notes": "הערות",
+      "terms": "תנאים",
+      "placeOfSupply": "מקום האספקה",
+      "poReference": "אסמכתת הזמנה (PO)",
+      "amountInWords": "הסכום במילים",
+      "signature": "מורשה חתימה"
+    },
+    "title": {
+      "taxInvoice": "חשבונית מס",
+      "billOfSupply": "שובר אספקה",
+      "invoice": "חשבונית",
+      "creditNote": "חשבונית זיכוי"
+    },
+    "text": {
+      "pageOf": "עמוד {page} מתוך {total}",
+      "scanToVerify": "סרקו לאימות",
+      "taxId": "מזהה מס",
+      "void": "מבוטל",
+      "draftWatermark": "טיוטה - אינה חשבונית מס",
+      "paymentTermsDays": "{days} ימים",
+      "irn": "IRN",
+      "ackNo": "מספר אישור",
+      "ackDate": "תאריך אישור",
+      "einvoiceCancelled": "חשבונית אלקטרונית בוטלה"
+    },
+    "ui": {
+      "pageEstimate": "כ-{count, plural, one {עמוד אחד} two {# עמודים} other {# עמודים}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "הודעה",
+      "description": "ממולאת מראש מתבניות פרופיל המנפיק. דבר אינו נשלח עד שתלחצו על שליחה.",
+      "to": "אל",
+      "toHint": "מופרדים בפסיקים",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "נושא",
+      "body": "גוף ההודעה",
+      "bodyHint": "טקסט רגיל; קישורים הופכים ללחיצים",
+      "attachment": "קובץ מצורף",
+      "attachmentHint": "העותק השמור, בשם <mono>{name}</mono> (או .docx); לא ניתן לשנות את תוכנו.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "שולח…",
+      "send": "שליחה",
+      "openInMailApp": "פתיחה באפליקציית דואר",
+      "noSmtp": "לא הוגדר שרת SMTP (הגדרות ← דוא״ל). פתחו את הטיוטה באפליקציית הדואר, צרפו את ה-PDF שהורד, ואז סמנו כנשלח להלן.",
+      "markAsSent": "סימון כנשלח"
+    },
+    "sentLog": {
+      "when": "מתי",
+      "document": "מסמך",
+      "to": "אל",
+      "subject": "נושא",
+      "status": "סטטוס",
+      "empty": "עדיין לא נשלח דבר.",
+      "noDocument": "-",
+      "cc": "עותק {list}",
+      "statuses": {
+        "SENT": "נשלח",
+        "FAILED": "נכשל",
+        "MANUAL": "ידני"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "שלום, {name}",
+    "fiscalYear": "שנת כספים {year}",
+    "fiscalYearWithBase": "שנת כספים {year} · מטבע בסיס {currency} ({profile})",
+    "newCreditNote": "חשבונית זיכוי חדשה",
+    "welcomeTitle": "ברוכים הבאים ל-{appName}",
+    "welcomeDescription": "התחילו ביצירת פרופיל המנפיק שמטעמו אתם מנפיקים חשבוניות, ואז הוסיפו לקוח ואת החשבונית הראשונה שלכם.",
+    "createProfile": "יצירת הפרופיל שלכם",
+    "tiles": {
+      "outstanding": "פתוח",
+      "overdue": "באיחור",
+      "billedThisFy": "חויב בשנת הכספים",
+      "receivedThisFy": "התקבל בשנת הכספים",
+      "drafts": "טיוטות",
+      "invoiceCount": "{count, plural, one {חשבונית אחת} two {# חשבוניות} other {# חשבוניות}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "תשלומים בניכוי החזרים, לפי שער החליפין שנרשם",
+      "awaitingIssue": "ממתינות להנפקה",
+      "nothingPending": "אין דבר ממתין"
+    },
+    "recentInvoices": "חשבוניות אחרונות",
+    "allInvoices": "כל החשבוניות",
+    "noInvoicesYet": "עדיין אין חשבוניות.",
+    "columns": {
+      "number": "מספר",
+      "client": "לקוח",
+      "issued": "הונפקה"
+    },
+    "topClients": "לקוחות מובילים לפי יתרה פתוחה",
+    "nothingOutstanding": "אין יתרות פתוחות."
+  },
+  "exports": {
+    "export": "ייצוא",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "חשבוניות",
+      "newInvoice": "חשבונית חדשה",
+      "draft": "טיוטה",
+      "aDraft": "טיוטה",
+      "statuses": {
+        "draft": "טיוטה",
+        "issued": "הונפקה",
+        "sent": "נשלחה",
+        "partiallyPaid": "שולמה חלקית",
+        "paid": "שולמה",
+        "overdue": "באיחור",
+        "void": "מבוטלת"
+      },
+      "lifecycle": {
+        "draft": "טיוטה",
+        "issued": "הונפקה",
+        "void": "מבוטלת"
+      },
+      "units": {
+        "hour": "שעה",
+        "day": "יום",
+        "fixed": "קבוע",
+        "milestone": "אבן דרך",
+        "unit": "יחידה"
+      },
+      "unitsLower": {
+        "hour": "שעה",
+        "day": "יום",
+        "fixed": "קבוע",
+        "milestone": "אבן דרך",
+        "unit": "יחידה"
+      },
+      "supplyTypes": {
+        "intraState": "בתוך המדינה",
+        "interState": "בין מדינות",
+        "exportLut": "ייצוא עם LUT",
+        "exportWithTax": "ייצוא עם מס",
+        "reverseCharge": "מנגנון היפוך חיוב",
+        "notApplicable": "לא רלוונטי"
+      }
+    },
+    "list": {
+      "description": "טיוטות, חשבוניות שהונפקו ובוטלו; הסטטוסים נגזרים מתשלומים ומתאריכי יעד.",
+      "fiscalYear": "שנת כספים",
+      "issuer": "מנפיק",
+      "client": "לקוח",
+      "searchPlaceholder": "מספר, הזמנת רכש, לקוח",
+      "emptyTitle": "עדיין אין חשבוניות",
+      "emptyDescription": "צרו את החשבונית הראשונה שלכם: בחרו לקוח, הוסיפו שורות, עיינו בתצוגה המקדימה ואז הנפיקו.",
+      "columns": {
+        "number": "מספר",
+        "client": "לקוח",
+        "issuer": "מנפיק",
+        "issueDate": "תאריך הנפקה",
+        "due": "תאריך יעד",
+        "balance": "יתרה"
+      },
+      "noMatches": "אין חשבוניות התואמות למסננים אלה.",
+      "count": "{count, plural, one {חשבונית אחת} two {# חשבוניות} other {# חשבוניות}}",
+      "countPaged": "{count, plural, one {חשבונית אחת} two {# חשבוניות} other {# חשבוניות}} · עמוד {page} מתוך {pages}",
+      "register": "רישום",
+      "einvoice": "חשבונית אלקטרונית",
+      "einvoiceFilters": {
+        "registered": "IRN רשום",
+        "none": "לא רשומה",
+        "cancelled": "IRN בוטל"
+      }
+    },
+    "new": {
+      "noProfileTitle": "צרו תחילה פרופיל מנפיק",
+      "noProfileDescription": "חשבונית מונפקת מזהות משפטית: הגדירו את הפרופיל שלכם עם מזהי המס והמספור.",
+      "createProfile": "יצירת פרופיל"
+    },
+    "edit": {
+      "metaTitle": "עריכת חשבונית",
+      "title": "עריכת טיוטה",
+      "immutableFlash": "חשבוניות שהונפקו אינן ניתנות לשינוי. השתמשו ב״ביטול והנפקה מחדש״ כדי לתקן."
+    },
+    "detail": {
+      "metaTitle": "חשבונית",
+      "draftInvoice": "טיוטת חשבונית",
+      "issuedDue": "הונפקה <mono>{issued}</mono>, תאריך יעד <mono>{due}</mono>",
+      "replaces": "מחליפה את {number}",
+      "replacedBy": "הוחלפה על ידי {number}",
+      "previewPdf": "תצוגה מקדימה של PDF",
+      "downloadEInvoice": "הורדת JSON של חשבונית אלקטרונית",
+      "issueTitle": "להנפיק את החשבונית?",
+      "issueDescription": "יוקצה מספר והמסמך יהפוך לבלתי ניתן לשינוי.",
+      "issue": "הנפקה",
+      "deleteDraftTitle": "למחוק את הטיוטה?",
+      "sendByEmail": "שליחה בדוא״ל",
+      "recordPayment": "רישום תשלום",
+      "progress": {
+        "title": "התקדמות התשלום",
+        "description": "היכן החשבונית נמצאת, מההנפקה ועד קבלה בתיק.",
+        "issued": "הונפקה",
+        "sent": "נשלחה",
+        "payment": "התשלום נרשם",
+        "paymentOn": "תשלום של <mono>{amount}</mono> נרשם ב-<mono>{date}</mono>",
+        "paid": "שולמה במלואה",
+        "receipt": "הקבלה צורפה",
+        "done": "הושלם",
+        "pending": "ממתין"
+      },
+      "creditNote": "חשבונית זיכוי",
+      "markSentTitle": "לסמן כנשלחה?",
+      "markSentDescription": "מתעד שהלקוח קיבל את החשבונית.",
+      "markSent": "סימון כנשלחה",
+      "voidReissueTitle": "לבטל ולהנפיק מחדש?",
+      "voidReissueDescription": "המקור יבוטל וטיוטה מקושרת באותו תוכן תיפתח לעריכה.",
+      "voidReissue": "ביטול והנפקה מחדש",
+      "voidTitle": "לבטל את החשבונית?",
+      "voidDescription": "אפשרי רק ללא תשלומים שנרשמו; המספר לעולם אינו בשימוש חוזר.",
+      "void": "ביטול",
+      "voided": "בוטלה ב-{date}: {reason}",
+      "amounts": "סכומים",
+      "subtotal": "סכום ביניים",
+      "discount": "הנחה",
+      "discountPercent": "הנחה ({percent})",
+      "rounding": "עיגול",
+      "tdsExpected": "TDS צפוי ({percent})",
+      "paid": "שולם",
+      "credited": "זוכה",
+      "balanceDue": "יתרה לתשלום",
+      "supply": "אספקה",
+      "fxToBase": "שער למטבע הבסיס",
+      "poReference": "אסמכתת הזמנת רכש",
+      "sent": "נשלחה",
+      "lineItems": "שורות",
+      "columns": {
+        "description": "תיאור",
+        "sacHsn": "SAC/HSN",
+        "qty": "כמות",
+        "rate": "מחיר",
+        "tax": "מס",
+        "amount": "סכום"
+      },
+      "creditNotes": "חשבוניות זיכוי",
+      "storedDocuments": "מסמכים שמורים",
+      "storedDocumentsHint": "כל גרסה נשמרת; עמוד האימות מפרט את כל הגיבובים.",
+      "regenerateTitle": "ליצור גרסת PDF חדשה?",
+      "regenerateDescription": "נוצרת מחדש מהתצלום המקובע (למשל לאחר תיקון במנוע ההצגה). גרסאות קודמות נשמרות.",
+      "regenerate": "יצירה",
+      "newVersion": "גרסה חדשה",
+      "renderedOnFirstDownload": "ה-PDF נוצר בהורדה הראשונה.",
+      "protectedCopy": "עותק מוגן בסיסמה {version}",
+      "version": "גרסה {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "קישור אימות:",
+      "draftPreviewHint": "טיוטות מוצגות בזמן אמת בעורך; פתחו את <link>ה-PDF עם סימן המים</link> כדי לראות את העמוד.",
+      "einvoice": {
+        "title": "חשבונית אלקטרונית (הודו)",
+        "description": "רישום חשבונית זו בפורטל רישום החשבוניות (Invoice Registration Portal); מסמך רשום מודפס עם ה-IRN והקוד QR החתום של הפורטל.",
+        "connector": "מחבר",
+        "connectors": {
+          "manual": "ידני",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "לא הוגדר מחבר עבור פרופיל זה: הגדרות > חשבוניות אלקטרוניות.",
+        "statuses": {
+          "none": "לא רשומה",
+          "generated": "JSON נוצר",
+          "registered": "רשומה",
+          "cancelled": "בוטלה",
+          "failed": "הרישום נכשל"
+        },
+        "irn": "IRN",
+        "ackNo": "מספר אישור",
+        "ackDate": "תאריך אישור",
+        "cancelReason": "ביטול",
+        "generate": "יצירת IRN",
+        "pasteLabel": "תגובת IRP",
+        "pasteHint": "הדביקו את ה-JSON שהפורטל או ה-GSP שלכם החזירו עבור ה-JSON של החשבונית האלקטרונית של חשבונית זו (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "תיעוד IRN",
+        "cancelReasonLabel": "סיבת הביטול",
+        "cancelReasons": {
+          "1": "כפילות",
+          "2": "שגיאת הזנת נתונים",
+          "3": "ההזמנה בוטלה",
+          "4": "אחר"
+        },
+        "cancel": "ביטול IRN",
+        "cancelWindow": "הפורטל מאפשר ביטול בתוך 24 שעות מרגע האישור."
+      }
+    },
+    "history": {
+      "metaTitle": "היסטוריית חשבונית",
+      "title": "היסטוריה <mono>{number}</mono>",
+      "reissueChain": "שרשרת הנפקות מחדש",
+      "replaces": "מחליפה את <link>{number}</link>",
+      "replacedBy": "הוחלפה על ידי <link>{number}</link>",
+      "auditTrail": "מסלול ביקורת",
+      "columns": {
+        "when": "מתי",
+        "who": "מי",
+        "action": "פעולה",
+        "summary": "תקציר"
+      },
+      "noEvents": "עדיין אין אירועים.",
+      "system": "מערכת",
+      "emails": "הודעות דוא״ל"
+    },
+    "payments": {
+      "title": "תשלומים",
+      "description": "{client} · סה״כ {total}",
+      "backToInvoice": "חזרה לחשבונית",
+      "ledger": "ספר",
+      "columns": {
+        "date": "תאריך",
+        "kind": "סוג",
+        "applied": "הוחל",
+        "tds": "TDS",
+        "received": "התקבל",
+        "reference": "אסמכתה",
+        "balance": "יתרה"
+      },
+      "noPayments": "עדיין לא נרשמו תשלומים.",
+      "kinds": {
+        "payment": "תשלום",
+        "refund": "החזר",
+        "writeOff": "מחיקת חוב"
+      },
+      "receipt": "קבלה",
+      "receiptN": "קבלה {n}",
+      "deleteEntryTitle": "למחוק את הרשומה?",
+      "deleteEntryDescription": "יתרת החשבונית תחושב מחדש.",
+      "totals": "סכומים כוללים",
+      "invoiceTotal": "סה״כ חשבונית",
+      "credited": "זוכה",
+      "refunds": "החזרים",
+      "writeOffs": "מחיקות חוב",
+      "tdsDeducted": "TDS שנוכה",
+      "bankFees": "עמלות בנק",
+      "balanceDue": "יתרה לתשלום",
+      "onlyIssued": "רק חשבוניות שהונפקו מקבלות תשלומים."
+    },
+    "send": {
+      "metaTitle": "שליחת חשבונית",
+      "title": "שליחת <mono>{number}</mono>",
+      "alreadySent": "כבר סומנה כנשלחה; שליחה חוזרת מוסיפה רשומה נוספת ביומן.",
+      "previousSends": "שליחות קודמות"
+    },
+    "builder": {
+      "parties": "הצדדים",
+      "issuerProfile": "פרופיל מנפיק",
+      "client": "לקוח",
+      "archivedOption": "{label} (בארכיון)",
+      "issueDate": "תאריך הנפקה",
+      "dueDate": "תאריך יעד",
+      "fxRate": "שער למטבע הבסיס",
+      "fxHint": "1 {currency} = ? {base} (לדיווח בלבד)",
+      "poReference": "אסמכתת הזמנת רכש",
+      "lineItems": "שורות",
+      "lineItemsHint": "בחרו מהקטלוג כדי להעתיק את הערכים, או הקלידו שורה.",
+      "taxDiscountTds": "מס, הנחה ו-TDS",
+      "taxRegime": "משטר מס",
+      "regimes": {
+        "indiaGst": "GST הודי",
+        "ukVat": "VAT בריטי",
+        "usSalesTax": "מס מכירות בארה״ב",
+        "none": "ללא מס"
+      },
+      "reverseCharge": "היפוך חיוב",
+      "reverseChargeHint": "המס משולם על ידי הנמען",
+      "discount": "הנחה",
+      "percent": "אחוז",
+      "amount": "סכום",
+      "rounding": "התאמת עיגול",
+      "roundingHint": "אופציונלי, ליחידה שלמה; חייב להיות קטן מ-1",
+      "round": "עיגול",
+      "tdsRate": "שיעור TDS צפוי (%)",
+      "tdsRateHint": "לידיעה בלבד; מודפס כשפירוט ה-TDS פעיל",
+      "paymentMethods": "אמצעי תשלום",
+      "paymentMethodsHint": "מודפסים לפי סדר הסימון.",
+      "noPaymentMethods": "אין אמצעי תשלום פעילים. <link>הוסיפו אחד</link>.",
+      "whatPrints": "מה מודפס",
+      "whatPrintsHint": "מתחיל מברירות המחדל של פרופיל המנפיק.",
+      "documentLanguage": "שפת המסמך",
+      "documentLanguageHint": "תוויות, תאריכים וסכומים מודפסים בשפה זו: העדפת הלקוח, ואם אין, שפת הפרופיל.",
+      "notesAndTerms": "הערות ותנאים",
+      "notes": "הערות",
+      "terms": "תנאים",
+      "saveDraft": "שמירת טיוטה",
+      "issuing": "מנפיק…",
+      "saveAndIssue": "שמירה והנפקה",
+      "subtotal": "סכום ביניים",
+      "tax": "מס",
+      "tdsExpected": "TDS צפוי",
+      "netExpected": "נטו צפוי"
+    },
+    "lineItems": {
+      "addFromCatalogue": "הוספה מהקטלוג…",
+      "services": "שירותים",
+      "products": "מוצרים",
+      "addLine": "הוספת שורה",
+      "columns": {
+        "description": "תיאור",
+        "sacHsn": "SAC/HSN",
+        "qty": "כמות",
+        "unit": "יחידה",
+        "rate": "מחיר",
+        "taxPercent": "מס %"
+      },
+      "aria": {
+        "description": "תיאור שורה {line}",
+        "sacHsn": "SAC/HSN של שורה {line}",
+        "quantity": "כמות בשורה {line}",
+        "unit": "יחידה בשורה {line}",
+        "rate": "מחיר בשורה {line}",
+        "taxRate": "שיעור מס בשורה {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "פטור",
+      "moveUp": "הזזה למעלה",
+      "moveDown": "הזזה למטה",
+      "removeLine": "הסרת שורה",
+      "shortcutHint": "Ctrl/⌘+Enter בתיאור מוסיף שורה.",
+      "addFromCatalogueAria": "הוספה מהקטלוג"
+    },
+    "display": {
+      "groups": {
+        "issuer": "פרטי המנפיק",
+        "client": "פרטי הלקוח",
+        "document": "חלקי המסמך"
+      },
+      "fields": {
+        "showLogo": "לוגו",
+        "showTradeName": "שם מסחרי",
+        "showDesignation": "תפקיד",
+        "showEmail": "דוא״ל",
+        "showPhone": "טלפון",
+        "showWebsite": "אתר",
+        "showFullAddress": "כתובת מלאה",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "חתימה",
+        "showStamp": "חותמת",
+        "showContactPerson": "איש קשר",
+        "showBillingAddress": "כתובת לחיוב",
+        "showShippingAddress": "כתובת למשלוח",
+        "showTaxIdentifier": "מזהה מס",
+        "showPlaceOfSupply": "מקום האספקה",
+        "showDueDate": "תאריך יעד",
+        "showPaymentTerms": "תנאי תשלום",
+        "showSacCodeColumn": "עמודת קוד SAC",
+        "showQuantityColumn": "עמודת כמות",
+        "showUnitPriceColumn": "עמודת מחיר ליחידה",
+        "showTaxColumn": "עמודת מס",
+        "showTdsBreakdown": "פירוט TDS",
+        "showQrVerification": "אימות QR",
+        "showNotes": "הערות",
+        "showTerms": "תנאים",
+        "showReplacesReference": "הפניה למסמך שהוחלף",
+        "showAmountInWords": "סכום במילים",
+        "showSupplyStatement": "הצהרת אספקה",
+        "showRoundingLine": "שורת עיגול",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "לקוחות",
+      "description": "כל מי שאתם מחייבים. לקוחות עם חשבוניות מועברים לארכיון ואינם נמחקים.",
+      "newClient": "לקוח חדש",
+      "searchPlaceholder": "חיפוש לפי שם",
+      "searchLabel": "חיפוש לקוחות",
+      "emptyTitle": "עדיין אין לקוחות",
+      "emptyDescription": "הוסיפו את האנשים והחברות שאתם מחייבים; המטבע ותנאי התשלום שלהם ממלאים מראש כל חשבונית.",
+      "addClient": "הוספת לקוח",
+      "noMatch": "אין לקוחות התואמים ל-״{q}״.",
+      "termsDays": "{days} י׳",
+      "columns": {
+        "name": "שם",
+        "contact": "איש קשר",
+        "email": "דוא״ל",
+        "country": "מדינה",
+        "currency": "מטבע",
+        "terms": "תנאים",
+        "status": "סטטוס"
+      }
+    },
+    "new": {
+      "title": "לקוח חדש"
+    },
+    "edit": {
+      "metaTitle": "עריכת לקוח",
+      "title": "עריכת {name}"
+    },
+    "detail": {
+      "metaTitle": "לקוח",
+      "newInvoice": "חשבונית חדשה",
+      "restoreTitle": "לשחזר את הלקוח?",
+      "archiveTitle": "להעביר את הלקוח לארכיון?",
+      "archiveDescription": "הוא ייעלם מרשימות הבחירה; חשבוניות והיסטוריה יישארו ללא שינוי.",
+      "deleteTitle": "למחוק את הלקוח?",
+      "deleteDescription": "אפשרי רק כל עוד אף חשבונית אינה מפנה ללקוח.",
+      "details": "פרטים",
+      "contact": "איש קשר",
+      "email": "דוא״ל",
+      "phone": "טלפון",
+      "country": "מדינה",
+      "gstState": "GST {code}",
+      "taxId": "מזהה מס",
+      "currency": "מטבע",
+      "paymentTerms": "תנאי תשלום",
+      "paymentTermsDays": "{days} ימים",
+      "expectedTds": "TDS צפוי",
+      "notes": "הערות",
+      "addresses": "כתובות",
+      "billing": "לחיוב",
+      "shipping": "למשלוח",
+      "lifetime": "מאז ומעולם",
+      "openRegister": "פתיחת הרישום",
+      "noIssued": "עדיין אין חשבוניות שהונפקו.",
+      "noIssuedWithDrafts": "עדיין אין חשבוניות שהונפקו (טיוטות: {drafts}).",
+      "firstLatest": "חשבונית ראשונה <mono>{first}</mono>, אחרונה <mono>{latest}</mono>{drafts, plural, =0 {} one { · טיוטה אחת} two { · # טיוטות} other { · # טיוטות}}",
+      "lifetimeColumns": {
+        "currency": "מטבע",
+        "invoices": "חשבוניות",
+        "billed": "חויב",
+        "received": "התקבל",
+        "credited": "זוכה",
+        "outstanding": "פתוח",
+        "overdue": "באיחור"
+      },
+      "recentInvoices": "חשבוניות אחרונות",
+      "noInvoices": "עדיין אין חשבוניות ללקוח זה.",
+      "recentColumns": {
+        "number": "מספר",
+        "issueDate": "תאריך הנפקה",
+        "due": "תאריך יעד",
+        "total": "סה״כ",
+        "balance": "יתרה",
+        "status": "סטטוס"
+      }
+    },
+    "form": {
+      "cardTitle": "לקוח",
+      "displayName": "שם תצוגה",
+      "contactPerson": "איש קשר",
+      "email": "דוא״ל",
+      "phone": "טלפון",
+      "taxIdType": "סוג מזהה מס",
+      "taxIdTypeNone": "ללא",
+      "taxId": "מזהה מס",
+      "currency": "מטבע",
+      "paymentTerms": "תנאי תשלום (ימים)",
+      "expectedTdsRate": "שיעור TDS צפוי (%)",
+      "preferredLanguage": "שפת המסמך",
+      "preferredLanguageFollow": "לפי פרופיל המנפיק",
+      "buyerReference": "הפניית קונה",
+      "buyerReferenceHint": "מודפס בחשבוניות אלקטרוניות כהפניה העצמית של הקונה (מספר הזמנה או מרכז עלות).",
+      "electronicAddress": "כתובת אלקטרונית",
+      "electronicAddressHint": "מזהה Peppol או EN 16931 שתחתיו לקוח זה מקבל חשבוניות אלקטרוניות.",
+      "electronicAddressScheme": "סכמת כתובת אלקטרונית",
+      "electronicAddressSchemeNone": "ללא סכמה",
+      "notes": "הערות",
+      "billingAddress": "כתובת לחיוב",
+      "shippingAddress": "כתובת למשלוח",
+      "differentFromBilling": "שונה מכתובת החיוב",
+      "save": "שמירת לקוח"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "שעה",
+      "DAY": "יום",
+      "FIXED": "קבוע",
+      "MILESTONE": "אבן דרך",
+      "UNIT": "יחידה"
+    },
+    "list": {
+      "activate": "הפעלה",
+      "deactivate": "השבתה",
+      "archiveDescription": "שורות חשבונית קיימות שומרות את הערכים שהועתקו.",
+      "deleteDescription": "אפשרי רק כל עוד אף שורת חשבונית אינה מפנה אליו. אחרת, העבירו אותו לארכיון.",
+      "columns": {
+        "sku": "SKU",
+        "name": "שם",
+        "unit": "יחידה",
+        "rate": "מחיר",
+        "price": "מחיר",
+        "currency": "מטבע",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "מס",
+        "status": "סטטוס"
+      }
+    },
+    "services": {
+      "title": "שירותים",
+      "description": "הקטלוג שלכם. בחירת שירות מעתיקה את ערכיו לשורת החשבונית.",
+      "newService": "שירות חדש",
+      "emptyTitle": "עדיין אין שירותים",
+      "emptyDescription": "הוסיפו את מה שאתם מוכרים - עיצוב לפי שעה, אבן דרך בתשלום קבוע - עם קוד SAC/HSN ושיעור מס.",
+      "addService": "הוספת שירות",
+      "restoreTitle": "לשחזר את {name}?",
+      "archiveTitle": "להעביר את {name} לארכיון?",
+      "deleteTitle": "למחוק את {name}?",
+      "editMetaTitle": "עריכת שירות",
+      "editTitle": "עריכת {name}"
+    },
+    "products": {
+      "title": "מוצרים",
+      "description": "סחורות שאתם מוכרים, לכל אחת SKU. בחירת מוצר מעתיקה את ערכיו לשורת החשבונית.",
+      "newProduct": "מוצר חדש",
+      "emptyTitle": "עדיין אין מוצרים",
+      "emptyDescription": "הוסיפו את הסחורות שאתם מוכרים עם SKU, קוד HSN, מחיר ליחידה ושיעור מס.",
+      "addProduct": "הוספת מוצר",
+      "restoreTitle": "לשחזר את {sku}?",
+      "archiveTitle": "להעביר את {sku} לארכיון?",
+      "deleteTitle": "למחוק את {sku}?",
+      "editMetaTitle": "עריכת מוצר",
+      "editTitle": "עריכת {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "קוד ייחודי המודפס מתחת לתיאור השורה",
+      "name": "שם",
+      "unit": "יחידה",
+      "defaultRate": "מחיר ברירת מחדל",
+      "unitPrice": "מחיר ליחידה",
+      "currency": "מטבע",
+      "sacHsnCode": "קוד SAC / HSN",
+      "sacHsnHint": "נדרש בחשבוניות GST",
+      "hsnCode": "קוד HSN",
+      "hsnHint": "נדרש בחשבוניות GST עבור סחורות",
+      "defaultTaxRate": "שיעור מס ברירת מחדל (%)",
+      "description": "תיאור",
+      "descriptionHint": "ממלא מראש את תיאור השורה",
+      "active": "פעיל",
+      "serviceInactiveHint": "שירותים לא פעילים אינם מופיעים בבורר החשבונית",
+      "productInactiveHint": "מוצרים לא פעילים אינם מופיעים בבורר החשבונית",
+      "saveService": "שמירת שירות",
+      "saveProduct": "שמירת מוצר"
+    },
+    "tags": {
+      "legend": "פרופילים",
+      "hint": "סמנו את פרופילי המנפיק שמוכרים זאת. השאירו הכול לא מסומן כדי להציע זאת לכל הפרופילים."
+    }
+  },
+  "address": {
+    "line1": "כתובת, שורה 1",
+    "line2": "כתובת, שורה 2",
+    "city": "עיר",
+    "stateRegion": "מדינה / אזור",
+    "postalCode": "מיקוד",
+    "country": "מדינה",
+    "state": "מדינה (State)",
+    "gstStateCodeHint": "קוד מדינה של GST: {code}",
+    "pickStateHint": "בחרו את המדינה עבור קוד המדינה של GST",
+    "stateRegionCode": "קוד מדינה / אזור",
+    "stateRegionCodePlaceholder": "לדוגמה CA"
+  },
+  "assets": {
+    "tooLarge": "הקובץ גדול מדי.",
+    "unsupportedReceipt": "השתמשו בתמונת PNG, JPEG, WebP או בקובץ PDF.",
+    "unsupportedImage": "השתמשו בתמונת PNG, JPEG או WebP.",
+    "uploadFailed": "ההעלאה נכשלה.",
+    "uploading": "מעלה…",
+    "dropHint": "גררו קובץ לכאן או בחרו קובץ",
+    "dropHintMany": "גררו קבצים לכאן, או בחרו אותם",
+    "dropActive": "שחררו להעלאה"
+  },
+  "ui": {
+    "breadcrumb": "נתיב ניווט",
+    "close": "סגירה",
+    "closeMenu": "סגירת התפריט",
+    "reveal": "הצג",
+    "hide": "הסתר",
+    "openCalendar": "פתח לוח שנה",
+    "chooseMonth": "בחר חודש",
+    "chooseYear": "בחר שנה",
+    "searchOptions": "הקלד לחיפוש",
+    "noMatches": "אין תוצאות",
+    "pullToRefresh": {
+      "label": "רשימה הניתנת לרענון",
+      "pulling": "משכו לרענון",
+      "release": "שחררו לרענון",
+      "refreshing": "מרענן"
+    },
+    "inputCharset": "מותרים רק תווי מקלדת סטנדרטיים.",
+    "confirm": {
+      "working": "מבצע…"
+    },
+    "statusPill": {
+      "DRAFT": "טיוטה",
+      "ISSUED": "הונפקה",
+      "SENT": "נשלחה",
+      "PARTIALLY_PAID": "שולמה חלקית",
+      "PAID": "שולמה",
+      "OVERDUE": "באיחור",
+      "VOID": "מבוטלת"
+    },
+    "activePill": {
+      "active": "פעיל",
+      "archived": "בארכיון",
+      "inactive": "לא פעיל"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "משהו השתבש.",
+    "fixFields": "אנא תקנו את השדות המסומנים.",
+    "accountSaved": "העדפות החשבון נשמרו",
+    "apiKeyCreated": "מפתח ה-API נוצר. העתיקו אותו עכשיו: הוא מוצג פעם אחת בלבד.",
+    "saved": "{name} נשמר",
+    "savedProfile": "הפרופיל {label} נשמר",
+    "clientArchived": "הלקוח הועבר לארכיון",
+    "clientRestored": "הלקוח שוחזר",
+    "clientDeleted": "הלקוח נמחק",
+    "productArchived": "המוצר הועבר לארכיון",
+    "productRestored": "המוצר שוחזר",
+    "productActivated": "המוצר הופעל",
+    "productDeactivated": "המוצר הושבת",
+    "serviceArchived": "השירות הועבר לארכיון",
+    "serviceRestored": "השירות שוחזר",
+    "serviceActivated": "השירות הופעל",
+    "serviceDeactivated": "השירות הושבת",
+    "defaultProfileUpdated": "פרופיל ברירת המחדל עודכן",
+    "profileArchived": "הפרופיל הועבר לארכיון",
+    "profileRestored": "הפרופיל שוחזר",
+    "profileDeleted": "הפרופיל נמחק",
+    "defaultPaymentMethodUpdated": "אמצעי התשלום המוגדר כברירת מחדל עודכן",
+    "paymentMethodArchived": "אמצעי התשלום הועבר לארכיון",
+    "paymentMethodRestored": "אמצעי התשלום שוחזר",
+    "paymentMethodDeleted": "אמצעי התשלום נמחק",
+    "issued": "{number} הונפקה",
+    "savedAsDraft": "נשמרה כטיוטה. {reason}",
+    "draftSaved": "הטיוטה נשמרה",
+    "invoiceVoided": "החשבונית בוטלה",
+    "originalVoided": "המקור בוטל; ערכו את טיוטת ההחלפה",
+    "markedAsSent": "סומנה כנשלחה",
+    "draftDeleted": "הטיוטה נמחקה",
+    "generatedPdf": "נוצרה גרסת PDF {version}",
+    "creditNoteVoided": "חשבונית הזיכוי בוטלה; יתרת החשבונית שוחזרה",
+    "draftCreditNoteDeleted": "טיוטת חשבונית הזיכוי נמחקה",
+    "mailRefused": "שרת הדואר דחה את ההודעה: {error}. הניסיון נרשם ביומן.",
+    "unknownError": "שגיאה לא ידועה",
+    "sentTo": "נשלחה אל {recipients}",
+    "smtpSaved": "הגדרות SMTP נשמרו",
+    "smtpRemoved": "הגדרות SMTP השמורות הוסרו",
+    "testEmailSent": "דוא״ל בדיקה נשלח אל {email}",
+    "testFailed": "הבדיקה נכשלה: {error}",
+    "defaultRecipientsSaved": "הנמענים כברירת מחדל נשמרו",
+    "invitationSent": "ההזמנה נשלחה",
+    "invitationReady": "ההזמנה מוכנה",
+    "unknownRole": "תפקיד לא ידוע",
+    "roleUpdated": "התפקיד עודכן",
+    "accountDeactivated": "החשבון הושבת",
+    "accountReactivated": "החשבון הופעל מחדש",
+    "invitationRevoked": "ההזמנה בוטלה",
+    "paymentUpdated": "התשלום עודכן",
+    "paymentRecorded": "התשלום נרשם",
+    "paymentDeleted": "התשלום נמחק",
+    "sessionRevoked": "ההפעלה בוטלה",
+    "noOtherSessions": "אין הפעלות אחרות",
+    "signedOutOthers": "נותקו הפעלות אחרות: {count}",
+    "sharePasswordRequired": "הזינו סיסמה, או אפשרו יצירה אוטומטית שלה.",
+    "shareLinkCreated": "קישור השיתוף נוצר.",
+    "templateSaved": "התבנית נשמרה; מסמכים עתידיים ישתמשו בה",
+    "templateReset": "התבנית אופסה לברירת המחדל המובנית",
+    "templateImported": "התבנית יובאה",
+    "profileTemplateCleared": "הפרופיל משתמש שוב בתבנית המופע",
+    "operatorSaved": "פרטי המפעיל נשמרו. העמודים המשפטיים מציגים אותם כעת.",
+    "einvoiceSettingsSaved": "הגדרות החשבוניות האלקטרוניות נשמרו",
+    "irnRegistered": "IRN {irn} נרשם; ה-PDF נוצר מחדש איתו",
+    "irnRecorded": "IRN נרשם; ה-PDF נוצר מחדש איתו",
+    "irnCancelled": "IRN בוטל; ה-PDF נוצר מחדש"
+  }
+}

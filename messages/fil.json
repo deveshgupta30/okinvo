@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Home ng okinvo",
+    "save": "I-save",
+    "cancel": "Kanselahin",
+    "continue": "Magpatuloy",
+    "saving": "Sine-save…",
+    "detect": "Hanapin",
+    "yes": "Oo",
+    "no": "Hindi",
+    "choose": "Pumili…",
+    "remove": "Alisin",
+    "tryAgain": "Subukang muli",
+    "dashboard": "Dashboard",
+    "goToDashboard": "Pumunta sa dashboard",
+    "or": "o",
+    "invoice": "Invoice",
+    "creditNote": "Credit note",
+    "downloadPdf": "I-download ang PDF",
+    "edit": "I-edit",
+    "delete": "Burahin",
+    "downloadDocx": "I-download ang DOCX",
+    "downloadCii": "I-download ang EN 16931 XML",
+    "downloadUbl": "I-download ang Peppol UBL",
+    "downloadFacturX": "I-download ang Factur-X PDF",
+    "none": "Wala",
+    "dismiss": "Isara",
+    "all": "Lahat",
+    "previous": "Nakaraan",
+    "next": "Susunod",
+    "go": "Pumunta",
+    "search": "Maghanap",
+    "status": "Katayuan",
+    "total": "Kabuuan",
+    "currency": "Pera",
+    "from": "Mula",
+    "to": "Hanggang",
+    "reason": "Dahilan",
+    "history": "Kasaysayan",
+    "archive": "I-archive",
+    "restore": "Ibalik",
+    "showArchived": "Ipakita ang mga naka-archive",
+    "hideArchived": "Itago ang mga naka-archive",
+    "archived": "Naka-archive",
+    "default": "Default",
+    "setDefault": "Gawing default",
+    "revoke": "Bawiin",
+    "copy": "Kopyahin",
+    "copied": "Nakopya",
+    "active": "Aktibo",
+    "pagination": "Paghahati sa mga pahina",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "invoices": "Mga invoice",
+      "creditNotes": "Mga credit note",
+      "clients": "Mga kliyente",
+      "services": "Mga serbisyo",
+      "products": "Mga produkto",
+      "tools": "Currency"
+    },
+    "primaryNav": "Pangunahin",
+    "settings": "Mga setting",
+    "openMenu": "Buksan ang menu",
+    "more": "Higit pa",
+    "navigation": "Nabigasyon",
+    "dock": "Mabilis na nabigasyon",
+    "pagesAndAccount": "Mga pahina at account",
+    "collapseSidebar": "I-collapse ang sidebar",
+    "collapseSidebarHint": "I-collapse ang sidebar ([)",
+    "expandSidebar": "I-expand ang sidebar",
+    "expandSidebarHint": "I-expand ang sidebar ([)",
+    "theme": {
+      "label": "Tema",
+      "system": "System",
+      "light": "Maliwanag",
+      "dark": "Madilim",
+      "current": "Tema: {mode}",
+      "switchTo": "Tema: {mode}. Lumipat sa {next}"
+    },
+    "userMenu": {
+      "label": "Menu ng account ni {name}",
+      "profile": "Profile",
+      "logOut": "Mag-log out"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Tagapagpalit ng pera",
+      "title": "Tagapagpalit ng pera",
+      "description": "Magpalit sa pagitan ng mga currency na ginagamit mo sa pag-invoice gamit ang talaan ng exchange rate ng instance na ito.",
+      "amount": "Halaga",
+      "from": "Mula",
+      "to": "Patungo",
+      "flip": "Palitan ang dalawang currency",
+      "enterAmount": "Maglagay ng halaga",
+      "asOf": "Mga exchange rate hanggang {date} ({source})",
+      "sources": {
+        "bundled": "kasama sa app",
+        "live": "na-refresh online"
+      },
+      "note": "Gabay lamang ang mga rate; ang rate sa inilabas na invoice ay ang inilagay mo noong inilabas ito."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Mag-sign in",
+      "metaDescription": "Mag-sign in sa okinvo, ang self-hosted na invoicing app, gamit ang iyong identity provider o password.",
+      "title": "Mag-sign in",
+      "subtitle": "Mga account lamang na nasa allow-list ang makakapasok.",
+      "failed": "Nabigo ang pag-sign in.",
+      "noMethod": "Walang naka-configure na paraan ng pag-sign in. Magtakda ng pares ng provider tulad ng <code>AUTH_GITHUB_*</code>, o <code>AUTH_PASSWORD_SIGNIN=true</code>, sa <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Hindi pinapayagan ang account na iyon sa instance na ito, o na-deactivate na ito.",
+        "signin": "Hindi natapos ang pag-sign in. Pakisubukang muli."
+      }
+    },
+    "password": {
+      "name": "Pangalan",
+      "email": "Email",
+      "password": "Password",
+      "signingIn": "Nagsa-sign in…",
+      "createAccount": "Gumawa ng account",
+      "signIn": "Mag-sign in",
+      "haveAPassword": "May password na ako",
+      "firstTime": "Unang beses dito? Magtakda ng password",
+      "failed": "Nabigo ang pag-sign in."
+    },
+    "social": {
+      "redirecting": "Nire-redirect…",
+      "continueWith": "Magpatuloy gamit ang {provider}",
+      "failed": "Hindi masimulan ang pag-sign in."
+    },
+    "error": {
+      "metaTitle": "Error sa pag-sign in",
+      "metaDescription": "Hindi nakumpleto ang pag-sign in. Ipinapaliwanag ng pahina kung ano ang nagkamali at kung paano subukang muli.",
+      "title": "Nabigo ang pag-sign in",
+      "body": "Nagbalik ang identity provider ng <code>{value}</code>. Kung wala sa allow-list ng instance na ito ang iyong address, hilingin sa may-ari na idagdag ito.",
+      "back": "Bumalik sa pag-sign in"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Mga setting",
+      "profiles": "Mga profile",
+      "paymentMethods": "Mga paraan ng pagbabayad",
+      "templates": "Mga template",
+      "email": "Email",
+      "security": "Seguridad",
+      "users": "Mga user",
+      "data": "Data",
+      "legal": "Legal",
+      "einvoicing": "E-invoicing",
+      "account": "Account",
+      "appearance": "Hitsura",
+      "api": "API",
+      "status": "Katayuan",
+      "usage": "Paggamit"
+    },
+    "account": {
+      "metaTitle": "Account",
+      "title": "Account",
+      "description": "Ang iyong larawan, pangalan, rehiyon, wika at timezone.",
+      "photo": {
+        "title": "Larawan",
+        "description": "Ipinapakita sa sidebar at sa menu ng user."
+      },
+      "form": {
+        "title": "Account",
+        "description": "Kung paano ka lumalabas at kailan ang “ngayon”.",
+        "displayName": "Display name",
+        "signInEmail": "Email sa pag-sign in",
+        "signInEmailHint": "Ang iyong pagkakakilanlan sa instance na ito; hindi ito mae-edit dito.",
+        "timezone": "Timezone",
+        "timezoneHint": "Ang “ngayon” para sa mga petsa ng pag-isyu, petsa ng due at dashboard",
+        "regionTitle": "Rehiyon",
+        "regionDescription": "Mga default para sa mga bagong issuer profile at sa dashboard hanggang may profile na.",
+        "country": "Bansa",
+        "currency": "Pera",
+        "suggested": "Iminumungkahi para sa bansang ito:",
+        "language": "Wika",
+        "languageHint": "Ang wika ng app mismo. Ginagamit ng mga dokumento ang sariling locale ng bawat profile.",
+        "machineTranslated": "Isinalin ng makina ang wikang ito. Malugod na tinatanggap ang mga pagwawasto: <link>pagandahin ito sa GitHub</link>.",
+        "save": "I-save ang mga kagustuhan"
+      },
+      "regions": {
+        "Africa": "Africa",
+        "Americas": "Americas",
+        "Asia": "Asya",
+        "Europe": "Europa",
+        "MiddleEast": "Gitnang Silangan",
+        "Oceania": "Oceania",
+        "Constructed": "Mga likhang wika"
+      },
+      "privacy": {
+        "title": "Privacy",
+        "description": "Ang mga cookie lamang na kailangan para gumana ang okinvo ang itinatakda nito. Walang analytics, walang tracking.",
+        "cookiePolicy": "Patakaran sa cookie",
+        "showNoticeAgain": "Ipakitang muli ang abiso sa cookie"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Palitan ang larawan",
+      "addPhoto": "Magdagdag ng larawan",
+      "hint": "PNG, JPEG o WebP. Ipinapakita bilang bilog saanman; maaari mo itong i-zoom at ilipat bago i-save.",
+      "tooLarge": "Masyadong malaki ang larawang iyon.",
+      "uploadFailed": "Nabigo ang pag-upload.",
+      "choose": "Pumili ng larawan sa profile",
+      "dialogTitle": "Iposisyon ang iyong larawan",
+      "dialogDescription": "I-drag para ilipat, mag-scroll o mag-pinch para mag-zoom. Ang bilog ang nakikita ng lahat.",
+      "zoom": "Zoom",
+      "save": "I-save ang larawan"
+    },
+    "appearance": {
+      "metaTitle": "Hitsura",
+      "title": "Hitsura",
+      "description": "Tema at kulay ng accent, naka-save sa iyong account.",
+      "theme": {
+        "title": "Tema",
+        "description": "Sundin ang system, o i-pin ang maliwanag o madilim.",
+        "label": "Tema",
+        "system": "Sundin ang system",
+        "systemHint": "Nagbabago kasabay ng iyong OS",
+        "light": "Maliwanag",
+        "lightHint": "Puting canvas",
+        "dark": "Madilim",
+        "darkHint": "Halos itim na canvas"
+      },
+      "accent": {
+        "title": "Accent",
+        "description": "Ginagamit para sa pangunahing button, focus ring at marka ng aktibong pahina. Tugma ang mint sa brand mark.",
+        "label": "Kulay ng accent",
+        "customHint": "O pumili ng sarili mong kulay"
+      },
+      "accents": {
+        "mint": "Mint",
+        "lavender": "Lavender",
+        "sky": "Langit",
+        "peach": "Peach",
+        "butter": "Mantikilya",
+        "rose": "Rosas",
+        "sage": "Sage",
+        "lilac": "Lilac",
+        "custom": "Custom"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Mga issuer profile",
+      "title": "Mga issuer profile",
+      "description": "Ang mga legal na pagkakakilanlan na pinanggagalingan ng iyong singil. Ang default ang paunang pupunan sa mga bagong invoice.",
+      "breadcrumb": "Mga profile",
+      "newProfile": "Bagong profile",
+      "emptyTitle": "Wala pang issuer profile",
+      "emptyDescription": "Gawin ang pagkakakilanlang pinanggagalingan ng iyong mga invoice: isang indibidwal na may PAN, o ang iyong kumpanya.",
+      "createProfile": "Gumawa ng profile",
+      "columns": {
+        "label": "Label",
+        "legalName": "Legal na pangalan",
+        "type": "Uri",
+        "country": "Bansa",
+        "currency": "Pera",
+        "regime": "Rehimen",
+        "status": "Katayuan"
+      },
+      "types": {
+        "company": "Kumpanya",
+        "individual": "Indibidwal"
+      },
+      "makeDefaultTitle": "Gawing default ang {label}?",
+      "makeDefaultDescription": "Magsisimula ang mga bagong invoice sa profile na ito.",
+      "restoreTitle": "Ibalik ang {label}?",
+      "archiveTitle": "I-archive ang {label}?",
+      "archiveDescription": "Mawawala ito sa mga pipilian; hindi magagalaw ang mga umiiral na invoice.",
+      "new": {
+        "metaTitle": "Bagong issuer profile",
+        "title": "Bagong issuer profile",
+        "prefilled": "Pinunan mula sa iyong mga sagot; suriin ang address at mga detalye ng buwis, saka i-save."
+      },
+      "edit": {
+        "metaTitle": "I-edit ang issuer profile",
+        "template": "Template",
+        "deleteTitle": "Burahin ang {label}?",
+        "deleteDescription": "Posible lamang kung walang invoice o credit note na tumutukoy sa profile na ito. Kung hindi, i-archive ito."
+      },
+      "template": {
+        "metaTitle": "Template ng profile",
+        "title": "Template para sa {label}",
+        "ownTemplate": "Sariling template",
+        "instanceTemplate": "Template ng instance",
+        "resetTitle": "Gamitin muli ang template ng instance?",
+        "resetDescription": "Aalisin ang sariling configuration ng profile na ito; hindi maaapektuhan ang mga naisyu nang dokumento.",
+        "useInstance": "Gamitin ang template ng instance",
+        "usingInstanceTitle": "Ginagamit ang template ng instance",
+        "usingInstanceDescription": "Sinusunod ng mga dokumento ng profile na ito ang Mga setting → Mga template. Mag-opt in para i-customize ang mga ito nang hiwalay.",
+        "customise": "Gumamit ng ibang template para sa profile na ito",
+        "openInstance": "Buksan ang template ng instance"
+      },
+      "form": {
+        "identityTitle": "Pagkakakilanlan",
+        "identityDescription": "Kung kanino galing ang invoice.",
+        "type": "Uri",
+        "label": "Label",
+        "labelHint": "Ipinapakita lamang sa mga pipilian",
+        "legalName": "Legal na pangalan",
+        "tradeName": "Pangalan ng negosyo",
+        "designation": "Posisyon",
+        "email": "Email",
+        "phone": "Telepono",
+        "website": "Website",
+        "addressTitle": "Address",
+        "taxTitle": "Mga tax identifier",
+        "taxDescription": "Ang mga naaangkop lamang sa iyo; kinokontrol kada invoice ang pag-print.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "UK VAT number",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "Naka-encrypt kapag nakaimbak",
+        "lutNumber": "LUT number",
+        "lutNumberHint": "Para sa mga export na walang IGST",
+        "lutFiscalYear": "Taon ng pananalapi ng LUT",
+        "lutFiscalYearHint": "hal. 2026-27",
+        "einvoiceTitle": "E-invoicing",
+        "einvoiceDescription": "Kung paano nakikilala ng profile na ito ang sarili sa mga e-invoice; ang connector at mga credential ay nasa Mga setting > E-invoicing.",
+        "electronicAddress": "Electronic address",
+        "electronicAddressHint": "Ang Peppol o EN 16931 identifier ng issuer na ito, na inilalagay bilang electronic address ng nagbebenta.",
+        "electronicAddressScheme": "Scheme ng electronic address",
+        "electronicAddressSchemeNone": "Walang scheme",
+        "einvoiceEnabled": "Naka-enable ang e-invoicing para sa profile na ito",
+        "einvoiceEnabledHint": "Nag-aalok ng mga download ng GST e-invoice JSON, Factur-X at UBL, at ng pagrehistro ng IRN sa mga naibigay nitong dokumento.",
+        "defaultsTitle": "Mga default",
+        "baseCurrency": "Batayang pera",
+        "locale": "Locale ng dokumento",
+        "localeHint": "Pag-format ng numero at petsa sa mga dokumento",
+        "fiscalYearStart": "Nagsisimula ang taon ng pananalapi sa",
+        "months": {
+          "january": "Enero",
+          "february": "Pebrero",
+          "march": "Marso",
+          "april": "Abril",
+          "may": "Mayo",
+          "june": "Hunyo",
+          "july": "Hulyo",
+          "august": "Agosto",
+          "september": "Setyembre",
+          "october": "Oktubre",
+          "november": "Nobyembre",
+          "december": "Disyembre"
+        },
+        "taxRegime": "Default na tax regime",
+        "regimes": {
+          "indiaGst": "GST ng India",
+          "ukVat": "UK VAT",
+          "usSalesTax": "Sales tax ng US",
+          "none": "Walang buwis"
+        },
+        "invoiceNumberFormat": "Format ng numero ng invoice",
+        "invoiceNumberFormatHint": "Mga token: {tokens}",
+        "creditNoteNumberFormat": "Format ng numero ng credit note",
+        "tdsRate": "Inaasahang rate ng TDS (%)",
+        "tdsRateHint": "Pang-impormasyon lamang, ipini-print bilang inaasahang bawas",
+        "defaultNotes": "Mga default na tala",
+        "defaultTerms": "Mga default na tuntunin",
+        "printTitle": "Ano ang ipini-print bilang default",
+        "printDescription": "Kinokopya ng bawat invoice ang mga ito at maaaring baguhin nang isa-isa.",
+        "emailTitle": "Email",
+        "emailDescription": "Mga default para sa composer ng pagpapadala. Mga placeholder: {placeholders}",
+        "emailCc": "Default na CC",
+        "emailBcc": "Default na BCC",
+        "commaSeparated": "Pinaghihiwalay ng kuwit",
+        "invoiceSubject": "Paksa ng invoice",
+        "invoiceSubjectHint": "Kapag blangko, gagamitin ang built-in na template",
+        "creditNoteSubject": "Paksa ng credit note",
+        "invoiceBody": "Nilalaman ng invoice",
+        "creditNoteBody": "Nilalaman ng credit note",
+        "artworkTitle": "Artwork",
+        "artworkDescription": "PNG, JPEG o WebP hanggang 2 MB; pinapanatili ng lagda at selyo ang transparency.",
+        "logo": "Logo",
+        "signature": "Lagda",
+        "stamp": "Selyo",
+        "transparentPng": "Transparent na PNG",
+        "save": "I-save ang profile"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Mga paraan ng pagbabayad",
+      "title": "Mga paraan ng pagbabayad",
+      "description": "Kung paano ka binabayaran ng mga kliyente. Naka-encrypt ang mga detalye at ipinapako sa bawat invoice sa pag-isyu.",
+      "newMethod": "Bagong paraan",
+      "emptyTitle": "Wala pang paraan ng pagbabayad",
+      "emptyDescription": "Magdagdag ng bank account, UPI ID o wallet para masabi ng mga invoice sa mga kliyente kung saan magbabayad.",
+      "addMethod": "Magdagdag ng paraan",
+      "columns": {
+        "name": "Pangalan",
+        "type": "Uri",
+        "currency": "Pera",
+        "status": "Katayuan"
+      },
+      "types": {
+        "bankTransfer": "Bank transfer",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Custom"
+      },
+      "makeDefaultTitle": "Gawing default ang {name}?",
+      "restoreTitle": "Ibalik ang {name}?",
+      "archiveTitle": "I-archive ang {name}?",
+      "archiveDescription": "Pinapanatili ng mga naisyu nang invoice ang snapshot na ipinrint nila.",
+      "new": {
+        "metaTitle": "Bagong paraan ng pagbabayad",
+        "title": "Bagong paraan ng pagbabayad"
+      },
+      "edit": {
+        "metaTitle": "I-edit ang paraan ng pagbabayad",
+        "title": "I-edit ang {name}",
+        "deleteTitle": "Burahin ang {name}?",
+        "deleteDescription": "Posible lamang kung walang invoice o pagbabayad na tumutukoy rito. Kung hindi, i-archive ito."
+      },
+      "form": {
+        "name": "Pangalan",
+        "nameHint": "Ipini-print bilang pamagat ng bloke ng pagbabayad",
+        "type": "Uri",
+        "currency": "Pera",
+        "currencyHint": "Opsyonal; ipinapakita para sa konteksto lamang",
+        "anyCurrency": "Anuman",
+        "instructions": "Mga tagubilin",
+        "instructionsHint": "Ipini-print sa ilalim ng mga detalye",
+        "isDefault": "Default na paraan",
+        "isDefaultDescription": "Paunang napili sa mga bagong invoice",
+        "isActive": "Aktibo",
+        "detailsTitle": "Mga detalye",
+        "detailsDescription": "Naka-encrypt kapag nakaimbak; sine-snapshot sa bawat invoice kapag ito ay isinyu.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "Pangalan ng tatanggap",
+        "lines": "Mga linya",
+        "linesHint": "Isang linya kada hanay, ipini-print nang eksakto",
+        "accountEmail": "Email / handle ng account",
+        "bank": {
+          "accountHolder": "May-ari ng account",
+          "accountNumber": "Numero ng account",
+          "bankName": "Pangalan ng bangko",
+          "branch": "Sangay",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Routing / sort code"
+        },
+        "save": "I-save ang paraan ng pagbabayad"
+      }
+    },
+    "templates": {
+      "metaTitle": "Mga template ng dokumento",
+      "title": "Mga template ng dokumento",
+      "customised": "Na-customize",
+      "builtIn": "Built-in na default",
+      "description": "Kung ano ang hitsura ng mga invoice at credit note. Pinapanatili ng mga naisyu nang dokumento ang template na ginamit sa pag-isyu.",
+      "resetTitle": "Ibalik sa built-in na default?",
+      "resetDescription": "Aalisin ang iyong customization; hindi maaapektuhan ang mga naisyu nang dokumento.",
+      "reset": "I-reset",
+      "resetTrigger": "Ibalik sa mga default",
+      "importTitle": "I-import",
+      "importDescription": "Ibalik ang configuration na na-export noon.",
+      "overridesTitle": "Mga override kada profile",
+      "overridesDescription": "Maaaring mag-opt in ang isang profile sa sarili nitong template mula sa pahina ng pag-edit nito.",
+      "noOverrides": "Ginagamit ng bawat profile ang template ng instance.",
+      "import": {
+        "json": "JSON ng template",
+        "jsonHint": "I-paste ang file na ginawa ng Export JSON; babalik sa mga default ang mga nawawalang key",
+        "importing": "Nag-i-import…",
+        "submit": "I-import"
+      },
+      "form": {
+        "templateTitle": "Template",
+        "templateDescription": "Anim na built-in; ang customization sa ibaba ay naaangkop sa alinmang piliin mo.",
+        "templateGroup": "Template",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Moderno at maluwag, sans-serif, accent rule sa ilalim ng header."
+          },
+          "classic": {
+            "name": "Classic",
+            "character": "Tradisyonal na talahanayang may hangganan, serif na mga heading, may kahong kabuuan."
+          },
+          "compact": {
+            "name": "Compact",
+            "character": "Siksik na layout para sa mahahabang listahan ng item; mas maliit na letra, kaunting hati."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "Tahimik at maluwag: walang guhit o kahon, magagaan na label, maraming espasyo."
+          },
+          "letterhead": {
+            "name": "Letterhead",
+            "character": "Ang iyong logo at pangalan sa color band o larawan sa itaas ng bawat pahina."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Header na may color band; mga partido, header ng talahanayan at kabuuan sa mapusyaw na tint ng accent."
+          }
+        },
+        "paperTitle": "Papel at uri ng letra",
+        "paperSize": "Laki ng papel",
+        "paperLetter": "Letter",
+        "margins": "Mga margin",
+        "marginsNormal": "Normal",
+        "marginsNarrow": "Makitid",
+        "headingFont": "Font ng heading",
+        "bodyFont": "Font ng katawan",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "Istilo ng talahanayan",
+        "tableRuled": "May guhit",
+        "tableZebra": "Zebra",
+        "tablePlain": "Payak",
+        "accentColour": "Kulay ng accent",
+        "textColour": "Kulay ng teksto",
+        "logoPosition": "Posisyon ng logo",
+        "positionLeft": "Kaliwa",
+        "positionCentre": "Gitna",
+        "positionRight": "Kanan",
+        "logoHeight": "Taas ng logo (mm)",
+        "documentTitle": "Pamagat ng dokumento",
+        "titleAuto": "Awtomatiko (alam ang GST)",
+        "titleCustom": "Custom",
+        "titlePlaceholder": "hal. PROFORMA INVOICE",
+        "qrPosition": "Posisyon ng QR",
+        "qrFooter": "Footer",
+        "qrHeader": "Header",
+        "qrBesideTotals": "Katabi ng mga kabuuan",
+        "amountInWords": "Halaga sa salita",
+        "wordsBelowTotal": "Sa ilalim ng mga kabuuan",
+        "wordsFooter": "Footer",
+        "wordsHidden": "Nakatago",
+        "subtotalRow": "Hanay ng subtotal",
+        "discountRow": "Hanay ng diskwento",
+        "taxLines": "Mga linya ng buwis",
+        "tdsExpected": "Inaasahang TDS",
+        "roundingRow": "Hanay ng pag-round",
+        "pageNumbers": "Mga numero ng pahina",
+        "headerTitle": "Header",
+        "headerDescription": "Isang color band o larawan sa itaas ng bawat pahina. Nagpapakita ng band ang Letterhead at Modern maliban kung iba ang piliin mo.",
+        "headerStyle": "Istilo ng header",
+        "headerNone": "Wala",
+        "headerBand": "Color band",
+        "headerImage": "Larawan",
+        "bandColour": "Kulay ng band",
+        "bandColourHex": "Kulay ng band (hex)",
+        "headerImageLabel": "Larawan ng header",
+        "headerImageHint": "PNG, JPEG o WebP hanggang 2400 px ang lapad; sumasaklaw ito sa buong lapad ng pahina.",
+        "imageOpacity": "Opacity ng larawan",
+        "headerHeight": "Taas ng header (mm)",
+        "bandText": "Teksto sa band",
+        "bandTextAuto": "Awtomatiko (mula sa kulay ng band)",
+        "bandTextLight": "Maliwanag",
+        "bandTextDark": "Madilim",
+        "textTitle": "Teksto",
+        "headerNote": "Tala sa header",
+        "footer": "Footer",
+        "signatureCaption": "Caption ng lagda",
+        "draftWatermark": "Watermark ng draft",
+        "labelsTitle": "Mga label",
+        "labelsDescription": "Iwanang blangko ang isang field para panatilihin ang default na pananalita.",
+        "save": "I-save ang template",
+        "downloadSample": "I-download ang sample na PDF",
+        "exportJson": "I-export ang JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Email",
+      "title": "Email",
+      "configuredSettings": "Naka-configure sa Mga setting",
+      "configuredEnv": "Naka-configure ng environment",
+      "notConfigured": "Hindi naka-configure: daloy ng mail app",
+      "description": "Ipinapadala ang mga dokumento mula sa composer na may nakalakip na naka-store na PDF. Pinapalitan ng mga setting dito ang SMTP_* sa environment.",
+      "sendTest": "Magpadala ng test email sa {email}",
+      "removeTitle": "Alisin ang mga naka-store na setting ng SMTP?",
+      "removeEnvTakesOver": "Hahalili ang mga halaga ng SMTP_* ng environment.",
+      "removeFallsBack": "Babalik ang email sa daloy ng mail app.",
+      "removeTrigger": "Alisin ang mga naka-store na setting",
+      "smtpTitle": "SMTP server",
+      "smtpFromEnv": "Kasalukuyang kinukuha mula sa environment; papalitan ito ng pag-save dito.",
+      "smtpPasswordNote": "Naka-encrypt ang password kapag nakaimbak at hindi na muling ipapakita.",
+      "defaultsTitle": "Mga default na tatanggap",
+      "defaultsDescription": "CC/BCC para sa buong instance; nagdaragdag ng sarili nila ang mga issuer profile.",
+      "sentTitle": "Mga naipadalang mail",
+      "sentDescription": "Ang huling 50 pagtatangka, kabilang ang mga nabigo at manu-manong pagpapadala.",
+      "smtp": {
+        "host": "Host",
+        "port": "Port",
+        "security": "Seguridad",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Wala (LAN relay)",
+        "user": "Username",
+        "password": "Password",
+        "passwordStored": "Naka-store at naka-encrypt; iwanang blangko para panatilihin",
+        "passwordEncrypted": "Naka-encrypt kapag nakaimbak",
+        "from": "Address ng nagpadala",
+        "fromName": "Pangalan ng nagpadala",
+        "replyTo": "Reply-to",
+        "save": "I-save ang mga setting ng SMTP"
+      },
+      "defaults": {
+        "cc": "Default na CC",
+        "ccHint": "Idinadagdag sa bawat composer; pinaghihiwalay ng kuwit",
+        "bcc": "Default na BCC",
+        "save": "I-save ang mga default"
+      }
+    },
+    "security": {
+      "metaTitle": "Seguridad",
+      "title": "Seguridad",
+      "description": "Kung saan ka naka-sign in, at lahat ng nagbago.",
+      "sessions": {
+        "title": "Mga aktibong session",
+        "description": "Agad na isa-sign out ang device kapag binawi ang isang session.",
+        "signOutOthers": {
+          "title": "Mag-sign out sa lahat ng iba pa?",
+          "description": "Babawiin ang lahat ng session maliban sa isang ito.",
+          "confirm": "I-sign out ang iba",
+          "trigger": "Mag-sign out sa lahat ng iba pa"
+        },
+        "columns": {
+          "device": "Device",
+          "ipAddress": "IP address",
+          "signedIn": "Nag-sign in",
+          "lastSeen": "Huling aktibo",
+          "expires": "Mag-e-expire"
+        },
+        "thisDevice": "Ang device na ito",
+        "revokeTitle": "Bawiin ang session na ito?",
+        "unknownDevice": "Hindi kilalang device",
+        "unknownBrowser": "Hindi kilala",
+        "agentOnOs": "{browser} sa {os}"
+      },
+      "audit": {
+        "title": "Audit log",
+        "count": "{count, plural, one {# event} other {# event}}",
+        "entity": "Entity",
+        "actionContains": "May laman ang aksyon na",
+        "filter": "I-filter",
+        "reset": "I-reset",
+        "columns": {
+          "when": "Kailan",
+          "who": "Sino",
+          "action": "Aksyon",
+          "entity": "Entity",
+          "summary": "Buod"
+        },
+        "empty": "Walang event na tumutugma sa mga filter na ito.",
+        "system": "System",
+        "changes": "Mga pagbabago",
+        "page": "Pahina {page} ng {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Mga user",
+      "title": "Mga user",
+      "description": "Sino ang maaaring mag-sign in sa instance na ito at kung ano ang magagawa nila.",
+      "roles": {
+        "owner": "May-ari",
+        "editor": "Editor",
+        "viewer": "Tagatingin"
+      },
+      "roleHints": {
+        "owner": "Lahat, kabilang ang mga setting at miyembro",
+        "editor": "Mga kliyente, katalogo, invoice, credit note, pagbabayad, email",
+        "viewer": "Basahin lamang"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Tungkulin ni {email}",
+      "invite": {
+        "title": "Mag-imbita ng tao",
+        "description": "Mag-sign in sila gamit ang inimbitahang address (identity provider o password) at makukuha nila ang tungkuling pipiliin mo.",
+        "sent": "Naipadala sa email ang imbitasyon kay {email}.",
+        "readyWithError": "Handa na ang imbitasyon para kay {email}. Hindi naipadala ang email ({error}); ipadala sa kanila ang link na ito:",
+        "readyNoSmtp": "Handa na ang imbitasyon para kay {email}. Walang naka-configure na SMTP; ipadala sa kanila ang link na ito:",
+        "copyLink": "Kopyahin ang link",
+        "email": "Email",
+        "emailPlaceholder": "tao@example.com",
+        "role": "Tungkulin",
+        "submit": "Imbitahan",
+        "inviting": "Nag-iimbita…"
+      },
+      "members": {
+        "title": "Mga miyembro",
+        "description": "Palaging may natitirang kahit isang aktibong may-ari.",
+        "columns": {
+          "person": "Tao",
+          "role": "Tungkulin",
+          "lastSignIn": "Huling pag-sign in",
+          "status": "Katayuan"
+        },
+        "nameYou": "{name} (ikaw)",
+        "deactivated": "Na-deactivate",
+        "reactivate": {
+          "title": "I-reactivate si {email}?",
+          "description": "Makakapag-sign in silang muli gamit ang dati nilang tungkulin.",
+          "confirm": "I-reactivate"
+        },
+        "deactivate": {
+          "title": "I-deactivate si {email}?",
+          "description": "Magtatapos ngayon ang lahat ng session at hindi sila makakapag-sign in hangga't hindi nire-reactivate. Mananatili ang kanilang kasaysayan.",
+          "confirm": "I-deactivate"
+        }
+      },
+      "invitations": {
+        "title": "Mga nakabinbing imbitasyon",
+        "description": "Mga address na maaaring mag-sign in ngunit hindi pa nakakapag-sign in.",
+        "columns": {
+          "email": "Email",
+          "role": "Tungkulin",
+          "invited": "Inimbitahan"
+        },
+        "empty": "Walang nakabinbing imbitasyon.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Bawiin ang imbitasyon para kay {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Data",
+      "title": "Data",
+      "description": "Lahat ay madadala: mga dataset bilang CSV o Excel, buong snapshot para sa migration, mga PDF para sa iyong accountant, at nasubukang routine ng backup.",
+      "period": {
+        "fiscalYear": "Taon ng pananalapi",
+        "fiscalYearHint": "Pinapalitan ang mga petsa",
+        "issuer": "Issuer"
+      },
+      "exportAll": {
+        "title": "I-export ang lahat ng data",
+        "description": "Isang ZIP na may bawat dataset bilang CSV kasama ang <mono>data.json</mono>, isang relational snapshot ng lahat ng talahanayan. Hindi kasama ang mga naka-encrypt na field (mga detalye ng paraan ng pagbabayad, password ng SMTP); nakalista ang mga ito sa README sa loob.",
+        "download": "I-download ang okinvo-data ZIP"
+      },
+      "exportDocuments": {
+        "title": "I-export ang mga dokumento",
+        "description": "Bawat PDF ng naisyu at na-void na invoice at credit note sa isang panahon, pinangalanan ayon sa numero, na may <mono>index.csv</mono> ng mga numero, kabuuan at hash. Ginagawa sa daan ang mga nawawalang PDF.",
+        "docx": "Isama rin ang kopyang DOCX ng bawat dokumento",
+        "facturx": "Isama rin ang kopyang Factur-X PDF/A-3 na may nakapaloob na EN 16931 XML",
+        "download": "I-download ang ZIP ng mga dokumento"
+      },
+      "datasets": {
+        "title": "Mga dataset",
+        "description": "Ang mga parehong export na iniaalok ng mga index page, na may panahon at issuer na inilalapat sa lahat. Gumagamit ng saklaw ng petsa ang mga pagbabayad; hindi pinapansin ng mga kliyente at serbisyo ang panahon.",
+        "columns": {
+          "dataset": "Dataset",
+          "filters": "Mga inilapat na filter",
+          "download": "I-download"
+        },
+        "names": {
+          "invoices": "Rehistro ng mga invoice",
+          "invoiceItems": "Mga linya ng invoice",
+          "payments": "Ledger ng mga pagbabayad",
+          "creditNotes": "Rehistro ng mga credit note",
+          "clients": "Mga kliyente",
+          "services": "Mga serbisyo",
+          "gstSummary": "Buod ng GST",
+          "tdsSummary": "Buod ng TDS"
+        },
+        "filters": {
+          "periodIssuer": "panahon, issuer",
+          "dateRangeIssuer": "saklaw ng petsa, issuer",
+          "includesArchived": "kasama ang mga naka-archive"
+        }
+      },
+      "backups": {
+        "title": "Mga backup",
+        "notWired": "Walang nakakabit na serbisyo ng backup",
+        "noRun": "Wala pang naipatakbong backup",
+        "lastOk": "Matagumpay ang huling backup",
+        "lastFailed": "Nabigo ang huling backup",
+        "description": "Ang serbisyong Compose na <mono>backup</mono> ay nagda-dump ng Postgres at nag-a-archive ng storage volume ayon sa <mono>BACKUP_CRON</mono>, nagtatabi ng <mono>BACKUP_RETENTION_DAYS</mono> na kasaysayan sa volume na <mono>backups</mono>, at sumusulat ng status file na binabasa ng pahinang ito.",
+        "finished": "Natapos",
+        "databaseDump": "Dump ng database",
+        "storageArchive": "Archive ng storage",
+        "size": "Laki",
+        "sizeMb": "{size} MB",
+        "error": "Error",
+        "runNow": "Magpatakbo ng isa ngayon, o ibalik mula sa isang pares ng file:",
+        "restoreDrill": "Sinusubok sa CI ang pamamaraan ng pagbabalik gamit ang <mono>scripts/restore-drill.sh</mono>: seed, backup, burahin, ibalik, saka ihambing ang bilang ng row at isang PDF hash."
+      }
+    },
+    "legal": {
+      "metaTitle": "Legal",
+      "metaDescription": "Sino ang nagpapatakbo ng instance na ito: ang mga detalyeng ipini-print sa mga pampublikong legal na pahina.",
+      "title": "Legal",
+      "description": "Ipini-print ng mga pampublikong legal na pahina ang mga detalyeng ito. Hangga't hindi napupunan ang bawat field, nagpapakita ang mga pahina ng naka-highlight na placeholder.",
+      "operator": {
+        "title": "Mga detalye ng operator",
+        "complete": "Kumpleto",
+        "missing": "{count} ang kulang: {fields}",
+        "description": "Ikaw, bilang tao o kumpanyang nagpapatakbo ng instance na ito, ang operator na tinutukoy ng mga dokumento. Walang ipinapadala saanman dito; ipini-print ito sa mga pahina sa ibaba."
+      },
+      "fieldLabels": {
+        "legalName": "Legal na pangalan ng operator",
+        "entityType": "Uri ng entity",
+        "address": "Address ng operator",
+        "country": "Bansa ng operator",
+        "contactEmail": "Email para sa contact",
+        "privacyEmail": "Email para sa privacy",
+        "dpoEmail": "Email ng data protection officer",
+        "governingLaw": "Batas na umiiral",
+        "venue": "Lugar ng paglilitis",
+        "effectiveDate": "Petsa ng pagsisimula"
+      },
+      "publicPages": {
+        "title": "Mga pampublikong pahina",
+        "description": "Naka-link mula sa pahina ng pag-sign in, viewer ng pagbabahagi at abiso sa cookie.",
+        "terms": "Mga Tuntunin ng Serbisyo",
+        "acceptableUse": "Patakaran sa Katanggap-tanggap na Paggamit",
+        "privacy": "Patakaran sa Privacy",
+        "cookies": "Patakaran sa Cookie",
+        "dataRetention": "Pagpapanatili ng data",
+        "security": "Seguridad",
+        "licenses": "Mga lisensya at abiso ng third-party"
+      },
+      "form": {
+        "legalName": "Legal na pangalan",
+        "entityType": "Uri ng entity",
+        "individual": "Indibidwal / sole proprietor",
+        "company": "Kumpanya / rehistradong entity",
+        "address": "Address",
+        "addressHint": "Ipini-print sa Mga Tuntunin at Patakaran sa Privacy bilang postal address ng operator.",
+        "country": "Bansa",
+        "effectiveDate": "Petsa ng pagsisimula",
+        "contactEmail": "Email para sa contact",
+        "privacyEmail": "Email para sa privacy",
+        "privacyEmailHint": "Kung saan ipinapadala ang mga kahilingan ng data subject; maaaring ang address para sa contact.",
+        "dpoEmail": "Email ng data protection officer",
+        "dpoEmailHint": "Kung may itinalaga ka lamang.",
+        "governingLaw": "Batas na umiiral",
+        "governingLawHint": "Halimbawa, “ang mga batas ng India” o “ang mga batas ng England at Wales”.",
+        "venue": "Lugar ng paglilitis",
+        "venueHint": "Halimbawa, “ang mga hukuman ng Bengaluru, Karnataka”.",
+        "submit": "I-save ang mga detalye ng operator"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-invoicing",
+      "title": "E-invoicing",
+      "description": "Kada issuer profile: kung aling connector ang nagrerehistro ng mga e-invoice ng India, at kung aling European profile ang sinusunod ng mga output ng Factur-X at UBL. Naka-encrypt ang pag-iimbak ng mga credential at hindi na muling ipapakita.",
+      "noProfiles": "Gumawa muna ng issuer profile.",
+      "profile": "Issuer profile",
+      "enabled": "Naka-enable",
+      "disabled": "Naka-disable",
+      "enabledHint": "I-on o i-off ang e-invoicing kada profile sa Mga setting > Mga profile.",
+      "india": {
+        "title": "India (GST e-invoice, IRN)",
+        "description": "Ang IRN ay nirerehistro sa pamamagitan ng connector na pinili rito; ang manual connector ay tumatanggap ng tugon ng portal nang mano-mano.",
+        "connector": "Connector",
+        "connectorNone": "Naka-off",
+        "connectorManual": "Manual (i-paste ang tugon ng IRP)",
+        "connectorNic": "NIC IRP API (sandbox o production)",
+        "nicUnverified": "Sinusunod ng NIC connector ang nailathalang API at nasubok lamang sa mga naitalang fixture; hindi pa ito napatutunayan sa live na sandbox hanggang makapagbigay ng mga credential.",
+        "env": "Environment",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "Base URL",
+        "baseUrlHint": "Iwanang blangko para sa default ng environment.",
+        "clientId": "Client id",
+        "clientSecret": "Client secret",
+        "username": "Username",
+        "password": "Password",
+        "gstin": "GSTIN",
+        "publicKey": "Pampublikong key ng IRP (PEM)",
+        "publicKeyHint": "I-download ito mula sa portal pagkatapos mag-sign in; binabalot nito ang mga kredensyal na ipinapadala sa IRP.",
+        "publicKeyStored": "Naka-store; iwanang blangko para panatilihin ito.",
+        "secretStored": "Naka-encrypt ang pagkakaimbak; iwanang blangko para panatilihin ito.",
+        "secretEncrypted": "Naka-encrypt ang pagkakaimbak."
+      },
+      "eu": {
+        "title": "Europe (Factur-X, UBL)",
+        "description": "Ang EN 16931 lamang ang profile sa bersyong ito; ito ang ginagamit ng mga download ng Factur-X at UBL.",
+        "profile": "Profile",
+        "profileNone": "Naka-off",
+        "en16931": "EN 16931"
+      },
+      "save": "I-save ang mga setting ng e-invoicing"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Mga API key para sa mga script, sa SDK at sa mga MCP client, na may mga halimbawa ng curl.",
+      "title": "API",
+      "description": "Mga key para sa mga script, sa SDK at sa mga MCP client. Hanggang sa kaya lamang ng iyong tungkulin ang magagawa ng isang key; isang beses lamang ito ipinapakita.",
+      "create": {
+        "title": "Gumawa ng key",
+        "description": "Ipadala ito bilang <mono>Authorization: Bearer okv_…</mono>. Ilayo ito sa source code at chat log; bawiin ito sa ibaba kung tumagas."
+      },
+      "keys": {
+        "title": "Mga key",
+        "descriptionOwner": "Lahat ng key ng instance na ito; maaaring bawiin ng mga may-ari ang alinman.",
+        "descriptionOwn": "Ang iyong mga key.",
+        "columns": {
+          "name": "Pangalan",
+          "prefix": "Prefix",
+          "scopes": "Mga scope",
+          "owner": "May-ari",
+          "lastUsed": "Huling ginamit",
+          "expires": "Mag-e-expire",
+          "status": "Katayuan"
+        },
+        "empty": "Wala pang API key.",
+        "never": "hindi kailanman",
+        "revoked": "Binawi",
+        "expired": "Nag-expire",
+        "revokeTitle": "Bawiin ang {name}?",
+        "revokeDescription": "Agad na titigil sa paggana ang mga client na gumagamit ng key na ito.",
+        "activeCount": "{count, plural, one {# aktibong key.} other {# aktibong key.}}"
+      },
+      "examples": {
+        "title": "Mga halimbawa",
+        "description": "Palitan ang <mono>$OKINVO_KEY</mono> ng isang key. Darating ang may bersyong REST API, ang OpenAPI document nito (<mono>/api/openapi.json</mono>), ang TypeScript SDK at ang MCP server kasama ng mga susunod na gawain ng plano ng v1.1; gumagana na ngayon ang status endpoint.",
+        "rateLimit": "Sinasagot ng 429 na may <mono>Retry-After</mono> header ang mga tawag na lampas sa limitasyon (120 kahilingan kada minuto kada key). Nililimitahan ng kasalukuyang tungkulin ng may-ari ang mga scope ng isang key."
+      },
+      "form": {
+        "copyKey": "Kopyahin ang API key",
+        "name": "Pangalan",
+        "namePlaceholder": "hal. script sa accounting",
+        "expires": "Mag-e-expire",
+        "in30Days": "Sa loob ng 30 araw",
+        "in90Days": "Sa loob ng 90 araw",
+        "inAYear": "Sa loob ng isang taon",
+        "never": "Hindi kailanman",
+        "scopes": "Mga scope",
+        "submit": "Gumawa ng API key",
+        "creating": "Gumagawa…"
+      },
+      "scopes": {
+        "invoicesRead": "Basahin ang mga invoice",
+        "invoicesCreate": "Gumawa at mag-isyu ng mga invoice",
+        "creditNotesRead": "Basahin ang mga credit note",
+        "creditNotesCreate": "Gumawa at mag-isyu ng mga credit note",
+        "catalogueRead": "Basahin ang mga kliyente, serbisyo at produkto",
+        "documentsRead": "I-download ang mga naka-store na PDF at kopyang DOCX",
+        "statusRead": "Basahin ang status ng instance"
+      }
+    },
+    "status": {
+      "metaTitle": "Katayuan",
+      "metaDescription": "Bersyon, database, storage, email at kalusugan ng backup ng instance na ito.",
+      "title": "Katayuan",
+      "description": "Ano ang pinapatakbo ng instance na ito at kung tumutugon ang mga bahagi nito.",
+      "recheck": "Suriin muli",
+      "health": {
+        "ok": "OK",
+        "warning": "Babala",
+        "failed": "Nabigo",
+        "na": "Hindi naka-configure"
+      },
+      "overall": {
+        "ok": "Maayos ang lahat",
+        "degraded": "Bumaba ang kalidad",
+        "failed": "Nabigo"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(hindi alam ang sha)}} · binuo {built} · Node <mono>{node}</mono> · tumatakbo nang {uptime} · sinuri {checked}",
+      "dateUnknown": "(hindi alam ang petsa)",
+      "uptime": {
+        "days": "{d}a {h}o {m}m",
+        "hours": "{h}o {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Database",
+        "storage": "Storage",
+        "rateLimiting": "Rate limiting",
+        "email": "Email",
+        "backups": "Mga backup"
+      },
+      "db": {
+        "detail": "{latency} ms · huling migration <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # hindi pa tapos na migration}}",
+        "noMigration": "wala"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · pagsulat, pagbasa at pagbura ng probe object sa loob ng {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> store {store, select, memory {(isang replica)} other {(nakabahagi sa mga replica)}}",
+      "smtp": {
+        "configured": "SMTP mula sa {source, select, settings {the settings page} env {the environment} other {}} · huling test {lastTest} · huling 24 oras: {sent} naipadala, {failed} nabigo",
+        "none": "Walang SMTP server; nag-aalok ang composer ng “Buksan sa mail app”. <link>I-configure</link>"
+      },
+      "backups": {
+        "notWired": "Walang nakakabit na serbisyo ng backup (hindi nakatakda ang BACKUP_STATUS_FILE).",
+        "noRun": "Nakakabit ang serbisyo ng backup; wala pang naitalang pagtakbo.",
+        "ok": "Matagumpay ang huling pagtakbo noong {finishedAt}{days, plural, =0 {} one { · retention na # araw} other { · retention na # araw}}",
+        "failed": "Nabigo ang huling pagtakbo: {error} noong {finishedAt}{days, plural, =0 {} one { · retention na # araw} other { · retention na # araw}}"
+      },
+      "footer": "Makukuha ang parehong ulat bilang JSON sa <mono>/api/health/status</mono> para sa monitoring (naka-sign in na session o API key)."
+    },
+    "usage": {
+      "metaTitle": "Paggamit",
+      "metaDescription": "Mga page view kada screen at araw sa instance na ito, binibilang nang lokal.",
+      "title": "Paggamit",
+      "description": "Gaano kadalas binuksan ang bawat screen, binibilang sa instance na ito lamang: walang cookie, walang address, walang ipinapadala kahit saan.",
+      "last30Days": "Huling 30 araw",
+      "total": "{count, plural, =0 {Walang page view} one {# page view} other {# page view}}",
+      "off": "Naka-off ang pagbibilang. Itakda ang ANALYTICS_LOCAL=true para bilangin ang mga page view sa instance na ito.",
+      "empty": "Wala pang naitalang page view.",
+      "columns": {
+        "day": "Araw",
+        "path": "Screen",
+        "views": "Mga view"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Maligayang pagdating",
+    "progress": "Progreso",
+    "steps": {
+      "aboutYou": "Tungkol sa iyo",
+      "howYouUse": "Paano mo ito gagamitin",
+      "allSet": "Handa na"
+    },
+    "step1": {
+      "title": "Ipakilala ang iyong sarili",
+      "subtitle": "Dito itinatakda ang iyong mga default; mababago ang bawat halaga mamaya sa Mga setting.",
+      "name": "Pangalan",
+      "email": "Email",
+      "emailHint": "Ang iyong pagkakakilanlan sa pag-sign in. Mababago ito mula sa Mga setting → Seguridad mamaya.",
+      "country": "Bansa",
+      "currency": "Piniling pera",
+      "currencyHint": "Ginagamit para sa mga bagong profile at sa dashboard hanggang may profile na."
+    },
+    "step2": {
+      "title": "Paano mo gagamitin ang okinvo?",
+      "subtitle": "Mga default lamang ang nagbabago; walang nakakulong.",
+      "usage": "Paggamit",
+      "personal": "Personal na pag-i-invoice",
+      "personalHint": "Freelance na trabaho sa sarili mong pangalan",
+      "business": "Pag-i-invoice ng negosyo",
+      "businessHint": "Mga invoice mula sa rehistradong negosyo",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "VAT number",
+        "other": "Numero ng pagpaparehistro sa buwis"
+      },
+      "taxQuestion": {
+        "IN": "Mayroon ka bang GSTIN?",
+        "GB": "Rehistrado ka ba sa VAT?",
+        "other": "Mayroon ka bang numero ng pagpaparehistro sa buwis na ipi-print sa mga invoice?"
+      }
+    },
+    "step3": {
+      "title": "Handa ka na",
+      "body": "Susunod, gawin ang iyong unang issuer profile: ang pangalan, address at mga detalye ng buwis na ipini-print sa iyong mga invoice. Pinunan namin ang sinabi mo sa amin.",
+      "go": "Pumunta sa mga profile",
+      "opening": "Binubuksan…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Mga Tuntunin",
+      "privacy": "Privacy",
+      "cookies": "Mga cookie",
+      "security": "Seguridad"
+    },
+    "cookieNotice": {
+      "label": "Abiso sa cookie",
+      "body": "Mahigpit na kinakailangang cookie lamang ang ginagamit namin: ang iyong session at mga kagustuhan sa display. Walang analytics, walang tracking.",
+      "policy": "Patakaran sa cookie",
+      "gotIt": "Naiintindihan ko"
+    },
+    "nav": {
+      "label": "Legal",
+      "cookies": "Mga cookie",
+      "privacy": "Privacy",
+      "terms": "Mga Tuntunin",
+      "acceptableUse": "Katanggap-tanggap na paggamit",
+      "retention": "Pagpapanatili",
+      "security": "Seguridad",
+      "licences": "Mga lisensya"
+    },
+    "operatorNotice": "Ang okinvo ay self-hosted na software; responsable ang operator ng instance na ito sa paggamit nito.",
+    "doc": {
+      "effectiveOn": "Epektibo <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Mga nilalaman"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Legal na pangalan ng operator",
+        "entityType": "Uri ng entity",
+        "address": "Address ng operator",
+        "country": "Bansa ng operator",
+        "contactEmail": "Email para sa contact",
+        "privacyEmail": "Email para sa privacy",
+        "dpoEmail": "Email ng data protection officer",
+        "governingLaw": "Batas na umiiral",
+        "venue": "Lugar ng paglilitis",
+        "effectiveDate": "Petsa ng pagsisimula"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Hindi natagpuan",
+      "title": "Walang laman ang address na ito",
+      "body": "Maaaring luma na ang link, o hindi kailanman naisyu ang dokumentong tinuturo nito."
+    },
+    "forbidden": {
+      "metaTitle": "Hindi pinapayagan",
+      "title": "Hindi ito magagawa ng account na ito",
+      "body": "Hindi ito pinapayagan ng iyong tungkulin. Humingi ng access sa isang may-ari, o mag-sign in gamit ang account na mayroon nito."
+    },
+    "error": {
+      "title": "May nangyaring mali",
+      "body": "Walang binago ang kahilingang ito. Subukang muli; kung patuloy itong nangyayari, nasa log ng server ang mga detalye.",
+      "digest": "error {digest}",
+      "generic": "error"
+    },
+    "appNotFound": {
+      "title": "Hindi natagpuan",
+      "body": "Hindi umiiral ang record na ito, o nabura ito habang tinitingnan mo.",
+      "back": "Bumalik sa dashboard"
+    },
+    "validation": {
+      "required": "kinakailangan",
+      "tooLong": "hanggang {max} karakter lamang",
+      "invalidEmail": "dapat ay wastong email",
+      "invalidDate": "dapat ay petsa sa kalendaryo sa anyong YYYY-MM-DD",
+      "invalidAmount": "dapat ay numero",
+      "wholeNumber": "dapat ay buong numero",
+      "greaterThanZero": "dapat ay higit sa zero",
+      "fixFields": "Pakitama ang mga naka-highlight na field.",
+      "charset": "Mga karaniwang karakter lamang ng keyboard ang pinapayagan."
+    }
+  },
+  "verify": {
+    "metaTitle": "I-verify ang dokumento",
+    "metaDescription": "Tiyaking ang invoice o credit note ay inilabas ng nagpadala nito at hindi binago.",
+    "heading": "Pag-verify ng dokumento",
+    "rateLimited": "Masyadong maraming pagsusuri mula sa address na ito. Pakisubukang muli pagkalipas ng isang minuto.",
+    "notFound": {
+      "title": "Walang ganoong dokumento",
+      "body": "Hindi tumutugma ang link na ito sa anumang naisyung dokumento. Suriin ang QR code o ang link na ibinigay sa iyo, o makipag-ugnayan sa issuer."
+    },
+    "status": {
+      "void": "Void",
+      "valid": "Balido"
+    },
+    "issuedBy": "Inisyu ni/ng",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Inisyu para kay/sa",
+    "issueDate": "Petsa ng pag-isyu",
+    "total": "Kabuuan",
+    "voided": "Na-void ng issuer ang dokumentong ito at hindi na ito balido.",
+    "storedCopies": {
+      "title": "Mga naka-store na kopya",
+      "description": "SHA-256 ng bawat bersyon ng PDF na hawak ng issuer. Piliin ang iyong kopya para ihambing ito sa iyong browser: walang ina-upload.",
+      "empty": "Wala pang nagawang PDF.",
+      "protectedVersion": "Kopyang protektado ng password {version}",
+      "version": "Bersyon {version}"
+    },
+    "check": {
+      "label": "Suriin ang iyong kopya",
+      "hashing": "Nagha-hash…",
+      "match": "Eksaktong tumutugma ang iyong kopya sa bersyon {version}.",
+      "mismatch": "Hindi tumutugma ang iyong kopya sa alinmang naka-store na bersyon."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Ibinahaging dokumento",
+      "metaDescription": "Isang dokumentong ibinahagi sa iyo: tingnan ito online at i-download ang PDF.",
+      "rateLimited": "Masyadong maraming kahilingan mula sa address na ito. Pakisubukang muli pagkalipas ng isang minuto.",
+      "unavailable": {
+        "title": "Hindi available ang link na ito",
+        "body": "Maaaring nag-expire na ito o binawi ng issuer. Humingi sa kanila ng bago."
+      },
+      "lockedTitleInvoice": "Invoice mula kay/sa {issuer}",
+      "lockedTitleCreditNote": "Credit note mula kay/sa {issuer}",
+      "lockedBody": "Protektado ng password ang dokumentong ito. Ilagay ang password na ibinigay ng issuer.",
+      "void": "Void",
+      "protectedPdf": "Nabubuksan ang PDF gamit ang parehong password. Maaari itong basahin at i-print; naka-lock ang pagkopya at pag-edit.",
+      "byline": "Mula kay/sa {issuer} para kay/sa {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Password",
+      "limited": "Masyadong maraming pagtatangka. Mangyaring maghintay ng labinlimang minuto at subukang muli.",
+      "wrong": "Mali ang password na iyon.",
+      "submit": "Buksan ang dokumento"
+    },
+    "dialog": {
+      "trigger": "Ibahagi",
+      "title": "Ibahagi ang dokumentong ito",
+      "description": "Sinumang may link ay maaaring tumingin at mag-download nito hanggang mag-expire ito o bawiin mo. Pinoprotektahan din ng password ang mismong PDF: nabubuksan ito gamit ang password at maaaring basahin at i-print, hindi i-edit o kopyahin.",
+      "link": "Link",
+      "copyLink": "Kopyahin ang link",
+      "password": "Password",
+      "copyPassword": "Kopyahin ang password",
+      "sendSeparately": "Ipadala ang password nang hiwalay sa link. Makikita mo itong muli sa listahan sa ibaba.",
+      "copy": "Kopyahin",
+      "copied": "Nakopya",
+      "expires": "Mag-e-expire",
+      "expiry": {
+        "d7": "Sa loob ng 7 araw",
+        "d30": "Sa loob ng 30 araw",
+        "d90": "Sa loob ng 90 araw",
+        "never": "Hindi kailanman"
+      },
+      "protection": "Proteksyon",
+      "protectionOptions": {
+        "auto": "Password: gumawa ng passphrase",
+        "manual": "Password: pumili ng sarili ko",
+        "none": "Walang password (bukas na link)"
+      },
+      "passwordHint": "Hindi bababa sa 8 karakter.",
+      "strength": "Lakas: {label}",
+      "strengthLabels": {
+        "veryWeak": "napakahina",
+        "weak": "mahina",
+        "fair": "katamtaman",
+        "good": "mahusay",
+        "strong": "malakas"
+      },
+      "creating": "Gumagawa…",
+      "create": "Gumawa ng link",
+      "activeLinks": "Mga aktibong link",
+      "passwordProtected": "Protektado ng password",
+      "openLink": "Buksan ang link",
+      "linkExpires": "{kind} · mag-e-expire sa {date}",
+      "linkNeverExpires": "{kind} · hindi nag-e-expire",
+      "revoke": {
+        "title": "Bawiin ang link na ito?",
+        "description": "Agad na titigil sa paggana ang link para sa lahat ng may hawak nito.",
+        "label": "Bawiin"
+      },
+      "linkPassword": "Password: <code>{password}</code>",
+      "counts": "{views, plural, one {# view} other {# view}} · {downloads, plural, one {# download} other {# download}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Mga credit note",
+      "title": "Mga credit note",
+      "description": "Ginagawa laban sa mga naisyung invoice; binabawasan ng bawat isa ang balanse ng invoice nito kapag naisyu.",
+      "newCreditNote": "Bagong credit note",
+      "filters": {
+        "from": "Mula",
+        "to": "Hanggang",
+        "issuer": "Issuer",
+        "client": "Kliyente",
+        "status": "Katayuan",
+        "search": "Maghanap",
+        "all": "Lahat",
+        "searchPlaceholder": "Numero, dahilan, kliyente",
+        "go": "Pumunta"
+      },
+      "statuses": {
+        "DRAFT": "Draft",
+        "ISSUED": "Naisyu",
+        "SENT": "Naipadala",
+        "VOID": "Void"
+      },
+      "empty": {
+        "title": "Wala pang credit note",
+        "description": "Magbukas ng naisyung invoice at piliin ang “Credit note” para bawasan ang utang nito."
+      },
+      "noMatch": "Walang credit note na tumutugma sa mga filter na ito.",
+      "columns": {
+        "number": "Numero",
+        "against": "Laban sa",
+        "client": "Kliyente",
+        "issueDate": "Petsa ng pag-isyu",
+        "reason": "Dahilan",
+        "total": "Kabuuan",
+        "status": "Katayuan"
+      },
+      "draft": "Draft"
+    },
+    "new": {
+      "metaTitle": "Bagong credit note",
+      "title": "Bagong credit note",
+      "description": "Ang credit note ay ginagawa laban sa naisyung invoice at binabawasan ang balanse nito.",
+      "nothingToCredit": {
+        "title": "Walang ika-credit",
+        "description": "Kailangan ng credit note ng naisyung invoice na may natitirang balanse.",
+        "openInvoices": "Buksan ang mga invoice"
+      },
+      "whichInvoice": "Aling invoice?",
+      "invoice": "Invoice",
+      "invoiceOption": "{number} · {client} · balanse {balance}",
+      "issuedOnly": "Ginagawa lamang ang mga credit note laban sa mga naisyung invoice.",
+      "invoiceFallback": "Invoice"
+    },
+    "edit": {
+      "metaTitle": "I-edit ang credit note",
+      "title": "I-edit ang draft na credit note",
+      "immutable": "Hindi na mababago ang mga naisyung credit note.",
+      "draft": "Draft"
+    },
+    "detail": {
+      "metaTitle": "Credit note",
+      "draftTitle": "Draft na credit note",
+      "meta": "{client} · laban sa <invoice>{number}</invoice> · naisyu noong <mono>{date}</mono>",
+      "previewPdf": "I-preview ang PDF",
+      "issue": {
+        "title": "I-isyu ang credit note na ito?",
+        "description": "Maglalaan ng numero, babawasan ang balanse ng invoice at hindi na mababago ang dokumento.",
+        "label": "I-isyu"
+      },
+      "deleteDraft": {
+        "title": "Burahin ang draft na ito?"
+      },
+      "sendByEmail": "Ipadala sa email",
+      "markSent": {
+        "title": "Markahan bilang naipadala?",
+        "label": "Markahan bilang naipadala"
+      },
+      "void": {
+        "title": "I-void ang credit note na ito?",
+        "description": "Ibabalik ang balanse ng invoice; hindi na kailanman magagamit muli ang numero.",
+        "reason": "Dahilan",
+        "label": "I-void"
+      },
+      "voided": "Na-void noong {date}: {reason}",
+      "amounts": {
+        "title": "Mga halaga",
+        "reason": "Dahilan",
+        "creditAmount": "Halaga ng credit",
+        "total": "Kabuuan",
+        "balanceNow": "Kasalukuyang balanse ng invoice",
+        "sent": "Naipadala"
+      },
+      "documents": {
+        "title": "Mga naka-store na dokumento",
+        "description": "Pinapanatili ang bawat bersyon; inililista ng pahina ng verify ang lahat ng hash.",
+        "regenerateTitle": "Gumawa ng bagong bersyon ng PDF?",
+        "generate": "Gumawa",
+        "newVersion": "Bagong bersyon",
+        "renderedOnFirstDownload": "Ginagawa ang PDF sa unang pag-download.",
+        "protectedCopy": "Kopyang protektado ng password {version}",
+        "version": "Bersyon {version}",
+        "verificationLink": "Link ng pag-verify: <link>{path}…</link>"
+      },
+      "draftsPreview": "Live na nagpi-preview ang mga draft sa editor."
+    },
+    "send": {
+      "metaTitle": "Ipadala ang credit note",
+      "title": "Ipadala ang <mono>{number}</mono>",
+      "previousSends": "Mga naunang pagpapadala"
+    },
+    "builder": {
+      "against": "Laban sa <mono>{number}</mono>",
+      "summary": "{client} · kabuuan {total} · balanse {balance} · puwang na nabubuwisan ≈ {headroom}",
+      "issueDate": "Petsa ng pag-isyu",
+      "creditAmount": "Halaga ng credit (hindi kasama ang buwis)",
+      "creditAmountHint": "Hinahati ang buwis mula sa mga linya ng buwis ng invoice",
+      "reason": "Dahilan",
+      "picker": {
+        "title": "Kalkulahin mula sa mga linya ng invoice",
+        "description": "Lagyan ng tsek ang buong linya o isang porsyento; pinupunan lamang nito ang halaga sa itaas.",
+        "line": "Linya",
+        "subtotal": "Subtotal",
+        "credit": "Credit",
+        "percent": "%",
+        "creditLine": "I-credit ang linya {position}",
+        "percentOfLine": "Porsyento ng linya {position}"
+      },
+      "saveDraft": "I-save ang draft",
+      "issuing": "Iniisyu…",
+      "saveAndIssue": "I-save at i-isyu"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Natanggap na bayad",
+        "REFUND": "Naisyung refund",
+        "WRITE_OFF": "Write-off"
+      },
+      "editTitle": "I-edit ang entry",
+      "recordTitle": "Itala ang bayad",
+      "description": "Nasa pera ng invoice ang mga halaga ({currency}); bahagi ng inilapat na halaga ang ibinawas na TDS.",
+      "kind": "Uri",
+      "date": "Petsa",
+      "amountRefunded": "Halagang na-refund (negatibo)",
+      "amountApplied": "Inilapat na halaga",
+      "refundHint": "Maglagay ng negatibong halaga, hal. -500",
+      "tdsDeducted": "Ibinawas na TDS",
+      "tdsHint": "Buwis na pinigil ng kliyente; kasama sa inilapat na halaga",
+      "bankFees": "Bayarin sa bangko",
+      "receivedInto": "Natanggap sa",
+      "noMethod": "-",
+      "reference": "Reference",
+      "referenceHint": "UTR, transaction id, numero ng tseke",
+      "otherCurrency": "Natanggap sa ibang pera",
+      "amountReceived": "Natanggap na halaga",
+      "receivedCurrency": "Pera ng natanggap",
+      "exchangeRate": "Exchange rate",
+      "exchangeRateHint": "1 yunit na natanggap = ? {currency}",
+      "notes": "Mga tala",
+      "receiptHint": "PNG, JPEG, WebP o PDF hanggang 10 MB",
+      "receipts": "Mga resibo at bill",
+      "receiptN": "Resibo {n}",
+      "removeReceipt": "Alisin ang resibo {n}",
+      "saveChanges": "I-save ang mga pagbabago",
+      "record": "Itala"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Singilin si",
+      "shipTo": "Ipadala kay",
+      "invoice": "Invoice",
+      "creditNote": "Credit note",
+      "issueDate": "Petsa ng pag-isyu",
+      "dueDate": "Takdang petsa",
+      "number": "Numero",
+      "description": "Paglalarawan",
+      "sacHsn": "SAC/HSN",
+      "qty": "Dami",
+      "unit": "Yunit",
+      "rate": "Rate",
+      "tax": "Buwis",
+      "amount": "Halaga",
+      "subtotal": "Subtotal",
+      "discount": "Diskwento",
+      "taxable": "Halagang pasok sa buwis",
+      "total": "Kabuuan",
+      "amountDue": "Halagang dapat bayaran",
+      "tdsExpected": "Inaasahang TDS",
+      "netExpected": "Inaasahang net",
+      "rounding": "Pag-round",
+      "paymentDetails": "Mga detalye ng pagbabayad",
+      "notes": "Mga tala",
+      "terms": "Mga tuntunin",
+      "placeOfSupply": "Lugar ng supply",
+      "poReference": "Sanggunian ng PO",
+      "amountInWords": "Halaga sa mga salita",
+      "signature": "Awtorisadong lumagda"
+    },
+    "title": {
+      "taxInvoice": "TAX INVOICE",
+      "billOfSupply": "BILL OF SUPPLY",
+      "invoice": "INVOICE",
+      "creditNote": "CREDIT NOTE"
+    },
+    "text": {
+      "pageOf": "Pahina {page} ng {total}",
+      "scanToVerify": "I-scan para i-verify",
+      "taxId": "Tax ID",
+      "void": "BALDADO",
+      "draftWatermark": "DRAFT - hindi isang tax invoice",
+      "paymentTermsDays": "{days} araw",
+      "irn": "IRN",
+      "ackNo": "Ack no.",
+      "ackDate": "Petsa ng ack",
+      "einvoiceCancelled": "KINANSELA ANG E-INVOICE"
+    },
+    "ui": {
+      "pageEstimate": "humigit-kumulang {count, plural, one {# pahina} other {# pahina}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Mensahe",
+      "description": "Paunang pinunan mula sa mga template ng issuer profile. Walang ipapadala hangga't hindi mo pinipindot ang Ipadala.",
+      "to": "Para kay/sa",
+      "toHint": "Pinaghihiwalay ng kuwit",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Paksa",
+      "body": "Nilalaman",
+      "bodyHint": "Plain text; nagiging clickable ang mga link",
+      "attachment": "Kalakip",
+      "attachmentHint": "Ang naka-store na kopya, na pinangalanang <mono>{name}</mono> (o .docx); hindi mababago ang nilalaman nito.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Ipinapadala…",
+      "send": "Ipadala",
+      "openInMailApp": "Buksan sa mail app",
+      "noSmtp": "Walang naka-configure na SMTP server (Mga setting → Email). Buksan ang draft sa iyong mail app, ilakip ang na-download na PDF, saka markahan itong naipadala sa ibaba.",
+      "markAsSent": "Markahan bilang naipadala"
+    },
+    "sentLog": {
+      "when": "Kailan",
+      "document": "Dokumento",
+      "to": "Para kay/sa",
+      "subject": "Paksa",
+      "status": "Katayuan",
+      "empty": "Wala pang naipadala.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "naipadala",
+        "FAILED": "nabigo",
+        "MANUAL": "manual"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Kumusta, {name}",
+    "fiscalYear": "Taon ng pananalapi {year}",
+    "fiscalYearWithBase": "Taon ng pananalapi {year} · batayang pera {currency} ({profile})",
+    "newCreditNote": "Bagong credit note",
+    "welcomeTitle": "Maligayang pagdating sa {appName}",
+    "welcomeDescription": "Magsimula sa paggawa ng issuer profile na pinanggagalingan ng iyong singil, saka magdagdag ng kliyente at ang iyong unang invoice.",
+    "createProfile": "Gawin ang iyong profile",
+    "tiles": {
+      "outstanding": "Natitirang bayarin",
+      "overdue": "Lampas na sa due",
+      "billedThisFy": "Siningil ngayong FY",
+      "receivedThisFy": "Natanggap ngayong FY",
+      "drafts": "Mga draft",
+      "invoiceCount": "{count, plural, one {# invoice} other {# invoice}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Mga bayad bawas ang mga refund, sa naitalang FX",
+      "awaitingIssue": "naghihintay ng pag-isyu",
+      "nothingPending": "walang nakabinbin"
+    },
+    "recentInvoices": "Mga kamakailang invoice",
+    "allInvoices": "Lahat ng invoice",
+    "noInvoicesYet": "Wala pang invoice.",
+    "columns": {
+      "number": "Numero",
+      "client": "Kliyente",
+      "issued": "Naisyu"
+    },
+    "topClients": "Mga nangungunang kliyente ayon sa natitirang bayarin",
+    "nothingOutstanding": "Walang natitirang bayarin."
+  },
+  "exports": {
+    "export": "I-export",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Mga invoice",
+      "newInvoice": "Bagong invoice",
+      "draft": "Draft",
+      "aDraft": "isang draft",
+      "statuses": {
+        "draft": "Draft",
+        "issued": "Naisyu",
+        "sent": "Naipadala",
+        "partiallyPaid": "Bahagyang nabayaran",
+        "paid": "Bayad na",
+        "overdue": "Lampas na sa due",
+        "void": "Void"
+      },
+      "lifecycle": {
+        "draft": "draft",
+        "issued": "naisyu",
+        "void": "void"
+      },
+      "units": {
+        "hour": "Oras",
+        "day": "Araw",
+        "fixed": "Takdang halaga",
+        "milestone": "Milestone",
+        "unit": "Yunit"
+      },
+      "unitsLower": {
+        "hour": "oras",
+        "day": "araw",
+        "fixed": "takdang halaga",
+        "milestone": "milestone",
+        "unit": "yunit"
+      },
+      "supplyTypes": {
+        "intraState": "sa loob ng estado",
+        "interState": "pagitan ng mga estado",
+        "exportLut": "export lut",
+        "exportWithTax": "export na may buwis",
+        "reverseCharge": "reverse charge",
+        "notApplicable": "hindi naaangkop"
+      }
+    },
+    "list": {
+      "description": "Mga draft, naisyu at na-void na invoice; hinango sa mga bayad at petsa ng due ang mga katayuan.",
+      "fiscalYear": "Taon ng pananalapi",
+      "issuer": "Issuer",
+      "client": "Kliyente",
+      "searchPlaceholder": "Numero, PO, kliyente",
+      "emptyTitle": "Wala pang invoice",
+      "emptyDescription": "Buuin ang iyong unang invoice: pumili ng kliyente, magdagdag ng mga linya, tingnan ang preview, saka i-isyu ito.",
+      "columns": {
+        "number": "Numero",
+        "client": "Kliyente",
+        "issuer": "Issuer",
+        "issueDate": "Petsa ng pag-isyu",
+        "due": "Due",
+        "balance": "Balanse"
+      },
+      "noMatches": "Walang invoice na tumutugma sa mga filter na ito.",
+      "count": "{count, plural, one {# invoice} other {# invoice}}",
+      "countPaged": "{count, plural, one {# invoice} other {# invoice}} · pahina {page} ng {pages}",
+      "register": "rehistro",
+      "einvoice": "E-invoice",
+      "einvoiceFilters": {
+        "registered": "Nakarehistro ang IRN",
+        "none": "Hindi nakarehistro",
+        "cancelled": "Kinansela ang IRN"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Gumawa muna ng issuer profile",
+      "noProfileDescription": "Isinisyu ang invoice mula sa isang legal na pagkakakilanlan: i-set up ang iyong profile kasama ang mga tax ID at numbering nito.",
+      "createProfile": "Gumawa ng profile"
+    },
+    "edit": {
+      "metaTitle": "I-edit ang invoice",
+      "title": "I-edit ang draft",
+      "immutableFlash": "Hindi na mababago ang mga naisyung invoice. Gamitin ang “I-void at muling i-isyu” para ituwid ito."
+    },
+    "detail": {
+      "metaTitle": "Invoice",
+      "draftInvoice": "Draft na invoice",
+      "issuedDue": "Naisyu noong <mono>{issued}</mono>, due sa <mono>{due}</mono>",
+      "replaces": "Pumapalit sa {number}",
+      "replacedBy": "Pinalitan ng {number}",
+      "previewPdf": "I-preview ang PDF",
+      "downloadEInvoice": "I-download ang e-invoice JSON",
+      "issueTitle": "I-isyu ang invoice na ito?",
+      "issueDescription": "Maglalaan ng numero at hindi na mababago ang dokumento.",
+      "issue": "I-isyu",
+      "deleteDraftTitle": "Burahin ang draft na ito?",
+      "sendByEmail": "Ipadala sa email",
+      "recordPayment": "Itala ang bayad",
+      "progress": {
+        "title": "Progreso ng bayad",
+        "description": "Nasaan na ang invoice na ito, mula sa pagpapalabas hanggang sa resibong nakatala.",
+        "issued": "Inilabas",
+        "sent": "Naipadala",
+        "payment": "Naitala ang bayad",
+        "paymentOn": "Naitala ang bayad na <mono>{amount}</mono> noong <mono>{date}</mono>",
+        "paid": "Bayad na nang buo",
+        "receipt": "Nakalakip ang resibo",
+        "done": "tapos na",
+        "pending": "nakabinbin"
+      },
+      "creditNote": "Credit note",
+      "markSentTitle": "Markahan bilang naipadala?",
+      "markSentDescription": "Itinatala na natanggap ng kliyente ang invoice na ito.",
+      "markSent": "Markahan bilang naipadala",
+      "voidReissueTitle": "I-void at muling i-isyu?",
+      "voidReissueDescription": "Ive-void ang orihinal at magbubukas ng naka-link na draft na may parehong nilalaman para i-edit.",
+      "voidReissue": "I-void at muling i-isyu",
+      "voidTitle": "I-void ang invoice na ito?",
+      "voidDescription": "Posible lamang kung walang naitalang bayad; hindi na kailanman magagamit muli ang numero.",
+      "void": "I-void",
+      "voided": "Na-void noong {date}: {reason}",
+      "amounts": "Mga halaga",
+      "subtotal": "Subtotal",
+      "discount": "Diskwento",
+      "discountPercent": "Diskwento ({percent})",
+      "rounding": "Pag-round",
+      "tdsExpected": "Inaasahang TDS ({percent})",
+      "paid": "Nabayaran",
+      "credited": "Na-credit",
+      "balanceDue": "Balanseng dapat bayaran",
+      "supply": "Suplay",
+      "fxToBase": "FX sa batayang pera",
+      "poReference": "Reference ng PO",
+      "sent": "Naipadala",
+      "lineItems": "Mga linya ng invoice",
+      "columns": {
+        "description": "Paglalarawan",
+        "sacHsn": "SAC/HSN",
+        "qty": "Dami",
+        "rate": "Rate",
+        "tax": "Buwis",
+        "amount": "Halaga"
+      },
+      "creditNotes": "Mga credit note",
+      "storedDocuments": "Mga naka-store na dokumento",
+      "storedDocumentsHint": "Pinapanatili ang bawat bersyon; inililista ng pahina ng verify ang lahat ng hash.",
+      "regenerateTitle": "Gumawa ng bagong bersyon ng PDF?",
+      "regenerateDescription": "Ire-render muli mula sa naka-freeze na snapshot (halimbawa pagkatapos ng pag-aayos sa renderer). Mananatili ang mga naunang bersyon.",
+      "regenerate": "Gumawa",
+      "newVersion": "Bagong bersyon",
+      "renderedOnFirstDownload": "Ginagawa ang PDF sa unang pag-download.",
+      "protectedCopy": "Kopyang protektado ng password {version}",
+      "version": "Bersyon {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Link ng pag-verify:",
+      "draftPreviewHint": "Live na nagpi-preview ang mga draft sa editor; buksan ang <link>PDF na may watermark</link> para makita ang pahina.",
+      "einvoice": {
+        "title": "E-invoice (India)",
+        "description": "Pagrerehistro ng invoice na ito sa Invoice Registration Portal; ipinapakita sa naka-rehistrong dokumento ang IRN nito at ang naka-sign na QR ng portal.",
+        "connector": "Connector",
+        "connectors": {
+          "manual": "Manual",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Walang naka-configure na connector para sa profile na ito sa Mga setting > E-invoicing.",
+        "statuses": {
+          "none": "Hindi nakarehistro",
+          "generated": "Nabuo ang JSON",
+          "registered": "Nakarehistro",
+          "cancelled": "Kinansela",
+          "failed": "Nabigo ang pagrerehistro"
+        },
+        "irn": "IRN",
+        "ackNo": "Ack no.",
+        "ackDate": "Petsa ng ack",
+        "cancelReason": "Pagkansela",
+        "generate": "Bumuo ng IRN",
+        "pasteLabel": "Tugon ng IRP",
+        "pasteHint": "I-paste ang JSON na ibinalik ng portal o ng iyong GSP para sa e-invoice JSON ng invoice na ito (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "I-record ang IRN",
+        "cancelReasonLabel": "Dahilan ng pagkansela",
+        "cancelReasons": {
+          "1": "Duplicate",
+          "2": "Pagkakamali sa pag-encode ng data",
+          "3": "Kinansela ang order",
+          "4": "Iba pa"
+        },
+        "cancel": "Kanselahin ang IRN",
+        "cancelWindow": "Pinapayagan ng portal ang pagkansela sa loob ng 24 na oras mula sa acknowledgement."
+      }
+    },
+    "history": {
+      "metaTitle": "Kasaysayan ng invoice",
+      "title": "Kasaysayan ng <mono>{number}</mono>",
+      "reissueChain": "Hanay ng muling pag-isyu",
+      "replaces": "Pumapalit sa <link>{number}</link>",
+      "replacedBy": "Pinalitan ng <link>{number}</link>",
+      "auditTrail": "Audit trail",
+      "columns": {
+        "when": "Kailan",
+        "who": "Sino",
+        "action": "Aksyon",
+        "summary": "Buod"
+      },
+      "noEvents": "Wala pang event.",
+      "system": "System",
+      "emails": "Mga email"
+    },
+    "payments": {
+      "title": "Mga bayad",
+      "description": "{client} · {total} kabuuan",
+      "backToInvoice": "Bumalik sa invoice",
+      "ledger": "Ledger",
+      "columns": {
+        "date": "Petsa",
+        "kind": "Uri",
+        "applied": "Inilapat",
+        "tds": "TDS",
+        "received": "Natanggap",
+        "reference": "Reference",
+        "balance": "Balanse"
+      },
+      "noPayments": "Wala pang naitalang bayad.",
+      "kinds": {
+        "payment": "Bayad",
+        "refund": "Refund",
+        "writeOff": "Write-off"
+      },
+      "receipt": "Resibo",
+      "receiptN": "Resibo {n}",
+      "deleteEntryTitle": "Burahin ang entry na ito?",
+      "deleteEntryDescription": "Kakalkulahin muli ang balanse ng invoice.",
+      "totals": "Mga kabuuan",
+      "invoiceTotal": "Kabuuan ng invoice",
+      "credited": "Na-credit",
+      "refunds": "Mga refund",
+      "writeOffs": "Mga write-off",
+      "tdsDeducted": "Ibinawas na TDS",
+      "bankFees": "Bayarin sa bangko",
+      "balanceDue": "Balanseng dapat bayaran",
+      "onlyIssued": "Mga naisyung invoice lamang ang tumatanggap ng bayad."
+    },
+    "send": {
+      "metaTitle": "Ipadala ang invoice",
+      "title": "Ipadala ang <mono>{number}</mono>",
+      "alreadySent": "Naka-markang naipadala na; magdaragdag ng isa pang entry sa log ang muling pagpapadala.",
+      "previousSends": "Mga naunang pagpapadala"
+    },
+    "builder": {
+      "parties": "Mga partido",
+      "issuerProfile": "Issuer profile",
+      "client": "Kliyente",
+      "archivedOption": "{label} (naka-archive)",
+      "issueDate": "Petsa ng pag-isyu",
+      "dueDate": "Petsa ng due",
+      "fxRate": "FX rate sa batayang pera",
+      "fxHint": "1 {currency} = ? {base} (pang-ulat lamang)",
+      "poReference": "Reference ng PO",
+      "lineItems": "Mga linya ng invoice",
+      "lineItemsHint": "Pumili mula sa katalogo para kopyahin ang mga halaga nito, o mag-type ng linya.",
+      "taxDiscountTds": "Buwis, diskwento at TDS",
+      "taxRegime": "Tax regime",
+      "regimes": {
+        "indiaGst": "GST ng India",
+        "ukVat": "UK VAT",
+        "usSalesTax": "Sales tax ng US",
+        "none": "Walang buwis"
+      },
+      "reverseCharge": "Reverse charge",
+      "reverseChargeHint": "Buwis na babayaran ng tatanggap",
+      "discount": "Diskwento",
+      "percent": "Porsyento",
+      "amount": "Halaga",
+      "rounding": "Pagsasaayos ng pag-round",
+      "roundingHint": "Opsyonal, sa buong yunit; dapat ay wala pang 1",
+      "round": "I-round",
+      "tdsRate": "Inaasahang rate ng TDS (%)",
+      "tdsRateHint": "Pang-impormasyon; ipini-print kapag naka-on ang breakdown ng TDS",
+      "paymentMethods": "Mga paraan ng pagbabayad",
+      "paymentMethodsHint": "Ipini-print ayon sa pagkakasunod ng pagtsek.",
+      "noPaymentMethods": "Walang aktibong paraan ng pagbabayad. <link>Magdagdag ng isa</link>.",
+      "whatPrints": "Ano ang ipini-print",
+      "whatPrintsHint": "Nagsisimula sa mga default ng issuer profile.",
+      "documentLanguage": "Wika ng dokumento",
+      "documentLanguageHint": "Ang mga label, petsa at halaga ay iniimprenta sa wikang ito; ang kagustuhan ng kliyente, kung wala ay ang sa profile.",
+      "notesAndTerms": "Mga tala at tuntunin",
+      "notes": "Mga tala",
+      "terms": "Mga tuntunin",
+      "saveDraft": "I-save ang draft",
+      "issuing": "Iniisyu…",
+      "saveAndIssue": "I-save at i-isyu",
+      "subtotal": "Subtotal",
+      "tax": "Buwis",
+      "tdsExpected": "Inaasahang TDS",
+      "netExpected": "Inaasahang netong halaga"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Magdagdag mula sa katalogo…",
+      "services": "Mga serbisyo",
+      "products": "Mga produkto",
+      "addLine": "Magdagdag ng linya",
+      "columns": {
+        "description": "Paglalarawan",
+        "sacHsn": "SAC/HSN",
+        "qty": "Dami",
+        "unit": "Yunit",
+        "rate": "Rate",
+        "taxPercent": "Buwis %"
+      },
+      "aria": {
+        "description": "Paglalarawan ng linya {line}",
+        "sacHsn": "SAC/HSN ng linya {line}",
+        "quantity": "Dami ng linya {line}",
+        "unit": "Yunit ng linya {line}",
+        "rate": "Rate ng linya {line}",
+        "taxRate": "Rate ng buwis ng linya {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Exempt",
+      "moveUp": "Itaas",
+      "moveDown": "Ibaba",
+      "removeLine": "Alisin ang linya",
+      "shortcutHint": "Nagdaragdag ng linya ang Ctrl/⌘+Enter sa isang paglalarawan.",
+      "addFromCatalogueAria": "Magdagdag mula sa katalogo"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Mga detalye ng issuer",
+        "client": "Mga detalye ng kliyente",
+        "document": "Mga seksyon ng dokumento"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Pangalan ng negosyo",
+        "showDesignation": "Posisyon",
+        "showEmail": "Email",
+        "showPhone": "Telepono",
+        "showWebsite": "Website",
+        "showFullAddress": "Buong address",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Lagda",
+        "showStamp": "Selyo",
+        "showContactPerson": "Taong makokontak",
+        "showBillingAddress": "Address ng pagsingil",
+        "showShippingAddress": "Address ng padadalhan",
+        "showTaxIdentifier": "Tax identifier",
+        "showPlaceOfSupply": "Lugar ng suplay",
+        "showDueDate": "Petsa ng due",
+        "showPaymentTerms": "Mga tuntunin ng pagbabayad",
+        "showSacCodeColumn": "Hanay ng SAC code",
+        "showQuantityColumn": "Hanay ng dami",
+        "showUnitPriceColumn": "Hanay ng presyo kada yunit",
+        "showTaxColumn": "Hanay ng buwis",
+        "showTdsBreakdown": "Breakdown ng TDS",
+        "showQrVerification": "QR verification",
+        "showNotes": "Mga tala",
+        "showTerms": "Mga tuntunin",
+        "showReplacesReference": "Reference ng pinapalitan",
+        "showAmountInWords": "Halaga sa salita",
+        "showSupplyStatement": "Pahayag ng suplay",
+        "showRoundingLine": "Linya ng pag-round",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Mga kliyente",
+      "description": "Lahat ng sinisingil mo. Ina-archive, hindi binubura, ang mga kliyenteng may invoice.",
+      "newClient": "Bagong kliyente",
+      "searchPlaceholder": "Maghanap ayon sa pangalan",
+      "searchLabel": "Maghanap ng mga kliyente",
+      "emptyTitle": "Wala pang kliyente",
+      "emptyDescription": "Idagdag ang mga taong at kumpanyang iniinvoice mo; paunang pinupunan ng kanilang pera at mga tuntunin ng pagbabayad ang bawat invoice.",
+      "addClient": "Magdagdag ng kliyente",
+      "noMatch": "Walang kliyenteng tumutugma sa “{q}”.",
+      "termsDays": "{days} araw",
+      "columns": {
+        "name": "Pangalan",
+        "contact": "Contact",
+        "email": "Email",
+        "country": "Bansa",
+        "currency": "Pera",
+        "terms": "Mga tuntunin",
+        "status": "Katayuan"
+      }
+    },
+    "new": {
+      "title": "Bagong kliyente"
+    },
+    "edit": {
+      "metaTitle": "I-edit ang kliyente",
+      "title": "I-edit ang {name}"
+    },
+    "detail": {
+      "metaTitle": "Kliyente",
+      "newInvoice": "Bagong invoice",
+      "restoreTitle": "Ibalik ang kliyenteng ito?",
+      "archiveTitle": "I-archive ang kliyenteng ito?",
+      "archiveDescription": "Aalis ito sa mga pipilian; mananatiling buo ang mga invoice at kasaysayan.",
+      "deleteTitle": "Burahin ang kliyenteng ito?",
+      "deleteDescription": "Posible lamang kung walang invoice na tumutukoy sa kliyente.",
+      "details": "Mga detalye",
+      "contact": "Contact",
+      "email": "Email",
+      "phone": "Telepono",
+      "country": "Bansa",
+      "gstState": "GST {code}",
+      "taxId": "Tax ID",
+      "currency": "Pera",
+      "paymentTerms": "Mga tuntunin ng pagbabayad",
+      "paymentTermsDays": "{days} araw",
+      "expectedTds": "Inaasahang TDS",
+      "notes": "Mga tala",
+      "addresses": "Mga address",
+      "billing": "Pagsingil",
+      "shipping": "Padadalhan",
+      "lifetime": "Buong panahon",
+      "openRegister": "Buksan ang rehistro",
+      "noIssued": "Wala pang naisyung invoice.",
+      "noIssuedWithDrafts": "Wala pang naisyung invoice ({drafts} draft).",
+      "firstLatest": "Unang invoice <mono>{first}</mono>, pinakabago <mono>{latest}</mono>{drafts, plural, =0 {} one { · # draft} other { · # draft}}",
+      "lifetimeColumns": {
+        "currency": "Pera",
+        "invoices": "Mga invoice",
+        "billed": "Siningil",
+        "received": "Natanggap",
+        "credited": "Na-credit",
+        "outstanding": "Natitira",
+        "overdue": "Lampas na sa due"
+      },
+      "recentInvoices": "Mga kamakailang invoice",
+      "noInvoices": "Wala pang invoice para sa kliyenteng ito.",
+      "recentColumns": {
+        "number": "Numero",
+        "issueDate": "Petsa ng pag-isyu",
+        "due": "Due",
+        "total": "Kabuuan",
+        "balance": "Balanse",
+        "status": "Katayuan"
+      }
+    },
+    "form": {
+      "cardTitle": "Kliyente",
+      "displayName": "Display name",
+      "contactPerson": "Taong makokontak",
+      "email": "Email",
+      "phone": "Telepono",
+      "taxIdType": "Uri ng tax ID",
+      "taxIdTypeNone": "Wala",
+      "taxId": "Tax ID",
+      "currency": "Pera",
+      "paymentTerms": "Mga tuntunin ng pagbabayad (araw)",
+      "expectedTdsRate": "Inaasahang rate ng TDS (%)",
+      "preferredLanguage": "Wika ng dokumento",
+      "preferredLanguageFollow": "Sundin ang profile ng nag-isyu",
+      "buyerReference": "Reference ng buyer",
+      "buyerReferenceHint": "Inilalagay sa mga e-invoice bilang sariling reference ng buyer (numero ng order o cost centre).",
+      "electronicAddress": "Electronic address",
+      "electronicAddressHint": "Ang Peppol o EN 16931 identifier kung saan tumatanggap ng mga e-invoice ang client na ito.",
+      "electronicAddressScheme": "Scheme ng electronic address",
+      "electronicAddressSchemeNone": "Walang scheme",
+      "notes": "Mga tala",
+      "billingAddress": "Address ng pagsingil",
+      "shippingAddress": "Address ng padadalhan",
+      "differentFromBilling": "Iba sa pagsingil",
+      "save": "I-save ang kliyente"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Oras",
+      "DAY": "Araw",
+      "FIXED": "Takdang halaga",
+      "MILESTONE": "Milestone",
+      "UNIT": "Yunit"
+    },
+    "list": {
+      "activate": "I-activate",
+      "deactivate": "I-deactivate",
+      "archiveDescription": "Pinapanatili ng mga umiiral na linya ng invoice ang mga nakopyang halaga.",
+      "deleteDescription": "Posible lamang kung walang linya ng invoice na tumutukoy rito. Kung hindi, i-archive ito.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Pangalan",
+        "unit": "Yunit",
+        "rate": "Rate",
+        "price": "Presyo",
+        "currency": "Pera",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Buwis",
+        "status": "Katayuan"
+      }
+    },
+    "services": {
+      "title": "Mga serbisyo",
+      "description": "Ang iyong katalogo. Kinokopya ng pagpili ng serbisyo ang mga halaga nito sa linya ng invoice.",
+      "newService": "Bagong serbisyo",
+      "emptyTitle": "Wala pang serbisyo",
+      "emptyDescription": "Idagdag ang ibinebenta mo - disenyo kada oras, milestone na takdang bayad - kasama ang SAC/HSN code at rate ng buwis nito.",
+      "addService": "Magdagdag ng serbisyo",
+      "restoreTitle": "Ibalik ang {name}?",
+      "archiveTitle": "I-archive ang {name}?",
+      "deleteTitle": "Burahin ang {name}?",
+      "editMetaTitle": "I-edit ang serbisyo",
+      "editTitle": "I-edit ang {name}"
+    },
+    "products": {
+      "title": "Mga produkto",
+      "description": "Mga kalakal na ibinebenta mo, bawat isa ay may SKU. Kinokopya ng pagpili ng produkto ang mga halaga nito sa linya ng invoice.",
+      "newProduct": "Bagong produkto",
+      "emptyTitle": "Wala pang produkto",
+      "emptyDescription": "Idagdag ang mga kalakal na ibinebenta mo na may SKU, HSN code, presyo kada yunit at rate ng buwis.",
+      "addProduct": "Magdagdag ng produkto",
+      "restoreTitle": "Ibalik ang {sku}?",
+      "archiveTitle": "I-archive ang {sku}?",
+      "deleteTitle": "Burahin ang {sku}?",
+      "editMetaTitle": "I-edit ang produkto",
+      "editTitle": "I-edit ang {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Natatanging code na ipini-print sa ilalim ng paglalarawan ng linya",
+      "name": "Pangalan",
+      "unit": "Yunit",
+      "defaultRate": "Default na rate",
+      "unitPrice": "Presyo kada yunit",
+      "currency": "Pera",
+      "sacHsnCode": "SAC / HSN code",
+      "sacHsnHint": "Kinakailangan sa mga invoice ng GST",
+      "hsnCode": "HSN code",
+      "hsnHint": "Kinakailangan sa mga invoice ng GST para sa mga kalakal",
+      "defaultTaxRate": "Default na rate ng buwis (%)",
+      "description": "Paglalarawan",
+      "descriptionHint": "Paunang pinupunan ang paglalarawan ng linya",
+      "active": "Aktibo",
+      "serviceInactiveHint": "Hindi lumalabas sa pipiliin ng invoice ang mga hindi aktibong serbisyo",
+      "productInactiveHint": "Hindi lumalabas sa pipiliin ng invoice ang mga hindi aktibong produkto",
+      "saveService": "I-save ang serbisyo",
+      "saveProduct": "I-save ang produkto"
+    },
+    "tags": {
+      "legend": "Mga profile",
+      "hint": "Lagyan ng tsek ang mga issuer profile na nagbebenta nito. Iwanang walang tsek ang lahat para ialok ito sa bawat profile."
+    }
+  },
+  "address": {
+    "line1": "Linya 1 ng address",
+    "line2": "Linya 2 ng address",
+    "city": "Lungsod",
+    "stateRegion": "Estado / rehiyon",
+    "postalCode": "Postal code",
+    "country": "Bansa",
+    "state": "Estado",
+    "gstStateCodeHint": "Code ng estado sa GST {code}",
+    "pickStateHint": "Piliin ang estado para sa GST state code",
+    "stateRegionCode": "Code ng estado / rehiyon",
+    "stateRegionCodePlaceholder": "hal. CA"
+  },
+  "assets": {
+    "tooLarge": "Masyadong malaki ang file na iyon.",
+    "unsupportedReceipt": "Gumamit ng PNG, JPEG, WebP na larawan o PDF.",
+    "unsupportedImage": "Gumamit ng PNG, JPEG o WebP na larawan.",
+    "uploadFailed": "Nabigo ang pag-upload.",
+    "uploading": "Ina-upload…",
+    "dropHint": "I-drag ang file dito, o pumili ng isa",
+    "dropHintMany": "I-drag ang mga file dito, o piliin ang mga ito",
+    "dropActive": "Bitawan para i-upload"
+  },
+  "ui": {
+    "breadcrumb": "Breadcrumb",
+    "close": "Isara",
+    "closeMenu": "Isara ang menu",
+    "reveal": "Ipakita",
+    "hide": "Itago",
+    "openCalendar": "Buksan ang kalendaryo",
+    "chooseMonth": "Pumili ng buwan",
+    "chooseYear": "Pumili ng taon",
+    "searchOptions": "Mag-type para maghanap",
+    "noMatches": "Walang tugma",
+    "pullToRefresh": {
+      "label": "Listahang maaaring i-refresh",
+      "pulling": "Hilahin para mag-refresh",
+      "release": "Bitawan para mag-refresh",
+      "refreshing": "Nagre-refresh"
+    },
+    "inputCharset": "Mga karaniwang karakter lamang ng keyboard ang pinapayagan.",
+    "confirm": {
+      "working": "Nagpoproseso…"
+    },
+    "statusPill": {
+      "DRAFT": "Draft",
+      "ISSUED": "Naisyu",
+      "SENT": "Naipadala",
+      "PARTIALLY_PAID": "Bahagyang nabayaran",
+      "PAID": "Bayad na",
+      "OVERDUE": "Lampas na sa due",
+      "VOID": "Void"
+    },
+    "activePill": {
+      "active": "Aktibo",
+      "archived": "Naka-archive",
+      "inactive": "Hindi aktibo"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "May nangyaring mali.",
+    "fixFields": "Pakitama ang mga naka-highlight na field.",
+    "accountSaved": "Na-save ang mga kagustuhan sa account",
+    "apiKeyCreated": "Nagawa ang API key. Kopyahin ito ngayon: isang beses lamang ito ipinapakita.",
+    "saved": "Na-save ang {name}",
+    "savedProfile": "Na-save ang profile na {label}",
+    "clientArchived": "Na-archive ang kliyente",
+    "clientRestored": "Naibalik ang kliyente",
+    "clientDeleted": "Nabura ang kliyente",
+    "productArchived": "Na-archive ang produkto",
+    "productRestored": "Naibalik ang produkto",
+    "productActivated": "Na-activate ang produkto",
+    "productDeactivated": "Na-deactivate ang produkto",
+    "serviceArchived": "Na-archive ang serbisyo",
+    "serviceRestored": "Naibalik ang serbisyo",
+    "serviceActivated": "Na-activate ang serbisyo",
+    "serviceDeactivated": "Na-deactivate ang serbisyo",
+    "defaultProfileUpdated": "Na-update ang default na profile",
+    "profileArchived": "Na-archive ang profile",
+    "profileRestored": "Naibalik ang profile",
+    "profileDeleted": "Nabura ang profile",
+    "defaultPaymentMethodUpdated": "Na-update ang default na paraan ng pagbabayad",
+    "paymentMethodArchived": "Na-archive ang paraan ng pagbabayad",
+    "paymentMethodRestored": "Naibalik ang paraan ng pagbabayad",
+    "paymentMethodDeleted": "Nabura ang paraan ng pagbabayad",
+    "issued": "Naisyu ang {number}",
+    "savedAsDraft": "Na-save bilang draft. {reason}",
+    "draftSaved": "Na-save ang draft",
+    "invoiceVoided": "Na-void ang invoice",
+    "originalVoided": "Na-void ang orihinal; i-edit ang kapalit na draft",
+    "markedAsSent": "Namarkahang naipadala",
+    "draftDeleted": "Nabura ang draft",
+    "generatedPdf": "Nagawa ang bersyon {version} ng PDF",
+    "creditNoteVoided": "Na-void ang credit note; naibalik ang balanse ng invoice",
+    "draftCreditNoteDeleted": "Nabura ang draft na credit note",
+    "mailRefused": "Tinanggihan ng mail server ang mensahe: {error}. Naitala ang pagtatangka.",
+    "unknownError": "hindi kilalang error",
+    "sentTo": "Naipadala kay/sa {recipients}",
+    "smtpSaved": "Na-save ang mga setting ng SMTP",
+    "smtpRemoved": "Naalis ang mga naka-store na setting ng SMTP",
+    "testEmailSent": "Naipadala ang test email sa {email}",
+    "testFailed": "Nabigo ang test: {error}",
+    "defaultRecipientsSaved": "Na-save ang mga default na tatanggap",
+    "invitationSent": "Naipadala ang imbitasyon",
+    "invitationReady": "Handa na ang imbitasyon",
+    "unknownRole": "Hindi kilalang tungkulin",
+    "roleUpdated": "Na-update ang tungkulin",
+    "accountDeactivated": "Na-deactivate ang account",
+    "accountReactivated": "Na-reactivate ang account",
+    "invitationRevoked": "Binawi ang imbitasyon",
+    "paymentUpdated": "Na-update ang bayad",
+    "paymentRecorded": "Naitala ang bayad",
+    "paymentDeleted": "Nabura ang bayad",
+    "sessionRevoked": "Binawi ang session",
+    "noOtherSessions": "Walang ibang session",
+    "signedOutOthers": "Nag-sign out sa {count} pang session",
+    "sharePasswordRequired": "Maglagay ng password, o hayaang gumawa ng isa.",
+    "shareLinkCreated": "Nagawa ang link ng pagbabahagi.",
+    "templateSaved": "Na-save ang template; gagamitin ito ng mga susunod na dokumento",
+    "templateReset": "Naibalik ang template sa built-in na default",
+    "templateImported": "Na-import ang template",
+    "profileTemplateCleared": "Gumagamit na muli ang profile ng template ng instance",
+    "operatorSaved": "Na-save ang mga detalye ng operator. Ipinapakita na ito ng mga legal na pahina.",
+    "einvoiceSettingsSaved": "Na-save ang mga setting ng e-invoicing",
+    "irnRegistered": "Nakarehistro ang IRN {irn}; muling nabuo ang PDF gamit ito",
+    "irnRecorded": "Na-record ang IRN; muling nabuo ang PDF gamit ito",
+    "irnCancelled": "Kinansela ang IRN; muling nabuo ang PDF"
+  }
+}

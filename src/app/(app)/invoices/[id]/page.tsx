@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { ConfirmAction } from "@/components/confirm-action";
 import { ScaledPreview } from "@/components/documents/scaled-preview";
+import { ShareDialog } from "@/components/documents/share-dialog";
+import { EInvoicePanel } from "@/components/invoices/einvoice-panel";
+import { PaymentProgress } from "@/components/payments/progress";
+import { canCancel } from "@/lib/einvoice/gst/connector";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { DescriptionList, Item } from "@/components/ui/description-list";
@@ -13,6 +18,7 @@ import { TBody, TD, TH, THead, TR, Table } from "@/components/ui/table";
 import { DocumentPreview, PAPER, buildDocumentViewModel } from "@/lib/documents";
 import { env } from "@/lib/env";
 import { formatDate, formatDateTime, formatMoney, formatPercent } from "@/lib/format";
+import { paymentCheckpoints } from "@/lib/payments/progress";
 import { DEFAULT_TEMPLATE_CONFIG } from "@/lib/schemas";
 import {
   deleteDraftAction,
@@ -22,17 +28,47 @@ import {
   voidAndReissueAction,
   voidInvoiceAction,
 } from "@/server/actions/invoices";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
+import { hasRole } from "@/server/dal/authz";
 import { assetUrl, renderInputFromInvoice, verificationQr } from "@/server/dal/documents";
+import { einvoiceConnectorFor, euProfileFor } from "@/server/dal/einvoice-settings";
 import { NotFoundError } from "@/server/dal/errors";
 import { getInvoice } from "@/server/dal/invoices";
+import { listPayments } from "@/server/dal/payments";
+import { listShareLinks } from "@/server/dal/share-links";
 
-export const metadata: Metadata = { title: "Invoice" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("invoices.detail");
+  return { title: t("metaTitle") };
+}
 
 const PT_TO_PX = 96 / 72;
 
+/** Document lifecycle status → its `invoices.shared.lifecycle` catalogue key. */
+const LIFECYCLE_KEY = { DRAFT: "draft", ISSUED: "issued", VOID: "void" } as const;
+
+/** Place-of-supply classification → its `invoices.shared.supplyTypes` catalogue key. */
+const SUPPLY_KEY = {
+  INTRA_STATE: "intraState",
+  INTER_STATE: "interState",
+  EXPORT_LUT: "exportLut",
+  EXPORT_WITH_TAX: "exportWithTax",
+  REVERSE_CHARGE: "reverseCharge",
+  NOT_APPLICABLE: "notApplicable",
+} as const;
+
+/** Unit type → its `invoices.shared.unitsLower` catalogue key. */
+const UNIT_KEY = {
+  HOUR: "hour",
+  DAY: "day",
+  FIXED: "fixed",
+  MILESTONE: "milestone",
+  UNIT: "unit",
+} as const;
+
 export default async function InvoicePage({ params }: { params: Promise<{ id: string }> }) {
-  const actor = await requireOwner();
+  const actor = await requireRole("VIEWER");
+  const canEdit = hasRole(actor, "EDITOR");
   const { id } = await params;
   const inv = await getInvoice(actor, id).catch((e: unknown) => {
     if (e instanceof NotFoundError) notFound();
@@ -42,15 +78,39 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
   const isDraft = inv.status === "DRAFT";
   const isIssued = inv.status === "ISSUED";
   const latestDoc = inv.documents[inv.documents.length - 1] ?? null;
+  const euProfile = !isDraft && (await euProfileFor(inv.issuerProfileId)) === "EN16931";
+  const shareLinks = !isDraft && canEdit ? await listShareLinks(actor, "INVOICE", id) : [];
+  const ledgerRows = isDraft ? [] : (await listPayments(actor, id)).rows;
+  const checkpoints = paymentCheckpoints(
+    inv,
+    ledgerRows.map((p) => ({
+      id: p.id,
+      kind: p.kind,
+      amountApplied: p.amountApplied,
+      paymentDate: p.paymentDate,
+      attachmentCount: p.attachments.length,
+    })),
+  );
+  const showEInvoice = isIssued && inv.taxRegime === "INDIA_GST" && inv.issuer.einvoiceEnabled;
+  const einvoiceConnector = showEInvoice ? await einvoiceConnectorFor(inv.issuerProfileId) : null;
+  const einvoiceState = inv.einvoice ?? { status: "NONE" as const };
+  const t = await getTranslations("invoices.detail");
+  const ts = await getTranslations("invoices.shared");
+  const tc = await getTranslations("common");
 
   let preview: React.ReactNode = null;
   if (!isDraft && inv.issuerSnapshot && inv.clientSnapshot) {
     const config = inv.templateSnapshot ?? DEFAULT_TEMPLATE_CONFIG;
     const input = renderInputFromInvoice(inv);
     const verifyUrl = `${env.APP_URL.replace(/\/$/, "")}/verify/${inv.verificationToken}`;
-    const qr = inv.displayConfig.document.showQrVerification
-      ? await verificationQr(verifyUrl)
-      : undefined;
+    const signedQr =
+      inv.einvoice?.status === "REGISTERED" || inv.einvoice?.status === "CANCELLED"
+        ? inv.einvoice.signedQr
+        : undefined;
+    const qr =
+      signedQr || inv.displayConfig.document.showQrVerification
+        ? await verificationQr(signedQr ?? verifyUrl)
+        : undefined;
     const vm = buildDocumentViewModel(input, {
       appUrl: env.APP_URL,
       assetUrl,
@@ -71,59 +131,62 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
       <PageHeader
         title={
           <>
-            {inv.number ? <Mono className="text-app-title">{inv.number}</Mono> : "Draft invoice"}
+            {inv.number ? <Mono className="text-app-title">{inv.number}</Mono> : t("draftInvoice")}
             <StatusPill status={inv.displayStatus} />
           </>
         }
-        breadcrumb={[{ href: "/invoices", label: "Invoices" }]}
+        breadcrumb={[{ href: "/invoices", label: ts("invoices") }]}
         meta={
           <span className="flex flex-wrap gap-x-4 gap-y-1">
             <span>
               {inv.clientName} · {inv.issuerLabel}
             </span>
             <span>
-              Issued <Mono>{formatDate(inv.issueDate, inv.locale)}</Mono>, due{" "}
-              <Mono>{formatDate(inv.dueDate, inv.locale)}</Mono>
+              {t.rich("issuedDue", {
+                issued: formatDate(inv.issueDate, inv.locale),
+                due: formatDate(inv.dueDate, inv.locale),
+                mono: (chunks) => <Mono>{chunks}</Mono>,
+              })}
             </span>
             {inv.replaces ? (
               <Link href={`/invoices/${inv.replaces.id}`} className="text-link">
-                Replaces {inv.replaces.number}
+                {t("replaces", { number: inv.replaces.number ?? "" })}
               </Link>
             ) : null}
             {inv.replacedBy ? (
               <Link href={`/invoices/${inv.replacedBy.id}`} className="text-link">
-                Replaced by {inv.replacedBy.number ?? "a draft"}
+                {t("replacedBy", { number: inv.replacedBy.number ?? ts("aDraft") })}
               </Link>
             ) : null}
           </span>
         }
         actions={
           <>
-            {isDraft ? (
+            {isDraft && canEdit ? (
               <>
                 <Button asChild variant="secondary">
-                  <Link href={`/invoices/${id}/edit`}>Edit</Link>
+                  <Link href={`/invoices/${id}/edit`}>{tc("edit")}</Link>
                 </Button>
                 <Button asChild variant="tertiary">
                   <a href={`/api/documents/preview?invoice=${id}`} target="_blank" rel="noopener">
-                    Preview PDF
+                    {t("previewPdf")}
                   </a>
                 </Button>
                 <ConfirmAction
                   action={issueInvoiceAction}
-                  title="Issue this invoice?"
-                  description="A number is allocated and the document becomes immutable."
-                  confirmLabel="Issue"
+                  title={t("issueTitle")}
+                  description={t("issueDescription")}
+                  confirmLabel={t("issue")}
                   hidden={{ id }}
-                  trigger="Issue"
+                  trigger={t("issue")}
                   triggerVariant="primary"
                 />
                 <ConfirmAction
                   action={deleteDraftAction}
-                  title="Delete this draft?"
-                  confirmLabel="Delete"
+                  title={t("deleteDraftTitle")}
+                  confirmLabel={tc("delete")}
                   hidden={{ id }}
-                  trigger="Delete"
+                  trigger={tc("delete")}
                   triggerVariant="tertiary"
                   destructive
                 />
@@ -138,57 +201,83 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
                         : `/api/documents/preview?invoice=${id}`
                     }
                   >
-                    Download PDF
+                    {tc("downloadPdf")}
                   </a>
                 </Button>
-                {isIssued ? (
+                <Button asChild variant="secondary">
+                  <a href={`/api/documents/preview?invoice=${id}&format=docx`}>
+                    {tc("downloadDocx")}
+                  </a>
+                </Button>
+                {inv.taxRegime === "INDIA_GST" && inv.issuer.einvoiceEnabled && inv.issuer.gstin ? (
+                  <Button asChild variant="secondary">
+                    <a href={`/api/documents/einvoice/${id}?format=gst`}>{t("downloadEInvoice")}</a>
+                  </Button>
+                ) : null}
+                {euProfile ? (
                   <>
                     <Button asChild variant="secondary">
-                      <Link href={`/invoices/${id}/send`}>Send by email</Link>
+                      <a href={`/api/documents/einvoice/${id}?format=cii`}>{tc("downloadCii")}</a>
                     </Button>
                     <Button asChild variant="secondary">
-                      <Link href={`/invoices/${id}/payments`}>Record payment</Link>
+                      <a href={`/api/documents/einvoice/${id}?format=ubl`}>{tc("downloadUbl")}</a>
+                    </Button>
+                    <Button asChild variant="secondary">
+                      <a href={`/api/documents/preview?invoice=${id}&format=facturx`}>
+                        {tc("downloadFacturX")}
+                      </a>
+                    </Button>
+                  </>
+                ) : null}
+                {isIssued && canEdit ? (
+                  <>
+                    <ShareDialog kind="INVOICE" id={id} links={shareLinks} />
+                    <Button asChild variant="secondary">
+                      <Link href={`/invoices/${id}/send`}>{t("sendByEmail")}</Link>
+                    </Button>
+                    <Button asChild variant="secondary">
+                      <Link href={`/invoices/${id}/payments`}>{t("recordPayment")}</Link>
                     </Button>
                     <Button asChild variant="tertiary">
-                      <Link href={`/credit-notes/new?invoice=${id}`}>Credit note</Link>
+                      <Link href={`/credit-notes/new?invoice=${id}`}>{t("creditNote")}</Link>
                     </Button>
                     {!inv.sentAt ? (
                       <ConfirmAction
                         action={markSentAction}
-                        title="Mark as sent?"
-                        description="Records that the client has received this invoice."
-                        confirmLabel="Mark as sent"
+                        title={t("markSentTitle")}
+                        description={t("markSentDescription")}
+                        confirmLabel={t("markSent")}
                         hidden={{ id }}
-                        trigger="Mark as sent"
+                        trigger={t("markSent")}
                         triggerVariant="tertiary"
                       />
                     ) : null}
                     <ConfirmAction
                       action={voidAndReissueAction}
-                      title="Void and reissue?"
-                      description="The original is voided and a linked draft with the same content opens for editing."
-                      confirmLabel="Void & reissue"
+                      title={t("voidReissueTitle")}
+                      description={t("voidReissueDescription")}
+                      confirmLabel={t("voidReissue")}
                       hidden={{ id }}
-                      reason={{ label: "Reason", required: true }}
-                      trigger="Void & reissue"
+                      reason={{ label: tc("reason"), required: true }}
+                      trigger={t("voidReissue")}
                       triggerVariant="tertiary"
                       destructive
                     />
                     <ConfirmAction
                       action={voidInvoiceAction}
-                      title="Void this invoice?"
-                      description="Only possible without recorded payments; the number is never reused."
-                      confirmLabel="Void"
+                      title={t("voidTitle")}
+                      description={t("voidDescription")}
+                      confirmLabel={t("void")}
                       hidden={{ id }}
-                      reason={{ label: "Reason", required: true }}
-                      trigger="Void"
+                      reason={{ label: tc("reason"), required: true }}
+                      trigger={t("void")}
                       triggerVariant="tertiary"
                       destructive
                     />
                   </>
                 ) : null}
                 <Button asChild variant="tertiary">
-                  <Link href={`/invoices/${id}/history`}>History</Link>
+                  <Link href={`/invoices/${id}/history`}>{tc("history")}</Link>
                 </Button>
               </>
             )}
@@ -198,9 +287,12 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
 
       {inv.status === "VOID" ? (
         <p className="mb-6 rounded-md border border-semantic-danger/40 bg-surface-2 px-4 py-3 text-app-body text-semantic-danger">
-          Voided{" "}
-          {inv.voidedAt ? formatDateTime(new Date(inv.voidedAt), "en-GB", actor.timezone) : ""}:{" "}
-          {inv.voidReason}
+          {t("voided", {
+            date: inv.voidedAt
+              ? formatDateTime(new Date(inv.voidedAt), actor.locale, actor.timezone)
+              : "",
+            reason: inv.voidReason ?? "",
+          })}
         </p>
       ) : null}
 
@@ -208,88 +300,135 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
         <div className="flex min-w-0 flex-col gap-6">
           <Card>
             <CardHeader>
-              <CardTitle>Amounts</CardTitle>
+              <CardTitle>{t("amounts")}</CardTitle>
             </CardHeader>
             <CardContent>
               <DescriptionList>
-                <Item label="Subtotal">
+                <Item label={t("subtotal")}>
                   <Amount>{money(inv.subtotal)}</Amount>
                 </Item>
                 {inv.discountAmount !== "0.00" && inv.discountAmount !== "0" ? (
                   <Item
-                    label={`Discount${inv.discountType === "PERCENT" && inv.discountValue ? ` (${formatPercent(inv.discountValue)})` : ""}`}
+                    label={
+                      inv.discountType === "PERCENT" && inv.discountValue
+                        ? t("discountPercent", { percent: formatPercent(inv.discountValue) })
+                        : t("discount")
+                    }
                   >
                     <Amount>−{money(inv.discountAmount)}</Amount>
                   </Item>
                 ) : null}
-                {inv.taxLines.map((t) => (
+                {inv.taxLines.map((line) => (
                   <Item
-                    key={`${t.taxType}-${t.rate}`}
-                    label={`${t.taxType} ${formatPercent(t.rate)}`}
+                    key={`${line.taxType}-${line.rate}`}
+                    label={`${line.taxType} ${formatPercent(line.rate)}`}
                   >
-                    <Amount>{money(t.taxAmount)}</Amount>
+                    <Amount>{money(line.taxAmount)}</Amount>
                   </Item>
                 ))}
                 {inv.roundingAdjustment !== "0.00" && inv.roundingAdjustment !== "0" ? (
-                  <Item label="Rounding">
+                  <Item label={t("rounding")}>
                     <Amount>{money(inv.roundingAdjustment)}</Amount>
                   </Item>
                 ) : null}
-                <Item label="Total">
+                <Item label={tc("total")}>
                   <Amount className="text-app-section">{money(inv.total)}</Amount>
                 </Item>
                 {inv.tdsRate !== "0" ? (
-                  <Item label={`TDS expected (${formatPercent(inv.tdsRate)})`}>
+                  <Item label={t("tdsExpected", { percent: formatPercent(inv.tdsRate) })}>
                     <Amount>{money(inv.tdsExpected)}</Amount>
                   </Item>
                 ) : null}
                 {!isDraft ? (
                   <>
-                    <Item label="Paid">
+                    <Item label={t("paid")}>
                       <Amount>{money(inv.amountPaid)}</Amount>
                     </Item>
-                    <Item label="Credited">
+                    <Item label={t("credited")}>
                       <Amount>{money(inv.amountCredited)}</Amount>
                     </Item>
-                    <Item label="Balance due">
+                    <Item label={t("balanceDue")}>
                       <Amount className="text-app-section">{money(inv.balanceDue)}</Amount>
                     </Item>
                   </>
                 ) : null}
-                <Item label="Supply">
-                  {inv.supplyType.replace(/_/g, " ").toLowerCase()}
+                <Item label={t("supply")}>
+                  {ts(`supplyTypes.${SUPPLY_KEY[inv.supplyType]}`)}
                   {inv.placeOfSupply ? ` · ${inv.placeOfSupply}` : ""}
                 </Item>
                 {inv.fxRateToBase !== "1" ? (
-                  <Item label="FX to base" mono>
+                  <Item label={t("fxToBase")} mono>
                     {inv.fxRateToBase}
                   </Item>
                 ) : null}
-                {inv.poReference ? <Item label="PO reference">{inv.poReference}</Item> : null}
+                {inv.poReference ? <Item label={t("poReference")}>{inv.poReference}</Item> : null}
                 {inv.sentAt ? (
-                  <Item label="Sent" mono>
-                    {formatDateTime(new Date(inv.sentAt), "en-GB", actor.timezone)}
+                  <Item label={t("sent")} mono>
+                    {formatDateTime(new Date(inv.sentAt), actor.locale, actor.timezone)}
                   </Item>
                 ) : null}
               </DescriptionList>
             </CardContent>
           </Card>
 
+          {!isDraft ? (
+            <Card>
+              <CardHeader>
+                <div>
+                  <CardTitle>{t("progress.title")}</CardTitle>
+                  <CardDescription>{t("progress.description")}</CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <PaymentProgress steps={checkpoints} currency={inv.currency} locale={inv.locale} />
+              </CardContent>
+            </Card>
+          ) : null}
+
+          {showEInvoice ? (
+            <Card>
+              <CardHeader>
+                <div>
+                  <CardTitle>{t("einvoice.title")}</CardTitle>
+                  <CardDescription>{t("einvoice.description")}</CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <EInvoicePanel
+                  invoiceId={id}
+                  state={einvoiceState}
+                  connector={einvoiceConnector}
+                  canEdit={canEdit}
+                  cancellable={canCancel(einvoiceState)}
+                  ackDateLabel={
+                    einvoiceState.ackDate
+                      ? formatDateTime(
+                          new Date(einvoiceState.ackDate),
+                          actor.locale,
+                          actor.timezone,
+                        )
+                      : null
+                  }
+                />
+              </CardContent>
+            </Card>
+          ) : null}
+
           <Card>
             <CardHeader>
-              <CardTitle>Line items</CardTitle>
+              <CardTitle>{t("lineItems")}</CardTitle>
             </CardHeader>
             <CardContent>
               <Table>
                 <THead>
                   <TR>
                     <TH>#</TH>
-                    <TH>Description</TH>
-                    <TH>SAC/HSN</TH>
-                    <TH numeric>Qty</TH>
-                    <TH numeric>Rate</TH>
-                    <TH numeric>Tax</TH>
-                    <TH numeric>Amount</TH>
+                    <TH>{t("columns.description")}</TH>
+                    <TH>{t("columns.sacHsn")}</TH>
+                    <TH numeric>{t("columns.qty")}</TH>
+                    <TH numeric>{t("columns.rate")}</TH>
+                    <TH numeric>{t("columns.tax")}</TH>
+                    <TH numeric>{t("columns.amount")}</TH>
                   </TR>
                 </THead>
                 <TBody>
@@ -297,9 +436,10 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
                     <TR key={it.id}>
                       <TD className="text-ink-subtle">{it.position}</TD>
                       <TD className="whitespace-pre-wrap">{it.description}</TD>
-                      <TD mono>{it.sacHsnCode ?? "—"}</TD>
+                      <TD mono>{it.sacHsnCode ?? tc("emptyValue")}</TD>
                       <TD numeric>
-                        {it.quantity.replace(/\.?0+$/, "")} {it.unitType.toLowerCase()}
+                        {it.quantity.replace(/\.?0+$/, "")}{" "}
+                        {ts(`unitsLower.${UNIT_KEY[it.unitType]}`)}
                       </TD>
                       <TD numeric>
                         <Amount>{money(it.unitPrice)}</Amount>
@@ -321,17 +461,17 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
           {inv.creditNotes.length > 0 ? (
             <Card>
               <CardHeader>
-                <CardTitle>Credit notes</CardTitle>
+                <CardTitle>{t("creditNotes")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="flex flex-col gap-2 text-app-body">
                   {inv.creditNotes.map((cn) => (
                     <li key={cn.id} className="flex items-center justify-between">
                       <Link href={`/credit-notes/${cn.id}`} className="text-link">
-                        <Mono>{cn.number ?? "Draft"}</Mono>
+                        <Mono>{cn.number ?? ts("draft")}</Mono>
                       </Link>
                       <span className="flex items-center gap-3">
-                        <Pill>{cn.status.toLowerCase()}</Pill>
+                        <Pill>{ts(`lifecycle.${LIFECYCLE_KEY[cn.status]}`)}</Pill>
                         <Amount>{money(cn.total)}</Amount>
                       </span>
                     </li>
@@ -345,27 +485,23 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
             <Card>
               <CardHeader>
                 <div>
-                  <CardTitle>Stored documents</CardTitle>
-                  <CardDescription>
-                    Every version is kept; the verify page lists all hashes.
-                  </CardDescription>
+                  <CardTitle>{t("storedDocuments")}</CardTitle>
+                  <CardDescription>{t("storedDocumentsHint")}</CardDescription>
                 </div>
                 <ConfirmAction
                   action={regenerateDocumentAction}
-                  title="Generate a new PDF version?"
-                  description="Renders again from the frozen snapshot (for example after a renderer fix). Earlier versions stay."
-                  confirmLabel="Generate"
+                  title={t("regenerateTitle")}
+                  description={t("regenerateDescription")}
+                  confirmLabel={t("regenerate")}
                   hidden={{ id }}
-                  trigger="New version"
+                  trigger={t("newVersion")}
                   triggerVariant="tertiary"
                   size="sm"
                 />
               </CardHeader>
               <CardContent>
                 {inv.documents.length === 0 ? (
-                  <p className="text-app-body text-ink-subtle">
-                    The PDF is rendered on first download.
-                  </p>
+                  <p className="text-app-body text-ink-subtle">{t("renderedOnFirstDownload")}</p>
                 ) : (
                   <ul className="flex flex-col gap-2">
                     {inv.documents.map((d) => (
@@ -375,15 +511,19 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
                       >
                         <span>
                           <a href={`/api/documents/${d.id}`} className="text-link">
-                            Version {d.version}
+                            {d.format === "PDF_PROTECTED"
+                              ? t("protectedCopy", { version: String(d.version) })
+                              : t("version", { version: String(d.version) })}
                           </a>
                           <span className="text-ink-subtle">
                             {" "}
-                            · {formatDateTime(
+                            ·{" "}
+                            {formatDateTime(
                               new Date(d.generatedAt),
-                              "en-GB",
+                              actor.locale,
                               actor.timezone,
-                            )} · {Math.round(d.byteSize / 1024)} KB
+                            )}{" "}
+                            · {t("sizeKb", { size: String(Math.round(d.byteSize / 1024)) })}
                           </span>
                         </span>
                         <Mono className="break-all text-ink-subtle">{d.sha256}</Mono>
@@ -392,7 +532,7 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
                   </ul>
                 )}
                 <p className="text-app-caption text-ink-subtle">
-                  Verification link:{" "}
+                  {t("verificationLink")}{" "}
                   <a
                     href={`/verify/${inv.verificationToken}`}
                     className="text-link"
@@ -412,16 +552,18 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
             <Card>
               <CardContent>
                 <p className="text-app-body text-ink-subtle">
-                  Drafts preview live in the editor; open{" "}
-                  <a
-                    className="text-link"
-                    href={`/api/documents/preview?invoice=${id}`}
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    the watermarked PDF
-                  </a>{" "}
-                  to see the page.
+                  {t.rich("draftPreviewHint", {
+                    link: (chunks) => (
+                      <a
+                        className="text-link"
+                        href={`/api/documents/preview?invoice=${id}`}
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        {chunks}
+                      </a>
+                    ),
+                  })}
                 </p>
               </CardContent>
             </Card>

@@ -1,19 +1,25 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { CreditNoteBuilder } from "@/components/credit-notes/builder";
 import { PageHeader } from "@/components/ui/page-header";
 import { prisma } from "@/lib/db";
 import { withFlash } from "@/lib/flash";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { defaultCreditNoteDate, getCreditNote } from "@/server/dal/credit-notes";
 import { NotFoundError } from "@/server/dal/errors";
 import { getInvoice } from "@/server/dal/invoices";
 import { resolveTemplateConfig } from "@/server/dal/templates";
 
-export const metadata: Metadata = { title: "Edit credit note" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("creditNotes.edit");
+  return { title: t("metaTitle") };
+}
 
 export default async function EditCreditNotePage({ params }: { params: Promise<{ id: string }> }) {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
+  const t = await getTranslations("creditNotes.edit");
+  const tn = await getTranslations("shell.nav");
   const { id } = await params;
   const cn = await getCreditNote(actor, id).catch((e: unknown) => {
     if (e instanceof NotFoundError) notFound();
@@ -23,7 +29,7 @@ export default async function EditCreditNotePage({ params }: { params: Promise<{
     redirect(
       withFlash(`/credit-notes/${id}`, {
         kind: "info",
-        message: "Issued credit notes are immutable.",
+        message: t("immutable"),
       }),
     );
   }
@@ -34,10 +40,10 @@ export default async function EditCreditNotePage({ params }: { params: Promise<{
   return (
     <>
       <PageHeader
-        title="Edit draft credit note"
+        title={t("title")}
         breadcrumb={[
-          { href: "/credit-notes", label: "Credit notes" },
-          { href: `/credit-notes/${id}`, label: "Draft" },
+          { href: "/credit-notes", label: tn("creditNotes") },
+          { href: `/credit-notes/${id}`, label: t("draft") },
         ]}
       />
       <CreditNoteBuilder

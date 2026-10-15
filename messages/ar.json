@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "الصفحة الرئيسية لـ okinvo",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "continue": "متابعة",
+    "saving": "جارٍ الحفظ…",
+    "detect": "اكتشاف",
+    "yes": "نعم",
+    "no": "لا",
+    "choose": "اختر…",
+    "remove": "إزالة",
+    "tryAgain": "حاول مرة أخرى",
+    "dashboard": "لوحة التحكم",
+    "goToDashboard": "الانتقال إلى لوحة التحكم",
+    "or": "أو",
+    "invoice": "فاتورة",
+    "creditNote": "إشعار دائن",
+    "downloadPdf": "تنزيل PDF",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "downloadDocx": "تنزيل DOCX",
+    "downloadCii": "تنزيل EN 16931 XML",
+    "downloadUbl": "تنزيل Peppol UBL",
+    "downloadFacturX": "تنزيل Factur-X PDF",
+    "none": "بلا",
+    "dismiss": "إغلاق",
+    "all": "الكل",
+    "previous": "السابق",
+    "next": "التالي",
+    "go": "انتقال",
+    "search": "بحث",
+    "status": "الحالة",
+    "total": "الإجمالي",
+    "currency": "العملة",
+    "from": "من",
+    "to": "إلى",
+    "reason": "السبب",
+    "history": "السجل",
+    "archive": "أرشفة",
+    "restore": "استعادة",
+    "showArchived": "عرض المؤرشف",
+    "hideArchived": "إخفاء المؤرشف",
+    "archived": "مؤرشف",
+    "default": "افتراضي",
+    "setDefault": "تعيين كافتراضي",
+    "revoke": "إلغاء الصلاحية",
+    "copy": "نسخ",
+    "copied": "تم النسخ",
+    "active": "نشط",
+    "pagination": "ترقيم الصفحات",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "لوحة التحكم",
+      "invoices": "الفواتير",
+      "creditNotes": "الإشعارات الدائنة",
+      "clients": "العملاء",
+      "services": "الخدمات",
+      "products": "المنتجات",
+      "tools": "العملات"
+    },
+    "primaryNav": "الرئيسية",
+    "settings": "الإعدادات",
+    "openMenu": "فتح القائمة",
+    "more": "المزيد",
+    "navigation": "التنقل",
+    "dock": "تنقل سريع",
+    "pagesAndAccount": "الصفحات والحساب",
+    "collapseSidebar": "طي الشريط الجانبي",
+    "collapseSidebarHint": "طي الشريط الجانبي ([)",
+    "expandSidebar": "توسيع الشريط الجانبي",
+    "expandSidebarHint": "توسيع الشريط الجانبي ([)",
+    "theme": {
+      "label": "المظهر",
+      "system": "النظام",
+      "light": "فاتح",
+      "dark": "داكن",
+      "current": "المظهر: {mode}",
+      "switchTo": "المظهر: {mode}. التبديل إلى {next}"
+    },
+    "userMenu": {
+      "label": "قائمة حساب {name}",
+      "profile": "الملف الشخصي",
+      "logOut": "تسجيل الخروج"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "محوّل العملات",
+      "title": "محوّل العملات",
+      "description": "حوّل بين العملات التي تصدر بها فواتيرك باستخدام جدول أسعار الصرف الموجود في هذه النسخة.",
+      "amount": "المبلغ",
+      "from": "من",
+      "to": "إلى",
+      "flip": "تبديل العملتين",
+      "enterAmount": "أدخل مبلغًا",
+      "asOf": "أسعار الصرف حتى {date} ({source})",
+      "sources": {
+        "bundled": "مضمّنة مع التطبيق",
+        "live": "محدّثة عبر الإنترنت"
+      },
+      "note": "الأسعار للاسترشاد فقط؛ السعر في الفاتورة الصادرة هو الذي أدخلته عند إصدارها."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "تسجيل الدخول",
+      "metaDescription": "سجّل الدخول إلى okinvo، تطبيق الفوترة المستضاف ذاتيًا، عبر مزوّد الهوية أو كلمة المرور.",
+      "title": "تسجيل الدخول",
+      "subtitle": "يمكن للحسابات المدرجة في قائمة السماح فقط الدخول.",
+      "failed": "فشل تسجيل الدخول.",
+      "noMethod": "لم يتم إعداد أي طريقة لتسجيل الدخول. عيّن زوج مزوّد مثل <code>AUTH_GITHUB_*</code>، أو <code>AUTH_PASSWORD_SIGNIN=true</code>، في <code>.env</code>.",
+      "errors": {
+        "not_allowed": "هذا الحساب غير مسموح به على هذه النسخة، أو تم تعطيله.",
+        "signin": "لم يكتمل تسجيل الدخول. يرجى المحاولة مرة أخرى."
+      }
+    },
+    "password": {
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "signingIn": "جارٍ تسجيل الدخول…",
+      "createAccount": "إنشاء حساب",
+      "signIn": "تسجيل الدخول",
+      "haveAPassword": "لدي كلمة مرور بالفعل",
+      "firstTime": "هل هذه أول زيارة؟ عيّن كلمة مرور",
+      "failed": "فشل تسجيل الدخول."
+    },
+    "social": {
+      "redirecting": "جارٍ إعادة التوجيه…",
+      "continueWith": "المتابعة عبر {provider}",
+      "failed": "تعذّر بدء تسجيل الدخول."
+    },
+    "error": {
+      "metaTitle": "خطأ في تسجيل الدخول",
+      "metaDescription": "لم يكتمل تسجيل الدخول. توضح الصفحة سبب الخطأ وكيفية المحاولة مرة أخرى.",
+      "title": "فشل تسجيل الدخول",
+      "body": "أعاد مزوّد الهوية <code>{value}</code>. إذا لم يكن عنوانك في قائمة السماح لهذه النسخة، فاطلب من المالك إضافته.",
+      "back": "العودة إلى تسجيل الدخول"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "الإعدادات",
+      "profiles": "الملفات الشخصية",
+      "paymentMethods": "طرق الدفع",
+      "templates": "القوالب",
+      "email": "البريد الإلكتروني",
+      "security": "الأمان",
+      "users": "المستخدمون",
+      "data": "البيانات",
+      "legal": "القانونية",
+      "einvoicing": "الفواتير الإلكترونية",
+      "account": "الحساب",
+      "appearance": "المظهر",
+      "api": "API",
+      "status": "الحالة",
+      "usage": "الاستخدام"
+    },
+    "account": {
+      "metaTitle": "الحساب",
+      "title": "الحساب",
+      "description": "صورتك واسمك ومنطقتك ولغتك ومنطقتك الزمنية.",
+      "photo": {
+        "title": "الصورة",
+        "description": "تظهر في الشريط الجانبي وقائمة المستخدم."
+      },
+      "form": {
+        "title": "الحساب",
+        "description": "كيف تظهر وما هو تاريخ «اليوم».",
+        "displayName": "الاسم المعروض",
+        "signInEmail": "بريد تسجيل الدخول",
+        "signInEmailHint": "هويتك على هذه النسخة؛ لا يمكن تعديلها هنا.",
+        "timezone": "المنطقة الزمنية",
+        "timezoneHint": "«اليوم» لتواريخ الإصدار وتواريخ الاستحقاق ولوحة التحكم",
+        "regionTitle": "المنطقة",
+        "regionDescription": "القيم الافتراضية لملفات المُصدِر الجديدة ولوحة التحكم إلى حين وجود ملف.",
+        "country": "الدولة",
+        "currency": "العملة",
+        "suggested": "المقترح لهذه الدولة:",
+        "language": "اللغة",
+        "languageHint": "لغة التطبيق نفسه. تستخدم المستندات الإعداد المحلي الخاص بكل ملف.",
+        "machineTranslated": "تمت ترجمة هذه اللغة آليًا. نرحب بالتصحيحات: <link>حسّنها على GitHub</link>.",
+        "save": "حفظ التفضيلات"
+      },
+      "regions": {
+        "Africa": "أفريقيا",
+        "Americas": "الأمريكتان",
+        "Asia": "آسيا",
+        "Europe": "أوروبا",
+        "MiddleEast": "الشرق الأوسط",
+        "Oceania": "أوقيانوسيا",
+        "Constructed": "مصطنعة"
+      },
+      "privacy": {
+        "title": "الخصوصية",
+        "description": "يضبط okinvo ملفات تعريف الارتباط اللازمة للعمل فقط. لا تحليلات ولا تتبّع.",
+        "cookiePolicy": "سياسة ملفات تعريف الارتباط",
+        "showNoticeAgain": "عرض إشعار ملفات تعريف الارتباط مرة أخرى"
+      }
+    },
+    "avatar": {
+      "changePhoto": "تغيير الصورة",
+      "addPhoto": "إضافة صورة",
+      "hint": "PNG أو JPEG أو WebP. تظهر دائريةً في كل مكان؛ يمكنك تكبيرها وتحريكها قبل الحفظ.",
+      "tooLarge": "هذه الصورة كبيرة جدًا.",
+      "uploadFailed": "فشل الرفع.",
+      "choose": "اختر صورة الملف الشخصي",
+      "dialogTitle": "اضبط موضع صورتك",
+      "dialogDescription": "اسحب للتحريك، ومرّر أو اقرص للتكبير. الدائرة هي ما يراه الجميع.",
+      "zoom": "التكبير",
+      "save": "حفظ الصورة"
+    },
+    "appearance": {
+      "metaTitle": "المظهر",
+      "title": "المظهر",
+      "description": "المظهر ولون التمييز، يُحفظان في حسابك.",
+      "theme": {
+        "title": "المظهر",
+        "description": "اتبع النظام، أو ثبّت الفاتح أو الداكن.",
+        "label": "المظهر",
+        "system": "اتباع النظام",
+        "systemHint": "يتبدل مع نظام التشغيل",
+        "light": "فاتح",
+        "lightHint": "خلفية بيضاء",
+        "dark": "داكن",
+        "darkHint": "خلفية شبه سوداء"
+      },
+      "accent": {
+        "title": "لون التمييز",
+        "description": "يُستخدم للزر الأساسي وحلقات التركيز وعلامة الصفحة النشطة. لون النعناع يطابق شعار العلامة.",
+        "label": "لون التمييز",
+        "customHint": "أو اختر أي لون خاص بك"
+      },
+      "accents": {
+        "mint": "نعناعي",
+        "lavender": "خزامي",
+        "sky": "سماوي",
+        "peach": "خوخي",
+        "butter": "زبدي",
+        "rose": "وردي",
+        "sage": "مريمي",
+        "lilac": "ليلكي",
+        "custom": "مخصص"
+      }
+    },
+    "profiles": {
+      "metaTitle": "ملفات المُصدِر",
+      "title": "ملفات المُصدِر",
+      "description": "الهويات القانونية التي تُصدر الفواتير باسمها. يُملأ الملف الافتراضي تلقائيًا في الفواتير الجديدة.",
+      "breadcrumb": "الملفات الشخصية",
+      "newProfile": "ملف جديد",
+      "emptyTitle": "لا يوجد ملف مُصدِر بعد",
+      "emptyDescription": "أنشئ الهوية التي تُصدر الفواتير باسمها: فرد لديه PAN، أو شركتك.",
+      "createProfile": "إنشاء ملف",
+      "columns": {
+        "label": "التسمية",
+        "legalName": "الاسم القانوني",
+        "type": "النوع",
+        "country": "الدولة",
+        "currency": "العملة",
+        "regime": "النظام الضريبي",
+        "status": "الحالة"
+      },
+      "types": {
+        "company": "شركة",
+        "individual": "فرد"
+      },
+      "makeDefaultTitle": "جعل {label} الافتراضي؟",
+      "makeDefaultDescription": "ستبدأ الفواتير الجديدة من هذا الملف.",
+      "restoreTitle": "استعادة {label}؟",
+      "archiveTitle": "أرشفة {label}؟",
+      "archiveDescription": "يختفي من قوائم الاختيار؛ ولا تتأثر الفواتير الحالية.",
+      "new": {
+        "metaTitle": "ملف مُصدِر جديد",
+        "title": "ملف مُصدِر جديد",
+        "prefilled": "تمت التعبئة من إجاباتك؛ راجع العنوان والتفاصيل الضريبية ثم احفظ."
+      },
+      "edit": {
+        "metaTitle": "تعديل ملف المُصدِر",
+        "template": "القالب",
+        "deleteTitle": "حذف {label}؟",
+        "deleteDescription": "ممكن فقط ما دامت لا توجد فاتورة أو إشعار دائن يشير إلى هذا الملف. وإلا فقم بأرشفته."
+      },
+      "template": {
+        "metaTitle": "قالب الملف",
+        "title": "قالب {label}",
+        "ownTemplate": "قالب خاص",
+        "instanceTemplate": "قالب النسخة",
+        "resetTitle": "استخدام قالب النسخة مرة أخرى؟",
+        "resetDescription": "تتم إزالة الإعدادات الخاصة بهذا الملف؛ ولا تتأثر المستندات الصادرة.",
+        "useInstance": "استخدام قالب النسخة",
+        "usingInstanceTitle": "يُستخدم قالب النسخة",
+        "usingInstanceDescription": "تتبع مستندات هذا الملف الإعدادات ← القوالب. اختر ذلك لتخصيصها بشكل منفصل.",
+        "customise": "استخدام قالب مختلف لهذا الملف",
+        "openInstance": "فتح قالب النسخة"
+      },
+      "form": {
+        "identityTitle": "الهوية",
+        "identityDescription": "الجهة التي تصدر عنها الفاتورة.",
+        "type": "النوع",
+        "label": "التسمية",
+        "labelHint": "تظهر في قوائم الاختيار فقط",
+        "legalName": "الاسم القانوني",
+        "tradeName": "الاسم التجاري",
+        "designation": "المسمى الوظيفي",
+        "email": "البريد الإلكتروني",
+        "phone": "الهاتف",
+        "website": "الموقع الإلكتروني",
+        "addressTitle": "العنوان",
+        "taxTitle": "المعرّفات الضريبية",
+        "taxDescription": "ما ينطبق عليك فقط؛ تُضبط الطباعة لكل فاتورة على حدة.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "رقم UK VAT",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "مشفّر في التخزين",
+        "lutNumber": "رقم LUT",
+        "lutNumberHint": "للصادرات بدون IGST",
+        "lutFiscalYear": "السنة المالية لـ LUT",
+        "lutFiscalYearHint": "مثال: 2026-27",
+        "einvoiceTitle": "الفواتير الإلكترونية",
+        "einvoiceDescription": "كيف يعرّف هذا الملف نفسه في الفواتير الإلكترونية؛ يوجد الموصّل وبيانات الاعتماد ضمن الإعدادات > الفواتير الإلكترونية.",
+        "electronicAddress": "العنوان الإلكتروني",
+        "electronicAddressHint": "معرّف Peppol أو EN 16931 لهذا المُصدِر، يُطبع بوصفه العنوان الإلكتروني للبائع.",
+        "electronicAddressScheme": "مخطط العنوان الإلكتروني",
+        "electronicAddressSchemeNone": "بلا مخطط",
+        "einvoiceEnabled": "الفواتير الإلكترونية مفعّلة لهذا الملف",
+        "einvoiceEnabledHint": "يتيح تنزيلات GST e-invoice JSON وFactur-X وUBL وتسجيل IRN على مستنداته الصادرة.",
+        "defaultsTitle": "الإعدادات الافتراضية",
+        "baseCurrency": "العملة الأساسية",
+        "locale": "الإعداد المحلي للمستند",
+        "localeHint": "تنسيق الأرقام والتواريخ في المستندات",
+        "fiscalYearStart": "تبدأ السنة المالية في",
+        "months": {
+          "january": "يناير",
+          "february": "فبراير",
+          "march": "مارس",
+          "april": "أبريل",
+          "may": "مايو",
+          "june": "يونيو",
+          "july": "يوليو",
+          "august": "أغسطس",
+          "september": "سبتمبر",
+          "october": "أكتوبر",
+          "november": "نوفمبر",
+          "december": "ديسمبر"
+        },
+        "taxRegime": "النظام الضريبي الافتراضي",
+        "regimes": {
+          "indiaGst": "GST الهند",
+          "ukVat": "UK VAT",
+          "usSalesTax": "ضريبة المبيعات الأمريكية",
+          "none": "بدون ضريبة"
+        },
+        "invoiceNumberFormat": "تنسيق رقم الفاتورة",
+        "invoiceNumberFormatHint": "الرموز: {tokens}",
+        "creditNoteNumberFormat": "تنسيق رقم الإشعار الدائن",
+        "tdsRate": "معدل TDS المتوقع (%)",
+        "tdsRateHint": "للعلم فقط، يُطبع كخصم متوقع",
+        "defaultNotes": "الملاحظات الافتراضية",
+        "defaultTerms": "الشروط الافتراضية",
+        "printTitle": "ما يُطبع افتراضيًا",
+        "printDescription": "تنسخ كل فاتورة هذه الخيارات ويمكنها تغييرها بشكل فردي.",
+        "emailTitle": "البريد الإلكتروني",
+        "emailDescription": "الإعدادات الافتراضية لمحرر الإرسال. العناصر النائبة: {placeholders}",
+        "emailCc": "نسخة CC افتراضية",
+        "emailBcc": "نسخة BCC افتراضية",
+        "commaSeparated": "مفصولة بفواصل",
+        "invoiceSubject": "موضوع الفاتورة",
+        "invoiceSubjectHint": "يُستخدم القالب المدمج عند تركه فارغًا",
+        "creditNoteSubject": "موضوع الإشعار الدائن",
+        "invoiceBody": "نص الفاتورة",
+        "creditNoteBody": "نص الإشعار الدائن",
+        "artworkTitle": "العناصر الرسومية",
+        "artworkDescription": "PNG أو JPEG أو WebP حتى 2 MB؛ يحتفظ التوقيع والختم بالشفافية.",
+        "logo": "الشعار",
+        "signature": "التوقيع",
+        "stamp": "الختم",
+        "transparentPng": "PNG شفاف",
+        "save": "حفظ الملف"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "طرق الدفع",
+      "title": "طرق الدفع",
+      "description": "كيف يدفع لك العملاء. التفاصيل مشفّرة وتُثبَّت في كل فاتورة عند الإصدار.",
+      "newMethod": "طريقة جديدة",
+      "emptyTitle": "لا توجد طرق دفع بعد",
+      "emptyDescription": "أضف حسابًا مصرفيًا أو معرّف UPI أو محفظة لكي تُعلِم الفواتير العملاء أين يدفعون.",
+      "addMethod": "إضافة طريقة",
+      "columns": {
+        "name": "الاسم",
+        "type": "النوع",
+        "currency": "العملة",
+        "status": "الحالة"
+      },
+      "types": {
+        "bankTransfer": "تحويل مصرفي",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "مخصصة"
+      },
+      "makeDefaultTitle": "جعل {name} الافتراضية؟",
+      "restoreTitle": "استعادة {name}؟",
+      "archiveTitle": "أرشفة {name}؟",
+      "archiveDescription": "تحتفظ الفواتير الصادرة باللقطة التي طُبعت بها.",
+      "new": {
+        "metaTitle": "طريقة دفع جديدة",
+        "title": "طريقة دفع جديدة"
+      },
+      "edit": {
+        "metaTitle": "تعديل طريقة الدفع",
+        "title": "تعديل {name}",
+        "deleteTitle": "حذف {name}؟",
+        "deleteDescription": "ممكن فقط ما دامت لا توجد فاتورة أو دفعة تشير إليها. وإلا فقم بأرشفتها."
+      },
+      "form": {
+        "name": "الاسم",
+        "nameHint": "يُطبع كعنوان لقسم الدفع",
+        "type": "النوع",
+        "currency": "العملة",
+        "currencyHint": "اختيارية؛ تظهر للسياق فقط",
+        "anyCurrency": "أي عملة",
+        "instructions": "التعليمات",
+        "instructionsHint": "تُطبع أسفل التفاصيل",
+        "isDefault": "الطريقة الافتراضية",
+        "isDefaultDescription": "محددة مسبقًا في الفواتير الجديدة",
+        "isActive": "نشطة",
+        "detailsTitle": "التفاصيل",
+        "detailsDescription": "مشفّرة في التخزين؛ تُلتقط كلقطة في كل فاتورة عند إصدارها.",
+        "vpa": "معرّف UPI (VPA)",
+        "payeeName": "اسم المستفيد",
+        "lines": "الأسطر",
+        "linesHint": "سطر واحد لكل صف، يُطبع كما هو",
+        "accountEmail": "بريد الحساب / المعرّف",
+        "bank": {
+          "accountHolder": "صاحب الحساب",
+          "accountNumber": "رقم الحساب",
+          "bankName": "اسم المصرف",
+          "branch": "الفرع",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "رمز التوجيه / الفرز"
+        },
+        "save": "حفظ طريقة الدفع"
+      }
+    },
+    "templates": {
+      "metaTitle": "قوالب المستندات",
+      "title": "قوالب المستندات",
+      "customised": "مخصص",
+      "builtIn": "الافتراضي المدمج",
+      "description": "شكل الفواتير والإشعارات الدائنة. تحتفظ المستندات الصادرة بالقالب الذي صدرت به.",
+      "resetTitle": "إعادة الضبط إلى الافتراضي المدمج؟",
+      "resetDescription": "تتم إزالة تخصيصك؛ ولا تتأثر المستندات الصادرة بالفعل.",
+      "reset": "إعادة ضبط",
+      "resetTrigger": "إعادة الضبط إلى الافتراضي",
+      "importTitle": "استيراد",
+      "importDescription": "استعادة إعدادات تم تصديرها سابقًا.",
+      "overridesTitle": "تجاوزات لكل ملف",
+      "overridesDescription": "يمكن لأي ملف اختيار قالبه الخاص من صفحة التعديل.",
+      "noOverrides": "تستخدم جميع الملفات قالب النسخة.",
+      "import": {
+        "json": "JSON القالب",
+        "jsonHint": "الصق ملفًا ناتجًا عن تصدير JSON؛ تعود المفاتيح المفقودة إلى الإعدادات الافتراضية",
+        "importing": "جارٍ الاستيراد…",
+        "submit": "استيراد"
+      },
+      "form": {
+        "templateTitle": "القالب",
+        "templateDescription": "ستة قوالب مدمجة؛ ينطبق التخصيص أدناه على القالب الذي تختاره.",
+        "templateGroup": "القالب",
+        "templates": {
+          "ledger": {
+            "name": "دفتر الأستاذ",
+            "character": "عصري ومتنفس، خط بلا زوائد، خط تمييز تحت الترويسة."
+          },
+          "classic": {
+            "name": "كلاسيكي",
+            "character": "جدول تقليدي بحدود، عناوين بخط ذي زوائد، إجماليات داخل إطار."
+          },
+          "compact": {
+            "name": "مدمج",
+            "character": "تخطيط كثيف لقوائم البنود الطويلة؛ خط أصغر وفواصل أقل."
+          },
+          "minimal": {
+            "name": "بسيط",
+            "character": "هادئ وفسيح: بلا خطوط أو إطارات، تسميات خفيفة، مساحات واسعة."
+          },
+          "letterhead": {
+            "name": "ورقة رسمية",
+            "character": "شعارك واسمك على شريط ملوّن أو صورة في أعلى كل صفحة."
+          },
+          "modern": {
+            "name": "حديث",
+            "character": "ترويسة بشريط ملوّن؛ الأطراف ورأس الجدول والإجماليات على خلفية فاتحة بلون التمييز."
+          }
+        },
+        "paperTitle": "الورق والخط",
+        "paperSize": "حجم الورق",
+        "paperLetter": "Letter",
+        "margins": "الهوامش",
+        "marginsNormal": "عادية",
+        "marginsNarrow": "ضيقة",
+        "headingFont": "خط العناوين",
+        "bodyFont": "خط النص",
+        "fontSans": "بلا زوائد",
+        "fontSerif": "ذو زوائد",
+        "tableStyle": "نمط الجدول",
+        "tableRuled": "مسطّر",
+        "tableZebra": "مخطّط بالتناوب",
+        "tablePlain": "عادي",
+        "accentColour": "لون التمييز",
+        "textColour": "لون النص",
+        "logoPosition": "موضع الشعار",
+        "positionLeft": "يسار",
+        "positionCentre": "وسط",
+        "positionRight": "يمين",
+        "logoHeight": "ارتفاع الشعار (mm)",
+        "documentTitle": "عنوان المستند",
+        "titleAuto": "تلقائي (مراعٍ لـ GST)",
+        "titleCustom": "مخصص",
+        "titlePlaceholder": "مثال: PROFORMA INVOICE",
+        "qrPosition": "موضع QR",
+        "qrFooter": "التذييل",
+        "qrHeader": "الترويسة",
+        "qrBesideTotals": "بجانب الإجماليات",
+        "amountInWords": "المبلغ بالحروف",
+        "wordsBelowTotal": "أسفل الإجماليات",
+        "wordsFooter": "التذييل",
+        "wordsHidden": "مخفي",
+        "subtotalRow": "صف المجموع الفرعي",
+        "discountRow": "صف الخصم",
+        "taxLines": "أسطر الضريبة",
+        "tdsExpected": "TDS المتوقع",
+        "roundingRow": "صف التقريب",
+        "pageNumbers": "أرقام الصفحات",
+        "headerTitle": "الترويسة",
+        "headerDescription": "شريط ملوّن أو صورة في أعلى كل صفحة. يعرض قالبا الورقة الرسمية والحديث شريطًا ما لم تختر غير ذلك.",
+        "headerStyle": "نمط الترويسة",
+        "headerNone": "بلا",
+        "headerBand": "شريط ملوّن",
+        "headerImage": "صورة",
+        "bandColour": "لون الشريط",
+        "bandColourHex": "لون الشريط (hex)",
+        "headerImageLabel": "صورة الترويسة",
+        "headerImageHint": "PNG أو JPEG أو WebP بعرض حتى 2400 px؛ تمتد على عرض الصفحة.",
+        "imageOpacity": "شفافية الصورة",
+        "headerHeight": "ارتفاع الترويسة (mm)",
+        "bandText": "النص على الشريط",
+        "bandTextAuto": "تلقائي (حسب لون الشريط)",
+        "bandTextLight": "فاتح",
+        "bandTextDark": "داكن",
+        "textTitle": "النص",
+        "headerNote": "ملاحظة الترويسة",
+        "footer": "التذييل",
+        "signatureCaption": "تسمية التوقيع",
+        "draftWatermark": "علامة مائية للمسودة",
+        "labelsTitle": "التسميات",
+        "labelsDescription": "اترك الحقل فارغًا للإبقاء على الصياغة الافتراضية.",
+        "save": "حفظ القالب",
+        "downloadSample": "تنزيل PDF تجريبي",
+        "exportJson": "تصدير JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "البريد الإلكتروني",
+      "title": "البريد الإلكتروني",
+      "configuredSettings": "مُعدّ في الإعدادات",
+      "configuredEnv": "مُعدّ عبر البيئة",
+      "notConfigured": "غير مُعدّ: مسار تطبيق البريد",
+      "description": "تُرسل المستندات من محرر الإرسال مع إرفاق ملف PDF المخزّن. تتجاوز الإعدادات هنا قيم SMTP_* في البيئة.",
+      "sendTest": "إرسال بريد تجريبي إلى {email}",
+      "removeTitle": "إزالة إعدادات SMTP المخزّنة؟",
+      "removeEnvTakesOver": "ستُعتمد قيم SMTP_* من البيئة.",
+      "removeFallsBack": "يعود البريد إلى مسار تطبيق البريد.",
+      "removeTrigger": "إزالة الإعدادات المخزّنة",
+      "smtpTitle": "خادم SMTP",
+      "smtpFromEnv": "مأخوذ حاليًا من البيئة؛ والحفظ هنا يتجاوزه.",
+      "smtpPasswordNote": "كلمة المرور مشفّرة في التخزين ولا تُعرض مرة أخرى.",
+      "defaultsTitle": "المستلمون الافتراضيون",
+      "defaultsDescription": "CC/BCC على مستوى النسخة؛ تضيف ملفات المُصدِر ما يخصها.",
+      "sentTitle": "البريد المرسل",
+      "sentDescription": "آخر 50 محاولة، بما فيها الإخفاقات والإرسال اليدوي.",
+      "smtp": {
+        "host": "المضيف",
+        "port": "المنفذ",
+        "security": "الأمان",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "بلا (مرحّل LAN)",
+        "user": "اسم المستخدم",
+        "password": "كلمة المرور",
+        "passwordStored": "مخزّنة ومشفّرة؛ اتركها فارغة للإبقاء عليها",
+        "passwordEncrypted": "مشفّرة في التخزين",
+        "from": "عنوان المرسل",
+        "fromName": "اسم المرسل",
+        "replyTo": "عنوان الرد",
+        "save": "حفظ إعدادات SMTP"
+      },
+      "defaults": {
+        "cc": "نسخة CC افتراضية",
+        "ccHint": "تُضاف إلى كل محرر؛ مفصولة بفواصل",
+        "bcc": "نسخة BCC افتراضية",
+        "save": "حفظ الإعدادات الافتراضية"
+      }
+    },
+    "security": {
+      "metaTitle": "الأمان",
+      "title": "الأمان",
+      "description": "أين سجّلت الدخول، وكل ما تغيّر.",
+      "sessions": {
+        "title": "الجلسات النشطة",
+        "description": "إلغاء الجلسة يسجّل خروج ذلك الجهاز فورًا.",
+        "signOutOthers": {
+          "title": "تسجيل الخروج من كل مكان آخر؟",
+          "description": "تُلغى كل الجلسات باستثناء هذه.",
+          "confirm": "تسجيل خروج الآخرين",
+          "trigger": "تسجيل الخروج من كل مكان آخر"
+        },
+        "columns": {
+          "device": "الجهاز",
+          "ipAddress": "عنوان IP",
+          "signedIn": "تسجيل الدخول",
+          "lastSeen": "آخر ظهور",
+          "expires": "ينتهي"
+        },
+        "thisDevice": "هذا الجهاز",
+        "revokeTitle": "إلغاء هذه الجلسة؟",
+        "unknownDevice": "جهاز غير معروف",
+        "unknownBrowser": "غير معروف",
+        "agentOnOs": "{browser} على {os}"
+      },
+      "audit": {
+        "title": "سجل التدقيق",
+        "count": "{count, plural, zero {لا أحداث} one {حدث واحد} two {حدثان} few {# أحداث} many {# حدثًا} other {# حدث}}",
+        "entity": "الكيان",
+        "actionContains": "الإجراء يحتوي على",
+        "filter": "تصفية",
+        "reset": "إعادة ضبط",
+        "columns": {
+          "when": "متى",
+          "who": "من",
+          "action": "الإجراء",
+          "entity": "الكيان",
+          "summary": "الملخص"
+        },
+        "empty": "لا توجد أحداث تطابق هذه المرشحات.",
+        "system": "النظام",
+        "changes": "التغييرات",
+        "page": "الصفحة {page} من {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "المستخدمون",
+      "title": "المستخدمون",
+      "description": "من يمكنه تسجيل الدخول إلى هذه النسخة وما يُسمح له به.",
+      "roles": {
+        "owner": "مالك",
+        "editor": "محرر",
+        "viewer": "مشاهد"
+      },
+      "roleHints": {
+        "owner": "كل شيء، بما في ذلك الإعدادات والأعضاء",
+        "editor": "العملاء والكتالوج والفواتير والإشعارات الدائنة والدفعات والبريد الإلكتروني",
+        "viewer": "للقراءة فقط"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "دور {email}",
+      "invite": {
+        "title": "دعوة شخص",
+        "description": "يسجّل الدخول بالعنوان المدعو (عبر مزوّد هوية أو كلمة مرور) ويحصل على الدور الذي تختاره.",
+        "sent": "تم إرسال الدعوة بالبريد إلى {email}.",
+        "readyWithError": "الدعوة جاهزة لـ {email}. تعذّر إرسال البريد ({error})؛ أرسل إليهم هذا الرابط:",
+        "readyNoSmtp": "الدعوة جاهزة لـ {email}. لم يتم إعداد SMTP؛ أرسل إليهم هذا الرابط:",
+        "copyLink": "نسخ الرابط",
+        "email": "البريد الإلكتروني",
+        "emailPlaceholder": "person@example.com",
+        "role": "الدور",
+        "submit": "دعوة",
+        "inviting": "جارٍ الدعوة…"
+      },
+      "members": {
+        "title": "الأعضاء",
+        "description": "يبقى دائمًا مالك نشط واحد على الأقل.",
+        "columns": {
+          "person": "الشخص",
+          "role": "الدور",
+          "lastSignIn": "آخر تسجيل دخول",
+          "status": "الحالة"
+        },
+        "nameYou": "{name} (أنت)",
+        "deactivated": "معطّل",
+        "reactivate": {
+          "title": "إعادة تفعيل {email}؟",
+          "description": "يمكنه تسجيل الدخول مجددًا بدوره السابق.",
+          "confirm": "إعادة التفعيل"
+        },
+        "deactivate": {
+          "title": "تعطيل {email}؟",
+          "description": "تنتهي كل الجلسات الآن ولا يمكنه تسجيل الدخول حتى إعادة التفعيل. يبقى سجله محفوظًا.",
+          "confirm": "تعطيل"
+        }
+      },
+      "invitations": {
+        "title": "الدعوات المعلّقة",
+        "description": "عناوين يمكنها تسجيل الدخول لكنها لم تفعل بعد.",
+        "columns": {
+          "email": "البريد الإلكتروني",
+          "role": "الدور",
+          "invited": "تاريخ الدعوة"
+        },
+        "empty": "لا توجد دعوات معلّقة.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "إلغاء الدعوة الموجهة إلى {email}؟"
+      }
+    },
+    "data": {
+      "metaTitle": "البيانات",
+      "title": "البيانات",
+      "description": "كل شيء قابل للنقل: مجموعات البيانات بصيغة CSV أو Excel، ولقطة كاملة للترحيل، وملفات PDF لمحاسبك، وإجراء نسخ احتياطي مُختبَر.",
+      "period": {
+        "fiscalYear": "السنة المالية",
+        "fiscalYearHint": "تتجاوز التواريخ",
+        "issuer": "المُصدِر"
+      },
+      "exportAll": {
+        "title": "تصدير كل البيانات",
+        "description": "ملف ZIP يضم كل مجموعة بيانات بصيغة CSV إضافة إلى <mono>data.json</mono>، وهو لقطة علائقية لكل الجداول. تبقى الحقول المشفّرة (تفاصيل طرق الدفع وكلمة مرور SMTP) خارج التصدير؛ ويسردها ملف README بداخله.",
+        "download": "تنزيل ZIP لـ okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "تصدير المستندات",
+        "description": "كل فاتورة وإشعار دائن صادر وملغى كملف PDF لفترة معينة، مسمّى بالرقم، مع <mono>index.csv</mono> للأرقام والإجماليات ورموز التجزئة. تُنشأ ملفات PDF المفقودة أثناء التصدير.",
+        "docx": "تضمين نسخة DOCX من كل مستند أيضًا",
+        "facturx": "تضمين نسخة Factur-X PDF/A-3 تحتوي على EN 16931 XML مضمّنًا أيضًا",
+        "download": "تنزيل ZIP للمستندات"
+      },
+      "datasets": {
+        "title": "مجموعات البيانات",
+        "description": "التصديرات نفسها المتاحة في صفحات الفهرس، مع تطبيق الفترة والمُصدِر على جميعها. تستخدم الدفعات نطاق التاريخ؛ ويتجاهل العملاء والخدمات الفترة.",
+        "columns": {
+          "dataset": "مجموعة البيانات",
+          "filters": "المرشحات المطبقة",
+          "download": "تنزيل"
+        },
+        "names": {
+          "invoices": "سجل الفواتير",
+          "invoiceItems": "بنود الفواتير",
+          "payments": "دفتر الدفعات",
+          "creditNotes": "سجل الإشعارات الدائنة",
+          "clients": "العملاء",
+          "services": "الخدمات",
+          "gstSummary": "ملخص GST",
+          "tdsSummary": "ملخص TDS"
+        },
+        "filters": {
+          "periodIssuer": "الفترة، المُصدِر",
+          "dateRangeIssuer": "نطاق التاريخ، المُصدِر",
+          "includesArchived": "يشمل المؤرشف"
+        }
+      },
+      "backups": {
+        "title": "النسخ الاحتياطية",
+        "notWired": "لا توجد خدمة نسخ احتياطي مربوطة",
+        "noRun": "لم يتم تشغيل أي نسخ احتياطي بعد",
+        "lastOk": "آخر نسخ احتياطي ناجح",
+        "lastFailed": "فشل آخر نسخ احتياطي",
+        "description": "تأخذ خدمة <mono>backup</mono> في Compose تفريغًا لـ Postgres وتؤرشف وحدة التخزين وفق <mono>BACKUP_CRON</mono>، وتحتفظ بسجل <mono>BACKUP_RETENTION_DAYS</mono> في وحدة <mono>backups</mono>، وتكتب ملف حالة تقرؤه هذه الصفحة.",
+        "finished": "انتهى",
+        "databaseDump": "تفريغ قاعدة البيانات",
+        "storageArchive": "أرشيف التخزين",
+        "size": "الحجم",
+        "sizeMb": "{size} MB",
+        "error": "الخطأ",
+        "runNow": "شغّل واحدًا الآن، أو استعد من زوج من الملفات:",
+        "restoreDrill": "يُختبر إجراء الاستعادة في CI عبر <mono>scripts/restore-drill.sh</mono>: تهيئة، نسخ احتياطي، مسح، استعادة، ثم مقارنة عدد الصفوف وتجزئة PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "القانونية",
+      "metaDescription": "من يشغّل هذه النسخة: التفاصيل المطبوعة في الصفحات القانونية العامة.",
+      "title": "القانونية",
+      "description": "تطبع الصفحات القانونية العامة هذه التفاصيل. إلى أن تُملأ كل الحقول، تعرض الصفحات عناصر نائبة مميزة.",
+      "operator": {
+        "title": "تفاصيل المشغّل",
+        "complete": "مكتملة",
+        "missing": "{count} ناقصة: {fields}",
+        "description": "أنت، بصفتك الشخص أو الشركة التي تشغّل هذه النسخة، المشغّل الذي تشير إليه المستندات. لا يُرسل أي شيء هنا إلى أي جهة؛ بل يُطبع في الصفحات أدناه."
+      },
+      "fieldLabels": {
+        "legalName": "الاسم القانوني للمشغّل",
+        "entityType": "نوع الكيان",
+        "address": "عنوان المشغّل",
+        "country": "دولة المشغّل",
+        "contactEmail": "بريد التواصل",
+        "privacyEmail": "بريد الخصوصية",
+        "dpoEmail": "بريد مسؤول حماية البيانات",
+        "governingLaw": "القانون الحاكم",
+        "venue": "جهة الفصل في النزاعات",
+        "effectiveDate": "تاريخ السريان"
+      },
+      "publicPages": {
+        "title": "الصفحات العامة",
+        "description": "مرتبطة من صفحة تسجيل الدخول وعارض المشاركة وإشعار ملفات تعريف الارتباط.",
+        "terms": "شروط الخدمة",
+        "acceptableUse": "سياسة الاستخدام المقبول",
+        "privacy": "سياسة الخصوصية",
+        "cookies": "سياسة ملفات تعريف الارتباط",
+        "dataRetention": "الاحتفاظ بالبيانات",
+        "security": "الأمان",
+        "licenses": "التراخيص وإشعارات الأطراف الثالثة"
+      },
+      "form": {
+        "legalName": "الاسم القانوني",
+        "entityType": "نوع الكيان",
+        "individual": "فرد / مالك منفرد",
+        "company": "شركة / كيان مسجّل",
+        "address": "العنوان",
+        "addressHint": "يُطبع في الشروط وسياسة الخصوصية بوصفه العنوان البريدي للمشغّل.",
+        "country": "الدولة",
+        "effectiveDate": "تاريخ السريان",
+        "contactEmail": "بريد التواصل",
+        "privacyEmail": "بريد الخصوصية",
+        "privacyEmailHint": "حيث تُرسل طلبات أصحاب البيانات؛ ويمكن أن يكون عنوان التواصل.",
+        "dpoEmail": "بريد مسؤول حماية البيانات",
+        "dpoEmailHint": "فقط إذا عيّنت مسؤولًا.",
+        "governingLaw": "القانون الحاكم",
+        "governingLawHint": "على سبيل المثال «قوانين الهند» أو «قوانين إنجلترا وويلز».",
+        "venue": "جهة الفصل في النزاعات",
+        "venueHint": "على سبيل المثال «محاكم بنغالورو، كارناتاكا».",
+        "submit": "حفظ تفاصيل المشغّل"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "الفواتير الإلكترونية",
+      "title": "الفواتير الإلكترونية",
+      "description": "لكل ملف مُصدِر: أي موصّل يسجّل الفواتير الإلكترونية الهندية، وأي ملف أوروبي تتبعه مخرجات Factur-X وUBL. تُخزَّن بيانات الاعتماد مشفرة ولا تُعرض مرة أخرى.",
+      "noProfiles": "أنشئ ملف مُصدِر أولاً.",
+      "profile": "ملف المُصدِر",
+      "enabled": "مفعّل",
+      "disabled": "معطّل",
+      "enabledHint": "فعّل الفواتير الإلكترونية أو عطّلها لكل ملف ضمن الإعدادات > الملفات الشخصية.",
+      "india": {
+        "title": "الهند (GST e-invoice, IRN)",
+        "description": "يُسجَّل IRN عبر الموصّل المختار هنا؛ ويستقبل الموصّل اليدوي استجابة البوابة المُدخلة يدوياً.",
+        "connector": "الموصّل",
+        "connectorNone": "متوقف",
+        "connectorManual": "يدوي (الصق استجابة IRP)",
+        "connectorNic": "NIC IRP API (sandbox أو production)",
+        "nicUnverified": "يتبع موصّل NIC واجهة API المنشورة ويُختبر على عينات مسجلة فقط؛ وهو غير مُتحقَّق منه على sandbox حقيقية إلى أن تُقدَّم بيانات الاعتماد.",
+        "env": "البيئة",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "عنوان URL الأساسي",
+        "baseUrlHint": "اتركه فارغاً لاستخدام الافتراضي للبيئة.",
+        "clientId": "معرّف العميل",
+        "clientSecret": "سر العميل",
+        "username": "اسم المستخدم",
+        "password": "كلمة المرور",
+        "gstin": "GSTIN",
+        "publicKey": "المفتاح العام لـ IRP (PEM)",
+        "publicKeyHint": "نزّله من البوابة بعد تسجيل الدخول؛ فهو يغلف بيانات الاعتماد المرسلة إلى IRP.",
+        "publicKeyStored": "تم الحفظ؛ اتركه فارغًا للإبقاء عليه.",
+        "secretStored": "مخزّن مشفراً؛ اتركه فارغاً للإبقاء عليه.",
+        "secretEncrypted": "مخزّن مشفراً."
+      },
+      "eu": {
+        "title": "أوروبا (Factur-X, UBL)",
+        "description": "EN 16931 هو الملف الوحيد في هذا الإصدار؛ وتستخدمه تنزيلات Factur-X وUBL.",
+        "profile": "الملف",
+        "profileNone": "متوقف",
+        "en16931": "EN 16931"
+      },
+      "save": "حفظ إعدادات الفواتير الإلكترونية"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "مفاتيح API للنصوص البرمجية وSDK وعملاء MCP، مع أمثلة curl.",
+      "title": "API",
+      "description": "مفاتيح للنصوص البرمجية وSDK وعملاء MCP. يستطيع المفتاح فعل ما يستطيعه دورك على الأكثر؛ ويُعرض مرة واحدة.",
+      "create": {
+        "title": "إنشاء مفتاح",
+        "description": "أرسله بالصيغة <mono>Authorization: Bearer okv_…</mono>. أبقه بعيدًا عن الشيفرة المصدرية وسجلات الدردشة؛ وألغِه أدناه إذا تسرّب."
+      },
+      "keys": {
+        "title": "المفاتيح",
+        "descriptionOwner": "كل مفاتيح هذه النسخة؛ يستطيع المالكون إلغاء أي منها.",
+        "descriptionOwn": "مفاتيحك.",
+        "columns": {
+          "name": "الاسم",
+          "prefix": "البادئة",
+          "scopes": "النطاقات",
+          "owner": "المالك",
+          "lastUsed": "آخر استخدام",
+          "expires": "ينتهي",
+          "status": "الحالة"
+        },
+        "empty": "لا توجد مفاتيح API بعد.",
+        "never": "أبدًا",
+        "revoked": "ملغى",
+        "expired": "منتهي",
+        "revokeTitle": "إلغاء {name}؟",
+        "revokeDescription": "يتوقف العملاء الذين يستخدمون هذا المفتاح عن العمل فورًا.",
+        "activeCount": "{count, plural, zero {لا مفاتيح نشطة.} one {مفتاح نشط واحد.} two {مفتاحان نشطان.} few {# مفاتيح نشطة.} many {# مفتاحًا نشطًا.} other {# مفتاح نشط.}}"
+      },
+      "examples": {
+        "title": "أمثلة",
+        "description": "استبدل <mono>$OKINVO_KEY</mono> بمفتاح. ستصل واجهة REST ذات الإصدارات ووثيقة OpenAPI الخاصة بها (<mono>/api/openapi.json</mono>) وSDK بلغة TypeScript وخادم MCP مع المهام التالية من خطة v1.1؛ أما نقطة نهاية الحالة فتعمل اليوم.",
+        "rateLimit": "تردّ الاستدعاءات المتجاوزة للحد بالرمز 429 مع ترويسة <mono>Retry-After</mono> (120 طلبًا في الدقيقة لكل مفتاح). تُقيَّد نطاقات المفتاح بدور مالكه الحالي."
+      },
+      "form": {
+        "copyKey": "نسخ مفتاح API",
+        "name": "الاسم",
+        "namePlaceholder": "مثال: نص المحاسبة البرمجي",
+        "expires": "ينتهي",
+        "in30Days": "بعد 30 يومًا",
+        "in90Days": "بعد 90 يومًا",
+        "inAYear": "بعد سنة",
+        "never": "أبدًا",
+        "scopes": "النطاقات",
+        "submit": "إنشاء مفتاح API",
+        "creating": "جارٍ الإنشاء…"
+      },
+      "scopes": {
+        "invoicesRead": "قراءة الفواتير",
+        "invoicesCreate": "إنشاء الفواتير وإصدارها",
+        "creditNotesRead": "قراءة الإشعارات الدائنة",
+        "creditNotesCreate": "إنشاء الإشعارات الدائنة وإصدارها",
+        "catalogueRead": "قراءة العملاء والخدمات والمنتجات",
+        "documentsRead": "تنزيل ملفات PDF ونسخ DOCX المخزّنة",
+        "statusRead": "قراءة حالة النسخة"
+      }
+    },
+    "status": {
+      "metaTitle": "الحالة",
+      "metaDescription": "الإصدار وقاعدة البيانات والتخزين والبريد الإلكتروني وسلامة النسخ الاحتياطي لهذه النسخة.",
+      "title": "الحالة",
+      "description": "ما تشغّله هذه النسخة وهل تستجيب أجزاؤها.",
+      "recheck": "إعادة الفحص",
+      "health": {
+        "ok": "سليم",
+        "warning": "تحذير",
+        "failed": "فشل",
+        "na": "غير مُعدّ"
+      },
+      "overall": {
+        "ok": "كل شيء على ما يرام",
+        "degraded": "أداء متراجع",
+        "failed": "فشل"
+      },
+      "version": "البناء {hasSha, select, yes {<mono>{sha}</mono>} other {(sha غير معروف)}} · بُني {built} · Node <mono>{node}</mono> · يعمل منذ {uptime} · فُحص {checked}",
+      "dateUnknown": "(التاريخ غير معروف)",
+      "uptime": {
+        "days": "{d}d {h}h {m}m",
+        "hours": "{h}h {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "قاعدة البيانات",
+        "storage": "التخزين",
+        "rateLimiting": "تحديد المعدل",
+        "email": "البريد الإلكتروني",
+        "backups": "النسخ الاحتياطية"
+      },
+      "db": {
+        "detail": "{latency} ms · آخر ترحيل <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # من عمليات الترحيل غير المنتهية}}",
+        "noMigration": "لا يوجد"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · كتابة وقراءة وحذف كائن اختباري خلال {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "مخزن <mono>{store}</mono> {store, select, memory {(نسخة طبق الأصل واحدة)} other {(مشترك بين النسخ المتماثلة)}}",
+      "smtp": {
+        "configured": "SMTP من {source, select, settings {صفحة الإعدادات} env {البيئة} other {}} · آخر اختبار {lastTest} · آخر 24 ساعة: {sent} مرسلة، {failed} فاشلة",
+        "none": "لا يوجد خادم SMTP؛ يعرض محرر الإرسال «فتح في تطبيق البريد». <link>إعداد</link>"
+      },
+      "backups": {
+        "notWired": "لا توجد خدمة نسخ احتياطي مربوطة (BACKUP_STATUS_FILE غير معيّن).",
+        "noRun": "خدمة النسخ الاحتياطي مربوطة؛ لم يُسجَّل أي تشغيل بعد.",
+        "ok": "نجح آخر تشغيل في {finishedAt}{days, plural, =0 {} zero {} one { · الاحتفاظ يوم واحد} two { · الاحتفاظ يومان} few { · الاحتفاظ # أيام} many { · الاحتفاظ # يومًا} other { · الاحتفاظ # يوم}}",
+        "failed": "فشل آخر تشغيل: {error} في {finishedAt}{days, plural, =0 {} zero {} one { · الاحتفاظ يوم واحد} two { · الاحتفاظ يومان} few { · الاحتفاظ # أيام} many { · الاحتفاظ # يومًا} other { · الاحتفاظ # يوم}}"
+      },
+      "footer": "التقرير نفسه متاح بصيغة JSON على <mono>/api/health/status</mono> للمراقبة (جلسة مسجّلة أو مفتاح API)."
+    },
+    "usage": {
+      "metaTitle": "الاستخدام",
+      "metaDescription": "مرات عرض الصفحات لكل شاشة ولكل يوم على هذه النسخة، تُحتسب محليًا.",
+      "title": "الاستخدام",
+      "description": "عدد مرات فتح كل شاشة، يُحتسب على هذه النسخة فقط: بلا ملفات تعريف ارتباط، وبلا عناوين، ولا يُرسل شيء إلى أي مكان.",
+      "last30Days": "آخر 30 يومًا",
+      "total": "{count, plural, =0 {لا مرات عرض} zero {لا مرات عرض} one {عرض صفحة واحد} two {عرضا صفحة} few {# مرات عرض للصفحات} many {# مرة عرض للصفحات} other {# مرة عرض للصفحات}}",
+      "off": "الاحتساب متوقف. عيّن ANALYTICS_LOCAL=true لاحتساب مرات عرض الصفحات على هذه النسخة.",
+      "empty": "لم تُسجَّل أي مرات عرض بعد.",
+      "columns": {
+        "day": "اليوم",
+        "path": "الشاشة",
+        "views": "المشاهدات"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "مرحبًا",
+    "progress": "التقدم",
+    "steps": {
+      "aboutYou": "عنك",
+      "howYouUse": "كيف ستستخدمه",
+      "allSet": "اكتمل الإعداد"
+    },
+    "step1": {
+      "title": "أخبرنا عنك",
+      "subtitle": "يحدد هذا إعداداتك الافتراضية؛ ويمكن تغيير كل قيمة لاحقًا من الإعدادات.",
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "emailHint": "هوية تسجيل دخولك. يمكن تغييره لاحقًا من الإعدادات ← الأمان.",
+      "country": "الدولة",
+      "currency": "العملة المفضلة",
+      "currencyHint": "تُستخدم للملفات الجديدة ولوحة التحكم إلى حين وجود ملف."
+    },
+    "step2": {
+      "title": "كيف ستستخدم okinvo؟",
+      "subtitle": "تتغير الإعدادات الافتراضية فقط؛ لا شيء مقفل.",
+      "usage": "الاستخدام",
+      "personal": "فوترة شخصية",
+      "personalHint": "عمل حر باسمك الخاص",
+      "business": "فوترة تجارية",
+      "businessHint": "فواتير صادرة عن نشاط تجاري مسجّل",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "رقم VAT",
+        "other": "رقم التسجيل الضريبي"
+      },
+      "taxQuestion": {
+        "IN": "هل لديك GSTIN؟",
+        "GB": "هل أنت مسجّل في VAT؟",
+        "other": "هل لديك رقم تسجيل ضريبي لطباعته على الفواتير؟"
+      }
+    },
+    "step3": {
+      "title": "أنت جاهز",
+      "body": "الخطوة التالية: أنشئ أول ملف مُصدِر لك، أي الاسم والعنوان والتفاصيل الضريبية التي تُطبع على فواتيرك. لقد عبّأنا ما أخبرتنا به.",
+      "go": "الانتقال إلى الملفات الشخصية",
+      "opening": "جارٍ الفتح…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "الشروط",
+      "privacy": "الخصوصية",
+      "cookies": "ملفات تعريف الارتباط",
+      "security": "الأمان"
+    },
+    "cookieNotice": {
+      "label": "إشعار ملفات تعريف الارتباط",
+      "body": "نستخدم فقط ملفات تعريف الارتباط الضرورية للغاية: جلستك وتفضيلات العرض. لا تحليلات ولا تتبّع.",
+      "policy": "سياسة ملفات تعريف الارتباط",
+      "gotIt": "فهمت"
+    },
+    "nav": {
+      "label": "القانونية",
+      "cookies": "ملفات تعريف الارتباط",
+      "privacy": "الخصوصية",
+      "terms": "الشروط",
+      "acceptableUse": "الاستخدام المقبول",
+      "retention": "الاحتفاظ",
+      "security": "الأمان",
+      "licences": "التراخيص"
+    },
+    "operatorNotice": "okinvo برنامج مستضاف ذاتيًا؛ ومشغّل هذه النسخة مسؤول عن استخدامها.",
+    "doc": {
+      "effectiveOn": "ساري اعتبارًا من <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "المحتويات"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "الاسم القانوني للمشغّل",
+        "entityType": "نوع الكيان",
+        "address": "عنوان المشغّل",
+        "country": "دولة المشغّل",
+        "contactEmail": "بريد التواصل",
+        "privacyEmail": "بريد الخصوصية",
+        "dpoEmail": "بريد مسؤول حماية البيانات",
+        "governingLaw": "القانون الحاكم",
+        "venue": "جهة الفصل في النزاعات",
+        "effectiveDate": "تاريخ السريان"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "غير موجود",
+      "title": "لا يوجد شيء في هذا العنوان",
+      "body": "قد يكون الرابط قديمًا، أو أن المستند الذي يشير إليه لم يُصدر قط."
+    },
+    "forbidden": {
+      "metaTitle": "غير مسموح",
+      "title": "لا يستطيع هذا الحساب القيام بذلك",
+      "body": "دورك لا يسمح بذلك. اطلب من أحد المالكين منحك الوصول، أو سجّل الدخول بحساب يملكه."
+    },
+    "error": {
+      "title": "حدث خطأ ما",
+      "body": "لم يتغير شيء بسبب هذا الطلب. حاول مرة أخرى؛ وإذا استمر ذلك ففي سجل الخادم التفاصيل.",
+      "digest": "الخطأ {digest}",
+      "generic": "خطأ"
+    },
+    "appNotFound": {
+      "title": "غير موجود",
+      "body": "هذا السجل غير موجود، أو حُذف أثناء اطلاعك عليه.",
+      "back": "العودة إلى لوحة التحكم"
+    },
+    "validation": {
+      "required": "مطلوب",
+      "tooLong": "{max} حرفًا كحد أقصى",
+      "invalidEmail": "يجب أن يكون بريدًا إلكترونيًا صالحًا",
+      "invalidDate": "يجب أن يكون تاريخًا تقويميًا بصيغة YYYY-MM-DD",
+      "invalidAmount": "يجب أن يكون رقمًا",
+      "wholeNumber": "يجب أن يكون عددًا صحيحًا",
+      "greaterThanZero": "يجب أن يكون أكبر من صفر",
+      "fixFields": "يرجى تصحيح الحقول المميزة.",
+      "charset": "يُسمح فقط بأحرف لوحة المفاتيح القياسية."
+    }
+  },
+  "verify": {
+    "metaTitle": "التحقق من المستند",
+    "metaDescription": "تحقق من أن الفاتورة أو الإشعار الدائن صدر عن مرسله ولم يتم تعديله.",
+    "heading": "التحقق من المستند",
+    "rateLimited": "عدد كبير جدًا من عمليات التحقق من هذا العنوان. يرجى المحاولة بعد دقيقة.",
+    "notFound": {
+      "title": "لا يوجد مستند كهذا",
+      "body": "لا يطابق هذا الرابط أي مستند صادر. تحقق من رمز QR أو الرابط الذي أُعطيته، أو تواصل مع المُصدِر."
+    },
+    "status": {
+      "void": "ملغى",
+      "valid": "صالح"
+    },
+    "issuedBy": "صادر عن",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "صادر إلى",
+    "issueDate": "تاريخ الإصدار",
+    "total": "الإجمالي",
+    "voided": "ألغى المُصدِر هذا المستند ولم يعد صالحًا.",
+    "storedCopies": {
+      "title": "النسخ المخزّنة",
+      "description": "SHA-256 لكل إصدار PDF يحتفظ به المُصدِر. اختر نسختك لمقارنتها في متصفحك: لا يُرفع شيء.",
+      "empty": "لم يتم إنشاء أي PDF بعد.",
+      "protectedVersion": "نسخة محمية بكلمة مرور {version}",
+      "version": "الإصدار {version}"
+    },
+    "check": {
+      "label": "تحقق من نسختك",
+      "hashing": "جارٍ حساب التجزئة…",
+      "match": "نسختك تطابق الإصدار {version} تمامًا.",
+      "mismatch": "نسختك لا تطابق أي إصدار مخزّن."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "مستند مشارك",
+      "metaDescription": "مستند تمت مشاركته معك: اعرضه عبر الإنترنت ونزّل ملف PDF.",
+      "rateLimited": "عدد كبير جدًا من الطلبات من هذا العنوان. يرجى المحاولة بعد دقيقة.",
+      "unavailable": {
+        "title": "هذا الرابط غير متاح",
+        "body": "ربما انتهت صلاحيته أو ألغاه المُصدِر. اطلب منه رابطًا جديدًا."
+      },
+      "lockedTitleInvoice": "فاتورة من {issuer}",
+      "lockedTitleCreditNote": "إشعار دائن من {issuer}",
+      "lockedBody": "هذا المستند محمي بكلمة مرور. أدخل كلمة المرور التي أعطاك إياها المُصدِر.",
+      "void": "ملغى",
+      "protectedPdf": "يُفتح ملف PDF بكلمة المرور نفسها. يمكن قراءته وطباعته؛ أما النسخ والتعديل فمقفلان.",
+      "byline": "من {issuer} إلى {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "كلمة المرور",
+      "limited": "محاولات كثيرة جدًا. يرجى الانتظار خمس عشرة دقيقة ثم المحاولة مرة أخرى.",
+      "wrong": "كلمة المرور غير صحيحة.",
+      "submit": "فتح المستند"
+    },
+    "dialog": {
+      "trigger": "مشاركة",
+      "title": "مشاركة هذا المستند",
+      "description": "يمكن لأي شخص لديه الرابط عرضه وتنزيله إلى أن تنتهي صلاحيته أو تلغيه. تحمي كلمة المرور ملف PDF نفسه أيضًا: يُفتح بكلمة المرور ويمكن قراءته وطباعته، لا تعديله أو نسخه.",
+      "link": "الرابط",
+      "copyLink": "نسخ الرابط",
+      "password": "كلمة المرور",
+      "copyPassword": "نسخ كلمة المرور",
+      "sendSeparately": "أرسل كلمة المرور بشكل منفصل عن الرابط. يمكنك رؤيتها مجددًا في القائمة أدناه.",
+      "copy": "نسخ",
+      "copied": "تم النسخ",
+      "expires": "ينتهي",
+      "expiry": {
+        "d7": "بعد 7 أيام",
+        "d30": "بعد 30 يومًا",
+        "d90": "بعد 90 يومًا",
+        "never": "أبدًا"
+      },
+      "protection": "الحماية",
+      "protectionOptions": {
+        "auto": "كلمة مرور: إنشاء عبارة مرور",
+        "manual": "كلمة مرور: أختارها بنفسي",
+        "none": "بدون كلمة مرور (رابط مفتوح)"
+      },
+      "passwordHint": "8 أحرف على الأقل.",
+      "strength": "القوة: {label}",
+      "strengthLabels": {
+        "veryWeak": "ضعيفة جدًا",
+        "weak": "ضعيفة",
+        "fair": "مقبولة",
+        "good": "جيدة",
+        "strong": "قوية"
+      },
+      "creating": "جارٍ الإنشاء…",
+      "create": "إنشاء رابط",
+      "activeLinks": "الروابط النشطة",
+      "passwordProtected": "محمي بكلمة مرور",
+      "openLink": "فتح الرابط",
+      "linkExpires": "{kind} · ينتهي {date}",
+      "linkNeverExpires": "{kind} · لا ينتهي أبدًا",
+      "revoke": {
+        "title": "إلغاء هذا الرابط؟",
+        "description": "يتوقف الرابط عن العمل فورًا لكل من يملكه.",
+        "label": "إلغاء"
+      },
+      "linkPassword": "كلمة المرور: <code>{password}</code>",
+      "counts": "{views, plural, zero {لا مشاهدات} one {مشاهدة واحدة} two {مشاهدتان} few {# مشاهدات} many {# مشاهدة} other {# مشاهدة}} · {downloads, plural, zero {لا تنزيلات} one {تنزيل واحد} two {تنزيلان} few {# تنزيلات} many {# تنزيلًا} other {# تنزيل}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "الإشعارات الدائنة",
+      "title": "الإشعارات الدائنة",
+      "description": "تُحرَّر على فواتير صادرة؛ ويخفض كل منها رصيد فاتورته عند الإصدار.",
+      "newCreditNote": "إشعار دائن جديد",
+      "filters": {
+        "from": "من",
+        "to": "إلى",
+        "issuer": "المُصدِر",
+        "client": "العميل",
+        "status": "الحالة",
+        "search": "بحث",
+        "all": "الكل",
+        "searchPlaceholder": "الرقم، السبب، العميل",
+        "go": "انتقال"
+      },
+      "statuses": {
+        "DRAFT": "مسودة",
+        "ISSUED": "صادر",
+        "SENT": "مرسل",
+        "VOID": "ملغى"
+      },
+      "empty": {
+        "title": "لا توجد إشعارات دائنة بعد",
+        "description": "افتح فاتورة صادرة واختر «إشعار دائن» لتخفيض المبلغ المستحق عليها."
+      },
+      "noMatch": "لا توجد إشعارات دائنة تطابق هذه المرشحات.",
+      "columns": {
+        "number": "الرقم",
+        "against": "على",
+        "client": "العميل",
+        "issueDate": "تاريخ الإصدار",
+        "reason": "السبب",
+        "total": "الإجمالي",
+        "status": "الحالة"
+      },
+      "draft": "مسودة"
+    },
+    "new": {
+      "metaTitle": "إشعار دائن جديد",
+      "title": "إشعار دائن جديد",
+      "description": "يُحرَّر الإشعار الدائن على فاتورة صادرة ويخفض رصيدها.",
+      "nothingToCredit": {
+        "title": "لا شيء لإضافته كرصيد دائن",
+        "description": "تتطلب الإشعارات الدائنة فاتورة صادرة بها رصيد مستحق.",
+        "openInvoices": "فتح الفواتير"
+      },
+      "whichInvoice": "أي فاتورة؟",
+      "invoice": "الفاتورة",
+      "invoiceOption": "{number} · {client} · الرصيد {balance}",
+      "issuedOnly": "تُحرَّر الإشعارات الدائنة على الفواتير الصادرة فقط.",
+      "invoiceFallback": "فاتورة"
+    },
+    "edit": {
+      "metaTitle": "تعديل الإشعار الدائن",
+      "title": "تعديل مسودة الإشعار الدائن",
+      "immutable": "الإشعارات الدائنة الصادرة غير قابلة للتغيير.",
+      "draft": "مسودة"
+    },
+    "detail": {
+      "metaTitle": "إشعار دائن",
+      "draftTitle": "مسودة إشعار دائن",
+      "meta": "{client} · على <invoice>{number}</invoice> · صدر في <mono>{date}</mono>",
+      "previewPdf": "معاينة PDF",
+      "issue": {
+        "title": "إصدار هذا الإشعار الدائن؟",
+        "description": "يُخصَّص رقم، ويُخفَّض رصيد الفاتورة، ويصبح المستند غير قابل للتغيير.",
+        "label": "إصدار"
+      },
+      "deleteDraft": {
+        "title": "حذف هذه المسودة؟"
+      },
+      "sendByEmail": "إرسال بالبريد الإلكتروني",
+      "markSent": {
+        "title": "وضع علامة «مرسل»؟",
+        "label": "وضع علامة «مرسل»"
+      },
+      "void": {
+        "title": "إلغاء هذا الإشعار الدائن؟",
+        "description": "يُستعاد رصيد الفاتورة؛ ولا يُعاد استخدام الرقم أبدًا.",
+        "reason": "السبب",
+        "label": "إلغاء"
+      },
+      "voided": "أُلغي في {date}: {reason}",
+      "amounts": {
+        "title": "المبالغ",
+        "reason": "السبب",
+        "creditAmount": "مبلغ الإشعار الدائن",
+        "total": "الإجمالي",
+        "balanceNow": "رصيد الفاتورة الآن",
+        "sent": "مرسل"
+      },
+      "documents": {
+        "title": "المستندات المخزّنة",
+        "description": "يُحتفظ بكل إصدار؛ وتعرض صفحة التحقق جميع رموز التجزئة.",
+        "regenerateTitle": "إنشاء إصدار PDF جديد؟",
+        "generate": "إنشاء",
+        "newVersion": "إصدار جديد",
+        "renderedOnFirstDownload": "يُنشأ PDF عند أول تنزيل.",
+        "protectedCopy": "نسخة محمية بكلمة مرور {version}",
+        "version": "الإصدار {version}",
+        "verificationLink": "رابط التحقق: <link>{path}…</link>"
+      },
+      "draftsPreview": "تُعرض معاينة المسودات مباشرةً في المحرر."
+    },
+    "send": {
+      "metaTitle": "إرسال الإشعار الدائن",
+      "title": "إرسال <mono>{number}</mono>",
+      "previousSends": "عمليات الإرسال السابقة"
+    },
+    "builder": {
+      "against": "على <mono>{number}</mono>",
+      "summary": "{client} · الإجمالي {total} · الرصيد {balance} · الهامش الخاضع للضريبة ≈ {headroom}",
+      "issueDate": "تاريخ الإصدار",
+      "creditAmount": "مبلغ الإشعار الدائن (بدون الضريبة)",
+      "creditAmountHint": "تُوزَّع الضريبة بحسب أسطر ضريبة الفاتورة",
+      "reason": "السبب",
+      "picker": {
+        "title": "الحساب من أسطر الفاتورة",
+        "description": "حدّد أسطرًا كاملة أو نسبة مئوية؛ هذا يملأ المبلغ أعلاه فقط.",
+        "line": "السطر",
+        "subtotal": "المجموع الفرعي",
+        "credit": "الرصيد الدائن",
+        "percent": "%",
+        "creditLine": "سطر الرصيد الدائن {position}",
+        "percentOfLine": "نسبة من السطر {position}"
+      },
+      "saveDraft": "حفظ المسودة",
+      "issuing": "جارٍ الإصدار…",
+      "saveAndIssue": "حفظ وإصدار"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "دفعة مستلمة",
+        "REFUND": "استرداد صادر",
+        "WRITE_OFF": "شطب"
+      },
+      "editTitle": "تعديل القيد",
+      "recordTitle": "تسجيل دفعة",
+      "description": "المبالغ بعملة الفاتورة ({currency})؛ ويُعد TDS المخصوم جزءًا من المبلغ المطبّق.",
+      "kind": "النوع",
+      "date": "التاريخ",
+      "amountRefunded": "المبلغ المسترد (سالب)",
+      "amountApplied": "المبلغ المطبّق",
+      "refundHint": "أدخل مبلغًا سالبًا، مثال: -500",
+      "tdsDeducted": "TDS المخصوم",
+      "tdsHint": "الضريبة التي حجزها العميل؛ تُحتسب ضمن المبلغ المطبّق",
+      "bankFees": "الرسوم المصرفية",
+      "receivedInto": "استُلمت في",
+      "noMethod": "-",
+      "reference": "المرجع",
+      "referenceHint": "UTR، رقم المعاملة، رقم الشيك",
+      "otherCurrency": "استُلمت بعملة أخرى",
+      "amountReceived": "المبلغ المستلم",
+      "receivedCurrency": "عملة الاستلام",
+      "exchangeRate": "سعر الصرف",
+      "exchangeRateHint": "وحدة واحدة مستلمة = ؟ {currency}",
+      "notes": "ملاحظات",
+      "receiptHint": "PNG أو JPEG أو WebP أو PDF حتى 10 MB",
+      "receipts": "الإيصالات والفواتير",
+      "receiptN": "الإيصال {n}",
+      "removeReceipt": "إزالة الإيصال {n}",
+      "saveChanges": "حفظ التغييرات",
+      "record": "تسجيل"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "فاتورة إلى",
+      "shipTo": "الشحن إلى",
+      "invoice": "فاتورة",
+      "creditNote": "إشعار دائن",
+      "issueDate": "تاريخ الإصدار",
+      "dueDate": "تاريخ الاستحقاق",
+      "number": "الرقم",
+      "description": "الوصف",
+      "sacHsn": "SAC/HSN",
+      "qty": "الكمية",
+      "unit": "الوحدة",
+      "rate": "السعر",
+      "tax": "الضريبة",
+      "amount": "المبلغ",
+      "subtotal": "المجموع الفرعي",
+      "discount": "الخصم",
+      "taxable": "المبلغ الخاضع للضريبة",
+      "total": "الإجمالي",
+      "amountDue": "المبلغ المستحق",
+      "tdsExpected": "TDS المتوقع",
+      "netExpected": "صافي المبلغ المتوقع",
+      "rounding": "التقريب",
+      "paymentDetails": "تفاصيل الدفع",
+      "notes": "ملاحظات",
+      "terms": "الشروط",
+      "placeOfSupply": "مكان التوريد",
+      "poReference": "مرجع أمر الشراء (PO)",
+      "amountInWords": "المبلغ بالحروف",
+      "signature": "المفوض بالتوقيع"
+    },
+    "title": {
+      "taxInvoice": "فاتورة ضريبية",
+      "billOfSupply": "سند توريد",
+      "invoice": "فاتورة",
+      "creditNote": "إشعار دائن"
+    },
+    "text": {
+      "pageOf": "صفحة {page} من {total}",
+      "scanToVerify": "امسح للتحقق",
+      "taxId": "الرقم الضريبي",
+      "void": "ملغاة",
+      "draftWatermark": "مسودة - ليست فاتورة ضريبية",
+      "paymentTermsDays": "{days} أيام",
+      "irn": "IRN",
+      "ackNo": "رقم الإقرار",
+      "ackDate": "تاريخ الإقرار",
+      "einvoiceCancelled": "الفاتورة الإلكترونية ملغاة"
+    },
+    "ui": {
+      "pageEstimate": "نحو {count, plural, zero {لا صفحات} one {صفحة واحدة} two {صفحتين} few {# صفحات} many {# صفحة} other {# صفحة}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "الرسالة",
+      "description": "معبّأة مسبقًا من قوالب ملف المُصدِر. لا يُرسل شيء حتى تنقر على إرسال.",
+      "to": "إلى",
+      "toHint": "مفصولة بفواصل",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "الموضوع",
+      "body": "النص",
+      "bodyHint": "نص عادي؛ تصبح الروابط قابلة للنقر",
+      "attachment": "المرفق",
+      "attachmentHint": "النسخة المخزّنة باسم <mono>{name}</mono> (أو .docx)؛ لا يمكن تغيير محتواها.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "جارٍ الإرسال…",
+      "send": "إرسال",
+      "openInMailApp": "فتح في تطبيق البريد",
+      "noSmtp": "لم يتم إعداد خادم SMTP (الإعدادات ← البريد الإلكتروني). افتح المسودة في تطبيق البريد، وأرفق ملف PDF الذي نزّلته، ثم ضع عليها علامة «مرسل» أدناه.",
+      "markAsSent": "وضع علامة «مرسل»"
+    },
+    "sentLog": {
+      "when": "متى",
+      "document": "المستند",
+      "to": "إلى",
+      "subject": "الموضوع",
+      "status": "الحالة",
+      "empty": "لم يُرسل شيء بعد.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "مرسل",
+        "FAILED": "فشل",
+        "MANUAL": "يدوي"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "مرحبًا، {name}",
+    "fiscalYear": "السنة المالية {year}",
+    "fiscalYearWithBase": "السنة المالية {year} · العملة الأساسية {currency} ({profile})",
+    "newCreditNote": "إشعار دائن جديد",
+    "welcomeTitle": "مرحبًا بك في {appName}",
+    "welcomeDescription": "ابدأ بإنشاء ملف المُصدِر الذي تُصدر الفواتير باسمه، ثم أضف عميلًا وأول فاتورة لك.",
+    "createProfile": "أنشئ ملفك",
+    "tiles": {
+      "outstanding": "المستحق",
+      "overdue": "المتأخر",
+      "billedThisFy": "المفوتر هذه السنة المالية",
+      "receivedThisFy": "المستلم هذه السنة المالية",
+      "drafts": "المسودات",
+      "invoiceCount": "{count, plural, zero {لا فواتير} one {فاتورة واحدة} two {فاتورتان} few {# فواتير} many {# فاتورة} other {# فاتورة}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "الدفعات ناقص المبالغ المستردة، بسعر الصرف المسجّل",
+      "awaitingIssue": "بانتظار الإصدار",
+      "nothingPending": "لا شيء معلّق"
+    },
+    "recentInvoices": "أحدث الفواتير",
+    "allInvoices": "كل الفواتير",
+    "noInvoicesYet": "لا توجد فواتير بعد.",
+    "columns": {
+      "number": "الرقم",
+      "client": "العميل",
+      "issued": "تاريخ الإصدار"
+    },
+    "topClients": "أعلى العملاء من حيث المستحق",
+    "nothingOutstanding": "لا يوجد مستحق."
+  },
+  "exports": {
+    "export": "تصدير",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "الفواتير",
+      "newInvoice": "فاتورة جديدة",
+      "draft": "مسودة",
+      "aDraft": "مسودة",
+      "statuses": {
+        "draft": "مسودة",
+        "issued": "صادرة",
+        "sent": "مرسلة",
+        "partiallyPaid": "مدفوعة جزئيًا",
+        "paid": "مدفوعة",
+        "overdue": "متأخرة",
+        "void": "ملغاة"
+      },
+      "lifecycle": {
+        "draft": "مسودة",
+        "issued": "صادرة",
+        "void": "ملغاة"
+      },
+      "units": {
+        "hour": "ساعة",
+        "day": "يوم",
+        "fixed": "ثابت",
+        "milestone": "مرحلة",
+        "unit": "وحدة"
+      },
+      "unitsLower": {
+        "hour": "ساعة",
+        "day": "يوم",
+        "fixed": "ثابت",
+        "milestone": "مرحلة",
+        "unit": "وحدة"
+      },
+      "supplyTypes": {
+        "intraState": "داخل الولاية",
+        "interState": "بين الولايات",
+        "exportLut": "تصدير LUT",
+        "exportWithTax": "تصدير مع ضريبة",
+        "reverseCharge": "احتساب عكسي",
+        "notApplicable": "غير منطبق"
+      }
+    },
+    "list": {
+      "description": "الفواتير المسودة والصادرة والملغاة؛ وتُشتق الحالات من الدفعات وتواريخ الاستحقاق.",
+      "fiscalYear": "السنة المالية",
+      "issuer": "المُصدِر",
+      "client": "العميل",
+      "searchPlaceholder": "الرقم، PO، العميل",
+      "emptyTitle": "لا توجد فواتير بعد",
+      "emptyDescription": "أنشئ فاتورتك الأولى: اختر عميلًا، وأضف الأسطر، وشاهد المعاينة، ثم أصدرها.",
+      "columns": {
+        "number": "الرقم",
+        "client": "العميل",
+        "issuer": "المُصدِر",
+        "issueDate": "تاريخ الإصدار",
+        "due": "الاستحقاق",
+        "balance": "الرصيد"
+      },
+      "noMatches": "لا توجد فواتير تطابق هذه المرشحات.",
+      "count": "{count, plural, zero {لا فواتير} one {فاتورة واحدة} two {فاتورتان} few {# فواتير} many {# فاتورة} other {# فاتورة}}",
+      "countPaged": "{count, plural, zero {لا فواتير} one {فاتورة واحدة} two {فاتورتان} few {# فواتير} many {# فاتورة} other {# فاتورة}} · الصفحة {page} من {pages}",
+      "register": "السجل",
+      "einvoice": "الفاتورة الإلكترونية",
+      "einvoiceFilters": {
+        "registered": "IRN مسجل",
+        "none": "غير مسجلة",
+        "cancelled": "IRN ملغى"
+      }
+    },
+    "new": {
+      "noProfileTitle": "أنشئ ملف مُصدِر أولًا",
+      "noProfileDescription": "تصدر الفاتورة عن هوية قانونية: أعدّ ملفك بمعرّفاته الضريبية وترقيمه.",
+      "createProfile": "إنشاء ملف"
+    },
+    "edit": {
+      "metaTitle": "تعديل الفاتورة",
+      "title": "تعديل المسودة",
+      "immutableFlash": "الفواتير الصادرة غير قابلة للتغيير. استخدم «إلغاء وإعادة إصدار» لتصحيحها."
+    },
+    "detail": {
+      "metaTitle": "فاتورة",
+      "draftInvoice": "فاتورة مسودة",
+      "issuedDue": "صدرت في <mono>{issued}</mono>، وتستحق في <mono>{due}</mono>",
+      "replaces": "تحل محل {number}",
+      "replacedBy": "حلّت محلها {number}",
+      "previewPdf": "معاينة PDF",
+      "downloadEInvoice": "تنزيل JSON للفاتورة الإلكترونية",
+      "issueTitle": "إصدار هذه الفاتورة؟",
+      "issueDescription": "يُخصَّص رقم ويصبح المستند غير قابل للتغيير.",
+      "issue": "إصدار",
+      "deleteDraftTitle": "حذف هذه المسودة؟",
+      "sendByEmail": "إرسال بالبريد الإلكتروني",
+      "recordPayment": "تسجيل دفعة",
+      "progress": {
+        "title": "تقدم الدفع",
+        "description": "أين وصلت هذه الفاتورة، من الإصدار حتى حفظ إيصال في الملف.",
+        "issued": "صادرة",
+        "sent": "مرسلة",
+        "payment": "تم تسجيل الدفعة",
+        "paymentOn": "تم تسجيل دفعة بمبلغ <mono>{amount}</mono> في <mono>{date}</mono>",
+        "paid": "مدفوعة بالكامل",
+        "receipt": "تم إرفاق الإيصال",
+        "done": "تم",
+        "pending": "قيد الانتظار"
+      },
+      "creditNote": "إشعار دائن",
+      "markSentTitle": "وضع علامة «مرسلة»؟",
+      "markSentDescription": "يسجّل أن العميل استلم هذه الفاتورة.",
+      "markSent": "وضع علامة «مرسلة»",
+      "voidReissueTitle": "إلغاء وإعادة إصدار؟",
+      "voidReissueDescription": "تُلغى الفاتورة الأصلية وتُفتح مسودة مرتبطة بالمحتوى نفسه للتعديل.",
+      "voidReissue": "إلغاء وإعادة إصدار",
+      "voidTitle": "إلغاء هذه الفاتورة؟",
+      "voidDescription": "ممكن فقط بدون دفعات مسجّلة؛ ولا يُعاد استخدام الرقم أبدًا.",
+      "void": "إلغاء",
+      "voided": "أُلغيت في {date}: {reason}",
+      "amounts": "المبالغ",
+      "subtotal": "المجموع الفرعي",
+      "discount": "الخصم",
+      "discountPercent": "الخصم ({percent})",
+      "rounding": "التقريب",
+      "tdsExpected": "TDS المتوقع ({percent})",
+      "paid": "المدفوع",
+      "credited": "المخصوم بإشعارات دائنة",
+      "balanceDue": "الرصيد المستحق",
+      "supply": "التوريد",
+      "fxToBase": "سعر الصرف إلى الأساسية",
+      "poReference": "مرجع PO",
+      "sent": "مرسلة",
+      "lineItems": "بنود الفاتورة",
+      "columns": {
+        "description": "الوصف",
+        "sacHsn": "SAC/HSN",
+        "qty": "الكمية",
+        "rate": "السعر",
+        "tax": "الضريبة",
+        "amount": "المبلغ"
+      },
+      "creditNotes": "الإشعارات الدائنة",
+      "storedDocuments": "المستندات المخزّنة",
+      "storedDocumentsHint": "يُحتفظ بكل إصدار؛ وتعرض صفحة التحقق جميع رموز التجزئة.",
+      "regenerateTitle": "إنشاء إصدار PDF جديد؟",
+      "regenerateDescription": "يُعاد التصيير من اللقطة المثبّتة (مثلًا بعد إصلاح في المصيّر). تبقى الإصدارات السابقة.",
+      "regenerate": "إنشاء",
+      "newVersion": "إصدار جديد",
+      "renderedOnFirstDownload": "يُنشأ PDF عند أول تنزيل.",
+      "protectedCopy": "نسخة محمية بكلمة مرور {version}",
+      "version": "الإصدار {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "رابط التحقق:",
+      "draftPreviewHint": "تُعرض معاينة المسودات مباشرةً في المحرر؛ افتح <link>ملف PDF ذا العلامة المائية</link> لرؤية الصفحة.",
+      "einvoice": {
+        "title": "الفاتورة الإلكترونية (الهند)",
+        "description": "تسجيل هذه الفاتورة في بوابة تسجيل الفواتير (Invoice Registration Portal)؛ يطبع المستند المسجل رقم IRN ورمز QR الموقع من البوابة.",
+        "connector": "الموصل",
+        "connectors": {
+          "manual": "يدوي",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "لم يتم إعداد موصل لهذا الملف الشخصي: الإعدادات > الفواتير الإلكترونية.",
+        "statuses": {
+          "none": "غير مسجلة",
+          "generated": "تم إنشاء JSON",
+          "registered": "مسجلة",
+          "cancelled": "ملغاة",
+          "failed": "فشل التسجيل"
+        },
+        "irn": "IRN",
+        "ackNo": "رقم الإقرار",
+        "ackDate": "تاريخ الإقرار",
+        "cancelReason": "الإلغاء",
+        "generate": "إنشاء IRN",
+        "pasteLabel": "استجابة IRP",
+        "pasteHint": "الصق JSON الذي أعادته البوابة أو GSP الخاص بك لملف JSON للفاتورة الإلكترونية لهذه الفاتورة (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "تسجيل IRN",
+        "cancelReasonLabel": "سبب الإلغاء",
+        "cancelReasons": {
+          "1": "مكررة",
+          "2": "خطأ في إدخال البيانات",
+          "3": "تم إلغاء الطلب",
+          "4": "أخرى"
+        },
+        "cancel": "إلغاء IRN",
+        "cancelWindow": "تتيح البوابة الإلغاء خلال 24 ساعة من الإقرار."
+      }
+    },
+    "history": {
+      "metaTitle": "سجل الفاتورة",
+      "title": "سجل <mono>{number}</mono>",
+      "reissueChain": "سلسلة إعادة الإصدار",
+      "replaces": "تحل محل <link>{number}</link>",
+      "replacedBy": "حلّت محلها <link>{number}</link>",
+      "auditTrail": "مسار التدقيق",
+      "columns": {
+        "when": "متى",
+        "who": "من",
+        "action": "الإجراء",
+        "summary": "الملخص"
+      },
+      "noEvents": "لا توجد أحداث بعد.",
+      "system": "النظام",
+      "emails": "رسائل البريد"
+    },
+    "payments": {
+      "title": "الدفعات",
+      "description": "{client} · الإجمالي {total}",
+      "backToInvoice": "العودة إلى الفاتورة",
+      "ledger": "دفتر الأستاذ",
+      "columns": {
+        "date": "التاريخ",
+        "kind": "النوع",
+        "applied": "المطبّق",
+        "tds": "TDS",
+        "received": "المستلم",
+        "reference": "المرجع",
+        "balance": "الرصيد"
+      },
+      "noPayments": "لم تُسجَّل أي دفعات بعد.",
+      "kinds": {
+        "payment": "دفعة",
+        "refund": "استرداد",
+        "writeOff": "شطب"
+      },
+      "receipt": "الإيصال",
+      "receiptN": "الإيصال {n}",
+      "deleteEntryTitle": "حذف هذا القيد؟",
+      "deleteEntryDescription": "يُعاد حساب رصيد الفاتورة.",
+      "totals": "الإجماليات",
+      "invoiceTotal": "إجمالي الفاتورة",
+      "credited": "المخصوم بإشعارات دائنة",
+      "refunds": "المبالغ المستردة",
+      "writeOffs": "المشطوبات",
+      "tdsDeducted": "TDS المخصوم",
+      "bankFees": "الرسوم المصرفية",
+      "balanceDue": "الرصيد المستحق",
+      "onlyIssued": "الفواتير الصادرة فقط تقبل الدفعات."
+    },
+    "send": {
+      "metaTitle": "إرسال الفاتورة",
+      "title": "إرسال <mono>{number}</mono>",
+      "alreadySent": "تم وضع علامة «مرسلة» بالفعل؛ وإعادة الإرسال تضيف قيدًا آخر في السجل.",
+      "previousSends": "عمليات الإرسال السابقة"
+    },
+    "builder": {
+      "parties": "الأطراف",
+      "issuerProfile": "ملف المُصدِر",
+      "client": "العميل",
+      "archivedOption": "{label} (مؤرشف)",
+      "issueDate": "تاريخ الإصدار",
+      "dueDate": "تاريخ الاستحقاق",
+      "fxRate": "سعر الصرف إلى العملة الأساسية",
+      "fxHint": "1 {currency} = ؟ {base} (للتقارير فقط)",
+      "poReference": "مرجع PO",
+      "lineItems": "بنود الفاتورة",
+      "lineItemsHint": "اختر من الكتالوج لنسخ قيمه، أو اكتب سطرًا.",
+      "taxDiscountTds": "الضريبة والخصم وTDS",
+      "taxRegime": "النظام الضريبي",
+      "regimes": {
+        "indiaGst": "GST الهند",
+        "ukVat": "UK VAT",
+        "usSalesTax": "ضريبة المبيعات الأمريكية",
+        "none": "بدون ضريبة"
+      },
+      "reverseCharge": "احتساب عكسي",
+      "reverseChargeHint": "الضريبة مستحقة على المستلم",
+      "discount": "الخصم",
+      "percent": "نسبة مئوية",
+      "amount": "مبلغ",
+      "rounding": "تعديل التقريب",
+      "roundingHint": "اختياري، إلى وحدة كاملة؛ يجب أن يكون أقل من 1",
+      "round": "تقريب",
+      "tdsRate": "معدل TDS المتوقع (%)",
+      "tdsRateHint": "للعلم فقط؛ يُطبع عند تفعيل تفصيل TDS",
+      "paymentMethods": "طرق الدفع",
+      "paymentMethodsHint": "تُطبع بترتيب التحديد.",
+      "noPaymentMethods": "لا توجد طرق دفع نشطة. <link>أضف واحدة</link>.",
+      "whatPrints": "ما يُطبع",
+      "whatPrintsHint": "يبدأ من الإعدادات الافتراضية لملف المُصدِر.",
+      "documentLanguage": "لغة المستند",
+      "documentLanguageHint": "تُطبع التسميات والتواريخ والمبالغ بهذه اللغة؛ تفضيل العميل، وإلا فلغة الملف التعريفي.",
+      "notesAndTerms": "الملاحظات والشروط",
+      "notes": "ملاحظات",
+      "terms": "الشروط",
+      "saveDraft": "حفظ المسودة",
+      "issuing": "جارٍ الإصدار…",
+      "saveAndIssue": "حفظ وإصدار",
+      "subtotal": "المجموع الفرعي",
+      "tax": "الضريبة",
+      "tdsExpected": "TDS المتوقع",
+      "netExpected": "الصافي المتوقع"
+    },
+    "lineItems": {
+      "addFromCatalogue": "إضافة من الكتالوج…",
+      "services": "الخدمات",
+      "products": "المنتجات",
+      "addLine": "إضافة سطر",
+      "columns": {
+        "description": "الوصف",
+        "sacHsn": "SAC/HSN",
+        "qty": "الكمية",
+        "unit": "الوحدة",
+        "rate": "السعر",
+        "taxPercent": "الضريبة %"
+      },
+      "aria": {
+        "description": "وصف السطر {line}",
+        "sacHsn": "SAC/HSN للسطر {line}",
+        "quantity": "كمية السطر {line}",
+        "unit": "وحدة السطر {line}",
+        "rate": "سعر السطر {line}",
+        "taxRate": "معدل ضريبة السطر {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "معفى",
+      "moveUp": "نقل لأعلى",
+      "moveDown": "نقل لأسفل",
+      "removeLine": "إزالة السطر",
+      "shortcutHint": "Ctrl/⌘+Enter داخل الوصف يضيف سطرًا.",
+      "addFromCatalogueAria": "إضافة من الكتالوج"
+    },
+    "display": {
+      "groups": {
+        "issuer": "تفاصيل المُصدِر",
+        "client": "تفاصيل العميل",
+        "document": "أقسام المستند"
+      },
+      "fields": {
+        "showLogo": "الشعار",
+        "showTradeName": "الاسم التجاري",
+        "showDesignation": "المسمى الوظيفي",
+        "showEmail": "البريد الإلكتروني",
+        "showPhone": "الهاتف",
+        "showWebsite": "الموقع الإلكتروني",
+        "showFullAddress": "العنوان الكامل",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "التوقيع",
+        "showStamp": "الختم",
+        "showContactPerson": "الشخص المسؤول عن التواصل",
+        "showBillingAddress": "عنوان الفوترة",
+        "showShippingAddress": "عنوان الشحن",
+        "showTaxIdentifier": "المعرّف الضريبي",
+        "showPlaceOfSupply": "مكان التوريد",
+        "showDueDate": "تاريخ الاستحقاق",
+        "showPaymentTerms": "شروط الدفع",
+        "showSacCodeColumn": "عمود رمز SAC",
+        "showQuantityColumn": "عمود الكمية",
+        "showUnitPriceColumn": "عمود سعر الوحدة",
+        "showTaxColumn": "عمود الضريبة",
+        "showTdsBreakdown": "تفصيل TDS",
+        "showQrVerification": "التحقق عبر QR",
+        "showNotes": "الملاحظات",
+        "showTerms": "الشروط",
+        "showReplacesReference": "مرجع الاستبدال",
+        "showAmountInWords": "المبلغ بالحروف",
+        "showSupplyStatement": "بيان التوريد",
+        "showRoundingLine": "سطر التقريب",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "العملاء",
+      "description": "كل من تُصدر لهم الفواتير. العملاء الذين لديهم فواتير يُؤرشفون ولا يُحذفون أبدًا.",
+      "newClient": "عميل جديد",
+      "searchPlaceholder": "البحث بالاسم",
+      "searchLabel": "البحث في العملاء",
+      "emptyTitle": "لا يوجد عملاء بعد",
+      "emptyDescription": "أضف الأشخاص والشركات الذين تصدر لهم الفواتير؛ تُملأ عملتهم وشروط الدفع تلقائيًا في كل فاتورة.",
+      "addClient": "إضافة عميل",
+      "noMatch": "لا يوجد عملاء يطابقون «{q}».",
+      "termsDays": "{days} ي",
+      "columns": {
+        "name": "الاسم",
+        "contact": "جهة الاتصال",
+        "email": "البريد الإلكتروني",
+        "country": "الدولة",
+        "currency": "العملة",
+        "terms": "الشروط",
+        "status": "الحالة"
+      }
+    },
+    "new": {
+      "title": "عميل جديد"
+    },
+    "edit": {
+      "metaTitle": "تعديل العميل",
+      "title": "تعديل {name}"
+    },
+    "detail": {
+      "metaTitle": "العميل",
+      "newInvoice": "فاتورة جديدة",
+      "restoreTitle": "استعادة هذا العميل؟",
+      "archiveTitle": "أرشفة هذا العميل؟",
+      "archiveDescription": "يغادر قوائم الاختيار؛ وتبقى الفواتير والسجل سليمة.",
+      "deleteTitle": "حذف هذا العميل؟",
+      "deleteDescription": "ممكن فقط ما دامت لا توجد فاتورة تشير إلى العميل.",
+      "details": "التفاصيل",
+      "contact": "جهة الاتصال",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "country": "الدولة",
+      "gstState": "GST {code}",
+      "taxId": "المعرّف الضريبي",
+      "currency": "العملة",
+      "paymentTerms": "شروط الدفع",
+      "paymentTermsDays": "{days} يومًا",
+      "expectedTds": "TDS المتوقع",
+      "notes": "ملاحظات",
+      "addresses": "العناوين",
+      "billing": "الفوترة",
+      "shipping": "الشحن",
+      "lifetime": "الإجمالي الكلي",
+      "openRegister": "فتح السجل",
+      "noIssued": "لا توجد فواتير صادرة بعد.",
+      "noIssuedWithDrafts": "لا توجد فواتير صادرة بعد ({drafts} مسودة).",
+      "firstLatest": "أول فاتورة <mono>{first}</mono>، وأحدثها <mono>{latest}</mono>{drafts, plural, =0 {} zero {} one { · مسودة واحدة} two { · مسودتان} few { · # مسودات} many { · # مسودة} other { · # مسودة}}",
+      "lifetimeColumns": {
+        "currency": "العملة",
+        "invoices": "الفواتير",
+        "billed": "المفوتر",
+        "received": "المستلم",
+        "credited": "المخصوم بإشعارات دائنة",
+        "outstanding": "المستحق",
+        "overdue": "المتأخر"
+      },
+      "recentInvoices": "أحدث الفواتير",
+      "noInvoices": "لا توجد فواتير لهذا العميل بعد.",
+      "recentColumns": {
+        "number": "الرقم",
+        "issueDate": "تاريخ الإصدار",
+        "due": "الاستحقاق",
+        "total": "الإجمالي",
+        "balance": "الرصيد",
+        "status": "الحالة"
+      }
+    },
+    "form": {
+      "cardTitle": "العميل",
+      "displayName": "الاسم المعروض",
+      "contactPerson": "الشخص المسؤول عن التواصل",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "taxIdType": "نوع المعرّف الضريبي",
+      "taxIdTypeNone": "بلا",
+      "taxId": "المعرّف الضريبي",
+      "currency": "العملة",
+      "paymentTerms": "شروط الدفع (أيام)",
+      "expectedTdsRate": "معدل TDS المتوقع (%)",
+      "preferredLanguage": "لغة المستند",
+      "preferredLanguageFollow": "اتباع الملف التعريفي للمُصدر",
+      "buyerReference": "مرجع المشتري",
+      "buyerReferenceHint": "يُطبع في الفواتير الإلكترونية بوصفه المرجع الخاص بالمشتري (رقم طلب أو مركز تكلفة).",
+      "electronicAddress": "العنوان الإلكتروني",
+      "electronicAddressHint": "معرّف Peppol أو EN 16931 الذي يستلم هذا العميل الفواتير الإلكترونية بموجبه.",
+      "electronicAddressScheme": "مخطط العنوان الإلكتروني",
+      "electronicAddressSchemeNone": "بلا مخطط",
+      "notes": "ملاحظات",
+      "billingAddress": "عنوان الفوترة",
+      "shippingAddress": "عنوان الشحن",
+      "differentFromBilling": "مختلف عن الفوترة",
+      "save": "حفظ العميل"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "ساعة",
+      "DAY": "يوم",
+      "FIXED": "ثابت",
+      "MILESTONE": "مرحلة",
+      "UNIT": "وحدة"
+    },
+    "list": {
+      "activate": "تفعيل",
+      "deactivate": "تعطيل",
+      "archiveDescription": "تحتفظ أسطر الفواتير الحالية بقيمها المنسوخة.",
+      "deleteDescription": "ممكن فقط ما دام لا يوجد سطر فاتورة يشير إليه. وإلا فقم بأرشفته.",
+      "columns": {
+        "sku": "SKU",
+        "name": "الاسم",
+        "unit": "الوحدة",
+        "rate": "السعر",
+        "price": "السعر",
+        "currency": "العملة",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "الضريبة",
+        "status": "الحالة"
+      }
+    },
+    "services": {
+      "title": "الخدمات",
+      "description": "كتالوجك. اختيار خدمة ينسخ قيمها إلى سطر الفاتورة.",
+      "newService": "خدمة جديدة",
+      "emptyTitle": "لا توجد خدمات بعد",
+      "emptyDescription": "أضف ما تبيعه - تصميم بالساعة، أو مرحلة بأتعاب ثابتة - مع رمز SAC/HSN ومعدل الضريبة.",
+      "addService": "إضافة خدمة",
+      "restoreTitle": "استعادة {name}؟",
+      "archiveTitle": "أرشفة {name}؟",
+      "deleteTitle": "حذف {name}؟",
+      "editMetaTitle": "تعديل الخدمة",
+      "editTitle": "تعديل {name}"
+    },
+    "products": {
+      "title": "المنتجات",
+      "description": "السلع التي تبيعها، لكل منها SKU. اختيار منتج ينسخ قيمه إلى سطر الفاتورة.",
+      "newProduct": "منتج جديد",
+      "emptyTitle": "لا توجد منتجات بعد",
+      "emptyDescription": "أضف السلع التي تبيعها مع SKU ورمز HSN وسعر الوحدة ومعدل الضريبة.",
+      "addProduct": "إضافة منتج",
+      "restoreTitle": "استعادة {sku}؟",
+      "archiveTitle": "أرشفة {sku}؟",
+      "deleteTitle": "حذف {sku}؟",
+      "editMetaTitle": "تعديل المنتج",
+      "editTitle": "تعديل {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "رمز فريد يُطبع تحت وصف السطر",
+      "name": "الاسم",
+      "unit": "الوحدة",
+      "defaultRate": "السعر الافتراضي",
+      "unitPrice": "سعر الوحدة",
+      "currency": "العملة",
+      "sacHsnCode": "رمز SAC / HSN",
+      "sacHsnHint": "مطلوب في فواتير GST",
+      "hsnCode": "رمز HSN",
+      "hsnHint": "مطلوب في فواتير GST للسلع",
+      "defaultTaxRate": "معدل الضريبة الافتراضي (%)",
+      "description": "الوصف",
+      "descriptionHint": "يملأ وصف السطر مسبقًا",
+      "active": "نشط",
+      "serviceInactiveHint": "تبقى الخدمات غير النشطة خارج قائمة اختيار الفاتورة",
+      "productInactiveHint": "تبقى المنتجات غير النشطة خارج قائمة اختيار الفاتورة",
+      "saveService": "حفظ الخدمة",
+      "saveProduct": "حفظ المنتج"
+    },
+    "tags": {
+      "legend": "الملفات الشخصية",
+      "hint": "حدّد ملفات المُصدِر التي تبيع هذا. اترك الجميع بلا تحديد لإتاحته لكل ملف."
+    }
+  },
+  "address": {
+    "line1": "سطر العنوان 1",
+    "line2": "سطر العنوان 2",
+    "city": "المدينة",
+    "stateRegion": "الولاية / المنطقة",
+    "postalCode": "الرمز البريدي",
+    "country": "الدولة",
+    "state": "الولاية",
+    "gstStateCodeHint": "رمز ولاية GST {code}",
+    "pickStateHint": "اختر الولاية لرمز ولاية GST",
+    "stateRegionCode": "رمز الولاية / المنطقة",
+    "stateRegionCodePlaceholder": "مثال: CA"
+  },
+  "assets": {
+    "tooLarge": "هذا الملف كبير جدًا.",
+    "unsupportedReceipt": "استخدم صورة PNG أو JPEG أو WebP أو ملف PDF.",
+    "unsupportedImage": "استخدم صورة PNG أو JPEG أو WebP.",
+    "uploadFailed": "فشل الرفع.",
+    "uploading": "جارٍ الرفع…",
+    "dropHint": "اسحب ملفًا إلى هنا أو اخترْ ملفًا",
+    "dropHintMany": "اسحب الملفات إلى هنا، أو اخترها",
+    "dropActive": "أفلت للرفع"
+  },
+  "ui": {
+    "breadcrumb": "مسار التنقل",
+    "close": "إغلاق",
+    "closeMenu": "إغلاق القائمة",
+    "reveal": "إظهار",
+    "hide": "إخفاء",
+    "openCalendar": "فتح التقويم",
+    "chooseMonth": "اختر الشهر",
+    "chooseYear": "اختر السنة",
+    "searchOptions": "اكتب للبحث",
+    "noMatches": "لا توجد نتائج",
+    "pullToRefresh": {
+      "label": "قائمة قابلة للتحديث",
+      "pulling": "اسحب للتحديث",
+      "release": "حرّر للتحديث",
+      "refreshing": "جارٍ التحديث"
+    },
+    "inputCharset": "يُسمح فقط بأحرف لوحة المفاتيح القياسية.",
+    "confirm": {
+      "working": "جارٍ التنفيذ…"
+    },
+    "statusPill": {
+      "DRAFT": "مسودة",
+      "ISSUED": "صادرة",
+      "SENT": "مرسلة",
+      "PARTIALLY_PAID": "مدفوعة جزئيًا",
+      "PAID": "مدفوعة",
+      "OVERDUE": "متأخرة",
+      "VOID": "ملغاة"
+    },
+    "activePill": {
+      "active": "نشط",
+      "archived": "مؤرشف",
+      "inactive": "غير نشط"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "حدث خطأ ما.",
+    "fixFields": "يرجى تصحيح الحقول المميزة.",
+    "accountSaved": "تم حفظ تفضيلات الحساب",
+    "apiKeyCreated": "تم إنشاء مفتاح API. انسخه الآن: يُعرض مرة واحدة فقط.",
+    "saved": "تم حفظ {name}",
+    "savedProfile": "تم حفظ الملف {label}",
+    "clientArchived": "تمت أرشفة العميل",
+    "clientRestored": "تمت استعادة العميل",
+    "clientDeleted": "تم حذف العميل",
+    "productArchived": "تمت أرشفة المنتج",
+    "productRestored": "تمت استعادة المنتج",
+    "productActivated": "تم تفعيل المنتج",
+    "productDeactivated": "تم تعطيل المنتج",
+    "serviceArchived": "تمت أرشفة الخدمة",
+    "serviceRestored": "تمت استعادة الخدمة",
+    "serviceActivated": "تم تفعيل الخدمة",
+    "serviceDeactivated": "تم تعطيل الخدمة",
+    "defaultProfileUpdated": "تم تحديث الملف الافتراضي",
+    "profileArchived": "تمت أرشفة الملف",
+    "profileRestored": "تمت استعادة الملف",
+    "profileDeleted": "تم حذف الملف",
+    "defaultPaymentMethodUpdated": "تم تحديث طريقة الدفع الافتراضية",
+    "paymentMethodArchived": "تمت أرشفة طريقة الدفع",
+    "paymentMethodRestored": "تمت استعادة طريقة الدفع",
+    "paymentMethodDeleted": "تم حذف طريقة الدفع",
+    "issued": "تم إصدار {number}",
+    "savedAsDraft": "حُفظت كمسودة. {reason}",
+    "draftSaved": "تم حفظ المسودة",
+    "invoiceVoided": "تم إلغاء الفاتورة",
+    "originalVoided": "أُلغيت الفاتورة الأصلية؛ عدّل المسودة البديلة",
+    "markedAsSent": "تم وضع علامة «مرسلة»",
+    "draftDeleted": "تم حذف المسودة",
+    "generatedPdf": "تم إنشاء إصدار PDF رقم {version}",
+    "creditNoteVoided": "تم إلغاء الإشعار الدائن؛ واستُعيد رصيد الفاتورة",
+    "draftCreditNoteDeleted": "تم حذف مسودة الإشعار الدائن",
+    "mailRefused": "رفض خادم البريد الرسالة: {error}. تم تسجيل المحاولة.",
+    "unknownError": "خطأ غير معروف",
+    "sentTo": "تم الإرسال إلى {recipients}",
+    "smtpSaved": "تم حفظ إعدادات SMTP",
+    "smtpRemoved": "تمت إزالة إعدادات SMTP المخزّنة",
+    "testEmailSent": "تم إرسال البريد التجريبي إلى {email}",
+    "testFailed": "فشل الاختبار: {error}",
+    "defaultRecipientsSaved": "تم حفظ المستلمين الافتراضيين",
+    "invitationSent": "تم إرسال الدعوة",
+    "invitationReady": "الدعوة جاهزة",
+    "unknownRole": "دور غير معروف",
+    "roleUpdated": "تم تحديث الدور",
+    "accountDeactivated": "تم تعطيل الحساب",
+    "accountReactivated": "تمت إعادة تفعيل الحساب",
+    "invitationRevoked": "تم إلغاء الدعوة",
+    "paymentUpdated": "تم تحديث الدفعة",
+    "paymentRecorded": "تم تسجيل الدفعة",
+    "paymentDeleted": "تم حذف الدفعة",
+    "sessionRevoked": "تم إلغاء الجلسة",
+    "noOtherSessions": "لا توجد جلسات أخرى",
+    "signedOutOthers": "تم تسجيل الخروج من {count} جلسة أخرى",
+    "sharePasswordRequired": "أدخل كلمة مرور، أو اترك النظام ينشئ واحدة.",
+    "shareLinkCreated": "تم إنشاء رابط المشاركة.",
+    "templateSaved": "تم حفظ القالب؛ ستستخدمه المستندات المستقبلية",
+    "templateReset": "أُعيد ضبط القالب إلى الافتراضي المدمج",
+    "templateImported": "تم استيراد القالب",
+    "profileTemplateCleared": "يستخدم الملف قالب النسخة مجددًا",
+    "operatorSaved": "تم حفظ تفاصيل المشغّل. تعرضها الصفحات القانونية الآن.",
+    "einvoiceSettingsSaved": "تم حفظ إعدادات الفواتير الإلكترونية",
+    "irnRegistered": "تم تسجيل IRN {irn}؛ وأُعيد إنشاء ملف PDF به",
+    "irnRecorded": "تم تسجيل IRN؛ وأُعيد إنشاء ملف PDF به",
+    "irnCancelled": "تم إلغاء IRN؛ وأُعيد إنشاء ملف PDF"
+  }
+}

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { ConfirmAction } from "@/components/confirm-action";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { DateField } from "@/components/ui/date-field";
 import { Mono } from "@/components/ui/mono";
 import { PageHeader } from "@/components/ui/page-header";
 import { Pill } from "@/components/ui/status-pill";
@@ -16,10 +18,14 @@ import { requireOwner } from "@/server/auth";
 import { AuditFiltersSchema, auditEntityTypes, listAuditEvents } from "@/server/dal/audit-log";
 import { listSessions } from "@/server/dal/sessions";
 
-export const metadata: Metadata = { title: "Security" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("settings.security");
+  return { title: t("metaTitle") };
+}
 
-function shortAgent(ua: string | null): string {
-  if (!ua) return "Unknown device";
+/** Browser and OS names from a user agent (product names, not UI text); null without one. */
+function shortAgent(ua: string | null): { browser: string | null; os: string } | null {
+  if (!ua) return null;
   const browser = /Edg\//.test(ua)
     ? "Edge"
     : /Chrome\//.test(ua)
@@ -28,7 +34,7 @@ function shortAgent(ua: string | null): string {
         ? "Firefox"
         : /Safari\//.test(ua)
           ? "Safari"
-          : (ua.split(" ")[0] ?? "Unknown");
+          : (ua.split(" ")[0] ?? null);
   const os = /Windows/.test(ua)
     ? "Windows"
     : /Mac OS X/.test(ua)
@@ -40,7 +46,7 @@ function shortAgent(ua: string | null): string {
           : /Linux/.test(ua)
             ? "Linux"
             : "";
-  return os ? `${browser} on ${os}` : browser;
+  return { browser, os };
 }
 
 export default async function SecurityPage({
@@ -49,6 +55,8 @@ export default async function SecurityPage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const actor = await requireOwner();
+  const t = await getTranslations("settings.security");
+  const tc = await getTranslations("common");
   const params = await searchParams;
   const parsed = AuditFiltersSchema.safeParse({
     entityType: params.entityType || undefined,
@@ -73,27 +81,28 @@ export default async function SecurityPage({
     q.set("page", String(p));
     return `/settings/security?${q.toString()}`;
   };
+  const agentLabel = (ua: string | null): string => {
+    const agent = shortAgent(ua);
+    if (!agent) return t("sessions.unknownDevice");
+    const browser = agent.browser ?? t("sessions.unknownBrowser");
+    return agent.os ? t("sessions.agentOnOs", { browser, os: agent.os }) : browser;
+  };
   return (
     <>
-      <PageHeader
-        title="Security"
-        description="Where you are signed in, and everything that changed."
-      />
+      <PageHeader title={t("title")} description={t("description")} />
       <div className="flex flex-col gap-6">
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Active sessions</CardTitle>
-              <CardDescription>
-                Revoking a session signs that device out immediately.
-              </CardDescription>
+              <CardTitle>{t("sessions.title")}</CardTitle>
+              <CardDescription>{t("sessions.description")}</CardDescription>
             </div>
             <ConfirmAction
               action={revokeOtherSessionsAction}
-              title="Sign out everywhere else?"
-              description="Every session except this one is revoked."
-              confirmLabel="Sign out others"
-              trigger="Sign out everywhere else"
+              title={t("sessions.signOutOthers.title")}
+              description={t("sessions.signOutOthers.description")}
+              confirmLabel={t("sessions.signOutOthers.confirm")}
+              trigger={t("sessions.signOutOthers.trigger")}
               triggerVariant="secondary"
               destructive
             />
@@ -102,11 +111,11 @@ export default async function SecurityPage({
             <Table>
               <THead>
                 <TR>
-                  <TH>Device</TH>
-                  <TH>IP address</TH>
-                  <TH>Signed in</TH>
-                  <TH>Last seen</TH>
-                  <TH>Expires</TH>
+                  <TH>{t("sessions.columns.device")}</TH>
+                  <TH>{t("sessions.columns.ipAddress")}</TH>
+                  <TH>{t("sessions.columns.signedIn")}</TH>
+                  <TH>{t("sessions.columns.lastSeen")}</TH>
+                  <TH>{t("sessions.columns.expires")}</TH>
                   <TH />
                 </TR>
               </THead>
@@ -115,22 +124,22 @@ export default async function SecurityPage({
                   <TR key={s.id}>
                     <TD>
                       <span className="flex items-center gap-2">
-                        {shortAgent(s.userAgent)}
-                        {s.current ? <Pill tone="success">This device</Pill> : null}
+                        {agentLabel(s.userAgent)}
+                        {s.current ? <Pill tone="success">{t("sessions.thisDevice")}</Pill> : null}
                       </span>
                     </TD>
-                    <TD mono>{s.ipAddress ?? "—"}</TD>
-                    <TD mono>{formatDateTime(new Date(s.createdAt), "en-GB", tz)}</TD>
-                    <TD mono>{formatDateTime(new Date(s.updatedAt), "en-GB", tz)}</TD>
-                    <TD mono>{formatDateTime(new Date(s.expiresAt), "en-GB", tz)}</TD>
+                    <TD mono>{s.ipAddress ?? tc("emptyValue")}</TD>
+                    <TD mono>{formatDateTime(new Date(s.createdAt), actor.locale, tz)}</TD>
+                    <TD mono>{formatDateTime(new Date(s.updatedAt), actor.locale, tz)}</TD>
+                    <TD mono>{formatDateTime(new Date(s.expiresAt), actor.locale, tz)}</TD>
                     <TD className="text-right">
                       {s.current ? null : (
                         <ConfirmAction
                           action={revokeSessionAction}
-                          title="Revoke this session?"
-                          confirmLabel="Revoke"
+                          title={t("sessions.revokeTitle")}
+                          confirmLabel={tc("revoke")}
                           hidden={{ id: s.id }}
-                          trigger="Revoke"
+                          trigger={tc("revoke")}
                           triggerVariant="tertiary"
                           size="sm"
                           destructive
@@ -147,23 +156,23 @@ export default async function SecurityPage({
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Audit log</CardTitle>
-              <CardDescription>{log.total} events</CardDescription>
+              <CardTitle>{t("audit.title")}</CardTitle>
+              <CardDescription>{t("audit.count", { count: log.total })}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
             <form className="grid gap-3 md:grid-cols-5" role="search">
-              <Field label="Entity" htmlFor="entityType">
+              <Field label={t("audit.entity")} htmlFor="entityType">
                 <Select id="entityType" name="entityType" defaultValue={filters.entityType ?? ""}>
-                  <option value="">All</option>
-                  {entityTypes.map((t) => (
-                    <option key={t} value={t}>
-                      {t}
+                  <option value="">{tc("all")}</option>
+                  {entityTypes.map((type) => (
+                    <option key={type} value={type}>
+                      {type}
                     </option>
                   ))}
                 </Select>
               </Field>
-              <Field label="Action contains" htmlFor="action">
+              <Field label={t("audit.actionContains")} htmlFor="action">
                 <Input
                   id="action"
                   name="action"
@@ -171,52 +180,52 @@ export default async function SecurityPage({
                   placeholder="invoice.issued"
                 />
               </Field>
-              <Field label="From" htmlFor="from">
-                <Input id="from" name="from" type="date" defaultValue={filters.from ?? ""} />
+              <Field label={tc("from")} htmlFor="from">
+                <DateField id="from" name="from" defaultValue={filters.from ?? ""} />
               </Field>
-              <Field label="To" htmlFor="to">
-                <Input id="to" name="to" type="date" defaultValue={filters.to ?? ""} />
+              <Field label={tc("to")} htmlFor="to">
+                <DateField id="to" name="to" defaultValue={filters.to ?? ""} />
               </Field>
               <div className="flex items-end gap-2">
                 <Button type="submit" variant="secondary">
-                  Filter
+                  {t("audit.filter")}
                 </Button>
                 <Button asChild variant="tertiary">
-                  <Link href="/settings/security">Reset</Link>
+                  <Link href="/settings/security">{t("audit.reset")}</Link>
                 </Button>
               </div>
             </form>
             <Table>
               <THead>
                 <TR>
-                  <TH>When</TH>
-                  <TH>Who</TH>
-                  <TH>Action</TH>
-                  <TH>Entity</TH>
-                  <TH>Summary</TH>
+                  <TH>{t("audit.columns.when")}</TH>
+                  <TH>{t("audit.columns.who")}</TH>
+                  <TH>{t("audit.columns.action")}</TH>
+                  <TH>{t("audit.columns.entity")}</TH>
+                  <TH>{t("audit.columns.summary")}</TH>
                 </TR>
               </THead>
               <TBody>
                 {log.rows.length === 0 ? (
-                  <TableEmpty colSpan={5}>No events match these filters.</TableEmpty>
+                  <TableEmpty colSpan={5}>{t("audit.empty")}</TableEmpty>
                 ) : (
                   log.rows.map((e) => (
                     <TR key={e.id}>
                       <TD mono className="whitespace-nowrap">
-                        {formatDateTime(new Date(e.createdAt), "en-GB", tz)}
+                        {formatDateTime(new Date(e.createdAt), actor.locale, tz)}
                       </TD>
-                      <TD>{e.actorName ?? e.actorEmail ?? "System"}</TD>
+                      <TD>{e.actorName ?? e.actorEmail ?? t("audit.system")}</TD>
                       <TD mono>{e.action}</TD>
                       <TD>
                         <span className="block">{e.entityType}</span>
                         <Mono className="block text-ink-subtle">{e.entityId}</Mono>
                       </TD>
                       <TD>
-                        {e.summary ?? "—"}
+                        {e.summary ?? tc("emptyValue")}
                         {e.before || e.after ? (
                           <details className="mt-1">
                             <summary className="cursor-pointer text-app-caption text-ink-subtle">
-                              Changes
+                              {t("audit.changes")}
                             </summary>
                             <pre className="mt-1 max-w-xl overflow-x-auto rounded-md bg-surface-2 p-2 text-app-caption whitespace-pre-wrap text-ink-muted">
                               {JSON.stringify({ before: e.before, after: e.after }, null, 2)}
@@ -231,21 +240,19 @@ export default async function SecurityPage({
             </Table>
             {pages > 1 ? (
               <nav
-                aria-label="Pagination"
+                aria-label={tc("pagination")}
                 className="flex items-center justify-between text-app-caption text-ink-subtle"
               >
-                <span>
-                  Page {log.page} of {pages}
-                </span>
+                <span>{t("audit.page", { page: log.page, pages })}</span>
                 <div className="flex gap-2">
                   {log.page > 1 ? (
                     <Button asChild variant="tertiary" size="sm">
-                      <Link href={pageHref(log.page - 1)}>Previous</Link>
+                      <Link href={pageHref(log.page - 1)}>{tc("previous")}</Link>
                     </Button>
                   ) : null}
                   {log.page < pages ? (
                     <Button asChild variant="tertiary" size="sm">
-                      <Link href={pageHref(log.page + 1)}>Next</Link>
+                      <Link href={pageHref(log.page + 1)}>{tc("next")}</Link>
                     </Button>
                   ) : null}
                 </div>

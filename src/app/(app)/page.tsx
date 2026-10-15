@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FileText } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -9,12 +10,17 @@ import { PageHeader } from "@/components/ui/page-header";
 import { StatusPill } from "@/components/ui/status-pill";
 import { TBody, TD, TH, THead, TR, Table } from "@/components/ui/table";
 import { formatDate, formatMoney } from "@/lib/format";
+import { firstNameOf } from "@/lib/names";
 import { cn } from "@/lib/utils";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
+import { hasRole } from "@/server/dal/authz";
 import { dashboardData, type DashboardBucket } from "@/server/dal/dashboard";
 import { listProfiles } from "@/server/dal/profiles";
 
-export const metadata: Metadata = { title: "Dashboard" };
+export async function generateMetadata(): Promise<Metadata> {
+  const tc = await getTranslations("common");
+  return { title: tc("dashboard") };
+}
 
 function Tile({
   label,
@@ -56,33 +62,49 @@ function bucketValue(b: DashboardBucket[], locale: string, fallback: string) {
 }
 
 export default async function DashboardPage() {
-  const actor = await requireOwner();
+  const actor = await requireRole("VIEWER");
+  const canEdit = hasRole(actor, "EDITOR");
   const [d, profiles] = await Promise.all([dashboardData(actor), listProfiles(actor)]);
   const count = (b: DashboardBucket[]) => b.reduce((n, x) => n + x.count, 0);
+  const t = await getTranslations("dashboard");
+  const tc = await getTranslations("common");
+  const ts = await getTranslations("invoices.shared");
   return (
     <>
       <PageHeader
-        title="Dashboard"
-        description={`Fiscal year ${d.fiscalYear}${d.profileLabel ? ` · base currency ${d.baseCurrency} (${d.profileLabel})` : ""}`}
+        title={t("greeting", { name: firstNameOf(actor.name, actor.email) })}
+        description={
+          d.profileLabel
+            ? t("fiscalYearWithBase", {
+                year: d.fiscalYear,
+                currency: d.baseCurrency,
+                profile: d.profileLabel,
+              })
+            : t("fiscalYear", { year: d.fiscalYear })
+        }
         actions={
           <>
-            <Button asChild variant="secondary">
-              <Link href="/credit-notes/new">New credit note</Link>
-            </Button>
-            <Button asChild>
-              <Link href="/invoices/new">New invoice</Link>
-            </Button>
+            {canEdit ? (
+              <Button asChild variant="secondary">
+                <Link href="/credit-notes/new">{t("newCreditNote")}</Link>
+              </Button>
+            ) : null}
+            {canEdit ? (
+              <Button asChild>
+                <Link href="/invoices/new">{ts("newInvoice")}</Link>
+              </Button>
+            ) : null}
           </>
         }
       />
       {profiles.length === 0 ? (
         <EmptyState
           icon={FileText}
-          title="Welcome to okinvo"
-          description="Start by creating the issuer profile you bill from, then add a client and your first invoice."
+          title={t("welcomeTitle", { appName: tc("appName") })}
+          description={t("welcomeDescription")}
           action={
             <Button asChild variant="secondary">
-              <Link href="/settings/profiles/new">Create your profile</Link>
+              <Link href="/settings/profiles/new">{t("createProfile")}</Link>
             </Button>
           }
         />
@@ -90,69 +112,74 @@ export default async function DashboardPage() {
         <div className="flex flex-col gap-6">
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             <Tile
-              label="Outstanding"
+              label={t("tiles.outstanding")}
               value={bucketValue(d.outstanding, d.locale, d.baseCurrency)}
-              sub={`${count(d.outstanding)} invoice${count(d.outstanding) === 1 ? "" : "s"}`}
+              sub={t("tiles.invoiceCount", { count: count(d.outstanding) })}
             />
             <Tile
-              label="Overdue"
+              label={t("tiles.overdue")}
               value={bucketValue(d.overdue, d.locale, d.baseCurrency)}
-              sub={`${count(d.overdue)} invoice${count(d.overdue) === 1 ? "" : "s"}`}
+              sub={t("tiles.invoiceCount", { count: count(d.overdue) })}
               tone={count(d.overdue) > 0 ? "danger" : undefined}
             />
             <Tile
-              label="Billed this FY"
+              label={t("tiles.billedThisFy")}
               value={<Amount>{formatMoney(d.billedThisFy, d.baseCurrency, d.locale)}</Amount>}
-              sub={`${formatDate(d.fyRange.from, d.locale)} – ${formatDate(d.fyRange.to, d.locale)}`}
+              sub={t("tiles.fyRange", {
+                from: formatDate(d.fyRange.from, d.locale),
+                to: formatDate(d.fyRange.to, d.locale),
+              })}
             />
             <Tile
-              label="Received this FY"
+              label={t("tiles.receivedThisFy")}
               value={<Amount>{formatMoney(d.receivedThisFy, d.baseCurrency, d.locale)}</Amount>}
-              sub="Payments less refunds, at recorded FX"
+              sub={t("tiles.receivedHint")}
             />
             <Tile
-              label="Drafts"
+              label={t("tiles.drafts")}
               value={d.draftsCount}
-              sub={d.draftsCount > 0 ? "awaiting issue" : "nothing pending"}
+              sub={d.draftsCount > 0 ? t("tiles.awaitingIssue") : t("tiles.nothingPending")}
               tone={d.draftsCount > 0 ? "warning" : undefined}
             />
           </div>
           <div className="grid gap-6 xl:grid-cols-[7fr_5fr]">
             <Card>
               <CardHeader>
-                <CardTitle>Recent invoices</CardTitle>
+                <CardTitle>{t("recentInvoices")}</CardTitle>
                 <Button asChild variant="link">
-                  <Link href="/invoices">All invoices</Link>
+                  <Link href="/invoices">{t("allInvoices")}</Link>
                 </Button>
               </CardHeader>
               <CardContent>
                 {d.recent.length === 0 ? (
-                  <p className="text-app-body text-ink-subtle">No invoices yet.</p>
+                  <p className="text-app-body text-ink-subtle">{t("noInvoicesYet")}</p>
                 ) : (
-                  <Table>
+                  <Table cards>
                     <THead>
                       <TR>
-                        <TH>Number</TH>
-                        <TH>Client</TH>
-                        <TH>Issued</TH>
-                        <TH numeric>Total</TH>
-                        <TH>Status</TH>
+                        <TH>{t("columns.number")}</TH>
+                        <TH>{t("columns.client")}</TH>
+                        <TH>{t("columns.issued")}</TH>
+                        <TH numeric>{tc("total")}</TH>
+                        <TH>{tc("status")}</TH>
                       </TR>
                     </THead>
                     <TBody>
                       {d.recent.map((r) => (
                         <TR key={r.id}>
-                          <TD mono>
+                          <TD label={t("columns.number")} mono>
                             <Link href={`/invoices/${r.id}`} className="hover:underline">
-                              {r.number ?? <span className="text-ink-subtle">Draft</span>}
+                              {r.number ?? <span className="text-ink-subtle">{ts("draft")}</span>}
                             </Link>
                           </TD>
-                          <TD>{r.clientName}</TD>
-                          <TD mono>{formatDate(r.issueDate, r.locale)}</TD>
-                          <TD numeric>
+                          <TD label={t("columns.client")}>{r.clientName}</TD>
+                          <TD label={t("columns.issued")} mono>
+                            {formatDate(r.issueDate, r.locale)}
+                          </TD>
+                          <TD label={tc("total")} numeric>
                             <Amount>{formatMoney(r.total, r.currency, r.locale)}</Amount>
                           </TD>
-                          <TD>
+                          <TD label={tc("status")}>
                             <StatusPill status={r.displayStatus} />
                           </TD>
                         </TR>
@@ -164,11 +191,11 @@ export default async function DashboardPage() {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Top clients by outstanding</CardTitle>
+                <CardTitle>{t("topClients")}</CardTitle>
               </CardHeader>
               <CardContent>
                 {d.topClients.length === 0 ? (
-                  <p className="text-app-body text-ink-subtle">Nothing outstanding.</p>
+                  <p className="text-app-body text-ink-subtle">{t("nothingOutstanding")}</p>
                 ) : (
                   <ul className="flex flex-col gap-2 text-app-body">
                     {d.topClients.map((c) => (

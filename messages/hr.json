@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Početna stranica okinvoa",
+    "save": "Spremi",
+    "cancel": "Odustani",
+    "continue": "Nastavi",
+    "saving": "Spremanje…",
+    "detect": "Otkrij",
+    "yes": "Da",
+    "no": "Ne",
+    "choose": "Odaberite…",
+    "remove": "Ukloni",
+    "tryAgain": "Pokušaj ponovno",
+    "dashboard": "Nadzorna ploča",
+    "goToDashboard": "Idi na nadzornu ploču",
+    "or": "ili",
+    "invoice": "Račun",
+    "creditNote": "Odobrenje",
+    "downloadPdf": "Preuzmi PDF",
+    "edit": "Uredi",
+    "delete": "Izbriši",
+    "downloadDocx": "Preuzmi DOCX",
+    "downloadCii": "Preuzmi EN 16931 XML",
+    "downloadUbl": "Preuzmi Peppol UBL",
+    "downloadFacturX": "Preuzmi Factur-X PDF",
+    "none": "Nema",
+    "dismiss": "Zatvori",
+    "all": "Sve",
+    "previous": "Prethodno",
+    "next": "Sljedeće",
+    "go": "Idi",
+    "search": "Traži",
+    "status": "Status",
+    "total": "Ukupno",
+    "currency": "Valuta",
+    "from": "Od",
+    "to": "Do",
+    "reason": "Razlog",
+    "history": "Povijest",
+    "archive": "Arhiviraj",
+    "restore": "Vrati",
+    "showArchived": "Prikaži arhivirano",
+    "hideArchived": "Sakrij arhivirano",
+    "archived": "Arhivirano",
+    "default": "Zadano",
+    "setDefault": "Postavi kao zadano",
+    "revoke": "Opozovi",
+    "copy": "Kopiraj",
+    "copied": "Kopirano",
+    "active": "Aktivno",
+    "pagination": "Straničenje",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Nadzorna ploča",
+      "invoices": "Računi",
+      "creditNotes": "Odobrenja",
+      "clients": "Klijenti",
+      "services": "Usluge",
+      "products": "Proizvodi",
+      "tools": "Valuta"
+    },
+    "primaryNav": "Glavna navigacija",
+    "settings": "Postavke",
+    "openMenu": "Otvori izbornik",
+    "more": "Više",
+    "navigation": "Navigacija",
+    "dock": "Brza navigacija",
+    "pagesAndAccount": "Stranice i račun",
+    "collapseSidebar": "Sažmi bočnu traku",
+    "collapseSidebarHint": "Sažmi bočnu traku ([)",
+    "expandSidebar": "Proširi bočnu traku",
+    "expandSidebarHint": "Proširi bočnu traku ([)",
+    "theme": {
+      "label": "Tema",
+      "system": "Sustav",
+      "light": "Svijetla",
+      "dark": "Tamna",
+      "current": "Tema: {mode}",
+      "switchTo": "Tema: {mode}. Prebaci na {next}"
+    },
+    "userMenu": {
+      "label": "Izbornik računa za {name}",
+      "profile": "Profil",
+      "logOut": "Odjava"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Pretvarač valuta",
+      "title": "Pretvarač valuta",
+      "description": "Pretvarajte između valuta u kojima izdajete račune pomoću tablice tečajeva koju sadrži ova instanca.",
+      "amount": "Iznos",
+      "from": "Iz",
+      "to": "U",
+      "flip": "Zamijeni valute",
+      "enterAmount": "Unesite iznos",
+      "asOf": "Tečajevi na dan {date} ({source})",
+      "sources": {
+        "bundled": "isporučeno uz aplikaciju",
+        "live": "osvježeno putem interneta"
+      },
+      "note": "Tečajevi su informativni; tečaj na izdanom računu je onaj koji ste unijeli pri izdavanju."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Prijava",
+      "metaDescription": "Prijavite se u okinvo, aplikaciju za izdavanje računa koju sami hostate, putem svog pružatelja identiteta ili lozinke.",
+      "title": "Prijava",
+      "subtitle": "Prijaviti se mogu samo računi s popisa dopuštenih.",
+      "failed": "Prijava nije uspjela.",
+      "noMethod": "Nije konfiguriran nijedan način prijave. U <code>.env</code> postavite par pružatelja, npr. <code>AUTH_GITHUB_*</code>, ili <code>AUTH_PASSWORD_SIGNIN=true</code>.",
+      "errors": {
+        "not_allowed": "Taj račun nije dopušten na ovoj instanci ili je deaktiviran.",
+        "signin": "Prijava nije dovršena. Pokušajte ponovno."
+      }
+    },
+    "password": {
+      "name": "Ime",
+      "email": "E-pošta",
+      "password": "Lozinka",
+      "signingIn": "Prijava u tijeku…",
+      "createAccount": "Izradi račun",
+      "signIn": "Prijava",
+      "haveAPassword": "Već imam lozinku",
+      "firstTime": "Prvi put ovdje? Postavite lozinku",
+      "failed": "Prijava nije uspjela."
+    },
+    "social": {
+      "redirecting": "Preusmjeravanje…",
+      "continueWith": "Nastavi putem: {provider}",
+      "failed": "Prijavu nije bilo moguće pokrenuti."
+    },
+    "error": {
+      "metaTitle": "Pogreška prijave",
+      "metaDescription": "Prijava nije dovršena. Stranica objašnjava što je pošlo po zlu i kako pokušati ponovno.",
+      "title": "Prijava nije uspjela",
+      "body": "Pružatelj identiteta vratio je <code>{value}</code>. Ako vaše adrese nema na popisu dopuštenih ove instance, zamolite vlasnika da je doda.",
+      "back": "Natrag na prijavu"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Postavke",
+      "profiles": "Profili",
+      "paymentMethods": "Načini plaćanja",
+      "templates": "Predlošci",
+      "email": "E-pošta",
+      "security": "Sigurnost",
+      "users": "Korisnici",
+      "data": "Podaci",
+      "legal": "Pravne informacije",
+      "einvoicing": "E-računi",
+      "account": "Račun",
+      "appearance": "Izgled",
+      "api": "API",
+      "status": "Status",
+      "usage": "Korištenje"
+    },
+    "account": {
+      "metaTitle": "Račun",
+      "title": "Račun",
+      "description": "Vaša fotografija, ime, regija, jezik i vremenska zona.",
+      "photo": {
+        "title": "Fotografija",
+        "description": "Prikazuje se na bočnoj traci i u korisničkom izborniku."
+      },
+      "form": {
+        "title": "Račun",
+        "description": "Kako se prikazujete i kada je „danas“.",
+        "displayName": "Prikazno ime",
+        "signInEmail": "E-pošta za prijavu",
+        "signInEmailHint": "Vaš identitet na ovoj instanci; ovdje se ne može mijenjati.",
+        "timezone": "Vremenska zona",
+        "timezoneHint": "„Danas“ za datume izdavanja, datume dospijeća i nadzornu ploču",
+        "regionTitle": "Regija",
+        "regionDescription": "Zadane vrijednosti za nove profile izdavatelja i za nadzornu ploču dok profil ne postoji.",
+        "country": "Država",
+        "currency": "Valuta",
+        "suggested": "Predloženo za ovu državu:",
+        "language": "Jezik",
+        "languageHint": "Jezik same aplikacije. Dokumenti koriste jezik pojedinog profila.",
+        "machineTranslated": "Ovaj je jezik strojno preveden. Ispravci su dobrodošli: <link>poboljšajte ga na GitHubu</link>.",
+        "save": "Spremi postavke"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerika",
+        "Asia": "Azija",
+        "Europe": "Europa",
+        "MiddleEast": "Bliski istok",
+        "Oceania": "Oceanija",
+        "Constructed": "Konstruirani"
+      },
+      "privacy": {
+        "title": "Privatnost",
+        "description": "okinvo postavlja samo kolačiće potrebne za rad. Bez analitike, bez praćenja.",
+        "cookiePolicy": "Pravila o kolačićima",
+        "showNoticeAgain": "Ponovno prikaži obavijest o kolačićima"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Promijeni fotografiju",
+      "addPhoto": "Dodaj fotografiju",
+      "hint": "PNG, JPEG ili WebP. Svugdje se prikazuje kao krug; prije spremanja možete je povećati i pomaknuti.",
+      "tooLarge": "Ta je fotografija prevelika.",
+      "uploadFailed": "Prijenos nije uspio.",
+      "choose": "Odaberite profilnu fotografiju",
+      "dialogTitle": "Namjestite fotografiju",
+      "dialogDescription": "Povucite za pomicanje, skrolajte ili raširite prste za povećanje. Krug je ono što svi vide.",
+      "zoom": "Povećanje",
+      "save": "Spremi fotografiju"
+    },
+    "appearance": {
+      "metaTitle": "Izgled",
+      "title": "Izgled",
+      "description": "Tema i naglašena boja, spremljene uz vaš račun.",
+      "theme": {
+        "title": "Tema",
+        "description": "Slijedite sustav ili učvrstite svijetlu ili tamnu.",
+        "label": "Tema",
+        "system": "Prati sustav",
+        "systemHint": "Mijenja se s vašim OS-om",
+        "light": "Svijetla",
+        "lightHint": "Bijela podloga",
+        "dark": "Tamna",
+        "darkHint": "Gotovo crna podloga"
+      },
+      "accent": {
+        "title": "Naglasak",
+        "description": "Koristi se za glavni gumb, prstenove fokusa i oznaku aktivne stranice. Menta odgovara znaku marke.",
+        "label": "Naglašena boja",
+        "customHint": "Ili odaberite bilo koju vlastitu boju"
+      },
+      "accents": {
+        "mint": "Menta",
+        "lavender": "Lavanda",
+        "sky": "Nebo",
+        "peach": "Breskva",
+        "butter": "Maslac",
+        "rose": "Ruža",
+        "sage": "Kadulja",
+        "lilac": "Ljubičasta",
+        "custom": "Prilagođena"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Profili izdavatelja",
+      "title": "Profili izdavatelja",
+      "description": "Pravni identiteti s kojih izdajete račune. Zadani unaprijed popunjava nove račune.",
+      "breadcrumb": "Profili",
+      "newProfile": "Novi profil",
+      "emptyTitle": "Još nema profila izdavatelja",
+      "emptyDescription": "Izradite identitet s kojeg fakturirate: fizičku osobu s PAN-om ili svoju tvrtku.",
+      "createProfile": "Izradi profil",
+      "columns": {
+        "label": "Oznaka",
+        "legalName": "Pravni naziv",
+        "type": "Vrsta",
+        "country": "Država",
+        "currency": "Valuta",
+        "regime": "Režim",
+        "status": "Status"
+      },
+      "types": {
+        "company": "Tvrtka",
+        "individual": "Fizička osoba"
+      },
+      "makeDefaultTitle": "Postaviti {label} kao zadani?",
+      "makeDefaultDescription": "Novi računi počet će s ovog profila.",
+      "restoreTitle": "Vratiti {label}?",
+      "archiveTitle": "Arhivirati {label}?",
+      "archiveDescription": "Nestaje iz birača; postojeći računi ostaju nepromijenjeni.",
+      "new": {
+        "metaTitle": "Novi profil izdavatelja",
+        "title": "Novi profil izdavatelja",
+        "prefilled": "Popunjeno prema vašim odgovorima; provjerite adresu i porezne podatke, a zatim spremite."
+      },
+      "edit": {
+        "metaTitle": "Uredi profil izdavatelja",
+        "template": "Predložak",
+        "deleteTitle": "Izbrisati {label}?",
+        "deleteDescription": "Moguće samo dok nijedan račun ni odobrenje ne upućuje na ovaj profil. Inače ga arhivirajte."
+      },
+      "template": {
+        "metaTitle": "Predložak profila",
+        "title": "Predložak za {label}",
+        "ownTemplate": "Vlastiti predložak",
+        "instanceTemplate": "Predložak instance",
+        "resetTitle": "Ponovno koristiti predložak instance?",
+        "resetDescription": "Vlastita konfiguracija ovog profila se uklanja; izdani dokumenti ostaju nepromijenjeni.",
+        "useInstance": "Koristi predložak instance",
+        "usingInstanceTitle": "Koristi se predložak instance",
+        "usingInstanceDescription": "Dokumenti ovog profila prate Postavke → Predlošci. Uključite opciju da ih prilagodite zasebno.",
+        "customise": "Koristi drukčiji predložak za ovaj profil",
+        "openInstance": "Otvori predložak instance"
+      },
+      "form": {
+        "identityTitle": "Identitet",
+        "identityDescription": "Tko izdaje račun.",
+        "type": "Vrsta",
+        "label": "Oznaka",
+        "labelHint": "Prikazuje se samo u biračima",
+        "legalName": "Pravni naziv",
+        "tradeName": "Trgovački naziv",
+        "designation": "Funkcija",
+        "email": "E-pošta",
+        "phone": "Telefon",
+        "website": "Web-mjesto",
+        "addressTitle": "Adresa",
+        "taxTitle": "Porezni identifikatori",
+        "taxDescription": "Samo oni koji se odnose na vas; ispis se kontrolira po računu.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Britanski PDV broj",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "Šifrirano u mirovanju",
+        "lutNumber": "LUT broj",
+        "lutNumberHint": "Za izvoz bez IGST-a",
+        "lutFiscalYear": "LUT financijska godina",
+        "lutFiscalYearHint": "npr. 2026-27",
+        "einvoiceTitle": "E-računi",
+        "einvoiceDescription": "Kako se ovaj profil identificira u e-računima; konektor i vjerodajnice nalaze se u Postavke > E-računi.",
+        "electronicAddress": "Elektronička adresa",
+        "electronicAddressHint": "Peppol ili EN 16931 identifikator ovog izdavatelja, ispisan kao elektronička adresa prodavatelja.",
+        "electronicAddressScheme": "Shema elektroničke adrese",
+        "electronicAddressSchemeNone": "Bez sheme",
+        "einvoiceEnabled": "E-računi omogućeni za ovaj profil",
+        "einvoiceEnabledHint": "Nudi preuzimanje GST e-računa u JSON-u, Factur-X i UBL te IRN registraciju na njegovim izdanim dokumentima.",
+        "defaultsTitle": "Zadane vrijednosti",
+        "baseCurrency": "Osnovna valuta",
+        "locale": "Jezik dokumenata",
+        "localeHint": "Oblikovanje brojeva i datuma na dokumentima",
+        "fiscalYearStart": "Fiskalna godina počinje u mjesecu",
+        "months": {
+          "january": "siječanj",
+          "february": "veljača",
+          "march": "ožujak",
+          "april": "travanj",
+          "may": "svibanj",
+          "june": "lipanj",
+          "july": "srpanj",
+          "august": "kolovoz",
+          "september": "rujan",
+          "october": "listopad",
+          "november": "studeni",
+          "december": "prosinac"
+        },
+        "taxRegime": "Zadani porezni režim",
+        "regimes": {
+          "indiaGst": "Indijski GST",
+          "ukVat": "Britanski PDV",
+          "usSalesTax": "Američki porez na promet",
+          "none": "Bez poreza"
+        },
+        "invoiceNumberFormat": "Format broja računa",
+        "invoiceNumberFormatHint": "Oznake: {tokens}",
+        "creditNoteNumberFormat": "Format broja odobrenja",
+        "tdsRate": "Očekivana stopa TDS-a (%)",
+        "tdsRateHint": "Informativno, ispisuje se kao očekivani odbitak",
+        "defaultNotes": "Zadane napomene",
+        "defaultTerms": "Zadani uvjeti",
+        "printTitle": "Što se ispisuje prema zadanim postavkama",
+        "printDescription": "Svaki račun preuzima ove vrijednosti i može ih pojedinačno mijenjati.",
+        "emailTitle": "E-pošta",
+        "emailDescription": "Zadane vrijednosti za sastavljač slanja. Rezervirana mjesta: {placeholders}",
+        "emailCc": "Zadani CC",
+        "emailBcc": "Zadani BCC",
+        "commaSeparated": "Odvojeno zarezima",
+        "invoiceSubject": "Predmet računa",
+        "invoiceSubjectHint": "Prazno koristi ugrađeni predložak",
+        "creditNoteSubject": "Predmet odobrenja",
+        "invoiceBody": "Tekst računa",
+        "creditNoteBody": "Tekst odobrenja",
+        "artworkTitle": "Grafika",
+        "artworkDescription": "PNG, JPEG ili WebP do 2 MB; potpis i pečat zadržavaju prozirnost.",
+        "logo": "Logotip",
+        "signature": "Potpis",
+        "stamp": "Pečat",
+        "transparentPng": "Prozirni PNG",
+        "save": "Spremi profil"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Načini plaćanja",
+      "title": "Načini plaćanja",
+      "description": "Kako vam klijenti plaćaju. Podaci su šifrirani i zamrznuti u svaki račun pri izdavanju.",
+      "newMethod": "Novi način",
+      "emptyTitle": "Još nema načina plaćanja",
+      "emptyDescription": "Dodajte bankovni račun, UPI ID ili novčanik da računi mogu reći klijentima gdje platiti.",
+      "addMethod": "Dodaj način",
+      "columns": {
+        "name": "Naziv",
+        "type": "Vrsta",
+        "currency": "Valuta",
+        "status": "Status"
+      },
+      "types": {
+        "bankTransfer": "Bankovni prijenos",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Prilagođeno"
+      },
+      "makeDefaultTitle": "Postaviti {name} kao zadani?",
+      "restoreTitle": "Vratiti {name}?",
+      "archiveTitle": "Arhivirati {name}?",
+      "archiveDescription": "Izdani računi zadržavaju presliku koju su ispisali.",
+      "new": {
+        "metaTitle": "Novi način plaćanja",
+        "title": "Novi način plaćanja"
+      },
+      "edit": {
+        "metaTitle": "Uredi način plaćanja",
+        "title": "Uredi {name}",
+        "deleteTitle": "Izbrisati {name}?",
+        "deleteDescription": "Moguće samo dok nijedan račun ni uplata ne upućuje na njega. Inače ga arhivirajte."
+      },
+      "form": {
+        "name": "Naziv",
+        "nameHint": "Ispisuje se kao naslov bloka za plaćanje",
+        "type": "Vrsta",
+        "currency": "Valuta",
+        "currencyHint": "Neobavezno; prikazuje se samo kao kontekst",
+        "anyCurrency": "Bilo koja",
+        "instructions": "Upute",
+        "instructionsHint": "Ispisuju se ispod podataka",
+        "isDefault": "Zadani način",
+        "isDefaultDescription": "Unaprijed odabran na novim računima",
+        "isActive": "Aktivno",
+        "detailsTitle": "Podaci",
+        "detailsDescription": "Šifrirano u mirovanju; preslikava se u svaki račun pri izdavanju.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "Naziv primatelja",
+        "lines": "Retci",
+        "linesHint": "Jedan redak po retku, ispisuje se onako kako je upisano",
+        "accountEmail": "E-pošta / oznaka računa",
+        "bank": {
+          "accountHolder": "Vlasnik računa",
+          "accountNumber": "Broj računa",
+          "bankName": "Naziv banke",
+          "branch": "Podružnica",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Šifra usmjeravanja / sort code"
+        },
+        "save": "Spremi način plaćanja"
+      }
+    },
+    "templates": {
+      "metaTitle": "Predlošci dokumenata",
+      "title": "Predlošci dokumenata",
+      "customised": "Prilagođeno",
+      "builtIn": "Ugrađeni zadani",
+      "description": "Kako izgledaju računi i odobrenja. Izdani dokumenti zadržavaju predložak s kojim su izdani.",
+      "resetTitle": "Vratiti na ugrađeni zadani?",
+      "resetDescription": "Vaša prilagodba se uklanja; već izdani dokumenti ostaju nepromijenjeni.",
+      "reset": "Vrati",
+      "resetTrigger": "Vrati na zadano",
+      "importTitle": "Uvoz",
+      "importDescription": "Vratite ranije izvezenu konfiguraciju.",
+      "overridesTitle": "Zamjene po profilu",
+      "overridesDescription": "Profil se može opredijeliti za vlastiti predložak na svojoj stranici za uređivanje.",
+      "noOverrides": "Svi profili koriste predložak instance.",
+      "import": {
+        "json": "JSON predloška",
+        "jsonHint": "Zalijepite datoteku nastalu izvozom JSON-a; ključevi koji nedostaju vraćaju se na zadane vrijednosti",
+        "importing": "Uvoz u tijeku…",
+        "submit": "Uvezi"
+      },
+      "form": {
+        "templateTitle": "Predložak",
+        "templateDescription": "Šest ugrađenih; dolje navedena prilagodba primjenjuje se na onaj koji odaberete.",
+        "templateGroup": "Predložak",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Moderan i prozračan, bez serifa, naglašena linija ispod zaglavlja."
+          },
+          "classic": {
+            "name": "Klasični",
+            "character": "Tradicionalna tablica s okvirima, naslovi sa serifima, uokvireni ukupni iznosi."
+          },
+          "compact": {
+            "name": "Kompaktni",
+            "character": "Gust raspored za duge popise stavki; sitnije pismo, manje razdjelnika."
+          },
+          "minimal": {
+            "name": "Minimalistički",
+            "character": "Miran i prostran: bez linija i okvira, lagane oznake, puno praznog prostora."
+          },
+          "letterhead": {
+            "name": "Memorandum",
+            "character": "Vaš logotip i naziv na traci u boji ili slici na vrhu svake stranice."
+          },
+          "modern": {
+            "name": "Moderni",
+            "character": "Zaglavlje s trakom u boji; strane, zaglavlje tablice i ukupni iznosi na blagoj naglašenoj nijansi."
+          }
+        },
+        "paperTitle": "Papir i pismo",
+        "paperSize": "Veličina papira",
+        "paperLetter": "Letter",
+        "margins": "Margine",
+        "marginsNormal": "Normalne",
+        "marginsNarrow": "Uske",
+        "headingFont": "Pismo naslova",
+        "bodyFont": "Pismo teksta",
+        "fontSans": "Bez serifa",
+        "fontSerif": "Sa serifima",
+        "tableStyle": "Stil tablice",
+        "tableRuled": "S linijama",
+        "tableZebra": "Zebra",
+        "tablePlain": "Jednostavna",
+        "accentColour": "Naglašena boja",
+        "textColour": "Boja teksta",
+        "logoPosition": "Položaj logotipa",
+        "positionLeft": "Lijevo",
+        "positionCentre": "Sredina",
+        "positionRight": "Desno",
+        "logoHeight": "Visina logotipa (mm)",
+        "documentTitle": "Naslov dokumenta",
+        "titleAuto": "Automatski (u skladu s GST-om)",
+        "titleCustom": "Prilagođeno",
+        "titlePlaceholder": "npr. PREDRAČUN",
+        "qrPosition": "Položaj QR koda",
+        "qrFooter": "Podnožje",
+        "qrHeader": "Zaglavlje",
+        "qrBesideTotals": "Pokraj ukupnih iznosa",
+        "amountInWords": "Iznos riječima",
+        "wordsBelowTotal": "Ispod ukupnih iznosa",
+        "wordsFooter": "Podnožje",
+        "wordsHidden": "Skriveno",
+        "subtotalRow": "Redak međuzbroja",
+        "discountRow": "Redak popusta",
+        "taxLines": "Retci poreza",
+        "tdsExpected": "Očekivani TDS",
+        "roundingRow": "Redak zaokruživanja",
+        "pageNumbers": "Brojevi stranica",
+        "headerTitle": "Zaglavlje",
+        "headerDescription": "Traka u boji ili slika na vrhu svake stranice. Memorandum i Moderni prikazuju traku ako ne odaberete drukčije.",
+        "headerStyle": "Stil zaglavlja",
+        "headerNone": "Nema",
+        "headerBand": "Traka u boji",
+        "headerImage": "Slika",
+        "bandColour": "Boja trake",
+        "bandColourHex": "Boja trake (hex)",
+        "headerImageLabel": "Slika zaglavlja",
+        "headerImageHint": "PNG, JPEG ili WebP širine do 2400 px; proteže se cijelom širinom stranice.",
+        "imageOpacity": "Neprozirnost slike",
+        "headerHeight": "Visina zaglavlja (mm)",
+        "bandText": "Tekst na traci",
+        "bandTextAuto": "Automatski (prema boji trake)",
+        "bandTextLight": "Svijetao",
+        "bandTextDark": "Taman",
+        "textTitle": "Tekst",
+        "headerNote": "Napomena u zaglavlju",
+        "footer": "Podnožje",
+        "signatureCaption": "Natpis potpisa",
+        "draftWatermark": "Vodeni žig nacrta",
+        "labelsTitle": "Oznake",
+        "labelsDescription": "Ostavite polje praznim da zadržite zadani tekst.",
+        "save": "Spremi predložak",
+        "downloadSample": "Preuzmi uzorak PDF-a",
+        "exportJson": "Izvezi JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "E-pošta",
+      "title": "E-pošta",
+      "configuredSettings": "Konfigurirano u Postavkama",
+      "configuredEnv": "Konfigurirano okolinom",
+      "notConfigured": "Nije konfigurirano: tijek putem aplikacije za e-poštu",
+      "description": "Dokumenti se šalju iz sastavljača s priloženim spremljenim PDF-om. Postavke ovdje nadjačavaju SMTP_* u okolini.",
+      "sendTest": "Pošalji probnu poruku na {email}",
+      "removeTitle": "Ukloniti spremljene SMTP postavke?",
+      "removeEnvTakesOver": "Preuzimaju vrijednosti SMTP_* iz okoline.",
+      "removeFallsBack": "E-pošta se vraća na tijek putem aplikacije za e-poštu.",
+      "removeTrigger": "Ukloni spremljene postavke",
+      "smtpTitle": "SMTP poslužitelj",
+      "smtpFromEnv": "Trenutno preuzeto iz okoline; spremanje ovdje to nadjačava.",
+      "smtpPasswordNote": "Lozinka je šifrirana u mirovanju i više se nikad ne prikazuje.",
+      "defaultsTitle": "Zadani primatelji",
+      "defaultsDescription": "CC/BCC za cijelu instancu; profili izdavatelja dodaju vlastite.",
+      "sentTitle": "Poslana pošta",
+      "sentDescription": "Posljednjih 50 pokušaja, uključujući neuspjele i ručna slanja.",
+      "smtp": {
+        "host": "Poslužitelj",
+        "port": "Port",
+        "security": "Sigurnost",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Nema (LAN relej)",
+        "user": "Korisničko ime",
+        "password": "Lozinka",
+        "passwordStored": "Spremljena i šifrirana; ostavite prazno da je zadržite",
+        "passwordEncrypted": "Šifrirano u mirovanju",
+        "from": "Adresa pošiljatelja",
+        "fromName": "Ime pošiljatelja",
+        "replyTo": "Adresa za odgovor",
+        "save": "Spremi SMTP postavke"
+      },
+      "defaults": {
+        "cc": "Zadani CC",
+        "ccHint": "Dodaje se u svaki sastavljač; odvojeno zarezima",
+        "bcc": "Zadani BCC",
+        "save": "Spremi zadane vrijednosti"
+      }
+    },
+    "security": {
+      "metaTitle": "Sigurnost",
+      "title": "Sigurnost",
+      "description": "Gdje ste prijavljeni i sve što se promijenilo.",
+      "sessions": {
+        "title": "Aktivne sesije",
+        "description": "Opozivom sesije taj se uređaj odmah odjavljuje.",
+        "signOutOthers": {
+          "title": "Odjaviti se svugdje drugdje?",
+          "description": "Opozivaju se sve sesije osim ove.",
+          "confirm": "Odjavi ostale",
+          "trigger": "Odjava svugdje drugdje"
+        },
+        "columns": {
+          "device": "Uređaj",
+          "ipAddress": "IP adresa",
+          "signedIn": "Prijavljen",
+          "lastSeen": "Zadnje viđen",
+          "expires": "Istječe"
+        },
+        "thisDevice": "Ovaj uređaj",
+        "revokeTitle": "Opozvati ovu sesiju?",
+        "unknownDevice": "Nepoznat uređaj",
+        "unknownBrowser": "Nepoznato",
+        "agentOnOs": "{browser} na {os}"
+      },
+      "audit": {
+        "title": "Revizijski dnevnik",
+        "count": "{count, plural, one {# događaj} few {# događaja} other {# događaja}}",
+        "entity": "Entitet",
+        "actionContains": "Radnja sadrži",
+        "filter": "Filtriraj",
+        "reset": "Poništi",
+        "columns": {
+          "when": "Kada",
+          "who": "Tko",
+          "action": "Radnja",
+          "entity": "Entitet",
+          "summary": "Sažetak"
+        },
+        "empty": "Nijedan događaj ne odgovara ovim filtrima.",
+        "system": "Sustav",
+        "changes": "Promjene",
+        "page": "Stranica {page} od {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Korisnici",
+      "title": "Korisnici",
+      "description": "Tko se može prijaviti na ovu instancu i što smije raditi.",
+      "roles": {
+        "owner": "Vlasnik",
+        "editor": "Urednik",
+        "viewer": "Gledatelj"
+      },
+      "roleHints": {
+        "owner": "Sve, uključujući postavke i članove",
+        "editor": "Klijenti, katalog, računi, odobrenja, uplate, e-pošta",
+        "viewer": "Samo čitanje"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Uloga korisnika {email}",
+      "invite": {
+        "title": "Pozovite nekoga",
+        "description": "Prijavljuju se pozvanom adresom (putem pružatelja identiteta ili lozinkom) i dobivaju ulogu koju odaberete.",
+        "sent": "Poziv je poslan e-poštom na {email}.",
+        "readyWithError": "Poziv je spreman za {email}. E-poštu nije bilo moguće poslati ({error}); pošaljite im ovu poveznicu:",
+        "readyNoSmtp": "Poziv je spreman za {email}. SMTP nije konfiguriran; pošaljite im ovu poveznicu:",
+        "copyLink": "Kopiraj poveznicu",
+        "email": "E-pošta",
+        "emailPlaceholder": "osoba@example.com",
+        "role": "Uloga",
+        "submit": "Pozovi",
+        "inviting": "Pozivanje…"
+      },
+      "members": {
+        "title": "Članovi",
+        "description": "Uvijek ostaje barem jedan aktivni vlasnik.",
+        "columns": {
+          "person": "Osoba",
+          "role": "Uloga",
+          "lastSignIn": "Zadnja prijava",
+          "status": "Status"
+        },
+        "nameYou": "{name} (vi)",
+        "deactivated": "Deaktivirano",
+        "reactivate": {
+          "title": "Ponovno aktivirati {email}?",
+          "description": "Ponovno se mogu prijaviti sa svojom prijašnjom ulogom.",
+          "confirm": "Ponovno aktiviraj"
+        },
+        "deactivate": {
+          "title": "Deaktivirati {email}?",
+          "description": "Sve sesije završavaju odmah i ne mogu se prijaviti dok se ponovno ne aktiviraju. Njihova povijest ostaje.",
+          "confirm": "Deaktiviraj"
+        }
+      },
+      "invitations": {
+        "title": "Pozivi na čekanju",
+        "description": "Adrese koje se mogu prijaviti, ali još nisu.",
+        "columns": {
+          "email": "E-pošta",
+          "role": "Uloga",
+          "invited": "Pozvan"
+        },
+        "empty": "Nema poziva na čekanju.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Opozvati poziv za {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Podaci",
+      "title": "Podaci",
+      "description": "Sve je prenosivo: skupovi podataka kao CSV ili Excel, potpuna snimka za migraciju, PDF-ovi za vašeg računovođu i testirana rutina sigurnosnih kopija.",
+      "period": {
+        "fiscalYear": "Fiskalna godina",
+        "fiscalYearHint": "Nadjačava datume",
+        "issuer": "Izdavatelj"
+      },
+      "exportAll": {
+        "title": "Izvezi sve podatke",
+        "description": "ZIP sa svakim skupom podataka kao CSV-om plus <mono>data.json</mono>, relacijskom snimkom svih tablica. Šifrirana polja (podaci o načinima plaćanja, SMTP lozinka) ostaju izvan; README unutra ih navodi.",
+        "download": "Preuzmi okinvo-data ZIP"
+      },
+      "exportDocuments": {
+        "title": "Izvezi dokumente",
+        "description": "PDF svakog izdanog i poništenog računa i odobrenja za razdoblje, imenovan brojem, uz <mono>index.csv</mono> s brojevima, ukupnim iznosima i hashevima. PDF-ovi koji nedostaju generiraju se usput.",
+        "docx": "Uključi i DOCX kopiju svakog dokumenta",
+        "facturx": "Uključi i Factur-X PDF/A-3 kopiju s ugrađenim EN 16931 XML-om",
+        "download": "Preuzmi ZIP dokumenata"
+      },
+      "datasets": {
+        "title": "Skupovi podataka",
+        "description": "Isti izvozi koje nude stranice s popisima, uz razdoblje i izdavatelja primijenjene na sve. Uplate koriste raspon datuma; klijenti i usluge zanemaruju razdoblje.",
+        "columns": {
+          "dataset": "Skup podataka",
+          "filters": "Primijenjeni filtri",
+          "download": "Preuzimanje"
+        },
+        "names": {
+          "invoices": "Registar računa",
+          "invoiceItems": "Stavke računa",
+          "payments": "Knjiga uplata",
+          "creditNotes": "Registar odobrenja",
+          "clients": "Klijenti",
+          "services": "Usluge",
+          "gstSummary": "Sažetak GST-a",
+          "tdsSummary": "Sažetak TDS-a"
+        },
+        "filters": {
+          "periodIssuer": "razdoblje, izdavatelj",
+          "dateRangeIssuer": "raspon datuma, izdavatelj",
+          "includesArchived": "uključuje arhivirano"
+        }
+      },
+      "backups": {
+        "title": "Sigurnosne kopije",
+        "notWired": "Usluga sigurnosnih kopija nije povezana",
+        "noRun": "Sigurnosna kopija još nije pokrenuta",
+        "lastOk": "Zadnja sigurnosna kopija uspjela",
+        "lastFailed": "Zadnja sigurnosna kopija nije uspjela",
+        "description": "Usluga <mono>backup</mono> iz Composea izvozi Postgres i arhivira volumen pohrane prema <mono>BACKUP_CRON</mono>, čuva <mono>BACKUP_RETENTION_DAYS</mono> povijesti u volumenu <mono>backups</mono> i piše statusnu datoteku koju čita ova stranica.",
+        "finished": "Završeno",
+        "databaseDump": "Izvoz baze podataka",
+        "storageArchive": "Arhiva pohrane",
+        "size": "Veličina",
+        "sizeMb": "{size} MB",
+        "error": "Pogreška",
+        "runNow": "Pokrenite jednu sada ili vratite iz para datoteka:",
+        "restoreDrill": "Postupak vraćanja vježba se u CI-ju pomoću <mono>scripts/restore-drill.sh</mono>: inicijalizacija, sigurnosna kopija, brisanje, vraćanje, zatim usporedba broja redaka i hasha PDF-a."
+      }
+    },
+    "legal": {
+      "metaTitle": "Pravne informacije",
+      "metaDescription": "Tko upravlja ovom instancom: podaci ispisani na javnim pravnim stranicama.",
+      "title": "Pravne informacije",
+      "description": "Javne pravne stranice ispisuju ove podatke. Dok se sva polja ne popune, stranice prikazuju istaknuta rezervirana mjesta.",
+      "operator": {
+        "title": "Podaci o operatoru",
+        "complete": "Potpuno",
+        "missing": "Nedostaje {count}: {fields}",
+        "description": "Vi, kao osoba ili tvrtka koja pokreće ovu instancu, ste operator na kojeg se dokumenti odnose. Ništa se odavde ne šalje nigdje; ispisuje se na stranicama u nastavku."
+      },
+      "fieldLabels": {
+        "legalName": "Pravni naziv operatora",
+        "entityType": "Vrsta subjekta",
+        "address": "Adresa operatora",
+        "country": "Država operatora",
+        "contactEmail": "Kontaktna e-pošta",
+        "privacyEmail": "E-pošta za privatnost",
+        "dpoEmail": "E-pošta službenika za zaštitu podataka",
+        "governingLaw": "Mjerodavno pravo",
+        "venue": "Mjesto rješavanja sporova",
+        "effectiveDate": "Datum stupanja na snagu"
+      },
+      "publicPages": {
+        "title": "Javne stranice",
+        "description": "Povezane s prijave, preglednika dijeljenja i obavijesti o kolačićima.",
+        "terms": "Uvjeti korištenja",
+        "acceptableUse": "Pravila prihvatljivog korištenja",
+        "privacy": "Pravila privatnosti",
+        "cookies": "Pravila o kolačićima",
+        "dataRetention": "Zadržavanje podataka",
+        "security": "Sigurnost",
+        "licenses": "Licencije i obavijesti trećih strana"
+      },
+      "form": {
+        "legalName": "Pravni naziv",
+        "entityType": "Vrsta subjekta",
+        "individual": "Fizička osoba / obrtnik",
+        "company": "Tvrtka / registrirani subjekt",
+        "address": "Adresa",
+        "addressHint": "Ispisuje se u Uvjetima i Pravilima privatnosti kao poštanska adresa operatora.",
+        "country": "Država",
+        "effectiveDate": "Datum stupanja na snagu",
+        "contactEmail": "Kontaktna e-pošta",
+        "privacyEmail": "E-pošta za privatnost",
+        "privacyEmailHint": "Kamo idu zahtjevi ispitanika; može biti kontaktna adresa.",
+        "dpoEmail": "E-pošta službenika za zaštitu podataka",
+        "dpoEmailHint": "Samo ako ste imenovali jednog.",
+        "governingLaw": "Mjerodavno pravo",
+        "governingLawHint": "Na primjer \"zakoni Indije\" ili \"zakoni Engleske i Walesa\".",
+        "venue": "Mjesto rješavanja sporova",
+        "venueHint": "Na primjer \"sudovi u Bengaluruu, Karnataka\".",
+        "submit": "Spremi podatke o operatoru"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-računi",
+      "title": "E-računi",
+      "description": "Po profilu izdavatelja: koji konektor registrira indijske e-račune i koji europski profil slijede Factur-X i UBL izlazi. Vjerodajnice se pohranjuju šifrirane i više se ne prikazuju.",
+      "noProfiles": "Prvo izradite profil izdavatelja.",
+      "profile": "Profil izdavatelja",
+      "enabled": "Omogućeno",
+      "disabled": "Onemogućeno",
+      "enabledHint": "Uključite ili isključite e-račune po profilu u Postavke > Profili.",
+      "india": {
+        "title": "Indija (GST e-račun, IRN)",
+        "description": "IRN se registrira putem ovdje odabranog konektora; ručni konektor preuzima odgovor portala ručno.",
+        "connector": "Konektor",
+        "connectorNone": "Isključeno",
+        "connectorManual": "Ručno (zalijepite IRP odgovor)",
+        "connectorNic": "NIC IRP API (sandbox ili produkcija)",
+        "nicUnverified": "NIC konektor slijedi objavljeni API i testiran je samo na snimljenim podacima; nije provjeren na stvarnom sandboxu dok se ne unesu vjerodajnice.",
+        "env": "Okruženje",
+        "sandbox": "Sandbox",
+        "production": "Produkcija",
+        "baseUrl": "Osnovni URL",
+        "baseUrlHint": "Ostavite prazno za zadanu vrijednost okruženja.",
+        "clientId": "ID klijenta",
+        "clientSecret": "Tajna klijenta",
+        "username": "Korisničko ime",
+        "password": "Lozinka",
+        "gstin": "GSTIN",
+        "publicKey": "Javni ključ IRP-a (PEM)",
+        "publicKeyHint": "Preuzmite ga s portala nakon prijave; njime se omotavaju vjerodajnice poslane IRP-u.",
+        "publicKeyStored": "Pohranjeno; ostavite prazno da ga zadržite.",
+        "secretStored": "Pohranjeno šifrirano; ostavite prazno da ostane isto.",
+        "secretEncrypted": "Pohranjeno šifrirano u mirovanju."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 jedini je profil u ovoj verziji; preuzimanja Factur-X i UBL koriste ga.",
+        "profile": "Profil",
+        "profileNone": "Isključeno",
+        "en16931": "EN 16931"
+      },
+      "save": "Spremi postavke e-računa"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API ključevi za skripte, SDK i MCP klijente, uz curl primjere.",
+      "title": "API",
+      "description": "Ključevi za skripte, SDK i MCP klijente. Ključ može najviše ono što može vaša uloga; prikazuje se jednom.",
+      "create": {
+        "title": "Izradi ključ",
+        "description": "Šaljite ga kao <mono>Authorization: Bearer okv_…</mono>. Držite ga podalje od izvornog koda i zapisa razgovora; ispod ga opozovite ako procuri."
+      },
+      "keys": {
+        "title": "Ključevi",
+        "descriptionOwner": "Svi ključevi ove instance; vlasnici mogu opozvati bilo koji.",
+        "descriptionOwn": "Vaši ključevi.",
+        "columns": {
+          "name": "Naziv",
+          "prefix": "Prefiks",
+          "scopes": "Dosezi",
+          "owner": "Vlasnik",
+          "lastUsed": "Zadnje korišten",
+          "expires": "Istječe",
+          "status": "Status"
+        },
+        "empty": "Još nema API ključeva.",
+        "never": "nikad",
+        "revoked": "Opozvan",
+        "expired": "Istekao",
+        "revokeTitle": "Opozvati {name}?",
+        "revokeDescription": "Klijenti koji koriste ovaj ključ odmah prestaju raditi.",
+        "activeCount": "{count, plural, one {# aktivan ključ.} few {# aktivna ključa.} other {# aktivnih ključeva.}}"
+      },
+      "examples": {
+        "title": "Primjeri",
+        "description": "Zamijenite <mono>$OKINVO_KEY</mono> ključem. Verzionirani REST API, njegov OpenAPI dokument (<mono>/api/openapi.json</mono>), TypeScript SDK i MCP poslužitelj stižu sa sljedećim zadacima plana v1.1; statusna krajnja točka radi već danas.",
+        "rateLimit": "Pozivi preko ograničenja dobivaju odgovor 429 sa zaglavljem <mono>Retry-After</mono> (120 zahtjeva u minuti po ključu). Dosege ključa ograničava trenutačna uloga njegova vlasnika."
+      },
+      "form": {
+        "copyKey": "Kopiraj API ključ",
+        "name": "Naziv",
+        "namePlaceholder": "npr. skripta za računovodstvo",
+        "expires": "Istječe",
+        "in30Days": "Za 30 dana",
+        "in90Days": "Za 90 dana",
+        "inAYear": "Za godinu dana",
+        "never": "Nikad",
+        "scopes": "Dosezi",
+        "submit": "Izradi API ključ",
+        "creating": "Izrada…"
+      },
+      "scopes": {
+        "invoicesRead": "Čitanje računa",
+        "invoicesCreate": "Izrada i izdavanje računa",
+        "creditNotesRead": "Čitanje odobrenja",
+        "creditNotesCreate": "Izrada i izdavanje odobrenja",
+        "catalogueRead": "Čitanje klijenata, usluga i proizvoda",
+        "documentsRead": "Preuzimanje spremljenih PDF-ova i DOCX kopija",
+        "statusRead": "Čitanje statusa instance"
+      }
+    },
+    "status": {
+      "metaTitle": "Status",
+      "metaDescription": "Verzija, baza podataka, pohrana, e-pošta i zdravlje sigurnosnih kopija ove instance.",
+      "title": "Status",
+      "description": "Što ova instanca pokreće i odgovaraju li njezini dijelovi.",
+      "recheck": "Provjeri ponovno",
+      "health": {
+        "ok": "U redu",
+        "warning": "Upozorenje",
+        "failed": "Neuspjelo",
+        "na": "Nije konfigurirano"
+      },
+      "overall": {
+        "ok": "Sve u redu",
+        "degraded": "Smanjena funkcionalnost",
+        "failed": "Neuspjelo"
+      },
+      "version": "Izgradnja {hasSha, select, yes {<mono>{sha}</mono>} other {(sha nepoznat)}} · izgrađeno {built} · Node <mono>{node}</mono> · radi {uptime} · provjereno {checked}",
+      "dateUnknown": "(datum nepoznat)",
+      "uptime": {
+        "days": "{d}d {h}h {m}m",
+        "hours": "{h}h {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Baza podataka",
+        "storage": "Pohrana",
+        "rateLimiting": "Ograničenje zahtjeva",
+        "email": "E-pošta",
+        "backups": "Sigurnosne kopije"
+      },
+      "db": {
+        "detail": "{latency} ms · zadnja migracija <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} one { · # nedovršena migracija} few { · # nedovršene migracije} other { · # nedovršenih migracija}}",
+        "noMigration": "nema"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · pisanje, čitanje i brisanje probnog objekta za {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "Pohrana <mono>{store}</mono> {store, select, memory {(jedna replika)} other {(dijeli se među replikama)}}",
+      "smtp": {
+        "configured": "SMTP iz {source, select, settings {the settings page} env {the environment} other {}} · zadnji test {lastTest} · zadnja 24 h: {sent} poslano, {failed} neuspjelo",
+        "none": "Nema SMTP poslužitelja; sastavljač nudi „Otvori u aplikaciji za e-poštu“. <link>Konfiguriraj</link>"
+      },
+      "backups": {
+        "notWired": "Usluga sigurnosnih kopija nije povezana (BACKUP_STATUS_FILE nije postavljen).",
+        "noRun": "Usluga sigurnosnih kopija povezana; još nema zabilježenog pokretanja.",
+        "ok": "Zadnje pokretanje uspjelo u {finishedAt}{days, plural, =0 {} one { · zadržavanje # dan} few { · zadržavanje # dana} other { · zadržavanje # dana}}",
+        "failed": "Zadnje pokretanje nije uspjelo: {error} u {finishedAt}{days, plural, =0 {} one { · zadržavanje # dan} few { · zadržavanje # dana} other { · zadržavanje # dana}}"
+      },
+      "footer": "Isto je izvješće dostupno kao JSON na <mono>/api/health/status</mono> za nadzor (prijavljena sesija ili API ključ)."
+    },
+    "usage": {
+      "metaTitle": "Korištenje",
+      "metaDescription": "Pregledi stranica po zaslonu i danu na ovoj instanci, brojeni lokalno.",
+      "title": "Korištenje",
+      "description": "Koliko je puta svaki zaslon otvoren, brojeno samo na ovoj instanci: bez kolačića, bez adresa, ništa se nigdje ne šalje.",
+      "last30Days": "Zadnjih 30 dana",
+      "total": "{count, plural, =0 {Nema pregleda stranica} one {# pregled stranice} few {# pregleda stranica} other {# pregleda stranica}}",
+      "off": "Brojanje je isključeno. Postavite ANALYTICS_LOCAL=true za brojanje pregleda stranica na ovoj instanci.",
+      "empty": "Još nema zabilježenih pregleda stranica.",
+      "columns": {
+        "day": "Dan",
+        "path": "Zaslon",
+        "views": "Pregledi"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Dobro došli",
+    "progress": "Napredak",
+    "steps": {
+      "aboutYou": "O vama",
+      "howYouUse": "Kako ćete ga koristiti",
+      "allSet": "Sve spremno"
+    },
+    "step1": {
+      "title": "Recite nam nešto o sebi",
+      "subtitle": "Ovo postavlja vaše zadane vrijednosti; svaka se kasnije može promijeniti u Postavkama.",
+      "name": "Ime",
+      "email": "E-pošta",
+      "emailHint": "Vaš identitet za prijavu. Može se kasnije promijeniti u Postavke → Sigurnost.",
+      "country": "Država",
+      "currency": "Željena valuta",
+      "currencyHint": "Koristi se za nove profile i nadzornu ploču dok profil ne postoji."
+    },
+    "step2": {
+      "title": "Kako ćete koristiti okinvo?",
+      "subtitle": "Mijenjaju se samo zadane vrijednosti; ništa nije zaključano.",
+      "usage": "Korištenje",
+      "personal": "Osobno izdavanje računa",
+      "personalHint": "Freelance rad u vlastito ime",
+      "business": "Poslovno izdavanje računa",
+      "businessHint": "Računi registrirane tvrtke",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "PDV broj",
+        "other": "Porezni identifikacijski broj"
+      },
+      "taxQuestion": {
+        "IN": "Imate li GSTIN?",
+        "GB": "Jeste li registrirani za PDV?",
+        "other": "Imate li porezni identifikacijski broj za ispis na računima?"
+      }
+    },
+    "step3": {
+      "title": "Sve je spremno",
+      "body": "Zatim izradite svoj prvi profil izdavatelja: naziv, adresu i porezne podatke koji se ispisuju na vašim računima. Popunili smo ono što ste nam rekli.",
+      "go": "Idi na profile",
+      "opening": "Otvaranje…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Uvjeti",
+      "privacy": "Privatnost",
+      "cookies": "Kolačići",
+      "security": "Sigurnost"
+    },
+    "cookieNotice": {
+      "label": "Obavijest o kolačićima",
+      "body": "Koristimo samo nužne kolačiće: vašu sesiju i postavke prikaza. Bez analitike, bez praćenja.",
+      "policy": "Pravila o kolačićima",
+      "gotIt": "Razumijem"
+    },
+    "nav": {
+      "label": "Pravne informacije",
+      "cookies": "Kolačići",
+      "privacy": "Privatnost",
+      "terms": "Uvjeti",
+      "acceptableUse": "Prihvatljivo korištenje",
+      "retention": "Zadržavanje",
+      "security": "Sigurnost",
+      "licences": "Licencije"
+    },
+    "operatorNotice": "okinvo je softver koji se samostalno hostira; operator ove instance odgovoran je za njegovo korištenje.",
+    "doc": {
+      "effectiveOn": "Na snazi od <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Sadržaj"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Pravni naziv operatora",
+        "entityType": "Vrsta subjekta",
+        "address": "Adresa operatora",
+        "country": "Država operatora",
+        "contactEmail": "Kontaktna e-pošta",
+        "privacyEmail": "E-pošta za privatnost",
+        "dpoEmail": "E-pošta službenika za zaštitu podataka",
+        "governingLaw": "Mjerodavno pravo",
+        "venue": "Mjesto rješavanja sporova",
+        "effectiveDate": "Datum stupanja na snagu"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Nije pronađeno",
+      "title": "Na ovoj adresi nema ničega",
+      "body": "Poveznica je možda zastarjela ili dokument na koji je upućivala nikad nije izdan."
+    },
+    "forbidden": {
+      "metaTitle": "Nije dopušteno",
+      "title": "Ovaj račun to ne može učiniti",
+      "body": "Vaša uloga to ne dopušta. Zatražite pristup od vlasnika ili se prijavite računom koji ga ima."
+    },
+    "error": {
+      "title": "Nešto je pošlo po zlu",
+      "body": "Ovaj zahtjev nije ništa promijenio. Pokušajte ponovno; ako se nastavi, zapisnik poslužitelja sadrži pojedinosti.",
+      "digest": "pogreška {digest}",
+      "generic": "pogreška"
+    },
+    "appNotFound": {
+      "title": "Nije pronađeno",
+      "body": "Ovaj zapis ne postoji ili je izbrisan dok ste ga gledali.",
+      "back": "Natrag na nadzornu ploču"
+    },
+    "validation": {
+      "required": "obavezno",
+      "tooLong": "najviše {max} znakova",
+      "invalidEmail": "mora biti ispravna adresa e-pošte",
+      "invalidDate": "mora biti kalendarski datum u obliku GGGG-MM-DD",
+      "invalidAmount": "mora biti broj",
+      "wholeNumber": "mora biti cijeli broj",
+      "greaterThanZero": "mora biti veće od nule",
+      "fixFields": "Ispravite istaknuta polja.",
+      "charset": "Dopušteni su samo standardni znakovi tipkovnice."
+    }
+  },
+  "verify": {
+    "metaTitle": "Provjera dokumenta",
+    "metaDescription": "Provjerite je li račun ili odobrenje izdao njegov pošiljatelj i da nije izmijenjen.",
+    "heading": "Provjera dokumenta",
+    "rateLimited": "Previše provjera s ove adrese. Pokušajte ponovno za minutu.",
+    "notFound": {
+      "title": "Takav dokument ne postoji",
+      "body": "Ova poveznica ne odgovara nijednom izdanom dokumentu. Provjerite QR kod ili poveznicu koju ste dobili ili se obratite izdavatelju."
+    },
+    "status": {
+      "void": "Poništeno",
+      "valid": "Vrijedi"
+    },
+    "issuedBy": "Izdao",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Izdano za",
+    "issueDate": "Datum izdavanja",
+    "total": "Ukupno",
+    "voided": "Izdavatelj je poništio ovaj dokument i on više ne vrijedi.",
+    "storedCopies": {
+      "title": "Spremljene kopije",
+      "description": "SHA-256 svake verzije PDF-a koju izdavatelj čuva. Odaberite svoju kopiju da je usporedite u pregledniku: ništa se ne šalje.",
+      "empty": "PDF još nije generiran.",
+      "protectedVersion": "Kopija zaštićena lozinkom {version}",
+      "version": "Verzija {version}"
+    },
+    "check": {
+      "label": "Provjerite svoju kopiju",
+      "hashing": "Izračun hasha…",
+      "match": "Vaša kopija točno odgovara verziji {version}.",
+      "mismatch": "Vaša kopija ne odgovara nijednoj spremljenoj verziji."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Dijeljeni dokument",
+      "metaDescription": "Dokument podijeljen s vama: pregledajte ga na mreži i preuzmite PDF.",
+      "rateLimited": "Previše zahtjeva s ove adrese. Pokušajte ponovno za minutu.",
+      "unavailable": {
+        "title": "Ova poveznica nije dostupna",
+        "body": "Možda je istekla ili ju je izdavatelj opozvao. Zatražite od njega novu."
+      },
+      "lockedTitleInvoice": "Račun od {issuer}",
+      "lockedTitleCreditNote": "Odobrenje od {issuer}",
+      "lockedBody": "Ovaj je dokument zaštićen lozinkom. Unesite lozinku koju vam je dao izdavatelj.",
+      "void": "Poništeno",
+      "protectedPdf": "PDF se otvara istom lozinkom. Može se čitati i ispisivati; kopiranje i uređivanje su zaključani.",
+      "byline": "Od {issuer} za {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Lozinka",
+      "limited": "Previše pokušaja. Pričekajte petnaest minuta i pokušajte ponovno.",
+      "wrong": "Ta lozinka nije točna.",
+      "submit": "Otvori dokument"
+    },
+    "dialog": {
+      "trigger": "Podijeli",
+      "title": "Podijeli ovaj dokument",
+      "description": "Svatko s poveznicom može ga pregledati i preuzeti dok ne istekne ili ga ne opozovete. Lozinka štiti i sam PDF: otvara se lozinkom i može se čitati i ispisivati, ali ne uređivati ni kopirati.",
+      "link": "Poveznica",
+      "copyLink": "Kopiraj poveznicu",
+      "password": "Lozinka",
+      "copyPassword": "Kopiraj lozinku",
+      "sendSeparately": "Pošaljite lozinku odvojeno od poveznice. Možete je ponovno vidjeti na popisu u nastavku.",
+      "copy": "Kopiraj",
+      "copied": "Kopirano",
+      "expires": "Istječe",
+      "expiry": {
+        "d7": "Za 7 dana",
+        "d30": "Za 30 dana",
+        "d90": "Za 90 dana",
+        "never": "Nikad"
+      },
+      "protection": "Zaštita",
+      "protectionOptions": {
+        "auto": "Lozinka: generiraj frazu",
+        "manual": "Lozinka: odabrat ću vlastitu",
+        "none": "Bez lozinke (otvorena poveznica)"
+      },
+      "passwordHint": "Najmanje 8 znakova.",
+      "strength": "Jakost: {label}",
+      "strengthLabels": {
+        "veryWeak": "vrlo slaba",
+        "weak": "slaba",
+        "fair": "osrednja",
+        "good": "dobra",
+        "strong": "jaka"
+      },
+      "creating": "Izrada…",
+      "create": "Izradi poveznicu",
+      "activeLinks": "Aktivne poveznice",
+      "passwordProtected": "Zaštićeno lozinkom",
+      "openLink": "Otvori poveznicu",
+      "linkExpires": "{kind} · istječe {date}",
+      "linkNeverExpires": "{kind} · nikad ne istječe",
+      "revoke": {
+        "title": "Opozvati ovu poveznicu?",
+        "description": "Poveznica odmah prestaje raditi za sve koji je imaju.",
+        "label": "Opozovi"
+      },
+      "linkPassword": "Lozinka: <code>{password}</code>",
+      "counts": "{views, plural, one {# pregled} few {# pregleda} other {# pregleda}} · {downloads, plural, one {# preuzimanje} few {# preuzimanja} other {# preuzimanja}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Odobrenja",
+      "title": "Odobrenja",
+      "description": "Izdaju se uz izdane račune; svako pri izdavanju smanjuje saldo svog računa.",
+      "newCreditNote": "Novo odobrenje",
+      "filters": {
+        "from": "Od",
+        "to": "Do",
+        "issuer": "Izdavatelj",
+        "client": "Klijent",
+        "status": "Status",
+        "search": "Traži",
+        "all": "Sve",
+        "searchPlaceholder": "Broj, razlog, klijent",
+        "go": "Idi"
+      },
+      "statuses": {
+        "DRAFT": "Nacrt",
+        "ISSUED": "Izdano",
+        "SENT": "Poslano",
+        "VOID": "Poništeno"
+      },
+      "empty": {
+        "title": "Još nema odobrenja",
+        "description": "Otvorite izdani račun i odaberite „Odobrenje“ da smanjite iznos koji duguje."
+      },
+      "noMatch": "Nijedno odobrenje ne odgovara ovim filtrima.",
+      "columns": {
+        "number": "Broj",
+        "against": "Uz",
+        "client": "Klijent",
+        "issueDate": "Datum izdavanja",
+        "reason": "Razlog",
+        "total": "Ukupno",
+        "status": "Status"
+      },
+      "draft": "Nacrt"
+    },
+    "new": {
+      "metaTitle": "Novo odobrenje",
+      "title": "Novo odobrenje",
+      "description": "Odobrenje se izdaje uz izdani račun i smanjuje njegov saldo.",
+      "nothingToCredit": {
+        "title": "Nema se što odobriti",
+        "description": "Odobrenja zahtijevaju izdani račun s otvorenim saldom.",
+        "openInvoices": "Otvori račune"
+      },
+      "whichInvoice": "Koji račun?",
+      "invoice": "Račun",
+      "invoiceOption": "{number} · {client} · saldo {balance}",
+      "issuedOnly": "Odobrenja se izdaju samo uz izdane račune.",
+      "invoiceFallback": "Račun"
+    },
+    "edit": {
+      "metaTitle": "Uredi odobrenje",
+      "title": "Uredi nacrt odobrenja",
+      "immutable": "Izdana odobrenja su nepromjenjiva.",
+      "draft": "Nacrt"
+    },
+    "detail": {
+      "metaTitle": "Odobrenje",
+      "draftTitle": "Nacrt odobrenja",
+      "meta": "{client} · uz <invoice>{number}</invoice> · izdano <mono>{date}</mono>",
+      "previewPdf": "Pregled PDF-a",
+      "issue": {
+        "title": "Izdati ovo odobrenje?",
+        "description": "Dodjeljuje se broj, saldo računa se smanjuje, a dokument postaje nepromjenjiv.",
+        "label": "Izdaj"
+      },
+      "deleteDraft": {
+        "title": "Izbrisati ovaj nacrt?"
+      },
+      "sendByEmail": "Pošalji e-poštom",
+      "markSent": {
+        "title": "Označiti kao poslano?",
+        "label": "Označi kao poslano"
+      },
+      "void": {
+        "title": "Poništiti ovo odobrenje?",
+        "description": "Saldo računa se vraća; broj se nikad ne koristi ponovno.",
+        "reason": "Razlog",
+        "label": "Poništi"
+      },
+      "voided": "Poništeno {date}: {reason}",
+      "amounts": {
+        "title": "Iznosi",
+        "reason": "Razlog",
+        "creditAmount": "Iznos odobrenja",
+        "total": "Ukupno",
+        "balanceNow": "Trenutačni saldo računa",
+        "sent": "Poslano"
+      },
+      "documents": {
+        "title": "Spremljeni dokumenti",
+        "description": "Čuva se svaka verzija; stranica za provjeru navodi sve hasheve.",
+        "regenerateTitle": "Generirati novu verziju PDF-a?",
+        "generate": "Generiraj",
+        "newVersion": "Nova verzija",
+        "renderedOnFirstDownload": "PDF se generira pri prvom preuzimanju.",
+        "protectedCopy": "Kopija zaštićena lozinkom {version}",
+        "version": "Verzija {version}",
+        "verificationLink": "Poveznica za provjeru: <link>{path}…</link>"
+      },
+      "draftsPreview": "Nacrti se pregledavaju uživo u uređivaču."
+    },
+    "send": {
+      "metaTitle": "Pošalji odobrenje",
+      "title": "Pošalji <mono>{number}</mono>",
+      "previousSends": "Prethodna slanja"
+    },
+    "builder": {
+      "against": "Uz <mono>{number}</mono>",
+      "summary": "{client} · ukupno {total} · saldo {balance} · porezna osnovica ≈ {headroom}",
+      "issueDate": "Datum izdavanja",
+      "creditAmount": "Iznos odobrenja (bez poreza)",
+      "creditAmountHint": "Porez se razmjerno raspodjeljuje prema poreznim retcima računa",
+      "reason": "Razlog",
+      "picker": {
+        "title": "Izračunaj iz stavki računa",
+        "description": "Označite cijele stavke ili postotak; ovo samo popunjava gornji iznos.",
+        "line": "Stavka",
+        "subtotal": "Međuzbroj",
+        "credit": "Odobrenje",
+        "percent": "%",
+        "creditLine": "Odobri stavku {position}",
+        "percentOfLine": "Postotak stavke {position}"
+      },
+      "saveDraft": "Spremi nacrt",
+      "issuing": "Izdavanje…",
+      "saveAndIssue": "Spremi i izdaj"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Primljena uplata",
+        "REFUND": "Izdan povrat",
+        "WRITE_OFF": "Otpis"
+      },
+      "editTitle": "Uredi unos",
+      "recordTitle": "Evidentiraj uplatu",
+      "description": "Iznosi su u valuti računa ({currency}); odbijeni TDS dio je primijenjenog iznosa.",
+      "kind": "Vrsta",
+      "date": "Datum",
+      "amountRefunded": "Vraćeni iznos (negativan)",
+      "amountApplied": "Primijenjeni iznos",
+      "refundHint": "Unesite negativan iznos, npr. -500",
+      "tdsDeducted": "Odbijeni TDS",
+      "tdsHint": "Porez koji je klijent zadržao; ulazi u primijenjeni iznos",
+      "bankFees": "Bankovne naknade",
+      "receivedInto": "Primljeno na",
+      "noMethod": "-",
+      "reference": "Referenca",
+      "referenceHint": "UTR, ID transakcije, broj čeka",
+      "otherCurrency": "Primljeno u drugoj valuti",
+      "amountReceived": "Primljeni iznos",
+      "receivedCurrency": "Primljena valuta",
+      "exchangeRate": "Tečaj",
+      "exchangeRateHint": "1 primljena jedinica = ? {currency}",
+      "notes": "Napomene",
+      "receiptHint": "PNG, JPEG, WebP ili PDF do 10 MB",
+      "receipts": "Potvrde i računi",
+      "receiptN": "Potvrda {n}",
+      "removeReceipt": "Ukloni potvrdu {n}",
+      "saveChanges": "Spremi promjene",
+      "record": "Evidentiraj"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Račun za",
+      "shipTo": "Isporuka na",
+      "invoice": "Račun",
+      "creditNote": "Odobrenje",
+      "issueDate": "Datum izdavanja",
+      "dueDate": "Datum dospijeća",
+      "number": "Broj",
+      "description": "Opis",
+      "sacHsn": "SAC/HSN",
+      "qty": "Kol.",
+      "unit": "Jedinica",
+      "rate": "Cijena",
+      "tax": "Porez",
+      "amount": "Iznos",
+      "subtotal": "Međuzbroj",
+      "discount": "Popust",
+      "taxable": "Porezna osnovica",
+      "total": "Ukupno",
+      "amountDue": "Iznos za plaćanje",
+      "tdsExpected": "Očekivani TDS",
+      "netExpected": "Očekivani neto iznos",
+      "rounding": "Zaokruživanje",
+      "paymentDetails": "Podaci o plaćanju",
+      "notes": "Napomene",
+      "terms": "Uvjeti",
+      "placeOfSupply": "Mjesto isporuke",
+      "poReference": "Referenca narudžbenice",
+      "amountInWords": "Iznos riječima",
+      "signature": "Ovlašteni potpisnik"
+    },
+    "title": {
+      "taxInvoice": "POREZNI RAČUN",
+      "billOfSupply": "ISPRAVA O ISPORUCI",
+      "invoice": "RAČUN",
+      "creditNote": "ODOBRENJE"
+    },
+    "text": {
+      "pageOf": "Stranica {page} od {total}",
+      "scanToVerify": "Skenirajte za provjeru",
+      "taxId": "Porezni broj",
+      "void": "PONIŠTENO",
+      "draftWatermark": "NACRT - nije porezni račun",
+      "paymentTermsDays": "{days} dana",
+      "irn": "IRN",
+      "ackNo": "Br. potvrde",
+      "ackDate": "Datum potvrde",
+      "einvoiceCancelled": "E-RAČUN PONIŠTEN"
+    },
+    "ui": {
+      "pageEstimate": "oko {count, plural, one {# stranica} few {# stranice} other {# stranica}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Poruka",
+      "description": "Unaprijed popunjeno iz predložaka profila izdavatelja. Ništa se ne šalje dok ne kliknete Pošalji.",
+      "to": "Za",
+      "toHint": "Odvojeno zarezima",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Predmet",
+      "body": "Tekst",
+      "bodyHint": "Običan tekst; poveznice postaju klikabilne",
+      "attachment": "Privitak",
+      "attachmentHint": "Spremljena kopija, nazvana <mono>{name}</mono> (ili .docx); njezin se sadržaj ne može mijenjati.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Slanje…",
+      "send": "Pošalji",
+      "openInMailApp": "Otvori u aplikaciji za e-poštu",
+      "noSmtp": "SMTP poslužitelj nije konfiguriran (Postavke → E-pošta). Otvorite nacrt u aplikaciji za e-poštu, priložite preuzeti PDF, a zatim ga ispod označite kao poslanog.",
+      "markAsSent": "Označi kao poslano"
+    },
+    "sentLog": {
+      "when": "Kada",
+      "document": "Dokument",
+      "to": "Za",
+      "subject": "Predmet",
+      "status": "Status",
+      "empty": "Još ništa nije poslano.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "poslano",
+        "FAILED": "neuspjelo",
+        "MANUAL": "ručno"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Bok, {name}",
+    "fiscalYear": "Fiskalna godina {year}",
+    "fiscalYearWithBase": "Fiskalna godina {year} · osnovna valuta {currency} ({profile})",
+    "newCreditNote": "Novo odobrenje",
+    "welcomeTitle": "Dobro došli u {appName}",
+    "welcomeDescription": "Započnite izradom profila izdavatelja s kojeg fakturirate, zatim dodajte klijenta i svoj prvi račun.",
+    "createProfile": "Izradite svoj profil",
+    "tiles": {
+      "outstanding": "Nenaplaćeno",
+      "overdue": "Dospjelo",
+      "billedThisFy": "Fakturirano ove fiskalne godine",
+      "receivedThisFy": "Primljeno ove fiskalne godine",
+      "drafts": "Nacrti",
+      "invoiceCount": "{count, plural, one {# račun} few {# računa} other {# računa}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Uplate umanjene za povrate, po zabilježenom tečaju",
+      "awaitingIssue": "čeka izdavanje",
+      "nothingPending": "ništa na čekanju"
+    },
+    "recentInvoices": "Nedavni računi",
+    "allInvoices": "Svi računi",
+    "noInvoicesYet": "Još nema računa.",
+    "columns": {
+      "number": "Broj",
+      "client": "Klijent",
+      "issued": "Izdano"
+    },
+    "topClients": "Najveći klijenti po nenaplaćenom iznosu",
+    "nothingOutstanding": "Ništa nenaplaćeno."
+  },
+  "exports": {
+    "export": "Izvezi",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Računi",
+      "newInvoice": "Novi račun",
+      "draft": "Nacrt",
+      "aDraft": "nacrt",
+      "statuses": {
+        "draft": "Nacrt",
+        "issued": "Izdano",
+        "sent": "Poslano",
+        "partiallyPaid": "Djelomično plaćeno",
+        "paid": "Plaćeno",
+        "overdue": "Dospjelo",
+        "void": "Poništeno"
+      },
+      "lifecycle": {
+        "draft": "nacrt",
+        "issued": "izdano",
+        "void": "poništeno"
+      },
+      "units": {
+        "hour": "Sat",
+        "day": "Dan",
+        "fixed": "Paušal",
+        "milestone": "Etapa",
+        "unit": "Jedinica"
+      },
+      "unitsLower": {
+        "hour": "sat",
+        "day": "dan",
+        "fixed": "paušal",
+        "milestone": "etapa",
+        "unit": "jedinica"
+      },
+      "supplyTypes": {
+        "intraState": "unutar savezne države",
+        "interState": "između saveznih država",
+        "exportLut": "izvoz lut",
+        "exportWithTax": "izvoz s porezom",
+        "reverseCharge": "obrnuta porezna obveza",
+        "notApplicable": "nije primjenjivo"
+      }
+    },
+    "list": {
+      "description": "Nacrti, izdani i poništeni računi; statusi se izvode iz uplata i datuma dospijeća.",
+      "fiscalYear": "Fiskalna godina",
+      "issuer": "Izdavatelj",
+      "client": "Klijent",
+      "searchPlaceholder": "Broj, PO, klijent",
+      "emptyTitle": "Još nema računa",
+      "emptyDescription": "Izradite svoj prvi račun: odaberite klijenta, dodajte stavke, pogledajte pregled, a zatim ga izdajte.",
+      "columns": {
+        "number": "Broj",
+        "client": "Klijent",
+        "issuer": "Izdavatelj",
+        "issueDate": "Datum izdavanja",
+        "due": "Dospijeće",
+        "balance": "Saldo"
+      },
+      "noMatches": "Nijedan račun ne odgovara ovim filtrima.",
+      "count": "{count, plural, one {# račun} few {# računa} other {# računa}}",
+      "countPaged": "{count, plural, one {# račun} few {# računa} other {# računa}} · stranica {page} od {pages}",
+      "register": "registar",
+      "einvoice": "E-račun",
+      "einvoiceFilters": {
+        "registered": "IRN registriran",
+        "none": "Nije registriran",
+        "cancelled": "IRN poništen"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Prvo izradite profil izdavatelja",
+      "noProfileDescription": "Račun se izdaje s pravnog identiteta: postavite svoj profil s poreznim ID-ovima i numeriranjem.",
+      "createProfile": "Izradi profil"
+    },
+    "edit": {
+      "metaTitle": "Uredi račun",
+      "title": "Uredi nacrt",
+      "immutableFlash": "Izdani računi su nepromjenjivi. Za ispravak koristite „Poništi i ponovno izdaj“."
+    },
+    "detail": {
+      "metaTitle": "Račun",
+      "draftInvoice": "Nacrt računa",
+      "issuedDue": "Izdano <mono>{issued}</mono>, dospijeva <mono>{due}</mono>",
+      "replaces": "Zamjenjuje {number}",
+      "replacedBy": "Zamijenjen računom {number}",
+      "previewPdf": "Pregled PDF-a",
+      "downloadEInvoice": "Preuzmi e-račun JSON",
+      "issueTitle": "Izdati ovaj račun?",
+      "issueDescription": "Dodjeljuje se broj, a dokument postaje nepromjenjiv.",
+      "issue": "Izdaj",
+      "deleteDraftTitle": "Izbrisati ovaj nacrt?",
+      "sendByEmail": "Pošalji e-poštom",
+      "recordPayment": "Evidentiraj uplatu",
+      "progress": {
+        "title": "Napredak plaćanja",
+        "description": "Gdje se ovaj račun nalazi, od izdavanja do potvrde u evidenciji.",
+        "issued": "Izdano",
+        "sent": "Poslano",
+        "payment": "Plaćanje evidentirano",
+        "paymentOn": "Plaćanje od <mono>{amount}</mono> evidentirano dana <mono>{date}</mono>",
+        "paid": "Plaćeno u cijelosti",
+        "receipt": "Potvrda priložena",
+        "done": "gotovo",
+        "pending": "na čekanju"
+      },
+      "creditNote": "Odobrenje",
+      "markSentTitle": "Označiti kao poslano?",
+      "markSentDescription": "Bilježi da je klijent primio ovaj račun.",
+      "markSent": "Označi kao poslano",
+      "voidReissueTitle": "Poništiti i ponovno izdati?",
+      "voidReissueDescription": "Izvornik se poništava, a povezani nacrt istog sadržaja otvara se za uređivanje.",
+      "voidReissue": "Poništi i ponovno izdaj",
+      "voidTitle": "Poništiti ovaj račun?",
+      "voidDescription": "Moguće samo bez evidentiranih uplata; broj se nikad ne koristi ponovno.",
+      "void": "Poništi",
+      "voided": "Poništeno {date}: {reason}",
+      "amounts": "Iznosi",
+      "subtotal": "Međuzbroj",
+      "discount": "Popust",
+      "discountPercent": "Popust ({percent})",
+      "rounding": "Zaokruživanje",
+      "tdsExpected": "Očekivani TDS ({percent})",
+      "paid": "Plaćeno",
+      "credited": "Odobreno",
+      "balanceDue": "Preostalo za plaćanje",
+      "supply": "Isporuka",
+      "fxToBase": "Tečaj prema osnovnoj valuti",
+      "poReference": "PO referenca",
+      "sent": "Poslano",
+      "lineItems": "Stavke",
+      "columns": {
+        "description": "Opis",
+        "sacHsn": "SAC/HSN",
+        "qty": "Kol.",
+        "rate": "Cijena",
+        "tax": "Porez",
+        "amount": "Iznos"
+      },
+      "creditNotes": "Odobrenja",
+      "storedDocuments": "Spremljeni dokumenti",
+      "storedDocumentsHint": "Čuva se svaka verzija; stranica za provjeru navodi sve hasheve.",
+      "regenerateTitle": "Generirati novu verziju PDF-a?",
+      "regenerateDescription": "Ponovno se generira iz zamrznute snimke (na primjer nakon ispravka generatora). Ranije verzije ostaju.",
+      "regenerate": "Generiraj",
+      "newVersion": "Nova verzija",
+      "renderedOnFirstDownload": "PDF se generira pri prvom preuzimanju.",
+      "protectedCopy": "Kopija zaštićena lozinkom {version}",
+      "version": "Verzija {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Poveznica za provjeru:",
+      "draftPreviewHint": "Nacrti se pregledavaju uživo u uređivaču; otvorite <link>PDF s vodenim žigom</link> da vidite stranicu.",
+      "einvoice": {
+        "title": "E-račun (Indija)",
+        "description": "Registracija ovog računa na Invoice Registration Portalu; registrirani dokument ispisuje svoj IRN i potpisani QR portala.",
+        "connector": "Konektor",
+        "connectors": {
+          "manual": "Ručno",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Za ovaj profil nije postavljen nijedan konektor u Postavke > E-računi.",
+        "statuses": {
+          "none": "Nije registriran",
+          "generated": "JSON generiran",
+          "registered": "Registriran",
+          "cancelled": "Poništen",
+          "failed": "Registracija nije uspjela"
+        },
+        "irn": "IRN",
+        "ackNo": "Br. potvrde",
+        "ackDate": "Datum potvrde",
+        "cancelReason": "Poništenje",
+        "generate": "Generiraj IRN",
+        "pasteLabel": "Odgovor IRP-a",
+        "pasteHint": "Zalijepite JSON koji je portal ili vaš GSP vratio za JSON e-računa ovog računa (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Zabilježi IRN",
+        "cancelReasonLabel": "Razlog poništenja",
+        "cancelReasons": {
+          "1": "Duplikat",
+          "2": "Pogreška pri unosu podataka",
+          "3": "Narudžba otkazana",
+          "4": "Ostalo"
+        },
+        "cancel": "Poništi IRN",
+        "cancelWindow": "Portal dopušta poništenje unutar 24 sata od potvrde."
+      }
+    },
+    "history": {
+      "metaTitle": "Povijest računa",
+      "title": "Povijest <mono>{number}</mono>",
+      "reissueChain": "Lanac ponovnih izdavanja",
+      "replaces": "Zamjenjuje <link>{number}</link>",
+      "replacedBy": "Zamijenjen računom <link>{number}</link>",
+      "auditTrail": "Revizijski trag",
+      "columns": {
+        "when": "Kada",
+        "who": "Tko",
+        "action": "Radnja",
+        "summary": "Sažetak"
+      },
+      "noEvents": "Još nema događaja.",
+      "system": "Sustav",
+      "emails": "E-poruke"
+    },
+    "payments": {
+      "title": "Uplate",
+      "description": "{client} · ukupno {total}",
+      "backToInvoice": "Natrag na račun",
+      "ledger": "Knjiga",
+      "columns": {
+        "date": "Datum",
+        "kind": "Vrsta",
+        "applied": "Primijenjeno",
+        "tds": "TDS",
+        "received": "Primljeno",
+        "reference": "Referenca",
+        "balance": "Saldo"
+      },
+      "noPayments": "Još nema evidentiranih uplata.",
+      "kinds": {
+        "payment": "Uplata",
+        "refund": "Povrat",
+        "writeOff": "Otpis"
+      },
+      "receipt": "Potvrda",
+      "receiptN": "Potvrda {n}",
+      "deleteEntryTitle": "Izbrisati ovaj unos?",
+      "deleteEntryDescription": "Saldo računa se ponovno izračunava.",
+      "totals": "Ukupni iznosi",
+      "invoiceTotal": "Ukupno po računu",
+      "credited": "Odobreno",
+      "refunds": "Povrati",
+      "writeOffs": "Otpisi",
+      "tdsDeducted": "Odbijeni TDS",
+      "bankFees": "Bankovne naknade",
+      "balanceDue": "Preostalo za plaćanje",
+      "onlyIssued": "Uplate se primaju samo za izdane račune."
+    },
+    "send": {
+      "metaTitle": "Pošalji račun",
+      "title": "Pošalji <mono>{number}</mono>",
+      "alreadySent": "Već je označeno kao poslano; ponovno slanje dodaje još jedan unos u zapisnik.",
+      "previousSends": "Prethodna slanja"
+    },
+    "builder": {
+      "parties": "Strane",
+      "issuerProfile": "Profil izdavatelja",
+      "client": "Klijent",
+      "archivedOption": "{label} (arhivirano)",
+      "issueDate": "Datum izdavanja",
+      "dueDate": "Datum dospijeća",
+      "fxRate": "Tečaj prema osnovnoj valuti",
+      "fxHint": "1 {currency} = ? {base} (samo za izvještavanje)",
+      "poReference": "PO referenca",
+      "lineItems": "Stavke",
+      "lineItemsHint": "Odaberite iz kataloga da kopirate njegove vrijednosti ili upišite stavku.",
+      "taxDiscountTds": "Porez, popust i TDS",
+      "taxRegime": "Porezni režim",
+      "regimes": {
+        "indiaGst": "Indijski GST",
+        "ukVat": "Britanski PDV",
+        "usSalesTax": "Američki porez na promet",
+        "none": "Bez poreza"
+      },
+      "reverseCharge": "Obrnuta porezna obveza",
+      "reverseChargeHint": "Porez plaća primatelj",
+      "discount": "Popust",
+      "percent": "Postotak",
+      "amount": "Iznos",
+      "rounding": "Prilagodba zaokruživanja",
+      "roundingHint": "Neobavezno, na cijelu jedinicu; mora biti manje od 1",
+      "round": "Zaokruži",
+      "tdsRate": "Očekivana stopa TDS-a (%)",
+      "tdsRateHint": "Informativno; ispisuje se kada je raščlamba TDS-a uključena",
+      "paymentMethods": "Načini plaćanja",
+      "paymentMethodsHint": "Ispisuju se redoslijedom označavanja.",
+      "noPaymentMethods": "Nema aktivnih načina plaćanja. <link>Dodajte jedan</link>.",
+      "whatPrints": "Što se ispisuje",
+      "whatPrintsHint": "Polazi od zadanih vrijednosti profila izdavatelja.",
+      "documentLanguage": "Jezik dokumenta",
+      "documentLanguageHint": "Oznake, datumi i iznosi ispisuju se na ovom jeziku; želja klijenta, inače jezik profila.",
+      "notesAndTerms": "Napomene i uvjeti",
+      "notes": "Napomene",
+      "terms": "Uvjeti",
+      "saveDraft": "Spremi nacrt",
+      "issuing": "Izdavanje…",
+      "saveAndIssue": "Spremi i izdaj",
+      "subtotal": "Međuzbroj",
+      "tax": "Porez",
+      "tdsExpected": "Očekivani TDS",
+      "netExpected": "Očekivani neto"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Dodaj iz kataloga…",
+      "services": "Usluge",
+      "products": "Proizvodi",
+      "addLine": "Dodaj stavku",
+      "columns": {
+        "description": "Opis",
+        "sacHsn": "SAC/HSN",
+        "qty": "Kol.",
+        "unit": "Jedinica",
+        "rate": "Cijena",
+        "taxPercent": "Porez %"
+      },
+      "aria": {
+        "description": "Opis stavke {line}",
+        "sacHsn": "SAC/HSN stavke {line}",
+        "quantity": "Količina stavke {line}",
+        "unit": "Jedinica stavke {line}",
+        "rate": "Cijena stavke {line}",
+        "taxRate": "Porezna stopa stavke {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Oslobođeno",
+      "moveUp": "Pomakni gore",
+      "moveDown": "Pomakni dolje",
+      "removeLine": "Ukloni stavku",
+      "shortcutHint": "Ctrl/⌘+Enter u opisu dodaje stavku.",
+      "addFromCatalogueAria": "Dodaj iz kataloga"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Podaci o izdavatelju",
+        "client": "Podaci o klijentu",
+        "document": "Dijelovi dokumenta"
+      },
+      "fields": {
+        "showLogo": "Logotip",
+        "showTradeName": "Trgovački naziv",
+        "showDesignation": "Funkcija",
+        "showEmail": "E-pošta",
+        "showPhone": "Telefon",
+        "showWebsite": "Web-mjesto",
+        "showFullAddress": "Puna adresa",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Potpis",
+        "showStamp": "Pečat",
+        "showContactPerson": "Kontakt osoba",
+        "showBillingAddress": "Adresa za naplatu",
+        "showShippingAddress": "Adresa za dostavu",
+        "showTaxIdentifier": "Porezni identifikator",
+        "showPlaceOfSupply": "Mjesto isporuke",
+        "showDueDate": "Datum dospijeća",
+        "showPaymentTerms": "Uvjeti plaćanja",
+        "showSacCodeColumn": "Stupac SAC šifre",
+        "showQuantityColumn": "Stupac količine",
+        "showUnitPriceColumn": "Stupac jedinične cijene",
+        "showTaxColumn": "Stupac poreza",
+        "showTdsBreakdown": "Raščlamba TDS-a",
+        "showQrVerification": "QR provjera",
+        "showNotes": "Napomene",
+        "showTerms": "Uvjeti",
+        "showReplacesReference": "Referenca zamjene",
+        "showAmountInWords": "Iznos riječima",
+        "showSupplyStatement": "Izjava o isporuci",
+        "showRoundingLine": "Redak zaokruživanja",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Klijenti",
+      "description": "Svi kojima fakturirate. Klijenti s računima se arhiviraju, nikad ne brišu.",
+      "newClient": "Novi klijent",
+      "searchPlaceholder": "Traži po imenu",
+      "searchLabel": "Traži klijente",
+      "emptyTitle": "Još nema klijenata",
+      "emptyDescription": "Dodajte osobe i tvrtke kojima izdajete račune; njihova valuta i uvjeti plaćanja unaprijed popunjavaju svaki račun.",
+      "addClient": "Dodaj klijenta",
+      "noMatch": "Nijedan klijent ne odgovara pojmu „{q}“.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Naziv",
+        "contact": "Kontakt",
+        "email": "E-pošta",
+        "country": "Država",
+        "currency": "Valuta",
+        "terms": "Uvjeti",
+        "status": "Status"
+      }
+    },
+    "new": {
+      "title": "Novi klijent"
+    },
+    "edit": {
+      "metaTitle": "Uredi klijenta",
+      "title": "Uredi {name}"
+    },
+    "detail": {
+      "metaTitle": "Klijent",
+      "newInvoice": "Novi račun",
+      "restoreTitle": "Vratiti ovog klijenta?",
+      "archiveTitle": "Arhivirati ovog klijenta?",
+      "archiveDescription": "Nestaje iz birača; računi i povijest ostaju netaknuti.",
+      "deleteTitle": "Izbrisati ovog klijenta?",
+      "deleteDescription": "Moguće samo dok nijedan račun ne upućuje na klijenta.",
+      "details": "Podaci",
+      "contact": "Kontakt",
+      "email": "E-pošta",
+      "phone": "Telefon",
+      "country": "Država",
+      "gstState": "GST {code}",
+      "taxId": "Porezni ID",
+      "currency": "Valuta",
+      "paymentTerms": "Uvjeti plaćanja",
+      "paymentTermsDays": "{days} dana",
+      "expectedTds": "Očekivani TDS",
+      "notes": "Napomene",
+      "addresses": "Adrese",
+      "billing": "Naplata",
+      "shipping": "Dostava",
+      "lifetime": "Ukupno do sada",
+      "openRegister": "Otvori registar",
+      "noIssued": "Još nema izdanih računa.",
+      "noIssuedWithDrafts": "Još nema izdanih računa (nacrta: {drafts}).",
+      "firstLatest": "Prvi račun <mono>{first}</mono>, najnoviji <mono>{latest}</mono>{drafts, plural, =0 {} one { · # nacrt} few { · # nacrta} other { · # nacrta}}",
+      "lifetimeColumns": {
+        "currency": "Valuta",
+        "invoices": "Računi",
+        "billed": "Fakturirano",
+        "received": "Primljeno",
+        "credited": "Odobreno",
+        "outstanding": "Nenaplaćeno",
+        "overdue": "Dospjelo"
+      },
+      "recentInvoices": "Nedavni računi",
+      "noInvoices": "Još nema računa za ovog klijenta.",
+      "recentColumns": {
+        "number": "Broj",
+        "issueDate": "Datum izdavanja",
+        "due": "Dospijeće",
+        "total": "Ukupno",
+        "balance": "Saldo",
+        "status": "Status"
+      }
+    },
+    "form": {
+      "cardTitle": "Klijent",
+      "displayName": "Prikazno ime",
+      "contactPerson": "Kontakt osoba",
+      "email": "E-pošta",
+      "phone": "Telefon",
+      "taxIdType": "Vrsta poreznog ID-a",
+      "taxIdTypeNone": "Nema",
+      "taxId": "Porezni ID",
+      "currency": "Valuta",
+      "paymentTerms": "Uvjeti plaćanja (dani)",
+      "expectedTdsRate": "Očekivana stopa TDS-a (%)",
+      "preferredLanguage": "Jezik dokumenta",
+      "preferredLanguageFollow": "Prati profil izdavatelja",
+      "buyerReference": "Referenca kupca",
+      "buyerReferenceHint": "Ispisuje se u e-računima kao kupčeva vlastita referenca (broj narudžbe ili mjesta troška).",
+      "electronicAddress": "Elektronička adresa",
+      "electronicAddressHint": "Peppol ili EN 16931 identifikator pod kojim ovaj klijent prima e-račune.",
+      "electronicAddressScheme": "Shema elektroničke adrese",
+      "electronicAddressSchemeNone": "Bez sheme",
+      "notes": "Napomene",
+      "billingAddress": "Adresa za naplatu",
+      "shippingAddress": "Adresa za dostavu",
+      "differentFromBilling": "Različita od adrese za naplatu",
+      "save": "Spremi klijenta"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Sat",
+      "DAY": "Dan",
+      "FIXED": "Paušal",
+      "MILESTONE": "Etapa",
+      "UNIT": "Jedinica"
+    },
+    "list": {
+      "activate": "Aktiviraj",
+      "deactivate": "Deaktiviraj",
+      "archiveDescription": "Postojeće stavke računa zadržavaju kopirane vrijednosti.",
+      "deleteDescription": "Moguće samo dok nijedna stavka računa ne upućuje na njega. Inače ga arhivirajte.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Naziv",
+        "unit": "Jedinica",
+        "rate": "Cijena",
+        "price": "Cijena",
+        "currency": "Valuta",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Porez",
+        "status": "Status"
+      }
+    },
+    "services": {
+      "title": "Usluge",
+      "description": "Vaš katalog. Odabir usluge kopira njezine vrijednosti u stavku računa.",
+      "newService": "Nova usluga",
+      "emptyTitle": "Još nema usluga",
+      "emptyDescription": "Dodajte što prodajete - dizajn po satu, paušalnu etapu - s njegovom SAC/HSN šifrom i poreznom stopom.",
+      "addService": "Dodaj uslugu",
+      "restoreTitle": "Vratiti {name}?",
+      "archiveTitle": "Arhivirati {name}?",
+      "deleteTitle": "Izbrisati {name}?",
+      "editMetaTitle": "Uredi uslugu",
+      "editTitle": "Uredi {name}"
+    },
+    "products": {
+      "title": "Proizvodi",
+      "description": "Roba koju prodajete, svaka sa SKU-om. Odabir proizvoda kopira njegove vrijednosti u stavku računa.",
+      "newProduct": "Novi proizvod",
+      "emptyTitle": "Još nema proizvoda",
+      "emptyDescription": "Dodajte robu koju prodajete sa SKU-om, HSN šifrom, jediničnom cijenom i poreznom stopom.",
+      "addProduct": "Dodaj proizvod",
+      "restoreTitle": "Vratiti {sku}?",
+      "archiveTitle": "Arhivirati {sku}?",
+      "deleteTitle": "Izbrisati {sku}?",
+      "editMetaTitle": "Uredi proizvod",
+      "editTitle": "Uredi {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Jedinstvena šifra ispisana ispod opisa stavke",
+      "name": "Naziv",
+      "unit": "Jedinica",
+      "defaultRate": "Zadana cijena",
+      "unitPrice": "Jedinična cijena",
+      "currency": "Valuta",
+      "sacHsnCode": "SAC / HSN šifra",
+      "sacHsnHint": "Obavezno na GST računima",
+      "hsnCode": "HSN šifra",
+      "hsnHint": "Obavezno na GST računima za robu",
+      "defaultTaxRate": "Zadana porezna stopa (%)",
+      "description": "Opis",
+      "descriptionHint": "Unaprijed popunjava opis stavke",
+      "active": "Aktivno",
+      "serviceInactiveHint": "Neaktivne usluge ne pojavljuju se u biraču računa",
+      "productInactiveHint": "Neaktivni proizvodi ne pojavljuju se u biraču računa",
+      "saveService": "Spremi uslugu",
+      "saveProduct": "Spremi proizvod"
+    },
+    "tags": {
+      "legend": "Profili",
+      "hint": "Označite profile izdavatelja koji ovo prodaju. Ostavite sve neoznačenima da se nudi svim profilima."
+    }
+  },
+  "address": {
+    "line1": "Adresa, redak 1",
+    "line2": "Adresa, redak 2",
+    "city": "Grad",
+    "stateRegion": "Savezna država / regija",
+    "postalCode": "Poštanski broj",
+    "country": "Država",
+    "state": "Savezna država",
+    "gstStateCodeHint": "GST šifra savezne države {code}",
+    "pickStateHint": "Odaberite saveznu državu za GST šifru savezne države",
+    "stateRegionCode": "Šifra savezne države / regije",
+    "stateRegionCodePlaceholder": "npr. CA"
+  },
+  "assets": {
+    "tooLarge": "Ta je datoteka prevelika.",
+    "unsupportedReceipt": "Koristite PNG, JPEG, WebP sliku ili PDF.",
+    "unsupportedImage": "Koristite PNG, JPEG ili WebP sliku.",
+    "uploadFailed": "Prijenos nije uspio.",
+    "uploading": "Prijenos…",
+    "dropHint": "Povucite datoteku ovdje ili je odaberite",
+    "dropHintMany": "Povucite datoteke ovdje ili ih odaberite",
+    "dropActive": "Otpustite za prijenos"
+  },
+  "ui": {
+    "breadcrumb": "Putanja stranice",
+    "close": "Zatvori",
+    "closeMenu": "Zatvori izbornik",
+    "reveal": "Prikaži",
+    "hide": "Sakrij",
+    "openCalendar": "Otvori kalendar",
+    "chooseMonth": "Odaberi mjesec",
+    "chooseYear": "Odaberi godinu",
+    "searchOptions": "Upišite za pretraživanje",
+    "noMatches": "Nema podudaranja",
+    "pullToRefresh": {
+      "label": "Popis koji se može osvježiti",
+      "pulling": "Povucite za osvježavanje",
+      "release": "Otpustite za osvježavanje",
+      "refreshing": "Osvježavanje"
+    },
+    "inputCharset": "Dopušteni su samo standardni znakovi tipkovnice.",
+    "confirm": {
+      "working": "Obrada…"
+    },
+    "statusPill": {
+      "DRAFT": "Nacrt",
+      "ISSUED": "Izdano",
+      "SENT": "Poslano",
+      "PARTIALLY_PAID": "Djelomično plaćeno",
+      "PAID": "Plaćeno",
+      "OVERDUE": "Dospjelo",
+      "VOID": "Poništeno"
+    },
+    "activePill": {
+      "active": "Aktivno",
+      "archived": "Arhivirano",
+      "inactive": "Neaktivno"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Nešto je pošlo po zlu.",
+    "fixFields": "Ispravite istaknuta polja.",
+    "accountSaved": "Postavke računa spremljene",
+    "apiKeyCreated": "API ključ je izrađen. Kopirajte ga sada: prikazuje se samo jednom.",
+    "saved": "Spremljeno: {name}",
+    "savedProfile": "Profil {label} spremljen",
+    "clientArchived": "Klijent arhiviran",
+    "clientRestored": "Klijent vraćen",
+    "clientDeleted": "Klijent izbrisan",
+    "productArchived": "Proizvod arhiviran",
+    "productRestored": "Proizvod vraćen",
+    "productActivated": "Proizvod aktiviran",
+    "productDeactivated": "Proizvod deaktiviran",
+    "serviceArchived": "Usluga arhivirana",
+    "serviceRestored": "Usluga vraćena",
+    "serviceActivated": "Usluga aktivirana",
+    "serviceDeactivated": "Usluga deaktivirana",
+    "defaultProfileUpdated": "Zadani profil ažuriran",
+    "profileArchived": "Profil arhiviran",
+    "profileRestored": "Profil vraćen",
+    "profileDeleted": "Profil izbrisan",
+    "defaultPaymentMethodUpdated": "Zadani način plaćanja ažuriran",
+    "paymentMethodArchived": "Način plaćanja arhiviran",
+    "paymentMethodRestored": "Način plaćanja vraćen",
+    "paymentMethodDeleted": "Način plaćanja izbrisan",
+    "issued": "Izdano: {number}",
+    "savedAsDraft": "Spremljeno kao nacrt. {reason}",
+    "draftSaved": "Nacrt spremljen",
+    "invoiceVoided": "Račun poništen",
+    "originalVoided": "Izvornik poništen; uredite zamjenski nacrt",
+    "markedAsSent": "Označeno kao poslano",
+    "draftDeleted": "Nacrt izbrisan",
+    "generatedPdf": "Generirana verzija PDF-a {version}",
+    "creditNoteVoided": "Odobrenje poništeno; saldo računa vraćen",
+    "draftCreditNoteDeleted": "Nacrt odobrenja izbrisan",
+    "mailRefused": "Poslužitelj e-pošte odbio je poruku: {error}. Pokušaj je zabilježen.",
+    "unknownError": "nepoznata pogreška",
+    "sentTo": "Poslano: {recipients}",
+    "smtpSaved": "SMTP postavke spremljene",
+    "smtpRemoved": "Spremljene SMTP postavke uklonjene",
+    "testEmailSent": "Probna poruka poslana na {email}",
+    "testFailed": "Test nije uspio: {error}",
+    "defaultRecipientsSaved": "Zadani primatelji spremljeni",
+    "invitationSent": "Poziv poslan",
+    "invitationReady": "Poziv spreman",
+    "unknownRole": "Nepoznata uloga",
+    "roleUpdated": "Uloga ažurirana",
+    "accountDeactivated": "Račun deaktiviran",
+    "accountReactivated": "Račun ponovno aktiviran",
+    "invitationRevoked": "Poziv opozvan",
+    "paymentUpdated": "Uplata ažurirana",
+    "paymentRecorded": "Uplata evidentirana",
+    "paymentDeleted": "Uplata izbrisana",
+    "sessionRevoked": "Sesija opozvana",
+    "noOtherSessions": "Nema drugih sesija",
+    "signedOutOthers": "Odjavljeno iz drugih sesija: {count}",
+    "sharePasswordRequired": "Unesite lozinku ili dopustite da se generira.",
+    "shareLinkCreated": "Poveznica za dijeljenje izrađena.",
+    "templateSaved": "Predložak spremljen; budući dokumenti koriste ga",
+    "templateReset": "Predložak vraćen na ugrađeni zadani",
+    "templateImported": "Predložak uvezen",
+    "profileTemplateCleared": "Profil ponovno koristi predložak instance",
+    "operatorSaved": "Podaci o operatoru spremljeni. Pravne ih stranice sada prikazuju.",
+    "einvoiceSettingsSaved": "Postavke e-računa spremljene",
+    "irnRegistered": "IRN {irn} registriran; PDF je ponovno generiran s njim",
+    "irnRecorded": "IRN zabilježen; PDF je ponovno generiran s njim",
+    "irnCancelled": "IRN poništen; PDF je ponovno generiran"
+  }
+}

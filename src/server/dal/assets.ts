@@ -19,13 +19,13 @@ export interface AssetDto {
   sha256: string;
 }
 
-/** Store a validated upload: blob first, row second — an orphan blob is harmless, a dangling row is not. */
+/** Store a validated upload: blob first, row second - an orphan blob is harmless, a dangling row is not. */
 export async function createAsset(
   actor: Actor,
   kind: AssetKind,
   prepared: PreparedUpload,
 ): Promise<AssetDto> {
-  requireWriter(actor);
+  if (kind !== "AVATAR") requireWriter(actor); // a profile photo is the person's own
   const id = crypto.randomUUID();
   const key = assetKey(kind, id, prepared.ext);
   await storage.put(key, prepared.buffer, {

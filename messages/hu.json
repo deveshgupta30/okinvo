@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo kezdőlap",
+    "save": "Mentés",
+    "cancel": "Mégse",
+    "continue": "Tovább",
+    "saving": "Mentés…",
+    "detect": "Felismerés",
+    "yes": "Igen",
+    "no": "Nem",
+    "choose": "Válasszon…",
+    "remove": "Eltávolítás",
+    "tryAgain": "Próbálja újra",
+    "dashboard": "Vezérlőpult",
+    "goToDashboard": "Ugrás a vezérlőpultra",
+    "or": "vagy",
+    "invoice": "Számla",
+    "creditNote": "Jóváíró számla",
+    "downloadPdf": "PDF letöltése",
+    "edit": "Szerkesztés",
+    "delete": "Törlés",
+    "downloadDocx": "DOCX letöltése",
+    "downloadCii": "EN 16931 XML letöltése",
+    "downloadUbl": "Peppol UBL letöltése",
+    "downloadFacturX": "Factur-X PDF letöltése",
+    "none": "Nincs",
+    "dismiss": "Bezárás",
+    "all": "Mind",
+    "previous": "Előző",
+    "next": "Következő",
+    "go": "Mehet",
+    "search": "Keresés",
+    "status": "Állapot",
+    "total": "Összesen",
+    "currency": "Pénznem",
+    "from": "Kezdete",
+    "to": "Vége",
+    "reason": "Ok",
+    "history": "Előzmények",
+    "archive": "Archiválás",
+    "restore": "Visszaállítás",
+    "showArchived": "Archiváltak mutatása",
+    "hideArchived": "Archiváltak elrejtése",
+    "archived": "Archivált",
+    "default": "Alapértelmezett",
+    "setDefault": "Beállítás alapértelmezettként",
+    "revoke": "Visszavonás",
+    "copy": "Másolás",
+    "copied": "Átmásolva",
+    "active": "Aktív",
+    "pagination": "Lapozás",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Vezérlőpult",
+      "invoices": "Számlák",
+      "creditNotes": "Jóváíró számlák",
+      "clients": "Ügyfelek",
+      "services": "Szolgáltatások",
+      "products": "Termékek",
+      "tools": "Pénznem"
+    },
+    "primaryNav": "Fő navigáció",
+    "settings": "Beállítások",
+    "openMenu": "Menü megnyitása",
+    "more": "Több",
+    "navigation": "Navigáció",
+    "dock": "Gyors navigáció",
+    "pagesAndAccount": "Oldalak és fiók",
+    "collapseSidebar": "Oldalsáv összecsukása",
+    "collapseSidebarHint": "Oldalsáv összecsukása ([)",
+    "expandSidebar": "Oldalsáv kibontása",
+    "expandSidebarHint": "Oldalsáv kibontása ([)",
+    "theme": {
+      "label": "Téma",
+      "system": "Rendszer",
+      "light": "Világos",
+      "dark": "Sötét",
+      "current": "Téma: {mode}",
+      "switchTo": "Téma: {mode}. Váltás erre: {next}"
+    },
+    "userMenu": {
+      "label": "Fiókmenü: {name}",
+      "profile": "Profil",
+      "logOut": "Kijelentkezés"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Pénznemváltó",
+      "title": "Pénznemváltó",
+      "description": "Váltson a számlázáshoz használt pénznemek között az ebben a példányban lévő árfolyamtáblázat segítségével.",
+      "amount": "Összeg",
+      "from": "Miből",
+      "to": "Mibe",
+      "flip": "Pénznemek felcserélése",
+      "enterAmount": "Adjon meg egy összeget",
+      "asOf": "Árfolyamok {date} napi állapot szerint ({source})",
+      "sources": {
+        "bundled": "az alkalmazással együtt érkezik",
+        "live": "online frissítve"
+      },
+      "note": "Az árfolyamok tájékoztató jellegűek; a kiállított számlán az az árfolyam szerepel, amelyet a kiállításkor megadott."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Bejelentkezés",
+      "metaDescription": "Jelentkezzen be az okinvo saját szerveren futó számlázóalkalmazásba az identitásszolgáltatójával vagy a jelszavával.",
+      "title": "Bejelentkezés",
+      "subtitle": "Csak az engedélyezőlistán szereplő fiókok léphetnek be.",
+      "failed": "A bejelentkezés sikertelen.",
+      "noMethod": "Nincs beállítva bejelentkezési mód. Adjon meg egy szolgáltatói párt, például <code>AUTH_GITHUB_*</code>, vagy az <code>AUTH_PASSWORD_SIGNIN=true</code> értéket a <code>.env</code> fájlban.",
+      "errors": {
+        "not_allowed": "Ez a fiók nem engedélyezett ezen a példányon, vagy le van tiltva.",
+        "signin": "A bejelentkezés nem fejeződött be. Kérjük, próbálja újra."
+      }
+    },
+    "password": {
+      "name": "Név",
+      "email": "E-mail",
+      "password": "Jelszó",
+      "signingIn": "Bejelentkezés…",
+      "createAccount": "Fiók létrehozása",
+      "signIn": "Bejelentkezés",
+      "haveAPassword": "Már van jelszavam",
+      "firstTime": "Először jár itt? Állítson be jelszót",
+      "failed": "A bejelentkezés sikertelen."
+    },
+    "social": {
+      "redirecting": "Átirányítás…",
+      "continueWith": "Folytatás ezzel: {provider}",
+      "failed": "A bejelentkezést nem sikerült elindítani."
+    },
+    "error": {
+      "metaTitle": "Bejelentkezési hiba",
+      "metaDescription": "A bejelentkezés nem fejeződött meg. Az oldal elmagyarázza, mi ment félre, és hogyan próbálhatja újra.",
+      "title": "A bejelentkezés sikertelen",
+      "body": "Az identitásszolgáltató ezt adta vissza: <code>{value}</code>. Ha az Ön címe nem szerepel a példány engedélyezőlistáján, kérje meg a tulajdonost, hogy vegye fel.",
+      "back": "Vissza a bejelentkezéshez"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Beállítások",
+      "profiles": "Profilok",
+      "paymentMethods": "Fizetési módok",
+      "templates": "Sablonok",
+      "email": "E-mail",
+      "security": "Biztonság",
+      "users": "Felhasználók",
+      "data": "Adatok",
+      "legal": "Jogi tudnivalók",
+      "einvoicing": "E-számlázás",
+      "account": "Fiók",
+      "appearance": "Megjelenés",
+      "api": "API",
+      "status": "Állapot",
+      "usage": "Használat"
+    },
+    "account": {
+      "metaTitle": "Fiók",
+      "title": "Fiók",
+      "description": "Fényképe, neve, régiója, nyelve és időzónája.",
+      "photo": {
+        "title": "Fénykép",
+        "description": "Az oldalsávban és a felhasználói menüben jelenik meg."
+      },
+      "form": {
+        "title": "Fiók",
+        "description": "Hogyan jelenik meg, és mikor van „ma”.",
+        "displayName": "Megjelenített név",
+        "signInEmail": "Bejelentkezési e-mail",
+        "signInEmailHint": "Az Ön azonosítója ezen a példányon; itt nem szerkeszthető.",
+        "timezone": "Időzóna",
+        "timezoneHint": "A „ma” a kiállítási és fizetési határidő dátumokhoz, valamint a vezérlőpulthoz",
+        "regionTitle": "Régió",
+        "regionDescription": "Alapértelmezések az új kiállítói profilokhoz és a vezérlőpulthoz, amíg nincs profil.",
+        "country": "Ország",
+        "currency": "Pénznem",
+        "suggested": "Javasolt ehhez az országhoz:",
+        "language": "Nyelv",
+        "languageHint": "Maga az alkalmazás nyelve. A dokumentumok az egyes profilok saját területi beállítását használják.",
+        "machineTranslated": "Ezt a nyelvet gépi fordítás készítette. Javításokat szívesen fogadunk: <link>javítsa a GitHubon</link>.",
+        "save": "Beállítások mentése"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerika",
+        "Asia": "Ázsia",
+        "Europe": "Európa",
+        "MiddleEast": "Közel-Kelet",
+        "Oceania": "Óceánia",
+        "Constructed": "Mesterséges"
+      },
+      "privacy": {
+        "title": "Adatvédelem",
+        "description": "Az okinvo csak a működéséhez szükséges sütiket használja. Nincs analitika, nincs nyomon követés.",
+        "cookiePolicy": "Sütiszabályzat",
+        "showNoticeAgain": "A sütitájékoztató újbóli megjelenítése"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Fénykép módosítása",
+      "addPhoto": "Fénykép hozzáadása",
+      "hint": "PNG, JPEG vagy WebP. Mindenhol körként jelenik meg; mentés előtt nagyíthatja és mozgathatja.",
+      "tooLarge": "Ez a fénykép túl nagy.",
+      "uploadFailed": "A feltöltés sikertelen.",
+      "choose": "Válasszon profilképet",
+      "dialogTitle": "Helyezze el a fényképet",
+      "dialogDescription": "Húzással mozgathatja, görgetéssel vagy csippentéssel nagyíthatja. A kör az, amit mindenki lát.",
+      "zoom": "Nagyítás",
+      "save": "Fénykép mentése"
+    },
+    "appearance": {
+      "metaTitle": "Megjelenés",
+      "title": "Megjelenés",
+      "description": "Téma és kiemelőszín, a fiókjához mentve.",
+      "theme": {
+        "title": "Téma",
+        "description": "Kövesse a rendszert, vagy rögzítse a világos vagy sötét módot.",
+        "label": "Téma",
+        "system": "Rendszer követése",
+        "systemHint": "Az operációs rendszerrel együtt vált",
+        "light": "Világos",
+        "lightHint": "Fehér háttér",
+        "dark": "Sötét",
+        "darkHint": "Szinte fekete háttér"
+      },
+      "accent": {
+        "title": "Kiemelőszín",
+        "description": "Az elsődleges gombhoz, a fókuszkeretekhez és az aktív oldal jelölőjéhez használatos. A menta egyezik a márkajellel.",
+        "label": "Kiemelőszín",
+        "customHint": "Vagy válasszon tetszőleges saját színt"
+      },
+      "accents": {
+        "mint": "Menta",
+        "lavender": "Levendula",
+        "sky": "Égkék",
+        "peach": "Barack",
+        "butter": "Vajszínű",
+        "rose": "Rózsa",
+        "sage": "Zsálya",
+        "lilac": "Orgona",
+        "custom": "Egyéni"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Kiállítói profilok",
+      "title": "Kiállítói profilok",
+      "description": "A jogi személyek, amelyek nevében számláz. Az alapértelmezett előtölti az új számlákat.",
+      "breadcrumb": "Profilok",
+      "newProfile": "Új profil",
+      "emptyTitle": "Még nincs kiállítói profil",
+      "emptyDescription": "Hozza létre azt az azonosságot, amelyről számláz: egy magánszemélyt PAN-nal, vagy a cégét.",
+      "createProfile": "Profil létrehozása",
+      "columns": {
+        "label": "Címke",
+        "legalName": "Jogi név",
+        "type": "Típus",
+        "country": "Ország",
+        "currency": "Pénznem",
+        "regime": "Rendszer",
+        "status": "Állapot"
+      },
+      "types": {
+        "company": "Cég",
+        "individual": "Magánszemély"
+      },
+      "makeDefaultTitle": "Legyen a(z) {label} az alapértelmezett?",
+      "makeDefaultDescription": "Az új számlák ebből a profilból indulnak.",
+      "restoreTitle": "Visszaállítja: {label}?",
+      "archiveTitle": "Archiválja: {label}?",
+      "archiveDescription": "Eltűnik a választólistákról; a meglévő számlák nem változnak.",
+      "new": {
+        "metaTitle": "Új kiállítói profil",
+        "title": "Új kiállítói profil",
+        "prefilled": "A válaszai alapján kitöltve; ellenőrizze a címet és az adóadatokat, majd mentse."
+      },
+      "edit": {
+        "metaTitle": "Kiállítói profil szerkesztése",
+        "template": "Sablon",
+        "deleteTitle": "Törli: {label}?",
+        "deleteDescription": "Csak akkor lehetséges, ha egyetlen számla vagy jóváíró számla sem hivatkozik erre a profilra. Egyébként archiválja."
+      },
+      "template": {
+        "metaTitle": "Profilsablon",
+        "title": "Sablon: {label}",
+        "ownTemplate": "Saját sablon",
+        "instanceTemplate": "Példány sablonja",
+        "resetTitle": "Újra a példány sablonját használja?",
+        "resetDescription": "Ennek a profilnak a saját beállításai törlődnek; a kiállított dokumentumok nem változnak.",
+        "useInstance": "A példány sablonjának használata",
+        "usingInstanceTitle": "A példány sablonját használja",
+        "usingInstanceDescription": "A profil dokumentumai a Beállítások → Sablonok szerint készülnek. Kapcsolja be, ha külön szeretné testreszabni őket.",
+        "customise": "Másik sablon használata ehhez a profilhoz",
+        "openInstance": "A példány sablonjának megnyitása"
+      },
+      "form": {
+        "identityTitle": "Azonosság",
+        "identityDescription": "Ki állítja ki a számlát.",
+        "type": "Típus",
+        "label": "Címke",
+        "labelHint": "Csak a választólistákon jelenik meg",
+        "legalName": "Jogi név",
+        "tradeName": "Kereskedelmi név",
+        "designation": "Beosztás",
+        "email": "E-mail",
+        "phone": "Telefon",
+        "website": "Weboldal",
+        "addressTitle": "Cím",
+        "taxTitle": "Adóazonosítók",
+        "taxDescription": "Csak azok, amelyek Önre vonatkoznak; a nyomtatást számlánként lehet szabályozni.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Egyesült királyságbeli adószám (VAT)",
+        "usTaxId": "Amerikai EIN / SSN",
+        "usTaxIdHint": "Tároláskor titkosítva",
+        "lutNumber": "LUT-szám",
+        "lutNumberHint": "IGST nélküli exporthoz",
+        "lutFiscalYear": "LUT pénzügyi év",
+        "lutFiscalYearHint": "pl. 2026-27",
+        "einvoiceTitle": "E-számlázás",
+        "einvoiceDescription": "Hogyan azonosítja magát ez a profil az e-számlákon; az összekötő és a hitelesítő adatok a Beállítások > E-számlázás oldalon vannak.",
+        "electronicAddress": "Elektronikus cím",
+        "electronicAddressHint": "Ennek a kiállítónak a Peppol vagy EN 16931 azonosítója, amely az eladó elektronikus címeként jelenik meg.",
+        "electronicAddressScheme": "Elektronikus cím sémája",
+        "electronicAddressSchemeNone": "Nincs séma",
+        "einvoiceEnabled": "E-számlázás engedélyezve ehhez a profilhoz",
+        "einvoiceEnabledHint": "A kiállított dokumentumokon felkínálja a GST e-számla JSON, a Factur-X és az UBL letöltését, valamint az IRN regisztrálását.",
+        "defaultsTitle": "Alapértelmezések",
+        "baseCurrency": "Alappénznem",
+        "locale": "Dokumentumok területi beállítása",
+        "localeHint": "A számok és dátumok formázása a dokumentumokon",
+        "fiscalYearStart": "A pénzügyi év kezdete",
+        "months": {
+          "january": "január",
+          "february": "február",
+          "march": "március",
+          "april": "április",
+          "may": "május",
+          "june": "június",
+          "july": "július",
+          "august": "augusztus",
+          "september": "szeptember",
+          "october": "október",
+          "november": "november",
+          "december": "december"
+        },
+        "taxRegime": "Alapértelmezett adórendszer",
+        "regimes": {
+          "indiaGst": "Indiai GST",
+          "ukVat": "Egyesült királyságbeli áfa",
+          "usSalesTax": "Amerikai forgalmi adó",
+          "none": "Adó nélkül"
+        },
+        "invoiceNumberFormat": "Számlaszám formátuma",
+        "invoiceNumberFormatHint": "Tokenek: {tokens}",
+        "creditNoteNumberFormat": "Jóváíró számla számának formátuma",
+        "tdsRate": "Várható TDS-kulcs (%)",
+        "tdsRateHint": "Tájékoztató jellegű, várható levonásként nyomtatva",
+        "defaultNotes": "Alapértelmezett megjegyzések",
+        "defaultTerms": "Alapértelmezett feltételek",
+        "printTitle": "Mi nyomtatódik alapértelmezetten",
+        "printDescription": "Minden számla átmásolja ezeket, és egyenként módosíthatja őket.",
+        "emailTitle": "E-mail",
+        "emailDescription": "A küldésszerkesztő alapértelmezései. Helyőrzők: {placeholders}",
+        "emailCc": "Alapértelmezett másolat (CC)",
+        "emailBcc": "Alapértelmezett titkos másolat (BCC)",
+        "commaSeparated": "Vesszővel elválasztva",
+        "invoiceSubject": "Számla tárgya",
+        "invoiceSubjectHint": "Üresen a beépített sablont használja",
+        "creditNoteSubject": "Jóváíró számla tárgya",
+        "invoiceBody": "Számla szövege",
+        "creditNoteBody": "Jóváíró számla szövege",
+        "artworkTitle": "Grafikák",
+        "artworkDescription": "PNG, JPEG vagy WebP legfeljebb 2 MB; az aláírás és a bélyegző megőrzi az átlátszóságot.",
+        "logo": "Logó",
+        "signature": "Aláírás",
+        "stamp": "Bélyegző",
+        "transparentPng": "Átlátszó PNG",
+        "save": "Profil mentése"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Fizetési módok",
+      "title": "Fizetési módok",
+      "description": "Hogyan fizetnek Önnek az ügyfelek. Az adatok titkosítottak, és kiállításkor rögzítésre kerülnek minden számlában.",
+      "newMethod": "Új mód",
+      "emptyTitle": "Még nincsenek fizetési módok",
+      "emptyDescription": "Adjon hozzá bankszámlát, UPI-azonosítót vagy digitális tárcát, hogy a számlák megmondhassák az ügyfeleknek, hová fizessenek.",
+      "addMethod": "Mód hozzáadása",
+      "columns": {
+        "name": "Név",
+        "type": "Típus",
+        "currency": "Pénznem",
+        "status": "Állapot"
+      },
+      "types": {
+        "bankTransfer": "Banki átutalás",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Egyéni"
+      },
+      "makeDefaultTitle": "Legyen a(z) {name} az alapértelmezett?",
+      "restoreTitle": "Visszaállítja: {name}?",
+      "archiveTitle": "Archiválja: {name}?",
+      "archiveDescription": "A kiállított számlák megőrzik a kinyomtatott pillanatképet.",
+      "new": {
+        "metaTitle": "Új fizetési mód",
+        "title": "Új fizetési mód"
+      },
+      "edit": {
+        "metaTitle": "Fizetési mód szerkesztése",
+        "title": "Szerkesztés: {name}",
+        "deleteTitle": "Törli: {name}?",
+        "deleteDescription": "Csak akkor lehetséges, ha egyetlen számla vagy fizetés sem hivatkozik rá. Egyébként archiválja."
+      },
+      "form": {
+        "name": "Név",
+        "nameHint": "A fizetési blokk címeként nyomtatódik",
+        "type": "Típus",
+        "currency": "Pénznem",
+        "currencyHint": "Nem kötelező; csak tájékoztatásul jelenik meg",
+        "anyCurrency": "Bármely",
+        "instructions": "Útmutatás",
+        "instructionsHint": "Az adatok alatt nyomtatódik",
+        "isDefault": "Alapértelmezett mód",
+        "isDefaultDescription": "Az új számláknál előre kiválasztva",
+        "isActive": "Aktív",
+        "detailsTitle": "Adatok",
+        "detailsDescription": "Tároláskor titkosítva; a számla kiállításakor pillanatképként rögzül benne.",
+        "vpa": "UPI-azonosító (VPA)",
+        "payeeName": "Kedvezményezett neve",
+        "lines": "Sorok",
+        "linesHint": "Soronként egy sor, változtatás nélkül nyomtatva",
+        "accountEmail": "Fiók e-mail-címe / azonosítója",
+        "bank": {
+          "accountHolder": "Számlatulajdonos",
+          "accountNumber": "Számlaszám",
+          "bankName": "Bank neve",
+          "branch": "Fiók",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Útválasztási / bankkód"
+        },
+        "save": "Fizetési mód mentése"
+      }
+    },
+    "templates": {
+      "metaTitle": "Dokumentumsablonok",
+      "title": "Dokumentumsablonok",
+      "customised": "Testreszabott",
+      "builtIn": "Beépített alapértelmezés",
+      "description": "Hogyan néznek ki a számlák és a jóváíró számlák. A kiállított dokumentumok megőrzik a kiállításkor használt sablont.",
+      "resetTitle": "Visszaállítja a beépített alapértelmezést?",
+      "resetDescription": "A testreszabás törlődik; a már kiállított dokumentumok nem változnak.",
+      "reset": "Visszaállítás",
+      "resetTrigger": "Alapértelmezések visszaállítása",
+      "importTitle": "Importálás",
+      "importDescription": "Korábban exportált beállítás visszaállítása.",
+      "overridesTitle": "Profilonkénti felülbírálások",
+      "overridesDescription": "Egy profil a saját szerkesztőoldalán saját sablont választhat.",
+      "noOverrides": "Minden profil a példány sablonját használja.",
+      "import": {
+        "json": "Sablon JSON",
+        "jsonHint": "Illessze be a JSON exportálása funkcióval készült fájlt; a hiányzó kulcsok az alapértelmezést kapják",
+        "importing": "Importálás…",
+        "submit": "Importálás"
+      },
+      "form": {
+        "templateTitle": "Sablon",
+        "templateDescription": "Hat beépített sablon; az alábbi testreszabás a kiválasztottra vonatkozik.",
+        "templateGroup": "Sablon",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Modern és légies, talpatlan betűk, kiemelő vonal a fejléc alatt."
+          },
+          "classic": {
+            "name": "Klasszikus",
+            "character": "Hagyományos keretes táblázat, talpas címsorok, keretezett összegek."
+          },
+          "compact": {
+            "name": "Kompakt",
+            "character": "Sűrű elrendezés hosszú tétellistákhoz; kisebb betűméret, kevesebb elválasztó."
+          },
+          "minimal": {
+            "name": "Minimális",
+            "character": "Csendes és tágas: vonalak és keretek nélkül, halvány címkék, sok levegő."
+          },
+          "letterhead": {
+            "name": "Fejléces",
+            "character": "A logója és neve színes sávon vagy képen minden oldal tetején."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Színes sávos fejléc; a felek, a táblázatfejléc és az összegek halvány kiemelőszínű alapon."
+          }
+        },
+        "paperTitle": "Papír és betűtípus",
+        "paperSize": "Papírméret",
+        "paperLetter": "Letter",
+        "margins": "Margók",
+        "marginsNormal": "Normál",
+        "marginsNarrow": "Keskeny",
+        "headingFont": "Címsor betűtípusa",
+        "bodyFont": "Szövegtörzs betűtípusa",
+        "fontSans": "Talpatlan",
+        "fontSerif": "Talpas",
+        "tableStyle": "Táblázat stílusa",
+        "tableRuled": "Vonalazott",
+        "tableZebra": "Csíkozott",
+        "tablePlain": "Egyszerű",
+        "accentColour": "Kiemelőszín",
+        "textColour": "Szövegszín",
+        "logoPosition": "Logó helye",
+        "positionLeft": "Balra",
+        "positionCentre": "Középre",
+        "positionRight": "Jobbra",
+        "logoHeight": "Logó magassága (mm)",
+        "documentTitle": "Dokumentum címe",
+        "titleAuto": "Automatikus (GST-t figyelembe vevő)",
+        "titleCustom": "Egyéni",
+        "titlePlaceholder": "pl. DÍJBEKÉRŐ",
+        "qrPosition": "QR-kód helye",
+        "qrFooter": "Lábléc",
+        "qrHeader": "Fejléc",
+        "qrBesideTotals": "Az összegek mellett",
+        "amountInWords": "Összeg betűvel",
+        "wordsBelowTotal": "Az összegek alatt",
+        "wordsFooter": "Lábléc",
+        "wordsHidden": "Rejtett",
+        "subtotalRow": "Részösszeg sor",
+        "discountRow": "Kedvezmény sor",
+        "taxLines": "Adósorok",
+        "tdsExpected": "Várható TDS",
+        "roundingRow": "Kerekítés sor",
+        "pageNumbers": "Oldalszámok",
+        "headerTitle": "Fejléc",
+        "headerDescription": "Színes sáv vagy kép minden oldal tetején. A Fejléces és a Modern sablon sávot mutat, ha nem választ mást.",
+        "headerStyle": "Fejléc stílusa",
+        "headerNone": "Nincs",
+        "headerBand": "Színes sáv",
+        "headerImage": "Kép",
+        "bandColour": "Sáv színe",
+        "bandColourHex": "Sáv színe (hex)",
+        "headerImageLabel": "Fejléckép",
+        "headerImageHint": "PNG, JPEG vagy WebP legfeljebb 2400 px szélességig; az oldal teljes szélességét kitölti.",
+        "imageOpacity": "Kép átlátszatlansága",
+        "headerHeight": "Fejléc magassága (mm)",
+        "bandText": "Szöveg a sávon",
+        "bandTextAuto": "Automatikus (a sáv színéből)",
+        "bandTextLight": "Világos",
+        "bandTextDark": "Sötét",
+        "textTitle": "Szöveg",
+        "headerNote": "Fejléc megjegyzése",
+        "footer": "Lábléc",
+        "signatureCaption": "Aláírás felirata",
+        "draftWatermark": "Piszkozat vízjele",
+        "labelsTitle": "Címkék",
+        "labelsDescription": "Hagyja üresen a mezőt, hogy az alapértelmezett szöveg maradjon.",
+        "save": "Sablon mentése",
+        "downloadSample": "Minta PDF letöltése",
+        "exportJson": "JSON exportálása"
+      }
+    },
+    "email": {
+      "metaTitle": "E-mail",
+      "title": "E-mail",
+      "configuredSettings": "A Beállításokban konfigurálva",
+      "configuredEnv": "Környezeti változóval konfigurálva",
+      "notConfigured": "Nincs konfigurálva: levelezőprogramos folyamat",
+      "description": "A dokumentumokat a szerkesztőből küldi, a tárolt PDF csatolásával. Az itteni beállítások felülírják a környezet SMTP_* értékeit.",
+      "sendTest": "Tesztlevél küldése ide: {email}",
+      "removeTitle": "Eltávolítja a tárolt SMTP-beállításokat?",
+      "removeEnvTakesOver": "A környezet SMTP_* értékei veszik át a szerepet.",
+      "removeFallsBack": "Az e-mail visszaáll a levelezőprogramos folyamatra.",
+      "removeTrigger": "Tárolt beállítások eltávolítása",
+      "smtpTitle": "SMTP-kiszolgáló",
+      "smtpFromEnv": "Jelenleg a környezetből származik; az itteni mentés felülírja.",
+      "smtpPasswordNote": "A jelszó tárolás közben titkosított, és többé nem jelenik meg.",
+      "defaultsTitle": "Alapértelmezett címzettek",
+      "defaultsDescription": "A teljes példányra vonatkozó CC/BCC; a kiállítói profilok hozzáadják a sajátjukat.",
+      "sentTitle": "Elküldött levelek",
+      "sentDescription": "Az utolsó 50 kísérlet, a sikertelenekkel és a kézi küldésekkel együtt.",
+      "smtp": {
+        "host": "Kiszolgáló",
+        "port": "Port",
+        "security": "Biztonság",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Nincs (LAN-továbbító)",
+        "user": "Felhasználónév",
+        "password": "Jelszó",
+        "passwordStored": "Tárolva és titkosítva; hagyja üresen a megtartáshoz",
+        "passwordEncrypted": "Tároláskor titkosítva",
+        "from": "Feladó címe",
+        "fromName": "Feladó neve",
+        "replyTo": "Válaszcím",
+        "save": "SMTP-beállítások mentése"
+      },
+      "defaults": {
+        "cc": "Alapértelmezett CC",
+        "ccHint": "Minden szerkesztőhöz hozzáadódik; vesszővel elválasztva",
+        "bcc": "Alapértelmezett BCC",
+        "save": "Alapértelmezések mentése"
+      }
+    },
+    "security": {
+      "metaTitle": "Biztonság",
+      "title": "Biztonság",
+      "description": "Hol van bejelentkezve, és minden, ami megváltozott.",
+      "sessions": {
+        "title": "Aktív munkamenetek",
+        "description": "Egy munkamenet visszavonása azonnal kijelentkezteti az adott eszközt.",
+        "signOutOthers": {
+          "title": "Kijelentkezik mindenhol máshol?",
+          "description": "Ezen kívül minden munkamenet visszavonásra kerül.",
+          "confirm": "Többi kijelentkeztetése",
+          "trigger": "Kijelentkezés mindenhol máshol"
+        },
+        "columns": {
+          "device": "Eszköz",
+          "ipAddress": "IP-cím",
+          "signedIn": "Bejelentkezett",
+          "lastSeen": "Utoljára látva",
+          "expires": "Lejár"
+        },
+        "thisDevice": "Ez az eszköz",
+        "revokeTitle": "Visszavonja ezt a munkamenetet?",
+        "unknownDevice": "Ismeretlen eszköz",
+        "unknownBrowser": "Ismeretlen",
+        "agentOnOs": "{browser} ezen: {os}"
+      },
+      "audit": {
+        "title": "Auditnapló",
+        "count": "{count, plural, one {# esemény} other {# esemény}}",
+        "entity": "Entitás",
+        "actionContains": "A művelet tartalmazza",
+        "filter": "Szűrés",
+        "reset": "Visszaállítás",
+        "columns": {
+          "when": "Mikor",
+          "who": "Ki",
+          "action": "Művelet",
+          "entity": "Entitás",
+          "summary": "Összegzés"
+        },
+        "empty": "Egyetlen esemény sem felel meg ezeknek a szűrőknek.",
+        "system": "Rendszer",
+        "changes": "Változások",
+        "page": "{page}. oldal / {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Felhasználók",
+      "title": "Felhasználók",
+      "description": "Ki jelentkezhet be erre a példányra, és mit tehet.",
+      "roles": {
+        "owner": "Tulajdonos",
+        "editor": "Szerkesztő",
+        "viewer": "Megtekintő"
+      },
+      "roleHints": {
+        "owner": "Minden, a beállításokat és a tagokat is beleértve",
+        "editor": "Ügyfelek, katalógus, számlák, jóváíró számlák, fizetések, e-mail",
+        "viewer": "Csak olvasás"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "{email} szerepköre",
+      "invite": {
+        "title": "Valaki meghívása",
+        "description": "A meghívott címmel jelentkeznek be (identitásszolgáltatóval vagy jelszóval), és az Ön által választott szerepkört kapják.",
+        "sent": "A meghívó e-mailben elküldve ide: {email}.",
+        "readyWithError": "A meghívó elkészült ehhez: {email}. Az e-mailt nem sikerült elküldeni ({error}); küldje el nekik ezt a hivatkozást:",
+        "readyNoSmtp": "A meghívó elkészült ehhez: {email}. Nincs SMTP konfigurálva; küldje el nekik ezt a hivatkozást:",
+        "copyLink": "Hivatkozás másolása",
+        "email": "E-mail",
+        "emailPlaceholder": "szemely@example.com",
+        "role": "Szerepkör",
+        "submit": "Meghívás",
+        "inviting": "Meghívás…"
+      },
+      "members": {
+        "title": "Tagok",
+        "description": "Mindig marad legalább egy aktív tulajdonos.",
+        "columns": {
+          "person": "Személy",
+          "role": "Szerepkör",
+          "lastSignIn": "Utolsó bejelentkezés",
+          "status": "Állapot"
+        },
+        "nameYou": "{name} (Ön)",
+        "deactivated": "Letiltva",
+        "reactivate": {
+          "title": "Újra engedélyezi: {email}?",
+          "description": "Újra bejelentkezhetnek a korábbi szerepkörükkel.",
+          "confirm": "Újraengedélyezés"
+        },
+        "deactivate": {
+          "title": "Letiltja: {email}?",
+          "description": "Minden munkamenet most véget ér, és nem tudnak bejelentkezni az újraengedélyezésig. Az előzményeik megmaradnak.",
+          "confirm": "Letiltás"
+        }
+      },
+      "invitations": {
+        "title": "Függő meghívók",
+        "description": "Olyan címek, amelyek bejelentkezhetnek, de még nem tették.",
+        "columns": {
+          "email": "E-mail",
+          "role": "Szerepkör",
+          "invited": "Meghívva"
+        },
+        "empty": "Nincsenek függő meghívók.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Visszavonja a meghívót ehhez: {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Adatok",
+      "title": "Adatok",
+      "description": "Minden hordozható: az adathalmazok CSV-ként vagy Excelben, egy teljes pillanatkép az áttelepítéshez, a PDF-ek a könyvelőjének, és egy kipróbált biztonsági mentési rutin.",
+      "period": {
+        "fiscalYear": "Pénzügyi év",
+        "fiscalYearHint": "Felülbírálja a dátumokat",
+        "issuer": "Kiállító"
+      },
+      "exportAll": {
+        "title": "Minden adat exportálása",
+        "description": "Egy ZIP, amely minden adathalmazt CSV-ként tartalmaz, plusz a <mono>data.json</mono> fájlt, az összes tábla relációs pillanatképét. A titkosított mezők (fizetési módok adatai, SMTP-jelszó) kimaradnak; a benne lévő README felsorolja őket.",
+        "download": "okinvo-data ZIP letöltése"
+      },
+      "exportDocuments": {
+        "title": "Dokumentumok exportálása",
+        "description": "Egy időszak minden kiállított és érvénytelenített számlájának és jóváíró számlájának PDF-je, szám szerint elnevezve, egy <mono>index.csv</mono> fájllal, amely a számokat, az összegeket és a hash-eket tartalmazza. A hiányzó PDF-ek útközben készülnek el.",
+        "docx": "Minden dokumentum DOCX-másolatának hozzáadása is",
+        "facturx": "Factur-X PDF/A-3 másolat hozzáadása is, beágyazott EN 16931 XML-lel",
+        "download": "Dokumentumok ZIP letöltése"
+      },
+      "datasets": {
+        "title": "Adathalmazok",
+        "description": "Ugyanazok az exportok, amelyeket a listaoldalak kínálnak, az összesre alkalmazott időszakkal és kiállítóval. A fizetések a dátumtartományt használják; az ügyfelek és a szolgáltatások figyelmen kívül hagyják az időszakot.",
+        "columns": {
+          "dataset": "Adathalmaz",
+          "filters": "Alkalmazott szűrők",
+          "download": "Letöltés"
+        },
+        "names": {
+          "invoices": "Számlanyilvántartás",
+          "invoiceItems": "Számlatételek",
+          "payments": "Fizetési főkönyv",
+          "creditNotes": "Jóváíró számlák nyilvántartása",
+          "clients": "Ügyfelek",
+          "services": "Szolgáltatások",
+          "gstSummary": "GST-összesítő",
+          "tdsSummary": "TDS-összesítő"
+        },
+        "filters": {
+          "periodIssuer": "időszak, kiállító",
+          "dateRangeIssuer": "dátumtartomány, kiállító",
+          "includesArchived": "az archiváltakat is tartalmazza"
+        }
+      },
+      "backups": {
+        "title": "Biztonsági mentések",
+        "notWired": "Nincs csatlakoztatva biztonsági mentési szolgáltatás",
+        "noRun": "Még nem futott biztonsági mentés",
+        "lastOk": "Az utolsó biztonsági mentés sikeres",
+        "lastFailed": "Az utolsó biztonsági mentés sikertelen",
+        "description": "A Compose <mono>backup</mono> szolgáltatás a <mono>BACKUP_CRON</mono> szerint Postgres-mentést készít és archiválja a tárolókötetet, a <mono>backups</mono> kötetben <mono>BACKUP_RETENTION_DAYS</mono> napnyi előzményt őriz, és állapotfájlt ír, amelyet ez az oldal olvas.",
+        "finished": "Befejezve",
+        "databaseDump": "Adatbázis-mentés",
+        "storageArchive": "Tárhelyarchívum",
+        "size": "Méret",
+        "sizeMb": "{size} MB",
+        "error": "Hiba",
+        "runNow": "Futtasson most egyet, vagy állítson vissza egy fájlpárból:",
+        "restoreDrill": "A visszaállítási eljárást a CI a <mono>scripts/restore-drill.sh</mono> szkripttel gyakorolja: feltöltés, mentés, törlés, visszaállítás, majd a sorszámok és egy PDF-hash összehasonlítása."
+      }
+    },
+    "legal": {
+      "metaTitle": "Jogi tudnivalók",
+      "metaDescription": "Ki üzemelteti ezt a példányt: a nyilvános jogi oldalakon nyomtatott adatok.",
+      "title": "Jogi tudnivalók",
+      "description": "A nyilvános jogi oldalak ezeket az adatokat nyomtatják. Amíg minden mező ki nincs töltve, az oldalak kiemelt helyőrzőket mutatnak.",
+      "operator": {
+        "title": "Üzemeltető adatai",
+        "complete": "Teljes",
+        "missing": "{count} hiányzik: {fields}",
+        "description": "Ön, mint a példányt üzemeltető személy vagy cég, az az üzemeltető, akire a dokumentumok hivatkoznak. Innen semmi nem kerül sehová elküldésre; az alábbi oldalakon nyomtatódik."
+      },
+      "fieldLabels": {
+        "legalName": "Üzemeltető jogi neve",
+        "entityType": "Entitás típusa",
+        "address": "Üzemeltető címe",
+        "country": "Üzemeltető országa",
+        "contactEmail": "Kapcsolattartási e-mail",
+        "privacyEmail": "Adatvédelmi e-mail",
+        "dpoEmail": "Adatvédelmi tisztviselő e-mail-címe",
+        "governingLaw": "Irányadó jog",
+        "venue": "Jogviták illetékes fóruma",
+        "effectiveDate": "Hatálybalépés dátuma"
+      },
+      "publicPages": {
+        "title": "Nyilvános oldalak",
+        "description": "A bejelentkezési oldalról, a megosztásmegtekintőből és a sütitájékoztatóból hivatkozva.",
+        "terms": "Szolgáltatási feltételek",
+        "acceptableUse": "Elfogadható használati szabályzat",
+        "privacy": "Adatvédelmi szabályzat",
+        "cookies": "Sütiszabályzat",
+        "dataRetention": "Adatmegőrzés",
+        "security": "Biztonság",
+        "licenses": "Licencek és harmadik felek közleményei"
+      },
+      "form": {
+        "legalName": "Jogi név",
+        "entityType": "Entitás típusa",
+        "individual": "Magánszemély / egyéni vállalkozó",
+        "company": "Cég / bejegyzett entitás",
+        "address": "Cím",
+        "addressHint": "A feltételekben és az adatvédelmi szabályzatban az üzemeltető postacímeként nyomtatódik.",
+        "country": "Ország",
+        "effectiveDate": "Hatálybalépés dátuma",
+        "contactEmail": "Kapcsolattartási e-mail",
+        "privacyEmail": "Adatvédelmi e-mail",
+        "privacyEmailHint": "Ide érkeznek az érintetti kérelmek; lehet a kapcsolattartási cím is.",
+        "dpoEmail": "Adatvédelmi tisztviselő e-mail-címe",
+        "dpoEmailHint": "Csak akkor, ha kijelölt ilyet.",
+        "governingLaw": "Irányadó jog",
+        "governingLawHint": "Például \"a magyar jog\" vagy \"Anglia és Wales joga\".",
+        "venue": "Jogviták illetékes fóruma",
+        "venueHint": "Például \"a budapesti bíróságok\".",
+        "submit": "Üzemeltetői adatok mentése"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-számlázás",
+      "title": "E-számlázás",
+      "description": "Kiállítói profilonként: melyik összekötő regisztrálja az indiai e-számlákat, és melyik európai profilt követi a Factur-X és az UBL kimenet. A hitelesítő adatok titkosítva tárolódnak, és többé nem jelennek meg.",
+      "noProfiles": "Először hozzon létre egy kiállítói profilt.",
+      "profile": "Kiállítói profil",
+      "enabled": "Engedélyezve",
+      "disabled": "Letiltva",
+      "enabledHint": "Az e-számlázás profilonként kapcsolható be vagy ki a Beállítások > Profilok oldalon.",
+      "india": {
+        "title": "India (GST e-számla, IRN)",
+        "description": "Az IRN regisztrációja az itt választott összekötőn keresztül történik; a kézi összekötő a portál válaszát kézzel fogadja.",
+        "connector": "Összekötő",
+        "connectorNone": "Ki",
+        "connectorManual": "Kézi (illessze be az IRP válaszát)",
+        "connectorNic": "NIC IRP API (sandbox vagy éles)",
+        "nicUnverified": "A NIC összekötő a közzétett API-t követi, és csak rögzített tesztadatokkal van tesztelve; élő sandboxon nem ellenőrzött, amíg nem adnak meg hitelesítő adatokat.",
+        "env": "Környezet",
+        "sandbox": "Sandbox",
+        "production": "Éles",
+        "baseUrl": "Alap URL",
+        "baseUrlHint": "Hagyja üresen a környezet alapértelmezett értékéhez.",
+        "clientId": "Kliensazonosító",
+        "clientSecret": "Kliens titkos kulcsa",
+        "username": "Felhasználónév",
+        "password": "Jelszó",
+        "gstin": "GSTIN",
+        "publicKey": "IRP nyilvános kulcs (PEM)",
+        "publicKeyHint": "Bejelentkezés után töltse le a portálról; ez védi az IRP-nek küldött hitelesítő adatokat.",
+        "publicKeyStored": "Mentve; hagyja üresen a megtartásához.",
+        "secretStored": "Titkosítva tárolva; hagyja üresen a megtartásához.",
+        "secretEncrypted": "Titkosítva tárolva."
+      },
+      "eu": {
+        "title": "Európa (Factur-X, UBL)",
+        "description": "Ebben a verzióban az EN 16931 az egyetlen profil; a Factur-X és az UBL letöltések ezt használják.",
+        "profile": "Profil",
+        "profileNone": "Ki",
+        "en16931": "EN 16931"
+      },
+      "save": "E-számlázási beállítások mentése"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API-kulcsok szkriptekhez, az SDK-hoz és MCP-kliensekhez, curl példákkal.",
+      "title": "API",
+      "description": "Kulcsok szkriptekhez, az SDK-hoz és MCP-kliensekhez. Egy kulcs legfeljebb azt teheti, amit az Ön szerepköre; csak egyszer jelenik meg.",
+      "create": {
+        "title": "Kulcs létrehozása",
+        "description": "Küldje <mono>Authorization: Bearer okv_…</mono> formában. Ne tartsa forráskódban és csevegési naplókban; ha kiszivárog, vonja vissza alább."
+      },
+      "keys": {
+        "title": "Kulcsok",
+        "descriptionOwner": "A példány összes kulcsa; a tulajdonosok bármelyiket visszavonhatják.",
+        "descriptionOwn": "Az Ön kulcsai.",
+        "columns": {
+          "name": "Név",
+          "prefix": "Előtag",
+          "scopes": "Hatókörök",
+          "owner": "Tulajdonos",
+          "lastUsed": "Utoljára használva",
+          "expires": "Lejár",
+          "status": "Állapot"
+        },
+        "empty": "Még nincsenek API-kulcsok.",
+        "never": "soha",
+        "revoked": "Visszavonva",
+        "expired": "Lejárt",
+        "revokeTitle": "Visszavonja: {name}?",
+        "revokeDescription": "A kulcsot használó kliensek azonnal leállnak.",
+        "activeCount": "{count, plural, one {# aktív kulcs.} other {# aktív kulcs.}}"
+      },
+      "examples": {
+        "title": "Példák",
+        "description": "Cserélje le az <mono>$OKINVO_KEY</mono> értéket egy kulcsra. A verziózott REST API, az OpenAPI-dokumentuma (<mono>/api/openapi.json</mono>), a TypeScript SDK és az MCP-kiszolgáló a v1.1 terv következő feladataival érkezik; az állapotvégpont már ma működik.",
+        "rateLimit": "A korlátot túllépő hívások 429-es választ kapnak <mono>Retry-After</mono> fejléccel (kulcsonként percenként 120 kérés). A kulcs hatóköreit a tulajdonosa aktuális szerepköre korlátozza."
+      },
+      "form": {
+        "copyKey": "API-kulcs másolása",
+        "name": "Név",
+        "namePlaceholder": "pl. könyvelési szkript",
+        "expires": "Lejár",
+        "in30Days": "30 nap múlva",
+        "in90Days": "90 nap múlva",
+        "inAYear": "Egy év múlva",
+        "never": "Soha",
+        "scopes": "Hatókörök",
+        "submit": "API-kulcs létrehozása",
+        "creating": "Létrehozás…"
+      },
+      "scopes": {
+        "invoicesRead": "Számlák olvasása",
+        "invoicesCreate": "Számlák létrehozása és kiállítása",
+        "creditNotesRead": "Jóváíró számlák olvasása",
+        "creditNotesCreate": "Jóváíró számlák létrehozása és kiállítása",
+        "catalogueRead": "Ügyfelek, szolgáltatások és termékek olvasása",
+        "documentsRead": "Tárolt PDF-ek és DOCX-másolatok letöltése",
+        "statusRead": "A példány állapotának olvasása"
+      }
+    },
+    "status": {
+      "metaTitle": "Állapot",
+      "metaDescription": "A példány verziója, adatbázisa, tárhelye, e-mailje és biztonsági mentéseinek állapota.",
+      "title": "Állapot",
+      "description": "Mit futtat ez a példány, és válaszolnak-e a részei.",
+      "recheck": "Újraellenőrzés",
+      "health": {
+        "ok": "Rendben",
+        "warning": "Figyelmeztetés",
+        "failed": "Hiba",
+        "na": "Nincs konfigurálva"
+      },
+      "overall": {
+        "ok": "Minden rendben",
+        "degraded": "Csökkent teljesítmény",
+        "failed": "Hiba"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(sha ismeretlen)}} · építve: {built} · Node <mono>{node}</mono> · üzemidő: {uptime} · ellenőrizve: {checked}",
+      "dateUnknown": "(a dátum ismeretlen)",
+      "uptime": {
+        "days": "{d} n {h} ó {m} p",
+        "hours": "{h} ó {m} p",
+        "minutes": "{m} p"
+      },
+      "rows": {
+        "database": "Adatbázis",
+        "storage": "Tárhely",
+        "rateLimiting": "Sebességkorlátozás",
+        "email": "E-mail",
+        "backups": "Biztonsági mentések"
+      },
+      "db": {
+        "detail": "{latency} ms · utolsó migráció: <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · befejezetlen migrációk: #}}",
+        "noMigration": "nincs"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · egy próbaobjektum írása, olvasása és törlése {latency} ms alatt",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> tároló {store, select, memory {(egy replika)} other {(replikák között megosztva)}}",
+      "smtp": {
+        "configured": "SMTP forrása: {source, select, settings {the settings page} env {the environment} other {}} · utolsó teszt: {lastTest} · elmúlt 24 óra: {sent} elküldve, {failed} sikertelen",
+        "none": "Nincs SMTP-kiszolgáló; a szerkesztő a „Megnyitás levelezőprogramban” lehetőséget kínálja. <link>Konfigurálás</link>"
+      },
+      "backups": {
+        "notWired": "Nincs csatlakoztatva biztonsági mentési szolgáltatás (a BACKUP_STATUS_FILE nincs beállítva).",
+        "noRun": "A biztonsági mentési szolgáltatás csatlakoztatva; még nincs rögzített futás.",
+        "ok": "Az utolsó futás sikeres volt: {finishedAt}{days, plural, =0 {} one { · megőrzés # nap} other { · megőrzés # nap}}",
+        "failed": "Az utolsó futás sikertelen: {error}, ekkor: {finishedAt}{days, plural, =0 {} one { · megőrzés # nap} other { · megőrzés # nap}}"
+      },
+      "footer": "Ugyanez a jelentés JSON-ként elérhető a <mono>/api/health/status</mono> címen a monitorozáshoz (bejelentkezett munkamenet vagy API-kulcs)."
+    },
+    "usage": {
+      "metaTitle": "Használat",
+      "metaDescription": "Oldalmegtekintések képernyőnként és naponként ezen a példányon, helyben számolva.",
+      "title": "Használat",
+      "description": "Hányszor nyitották meg az egyes képernyőket, csak ezen a példányon számolva: nincsenek sütik, nincsenek címek, semmi sem kerül máshová.",
+      "last30Days": "Az elmúlt 30 nap",
+      "total": "{count, plural, =0 {Nincs oldalmegtekintés} one {# oldalmegtekintés} other {# oldalmegtekintés}}",
+      "off": "A számlálás ki van kapcsolva. Állítsa be az ANALYTICS_LOCAL=true értéket az oldalmegtekintések számolásához ezen a példányon.",
+      "empty": "Még nincs rögzített oldalmegtekintés.",
+      "columns": {
+        "day": "Nap",
+        "path": "Képernyő",
+        "views": "Megtekintések"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Üdvözöljük",
+    "progress": "Haladás",
+    "steps": {
+      "aboutYou": "Ön",
+      "howYouUse": "Hogyan használja",
+      "allSet": "Minden kész"
+    },
+    "step1": {
+      "title": "Mesélje el, kicsoda",
+      "subtitle": "Ez állítja be az alapértelmezéseket; minden érték később módosítható a Beállításokban.",
+      "name": "Név",
+      "email": "E-mail",
+      "emailHint": "A bejelentkezési azonosítója. Később módosítható a Beállítások → Biztonság alatt.",
+      "country": "Ország",
+      "currency": "Előnyben részesített pénznem",
+      "currencyHint": "Az új profilokhoz és a vezérlőpulthoz használatos, amíg nincs profil."
+    },
+    "step2": {
+      "title": "Hogyan fogja használni az okinvo-t?",
+      "subtitle": "Csak az alapértelmezések változnak; semmi sem záródik le.",
+      "usage": "Használat",
+      "personal": "Személyes számlázás",
+      "personalHint": "Szabadúszó munka saját néven",
+      "business": "Üzleti számlázás",
+      "businessHint": "Számlák bejegyzett vállalkozásból",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Adószám (VAT)",
+        "other": "Adóregisztrációs szám"
+      },
+      "taxQuestion": {
+        "IN": "Van GSTIN-je?",
+        "GB": "Áfa-regisztrált?",
+        "other": "Van adóregisztrációs száma, amelyet a számlákra kell nyomtatni?"
+      }
+    },
+    "step3": {
+      "title": "Minden kész",
+      "body": "Következő lépésként hozza létre az első kiállítói profilját: a számláin megjelenő nevet, címet és adóadatokat. Kitöltöttük, amit elmondott nekünk.",
+      "go": "Ugrás a profilokhoz",
+      "opening": "Megnyitás…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Feltételek",
+      "privacy": "Adatvédelem",
+      "cookies": "Sütik",
+      "security": "Biztonság"
+    },
+    "cookieNotice": {
+      "label": "Sütitájékoztató",
+      "body": "Csak feltétlenül szükséges sütiket használunk: a munkamenetét és a megjelenítési beállításait. Nincs analitika, nincs nyomon követés.",
+      "policy": "Sütiszabályzat",
+      "gotIt": "Értem"
+    },
+    "nav": {
+      "label": "Jogi tudnivalók",
+      "cookies": "Sütik",
+      "privacy": "Adatvédelem",
+      "terms": "Feltételek",
+      "acceptableUse": "Elfogadható használat",
+      "retention": "Megőrzés",
+      "security": "Biztonság",
+      "licences": "Licencek"
+    },
+    "operatorNotice": "Az okinvo saját üzemeltetésű szoftver; a példány üzemeltetője felelős a használatáért.",
+    "doc": {
+      "effectiveOn": "Hatályos: <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Tartalom"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Üzemeltető jogi neve",
+        "entityType": "Entitás típusa",
+        "address": "Üzemeltető címe",
+        "country": "Üzemeltető országa",
+        "contactEmail": "Kapcsolattartási e-mail",
+        "privacyEmail": "Adatvédelmi e-mail",
+        "dpoEmail": "Adatvédelmi tisztviselő e-mail-címe",
+        "governingLaw": "Irányadó jog",
+        "venue": "Jogviták illetékes fóruma",
+        "effectiveDate": "Hatálybalépés dátuma"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Nem található",
+      "title": "Ezen a címen nincs semmi",
+      "body": "A hivatkozás elavult lehet, vagy a dokumentumot, amelyre mutatott, soha nem állították ki."
+    },
+    "forbidden": {
+      "metaTitle": "Nem engedélyezett",
+      "title": "Ez a fiók ezt nem teheti meg",
+      "body": "A szerepköre ezt nem engedi. Kérjen hozzáférést egy tulajdonostól, vagy jelentkezzen be olyan fiókkal, amelynek van."
+    },
+    "error": {
+      "title": "Valami hiba történt",
+      "body": "Ez a kérés nem módosított semmit. Próbálja újra; ha tartósan fennáll, a részletek a kiszolgálónaplóban vannak.",
+      "digest": "hiba {digest}",
+      "generic": "hiba"
+    },
+    "appNotFound": {
+      "title": "Nem található",
+      "body": "Ez a rekord nem létezik, vagy törölték, miközben nézte.",
+      "back": "Vissza a vezérlőpultra"
+    },
+    "validation": {
+      "required": "kötelező",
+      "tooLong": "legfeljebb {max} karakter",
+      "invalidEmail": "érvényes e-mail-címnek kell lennie",
+      "invalidDate": "naptári dátumnak kell lennie ÉÉÉÉ-HH-NN formában",
+      "invalidAmount": "számnak kell lennie",
+      "wholeNumber": "egész számnak kell lennie",
+      "greaterThanZero": "nullánál nagyobbnak kell lennie",
+      "fixFields": "Kérjük, javítsa a kiemelt mezőket.",
+      "charset": "Csak szabványos billentyűzetkarakterek engedélyezettek."
+    }
+  },
+  "verify": {
+    "metaTitle": "Dokumentum ellenőrzése",
+    "metaDescription": "Ellenőrizze, hogy a számlát vagy jóváíró számlát a küldője állította-e ki, és nem módosították-e.",
+    "heading": "Dokumentumellenőrzés",
+    "rateLimited": "Túl sok ellenőrzés érkezett erről a címről. Kérjük, próbálja újra egy perc múlva.",
+    "notFound": {
+      "title": "Nincs ilyen dokumentum",
+      "body": "Ez a hivatkozás nem egyezik egyetlen kiállított dokumentummal sem. Ellenőrizze a QR-kódot vagy a kapott hivatkozást, vagy forduljon a kiállítóhoz."
+    },
+    "status": {
+      "void": "Érvénytelenítve",
+      "valid": "Érvényes"
+    },
+    "issuedBy": "Kiállította",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Kiállítva ennek",
+    "issueDate": "Kiállítás dátuma",
+    "total": "Összesen",
+    "voided": "Ezt a dokumentumot a kiállító érvénytelenítette, és már nem érvényes.",
+    "storedCopies": {
+      "title": "Tárolt másolatok",
+      "description": "A kiállító által őrzött minden PDF-verzió SHA-256 értéke. Válassza ki a saját másolatát, hogy a böngészőjében összehasonlítsa: semmi nem kerül feltöltésre.",
+      "empty": "Még nem készült PDF.",
+      "protectedVersion": "Jelszóval védett másolat {version}",
+      "version": "{version}. verzió"
+    },
+    "check": {
+      "label": "Ellenőrizze a másolatát",
+      "hashing": "Hash számítása…",
+      "match": "A másolata pontosan egyezik a(z) {version}. verzióval.",
+      "mismatch": "A másolata egyetlen tárolt verzióval sem egyezik."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Megosztott dokumentum",
+      "metaDescription": "Önnel megosztott dokumentum: tekintse meg online, és töltse le a PDF-et.",
+      "rateLimited": "Túl sok kérés érkezett erről a címről. Kérjük, próbálja újra egy perc múlva.",
+      "unavailable": {
+        "title": "Ez a hivatkozás nem érhető el",
+        "body": "Lehet, hogy lejárt, vagy a kiállító visszavonta. Kérjen tőle újat."
+      },
+      "lockedTitleInvoice": "Számla tőle: {issuer}",
+      "lockedTitleCreditNote": "Jóváíró számla tőle: {issuer}",
+      "lockedBody": "Ez a dokumentum jelszóval védett. Adja meg a jelszót, amelyet a kiállítótól kapott.",
+      "void": "Érvénytelenítve",
+      "protectedPdf": "A PDF ugyanazzal a jelszóval nyílik meg. Olvasható és nyomtatható; a másolás és a szerkesztés le van tiltva.",
+      "byline": "Kiállító: {issuer}, címzett: {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Jelszó",
+      "limited": "Túl sok próbálkozás. Kérjük, várjon tizenöt percet, majd próbálja újra.",
+      "wrong": "Ez a jelszó nem helyes.",
+      "submit": "Dokumentum megnyitása"
+    },
+    "dialog": {
+      "trigger": "Megosztás",
+      "title": "Dokumentum megosztása",
+      "description": "A hivatkozással bárki megtekintheti és letöltheti, amíg le nem jár, vagy Ön vissza nem vonja. A jelszó magát a PDF-et is védi: jelszóval nyílik meg, olvasható és nyomtatható, de nem szerkeszthető és nem másolható.",
+      "link": "Hivatkozás",
+      "copyLink": "Hivatkozás másolása",
+      "password": "Jelszó",
+      "copyPassword": "Jelszó másolása",
+      "sendSeparately": "A jelszót a hivatkozástól külön küldje el. Az alábbi listában újra megnézheti.",
+      "copy": "Másolás",
+      "copied": "Átmásolva",
+      "expires": "Lejár",
+      "expiry": {
+        "d7": "7 nap múlva",
+        "d30": "30 nap múlva",
+        "d90": "90 nap múlva",
+        "never": "Soha"
+      },
+      "protection": "Védelem",
+      "protectionOptions": {
+        "auto": "Jelszó: jelmondat generálása",
+        "manual": "Jelszó: saját választása",
+        "none": "Jelszó nélkül (nyílt hivatkozás)"
+      },
+      "passwordHint": "Legalább 8 karakter.",
+      "strength": "Erősség: {label}",
+      "strengthLabels": {
+        "veryWeak": "nagyon gyenge",
+        "weak": "gyenge",
+        "fair": "közepes",
+        "good": "jó",
+        "strong": "erős"
+      },
+      "creating": "Létrehozás…",
+      "create": "Hivatkozás létrehozása",
+      "activeLinks": "Aktív hivatkozások",
+      "passwordProtected": "Jelszóval védett",
+      "openLink": "Hivatkozás megnyitása",
+      "linkExpires": "{kind} · lejár: {date}",
+      "linkNeverExpires": "{kind} · soha nem jár le",
+      "revoke": {
+        "title": "Visszavonja ezt a hivatkozást?",
+        "description": "A hivatkozás azonnal megszűnik működni mindenkinek, akinek megvan.",
+        "label": "Visszavonás"
+      },
+      "linkPassword": "Jelszó: <code>{password}</code>",
+      "counts": "{views, plural, other {# megtekintés}} · {downloads, plural, other {# letöltés}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Jóváíró számlák",
+      "title": "Jóváíró számlák",
+      "description": "Kiállított számlákhoz kapcsolódnak; mindegyik kiállításkor csökkenti a számla egyenlegét.",
+      "newCreditNote": "Új jóváíró számla",
+      "filters": {
+        "from": "Kezdete",
+        "to": "Vége",
+        "issuer": "Kiállító",
+        "client": "Ügyfél",
+        "status": "Állapot",
+        "search": "Keresés",
+        "all": "Mind",
+        "searchPlaceholder": "Szám, ok, ügyfél",
+        "go": "Mehet"
+      },
+      "statuses": {
+        "DRAFT": "Piszkozat",
+        "ISSUED": "Kiállítva",
+        "SENT": "Elküldve",
+        "VOID": "Érvénytelenítve"
+      },
+      "empty": {
+        "title": "Még nincsenek jóváíró számlák",
+        "description": "Nyisson meg egy kiállított számlát, és válassza a „Jóváíró számla” lehetőséget a tartozás csökkentéséhez."
+      },
+      "noMatch": "Egyetlen jóváíró számla sem felel meg ezeknek a szűrőknek.",
+      "columns": {
+        "number": "Szám",
+        "against": "Ehhez",
+        "client": "Ügyfél",
+        "issueDate": "Kiállítás dátuma",
+        "reason": "Ok",
+        "total": "Összesen",
+        "status": "Állapot"
+      },
+      "draft": "Piszkozat"
+    },
+    "new": {
+      "metaTitle": "Új jóváíró számla",
+      "title": "Új jóváíró számla",
+      "description": "A jóváíró számla egy kiállított számlához készül, és csökkenti annak egyenlegét.",
+      "nothingToCredit": {
+        "title": "Nincs mit jóváírni",
+        "description": "A jóváíró számlákhoz kiállított, fennálló egyenleggel rendelkező számla kell.",
+        "openInvoices": "Számlák megnyitása"
+      },
+      "whichInvoice": "Melyik számla?",
+      "invoice": "Számla",
+      "invoiceOption": "{number} · {client} · egyenleg: {balance}",
+      "issuedOnly": "Jóváíró számla csak kiállított számlához készíthető.",
+      "invoiceFallback": "Számla"
+    },
+    "edit": {
+      "metaTitle": "Jóváíró számla szerkesztése",
+      "title": "Jóváíró számla piszkozatának szerkesztése",
+      "immutable": "A kiállított jóváíró számlák nem módosíthatók.",
+      "draft": "Piszkozat"
+    },
+    "detail": {
+      "metaTitle": "Jóváíró számla",
+      "draftTitle": "Jóváíró számla piszkozata",
+      "meta": "{client} · ehhez: <invoice>{number}</invoice> · kiállítva: <mono>{date}</mono>",
+      "previewPdf": "PDF előnézete",
+      "issue": {
+        "title": "Kiállítja ezt a jóváíró számlát?",
+        "description": "Szám kerül kiosztásra, a számla egyenlege csökken, és a dokumentum nem módosíthatóvá válik.",
+        "label": "Kiállítás"
+      },
+      "deleteDraft": {
+        "title": "Törli ezt a piszkozatot?"
+      },
+      "sendByEmail": "Küldés e-mailben",
+      "markSent": {
+        "title": "Elküldöttként jelöli?",
+        "label": "Jelölés elküldöttként"
+      },
+      "void": {
+        "title": "Érvényteleníti ezt a jóváíró számlát?",
+        "description": "A számla egyenlege visszaáll; a szám soha nem kerül újrafelhasználásra.",
+        "reason": "Ok",
+        "label": "Érvénytelenítés"
+      },
+      "voided": "Érvénytelenítve: {date}: {reason}",
+      "amounts": {
+        "title": "Összegek",
+        "reason": "Ok",
+        "creditAmount": "Jóváírt összeg",
+        "total": "Összesen",
+        "balanceNow": "A számla egyenlege most",
+        "sent": "Elküldve"
+      },
+      "documents": {
+        "title": "Tárolt dokumentumok",
+        "description": "Minden verzió megmarad; az ellenőrző oldal felsorolja az összes hash-t.",
+        "regenerateTitle": "Új PDF-verziót készít?",
+        "generate": "Létrehozás",
+        "newVersion": "Új verzió",
+        "renderedOnFirstDownload": "A PDF az első letöltéskor készül el.",
+        "protectedCopy": "Jelszóval védett másolat {version}",
+        "version": "{version}. verzió",
+        "verificationLink": "Ellenőrző hivatkozás: <link>{path}…</link>"
+      },
+      "draftsPreview": "A piszkozatok előnézete élőben látható a szerkesztőben."
+    },
+    "send": {
+      "metaTitle": "Jóváíró számla küldése",
+      "title": "<mono>{number}</mono> küldése",
+      "previousSends": "Korábbi küldések"
+    },
+    "builder": {
+      "against": "Ehhez: <mono>{number}</mono>",
+      "summary": "{client} · összesen {total} · egyenleg {balance} · adóalap-tartalék ≈ {headroom}",
+      "issueDate": "Kiállítás dátuma",
+      "creditAmount": "Jóváírt összeg (adó nélkül)",
+      "creditAmountHint": "Az adót a számla adósorai alapján osztjuk fel",
+      "reason": "Ok",
+      "picker": {
+        "title": "Számítás a számla sorai alapján",
+        "description": "Jelöljön be egész sorokat vagy százalékot; ez csak a fenti összeget tölti ki.",
+        "line": "Sor",
+        "subtotal": "Részösszeg",
+        "credit": "Jóváírás",
+        "percent": "%",
+        "creditLine": "{position}. sor jóváírása",
+        "percentOfLine": "A(z) {position}. sor százaléka"
+      },
+      "saveDraft": "Piszkozat mentése",
+      "issuing": "Kiállítás…",
+      "saveAndIssue": "Mentés és kiállítás"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Beérkezett fizetés",
+        "REFUND": "Kiállított visszatérítés",
+        "WRITE_OFF": "Leírás"
+      },
+      "editTitle": "Bejegyzés szerkesztése",
+      "recordTitle": "Fizetés rögzítése",
+      "description": "Az összegek a számla pénznemében vannak ({currency}); a levont TDS a beszámított összeg része.",
+      "kind": "Fajta",
+      "date": "Dátum",
+      "amountRefunded": "Visszatérített összeg (negatív)",
+      "amountApplied": "Beszámított összeg",
+      "refundHint": "Adjon meg negatív összeget, pl. -500",
+      "tdsDeducted": "Levont TDS",
+      "tdsHint": "Az ügyfél által visszatartott adó; beleszámít a beszámított összegbe",
+      "bankFees": "Banki költségek",
+      "receivedInto": "Erre érkezett",
+      "noMethod": "-",
+      "reference": "Hivatkozás",
+      "referenceHint": "UTR, tranzakcióazonosító, csekkszám",
+      "otherCurrency": "Másik pénznemben érkezett",
+      "amountReceived": "Beérkezett összeg",
+      "receivedCurrency": "Beérkezett pénznem",
+      "exchangeRate": "Árfolyam",
+      "exchangeRateHint": "1 beérkezett egység = ? {currency}",
+      "notes": "Megjegyzések",
+      "receiptHint": "PNG, JPEG, WebP vagy PDF legfeljebb 10 MB",
+      "receipts": "Nyugták és számlák",
+      "receiptN": "{n}. nyugta",
+      "removeReceipt": "{n}. nyugta eltávolítása",
+      "saveChanges": "Módosítások mentése",
+      "record": "Rögzítés"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Számlázási cím",
+      "shipTo": "Szállítási cím",
+      "invoice": "Számla",
+      "creditNote": "Jóváíró számla",
+      "issueDate": "Kiállítás dátuma",
+      "dueDate": "Fizetési határidő",
+      "number": "Szám",
+      "description": "Leírás",
+      "sacHsn": "SAC/HSN",
+      "qty": "Menny.",
+      "unit": "Egység",
+      "rate": "Egységár",
+      "tax": "Adó",
+      "amount": "Összeg",
+      "subtotal": "Részösszeg",
+      "discount": "Kedvezmény",
+      "taxable": "Adóalap",
+      "total": "Összesen",
+      "amountDue": "Fizetendő összeg",
+      "tdsExpected": "Várható TDS",
+      "netExpected": "Várható nettó összeg",
+      "rounding": "Kerekítés",
+      "paymentDetails": "Fizetési adatok",
+      "notes": "Megjegyzések",
+      "terms": "Feltételek",
+      "placeOfSupply": "Teljesítés helye",
+      "poReference": "Megrendelés hivatkozása",
+      "amountInWords": "Összeg betűvel",
+      "signature": "Meghatalmazott aláíró"
+    },
+    "title": {
+      "taxInvoice": "ÁFÁS SZÁMLA",
+      "billOfSupply": "ÉRTÉKESÍTÉSI BIZONYLAT",
+      "invoice": "SZÁMLA",
+      "creditNote": "JÓVÁÍRÓ SZÁMLA"
+    },
+    "text": {
+      "pageOf": "{page}. oldal, összesen {total}",
+      "scanToVerify": "Olvassa be az ellenőrzéshez",
+      "taxId": "Adóazonosító",
+      "void": "ÉRVÉNYTELEN",
+      "draftWatermark": "VÁZLAT - nem ÁFÁS számla",
+      "paymentTermsDays": "{days} nap",
+      "irn": "IRN",
+      "ackNo": "Visszaigazolás sz.",
+      "ackDate": "Visszaigazolás dátuma",
+      "einvoiceCancelled": "E-SZÁMLA SZTORNÓZVA"
+    },
+    "ui": {
+      "pageEstimate": "kb. {count, plural, one {# oldal} other {# oldal}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Üzenet",
+      "description": "A kiállítói profil sablonjaiból előtöltve. Semmi nem kerül elküldésre, amíg a Küldés gombra nem kattint.",
+      "to": "Címzett",
+      "toHint": "Vesszővel elválasztva",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Tárgy",
+      "body": "Szöveg",
+      "bodyHint": "Egyszerű szöveg; a hivatkozások kattinthatóvá válnak",
+      "attachment": "Melléklet",
+      "attachmentHint": "A tárolt másolat, neve <mono>{name}</mono> (vagy .docx); a tartalma nem módosítható.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Küldés…",
+      "send": "Küldés",
+      "openInMailApp": "Megnyitás levelezőprogramban",
+      "noSmtp": "Nincs SMTP-kiszolgáló konfigurálva (Beállítások → E-mail). Nyissa meg a piszkozatot a levelezőprogramjában, csatolja a letöltött PDF-et, majd jelölje elküldöttként alább.",
+      "markAsSent": "Jelölés elküldöttként"
+    },
+    "sentLog": {
+      "when": "Mikor",
+      "document": "Dokumentum",
+      "to": "Címzett",
+      "subject": "Tárgy",
+      "status": "Állapot",
+      "empty": "Még nem lett semmi elküldve.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "elküldve",
+        "FAILED": "sikertelen",
+        "MANUAL": "kézi"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Üdv, {name}",
+    "fiscalYear": "{year}. pénzügyi év",
+    "fiscalYearWithBase": "{year}. pénzügyi év · alappénznem: {currency} ({profile})",
+    "newCreditNote": "Új jóváíró számla",
+    "welcomeTitle": "Üdvözli a(z) {appName}",
+    "welcomeDescription": "Kezdje azzal, hogy létrehozza azt a kiállítói profilt, amelyről számláz, majd adjon hozzá egy ügyfelet és az első számláját.",
+    "createProfile": "Profil létrehozása",
+    "tiles": {
+      "outstanding": "Kintlévőség",
+      "overdue": "Lejárt",
+      "billedThisFy": "Számlázva ebben a pénzügyi évben",
+      "receivedThisFy": "Beérkezett ebben a pénzügyi évben",
+      "drafts": "Piszkozatok",
+      "invoiceCount": "{count, plural, one {# számla} other {# számla}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Fizetések mínusz visszatérítések, a rögzített árfolyamon",
+      "awaitingIssue": "kiállításra vár",
+      "nothingPending": "nincs függőben"
+    },
+    "recentInvoices": "Legutóbbi számlák",
+    "allInvoices": "Összes számla",
+    "noInvoicesYet": "Még nincsenek számlák.",
+    "columns": {
+      "number": "Szám",
+      "client": "Ügyfél",
+      "issued": "Kiállítva"
+    },
+    "topClients": "Legnagyobb kintlévőségű ügyfelek",
+    "nothingOutstanding": "Nincs kintlévőség."
+  },
+  "exports": {
+    "export": "Exportálás",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Számlák",
+      "newInvoice": "Új számla",
+      "draft": "Piszkozat",
+      "aDraft": "egy piszkozat",
+      "statuses": {
+        "draft": "Piszkozat",
+        "issued": "Kiállítva",
+        "sent": "Elküldve",
+        "partiallyPaid": "Részben fizetve",
+        "paid": "Fizetve",
+        "overdue": "Lejárt",
+        "void": "Érvénytelenítve"
+      },
+      "lifecycle": {
+        "draft": "piszkozat",
+        "issued": "kiállítva",
+        "void": "érvénytelenítve"
+      },
+      "units": {
+        "hour": "Óra",
+        "day": "Nap",
+        "fixed": "Fix",
+        "milestone": "Mérföldkő",
+        "unit": "Egység"
+      },
+      "unitsLower": {
+        "hour": "óra",
+        "day": "nap",
+        "fixed": "fix",
+        "milestone": "mérföldkő",
+        "unit": "egység"
+      },
+      "supplyTypes": {
+        "intraState": "államon belüli",
+        "interState": "államok közötti",
+        "exportLut": "export LUT-tal",
+        "exportWithTax": "export adóval",
+        "reverseCharge": "fordított adózás",
+        "notApplicable": "nem alkalmazható"
+      }
+    },
+    "list": {
+      "description": "Piszkozatok, kiállított és érvénytelenített számlák; az állapotok a fizetésekből és a határidőkből származnak.",
+      "fiscalYear": "Pénzügyi év",
+      "issuer": "Kiállító",
+      "client": "Ügyfél",
+      "searchPlaceholder": "Szám, PO, ügyfél",
+      "emptyTitle": "Még nincsenek számlák",
+      "emptyDescription": "Készítse el az első számláját: válasszon ügyfelet, adjon hozzá sorokat, nézze meg az előnézetet, majd állítsa ki.",
+      "columns": {
+        "number": "Szám",
+        "client": "Ügyfél",
+        "issuer": "Kiállító",
+        "issueDate": "Kiállítás dátuma",
+        "due": "Határidő",
+        "balance": "Egyenleg"
+      },
+      "noMatches": "Egyetlen számla sem felel meg ezeknek a szűrőknek.",
+      "count": "{count, plural, one {# számla} other {# számla}}",
+      "countPaged": "{count, plural, one {# számla} other {# számla}} · {page}. oldal / {pages}",
+      "register": "nyilvántartás",
+      "einvoice": "E-számla",
+      "einvoiceFilters": {
+        "registered": "IRN regisztrálva",
+        "none": "Nincs regisztrálva",
+        "cancelled": "IRN sztornózva"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Először hozzon létre egy kiállítói profilt",
+      "noProfileDescription": "A számlát egy jogi azonosságból állítják ki: állítsa be a profilját az adóazonosítókkal és a számozással.",
+      "createProfile": "Profil létrehozása"
+    },
+    "edit": {
+      "metaTitle": "Számla szerkesztése",
+      "title": "Piszkozat szerkesztése",
+      "immutableFlash": "A kiállított számlák nem módosíthatók. A javításhoz használja az „Érvénytelenítés és újrakiállítás” lehetőséget."
+    },
+    "detail": {
+      "metaTitle": "Számla",
+      "draftInvoice": "Számlapiszkozat",
+      "issuedDue": "Kiállítva: <mono>{issued}</mono>, határidő: <mono>{due}</mono>",
+      "replaces": "Ezt váltja: {number}",
+      "replacedBy": "Ez váltotta: {number}",
+      "previewPdf": "PDF előnézete",
+      "downloadEInvoice": "E-számla JSON letöltése",
+      "issueTitle": "Kiállítja ezt a számlát?",
+      "issueDescription": "Szám kerül kiosztásra, és a dokumentum nem módosíthatóvá válik.",
+      "issue": "Kiállítás",
+      "deleteDraftTitle": "Törli ezt a piszkozatot?",
+      "sendByEmail": "Küldés e-mailben",
+      "recordPayment": "Fizetés rögzítése",
+      "progress": {
+        "title": "Fizetés állapota",
+        "description": "Hol tart ez a számla, a kiállítástól az iktatott nyugtáig.",
+        "issued": "Kiállítva",
+        "sent": "Elküldve",
+        "payment": "Fizetés rögzítve",
+        "paymentOn": "<mono>{amount}</mono> összegű fizetés rögzítve: <mono>{date}</mono>",
+        "paid": "Teljesen kifizetve",
+        "receipt": "Nyugta csatolva",
+        "done": "kész",
+        "pending": "függőben"
+      },
+      "creditNote": "Jóváíró számla",
+      "markSentTitle": "Elküldöttként jelöli?",
+      "markSentDescription": "Rögzíti, hogy az ügyfél megkapta ezt a számlát.",
+      "markSent": "Jelölés elküldöttként",
+      "voidReissueTitle": "Érvényteleníti és újra kiállítja?",
+      "voidReissueDescription": "Az eredeti érvénytelenné válik, és ugyanazzal a tartalommal egy kapcsolt piszkozat nyílik meg szerkesztésre.",
+      "voidReissue": "Érvénytelenítés és újrakiállítás",
+      "voidTitle": "Érvényteleníti ezt a számlát?",
+      "voidDescription": "Csak rögzített fizetések nélkül lehetséges; a szám soha nem kerül újrafelhasználásra.",
+      "void": "Érvénytelenítés",
+      "voided": "Érvénytelenítve: {date}: {reason}",
+      "amounts": "Összegek",
+      "subtotal": "Részösszeg",
+      "discount": "Kedvezmény",
+      "discountPercent": "Kedvezmény ({percent})",
+      "rounding": "Kerekítés",
+      "tdsExpected": "Várható TDS ({percent})",
+      "paid": "Fizetve",
+      "credited": "Jóváírva",
+      "balanceDue": "Fizetendő egyenleg",
+      "supply": "Teljesítés",
+      "fxToBase": "Árfolyam az alappénznemhez",
+      "poReference": "PO-hivatkozás",
+      "sent": "Elküldve",
+      "lineItems": "Tételsorok",
+      "columns": {
+        "description": "Leírás",
+        "sacHsn": "SAC/HSN",
+        "qty": "Menny.",
+        "rate": "Egységár",
+        "tax": "Adó",
+        "amount": "Összeg"
+      },
+      "creditNotes": "Jóváíró számlák",
+      "storedDocuments": "Tárolt dokumentumok",
+      "storedDocumentsHint": "Minden verzió megmarad; az ellenőrző oldal felsorolja az összes hash-t.",
+      "regenerateTitle": "Új PDF-verziót készít?",
+      "regenerateDescription": "Újra megjeleníti a rögzített pillanatképből (például egy megjelenítőhiba javítása után). A korábbi verziók megmaradnak.",
+      "regenerate": "Létrehozás",
+      "newVersion": "Új verzió",
+      "renderedOnFirstDownload": "A PDF az első letöltéskor készül el.",
+      "protectedCopy": "Jelszóval védett másolat {version}",
+      "version": "{version}. verzió",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Ellenőrző hivatkozás:",
+      "draftPreviewHint": "A piszkozatok előnézete élőben látható a szerkesztőben; az oldal megtekintéséhez nyissa meg a <link>vízjeles PDF-et</link>.",
+      "einvoice": {
+        "title": "E-számla (India)",
+        "description": "A számla regisztrálása az Invoice Registration Portalon; a regisztrált dokumentum az IRN-jével és a portál aláírt QR-kódjával kerül nyomtatásra.",
+        "connector": "Összekötő",
+        "connectors": {
+          "manual": "Kézi",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Ehhez a profilhoz nincs összekötő beállítva a Beállítások > E-számlázás menüben.",
+        "statuses": {
+          "none": "Nincs regisztrálva",
+          "generated": "JSON létrehozva",
+          "registered": "Regisztrálva",
+          "cancelled": "Sztornózva",
+          "failed": "A regisztráció sikertelen"
+        },
+        "irn": "IRN",
+        "ackNo": "Visszaigazolás sz.",
+        "ackDate": "Visszaigazolás dátuma",
+        "cancelReason": "Sztornózás",
+        "generate": "IRN generálása",
+        "pasteLabel": "IRP-válasz",
+        "pasteHint": "Illessze be a portál vagy a GSP által a számla e-számla JSON-jához visszaadott JSON-t (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN rögzítése",
+        "cancelReasonLabel": "Sztornózás oka",
+        "cancelReasons": {
+          "1": "Duplikátum",
+          "2": "Adatbeviteli hiba",
+          "3": "Megrendelés lemondva",
+          "4": "Egyéb"
+        },
+        "cancel": "IRN sztornózása",
+        "cancelWindow": "A portál a visszaigazolástól számított 24 órán belül engedi a sztornózást."
+      }
+    },
+    "history": {
+      "metaTitle": "Számla előzményei",
+      "title": "Előzmények: <mono>{number}</mono>",
+      "reissueChain": "Újrakiállítási lánc",
+      "replaces": "Ezt váltja: <link>{number}</link>",
+      "replacedBy": "Ez váltotta: <link>{number}</link>",
+      "auditTrail": "Auditnyomvonal",
+      "columns": {
+        "when": "Mikor",
+        "who": "Ki",
+        "action": "Művelet",
+        "summary": "Összegzés"
+      },
+      "noEvents": "Még nincsenek események.",
+      "system": "Rendszer",
+      "emails": "E-mailek"
+    },
+    "payments": {
+      "title": "Fizetések",
+      "description": "{client} · összesen {total}",
+      "backToInvoice": "Vissza a számlához",
+      "ledger": "Főkönyv",
+      "columns": {
+        "date": "Dátum",
+        "kind": "Fajta",
+        "applied": "Beszámítva",
+        "tds": "TDS",
+        "received": "Beérkezett",
+        "reference": "Hivatkozás",
+        "balance": "Egyenleg"
+      },
+      "noPayments": "Még nincs rögzített fizetés.",
+      "kinds": {
+        "payment": "Fizetés",
+        "refund": "Visszatérítés",
+        "writeOff": "Leírás"
+      },
+      "receipt": "Nyugta",
+      "receiptN": "{n}. nyugta",
+      "deleteEntryTitle": "Törli ezt a bejegyzést?",
+      "deleteEntryDescription": "A számla egyenlege újraszámolásra kerül.",
+      "totals": "Összesítők",
+      "invoiceTotal": "Számla végösszege",
+      "credited": "Jóváírva",
+      "refunds": "Visszatérítések",
+      "writeOffs": "Leírások",
+      "tdsDeducted": "Levont TDS",
+      "bankFees": "Banki költségek",
+      "balanceDue": "Fizetendő egyenleg",
+      "onlyIssued": "Csak a kiállított számlák fogadnak el fizetést."
+    },
+    "send": {
+      "metaTitle": "Számla küldése",
+      "title": "<mono>{number}</mono> küldése",
+      "alreadySent": "Már elküldöttként van megjelölve; az újabb küldés újabb naplóbejegyzést ad hozzá.",
+      "previousSends": "Korábbi küldések"
+    },
+    "builder": {
+      "parties": "Felek",
+      "issuerProfile": "Kiállítói profil",
+      "client": "Ügyfél",
+      "archivedOption": "{label} (archivált)",
+      "issueDate": "Kiállítás dátuma",
+      "dueDate": "Fizetési határidő",
+      "fxRate": "Árfolyam az alappénznemhez",
+      "fxHint": "1 {currency} = ? {base} (csak jelentéshez)",
+      "poReference": "PO-hivatkozás",
+      "lineItems": "Tételsorok",
+      "lineItemsHint": "Válasszon a katalógusból az értékek másolásához, vagy írjon be egy sort.",
+      "taxDiscountTds": "Adó, kedvezmény és TDS",
+      "taxRegime": "Adórendszer",
+      "regimes": {
+        "indiaGst": "Indiai GST",
+        "ukVat": "Egyesült királyságbeli áfa",
+        "usSalesTax": "Amerikai forgalmi adó",
+        "none": "Adó nélkül"
+      },
+      "reverseCharge": "Fordított adózás",
+      "reverseChargeHint": "Az adót a címzett fizeti",
+      "discount": "Kedvezmény",
+      "percent": "Százalék",
+      "amount": "Összeg",
+      "rounding": "Kerekítési korrekció",
+      "roundingHint": "Nem kötelező, egész egységre; 1-nél kisebbnek kell lennie",
+      "round": "Kerekítés",
+      "tdsRate": "Várható TDS-kulcs (%)",
+      "tdsRateHint": "Tájékoztató jellegű; a TDS-bontás bekapcsolt állapotában nyomtatódik",
+      "paymentMethods": "Fizetési módok",
+      "paymentMethodsHint": "A bejelölés sorrendjében nyomtatódnak.",
+      "noPaymentMethods": "Nincsenek aktív fizetési módok. <link>Hozzáadás</link>.",
+      "whatPrints": "Mi nyomtatódik",
+      "whatPrintsHint": "A kiállítói profil alapértelmezéseiből indul.",
+      "documentLanguage": "Dokumentum nyelve",
+      "documentLanguageHint": "A feliratok, a dátumok és az összegek ezen a nyelven jelennek meg a nyomtatványon; az ügyfél beállítása, ennek hiányában a profilé.",
+      "notesAndTerms": "Megjegyzések és feltételek",
+      "notes": "Megjegyzések",
+      "terms": "Feltételek",
+      "saveDraft": "Piszkozat mentése",
+      "issuing": "Kiállítás…",
+      "saveAndIssue": "Mentés és kiállítás",
+      "subtotal": "Részösszeg",
+      "tax": "Adó",
+      "tdsExpected": "Várható TDS",
+      "netExpected": "Várható nettó összeg"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Hozzáadás a katalógusból…",
+      "services": "Szolgáltatások",
+      "products": "Termékek",
+      "addLine": "Sor hozzáadása",
+      "columns": {
+        "description": "Leírás",
+        "sacHsn": "SAC/HSN",
+        "qty": "Menny.",
+        "unit": "Egység",
+        "rate": "Egységár",
+        "taxPercent": "Adó %"
+      },
+      "aria": {
+        "description": "{line}. sor leírása",
+        "sacHsn": "{line}. sor SAC/HSN kódja",
+        "quantity": "{line}. sor mennyisége",
+        "unit": "{line}. sor egysége",
+        "rate": "{line}. sor egységára",
+        "taxRate": "{line}. sor adókulcsa"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Mentes",
+      "moveUp": "Feljebb",
+      "moveDown": "Lejjebb",
+      "removeLine": "Sor eltávolítása",
+      "shortcutHint": "A Ctrl/⌘+Enter egy leírásmezőben új sort ad hozzá.",
+      "addFromCatalogueAria": "Hozzáadás a katalógusból"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Kiállító adatai",
+        "client": "Ügyfél adatai",
+        "document": "Dokumentumszakaszok"
+      },
+      "fields": {
+        "showLogo": "Logó",
+        "showTradeName": "Kereskedelmi név",
+        "showDesignation": "Beosztás",
+        "showEmail": "E-mail",
+        "showPhone": "Telefon",
+        "showWebsite": "Weboldal",
+        "showFullAddress": "Teljes cím",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Aláírás",
+        "showStamp": "Bélyegző",
+        "showContactPerson": "Kapcsolattartó",
+        "showBillingAddress": "Számlázási cím",
+        "showShippingAddress": "Szállítási cím",
+        "showTaxIdentifier": "Adóazonosító",
+        "showPlaceOfSupply": "Teljesítés helye",
+        "showDueDate": "Fizetési határidő",
+        "showPaymentTerms": "Fizetési feltételek",
+        "showSacCodeColumn": "SAC-kód oszlop",
+        "showQuantityColumn": "Mennyiség oszlop",
+        "showUnitPriceColumn": "Egységár oszlop",
+        "showTaxColumn": "Adó oszlop",
+        "showTdsBreakdown": "TDS-bontás",
+        "showQrVerification": "QR-ellenőrzés",
+        "showNotes": "Megjegyzések",
+        "showTerms": "Feltételek",
+        "showReplacesReference": "Helyettesítési hivatkozás",
+        "showAmountInWords": "Összeg betűvel",
+        "showSupplyStatement": "Teljesítési nyilatkozat",
+        "showRoundingLine": "Kerekítés sor",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Ügyfelek",
+      "description": "Mindenki, akinek számláz. A számlával rendelkező ügyfeleket archiválják, soha nem törlik.",
+      "newClient": "Új ügyfél",
+      "searchPlaceholder": "Keresés név szerint",
+      "searchLabel": "Ügyfelek keresése",
+      "emptyTitle": "Még nincsenek ügyfelek",
+      "emptyDescription": "Adja hozzá azokat a személyeket és cégeket, akiknek számláz; a pénznemük és a fizetési feltételeik előtöltik az egyes számlákat.",
+      "addClient": "Ügyfél hozzáadása",
+      "noMatch": "Egyetlen ügyfél sem egyezik ezzel: „{q}”.",
+      "termsDays": "{days} nap",
+      "columns": {
+        "name": "Név",
+        "contact": "Kapcsolattartó",
+        "email": "E-mail",
+        "country": "Ország",
+        "currency": "Pénznem",
+        "terms": "Feltételek",
+        "status": "Állapot"
+      }
+    },
+    "new": {
+      "title": "Új ügyfél"
+    },
+    "edit": {
+      "metaTitle": "Ügyfél szerkesztése",
+      "title": "Szerkesztés: {name}"
+    },
+    "detail": {
+      "metaTitle": "Ügyfél",
+      "newInvoice": "Új számla",
+      "restoreTitle": "Visszaállítja ezt az ügyfelet?",
+      "archiveTitle": "Archiválja ezt az ügyfelet?",
+      "archiveDescription": "Eltűnik a választólistákról; a számlák és az előzmények érintetlenek maradnak.",
+      "deleteTitle": "Törli ezt az ügyfelet?",
+      "deleteDescription": "Csak akkor lehetséges, ha egyetlen számla sem hivatkozik az ügyfélre.",
+      "details": "Adatok",
+      "contact": "Kapcsolattartó",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "country": "Ország",
+      "gstState": "GST {code}",
+      "taxId": "Adóazonosító",
+      "currency": "Pénznem",
+      "paymentTerms": "Fizetési feltételek",
+      "paymentTermsDays": "{days} nap",
+      "expectedTds": "Várható TDS",
+      "notes": "Megjegyzések",
+      "addresses": "Címek",
+      "billing": "Számlázási",
+      "shipping": "Szállítási",
+      "lifetime": "Összesen",
+      "openRegister": "Nyilvántartás megnyitása",
+      "noIssued": "Még nincsenek kiállított számlák.",
+      "noIssuedWithDrafts": "Még nincsenek kiállított számlák ({drafts} piszkozat).",
+      "firstLatest": "Első számla: <mono>{first}</mono>, legutóbbi: <mono>{latest}</mono>{drafts, plural, =0 {} one { · # piszkozat} other { · # piszkozat}}",
+      "lifetimeColumns": {
+        "currency": "Pénznem",
+        "invoices": "Számlák",
+        "billed": "Számlázva",
+        "received": "Beérkezett",
+        "credited": "Jóváírva",
+        "outstanding": "Kintlévőség",
+        "overdue": "Lejárt"
+      },
+      "recentInvoices": "Legutóbbi számlák",
+      "noInvoices": "Ennek az ügyfélnek még nincsenek számlái.",
+      "recentColumns": {
+        "number": "Szám",
+        "issueDate": "Kiállítás dátuma",
+        "due": "Határidő",
+        "total": "Összesen",
+        "balance": "Egyenleg",
+        "status": "Állapot"
+      }
+    },
+    "form": {
+      "cardTitle": "Ügyfél",
+      "displayName": "Megjelenített név",
+      "contactPerson": "Kapcsolattartó",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "taxIdType": "Adóazonosító típusa",
+      "taxIdTypeNone": "Nincs",
+      "taxId": "Adóazonosító",
+      "currency": "Pénznem",
+      "paymentTerms": "Fizetési határidő (nap)",
+      "expectedTdsRate": "Várható TDS-kulcs (%)",
+      "preferredLanguage": "Dokumentum nyelve",
+      "preferredLanguageFollow": "A kiállítói profil követése",
+      "buyerReference": "Vevői hivatkozás",
+      "buyerReferenceHint": "Az e-számlákon a vevő saját hivatkozásaként jelenik meg (rendelés- vagy költséghelyszám).",
+      "electronicAddress": "Elektronikus cím",
+      "electronicAddressHint": "A Peppol vagy EN 16931 azonosító, amelyen ez az ügyfél az e-számlákat fogadja.",
+      "electronicAddressScheme": "Elektronikus cím sémája",
+      "electronicAddressSchemeNone": "Nincs séma",
+      "notes": "Megjegyzések",
+      "billingAddress": "Számlázási cím",
+      "shippingAddress": "Szállítási cím",
+      "differentFromBilling": "Eltér a számlázási címtől",
+      "save": "Ügyfél mentése"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Óra",
+      "DAY": "Nap",
+      "FIXED": "Fix",
+      "MILESTONE": "Mérföldkő",
+      "UNIT": "Egység"
+    },
+    "list": {
+      "activate": "Aktiválás",
+      "deactivate": "Letiltás",
+      "archiveDescription": "A meglévő számlasorok megőrzik a másolt értékeket.",
+      "deleteDescription": "Csak akkor lehetséges, ha egyetlen számlasor sem hivatkozik rá. Egyébként archiválja.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Név",
+        "unit": "Egység",
+        "rate": "Egységár",
+        "price": "Ár",
+        "currency": "Pénznem",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Adó",
+        "status": "Állapot"
+      }
+    },
+    "services": {
+      "title": "Szolgáltatások",
+      "description": "A katalógusa. Egy szolgáltatás kiválasztása átmásolja az értékeit a számlasorra.",
+      "newService": "Új szolgáltatás",
+      "emptyTitle": "Még nincsenek szolgáltatások",
+      "emptyDescription": "Adja hozzá, amit értékesít - óradíjas tervezést, fix díjas mérföldkövet - a SAC/HSN-kóddal és az adókulccsal.",
+      "addService": "Szolgáltatás hozzáadása",
+      "restoreTitle": "Visszaállítja: {name}?",
+      "archiveTitle": "Archiválja: {name}?",
+      "deleteTitle": "Törli: {name}?",
+      "editMetaTitle": "Szolgáltatás szerkesztése",
+      "editTitle": "Szerkesztés: {name}"
+    },
+    "products": {
+      "title": "Termékek",
+      "description": "Az Ön által értékesített áruk, mindegyik SKU-val. Egy termék kiválasztása átmásolja az értékeit a számlasorra.",
+      "newProduct": "Új termék",
+      "emptyTitle": "Még nincsenek termékek",
+      "emptyDescription": "Adja hozzá az értékesített árukat SKU-val, HSN-kóddal, egységárral és adókulccsal.",
+      "addProduct": "Termék hozzáadása",
+      "restoreTitle": "Visszaállítja: {sku}?",
+      "archiveTitle": "Archiválja: {sku}?",
+      "deleteTitle": "Törli: {sku}?",
+      "editMetaTitle": "Termék szerkesztése",
+      "editTitle": "Szerkesztés: {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Egyedi kód, amely a sor leírása alatt nyomtatódik",
+      "name": "Név",
+      "unit": "Egység",
+      "defaultRate": "Alapértelmezett egységár",
+      "unitPrice": "Egységár",
+      "currency": "Pénznem",
+      "sacHsnCode": "SAC / HSN-kód",
+      "sacHsnHint": "GST-számlákon kötelező",
+      "hsnCode": "HSN-kód",
+      "hsnHint": "GST-számlákon áruk esetén kötelező",
+      "defaultTaxRate": "Alapértelmezett adókulcs (%)",
+      "description": "Leírás",
+      "descriptionHint": "Előtölti a sor leírását",
+      "active": "Aktív",
+      "serviceInactiveHint": "Az inaktív szolgáltatások nem szerepelnek a számlaválasztóban",
+      "productInactiveHint": "Az inaktív termékek nem szerepelnek a számlaválasztóban",
+      "saveService": "Szolgáltatás mentése",
+      "saveProduct": "Termék mentése"
+    },
+    "tags": {
+      "legend": "Profilok",
+      "hint": "Jelölje be azokat a kiállítói profilokat, amelyek ezt értékesítik. Ha mindet üresen hagyja, minden profilnak felajánlásra kerül."
+    }
+  },
+  "address": {
+    "line1": "Cím 1. sora",
+    "line2": "Cím 2. sora",
+    "city": "Város",
+    "stateRegion": "Állam / régió",
+    "postalCode": "Irányítószám",
+    "country": "Ország",
+    "state": "Állam",
+    "gstStateCodeHint": "GST-államkód: {code}",
+    "pickStateHint": "Válassza ki az államot a GST-államkódhoz",
+    "stateRegionCode": "Állam- / régiókód",
+    "stateRegionCodePlaceholder": "pl. CA"
+  },
+  "assets": {
+    "tooLarge": "Ez a fájl túl nagy.",
+    "unsupportedReceipt": "Használjon PNG, JPEG, WebP képet vagy PDF-et.",
+    "unsupportedImage": "Használjon PNG, JPEG vagy WebP képet.",
+    "uploadFailed": "A feltöltés sikertelen.",
+    "uploading": "Feltöltés…",
+    "dropHint": "Húzzon ide egy fájlt, vagy válasszon egyet",
+    "dropHintMany": "Húzza ide a fájlokat, vagy válassza ki őket",
+    "dropActive": "Engedje el a feltöltéshez"
+  },
+  "ui": {
+    "breadcrumb": "Navigációs útvonal",
+    "close": "Bezárás",
+    "closeMenu": "Menü bezárása",
+    "reveal": "Megjelenítés",
+    "hide": "Elrejtés",
+    "openCalendar": "Naptár megnyitása",
+    "chooseMonth": "Hónap kiválasztása",
+    "chooseYear": "Év kiválasztása",
+    "searchOptions": "Írjon a kereséshez",
+    "noMatches": "Nincs találat",
+    "pullToRefresh": {
+      "label": "Frissíthető lista",
+      "pulling": "Húzza le a frissítéshez",
+      "release": "Engedje el a frissítéshez",
+      "refreshing": "Frissítés"
+    },
+    "inputCharset": "Csak szabványos billentyűzetkarakterek engedélyezettek.",
+    "confirm": {
+      "working": "Folyamatban…"
+    },
+    "statusPill": {
+      "DRAFT": "Piszkozat",
+      "ISSUED": "Kiállítva",
+      "SENT": "Elküldve",
+      "PARTIALLY_PAID": "Részben fizetve",
+      "PAID": "Fizetve",
+      "OVERDUE": "Lejárt",
+      "VOID": "Érvénytelenítve"
+    },
+    "activePill": {
+      "active": "Aktív",
+      "archived": "Archivált",
+      "inactive": "Inaktív"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Valami hiba történt.",
+    "fixFields": "Kérjük, javítsa a kiemelt mezőket.",
+    "accountSaved": "Fiókbeállítások mentve",
+    "apiKeyCreated": "API-kulcs létrehozva. Másolja ki most: csak egyszer jelenik meg.",
+    "saved": "Mentve: {name}",
+    "savedProfile": "Profil mentve: {label}",
+    "clientArchived": "Ügyfél archiválva",
+    "clientRestored": "Ügyfél visszaállítva",
+    "clientDeleted": "Ügyfél törölve",
+    "productArchived": "Termék archiválva",
+    "productRestored": "Termék visszaállítva",
+    "productActivated": "Termék aktiválva",
+    "productDeactivated": "Termék letiltva",
+    "serviceArchived": "Szolgáltatás archiválva",
+    "serviceRestored": "Szolgáltatás visszaállítva",
+    "serviceActivated": "Szolgáltatás aktiválva",
+    "serviceDeactivated": "Szolgáltatás letiltva",
+    "defaultProfileUpdated": "Alapértelmezett profil frissítve",
+    "profileArchived": "Profil archiválva",
+    "profileRestored": "Profil visszaállítva",
+    "profileDeleted": "Profil törölve",
+    "defaultPaymentMethodUpdated": "Alapértelmezett fizetési mód frissítve",
+    "paymentMethodArchived": "Fizetési mód archiválva",
+    "paymentMethodRestored": "Fizetési mód visszaállítva",
+    "paymentMethodDeleted": "Fizetési mód törölve",
+    "issued": "Kiállítva: {number}",
+    "savedAsDraft": "Piszkozatként mentve. {reason}",
+    "draftSaved": "Piszkozat mentve",
+    "invoiceVoided": "Számla érvénytelenítve",
+    "originalVoided": "Az eredeti érvénytelenítve; szerkessze a helyettesítő piszkozatot",
+    "markedAsSent": "Elküldöttként megjelölve",
+    "draftDeleted": "Piszkozat törölve",
+    "generatedPdf": "{version}. PDF-verzió létrehozva",
+    "creditNoteVoided": "Jóváíró számla érvénytelenítve; a számla egyenlege visszaállt",
+    "draftCreditNoteDeleted": "Jóváíró számla piszkozata törölve",
+    "mailRefused": "A levelezőkiszolgáló elutasította az üzenetet: {error}. A kísérlet naplózva lett.",
+    "unknownError": "ismeretlen hiba",
+    "sentTo": "Elküldve: {recipients}",
+    "smtpSaved": "SMTP-beállítások mentve",
+    "smtpRemoved": "A tárolt SMTP-beállítások eltávolítva",
+    "testEmailSent": "Tesztlevél elküldve ide: {email}",
+    "testFailed": "A teszt sikertelen: {error}",
+    "defaultRecipientsSaved": "Alapértelmezett címzettek mentve",
+    "invitationSent": "Meghívó elküldve",
+    "invitationReady": "Meghívó elkészült",
+    "unknownRole": "Ismeretlen szerepkör",
+    "roleUpdated": "Szerepkör frissítve",
+    "accountDeactivated": "Fiók letiltva",
+    "accountReactivated": "Fiók újra engedélyezve",
+    "invitationRevoked": "Meghívó visszavonva",
+    "paymentUpdated": "Fizetés frissítve",
+    "paymentRecorded": "Fizetés rögzítve",
+    "paymentDeleted": "Fizetés törölve",
+    "sessionRevoked": "Munkamenet visszavonva",
+    "noOtherSessions": "Nincs másik munkamenet",
+    "signedOutOthers": "Kijelentkeztetve {count} másik munkamenetből",
+    "sharePasswordRequired": "Adjon meg jelszót, vagy engedje, hogy generáljunk egyet.",
+    "shareLinkCreated": "Megosztási hivatkozás létrehozva.",
+    "templateSaved": "Sablon mentve; a jövőbeli dokumentumok ezt használják",
+    "templateReset": "A sablon visszaállt a beépített alapértelmezésre",
+    "templateImported": "Sablon importálva",
+    "profileTemplateCleared": "A profil újra a példány sablonját használja",
+    "operatorSaved": "Üzemeltetői adatok mentve. A jogi oldalak most már ezeket mutatják.",
+    "einvoiceSettingsSaved": "E-számlázási beállítások mentve",
+    "irnRegistered": "IRN {irn} regisztrálva; a PDF újra létrejött vele",
+    "irnRecorded": "IRN rögzítve; a PDF újra létrejött vele",
+    "irnCancelled": "IRN sztornózva; a PDF újra létrejött"
+  }
+}

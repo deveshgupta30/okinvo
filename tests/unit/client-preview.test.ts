@@ -1,11 +1,14 @@
 import { describe, expect, it } from "vitest";
-import { previewFromBuilder, type BuilderValues } from "@/lib/invoices/client-preview";
+import {
+  previewFromBuilder,
+  type BuilderValues,
+  type BuilderProfile,
+} from "@/lib/invoices/client-preview";
 import { DEFAULT_DISPLAY_CONFIG, mergeDisplayConfig } from "@/lib/schemas";
 import type { ClientDto } from "@/server/dal/clients";
 import type { PaymentMethodDto } from "@/server/dal/payment-methods";
-import type { ProfileDto } from "@/server/dal/profiles";
 
-const profile: ProfileDto = {
+const profile: BuilderProfile = {
   id: "p1",
   type: "INDIVIDUAL",
   isDefault: true,
@@ -22,37 +25,26 @@ const profile: ProfileDto = {
   gstStateCode: "29",
   panNumber: "ABCDE1234F",
   gstin: "29ABCDE1234F1Z5",
+  hasGstin: true,
   cinNumber: null,
   ukVatNumber: null,
-  usTaxId: null,
   lutNumber: null,
   lutFiscalYear: null,
+  electronicAddress: null,
+  electronicAddressScheme: null,
+  einvoiceEnabled: false,
   baseCurrency: "INR",
   locale: "en-IN",
   fiscalYearStartMonth: 4,
-  invoiceNumberFormat: "INV/{FY}/{SEQ:3}",
-  creditNoteNumberFormat: "CN/{FY}/{SEQ:3}",
   defaultTaxRegime: "INDIA_GST",
   defaultTdsRate: "10",
   defaultDisplayConfig: DEFAULT_DISPLAY_CONFIG,
   defaultNotes: null,
   defaultTerms: null,
-  emailCc: [],
-  emailBcc: [],
-  emailInvoiceSubject: null,
-  emailInvoiceBody: null,
-  emailCreditNoteSubject: null,
-  emailCreditNoteBody: null,
-  templateConfigOverride: null,
   logoAssetId: null,
   signatureAssetId: null,
   stampAssetId: null,
-  logoKey: null,
-  signatureKey: null,
-  stampKey: null,
   archivedAt: null,
-  createdAt: "2026-01-01T00:00:00.000Z",
-  updatedAt: "2026-01-01T00:00:00.000Z",
 };
 
 const client: ClientDto = {
@@ -72,6 +64,10 @@ const client: ClientDto = {
   paymentTermsDays: 15,
   defaultTdsRate: null,
   notes: null,
+  preferredLocale: null,
+  buyerReference: null,
+  electronicAddress: null,
+  electronicAddressScheme: null,
   archivedAt: null,
   createdAt: "2026-01-01T00:00:00.000Z",
   updatedAt: "2026-01-01T00:00:00.000Z",
@@ -125,6 +121,7 @@ const values: BuilderValues = {
   tdsRate: "10",
   paymentMethodIds: ["m1"],
   displayConfig: mergeDisplayConfig({ document: { showTdsBreakdown: true } }),
+  documentLocale: "en-US",
   poReference: "",
   notes: "",
   terms: "",

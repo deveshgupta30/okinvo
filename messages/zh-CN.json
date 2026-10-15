@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo 首页",
+    "save": "保存",
+    "cancel": "取消",
+    "continue": "继续",
+    "saving": "保存中…",
+    "detect": "检测",
+    "yes": "是",
+    "no": "否",
+    "choose": "请选择…",
+    "remove": "移除",
+    "tryAgain": "重试",
+    "dashboard": "仪表板",
+    "goToDashboard": "前往仪表板",
+    "or": "或",
+    "invoice": "发票",
+    "creditNote": "贷项通知单",
+    "downloadPdf": "下载 PDF",
+    "edit": "编辑",
+    "delete": "删除",
+    "downloadDocx": "下载 DOCX",
+    "downloadCii": "下载 EN 16931 XML",
+    "downloadUbl": "下载 Peppol UBL",
+    "downloadFacturX": "下载 Factur-X PDF",
+    "none": "无",
+    "dismiss": "关闭",
+    "all": "全部",
+    "previous": "上一页",
+    "next": "下一页",
+    "go": "前往",
+    "search": "搜索",
+    "status": "状态",
+    "total": "合计",
+    "currency": "币种",
+    "from": "从",
+    "to": "至",
+    "reason": "原因",
+    "history": "历史记录",
+    "archive": "归档",
+    "restore": "恢复",
+    "showArchived": "显示已归档项",
+    "hideArchived": "隐藏已归档项",
+    "archived": "已归档",
+    "default": "默认",
+    "setDefault": "设为默认",
+    "revoke": "撤销",
+    "copy": "复制",
+    "copied": "已复制",
+    "active": "启用中",
+    "pagination": "分页",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "仪表板",
+      "invoices": "发票",
+      "creditNotes": "贷项通知单",
+      "clients": "客户",
+      "services": "服务",
+      "products": "产品",
+      "tools": "货币"
+    },
+    "primaryNav": "主导航",
+    "settings": "设置",
+    "openMenu": "打开菜单",
+    "more": "更多",
+    "navigation": "导航",
+    "dock": "快速导航",
+    "pagesAndAccount": "页面与账户",
+    "collapseSidebar": "收起侧边栏",
+    "collapseSidebarHint": "收起侧边栏 ([)",
+    "expandSidebar": "展开侧边栏",
+    "expandSidebarHint": "展开侧边栏 ([)",
+    "theme": {
+      "label": "主题",
+      "system": "跟随系统",
+      "light": "浅色",
+      "dark": "深色",
+      "current": "主题：{mode}",
+      "switchTo": "主题：{mode}。切换为{next}"
+    },
+    "userMenu": {
+      "label": "{name} 的账户菜单",
+      "profile": "个人资料",
+      "logOut": "退出登录"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "货币换算器",
+      "title": "货币换算器",
+      "description": "使用本实例自带的汇率表，在您开具发票所用的币种之间换算。",
+      "amount": "金额",
+      "from": "从",
+      "to": "到",
+      "flip": "互换币种",
+      "enterAmount": "请输入金额",
+      "asOf": "汇率截至 {date}（{source}）",
+      "sources": {
+        "bundled": "随应用内置",
+        "live": "在线刷新"
+      },
+      "note": "汇率仅供参考；已开具发票上的汇率是您开具时输入的汇率。"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "登录",
+      "metaDescription": "使用身份提供商或密码登录 okinvo，这款可自行托管的开票应用。",
+      "title": "登录",
+      "subtitle": "仅允许名单中的账户登录。",
+      "failed": "登录失败。",
+      "noMethod": "尚未配置任何登录方式。请在 <code>.env</code> 中设置一组身份提供方参数（例如 <code>AUTH_GITHUB_*</code>），或设置 <code>AUTH_PASSWORD_SIGNIN=true</code>。",
+      "errors": {
+        "not_allowed": "该账户不被允许使用本实例，或已被停用。",
+        "signin": "登录未完成，请重试。"
+      }
+    },
+    "password": {
+      "name": "姓名",
+      "email": "电子邮件",
+      "password": "密码",
+      "signingIn": "登录中…",
+      "createAccount": "创建账户",
+      "signIn": "登录",
+      "haveAPassword": "我已有密码",
+      "firstTime": "第一次使用？请设置密码",
+      "failed": "登录失败。"
+    },
+    "social": {
+      "redirecting": "正在跳转…",
+      "continueWith": "使用 {provider} 继续",
+      "failed": "无法开始登录。"
+    },
+    "error": {
+      "metaTitle": "登录错误",
+      "metaDescription": "登录未能完成。本页说明出了什么问题以及如何重试。",
+      "title": "登录失败",
+      "body": "身份提供方返回了 <code>{value}</code>。如果您的地址不在本实例的允许名单中，请联系所有者将其添加。",
+      "back": "返回登录"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "设置",
+      "profiles": "开具方档案",
+      "paymentMethods": "付款方式",
+      "templates": "模板",
+      "email": "电子邮件",
+      "security": "安全",
+      "users": "用户",
+      "data": "数据",
+      "legal": "法律",
+      "einvoicing": "电子发票",
+      "account": "账户",
+      "appearance": "外观",
+      "api": "API",
+      "status": "状态",
+      "usage": "使用情况"
+    },
+    "account": {
+      "metaTitle": "账户",
+      "title": "账户",
+      "description": "您的照片、姓名、地区、语言和时区。",
+      "photo": {
+        "title": "照片",
+        "description": "显示在侧边栏和用户菜单中。"
+      },
+      "form": {
+        "title": "账户",
+        "description": "您的显示方式，以及“今天”的定义。",
+        "displayName": "显示名称",
+        "signInEmail": "登录邮箱",
+        "signInEmailHint": "这是您在本实例上的身份，无法在此编辑。",
+        "timezone": "时区",
+        "timezoneHint": "开具日期、到期日和仪表板所使用的“今天”",
+        "regionTitle": "地区",
+        "regionDescription": "新开具方档案的默认值，在创建档案之前也用于仪表板。",
+        "country": "国家或地区",
+        "currency": "币种",
+        "suggested": "该国家建议使用：",
+        "language": "语言",
+        "languageHint": "应用本身的语言。文档使用各档案自己的区域设置。",
+        "machineTranslated": "此语言由机器翻译。欢迎提出修改建议：<link>在 GitHub 上帮助改进</link>。",
+        "save": "保存偏好设置"
+      },
+      "regions": {
+        "Africa": "非洲",
+        "Americas": "美洲",
+        "Asia": "亚洲",
+        "Europe": "欧洲",
+        "MiddleEast": "中东",
+        "Oceania": "大洋洲",
+        "Constructed": "人造语言"
+      },
+      "privacy": {
+        "title": "隐私",
+        "description": "okinvo 仅设置运行所必需的 Cookie。无分析，无追踪。",
+        "cookiePolicy": "Cookie 政策",
+        "showNoticeAgain": "再次显示 Cookie 通知"
+      }
+    },
+    "avatar": {
+      "changePhoto": "更换照片",
+      "addPhoto": "添加照片",
+      "hint": "PNG、JPEG 或 WebP。统一以圆形显示；保存前可缩放和移动。",
+      "tooLarge": "这张照片太大。",
+      "uploadFailed": "上传失败。",
+      "choose": "选择头像照片",
+      "dialogTitle": "调整照片位置",
+      "dialogDescription": "拖动移动，滚动或双指捏合缩放。圆形范围即为所有人看到的样子。",
+      "zoom": "缩放",
+      "save": "保存照片"
+    },
+    "appearance": {
+      "metaTitle": "外观",
+      "title": "外观",
+      "description": "主题和强调色，保存到您的账户。",
+      "theme": {
+        "title": "主题",
+        "description": "跟随系统，或固定使用浅色或深色。",
+        "label": "主题",
+        "system": "跟随系统",
+        "systemHint": "随操作系统切换",
+        "light": "浅色",
+        "lightHint": "白色画布",
+        "dark": "深色",
+        "darkHint": "近黑色画布"
+      },
+      "accent": {
+        "title": "强调色",
+        "description": "用于主按钮、焦点框和当前页面标记。薄荷色与品牌标志一致。",
+        "label": "强调色",
+        "customHint": "或选择任意自定义颜色"
+      },
+      "accents": {
+        "mint": "薄荷",
+        "lavender": "薰衣草",
+        "sky": "天蓝",
+        "peach": "蜜桃",
+        "butter": "奶油黄",
+        "rose": "玫瑰",
+        "sage": "鼠尾草绿",
+        "lilac": "紫丁香",
+        "custom": "自定义"
+      }
+    },
+    "profiles": {
+      "metaTitle": "开具方档案",
+      "title": "开具方档案",
+      "description": "您用来开具发票的法律身份。默认档案会预填到新发票中。",
+      "breadcrumb": "档案",
+      "newProfile": "新建档案",
+      "emptyTitle": "暂无开具方档案",
+      "emptyDescription": "创建您开具发票时使用的身份：持有 PAN 的个人，或您的公司。",
+      "createProfile": "创建档案",
+      "columns": {
+        "label": "标签",
+        "legalName": "法定名称",
+        "type": "类型",
+        "country": "国家或地区",
+        "currency": "币种",
+        "regime": "税制",
+        "status": "状态"
+      },
+      "types": {
+        "company": "公司",
+        "individual": "个人"
+      },
+      "makeDefaultTitle": "将 {label} 设为默认？",
+      "makeDefaultDescription": "新发票将以此档案为起点。",
+      "restoreTitle": "恢复 {label}？",
+      "archiveTitle": "归档 {label}？",
+      "archiveDescription": "它将从选择列表中消失；现有发票不受影响。",
+      "new": {
+        "metaTitle": "新建开具方档案",
+        "title": "新建开具方档案",
+        "prefilled": "已根据您的回答填写；请检查地址和税务信息后再保存。"
+      },
+      "edit": {
+        "metaTitle": "编辑开具方档案",
+        "template": "模板",
+        "deleteTitle": "删除 {label}？",
+        "deleteDescription": "仅当没有任何发票或贷项通知单引用此档案时才能删除，否则请归档。"
+      },
+      "template": {
+        "metaTitle": "档案模板",
+        "title": "{label} 的模板",
+        "ownTemplate": "专属模板",
+        "instanceTemplate": "实例模板",
+        "resetTitle": "改回使用实例模板？",
+        "resetDescription": "此档案自己的配置将被移除；已开具的文档不受影响。",
+        "useInstance": "使用实例模板",
+        "usingInstanceTitle": "正在使用实例模板",
+        "usingInstanceDescription": "此档案的文档遵循“设置 → 模板”。选择启用后可单独自定义。",
+        "customise": "为此档案使用不同的模板",
+        "openInstance": "打开实例模板"
+      },
+      "form": {
+        "identityTitle": "身份",
+        "identityDescription": "发票的开具方。",
+        "type": "类型",
+        "label": "标签",
+        "labelHint": "仅显示在选择列表中",
+        "legalName": "法定名称",
+        "tradeName": "商号名称",
+        "designation": "职务",
+        "email": "电子邮件",
+        "phone": "电话",
+        "website": "网站",
+        "addressTitle": "地址",
+        "taxTitle": "税务标识",
+        "taxDescription": "仅填写适用于您的项目；是否打印由每张发票各自控制。",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "英国 VAT 号码",
+        "usTaxId": "美国 EIN / SSN",
+        "usTaxIdHint": "静态加密存储",
+        "lutNumber": "LUT 号码",
+        "lutNumberHint": "适用于免 IGST 的出口",
+        "lutFiscalYear": "LUT 财政年度",
+        "lutFiscalYearHint": "例如 2026-27",
+        "einvoiceTitle": "电子发票",
+        "einvoiceDescription": "此档案在电子发票中表明身份的方式;连接器和凭据位于“设置 > 电子发票”。",
+        "electronicAddress": "电子地址",
+        "electronicAddressHint": "该开具方的 Peppol 或 EN 16931 标识符,打印为卖方的电子地址。",
+        "electronicAddressScheme": "电子地址方案",
+        "electronicAddressSchemeNone": "无方案",
+        "einvoiceEnabled": "此档案启用电子发票",
+        "einvoiceEnabledHint": "在其已开具的文件上提供 GST 电子发票 JSON、Factur-X 和 UBL 下载,以及 IRN 注册。",
+        "defaultsTitle": "默认值",
+        "baseCurrency": "本位币",
+        "locale": "文档区域设置",
+        "localeHint": "文档上的数字和日期格式",
+        "fiscalYearStart": "财政年度起始月份",
+        "months": {
+          "january": "一月",
+          "february": "二月",
+          "march": "三月",
+          "april": "四月",
+          "may": "五月",
+          "june": "六月",
+          "july": "七月",
+          "august": "八月",
+          "september": "九月",
+          "october": "十月",
+          "november": "十一月",
+          "december": "十二月"
+        },
+        "taxRegime": "默认税制",
+        "regimes": {
+          "indiaGst": "印度 GST",
+          "ukVat": "英国 VAT",
+          "usSalesTax": "美国销售税",
+          "none": "不征税"
+        },
+        "invoiceNumberFormat": "发票编号格式",
+        "invoiceNumberFormatHint": "标记：{tokens}",
+        "creditNoteNumberFormat": "贷项通知单编号格式",
+        "tdsRate": "预期 TDS 税率 (%)",
+        "tdsRateHint": "仅供参考，将作为预期扣缴额打印",
+        "defaultNotes": "默认备注",
+        "defaultTerms": "默认条款",
+        "printTitle": "默认打印内容",
+        "printDescription": "每张发票会复制这些设置，并可单独修改。",
+        "emailTitle": "电子邮件",
+        "emailDescription": "发送编辑器的默认值。占位符：{placeholders}",
+        "emailCc": "默认抄送 (CC)",
+        "emailBcc": "默认密送 (BCC)",
+        "commaSeparated": "以逗号分隔",
+        "invoiceSubject": "发票主题",
+        "invoiceSubjectHint": "留空则使用内置模板",
+        "creditNoteSubject": "贷项通知单主题",
+        "invoiceBody": "发票正文",
+        "creditNoteBody": "贷项通知单正文",
+        "artworkTitle": "图像",
+        "artworkDescription": "PNG、JPEG 或 WebP，最大 2 MB；签名和印章会保留透明度。",
+        "logo": "标志",
+        "signature": "签名",
+        "stamp": "印章",
+        "transparentPng": "透明 PNG",
+        "save": "保存档案"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "付款方式",
+      "title": "付款方式",
+      "description": "客户向您付款的方式。详细信息会加密，并在开具时固化到每张发票中。",
+      "newMethod": "新建方式",
+      "emptyTitle": "暂无付款方式",
+      "emptyDescription": "添加银行账户、UPI ID 或电子钱包，让发票告知客户付款去向。",
+      "addMethod": "添加付款方式",
+      "columns": {
+        "name": "名称",
+        "type": "类型",
+        "currency": "币种",
+        "status": "状态"
+      },
+      "types": {
+        "bankTransfer": "银行转账",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "自定义"
+      },
+      "makeDefaultTitle": "将 {name} 设为默认？",
+      "restoreTitle": "恢复 {name}？",
+      "archiveTitle": "归档 {name}？",
+      "archiveDescription": "已开具的发票会保留当时打印的快照。",
+      "new": {
+        "metaTitle": "新建付款方式",
+        "title": "新建付款方式"
+      },
+      "edit": {
+        "metaTitle": "编辑付款方式",
+        "title": "编辑 {name}",
+        "deleteTitle": "删除 {name}？",
+        "deleteDescription": "仅当没有任何发票或付款引用时才能删除，否则请归档。"
+      },
+      "form": {
+        "name": "名称",
+        "nameHint": "作为付款区块的标题打印",
+        "type": "类型",
+        "currency": "币种",
+        "currencyHint": "可选；仅供参考显示",
+        "anyCurrency": "不限",
+        "instructions": "说明",
+        "instructionsHint": "打印在详细信息下方",
+        "isDefault": "默认方式",
+        "isDefaultDescription": "在新发票上预先选中",
+        "isActive": "启用",
+        "detailsTitle": "详细信息",
+        "detailsDescription": "静态加密存储；开具发票时会生成快照写入。",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "收款人名称",
+        "lines": "内容行",
+        "linesHint": "每行一条，原样打印",
+        "accountEmail": "账户邮箱或账号标识",
+        "bank": {
+          "accountHolder": "户名",
+          "accountNumber": "账号",
+          "bankName": "银行名称",
+          "branch": "支行",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "路由号码 / 分行代码"
+        },
+        "save": "保存付款方式"
+      }
+    },
+    "templates": {
+      "metaTitle": "文档模板",
+      "title": "文档模板",
+      "customised": "已自定义",
+      "builtIn": "内置默认",
+      "description": "发票和贷项通知单的外观。已开具的文档会保留开具时使用的模板。",
+      "resetTitle": "重置为内置默认？",
+      "resetDescription": "您的自定义内容将被移除；已开具的文档不受影响。",
+      "reset": "重置",
+      "resetTrigger": "重置为默认值",
+      "importTitle": "导入",
+      "importDescription": "恢复此前导出的配置。",
+      "overridesTitle": "各档案覆盖设置",
+      "overridesDescription": "档案可在其编辑页面选择使用专属模板。",
+      "noOverrides": "所有档案都使用实例模板。",
+      "import": {
+        "json": "模板 JSON",
+        "jsonHint": "粘贴由“导出 JSON”生成的文件；缺少的键将使用默认值",
+        "importing": "导入中…",
+        "submit": "导入"
+      },
+      "form": {
+        "templateTitle": "模板",
+        "templateDescription": "六种内置模板；下方的自定义内容适用于您选择的任一模板。",
+        "templateGroup": "模板",
+        "templates": {
+          "ledger": {
+            "name": "账本",
+            "character": "现代通透，无衬线字体，标题下方有强调色线条。"
+          },
+          "classic": {
+            "name": "经典",
+            "character": "传统的带框表格，衬线标题，方框合计。"
+          },
+          "compact": {
+            "name": "紧凑",
+            "character": "适合长项目列表的密集版式；字体较小，分隔线较少。"
+          },
+          "minimal": {
+            "name": "极简",
+            "character": "安静而宽敞：没有线条或方框，标签轻盈，留白充足。"
+          },
+          "letterhead": {
+            "name": "信头",
+            "character": "您的标志和名称显示在每页顶部的色带或图像上。"
+          },
+          "modern": {
+            "name": "现代",
+            "character": "色带页眉；当事方、表头和合计使用淡色强调底色。"
+          }
+        },
+        "paperTitle": "纸张与字体",
+        "paperSize": "纸张大小",
+        "paperLetter": "Letter",
+        "margins": "页边距",
+        "marginsNormal": "标准",
+        "marginsNarrow": "窄",
+        "headingFont": "标题字体",
+        "bodyFont": "正文字体",
+        "fontSans": "无衬线",
+        "fontSerif": "衬线",
+        "tableStyle": "表格样式",
+        "tableRuled": "带线框",
+        "tableZebra": "斑马纹",
+        "tablePlain": "简洁",
+        "accentColour": "强调色",
+        "textColour": "文字颜色",
+        "logoPosition": "标志位置",
+        "positionLeft": "靠左",
+        "positionCentre": "居中",
+        "positionRight": "靠右",
+        "logoHeight": "标志高度 (mm)",
+        "documentTitle": "文档标题",
+        "titleAuto": "自动（依 GST 规定）",
+        "titleCustom": "自定义",
+        "titlePlaceholder": "例如 PROFORMA INVOICE",
+        "qrPosition": "二维码位置",
+        "qrFooter": "页脚",
+        "qrHeader": "页眉",
+        "qrBesideTotals": "合计旁",
+        "amountInWords": "大写金额",
+        "wordsBelowTotal": "合计下方",
+        "wordsFooter": "页脚",
+        "wordsHidden": "隐藏",
+        "subtotalRow": "小计行",
+        "discountRow": "折扣行",
+        "taxLines": "税额行",
+        "tdsExpected": "预期 TDS",
+        "roundingRow": "舍入调整行",
+        "pageNumbers": "页码",
+        "headerTitle": "页眉",
+        "headerDescription": "每页顶部的色带或图像。信头和现代模板默认显示色带，除非您另行选择。",
+        "headerStyle": "页眉样式",
+        "headerNone": "无",
+        "headerBand": "色带",
+        "headerImage": "图像",
+        "bandColour": "色带颜色",
+        "bandColourHex": "色带颜色（十六进制）",
+        "headerImageLabel": "页眉图像",
+        "headerImageHint": "PNG、JPEG 或 WebP，宽度最多 2400 px；会横跨整个页面宽度。",
+        "imageOpacity": "图像不透明度",
+        "headerHeight": "页眉高度 (mm)",
+        "bandText": "色带上的文字",
+        "bandTextAuto": "自动（依色带颜色）",
+        "bandTextLight": "浅色",
+        "bandTextDark": "深色",
+        "textTitle": "文字",
+        "headerNote": "页眉备注",
+        "footer": "页脚",
+        "signatureCaption": "签名说明",
+        "draftWatermark": "草稿水印",
+        "labelsTitle": "标签",
+        "labelsDescription": "字段留空则使用默认用语。",
+        "save": "保存模板",
+        "downloadSample": "下载示例 PDF",
+        "exportJson": "导出 JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "电子邮件",
+      "title": "电子邮件",
+      "configuredSettings": "已在设置中配置",
+      "configuredEnv": "已由环境配置",
+      "notConfigured": "未配置：使用邮件应用流程",
+      "description": "文档由编辑器发出，并附带已保存的 PDF。此处的设置会覆盖环境中的 SMTP_*。",
+      "sendTest": "发送测试邮件至 {email}",
+      "removeTitle": "移除已保存的 SMTP 设置？",
+      "removeEnvTakesOver": "将改用环境中的 SMTP_* 值。",
+      "removeFallsBack": "电子邮件将退回使用邮件应用流程。",
+      "removeTrigger": "移除已保存的设置",
+      "smtpTitle": "SMTP 服务器",
+      "smtpFromEnv": "当前取自环境；在此保存会覆盖它。",
+      "smtpPasswordNote": "密码会静态加密存储，且不会再次显示。",
+      "defaultsTitle": "默认收件人",
+      "defaultsDescription": "适用于整个实例的 CC/BCC；开具方档案可另行添加。",
+      "sentTitle": "已发送邮件",
+      "sentDescription": "最近 50 次尝试，包括失败和手动发送。",
+      "smtp": {
+        "host": "主机",
+        "port": "端口",
+        "security": "安全性",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "无（局域网中继）",
+        "user": "用户名",
+        "password": "密码",
+        "passwordStored": "已保存并加密；留空则保留",
+        "passwordEncrypted": "静态加密存储",
+        "from": "发件人地址",
+        "fromName": "发件人名称",
+        "replyTo": "回复地址",
+        "save": "保存 SMTP 设置"
+      },
+      "defaults": {
+        "cc": "默认抄送 (CC)",
+        "ccHint": "添加到每个编辑器；以逗号分隔",
+        "bcc": "默认密送 (BCC)",
+        "save": "保存默认值"
+      }
+    },
+    "security": {
+      "metaTitle": "安全",
+      "title": "安全",
+      "description": "您当前的登录位置，以及所有变更。",
+      "sessions": {
+        "title": "活跃会话",
+        "description": "撤销会话会立即让该设备退出登录。",
+        "signOutOthers": {
+          "title": "退出其他所有设备？",
+          "description": "除当前会话外，其余全部撤销。",
+          "confirm": "退出其他设备",
+          "trigger": "退出其他所有设备"
+        },
+        "columns": {
+          "device": "设备",
+          "ipAddress": "IP 地址",
+          "signedIn": "登录时间",
+          "lastSeen": "最后活动",
+          "expires": "到期时间"
+        },
+        "thisDevice": "此设备",
+        "revokeTitle": "撤销此会话？",
+        "unknownDevice": "未知设备",
+        "unknownBrowser": "未知",
+        "agentOnOs": "{os} 上的 {browser}"
+      },
+      "audit": {
+        "title": "审计日志",
+        "count": "{count, plural, other {# 个事件}}",
+        "entity": "实体",
+        "actionContains": "操作包含",
+        "filter": "筛选",
+        "reset": "重置",
+        "columns": {
+          "when": "时间",
+          "who": "操作人",
+          "action": "操作",
+          "entity": "实体",
+          "summary": "摘要"
+        },
+        "empty": "没有符合这些筛选条件的事件。",
+        "system": "系统",
+        "changes": "变更内容",
+        "page": "第 {page} 页，共 {pages} 页"
+      }
+    },
+    "users": {
+      "metaTitle": "用户",
+      "title": "用户",
+      "description": "谁可以登录本实例，以及他们能做什么。",
+      "roles": {
+        "owner": "所有者",
+        "editor": "编辑者",
+        "viewer": "查看者"
+      },
+      "roleHints": {
+        "owner": "全部权限，包括设置和成员管理",
+        "editor": "客户、目录、发票、贷项通知单、付款、电子邮件",
+        "viewer": "只读"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "{email} 的角色",
+      "invite": {
+        "title": "邀请成员",
+        "description": "对方使用受邀地址登录（通过身份提供方或密码），并获得您选择的角色。",
+        "sent": "邀请已发送至 {email}。",
+        "readyWithError": "已为 {email} 准备好邀请。邮件无法发送（{error}）；请将此链接发给对方：",
+        "readyNoSmtp": "已为 {email} 准备好邀请。尚未配置 SMTP；请将此链接发给对方：",
+        "copyLink": "复制链接",
+        "email": "电子邮件",
+        "emailPlaceholder": "person@example.com",
+        "role": "角色",
+        "submit": "邀请",
+        "inviting": "邀请中…"
+      },
+      "members": {
+        "title": "成员",
+        "description": "始终至少保留一位启用中的所有者。",
+        "columns": {
+          "person": "成员",
+          "role": "角色",
+          "lastSignIn": "最后登录",
+          "status": "状态"
+        },
+        "nameYou": "{name}（您）",
+        "deactivated": "已停用",
+        "reactivate": {
+          "title": "重新启用 {email}？",
+          "description": "对方可以用先前的角色再次登录。",
+          "confirm": "重新启用"
+        },
+        "deactivate": {
+          "title": "停用 {email}？",
+          "description": "所有会话将立即结束，在重新启用之前对方无法登录。历史记录会保留。",
+          "confirm": "停用"
+        }
+      },
+      "invitations": {
+        "title": "待处理的邀请",
+        "description": "可登录但尚未登录的地址。",
+        "columns": {
+          "email": "电子邮件",
+          "role": "角色",
+          "invited": "邀请时间"
+        },
+        "empty": "没有待处理的邀请。",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "撤销对 {email} 的邀请？"
+      }
+    },
+    "data": {
+      "metaTitle": "数据",
+      "title": "数据",
+      "description": "一切皆可导出：数据集可导出为 CSV 或 Excel、完整快照可用于迁移、PDF 可交给会计师，另有经过测试的备份流程。",
+      "period": {
+        "fiscalYear": "财政年度",
+        "fiscalYearHint": "会覆盖日期",
+        "issuer": "开具方"
+      },
+      "exportAll": {
+        "title": "导出所有数据",
+        "description": "一个 ZIP，包含每个数据集的 CSV，以及 <mono>data.json</mono>（所有数据表的关系型快照）。加密字段（付款方式详细信息、SMTP 密码）不包含在内；其中的 README 会列出这些字段。",
+        "download": "下载 okinvo-data ZIP"
+      },
+      "exportDocuments": {
+        "title": "导出文档",
+        "description": "某一期间内所有已开具和已作废的发票及贷项通知单 PDF，以编号命名，并附带 <mono>index.csv</mono>（含编号、合计和哈希值）。缺少的 PDF 会在导出过程中生成。",
+        "docx": "同时包含每份文档的 DOCX 副本",
+        "facturx": "同时包含内嵌 EN 16931 XML 的 Factur-X PDF/A-3 副本",
+        "download": "下载文档 ZIP"
+      },
+      "datasets": {
+        "title": "数据集",
+        "description": "与各索引页提供的导出相同，并对全部应用期间和开具方。付款使用日期范围；客户和服务则忽略期间。",
+        "columns": {
+          "dataset": "数据集",
+          "filters": "应用的筛选条件",
+          "download": "下载"
+        },
+        "names": {
+          "invoices": "发票登记簿",
+          "invoiceItems": "发票明细项目",
+          "payments": "付款分类账",
+          "creditNotes": "贷项通知单登记簿",
+          "clients": "客户",
+          "services": "服务",
+          "gstSummary": "GST 汇总",
+          "tdsSummary": "TDS 汇总"
+        },
+        "filters": {
+          "periodIssuer": "期间、开具方",
+          "dateRangeIssuer": "日期范围、开具方",
+          "includesArchived": "包含已归档项"
+        }
+      },
+      "backups": {
+        "title": "备份",
+        "notWired": "未接入备份服务",
+        "noRun": "尚未运行过备份",
+        "lastOk": "上次备份成功",
+        "lastFailed": "上次备份失败",
+        "description": "Compose 的 <mono>backup</mono> 服务会按 <mono>BACKUP_CRON</mono> 转储 Postgres 并归档存储卷，在 <mono>backups</mono> 卷中保留 <mono>BACKUP_RETENTION_DAYS</mono> 天的历史，并写入本页读取的状态文件。",
+        "finished": "完成时间",
+        "databaseDump": "数据库转储",
+        "storageArchive": "存储归档",
+        "size": "大小",
+        "sizeMb": "{size} MB",
+        "error": "错误",
+        "runNow": "立即运行一次，或使用一组文件恢复：",
+        "restoreDrill": "恢复流程由 <mono>scripts/restore-drill.sh</mono> 在 CI 中演练：写入数据、备份、清除、恢复，然后比对行数和 PDF 哈希值。"
+      }
+    },
+    "legal": {
+      "metaTitle": "法律",
+      "metaDescription": "谁运营本实例：印在公开法律页面上的详细信息。",
+      "title": "法律",
+      "description": "公开的法律页面会打印这些详细信息。在所有字段填写完成前，页面会显示醒目的占位符。",
+      "operator": {
+        "title": "运营者详细信息",
+        "complete": "已完成",
+        "missing": "缺少 {count} 项：{fields}",
+        "description": "您作为运营本实例的个人或公司，即是文档所指的运营者。这里的内容不会发送到任何地方，只会打印在下方的页面上。"
+      },
+      "fieldLabels": {
+        "legalName": "运营者法定名称",
+        "entityType": "实体类型",
+        "address": "运营者地址",
+        "country": "运营者所在国家或地区",
+        "contactEmail": "联系邮箱",
+        "privacyEmail": "隐私邮箱",
+        "dpoEmail": "数据保护官邮箱",
+        "governingLaw": "适用法律",
+        "venue": "争议管辖地",
+        "effectiveDate": "生效日期"
+      },
+      "publicPages": {
+        "title": "公开页面",
+        "description": "从登录页面、分享查看页面和 Cookie 通知链接而来。",
+        "terms": "服务条款",
+        "acceptableUse": "可接受使用政策",
+        "privacy": "隐私政策",
+        "cookies": "Cookie 政策",
+        "dataRetention": "数据保留",
+        "security": "安全",
+        "licenses": "许可与第三方声明"
+      },
+      "form": {
+        "legalName": "法定名称",
+        "entityType": "实体类型",
+        "individual": "个人 / 个体经营者",
+        "company": "公司 / 登记实体",
+        "address": "地址",
+        "addressHint": "在服务条款和隐私政策中打印为运营者的通信地址。",
+        "country": "国家或地区",
+        "effectiveDate": "生效日期",
+        "contactEmail": "联系邮箱",
+        "privacyEmail": "隐私邮箱",
+        "privacyEmailHint": "数据主体请求的接收地址；可与联系地址相同。",
+        "dpoEmail": "数据保护官邮箱",
+        "dpoEmailHint": "仅在您已指定时填写。",
+        "governingLaw": "适用法律",
+        "governingLawHint": "例如“印度法律”或“英格兰和威尔士法律”。",
+        "venue": "争议管辖地",
+        "venueHint": "例如“卡纳塔克邦班加罗尔法院”。",
+        "submit": "保存运营者详细信息"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "电子发票",
+      "title": "电子发票",
+      "description": "按开具方档案设置:由哪个连接器注册印度电子发票,以及 Factur-X 和 UBL 输出遵循的欧洲档案。凭据加密存储,之后不再显示。",
+      "noProfiles": "请先创建开具方档案。",
+      "profile": "开具方档案",
+      "enabled": "已启用",
+      "disabled": "已停用",
+      "enabledHint": "请在“设置 > 开具方档案”中按档案开启或关闭电子发票。",
+      "india": {
+        "title": "印度(GST 电子发票、IRN)",
+        "description": "IRN 通过此处选择的连接器注册;手动连接器则手动录入门户的响应。",
+        "connector": "连接器",
+        "connectorNone": "关闭",
+        "connectorManual": "手动(粘贴 IRP 响应)",
+        "connectorNic": "NIC IRP API(沙盒或生产环境)",
+        "nicUnverified": "NIC 连接器遵循已发布的 API,仅使用录制的测试数据验证;在提供凭据之前,尚未针对真实沙盒验证。",
+        "env": "环境",
+        "sandbox": "沙盒",
+        "production": "生产环境",
+        "baseUrl": "基础 URL",
+        "baseUrlHint": "留空则使用该环境的默认值。",
+        "clientId": "客户端 ID",
+        "clientSecret": "客户端密钥",
+        "username": "用户名",
+        "password": "密码",
+        "gstin": "GSTIN",
+        "publicKey": "IRP 公钥(PEM)",
+        "publicKeyHint": "登录门户后下载;它用于加密发送至 IRP 的凭据。",
+        "publicKeyStored": "已存储;留空则保留现有内容。",
+        "secretStored": "已加密存储;留空则保留现有内容。",
+        "secretEncrypted": "静态时已加密存储。"
+      },
+      "eu": {
+        "title": "欧洲(Factur-X、UBL)",
+        "description": "此版本仅支持 EN 16931 档案;Factur-X 和 UBL 下载均使用该档案。",
+        "profile": "档案",
+        "profileNone": "关闭",
+        "en16931": "EN 16931"
+      },
+      "save": "保存电子发票设置"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "供脚本、SDK 和 MCP 客户端使用的 API 密钥，附 curl 示例。",
+      "title": "API",
+      "description": "供脚本、SDK 和 MCP 客户端使用的密钥。密钥的权限最多与您的角色相同；仅显示一次。",
+      "create": {
+        "title": "创建密钥",
+        "description": "以 <mono>Authorization: Bearer okv_…</mono> 发送。请勿放入源代码或聊天记录；若泄露，请在下方撤销。"
+      },
+      "keys": {
+        "title": "密钥",
+        "descriptionOwner": "本实例的所有密钥；所有者可撤销其中任何一个。",
+        "descriptionOwn": "您的密钥。",
+        "columns": {
+          "name": "名称",
+          "prefix": "前缀",
+          "scopes": "范围",
+          "owner": "所有者",
+          "lastUsed": "最后使用",
+          "expires": "到期",
+          "status": "状态"
+        },
+        "empty": "暂无 API 密钥。",
+        "never": "从未",
+        "revoked": "已撤销",
+        "expired": "已到期",
+        "revokeTitle": "撤销 {name}？",
+        "revokeDescription": "使用此密钥的客户端会立即失效。",
+        "activeCount": "{count, plural, other {# 个有效密钥。}}"
+      },
+      "examples": {
+        "title": "示例",
+        "description": "请将 <mono>$OKINVO_KEY</mono> 替换为密钥。带版本的 REST API、其 OpenAPI 文档 (<mono>/api/openapi.json</mono>)、TypeScript SDK 和 MCP 服务器将随 v1.1 计划的后续任务推出；状态端点目前已可使用。",
+        "rateLimit": "超出限制的调用会返回 429 并附带 <mono>Retry-After</mono> 标头（每个密钥每分钟 120 次请求）。密钥的范围上限取决于其所有者当前的角色。"
+      },
+      "form": {
+        "copyKey": "复制 API 密钥",
+        "name": "名称",
+        "namePlaceholder": "例如 会计脚本",
+        "expires": "到期",
+        "in30Days": "30 天后",
+        "in90Days": "90 天后",
+        "inAYear": "一年后",
+        "never": "永不",
+        "scopes": "范围",
+        "submit": "创建 API 密钥",
+        "creating": "创建中…"
+      },
+      "scopes": {
+        "invoicesRead": "读取发票",
+        "invoicesCreate": "创建并开具发票",
+        "creditNotesRead": "读取贷项通知单",
+        "creditNotesCreate": "创建并开具贷项通知单",
+        "catalogueRead": "读取客户、服务和产品",
+        "documentsRead": "下载已保存的 PDF 和 DOCX 副本",
+        "statusRead": "读取实例状态"
+      }
+    },
+    "status": {
+      "metaTitle": "状态",
+      "metaDescription": "本实例的版本、数据库、存储、电子邮件和备份健康状况。",
+      "title": "状态",
+      "description": "本实例正在运行的内容，以及各部分是否有响应。",
+      "recheck": "重新检查",
+      "health": {
+        "ok": "正常",
+        "warning": "警告",
+        "failed": "失败",
+        "na": "未配置"
+      },
+      "overall": {
+        "ok": "一切正常",
+        "degraded": "性能下降",
+        "failed": "失败"
+      },
+      "version": "构建 {hasSha, select, yes {<mono>{sha}</mono>} other {（sha 未知）}} · 构建于 {built} · Node <mono>{node}</mono> · 已运行 {uptime} · 检查于 {checked}",
+      "dateUnknown": "（日期未知）",
+      "uptime": {
+        "days": "{d} 天 {h} 小时 {m} 分",
+        "hours": "{h} 小时 {m} 分",
+        "minutes": "{m} 分"
+      },
+      "rows": {
+        "database": "数据库",
+        "storage": "存储",
+        "rateLimiting": "速率限制",
+        "email": "电子邮件",
+        "backups": "备份"
+      },
+      "db": {
+        "detail": "{latency} ms · 最近一次迁移 <mono>{migration}</mono>{hasDate, select, yes {（{finishedAt}）} other {}}{pending, plural, =0 {} other { · # 个未完成的迁移}}",
+        "noMigration": "无"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · 在 {latency} ms 内完成探测对象的写入、读取和删除",
+        "failed": "{driver}：{error}"
+      },
+      "rateLimit": "<mono>{store}</mono> 存储 {store, select, memory {（单副本）} other {（跨副本共享）}}",
+      "smtp": {
+        "configured": "SMTP 来源：{source, select, settings {设置} env {环境变量} other {}} · 上次测试 {lastTest} · 过去 24 小时：已发送 {sent} 封，失败 {failed} 封",
+        "none": "没有 SMTP 服务器；编辑器会提供“在邮件应用中打开”。<link>前往配置</link>"
+      },
+      "backups": {
+        "notWired": "未接入备份服务（BACKUP_STATUS_FILE 未设置）。",
+        "noRun": "已接入备份服务；暂无运行记录。",
+        "ok": "上次运行成功，时间 {finishedAt}{days, plural, =0 {} other { · 保留 # 天}}",
+        "failed": "上次运行失败：{error}，时间 {finishedAt}{days, plural, =0 {} other { · 保留 # 天}}"
+      },
+      "footer": "同一份报告也可通过 <mono>/api/health/status</mono> 以 JSON 获取，供监控使用（需已登录的会话或 API 密钥）。"
+    },
+    "usage": {
+      "metaTitle": "使用情况",
+      "metaDescription": "此实例上按屏幕和日期统计的页面浏览量，仅在本地计数。",
+      "title": "使用情况",
+      "description": "每个屏幕被打开的次数，仅在此实例上统计：不使用 Cookie，不记录地址，不向任何地方发送数据。",
+      "last30Days": "最近 30 天",
+      "total": "{count, plural, =0 {没有页面浏览} other {# 次页面浏览}}",
+      "off": "计数已关闭。设置 ANALYTICS_LOCAL=true 即可在此实例上统计页面浏览量。",
+      "empty": "尚未记录任何页面浏览。",
+      "columns": {
+        "day": "日期",
+        "path": "屏幕",
+        "views": "浏览量"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "欢迎",
+    "progress": "进度",
+    "steps": {
+      "aboutYou": "关于您",
+      "howYouUse": "使用方式",
+      "allSet": "准备就绪"
+    },
+    "step1": {
+      "title": "请介绍一下您自己",
+      "subtitle": "这会设置您的默认值；每个值之后都可以在设置中更改。",
+      "name": "姓名",
+      "email": "电子邮件",
+      "emailHint": "您的登录身份。之后可从“设置 → 安全”更改。",
+      "country": "国家或地区",
+      "currency": "首选币种",
+      "currencyHint": "用于新档案，在创建档案之前也用于仪表板。"
+    },
+    "step2": {
+      "title": "您将如何使用 okinvo？",
+      "subtitle": "只会改变默认值；不会锁定任何选择。",
+      "usage": "用途",
+      "personal": "个人开票",
+      "personalHint": "以个人名义承接的自由职业工作",
+      "business": "企业开票",
+      "businessHint": "以注册企业的名义开具发票",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "VAT 号码",
+        "other": "税务登记号"
+      },
+      "taxQuestion": {
+        "IN": "您有 GSTIN 吗？",
+        "GB": "您已注册 VAT 吗？",
+        "other": "您有要打印在发票上的税务登记号吗？"
+      }
+    },
+    "step3": {
+      "title": "一切就绪",
+      "body": "接下来，请创建您的第一个开具方档案：打印在发票上的名称、地址和税务信息。我们已填入您提供的内容。",
+      "go": "前往档案",
+      "opening": "打开中…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "条款",
+      "privacy": "隐私",
+      "cookies": "Cookie",
+      "security": "安全"
+    },
+    "cookieNotice": {
+      "label": "Cookie 通知",
+      "body": "我们仅使用严格必要的 Cookie：您的会话和显示偏好。无分析，无追踪。",
+      "policy": "Cookie 政策",
+      "gotIt": "知道了"
+    },
+    "nav": {
+      "label": "法律",
+      "cookies": "Cookie",
+      "privacy": "隐私",
+      "terms": "条款",
+      "acceptableUse": "可接受使用",
+      "retention": "保留",
+      "security": "安全",
+      "licences": "许可"
+    },
+    "operatorNotice": "okinvo 是自托管软件；本实例的运营者须对其使用负责。",
+    "doc": {
+      "effectiveOn": "生效日期 <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "目录"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "运营者法定名称",
+        "entityType": "实体类型",
+        "address": "运营者地址",
+        "country": "运营者所在国家或地区",
+        "contactEmail": "联系邮箱",
+        "privacyEmail": "隐私邮箱",
+        "dpoEmail": "数据保护官邮箱",
+        "governingLaw": "适用法律",
+        "venue": "争议管辖地",
+        "effectiveDate": "生效日期"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "未找到",
+      "title": "此地址没有任何内容",
+      "body": "链接可能已过期，或它所指向的文档从未开具。"
+    },
+    "forbidden": {
+      "metaTitle": "不允许",
+      "title": "此账户无法执行该操作",
+      "body": "您的角色不允许此操作。请向所有者申请权限，或改用具备权限的账户登录。"
+    },
+    "error": {
+      "title": "出错了",
+      "body": "此请求没有更改任何内容。请重试；若持续出现，服务器日志中有详细信息。",
+      "digest": "错误 {digest}",
+      "generic": "错误"
+    },
+    "appNotFound": {
+      "title": "未找到",
+      "body": "此记录不存在，或在您查看时已被删除。",
+      "back": "返回仪表板"
+    },
+    "validation": {
+      "required": "必填",
+      "tooLong": "最多 {max} 个字符",
+      "invalidEmail": "必须是有效的电子邮件",
+      "invalidDate": "必须是 YYYY-MM-DD 格式的日历日期",
+      "invalidAmount": "必须是数字",
+      "wholeNumber": "必须是整数",
+      "greaterThanZero": "必须大于零",
+      "fixFields": "请修正标出的字段。",
+      "charset": "仅允许标准键盘字符。"
+    }
+  },
+  "verify": {
+    "metaTitle": "验证文档",
+    "metaDescription": "核实发票或贷项通知单确由其发件人开具，且未被篡改。",
+    "heading": "文档验证",
+    "rateLimited": "此地址的检查次数过多。请一分钟后重试。",
+    "notFound": {
+      "title": "没有这份文档",
+      "body": "此链接与任何已开具的文档都不匹配。请检查二维码或您收到的链接，或联系开具方。"
+    },
+    "status": {
+      "void": "已作废",
+      "valid": "有效"
+    },
+    "issuedBy": "开具方",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "开具对象",
+    "issueDate": "开具日期",
+    "total": "合计",
+    "voided": "此文档已由开具方作废，不再有效。",
+    "storedCopies": {
+      "title": "已保存的副本",
+      "description": "开具方所持每个 PDF 版本的 SHA-256。选择您的副本即可在浏览器中比对：不会上传任何内容。",
+      "empty": "尚未生成任何 PDF。",
+      "protectedVersion": "受密码保护的副本 {version}",
+      "version": "版本 {version}"
+    },
+    "check": {
+      "label": "检查您的副本",
+      "hashing": "计算哈希中…",
+      "match": "您的副本与版本 {version} 完全一致。",
+      "mismatch": "您的副本与任何已保存的版本都不一致。"
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "分享的文档",
+      "metaDescription": "与您共享的文档：在线查看并下载 PDF。",
+      "rateLimited": "此地址的请求次数过多。请一分钟后重试。",
+      "unavailable": {
+        "title": "此链接不可用",
+        "body": "它可能已过期或已被开具方撤销。请向对方索取新的链接。"
+      },
+      "lockedTitleInvoice": "来自 {issuer} 的发票",
+      "lockedTitleCreditNote": "来自 {issuer} 的贷项通知单",
+      "lockedBody": "此文档受密码保护。请输入开具方提供的密码。",
+      "void": "已作废",
+      "protectedPdf": "PDF 使用相同的密码打开。可阅读和打印；复制和编辑已锁定。",
+      "byline": "由 {issuer} 开给 {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "密码",
+      "limited": "尝试次数过多。请等待十五分钟后重试。",
+      "wrong": "密码不正确。",
+      "submit": "打开文档"
+    },
+    "dialog": {
+      "trigger": "分享",
+      "title": "分享此文档",
+      "description": "任何持有链接的人都可以查看和下载，直到链接到期或您撤销为止。密码也会保护 PDF 本身：需输入密码才能打开，可阅读和打印，但无法编辑或复制。",
+      "link": "链接",
+      "copyLink": "复制链接",
+      "password": "密码",
+      "copyPassword": "复制密码",
+      "sendSeparately": "请将密码与链接分开发送。您可以在下方列表中再次查看。",
+      "copy": "复制",
+      "copied": "已复制",
+      "expires": "到期",
+      "expiry": {
+        "d7": "7 天后",
+        "d30": "30 天后",
+        "d90": "90 天后",
+        "never": "永不"
+      },
+      "protection": "保护",
+      "protectionOptions": {
+        "auto": "密码：自动生成口令",
+        "manual": "密码：自行设置",
+        "none": "无密码（公开链接）"
+      },
+      "passwordHint": "至少 8 个字符。",
+      "strength": "强度：{label}",
+      "strengthLabels": {
+        "veryWeak": "非常弱",
+        "weak": "弱",
+        "fair": "一般",
+        "good": "良好",
+        "strong": "强"
+      },
+      "creating": "创建中…",
+      "create": "创建链接",
+      "activeLinks": "有效链接",
+      "passwordProtected": "受密码保护",
+      "openLink": "打开链接",
+      "linkExpires": "{kind} · 到期 {date}",
+      "linkNeverExpires": "{kind} · 永不到期",
+      "revoke": {
+        "title": "撤销此链接？",
+        "description": "所有持有此链接的人会立即无法使用。",
+        "label": "撤销"
+      },
+      "linkPassword": "密码：<code>{password}</code>",
+      "counts": "{views, plural, other {# 次查看}} · {downloads, plural, other {# 次下载}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "贷项通知单",
+      "title": "贷项通知单",
+      "description": "针对已开具的发票开具；每张开具后都会减少其发票余额。",
+      "newCreditNote": "新建贷项通知单",
+      "filters": {
+        "from": "从",
+        "to": "至",
+        "issuer": "开具方",
+        "client": "客户",
+        "status": "状态",
+        "search": "搜索",
+        "all": "全部",
+        "searchPlaceholder": "编号、原因、客户",
+        "go": "前往"
+      },
+      "statuses": {
+        "DRAFT": "草稿",
+        "ISSUED": "已开具",
+        "SENT": "已发送",
+        "VOID": "已作废"
+      },
+      "empty": {
+        "title": "暂无贷项通知单",
+        "description": "打开已开具的发票并选择“贷项通知单”，即可减少其应付金额。"
+      },
+      "noMatch": "没有符合这些筛选条件的贷项通知单。",
+      "columns": {
+        "number": "编号",
+        "against": "对应发票",
+        "client": "客户",
+        "issueDate": "开具日期",
+        "reason": "原因",
+        "total": "合计",
+        "status": "状态"
+      },
+      "draft": "草稿"
+    },
+    "new": {
+      "metaTitle": "新建贷项通知单",
+      "title": "新建贷项通知单",
+      "description": "贷项通知单针对已开具的发票开具，并减少其余额。",
+      "nothingToCredit": {
+        "title": "没有可冲减的项目",
+        "description": "贷项通知单需要有未清余额的已开具发票。",
+        "openInvoices": "打开发票"
+      },
+      "whichInvoice": "针对哪张发票？",
+      "invoice": "发票",
+      "invoiceOption": "{number} · {client} · 余额 {balance}",
+      "issuedOnly": "贷项通知单仅能针对已开具的发票开具。",
+      "invoiceFallback": "发票"
+    },
+    "edit": {
+      "metaTitle": "编辑贷项通知单",
+      "title": "编辑贷项通知单草稿",
+      "immutable": "已开具的贷项通知单不可修改。",
+      "draft": "草稿"
+    },
+    "detail": {
+      "metaTitle": "贷项通知单",
+      "draftTitle": "贷项通知单草稿",
+      "meta": "{client} · 对应 <invoice>{number}</invoice> · 开具于 <mono>{date}</mono>",
+      "previewPdf": "预览 PDF",
+      "issue": {
+        "title": "开具此贷项通知单？",
+        "description": "将分配编号、减少发票余额，且文档将不可再修改。",
+        "label": "开具"
+      },
+      "deleteDraft": {
+        "title": "删除此草稿？"
+      },
+      "sendByEmail": "通过电子邮件发送",
+      "markSent": {
+        "title": "标记为已发送？",
+        "label": "标记为已发送"
+      },
+      "void": {
+        "title": "作废此贷项通知单？",
+        "description": "发票余额将恢复；此编号不会再使用。",
+        "reason": "原因",
+        "label": "作废"
+      },
+      "voided": "于 {date} 作废：{reason}",
+      "amounts": {
+        "title": "金额",
+        "reason": "原因",
+        "creditAmount": "冲减金额",
+        "total": "合计",
+        "balanceNow": "当前发票余额",
+        "sent": "已发送"
+      },
+      "documents": {
+        "title": "已保存的文档",
+        "description": "每个版本都会保留；验证页面会列出所有哈希值。",
+        "regenerateTitle": "生成新的 PDF 版本？",
+        "generate": "生成",
+        "newVersion": "新版本",
+        "renderedOnFirstDownload": "PDF 会在首次下载时生成。",
+        "protectedCopy": "受密码保护的副本 {version}",
+        "version": "版本 {version}",
+        "verificationLink": "验证链接：<link>{path}…</link>"
+      },
+      "draftsPreview": "草稿可在编辑器中实时预览。"
+    },
+    "send": {
+      "metaTitle": "发送贷项通知单",
+      "title": "发送 <mono>{number}</mono>",
+      "previousSends": "此前的发送记录"
+    },
+    "builder": {
+      "against": "对应 <mono>{number}</mono>",
+      "summary": "{client} · 合计 {total} · 余额 {balance} · 可冲减应税额度约 {headroom}",
+      "issueDate": "开具日期",
+      "creditAmount": "冲减金额（不含税）",
+      "creditAmountHint": "税额依发票的税额行按比例分摊",
+      "reason": "原因",
+      "picker": {
+        "title": "根据发票明细计算",
+        "description": "勾选整行或输入百分比；这只会填入上方的金额。",
+        "line": "明细",
+        "subtotal": "小计",
+        "credit": "冲减",
+        "percent": "%",
+        "creditLine": "冲减第 {position} 行",
+        "percentOfLine": "第 {position} 行的百分比"
+      },
+      "saveDraft": "保存草稿",
+      "issuing": "开具中…",
+      "saveAndIssue": "保存并开具"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "已收款项",
+        "REFUND": "已退款",
+        "WRITE_OFF": "核销"
+      },
+      "editTitle": "编辑条目",
+      "recordTitle": "记录付款",
+      "description": "金额以发票币种（{currency}）计；已扣缴的 TDS 属于应用金额的一部分。",
+      "kind": "类别",
+      "date": "日期",
+      "amountRefunded": "退款金额（负数）",
+      "amountApplied": "应用金额",
+      "refundHint": "请输入负数，例如 -500",
+      "tdsDeducted": "已扣缴 TDS",
+      "tdsHint": "客户代扣的税款；计入应用金额",
+      "bankFees": "银行手续费",
+      "receivedInto": "收款账户",
+      "noMethod": "-",
+      "reference": "参考编号",
+      "referenceHint": "UTR、交易编号、支票号码",
+      "otherCurrency": "以其他币种收款",
+      "amountReceived": "实收金额",
+      "receivedCurrency": "收款币种",
+      "exchangeRate": "汇率",
+      "exchangeRateHint": "1 单位收款币种 = ? {currency}",
+      "notes": "备注",
+      "receiptHint": "PNG、JPEG、WebP 或 PDF，最大 10 MB",
+      "receipts": "收据和账单",
+      "receiptN": "收据 {n}",
+      "removeReceipt": "移除收据 {n}",
+      "saveChanges": "保存更改",
+      "record": "记录"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "收票方",
+      "shipTo": "送货地址",
+      "invoice": "发票",
+      "creditNote": "贷项通知单",
+      "issueDate": "开具日期",
+      "dueDate": "到期日",
+      "number": "编号",
+      "description": "说明",
+      "sacHsn": "SAC/HSN",
+      "qty": "数量",
+      "unit": "单位",
+      "rate": "单价",
+      "tax": "税额",
+      "amount": "金额",
+      "subtotal": "小计",
+      "discount": "折扣",
+      "taxable": "应税金额",
+      "total": "合计",
+      "amountDue": "应付金额",
+      "tdsExpected": "预期 TDS",
+      "netExpected": "预期净额",
+      "rounding": "舍入调整",
+      "paymentDetails": "付款信息",
+      "notes": "备注",
+      "terms": "条款",
+      "placeOfSupply": "供应地点",
+      "poReference": "采购订单参考号",
+      "amountInWords": "大写金额",
+      "signature": "授权签署人"
+    },
+    "title": {
+      "taxInvoice": "税务发票",
+      "billOfSupply": "供应单据",
+      "invoice": "发票",
+      "creditNote": "贷项通知单"
+    },
+    "text": {
+      "pageOf": "第 {page} 页，共 {total} 页",
+      "scanToVerify": "扫码验证",
+      "taxId": "税号",
+      "void": "作废",
+      "draftWatermark": "草稿 - 非税务发票",
+      "paymentTermsDays": "{days} 天",
+      "irn": "IRN",
+      "ackNo": "确认编号",
+      "ackDate": "确认日期",
+      "einvoiceCancelled": "电子发票已作废"
+    },
+    "ui": {
+      "pageEstimate": "约 {count, plural, other {# 页}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "邮件内容",
+      "description": "由开具方档案的模板预先填写。在您点击发送之前不会发出任何内容。",
+      "to": "收件人",
+      "toHint": "以逗号分隔",
+      "cc": "抄送 (CC)",
+      "bcc": "密送 (BCC)",
+      "subject": "主题",
+      "body": "正文",
+      "bodyHint": "纯文本；链接会变为可点击",
+      "attachment": "附件",
+      "attachmentHint": "已保存的副本，文件名为 <mono>{name}</mono>（或 .docx）；其内容无法更改。",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "发送中…",
+      "send": "发送",
+      "openInMailApp": "在邮件应用中打开",
+      "noSmtp": "尚未配置 SMTP 服务器（设置 → 电子邮件）。请在邮件应用中打开草稿、附上已下载的 PDF，然后在下方标记为已发送。",
+      "markAsSent": "标记为已发送"
+    },
+    "sentLog": {
+      "when": "时间",
+      "document": "文档",
+      "to": "收件人",
+      "subject": "主题",
+      "status": "状态",
+      "empty": "尚未发送任何邮件。",
+      "noDocument": "-",
+      "cc": "抄送 {list}",
+      "statuses": {
+        "SENT": "已发送",
+        "FAILED": "失败",
+        "MANUAL": "手动"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "{name}，您好",
+    "fiscalYear": "{year} 财政年度",
+    "fiscalYearWithBase": "{year} 财政年度 · 本位币 {currency}（{profile}）",
+    "newCreditNote": "新建贷项通知单",
+    "welcomeTitle": "欢迎使用 {appName}",
+    "welcomeDescription": "请先创建您开具发票所用的开具方档案，然后添加客户和您的第一张发票。",
+    "createProfile": "创建您的档案",
+    "tiles": {
+      "outstanding": "未收款",
+      "overdue": "逾期",
+      "billedThisFy": "本财政年度已开票",
+      "receivedThisFy": "本财政年度已收款",
+      "drafts": "草稿",
+      "invoiceCount": "{count, plural, other {# 张发票}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "付款扣除退款，按记录的汇率计算",
+      "awaitingIssue": "等待开具",
+      "nothingPending": "没有待办项目"
+    },
+    "recentInvoices": "最近的发票",
+    "allInvoices": "所有发票",
+    "noInvoicesYet": "暂无发票。",
+    "columns": {
+      "number": "编号",
+      "client": "客户",
+      "issued": "开具日期"
+    },
+    "topClients": "未收款最多的客户",
+    "nothingOutstanding": "没有未收款项。"
+  },
+  "exports": {
+    "export": "导出",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "发票",
+      "newInvoice": "新建发票",
+      "draft": "草稿",
+      "aDraft": "草稿",
+      "statuses": {
+        "draft": "草稿",
+        "issued": "已开具",
+        "sent": "已发送",
+        "partiallyPaid": "部分付款",
+        "paid": "已付款",
+        "overdue": "逾期",
+        "void": "已作废"
+      },
+      "lifecycle": {
+        "draft": "草稿",
+        "issued": "已开具",
+        "void": "已作废"
+      },
+      "units": {
+        "hour": "小时",
+        "day": "天",
+        "fixed": "固定费用",
+        "milestone": "里程碑",
+        "unit": "单位"
+      },
+      "unitsLower": {
+        "hour": "小时",
+        "day": "天",
+        "fixed": "固定费用",
+        "milestone": "里程碑",
+        "unit": "单位"
+      },
+      "supplyTypes": {
+        "intraState": "邦内供应",
+        "interState": "跨邦供应",
+        "exportLut": "出口（LUT）",
+        "exportWithTax": "出口（含税）",
+        "reverseCharge": "反向征税",
+        "notApplicable": "不适用"
+      }
+    },
+    "list": {
+      "description": "草稿、已开具和已作废的发票；状态由付款和到期日推算。",
+      "fiscalYear": "财政年度",
+      "issuer": "开具方",
+      "client": "客户",
+      "searchPlaceholder": "编号、采购单、客户",
+      "emptyTitle": "暂无发票",
+      "emptyDescription": "创建您的第一张发票：选择客户、添加明细、查看预览，然后开具。",
+      "columns": {
+        "number": "编号",
+        "client": "客户",
+        "issuer": "开具方",
+        "issueDate": "开具日期",
+        "due": "到期",
+        "balance": "余额"
+      },
+      "noMatches": "没有符合这些筛选条件的发票。",
+      "count": "{count, plural, other {# 张发票}}",
+      "countPaged": "{count, plural, other {# 张发票}} · 第 {page} 页，共 {pages} 页",
+      "register": "登记簿",
+      "einvoice": "电子发票",
+      "einvoiceFilters": {
+        "registered": "IRN 已注册",
+        "none": "未注册",
+        "cancelled": "IRN 已取消"
+      }
+    },
+    "new": {
+      "noProfileTitle": "请先创建开具方档案",
+      "noProfileDescription": "发票由法律身份开具：请先设置您的档案，包括税务标识和编号规则。",
+      "createProfile": "创建档案"
+    },
+    "edit": {
+      "metaTitle": "编辑发票",
+      "title": "编辑草稿",
+      "immutableFlash": "已开具的发票不可修改。请使用“作废并重新开具”来更正。"
+    },
+    "detail": {
+      "metaTitle": "发票",
+      "draftInvoice": "发票草稿",
+      "issuedDue": "开具于 <mono>{issued}</mono>，到期日 <mono>{due}</mono>",
+      "replaces": "取代 {number}",
+      "replacedBy": "由 {number} 取代",
+      "previewPdf": "预览 PDF",
+      "downloadEInvoice": "下载电子发票 JSON",
+      "issueTitle": "开具此发票？",
+      "issueDescription": "将分配编号，且文档将不可再修改。",
+      "issue": "开具",
+      "deleteDraftTitle": "删除此草稿？",
+      "sendByEmail": "通过电子邮件发送",
+      "recordPayment": "记录付款",
+      "progress": {
+        "title": "付款进度",
+        "description": "这张发票从开具到收据归档的当前进度。",
+        "issued": "已开具",
+        "sent": "已发送",
+        "payment": "已记录付款",
+        "paymentOn": "已于 <mono>{date}</mono> 记录 <mono>{amount}</mono> 的付款",
+        "paid": "已全额付清",
+        "receipt": "已附收据",
+        "done": "已完成",
+        "pending": "待处理"
+      },
+      "creditNote": "贷项通知单",
+      "markSentTitle": "标记为已发送？",
+      "markSentDescription": "记录客户已收到此发票。",
+      "markSent": "标记为已发送",
+      "voidReissueTitle": "作废并重新开具？",
+      "voidReissueDescription": "原发票将作废，并打开内容相同且已关联的草稿供您编辑。",
+      "voidReissue": "作废并重新开具",
+      "voidTitle": "作废此发票？",
+      "voidDescription": "仅在没有付款记录时才能作废；此编号不会再使用。",
+      "void": "作废",
+      "voided": "于 {date} 作废：{reason}",
+      "amounts": "金额",
+      "subtotal": "小计",
+      "discount": "折扣",
+      "discountPercent": "折扣 ({percent})",
+      "rounding": "舍入调整",
+      "tdsExpected": "预期 TDS ({percent})",
+      "paid": "已付款",
+      "credited": "已冲减",
+      "balanceDue": "应付余额",
+      "supply": "供应类型",
+      "fxToBase": "对本位币汇率",
+      "poReference": "采购单编号",
+      "sent": "已发送",
+      "lineItems": "明细项目",
+      "columns": {
+        "description": "说明",
+        "sacHsn": "SAC/HSN",
+        "qty": "数量",
+        "rate": "单价",
+        "tax": "税额",
+        "amount": "金额"
+      },
+      "creditNotes": "贷项通知单",
+      "storedDocuments": "已保存的文档",
+      "storedDocumentsHint": "每个版本都会保留；验证页面会列出所有哈希值。",
+      "regenerateTitle": "生成新的 PDF 版本？",
+      "regenerateDescription": "从固化的快照重新生成（例如在渲染器修复之后）。此前的版本会保留。",
+      "regenerate": "生成",
+      "newVersion": "新版本",
+      "renderedOnFirstDownload": "PDF 会在首次下载时生成。",
+      "protectedCopy": "受密码保护的副本 {version}",
+      "version": "版本 {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "验证链接：",
+      "draftPreviewHint": "草稿可在编辑器中实时预览；打开<link>带水印的 PDF</link>即可查看页面。",
+      "einvoice": {
+        "title": "电子发票(印度)",
+        "description": "向发票登记门户(Invoice Registration Portal)注册此发票;已注册的文档会打印其 IRN 及门户的签名二维码。",
+        "connector": "连接器",
+        "connectors": {
+          "manual": "手动",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "此档案尚未配置连接器,请前往“设置 > 电子发票”配置。",
+        "statuses": {
+          "none": "未注册",
+          "generated": "已生成 JSON",
+          "registered": "已注册",
+          "cancelled": "已取消",
+          "failed": "注册失败"
+        },
+        "irn": "IRN",
+        "ackNo": "确认编号",
+        "ackDate": "确认日期",
+        "cancelReason": "取消原因",
+        "generate": "生成 IRN",
+        "pasteLabel": "IRP 响应",
+        "pasteHint": "请粘贴门户或您的 GSP 针对此发票的电子发票 JSON 返回的 JSON(Irn、AckNo、AckDt、SignedQRCode)。",
+        "record": "记录 IRN",
+        "cancelReasonLabel": "取消原因",
+        "cancelReasons": {
+          "1": "重复",
+          "2": "数据录入错误",
+          "3": "订单已取消",
+          "4": "其他"
+        },
+        "cancel": "取消 IRN",
+        "cancelWindow": "门户仅允许在确认后 24 小时内取消。"
+      }
+    },
+    "history": {
+      "metaTitle": "发票历史记录",
+      "title": "<mono>{number}</mono> 的历史记录",
+      "reissueChain": "重新开具链",
+      "replaces": "取代 <link>{number}</link>",
+      "replacedBy": "由 <link>{number}</link> 取代",
+      "auditTrail": "审计轨迹",
+      "columns": {
+        "when": "时间",
+        "who": "操作人",
+        "action": "操作",
+        "summary": "摘要"
+      },
+      "noEvents": "暂无事件。",
+      "system": "系统",
+      "emails": "电子邮件"
+    },
+    "payments": {
+      "title": "付款",
+      "description": "{client} · 合计 {total}",
+      "backToInvoice": "返回发票",
+      "ledger": "分类账",
+      "columns": {
+        "date": "日期",
+        "kind": "类别",
+        "applied": "应用金额",
+        "tds": "TDS",
+        "received": "实收",
+        "reference": "参考编号",
+        "balance": "余额"
+      },
+      "noPayments": "暂无付款记录。",
+      "kinds": {
+        "payment": "付款",
+        "refund": "退款",
+        "writeOff": "核销"
+      },
+      "receipt": "收据",
+      "receiptN": "收据 {n}",
+      "deleteEntryTitle": "删除此条目？",
+      "deleteEntryDescription": "将重新计算发票余额。",
+      "totals": "合计",
+      "invoiceTotal": "发票合计",
+      "credited": "已冲减",
+      "refunds": "退款",
+      "writeOffs": "核销",
+      "tdsDeducted": "已扣缴 TDS",
+      "bankFees": "银行手续费",
+      "balanceDue": "应付余额",
+      "onlyIssued": "仅已开具的发票可接受付款。"
+    },
+    "send": {
+      "metaTitle": "发送发票",
+      "title": "发送 <mono>{number}</mono>",
+      "alreadySent": "已标记为已发送；再次发送会新增一条记录。",
+      "previousSends": "此前的发送记录"
+    },
+    "builder": {
+      "parties": "当事方",
+      "issuerProfile": "开具方档案",
+      "client": "客户",
+      "archivedOption": "{label}（已归档）",
+      "issueDate": "开具日期",
+      "dueDate": "到期日",
+      "fxRate": "对本位币汇率",
+      "fxHint": "1 {currency} = ? {base}（仅供报表）",
+      "poReference": "采购单编号",
+      "lineItems": "明细项目",
+      "lineItemsHint": "从目录选取以复制其值，或自行输入一行。",
+      "taxDiscountTds": "税额、折扣和 TDS",
+      "taxRegime": "税制",
+      "regimes": {
+        "indiaGst": "印度 GST",
+        "ukVat": "英国 VAT",
+        "usSalesTax": "美国销售税",
+        "none": "不征税"
+      },
+      "reverseCharge": "反向征税",
+      "reverseChargeHint": "税款由收受方缴纳",
+      "discount": "折扣",
+      "percent": "百分比",
+      "amount": "金额",
+      "rounding": "舍入调整",
+      "roundingHint": "可选，舍入至整数单位；必须小于 1",
+      "round": "舍入",
+      "tdsRate": "预期 TDS 税率 (%)",
+      "tdsRateHint": "仅供参考；开启 TDS 明细时会打印",
+      "paymentMethods": "付款方式",
+      "paymentMethodsHint": "按勾选顺序打印。",
+      "noPaymentMethods": "没有启用中的付款方式。<link>添加一个</link>。",
+      "whatPrints": "打印内容",
+      "whatPrintsHint": "以开具方档案的默认值为起点。",
+      "documentLanguage": "文档语言",
+      "documentLanguageHint": "标签、日期和金额以此语言打印：优先使用客户的偏好，否则使用资料档案的语言。",
+      "notesAndTerms": "备注和条款",
+      "notes": "备注",
+      "terms": "条款",
+      "saveDraft": "保存草稿",
+      "issuing": "开具中…",
+      "saveAndIssue": "保存并开具",
+      "subtotal": "小计",
+      "tax": "税额",
+      "tdsExpected": "预期 TDS",
+      "netExpected": "预期净额"
+    },
+    "lineItems": {
+      "addFromCatalogue": "从目录添加…",
+      "services": "服务",
+      "products": "产品",
+      "addLine": "添加明细",
+      "columns": {
+        "description": "说明",
+        "sacHsn": "SAC/HSN",
+        "qty": "数量",
+        "unit": "单位",
+        "rate": "单价",
+        "taxPercent": "税率 %"
+      },
+      "aria": {
+        "description": "第 {line} 行说明",
+        "sacHsn": "第 {line} 行 SAC/HSN",
+        "quantity": "第 {line} 行数量",
+        "unit": "第 {line} 行单位",
+        "rate": "第 {line} 行单价",
+        "taxRate": "第 {line} 行税率"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "免税",
+      "moveUp": "上移",
+      "moveDown": "下移",
+      "removeLine": "移除明细",
+      "shortcutHint": "在说明栏中按 Ctrl/⌘+Enter 可添加一行。",
+      "addFromCatalogueAria": "从目录添加"
+    },
+    "display": {
+      "groups": {
+        "issuer": "开具方详细信息",
+        "client": "客户详细信息",
+        "document": "文档区段"
+      },
+      "fields": {
+        "showLogo": "标志",
+        "showTradeName": "商号名称",
+        "showDesignation": "职务",
+        "showEmail": "电子邮件",
+        "showPhone": "电话",
+        "showWebsite": "网站",
+        "showFullAddress": "完整地址",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "签名",
+        "showStamp": "印章",
+        "showContactPerson": "联系人",
+        "showBillingAddress": "账单地址",
+        "showShippingAddress": "送货地址",
+        "showTaxIdentifier": "税务标识",
+        "showPlaceOfSupply": "供应地点",
+        "showDueDate": "到期日",
+        "showPaymentTerms": "付款条件",
+        "showSacCodeColumn": "SAC 代码列",
+        "showQuantityColumn": "数量列",
+        "showUnitPriceColumn": "单价列",
+        "showTaxColumn": "税额列",
+        "showTdsBreakdown": "TDS 明细",
+        "showQrVerification": "二维码验证",
+        "showNotes": "备注",
+        "showTerms": "条款",
+        "showReplacesReference": "取代引用",
+        "showAmountInWords": "大写金额",
+        "showSupplyStatement": "供应声明",
+        "showRoundingLine": "舍入调整行",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "客户",
+      "description": "所有向您付款的对象。有发票的客户只会归档，不会删除。",
+      "newClient": "新建客户",
+      "searchPlaceholder": "按名称搜索",
+      "searchLabel": "搜索客户",
+      "emptyTitle": "暂无客户",
+      "emptyDescription": "添加您开具发票的个人和公司；他们的币种和付款条件会预填到每张发票。",
+      "addClient": "添加客户",
+      "noMatch": "没有符合“{q}”的客户。",
+      "termsDays": "{days} 天",
+      "columns": {
+        "name": "名称",
+        "contact": "联系人",
+        "email": "电子邮件",
+        "country": "国家或地区",
+        "currency": "币种",
+        "terms": "条件",
+        "status": "状态"
+      }
+    },
+    "new": {
+      "title": "新建客户"
+    },
+    "edit": {
+      "metaTitle": "编辑客户",
+      "title": "编辑 {name}"
+    },
+    "detail": {
+      "metaTitle": "客户",
+      "newInvoice": "新建发票",
+      "restoreTitle": "恢复此客户？",
+      "archiveTitle": "归档此客户？",
+      "archiveDescription": "它将从选择列表中消失；发票和历史记录不受影响。",
+      "deleteTitle": "删除此客户？",
+      "deleteDescription": "仅当没有任何发票引用此客户时才能删除。",
+      "details": "详细信息",
+      "contact": "联系人",
+      "email": "电子邮件",
+      "phone": "电话",
+      "country": "国家或地区",
+      "gstState": "GST {code}",
+      "taxId": "税务标识",
+      "currency": "币种",
+      "paymentTerms": "付款条件",
+      "paymentTermsDays": "{days} 天",
+      "expectedTds": "预期 TDS",
+      "notes": "备注",
+      "addresses": "地址",
+      "billing": "账单",
+      "shipping": "送货",
+      "lifetime": "累计",
+      "openRegister": "打开登记簿",
+      "noIssued": "暂无已开具的发票。",
+      "noIssuedWithDrafts": "暂无已开具的发票（{drafts} 张草稿）。",
+      "firstLatest": "第一张发票 <mono>{first}</mono>，最近一张 <mono>{latest}</mono>{drafts, plural, =0 {} other { · # 张草稿}}",
+      "lifetimeColumns": {
+        "currency": "币种",
+        "invoices": "发票",
+        "billed": "已开票",
+        "received": "已收款",
+        "credited": "已冲减",
+        "outstanding": "未收款",
+        "overdue": "逾期"
+      },
+      "recentInvoices": "最近的发票",
+      "noInvoices": "此客户暂无发票。",
+      "recentColumns": {
+        "number": "编号",
+        "issueDate": "开具日期",
+        "due": "到期",
+        "total": "合计",
+        "balance": "余额",
+        "status": "状态"
+      }
+    },
+    "form": {
+      "cardTitle": "客户",
+      "displayName": "显示名称",
+      "contactPerson": "联系人",
+      "email": "电子邮件",
+      "phone": "电话",
+      "taxIdType": "税务标识类型",
+      "taxIdTypeNone": "无",
+      "taxId": "税务标识",
+      "currency": "币种",
+      "paymentTerms": "付款条件（天）",
+      "expectedTdsRate": "预期 TDS 税率 (%)",
+      "preferredLanguage": "文档语言",
+      "preferredLanguageFollow": "跟随开票方资料",
+      "buyerReference": "买方参考编号",
+      "buyerReferenceHint": "作为买方自身的参考编号(订单或成本中心编号)打印在电子发票上。",
+      "electronicAddress": "电子地址",
+      "electronicAddressHint": "该客户接收电子发票所用的 Peppol 或 EN 16931 标识符。",
+      "electronicAddressScheme": "电子地址方案",
+      "electronicAddressSchemeNone": "无方案",
+      "notes": "备注",
+      "billingAddress": "账单地址",
+      "shippingAddress": "送货地址",
+      "differentFromBilling": "与账单地址不同",
+      "save": "保存客户"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "小时",
+      "DAY": "天",
+      "FIXED": "固定费用",
+      "MILESTONE": "里程碑",
+      "UNIT": "单位"
+    },
+    "list": {
+      "activate": "启用",
+      "deactivate": "停用",
+      "archiveDescription": "现有的发票明细会保留其已复制的值。",
+      "deleteDescription": "仅当没有任何发票明细引用时才能删除，否则请归档。",
+      "columns": {
+        "sku": "SKU",
+        "name": "名称",
+        "unit": "单位",
+        "rate": "单价",
+        "price": "价格",
+        "currency": "币种",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "税额",
+        "status": "状态"
+      }
+    },
+    "services": {
+      "title": "服务",
+      "description": "您的目录。选取服务会将其值复制到发票明细。",
+      "newService": "新建服务",
+      "emptyTitle": "暂无服务",
+      "emptyDescription": "添加您销售的项目（例如按小时计费的设计、固定费用的里程碑），并填入 SAC/HSN 代码和税率。",
+      "addService": "添加服务",
+      "restoreTitle": "恢复 {name}？",
+      "archiveTitle": "归档 {name}？",
+      "deleteTitle": "删除 {name}？",
+      "editMetaTitle": "编辑服务",
+      "editTitle": "编辑 {name}"
+    },
+    "products": {
+      "title": "产品",
+      "description": "您销售的商品，每项都有 SKU。选取产品会将其值复制到发票明细。",
+      "newProduct": "新建产品",
+      "emptyTitle": "暂无产品",
+      "emptyDescription": "添加您销售的商品，并填入 SKU、HSN 代码、单价和税率。",
+      "addProduct": "添加产品",
+      "restoreTitle": "恢复 {sku}？",
+      "archiveTitle": "归档 {sku}？",
+      "deleteTitle": "删除 {sku}？",
+      "editMetaTitle": "编辑产品",
+      "editTitle": "编辑 {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "打印在明细说明下方的唯一代码",
+      "name": "名称",
+      "unit": "单位",
+      "defaultRate": "默认单价",
+      "unitPrice": "单价",
+      "currency": "币种",
+      "sacHsnCode": "SAC / HSN 代码",
+      "sacHsnHint": "GST 发票必填",
+      "hsnCode": "HSN 代码",
+      "hsnHint": "商品的 GST 发票必填",
+      "defaultTaxRate": "默认税率 (%)",
+      "description": "说明",
+      "descriptionHint": "预填明细说明",
+      "active": "启用",
+      "serviceInactiveHint": "停用的服务不会出现在发票选择列表中",
+      "productInactiveHint": "停用的产品不会出现在发票选择列表中",
+      "saveService": "保存服务",
+      "saveProduct": "保存产品"
+    },
+    "tags": {
+      "legend": "档案",
+      "hint": "勾选销售此项目的开具方档案。全部不勾选则提供给每个档案。"
+    }
+  },
+  "address": {
+    "line1": "地址第 1 行",
+    "line2": "地址第 2 行",
+    "city": "城市",
+    "stateRegion": "州 / 省 / 地区",
+    "postalCode": "邮政编码",
+    "country": "国家或地区",
+    "state": "邦",
+    "gstStateCodeHint": "GST 邦代码 {code}",
+    "pickStateHint": "请选择对应 GST 邦代码的邦",
+    "stateRegionCode": "州 / 省 / 地区代码",
+    "stateRegionCodePlaceholder": "例如 CA"
+  },
+  "assets": {
+    "tooLarge": "该文件太大。",
+    "unsupportedReceipt": "请使用 PNG、JPEG、WebP 图片或 PDF。",
+    "unsupportedImage": "请使用 PNG、JPEG 或 WebP 图片。",
+    "uploadFailed": "上传失败。",
+    "uploading": "上传中…",
+    "dropHint": "将文件拖到此处，或选择文件",
+    "dropHintMany": "将文件拖到此处，或选择文件",
+    "dropActive": "松开以上传"
+  },
+  "ui": {
+    "breadcrumb": "面包屑导航",
+    "close": "关闭",
+    "closeMenu": "关闭菜单",
+    "reveal": "显示",
+    "hide": "隐藏",
+    "openCalendar": "打开日历",
+    "chooseMonth": "选择月份",
+    "chooseYear": "选择年份",
+    "searchOptions": "输入以搜索",
+    "noMatches": "无匹配项",
+    "pullToRefresh": {
+      "label": "可刷新列表",
+      "pulling": "下拉刷新",
+      "release": "松开刷新",
+      "refreshing": "正在刷新"
+    },
+    "inputCharset": "仅允许标准键盘字符。",
+    "confirm": {
+      "working": "处理中…"
+    },
+    "statusPill": {
+      "DRAFT": "草稿",
+      "ISSUED": "已开具",
+      "SENT": "已发送",
+      "PARTIALLY_PAID": "部分付款",
+      "PAID": "已付款",
+      "OVERDUE": "逾期",
+      "VOID": "已作废"
+    },
+    "activePill": {
+      "active": "启用中",
+      "archived": "已归档",
+      "inactive": "已停用"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "出错了。",
+    "fixFields": "请修正标出的字段。",
+    "accountSaved": "账户偏好设置已保存",
+    "apiKeyCreated": "已创建 API 密钥。请立即复制：它只会显示一次。",
+    "saved": "已保存 {name}",
+    "savedProfile": "已保存档案 {label}",
+    "clientArchived": "客户已归档",
+    "clientRestored": "客户已恢复",
+    "clientDeleted": "客户已删除",
+    "productArchived": "产品已归档",
+    "productRestored": "产品已恢复",
+    "productActivated": "产品已启用",
+    "productDeactivated": "产品已停用",
+    "serviceArchived": "服务已归档",
+    "serviceRestored": "服务已恢复",
+    "serviceActivated": "服务已启用",
+    "serviceDeactivated": "服务已停用",
+    "defaultProfileUpdated": "默认档案已更新",
+    "profileArchived": "档案已归档",
+    "profileRestored": "档案已恢复",
+    "profileDeleted": "档案已删除",
+    "defaultPaymentMethodUpdated": "默认付款方式已更新",
+    "paymentMethodArchived": "付款方式已归档",
+    "paymentMethodRestored": "付款方式已恢复",
+    "paymentMethodDeleted": "付款方式已删除",
+    "issued": "已开具 {number}",
+    "savedAsDraft": "已保存为草稿。{reason}",
+    "draftSaved": "草稿已保存",
+    "invoiceVoided": "发票已作废",
+    "originalVoided": "原发票已作废；请编辑替代用的草稿",
+    "markedAsSent": "已标记为已发送",
+    "draftDeleted": "草稿已删除",
+    "generatedPdf": "已生成 PDF 版本 {version}",
+    "creditNoteVoided": "贷项通知单已作废；发票余额已恢复",
+    "draftCreditNoteDeleted": "贷项通知单草稿已删除",
+    "mailRefused": "邮件服务器拒绝了此邮件：{error}。此次尝试已记录。",
+    "unknownError": "未知错误",
+    "sentTo": "已发送至 {recipients}",
+    "smtpSaved": "SMTP 设置已保存",
+    "smtpRemoved": "已移除保存的 SMTP 设置",
+    "testEmailSent": "测试邮件已发送至 {email}",
+    "testFailed": "测试失败：{error}",
+    "defaultRecipientsSaved": "默认收件人已保存",
+    "invitationSent": "邀请已发送",
+    "invitationReady": "邀请已准备好",
+    "unknownRole": "未知的角色",
+    "roleUpdated": "角色已更新",
+    "accountDeactivated": "账户已停用",
+    "accountReactivated": "账户已重新启用",
+    "invitationRevoked": "邀请已撤销",
+    "paymentUpdated": "付款已更新",
+    "paymentRecorded": "付款已记录",
+    "paymentDeleted": "付款已删除",
+    "sessionRevoked": "会话已撤销",
+    "noOtherSessions": "没有其他会话",
+    "signedOutOthers": "已退出其他 {count} 个会话",
+    "sharePasswordRequired": "请输入密码，或让系统自动生成。",
+    "shareLinkCreated": "已创建分享链接。",
+    "templateSaved": "模板已保存；之后的文档将使用它",
+    "templateReset": "模板已重置为内置默认",
+    "templateImported": "模板已导入",
+    "profileTemplateCleared": "档案已改回使用实例模板",
+    "operatorSaved": "运营者详细信息已保存。法律页面现在会显示这些内容。",
+    "einvoiceSettingsSaved": "电子发票设置已保存",
+    "irnRegistered": "IRN {irn} 已注册,PDF 已重新生成",
+    "irnRecorded": "IRN 已记录,PDF 已重新生成",
+    "irnCancelled": "IRN 已取消,PDF 已重新生成"
+  }
+}

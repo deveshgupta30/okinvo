@@ -26,6 +26,7 @@ async function main() {
     name: "Drill",
     role: "OWNER" as const,
     timezone: "UTC",
+    locale: "en-US",
   };
   const address = {
     line1: "1 Drill Street",

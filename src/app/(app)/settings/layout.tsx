@@ -1,10 +1,13 @@
+import { SettingsPanel } from "@/components/settings/settings-panel";
 import { SettingsNav } from "@/components/settings-nav";
+import { optionalUser } from "@/server/auth";
 
-export default function SettingsLayout({ children }: { children: React.ReactNode }) {
+export default async function SettingsLayout({ children }: { children: React.ReactNode }) {
+  const actor = await optionalUser();
   return (
     <>
-      <SettingsNav />
-      {children}
+      <SettingsNav role={actor?.role ?? "VIEWER"} />
+      <SettingsPanel>{children}</SettingsPanel>
     </>
   );
 }

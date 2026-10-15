@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo-startpagina",
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "continue": "Doorgaan",
+    "saving": "Opslaan…",
+    "detect": "Detecteren",
+    "yes": "Ja",
+    "no": "Nee",
+    "choose": "Kies…",
+    "remove": "Verwijderen",
+    "tryAgain": "Opnieuw proberen",
+    "dashboard": "Dashboard",
+    "goToDashboard": "Naar het dashboard",
+    "or": "of",
+    "invoice": "Factuur",
+    "creditNote": "Creditnota",
+    "downloadPdf": "PDF downloaden",
+    "edit": "Bewerken",
+    "delete": "Verwijderen",
+    "downloadDocx": "DOCX downloaden",
+    "downloadCii": "EN 16931 XML downloaden",
+    "downloadUbl": "Peppol UBL downloaden",
+    "downloadFacturX": "Factur-X PDF downloaden",
+    "none": "Geen",
+    "dismiss": "Sluiten",
+    "all": "Alle",
+    "previous": "Vorige",
+    "next": "Volgende",
+    "go": "Ga",
+    "search": "Zoeken",
+    "status": "Status",
+    "total": "Totaal",
+    "currency": "Valuta",
+    "from": "Van",
+    "to": "Tot",
+    "reason": "Reden",
+    "history": "Geschiedenis",
+    "archive": "Archiveren",
+    "restore": "Herstellen",
+    "showArchived": "Gearchiveerde tonen",
+    "hideArchived": "Gearchiveerde verbergen",
+    "archived": "Gearchiveerd",
+    "default": "Standaard",
+    "setDefault": "Als standaard instellen",
+    "revoke": "Intrekken",
+    "copy": "Kopiëren",
+    "copied": "Gekopieerd",
+    "active": "Actief",
+    "pagination": "Paginering",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "invoices": "Facturen",
+      "creditNotes": "Creditnota’s",
+      "clients": "Klanten",
+      "services": "Diensten",
+      "products": "Producten",
+      "tools": "Valuta"
+    },
+    "primaryNav": "Hoofdnavigatie",
+    "settings": "Instellingen",
+    "openMenu": "Menu openen",
+    "more": "Meer",
+    "navigation": "Navigatie",
+    "dock": "Snelle navigatie",
+    "pagesAndAccount": "Pagina’s en account",
+    "collapseSidebar": "Zijbalk inklappen",
+    "collapseSidebarHint": "Zijbalk inklappen ([)",
+    "expandSidebar": "Zijbalk uitklappen",
+    "expandSidebarHint": "Zijbalk uitklappen ([)",
+    "theme": {
+      "label": "Thema",
+      "system": "Systeem",
+      "light": "Licht",
+      "dark": "Donker",
+      "current": "Thema: {mode}",
+      "switchTo": "Thema: {mode}. Overschakelen naar {next}"
+    },
+    "userMenu": {
+      "label": "Accountmenu voor {name}",
+      "profile": "Profiel",
+      "logOut": "Uitloggen"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Valutaomrekenaar",
+      "title": "Valutaomrekenaar",
+      "description": "Reken om tussen de valuta's waarin je factureert, met de wisselkoerstabel van deze instantie.",
+      "amount": "Bedrag",
+      "from": "Van",
+      "to": "Naar",
+      "flip": "Valuta's omwisselen",
+      "enterAmount": "Voer een bedrag in",
+      "asOf": "Wisselkoersen per {date} ({source})",
+      "sources": {
+        "bundled": "meegeleverd met de app",
+        "live": "online vernieuwd"
+      },
+      "note": "Koersen zijn indicatief; de koers op een uitgegeven factuur is de koers die je bij het uitgeven hebt ingevoerd."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Inloggen",
+      "metaDescription": "Log in bij okinvo, de zelf gehoste factuurapp, met je identiteitsprovider of je wachtwoord.",
+      "title": "Inloggen",
+      "subtitle": "Alleen accounts op de toegestane lijst hebben toegang.",
+      "failed": "Inloggen mislukt.",
+      "noMethod": "Er is geen inlogmethode geconfigureerd. Stel in <code>.env</code> een providerpaar in, zoals <code>AUTH_GITHUB_*</code>, of <code>AUTH_PASSWORD_SIGNIN=true</code>.",
+      "errors": {
+        "not_allowed": "Dit account is niet toegestaan op deze instantie of is gedeactiveerd.",
+        "signin": "Inloggen is niet voltooid. Probeer het opnieuw."
+      }
+    },
+    "password": {
+      "name": "Naam",
+      "email": "E-mail",
+      "password": "Wachtwoord",
+      "signingIn": "Inloggen…",
+      "createAccount": "Account aanmaken",
+      "signIn": "Inloggen",
+      "haveAPassword": "Ik heb al een wachtwoord",
+      "firstTime": "Eerste keer hier? Stel een wachtwoord in",
+      "failed": "Inloggen mislukt."
+    },
+    "social": {
+      "redirecting": "Doorsturen…",
+      "continueWith": "Doorgaan met {provider}",
+      "failed": "Inloggen kon niet worden gestart."
+    },
+    "error": {
+      "metaTitle": "Inlogfout",
+      "metaDescription": "Het inloggen is niet voltooid. De pagina legt uit wat er misging en hoe je het opnieuw kunt proberen.",
+      "title": "Inloggen mislukt",
+      "body": "De identiteitsprovider gaf <code>{value}</code> terug. Als uw adres niet op de toegestane lijst van deze instantie staat, vraag dan de eigenaar het toe te voegen.",
+      "back": "Terug naar inloggen"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Instellingen",
+      "profiles": "Profielen",
+      "paymentMethods": "Betaalmethoden",
+      "templates": "Sjablonen",
+      "email": "E-mail",
+      "security": "Beveiliging",
+      "users": "Gebruikers",
+      "data": "Gegevens",
+      "legal": "Juridisch",
+      "einvoicing": "E-facturatie",
+      "account": "Account",
+      "appearance": "Weergave",
+      "api": "API",
+      "status": "Status",
+      "usage": "Gebruik"
+    },
+    "account": {
+      "metaTitle": "Account",
+      "title": "Account",
+      "description": "Uw foto, naam, regio, taal en tijdzone.",
+      "photo": {
+        "title": "Foto",
+        "description": "Wordt getoond in de zijbalk en het gebruikersmenu."
+      },
+      "form": {
+        "title": "Account",
+        "description": "Hoe u verschijnt en wanneer het “vandaag” is.",
+        "displayName": "Weergavenaam",
+        "signInEmail": "Inlog-e-mail",
+        "signInEmailHint": "Uw identiteit op deze instantie; deze kan hier niet worden gewijzigd.",
+        "timezone": "Tijdzone",
+        "timezoneHint": "“Vandaag” voor factuurdatums, vervaldatums en het dashboard",
+        "regionTitle": "Regio",
+        "regionDescription": "Standaardwaarden voor nieuwe uitgeversprofielen en voor het dashboard zolang er geen profiel is.",
+        "country": "Land",
+        "currency": "Valuta",
+        "suggested": "Voorgesteld voor dit land:",
+        "language": "Taal",
+        "languageHint": "De taal van de app zelf. Documenten gebruiken de eigen landinstelling van elk profiel.",
+        "machineTranslated": "Deze taal is machinaal vertaald. Verbeteringen zijn welkom: <link>verbeter het op GitHub</link>.",
+        "save": "Voorkeuren opslaan"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerika",
+        "Asia": "Azië",
+        "Europe": "Europa",
+        "MiddleEast": "Midden-Oosten",
+        "Oceania": "Oceanië",
+        "Constructed": "Kunsttalen"
+      },
+      "privacy": {
+        "title": "Privacy",
+        "description": "okinvo plaatst alleen de cookies die nodig zijn om te functioneren. Geen analyse, geen tracking.",
+        "cookiePolicy": "Cookiebeleid",
+        "showNoticeAgain": "Cookiemelding opnieuw tonen"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Foto wijzigen",
+      "addPhoto": "Foto toevoegen",
+      "hint": "PNG, JPEG of WebP. Overal als cirkel getoond; u kunt vóór het opslaan in- en uitzoomen en verplaatsen.",
+      "tooLarge": "Die foto is te groot.",
+      "uploadFailed": "Uploaden mislukt.",
+      "choose": "Kies een profielfoto",
+      "dialogTitle": "Positioneer uw foto",
+      "dialogDescription": "Sleep om te verplaatsen, scroll of knijp om te zoomen. De cirkel is wat iedereen ziet.",
+      "zoom": "Zoom",
+      "save": "Foto opslaan"
+    },
+    "appearance": {
+      "metaTitle": "Weergave",
+      "title": "Weergave",
+      "description": "Thema en accentkleur, opgeslagen in uw account.",
+      "theme": {
+        "title": "Thema",
+        "description": "Volg het systeem, of kies vast licht of donker.",
+        "label": "Thema",
+        "system": "Het systeem volgen",
+        "systemHint": "Schakelt mee met uw besturingssysteem",
+        "light": "Licht",
+        "lightHint": "Wit canvas",
+        "dark": "Donker",
+        "darkHint": "Bijna zwart canvas"
+      },
+      "accent": {
+        "title": "Accent",
+        "description": "Gebruikt voor de primaire knop, focusringen en de markering van de actieve pagina. Mint past bij het merkteken.",
+        "label": "Accentkleur",
+        "customHint": "Of kies een eigen kleur"
+      },
+      "accents": {
+        "mint": "Mint",
+        "lavender": "Lavendel",
+        "sky": "Hemelblauw",
+        "peach": "Perzik",
+        "butter": "Boter",
+        "rose": "Roze",
+        "sage": "Salie",
+        "lilac": "Lila",
+        "custom": "Aangepast"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Uitgeversprofielen",
+      "title": "Uitgeversprofielen",
+      "description": "De juridische identiteiten waarmee u factureert. Het standaardprofiel vult nieuwe facturen vooraf in.",
+      "breadcrumb": "Profielen",
+      "newProfile": "Nieuw profiel",
+      "emptyTitle": "Nog geen uitgeversprofiel",
+      "emptyDescription": "Maak de identiteit aan waarmee u factureert: een particulier met een PAN, of uw bedrijf.",
+      "createProfile": "Profiel aanmaken",
+      "columns": {
+        "label": "Label",
+        "legalName": "Juridische naam",
+        "type": "Type",
+        "country": "Land",
+        "currency": "Valuta",
+        "regime": "Regime",
+        "status": "Status"
+      },
+      "types": {
+        "company": "Bedrijf",
+        "individual": "Particulier"
+      },
+      "makeDefaultTitle": "{label} als standaard instellen?",
+      "makeDefaultDescription": "Nieuwe facturen starten vanuit dit profiel.",
+      "restoreTitle": "{label} herstellen?",
+      "archiveTitle": "{label} archiveren?",
+      "archiveDescription": "Het verdwijnt uit keuzelijsten; bestaande facturen blijven ongewijzigd.",
+      "new": {
+        "metaTitle": "Nieuw uitgeversprofiel",
+        "title": "Nieuw uitgeversprofiel",
+        "prefilled": "Ingevuld op basis van uw antwoorden; controleer het adres en de belastinggegevens en sla daarna op."
+      },
+      "edit": {
+        "metaTitle": "Uitgeversprofiel bewerken",
+        "template": "Sjabloon",
+        "deleteTitle": "{label} verwijderen?",
+        "deleteDescription": "Alleen mogelijk zolang er geen factuur of creditnota naar dit profiel verwijst. Archiveer het anders."
+      },
+      "template": {
+        "metaTitle": "Profielsjabloon",
+        "title": "Sjabloon voor {label}",
+        "ownTemplate": "Eigen sjabloon",
+        "instanceTemplate": "Instantiesjabloon",
+        "resetTitle": "Het instantiesjabloon opnieuw gebruiken?",
+        "resetDescription": "De eigen configuratie van dit profiel wordt verwijderd; uitgegeven documenten blijven ongewijzigd.",
+        "useInstance": "Instantiesjabloon gebruiken",
+        "usingInstanceTitle": "Het instantiesjabloon wordt gebruikt",
+        "usingInstanceDescription": "Documenten van dit profiel volgen Instellingen → Sjablonen. Kies ervoor om ze apart aan te passen.",
+        "customise": "Een ander sjabloon gebruiken voor dit profiel",
+        "openInstance": "Instantiesjabloon openen"
+      },
+      "form": {
+        "identityTitle": "Identiteit",
+        "identityDescription": "Van wie de factuur afkomstig is.",
+        "type": "Type",
+        "label": "Label",
+        "labelHint": "Alleen getoond in keuzelijsten",
+        "legalName": "Juridische naam",
+        "tradeName": "Handelsnaam",
+        "designation": "Functie",
+        "email": "E-mail",
+        "phone": "Telefoon",
+        "website": "Website",
+        "addressTitle": "Adres",
+        "taxTitle": "Belastingnummers",
+        "taxDescription": "Alleen de nummers die voor u gelden; wat wordt afgedrukt, bepaalt u per factuur.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Britse btw-nummer",
+        "usTaxId": "Amerikaans EIN / SSN",
+        "usTaxIdHint": "Versleuteld opgeslagen",
+        "lutNumber": "LUT-nummer",
+        "lutNumberHint": "Voor export zonder IGST",
+        "lutFiscalYear": "LUT-boekjaar",
+        "lutFiscalYearHint": "bijv. 2026-27",
+        "einvoiceTitle": "E-facturatie",
+        "einvoiceDescription": "Hoe dit profiel zich in e-facturen identificeert; de connector en de inloggegevens staan onder Instellingen > E-facturatie.",
+        "electronicAddress": "Elektronisch adres",
+        "electronicAddressHint": "De Peppol- of EN 16931-identificatie van deze uitgever, afgedrukt als het elektronisch adres van de verkoper.",
+        "electronicAddressScheme": "Schema van het elektronisch adres",
+        "electronicAddressSchemeNone": "Geen schema",
+        "einvoiceEnabled": "E-facturatie ingeschakeld voor dit profiel",
+        "einvoiceEnabledHint": "Biedt op de uitgegeven documenten de downloads van de GST-e-factuur-JSON, Factur-X en UBL en de IRN-registratie aan.",
+        "defaultsTitle": "Standaardwaarden",
+        "baseCurrency": "Basisvaluta",
+        "locale": "Documentlandinstelling",
+        "localeHint": "Opmaak van getallen en datums op documenten",
+        "fiscalYearStart": "Boekjaar begint in",
+        "months": {
+          "january": "januari",
+          "february": "februari",
+          "march": "maart",
+          "april": "april",
+          "may": "mei",
+          "june": "juni",
+          "july": "juli",
+          "august": "augustus",
+          "september": "september",
+          "october": "oktober",
+          "november": "november",
+          "december": "december"
+        },
+        "taxRegime": "Standaard belastingregime",
+        "regimes": {
+          "indiaGst": "Indiase GST",
+          "ukVat": "Britse btw",
+          "usSalesTax": "Amerikaanse omzetbelasting",
+          "none": "Geen belasting"
+        },
+        "invoiceNumberFormat": "Formaat factuurnummer",
+        "invoiceNumberFormatHint": "Tokens: {tokens}",
+        "creditNoteNumberFormat": "Formaat creditnotanummer",
+        "tdsRate": "Verwacht TDS-percentage (%)",
+        "tdsRateHint": "Ter informatie, afgedrukt als verwachte inhouding",
+        "defaultNotes": "Standaardopmerkingen",
+        "defaultTerms": "Standaardvoorwaarden",
+        "printTitle": "Wat standaard wordt afgedrukt",
+        "printDescription": "Elke factuur kopieert deze instellingen en kan ze afzonderlijk wijzigen.",
+        "emailTitle": "E-mail",
+        "emailDescription": "Standaardwaarden voor het verzendvenster. Tijdelijke aanduidingen: {placeholders}",
+        "emailCc": "Standaard CC",
+        "emailBcc": "Standaard BCC",
+        "commaSeparated": "Gescheiden door komma’s",
+        "invoiceSubject": "Onderwerp factuur",
+        "invoiceSubjectHint": "Leeg gebruikt het ingebouwde sjabloon",
+        "creditNoteSubject": "Onderwerp creditnota",
+        "invoiceBody": "Tekst factuur",
+        "creditNoteBody": "Tekst creditnota",
+        "artworkTitle": "Beeldmateriaal",
+        "artworkDescription": "PNG, JPEG of WebP tot 2 MB; handtekening en stempel behouden transparantie.",
+        "logo": "Logo",
+        "signature": "Handtekening",
+        "stamp": "Stempel",
+        "transparentPng": "Transparante PNG",
+        "save": "Profiel opslaan"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Betaalmethoden",
+      "title": "Betaalmethoden",
+      "description": "Hoe klanten u betalen. Gegevens zijn versleuteld en worden bij uitgifte in elke factuur vastgelegd.",
+      "newMethod": "Nieuwe methode",
+      "emptyTitle": "Nog geen betaalmethoden",
+      "emptyDescription": "Voeg een bankrekening, UPI-ID of wallet toe zodat facturen klanten kunnen vertellen waar ze moeten betalen.",
+      "addMethod": "Methode toevoegen",
+      "columns": {
+        "name": "Naam",
+        "type": "Type",
+        "currency": "Valuta",
+        "status": "Status"
+      },
+      "types": {
+        "bankTransfer": "Bankoverschrijving",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Aangepast"
+      },
+      "makeDefaultTitle": "{name} als standaard instellen?",
+      "restoreTitle": "{name} herstellen?",
+      "archiveTitle": "{name} archiveren?",
+      "archiveDescription": "Uitgegeven facturen behouden de momentopname die ze hebben afgedrukt.",
+      "new": {
+        "metaTitle": "Nieuwe betaalmethode",
+        "title": "Nieuwe betaalmethode"
+      },
+      "edit": {
+        "metaTitle": "Betaalmethode bewerken",
+        "title": "{name} bewerken",
+        "deleteTitle": "{name} verwijderen?",
+        "deleteDescription": "Alleen mogelijk zolang er geen factuur of betaling naar verwijst. Archiveer het anders."
+      },
+      "form": {
+        "name": "Naam",
+        "nameHint": "Afgedrukt als kop van het betaalblok",
+        "type": "Type",
+        "currency": "Valuta",
+        "currencyHint": "Optioneel; alleen ter context getoond",
+        "anyCurrency": "Elke",
+        "instructions": "Instructies",
+        "instructionsHint": "Afgedrukt onder de gegevens",
+        "isDefault": "Standaardmethode",
+        "isDefaultDescription": "Vooraf geselecteerd bij nieuwe facturen",
+        "isActive": "Actief",
+        "detailsTitle": "Gegevens",
+        "detailsDescription": "Versleuteld opgeslagen; bij uitgifte van elke factuur vastgelegd als momentopname.",
+        "vpa": "UPI-ID (VPA)",
+        "payeeName": "Naam begunstigde",
+        "lines": "Regels",
+        "linesHint": "Eén regel per rij, afgedrukt zoals ingevoerd",
+        "accountEmail": "Account-e-mail / gebruikersnaam",
+        "bank": {
+          "accountHolder": "Rekeninghouder",
+          "accountNumber": "Rekeningnummer",
+          "bankName": "Banknaam",
+          "branch": "Filiaal",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Routing- / sorteercode"
+        },
+        "save": "Betaalmethode opslaan"
+      }
+    },
+    "templates": {
+      "metaTitle": "Documentsjablonen",
+      "title": "Documentsjablonen",
+      "customised": "Aangepast",
+      "builtIn": "Ingebouwde standaard",
+      "description": "Hoe facturen en creditnota’s eruitzien. Uitgegeven documenten behouden het sjabloon waarmee ze zijn uitgegeven.",
+      "resetTitle": "Terugzetten naar de ingebouwde standaard?",
+      "resetDescription": "Uw aanpassing wordt verwijderd; reeds uitgegeven documenten blijven ongewijzigd.",
+      "reset": "Terugzetten",
+      "resetTrigger": "Standaardwaarden herstellen",
+      "importTitle": "Importeren",
+      "importDescription": "Herstel een eerder geëxporteerde configuratie.",
+      "overridesTitle": "Overschrijvingen per profiel",
+      "overridesDescription": "Een profiel kan op zijn bewerkpagina kiezen voor een eigen sjabloon.",
+      "noOverrides": "Elk profiel gebruikt het instantiesjabloon.",
+      "import": {
+        "json": "Sjabloon-JSON",
+        "jsonHint": "Plak een bestand dat met JSON exporteren is gemaakt; ontbrekende sleutels vallen terug op de standaardwaarden",
+        "importing": "Importeren…",
+        "submit": "Importeren"
+      },
+      "form": {
+        "templateTitle": "Sjabloon",
+        "templateDescription": "Zes ingebouwde sjablonen; de aanpassing hieronder geldt voor het sjabloon dat u kiest.",
+        "templateGroup": "Sjabloon",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Modern en luchtig, schreefloos, accentlijn onder de kop."
+          },
+          "classic": {
+            "name": "Classic",
+            "character": "Traditionele tabel met randen, koppen met schreef, omkaderde totalen."
+          },
+          "compact": {
+            "name": "Compact",
+            "character": "Compacte opmaak voor lange itemlijsten; kleiner lettertype, minder scheidingslijnen."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "Rustig en ruim: geen lijnen of kaders, lichte labels, veel witruimte."
+          },
+          "letterhead": {
+            "name": "Letterhead",
+            "character": "Uw logo en naam op een kleurband of afbeelding bovenaan elke pagina."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Kop met kleurband; partijen, tabelkop en totalen op een lichte accenttint."
+          }
+        },
+        "paperTitle": "Papier en lettertype",
+        "paperSize": "Papierformaat",
+        "paperLetter": "Letter",
+        "margins": "Marges",
+        "marginsNormal": "Normaal",
+        "marginsNarrow": "Smal",
+        "headingFont": "Lettertype koppen",
+        "bodyFont": "Lettertype tekst",
+        "fontSans": "Schreefloos",
+        "fontSerif": "Met schreef",
+        "tableStyle": "Tabelstijl",
+        "tableRuled": "Met lijnen",
+        "tableZebra": "Zebra",
+        "tablePlain": "Eenvoudig",
+        "accentColour": "Accentkleur",
+        "textColour": "Tekstkleur",
+        "logoPosition": "Positie van het logo",
+        "positionLeft": "Links",
+        "positionCentre": "Midden",
+        "positionRight": "Rechts",
+        "logoHeight": "Hoogte van het logo (mm)",
+        "documentTitle": "Documenttitel",
+        "titleAuto": "Automatisch (GST-bewust)",
+        "titleCustom": "Aangepast",
+        "titlePlaceholder": "bijv. PROFORMAFACTUUR",
+        "qrPosition": "Positie van de QR-code",
+        "qrFooter": "Voettekst",
+        "qrHeader": "Koptekst",
+        "qrBesideTotals": "Naast de totalen",
+        "amountInWords": "Bedrag in woorden",
+        "wordsBelowTotal": "Onder de totalen",
+        "wordsFooter": "Voettekst",
+        "wordsHidden": "Verborgen",
+        "subtotalRow": "Rij subtotaal",
+        "discountRow": "Rij korting",
+        "taxLines": "Belastingregels",
+        "tdsExpected": "Verwachte TDS",
+        "roundingRow": "Rij afronding",
+        "pageNumbers": "Paginanummers",
+        "headerTitle": "Koptekst",
+        "headerDescription": "Een kleurband of afbeelding bovenaan elke pagina. Letterhead en Modern tonen een band, tenzij u anders kiest.",
+        "headerStyle": "Stijl van de koptekst",
+        "headerNone": "Geen",
+        "headerBand": "Kleurband",
+        "headerImage": "Afbeelding",
+        "bandColour": "Bandkleur",
+        "bandColourHex": "Bandkleur (hex)",
+        "headerImageLabel": "Koptekstafbeelding",
+        "headerImageHint": "PNG, JPEG of WebP tot 2400 px breed; de afbeelding beslaat de paginabreedte.",
+        "imageOpacity": "Dekking van de afbeelding",
+        "headerHeight": "Hoogte van de koptekst (mm)",
+        "bandText": "Tekst op de band",
+        "bandTextAuto": "Automatisch (op basis van de bandkleur)",
+        "bandTextLight": "Licht",
+        "bandTextDark": "Donker",
+        "textTitle": "Tekst",
+        "headerNote": "Opmerking in de koptekst",
+        "footer": "Voettekst",
+        "signatureCaption": "Onderschrift van de handtekening",
+        "draftWatermark": "Watermerk voor concepten",
+        "labelsTitle": "Labels",
+        "labelsDescription": "Laat een veld leeg om de standaardformulering te behouden.",
+        "save": "Sjabloon opslaan",
+        "downloadSample": "Voorbeeld-PDF downloaden",
+        "exportJson": "JSON exporteren"
+      }
+    },
+    "email": {
+      "metaTitle": "E-mail",
+      "title": "E-mail",
+      "configuredSettings": "Geconfigureerd in Instellingen",
+      "configuredEnv": "Geconfigureerd via de omgeving",
+      "notConfigured": "Niet geconfigureerd: mailapp-flow",
+      "description": "Documenten worden vanuit het verzendvenster verzonden met de opgeslagen PDF als bijlage. Instellingen hier overschrijven SMTP_* in de omgeving.",
+      "sendTest": "Testmail verzenden naar {email}",
+      "removeTitle": "De opgeslagen SMTP-instellingen verwijderen?",
+      "removeEnvTakesOver": "De SMTP_*-waarden van de omgeving nemen het over.",
+      "removeFallsBack": "E-mail valt terug op de mailapp-flow.",
+      "removeTrigger": "Opgeslagen instellingen verwijderen",
+      "smtpTitle": "SMTP-server",
+      "smtpFromEnv": "Momenteel overgenomen uit de omgeving; opslaan hier overschrijft dit.",
+      "smtpPasswordNote": "Het wachtwoord wordt versleuteld opgeslagen en nooit meer getoond.",
+      "defaultsTitle": "Standaardontvangers",
+      "defaultsDescription": "CC/BCC voor de hele instantie; uitgeversprofielen voegen hun eigen toe.",
+      "sentTitle": "Verzonden e-mail",
+      "sentDescription": "De laatste 50 pogingen, inclusief mislukte en handmatige verzendingen.",
+      "smtp": {
+        "host": "Host",
+        "port": "Poort",
+        "security": "Beveiliging",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Geen (LAN-relay)",
+        "user": "Gebruikersnaam",
+        "password": "Wachtwoord",
+        "passwordStored": "Opgeslagen en versleuteld; laat leeg om het te behouden",
+        "passwordEncrypted": "Versleuteld opgeslagen",
+        "from": "Afzenderadres",
+        "fromName": "Afzendernaam",
+        "replyTo": "Antwoordadres",
+        "save": "SMTP-instellingen opslaan"
+      },
+      "defaults": {
+        "cc": "Standaard CC",
+        "ccHint": "Toegevoegd aan elk verzendvenster; gescheiden door komma’s",
+        "bcc": "Standaard BCC",
+        "save": "Standaardwaarden opslaan"
+      }
+    },
+    "security": {
+      "metaTitle": "Beveiliging",
+      "title": "Beveiliging",
+      "description": "Waar u bent ingelogd, en alles wat er is gewijzigd.",
+      "sessions": {
+        "title": "Actieve sessies",
+        "description": "Het intrekken van een sessie logt dat apparaat direct uit.",
+        "signOutOthers": {
+          "title": "Overal elders uitloggen?",
+          "description": "Elke sessie behalve deze wordt ingetrokken.",
+          "confirm": "Anderen uitloggen",
+          "trigger": "Overal elders uitloggen"
+        },
+        "columns": {
+          "device": "Apparaat",
+          "ipAddress": "IP-adres",
+          "signedIn": "Ingelogd",
+          "lastSeen": "Laatst gezien",
+          "expires": "Verloopt"
+        },
+        "thisDevice": "Dit apparaat",
+        "revokeTitle": "Deze sessie intrekken?",
+        "unknownDevice": "Onbekend apparaat",
+        "unknownBrowser": "Onbekend",
+        "agentOnOs": "{browser} op {os}"
+      },
+      "audit": {
+        "title": "Auditlogboek",
+        "count": "{count, plural, one {# gebeurtenis} other {# gebeurtenissen}}",
+        "entity": "Entiteit",
+        "actionContains": "Actie bevat",
+        "filter": "Filteren",
+        "reset": "Herstellen",
+        "columns": {
+          "when": "Wanneer",
+          "who": "Wie",
+          "action": "Actie",
+          "entity": "Entiteit",
+          "summary": "Samenvatting"
+        },
+        "empty": "Geen gebeurtenissen voldoen aan deze filters.",
+        "system": "Systeem",
+        "changes": "Wijzigingen",
+        "page": "Pagina {page} van {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Gebruikers",
+      "title": "Gebruikers",
+      "description": "Wie kan inloggen op deze instantie en wat mogen ze doen.",
+      "roles": {
+        "owner": "Eigenaar",
+        "editor": "Bewerker",
+        "viewer": "Lezer"
+      },
+      "roleHints": {
+        "owner": "Alles, inclusief instellingen en leden",
+        "editor": "Klanten, catalogus, facturen, creditnota’s, betalingen, e-mail",
+        "viewer": "Alleen-lezen"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Rol van {email}",
+      "invite": {
+        "title": "Iemand uitnodigen",
+        "description": "Ze loggen in met het uitgenodigde adres (een identiteitsprovider of een wachtwoord) en krijgen de rol die u kiest.",
+        "sent": "Uitnodiging per e-mail verzonden naar {email}.",
+        "readyWithError": "Uitnodiging klaar voor {email}. De e-mail kon niet worden verzonden ({error}); stuur hun deze link:",
+        "readyNoSmtp": "Uitnodiging klaar voor {email}. Er is geen SMTP geconfigureerd; stuur hun deze link:",
+        "copyLink": "Link kopiëren",
+        "email": "E-mail",
+        "emailPlaceholder": "persoon@example.com",
+        "role": "Rol",
+        "submit": "Uitnodigen",
+        "inviting": "Uitnodigen…"
+      },
+      "members": {
+        "title": "Leden",
+        "description": "Er blijft altijd minstens één actieve eigenaar.",
+        "columns": {
+          "person": "Persoon",
+          "role": "Rol",
+          "lastSignIn": "Laatste login",
+          "status": "Status"
+        },
+        "nameYou": "{name} (u)",
+        "deactivated": "Gedeactiveerd",
+        "reactivate": {
+          "title": "{email} opnieuw activeren?",
+          "description": "Ze kunnen weer inloggen met hun vorige rol.",
+          "confirm": "Opnieuw activeren"
+        },
+        "deactivate": {
+          "title": "{email} deactiveren?",
+          "description": "Elke sessie eindigt nu en ze kunnen niet inloggen tot ze opnieuw zijn geactiveerd. Hun geschiedenis blijft bewaard.",
+          "confirm": "Deactiveren"
+        }
+      },
+      "invitations": {
+        "title": "Openstaande uitnodigingen",
+        "description": "Adressen die mogen inloggen maar dat nog niet hebben gedaan.",
+        "columns": {
+          "email": "E-mail",
+          "role": "Rol",
+          "invited": "Uitgenodigd"
+        },
+        "empty": "Geen openstaande uitnodigingen.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "De uitnodiging voor {email} intrekken?"
+      }
+    },
+    "data": {
+      "metaTitle": "Gegevens",
+      "title": "Gegevens",
+      "description": "Alles is overdraagbaar: datasets als CSV of Excel, een volledige momentopname voor migratie, de PDF’s voor uw boekhouder en een geteste back-uproutine.",
+      "period": {
+        "fiscalYear": "Boekjaar",
+        "fiscalYearHint": "Overschrijft de datums",
+        "issuer": "Uitgever"
+      },
+      "exportAll": {
+        "title": "Alle gegevens exporteren",
+        "description": "Een ZIP met elke dataset als CSV plus <mono>data.json</mono>, een relationele momentopname van alle tabellen. Versleutelde velden (gegevens van betaalmethoden, SMTP-wachtwoord) blijven buiten beschouwing; de README erin vermeldt ze.",
+        "download": "okinvo-data-ZIP downloaden"
+      },
+      "exportDocuments": {
+        "title": "Documenten exporteren",
+        "description": "Elke uitgegeven en ongeldig gemaakte factuur- en creditnota-PDF van een periode, benoemd op nummer, met een <mono>index.csv</mono> met nummers, totalen en hashes. Ontbrekende PDF’s worden onderweg gegenereerd.",
+        "docx": "Voeg ook een DOCX-kopie van elk document toe",
+        "facturx": "Voeg ook een Factur-X PDF/A-3-kopie met ingesloten EN 16931 XML toe",
+        "download": "Documenten-ZIP downloaden"
+      },
+      "datasets": {
+        "title": "Datasets",
+        "description": "Dezelfde exports als op de indexpagina’s, met een periode en uitgever die op alle worden toegepast. Betalingen gebruiken het datumbereik; klanten en diensten negeren de periode.",
+        "columns": {
+          "dataset": "Dataset",
+          "filters": "Toegepaste filters",
+          "download": "Downloaden"
+        },
+        "names": {
+          "invoices": "Factuurregister",
+          "invoiceItems": "Factuurregels",
+          "payments": "Betalingsgrootboek",
+          "creditNotes": "Creditnotaregister",
+          "clients": "Klanten",
+          "services": "Diensten",
+          "gstSummary": "GST-overzicht",
+          "tdsSummary": "TDS-overzicht"
+        },
+        "filters": {
+          "periodIssuer": "periode, uitgever",
+          "dateRangeIssuer": "datumbereik, uitgever",
+          "includesArchived": "inclusief gearchiveerde"
+        }
+      },
+      "backups": {
+        "title": "Back-ups",
+        "notWired": "Geen back-upservice gekoppeld",
+        "noRun": "Er is nog geen back-up uitgevoerd",
+        "lastOk": "Laatste back-up geslaagd",
+        "lastFailed": "Laatste back-up mislukt",
+        "description": "De Compose-service <mono>backup</mono> maakt een dump van Postgres en archiveert het opslagvolume volgens <mono>BACKUP_CRON</mono>, bewaart <mono>BACKUP_RETENTION_DAYS</mono> aan geschiedenis in het volume <mono>backups</mono> en schrijft een statusbestand dat deze pagina leest.",
+        "finished": "Voltooid",
+        "databaseDump": "Databasedump",
+        "storageArchive": "Opslagarchief",
+        "size": "Grootte",
+        "sizeMb": "{size} MB",
+        "error": "Fout",
+        "runNow": "Voer er nu een uit, of herstel vanuit een paar bestanden:",
+        "restoreDrill": "De herstelprocedure wordt in CI geoefend door <mono>scripts/restore-drill.sh</mono>: vullen, back-up maken, wissen, herstellen en daarna het aantal rijen en een PDF-hash vergelijken."
+      }
+    },
+    "legal": {
+      "metaTitle": "Juridisch",
+      "metaDescription": "Wie deze instantie beheert: de gegevens die op de openbare juridische pagina’s worden afgedrukt.",
+      "title": "Juridisch",
+      "description": "De openbare juridische pagina’s drukken deze gegevens af. Zolang niet elk veld is ingevuld, tonen de pagina’s gemarkeerde tijdelijke aanduidingen.",
+      "operator": {
+        "title": "Gegevens van de beheerder",
+        "complete": "Volledig",
+        "missing": "{count} ontbreken: {fields}",
+        "description": "U, als persoon of bedrijf dat deze instantie beheert, bent de beheerder waarnaar de documenten verwijzen. Er wordt hier niets naartoe verzonden; het wordt op de onderstaande pagina’s afgedrukt."
+      },
+      "fieldLabels": {
+        "legalName": "Juridische naam van de beheerder",
+        "entityType": "Type entiteit",
+        "address": "Adres van de beheerder",
+        "country": "Land van de beheerder",
+        "contactEmail": "Contact-e-mail",
+        "privacyEmail": "Privacy-e-mail",
+        "dpoEmail": "E-mail van de functionaris voor gegevensbescherming",
+        "governingLaw": "Toepasselijk recht",
+        "venue": "Bevoegde rechter bij geschillen",
+        "effectiveDate": "Ingangsdatum"
+      },
+      "publicPages": {
+        "title": "Openbare pagina’s",
+        "description": "Gelinkt vanaf de inlogpagina, de deelweergave en de cookiemelding.",
+        "terms": "Servicevoorwaarden",
+        "acceptableUse": "Beleid voor aanvaardbaar gebruik",
+        "privacy": "Privacybeleid",
+        "cookies": "Cookiebeleid",
+        "dataRetention": "Bewaartermijnen",
+        "security": "Beveiliging",
+        "licenses": "Licenties en kennisgevingen van derden"
+      },
+      "form": {
+        "legalName": "Juridische naam",
+        "entityType": "Type entiteit",
+        "individual": "Particulier / eenmanszaak",
+        "company": "Bedrijf / geregistreerde entiteit",
+        "address": "Adres",
+        "addressHint": "Afgedrukt in de Servicevoorwaarden en het Privacybeleid als postadres van de beheerder.",
+        "country": "Land",
+        "effectiveDate": "Ingangsdatum",
+        "contactEmail": "Contact-e-mail",
+        "privacyEmail": "Privacy-e-mail",
+        "privacyEmailHint": "Waar verzoeken van betrokkenen naartoe gaan; mag het contactadres zijn.",
+        "dpoEmail": "E-mail van de functionaris voor gegevensbescherming",
+        "dpoEmailHint": "Alleen als u er een hebt aangesteld.",
+        "governingLaw": "Toepasselijk recht",
+        "governingLawHint": "Bijvoorbeeld \"het recht van India\" of \"het recht van Engeland en Wales\".",
+        "venue": "Bevoegde rechter bij geschillen",
+        "venueHint": "Bijvoorbeeld \"de rechtbanken van Bengaluru, Karnataka\".",
+        "submit": "Gegevens van de beheerder opslaan"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-facturatie",
+      "title": "E-facturatie",
+      "description": "Per uitgeversprofiel: welke connector Indiase e-facturen registreert en welk Europees profiel de Factur-X- en UBL-uitvoer volgt. Inloggegevens worden versleuteld opgeslagen en nooit meer getoond.",
+      "noProfiles": "Maak eerst een uitgeversprofiel aan.",
+      "profile": "Uitgeversprofiel",
+      "enabled": "Ingeschakeld",
+      "disabled": "Uitgeschakeld",
+      "enabledHint": "Schakel e-facturatie per profiel in of uit onder Instellingen > Profielen.",
+      "india": {
+        "title": "India (GST-e-factuur, IRN)",
+        "description": "De IRN wordt geregistreerd via de hier gekozen connector; de handmatige connector neemt het antwoord van het portaal met de hand over.",
+        "connector": "Connector",
+        "connectorNone": "Uit",
+        "connectorManual": "Handmatig (plak het IRP-antwoord)",
+        "connectorNic": "NIC IRP-API (sandbox of productie)",
+        "nicUnverified": "De NIC-connector volgt de gepubliceerde API en is alleen getest met opgenomen fixtures; hij is niet geverifieerd tegen een echte sandbox totdat er inloggegevens zijn opgegeven.",
+        "env": "Omgeving",
+        "sandbox": "Sandbox",
+        "production": "Productie",
+        "baseUrl": "Basis-URL",
+        "baseUrlHint": "Laat leeg voor de standaardwaarde van de omgeving.",
+        "clientId": "Client-id",
+        "clientSecret": "Clientgeheim",
+        "username": "Gebruikersnaam",
+        "password": "Wachtwoord",
+        "gstin": "GSTIN",
+        "publicKey": "Openbare IRP-sleutel (PEM)",
+        "publicKeyHint": "Download deze van het portaal nadat u bent ingelogd; hij beveiligt de inloggegevens die naar het IRP worden gestuurd.",
+        "publicKeyStored": "Opgeslagen; laat leeg om te behouden.",
+        "secretStored": "Versleuteld opgeslagen; laat leeg om het te behouden.",
+        "secretEncrypted": "Versleuteld opgeslagen."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 is het enige profiel in deze versie; de Factur-X- en UBL-downloads gebruiken het.",
+        "profile": "Profiel",
+        "profileNone": "Uit",
+        "en16931": "EN 16931"
+      },
+      "save": "E-facturatie-instellingen opslaan"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API-sleutels voor scripts, de SDK en MCP-clients, met curl-voorbeelden.",
+      "title": "API",
+      "description": "Sleutels voor scripts, de SDK en MCP-clients. Een sleutel kan hooguit doen wat uw rol kan; hij wordt één keer getoond.",
+      "create": {
+        "title": "Een sleutel aanmaken",
+        "description": "Verstuur hem als <mono>Authorization: Bearer okv_…</mono>. Houd hem uit broncode en chatlogs; trek hem hieronder in als hij uitlekt."
+      },
+      "keys": {
+        "title": "Sleutels",
+        "descriptionOwner": "Elke sleutel van deze instantie; eigenaren kunnen elke sleutel intrekken.",
+        "descriptionOwn": "Uw sleutels.",
+        "columns": {
+          "name": "Naam",
+          "prefix": "Prefix",
+          "scopes": "Scopes",
+          "owner": "Eigenaar",
+          "lastUsed": "Laatst gebruikt",
+          "expires": "Verloopt",
+          "status": "Status"
+        },
+        "empty": "Nog geen API-sleutels.",
+        "never": "nooit",
+        "revoked": "Ingetrokken",
+        "expired": "Verlopen",
+        "revokeTitle": "{name} intrekken?",
+        "revokeDescription": "Clients die deze sleutel gebruiken, werken direct niet meer.",
+        "activeCount": "{count, plural, one {# actieve sleutel.} other {# actieve sleutels.}}"
+      },
+      "examples": {
+        "title": "Voorbeelden",
+        "description": "Vervang <mono>$OKINVO_KEY</mono> door een sleutel. De versiebeheerde REST-API, het OpenAPI-document (<mono>/api/openapi.json</mono>), de TypeScript-SDK en de MCP-server komen met de volgende taken van het v1.1-plan; het statuseindpunt werkt nu al.",
+        "rateLimit": "Aanroepen boven de limiet krijgen antwoord 429 met een <mono>Retry-After</mono>-header (120 verzoeken per minuut per sleutel). De scopes van een sleutel worden begrensd door de huidige rol van de eigenaar."
+      },
+      "form": {
+        "copyKey": "API-sleutel kopiëren",
+        "name": "Naam",
+        "namePlaceholder": "bijv. boekhoudscript",
+        "expires": "Verloopt",
+        "in30Days": "Over 30 dagen",
+        "in90Days": "Over 90 dagen",
+        "inAYear": "Over een jaar",
+        "never": "Nooit",
+        "scopes": "Scopes",
+        "submit": "API-sleutel aanmaken",
+        "creating": "Aanmaken…"
+      },
+      "scopes": {
+        "invoicesRead": "Facturen lezen",
+        "invoicesCreate": "Facturen aanmaken en uitgeven",
+        "creditNotesRead": "Creditnota’s lezen",
+        "creditNotesCreate": "Creditnota’s aanmaken en uitgeven",
+        "catalogueRead": "Klanten, diensten en producten lezen",
+        "documentsRead": "Opgeslagen PDF’s en DOCX-kopieën downloaden",
+        "statusRead": "De instantiestatus lezen"
+      }
+    },
+    "status": {
+      "metaTitle": "Status",
+      "metaDescription": "Versie, database, opslag, e-mail en back-upstatus van deze instantie.",
+      "title": "Status",
+      "description": "Wat deze instantie draait en of de onderdelen reageren.",
+      "recheck": "Opnieuw controleren",
+      "health": {
+        "ok": "OK",
+        "warning": "Waarschuwing",
+        "failed": "Mislukt",
+        "na": "Niet geconfigureerd"
+      },
+      "overall": {
+        "ok": "Alles in orde",
+        "degraded": "Verminderd",
+        "failed": "Mislukt"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(sha onbekend)}} · gebouwd {built} · Node <mono>{node}</mono> · actief {uptime} · gecontroleerd {checked}",
+      "dateUnknown": "(datum onbekend)",
+      "uptime": {
+        "days": "{d}d {h}u {m}m",
+        "hours": "{h}u {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Database",
+        "storage": "Opslag",
+        "rateLimiting": "Snelheidsbeperking",
+        "email": "E-mail",
+        "backups": "Back-ups"
+      },
+      "db": {
+        "detail": "{latency} ms · laatste migratie <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # onvoltooide migratie(s)}}",
+        "noMigration": "geen"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · schrijven, lezen en verwijderen van een testobject in {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono>-opslag {store, select, memory {(één replica)} other {(gedeeld over replica’s)}}",
+      "smtp": {
+        "configured": "SMTP uit {source, select, settings {the settings page} env {the environment} other {}} · laatste test {lastTest} · laatste 24 u: {sent} verzonden, {failed} mislukt",
+        "none": "Geen SMTP-server; het verzendvenster biedt “Openen in mailapp”. <link>Configureren</link>"
+      },
+      "backups": {
+        "notWired": "Geen back-upservice gekoppeld (BACKUP_STATUS_FILE niet ingesteld).",
+        "noRun": "Back-upservice gekoppeld; nog geen uitvoering geregistreerd.",
+        "ok": "Laatste uitvoering geslaagd op {finishedAt}{days, plural, =0 {} one { · bewaartermijn # dag} other { · bewaartermijn # dagen}}",
+        "failed": "Laatste uitvoering mislukt: {error} op {finishedAt}{days, plural, =0 {} one { · bewaartermijn # dag} other { · bewaartermijn # dagen}}"
+      },
+      "footer": "Hetzelfde rapport is als JSON beschikbaar op <mono>/api/health/status</mono> voor monitoring (ingelogde sessie of API-sleutel)."
+    },
+    "usage": {
+      "metaTitle": "Gebruik",
+      "metaDescription": "Paginaweergaven per scherm en dag op deze instantie, lokaal geteld.",
+      "title": "Gebruik",
+      "description": "Hoe vaak elk scherm is geopend, alleen op deze instantie geteld: geen cookies, geen adressen, er wordt nergens iets naartoe verzonden.",
+      "last30Days": "Laatste 30 dagen",
+      "total": "{count, plural, =0 {Geen paginaweergaven} one {# paginaweergave} other {# paginaweergaven}}",
+      "off": "Tellen staat uit. Stel ANALYTICS_LOCAL=true in om paginaweergaven op deze instantie te tellen.",
+      "empty": "Nog geen paginaweergaven geregistreerd.",
+      "columns": {
+        "day": "Dag",
+        "path": "Scherm",
+        "views": "Weergaven"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Welkom",
+    "progress": "Voortgang",
+    "steps": {
+      "aboutYou": "Over u",
+      "howYouUse": "Hoe u het gebruikt",
+      "allSet": "Klaar"
+    },
+    "step1": {
+      "title": "Vertel ons over uzelf",
+      "subtitle": "Hiermee stelt u uw standaardwaarden in; elke waarde kan later in Instellingen worden gewijzigd.",
+      "name": "Naam",
+      "email": "E-mail",
+      "emailHint": "Uw inlogidentiteit. Deze kan later worden gewijzigd via Instellingen → Beveiliging.",
+      "country": "Land",
+      "currency": "Voorkeursvaluta",
+      "currencyHint": "Gebruikt voor nieuwe profielen en het dashboard zolang er geen profiel is."
+    },
+    "step2": {
+      "title": "Hoe gaat u okinvo gebruiken?",
+      "subtitle": "Alleen de standaardwaarden veranderen; er ligt niets vast.",
+      "usage": "Gebruik",
+      "personal": "Persoonlijk factureren",
+      "personalHint": "Freelancewerk onder eigen naam",
+      "business": "Zakelijk factureren",
+      "businessHint": "Facturen vanuit een geregistreerd bedrijf",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Btw-nummer",
+        "other": "Belastingregistratienummer"
+      },
+      "taxQuestion": {
+        "IN": "Hebt u een GSTIN?",
+        "GB": "Bent u btw-plichtig geregistreerd?",
+        "other": "Hebt u een belastingregistratienummer om op facturen af te drukken?"
+      }
+    },
+    "step3": {
+      "title": "Alles is ingesteld",
+      "body": "Maak nu uw eerste uitgeversprofiel aan: de naam, het adres en de belastinggegevens die op uw facturen worden afgedrukt. We hebben ingevuld wat u ons hebt verteld.",
+      "go": "Naar profielen",
+      "opening": "Openen…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Voorwaarden",
+      "privacy": "Privacy",
+      "cookies": "Cookies",
+      "security": "Beveiliging"
+    },
+    "cookieNotice": {
+      "label": "Cookiemelding",
+      "body": "We gebruiken alleen strikt noodzakelijke cookies: uw sessie en uw weergavevoorkeuren. Geen analyse, geen tracking.",
+      "policy": "Cookiebeleid",
+      "gotIt": "Begrepen"
+    },
+    "nav": {
+      "label": "Juridisch",
+      "cookies": "Cookies",
+      "privacy": "Privacy",
+      "terms": "Voorwaarden",
+      "acceptableUse": "Aanvaardbaar gebruik",
+      "retention": "Bewaartermijnen",
+      "security": "Beveiliging",
+      "licences": "Licenties"
+    },
+    "operatorNotice": "okinvo is zelf gehoste software; de beheerder van deze instantie is verantwoordelijk voor het gebruik ervan.",
+    "doc": {
+      "effectiveOn": "Ingangsdatum <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Inhoud"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Juridische naam van de beheerder",
+        "entityType": "Type entiteit",
+        "address": "Adres van de beheerder",
+        "country": "Land van de beheerder",
+        "contactEmail": "Contact-e-mail",
+        "privacyEmail": "Privacy-e-mail",
+        "dpoEmail": "E-mail van de functionaris voor gegevensbescherming",
+        "governingLaw": "Toepasselijk recht",
+        "venue": "Bevoegde rechter bij geschillen",
+        "effectiveDate": "Ingangsdatum"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Niet gevonden",
+      "title": "Er staat niets op dit adres",
+      "body": "De link is mogelijk verouderd, of het document waarnaar hij verwees is nooit uitgegeven."
+    },
+    "forbidden": {
+      "metaTitle": "Niet toegestaan",
+      "title": "Dit account kan dat niet doen",
+      "body": "Uw rol staat dit niet toe. Vraag een eigenaar om toegang, of log in met een account dat die heeft."
+    },
+    "error": {
+      "title": "Er is iets misgegaan",
+      "body": "Dit verzoek heeft niets gewijzigd. Probeer het opnieuw; als het blijft gebeuren, staan de details in het serverlogboek.",
+      "digest": "fout {digest}",
+      "generic": "fout"
+    },
+    "appNotFound": {
+      "title": "Niet gevonden",
+      "body": "Dit record bestaat niet, of is verwijderd terwijl u ernaar keek.",
+      "back": "Terug naar het dashboard"
+    },
+    "validation": {
+      "required": "verplicht",
+      "tooLong": "maximaal {max} tekens",
+      "invalidEmail": "moet een geldig e-mailadres zijn",
+      "invalidDate": "moet een kalenderdatum zijn in de notatie JJJJ-MM-DD",
+      "invalidAmount": "moet een getal zijn",
+      "wholeNumber": "moet een geheel getal zijn",
+      "greaterThanZero": "moet groter zijn dan nul",
+      "fixFields": "Corrigeer de gemarkeerde velden.",
+      "charset": "Alleen standaardtoetsenbordtekens zijn toegestaan."
+    }
+  },
+  "verify": {
+    "metaTitle": "Document verifiëren",
+    "metaDescription": "Controleer of een factuur of creditnota door de afzender is uitgegeven en niet is gewijzigd.",
+    "heading": "Documentverificatie",
+    "rateLimited": "Te veel controles vanaf dit adres. Probeer het over een minuut opnieuw.",
+    "notFound": {
+      "title": "Dat document bestaat niet",
+      "body": "Deze link komt niet overeen met een uitgegeven document. Controleer de QR-code of de link die u kreeg, of neem contact op met de uitgever."
+    },
+    "status": {
+      "void": "Ongeldig",
+      "valid": "Geldig"
+    },
+    "issuedBy": "Uitgegeven door",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Uitgegeven aan",
+    "issueDate": "Uitgiftedatum",
+    "total": "Totaal",
+    "voided": "Dit document is door de uitgever ongeldig gemaakt en is niet langer geldig.",
+    "storedCopies": {
+      "title": "Opgeslagen kopieën",
+      "description": "SHA-256 van elke PDF-versie die de uitgever bewaart. Kies uw kopie om die in uw browser te vergelijken: er wordt niets geüpload.",
+      "empty": "Er is nog geen PDF gegenereerd.",
+      "protectedVersion": "Met wachtwoord beveiligde kopie {version}",
+      "version": "Versie {version}"
+    },
+    "check": {
+      "label": "Controleer uw kopie",
+      "hashing": "Hash berekenen…",
+      "match": "Uw kopie komt exact overeen met versie {version}.",
+      "mismatch": "Uw kopie komt met geen enkele opgeslagen versie overeen."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Gedeeld document",
+      "metaDescription": "Een met jou gedeeld document: bekijk het online en download de PDF.",
+      "rateLimited": "Te veel verzoeken vanaf dit adres. Probeer het over een minuut opnieuw.",
+      "unavailable": {
+        "title": "Deze link is niet beschikbaar",
+        "body": "Hij is mogelijk verlopen of door de uitgever ingetrokken. Vraag om een nieuwe."
+      },
+      "lockedTitleInvoice": "Factuur van {issuer}",
+      "lockedTitleCreditNote": "Creditnota van {issuer}",
+      "lockedBody": "Dit document is met een wachtwoord beveiligd. Voer het wachtwoord in dat de uitgever u gaf.",
+      "void": "Ongeldig",
+      "protectedPdf": "De PDF opent met hetzelfde wachtwoord. Hij kan worden gelezen en afgedrukt; kopiëren en bewerken zijn vergrendeld.",
+      "byline": "Van {issuer} aan {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Wachtwoord",
+      "limited": "Te veel pogingen. Wacht vijftien minuten en probeer het opnieuw.",
+      "wrong": "Dat wachtwoord is onjuist.",
+      "submit": "Document openen"
+    },
+    "dialog": {
+      "trigger": "Delen",
+      "title": "Dit document delen",
+      "description": "Iedereen met de link kan het bekijken en downloaden totdat het verloopt of u het intrekt. Een wachtwoord beschermt ook de PDF zelf: hij opent met het wachtwoord en kan worden gelezen en afgedrukt, niet bewerkt of gekopieerd.",
+      "link": "Link",
+      "copyLink": "Link kopiëren",
+      "password": "Wachtwoord",
+      "copyPassword": "Wachtwoord kopiëren",
+      "sendSeparately": "Stuur het wachtwoord apart van de link. U kunt het hieronder in de lijst opnieuw zien.",
+      "copy": "Kopiëren",
+      "copied": "Gekopieerd",
+      "expires": "Verloopt",
+      "expiry": {
+        "d7": "Over 7 dagen",
+        "d30": "Over 30 dagen",
+        "d90": "Over 90 dagen",
+        "never": "Nooit"
+      },
+      "protection": "Beveiliging",
+      "protectionOptions": {
+        "auto": "Wachtwoord: een wachtzin genereren",
+        "manual": "Wachtwoord: zelf kiezen",
+        "none": "Geen wachtwoord (open link)"
+      },
+      "passwordHint": "Minstens 8 tekens.",
+      "strength": "Sterkte: {label}",
+      "strengthLabels": {
+        "veryWeak": "zeer zwak",
+        "weak": "zwak",
+        "fair": "redelijk",
+        "good": "goed",
+        "strong": "sterk"
+      },
+      "creating": "Aanmaken…",
+      "create": "Link aanmaken",
+      "activeLinks": "Actieve links",
+      "passwordProtected": "Met wachtwoord beveiligd",
+      "openLink": "Link openen",
+      "linkExpires": "{kind} · verloopt {date}",
+      "linkNeverExpires": "{kind} · verloopt nooit",
+      "revoke": {
+        "title": "Deze link intrekken?",
+        "description": "De link werkt direct niet meer voor iedereen die hem heeft.",
+        "label": "Intrekken"
+      },
+      "linkPassword": "Wachtwoord: <code>{password}</code>",
+      "counts": "{views, plural, one {# weergave} other {# weergaven}} · {downloads, plural, one {# download} other {# downloads}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Creditnota’s",
+      "title": "Creditnota’s",
+      "description": "Opgemaakt tegen uitgegeven facturen; elke creditnota verlaagt bij uitgifte het saldo van haar factuur.",
+      "newCreditNote": "Nieuwe creditnota",
+      "filters": {
+        "from": "Van",
+        "to": "Tot",
+        "issuer": "Uitgever",
+        "client": "Klant",
+        "status": "Status",
+        "search": "Zoeken",
+        "all": "Alle",
+        "searchPlaceholder": "Nummer, reden, klant",
+        "go": "Ga"
+      },
+      "statuses": {
+        "DRAFT": "Concept",
+        "ISSUED": "Uitgegeven",
+        "SENT": "Verzonden",
+        "VOID": "Ongeldig"
+      },
+      "empty": {
+        "title": "Nog geen creditnota’s",
+        "description": "Open een uitgegeven factuur en kies “Creditnota” om het verschuldigde bedrag te verlagen."
+      },
+      "noMatch": "Geen creditnota’s voldoen aan deze filters.",
+      "columns": {
+        "number": "Nummer",
+        "against": "Tegen",
+        "client": "Klant",
+        "issueDate": "Uitgiftedatum",
+        "reason": "Reden",
+        "total": "Totaal",
+        "status": "Status"
+      },
+      "draft": "Concept"
+    },
+    "new": {
+      "metaTitle": "Nieuwe creditnota",
+      "title": "Nieuwe creditnota",
+      "description": "Een creditnota wordt opgemaakt tegen een uitgegeven factuur en verlaagt het saldo ervan.",
+      "nothingToCredit": {
+        "title": "Niets om te crediteren",
+        "description": "Creditnota’s vereisen een uitgegeven factuur met een openstaand saldo.",
+        "openInvoices": "De facturen openen"
+      },
+      "whichInvoice": "Welke factuur?",
+      "invoice": "Factuur",
+      "invoiceOption": "{number} · {client} · saldo {balance}",
+      "issuedOnly": "Creditnota’s worden alleen opgemaakt tegen uitgegeven facturen.",
+      "invoiceFallback": "Factuur"
+    },
+    "edit": {
+      "metaTitle": "Creditnota bewerken",
+      "title": "Conceptcreditnota bewerken",
+      "immutable": "Uitgegeven creditnota’s zijn onveranderlijk.",
+      "draft": "Concept"
+    },
+    "detail": {
+      "metaTitle": "Creditnota",
+      "draftTitle": "Conceptcreditnota",
+      "meta": "{client} · tegen <invoice>{number}</invoice> · uitgegeven <mono>{date}</mono>",
+      "previewPdf": "PDF-voorbeeld",
+      "issue": {
+        "title": "Deze creditnota uitgeven?",
+        "description": "Er wordt een nummer toegewezen, het factuursaldo wordt verlaagd en het document wordt onveranderlijk.",
+        "label": "Uitgeven"
+      },
+      "deleteDraft": {
+        "title": "Dit concept verwijderen?"
+      },
+      "sendByEmail": "Per e-mail verzenden",
+      "markSent": {
+        "title": "Markeren als verzonden?",
+        "label": "Markeren als verzonden"
+      },
+      "void": {
+        "title": "Deze creditnota ongeldig maken?",
+        "description": "Het factuursaldo wordt hersteld; het nummer wordt nooit hergebruikt.",
+        "reason": "Reden",
+        "label": "Ongeldig maken"
+      },
+      "voided": "Ongeldig gemaakt op {date}: {reason}",
+      "amounts": {
+        "title": "Bedragen",
+        "reason": "Reden",
+        "creditAmount": "Creditbedrag",
+        "total": "Totaal",
+        "balanceNow": "Factuursaldo nu",
+        "sent": "Verzonden"
+      },
+      "documents": {
+        "title": "Opgeslagen documenten",
+        "description": "Elke versie wordt bewaard; de verificatiepagina toont alle hashes.",
+        "regenerateTitle": "Een nieuwe PDF-versie genereren?",
+        "generate": "Genereren",
+        "newVersion": "Nieuwe versie",
+        "renderedOnFirstDownload": "De PDF wordt bij de eerste download gegenereerd.",
+        "protectedCopy": "Met wachtwoord beveiligde kopie {version}",
+        "version": "Versie {version}",
+        "verificationLink": "Verificatielink: <link>{path}…</link>"
+      },
+      "draftsPreview": "Een voorbeeld van concepten is live te zien in de editor."
+    },
+    "send": {
+      "metaTitle": "Creditnota verzenden",
+      "title": "<mono>{number}</mono> verzenden",
+      "previousSends": "Eerdere verzendingen"
+    },
+    "builder": {
+      "against": "Tegen <mono>{number}</mono>",
+      "summary": "{client} · totaal {total} · saldo {balance} · belastbare ruimte ≈ {headroom}",
+      "issueDate": "Uitgiftedatum",
+      "creditAmount": "Creditbedrag (exclusief belasting)",
+      "creditAmountHint": "De belasting wordt verdeeld op basis van de belastingregels van de factuur",
+      "reason": "Reden",
+      "picker": {
+        "title": "Berekenen op basis van factuurregels",
+        "description": "Vink hele regels of een percentage aan; dit vult alleen het bedrag hierboven in.",
+        "line": "Regel",
+        "subtotal": "Subtotaal",
+        "credit": "Credit",
+        "percent": "%",
+        "creditLine": "Creditregel {position}",
+        "percentOfLine": "Percentage van regel {position}"
+      },
+      "saveDraft": "Concept opslaan",
+      "issuing": "Uitgeven…",
+      "saveAndIssue": "Opslaan en uitgeven"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Betaling ontvangen",
+        "REFUND": "Terugbetaling uitgevoerd",
+        "WRITE_OFF": "Afschrijving"
+      },
+      "editTitle": "Boeking bewerken",
+      "recordTitle": "Een betaling registreren",
+      "description": "Bedragen staan in de factuurvaluta ({currency}); ingehouden TDS maakt deel uit van het toegepaste bedrag.",
+      "kind": "Soort",
+      "date": "Datum",
+      "amountRefunded": "Terugbetaald bedrag (negatief)",
+      "amountApplied": "Toegepast bedrag",
+      "refundHint": "Voer een negatief bedrag in, bijv. -500",
+      "tdsDeducted": "Ingehouden TDS",
+      "tdsHint": "Belasting die de klant heeft ingehouden; telt mee voor het toegepaste bedrag",
+      "bankFees": "Bankkosten",
+      "receivedInto": "Ontvangen op",
+      "noMethod": "-",
+      "reference": "Referentie",
+      "referenceHint": "UTR, transactie-ID, chequenummer",
+      "otherCurrency": "Ontvangen in een andere valuta",
+      "amountReceived": "Ontvangen bedrag",
+      "receivedCurrency": "Valuta van ontvangst",
+      "exchangeRate": "Wisselkoers",
+      "exchangeRateHint": "1 ontvangen eenheid = ? {currency}",
+      "notes": "Opmerkingen",
+      "receiptHint": "PNG, JPEG, WebP of PDF tot 10 MB",
+      "receipts": "Bonnen en rekeningen",
+      "receiptN": "Bon {n}",
+      "removeReceipt": "Bon {n} verwijderen",
+      "saveChanges": "Wijzigingen opslaan",
+      "record": "Registreren"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Factuuradres",
+      "shipTo": "Verzendadres",
+      "invoice": "Factuur",
+      "creditNote": "Creditnota",
+      "issueDate": "Factuurdatum",
+      "dueDate": "Vervaldatum",
+      "number": "Nummer",
+      "description": "Omschrijving",
+      "sacHsn": "SAC/HSN",
+      "qty": "Aantal",
+      "unit": "Eenheid",
+      "rate": "Tarief",
+      "tax": "Btw",
+      "amount": "Bedrag",
+      "subtotal": "Subtotaal",
+      "discount": "Korting",
+      "taxable": "Belastbaar bedrag",
+      "total": "Totaal",
+      "amountDue": "Te betalen",
+      "tdsExpected": "Verwachte TDS",
+      "netExpected": "Verwacht netto",
+      "rounding": "Afronding",
+      "paymentDetails": "Betaalgegevens",
+      "notes": "Opmerkingen",
+      "terms": "Voorwaarden",
+      "placeOfSupply": "Plaats van levering",
+      "poReference": "Inkoopordernummer",
+      "amountInWords": "Bedrag in woorden",
+      "signature": "Gemachtigd ondertekenaar"
+    },
+    "title": {
+      "taxInvoice": "BTW-FACTUUR",
+      "billOfSupply": "LEVERINGSDOCUMENT",
+      "invoice": "FACTUUR",
+      "creditNote": "CREDITNOTA"
+    },
+    "text": {
+      "pageOf": "Pagina {page} van {total}",
+      "scanToVerify": "Scan om te verifiëren",
+      "taxId": "Belasting-ID",
+      "void": "ONGELDIG",
+      "draftWatermark": "CONCEPT - geen btw-factuur",
+      "paymentTermsDays": "{days} dagen",
+      "irn": "IRN",
+      "ackNo": "Bevestigingsnr.",
+      "ackDate": "Bevestigingsdatum",
+      "einvoiceCancelled": "E-FACTUUR GEANNULEERD"
+    },
+    "ui": {
+      "pageEstimate": "ca. {count, plural, one {# pagina} other {# pagina’s}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Bericht",
+      "description": "Vooraf ingevuld op basis van de sjablonen van het uitgeversprofiel. Er wordt niets verzonden totdat u op Verzenden klikt.",
+      "to": "Aan",
+      "toHint": "Gescheiden door komma’s",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Onderwerp",
+      "body": "Tekst",
+      "bodyHint": "Platte tekst; links worden klikbaar",
+      "attachment": "Bijlage",
+      "attachmentHint": "De opgeslagen kopie, genaamd <mono>{name}</mono> (of .docx); de inhoud kan niet worden gewijzigd.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Verzenden…",
+      "send": "Verzenden",
+      "openInMailApp": "Openen in mailapp",
+      "noSmtp": "Er is geen SMTP-server geconfigureerd (Instellingen → E-mail). Open het concept in uw mailapp, voeg de gedownloade PDF toe en markeer het hieronder als verzonden.",
+      "markAsSent": "Markeren als verzonden"
+    },
+    "sentLog": {
+      "when": "Wanneer",
+      "document": "Document",
+      "to": "Aan",
+      "subject": "Onderwerp",
+      "status": "Status",
+      "empty": "Nog niets verzonden.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "verzonden",
+        "FAILED": "mislukt",
+        "MANUAL": "handmatig"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Hallo, {name}",
+    "fiscalYear": "Boekjaar {year}",
+    "fiscalYearWithBase": "Boekjaar {year} · basisvaluta {currency} ({profile})",
+    "newCreditNote": "Nieuwe creditnota",
+    "welcomeTitle": "Welkom bij {appName}",
+    "welcomeDescription": "Begin met het aanmaken van het uitgeversprofiel waarmee u factureert, voeg dan een klant en uw eerste factuur toe.",
+    "createProfile": "Uw profiel aanmaken",
+    "tiles": {
+      "outstanding": "Openstaand",
+      "overdue": "Achterstallig",
+      "billedThisFy": "Gefactureerd dit boekjaar",
+      "receivedThisFy": "Ontvangen dit boekjaar",
+      "drafts": "Concepten",
+      "invoiceCount": "{count, plural, one {# factuur} other {# facturen}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Betalingen min terugbetalingen, tegen vastgelegde wisselkoers",
+      "awaitingIssue": "wacht op uitgifte",
+      "nothingPending": "niets in behandeling"
+    },
+    "recentInvoices": "Recente facturen",
+    "allInvoices": "Alle facturen",
+    "noInvoicesYet": "Nog geen facturen.",
+    "columns": {
+      "number": "Nummer",
+      "client": "Klant",
+      "issued": "Uitgegeven"
+    },
+    "topClients": "Top klanten op openstaand bedrag",
+    "nothingOutstanding": "Niets openstaand."
+  },
+  "exports": {
+    "export": "Exporteren",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Facturen",
+      "newInvoice": "Nieuwe factuur",
+      "draft": "Concept",
+      "aDraft": "een concept",
+      "statuses": {
+        "draft": "Concept",
+        "issued": "Uitgegeven",
+        "sent": "Verzonden",
+        "partiallyPaid": "Gedeeltelijk betaald",
+        "paid": "Betaald",
+        "overdue": "Achterstallig",
+        "void": "Ongeldig"
+      },
+      "lifecycle": {
+        "draft": "concept",
+        "issued": "uitgegeven",
+        "void": "ongeldig"
+      },
+      "units": {
+        "hour": "Uur",
+        "day": "Dag",
+        "fixed": "Vast",
+        "milestone": "Mijlpaal",
+        "unit": "Eenheid"
+      },
+      "unitsLower": {
+        "hour": "uur",
+        "day": "dag",
+        "fixed": "vast",
+        "milestone": "mijlpaal",
+        "unit": "eenheid"
+      },
+      "supplyTypes": {
+        "intraState": "binnen de staat",
+        "interState": "tussen staten",
+        "exportLut": "export lut",
+        "exportWithTax": "export met belasting",
+        "reverseCharge": "verlegging",
+        "notApplicable": "niet van toepassing"
+      }
+    },
+    "list": {
+      "description": "Concept-, uitgegeven en ongeldig gemaakte facturen; statussen worden afgeleid van betalingen en vervaldatums.",
+      "fiscalYear": "Boekjaar",
+      "issuer": "Uitgever",
+      "client": "Klant",
+      "searchPlaceholder": "Nummer, PO, klant",
+      "emptyTitle": "Nog geen facturen",
+      "emptyDescription": "Maak uw eerste factuur: kies een klant, voeg regels toe, bekijk het voorbeeld en geef hem dan uit.",
+      "columns": {
+        "number": "Nummer",
+        "client": "Klant",
+        "issuer": "Uitgever",
+        "issueDate": "Uitgiftedatum",
+        "due": "Vervalt",
+        "balance": "Saldo"
+      },
+      "noMatches": "Geen facturen voldoen aan deze filters.",
+      "count": "{count, plural, one {# factuur} other {# facturen}}",
+      "countPaged": "{count, plural, one {# factuur} other {# facturen}} · pagina {page} van {pages}",
+      "register": "register",
+      "einvoice": "E-factuur",
+      "einvoiceFilters": {
+        "registered": "IRN geregistreerd",
+        "none": "Niet geregistreerd",
+        "cancelled": "IRN geannuleerd"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Maak eerst een uitgeversprofiel aan",
+      "noProfileDescription": "Een factuur wordt uitgegeven vanuit een juridische identiteit: stel uw profiel in met belastingnummers en nummering.",
+      "createProfile": "Profiel aanmaken"
+    },
+    "edit": {
+      "metaTitle": "Factuur bewerken",
+      "title": "Concept bewerken",
+      "immutableFlash": "Uitgegeven facturen zijn onveranderlijk. Gebruik “Ongeldig maken en heruitgeven” om hem te corrigeren."
+    },
+    "detail": {
+      "metaTitle": "Factuur",
+      "draftInvoice": "Conceptfactuur",
+      "issuedDue": "Uitgegeven <mono>{issued}</mono>, vervalt <mono>{due}</mono>",
+      "replaces": "Vervangt {number}",
+      "replacedBy": "Vervangen door {number}",
+      "previewPdf": "PDF-voorbeeld",
+      "downloadEInvoice": "E-factuur JSON downloaden",
+      "issueTitle": "Deze factuur uitgeven?",
+      "issueDescription": "Er wordt een nummer toegewezen en het document wordt onveranderlijk.",
+      "issue": "Uitgeven",
+      "deleteDraftTitle": "Dit concept verwijderen?",
+      "sendByEmail": "Per e-mail verzenden",
+      "recordPayment": "Betaling registreren",
+      "progress": {
+        "title": "Betalingsvoortgang",
+        "description": "Waar deze factuur staat, van uitgifte tot een bon in het dossier.",
+        "issued": "Uitgegeven",
+        "sent": "Verzonden",
+        "payment": "Betaling geregistreerd",
+        "paymentOn": "Betaling van <mono>{amount}</mono> geregistreerd op <mono>{date}</mono>",
+        "paid": "Volledig betaald",
+        "receipt": "Bon bijgevoegd",
+        "done": "klaar",
+        "pending": "in afwachting"
+      },
+      "creditNote": "Creditnota",
+      "markSentTitle": "Markeren als verzonden?",
+      "markSentDescription": "Registreert dat de klant deze factuur heeft ontvangen.",
+      "markSent": "Markeren als verzonden",
+      "voidReissueTitle": "Ongeldig maken en heruitgeven?",
+      "voidReissueDescription": "Het origineel wordt ongeldig gemaakt en een gekoppeld concept met dezelfde inhoud wordt geopend om te bewerken.",
+      "voidReissue": "Ongeldig maken en heruitgeven",
+      "voidTitle": "Deze factuur ongeldig maken?",
+      "voidDescription": "Alleen mogelijk zonder geregistreerde betalingen; het nummer wordt nooit hergebruikt.",
+      "void": "Ongeldig maken",
+      "voided": "Ongeldig gemaakt op {date}: {reason}",
+      "amounts": "Bedragen",
+      "subtotal": "Subtotaal",
+      "discount": "Korting",
+      "discountPercent": "Korting ({percent})",
+      "rounding": "Afronding",
+      "tdsExpected": "Verwachte TDS ({percent})",
+      "paid": "Betaald",
+      "credited": "Gecrediteerd",
+      "balanceDue": "Te betalen saldo",
+      "supply": "Levering",
+      "fxToBase": "Wisselkoers naar basis",
+      "poReference": "PO-referentie",
+      "sent": "Verzonden",
+      "lineItems": "Factuurregels",
+      "columns": {
+        "description": "Omschrijving",
+        "sacHsn": "SAC/HSN",
+        "qty": "Aantal",
+        "rate": "Tarief",
+        "tax": "Belasting",
+        "amount": "Bedrag"
+      },
+      "creditNotes": "Creditnota’s",
+      "storedDocuments": "Opgeslagen documenten",
+      "storedDocumentsHint": "Elke versie wordt bewaard; de verificatiepagina toont alle hashes.",
+      "regenerateTitle": "Een nieuwe PDF-versie genereren?",
+      "regenerateDescription": "Wordt opnieuw gegenereerd vanuit de vastgelegde momentopname (bijvoorbeeld na een fix van de renderer). Eerdere versies blijven bestaan.",
+      "regenerate": "Genereren",
+      "newVersion": "Nieuwe versie",
+      "renderedOnFirstDownload": "De PDF wordt bij de eerste download gegenereerd.",
+      "protectedCopy": "Met wachtwoord beveiligde kopie {version}",
+      "version": "Versie {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Verificatielink:",
+      "draftPreviewHint": "Een voorbeeld van concepten is live te zien in de editor; open <link>de PDF met watermerk</link> om de pagina te zien.",
+      "einvoice": {
+        "title": "E-factuur (India)",
+        "description": "Registratie van deze factuur bij het Invoice Registration Portal; een geregistreerd document toont zijn IRN en de ondertekende QR van het portaal.",
+        "connector": "Connector",
+        "connectors": {
+          "manual": "Handmatig",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Voor dit profiel is geen connector geconfigureerd onder Instellingen > E-facturatie.",
+        "statuses": {
+          "none": "Niet geregistreerd",
+          "generated": "JSON gegenereerd",
+          "registered": "Geregistreerd",
+          "cancelled": "Geannuleerd",
+          "failed": "Registratie mislukt"
+        },
+        "irn": "IRN",
+        "ackNo": "Bevestigingsnr.",
+        "ackDate": "Bevestigingsdatum",
+        "cancelReason": "Annulering",
+        "generate": "IRN genereren",
+        "pasteLabel": "IRP-antwoord",
+        "pasteHint": "Plak de JSON die het portaal of uw GSP heeft teruggestuurd voor de e-factuur-JSON van deze factuur (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN vastleggen",
+        "cancelReasonLabel": "Reden van annulering",
+        "cancelReasons": {
+          "1": "Duplicaat",
+          "2": "Fout bij gegevensinvoer",
+          "3": "Bestelling geannuleerd",
+          "4": "Overig"
+        },
+        "cancel": "IRN annuleren",
+        "cancelWindow": "Het portaal staat annulering toe binnen 24 uur na de bevestiging."
+      }
+    },
+    "history": {
+      "metaTitle": "Factuurgeschiedenis",
+      "title": "Geschiedenis <mono>{number}</mono>",
+      "reissueChain": "Keten van heruitgiften",
+      "replaces": "Vervangt <link>{number}</link>",
+      "replacedBy": "Vervangen door <link>{number}</link>",
+      "auditTrail": "Audittrail",
+      "columns": {
+        "when": "Wanneer",
+        "who": "Wie",
+        "action": "Actie",
+        "summary": "Samenvatting"
+      },
+      "noEvents": "Nog geen gebeurtenissen.",
+      "system": "Systeem",
+      "emails": "E-mails"
+    },
+    "payments": {
+      "title": "Betalingen",
+      "description": "{client} · {total} totaal",
+      "backToInvoice": "Terug naar factuur",
+      "ledger": "Grootboek",
+      "columns": {
+        "date": "Datum",
+        "kind": "Soort",
+        "applied": "Toegepast",
+        "tds": "TDS",
+        "received": "Ontvangen",
+        "reference": "Referentie",
+        "balance": "Saldo"
+      },
+      "noPayments": "Nog geen betalingen geregistreerd.",
+      "kinds": {
+        "payment": "Betaling",
+        "refund": "Terugbetaling",
+        "writeOff": "Afschrijving"
+      },
+      "receipt": "Bewijs van ontvangst",
+      "receiptN": "Bon {n}",
+      "deleteEntryTitle": "Deze boeking verwijderen?",
+      "deleteEntryDescription": "Het factuursaldo wordt opnieuw berekend.",
+      "totals": "Totalen",
+      "invoiceTotal": "Factuurtotaal",
+      "credited": "Gecrediteerd",
+      "refunds": "Terugbetalingen",
+      "writeOffs": "Afschrijvingen",
+      "tdsDeducted": "Ingehouden TDS",
+      "bankFees": "Bankkosten",
+      "balanceDue": "Te betalen saldo",
+      "onlyIssued": "Alleen uitgegeven facturen accepteren betalingen."
+    },
+    "send": {
+      "metaTitle": "Factuur verzenden",
+      "title": "<mono>{number}</mono> verzenden",
+      "alreadySent": "Al als verzonden gemarkeerd; opnieuw verzenden voegt nog een logboekregel toe.",
+      "previousSends": "Eerdere verzendingen"
+    },
+    "builder": {
+      "parties": "Partijen",
+      "issuerProfile": "Uitgeversprofiel",
+      "client": "Klant",
+      "archivedOption": "{label} (gearchiveerd)",
+      "issueDate": "Uitgiftedatum",
+      "dueDate": "Vervaldatum",
+      "fxRate": "Wisselkoers naar basisvaluta",
+      "fxHint": "1 {currency} = ? {base} (alleen voor rapportage)",
+      "poReference": "PO-referentie",
+      "lineItems": "Factuurregels",
+      "lineItemsHint": "Kies uit de catalogus om de waarden te kopiëren, of typ een regel.",
+      "taxDiscountTds": "Belasting, korting en TDS",
+      "taxRegime": "Belastingregime",
+      "regimes": {
+        "indiaGst": "Indiase GST",
+        "ukVat": "Britse btw",
+        "usSalesTax": "Amerikaanse omzetbelasting",
+        "none": "Geen belasting"
+      },
+      "reverseCharge": "Verlegging",
+      "reverseChargeHint": "Belasting verschuldigd door de ontvanger",
+      "discount": "Korting",
+      "percent": "Percentage",
+      "amount": "Bedrag",
+      "rounding": "Afrondingscorrectie",
+      "roundingHint": "Optioneel, op een hele eenheid; moet kleiner zijn dan 1",
+      "round": "Afronden",
+      "tdsRate": "Verwacht TDS-percentage (%)",
+      "tdsRateHint": "Ter informatie; afgedrukt wanneer het TDS-overzicht aan staat",
+      "paymentMethods": "Betaalmethoden",
+      "paymentMethodsHint": "Afgedrukt in de volgorde waarin ze zijn aangevinkt.",
+      "noPaymentMethods": "Geen actieve betaalmethoden. <link>Voeg er een toe</link>.",
+      "whatPrints": "Wat wordt afgedrukt",
+      "whatPrintsHint": "Begint met de standaardwaarden van het uitgeversprofiel.",
+      "documentLanguage": "Documenttaal",
+      "documentLanguageHint": "Labels, datums en bedragen worden in deze taal afgedrukt; de voorkeur van de klant, anders die van het profiel.",
+      "notesAndTerms": "Opmerkingen en voorwaarden",
+      "notes": "Opmerkingen",
+      "terms": "Voorwaarden",
+      "saveDraft": "Concept opslaan",
+      "issuing": "Uitgeven…",
+      "saveAndIssue": "Opslaan en uitgeven",
+      "subtotal": "Subtotaal",
+      "tax": "Belasting",
+      "tdsExpected": "Verwachte TDS",
+      "netExpected": "Verwacht netto"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Toevoegen uit catalogus…",
+      "services": "Diensten",
+      "products": "Producten",
+      "addLine": "Regel toevoegen",
+      "columns": {
+        "description": "Omschrijving",
+        "sacHsn": "SAC/HSN",
+        "qty": "Aantal",
+        "unit": "Eenheid",
+        "rate": "Tarief",
+        "taxPercent": "Belasting %"
+      },
+      "aria": {
+        "description": "Omschrijving van regel {line}",
+        "sacHsn": "SAC/HSN van regel {line}",
+        "quantity": "Aantal van regel {line}",
+        "unit": "Eenheid van regel {line}",
+        "rate": "Tarief van regel {line}",
+        "taxRate": "Belastingtarief van regel {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Vrijgesteld",
+      "moveUp": "Omhoog",
+      "moveDown": "Omlaag",
+      "removeLine": "Regel verwijderen",
+      "shortcutHint": "Ctrl/⌘+Enter in een omschrijving voegt een regel toe.",
+      "addFromCatalogueAria": "Toevoegen uit catalogus"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Gegevens van de uitgever",
+        "client": "Klantgegevens",
+        "document": "Documentsecties"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Handelsnaam",
+        "showDesignation": "Functie",
+        "showEmail": "E-mail",
+        "showPhone": "Telefoon",
+        "showWebsite": "Website",
+        "showFullAddress": "Volledig adres",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Handtekening",
+        "showStamp": "Stempel",
+        "showContactPerson": "Contactpersoon",
+        "showBillingAddress": "Factuuradres",
+        "showShippingAddress": "Verzendadres",
+        "showTaxIdentifier": "Belastingnummer",
+        "showPlaceOfSupply": "Plaats van levering",
+        "showDueDate": "Vervaldatum",
+        "showPaymentTerms": "Betalingsvoorwaarden",
+        "showSacCodeColumn": "Kolom SAC-code",
+        "showQuantityColumn": "Kolom aantal",
+        "showUnitPriceColumn": "Kolom eenheidsprijs",
+        "showTaxColumn": "Kolom belasting",
+        "showTdsBreakdown": "TDS-specificatie",
+        "showQrVerification": "QR-verificatie",
+        "showNotes": "Opmerkingen",
+        "showTerms": "Voorwaarden",
+        "showReplacesReference": "Verwijzing naar vervangen factuur",
+        "showAmountInWords": "Bedrag in woorden",
+        "showSupplyStatement": "Leveringsverklaring",
+        "showRoundingLine": "Afrondingsregel",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Klanten",
+      "description": "Iedereen aan wie u factureert. Klanten met facturen worden gearchiveerd, nooit verwijderd.",
+      "newClient": "Nieuwe klant",
+      "searchPlaceholder": "Zoeken op naam",
+      "searchLabel": "Klanten zoeken",
+      "emptyTitle": "Nog geen klanten",
+      "emptyDescription": "Voeg de personen en bedrijven toe aan wie u factureert; hun valuta en betalingsvoorwaarden vullen elke factuur vooraf in.",
+      "addClient": "Een klant toevoegen",
+      "noMatch": "Geen klanten komen overeen met “{q}”.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Naam",
+        "contact": "Contact",
+        "email": "E-mail",
+        "country": "Land",
+        "currency": "Valuta",
+        "terms": "Voorwaarden",
+        "status": "Status"
+      }
+    },
+    "new": {
+      "title": "Nieuwe klant"
+    },
+    "edit": {
+      "metaTitle": "Klant bewerken",
+      "title": "{name} bewerken"
+    },
+    "detail": {
+      "metaTitle": "Klant",
+      "newInvoice": "Nieuwe factuur",
+      "restoreTitle": "Deze klant herstellen?",
+      "archiveTitle": "Deze klant archiveren?",
+      "archiveDescription": "De klant verdwijnt uit keuzelijsten; facturen en geschiedenis blijven intact.",
+      "deleteTitle": "Deze klant verwijderen?",
+      "deleteDescription": "Alleen mogelijk zolang er geen factuur naar de klant verwijst.",
+      "details": "Gegevens",
+      "contact": "Contact",
+      "email": "E-mail",
+      "phone": "Telefoon",
+      "country": "Land",
+      "gstState": "GST {code}",
+      "taxId": "Belastingnummer",
+      "currency": "Valuta",
+      "paymentTerms": "Betalingsvoorwaarden",
+      "paymentTermsDays": "{days} dagen",
+      "expectedTds": "Verwachte TDS",
+      "notes": "Opmerkingen",
+      "addresses": "Adressen",
+      "billing": "Facturatie",
+      "shipping": "Verzending",
+      "lifetime": "Totaal",
+      "openRegister": "Het register openen",
+      "noIssued": "Nog geen uitgegeven facturen.",
+      "noIssuedWithDrafts": "Nog geen uitgegeven facturen ({drafts} concept).",
+      "firstLatest": "Eerste factuur <mono>{first}</mono>, laatste <mono>{latest}</mono>{drafts, plural, =0 {} one { · # concept} other { · # concepten}}",
+      "lifetimeColumns": {
+        "currency": "Valuta",
+        "invoices": "Facturen",
+        "billed": "Gefactureerd",
+        "received": "Ontvangen",
+        "credited": "Gecrediteerd",
+        "outstanding": "Openstaand",
+        "overdue": "Achterstallig"
+      },
+      "recentInvoices": "Recente facturen",
+      "noInvoices": "Nog geen facturen voor deze klant.",
+      "recentColumns": {
+        "number": "Nummer",
+        "issueDate": "Uitgiftedatum",
+        "due": "Vervalt",
+        "total": "Totaal",
+        "balance": "Saldo",
+        "status": "Status"
+      }
+    },
+    "form": {
+      "cardTitle": "Klant",
+      "displayName": "Weergavenaam",
+      "contactPerson": "Contactpersoon",
+      "email": "E-mail",
+      "phone": "Telefoon",
+      "taxIdType": "Type belastingnummer",
+      "taxIdTypeNone": "Geen",
+      "taxId": "Belastingnummer",
+      "currency": "Valuta",
+      "paymentTerms": "Betalingsvoorwaarden (dagen)",
+      "expectedTdsRate": "Verwacht TDS-percentage (%)",
+      "preferredLanguage": "Documenttaal",
+      "preferredLanguageFollow": "Het uitgeversprofiel volgen",
+      "buyerReference": "Referentie van de koper",
+      "buyerReferenceHint": "Wordt in e-facturen afgedrukt als de eigen referentie van de koper (een order- of kostenplaatsnummer).",
+      "electronicAddress": "Elektronisch adres",
+      "electronicAddressHint": "De Peppol- of EN 16931-identificatie waaronder deze klant e-facturen ontvangt.",
+      "electronicAddressScheme": "Schema van het elektronisch adres",
+      "electronicAddressSchemeNone": "Geen schema",
+      "notes": "Opmerkingen",
+      "billingAddress": "Factuuradres",
+      "shippingAddress": "Verzendadres",
+      "differentFromBilling": "Anders dan factuuradres",
+      "save": "Klant opslaan"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Uur",
+      "DAY": "Dag",
+      "FIXED": "Vast",
+      "MILESTONE": "Mijlpaal",
+      "UNIT": "Eenheid"
+    },
+    "list": {
+      "activate": "Activeren",
+      "deactivate": "Deactiveren",
+      "archiveDescription": "Bestaande factuurregels behouden hun gekopieerde waarden.",
+      "deleteDescription": "Alleen mogelijk zolang er geen factuurregel naar verwijst. Archiveer het anders.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Naam",
+        "unit": "Eenheid",
+        "rate": "Tarief",
+        "price": "Prijs",
+        "currency": "Valuta",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Belasting",
+        "status": "Status"
+      }
+    },
+    "services": {
+      "title": "Diensten",
+      "description": "Uw catalogus. Als u een dienst kiest, worden de waarden ervan naar de factuurregel gekopieerd.",
+      "newService": "Nieuwe dienst",
+      "emptyTitle": "Nog geen diensten",
+      "emptyDescription": "Voeg toe wat u verkoopt - ontwerp per uur, een mijlpaal met vaste prijs - met de SAC/HSN-code en het belastingtarief.",
+      "addService": "Een dienst toevoegen",
+      "restoreTitle": "{name} herstellen?",
+      "archiveTitle": "{name} archiveren?",
+      "deleteTitle": "{name} verwijderen?",
+      "editMetaTitle": "Dienst bewerken",
+      "editTitle": "{name} bewerken"
+    },
+    "products": {
+      "title": "Producten",
+      "description": "Goederen die u verkoopt, elk met een SKU. Als u een product kiest, worden de waarden ervan naar de factuurregel gekopieerd.",
+      "newProduct": "Nieuw product",
+      "emptyTitle": "Nog geen producten",
+      "emptyDescription": "Voeg de goederen toe die u verkoopt, met SKU, HSN-code, eenheidsprijs en belastingtarief.",
+      "addProduct": "Een product toevoegen",
+      "restoreTitle": "{sku} herstellen?",
+      "archiveTitle": "{sku} archiveren?",
+      "deleteTitle": "{sku} verwijderen?",
+      "editMetaTitle": "Product bewerken",
+      "editTitle": "{sku} bewerken"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Unieke code, afgedrukt onder de regelomschrijving",
+      "name": "Naam",
+      "unit": "Eenheid",
+      "defaultRate": "Standaardtarief",
+      "unitPrice": "Eenheidsprijs",
+      "currency": "Valuta",
+      "sacHsnCode": "SAC / HSN-code",
+      "sacHsnHint": "Vereist op GST-facturen",
+      "hsnCode": "HSN-code",
+      "hsnHint": "Vereist op GST-facturen voor goederen",
+      "defaultTaxRate": "Standaard belastingtarief (%)",
+      "description": "Omschrijving",
+      "descriptionHint": "Vult de regelomschrijving vooraf in",
+      "active": "Actief",
+      "serviceInactiveHint": "Inactieve diensten komen niet in de factuurkeuzelijst",
+      "productInactiveHint": "Inactieve producten komen niet in de factuurkeuzelijst",
+      "saveService": "Dienst opslaan",
+      "saveProduct": "Product opslaan"
+    },
+    "tags": {
+      "legend": "Profielen",
+      "hint": "Vink de uitgeversprofielen aan die dit verkopen. Laat alles uitgevinkt om het aan elk profiel aan te bieden."
+    }
+  },
+  "address": {
+    "line1": "Adresregel 1",
+    "line2": "Adresregel 2",
+    "city": "Plaats",
+    "stateRegion": "Staat / regio",
+    "postalCode": "Postcode",
+    "country": "Land",
+    "state": "Staat",
+    "gstStateCodeHint": "GST-statencode {code}",
+    "pickStateHint": "Kies de staat voor de GST-statencode",
+    "stateRegionCode": "Staat- / regiocode",
+    "stateRegionCodePlaceholder": "bijv. CA"
+  },
+  "assets": {
+    "tooLarge": "Dat bestand is te groot.",
+    "unsupportedReceipt": "Gebruik een PNG-, JPEG- of WebP-afbeelding of een PDF.",
+    "unsupportedImage": "Gebruik een PNG-, JPEG- of WebP-afbeelding.",
+    "uploadFailed": "Uploaden mislukt.",
+    "uploading": "Uploaden…",
+    "dropHint": "Sleep een bestand hierheen, of kies er een",
+    "dropHintMany": "Sleep bestanden hierheen, of kies ze",
+    "dropActive": "Laat los om te uploaden"
+  },
+  "ui": {
+    "breadcrumb": "Kruimelpad",
+    "close": "Sluiten",
+    "closeMenu": "Menu sluiten",
+    "reveal": "Tonen",
+    "hide": "Verbergen",
+    "openCalendar": "Kalender openen",
+    "chooseMonth": "Kies maand",
+    "chooseYear": "Kies jaar",
+    "searchOptions": "Typ om te zoeken",
+    "noMatches": "Geen resultaten",
+    "pullToRefresh": {
+      "label": "Vernieuwbare lijst",
+      "pulling": "Trek omlaag om te vernieuwen",
+      "release": "Laat los om te vernieuwen",
+      "refreshing": "Vernieuwen"
+    },
+    "inputCharset": "Alleen standaardtoetsenbordtekens zijn toegestaan.",
+    "confirm": {
+      "working": "Bezig…"
+    },
+    "statusPill": {
+      "DRAFT": "Concept",
+      "ISSUED": "Uitgegeven",
+      "SENT": "Verzonden",
+      "PARTIALLY_PAID": "Gedeeltelijk betaald",
+      "PAID": "Betaald",
+      "OVERDUE": "Achterstallig",
+      "VOID": "Ongeldig"
+    },
+    "activePill": {
+      "active": "Actief",
+      "archived": "Gearchiveerd",
+      "inactive": "Inactief"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Er is iets misgegaan.",
+    "fixFields": "Corrigeer de gemarkeerde velden.",
+    "accountSaved": "Accountvoorkeuren opgeslagen",
+    "apiKeyCreated": "API-sleutel aangemaakt. Kopieer hem nu: hij wordt maar één keer getoond.",
+    "saved": "{name} opgeslagen",
+    "savedProfile": "Profiel {label} opgeslagen",
+    "clientArchived": "Klant gearchiveerd",
+    "clientRestored": "Klant hersteld",
+    "clientDeleted": "Klant verwijderd",
+    "productArchived": "Product gearchiveerd",
+    "productRestored": "Product hersteld",
+    "productActivated": "Product geactiveerd",
+    "productDeactivated": "Product gedeactiveerd",
+    "serviceArchived": "Dienst gearchiveerd",
+    "serviceRestored": "Dienst hersteld",
+    "serviceActivated": "Dienst geactiveerd",
+    "serviceDeactivated": "Dienst gedeactiveerd",
+    "defaultProfileUpdated": "Standaardprofiel bijgewerkt",
+    "profileArchived": "Profiel gearchiveerd",
+    "profileRestored": "Profiel hersteld",
+    "profileDeleted": "Profiel verwijderd",
+    "defaultPaymentMethodUpdated": "Standaardbetaalmethode bijgewerkt",
+    "paymentMethodArchived": "Betaalmethode gearchiveerd",
+    "paymentMethodRestored": "Betaalmethode hersteld",
+    "paymentMethodDeleted": "Betaalmethode verwijderd",
+    "issued": "{number} uitgegeven",
+    "savedAsDraft": "Opgeslagen als concept. {reason}",
+    "draftSaved": "Concept opgeslagen",
+    "invoiceVoided": "Factuur ongeldig gemaakt",
+    "originalVoided": "Origineel ongeldig gemaakt; bewerk het vervangende concept",
+    "markedAsSent": "Gemarkeerd als verzonden",
+    "draftDeleted": "Concept verwijderd",
+    "generatedPdf": "PDF-versie {version} gegenereerd",
+    "creditNoteVoided": "Creditnota ongeldig gemaakt; het factuursaldo is hersteld",
+    "draftCreditNoteDeleted": "Conceptcreditnota verwijderd",
+    "mailRefused": "De mailserver heeft het bericht geweigerd: {error}. De poging is gelogd.",
+    "unknownError": "onbekende fout",
+    "sentTo": "Verzonden naar {recipients}",
+    "smtpSaved": "SMTP-instellingen opgeslagen",
+    "smtpRemoved": "Opgeslagen SMTP-instellingen verwijderd",
+    "testEmailSent": "Testmail verzonden naar {email}",
+    "testFailed": "Test mislukt: {error}",
+    "defaultRecipientsSaved": "Standaardontvangers opgeslagen",
+    "invitationSent": "Uitnodiging verzonden",
+    "invitationReady": "Uitnodiging klaar",
+    "unknownRole": "Onbekende rol",
+    "roleUpdated": "Rol bijgewerkt",
+    "accountDeactivated": "Account gedeactiveerd",
+    "accountReactivated": "Account opnieuw geactiveerd",
+    "invitationRevoked": "Uitnodiging ingetrokken",
+    "paymentUpdated": "Betaling bijgewerkt",
+    "paymentRecorded": "Betaling geregistreerd",
+    "paymentDeleted": "Betaling verwijderd",
+    "sessionRevoked": "Sessie ingetrokken",
+    "noOtherSessions": "Geen andere sessies",
+    "signedOutOthers": "Uitgelogd uit {count} andere sessie(s)",
+    "sharePasswordRequired": "Voer een wachtwoord in, of laat er een genereren.",
+    "shareLinkCreated": "Deellink aangemaakt.",
+    "templateSaved": "Sjabloon opgeslagen; toekomstige documenten gebruiken het",
+    "templateReset": "Sjabloon teruggezet naar de ingebouwde standaard",
+    "templateImported": "Sjabloon geïmporteerd",
+    "profileTemplateCleared": "Profiel gebruikt het instantiesjabloon weer",
+    "operatorSaved": "Gegevens van de beheerder opgeslagen. De juridische pagina’s tonen ze nu.",
+    "einvoiceSettingsSaved": "E-facturatie-instellingen opgeslagen",
+    "irnRegistered": "IRN {irn} geregistreerd; de PDF is ermee opnieuw gegenereerd",
+    "irnRecorded": "IRN vastgelegd; de PDF is ermee opnieuw gegenereerd",
+    "irnCancelled": "IRN geannuleerd; de PDF is opnieuw gegenereerd"
+  }
+}

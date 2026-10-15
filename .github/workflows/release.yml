@@ -1,8 +1,9 @@
 name: release
 # Manual, optional (IMPLEMENTATION_PLAN_v2.md §18.2): releases are normally built and pushed from
 # the owner's machine with scripts/release.sh. This workflow does the same multi-arch build and
-# push on a hosted runner, but only when DOCKERHUB_USERNAME / DOCKERHUB_TOKEN repository secrets
-# exist; without them it builds, scans and stops.
+# push on a runner (self-hosted when online, else GitHub-hosted; see pick-runner.yml), but only
+# when DOCKERHUB_USERNAME / DOCKERHUB_TOKEN repository secrets exist; without them it builds,
+# scans and stops.
 on:
   workflow_dispatch:
     inputs:
@@ -13,14 +14,24 @@ on:
 permissions:
   contents: read
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
+  runner:
+    uses: ./.github/workflows/pick-runner.yml
+    secrets: inherit
+
   release:
-    runs-on: ubuntu-latest
+    needs: runner
+    runs-on: ${{ fromJSON(needs.runner.outputs.labels) }}
     env:
       IMAGE: docker.io/deveshgupta30/okinvo
       VERSION: ${{ inputs.version }}
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      MSYS_NO_PATHCONV: "1"
     steps:
       - uses: actions/checkout@v7
       - name: validate version
@@ -31,7 +42,8 @@ jobs:
         name: registry secrets present?
         run: |
           if [ -n "$DOCKERHUB_USERNAME" ] && [ -n "$DOCKERHUB_TOKEN" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; fi
-      - uses: docker/setup-qemu-action@v4
+      - if: runner.os == 'Linux' # Docker Desktop (Windows/macOS) already has binfmt for arm64 builds
+        uses: docker/setup-qemu-action@v4
       - uses: docker/setup-buildx-action@v4
       - name: build the host-arch runner image and scan it
         uses: docker/build-push-action@v7
@@ -46,14 +58,20 @@ jobs:
             org.opencontainers.image.version=${{ env.VERSION }}
             org.opencontainers.image.source=https://github.com/deveshgupta30/okinvo
             org.opencontainers.image.revision=${{ github.sha }}
-      - uses: aquasecurity/trivy-action@v0.36.0
+      - if: runner.os == 'Linux'
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: ${{ env.IMAGE }}:${{ env.VERSION }}
           severity: HIGH,CRITICAL
           exit-code: "1"
           ignore-unfixed: true
+      - if: runner.os != 'Linux'
+        name: trivy through its container (the action's installer needs a Linux shell)
+        run: |
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest \
+            image --severity HIGH,CRITICAL --exit-code 1 --ignore-unfixed --skip-version-check --scanners vuln "$IMAGE:$VERSION"
       - if: steps.registry.outputs.ok != 'true'
-        run: echo "No DOCKERHUB_USERNAME / DOCKERHUB_TOKEN secrets — built and scanned only, nothing pushed."
+        run: echo "No DOCKERHUB_USERNAME / DOCKERHUB_TOKEN secrets - built and scanned only, nothing pushed."
       - if: steps.registry.outputs.ok == 'true'
         uses: docker/login-action@v4
         with:

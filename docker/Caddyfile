@@ -17,3 +17,16 @@
         }
     }
 }
+
+# Documentation site (compose profile `docs`): Wiki.js on its own host. Set DOCS_DOMAIN in .env to
+# a name that resolves to this machine (docs.<your domain>); without the profile the host answers 502.
+{$DOCS_DOMAIN} {
+    encode zstd gzip
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        -Server
+    }
+    reverse_proxy wiki:3000 {
+        header_up X-Forwarded-Proto {scheme}
+    }
+}

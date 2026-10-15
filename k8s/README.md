@@ -9,6 +9,15 @@ an Ingress.
 | --- | --- | --- | --- |
 | `overlays/compose-parity` | local, RWO volume `app-data` | 1 (`Recreate`) | in memory |
 | `overlays/with-seaweedfs` (**experimental**) | SeaweedFS S3 (`seaweedfs` StatefulSet) | 2 (`RollingUpdate`, PDB) | Postgres |
+| `overlays/with-docs` | as `compose-parity`, plus the Wiki.js documentation site | 1 | in memory |
+
+`with-docs` adds Wiki.js (`ghcr.io/requarks/wiki:2.5`) on `docs.invoices.example.com` with its
+own `wiki` database on the bundled Postgres: the overlay mounts `docker/postgres/initdb/10-wiki.sh`
+into the StatefulSet, which the Postgres image runs on the **first** initialisation only. On an
+existing install create the database once by hand
+(`kubectl -n okinvo exec postgres-0 -- psql -U okinvo -d okinvo -c 'CREATE DATABASE wiki'`). The
+backup CronJob covers the app database only; the documentation source lives in the repo
+(`docs/wiki/`) and `pnpm docs:sync` re-publishes it (`WIKI_URL`, `WIKI_TOKEN`).
 
 `with-seaweedfs` is experimental: the S3 driver is not exercised by the automated tests or the
 restore drill, `backup.sh` covers the database only there (snapshot the `seaweed-data` volume
@@ -35,7 +44,7 @@ kubectl -n okinvo rollout status deployment/okinvo
 
 The app pod's init container runs `prisma migrate deploy` before the app starts; a failed
 migration keeps the old pod serving (`Recreate` strategy: it keeps the previous pod only until
-the new one is created — take a backup before upgrading).
+the new one is created - take a backup before upgrading).
 
 ## Upgrade
 
@@ -62,11 +71,15 @@ kubectl -n okinvo scale deployment/okinvo --replicas=1
 ## Validation (CI does the same)
 
 ```bash
-for o in compose-parity with-seaweedfs; do
+for o in compose-parity with-seaweedfs with-docs; do
   kubectl kustomize --load-restrictor LoadRestrictionsNone "k8s/overlays/$o" > "/tmp/$o.yaml"
 done
-docker run --rm -v /tmp:/m ghcr.io/yannh/kubeconform:v0.7.0 -strict -summary /m/compose-parity.yaml /m/with-seaweedfs.yaml
+docker run --rm -v /tmp:/m ghcr.io/yannh/kubeconform:v0.7.0 -strict -summary /m/compose-parity.yaml /m/with-seaweedfs.yaml /m/with-docs.yaml
 ```
+
+Settings → Status shows the build's commit and date when the image was built with
+`--build-arg BUILD_SHA=… --build-arg BUILD_DATE=…` (scripts/release.sh and CI do this); images
+built without them show "(sha unknown)".
 
 Assumptions to adjust: the ingress controller lives in a namespace labelled
 `kubernetes.io/metadata.name=ingress-nginx` (NetworkPolicy `app`), certificates come from

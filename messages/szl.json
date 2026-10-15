@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Zôczątek okinvo",
+    "save": "Spamiyntej",
+    "cancel": "Pociep",
+    "continue": "Fortsztelować",
+    "saving": "Spamiyntowanie…",
+    "detect": "Wykryj",
+    "yes": "Ja",
+    "no": "Niy",
+    "choose": "Ôbier…",
+    "remove": "Wyciep",
+    "tryAgain": "Spróbuj jeszcze roz",
+    "dashboard": "Pulpit",
+    "goToDashboard": "Idź na pulpit",
+    "or": "abo",
+    "invoice": "Faktura",
+    "creditNote": "Faktura korygujōnca",
+    "downloadPdf": "Ściōng PDF",
+    "edit": "Edytuj",
+    "delete": "Wyciep",
+    "downloadDocx": "Ściōng DOCX",
+    "downloadCii": "Ściōng EN 16931 XML",
+    "downloadUbl": "Ściōng Peppol UBL",
+    "downloadFacturX": "Ściōng Factur-X PDF",
+    "none": "Nic",
+    "dismiss": "Zawrzij",
+    "all": "Wszyjsko",
+    "previous": "Poprzedni",
+    "next": "Nastympny",
+    "go": "Idź",
+    "search": "Szukej",
+    "status": "Sztand",
+    "total": "Razem",
+    "currency": "Waluta",
+    "from": "Ôd",
+    "to": "Do",
+    "reason": "Przicyna",
+    "history": "Historyjŏ",
+    "archive": "Zarchiwizuj",
+    "restore": "Przywrōć",
+    "showArchived": "Pokŏż zarchiwizowane",
+    "hideArchived": "Skryj zarchiwizowane",
+    "archived": "Zarchiwizowane",
+    "default": "Wyjściowe",
+    "setDefault": "Ustow na wyjściowe",
+    "revoke": "Cofnij",
+    "copy": "Kopiuj",
+    "copied": "Skopiowane",
+    "active": "Aktywne",
+    "pagination": "Numerowanie zajt",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Pulpit",
+      "invoices": "Faktury",
+      "creditNotes": "Faktury korygujōnce",
+      "clients": "Klijynty",
+      "services": "Usługi",
+      "products": "Produkty",
+      "tools": "Waluty"
+    },
+    "primaryNav": "Glōwne",
+    "settings": "Nastawiynia",
+    "openMenu": "Ôtwōrz menu",
+    "more": "Wiyncyj",
+    "navigation": "Nawigacyjŏ",
+    "dock": "Szybko nawigacyjo",
+    "pagesAndAccount": "Zajty i kōnto",
+    "collapseSidebar": "Zwiń boczny pasek",
+    "collapseSidebarHint": "Zwiń boczny pasek ([)",
+    "expandSidebar": "Rozwiń boczny pasek",
+    "expandSidebarHint": "Rozwiń boczny pasek ([)",
+    "theme": {
+      "label": "Motyw",
+      "system": "Systymowy",
+      "light": "Jasny",
+      "dark": "Ciymny",
+      "current": "Motyw: {mode}",
+      "switchTo": "Motyw: {mode}. Przełōncz na {next}"
+    },
+    "userMenu": {
+      "label": "Menu kōnta: {name}",
+      "profile": "Profil",
+      "logOut": "Wylogować"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Przelicznik walut",
+      "title": "Przelicznik walut",
+      "description": "Przelicz miyndzy walutami, w kerych wystawiosz faktury, ze tabelōm kursōw wymiany tyj instancyje.",
+      "amount": "Kwota",
+      "from": "Z",
+      "to": "Na",
+      "flip": "Zamiyń waluty",
+      "enterAmount": "Wpisz kwotã",
+      "asOf": "Kursy wymiany na dziyń {date} ({source})",
+      "sources": {
+        "bundled": "dołōnczōne do aplikacyje",
+        "live": "ôdświyżane online"
+      },
+      "note": "Kursy sōm yno orjyntacyjne; kurs na wystawionyj fakturze to ten, kery żeś wpisoł przi wystawianiu."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Logowanie",
+      "metaDescription": "Zalogujcie sie do okinvo, aplikacyji do fakturowanio, kero sami hostujecie, przez dostawce tożsamości abo hasłem.",
+      "title": "Zalogować sie",
+      "subtitle": "Wlazła kōnta yno z lysty dozwolōnych.",
+      "failed": "Logowanie sie niy podarziło.",
+      "noMethod": "Niy ma ustawiōnego żŏdnego sposobu logowaniŏ. Ustow w piku <code>.env</code> para dostawcy, np. <code>AUTH_GITHUB_*</code>, abo <code>AUTH_PASSWORD_SIGNIN=true</code>.",
+      "errors": {
+        "not_allowed": "To kōnto niy ma dozwolōne na ty instancyji abo zostało wyłōnczōne.",
+        "signin": "Logowanie sie niy skōńczyło. Spróbuj jeszcze roz."
+      }
+    },
+    "password": {
+      "name": "Miano",
+      "email": "E-mejl",
+      "password": "Hasło",
+      "signingIn": "Logowanie…",
+      "createAccount": "Zrōb kōnto",
+      "signIn": "Zalogować sie",
+      "haveAPassword": "Już mōm hasło",
+      "firstTime": "Piyrszy roz tukej? Ustow hasło",
+      "failed": "Logowanie sie niy podarziło."
+    },
+    "social": {
+      "redirecting": "Przekierowanie…",
+      "continueWith": "Fortsztelować przez {provider}",
+      "failed": "Niy szło zacząć logowaniŏ."
+    },
+    "error": {
+      "metaTitle": "Feler logowaniŏ",
+      "metaDescription": "Logowanie sie niy skońcyło. Zajta tłumaczy, co poszło nie tak i jak spróbować jeszcze roz.",
+      "title": "Logowanie sie niy podarziło",
+      "body": "Dostawca tożsamości zwrōcił <code>{value}</code>. Eli twōj adres niy ma na lyście dozwolōnych ty instancyji, poprōś ajgyntōmera ô jego dodanie.",
+      "back": "Nazot do logowaniŏ"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Nastawiynia",
+      "profiles": "Profile",
+      "paymentMethods": "Sposoby płaceniŏ",
+      "templates": "Szablōny",
+      "email": "E-mejl",
+      "security": "Bezpiyczyństwo",
+      "users": "Używacze",
+      "data": "Dane",
+      "legal": "Prawne",
+      "einvoicing": "E-fakturowanie",
+      "account": "Kōnto",
+      "appearance": "Wyglōnd",
+      "api": "API",
+      "status": "Sztand",
+      "usage": "Używanie"
+    },
+    "account": {
+      "metaTitle": "Kōnto",
+      "title": "Kōnto",
+      "description": "Twoje zdjyńcie, miano, region, godka i strefa czasu.",
+      "photo": {
+        "title": "Zdjyńcie",
+        "description": "Pokazowane na bocznym pasku i w menu używacza."
+      },
+      "form": {
+        "title": "Kōnto",
+        "description": "Jak sie pokazujesz i kiedy je „dzisiej“.",
+        "displayName": "Pokazowane miano",
+        "signInEmail": "E-mejl do logowaniŏ",
+        "signInEmailHint": "Twoja tożsamość na ty instancyji; tukej sie niy edytuje.",
+        "timezone": "Strefa czasu",
+        "timezoneHint": "„Dzisiej“ dlŏ dat wystawiynia, terminōw płaceniŏ i pulpitu",
+        "regionTitle": "Region",
+        "regionDescription": "Wyjściowe dlŏ nowych profilōw wystawcy i pulpitu, aż bydzie profil.",
+        "country": "Kraj",
+        "currency": "Waluta",
+        "suggested": "Zaproponowane dlŏ tego kraju:",
+        "language": "Godka",
+        "languageHint": "Godka samyj aplikacyji. Dokumynty używajōm ôsobnych nastawiyń każdego profilu.",
+        "machineTranslated": "Ta godka bōła przełożōno maszynowo. Poprawki sōm witane: <link>poprŏw jōm na GitHubie</link>.",
+        "save": "Spamiyntej preferyncyje"
+      },
+      "regions": {
+        "Africa": "Afryka",
+        "Americas": "Ameryka",
+        "Asia": "Azyjŏ",
+        "Europe": "Europa",
+        "MiddleEast": "Bliski Wschōd",
+        "Oceania": "Oceanijŏ",
+        "Constructed": "Sztucne godki"
+      },
+      "privacy": {
+        "title": "Prywatność",
+        "description": "okinvo ustawia yno ciasteczka, kere sōm mu potrzebne do roboty. Żŏdnyj analityki, żŏdnego śledzynia.",
+        "cookiePolicy": "Polityka ciasteczek",
+        "showNoticeAgain": "Pokŏż jeszcze roz informacyjŏ ô ciasteczkach"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Zmiyń zdjyńcie",
+      "addPhoto": "Dodej zdjyńcie",
+      "hint": "PNG, JPEG abo WebP. Wszyndzie pokazowane we kole; przed spamiyntaniym możesz je przybliżyć i przesōnć.",
+      "tooLarge": "To zdjyńcie je za wielge.",
+      "uploadFailed": "Wgrywanie sie niy podarziło.",
+      "choose": "Ôbier zdjyńcie profilu",
+      "dialogTitle": "Ustow swoje zdjyńcie",
+      "dialogDescription": "Przeciōng, coby przesōnć, przewijej abo ściśnij, coby przybliżyć. Koło je tym, co widzōm wszyjscy.",
+      "zoom": "Przybliżynie",
+      "save": "Spamiyntej zdjyńcie"
+    },
+    "appearance": {
+      "metaTitle": "Wyglōnd",
+      "title": "Wyglōnd",
+      "description": "Motyw i farba akcyntu, spamiyntane na twojim kōncie.",
+      "theme": {
+        "title": "Motyw",
+        "description": "Idź za systymym abo przypnij jasny lub ciymny.",
+        "label": "Motyw",
+        "system": "Idź za systymym",
+        "systemHint": "Przełōnczo sie ze twojim systymym",
+        "light": "Jasny",
+        "lightHint": "Biołe płōtno",
+        "dark": "Ciymny",
+        "darkHint": "Prawie czŏrne płōtno"
+      },
+      "accent": {
+        "title": "Akcynt",
+        "description": "Używany dlŏ głōwnego guzika, ramek fokusa i znaczka aktywnyj zajty. Myntowo pasuje do znaku marki.",
+        "label": "Farba akcyntu",
+        "customHint": "Abo ôbier jakōkolwiek swojã farbã"
+      },
+      "accents": {
+        "mint": "Myntowo",
+        "lavender": "Lawyndowo",
+        "sky": "Niebiyskŏ",
+        "peach": "Brzoskwiniowo",
+        "butter": "Masłowo",
+        "rose": "Różowo",
+        "sage": "Szałwiowo",
+        "lilac": "Liliowo",
+        "custom": "Włŏsno"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Profile wystawcy",
+      "title": "Profile wystawcy",
+      "description": "Prawne tożsamości, ze kerych wystawiosz faktury. Wyjściowy wypołnio nowe faktury.",
+      "breadcrumb": "Profile",
+      "newProfile": "Nowy profil",
+      "emptyTitle": "Jeszcze żŏdnego profilu wystawcy",
+      "emptyDescription": "Zrōb tożsamość, ze kerej wystawiosz faktury: ôsobã z PAN abo swojã firmã.",
+      "createProfile": "Zrōb profil",
+      "columns": {
+        "label": "Etykieta",
+        "legalName": "Prawne miano",
+        "type": "Zorta",
+        "country": "Kraj",
+        "currency": "Waluta",
+        "regime": "Ustrōj",
+        "status": "Sztand"
+      },
+      "types": {
+        "company": "Firma",
+        "individual": "Ôsoba"
+      },
+      "makeDefaultTitle": "Ustawić {label} na wyjściowy?",
+      "makeDefaultDescription": "Nowe faktury zaczynajōm sie ôd tego profilu.",
+      "restoreTitle": "Przywrōcić {label}?",
+      "archiveTitle": "Zarchiwizować {label}?",
+      "archiveDescription": "Zniknie z wybiyranio; istniejōnce faktury ôstanōm nietknyńte.",
+      "new": {
+        "metaTitle": "Nowy profil wystawcy",
+        "title": "Nowy profil wystawcy",
+        "prefilled": "Wypołnione na spodku twojich ôdpowiedzi; sprawdź adres i dane podatkowe, potym spamiyntej."
+      },
+      "edit": {
+        "metaTitle": "Edytuj profil wystawcy",
+        "template": "Szablōn",
+        "deleteTitle": "Wycieprnōć {label}?",
+        "deleteDescription": "Idzie yno wtedy, kedy żŏdno faktura abo faktura korygujōnca sie na ten profil niy ôdwołuje. Inkszy roz zarchiwizuj go."
+      },
+      "template": {
+        "metaTitle": "Szablōn profilu",
+        "title": "Szablōn dlŏ {label}",
+        "ownTemplate": "Włŏsny szablōn",
+        "instanceTemplate": "Szablōn instancyji",
+        "resetTitle": "Używać jeszcze roz szablōnu instancyji?",
+        "resetDescription": "Włŏsno konfiguracyjŏ tego profilu bydzie wyciepniyntŏ; wystawiōne dokumynty niy sōm ruszone.",
+        "useInstance": "Używej szablōnu instancyji",
+        "usingInstanceTitle": "Używany je szablōn instancyji",
+        "usingInstanceDescription": "Dokumynty z tego profilu idōm za Nastawiynia → Szablōny. Wybier, coby je ôsobno dopasować.",
+        "customise": "Używej dlŏ tego profilu inkszego szablōnu",
+        "openInstance": "Ôtwōrz szablōn instancyji"
+      },
+      "form": {
+        "identityTitle": "Tożsamość",
+        "identityDescription": "Ôd kogo je faktura.",
+        "type": "Zorta",
+        "label": "Etykieta",
+        "labelHint": "Pokazowane yno w wybiyraniu",
+        "legalName": "Prawne miano",
+        "tradeName": "Miano handlowe",
+        "designation": "Funkcyjŏ",
+        "email": "E-mejl",
+        "phone": "Telefōn",
+        "website": "Strōna internetowŏ",
+        "addressTitle": "Adres",
+        "taxTitle": "Identyfikatory podatkowe",
+        "taxDescription": "Yno te, kere sie ciebie tykajōm; drukowanie je sterowane na każdyj fakturze ôsobno.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Brytyjski numer VAT",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "Szyfrowane w spamiyntaniu",
+        "lutNumber": "Numer LUT",
+        "lutNumberHint": "Dlŏ eksportu bez IGST",
+        "lutFiscalYear": "Rok finansowy LUT",
+        "lutFiscalYearHint": "np. 2026-27",
+        "einvoiceTitle": "E-fakturowanie",
+        "einvoiceDescription": "Jak tyn profil sie ôzpoznowo w e-fakturach; kōnektor i dane dostympu sōm we Sztelōnki > E-fakturowanie.",
+        "electronicAddress": "Elektroniczny adres",
+        "electronicAddressHint": "Identyfikator Peppol abo EN 16931 tego wystawcy, drukowany jako elektroniczny adres sprzedowocy.",
+        "electronicAddressScheme": "Schymat elektronicznego adresu",
+        "electronicAddressSchemeNone": "Bez schymatu",
+        "einvoiceEnabled": "E-fakturowanie włōnczōne dlŏ tego profilu",
+        "einvoiceEnabledHint": "Dowo przi wystawionych dokumyntach pobiyranie e-faktury GST we JSON, Factur-X i UBL ôraz registracyjŏ IRN.",
+        "defaultsTitle": "Wyjściowe",
+        "baseCurrency": "Waluta bazowo",
+        "locale": "Godka dokumyntōw",
+        "localeHint": "Formatowanie liczb i dat na dokumyntach",
+        "fiscalYearStart": "Rok skarbowy zaczyno sie w",
+        "months": {
+          "january": "styczyń",
+          "february": "luty",
+          "march": "marzec",
+          "april": "kwiecyń",
+          "may": "moj",
+          "june": "czyrwiec",
+          "july": "lipiec",
+          "august": "siyrpiyń",
+          "september": "wrzesiyń",
+          "october": "październik",
+          "november": "listopad",
+          "december": "grudziyń"
+        },
+        "taxRegime": "Wyjściowy ustrōj podatkowy",
+        "regimes": {
+          "indiaGst": "GST Indyje",
+          "ukVat": "VAT Wielgij Brytanije",
+          "usSalesTax": "Podatek ôd sprzedoży USA",
+          "none": "Bez podatku"
+        },
+        "invoiceNumberFormat": "Format numeru faktury",
+        "invoiceNumberFormatHint": "Tokeny: {tokens}",
+        "creditNoteNumberFormat": "Format numeru faktury korygujōncyj",
+        "tdsRate": "Spodziywano stawka TDS (%)",
+        "tdsRateHint": "Informacyjnie, drukowane jako spodziywane potrōncynie",
+        "defaultNotes": "Wyjściowe uwagi",
+        "defaultTerms": "Wyjściowe warunki",
+        "printTitle": "Co sie drukuje wyjściowo",
+        "printDescription": "Każdo faktura to kopiuje i może to zmiyniać ôsobno.",
+        "emailTitle": "E-mejl",
+        "emailDescription": "Wyjściowe dlŏ edytora wysyłaniŏ. Zastympniki: {placeholders}",
+        "emailCc": "Wyjściowe CC",
+        "emailBcc": "Wyjściowe BCC",
+        "commaSeparated": "Ôddzielōne przecinkami",
+        "invoiceSubject": "Tymat faktury",
+        "invoiceSubjectHint": "Puste używo wbudowanego szablōnu",
+        "creditNoteSubject": "Tymat faktury korygujōncyj",
+        "invoiceBody": "Tryść faktury",
+        "creditNoteBody": "Tryść faktury korygujōncyj",
+        "artworkTitle": "Grafika",
+        "artworkDescription": "PNG, JPEG abo WebP do 2 MB; podpis i pieczyńć zachowujōm przezrŏczystość.",
+        "logo": "Logo",
+        "signature": "Podpis",
+        "stamp": "Pieczyńć",
+        "transparentPng": "Przezrŏczysty PNG",
+        "save": "Spamiyntej profil"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Sposoby płaceniŏ",
+      "title": "Sposoby płaceniŏ",
+      "description": "Jak klijynty płacōm tobie. Dane sōm szyfrowane i zamroziōne w każdyj fakturze przi wystawianiu.",
+      "newMethod": "Nowy sposōb",
+      "emptyTitle": "Jeszcze żŏdnych sposobōw płaceniŏ",
+      "emptyDescription": "Dodej kōnto bankowe, UPI ID abo portfel, coby faktury godały klijyntōm, kaj płacić.",
+      "addMethod": "Dodej sposōb",
+      "columns": {
+        "name": "Miano",
+        "type": "Zorta",
+        "currency": "Waluta",
+        "status": "Sztand"
+      },
+      "types": {
+        "bankTransfer": "Przelew bankowy",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Włŏsny"
+      },
+      "makeDefaultTitle": "Ustawić {name} na wyjściowy?",
+      "restoreTitle": "Przywrōcić {name}?",
+      "archiveTitle": "Zarchiwizować {name}?",
+      "archiveDescription": "Wystawiōne faktury zachowujōm zdjyńcie, kere ôdrukowały.",
+      "new": {
+        "metaTitle": "Nowy sposōb płaceniŏ",
+        "title": "Nowy sposōb płaceniŏ"
+      },
+      "edit": {
+        "metaTitle": "Edytuj sposōb płaceniŏ",
+        "title": "Edytuj {name}",
+        "deleteTitle": "Wycieprnōć {name}?",
+        "deleteDescription": "Idzie yno wtedy, kedy żŏdno faktura abo płatność sie na niego niy ôdwołuje. Inkszy roz zarchiwizuj go."
+      },
+      "form": {
+        "name": "Miano",
+        "nameHint": "Drukowane jako nagłōwek bloku płatności",
+        "type": "Zorta",
+        "currency": "Waluta",
+        "currencyHint": "Niymusowe; pokazowane yno dlŏ kōntekstu",
+        "anyCurrency": "Jakŏkolwiek",
+        "instructions": "Instrukcyje",
+        "instructionsHint": "Drukowane pod danymi",
+        "isDefault": "Wyjściowy sposōb",
+        "isDefaultDescription": "Wybrany z gōry na nowych fakturach",
+        "isActive": "Aktywny",
+        "detailsTitle": "Dane",
+        "detailsDescription": "Szyfrowane w spamiyntaniu; zamroziōne w każdyj fakturze przi wystawianiu.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "Miano ôdbiorcy",
+        "lines": "Linije",
+        "linesHint": "Jedna linijŏ na wiersz, drukowano tak, jak je",
+        "accountEmail": "E-mejl / uchwyt kōnta",
+        "bank": {
+          "accountHolder": "Włŏściciel kōnta",
+          "accountNumber": "Numer kōnta",
+          "bankName": "Miano banku",
+          "branch": "Ôddziŏł",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Kod routingowy / sort code"
+        },
+        "save": "Spamiyntej sposōb płaceniŏ"
+      }
+    },
+    "templates": {
+      "metaTitle": "Szablōny dokumyntōw",
+      "title": "Szablōny dokumyntōw",
+      "customised": "Dopasowany",
+      "builtIn": "Wbudowany wyjściowy",
+      "description": "Jak wyglōdajōm faktury i faktury korygujōnce. Wystawiōne dokumynty zachowujōm szablōn, z kerym bōły wystawiōne.",
+      "resetTitle": "Wrōcić do wbudowanego wyjściowego?",
+      "resetDescription": "Twoje dopasowanie bydzie wyciepniynte; już wystawiōne dokumynty niy sōm ruszone.",
+      "reset": "Zresetuj",
+      "resetTrigger": "Przywrōć wyjściowe",
+      "importTitle": "Import",
+      "importDescription": "Przywrōć konfiguracyjŏ wyeksportowano wczaśniy.",
+      "overridesTitle": "Nadpisaniŏ na profilach",
+      "overridesDescription": "Profil może se wybrać włŏsny szablōn na swojij zajcie edycyji.",
+      "noOverrides": "Wszyjske profile używajōm szablōnu instancyji.",
+      "import": {
+        "json": "JSON szablōnu",
+        "jsonHint": "Wklej plik zrobiōny przez Eksportuj JSON; brakujōnce klucze sōm zastympiōne wyjściowymi",
+        "importing": "Importowanie…",
+        "submit": "Importuj"
+      },
+      "form": {
+        "templateTitle": "Szablōn",
+        "templateDescription": "Sześć wbudowanych; dopasowanie niżyj dotyko tego, kery wybierzesz.",
+        "templateGroup": "Szablōn",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Nowoczesny i luźny, bez szeryfōw, linijŏ akcyntu pod nagłōwkiym."
+          },
+          "classic": {
+            "name": "Klasyczny",
+            "character": "Tradycyjno tabela z ramkami, nagłōwki z szeryfami, ôbramowane sumy."
+          },
+          "compact": {
+            "name": "Kōmpaktowy",
+            "character": "Gynsty układ dlŏ dugich lyst pozycyji; mniyjsze pisanie, mniyj ôddzielaczy."
+          },
+          "minimal": {
+            "name": "Minimalistyczny",
+            "character": "Cichy i przestrzynny: bez linijōw i ramek, lekke etykiety, moc miejsca."
+          },
+          "letterhead": {
+            "name": "Papiyr firmowy",
+            "character": "Twoje logo i miano na kolorowym pasie abo obrazku na samyj gōrze każdyj zajty."
+          },
+          "modern": {
+            "name": "Nowoczesny",
+            "character": "Nagłōwek z kolorowym pasym; strōny, nagłōwek tabeli i sumy na bladym tle akcyntu."
+          }
+        },
+        "paperTitle": "Papiyr i pismo",
+        "paperSize": "Miara papieru",
+        "paperLetter": "Letter",
+        "margins": "Marginesy",
+        "marginsNormal": "Normalne",
+        "marginsNarrow": "Wōske",
+        "headingFont": "Pismo nagłōwkōw",
+        "bodyFont": "Pismo tekstu",
+        "fontSans": "Bez szeryfōw",
+        "fontSerif": "Z szeryfami",
+        "tableStyle": "Sztyl tabeli",
+        "tableRuled": "Linijkowano",
+        "tableZebra": "Zebra",
+        "tablePlain": "Prosto",
+        "accentColour": "Farba akcyntu",
+        "textColour": "Farba tekstu",
+        "logoPosition": "Pozycyjŏ loga",
+        "positionLeft": "Lewo",
+        "positionCentre": "Postrzod",
+        "positionRight": "Prawo",
+        "logoHeight": "Wysokość loga (mm)",
+        "documentTitle": "Tytuł dokumyntu",
+        "titleAuto": "Automatycznie (ze ôglōndaniym na GST)",
+        "titleCustom": "Włŏsny",
+        "titlePlaceholder": "np. FAKTURA PROFORMA",
+        "qrPosition": "Pozycyjŏ kodu QR",
+        "qrFooter": "Stopka",
+        "qrHeader": "Nagłōwek",
+        "qrBesideTotals": "Przi sumach",
+        "amountInWords": "Kwota słowami",
+        "wordsBelowTotal": "Pod sumami",
+        "wordsFooter": "Stopka",
+        "wordsHidden": "Skryte",
+        "subtotalRow": "Wiersz sumy czynściowyj",
+        "discountRow": "Wiersz rabatu",
+        "taxLines": "Wiersze podatku",
+        "tdsExpected": "Spodziywane TDS",
+        "roundingRow": "Wiersz zaokrōglyniŏ",
+        "pageNumbers": "Numery zajt",
+        "headerTitle": "Nagłōwek",
+        "headerDescription": "Kolorowy pas abo obrazek na gōrze każdyj zajty. Papiyr firmowy i Nowoczesny pokazujōm pas, chyba że wybierzesz inaczyj.",
+        "headerStyle": "Sztyl nagłōwka",
+        "headerNone": "Niy ma",
+        "headerBand": "Kolorowy pas",
+        "headerImage": "Obrazek",
+        "bandColour": "Farba pasa",
+        "bandColourHex": "Farba pasa (hex)",
+        "headerImageLabel": "Obrazek nagłōwka",
+        "headerImageHint": "PNG, JPEG abo WebP do 2400 px szyrokości; rozciōnga sie na szyrokość zajty.",
+        "imageOpacity": "Nieprzezrŏczystość obrazka",
+        "headerHeight": "Wysokość nagłōwka (mm)",
+        "bandText": "Tekst na pasie",
+        "bandTextAuto": "Automatycznie (ze farby pasa)",
+        "bandTextLight": "Jasny",
+        "bandTextDark": "Ciymny",
+        "textTitle": "Tekst",
+        "headerNote": "Uwaga w nagłōwku",
+        "footer": "Stopka",
+        "signatureCaption": "Podpis pod podpisym",
+        "draftWatermark": "Znak wodny szkicu",
+        "labelsTitle": "Etykiety",
+        "labelsDescription": "Zostow pole puste, coby zachować wyjściowe sformułowanie.",
+        "save": "Spamiyntej szablōn",
+        "downloadSample": "Ściōng przikładowy PDF",
+        "exportJson": "Eksportuj JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "E-mejl",
+      "title": "E-mejl",
+      "configuredSettings": "Skonfigurowane w Nastawiyniach",
+      "configuredEnv": "Skonfigurowane przez ôtoczyniy",
+      "notConfigured": "Niy skonfigurowane: przez aplikacyjŏ pocztowŏ",
+      "description": "Dokumynty sōm wysyłane z edytora ze spamiyntanym PDF w załōnczniku. Nastawiynia tukej nadpisujōm SMTP_* w ôtoczyniu.",
+      "sendTest": "Wyślij testowy e-mejl na {email}",
+      "removeTitle": "Wycieprnōć spamiyntane nastawiynia SMTP?",
+      "removeEnvTakesOver": "Przejmujōm wartości SMTP_* ze ôtoczyniŏ.",
+      "removeFallsBack": "E-mejl wraco do wysyłaniŏ przez aplikacyjŏ pocztowŏ.",
+      "removeTrigger": "Wyciep spamiyntane nastawiynia",
+      "smtpTitle": "Serwer SMTP",
+      "smtpFromEnv": "Terŏzki brane ze ôtoczyniŏ; spamiyntanie tukej je nadpisze.",
+      "smtpPasswordNote": "Hasło je szyfrowane w spamiyntaniu i nigdy już sie niy pokŏże.",
+      "defaultsTitle": "Wyjściowi ôdbiorcy",
+      "defaultsDescription": "CC/BCC dlŏ cołkij instancyji; profile wystawcy dodajōm swoje.",
+      "sentTitle": "Wysłano poczta",
+      "sentDescription": "Ôstatnie 50 prōb, ze felerami i ręcznymi wysyłaniami.",
+      "smtp": {
+        "host": "Host",
+        "port": "Port",
+        "security": "Zabezpieczynie",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Niy ma (przekaźnik w LAN)",
+        "user": "Miano używacza",
+        "password": "Hasło",
+        "passwordStored": "Spamiyntane i szyfrowane; zostow puste, coby je zachować",
+        "passwordEncrypted": "Szyfrowane w spamiyntaniu",
+        "from": "Adres nadawcy",
+        "fromName": "Miano nadawcy",
+        "replyTo": "Adres do ôdpowiedzi",
+        "save": "Spamiyntej nastawiynia SMTP"
+      },
+      "defaults": {
+        "cc": "Wyjściowe CC",
+        "ccHint": "Dodowane do każdego edytora; ôddzielōne przecinkami",
+        "bcc": "Wyjściowe BCC",
+        "save": "Spamiyntej wyjściowe"
+      }
+    },
+    "security": {
+      "metaTitle": "Bezpiyczyństwo",
+      "title": "Bezpiyczyństwo",
+      "description": "Kaj je żeś zalogowany i fszyjsko, co sie zmiyniło.",
+      "sessions": {
+        "title": "Aktywne sesyje",
+        "description": "Cofniyńcie sesyje wylogowuje to zorzōndzynie ôd razu.",
+        "signOutOthers": {
+          "title": "Wylogować wszyndzie indziyj?",
+          "description": "Wszyjske sesyje ôprōcz tyj sōm cofniynte.",
+          "confirm": "Wyloguj inksze",
+          "trigger": "Wyloguj wszyndzie indziyj"
+        },
+        "columns": {
+          "device": "Zorzōndzynie",
+          "ipAddress": "Adres IP",
+          "signedIn": "Zalogowany",
+          "lastSeen": "Ôstatnio widziany",
+          "expires": "Wygasa"
+        },
+        "thisDevice": "To zorzōndzynie",
+        "revokeTitle": "Cofnōnć tã sesyjã?",
+        "unknownDevice": "Niyznane zorzōndzynie",
+        "unknownBrowser": "Niyznano",
+        "agentOnOs": "{browser} na {os}"
+      },
+      "audit": {
+        "title": "Dziynnik audytu",
+        "count": "{count, plural, one {# zdarzynie} few {# zdarzynia} many {# zdarzyń} other {# zdarzynia}}",
+        "entity": "Encyjŏ",
+        "actionContains": "Akcyjŏ zawiyrŏ",
+        "filter": "Filtruj",
+        "reset": "Zresetuj",
+        "columns": {
+          "when": "Kiedy",
+          "who": "Kto",
+          "action": "Akcyjŏ",
+          "entity": "Encyjŏ",
+          "summary": "Podsumowanie"
+        },
+        "empty": "Żŏdne zdarzynie niy pasuje do tych filtrōw.",
+        "system": "Systym",
+        "changes": "Zmiany",
+        "page": "Zajta {page} z {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Używacze",
+      "title": "Używacze",
+      "description": "Kto sie może zalogować do tyj instancyji i co może robić.",
+      "roles": {
+        "owner": "Ajgyntōmer",
+        "editor": "Edytor",
+        "viewer": "Przeglōndacz"
+      },
+      "roleHints": {
+        "owner": "Fszyjsko, ze nastawiyniami i czŏłkami",
+        "editor": "Klijynty, katalog, faktury, faktury korygujōnce, płatności, e-mejl",
+        "viewer": "Yno do czytaniŏ"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Rola używacza {email}",
+      "invite": {
+        "title": "Zaprosz kogoś",
+        "description": "Loguje sie zaproszōnym adresym (dostawca tożsamości abo hasło) i dostowo wybranõ rolã.",
+        "sent": "Zaproszynie wysłano e-mejlym na {email}.",
+        "readyWithError": "Zaproszynie dlŏ {email} je gotowe. E-mejla niy szło wysłać ({error}); wyślij im ten link:",
+        "readyNoSmtp": "Zaproszynie dlŏ {email} je gotowe. SMTP niy je skonfigurowany; wyślij im ten link:",
+        "copyLink": "Kopiuj link",
+        "email": "E-mejl",
+        "emailPlaceholder": "ôsoba@example.com",
+        "role": "Rola",
+        "submit": "Zaprosz",
+        "inviting": "Zaproszanie…"
+      },
+      "members": {
+        "title": "Czŏłki",
+        "description": "Zawdy ôstanie przinajmniyj jedyn aktywny ajgyntōmer.",
+        "columns": {
+          "person": "Ôsoba",
+          "role": "Rola",
+          "lastSignIn": "Ôstatnie logowanie",
+          "status": "Sztand"
+        },
+        "nameYou": "{name} (ty)",
+        "deactivated": "Wyłōnczōny",
+        "reactivate": {
+          "title": "Aktywować {email} jeszcze roz?",
+          "description": "Może sie zalogować zaś ze swojõ prziszłõ rolõ.",
+          "confirm": "Aktywuj jeszcze roz"
+        },
+        "deactivate": {
+          "title": "Wyłōnczyć {email}?",
+          "description": "Wszyjske sesyje kōńczōm sie teroz i niy może sie zalogować, aż bydzie zaś aktywowany. Jego historyjŏ ôstowo.",
+          "confirm": "Wyłōncz"
+        }
+      },
+      "invitations": {
+        "title": "Czekajōnce zaproszynia",
+        "description": "Adresy, kere mogōm sie zalogować, ale jeszcze niy zalogowały.",
+        "columns": {
+          "email": "E-mejl",
+          "role": "Rola",
+          "invited": "Zaproszōny"
+        },
+        "empty": "Niy ma czekajōncych zaproszyń.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Cofnōnć zaproszynie dlŏ {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Dane",
+      "title": "Dane",
+      "description": "Fszyjsko idzie przenieś: zbiory danych jako CSV abo Excel, pełny snimek do migracyji, PDF-y dlŏ twojigo ksiyńgowego i przetestowano rutyna kopii zapasowych.",
+      "period": {
+        "fiscalYear": "Rok skarbowy",
+        "fiscalYearHint": "Nadpisuje daty",
+        "issuer": "Wystawca"
+      },
+      "exportAll": {
+        "title": "Eksportuj wszyjske dane",
+        "description": "ZIP ze wszyjskimi zbiorami danych jako CSV plus <mono>data.json</mono>, relacyjny snimek wszyjskich tabel. Szyfrowane pola (dane sposobōw płaceniŏ, hasło SMTP) ôstajōm na zewnōntrz; README we srodku je wymianiŏ.",
+        "download": "Ściōng ZIP okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "Eksportuj dokumynty",
+        "description": "Kożdy wystawiōny i unieważniōny PDF faktury i faktury korygujōncyj za ôkres, nazwany numerym, z <mono>index.csv</mono> numerōw, sum i skrōtōw. Brakujōnce PDF-y sōm renderowane po drodze.",
+        "docx": "Dołōncz tyż kopijõ DOCX każdego dokumyntu",
+        "facturx": "Dołōncz tyż kopijõ Factur-X PDF/A-3 z wbudowanym XML EN 16931",
+        "download": "Ściōng ZIP dokumyntōw"
+      },
+      "datasets": {
+        "title": "Zbiory danych",
+        "description": "Te same eksporty, kere ôferujōm zajty indeksu, ze ôkresym i wystawcōm użytymi do wszyjskich. Płatności używajōm przedziału dat; klijynty i usługi ôkres ignorujōm.",
+        "columns": {
+          "dataset": "Zbiōr danych",
+          "filters": "Użyte filtry",
+          "download": "Ściōnganie"
+        },
+        "names": {
+          "invoices": "Rejestr faktur",
+          "invoiceItems": "Pozycyje faktur",
+          "payments": "Ksiynga płatności",
+          "creditNotes": "Rejestr faktur korygujōncych",
+          "clients": "Klijynty",
+          "services": "Usługi",
+          "gstSummary": "Podsumowanie GST",
+          "tdsSummary": "Podsumowanie TDS"
+        },
+        "filters": {
+          "periodIssuer": "ôkres, wystawca",
+          "dateRangeIssuer": "przedział dat, wystawca",
+          "includesArchived": "ze zarchiwizowanymi"
+        }
+      },
+      "backups": {
+        "title": "Kopije zapasowe",
+        "notWired": "Niy ma podłōnczōnyj usługi kopii zapasowych",
+        "noRun": "Jeszcze żŏdno kopijŏ zapasowŏ niy leciała",
+        "lastOk": "Ôstatnio kopijŏ zapasowŏ sie udała",
+        "lastFailed": "Ôstatnio kopijŏ zapasowŏ sie niy udała",
+        "description": "Usługa Compose <mono>backup</mono> robi zrzut Postgresa i archiwizuje wolumin spamiyntaniŏ wedle <mono>BACKUP_CRON</mono>, trzimie <mono>BACKUP_RETENTION_DAYS</mono> historyji we woluminie <mono>backups</mono> i pisze plik sztandu, kerego ta zajta czytŏ.",
+        "finished": "Skōńczōne",
+        "databaseDump": "Zrzut bazy danych",
+        "storageArchive": "Archiwum spamiyntaniŏ",
+        "size": "Miara",
+        "sizeMb": "{size} MB",
+        "error": "Feler",
+        "runNow": "Puszczej jednõ teroz abo przywrōć ze pary plikōw:",
+        "restoreDrill": "Procedura przywrōcyniŏ je ćwiczōno w CI skryptym <mono>scripts/restore-drill.sh</mono>: zasiōnie, kopijŏ, wyczyszczynie, przywrōcynie, potym porōwnanie liczby wierszy i skrōtu PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "Prawne",
+      "metaDescription": "Kto prowadzi ta instancyjŏ: dane drukowane na publicznych zajtach prawnych.",
+      "title": "Prawne",
+      "description": "Publiczne zajty prawne drukujōm te dane. Aż bydzie wypołnione kożde pole, zajty pokazujōm wyrōżniōne zastympniki.",
+      "operator": {
+        "title": "Dane ôperatora",
+        "complete": "Kōmplet",
+        "missing": "Brakuje {count}: {fields}",
+        "description": "Ty, jako ôsoba abo firma prowadzōnco ta instancyjŏ, sōm ôperatorym, na kerego sie dokumynty ôdwołujōm. Nic stōnd sie niy wysyła; je to drukowane na zajtach niżyj."
+      },
+      "fieldLabels": {
+        "legalName": "Prawne miano ôperatora",
+        "entityType": "Zorta podmiotu",
+        "address": "Adres ôperatora",
+        "country": "Kraj ôperatora",
+        "contactEmail": "E-mejl kōntaktowy",
+        "privacyEmail": "E-mejl dlŏ prywatności",
+        "dpoEmail": "E-mejl inspektora ochrony danych",
+        "governingLaw": "Prawo włŏściwe",
+        "venue": "Miejsce rozstrzyganiŏ sporōw",
+        "effectiveDate": "Data wejściŏ w życie"
+      },
+      "publicPages": {
+        "title": "Publiczne zajty",
+        "description": "Podlinkowane ze zajty logowaniŏ, przeglōndarki udostympniyń i informacyji ô ciasteczkach.",
+        "terms": "Regulamin usługi",
+        "acceptableUse": "Polityka dopuszczalnego używaniŏ",
+        "privacy": "Polityka prywatności",
+        "cookies": "Polityka ciasteczek",
+        "dataRetention": "Przechowywanie danych",
+        "security": "Bezpiyczyństwo",
+        "licenses": "Licyncyje i informacyje ô ôprogramowaniu stron trzecich"
+      },
+      "form": {
+        "legalName": "Prawne miano",
+        "entityType": "Zorta podmiotu",
+        "individual": "Ôsoba / jednoôsobowo firma",
+        "company": "Firma / zarejestrowany podmiot",
+        "address": "Adres",
+        "addressHint": "Drukowany w Regulaminie i Polityce prywatności jako adres pocztowy ôperatora.",
+        "country": "Kraj",
+        "effectiveDate": "Data wejściŏ w życie",
+        "contactEmail": "E-mejl kōntaktowy",
+        "privacyEmail": "E-mejl dlŏ prywatności",
+        "privacyEmailHint": "Tam lecōm żōdania ôsōb, kerych dane dotyczōm; może być adres kōntaktowy.",
+        "dpoEmail": "E-mejl inspektora ochrony danych",
+        "dpoEmailHint": "Yno eli żeś go wyznaczył.",
+        "governingLaw": "Prawo włŏściwe",
+        "governingLawHint": "Na przikład „prawo Indyje“ abo „prawo Anglije i Walijŏ“.",
+        "venue": "Miejsce rozstrzyganiŏ sporōw",
+        "venueHint": "Na przikład „sōndy w Bengaluru, Karnataka“.",
+        "submit": "Spamiyntej dane ôperatora"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fakturowanie",
+      "title": "E-fakturowanie",
+      "description": "Dlŏ kŏżdego profilu wystawcy: kery kōnektor registruje indyjske e-faktury i kerego europejskigo profilu trzimajōm sie zbiory Factur-X i UBL. Dane dostympu sōm przechowywane zaszyfrowane i niy sōm pokazowane zaś.",
+      "noProfiles": "Naprzōd stworz profil wystawcy.",
+      "profile": "Profil wystawcy",
+      "enabled": "Włōnczōne",
+      "disabled": "Wyłōnczōne",
+      "enabledHint": "Włōncz abo wyłōncz e-fakturowanie dlŏ kŏżdego profilu we Sztelōnki > Profile.",
+      "india": {
+        "title": "Indyje (e-faktura GST, IRN)",
+        "description": "IRN je registrowany przez kōnektor wybrany tukej; ręczny kōnektor bierze ôdpowiydź portalu wpisanŏ ręcznie.",
+        "connector": "Kōnektor",
+        "connectorNone": "Wyłōnczōny",
+        "connectorManual": "Ręczny (wklej ôdpowiydź IRP)",
+        "connectorNic": "NIC IRP API (sandbox abo produkcyjŏ)",
+        "nicUnverified": "Kōnektor NIC trzimo sie ôpublikowanego API i je przetestowany yno na zapisanych danych; niy je zweryfikowany na prawdziwym sandboksie, aże dostanie dane dostympu.",
+        "env": "Ôtoczyniy",
+        "sandbox": "Sandbox",
+        "production": "Produkcyjŏ",
+        "baseUrl": "Bazowy URL",
+        "baseUrlHint": "Ôstow puste, coby użyć domyślnego dlŏ ôtoczyniŏ.",
+        "clientId": "Identyfikator klijynta",
+        "clientSecret": "Sekret klijynta",
+        "username": "Miano używŏcza",
+        "password": "Hasło",
+        "gstin": "GSTIN",
+        "publicKey": "Publiczny klucz IRP (PEM)",
+        "publicKeyHint": "Ściōngnij go z portalu po zalogowaniu; szyfruje dane dostympu posyłane do IRP.",
+        "publicKeyStored": "Zapisane; sztaw puste, coby go zachować.",
+        "secretStored": "Przechowywane zaszyfrowane; ôstow puste, coby ôstało.",
+        "secretEncrypted": "Przechowywane zaszyfrowane."
+      },
+      "eu": {
+        "title": "Eurōpa (Factur-X, UBL)",
+        "description": "EN 16931 je jedynym profilym w tyj wersyji; zbiory Factur-X i UBL go używajōm.",
+        "profile": "Profil",
+        "profileNone": "Wyłōnczōny",
+        "en16931": "EN 16931"
+      },
+      "save": "Spamiyntej sztelōnki e-fakturowaniŏ"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Klucze API dlŏ skryptōw, SDK i klijyntōw MCP, ze przikładami curl.",
+      "title": "API",
+      "description": "Klucze dlŏ skryptōw, SDK i klijyntōw MCP. Klucz może robić nojwyżyj tela, co twoja rola; pokazowany je yno jedyn roz.",
+      "create": {
+        "title": "Zrōb klucz",
+        "description": "Przesyłej go jako <mono>Authorization: Bearer okv_…</mono>. Niy trzimej go w kodzie ôźrodłowym ani w logach czatu; eli wyciecze, cofnij go niżyj."
+      },
+      "keys": {
+        "title": "Klucze",
+        "descriptionOwner": "Kożdy klucz tyj instancyji; ajgyntōmery mogōm cofnōnć kerykolwiek.",
+        "descriptionOwn": "Twoje klucze.",
+        "columns": {
+          "name": "Miano",
+          "prefix": "Prefiks",
+          "scopes": "Zakresy",
+          "owner": "Ajgyntōmer",
+          "lastUsed": "Ôstatnio użyty",
+          "expires": "Wygasa",
+          "status": "Sztand"
+        },
+        "empty": "Jeszcze żŏdnych kluczy API.",
+        "never": "nigdy",
+        "revoked": "Cofniynty",
+        "expired": "Wygasły",
+        "revokeTitle": "Cofnōnć {name}?",
+        "revokeDescription": "Klijynty używajōnce tego klucza przestanōm działać ôd razu.",
+        "activeCount": "{count, plural, one {# aktywny klucz.} few {# aktywne klucze.} many {# aktywnych kluczy.} other {# aktywnego klucza.}}"
+      },
+      "examples": {
+        "title": "Przikłady",
+        "description": "Zastōmp <mono>$OKINVO_KEY</mono> kluczym. Wersjōnowane REST API, jego dokumynt OpenAPI (<mono>/api/openapi.json</mono>), SDK TypeScript i serwer MCP przijdōm ze nastympnymi zadaniami planu v1.1; punkt końcowy sztandu już dzisiej działŏ.",
+        "rateLimit": "Wołaniŏ ponad limit ôdpowiadajōm 429 ze nagłōwkiym <mono>Retry-After</mono> (120 żōdań na minutã na klucz). Zakresy klucza sōm ôgraniczōne terŏźniyjszõ rolõ jego ajgyntōmera."
+      },
+      "form": {
+        "copyKey": "Kopiuj klucz API",
+        "name": "Miano",
+        "namePlaceholder": "np. skrypt ksiyńgowy",
+        "expires": "Wygasa",
+        "in30Days": "Za 30 dni",
+        "in90Days": "Za 90 dni",
+        "inAYear": "Za rok",
+        "never": "Nigdy",
+        "scopes": "Zakresy",
+        "submit": "Zrōb klucz API",
+        "creating": "Robiynie…"
+      },
+      "scopes": {
+        "invoicesRead": "Czytanie faktur",
+        "invoicesCreate": "Robiynie i wystawianie faktur",
+        "creditNotesRead": "Czytanie faktur korygujōncych",
+        "creditNotesCreate": "Robiynie i wystawianie faktur korygujōncych",
+        "catalogueRead": "Czytanie klijyntōw, usług i produktōw",
+        "documentsRead": "Ściōnganie spamiyntanych PDF i kopijōw DOCX",
+        "statusRead": "Czytanie sztandu instancyji"
+      }
+    },
+    "status": {
+      "metaTitle": "Sztand",
+      "metaDescription": "Wersyjŏ, baza danych, spamiyntanie, e-mejl i kōndycyjŏ kopii zapasowych tyj instancyji.",
+      "title": "Sztand",
+      "description": "Co ta instancyjŏ puszczo i eli jeji czynści ôdpowiadajōm.",
+      "recheck": "Sprawdź jeszcze roz",
+      "health": {
+        "ok": "OK",
+        "warning": "Ôstrzeżynie",
+        "failed": "Niypodarzōne",
+        "na": "Niy skonfigurowane"
+      },
+      "overall": {
+        "ok": "Wszyjsko dobrze",
+        "degraded": "Pogorszōne",
+        "failed": "Niypodarzōne"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(sha niyznany)}} · zbudowany {built} · Node <mono>{node}</mono> · działŏ {uptime} · sprawdzōne {checked}",
+      "dateUnknown": "(data niyznano)",
+      "uptime": {
+        "days": "{d} d {h} g {m} min",
+        "hours": "{h} g {m} min",
+        "minutes": "{m} min"
+      },
+      "rows": {
+        "database": "Baza danych",
+        "storage": "Spamiyntanie",
+        "rateLimiting": "Ôgraniczanie czynstotliwości",
+        "email": "E-mejl",
+        "backups": "Kopije zapasowe"
+      },
+      "db": {
+        "detail": "{latency} ms · ôstatnio migracyjŏ <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # niydokōńczōnych migracyji}}",
+        "noMigration": "niy ma"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · zapis, czytanie i wycieprniyńcie probnego ôbiektu we {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "Spamiyntanie <mono>{store}</mono> {store, select, memory {(jedna replika)} other {(wspōlne miyndzy replikami)}}",
+      "smtp": {
+        "configured": "SMTP ze {source, select, settings {the settings page} env {the environment} other {}} · ôstatni test {lastTest} · ôstatnie 24 g: {sent} wysłanych, {failed} niypodarzōnych",
+        "none": "Niy ma serwera SMTP; edytor ôferuje „Ôtwōrz w aplikacyji pocztowyj“. <link>Skonfiguruj</link>"
+      },
+      "backups": {
+        "notWired": "Niy ma podłōnczōnyj usługi kopii zapasowych (BACKUP_STATUS_FILE niy je ustawiōny).",
+        "noRun": "Usługa kopii zapasowych je podłōnczōno; jeszcze niy zapisano żŏdnego biygu.",
+        "ok": "Ôstatni bieg sie udoł ô {finishedAt}{days, plural, =0 {} one { · przechowywanie # dziyń} few { · przechowywanie # dni} many { · przechowywanie # dni} other { · przechowywanie # dnia}}",
+        "failed": "Ôstatni bieg sie niy udoł: {error} ô {finishedAt}{days, plural, =0 {} one { · przechowywanie # dziyń} few { · przechowywanie # dni} many { · przechowywanie # dni} other { · przechowywanie # dnia}}"
+      },
+      "footer": "Tyn sōm raport je dostympny jako JSON pod <mono>/api/health/status</mono> do monitorowaniŏ (zalogowano sesyjŏ abo klucz API)."
+    },
+    "usage": {
+      "metaTitle": "Używanie",
+      "metaDescription": "Wyświytlyniŏ zajtōw na ekran i dziyń na tyj instancyji, zliczane lokalnie.",
+      "title": "Używanie",
+      "description": "Kej czynsto bōł ôtwarty kożdy ekran, zliczane yno na tyj instancyji: bez ciasteczek, bez adresōw, nic sie nikaj niy wysyła.",
+      "last30Days": "Ôstatnie 30 dni",
+      "total": "{count, plural, =0 {Niy ma wyświytlyń zajtōw} one {# wyświytlynie zajty} few {# wyświytlynia zajtōw} many {# wyświytlyń zajtōw} other {# wyświytlyniŏ zajtōw}}",
+      "off": "Zliczanie je wyłōnczone. Ustow ANALYTICS_LOCAL=true, żeby zliczać wyświytlynia zajtōw na tyj instancyji.",
+      "empty": "Jeszcze niy zapisano żŏdnych wyświytlyń zajtōw.",
+      "columns": {
+        "day": "Dziyń",
+        "path": "Ekran",
+        "views": "Wyświytlynia"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Witej",
+    "progress": "Postymp",
+    "steps": {
+      "aboutYou": "Ô tobie",
+      "howYouUse": "Jak bydziesz używać",
+      "allSet": "Gotowe"
+    },
+    "step1": {
+      "title": "Pedz nōm ô sobie",
+      "subtitle": "To ustawio twoje wyjściowe; kożdõ wartość idzie poźniyj zmiynić w Nastawiyniach.",
+      "name": "Miano",
+      "email": "E-mejl",
+      "emailHint": "Twoja tożsamość do logowaniŏ. Idzie jã poźniyj zmiynić we Nastawiynia → Bezpiyczyństwo.",
+      "country": "Kraj",
+      "currency": "Preferowano waluta",
+      "currencyHint": "Używano dlŏ nowych profilōw i pulpitu, aż bydzie profil."
+    },
+    "step2": {
+      "title": "Jak bydziesz używać okinvo?",
+      "subtitle": "Zmiyniajōm sie yno wyjściowe; nic niy je zamkniynte.",
+      "usage": "Używanie",
+      "personal": "Fakturowanie ôsobiste",
+      "personalHint": "Robota na swoje we włŏsnym mianie",
+      "business": "Fakturowanie firmowe",
+      "businessHint": "Faktury ze zarejestrowanyj firmy",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Numer VAT",
+        "other": "Numer rejestracyji podatkowyj"
+      },
+      "taxQuestion": {
+        "IN": "Mosz GSTIN?",
+        "GB": "Jeś zarejestrowany na VAT?",
+        "other": "Mosz numer rejestracyji podatkowyj do ôdrukowaniŏ na fakturach?"
+      }
+    },
+    "step3": {
+      "title": "Wszyjsko gotowe",
+      "body": "Potym zrōb swōj piyrszy profil wystawcy: miano, adres i dane podatkowe, kere sie drukujōm na twojich fakturach. Wypołniliźmy, co żeś nōm pedzioł.",
+      "go": "Idź do profilōw",
+      "opening": "Ôtwiyranie…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Regulamin",
+      "privacy": "Prywatność",
+      "cookies": "Ciasteczka",
+      "security": "Bezpiyczyństwo"
+    },
+    "cookieNotice": {
+      "label": "Informacyjŏ ô ciasteczkach",
+      "body": "Używōmy yno ciasteczek absōlutnie potrzebnych: twojij sesyji i preferyncyji wyświetlaniŏ. Żŏdnyj analityki, żŏdnego śledzynia.",
+      "policy": "Polityka ciasteczek",
+      "gotIt": "Jasne"
+    },
+    "nav": {
+      "label": "Prawne",
+      "cookies": "Ciasteczka",
+      "privacy": "Prywatność",
+      "terms": "Regulamin",
+      "acceptableUse": "Dopuszczalne używanie",
+      "retention": "Przechowywanie",
+      "security": "Bezpiyczyństwo",
+      "licences": "Licyncyje"
+    },
+    "operatorNotice": "okinvo to ôprogramowanie do włŏsnego hostowaniŏ; za jego używanie ôdpowiado ôperator tyj instancyji.",
+    "doc": {
+      "effectiveOn": "Ôbowiōnzuje ôd <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Spis tryści"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Prawne miano ôperatora",
+        "entityType": "Zorta podmiotu",
+        "address": "Adres ôperatora",
+        "country": "Kraj ôperatora",
+        "contactEmail": "E-mejl kōntaktowy",
+        "privacyEmail": "E-mejl dlŏ prywatności",
+        "dpoEmail": "E-mejl inspektora ochrony danych",
+        "governingLaw": "Prawo włŏściwe",
+        "venue": "Miejsce rozstrzyganiŏ sporōw",
+        "effectiveDate": "Data wejściŏ w życie"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Niy znaleziōne",
+      "title": "Pod tym adresym niy ma nic",
+      "body": "Link może być przedawniōny abo dokumynt, na kery wskazowoł, niy bōł nigdy wystawiōny."
+    },
+    "forbidden": {
+      "metaTitle": "Niy dozwolōne",
+      "title": "To kōnto tego niy może zrobić",
+      "body": "Twoja rola tego niy dozwolo. Poprōś ajgyntōmera ô dostymp abo zaloguj sie na kōnto, kere go mŏ."
+    },
+    "error": {
+      "title": "Cosik poszło niy tak",
+      "body": "To żōdanie nic niy zmiyniło. Spróbuj jeszcze roz; eli sie to powtarzo, szczegōły sōm w dziynniku serwera.",
+      "digest": "feler {digest}",
+      "generic": "feler"
+    },
+    "appNotFound": {
+      "title": "Niy znaleziōne",
+      "body": "Tyn zapis niy istnieje abo bōł wyciepniynty, jak żeś na niego patrzoł.",
+      "back": "Nazot na pulpit"
+    },
+    "validation": {
+      "required": "wymagane",
+      "tooLong": "nojwyżyj {max} znakōw",
+      "invalidEmail": "mus być porzōndny e-mejl",
+      "invalidDate": "mus być datōm kalyndarzowōm w formie RRRR-MM-DD",
+      "invalidAmount": "mus być liczbōm",
+      "wholeNumber": "mus być cołkowitōm liczbōm",
+      "greaterThanZero": "mus być wiynksze ôd zera",
+      "fixFields": "Poprŏw wyrōżniōne pola.",
+      "charset": "Dozwolōne sōm yno standardowe znaki klawiatury."
+    }
+  },
+  "verify": {
+    "metaTitle": "Weryfikacyjŏ dokumyntu",
+    "metaDescription": "Sprawdźcie, czy fakture abo note kredytowo wystawiył jejich nadowca i czy niy bōła zmiyniano.",
+    "heading": "Weryfikacyjŏ dokumyntu",
+    "rateLimited": "Za dużo sprawdzyń z tego adresu. Spróbuj za minutã.",
+    "notFound": {
+      "title": "Niy ma takigo dokumyntu",
+      "body": "Ten link niy pasuje do żŏdnego wystawiōnego dokumyntu. Sprawdź kod QR abo link, kery żeś dostoł, abo skōntaktuj sie ze wystawcōm."
+    },
+    "status": {
+      "void": "Unieważniōny",
+      "valid": "Ważny"
+    },
+    "issuedBy": "Wystawiōne przez",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Wystawiōne dlŏ",
+    "issueDate": "Data wystawiynia",
+    "total": "Razem",
+    "voided": "Tyn dokumynt bōł unieważniōny przez wystawcã i już niy je ważny.",
+    "storedCopies": {
+      "title": "Spamiyntane kopije",
+      "description": "SHA-256 każdyj wersyji PDF, kerõ trzimie wystawca. Wybier swojã kopijã, coby jõ porōwnać we przeglōndarce: nic sie niy wysyła.",
+      "empty": "Jeszcze niy wygenerowano żŏdnego PDF.",
+      "protectedVersion": "Kopijŏ chrōniōno hasłym {version}",
+      "version": "Wersyjŏ {version}"
+    },
+    "check": {
+      "label": "Sprawdź swojã kopijã",
+      "hashing": "Liczynie skrōtu…",
+      "match": "Twoja kopijŏ dokłŏdnie pasuje do wersyji {version}.",
+      "mismatch": "Twoja kopijŏ niy pasuje do żŏdnyj spamiyntanyj wersyji."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Udostympniōny dokumynt",
+      "metaDescription": "Dokumynt udostympniony wom: łobejrzyjcie go online i pobierzcie PDF.",
+      "rateLimited": "Za dużo żōdań z tego adresu. Spróbuj za minutã.",
+      "unavailable": {
+        "title": "Tyn link niy je dostympny",
+        "body": "Mōg wygasnōnć abo wystawca go cofnōł. Poprōś ô nowy."
+      },
+      "lockedTitleInvoice": "Faktura ôd {issuer}",
+      "lockedTitleCreditNote": "Faktura korygujōnca ôd {issuer}",
+      "lockedBody": "Tyn dokumynt je chrōniōny hasłym. Wpisz hasło, kere żeś dostoł ôd wystawcy.",
+      "void": "Unieważniōny",
+      "protectedPdf": "PDF sie ôtwiyrŏ tym samym hasłym. Idzie go czytać i drukować; kopiowanie i edycyjŏ sōm zablokowane.",
+      "byline": "Ôd {issuer} do {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Hasło",
+      "limited": "Za dużo prōb. Poczkej piyńtaście minut i spróbuj jeszcze roz.",
+      "wrong": "To hasło niy je dobre.",
+      "submit": "Ôtwōrz dokumynt"
+    },
+    "dialog": {
+      "trigger": "Udostympnij",
+      "title": "Udostympnij tyn dokumynt",
+      "description": "Kożdy ze linkym może go ôbejrzeć i ściōnōnć, aż wygaśnie abo go cofniesz. Hasło chrōni tyż samyj PDF: ôtwiyro sie hasłym i idzie go czytać i drukować, niy edytować ani kopiować.",
+      "link": "Link",
+      "copyLink": "Kopiuj link",
+      "password": "Hasło",
+      "copyPassword": "Kopiuj hasło",
+      "sendSeparately": "Wyślij hasło ôsobno ôd linku. Możesz je zaś zobaczyć na lyście niżyj.",
+      "copy": "Kopiuj",
+      "copied": "Skopiowane",
+      "expires": "Wygasa",
+      "expiry": {
+        "d7": "Za 7 dni",
+        "d30": "Za 30 dni",
+        "d90": "Za 90 dni",
+        "never": "Nigdy"
+      },
+      "protection": "Ochrōna",
+      "protectionOptions": {
+        "auto": "Hasło: wygeneruj fraza",
+        "manual": "Hasło: wybiera sōm",
+        "none": "Bez hasła (ôtwarty link)"
+      },
+      "passwordHint": "Przinajmniyj 8 znakōw.",
+      "strength": "Siła: {label}",
+      "strengthLabels": {
+        "veryWeak": "barzo słabe",
+        "weak": "słabe",
+        "fair": "ujdzie",
+        "good": "dobre",
+        "strong": "mocne"
+      },
+      "creating": "Robiynie…",
+      "create": "Zrōb link",
+      "activeLinks": "Aktywne linki",
+      "passwordProtected": "Chrōniōne hasłym",
+      "openLink": "Ôtwōrz link",
+      "linkExpires": "{kind} · wygasa {date}",
+      "linkNeverExpires": "{kind} · niy wygasa",
+      "revoke": {
+        "title": "Cofnōnć tyn link?",
+        "description": "Link przestanie działać ôd razu dlŏ wszyjskich, kerzi go majōm.",
+        "label": "Cofnij"
+      },
+      "linkPassword": "Hasło: <code>{password}</code>",
+      "counts": "{views, plural, one {# ôbejrzynie} few {# ôbejrzynia} many {# ôbejrzyń} other {# ôbejrzynia}} · {downloads, plural, one {# ściōnganie} few {# ściōnganiŏ} many {# ściōngań} other {# ściōnganiŏ}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Faktury korygujōnce",
+      "title": "Faktury korygujōnce",
+      "description": "Wystawiane do wystawiōnych faktur; kożdo przi wystawianiu zmniyjszo saldo swojij faktury.",
+      "newCreditNote": "Nowo faktura korygujōnca",
+      "filters": {
+        "from": "Ôd",
+        "to": "Do",
+        "issuer": "Wystawca",
+        "client": "Klijynt",
+        "status": "Sztand",
+        "search": "Szukej",
+        "all": "Wszyjsko",
+        "searchPlaceholder": "Numer, przicyna, klijynt",
+        "go": "Idź"
+      },
+      "statuses": {
+        "DRAFT": "Szkic",
+        "ISSUED": "Wystawiōno",
+        "SENT": "Wysłano",
+        "VOID": "Unieważniōno"
+      },
+      "empty": {
+        "title": "Jeszcze żŏdnych faktur korygujōncych",
+        "description": "Ôtwōrz wystawiōnõ fakturã i wybier „Faktura korygujōnca“, coby zmniyjszyć, co je winiōne."
+      },
+      "noMatch": "Żŏdno faktura korygujōnca niy pasuje do tych filtrōw.",
+      "columns": {
+        "number": "Numer",
+        "against": "Do faktury",
+        "client": "Klijynt",
+        "issueDate": "Data wystawiynia",
+        "reason": "Przicyna",
+        "total": "Razem",
+        "status": "Sztand"
+      },
+      "draft": "Szkic"
+    },
+    "new": {
+      "metaTitle": "Nowo faktura korygujōnca",
+      "title": "Nowo faktura korygujōnca",
+      "description": "Faktura korygujōnca je wystawiano do wystawiōnyj faktury i zmniyjszo jeji saldo.",
+      "nothingToCredit": {
+        "title": "Niy ma czego korygować",
+        "description": "Faktury korygujōnce wymagajōm wystawiōnyj faktury ze niyzapłaconym saldym.",
+        "openInvoices": "Ôtwōrz faktury"
+      },
+      "whichInvoice": "Kero faktura?",
+      "invoice": "Faktura",
+      "invoiceOption": "{number} · {client} · saldo {balance}",
+      "issuedOnly": "Faktury korygujōnce wystawio sie yno do wystawiōnych faktur.",
+      "invoiceFallback": "Faktura"
+    },
+    "edit": {
+      "metaTitle": "Edytuj fakturã korygujōncõ",
+      "title": "Edytuj szkic faktury korygujōncyj",
+      "immutable": "Wystawiōne faktury korygujōnce sōm niyzmiynne.",
+      "draft": "Szkic"
+    },
+    "detail": {
+      "metaTitle": "Faktura korygujōnca",
+      "draftTitle": "Szkic faktury korygujōncyj",
+      "meta": "{client} · do faktury <invoice>{number}</invoice> · wystawiōne <mono>{date}</mono>",
+      "previewPdf": "Podglōnd PDF",
+      "issue": {
+        "title": "Wystawić tã fakturã korygujōncõ?",
+        "description": "Przidziŏlŏ sie numer, saldo faktury sie zmniyjszo i dokumynt sie stowo niyzmiynny.",
+        "label": "Wystow"
+      },
+      "deleteDraft": {
+        "title": "Wycieprnōć tyn szkic?"
+      },
+      "sendByEmail": "Wyślij e-mejlym",
+      "markSent": {
+        "title": "Ôznaczyć jako wysłanõ?",
+        "label": "Ôznacz jako wysłanõ"
+      },
+      "void": {
+        "title": "Unieważnić tã fakturã korygujōncõ?",
+        "description": "Saldo faktury sie przywrŏco; numer sie nigdy niy używo zaś.",
+        "reason": "Przicyna",
+        "label": "Unieważnij"
+      },
+      "voided": "Unieważniōne {date}: {reason}",
+      "amounts": {
+        "title": "Kwoty",
+        "reason": "Przicyna",
+        "creditAmount": "Kwota korekty",
+        "total": "Razem",
+        "balanceNow": "Terŏźniyjsze saldo faktury",
+        "sent": "Wysłano"
+      },
+      "documents": {
+        "title": "Spamiyntane dokumynty",
+        "description": "Kożdo wersyjŏ je trzimano; zajta weryfikacyji pokazuje wszyjske skrōty.",
+        "regenerateTitle": "Wygenerować nowõ wersyjã PDF?",
+        "generate": "Wygeneruj",
+        "newVersion": "Nowo wersyjŏ",
+        "renderedOnFirstDownload": "PDF je renderowany przi piyrszym ściōnganiu.",
+        "protectedCopy": "Kopijŏ chrōniōno hasłym {version}",
+        "version": "Wersyjŏ {version}",
+        "verificationLink": "Link weryfikacyjny: <link>{path}…</link>"
+      },
+      "draftsPreview": "Podglōnd szkicōw je na żywo w edytorze."
+    },
+    "send": {
+      "metaTitle": "Wyślij fakturã korygujōncõ",
+      "title": "Wyślij <mono>{number}</mono>",
+      "previousSends": "Poprzedniŏ wysyłaniŏ"
+    },
+    "builder": {
+      "against": "Do faktury <mono>{number}</mono>",
+      "summary": "{client} · razem {total} · saldo {balance} · zapas ôpodatkowany ≈ {headroom}",
+      "issueDate": "Data wystawiynia",
+      "creditAmount": "Kwota korekty (bez podatku)",
+      "creditAmountHint": "Podatek je rozdzielany wedle wierszy podatku faktury",
+      "reason": "Przicyna",
+      "picker": {
+        "title": "Ôbliczej ze wierszy faktury",
+        "description": "Zaznacz cołke wiersze abo procynt; to yno wypołnio kwotã wyżyj.",
+        "line": "Wiersz",
+        "subtotal": "Suma czynściowo",
+        "credit": "Korekta",
+        "percent": "%",
+        "creditLine": "Wiersz korekty {position}",
+        "percentOfLine": "Procynt wiersza {position}"
+      },
+      "saveDraft": "Spamiyntej szkic",
+      "issuing": "Wystawianie…",
+      "saveAndIssue": "Spamiyntej i wystow"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Dostano płatność",
+        "REFUND": "Wystawiōny zwrot",
+        "WRITE_OFF": "Ôdpis"
+      },
+      "editTitle": "Edytuj wpis",
+      "recordTitle": "Zapisz płatność",
+      "description": "Kwoty sōm we walucie faktury ({currency}); potrōnciōne TDS je czynściōm zaliczōnyj kwoty.",
+      "kind": "Zorta",
+      "date": "Data",
+      "amountRefunded": "Zwrōcōno kwota (ujymno)",
+      "amountApplied": "Zaliczōno kwota",
+      "refundHint": "Wpisz ujymnõ kwotã, np. -500",
+      "tdsDeducted": "Potrōnciōne TDS",
+      "tdsHint": "Podatek zatrzimany przez klijynta; liczy sie do zaliczōnyj kwoty",
+      "bankFees": "Ôpłaty bankowe",
+      "receivedInto": "Dostano na",
+      "noMethod": "-",
+      "reference": "Referyncyjŏ",
+      "referenceHint": "UTR, ID transakcyji, numer czeku",
+      "otherCurrency": "Dostano we inkszyj walucie",
+      "amountReceived": "Dostano kwota",
+      "receivedCurrency": "Waluta dostaniŏ",
+      "exchangeRate": "Kurs wymiany",
+      "exchangeRateHint": "1 dostano jednostka = ? {currency}",
+      "notes": "Uwagi",
+      "receiptHint": "PNG, JPEG, WebP abo PDF do 10 MB",
+      "receipts": "Kwity i rachōnki",
+      "receiptN": "Kwit {n}",
+      "removeReceipt": "Wychyl kwit {n}",
+      "saveChanges": "Spamiyntej zmiany",
+      "record": "Zapisz"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Nabywca",
+      "shipTo": "Dostawa do",
+      "invoice": "Faktura",
+      "creditNote": "Faktura korygujōnca",
+      "issueDate": "Data wystawiynia",
+      "dueDate": "Termin płaceniŏ",
+      "number": "Numer",
+      "description": "Ôpis",
+      "sacHsn": "SAC/HSN",
+      "qty": "Ilość",
+      "unit": "Jedn.",
+      "rate": "Stawka",
+      "tax": "Podatek",
+      "amount": "Kwota",
+      "subtotal": "Suma czynściowo",
+      "discount": "Rabat",
+      "taxable": "Kwota podlygajōnca podatkowi",
+      "total": "Razem",
+      "amountDue": "Do zapłacyniŏ",
+      "tdsExpected": "Spodziewany TDS",
+      "netExpected": "Spodziewano kwota netto",
+      "rounding": "Zaokrōglyniy",
+      "paymentDetails": "Dane do płaceniŏ",
+      "notes": "Uwagi",
+      "terms": "Warunki",
+      "placeOfSupply": "Myjsce dostawy",
+      "poReference": "Numer zamōwiynia (PO)",
+      "amountInWords": "Kwota słownie",
+      "signature": "Ôsoba uprawniōno do podpisu"
+    },
+    "title": {
+      "taxInvoice": "FAKTURA VAT",
+      "billOfSupply": "RACHUNEK DOSTAWY",
+      "invoice": "FAKTURA",
+      "creditNote": "FAKTURA KORYGUJŌNCA"
+    },
+    "text": {
+      "pageOf": "Zajta {page} z {total}",
+      "scanToVerify": "Zeskanuj, coby sprawdzić",
+      "taxId": "ID podatkowy",
+      "void": "ANULOWANO",
+      "draftWatermark": "PROJEKT - niy ma faktura VAT",
+      "paymentTermsDays": "{days} dni",
+      "irn": "IRN",
+      "ackNo": "Nr potwierdzyniŏ",
+      "ackDate": "Data potwierdzyniŏ",
+      "einvoiceCancelled": "E-FAKTURA ANULOWANA"
+    },
+    "ui": {
+      "pageEstimate": "ôkoło {count, plural, one {# zajta} few {# zajty} many {# zajt} other {# zajty}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Wiadōmość",
+      "description": "Wypołniōne z szablōnōw profilu wystawcy. Nic sie niy wysyła, aż klikniesz Wyślij.",
+      "to": "Do",
+      "toHint": "Ôddzielōne przecinkami",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Tymat",
+      "body": "Tryść",
+      "bodyHint": "Zwykły tekst; linki sie stowajōm klikalne",
+      "attachment": "Załōncznik",
+      "attachmentHint": "Spamiyntano kopijŏ ô mianie <mono>{name}</mono> (abo .docx); jeji tryści niy idzie zmiynić.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Wysyłanie…",
+      "send": "Wyślij",
+      "openInMailApp": "Ôtwōrz w aplikacyji pocztowyj",
+      "noSmtp": "Niy ma skonfigurowanego serwera SMTP (Nastawiynia → E-mejl). Ôtwōrz szkic w aplikacyji pocztowyj, dołōncz ściōgniynty PDF, potym ôznacz go niżyj jako wysłany.",
+      "markAsSent": "Ôznacz jako wysłane"
+    },
+    "sentLog": {
+      "when": "Kiedy",
+      "document": "Dokumynt",
+      "to": "Do",
+      "subject": "Tymat",
+      "status": "Sztand",
+      "empty": "Jeszcze nic niy wysłano.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "wysłano",
+        "FAILED": "niypodarzōne",
+        "MANUAL": "ryncznie"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Witej, {name}",
+    "fiscalYear": "Rok skarbowy {year}",
+    "fiscalYearWithBase": "Rok skarbowy {year} · waluta bazowo {currency} ({profile})",
+    "newCreditNote": "Nowo faktura korygujōnca",
+    "welcomeTitle": "Witej w {appName}",
+    "welcomeDescription": "Zacznij ôd zrobiyniŏ profilu wystawcy, ze kerego fakturujesz, potym dodej klijynta i swojõ piyrszõ fakturã.",
+    "createProfile": "Zrōb swōj profil",
+    "tiles": {
+      "outstanding": "Niyzapłacōne",
+      "overdue": "Po terminie",
+      "billedThisFy": "Zafakturowane w tym RS",
+      "receivedThisFy": "Dostane w tym RS",
+      "drafts": "Szkice",
+      "invoiceCount": "{count, plural, one {# faktura} few {# faktury} many {# faktur} other {# faktury}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Płatności minus zwroty, po zapisanym kursie",
+      "awaitingIssue": "czeko na wystawiynie",
+      "nothingPending": "nic niy czeko"
+    },
+    "recentInvoices": "Ôstatnie faktury",
+    "allInvoices": "Wszyjske faktury",
+    "noInvoicesYet": "Jeszcze żŏdnych faktur.",
+    "columns": {
+      "number": "Numer",
+      "client": "Klijynt",
+      "issued": "Wystawiōne"
+    },
+    "topClients": "Nojwiynkszy klijynci wedle niyzapłacōnego",
+    "nothingOutstanding": "Nic niy je niyzapłacōne."
+  },
+  "exports": {
+    "export": "Eksport",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Faktury",
+      "newInvoice": "Nowo faktura",
+      "draft": "Szkic",
+      "aDraft": "szkic",
+      "statuses": {
+        "draft": "Szkic",
+        "issued": "Wystawiōno",
+        "sent": "Wysłano",
+        "partiallyPaid": "Czynściowo zapłacōno",
+        "paid": "Zapłacōno",
+        "overdue": "Po terminie",
+        "void": "Unieważniōno"
+      },
+      "lifecycle": {
+        "draft": "szkic",
+        "issued": "wystawiōno",
+        "void": "unieważniōno"
+      },
+      "units": {
+        "hour": "Godzina",
+        "day": "Dziyń",
+        "fixed": "Ryczałt",
+        "milestone": "Etap",
+        "unit": "Jednostka"
+      },
+      "unitsLower": {
+        "hour": "godzina",
+        "day": "dziyń",
+        "fixed": "ryczałt",
+        "milestone": "etap",
+        "unit": "jednostka"
+      },
+      "supplyTypes": {
+        "intraState": "we ramach stanu",
+        "interState": "miyndzy stanami",
+        "exportLut": "eksport LUT",
+        "exportWithTax": "eksport z podatkym",
+        "reverseCharge": "ôdwrōcōne ôbciōnżynie",
+        "notApplicable": "niy dotyczy"
+      }
+    },
+    "list": {
+      "description": "Szkice, wystawiōne i unieważniōne faktury; sztandy wyniklajōm z płatności i terminōw płaceniŏ.",
+      "fiscalYear": "Rok skarbowy",
+      "issuer": "Wystawca",
+      "client": "Klijynt",
+      "searchPlaceholder": "Numer, zōmōwiynie, klijynt",
+      "emptyTitle": "Jeszcze żŏdnych faktur",
+      "emptyDescription": "Zrōb swojõ piyrszõ fakturã: ôbier klijynta, dodej wiersze, ôglōndej podglōnd, potym jõ wystow.",
+      "columns": {
+        "number": "Numer",
+        "client": "Klijynt",
+        "issuer": "Wystawca",
+        "issueDate": "Data wystawiynia",
+        "due": "Termin",
+        "balance": "Saldo"
+      },
+      "noMatches": "Żŏdno faktura niy pasuje do tych filtrōw.",
+      "count": "{count, plural, one {# faktura} few {# faktury} many {# faktur} other {# faktury}}",
+      "countPaged": "{count, plural, one {# faktura} few {# faktury} many {# faktur} other {# faktury}} · zajta {page} z {pages}",
+      "register": "rejestr",
+      "einvoice": "E-faktura",
+      "einvoiceFilters": {
+        "registered": "IRN zarejestrowany",
+        "none": "Niyzarejestrowano",
+        "cancelled": "IRN anulowany"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Zrōb nojpiyrw profil wystawcy",
+      "noProfileDescription": "Faktura je wystawiano ze prawnyj tożsamości: ustow swōj profil ze ID podatkowymi i numeracyjōm.",
+      "createProfile": "Zrōb profil"
+    },
+    "edit": {
+      "metaTitle": "Edytuj fakturã",
+      "title": "Edytuj szkic",
+      "immutableFlash": "Wystawiōne faktury sōm niyzmiynne. Użyj „Unieważnij i wystow jeszcze roz“, coby jõ poprŏwić."
+    },
+    "detail": {
+      "metaTitle": "Faktura",
+      "draftInvoice": "Szkic faktury",
+      "issuedDue": "Wystawiōno <mono>{issued}</mono>, termin <mono>{due}</mono>",
+      "replaces": "Zastympuje {number}",
+      "replacedBy": "Zastōmpiōno przez {number}",
+      "previewPdf": "Podglōnd PDF",
+      "downloadEInvoice": "Pobier JSON e-faktury",
+      "issueTitle": "Wystawić tã fakturã?",
+      "issueDescription": "Przidziŏlŏ sie numer i dokumynt sie stowo niyzmiynny.",
+      "issue": "Wystow",
+      "deleteDraftTitle": "Wycieprnōć tyn szkic?",
+      "sendByEmail": "Wyślij e-mejlym",
+      "recordPayment": "Zapisz płatność",
+      "progress": {
+        "title": "Postymp płaty",
+        "description": "Na kerym sztopniu je ta faktura, ôd wystawiynio do kwitu w aktach.",
+        "issued": "Wystawiōna",
+        "sent": "Posłano",
+        "payment": "Płata zapisano",
+        "paymentOn": "Płata <mono>{amount}</mono> zapisano dnia <mono>{date}</mono>",
+        "paid": "Zapłacōno we cołkości",
+        "receipt": "Kwit dołōnczōny",
+        "done": "gotowe",
+        "pending": "czeko"
+      },
+      "creditNote": "Faktura korygujōnca",
+      "markSentTitle": "Ôznaczyć jako wysłanõ?",
+      "markSentDescription": "Zapisuje, że klijynt dostoł tã fakturã.",
+      "markSent": "Ôznacz jako wysłanõ",
+      "voidReissueTitle": "Unieważnić i wystawić jeszcze roz?",
+      "voidReissueDescription": "Ôryginał je unieważniōny i ôtwiyro sie powiōzany szkic ze tõ samõ tryściōm do edycyji.",
+      "voidReissue": "Unieważnij i wystow jeszcze roz",
+      "voidTitle": "Unieważnić tã fakturã?",
+      "voidDescription": "Idzie yno bez zapisanych płatności; numer sie nigdy niy używo zaś.",
+      "void": "Unieważnij",
+      "voided": "Unieważniōne {date}: {reason}",
+      "amounts": "Kwoty",
+      "subtotal": "Suma czynściowo",
+      "discount": "Rabat",
+      "discountPercent": "Rabat ({percent})",
+      "rounding": "Zaokrōglynie",
+      "tdsExpected": "Spodziywane TDS ({percent})",
+      "paid": "Zapłacōne",
+      "credited": "Skorygowane",
+      "balanceDue": "Do zapłaty",
+      "supply": "Dostawa",
+      "fxToBase": "Kurs do bazowyj",
+      "poReference": "Referyncyjŏ zōmōwiyniŏ",
+      "sent": "Wysłano",
+      "lineItems": "Pozycyje",
+      "columns": {
+        "description": "Ôpis",
+        "sacHsn": "SAC/HSN",
+        "qty": "Ilość",
+        "rate": "Stawka",
+        "tax": "Podatek",
+        "amount": "Kwota"
+      },
+      "creditNotes": "Faktury korygujōnce",
+      "storedDocuments": "Spamiyntane dokumynty",
+      "storedDocumentsHint": "Kożdo wersyjŏ je trzimano; zajta weryfikacyji pokazuje wszyjske skrōty.",
+      "regenerateTitle": "Wygenerować nowõ wersyjã PDF?",
+      "regenerateDescription": "Renderuje sie jeszcze roz ze zamrożōnego snimka (np. po poprawie renderera). Wczaśniejsze wersyje ôstowajōm.",
+      "regenerate": "Wygeneruj",
+      "newVersion": "Nowo wersyjŏ",
+      "renderedOnFirstDownload": "PDF je renderowany przi piyrszym ściōnganiu.",
+      "protectedCopy": "Kopijŏ chrōniōno hasłym {version}",
+      "version": "Wersyjŏ {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Link weryfikacyjny:",
+      "draftPreviewHint": "Podglōnd szkicōw je na żywo w edytorze; ôtwōrz <link>PDF ze znakym wodnym</link>, coby zobaczyć zajtã.",
+      "einvoice": {
+        "title": "E-faktura (Indyje)",
+        "description": "Registracyjŏ tyj faktury we Invoice Registration Portal; zarejestrowany dokumynt drukuje swōj IRN i podpisany kod QR portalu.",
+        "connector": "Kōnektor",
+        "connectors": {
+          "manual": "Rynczny",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Dlŏ tego profilu niy ma skōnfigurowanego kōnektora we Sztelōnki > E-fakturowanie.",
+        "statuses": {
+          "none": "Niyzarejestrowano",
+          "generated": "Wygynerowano JSON",
+          "registered": "Zarejestrowano",
+          "cancelled": "Anulowano",
+          "failed": "Registracyjŏ sie niy podarziła"
+        },
+        "irn": "IRN",
+        "ackNo": "Nr potwierdzyniŏ",
+        "ackDate": "Data potwierdzyniŏ",
+        "cancelReason": "Anulowanie",
+        "generate": "Wygyneruj IRN",
+        "pasteLabel": "Ôdpowiydź IRP",
+        "pasteHint": "Wkludź JSON, kery portal abo ôd twōj GSP zwrōcił dlŏ e-faktury JSON tyj faktury (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Zapisz IRN",
+        "cancelReasonLabel": "Przicyna anulowaniŏ",
+        "cancelReasons": {
+          "1": "Duplikat",
+          "2": "Fela przi wprowadzaniu danych",
+          "3": "Zamōwiynie anulowane",
+          "4": "Inksze"
+        },
+        "cancel": "Pociep IRN",
+        "cancelWindow": "Portal pozwŏlŏ na anulowanie we ciōngu 24 godzin ôd potwierdzyniŏ."
+      }
+    },
+    "history": {
+      "metaTitle": "Historyjŏ faktury",
+      "title": "Historyjŏ <mono>{number}</mono>",
+      "reissueChain": "Łańcuch ponownych wystawiyń",
+      "replaces": "Zastympuje <link>{number}</link>",
+      "replacedBy": "Zastōmpiōno przez <link>{number}</link>",
+      "auditTrail": "Ślad audytu",
+      "columns": {
+        "when": "Kiedy",
+        "who": "Kto",
+        "action": "Akcyjŏ",
+        "summary": "Podsumowanie"
+      },
+      "noEvents": "Jeszcze żŏdnych zdarzyń.",
+      "system": "Systym",
+      "emails": "E-mejle"
+    },
+    "payments": {
+      "title": "Płatności",
+      "description": "{client} · razem {total}",
+      "backToInvoice": "Nazot do faktury",
+      "ledger": "Ksiynga",
+      "columns": {
+        "date": "Data",
+        "kind": "Zorta",
+        "applied": "Zaliczōne",
+        "tds": "TDS",
+        "received": "Dostane",
+        "reference": "Referyncyjŏ",
+        "balance": "Saldo"
+      },
+      "noPayments": "Jeszcze niy zapisano żŏdnych płatności.",
+      "kinds": {
+        "payment": "Płatność",
+        "refund": "Zwrot",
+        "writeOff": "Ôdpis"
+      },
+      "receipt": "Pokwitowanie",
+      "receiptN": "Kwit {n}",
+      "deleteEntryTitle": "Wycieprnōć tyn wpis?",
+      "deleteEntryDescription": "Saldo faktury je przeliczane jeszcze roz.",
+      "totals": "Sumy",
+      "invoiceTotal": "Razem faktura",
+      "credited": "Skorygowane",
+      "refunds": "Zwroty",
+      "writeOffs": "Ôdpisy",
+      "tdsDeducted": "Potrōnciōne TDS",
+      "bankFees": "Ôpłaty bankowe",
+      "balanceDue": "Do zapłaty",
+      "onlyIssued": "Płatności przijmujōm yno wystawiōne faktury."
+    },
+    "send": {
+      "metaTitle": "Wyślij fakturã",
+      "title": "Wyślij <mono>{number}</mono>",
+      "alreadySent": "Już ôznaczōno jako wysłano; ponowne wysłanie dodoje nowy wpis do dziynnika.",
+      "previousSends": "Poprzedniŏ wysyłaniŏ"
+    },
+    "builder": {
+      "parties": "Strōny",
+      "issuerProfile": "Profil wystawcy",
+      "client": "Klijynt",
+      "archivedOption": "{label} (zarchiwizowane)",
+      "issueDate": "Data wystawiynia",
+      "dueDate": "Termin płaceniŏ",
+      "fxRate": "Kurs do waluty bazowyj",
+      "fxHint": "1 {currency} = ? {base} (yno do raportowaniŏ)",
+      "poReference": "Referyncyjŏ zōmōwiyniŏ",
+      "lineItems": "Pozycyje",
+      "lineItemsHint": "Ôbier z katalogu, coby skopiować jego wartości, abo wpisz wiersz.",
+      "taxDiscountTds": "Podatek, rabat i TDS",
+      "taxRegime": "Ustrōj podatkowy",
+      "regimes": {
+        "indiaGst": "GST Indyje",
+        "ukVat": "VAT Wielgij Brytanije",
+        "usSalesTax": "Podatek ôd sprzedoży USA",
+        "none": "Bez podatku"
+      },
+      "reverseCharge": "Ôdwrōcōne ôbciōnżynie",
+      "reverseChargeHint": "Podatek płaci ôdbiorca",
+      "discount": "Rabat",
+      "percent": "Procynt",
+      "amount": "Kwota",
+      "rounding": "Korekta zaokrōglyniŏ",
+      "roundingHint": "Niymusowe, do cołkij jednostki; mus być pod 1",
+      "round": "Zaokrōglij",
+      "tdsRate": "Spodziywano stawka TDS (%)",
+      "tdsRateHint": "Informacyjnie; drukowane, kej je włōnczōny rozkłŏd TDS",
+      "paymentMethods": "Sposoby płaceniŏ",
+      "paymentMethodsHint": "Drukowane we kolyjności zaznaczyniŏ.",
+      "noPaymentMethods": "Niy ma aktywnych sposobōw płaceniŏ. <link>Dodej jedyn</link>.",
+      "whatPrints": "Co sie drukuje",
+      "whatPrintsHint": "Zaczyno sie ôd wyjściowych profilu wystawcy.",
+      "documentLanguage": "Gŏdka dokumyntu",
+      "documentLanguageHint": "Etyniety, daty i kwoty sōm drukowane we tyj gŏdce; preferyncyjŏ klijynta, a jak niy ma, tyj profilu.",
+      "notesAndTerms": "Uwagi i warunki",
+      "notes": "Uwagi",
+      "terms": "Warunki",
+      "saveDraft": "Spamiyntej szkic",
+      "issuing": "Wystawianie…",
+      "saveAndIssue": "Spamiyntej i wystow",
+      "subtotal": "Suma czynściowo",
+      "tax": "Podatek",
+      "tdsExpected": "Spodziywane TDS",
+      "netExpected": "Spodziywano netto"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Dodej z katalogu…",
+      "services": "Usługi",
+      "products": "Produkty",
+      "addLine": "Dodej wiersz",
+      "columns": {
+        "description": "Ôpis",
+        "sacHsn": "SAC/HSN",
+        "qty": "Ilość",
+        "unit": "Jednostka",
+        "rate": "Stawka",
+        "taxPercent": "Podatek %"
+      },
+      "aria": {
+        "description": "Ôpis wiersza {line}",
+        "sacHsn": "SAC/HSN wiersza {line}",
+        "quantity": "Ilość wiersza {line}",
+        "unit": "Jednostka wiersza {line}",
+        "rate": "Stawka wiersza {line}",
+        "taxRate": "Stawka podatku wiersza {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Zwolniōne",
+      "moveUp": "Przesōń wyżyj",
+      "moveDown": "Przesōń niżyj",
+      "removeLine": "Wyciep wiersz",
+      "shortcutHint": "Ctrl/⌘+Enter w ôpisie dodoje wiersz.",
+      "addFromCatalogueAria": "Dodej z katalogu"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Dane wystawcy",
+        "client": "Dane klijynta",
+        "document": "Sekcyje dokumyntu"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Miano handlowe",
+        "showDesignation": "Funkcyjŏ",
+        "showEmail": "E-mejl",
+        "showPhone": "Telefōn",
+        "showWebsite": "Strōna internetowŏ",
+        "showFullAddress": "Pełny adres",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Podpis",
+        "showStamp": "Pieczyńć",
+        "showContactPerson": "Ôsoba do kōntaktu",
+        "showBillingAddress": "Adres do faktury",
+        "showShippingAddress": "Adres dostawy",
+        "showTaxIdentifier": "Identyfikator podatkowy",
+        "showPlaceOfSupply": "Miejsce dostawy",
+        "showDueDate": "Termin płaceniŏ",
+        "showPaymentTerms": "Warunki płaceniŏ",
+        "showSacCodeColumn": "Kolumna kodu SAC",
+        "showQuantityColumn": "Kolumna ilości",
+        "showUnitPriceColumn": "Kolumna ceny jednostkowyj",
+        "showTaxColumn": "Kolumna podatku",
+        "showTdsBreakdown": "Rozkłŏd TDS",
+        "showQrVerification": "Weryfikacyjŏ kodym QR",
+        "showNotes": "Uwagi",
+        "showTerms": "Warunki",
+        "showReplacesReference": "Referyncyjŏ zastympstwa",
+        "showAmountInWords": "Kwota słowami",
+        "showSupplyStatement": "Ôświadczynie ô dostawie",
+        "showRoundingLine": "Wiersz zaokrōglyniŏ",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Klijynty",
+      "description": "Wszyjscy, kerym fakturujesz. Klijynty ze fakturami sōm archiwizowane, nigdy wyciepywane.",
+      "newClient": "Nowy klijynt",
+      "searchPlaceholder": "Szukej po mianie",
+      "searchLabel": "Szukej klijyntōw",
+      "emptyTitle": "Jeszcze żŏdnych klijyntōw",
+      "emptyDescription": "Dodej ludzi i firmy, kerym fakturujesz; jich waluta i warunki płaceniŏ wypołniajōm kożdõ fakturã.",
+      "addClient": "Dodej klijynta",
+      "noMatch": "Żŏdyn klijynt niy pasuje do „{q}“.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Miano",
+        "contact": "Kōntakt",
+        "email": "E-mejl",
+        "country": "Kraj",
+        "currency": "Waluta",
+        "terms": "Warunki",
+        "status": "Sztand"
+      }
+    },
+    "new": {
+      "title": "Nowy klijynt"
+    },
+    "edit": {
+      "metaTitle": "Edytuj klijynta",
+      "title": "Edytuj {name}"
+    },
+    "detail": {
+      "metaTitle": "Klijynt",
+      "newInvoice": "Nowo faktura",
+      "restoreTitle": "Przywrōcić tego klijynta?",
+      "archiveTitle": "Zarchiwizować tego klijynta?",
+      "archiveDescription": "Zniknie z wybiyranio; faktury i historyjŏ ôstanōm nietknyńte.",
+      "deleteTitle": "Wycieprnōć tego klijynta?",
+      "deleteDescription": "Idzie yno wtedy, kedy żŏdno faktura sie na klijynta niy ôdwołuje.",
+      "details": "Szczegōły",
+      "contact": "Kōntakt",
+      "email": "E-mejl",
+      "phone": "Telefōn",
+      "country": "Kraj",
+      "gstState": "GST {code}",
+      "taxId": "ID podatkowe",
+      "currency": "Waluta",
+      "paymentTerms": "Warunki płaceniŏ",
+      "paymentTermsDays": "{days} dni",
+      "expectedTds": "Spodziywane TDS",
+      "notes": "Uwagi",
+      "addresses": "Adresy",
+      "billing": "Faktura",
+      "shipping": "Dostawa",
+      "lifetime": "Ôd poczōntku",
+      "openRegister": "Ôtwōrz rejestr",
+      "noIssued": "Jeszcze żŏdnych wystawiōnych faktur.",
+      "noIssuedWithDrafts": "Jeszcze żŏdnych wystawiōnych faktur (szkicōw: {drafts}).",
+      "firstLatest": "Piyrszo faktura <mono>{first}</mono>, ôstatnio <mono>{latest}</mono>{drafts, plural, =0 {} one { · # szkic} few { · # szkice} many { · # szkicōw} other { · # szkicu}}",
+      "lifetimeColumns": {
+        "currency": "Waluta",
+        "invoices": "Faktury",
+        "billed": "Zafakturowane",
+        "received": "Dostane",
+        "credited": "Skorygowane",
+        "outstanding": "Niyzapłacōne",
+        "overdue": "Po terminie"
+      },
+      "recentInvoices": "Ôstatnie faktury",
+      "noInvoices": "Jeszcze żŏdnych faktur dlŏ tego klijynta.",
+      "recentColumns": {
+        "number": "Numer",
+        "issueDate": "Data wystawiynia",
+        "due": "Termin",
+        "total": "Razem",
+        "balance": "Saldo",
+        "status": "Sztand"
+      }
+    },
+    "form": {
+      "cardTitle": "Klijynt",
+      "displayName": "Pokazowane miano",
+      "contactPerson": "Ôsoba do kōntaktu",
+      "email": "E-mejl",
+      "phone": "Telefōn",
+      "taxIdType": "Zorta ID podatkowego",
+      "taxIdTypeNone": "Niy ma",
+      "taxId": "ID podatkowe",
+      "currency": "Waluta",
+      "paymentTerms": "Warunki płaceniŏ (dni)",
+      "expectedTdsRate": "Spodziywano stawka TDS (%)",
+      "preferredLanguage": "Gŏdka dokumyntu",
+      "preferredLanguageFollow": "Trzymej sie profilu wystawcy",
+      "buyerReference": "Referyncyjŏ kupiyrza",
+      "buyerReferenceHint": "Drukowane w e-fakturach jako włŏsno referyncyjŏ kupiyrza (numer zamōwiynio abo placu kosztōw).",
+      "electronicAddress": "Elektroniczny adres",
+      "electronicAddressHint": "Identyfikator Peppol abo EN 16931, pod kerym tyn klijynt dostowo e-faktury.",
+      "electronicAddressScheme": "Schymat elektronicznego adresu",
+      "electronicAddressSchemeNone": "Bez schymatu",
+      "notes": "Uwagi",
+      "billingAddress": "Adres do faktury",
+      "shippingAddress": "Adres dostawy",
+      "differentFromBilling": "Inkszy niż do faktury",
+      "save": "Spamiyntej klijynta"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Godzina",
+      "DAY": "Dziyń",
+      "FIXED": "Ryczałt",
+      "MILESTONE": "Etap",
+      "UNIT": "Jednostka"
+    },
+    "list": {
+      "activate": "Aktywuj",
+      "deactivate": "Wyłōncz",
+      "archiveDescription": "Istniejōnce wiersze faktur zachowujōm skopiowane wartości.",
+      "deleteDescription": "Idzie yno wtedy, kedy żŏdyn wiersz faktury sie na niego niy ôdwołuje. Inkszy roz zarchiwizuj go.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Miano",
+        "unit": "Jednostka",
+        "rate": "Stawka",
+        "price": "Cyna",
+        "currency": "Waluta",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Podatek",
+        "status": "Sztand"
+      }
+    },
+    "services": {
+      "title": "Usługi",
+      "description": "Twōj katalog. Wybranie usługi kopiuje jeji wartości do wiersza faktury.",
+      "newService": "Nowo usługa",
+      "emptyTitle": "Jeszcze żŏdnych usług",
+      "emptyDescription": "Dodej, co sprzedowosz - projektowanie na godziny, etap ze ryczałtym - ze kodym SAC/HSN i stawkōm podatku.",
+      "addService": "Dodej usługã",
+      "restoreTitle": "Przywrōcić {name}?",
+      "archiveTitle": "Zarchiwizować {name}?",
+      "deleteTitle": "Wycieprnōć {name}?",
+      "editMetaTitle": "Edytuj usługã",
+      "editTitle": "Edytuj {name}"
+    },
+    "products": {
+      "title": "Produkty",
+      "description": "Towary, kere sprzedowosz, kożdy ze SKU. Wybranie produktu kopiuje jego wartości do wiersza faktury.",
+      "newProduct": "Nowy produkt",
+      "emptyTitle": "Jeszcze żŏdnych produktōw",
+      "emptyDescription": "Dodej towary, kere sprzedowosz, ze SKU, kodym HSN, cynōm jednostkowōm i stawkōm podatku.",
+      "addProduct": "Dodej produkt",
+      "restoreTitle": "Przywrōcić {sku}?",
+      "archiveTitle": "Zarchiwizować {sku}?",
+      "deleteTitle": "Wycieprnōć {sku}?",
+      "editMetaTitle": "Edytuj produkt",
+      "editTitle": "Edytuj {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Jedyncy kod drukowany pod ôpisym wiersza",
+      "name": "Miano",
+      "unit": "Jednostka",
+      "defaultRate": "Wyjściowo stawka",
+      "unitPrice": "Cyna jednostkowo",
+      "currency": "Waluta",
+      "sacHsnCode": "Kod SAC / HSN",
+      "sacHsnHint": "Wymagane na fakturach GST",
+      "hsnCode": "Kod HSN",
+      "hsnHint": "Wymagane na fakturach GST dlŏ towarōw",
+      "defaultTaxRate": "Wyjściowo stawka podatku (%)",
+      "description": "Ôpis",
+      "descriptionHint": "Wypołnio ôpis wiersza",
+      "active": "Aktywny",
+      "serviceInactiveHint": "Niyaktywne usługi ôstanōm poza wybiyraniym w fakturze",
+      "productInactiveHint": "Niyaktywne produkty ôstanōm poza wybiyraniym w fakturze",
+      "saveService": "Spamiyntej usługã",
+      "saveProduct": "Spamiyntej produkt"
+    },
+    "tags": {
+      "legend": "Profile",
+      "hint": "Zaznacz profile wystawcy, kere to sprzedowajōm. Zostow wszyjske ôdznaczōne, coby ôferować to każdymu profilowi."
+    }
+  },
+  "address": {
+    "line1": "Wiersz adresu 1",
+    "line2": "Wiersz adresu 2",
+    "city": "Miasto",
+    "stateRegion": "Stan / region",
+    "postalCode": "Kod pocztowy",
+    "country": "Kraj",
+    "state": "Stan",
+    "gstStateCodeHint": "Kod stanu GST {code}",
+    "pickStateHint": "Ôbier stan dlŏ kodu stanu GST",
+    "stateRegionCode": "Kod stanu / regionu",
+    "stateRegionCodePlaceholder": "np. CA"
+  },
+  "assets": {
+    "tooLarge": "Tyn plik je za wielgi.",
+    "unsupportedReceipt": "Użyj ôbrazka PNG, JPEG, WebP abo PDF.",
+    "unsupportedImage": "Użyj ôbrazka PNG, JPEG abo WebP.",
+    "uploadFailed": "Wgrywanie sie niy podarziło.",
+    "uploading": "Wgrywanie…",
+    "dropHint": "Przećongnij zbiōr ku tymu abo wybier",
+    "dropHintMany": "Przeciōng zbiory tukej abo je wybier",
+    "dropActive": "Puść coby wysłać"
+  },
+  "ui": {
+    "breadcrumb": "Ôkruszki chleba",
+    "close": "Zawrzij",
+    "closeMenu": "Zawrzij menu",
+    "reveal": "Pokoż",
+    "hide": "Skryj",
+    "openCalendar": "Ôtwōrz kalyndŏrz",
+    "chooseMonth": "Wybier miesiōnc",
+    "chooseYear": "Wybier rok",
+    "searchOptions": "Wpisz, coby szukać",
+    "noMatches": "Niy ma trefōw",
+    "pullToRefresh": {
+      "label": "Lista do ôdświyżanio",
+      "pulling": "Pociōng coby ôdświyżyć",
+      "release": "Puść coby ôdświyżyć",
+      "refreshing": "Ôdświyżanie"
+    },
+    "inputCharset": "Dozwolōne sōm yno standardowe znaki klawiatury.",
+    "confirm": {
+      "working": "Robiymy…"
+    },
+    "statusPill": {
+      "DRAFT": "Szkic",
+      "ISSUED": "Wystawiōno",
+      "SENT": "Wysłano",
+      "PARTIALLY_PAID": "Czynściowo zapłacōno",
+      "PAID": "Zapłacōno",
+      "OVERDUE": "Po terminie",
+      "VOID": "Unieważniōno"
+    },
+    "activePill": {
+      "active": "Aktywne",
+      "archived": "Zarchiwizowane",
+      "inactive": "Niyaktywne"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Cosik poszło niy tak.",
+    "fixFields": "Poprŏw wyrōżniōne pola.",
+    "accountSaved": "Preferyncyje kōnta spamiyntane",
+    "apiKeyCreated": "Klucz API zrobiōny. Skopiuj go teroz: pokazowany je yno jedyn roz.",
+    "saved": "Spamiyntano {name}",
+    "savedProfile": "Spamiyntano profil {label}",
+    "clientArchived": "Klijynt zarchiwizowany",
+    "clientRestored": "Klijynt przywrōcōny",
+    "clientDeleted": "Klijynt wyciepniynty",
+    "productArchived": "Produkt zarchiwizowany",
+    "productRestored": "Produkt przywrōcōny",
+    "productActivated": "Produkt aktywowany",
+    "productDeactivated": "Produkt wyłōnczōny",
+    "serviceArchived": "Usługa zarchiwizowano",
+    "serviceRestored": "Usługa przywrōcōno",
+    "serviceActivated": "Usługa aktywowano",
+    "serviceDeactivated": "Usługa wyłōnczōno",
+    "defaultProfileUpdated": "Wyjściowy profil zaktualizowany",
+    "profileArchived": "Profil zarchiwizowany",
+    "profileRestored": "Profil przywrōcōny",
+    "profileDeleted": "Profil wyciepniynty",
+    "defaultPaymentMethodUpdated": "Wyjściowy sposōb płaceniŏ zaktualizowany",
+    "paymentMethodArchived": "Sposōb płaceniŏ zarchiwizowany",
+    "paymentMethodRestored": "Sposōb płaceniŏ przywrōcōny",
+    "paymentMethodDeleted": "Sposōb płaceniŏ wyciepniynty",
+    "issued": "Wystawiōno {number}",
+    "savedAsDraft": "Spamiyntano jako szkic. {reason}",
+    "draftSaved": "Szkic spamiyntany",
+    "invoiceVoided": "Faktura unieważniōno",
+    "originalVoided": "Ôryginał unieważniōny; edytuj szkic zastympstwa",
+    "markedAsSent": "Ôznaczōne jako wysłane",
+    "draftDeleted": "Szkic wyciepniynty",
+    "generatedPdf": "Wygenerowano wersyjã PDF {version}",
+    "creditNoteVoided": "Faktura korygujōnca unieważniōno; saldo faktury przywrōcōne",
+    "draftCreditNoteDeleted": "Szkic faktury korygujōncyj wyciepniynty",
+    "mailRefused": "Serwer poczty ôdrzucił wiadōmość: {error}. Prōba bōła zapisano.",
+    "unknownError": "niyznany feler",
+    "sentTo": "Wysłano do {recipients}",
+    "smtpSaved": "Nastawiynia SMTP spamiyntane",
+    "smtpRemoved": "Spamiyntane nastawiynia SMTP wyciepniynte",
+    "testEmailSent": "Testowy e-mejl wysłany na {email}",
+    "testFailed": "Test sie niy podarził: {error}",
+    "defaultRecipientsSaved": "Wyjściowi ôdbiorcy spamiyntani",
+    "invitationSent": "Zaproszynie wysłane",
+    "invitationReady": "Zaproszynie gotowe",
+    "unknownRole": "Niyznano rola",
+    "roleUpdated": "Rola zaktualizowano",
+    "accountDeactivated": "Kōnto wyłōnczōne",
+    "accountReactivated": "Kōnto aktywowane zaś",
+    "invitationRevoked": "Zaproszynie cofniynte",
+    "paymentUpdated": "Płatność zaktualizowano",
+    "paymentRecorded": "Płatność zapisano",
+    "paymentDeleted": "Płatność wyciepniynto",
+    "sessionRevoked": "Sesyjŏ cofniynto",
+    "noOtherSessions": "Niy ma inkszych sesyji",
+    "signedOutOthers": "Wylogowano z {count} inkszych sesyji",
+    "sharePasswordRequired": "Wpisz hasło abo pōnź, coby sie wygenerowało.",
+    "shareLinkCreated": "Link do udostympniyniŏ zrobiōny.",
+    "templateSaved": "Szablōn spamiyntany; przyszłe dokumynty go używajōm",
+    "templateReset": "Szablōn wrōcōny do wbudowanego wyjściowego",
+    "templateImported": "Szablōn zaimportowany",
+    "profileTemplateCleared": "Profil używo zaś szablōnu instancyji",
+    "operatorSaved": "Dane ôperatora spamiyntane. Zajty prawne teroz je pokazujōm.",
+    "einvoiceSettingsSaved": "Sztelōnki e-fakturowaniŏ spamiyntane",
+    "irnRegistered": "IRN {irn} zarejestrowany; PDF bōł zaś wygynerowany z nim",
+    "irnRecorded": "IRN zapisany; PDF bōł zaś wygynerowany z nim",
+    "irnCancelled": "IRN anulowany; PDF bōł zaś wygynerowany"
+  }
+}

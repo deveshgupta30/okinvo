@@ -11,7 +11,7 @@ import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { diffForAudit } from "./audit-redact";
 import { InvariantError, NotFoundError } from "./errors";
-import { requireWriter } from "./authz";
+import { requireRole } from "./authz";
 import { deleteSetting, getSetting, putSetting } from "./settings";
 
 /**
@@ -60,7 +60,7 @@ export async function getTemplateSettings(_actor: Actor): Promise<TemplateSettin
 
 /** Settings → Templates save (SPEC §4.17): validated, audited, applies to future documents only. */
 export async function saveTemplateConfig(actor: Actor, input: unknown): Promise<TemplateConfig> {
-  requireWriter(actor);
+  requireRole(actor, "OWNER");
   const config = mergeTemplateConfig(input);
   return prisma.$transaction((tx) =>
     putSetting(tx, actor, "documentTemplate", config, TemplateConfigSchema),
@@ -68,13 +68,13 @@ export async function saveTemplateConfig(actor: Actor, input: unknown): Promise<
 }
 
 export async function resetTemplateConfig(actor: Actor): Promise<void> {
-  requireWriter(actor);
+  requireRole(actor, "OWNER");
   await prisma.$transaction((tx) => deleteSetting(tx, actor, "documentTemplate"));
 }
 
 /** Import from the JSON the Export button produced; partial files merge over the defaults. */
 export async function importTemplateConfig(actor: Actor, json: string): Promise<TemplateConfig> {
-  requireWriter(actor);
+  requireRole(actor, "OWNER");
   let parsed: unknown;
   try {
     parsed = JSON.parse(json);
@@ -98,7 +98,7 @@ export async function saveProfileTemplateOverride(
   profileId: string,
   input: unknown | null,
 ): Promise<TemplateConfig | null> {
-  requireWriter(actor);
+  requireRole(actor, "OWNER");
   const config = input === null ? null : mergeTemplateConfig(input);
   return prisma.$transaction(async (tx) => {
     const before = await tx.issuerProfile.findUnique({

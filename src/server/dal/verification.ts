@@ -21,7 +21,7 @@ export interface VerificationResult {
   total: string;
   locale: string;
   status: "valid" | "void";
-  hashes: { version: number; sha256: string }[];
+  hashes: { version: number; sha256: string; format: "PDF" | "PDF_PROTECTED" }[];
 }
 
 const TOKEN_RE = /^[A-Za-z0-9_-]{20,64}$/;
@@ -42,9 +42,9 @@ export async function lookupByToken(token: string): Promise<VerificationResult |
       issuerSnapshot: true,
       clientSnapshot: true,
       documents: {
-        where: { format: "PDF" },
-        orderBy: { version: "asc" },
-        select: { version: true, sha256: true },
+        where: { format: { in: ["PDF", "PDF_PROTECTED"] } },
+        orderBy: [{ format: "asc" }, { version: "asc" }],
+        select: { version: true, sha256: true, format: true },
       },
     },
   });
@@ -62,7 +62,7 @@ export async function lookupByToken(token: string): Promise<VerificationResult |
       total: toMoneyString(invoice.total.toString(), invoice.currency),
       locale: issuer?.locale ?? "en-IN",
       status: invoice.status === "VOID" ? "void" : "valid",
-      hashes: invoice.documents,
+      hashes: invoice.documents as VerificationResult["hashes"],
     };
   }
   const creditNote = await prisma.creditNote.findUnique({
@@ -75,9 +75,9 @@ export async function lookupByToken(token: string): Promise<VerificationResult |
       total: true,
       snapshot: true,
       documents: {
-        where: { format: "PDF" },
-        orderBy: { version: "asc" },
-        select: { version: true, sha256: true },
+        where: { format: { in: ["PDF", "PDF_PROTECTED"] } },
+        orderBy: [{ format: "asc" }, { version: "asc" }],
+        select: { version: true, sha256: true, format: true },
       },
     },
   });
@@ -94,7 +94,7 @@ export async function lookupByToken(token: string): Promise<VerificationResult |
       total: toMoneyString(creditNote.total.toString(), creditNote.currency),
       locale: snap?.issuer?.locale ?? "en-IN",
       status: creditNote.status === "VOID" ? "void" : "valid",
-      hashes: creditNote.documents,
+      hashes: creditNote.documents as VerificationResult["hashes"],
     };
   }
   return null;

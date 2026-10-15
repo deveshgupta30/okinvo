@@ -1,11 +1,11 @@
 import { fileTypeFromBuffer } from "file-type";
 
-export type UploadKind = "LOGO" | "SIGNATURE" | "STAMP" | "RECEIPT";
+export type UploadKind = "LOGO" | "SIGNATURE" | "STAMP" | "RECEIPT" | "AVATAR" | "LETTERHEAD";
 export type UploadContentType = "image/png" | "image/jpeg" | "image/webp" | "application/pdf";
 export type UploadErrorCode = "TOO_LARGE" | "UNSUPPORTED_TYPE";
 
 export interface UploadLimits {
-  /** Cap for LOGO, SIGNATURE and STAMP uploads (`UPLOAD_MAX_IMAGE_MB`). */
+  /** Cap for LOGO, SIGNATURE, STAMP and AVATAR uploads (`UPLOAD_MAX_IMAGE_MB`). */
   imageMb: number;
   /** Cap for RECEIPT uploads (`UPLOAD_MAX_RECEIPT_MB`). */
   receiptMb: number;

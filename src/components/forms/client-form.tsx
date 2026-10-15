@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useActionState, useState } from "react";
 import { AddressFields } from "@/components/forms/address-fields";
 import { CountryStateFields } from "@/components/forms/country-state-fields";
@@ -13,11 +14,15 @@ import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { EAS } from "@/lib/einvoice/eas";
+import { LANGUAGES } from "@/lib/i18n/languages";
 import { COMMON_CURRENCIES, TAX_ID_TYPES } from "@/lib/schemas";
 import { saveClient } from "@/server/actions/clients";
 import type { ClientDto } from "@/server/dal/clients";
 
 export function ClientForm({ client }: { client: ClientDto | null }) {
+  const t = useTranslations("clients.form");
+  const tc = useTranslations("common");
   const [state, action] = useActionState(saveClient.bind(null, client?.id ?? null), null);
   const [shipping, setShipping] = useState(
     state?.values ? state.values.hasShippingAddress === "on" : Boolean(client?.shippingAddress),
@@ -32,25 +37,30 @@ export function ClientForm({ client }: { client: ClientDto | null }) {
       <FormMessage state={state} />
       <Card>
         <CardHeader>
-          <CardTitle>Client</CardTitle>
+          <CardTitle>{t("cardTitle")}</CardTitle>
         </CardHeader>
         <CardContent>
           <FieldGroup>
-            <Field label="Display name" htmlFor="displayName" error={errors?.displayName} required>
+            <Field
+              label={t("displayName")}
+              htmlFor="displayName"
+              error={errors?.displayName}
+              required
+            >
               <Input
                 id="displayName"
                 name="displayName"
                 defaultValue={v("displayName", client?.displayName)}
               />
             </Field>
-            <Field label="Contact person" htmlFor="contactPerson" error={errors?.contactPerson}>
+            <Field label={t("contactPerson")} htmlFor="contactPerson" error={errors?.contactPerson}>
               <Input
                 id="contactPerson"
                 name="contactPerson"
                 defaultValue={v("contactPerson", client?.contactPerson)}
               />
             </Field>
-            <Field label="Email" htmlFor="email" error={errors?.email}>
+            <Field label={t("email")} htmlFor="email" error={errors?.email}>
               <Input
                 id="email"
                 name="email"
@@ -58,7 +68,7 @@ export function ClientForm({ client }: { client: ClientDto | null }) {
                 defaultValue={v("email", client?.email)}
               />
             </Field>
-            <Field label="Phone" htmlFor="phone" error={errors?.phone}>
+            <Field label={t("phone")} htmlFor="phone" error={errors?.phone}>
               <Input id="phone" name="phone" defaultValue={v("phone", client?.phone)} />
             </Field>
             <CountryStateFields
@@ -67,21 +77,21 @@ export function ClientForm({ client }: { client: ClientDto | null }) {
               gstStateCode={v("gstStateCode", client?.gstStateCode)}
               errors={errors}
             />
-            <Field label="Tax ID type" htmlFor="taxIdType" error={errors?.taxIdType}>
+            <Field label={t("taxIdType")} htmlFor="taxIdType" error={errors?.taxIdType}>
               <Select
                 id="taxIdType"
                 name="taxIdType"
                 defaultValue={v("taxIdType", client?.taxIdType)}
               >
-                <option value="">None</option>
-                {TAX_ID_TYPES.map((t) => (
-                  <option key={t} value={t}>
-                    {t}
+                <option value="">{t("taxIdTypeNone")}</option>
+                {TAX_ID_TYPES.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
                   </option>
                 ))}
               </Select>
             </Field>
-            <Field label="Tax ID" htmlFor="taxId" error={errors?.taxId}>
+            <Field label={t("taxId")} htmlFor="taxId" error={errors?.taxId}>
               <Input
                 id="taxId"
                 name="taxId"
@@ -89,7 +99,7 @@ export function ClientForm({ client }: { client: ClientDto | null }) {
                 defaultValue={v("taxId", client?.taxId)}
               />
             </Field>
-            <Field label="Currency" htmlFor="currency" error={errors?.currency} required>
+            <Field label={t("currency")} htmlFor="currency" error={errors?.currency} required>
               <Select
                 id="currency"
                 name="currency"
@@ -103,7 +113,68 @@ export function ClientForm({ client }: { client: ClientDto | null }) {
               </Select>
             </Field>
             <Field
-              label="Payment terms (days)"
+              label={t("preferredLanguage")}
+              htmlFor="preferredLocale"
+              error={errors?.preferredLocale}
+            >
+              <Select
+                id="preferredLocale"
+                name="preferredLocale"
+                defaultValue={v("preferredLocale", client?.preferredLocale)}
+              >
+                <option value="">{t("preferredLanguageFollow")}</option>
+                {LANGUAGES.map((l) => (
+                  <option key={l.tag} value={l.tag} lang={l.tag}>
+                    {l.name}
+                  </option>
+                ))}
+              </Select>
+            </Field>
+            <Field
+              label={t("buyerReference")}
+              htmlFor="buyerReference"
+              error={errors?.buyerReference}
+              hint={t("buyerReferenceHint")}
+            >
+              <Input
+                id="buyerReference"
+                name="buyerReference"
+                defaultValue={v("buyerReference", client?.buyerReference)}
+              />
+            </Field>
+            <Field
+              label={t("electronicAddress")}
+              htmlFor="electronicAddress"
+              error={errors?.electronicAddress}
+              hint={t("electronicAddressHint")}
+            >
+              <Input
+                id="electronicAddress"
+                name="electronicAddress"
+                className="font-mono"
+                defaultValue={v("electronicAddress", client?.electronicAddress)}
+              />
+            </Field>
+            <Field
+              label={t("electronicAddressScheme")}
+              htmlFor="electronicAddressScheme"
+              error={errors?.electronicAddressScheme}
+            >
+              <Select
+                id="electronicAddressScheme"
+                name="electronicAddressScheme"
+                defaultValue={v("electronicAddressScheme", client?.electronicAddressScheme)}
+              >
+                <option value="">{t("electronicAddressSchemeNone")}</option>
+                {EAS.map((e) => (
+                  <option key={e.code} value={e.code}>
+                    {e.code} · {e.name}
+                  </option>
+                ))}
+              </Select>
+            </Field>
+            <Field
+              label={t("paymentTerms")}
               htmlFor="paymentTermsDays"
               error={errors?.paymentTermsDays}
               required
@@ -118,7 +189,7 @@ export function ClientForm({ client }: { client: ClientDto | null }) {
               />
             </Field>
             <Field
-              label="Expected TDS rate (%)"
+              label={t("expectedTdsRate")}
               htmlFor="defaultTdsRate"
               error={errors?.defaultTdsRate}
             >
@@ -133,7 +204,7 @@ export function ClientForm({ client }: { client: ClientDto | null }) {
               />
             </Field>
           </FieldGroup>
-          <Field label="Notes" htmlFor="notes" error={errors?.notes}>
+          <Field label={t("notes")} htmlFor="notes" error={errors?.notes}>
             <Textarea id="notes" name="notes" defaultValue={v("notes", client?.notes)} />
           </Field>
         </CardContent>
@@ -141,7 +212,7 @@ export function ClientForm({ client }: { client: ClientDto | null }) {
 
       <Card>
         <CardHeader>
-          <CardTitle>Billing address</CardTitle>
+          <CardTitle>{t("billingAddress")}</CardTitle>
         </CardHeader>
         <CardContent>
           <AddressFields
@@ -155,10 +226,10 @@ export function ClientForm({ client }: { client: ClientDto | null }) {
 
       <Card>
         <CardHeader>
-          <CardTitle>Shipping address</CardTitle>
+          <CardTitle>{t("shippingAddress")}</CardTitle>
           <Checkbox
             name="hasShippingAddress"
-            label="Different from billing"
+            label={t("differentFromBilling")}
             checked={shipping}
             onChange={(e) => setShipping(e.target.checked)}
           />
@@ -176,9 +247,9 @@ export function ClientForm({ client }: { client: ClientDto | null }) {
       </Card>
 
       <div className="flex items-center gap-2">
-        <SubmitButton pendingLabel="Saving…">Save client</SubmitButton>
+        <SubmitButton pendingLabel={tc("saving")}>{t("save")}</SubmitButton>
         <Button asChild variant="tertiary">
-          <Link href={client ? `/clients/${client.id}` : "/clients"}>Cancel</Link>
+          <Link href={client ? `/clients/${client.id}` : "/clients"}>{tc("cancel")}</Link>
         </Button>
       </div>
     </form>

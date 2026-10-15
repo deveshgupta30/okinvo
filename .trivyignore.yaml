@@ -1,0 +1,19 @@
+# Findings Trivy (security.yml) may skip, each with the reason. Keep in step with the pnpm
+# `auditConfig.ignoreGhsas` list in package.json; remove an entry as soon as the fix lands.
+vulnerabilities:
+  - id: CVE-2026-40345
+    statement: >-
+      deepmerge-ts 7.x is pulled in by @prisma/config (prisma 7.10). It only merges the Prisma
+      config object at startup - never user input - so recursive-graph stack exhaustion cannot be
+      triggered by a request. Drop this entry when Prisma ships a build on deepmerge-ts 8.
+  - id: GHSA-3f6p-5ww8-9rcr
+    statement: >-
+      mysql2 is an optional transitive dependency of the auth library; okinvo never opens a MySQL
+      connection (PostgreSQL only through @prisma/adapter-pg). Already ignored in pnpm audit.
+misconfigurations:
+  - id: KSV-0109
+    paths:
+      - k8s/base/configmap.yaml
+    statement: >-
+      AUTH_PASSWORD_SIGNIN is a boolean feature flag ("true"/"false"), not a credential; the
+      name matched the secret-keyword heuristic. Real secrets live in the okinvo-secrets Secret.

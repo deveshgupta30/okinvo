@@ -43,6 +43,7 @@ describe("assetKey", () => {
     expect(assetKey("SIGNATURE", id, "png", now)).toBe(`assets/signature/2026/${id}.png`);
     expect(assetKey("STAMP", id, "webp", now)).toBe(`assets/stamp/2026/${id}.webp`);
     expect(assetKey("RECEIPT", id, "pdf", now)).toBe(`assets/receipt/2026/${id}.pdf`);
+    expect(assetKey("LETTERHEAD", id, "png", now)).toBe(`assets/letterhead/2026/${id}.png`);
     expect(assetKey("RECEIPT", id, "jpg", new Date("2025-12-31T23:59:59Z"))).toBe(
       `assets/receipt/2025/${id}.jpg`,
     );

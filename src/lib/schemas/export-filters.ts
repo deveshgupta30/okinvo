@@ -62,6 +62,9 @@ export type ArchiveExportFilters = z.infer<typeof ArchiveExportFiltersSchema>;
 
 /** GST and TDS summaries: FY or date range, issuer. */
 export const PeriodExportFiltersSchema = z.object({
+  /** Documents bundle only: also include a DOCX copy of every document. */
+  docx: fBool.optional(),
+  facturx: fBool.optional(),
   fy,
   from: date,
   to: date,

@@ -15,7 +15,7 @@ const base64Bytes = (bytes: number) =>
     { message: `must be ${bytes} random bytes, base64-encoded (scripts/gen-secrets.sh)` },
   );
 
-/** dotenv `KEY=` lines arrive as "" — treat them as unset so optionals and defaults apply. */
+/** dotenv `KEY=` lines arrive as "" - treat them as unset so optionals and defaults apply. */
 const stripEmpty = (input: unknown): unknown => {
   if (!input || typeof input !== "object") return input;
   return Object.fromEntries(
@@ -40,7 +40,7 @@ const objectSchema = z
       .string()
       .min(32, "at least 32 characters")
       .refine((v) => !v.startsWith("replace-me"), {
-        message: "still the .env.example placeholder — run scripts/gen-secrets.sh",
+        message: "still the .env.example placeholder - run scripts/gen-secrets.sh",
       }),
     AUTH_ALLOWED_EMAILS: z.string().default(""),
     AUTH_PASSWORD_SIGNIN: z.stringbool().default(false), // email+password (allow-list still applies); e2e/CI and IdP-less owners
@@ -83,6 +83,17 @@ const objectSchema = z
     SMTP_REPLY_TO: optional,
 
     RATE_LIMIT_STORE: z.enum(["memory", "postgres"]).default("memory"),
+    /** Comma-separated host names the server may contact through fetchOutbound; empty = none (air-gapped). */
+    OUTBOUND_ALLOW: z.string().default(""),
+    /** Refresh exchange rates once a day from open.er-api.com (needs the host on OUTBOUND_ALLOW); off = bundled table only. */
+    RATES_ONLINE: z.stringbool().default(false),
+    /** 301 plain-http requests to https (health probes exempt); unset = on in production, off elsewhere. */
+    FORCE_HTTPS: z.stringbool().optional(),
+    /** Local, cookie-less page-view counts (Settings > Usage); nothing leaves the instance. */
+    ANALYTICS_LOCAL: z.stringbool().default(false),
+    /** Build provenance baked into the image (docker/Dockerfile ARG → ENV); shown on Settings → Status. */
+    OKINVO_BUILD_SHA: optional,
+    OKINVO_BUILD_DATE: optional,
     UPLOAD_MAX_IMAGE_MB: z.coerce.number().positive().default(2),
     UPLOAD_MAX_RECEIPT_MB: z.coerce.number().positive().default(10),
   })

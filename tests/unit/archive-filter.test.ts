@@ -21,11 +21,12 @@ describe("withArchiveFilter", () => {
       where: { status: "DRAFT" },
     });
   });
-  it("names exactly the four archivable aggregates", () => {
+  it("names exactly the five archivable aggregates", () => {
     expect([...ARCHIVABLE_MODELS].sort()).toEqual([
       "Client",
       "IssuerProfile",
       "PaymentMethodProfile",
+      "Product",
       "ServiceItem",
     ]);
   });

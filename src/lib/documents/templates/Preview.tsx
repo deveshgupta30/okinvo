@@ -1,5 +1,7 @@
 import type { CSSProperties } from "react";
 import type { TemplateConfig } from "@/lib/schemas";
+import { SCRIPT_FAMILIES } from "../fonts/scripts";
+import { pageOf } from "../page-text";
 import type { DocumentViewModel } from "../view-model";
 import { templateStyle } from "./styles";
 
@@ -17,7 +19,8 @@ export function DocumentPreview({
   config: TemplateConfig;
   className?: string;
 }) {
-  const s = templateStyle(config);
+  const s = templateStyle(config, vm.locale);
+  const stack = SCRIPT_FAMILIES.map((f) => `"${f}"`).join(", ");
   const px = (pt: number) => `${(pt * 96) / 72}px`;
   const base = (pt: number): CSSProperties => ({ fontSize: px(pt) });
   const muted: CSSProperties = { color: s.muted };
@@ -30,7 +33,7 @@ export function DocumentPreview({
     <div style={{ width: px(80), textAlign: "center" }}>
       {/* eslint-disable-next-line @next/next/no-img-element -- data URL generated server-side */}
       <img src={vm.qrDataUrl} alt="Verification QR" style={{ width: px(64), height: px(64) }} />
-      <div style={{ ...muted, ...base(s.base - 1.5) }}>Scan to verify</div>
+      <div style={{ ...muted, ...base(s.base - 1.5) }}>{vm.text.scanToVerify}</div>
     </div>
   ) : vm.verifyUrl ? (
     <div
@@ -48,6 +51,17 @@ export function DocumentPreview({
       QR
     </div>
   ) : null;
+  const inBand = s.headerStyle !== "none";
+  const bandText = s.headerText === "light" ? "#ffffff" : s.text;
+  const logo =
+    vm.issuer.logoUrl && vm.showLogo ? (
+      // eslint-disable-next-line @next/next/no-img-element -- session-gated asset route
+      <img
+        src={vm.issuer.logoUrl}
+        alt={vm.issuer.legalName}
+        style={{ height: px(s.logoHeight), maxWidth: px(160), objectFit: "contain" }}
+      />
+    ) : null;
   const words = vm.totals.amountInWords ? (
     <div style={{ marginTop: px(8), ...base(s.base - 0.5) }}>
       <span style={muted}>{vm.labels.amountInWords}: </span>
@@ -59,17 +73,19 @@ export function DocumentPreview({
     <div
       className={className}
       data-document-preview
+      dir={s.rtl ? "rtl" : "ltr"}
       style={{
         position: "relative",
         overflow: "hidden",
         background: "#ffffff",
         color: s.text,
-        fontFamily: `"${s.body}", sans-serif`,
+        fontFamily: `"${s.body}", ${stack}, sans-serif`,
         fontSize: px(s.base),
         lineHeight: 1.35,
         width: px(s.paper.width),
         minHeight: px(s.paper.height),
         padding: px(s.margin),
+        paddingTop: px(inBand ? s.headerHeight + 14 : s.margin),
         paddingBottom: px(s.margin + 18),
         boxSizing: "border-box",
       }}
@@ -95,6 +111,77 @@ export function DocumentPreview({
         </div>
       ) : null}
 
+      {s.headerStyle === "band" ? (
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: px(s.headerHeight),
+            background: s.headerColor,
+          }}
+        />
+      ) : null}
+      {s.headerStyle === "image" && vm.headerImageUrl ? (
+        // eslint-disable-next-line @next/next/no-img-element -- session-gated asset route
+        <img
+          data-header-image
+          src={vm.headerImageUrl}
+          alt=""
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: px(s.headerHeight),
+            objectFit: "cover",
+            opacity: s.headerImageOpacity,
+          }}
+        />
+      ) : null}
+      {inBand ? (
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: px(s.margin),
+            right: px(s.margin),
+            height: px(s.headerHeight),
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            color: bandText,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: s.logoAlign === "right" ? "row-reverse" : "row",
+              gap: px(12),
+              alignItems: "center",
+            }}
+          >
+            {logo}
+            <div>
+              <div style={{ ...heading, ...base(s.base + 5) }}>{vm.issuer.legalName}</div>
+              {vm.issuer.tradeName ? (
+                <div style={{ opacity: 0.8 }}>{vm.issuer.tradeName}</div>
+              ) : null}
+            </div>
+          </div>
+          <div style={{ textAlign: "right" }}>
+            <div style={{ ...heading, fontSize: px(s.base * 2), letterSpacing: "-0.3px" }}>
+              {vm.title}
+            </div>
+            {vm.number ? (
+              <div style={{ ...heading, ...base(s.base + 2), marginTop: px(2) }}>{vm.number}</div>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
+
       <header
         style={{
           display: "flex",
@@ -112,17 +199,12 @@ export function DocumentPreview({
             justifyContent: s.logoAlign === "center" ? "center" : "flex-start",
           }}
         >
-          {vm.issuer.logoUrl && vm.showLogo ? (
-            // eslint-disable-next-line @next/next/no-img-element -- session-gated asset route
-            <img
-              src={vm.issuer.logoUrl}
-              alt=""
-              style={{ height: px(s.logoHeight), maxWidth: px(160), objectFit: "contain" }}
-            />
-          ) : null}
+          {inBand ? null : logo}
           <div>
-            <div style={{ ...heading, ...base(s.base + 3) }}>{vm.issuer.legalName}</div>
-            {vm.issuer.tradeName ? <div style={muted}>{vm.issuer.tradeName}</div> : null}
+            {inBand ? null : (
+              <div style={{ ...heading, ...base(s.base + 3) }}>{vm.issuer.legalName}</div>
+            )}
+            {vm.issuer.tradeName && !inBand ? <div style={muted}>{vm.issuer.tradeName}</div> : null}
             {vm.issuer.addressLines.map((l, i) => (
               <div key={i} style={muted}>
                 {l}
@@ -144,17 +226,19 @@ export function DocumentPreview({
           </div>
         </div>
         <div style={{ textAlign: "right" }}>
-          <div
-            style={{
-              ...heading,
-              fontSize: px(s.base * 2),
-              letterSpacing: "-0.3px",
-              color: s.variant === "ledger" ? s.accent : s.text,
-            }}
-          >
-            {vm.title}
-          </div>
-          {vm.number ? (
+          {inBand ? null : (
+            <div
+              style={{
+                ...heading,
+                fontSize: px(s.base * 2),
+                letterSpacing: "-0.3px",
+                color: s.variant === "ledger" ? s.accent : s.text,
+              }}
+            >
+              {vm.title}
+            </div>
+          )}
+          {vm.number && !inBand ? (
             <div style={{ ...heading, ...base(s.base + 2), marginTop: px(2) }}>{vm.number}</div>
           ) : null}
           {vm.replaces ? <div style={muted}>{vm.replaces}</div> : null}
@@ -173,11 +257,20 @@ export function DocumentPreview({
             ) : null}
             {vm.paymentTerms ? (
               <div>
-                <div style={{ ...muted, ...base(s.base - 1) }}>Terms</div>
+                <div style={{ ...muted, ...base(s.base - 1) }}>{vm.labels.terms}</div>
                 <div>{vm.paymentTerms}</div>
               </div>
             ) : null}
           </div>
+          {vm.einvoice ? (
+            <div style={{ marginTop: px(4) }} data-einvoice>
+              <div style={{ ...muted, ...base(s.base - 1) }}>{vm.text.irn}</div>
+              <div style={{ ...base(s.base - 1.5), wordBreak: "break-all" }}>{vm.einvoice.irn}</div>
+              <div style={{ ...muted, ...base(s.base - 1.5) }}>
+                {vm.text.ackNo} {vm.einvoice.ackNo} · {vm.text.ackDate} {vm.einvoice.ackDate}
+              </div>
+            </div>
+          ) : null}
           {vm.poReference ? (
             <div style={{ ...muted, marginTop: px(4) }}>
               {vm.labels.poReference}: {vm.poReference}
@@ -199,7 +292,14 @@ export function DocumentPreview({
         }}
       />
 
-      <section style={{ display: "flex", gap: px(24), marginBottom: px(14) }}>
+      <section
+        style={{
+          display: "flex",
+          gap: px(24),
+          marginBottom: px(14),
+          ...(s.tinted ? { background: s.tint, padding: px(8), borderRadius: px(3) } : {}),
+        }}
+      >
         <div style={{ flex: 1 }}>
           <div
             style={{
@@ -223,7 +323,7 @@ export function DocumentPreview({
           {vm.client.phone ? <div style={muted}>{vm.client.phone}</div> : null}
           {vm.client.taxId ? (
             <div>
-              {vm.client.taxIdType ?? "Tax ID"} {vm.client.taxId}
+              {vm.client.taxIdType ?? vm.text.taxId} {vm.client.taxId}
             </div>
           ) : null}
         </div>
@@ -300,33 +400,32 @@ export function DocumentPreview({
           <thead>
             <tr
               style={{
-                background: s.tableBorders ? "#f3f4f6" : "transparent",
+                background: s.tinted ? s.tint : s.tableBorders ? "#f3f4f6" : "transparent",
                 ...muted,
+                ...(s.tinted ? { color: s.accent } : {}),
                 ...base(s.base - 1),
                 fontWeight: 500,
                 borderBottom: `1px solid ${s.tableBorders ? s.hairline : s.accentRule ? s.accent : s.hairline}`,
               }}
             >
-              <th style={{ textAlign: "left", padding: pad, width: "5%" }}>#</th>
+              <th style={{ textAlign: "left", padding: pad, width: "4%" }}>#</th>
               <th style={{ textAlign: "left", padding: pad }}>{vm.labels.description}</th>
               {vm.columns.sac ? (
-                <th style={{ textAlign: "left", padding: pad, width: "11%" }}>
-                  {vm.labels.sacHsn}
-                </th>
+                <th style={{ textAlign: "left", padding: pad, width: "9%" }}>{vm.labels.sacHsn}</th>
               ) : null}
               {vm.columns.qty ? (
-                <th style={{ ...num, padding: pad, width: "9%" }}>{vm.labels.qty}</th>
+                <th style={{ ...num, padding: pad, width: "7%" }}>{vm.labels.qty}</th>
               ) : null}
               {vm.columns.qty ? (
-                <th style={{ textAlign: "left", padding: pad, width: "8%" }}>{vm.labels.unit}</th>
+                <th style={{ textAlign: "left", padding: pad, width: "7%" }}>{vm.labels.unit}</th>
               ) : null}
               {vm.columns.rate ? (
-                <th style={{ ...num, padding: pad, width: "13%" }}>{vm.labels.rate}</th>
+                <th style={{ ...num, padding: pad, width: "12%" }}>{vm.labels.rate}</th>
               ) : null}
               {vm.columns.tax ? (
-                <th style={{ ...num, padding: pad, width: "15%" }}>{vm.labels.tax}</th>
+                <th style={{ ...num, padding: pad, width: "13%" }}>{vm.labels.tax}</th>
               ) : null}
-              <th style={{ ...num, padding: pad, width: "16%" }}>{vm.labels.amount}</th>
+              <th style={{ ...num, padding: pad, width: "14%" }}>{vm.labels.amount}</th>
             </tr>
           </thead>
           <tbody>
@@ -340,7 +439,7 @@ export function DocumentPreview({
               >
                 <td style={{ padding: pad, verticalAlign: "top" }}>{it.position}</td>
                 <td style={{ padding: pad, verticalAlign: "top", whiteSpace: "pre-wrap" }}>
-                  {it.description}
+                  {it.sku ? `${it.description}\nSKU ${it.sku}` : it.description}
                 </td>
                 {vm.columns.sac ? (
                   <td style={{ padding: pad, verticalAlign: "top" }}>{it.sacHsnCode ?? ""}</td>
@@ -356,7 +455,8 @@ export function DocumentPreview({
                 ) : null}
                 {vm.columns.tax ? (
                   <td style={{ ...num, padding: pad, verticalAlign: "top" }}>
-                    {it.taxAmount} ({it.taxRate})
+                    {it.taxAmount}
+                    <div style={{ ...muted, ...base(s.base - 1.5) }}>{it.taxRate}</div>
                   </td>
                 ) : null}
                 <td style={{ ...num, padding: pad, verticalAlign: "top" }}>
@@ -375,6 +475,7 @@ export function DocumentPreview({
             width: "46%",
             border: s.boxedTotals ? `1px solid ${s.hairline}` : "none",
             padding: s.boxedTotals ? px(6) : 0,
+            ...(s.tinted ? { background: s.tint, padding: px(8), borderRadius: px(3) } : {}),
           }}
         >
           {vm.totals.rows.map((r) => (
@@ -386,7 +487,7 @@ export function DocumentPreview({
                 padding: `${px(2)} 0`,
                 ...(r.emphasis
                   ? {
-                      borderTop: `1px solid ${s.accentRule ? s.accent : s.text}`,
+                      borderTop: `1px solid ${s.accentRule ? s.accent : s.minimal ? s.hairline : s.text}`,
                       marginTop: px(3),
                       paddingTop: px(4),
                       fontWeight: 600,
@@ -532,9 +633,9 @@ export function DocumentPreview({
       >
         <span>
           {vm.number ? `${docLabel} ${vm.number}` : vm.title}
-          {vm.isVoid ? " · VOID" : ""}
+          {vm.isVoid ? ` · ${vm.text.void}` : ""}
         </span>
-        {s.pageNumbers ? <span>Page 1 of 1</span> : null}
+        {s.pageNumbers ? <span>{pageOf(vm.text.pageOf, 1, 1)}</span> : null}
       </div>
     </div>
   );

@@ -10,5 +10,6 @@ export {
   formatQuantity,
   type CurrencyDisplay,
 } from "./money";
+export { formatKilobytes } from "./bytes";
 export { formatDate, formatDateTime } from "./dates";
 export { CURRENCY_WORDS, amountInWords } from "./words";

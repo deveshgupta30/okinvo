@@ -127,7 +127,7 @@ describe("DisplayConfigSchema", () => {
     );
   });
 
-  it("carries the v1 §6 fields plus the five document.* additions", () => {
+  it("carries the v1 §6 fields plus the six document.* additions", () => {
     expect(Object.keys(DEFAULT_DISPLAY_CONFIG.issuer).sort()).toEqual(
       [
         "showLogo",
@@ -173,6 +173,7 @@ describe("DisplayConfigSchema", () => {
         "showPlaceOfSupply",
         "showSupplyStatement",
         "showRoundingLine",
+        "showSku",
       ].sort(),
     );
   });
@@ -287,7 +288,7 @@ describe("PaymentMethodDetailsSchema", () => {
     ).toContain("accountEmail");
   });
 
-  it("requires 1–10 custom lines of at most 120 characters", () => {
+  it("requires 1-10 custom lines of at most 120 characters", () => {
     expect(
       PaymentMethodDetailsSchema.parse({
         type: "CUSTOM",

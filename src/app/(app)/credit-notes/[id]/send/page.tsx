@@ -1,19 +1,25 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { EmailComposer } from "@/components/email/composer";
 import { SentLog } from "@/components/email/sent-log";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mono } from "@/components/ui/mono";
 import { PageHeader } from "@/components/ui/page-header";
 import { withFlash } from "@/lib/flash";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { composerDefaults, listEmailMessages } from "@/server/dal/emails";
 import { isDalError, NotFoundError } from "@/server/dal/errors";
 
-export const metadata: Metadata = { title: "Send credit note" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("creditNotes.send");
+  return { title: t("metaTitle") };
+}
 
 export default async function SendCreditNotePage({ params }: { params: Promise<{ id: string }> }) {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
+  const t = await getTranslations("creditNotes.send");
+  const tn = await getTranslations("shell.nav");
   const { id } = await params;
   let defaults;
   try {
@@ -28,13 +34,12 @@ export default async function SendCreditNotePage({ params }: { params: Promise<{
   return (
     <>
       <PageHeader
-        title={
-          <>
-            Send <Mono className="text-app-title">{defaults.number}</Mono>
-          </>
-        }
+        title={t.rich("title", {
+          number: defaults.number,
+          mono: (chunks) => <Mono className="text-app-title">{chunks}</Mono>,
+        })}
         breadcrumb={[
-          { href: "/credit-notes", label: "Credit notes" },
+          { href: "/credit-notes", label: tn("creditNotes") },
           { href: `/credit-notes/${id}`, label: defaults.number },
         ]}
       />
@@ -45,7 +50,7 @@ export default async function SendCreditNotePage({ params }: { params: Promise<{
         />
         <Card>
           <CardHeader>
-            <CardTitle>Previous sends</CardTitle>
+            <CardTitle>{t("previousSends")}</CardTitle>
           </CardHeader>
           <CardContent>
             <SentLog rows={log} timeZone={actor.timezone} />

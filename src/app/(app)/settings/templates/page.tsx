@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { ConfirmAction } from "@/components/confirm-action";
 import { ImportTemplateForm } from "@/components/templates/import-form";
 import { TemplateForm } from "@/components/templates/template-form";
@@ -10,30 +11,34 @@ import { resetTemplateAction } from "@/server/actions/templates";
 import { requireOwner } from "@/server/auth";
 import { getTemplateSettings } from "@/server/dal/templates";
 
-export const metadata: Metadata = { title: "Document templates" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("settings.templates");
+  return { title: t("metaTitle") };
+}
 
 export default async function TemplatesPage() {
   const actor = await requireOwner();
+  const t = await getTranslations("settings.templates");
   const settings = await getTemplateSettings(actor);
   return (
     <>
       <PageHeader
         title={
           <>
-            Document templates
+            {t("title")}
             <Pill tone={settings.source === "setting" ? "success" : "neutral"}>
-              {settings.source === "setting" ? "Customised" : "Built-in default"}
+              {settings.source === "setting" ? t("customised") : t("builtIn")}
             </Pill>
           </>
         }
-        description="How invoices and credit notes look. Issued documents keep the template they were issued with."
+        description={t("description")}
         actions={
           <ConfirmAction
             action={resetTemplateAction}
-            title="Reset to the built-in default?"
-            description="Your customisation is removed; already issued documents are unaffected."
-            confirmLabel="Reset"
-            trigger="Reset to defaults"
+            title={t("resetTitle")}
+            description={t("resetDescription")}
+            confirmLabel={t("reset")}
+            trigger={t("resetTrigger")}
             triggerVariant="tertiary"
             destructive
           />
@@ -45,8 +50,8 @@ export default async function TemplatesPage() {
           <Card>
             <CardHeader>
               <div>
-                <CardTitle>Import</CardTitle>
-                <CardDescription>Restore a configuration exported earlier.</CardDescription>
+                <CardTitle>{t("importTitle")}</CardTitle>
+                <CardDescription>{t("importDescription")}</CardDescription>
               </div>
             </CardHeader>
             <CardContent>
@@ -56,17 +61,13 @@ export default async function TemplatesPage() {
           <Card>
             <CardHeader>
               <div>
-                <CardTitle>Per-profile overrides</CardTitle>
-                <CardDescription>
-                  A profile can opt into its own template from its edit page.
-                </CardDescription>
+                <CardTitle>{t("overridesTitle")}</CardTitle>
+                <CardDescription>{t("overridesDescription")}</CardDescription>
               </div>
             </CardHeader>
             <CardContent>
               {settings.overrides.length === 0 ? (
-                <p className="text-app-body text-ink-subtle">
-                  Every profile uses the instance template.
-                </p>
+                <p className="text-app-body text-ink-subtle">{t("noOverrides")}</p>
               ) : (
                 <ul className="flex flex-col gap-2 text-app-body">
                   {settings.overrides.map((o) => (

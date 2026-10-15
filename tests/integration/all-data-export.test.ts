@@ -13,6 +13,7 @@ const actor: Actor = {
   name: "O",
   role: "OWNER",
   timezone: "UTC",
+  locale: "en-US",
 };
 const tag = `alldata-${Date.now()}`;
 
@@ -55,6 +56,7 @@ describe.skipIf(!url)("export all data", () => {
       "csv/invoice-items.csv",
       "csv/invoices.csv",
       "csv/payments.csv",
+      "csv/products.csv",
       "csv/services.csv",
       "csv/tds-summary.csv",
       "data.json",
@@ -82,6 +84,7 @@ describe.skipIf(!url)("export all data", () => {
       "documentSequences",
       "clients",
       "serviceItems",
+      "products",
       "paymentMethodProfiles",
       "assets",
       "invoices",
@@ -89,6 +92,7 @@ describe.skipIf(!url)("export all data", () => {
       "invoiceTaxLines",
       "invoicePaymentMethods",
       "payments",
+      "paymentAttachments",
       "creditNotes",
       "creditNoteTaxLines",
       "documents",

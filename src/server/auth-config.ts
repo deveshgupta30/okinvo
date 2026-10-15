@@ -1,3 +1,4 @@
+import { INPUT_CHARSET_MESSAGE, isKeyboardText } from "@/lib/input-charset";
 import "server-only";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
@@ -7,6 +8,7 @@ import { genericOAuth, jwt, type GenericOAuthConfig } from "better-auth/plugins"
 import { prisma } from "@/lib/db";
 import { env } from "@/lib/env";
 import { lazyProxy } from "@/lib/lazy";
+import { invitedRole } from "@/server/admission";
 import { isAllowedEmail } from "@/server/allow-list";
 
 const SESSION_DAYS = 30;
@@ -72,6 +74,15 @@ function createAuth() {
       additionalFields: {
         role: { type: "string", defaultValue: "OWNER", input: false },
         timezone: { type: "string", required: false, input: true },
+        // Preferences are written through the audited DAL (src/server/dal/users.ts), never via
+        // Better Auth's update-user route: input: false keeps that route from touching them.
+        accent: { type: "string", defaultValue: "mint", input: false },
+        countryCode: { type: "string", required: false, input: false },
+        currency: { type: "string", required: false, input: false },
+        locale: { type: "string", defaultValue: "en-US", input: false },
+        usage: { type: "string", required: false, input: false },
+        onboardedAt: { type: "date", required: false, input: false },
+        deactivatedAt: { type: "date", required: false, input: false },
       },
     },
     account: { accountLinking: { enabled: true, trustedProviders } },
@@ -84,26 +95,48 @@ function createAuth() {
       user: {
         create: {
           before: async (user, ctx) => {
-            if (!isAllowedEmail(user.email, env.allowList)) {
+            // The display name is user input like any other text field (SPEC.md §6.6).
+            if (!isKeyboardText(user.name ?? "")) {
+              throw new APIError("BAD_REQUEST", { message: INPUT_CHARSET_MESSAGE });
+            }
+            // Admitted by the env list, or by an active invitation (Settings → Users).
+            const invited = await invitedRole(user.email);
+            if (!invited && !isAllowedEmail(user.email, env.allowList)) {
               throw new APIError("FORBIDDEN", {
                 message: "This email is not allowed to sign in.",
               });
             }
             // A password sign-up proves nothing about who owns the address, so a `*@domain`
             // pattern must not be enough: the address has to be listed exactly (review finding;
-            // identity-provider sign-ins still honour the pattern).
-            const exact = env.allowList.emails.has(user.email.trim().toLowerCase());
+            // identity-provider sign-ins still honour the pattern). An invitation is exact.
+            const exact =
+              invited !== null || env.allowList.emails.has(user.email.trim().toLowerCase());
             if (ctx?.path === "/sign-up/email" && !exact) {
               throw new APIError("FORBIDDEN", {
                 message: "Password sign-up needs this exact address on the allow-list.",
               });
             }
-            return { data: { ...user, role: "OWNER" } };
+            return { data: { ...user, role: invited ?? "OWNER" } };
+          },
+          after: async (user) => {
+            await prisma.allowedEmail.updateMany({
+              where: { email: user.email.trim().toLowerCase(), acceptedAt: null },
+              data: { acceptedAt: new Date() },
+            });
           },
         },
       },
       session: {
         create: {
+          before: async (session) => {
+            const user = await prisma.user.findUnique({
+              where: { id: session.userId },
+              select: { deactivatedAt: true },
+            });
+            if (user?.deactivatedAt) {
+              throw new APIError("FORBIDDEN", { message: "This account is deactivated." });
+            }
+          },
           after: async (session) => {
             await prisma.auditEvent.create({
               data: {

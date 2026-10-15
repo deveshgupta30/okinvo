@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { DateStringSchema } from "@/lib/dates";
-import { CountryCodeSchema } from "./address";
+import { AddressSchema, CountryCodeSchema } from "./address";
 import { CurrencySchema } from "./currency";
 import { PAYMENT_METHOD_TYPES } from "./payment-method-details";
 
@@ -53,6 +53,13 @@ export const IssuerSnapshotSchema = z.object({
   stampAssetId: optionalText(64),
   locale: text(35).min(2),
   baseCurrency: CurrencySchema,
+  /**
+   * E-invoicing (spec §9e): the structured address and Peppol identifier, frozen at issue for
+   * the e-invoice builders; the renderers print `addressLines` and never these.
+   */
+  address: AddressSchema.optional(),
+  electronicAddress: optionalText(100),
+  electronicAddressScheme: optionalText(10),
 });
 
 export type IssuerSnapshot = z.infer<typeof IssuerSnapshotSchema>;
@@ -70,6 +77,11 @@ export const ClientSnapshotSchema = z.object({
   taxIdType: z.enum(TAX_ID_TYPES).optional(),
   taxId: optionalText(40),
   paymentTermsDays: z.number().int().min(0).max(3650),
+  /** E-invoicing (spec §9e): structured billing address and identifiers, never printed. */
+  address: AddressSchema.optional(),
+  buyerReference: optionalText(80),
+  electronicAddress: optionalText(100),
+  electronicAddressScheme: optionalText(10),
 });
 
 export type ClientSnapshot = z.infer<typeof ClientSnapshotSchema>;

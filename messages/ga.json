@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Leathanach baile okinvo",
+    "save": "Sábháil",
+    "cancel": "Cealaigh",
+    "continue": "Lean ar aghaidh",
+    "saving": "Ag sábháil…",
+    "detect": "Braith",
+    "yes": "Tá",
+    "no": "Níl",
+    "choose": "Roghnaigh…",
+    "remove": "Bain",
+    "tryAgain": "Bain triail eile as",
+    "dashboard": "Painéal rialaithe",
+    "goToDashboard": "Téigh go dtí an painéal rialaithe",
+    "or": "nó",
+    "invoice": "Sonraisc",
+    "creditNote": "Nóta creidmheasa",
+    "downloadPdf": "Íoslódáil PDF",
+    "edit": "Cuir in eagar",
+    "delete": "Scrios",
+    "downloadDocx": "Íoslódáil DOCX",
+    "downloadCii": "Íoslódáil EN 16931 XML",
+    "downloadUbl": "Íoslódáil Peppol UBL",
+    "downloadFacturX": "Íoslódáil Factur-X PDF",
+    "none": "Ceann ar bith",
+    "dismiss": "Dún",
+    "all": "Gach",
+    "previous": "Roimhe seo",
+    "next": "Ar aghaidh",
+    "go": "Téigh",
+    "search": "Cuardaigh",
+    "status": "Stádas",
+    "total": "Iomlán",
+    "currency": "Airgeadra",
+    "from": "Ó",
+    "to": "Go",
+    "reason": "Cúis",
+    "history": "Stair",
+    "archive": "Cartlannaigh",
+    "restore": "Athbhunaigh",
+    "showArchived": "Taispeáin cartlannaithe",
+    "hideArchived": "Folaigh cartlannaithe",
+    "archived": "Cartlannaithe",
+    "default": "Réamhshocrú",
+    "setDefault": "Socraigh mar réamhshocrú",
+    "revoke": "Cúlghair",
+    "copy": "Cóipeáil",
+    "copied": "Cóipeáilte",
+    "active": "Gníomhach",
+    "pagination": "Leathanaigh",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Painéal rialaithe",
+      "invoices": "Sonraisc",
+      "creditNotes": "Nótaí creidmheasa",
+      "clients": "Cliaint",
+      "services": "Seirbhísí",
+      "products": "Táirgí",
+      "tools": "Airgeadra"
+    },
+    "primaryNav": "Príomh-nascleanúint",
+    "settings": "Socruithe",
+    "openMenu": "Oscail an roghchlár",
+    "more": "Tuilleadh",
+    "navigation": "Nascleanúint",
+    "dock": "Nascleanúint tapa",
+    "pagesAndAccount": "Leathanaigh agus cuntas",
+    "collapseSidebar": "Laghdaigh an barra taoibh",
+    "collapseSidebarHint": "Laghdaigh an barra taoibh ([)",
+    "expandSidebar": "Leathnaigh an barra taoibh",
+    "expandSidebarHint": "Leathnaigh an barra taoibh ([)",
+    "theme": {
+      "label": "Téama",
+      "system": "Córas",
+      "light": "Éadrom",
+      "dark": "Dorcha",
+      "current": "Téama: {mode}",
+      "switchTo": "Téama: {mode}. Athraigh go {next}"
+    },
+    "userMenu": {
+      "label": "Roghchlár cuntais do {name}",
+      "profile": "Próifíl",
+      "logOut": "Logáil amach"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Tiontaire airgeadra",
+      "title": "Tiontaire airgeadra",
+      "description": "Tiontaigh idir na hairgeadraí ina n-eisíonn tú sonraisc, le tábla rátaí malairte an chás seo.",
+      "amount": "Méid",
+      "from": "Ó",
+      "to": "Go",
+      "flip": "Malartaigh na hairgeadraí",
+      "enterAmount": "Cuir isteach méid",
+      "asOf": "Rátaí malairte amhail {date} ({source})",
+      "sources": {
+        "bundled": "curtha leis an aip",
+        "live": "athnuaite ar líne"
+      },
+      "note": "Is mar threoir amháin atá na rátaí; is é an ráta ar sonrasc eisithe an ráta a chuir tú isteach nuair a d'eisigh tú é."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Logáil isteach",
+      "metaDescription": "Sínigh isteach in okinvo, an aip sonraitaithe féin-óstáilte, le do sholáthraí aitheantais nó le do phasfhocal.",
+      "title": "Logáil isteach",
+      "subtitle": "Ní féidir ach le cuntais ar an liosta ceadaithe teacht isteach.",
+      "failed": "Theip ar an logáil isteach.",
+      "noMethod": "Níl aon mhodh logála isteach cumraithe. Socraigh péire soláthraí cosúil le <code>AUTH_GITHUB_*</code>, nó <code>AUTH_PASSWORD_SIGNIN=true</code>, i <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Níl an cuntas sin ceadaithe ar an gcás seo, nó díghníomhachtaíodh é.",
+        "signin": "Níor críochnaíodh an logáil isteach. Bain triail eile as."
+      }
+    },
+    "password": {
+      "name": "Ainm",
+      "email": "Ríomhphost",
+      "password": "Pasfhocal",
+      "signingIn": "Ag logáil isteach…",
+      "createAccount": "Cruthaigh cuntas",
+      "signIn": "Logáil isteach",
+      "haveAPassword": "Tá pasfhocal agam cheana",
+      "firstTime": "An chéad uair anseo? Socraigh pasfhocal",
+      "failed": "Theip ar an logáil isteach."
+    },
+    "social": {
+      "redirecting": "Ag athdhíriú…",
+      "continueWith": "Lean ar aghaidh le {provider}",
+      "failed": "Níorbh fhéidir an logáil isteach a thosú."
+    },
+    "error": {
+      "metaTitle": "Earráid logála isteach",
+      "metaDescription": "Níor críochnaíodh an síniú isteach. Míníonn an leathanach cad a chuaigh as alt agus conas iarracht eile a dhéanamh.",
+      "title": "Theip ar an logáil isteach",
+      "body": "Chuir an soláthraí céannachta <code>{value}</code> ar ais. Mura bhfuil do sheoladh ar liosta ceadaithe an cháis seo, iarr ar an úinéir é a chur leis.",
+      "back": "Ar ais chuig an logáil isteach"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Socruithe",
+      "profiles": "Próifílí",
+      "paymentMethods": "Modhanna íocaíochta",
+      "templates": "Teimpléid",
+      "email": "Ríomhphost",
+      "security": "Slándáil",
+      "users": "Úsáideoirí",
+      "data": "Sonraí",
+      "legal": "Dlíthiúil",
+      "einvoicing": "E-sonrascú",
+      "account": "Cuntas",
+      "appearance": "Cuma",
+      "api": "API",
+      "status": "Stádas",
+      "usage": "Úsáid"
+    },
+    "account": {
+      "metaTitle": "Cuntas",
+      "title": "Cuntas",
+      "description": "Do ghrianghraf, d’ainm, do réigiún, do theanga agus do chrios ama.",
+      "photo": {
+        "title": "Grianghraf",
+        "description": "Le feiceáil sa bharra taoibh agus sa roghchlár úsáideora."
+      },
+      "form": {
+        "title": "Cuntas",
+        "description": "Conas a bhfuil tú le feiceáil agus cathain is “inniu” ann.",
+        "displayName": "Ainm taispeána",
+        "signInEmail": "Ríomhphost logála isteach",
+        "signInEmailHint": "Do chéannacht ar an gcás seo; ní féidir é a chur in eagar anseo.",
+        "timezone": "Crios ama",
+        "timezoneHint": "“Inniu” do dhátaí eisiúna, dátaí dlite agus an painéal rialaithe",
+        "regionTitle": "Réigiún",
+        "regionDescription": "Réamhshocruithe do phróifílí eisitheora nua agus don phainéal rialaithe go dtí go mbíonn próifíl ann.",
+        "country": "Tír",
+        "currency": "Airgeadra",
+        "suggested": "Molta don tír seo:",
+        "language": "Teanga",
+        "languageHint": "Teanga na haipe féin. Úsáideann doiciméid logchaighdeán gach próifíle.",
+        "machineTranslated": "Aistríodh an teanga seo go huathoibríoch. Tá fáilte roimh cheartúcháin: <link>feabhsaigh é ar GitHub</link>.",
+        "save": "Sábháil na roghanna"
+      },
+      "regions": {
+        "Africa": "An Afraic",
+        "Americas": "Meiriceá",
+        "Asia": "An Áise",
+        "Europe": "An Eoraip",
+        "MiddleEast": "An Meánoirthear",
+        "Oceania": "An Aigéine",
+        "Constructed": "Cruthaithe"
+      },
+      "privacy": {
+        "title": "Príobháideacht",
+        "description": "Ní shocraíonn okinvo ach na fianáin atá de dhíth air le feidhmiú. Gan anailísíocht, gan rianú.",
+        "cookiePolicy": "Polasaí fianán",
+        "showNoticeAgain": "Taispeáin fógra na bhfianán arís"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Athraigh an grianghraf",
+      "addPhoto": "Cuir grianghraf leis",
+      "hint": "PNG, JPEG nó WebP. Taispeántar mar chiorcal i ngach áit; is féidir leat zúmáil agus é a bhogadh sula sábhálann tú.",
+      "tooLarge": "Tá an grianghraf sin ró-mhór.",
+      "uploadFailed": "Theip ar an uaslódáil.",
+      "choose": "Roghnaigh grianghraf próifíle",
+      "dialogTitle": "Socraigh do ghrianghraf",
+      "dialogDescription": "Tarraing chun bogadh, scrollaigh nó fáisc chun zúmáil. Is é an ciorcal a fheiceann gach duine.",
+      "zoom": "Zúmáil",
+      "save": "Sábháil an grianghraf"
+    },
+    "appearance": {
+      "metaTitle": "Cuma",
+      "title": "Cuma",
+      "description": "Téama agus dath aicinte, sábháilte i do chuntas.",
+      "theme": {
+        "title": "Téama",
+        "description": "Lean an córas, nó greamaigh éadrom nó dorcha.",
+        "label": "Téama",
+        "system": "Lean an córas",
+        "systemHint": "Athraíonn sé le do chóras oibriúcháin",
+        "light": "Éadrom",
+        "lightHint": "Cúlra bán",
+        "dark": "Dorcha",
+        "darkHint": "Cúlra beagnach dubh"
+      },
+      "accent": {
+        "title": "Aicint",
+        "description": "Úsáidtear é don phríomhchnaipe, do fháinní fócais agus do mharcóir an leathanaigh ghníomhaigh. Tá mint ag teacht le comhartha an bhranda.",
+        "label": "Dath aicinte",
+        "customHint": "Nó roghnaigh aon dath de do chuid féin"
+      },
+      "accents": {
+        "mint": "Mint",
+        "lavender": "Labhandar",
+        "sky": "Spéir",
+        "peach": "Péitseog",
+        "butter": "Im",
+        "rose": "Rós",
+        "sage": "Saíoch",
+        "lilac": "Líodebhán",
+        "custom": "Saincheaptha"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Próifílí eisitheora",
+      "title": "Próifílí eisitheora",
+      "description": "Na céannachtaí dlíthiúla as a n-eisíonn tú sonraisc. Réamhlíonann an ceann réamhshocraithe sonraisc nua.",
+      "breadcrumb": "Próifílí",
+      "newProfile": "Próifíl nua",
+      "emptyTitle": "Níl aon phróifíl eisitheora ann go fóill",
+      "emptyDescription": "Cruthaigh an chéannacht as a n-eisíonn tú sonraisc: duine aonair le PAN, nó do chuideachta.",
+      "createProfile": "Cruthaigh próifíl",
+      "columns": {
+        "label": "Lipéad",
+        "legalName": "Ainm dlíthiúil",
+        "type": "Cineál",
+        "country": "Tír",
+        "currency": "Airgeadra",
+        "regime": "Córas",
+        "status": "Stádas"
+      },
+      "types": {
+        "company": "Cuideachta",
+        "individual": "Duine aonair"
+      },
+      "makeDefaultTitle": "An {label} a dhéanamh mar réamhshocrú?",
+      "makeDefaultDescription": "Tosóidh sonraisc nua leis an bpróifíl seo.",
+      "restoreTitle": "An {label} a athbhunú?",
+      "archiveTitle": "An {label} a chartlannú?",
+      "archiveDescription": "Imíonn sé as na roghnóirí; ní dhéantar aon athrú ar shonraisc atá ann cheana.",
+      "new": {
+        "metaTitle": "Próifíl eisitheora nua",
+        "title": "Próifíl eisitheora nua",
+        "prefilled": "Líonta isteach as do fhreagraí; seiceáil an seoladh agus na sonraí cánach, ansin sábháil."
+      },
+      "edit": {
+        "metaTitle": "Cuir próifíl eisitheora in eagar",
+        "template": "Teimpléad",
+        "deleteTitle": "An {label} a scriosadh?",
+        "deleteDescription": "Is féidir é a dhéanamh ach amháin nuair nach dtagraíonn aon sonraisc ná nóta creidmheasa don phróifíl seo. Seachas sin, cartlannaigh í."
+      },
+      "template": {
+        "metaTitle": "Teimpléad próifíle",
+        "title": "Teimpléad do {label}",
+        "ownTemplate": "Teimpléad féin",
+        "instanceTemplate": "Teimpléad an cháis",
+        "resetTitle": "Teimpléad an cháis a úsáid arís?",
+        "resetDescription": "Baintear cumraíocht féin na próifíle seo; ní dhéantar difear do dhoiciméid eisithe.",
+        "useInstance": "Úsáid teimpléad an cháis",
+        "usingInstanceTitle": "Teimpléad an cháis in úsáid",
+        "usingInstanceDescription": "Leanann doiciméid ón bpróifíl seo Socruithe → Teimpléid. Roghnaigh iad a shaincheapadh ar leithligh.",
+        "customise": "Úsáid teimpléad difriúil don phróifíl seo",
+        "openInstance": "Oscail teimpléad an cháis"
+      },
+      "form": {
+        "identityTitle": "Céannacht",
+        "identityDescription": "Cé uaidh a thagann an sonraisc.",
+        "type": "Cineál",
+        "label": "Lipéad",
+        "labelHint": "Le feiceáil sna roghnóirí amháin",
+        "legalName": "Ainm dlíthiúil",
+        "tradeName": "Ainm trádála",
+        "designation": "Ainmniú",
+        "email": "Ríomhphost",
+        "phone": "Guthán",
+        "website": "Suíomh gréasáin",
+        "addressTitle": "Seoladh",
+        "taxTitle": "Aitheantóirí cánach",
+        "taxDescription": "Na cinn atá infheidhme duit amháin; déantar an priontáil a rialú in aghaidh an tsonraisc.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Uimhir CBL na RA",
+        "usTaxId": "EIN / SSN na SA",
+        "usTaxIdHint": "Criptithe agus é stóráilte",
+        "lutNumber": "Uimhir LUT",
+        "lutNumberHint": "Le haghaidh onnmhairithe gan IGST",
+        "lutFiscalYear": "Bliain airgeadais LUT",
+        "lutFiscalYearHint": "m.sh. 2026-27",
+        "einvoiceTitle": "E-sonrascú",
+        "einvoiceDescription": "Conas a aithníonn an phróifíl seo í féin in e-sonraisc; tá an nascóir agus na dintiúir faoi Socruithe > E-sonrascú.",
+        "electronicAddress": "Seoladh leictreonach",
+        "electronicAddressHint": "An t-aitheantóir Peppol nó EN 16931 den eisitheoir seo, priontáilte mar sheoladh leictreonach an díoltóra.",
+        "electronicAddressScheme": "Scéim an tseolta leictreonaigh",
+        "electronicAddressSchemeNone": "Gan scéim",
+        "einvoiceEnabled": "E-sonrascú cumasaithe don phróifíl seo",
+        "einvoiceEnabledHint": "Cuireann sé ar fáil íoslódálacha de JSON an e-sonraisc GST, Factur-X agus UBL agus clárú IRN ar a doiciméid eisithe.",
+        "defaultsTitle": "Réamhshocruithe",
+        "baseCurrency": "Bunairgeadra",
+        "locale": "Logchaighdeán doiciméad",
+        "localeHint": "Formáidiú uimhreacha agus dátaí ar dhoiciméid",
+        "fiscalYearStart": "Tosaíonn an bhliain airgeadais i",
+        "months": {
+          "january": "Eanáir",
+          "february": "Feabhra",
+          "march": "Márta",
+          "april": "Aibreán",
+          "may": "Bealtaine",
+          "june": "Meitheamh",
+          "july": "Iúil",
+          "august": "Lúnasa",
+          "september": "Meán Fómhair",
+          "october": "Deireadh Fómhair",
+          "november": "Samhain",
+          "december": "Nollaig"
+        },
+        "taxRegime": "Réamhshocrú córais cánach",
+        "regimes": {
+          "indiaGst": "GST na hIndia",
+          "ukVat": "CBL na RA",
+          "usSalesTax": "Cáin díolacháin na SA",
+          "none": "Gan cáin"
+        },
+        "invoiceNumberFormat": "Formáid uimhir sonraisc",
+        "invoiceNumberFormatHint": "Comharthaí: {tokens}",
+        "creditNoteNumberFormat": "Formáid uimhir nóta creidmheasa",
+        "tdsRate": "Ráta TDS ionchais (%)",
+        "tdsRateHint": "Faisnéiseach, priontáilte mar asbhaint ionchais",
+        "defaultNotes": "Nótaí réamhshocraithe",
+        "defaultTerms": "Téarmaí réamhshocraithe",
+        "printTitle": "Cad a phriontáiltear de réir réamhshocraithe",
+        "printDescription": "Cóipeálann gach sonraisc iad seo agus is féidir léi iad a athrú go haonair.",
+        "emailTitle": "Ríomhphost",
+        "emailDescription": "Réamhshocruithe don chumadóir seolta. Sealbhóirí áite: {placeholders}",
+        "emailCc": "CC réamhshocraithe",
+        "emailBcc": "BCC réamhshocraithe",
+        "commaSeparated": "Scartha le camóga",
+        "invoiceSubject": "Ábhar an tsonraisc",
+        "invoiceSubjectHint": "Úsáidtear an teimpléad ionsuite mura bhfuil sé líonta",
+        "creditNoteSubject": "Ábhar an nóta creidmheasa",
+        "invoiceBody": "Corp an tsonraisc",
+        "creditNoteBody": "Corp an nóta creidmheasa",
+        "artworkTitle": "Saothar ealaíne",
+        "artworkDescription": "PNG, JPEG nó WebP suas le 2 MB; coimeádann síniú agus stampa trédhearcacht.",
+        "logo": "Lógó",
+        "signature": "Síniú",
+        "stamp": "Stampa",
+        "transparentPng": "PNG trédhearcach",
+        "save": "Sábháil an phróifíl"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Modhanna íocaíochta",
+      "title": "Modhanna íocaíochta",
+      "description": "Conas a íocann cliaint thú. Criptítear sonraí agus reoitear iad i ngach sonraisc nuair a eisítear í.",
+      "newMethod": "Modh nua",
+      "emptyTitle": "Níl aon mhodh íocaíochta ann go fóill",
+      "emptyDescription": "Cuir cuntas bainc, ID UPI nó vallet leis ionas go mbeidh na sonraisc in ann a rá le cliaint cá n-íocfaidh siad.",
+      "addMethod": "Cuir modh leis",
+      "columns": {
+        "name": "Ainm",
+        "type": "Cineál",
+        "currency": "Airgeadra",
+        "status": "Stádas"
+      },
+      "types": {
+        "bankTransfer": "Aistriúchán bainc",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Saincheaptha"
+      },
+      "makeDefaultTitle": "An {name} a dhéanamh mar réamhshocrú?",
+      "restoreTitle": "An {name} a athbhunú?",
+      "archiveTitle": "An {name} a chartlannú?",
+      "archiveDescription": "Coimeádann sonraisc eisithe an ghrianghraf den ábhar a phriontáil siad.",
+      "new": {
+        "metaTitle": "Modh íocaíochta nua",
+        "title": "Modh íocaíochta nua"
+      },
+      "edit": {
+        "metaTitle": "Cuir modh íocaíochta in eagar",
+        "title": "Cuir {name} in eagar",
+        "deleteTitle": "An {name} a scriosadh?",
+        "deleteDescription": "Is féidir é a dhéanamh ach amháin nuair nach dtagraíonn aon sonraisc ná íocaíocht dó. Seachas sin, cartlannaigh é."
+      },
+      "form": {
+        "name": "Ainm",
+        "nameHint": "Priontáilte mar cheannteideal an bhloic íocaíochta",
+        "type": "Cineál",
+        "currency": "Airgeadra",
+        "currencyHint": "Roghnach; le feiceáil mar chomhthéacs amháin",
+        "anyCurrency": "Aon cheann",
+        "instructions": "Treoracha",
+        "instructionsHint": "Priontáilte faoi na sonraí",
+        "isDefault": "Modh réamhshocraithe",
+        "isDefaultDescription": "Réamhroghnaithe ar shonraisc nua",
+        "isActive": "Gníomhach",
+        "detailsTitle": "Sonraí",
+        "detailsDescription": "Criptithe agus iad stóráilte; tógtar grianghraf díobh i ngach sonraisc nuair a eisítear í.",
+        "vpa": "ID UPI (VPA)",
+        "payeeName": "Ainm an íocaí",
+        "lines": "Línte",
+        "linesHint": "Líne amháin i ngach sraith, priontáilte mar atá",
+        "accountEmail": "Ríomhphost / láimhseáil an chuntais",
+        "bank": {
+          "accountHolder": "Sealbhóir cuntais",
+          "accountNumber": "Uimhir chuntais",
+          "bankName": "Ainm an bhainc",
+          "branch": "Brainse",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Cód ródaithe / cód sórtála"
+        },
+        "save": "Sábháil an modh íocaíochta"
+      }
+    },
+    "templates": {
+      "metaTitle": "Teimpléid doiciméad",
+      "title": "Teimpléid doiciméad",
+      "customised": "Saincheaptha",
+      "builtIn": "Réamhshocrú ionsuite",
+      "description": "Cén chuma atá ar shonraisc agus ar nótaí creidmheasa. Coimeádann doiciméid eisithe an teimpléad lenar eisíodh iad.",
+      "resetTitle": "An bhfuil tú ag iarraidh filleadh ar an réamhshocrú ionsuite?",
+      "resetDescription": "Baintear do shaincheapadh; ní dhéantar difear do dhoiciméid a eisíodh cheana.",
+      "reset": "Athshocraigh",
+      "resetTrigger": "Athshocraigh go réamhshocruithe",
+      "importTitle": "Iompórtáil",
+      "importDescription": "Athbhunaigh cumraíocht a onnmhairíodh roimhe seo.",
+      "overridesTitle": "Sárúcháin in aghaidh na próifíle",
+      "overridesDescription": "Is féidir le próifíl a rogha féin de theimpléad a roghnú óna leathanach eagarthóireachta.",
+      "noOverrides": "Úsáideann gach próifíl teimpléad an cháis.",
+      "import": {
+        "json": "JSON an teimpléid",
+        "jsonHint": "Greamaigh comhad a tháirgeann Onnmhairigh JSON; úsáidtear réamhshocruithe do chéanna atá ar iarraidh",
+        "importing": "Ag iompórtáil…",
+        "submit": "Iompórtáil"
+      },
+      "form": {
+        "templateTitle": "Teimpléad",
+        "templateDescription": "Sé cinn ionsuite; baineann an saincheapadh thíos leis an gceann a roghnaíonn tú.",
+        "templateGroup": "Teimpléad",
+        "templates": {
+          "ledger": {
+            "name": "Leabhar cuntais",
+            "character": "Nua-aimseartha agus aeráilte, sans-serif, líne aicinte faoin gceannteideal."
+          },
+          "classic": {
+            "name": "Clasaiceach",
+            "character": "Tábla traidisiúnta le teorainn, ceannteidil serif, iomláin i mboscaí."
+          },
+          "compact": {
+            "name": "Dlúth",
+            "character": "Leagan amach dlúth do liostaí fada míreanna; clóscríobh níos lú, níos lú deighilteoirí."
+          },
+          "minimal": {
+            "name": "Íosta",
+            "character": "Ciúin agus fairsing: gan línte ná boscaí, lipéid éadroma, neart spáis."
+          },
+          "letterhead": {
+            "name": "Ceannteideal litreach",
+            "character": "Do lógó agus d’ainm ar bhanda datha nó íomhá trasna bharr gach leathanaigh."
+          },
+          "modern": {
+            "name": "Nua-aimseartha",
+            "character": "Ceannteideal le banda datha; páirtithe, ceann an tábla agus iomláin ar dhath aicinte éadrom."
+          }
+        },
+        "paperTitle": "Páipéar agus clóscríobh",
+        "paperSize": "Méid páipéir",
+        "paperLetter": "Letter",
+        "margins": "Imill",
+        "marginsNormal": "Gnáth",
+        "marginsNarrow": "Cumhang",
+        "headingFont": "Cló an cheannteidil",
+        "bodyFont": "Cló an choirp",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "Stíl an tábla",
+        "tableRuled": "Línithe",
+        "tableZebra": "Zebra",
+        "tablePlain": "Simplí",
+        "accentColour": "Dath aicinte",
+        "textColour": "Dath téacs",
+        "logoPosition": "Suíomh an lógó",
+        "positionLeft": "Clé",
+        "positionCentre": "Lár",
+        "positionRight": "Deas",
+        "logoHeight": "Airde an lógó (mm)",
+        "documentTitle": "Teideal an doiciméid",
+        "titleAuto": "Uathoibríoch (feasach ar GST)",
+        "titleCustom": "Saincheaptha",
+        "titlePlaceholder": "m.sh. PRÓFORMA SONRAISC",
+        "qrPosition": "Suíomh an chóid QR",
+        "qrFooter": "Buntásc",
+        "qrHeader": "Ceannteideal",
+        "qrBesideTotals": "Cois na n-iomlán",
+        "amountInWords": "Suim i bhfocail",
+        "wordsBelowTotal": "Faoi na hiomláin",
+        "wordsFooter": "Buntásc",
+        "wordsHidden": "Folaithe",
+        "subtotalRow": "Sraith fhoriomlán",
+        "discountRow": "Sraith lascaine",
+        "taxLines": "Línte cánach",
+        "tdsExpected": "TDS ionchais",
+        "roundingRow": "Sraith babhtála",
+        "pageNumbers": "Uimhreacha leathanaigh",
+        "headerTitle": "Ceannteideal",
+        "headerDescription": "Banda datha nó íomhá trasna bharr gach leathanaigh. Taispeánann Ceannteideal litreach agus Nua-aimseartha banda mura roghnaíonn tú a mhalairt.",
+        "headerStyle": "Stíl an cheannteidil",
+        "headerNone": "Ceann ar bith",
+        "headerBand": "Banda datha",
+        "headerImage": "Íomhá",
+        "bandColour": "Dath an bhanda",
+        "bandColourHex": "Dath an bhanda (hex)",
+        "headerImageLabel": "Íomhá an cheannteidil",
+        "headerImageHint": "PNG, JPEG nó WebP suas le 2400 px ar leithead; síneann sé trasna leithead an leathanaigh.",
+        "imageOpacity": "Teimhneacht na híomhá",
+        "headerHeight": "Airde an cheannteidil (mm)",
+        "bandText": "Téacs ar an mbanda",
+        "bandTextAuto": "Uathoibríoch (ó dhath an bhanda)",
+        "bandTextLight": "Éadrom",
+        "bandTextDark": "Dorcha",
+        "textTitle": "Téacs",
+        "headerNote": "Nóta ceannteidil",
+        "footer": "Buntásc",
+        "signatureCaption": "Fotheideal an tsínithe",
+        "draftWatermark": "Comhartha uisce dréachta",
+        "labelsTitle": "Lipéid",
+        "labelsDescription": "Fág réimse bán chun an foclaíocht réamhshocraithe a choinneáil.",
+        "save": "Sábháil an teimpléad",
+        "downloadSample": "Íoslódáil PDF samplach",
+        "exportJson": "Onnmhairigh JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Ríomhphost",
+      "title": "Ríomhphost",
+      "configuredSettings": "Cumraithe sna Socruithe",
+      "configuredEnv": "Cumraithe ag an gcomhshaol",
+      "notConfigured": "Gan chumrú: sreabhadh aip ríomhphoist",
+      "description": "Seoltar doiciméid ón gcumadóir leis an PDF stóráilte i gceangal. Sáraíonn socruithe anseo SMTP_* sa chomhshaol.",
+      "sendTest": "Seol ríomhphost tástála chuig {email}",
+      "removeTitle": "An mbainfear na socruithe SMTP stóráilte?",
+      "removeEnvTakesOver": "Glacann luachanna SMTP_* an chomhshaoil seilbh.",
+      "removeFallsBack": "Filleann ríomhphost ar shreabhadh na haipe ríomhphoist.",
+      "removeTrigger": "Bain socruithe stóráilte",
+      "smtpTitle": "Freastalaí SMTP",
+      "smtpFromEnv": "Á thógáil ón gcomhshaol faoi láthair; sáraíonn sábháil anseo é.",
+      "smtpPasswordNote": "Criptítear an pasfhocal agus é stóráilte agus ní thaispeántar arís é.",
+      "defaultsTitle": "Faighteoirí réamhshocraithe",
+      "defaultsDescription": "CC/BCC ar fud an cháis; cuireann próifílí eisitheora a gcuid féin leis.",
+      "sentTitle": "Post seolta",
+      "sentDescription": "An 50 iarracht is déanaí, lena n-áirítear teipeanna agus seoltaí láimhe.",
+      "smtp": {
+        "host": "Óstach",
+        "port": "Port",
+        "security": "Slándáil",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Ceann ar bith (athsheachadán LAN)",
+        "user": "Ainm úsáideora",
+        "password": "Pasfhocal",
+        "passwordStored": "Stóráilte agus criptithe; fág bán chun é a choinneáil",
+        "passwordEncrypted": "Criptithe agus é stóráilte",
+        "from": "Seoladh an tseolaí",
+        "fromName": "Ainm an tseolaí",
+        "replyTo": "Freagair chuig",
+        "save": "Sábháil socruithe SMTP"
+      },
+      "defaults": {
+        "cc": "CC réamhshocraithe",
+        "ccHint": "Curtha le gach cumadóir; scartha le camóga",
+        "bcc": "BCC réamhshocraithe",
+        "save": "Sábháil na réamhshocruithe"
+      }
+    },
+    "security": {
+      "metaTitle": "Slándáil",
+      "title": "Slándáil",
+      "description": "Cá bhfuil tú logáilte isteach, agus gach a d’athraigh.",
+      "sessions": {
+        "title": "Seisiúin ghníomhacha",
+        "description": "Logálann cúlghairm seisiúin an gléas sin amach láithreach.",
+        "signOutOthers": {
+          "title": "Logáil amach i ngach áit eile?",
+          "description": "Cúlghairtear gach seisiún seachas an ceann seo.",
+          "confirm": "Logáil amach cinn eile",
+          "trigger": "Logáil amach i ngach áit eile"
+        },
+        "columns": {
+          "device": "Gléas",
+          "ipAddress": "Seoladh IP",
+          "signedIn": "Logáilte isteach",
+          "lastSeen": "Feicthe go deireanach",
+          "expires": "Téann as feidhm"
+        },
+        "thisDevice": "An gléas seo",
+        "revokeTitle": "An seisiún seo a chúlghairm?",
+        "unknownDevice": "Gléas anaithnid",
+        "unknownBrowser": "Anaithnid",
+        "agentOnOs": "{browser} ar {os}"
+      },
+      "audit": {
+        "title": "Log iniúchta",
+        "count": "{count, plural, one {# imeacht} two {# imeacht} few {# imeachtaí} many {# n-imeacht} other {# imeacht}}",
+        "entity": "Eintiteas",
+        "actionContains": "Tá gníomh ina bhfuil",
+        "filter": "Scag",
+        "reset": "Athshocraigh",
+        "columns": {
+          "when": "Cathain",
+          "who": "Cé",
+          "action": "Gníomh",
+          "entity": "Eintiteas",
+          "summary": "Achoimre"
+        },
+        "empty": "Níl aon imeacht ag teacht leis na scagairí seo.",
+        "system": "Córas",
+        "changes": "Athruithe",
+        "page": "Leathanach {page} de {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Úsáideoirí",
+      "title": "Úsáideoirí",
+      "description": "Cé atá in ann logáil isteach ar an gcás seo agus cad a cheadaítear dóibh.",
+      "roles": {
+        "owner": "Úinéir",
+        "editor": "Eagarthóir",
+        "viewer": "Breathnóir"
+      },
+      "roleHints": {
+        "owner": "Gach rud, socruithe agus baill san áireamh",
+        "editor": "Cliaint, catalóg, sonraisc, nótaí creidmheasa, íocaíochtaí, ríomhphost",
+        "viewer": "Léamh amháin"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Ról {email}",
+      "invite": {
+        "title": "Tabhair cuireadh do dhuine",
+        "description": "Logálann siad isteach leis an seoladh a tugadh cuireadh dó (soláthraí céannachta nó pasfhocal) agus faigheann siad an ról a roghnaíonn tú.",
+        "sent": "Cuireadh seolta trí ríomhphost chuig {email}.",
+        "readyWithError": "Cuireadh réidh do {email}. Níorbh fhéidir an ríomhphost a sheoladh ({error}); seol an nasc seo chucu:",
+        "readyNoSmtp": "Cuireadh réidh do {email}. Níl aon SMTP cumraithe; seol an nasc seo chucu:",
+        "copyLink": "Cóipeáil an nasc",
+        "email": "Ríomhphost",
+        "emailPlaceholder": "duine@sampla.com",
+        "role": "Ról",
+        "submit": "Tabhair cuireadh",
+        "inviting": "Ag tabhairt cuiridh…"
+      },
+      "members": {
+        "title": "Baill",
+        "description": "Fanann úinéir gníomhach amháin ar a laghad i gcónaí.",
+        "columns": {
+          "person": "Duine",
+          "role": "Ról",
+          "lastSignIn": "Logáil isteach is déanaí",
+          "status": "Stádas"
+        },
+        "nameYou": "{name} (tusa)",
+        "deactivated": "Díghníomhachtaithe",
+        "reactivate": {
+          "title": "An {email} a athghníomhachtú?",
+          "description": "Is féidir leo logáil isteach arís lena ról roimhe seo.",
+          "confirm": "Athghníomhachtaigh"
+        },
+        "deactivate": {
+          "title": "An {email} a dhíghníomhachtú?",
+          "description": "Críochnaíonn gach seisiún anois agus ní féidir leo logáil isteach go dtí go n-athghníomhachtófar iad. Fanann a stair.",
+          "confirm": "Díghníomhachtaigh"
+        }
+      },
+      "invitations": {
+        "title": "Cuirí ar feitheamh",
+        "description": "Seoltaí a bhfuil cead logála isteach acu ach nár logáil go fóill.",
+        "columns": {
+          "email": "Ríomhphost",
+          "role": "Ról",
+          "invited": "Tugadh cuireadh"
+        },
+        "empty": "Níl aon chuireadh ar feitheamh.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "An cuireadh do {email} a chúlghairm?"
+      }
+    },
+    "data": {
+      "metaTitle": "Sonraí",
+      "title": "Sonraí",
+      "description": "Tá gach rud iniompartha: tacair sonraí mar CSV nó Excel, léargas iomlán le haghaidh imirce, na PDFanna do chuntasóir, agus gnáthamh cúltaca tástáilte.",
+      "period": {
+        "fiscalYear": "Bliain airgeadais",
+        "fiscalYearHint": "Sáraíonn sé na dátaí",
+        "issuer": "Eisitheoir"
+      },
+      "exportAll": {
+        "title": "Onnmhairigh na sonraí go léir",
+        "description": "ZIP le gach tacar sonraí mar CSV móide <mono>data.json</mono>, léargas coibhneasta ar gach tábla. Fanann réimsí criptithe (sonraí modhanna íocaíochta, pasfhocal SMTP) amuigh; liostaíonn an README istigh iad.",
+        "download": "Íoslódáil ZIP okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "Onnmhairigh doiciméid",
+        "description": "Gach PDF sonraisc agus nóta creidmheasa eisithe agus neamhbhailithe do thréimhse, ainmnithe de réir uimhreach, le <mono>index.csv</mono> d’uimhreacha, d’iomláin agus de hashanna. Rindreáiltear PDFanna atá ar iarraidh ar an mbealach.",
+        "docx": "Cuir cóip DOCX de gach doiciméad san áireamh freisin",
+        "facturx": "Cuir cóip Factur-X PDF/A-3 leis an EN 16931 XML leabaithe san áireamh freisin",
+        "download": "Íoslódáil ZIP na ndoiciméad"
+      },
+      "datasets": {
+        "title": "Tacair sonraí",
+        "description": "Na honnmhairithe céanna a thairgeann na leathanaigh innéacs, le tréimhse agus eisitheoir i bhfeidhm orthu go léir. Úsáideann íocaíochtaí an raon dátaí; ní chuireann cliaint ná seirbhísí suim sa tréimhse.",
+        "columns": {
+          "dataset": "Tacar sonraí",
+          "filters": "Scagairí i bhfeidhm",
+          "download": "Íoslódáil"
+        },
+        "names": {
+          "invoices": "Clár sonraisc",
+          "invoiceItems": "Míreanna sonraisc",
+          "payments": "Leabhar íocaíochtaí",
+          "creditNotes": "Clár nótaí creidmheasa",
+          "clients": "Cliaint",
+          "services": "Seirbhísí",
+          "gstSummary": "Achoimre GST",
+          "tdsSummary": "Achoimre TDS"
+        },
+        "filters": {
+          "periodIssuer": "tréimhse, eisitheoir",
+          "dateRangeIssuer": "raon dátaí, eisitheoir",
+          "includesArchived": "cartlannaithe san áireamh"
+        }
+      },
+      "backups": {
+        "title": "Cúltacaí",
+        "notWired": "Níl aon tseirbhís cúltaca ceangailte",
+        "noRun": "Níor rith aon chúltaca go fóill",
+        "lastOk": "Cúltaca deireanach OK",
+        "lastFailed": "Theip ar an gcúltaca deireanach",
+        "description": "Déanann an tseirbhís Compose <mono>backup</mono> dumpáil ar Postgres agus cartlannaíonn sí an imleabhar stórais ar <mono>BACKUP_CRON</mono>, coinníonn sí <mono>BACKUP_RETENTION_DAYS</mono> staire san imleabhar <mono>backups</mono>, agus scríobhann sí comhad stádais a léann an leathanach seo.",
+        "finished": "Críochnaithe",
+        "databaseDump": "Dumpáil bunachair sonraí",
+        "storageArchive": "Cartlann stórais",
+        "size": "Méid",
+        "sizeMb": "{size} MB",
+        "error": "Earráid",
+        "runNow": "Rith ceann anois, nó athbhunaigh ó phéire comhad:",
+        "restoreDrill": "Cleachtaítear an nós imeachta athbhunaithe i CI ag <mono>scripts/restore-drill.sh</mono>: síolú, cúltaca, glanadh, athbhunú, ansin comparáid a dhéanamh idir líon sraitheanna agus hash PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "Dlíthiúil",
+      "metaDescription": "Cé a oibríonn an cás seo: na sonraí atá priontáilte ar na leathanaigh dhlíthiúla poiblí.",
+      "title": "Dlíthiúil",
+      "description": "Priontálann na leathanaigh dhlíthiúla phoiblí na sonraí seo. Go dtí go mbeidh gach réimse líonta, taispeánann na leathanaigh sealbhóirí áite aibhsithe.",
+      "operator": {
+        "title": "Sonraí an oibreora",
+        "complete": "Iomlán",
+        "missing": "{count} ar iarraidh: {fields}",
+        "description": "Is tusa, mar an duine nó an chuideachta a ritheann an cás seo, an t-oibreoir lena dtagraíonn na doiciméid. Ní sheoltar aon rud anseo áit ar bith; priontáiltear é ar na leathanaigh thíos."
+      },
+      "fieldLabels": {
+        "legalName": "Ainm dlíthiúil an oibreora",
+        "entityType": "Cineál eintitis",
+        "address": "Seoladh an oibreora",
+        "country": "Tír an oibreora",
+        "contactEmail": "Ríomhphost teagmhála",
+        "privacyEmail": "Ríomhphost príobháideachta",
+        "dpoEmail": "Ríomhphost an oifigigh cosanta sonraí",
+        "governingLaw": "Dlí rialaithe",
+        "venue": "Ionad do dhíospóidí",
+        "effectiveDate": "Dáta éifeachta"
+      },
+      "publicPages": {
+        "title": "Leathanaigh phoiblí",
+        "description": "Nasctha ón leathanach logála isteach, ón amharcóir comhroinnte agus ó fhógra na bhfianán.",
+        "terms": "Téarmaí Seirbhíse",
+        "acceptableUse": "Polasaí Úsáide Inghlactha",
+        "privacy": "Polasaí Príobháideachta",
+        "cookies": "Polasaí Fianán",
+        "dataRetention": "Coinneáil sonraí",
+        "security": "Slándáil",
+        "licenses": "Ceadúnais agus fógraí tríú páirtí"
+      },
+      "form": {
+        "legalName": "Ainm dlíthiúil",
+        "entityType": "Cineál eintitis",
+        "individual": "Duine aonair / aon-úinéir",
+        "company": "Cuideachta / eintiteas cláraithe",
+        "address": "Seoladh",
+        "addressHint": "Priontáilte sna Téarmaí agus sa Pholasaí Príobháideachta mar sheoladh poist an oibreora.",
+        "country": "Tír",
+        "effectiveDate": "Dáta éifeachta",
+        "contactEmail": "Ríomhphost teagmhála",
+        "privacyEmail": "Ríomhphost príobháideachta",
+        "privacyEmailHint": "An áit a dtéann iarratais ó dhaoine ar a mbaineann na sonraí; féadfaidh sé a bheith mar an seoladh teagmhála.",
+        "dpoEmail": "Ríomhphost an oifigigh cosanta sonraí",
+        "dpoEmailHint": "Ach amháin má cheap tú duine.",
+        "governingLaw": "Dlí rialaithe",
+        "governingLawHint": "Mar shampla \"dlíthe na hÉireann\" nó \"dlíthe Shasana agus na Breataine Bige\".",
+        "venue": "Ionad do dhíospóidí",
+        "venueHint": "Mar shampla \"cúirteanna Bhaile Átha Cliath\".",
+        "submit": "Sábháil sonraí an oibreora"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-sonrascú",
+      "title": "E-sonrascú",
+      "description": "I bpróifíl eisitheora ar leith: cén nascóir a chláraíonn e-sonraisc Indiacha, agus cén phróifíl Eorpach a leanann aschuir Factur-X agus UBL. Stóráiltear dintiúir criptithe agus ní thaispeántar arís iad.",
+      "noProfiles": "Cruthaigh próifíl eisitheora ar dtús.",
+      "profile": "Próifíl eisitheora",
+      "enabled": "Cumasaithe",
+      "disabled": "Díchumasaithe",
+      "enabledHint": "Cuir an t-e-sonrascú air nó as de réir próifíle faoi Socruithe > Próifílí.",
+      "india": {
+        "title": "An India (e-sonrasc GST, IRN)",
+        "description": "Cláraítear an IRN tríd an nascóir a roghnaítear anseo; glacann an nascóir láimhe le freagra an tairsigh de láimh.",
+        "connector": "Nascóir",
+        "connectorNone": "As",
+        "connectorManual": "Láimhe (greamaigh freagra IRP)",
+        "connectorNic": "API NIC IRP (bosca gainimh nó táirgeadh)",
+        "nicUnverified": "Leanann an nascóir NIC an API foilsithe agus ní thástáiltear é ach i gcoinne feistis taifeadta; níl sé fíoraithe i gcoinne bosca gainimh beo go dtí go soláthraítear dintiúir.",
+        "env": "Timpeallacht",
+        "sandbox": "Bosca gainimh",
+        "production": "Táirgeadh",
+        "baseUrl": "URL bunúsach",
+        "baseUrlHint": "Fág bán don réamhshocrú don timpeallacht.",
+        "clientId": "Id an chliaint",
+        "clientSecret": "Rún an chliaint",
+        "username": "Ainm úsáideora",
+        "password": "Pasfhocal",
+        "gstin": "GSTIN",
+        "publicKey": "Eochair phoiblí IRP (PEM)",
+        "publicKeyHint": "Íoslódáil ón tsolas í tar éis duit síniú isteach; clúdaíonn sí na dintiúir a sheoltar chuig an IRP.",
+        "publicKeyStored": "Stóráilte; fág bán é chun é a choinneáil.",
+        "secretStored": "Stóráilte criptithe; fág bán chun é a choinneáil.",
+        "secretEncrypted": "Stóráilte criptithe i stad."
+      },
+      "eu": {
+        "title": "An Eoraip (Factur-X, UBL)",
+        "description": "Is é EN 16931 an t-aon phróifíl sa leagan seo; úsáideann íoslódálacha Factur-X agus UBL é.",
+        "profile": "Próifíl",
+        "profileNone": "As",
+        "en16931": "EN 16931"
+      },
+      "save": "Sábháil socruithe an e-sonrascaithe"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Eochracha API do scripteanna, don SDK agus do chliaint MCP, le samplaí curl.",
+      "title": "API",
+      "description": "Eochracha do scripteanna, don SDK agus do chliaint MCP. Is féidir le heochair an méid a ligeann do ról a dhéanamh ar a mhéad; taispeántar uair amháin í.",
+      "create": {
+        "title": "Cruthaigh eochair",
+        "description": "Seol í mar <mono>Authorization: Bearer okv_…</mono>. Coinnigh as cód foinse agus logaí comhrá í; cúlghair thíos í má sceitheann sí."
+      },
+      "keys": {
+        "title": "Eochracha",
+        "descriptionOwner": "Gach eochair den chás seo; is féidir le húinéirí aon cheann acu a chúlghairm.",
+        "descriptionOwn": "D’eochracha.",
+        "columns": {
+          "name": "Ainm",
+          "prefix": "Réimír",
+          "scopes": "Scóipeanna",
+          "owner": "Úinéir",
+          "lastUsed": "Úsáidte go deireanach",
+          "expires": "Téann as feidhm",
+          "status": "Stádas"
+        },
+        "empty": "Níl aon eochair API ann go fóill.",
+        "never": "choíche",
+        "revoked": "Cúlghairthe",
+        "expired": "As feidhm",
+        "revokeTitle": "An {name} a chúlghairm?",
+        "revokeDescription": "Stopann cliaint a úsáideann an eochair seo ag obair láithreach.",
+        "activeCount": "{count, plural, one {# eochair ghníomhach.} two {# eochair ghníomhacha.} few {# eochracha gníomhacha.} many {# n-eochair ghníomhach.} other {# eochair ghníomhach.}}"
+      },
+      "examples": {
+        "title": "Samplaí",
+        "description": "Cuir eochair in ionad <mono>$OKINVO_KEY</mono>. Tiocfaidh an REST API leagan, a doiciméad OpenAPI (<mono>/api/openapi.json</mono>), an SDK TypeScript agus an freastalaí MCP leis na chéad tascanna eile de phlean v1.1; oibríonn an críochphointe stádais inniu.",
+        "rateLimit": "Freagraíonn glaonna thar an teorainn le 429 agus ceanntásc <mono>Retry-After</mono> (120 iarratas in aghaidh na nóiméid in aghaidh na heochrach). Cuireann ról reatha a húinéara teorainn le scóipeanna eochrach."
+      },
+      "form": {
+        "copyKey": "Cóipeáil eochair API",
+        "name": "Ainm",
+        "namePlaceholder": "m.sh. script cuntasaíochta",
+        "expires": "Téann as feidhm",
+        "in30Days": "I gceann 30 lá",
+        "in90Days": "I gceann 90 lá",
+        "inAYear": "I gceann bliana",
+        "never": "Choíche",
+        "scopes": "Scóipeanna",
+        "submit": "Cruthaigh eochair API",
+        "creating": "Ag cruthú…"
+      },
+      "scopes": {
+        "invoicesRead": "Léigh sonraisc",
+        "invoicesCreate": "Cruthaigh agus eisigh sonraisc",
+        "creditNotesRead": "Léigh nótaí creidmheasa",
+        "creditNotesCreate": "Cruthaigh agus eisigh nótaí creidmheasa",
+        "catalogueRead": "Léigh cliaint, seirbhísí agus táirgí",
+        "documentsRead": "Íoslódáil PDFanna stóráilte agus cóipeanna DOCX",
+        "statusRead": "Léigh stádas an cháis"
+      }
+    },
+    "status": {
+      "metaTitle": "Stádas",
+      "metaDescription": "Leagan, bunachar sonraí, stóras, ríomhphost agus sláinte cúltaca an cháis seo.",
+      "title": "Stádas",
+      "description": "Cad atá á rith ag an gcás seo agus an bhfreagraíonn a chodanna.",
+      "recheck": "Seiceáil arís",
+      "health": {
+        "ok": "OK",
+        "warning": "Rabhadh",
+        "failed": "Theip",
+        "na": "Gan chumrú"
+      },
+      "overall": {
+        "ok": "Gach rud go maith",
+        "degraded": "Laghdaithe",
+        "failed": "Theip"
+      },
+      "version": "Tógáil {hasSha, select, yes {<mono>{sha}</mono>} other {(sha anaithnid)}} · tógtha {built} · Node <mono>{node}</mono> · suas {uptime} · seiceáilte {checked}",
+      "dateUnknown": "(dáta anaithnid)",
+      "uptime": {
+        "days": "{d}l {h}u {m}n",
+        "hours": "{h}u {m}n",
+        "minutes": "{m}n"
+      },
+      "rows": {
+        "database": "Bunachar sonraí",
+        "storage": "Stóras",
+        "rateLimiting": "Teorannú ráta",
+        "email": "Ríomhphost",
+        "backups": "Cúltacaí"
+      },
+      "db": {
+        "detail": "{latency} ms · imirce dheireanach <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # imirce nár chríochnaigh}}",
+        "noMigration": "ceann ar bith"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · scríobh, léamh agus scriosadh réada tástála laistigh de {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "stóras <mono>{store}</mono> {store, select, memory {(macasamhail amháin)} other {(roinnte idir macasamhla)}}",
+      "smtp": {
+        "configured": "SMTP ó {source, select, settings {the settings page} env {the environment} other {}} · tástáil dheireanach {lastTest} · 24 uair an chloig seo caite: {sent} seolta, {failed} teipthe",
+        "none": "Gan freastalaí SMTP; tairgeann an cumadóir “Oscail san aip ríomhphoist”. <link>Cumraigh</link>"
+      },
+      "backups": {
+        "notWired": "Níl aon tseirbhís cúltaca ceangailte (BACKUP_STATUS_FILE gan socrú).",
+        "noRun": "Seirbhís cúltaca ceangailte; níl aon rith taifeadta go fóill.",
+        "ok": "D’éirigh leis an rith deireanach ar {finishedAt}{days, plural, =0 {} one { · coinneáil # lá} two { · coinneáil # lá} few { · coinneáil # lá} many { · coinneáil # lá} other { · coinneáil # lá}}",
+        "failed": "Theip ar an rith deireanach: {error} ar {finishedAt}{days, plural, =0 {} one { · coinneáil # lá} two { · coinneáil # lá} few { · coinneáil # lá} many { · coinneáil # lá} other { · coinneáil # lá}}"
+      },
+      "footer": "Tá an tuarascáil chéanna ar fáil mar JSON ag <mono>/api/health/status</mono> le haghaidh monatóireachta (seisiún logáilte isteach nó eochair API)."
+    },
+    "usage": {
+      "metaTitle": "Úsáid",
+      "metaDescription": "Radhairc leathanaigh in aghaidh an scáileáin agus an lae ar an sampla seo, comhaireamh go háitiúil.",
+      "title": "Úsáid",
+      "description": "Cé chomh minic a osclaíodh gach scáileán, comhaireamh ar an sampla seo amháin: gan fianáin, gan seoltaí, ní sheoltar aon rud áit ar bith.",
+      "last30Days": "Na 30 lá seo caite",
+      "total": "{count, plural, =0 {Gan radhairc leathanaigh} one {# radharc leathanaigh} two {# radharc leathanaigh} few {# radharc leathanaigh} many {# radharc leathanaigh} other {# radharc leathanaigh}}",
+      "off": "Tá an comhaireamh as. Socraigh ANALYTICS_LOCAL=true chun radhairc leathanaigh a chomhaireamh ar an sampla seo.",
+      "empty": "Níor taifeadadh aon radharc leathanaigh go fóill.",
+      "columns": {
+        "day": "Lá",
+        "path": "Scáileán",
+        "views": "Radhairc"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Fáilte",
+    "progress": "Dul chun cinn",
+    "steps": {
+      "aboutYou": "Fút féin",
+      "howYouUse": "Conas a úsáidfidh tú é",
+      "allSet": "Réidh"
+    },
+    "step1": {
+      "title": "Inis dúinn fút féin",
+      "subtitle": "Socraíonn sé seo do réamhshocruithe; is féidir gach luach a athrú níos déanaí sna Socruithe.",
+      "name": "Ainm",
+      "email": "Ríomhphost",
+      "emailHint": "Do chéannacht logála isteach. Is féidir í a athrú níos déanaí ó Socruithe → Slándáil.",
+      "country": "Tír",
+      "currency": "Airgeadra roghnaithe",
+      "currencyHint": "Úsáidtear é do phróifílí nua agus don phainéal rialaithe go dtí go mbíonn próifíl ann."
+    },
+    "step2": {
+      "title": "Conas a úsáidfidh tú okinvo?",
+      "subtitle": "Ní athraíonn ach na réamhshocruithe; níl aon rud faoi ghlas.",
+      "usage": "Úsáid",
+      "personal": "Sonrascú pearsanta",
+      "personalHint": "Obair neamhspleách i d’ainm féin",
+      "business": "Sonrascú gnó",
+      "businessHint": "Sonraisc ó ghnó cláraithe",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Uimhir CBL",
+        "other": "Uimhir chláraithe cánach"
+      },
+      "taxQuestion": {
+        "IN": "An bhfuil GSTIN agat?",
+        "GB": "An bhfuil tú cláraithe le haghaidh CBL?",
+        "other": "An bhfuil uimhir chláraithe cánach agat le priontáil ar shonraisc?"
+      }
+    },
+    "step3": {
+      "title": "Tá tú réidh",
+      "body": "Ansin, cruthaigh do chéad phróifíl eisitheora: an t-ainm, an seoladh agus na sonraí cánach a phriontáiltear ar do shonraisc. Tá an méid a dúirt tú linn líonta isteach againn.",
+      "go": "Téigh chuig próifílí",
+      "opening": "Ag oscailt…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Téarmaí",
+      "privacy": "Príobháideacht",
+      "cookies": "Fianáin",
+      "security": "Slándáil"
+    },
+    "cookieNotice": {
+      "label": "Fógra fianán",
+      "body": "Ní úsáidimid ach fianáin atá fíor-riachtanach: do sheisiún agus do roghanna taispeána. Gan anailísíocht, gan rianú.",
+      "policy": "Polasaí fianán",
+      "gotIt": "Tuigim"
+    },
+    "nav": {
+      "label": "Dlíthiúil",
+      "cookies": "Fianáin",
+      "privacy": "Príobháideacht",
+      "terms": "Téarmaí",
+      "acceptableUse": "Úsáid inghlactha",
+      "retention": "Coinneáil",
+      "security": "Slándáil",
+      "licences": "Ceadúnais"
+    },
+    "operatorNotice": "Is bogearraí féin-óstáilte é okinvo; tá oibreoir an cháis seo freagrach as a úsáid.",
+    "doc": {
+      "effectiveOn": "I bhfeidhm ó <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Clár ábhair"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Ainm dlíthiúil an oibreora",
+        "entityType": "Cineál eintitis",
+        "address": "Seoladh an oibreora",
+        "country": "Tír an oibreora",
+        "contactEmail": "Ríomhphost teagmhála",
+        "privacyEmail": "Ríomhphost príobháideachta",
+        "dpoEmail": "Ríomhphost an oifigigh cosanta sonraí",
+        "governingLaw": "Dlí rialaithe",
+        "venue": "Ionad do dhíospóidí",
+        "effectiveDate": "Dáta éifeachta"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Gan aimsiú",
+      "title": "Níl aon rud ag an seoladh seo",
+      "body": "B’fhéidir go bhfuil an nasc as dáta, nó nár eisíodh riamh an doiciméad ar thagair sé dó."
+    },
+    "forbidden": {
+      "metaTitle": "Gan chead",
+      "title": "Ní féidir leis an gcuntas seo é sin a dhéanamh",
+      "body": "Ní cheadaíonn do ról é seo. Iarr rochtain ar úinéir, nó logáil isteach le cuntas a bhfuil sé aige."
+    },
+    "error": {
+      "title": "Chuaigh rud éigin cearr",
+      "body": "Níor athraigh an t-iarratas seo aon rud. Bain triail eile as; má leanann sé de tarlú, tá na sonraí i log an fhreastalaí.",
+      "digest": "earráid {digest}",
+      "generic": "earráid"
+    },
+    "appNotFound": {
+      "title": "Gan aimsiú",
+      "body": "Níl an taifead seo ann, nó scriosadh é agus tú ag féachaint air.",
+      "back": "Ar ais chuig an bpainéal rialaithe"
+    },
+    "validation": {
+      "required": "riachtanach",
+      "tooLong": "{max} carachtar ar a mhéad",
+      "invalidEmail": "caithfidh sé a bheith ina ríomhphost bailí",
+      "invalidDate": "caithfidh sé a bheith ina dháta féilire i bhfoirm YYYY-MM-DD",
+      "invalidAmount": "caithfidh sé a bheith ina uimhir",
+      "wholeNumber": "caithfidh sé a bheith ina slánuimhir",
+      "greaterThanZero": "caithfidh sé a bheith níos mó ná nialas",
+      "fixFields": "Ceartaigh na réimsí aibhsithe le do thoil.",
+      "charset": "Ní cheadaítear ach gnáthcharachtair méarchláir."
+    }
+  },
+  "verify": {
+    "metaTitle": "Fíoraigh doiciméad",
+    "metaDescription": "Seiceáil gur eisigh an seoltóir sonraise nó nóta creidmheasa agus nár athraíodh é.",
+    "heading": "Fíorú doiciméid",
+    "rateLimited": "An iomarca seiceálacha ón seoladh seo. Bain triail eile as i gceann nóiméid.",
+    "notFound": {
+      "title": "Níl a leithéid de dhoiciméad ann",
+      "body": "Ní hionann an nasc seo agus aon doiciméad eisithe. Seiceáil an cód QR nó an nasc a tugadh duit, nó déan teagmháil leis an eisitheoir."
+    },
+    "status": {
+      "void": "Neamhbhailithe",
+      "valid": "Bailí"
+    },
+    "issuedBy": "Eisithe ag",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Eisithe do",
+    "issueDate": "Dáta eisiúna",
+    "total": "Iomlán",
+    "voided": "Rinne an t-eisitheoir an doiciméad seo a neamhbhailiú agus níl sé bailí a thuilleadh.",
+    "storedCopies": {
+      "title": "Cóipeanna stóráilte",
+      "description": "SHA-256 gach leagan PDF atá ag an eisitheoir. Roghnaigh do chóip chun é a chur i gcomparáid i do bhrabhsálaí: ní uaslódáiltear aon rud.",
+      "empty": "Níor gineadh aon PDF go fóill.",
+      "protectedVersion": "Cóip faoi chosaint pasfhocail {version}",
+      "version": "Leagan {version}"
+    },
+    "check": {
+      "label": "Seiceáil do chóip",
+      "hashing": "Ag hashú…",
+      "match": "Tá do chóip ag teacht go beacht le leagan {version}.",
+      "mismatch": "Níl do chóip ag teacht le haon leagan stóráilte."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Doiciméad roinnte",
+      "metaDescription": "Doiciméad roinnte leat: féach air ar líne agus íoslódáil an PDF.",
+      "rateLimited": "An iomarca iarratas ón seoladh seo. Bain triail eile as i gceann nóiméid.",
+      "unavailable": {
+        "title": "Níl an nasc seo ar fáil",
+        "body": "B’fhéidir go bhfuil sé as feidhm nó go bhfuil sé cúlghairthe ag an eisitheoir. Iarr ceann nua orthu."
+      },
+      "lockedTitleInvoice": "Sonraisc ó {issuer}",
+      "lockedTitleCreditNote": "Nóta creidmheasa ó {issuer}",
+      "lockedBody": "Tá an doiciméad seo faoi chosaint pasfhocail. Cuir isteach an pasfhocal a thug an t-eisitheoir duit.",
+      "void": "Neamhbhailithe",
+      "protectedPdf": "Osclaítear an PDF leis an bpasfhocal céanna. Is féidir é a léamh agus a phriontáil; tá cóipeáil agus eagarthóireacht faoi ghlas.",
+      "byline": "Ó {issuer} go {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Pasfhocal",
+      "limited": "An iomarca iarrachtaí. Fan cúig nóiméad déag agus bain triail eile as.",
+      "wrong": "Níl an pasfhocal sin ceart.",
+      "submit": "Oscail an doiciméad"
+    },
+    "dialog": {
+      "trigger": "Roinn",
+      "title": "Roinn an doiciméad seo",
+      "description": "Is féidir le duine ar bith leis an nasc é a fheiceáil agus a íoslódáil go dtí go dtéann sé as feidhm nó go gcúlghairfidh tú é. Cosnaíonn pasfhocal an PDF féin freisin: osclaítear é leis an bpasfhocal agus is féidir é a léamh agus a phriontáil, ní féidir é a chur in eagar ná a chóipeáil.",
+      "link": "Nasc",
+      "copyLink": "Cóipeáil an nasc",
+      "password": "Pasfhocal",
+      "copyPassword": "Cóipeáil an pasfhocal",
+      "sendSeparately": "Seol an pasfhocal ar leithligh ón nasc. Is féidir leat é a fheiceáil arís sa liosta thíos.",
+      "copy": "Cóipeáil",
+      "copied": "Cóipeáilte",
+      "expires": "Téann as feidhm",
+      "expiry": {
+        "d7": "I gceann 7 lá",
+        "d30": "I gceann 30 lá",
+        "d90": "I gceann 90 lá",
+        "never": "Choíche"
+      },
+      "protection": "Cosaint",
+      "protectionOptions": {
+        "auto": "Pasfhocal: gin pasfhrása",
+        "manual": "Pasfhocal: roghnóidh mé mo cheann féin",
+        "none": "Gan pasfhocal (nasc oscailte)"
+      },
+      "passwordHint": "8 gcarachtar ar a laghad.",
+      "strength": "Neart: {label}",
+      "strengthLabels": {
+        "veryWeak": "an-lag",
+        "weak": "lag",
+        "fair": "measartha",
+        "good": "maith",
+        "strong": "láidir"
+      },
+      "creating": "Ag cruthú…",
+      "create": "Cruthaigh nasc",
+      "activeLinks": "Naisc ghníomhacha",
+      "passwordProtected": "Faoi chosaint pasfhocail",
+      "openLink": "Oscail an nasc",
+      "linkExpires": "{kind} · téann as feidhm {date}",
+      "linkNeverExpires": "{kind} · ní théann as feidhm choíche",
+      "revoke": {
+        "title": "An nasc seo a chúlghairm?",
+        "description": "Stopann an nasc ag obair láithreach do gach duine a bhfuil sé acu.",
+        "label": "Cúlghair"
+      },
+      "linkPassword": "Pasfhocal: <code>{password}</code>",
+      "counts": "{views, plural, other {# amharc}} · {downloads, plural, other {# íoslódáil}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Nótaí creidmheasa",
+      "title": "Nótaí creidmheasa",
+      "description": "Ardaithe i gcoinne sonraisc eisithe; laghdaíonn gach ceann acu iarmhéid a shonraisc nuair a eisítear é.",
+      "newCreditNote": "Nóta creidmheasa nua",
+      "filters": {
+        "from": "Ó",
+        "to": "Go",
+        "issuer": "Eisitheoir",
+        "client": "Cliant",
+        "status": "Stádas",
+        "search": "Cuardaigh",
+        "all": "Gach",
+        "searchPlaceholder": "Uimhir, cúis, cliant",
+        "go": "Téigh"
+      },
+      "statuses": {
+        "DRAFT": "Dréacht",
+        "ISSUED": "Eisithe",
+        "SENT": "Seolta",
+        "VOID": "Neamhbhailithe"
+      },
+      "empty": {
+        "title": "Níl aon nóta creidmheasa ann go fóill",
+        "description": "Oscail sonraisc eisithe agus roghnaigh “Nóta creidmheasa” chun an méid atá dlite uirthi a laghdú."
+      },
+      "noMatch": "Níl aon nóta creidmheasa ag teacht leis na scagairí seo.",
+      "columns": {
+        "number": "Uimhir",
+        "against": "I gcoinne",
+        "client": "Cliant",
+        "issueDate": "Dáta eisiúna",
+        "reason": "Cúis",
+        "total": "Iomlán",
+        "status": "Stádas"
+      },
+      "draft": "Dréacht"
+    },
+    "new": {
+      "metaTitle": "Nóta creidmheasa nua",
+      "title": "Nóta creidmheasa nua",
+      "description": "Ardaítear nóta creidmheasa i gcoinne sonraisc eisithe agus laghdaíonn sé a hiarmhéid.",
+      "nothingToCredit": {
+        "title": "Rud ar bith le creidmheas",
+        "description": "Teastaíonn sonraisc eisithe le hiarmhéid gan íoc le haghaidh nótaí creidmheasa.",
+        "openInvoices": "Oscail na sonraisc"
+      },
+      "whichInvoice": "Cén sonraisc?",
+      "invoice": "Sonraisc",
+      "invoiceOption": "{number} · {client} · iarmhéid {balance}",
+      "issuedOnly": "Ardaítear nótaí creidmheasa i gcoinne sonraisc eisithe amháin.",
+      "invoiceFallback": "Sonraisc"
+    },
+    "edit": {
+      "metaTitle": "Cuir nóta creidmheasa in eagar",
+      "title": "Cuir dréacht de nóta creidmheasa in eagar",
+      "immutable": "Ní féidir nótaí creidmheasa eisithe a athrú.",
+      "draft": "Dréacht"
+    },
+    "detail": {
+      "metaTitle": "Nóta creidmheasa",
+      "draftTitle": "Dréacht de nóta creidmheasa",
+      "meta": "{client} · i gcoinne <invoice>{number}</invoice> · eisithe <mono>{date}</mono>",
+      "previewPdf": "Réamhamharc PDF",
+      "issue": {
+        "title": "An nóta creidmheasa seo a eisiúint?",
+        "description": "Leithdháiltear uimhir, laghdaítear iarmhéid an tsonraisc agus ní féidir an doiciméad a athrú tar éis sin.",
+        "label": "Eisigh"
+      },
+      "deleteDraft": {
+        "title": "An dréacht seo a scriosadh?"
+      },
+      "sendByEmail": "Seol trí ríomhphost",
+      "markSent": {
+        "title": "Marcáil mar sheolta?",
+        "label": "Marcáil mar sheolta"
+      },
+      "void": {
+        "title": "An nóta creidmheasa seo a neamhbhailiú?",
+        "description": "Athbhunaítear iarmhéid an tsonraisc; ní athúsáidtear an uimhir choíche.",
+        "reason": "Cúis",
+        "label": "Neamhbhailigh"
+      },
+      "voided": "Neamhbhailithe {date}: {reason}",
+      "amounts": {
+        "title": "Suimeanna",
+        "reason": "Cúis",
+        "creditAmount": "Suim chreidmheasa",
+        "total": "Iomlán",
+        "balanceNow": "Iarmhéid an tsonraisc anois",
+        "sent": "Seolta"
+      },
+      "documents": {
+        "title": "Doiciméid stóráilte",
+        "description": "Coinnítear gach leagan; liostaíonn an leathanach fíorúcháin na hashanna go léir.",
+        "regenerateTitle": "An leagan PDF nua a ghiniúint?",
+        "generate": "Gin",
+        "newVersion": "Leagan nua",
+        "renderedOnFirstDownload": "Rindreáiltear an PDF ag an gcéad íoslódáil.",
+        "protectedCopy": "Cóip faoi chosaint pasfhocail {version}",
+        "version": "Leagan {version}",
+        "verificationLink": "Nasc fíorúcháin: <link>{path}…</link>"
+      },
+      "draftsPreview": "Déantar réamhamharc ar dhréachtaí beo san eagarthóir."
+    },
+    "send": {
+      "metaTitle": "Seol nóta creidmheasa",
+      "title": "Seol <mono>{number}</mono>",
+      "previousSends": "Seoltaí roimhe seo"
+    },
+    "builder": {
+      "against": "I gcoinne <mono>{number}</mono>",
+      "summary": "{client} · iomlán {total} · iarmhéid {balance} · spás inchánach ≈ {headroom}",
+      "issueDate": "Dáta eisiúna",
+      "creditAmount": "Suim chreidmheasa (gan cáin)",
+      "creditAmountHint": "Roinntear an cháin ó línte cánach an tsonraisc",
+      "reason": "Cúis",
+      "picker": {
+        "title": "Ríomh ó línte an tsonraisc",
+        "description": "Tic línte iomlána nó céatadán; ní líonann sé seo ach an tsuim thuas.",
+        "line": "Líne",
+        "subtotal": "Fotheaglaim",
+        "credit": "Creidmheas",
+        "percent": "%",
+        "creditLine": "Líne chreidmheasa {position}",
+        "percentOfLine": "Céatadán de líne {position}"
+      },
+      "saveDraft": "Sábháil dréacht",
+      "issuing": "Ag eisiúint…",
+      "saveAndIssue": "Sábháil agus eisigh"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Íocaíocht faighte",
+        "REFUND": "Aisíocaíocht eisithe",
+        "WRITE_OFF": "Dímheas"
+      },
+      "editTitle": "Cuir iontráil in eagar",
+      "recordTitle": "Taifead íocaíocht",
+      "description": "Tá suimeanna in airgeadra an tsonraisc ({currency}); tá TDS asbhainte mar chuid den tsuim chuirtear i bhfeidhm.",
+      "kind": "Cineál",
+      "date": "Dáta",
+      "amountRefunded": "Suim aisíoctha (diúltach)",
+      "amountApplied": "Suim curtha i bhfeidhm",
+      "refundHint": "Cuir isteach suim dhiúltach, m.sh. -500",
+      "tdsDeducted": "TDS asbhainte",
+      "tdsHint": "Cáin a choinnigh an cliant siar; áirítear í leis an tsuim a cuireadh i bhfeidhm",
+      "bankFees": "Táillí bainc",
+      "receivedInto": "Faighte isteach i",
+      "noMethod": "-",
+      "reference": "Tagairt",
+      "referenceHint": "UTR, ID idirbhirt, uimhir seice",
+      "otherCurrency": "Faighte in airgeadra eile",
+      "amountReceived": "Suim faighte",
+      "receivedCurrency": "Airgeadra faighte",
+      "exchangeRate": "Ráta malairte",
+      "exchangeRateHint": "1 aonad faighte = ? {currency}",
+      "notes": "Nótaí",
+      "receiptHint": "PNG, JPEG, WebP nó PDF suas le 10 MB",
+      "receipts": "Admhálacha agus billí",
+      "receiptN": "Admháil {n}",
+      "removeReceipt": "Bain admháil {n}",
+      "saveChanges": "Sábháil na hathruithe",
+      "record": "Taifead"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Billeáil chuig",
+      "shipTo": "Seol chuig",
+      "invoice": "Sonraisc",
+      "creditNote": "Nóta creidmheasa",
+      "issueDate": "Dáta eisiúna",
+      "dueDate": "Dáta dlite",
+      "number": "Uimhir",
+      "description": "Cur síos",
+      "sacHsn": "SAC/HSN",
+      "qty": "Cainníocht",
+      "unit": "Aonad",
+      "rate": "Ráta",
+      "tax": "Cáin",
+      "amount": "Suim",
+      "subtotal": "Fotheaglaim",
+      "discount": "Lacáiste",
+      "taxable": "Suim inchánach",
+      "total": "Iomlán",
+      "amountDue": "Suim dlite",
+      "tdsExpected": "TDS ionchasach",
+      "netExpected": "Glanmhéid ionchasach",
+      "rounding": "Cruinniú",
+      "paymentDetails": "Sonraí íocaíochta",
+      "notes": "Nótaí",
+      "terms": "Téarmaí",
+      "placeOfSupply": "Áit soláthair",
+      "poReference": "Tagairt PO",
+      "amountInWords": "Suim i bhfocail",
+      "signature": "Sínitheoir údaraithe"
+    },
+    "title": {
+      "taxInvoice": "SONRAISC CÁNA",
+      "billOfSupply": "BILLE SOLÁTHAIR",
+      "invoice": "SONRAISC",
+      "creditNote": "NÓTA CREIDMHEASA"
+    },
+    "text": {
+      "pageOf": "Leathanach {page} de {total}",
+      "scanToVerify": "Scan le fíorú",
+      "taxId": "Aitheantas cánach",
+      "void": "NEAMHBHAILÍ",
+      "draftWatermark": "DRÉACHT - ní sonraisc cánach é",
+      "paymentTermsDays": "{days} lá",
+      "irn": "IRN",
+      "ackNo": "Uimh. admhála",
+      "ackDate": "Dáta admhála",
+      "einvoiceCancelled": "E-SONRAISC CEALAITHE"
+    },
+    "ui": {
+      "pageEstimate": "thart ar {count, plural, one {# leathanach} two {# leathanach} few {# leathanaigh} many {# leathanach} other {# leathanach}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Teachtaireacht",
+      "description": "Réamhlíonta ó theimpléid na próifíle eisitheora. Ní sheoltar aon rud go dtí go gcliceálann tú Seol.",
+      "to": "Chuig",
+      "toHint": "Scartha le camóga",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Ábhar",
+      "body": "Corp",
+      "bodyHint": "Gnáth-théacs; éiríonn naisc inchliceáilte",
+      "attachment": "Ceangaltán",
+      "attachmentHint": "An chóip stóráilte, ainmnithe <mono>{name}</mono> (nó .docx); ní féidir a hábhar a athrú.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Ag seoladh…",
+      "send": "Seol",
+      "openInMailApp": "Oscail san aip ríomhphoist",
+      "noSmtp": "Níl aon fhreastalaí SMTP cumraithe (Socruithe → Ríomhphost). Oscail an dréacht i d’aip ríomhphoist, ceangail an PDF íoslódáilte, ansin marcáil mar sheolta thíos.",
+      "markAsSent": "Marcáil mar sheolta"
+    },
+    "sentLog": {
+      "when": "Cathain",
+      "document": "Doiciméad",
+      "to": "Chuig",
+      "subject": "Ábhar",
+      "status": "Stádas",
+      "empty": "Níor seoladh aon rud go fóill.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "seolta",
+        "FAILED": "teipthe",
+        "MANUAL": "de láimh"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Dia duit, {name}",
+    "fiscalYear": "Bliain airgeadais {year}",
+    "fiscalYearWithBase": "Bliain airgeadais {year} · bunairgeadra {currency} ({profile})",
+    "newCreditNote": "Nóta creidmheasa nua",
+    "welcomeTitle": "Fáilte go {appName}",
+    "welcomeDescription": "Tosaigh trí chruthú na próifíle eisitheora as a n-eisíonn tú sonraisc, ansin cuir cliant agus do chéad sonraisc leis.",
+    "createProfile": "Cruthaigh do phróifíl",
+    "tiles": {
+      "outstanding": "Gan íoc",
+      "overdue": "Thar téarma",
+      "billedThisFy": "Sonraisc an bhliain airgeadais seo",
+      "receivedThisFy": "Faighte an bhliain airgeadais seo",
+      "drafts": "Dréachtaí",
+      "invoiceCount": "{count, plural, one {# sonraisc} two {# sonraisc} few {# sonraisc} many {# sonraisc} other {# sonraisc}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Íocaíochtaí lúide aisíocaíochtaí, ag malairt thaifeadta",
+      "awaitingIssue": "ag fanacht le heisiúint",
+      "nothingPending": "níl aon rud ar feitheamh"
+    },
+    "recentInvoices": "Sonraisc le déanaí",
+    "allInvoices": "Gach sonraisc",
+    "noInvoicesYet": "Níl aon sonraisc ann go fóill.",
+    "columns": {
+      "number": "Uimhir",
+      "client": "Cliant",
+      "issued": "Eisithe"
+    },
+    "topClients": "Príomhchliaint de réir suime gan íoc",
+    "nothingOutstanding": "Níl aon rud gan íoc."
+  },
+  "exports": {
+    "export": "Onnmhairigh",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Sonraisc",
+      "newInvoice": "Sonraisc nua",
+      "draft": "Dréacht",
+      "aDraft": "dréacht",
+      "statuses": {
+        "draft": "Dréacht",
+        "issued": "Eisithe",
+        "sent": "Seolta",
+        "partiallyPaid": "Íoctha go páirteach",
+        "paid": "Íoctha",
+        "overdue": "Thar téarma",
+        "void": "Neamhbhailithe"
+      },
+      "lifecycle": {
+        "draft": "dréacht",
+        "issued": "eisithe",
+        "void": "neamhbhailithe"
+      },
+      "units": {
+        "hour": "Uair",
+        "day": "Lá",
+        "fixed": "Seasta",
+        "milestone": "Cloch mhíle",
+        "unit": "Aonad"
+      },
+      "unitsLower": {
+        "hour": "uair",
+        "day": "lá",
+        "fixed": "seasta",
+        "milestone": "cloch mhíle",
+        "unit": "aonad"
+      },
+      "supplyTypes": {
+        "intraState": "laistigh den stát",
+        "interState": "idir stáit",
+        "exportLut": "onnmhairiú lut",
+        "exportWithTax": "onnmhairiú le cáin",
+        "reverseCharge": "muirear droim ar ais",
+        "notApplicable": "níl infheidhme"
+      }
+    },
+    "list": {
+      "description": "Dréachtaí, sonraisc eisithe agus neamhbhailithe; díorthaítear stádais ó íocaíochtaí agus dátaí dlite.",
+      "fiscalYear": "Bliain airgeadais",
+      "issuer": "Eisitheoir",
+      "client": "Cliant",
+      "searchPlaceholder": "Uimhir, PO, cliant",
+      "emptyTitle": "Níl aon sonraisc ann go fóill",
+      "emptyDescription": "Tóg do chéad sonraisc: roghnaigh cliant, cuir línte leis, féach ar an réamhamharc, ansin eisigh é.",
+      "columns": {
+        "number": "Uimhir",
+        "client": "Cliant",
+        "issuer": "Eisitheoir",
+        "issueDate": "Dáta eisiúna",
+        "due": "Dlite",
+        "balance": "Iarmhéid"
+      },
+      "noMatches": "Níl aon sonraisc ag teacht leis na scagairí seo.",
+      "count": "{count, plural, one {# sonraisc} two {# sonraisc} few {# sonraisc} many {# sonraisc} other {# sonraisc}}",
+      "countPaged": "{count, plural, one {# sonraisc} two {# sonraisc} few {# sonraisc} many {# sonraisc} other {# sonraisc}} · leathanach {page} de {pages}",
+      "register": "clár",
+      "einvoice": "E-sonraisc",
+      "einvoiceFilters": {
+        "registered": "IRN cláraithe",
+        "none": "Gan cláriú",
+        "cancelled": "IRN cealaithe"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Cruthaigh próifíl eisitheora ar dtús",
+      "noProfileDescription": "Eisítear sonraisc ó chéannacht dhlíthiúil: socraigh do phróifíl lena haitheantóirí cánach agus a huimhriú.",
+      "createProfile": "Cruthaigh próifíl"
+    },
+    "edit": {
+      "metaTitle": "Cuir sonraisc in eagar",
+      "title": "Cuir dréacht in eagar",
+      "immutableFlash": "Ní féidir sonraisc eisithe a athrú. Úsáid “Neamhbhailigh agus athaisigh” chun é a cheartú."
+    },
+    "detail": {
+      "metaTitle": "Sonraisc",
+      "draftInvoice": "Dréacht de shonraisc",
+      "issuedDue": "Eisithe <mono>{issued}</mono>, dlite <mono>{due}</mono>",
+      "replaces": "Cuireann sé {number} in ionad",
+      "replacedBy": "Curtha in ionad ag {number}",
+      "previewPdf": "Réamhamharc PDF",
+      "downloadEInvoice": "Íoslódáil JSON na leictreonaí-sonraisc",
+      "issueTitle": "An sonraisc seo a eisiúint?",
+      "issueDescription": "Leithdháiltear uimhir agus ní féidir an doiciméad a athrú tar éis sin.",
+      "issue": "Eisigh",
+      "deleteDraftTitle": "An dréacht seo a scriosadh?",
+      "sendByEmail": "Seol trí ríomhphost",
+      "recordPayment": "Taifead íocaíocht",
+      "progress": {
+        "title": "Dul chun cinn na híocaíochta",
+        "description": "Cá bhfuil an sonrasc seo, ón eisiúint go dtí admháil ar chomhad.",
+        "issued": "Eisithe",
+        "sent": "Seolta",
+        "payment": "Híocaíocht taifeadta",
+        "paymentOn": "Híocaíocht <mono>{amount}</mono> taifeadta ar <mono>{date}</mono>",
+        "paid": "Íoctha go hiomlán",
+        "receipt": "Admháil ceangailte",
+        "done": "déanta",
+        "pending": "ar feitheamh"
+      },
+      "creditNote": "Nóta creidmheasa",
+      "markSentTitle": "Marcáil mar sheolta?",
+      "markSentDescription": "Taifeadann sé go bhfuair an cliant an sonraisc seo.",
+      "markSent": "Marcáil mar sheolta",
+      "voidReissueTitle": "Neamhbhailigh agus athaisigh?",
+      "voidReissueDescription": "Déantar an bhunchóip a neamhbhailiú agus osclaítear dréacht nasctha leis an ábhar céanna le cur in eagar.",
+      "voidReissue": "Neamhbhailigh agus athaisigh",
+      "voidTitle": "An sonraisc seo a neamhbhailiú?",
+      "voidDescription": "Is féidir é a dhéanamh gan íocaíochtaí taifeadta amháin; ní athúsáidtear an uimhir choíche.",
+      "void": "Neamhbhailigh",
+      "voided": "Neamhbhailithe {date}: {reason}",
+      "amounts": "Suimeanna",
+      "subtotal": "Fotheaglaim",
+      "discount": "Lascaine",
+      "discountPercent": "Lascaine ({percent})",
+      "rounding": "Babhtáil",
+      "tdsExpected": "TDS ionchais ({percent})",
+      "paid": "Íoctha",
+      "credited": "Creidmheasta",
+      "balanceDue": "Iarmhéid dlite",
+      "supply": "Soláthar",
+      "fxToBase": "Malairt go bonn",
+      "poReference": "Tagairt PO",
+      "sent": "Seolta",
+      "lineItems": "Míreanna líne",
+      "columns": {
+        "description": "Cur síos",
+        "sacHsn": "SAC/HSN",
+        "qty": "Cion.",
+        "rate": "Ráta",
+        "tax": "Cáin",
+        "amount": "Suim"
+      },
+      "creditNotes": "Nótaí creidmheasa",
+      "storedDocuments": "Doiciméid stóráilte",
+      "storedDocumentsHint": "Coinnítear gach leagan; liostaíonn an leathanach fíorúcháin na hashanna go léir.",
+      "regenerateTitle": "An leagan PDF nua a ghiniúint?",
+      "regenerateDescription": "Rindreáiltear arís ón léargas reoite (mar shampla tar éis deisiú rindreálaí). Fanann leaganacha níos luaithe.",
+      "regenerate": "Gin",
+      "newVersion": "Leagan nua",
+      "renderedOnFirstDownload": "Rindreáiltear an PDF ag an gcéad íoslódáil.",
+      "protectedCopy": "Cóip faoi chosaint pasfhocail {version}",
+      "version": "Leagan {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Nasc fíorúcháin:",
+      "draftPreviewHint": "Déantar réamhamharc ar dhréachtaí beo san eagarthóir; oscail <link>an PDF le comhartha uisce</link> chun an leathanach a fheiceáil.",
+      "einvoice": {
+        "title": "E-sonraisc (an Ind)",
+        "description": "Clárú an tsonraisc seo leis an Invoice Registration Portal; priontálann doiciméad cláraithe a IRN agus cód QR sínithe an tsolais.",
+        "connector": "Nascóir",
+        "connectors": {
+          "manual": "De láimh",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Níl nascóir ar bith cumraithe don phróifíl seo faoi Socruithe > E-sonrascú.",
+        "statuses": {
+          "none": "Gan cláriú",
+          "generated": "JSON ginte",
+          "registered": "Cláraithe",
+          "cancelled": "Cealaithe",
+          "failed": "Theip ar an gclárú"
+        },
+        "irn": "IRN",
+        "ackNo": "Uimh. admhála",
+        "ackDate": "Dáta admhála",
+        "cancelReason": "Cealú",
+        "generate": "Gin IRN",
+        "pasteLabel": "Freagra IRP",
+        "pasteHint": "Greamaigh an JSON a d’fhill an tsoláthar nó do GSP le haghaidh JSON e-sonraisc an tsonraisc seo (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Taifead IRN",
+        "cancelReasonLabel": "Cúis an chealaithe",
+        "cancelReasons": {
+          "1": "Dúblach",
+          "2": "Botún ionchuir sonraí",
+          "3": "Ordú cealaithe",
+          "4": "Eile"
+        },
+        "cancel": "Cealaigh IRN",
+        "cancelWindow": "Ceadaíonn an tsolas cealú laistigh de 24 uair an chloig ón admháil."
+      }
+    },
+    "history": {
+      "metaTitle": "Stair an tsonraisc",
+      "title": "Stair <mono>{number}</mono>",
+      "reissueChain": "Slabhra athaisiúna",
+      "replaces": "Cuireann sé <link>{number}</link> in ionad",
+      "replacedBy": "Curtha in ionad ag <link>{number}</link>",
+      "auditTrail": "Rian iniúchta",
+      "columns": {
+        "when": "Cathain",
+        "who": "Cé",
+        "action": "Gníomh",
+        "summary": "Achoimre"
+      },
+      "noEvents": "Níl aon imeacht ann go fóill.",
+      "system": "Córas",
+      "emails": "Ríomhphoist"
+    },
+    "payments": {
+      "title": "Íocaíochtaí",
+      "description": "{client} · {total} san iomlán",
+      "backToInvoice": "Ar ais chuig an sonraisc",
+      "ledger": "Leabhar cuntais",
+      "columns": {
+        "date": "Dáta",
+        "kind": "Cineál",
+        "applied": "Curtha i bhfeidhm",
+        "tds": "TDS",
+        "received": "Faighte",
+        "reference": "Tagairt",
+        "balance": "Iarmhéid"
+      },
+      "noPayments": "Níl aon íocaíocht taifeadta go fóill.",
+      "kinds": {
+        "payment": "Íocaíocht",
+        "refund": "Aisíocaíocht",
+        "writeOff": "Dímheas"
+      },
+      "receipt": "Admháil",
+      "receiptN": "Admháil {n}",
+      "deleteEntryTitle": "An iontráil seo a scriosadh?",
+      "deleteEntryDescription": "Athríomhtar iarmhéid an tsonraisc.",
+      "totals": "Iomláin",
+      "invoiceTotal": "Iomlán an tsonraisc",
+      "credited": "Creidmheasta",
+      "refunds": "Aisíocaíochtaí",
+      "writeOffs": "Dímheasanna",
+      "tdsDeducted": "TDS asbhainte",
+      "bankFees": "Táillí bainc",
+      "balanceDue": "Iarmhéid dlite",
+      "onlyIssued": "Ní ghlacann ach sonraisc eisithe le híocaíochtaí."
+    },
+    "send": {
+      "metaTitle": "Seol sonraisc",
+      "title": "Seol <mono>{number}</mono>",
+      "alreadySent": "Marcáilte mar sheolta cheana; cuireann seoladh arís iontráil log eile leis.",
+      "previousSends": "Seoltaí roimhe seo"
+    },
+    "builder": {
+      "parties": "Páirtithe",
+      "issuerProfile": "Próifíl eisitheora",
+      "client": "Cliant",
+      "archivedOption": "{label} (cartlannaithe)",
+      "issueDate": "Dáta eisiúna",
+      "dueDate": "Dáta dlite",
+      "fxRate": "Ráta malairte go bunairgeadra",
+      "fxHint": "1 {currency} = ? {base} (le haghaidh tuairiscithe amháin)",
+      "poReference": "Tagairt PO",
+      "lineItems": "Míreanna líne",
+      "lineItemsHint": "Roghnaigh ón gcatalóg chun a luachanna a chóipeáil, nó clóscríobh líne.",
+      "taxDiscountTds": "Cáin, lascaine agus TDS",
+      "taxRegime": "Córas cánach",
+      "regimes": {
+        "indiaGst": "GST na hIndia",
+        "ukVat": "CBL na RA",
+        "usSalesTax": "Cáin díolacháin na SA",
+        "none": "Gan cáin"
+      },
+      "reverseCharge": "Muirear droim ar ais",
+      "reverseChargeHint": "Cáin iníoctha ag an bhfaighteoir",
+      "discount": "Lascaine",
+      "percent": "Céatadán",
+      "amount": "Suim",
+      "rounding": "Coigeartú babhtála",
+      "roundingHint": "Roghnach, go dtí aonad iomlán; caithfidh sé a bheith faoi bhun 1",
+      "round": "Babhtáil",
+      "tdsRate": "Ráta TDS ionchais (%)",
+      "tdsRateHint": "Faisnéiseach; priontáilte nuair atá miondealú TDS ar siúl",
+      "paymentMethods": "Modhanna íocaíochta",
+      "paymentMethodsHint": "Priontáilte san ord ina ndéantar iad a thic.",
+      "noPaymentMethods": "Níl aon mhodh íocaíochta gníomhach. <link>Cuir ceann leis</link>.",
+      "whatPrints": "Cad a phriontáiltear",
+      "whatPrintsHint": "Tosaíonn sé le réamhshocruithe na próifíle eisitheora.",
+      "documentLanguage": "Teanga an doiciméid",
+      "documentLanguageHint": "Priontáiltear lipéid, dátaí agus suimeanna sa teanga seo; rogha an chliaint, ar shlí eile rogha an phróifíl.",
+      "notesAndTerms": "Nótaí agus téarmaí",
+      "notes": "Nótaí",
+      "terms": "Téarmaí",
+      "saveDraft": "Sábháil dréacht",
+      "issuing": "Ag eisiúint…",
+      "saveAndIssue": "Sábháil agus eisigh",
+      "subtotal": "Fotheaglaim",
+      "tax": "Cáin",
+      "tdsExpected": "TDS ionchais",
+      "netExpected": "Glan ionchais"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Cuir leis ón gcatalóg…",
+      "services": "Seirbhísí",
+      "products": "Táirgí",
+      "addLine": "Cuir líne leis",
+      "columns": {
+        "description": "Cur síos",
+        "sacHsn": "SAC/HSN",
+        "qty": "Cion.",
+        "unit": "Aonad",
+        "rate": "Ráta",
+        "taxPercent": "Cáin %"
+      },
+      "aria": {
+        "description": "Cur síos ar líne {line}",
+        "sacHsn": "SAC/HSN líne {line}",
+        "quantity": "Cainníocht líne {line}",
+        "unit": "Aonad líne {line}",
+        "rate": "Ráta líne {line}",
+        "taxRate": "Ráta cánach líne {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Díolmhaithe",
+      "moveUp": "Bog suas",
+      "moveDown": "Bog síos",
+      "removeLine": "Bain líne",
+      "shortcutHint": "Cuireann Ctrl/⌘+Enter i gcur síos líne leis.",
+      "addFromCatalogueAria": "Cuir leis ón gcatalóg"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Sonraí an eisitheora",
+        "client": "Sonraí an chliaint",
+        "document": "Codanna den doiciméad"
+      },
+      "fields": {
+        "showLogo": "Lógó",
+        "showTradeName": "Ainm trádála",
+        "showDesignation": "Ainmniú",
+        "showEmail": "Ríomhphost",
+        "showPhone": "Guthán",
+        "showWebsite": "Suíomh gréasáin",
+        "showFullAddress": "Seoladh iomlán",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Síniú",
+        "showStamp": "Stampa",
+        "showContactPerson": "Duine teagmhála",
+        "showBillingAddress": "Seoladh billeála",
+        "showShippingAddress": "Seoladh seachadta",
+        "showTaxIdentifier": "Aitheantóir cánach",
+        "showPlaceOfSupply": "Áit an tsoláthair",
+        "showDueDate": "Dáta dlite",
+        "showPaymentTerms": "Téarmaí íocaíochta",
+        "showSacCodeColumn": "Colún cód SAC",
+        "showQuantityColumn": "Colún cainníochta",
+        "showUnitPriceColumn": "Colún aonphraghais",
+        "showTaxColumn": "Colún cánach",
+        "showTdsBreakdown": "Miondealú TDS",
+        "showQrVerification": "Fíorú QR",
+        "showNotes": "Nótaí",
+        "showTerms": "Téarmaí",
+        "showReplacesReference": "Tagairt athsholáthair",
+        "showAmountInWords": "Suim i bhfocail",
+        "showSupplyStatement": "Ráiteas soláthair",
+        "showRoundingLine": "Líne babhtála",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Cliaint",
+      "description": "Gach duine a sonraisceann tú. Cartlannaítear cliaint a bhfuil sonraisc acu, ní scriostar iad choíche.",
+      "newClient": "Cliant nua",
+      "searchPlaceholder": "Cuardaigh de réir ainm",
+      "searchLabel": "Cuardaigh cliaint",
+      "emptyTitle": "Níl aon chliant ann go fóill",
+      "emptyDescription": "Cuir leis na daoine agus na cuideachtaí a sonraisceann tú; réamhlíonann a n-airgeadra agus a dtéarmaí íocaíochta gach sonraisc.",
+      "addClient": "Cuir cliant leis",
+      "noMatch": "Níl aon chliant ag teacht le “{q}”.",
+      "termsDays": "{days} l",
+      "columns": {
+        "name": "Ainm",
+        "contact": "Teagmháil",
+        "email": "Ríomhphost",
+        "country": "Tír",
+        "currency": "Airgeadra",
+        "terms": "Téarmaí",
+        "status": "Stádas"
+      }
+    },
+    "new": {
+      "title": "Cliant nua"
+    },
+    "edit": {
+      "metaTitle": "Cuir cliant in eagar",
+      "title": "Cuir {name} in eagar"
+    },
+    "detail": {
+      "metaTitle": "Cliant",
+      "newInvoice": "Sonraisc nua",
+      "restoreTitle": "An cliant seo a athbhunú?",
+      "archiveTitle": "An cliant seo a chartlannú?",
+      "archiveDescription": "Fágann sé na roghnóirí; fanann sonraisc agus stair slán.",
+      "deleteTitle": "An cliant seo a scriosadh?",
+      "deleteDescription": "Is féidir é a dhéanamh ach amháin nuair nach dtagraíonn aon sonraisc don chliant.",
+      "details": "Sonraí",
+      "contact": "Teagmháil",
+      "email": "Ríomhphost",
+      "phone": "Guthán",
+      "country": "Tír",
+      "gstState": "GST {code}",
+      "taxId": "ID cánach",
+      "currency": "Airgeadra",
+      "paymentTerms": "Téarmaí íocaíochta",
+      "paymentTermsDays": "{days} lá",
+      "expectedTds": "TDS ionchais",
+      "notes": "Nótaí",
+      "addresses": "Seoltaí",
+      "billing": "Billeáil",
+      "shipping": "Seachadadh",
+      "lifetime": "Ré iomlán",
+      "openRegister": "Oscail an clár",
+      "noIssued": "Níl aon sonraisc eisithe ann go fóill.",
+      "noIssuedWithDrafts": "Níl aon sonraisc eisithe ann go fóill ({drafts} dréacht).",
+      "firstLatest": "An chéad sonraisc <mono>{first}</mono>, an ceann is déanaí <mono>{latest}</mono>{drafts, plural, =0 {} one { · # dréacht} two { · # dréacht} few { · # dréacht} many { · # dréacht} other { · # dréacht}}",
+      "lifetimeColumns": {
+        "currency": "Airgeadra",
+        "invoices": "Sonraisc",
+        "billed": "Sonraiscthe",
+        "received": "Faighte",
+        "credited": "Creidmheasta",
+        "outstanding": "Gan íoc",
+        "overdue": "Thar téarma"
+      },
+      "recentInvoices": "Sonraisc le déanaí",
+      "noInvoices": "Níl aon sonraisc ann don chliant seo go fóill.",
+      "recentColumns": {
+        "number": "Uimhir",
+        "issueDate": "Dáta eisiúna",
+        "due": "Dlite",
+        "total": "Iomlán",
+        "balance": "Iarmhéid",
+        "status": "Stádas"
+      }
+    },
+    "form": {
+      "cardTitle": "Cliant",
+      "displayName": "Ainm taispeána",
+      "contactPerson": "Duine teagmhála",
+      "email": "Ríomhphost",
+      "phone": "Guthán",
+      "taxIdType": "Cineál ID cánach",
+      "taxIdTypeNone": "Ceann ar bith",
+      "taxId": "ID cánach",
+      "currency": "Airgeadra",
+      "paymentTerms": "Téarmaí íocaíochta (laethanta)",
+      "expectedTdsRate": "Ráta TDS ionchais (%)",
+      "preferredLanguage": "Teanga an doiciméid",
+      "preferredLanguageFollow": "Lean próifíl an eisitheora",
+      "buyerReference": "Tagairt an cheannaitheora",
+      "buyerReferenceHint": "Priontáilte in e-sonraisc mar thagairt féin an cheannaitheora (uimhir ordaithe nó lárionaid costais).",
+      "electronicAddress": "Seoladh leictreonach",
+      "electronicAddressHint": "An t-aitheantóir Peppol nó EN 16931 faoina nglacann an cliant seo le e-sonraisc.",
+      "electronicAddressScheme": "Scéim an tseolta leictreonaigh",
+      "electronicAddressSchemeNone": "Gan scéim",
+      "notes": "Nótaí",
+      "billingAddress": "Seoladh billeála",
+      "shippingAddress": "Seoladh seachadta",
+      "differentFromBilling": "Difriúil ón mbilleáil",
+      "save": "Sábháil an cliant"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Uair",
+      "DAY": "Lá",
+      "FIXED": "Seasta",
+      "MILESTONE": "Cloch mhíle",
+      "UNIT": "Aonad"
+    },
+    "list": {
+      "activate": "Gníomhachtaigh",
+      "deactivate": "Díghníomhachtaigh",
+      "archiveDescription": "Coinníonn línte sonraisc atá ann cheana a luachanna cóipeáilte.",
+      "deleteDescription": "Is féidir é a dhéanamh ach amháin nuair nach dtagraíonn aon líne sonraisc dó. Seachas sin, cartlannaigh é.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Ainm",
+        "unit": "Aonad",
+        "rate": "Ráta",
+        "price": "Praghas",
+        "currency": "Airgeadra",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Cáin",
+        "status": "Stádas"
+      }
+    },
+    "services": {
+      "title": "Seirbhísí",
+      "description": "Do chatalóg. Cóipeálann roghnú seirbhíse a luachanna ar líne an tsonraisc.",
+      "newService": "Seirbhís nua",
+      "emptyTitle": "Níl aon seirbhís ann go fóill",
+      "emptyDescription": "Cuir leis an méid a dhíolann tú - dearadh in aghaidh na huaire, cloch mhíle ar tháille seasta - lena cód SAC/HSN agus ráta cánach.",
+      "addService": "Cuir seirbhís leis",
+      "restoreTitle": "An {name} a athbhunú?",
+      "archiveTitle": "An {name} a chartlannú?",
+      "deleteTitle": "An {name} a scriosadh?",
+      "editMetaTitle": "Cuir seirbhís in eagar",
+      "editTitle": "Cuir {name} in eagar"
+    },
+    "products": {
+      "title": "Táirgí",
+      "description": "Earraí a dhíolann tú, gach ceann le SKU. Cóipeálann roghnú táirge a luachanna ar líne an tsonraisc.",
+      "newProduct": "Táirge nua",
+      "emptyTitle": "Níl aon táirge ann go fóill",
+      "emptyDescription": "Cuir leis na hearraí a dhíolann tú le SKU, cód HSN, aonphraghas agus ráta cánach.",
+      "addProduct": "Cuir táirge leis",
+      "restoreTitle": "An {sku} a athbhunú?",
+      "archiveTitle": "An {sku} a chartlannú?",
+      "deleteTitle": "An {sku} a scriosadh?",
+      "editMetaTitle": "Cuir táirge in eagar",
+      "editTitle": "Cuir {sku} in eagar"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Cód uathúil priontáilte faoi chur síos na líne",
+      "name": "Ainm",
+      "unit": "Aonad",
+      "defaultRate": "Ráta réamhshocraithe",
+      "unitPrice": "Aonphraghas",
+      "currency": "Airgeadra",
+      "sacHsnCode": "Cód SAC / HSN",
+      "sacHsnHint": "Riachtanach ar shonraisc GST",
+      "hsnCode": "Cód HSN",
+      "hsnHint": "Riachtanach ar shonraisc GST do earraí",
+      "defaultTaxRate": "Ráta cánach réamhshocraithe (%)",
+      "description": "Cur síos",
+      "descriptionHint": "Réamhlíonann sé cur síos na líne",
+      "active": "Gníomhach",
+      "serviceInactiveHint": "Fanann seirbhísí neamhghníomhacha as roghnóir an tsonraisc",
+      "productInactiveHint": "Fanann táirgí neamhghníomhacha as roghnóir an tsonraisc",
+      "saveService": "Sábháil an tseirbhís",
+      "saveProduct": "Sábháil an táirge"
+    },
+    "tags": {
+      "legend": "Próifílí",
+      "hint": "Tic na próifílí eisitheora a dhíolann é seo. Fág gach ceann gan tic chun é a thairiscint do gach próifíl."
+    }
+  },
+  "address": {
+    "line1": "Líne seolta 1",
+    "line2": "Líne seolta 2",
+    "city": "Cathair",
+    "stateRegion": "Stát / réigiún",
+    "postalCode": "Cód poist",
+    "country": "Tír",
+    "state": "Stát",
+    "gstStateCodeHint": "Cód stáit GST {code}",
+    "pickStateHint": "Roghnaigh an stát don chód stáit GST",
+    "stateRegionCode": "Cód stáit / réigiúin",
+    "stateRegionCodePlaceholder": "m.sh. CA"
+  },
+  "assets": {
+    "tooLarge": "Tá an comhad sin ró-mhór.",
+    "unsupportedReceipt": "Úsáid íomhá PNG, JPEG, WebP nó PDF.",
+    "unsupportedImage": "Úsáid íomhá PNG, JPEG nó WebP.",
+    "uploadFailed": "Theip ar an uaslódáil.",
+    "uploading": "Ag uaslódáil…",
+    "dropHint": "Tarraing comhad anseo, nó roghnaigh ceann",
+    "dropHintMany": "Tarraing comhaid anseo, nó roghnaigh iad",
+    "dropActive": "Scaoil chun uaslódáil"
+  },
+  "ui": {
+    "breadcrumb": "Conair nascleanúna",
+    "close": "Dún",
+    "closeMenu": "Dún an roghchlár",
+    "reveal": "Taispeáin",
+    "hide": "Folaigh",
+    "openCalendar": "Oscail an féilire",
+    "chooseMonth": "Roghnaigh mí",
+    "chooseYear": "Roghnaigh bliain",
+    "searchOptions": "Clóscríobh chun cuardach",
+    "noMatches": "Gan aon toradh",
+    "pullToRefresh": {
+      "label": "Liosta in-athnuaite",
+      "pulling": "Tarraing chun athnuachan",
+      "release": "Scaoil chun athnuachan",
+      "refreshing": "Ag athnuachan"
+    },
+    "inputCharset": "Ní cheadaítear ach gnáthcharachtair méarchláir.",
+    "confirm": {
+      "working": "Ag oibriú…"
+    },
+    "statusPill": {
+      "DRAFT": "Dréacht",
+      "ISSUED": "Eisithe",
+      "SENT": "Seolta",
+      "PARTIALLY_PAID": "Íoctha go páirteach",
+      "PAID": "Íoctha",
+      "OVERDUE": "Thar téarma",
+      "VOID": "Neamhbhailithe"
+    },
+    "activePill": {
+      "active": "Gníomhach",
+      "archived": "Cartlannaithe",
+      "inactive": "Neamhghníomhach"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Chuaigh rud éigin cearr.",
+    "fixFields": "Ceartaigh na réimsí aibhsithe le do thoil.",
+    "accountSaved": "Sábháladh roghanna an chuntais",
+    "apiKeyCreated": "Cruthaíodh eochair API. Cóipeáil anois í: taispeántar uair amháin amháin í.",
+    "saved": "Sábháladh {name}",
+    "savedProfile": "Sábháladh próifíl {label}",
+    "clientArchived": "Cartlannaíodh an cliant",
+    "clientRestored": "Athbhunaíodh an cliant",
+    "clientDeleted": "Scriosadh an cliant",
+    "productArchived": "Cartlannaíodh an táirge",
+    "productRestored": "Athbhunaíodh an táirge",
+    "productActivated": "Gníomhachtaíodh an táirge",
+    "productDeactivated": "Díghníomhachtaíodh an táirge",
+    "serviceArchived": "Cartlannaíodh an tseirbhís",
+    "serviceRestored": "Athbhunaíodh an tseirbhís",
+    "serviceActivated": "Gníomhachtaíodh an tseirbhís",
+    "serviceDeactivated": "Díghníomhachtaíodh an tseirbhís",
+    "defaultProfileUpdated": "Nuashonraíodh an phróifíl réamhshocraithe",
+    "profileArchived": "Cartlannaíodh an phróifíl",
+    "profileRestored": "Athbhunaíodh an phróifíl",
+    "profileDeleted": "Scriosadh an phróifíl",
+    "defaultPaymentMethodUpdated": "Nuashonraíodh an modh íocaíochta réamhshocraithe",
+    "paymentMethodArchived": "Cartlannaíodh an modh íocaíochta",
+    "paymentMethodRestored": "Athbhunaíodh an modh íocaíochta",
+    "paymentMethodDeleted": "Scriosadh an modh íocaíochta",
+    "issued": "Eisíodh {number}",
+    "savedAsDraft": "Sábháilte mar dhréacht. {reason}",
+    "draftSaved": "Sábháladh an dréacht",
+    "invoiceVoided": "Neamhbhailíodh an sonraisc",
+    "originalVoided": "Neamhbhailíodh an bhunchóip; cuir an dréacht ionaid in eagar",
+    "markedAsSent": "Marcáilte mar sheolta",
+    "draftDeleted": "Scriosadh an dréacht",
+    "generatedPdf": "Gineadh leagan PDF {version}",
+    "creditNoteVoided": "Neamhbhailíodh an nóta creidmheasa; athbhunaíodh iarmhéid an tsonraisc",
+    "draftCreditNoteDeleted": "Scriosadh an dréacht de nóta creidmheasa",
+    "mailRefused": "Dhiúltaigh an freastalaí poist don teachtaireacht: {error}. Logáladh an iarracht.",
+    "unknownError": "earráid anaithnid",
+    "sentTo": "Seolta chuig {recipients}",
+    "smtpSaved": "Sábháladh socruithe SMTP",
+    "smtpRemoved": "Baineadh socruithe SMTP stóráilte",
+    "testEmailSent": "Seoladh ríomhphost tástála chuig {email}",
+    "testFailed": "Theip ar an tástáil: {error}",
+    "defaultRecipientsSaved": "Sábháladh faighteoirí réamhshocraithe",
+    "invitationSent": "Cuireadh seolta",
+    "invitationReady": "Cuireadh réidh",
+    "unknownRole": "Ról anaithnid",
+    "roleUpdated": "Nuashonraíodh an ról",
+    "accountDeactivated": "Díghníomhachtaíodh an cuntas",
+    "accountReactivated": "Athghníomhachtaíodh an cuntas",
+    "invitationRevoked": "Cúlghairmeadh an cuireadh",
+    "paymentUpdated": "Nuashonraíodh an íocaíocht",
+    "paymentRecorded": "Taifeadadh an íocaíocht",
+    "paymentDeleted": "Scriosadh an íocaíocht",
+    "sessionRevoked": "Cúlghairmeadh an seisiún",
+    "noOtherSessions": "Níl aon seisiún eile ann",
+    "signedOutOthers": "Logáilte amach as {count} seisiún eile",
+    "sharePasswordRequired": "Cuir isteach pasfhocal, nó lig do cheann a ghiniúint.",
+    "shareLinkCreated": "Cruthaíodh nasc roinnte.",
+    "templateSaved": "Sábháladh an teimpléad; úsáidfidh doiciméid amach anseo é",
+    "templateReset": "Athshocraíodh an teimpléad go dtí an réamhshocrú ionsuite",
+    "templateImported": "Iompórtáladh an teimpléad",
+    "profileTemplateCleared": "Úsáideann an phróifíl teimpléad an cháis arís",
+    "operatorSaved": "Sábháladh sonraí an oibreora. Taispeánann na leathanaigh dhlíthiúla anois iad.",
+    "einvoiceSettingsSaved": "Sábháladh socruithe an e-sonrascaithe",
+    "irnRegistered": "IRN {irn} cláraithe; athghintear an PDF leis",
+    "irnRecorded": "IRN taifeadta; athghintear an PDF leis",
+    "irnCancelled": "IRN cealaithe; athghintear an PDF"
+  }
+}

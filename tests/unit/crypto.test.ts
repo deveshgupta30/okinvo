@@ -27,7 +27,8 @@ describe("field encryption", () => {
   it("detects tampering", () => {
     const c = encryptField("secret", key);
     const body = c.slice(3);
-    const flipped = (body[body.length - 1] === "A" ? "B" : "A") + body.slice(1);
+    // replace the first character with one it is not, so the ciphertext always changes
+    const flipped = (body[0] === "A" ? "B" : "A") + body.slice(1);
     expect(() => decryptField(`v1.${flipped}`, key)).toThrow(/integrity/);
   });
   it("rejects unknown versions and a wrong key", () => {

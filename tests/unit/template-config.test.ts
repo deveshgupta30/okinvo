@@ -22,8 +22,15 @@ const withPatch = (patch: (c: TemplateConfig) => void): TemplateConfig => {
 };
 
 describe("TEMPLATE_IDS / LABEL_KEYS", () => {
-  it("lists the three v1 templates", () => {
-    expect([...TEMPLATE_IDS]).toEqual(["ledger", "classic", "compact"]);
+  it("lists the three v1 templates and the three v1.1 additions", () => {
+    expect([...TEMPLATE_IDS]).toEqual([
+      "ledger",
+      "classic",
+      "compact",
+      "minimal",
+      "letterhead",
+      "modern",
+    ]);
   });
   it("lists the 29 fixed-string label keys from the plan", () => {
     expect(LABEL_KEYS).toHaveLength(29);
@@ -42,7 +49,8 @@ describe("DEFAULT_TEMPLATE_CONFIG", () => {
       templateId: "ledger",
       paper: { size: "A4", margins: "normal" },
       colors: { accent: "#5e6ad2", text: "#1a1a1a" },
-      font: "inter",
+      font: { heading: "inter", body: "inter" },
+      header: { style: "none", color: "#5e6ad2", imageOpacity: 1, heightMm: 32, text: "auto" },
       logo: { position: "left", heightMm: 16 },
       title: { mode: "auto" },
       labels: {},
@@ -55,7 +63,7 @@ describe("DEFAULT_TEMPLATE_CONFIG", () => {
         showRounding: true,
         amountInWords: "below-total",
       },
-      text: { draftWatermark: "DRAFT — not a tax invoice" },
+      text: { draftWatermark: "DRAFT - not a tax invoice" },
       qr: { position: "footer" },
       pageNumbers: true,
     });
@@ -72,7 +80,7 @@ describe("TemplateConfigSchema", () => {
     const full = withPatch((c) => {
       c.templateId = "classic";
       c.paper = { size: "LETTER", margins: "narrow" };
-      c.font = "source-serif-4+inter";
+      c.font = { heading: "source-serif-4", body: "inter" };
       c.logo = { position: "center", heightMm: 40 };
       c.title = { mode: "custom", custom: "BILL OF SUPPLY" };
       c.labels = { billTo: "Invoice to", amountDue: "Balance" };
@@ -108,11 +116,37 @@ describe("TemplateConfigSchema", () => {
     );
   });
 
+  it("bounds the header image opacity and height, and takes an asset id", () => {
+    expect(issuePaths(withPatch((c) => (c.header.imageOpacity = 1.5)))).toContain(
+      "header.imageOpacity",
+    );
+    expect(issuePaths(withPatch((c) => (c.header.imageOpacity = -0.1)))).toContain(
+      "header.imageOpacity",
+    );
+    expect(issuePaths(withPatch((c) => (c.header.heightMm = 10)))).toContain("header.heightMm");
+    expect(issuePaths(withPatch((c) => (c.header.heightMm = 61)))).toContain("header.heightMm");
+    const withImage = mergeTemplateConfig({
+      header: { style: "image", imageAssetId: "asset-1", imageOpacity: 0.5 },
+    });
+    expect(withImage.header).toEqual({
+      style: "image",
+      color: "#5e6ad2",
+      imageAssetId: "asset-1",
+      imageOpacity: 0.5,
+      heightMm: 32,
+      text: "auto",
+    });
+    // v1 snapshots carry no header block at all
+    expect(mergeTemplateConfig({ templateId: "classic" }).header.style).toBe("none");
+  });
+
   it("rejects an unknown template id, font, table style, QR position and paper size", () => {
-    expect(issuePaths({ ...DEFAULT_TEMPLATE_CONFIG, templateId: "modern" })).toContain(
+    expect(issuePaths({ ...DEFAULT_TEMPLATE_CONFIG, templateId: "brutalist" })).toContain(
       "templateId",
     );
-    expect(issuePaths({ ...DEFAULT_TEMPLATE_CONFIG, font: "comic-sans" })).toContain("font");
+    expect(issuePaths({ ...DEFAULT_TEMPLATE_CONFIG, font: "comic-sans" })).toContain(
+      "font.heading",
+    );
     expect(issuePaths({ ...DEFAULT_TEMPLATE_CONFIG, table: { style: "grid" } })).toContain(
       "table.style",
     );
@@ -189,7 +223,7 @@ describe("mergeTemplateConfig", () => {
       text: { footer: "Thanks" },
     });
     expect(merged.labels).toEqual({ billTo: "Invoice to" });
-    expect(merged.text).toEqual({ draftWatermark: "DRAFT — not a tax invoice", footer: "Thanks" });
+    expect(merged.text).toEqual({ draftWatermark: "DRAFT - not a tax invoice", footer: "Thanks" });
   });
 
   it("does not mutate the defaults", () => {
@@ -200,7 +234,7 @@ describe("mergeTemplateConfig", () => {
 
   it("throws on invalid input", () => {
     expect(() => mergeTemplateConfig({ colors: { accent: "red" } })).toThrow();
-    expect(() => mergeTemplateConfig({ templateId: "modern" })).toThrow();
+    expect(() => mergeTemplateConfig({ templateId: "brutalist" })).toThrow();
     expect(() => mergeTemplateConfig("ledger")).toThrow();
     expect(() => mergeTemplateConfig({ title: { mode: "custom" } })).toThrow();
   });

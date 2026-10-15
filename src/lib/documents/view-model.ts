@@ -3,13 +3,18 @@ import {
   amountInWords,
   formatAmount,
   formatDate,
+  formatDateTime,
   formatMoney,
   formatPercent,
   formatQuantity,
 } from "@/lib/format";
+import { DEFAULT_DOCUMENT_MESSAGES, type DocumentMessages } from "@/lib/i18n/document-messages";
+import type { EInvoiceState } from "@/lib/schemas/einvoice-state";
+import { formattingLocale } from "@/lib/i18n/formatting-locale";
 import { D } from "@/lib/money";
 import {
-  resolveLabels,
+  DEFAULT_TEMPLATE_CONFIG,
+  LABEL_KEYS,
   type ClientSnapshot,
   type DisplayConfig,
   type IssuerSnapshot,
@@ -36,6 +41,7 @@ export interface RenderItem {
   lineSubtotal: string;
   taxRate: string;
   taxExempt?: boolean | undefined;
+  sku?: string | null | undefined;
   taxAmount: string;
   lineTotal: string;
 }
@@ -79,6 +85,8 @@ export interface RenderInput {
   notes: string | null;
   terms: string | null;
   displayConfig: DisplayConfig;
+  /** E-invoice registration printed on the document (spec §9e). */
+  einvoice?: EInvoiceState | null;
   replaces?: { number: string | null } | null;
   verificationToken: string;
   creditNote?: { reason: string; againstNumber: string; againstDate: DateString } | undefined;
@@ -94,6 +102,8 @@ export interface TotalsRow {
 export interface ViewModelItem {
   position: number;
   description: string;
+  /** Printed under the description as "SKU …" when the display config allows. */
+  sku?: string;
   sacHsnCode?: string;
   qty: string;
   unit: string;
@@ -115,9 +125,14 @@ export interface DocumentViewModel {
   dueDate?: string;
   paymentTerms?: string;
   currency: string;
+  /** The formatting locale: the document language, or the issuer's regional variant of it. */
   locale: string;
   labels: Record<LabelKey, string>;
+  /** Fixed strings outside the label overrides, in the document language. */
+  text: DocumentMessages["text"];
   issuer: IssuerSnapshot & { logoUrl?: string; signatureUrl?: string; stampUrl?: string };
+  /** The template's header image (spec §5.4), when the header style is `image`. */
+  headerImageUrl?: string;
   client: ClientSnapshot;
   placeOfSupply?: string;
   supplyStatement?: string;
@@ -130,8 +145,12 @@ export interface DocumentViewModel {
   notes?: string;
   terms?: string;
   verifyUrl?: string;
-  /** PNG data URL of the verification QR; filled by the server for PDFs and issued previews. */
+  /** What the QR encodes: the IRP's signed QR when registered, else the verification URL. */
+  qrText?: string;
+  /** PNG data URL of the QR; filled by the server for PDFs and issued previews. */
   qrDataUrl?: string;
+  /** IRN, acknowledgement and cancellation as printed on a registered e-invoice. */
+  einvoice?: { irn: string; ackNo: string; ackDate: string; cancelled: boolean };
   creditNote?: { reason: string; againstNumber: string; againstDate: string };
   showLogo: boolean;
   showSignature: boolean;
@@ -147,6 +166,8 @@ export interface ViewModelOptions {
   config: TemplateConfig;
   draft: boolean;
   qrDataUrl?: string;
+  /** The `documents` namespace of the document language; en-US when omitted. */
+  messages?: DocumentMessages;
 }
 
 const EXPORT_OR_RC: ReadonlySet<SupplyType> = new Set([
@@ -155,16 +176,37 @@ const EXPORT_OR_RC: ReadonlySet<SupplyType> = new Set([
   "REVERSE_CHARGE",
 ]);
 
-/** SPEC §4.17: GST-appropriate automatic title unless the config sets a custom one. */
-export function documentTitle(input: RenderInput, config: TemplateConfig): string {
+/**
+ * SPEC §4.17: GST-appropriate automatic title unless the config sets a custom one, in the
+ * document language (SPEC §4.10).
+ */
+export function documentTitle(
+  input: RenderInput,
+  config: TemplateConfig,
+  messages: DocumentMessages = DEFAULT_DOCUMENT_MESSAGES,
+): string {
   if (config.title.mode === "custom" && config.title.custom?.trim())
     return config.title.custom.trim();
-  if (input.kind === "CREDIT_NOTE") return "CREDIT NOTE";
-  if (input.taxRegime !== "INDIA_GST" || !input.issuer.gstin) return "INVOICE";
-  if (input.supplyType === "NOT_APPLICABLE") return "INVOICE";
-  if (EXPORT_OR_RC.has(input.supplyType)) return "TAX INVOICE";
+  const t = messages.title;
+  if (input.kind === "CREDIT_NOTE") return t.creditNote;
+  if (input.taxRegime !== "INDIA_GST" || !input.issuer.gstin) return t.invoice;
+  if (input.supplyType === "NOT_APPLICABLE") return t.invoice;
+  if (EXPORT_OR_RC.has(input.supplyType)) return t.taxInvoice;
   const allZero = input.items.length > 0 && input.items.every((i) => D(i.taxRate).isZero());
-  return allZero ? "BILL OF SUPPLY" : "TAX INVOICE";
+  return allZero ? t.billOfSupply : t.taxInvoice;
+}
+
+/** Template override, else the document language's catalogue (SPEC §4.10, §4.17). */
+export function resolveDocumentLabels(
+  config: TemplateConfig,
+  messages: DocumentMessages,
+): Record<LabelKey, string> {
+  const out: Record<LabelKey, string> = { ...messages.labels };
+  for (const key of LABEL_KEYS) {
+    const value = config.labels[key];
+    if (value !== undefined) out[key] = value;
+  }
+  return out;
 }
 
 function supplyStatement(input: RenderInput): string | undefined {
@@ -186,8 +228,10 @@ function supplyStatement(input: RenderInput): string | undefined {
 }
 
 export function buildDocumentViewModel(input: RenderInput, o: ViewModelOptions): DocumentViewModel {
-  const { currency, locale, displayConfig: d } = input;
-  const labels = resolveLabels(o.config);
+  const { currency, displayConfig: d } = input;
+  const messages = o.messages ?? DEFAULT_DOCUMENT_MESSAGES;
+  const locale = formattingLocale(input.locale, input.issuer.locale);
+  const labels = resolveDocumentLabels(o.config, messages);
   const money = (v: string) => formatMoney(v, currency, locale);
   const amount = (v: string) => formatAmount(v, currency, locale);
   const isDraft = o.draft || input.status === "DRAFT";
@@ -268,12 +312,13 @@ export function buildDocumentViewModel(input: RenderInput, o: ViewModelOptions):
     kind: input.kind,
     isDraft,
     isVoid: input.status === "VOID",
-    title: documentTitle(input, o.config),
+    title: documentTitle(input, o.config, messages),
     number: isDraft ? null : input.number,
     issueDate: formatDate(input.issueDate, locale),
     currency,
     locale,
     labels,
+    text: messages.text,
     issuer,
     client: input.client,
     columns: {
@@ -286,6 +331,7 @@ export function buildDocumentViewModel(input: RenderInput, o: ViewModelOptions):
       position: i.position,
       description: i.description,
       ...(i.sacHsnCode ? { sacHsnCode: i.sacHsnCode } : {}),
+      ...(i.sku && d.document.showSku ? { sku: i.sku } : {}),
       qty: formatQuantity(i.quantity, locale),
       unit: UNIT_LABELS[i.unitType] ?? i.unitType,
       rate: amount(i.unitPrice),
@@ -306,11 +352,19 @@ export function buildDocumentViewModel(input: RenderInput, o: ViewModelOptions):
     showStamp: d.issuer.showStamp,
     signatureCaption: o.config.text.signatureCaption?.trim() || labels.signature,
   };
-  if (isDraft) vm.watermark = o.config.text.draftWatermark;
+  // the config's own watermark text wins; the stock text prints in the document language
+  if (isDraft)
+    vm.watermark =
+      o.config.text.draftWatermark === DEFAULT_TEMPLATE_CONFIG.text.draftWatermark
+        ? messages.text.draftWatermark
+        : o.config.text.draftWatermark;
   if (!isCredit && d.document.showDueDate && input.dueDate)
     vm.dueDate = formatDate(input.dueDate, locale);
   if (!isCredit && d.document.showPaymentTerms)
-    vm.paymentTerms = `${input.client.paymentTermsDays} days`;
+    vm.paymentTerms = messages.text.paymentTermsDays.replace(
+      "{days}",
+      String(input.client.paymentTermsDays),
+    );
   if (input.taxRegime === "INDIA_GST" && d.document.showPlaceOfSupply && input.placeOfSupply) {
     vm.placeOfSupply = input.placeOfSupply;
   }
@@ -322,7 +376,19 @@ export function buildDocumentViewModel(input: RenderInput, o: ViewModelOptions):
   if (d.document.showNotes && input.notes?.trim()) vm.notes = input.notes.trim();
   if (d.document.showTerms && input.terms?.trim()) vm.terms = input.terms.trim();
   if (verifyUrl) vm.verifyUrl = verifyUrl;
-  if (verifyUrl && o.qrDataUrl) vm.qrDataUrl = o.qrDataUrl;
+  const e = input.einvoice;
+  if (e && e.irn && (e.status === "REGISTERED" || e.status === "CANCELLED")) {
+    vm.einvoice = {
+      irn: e.irn,
+      ackNo: e.ackNo ?? "",
+      ackDate: e.ackDate ? formatDateTime(new Date(e.ackDate), locale, "Asia/Kolkata") : "",
+      cancelled: e.status === "CANCELLED",
+    };
+    // the IRP's signed QR replaces the okinvo verification QR on a registered document
+    if (e.signedQr && !isDraft) vm.qrText = e.signedQr;
+  }
+  if (!vm.qrText && verifyUrl) vm.qrText = verifyUrl;
+  if (vm.qrText && o.qrDataUrl) vm.qrDataUrl = o.qrDataUrl;
   if (input.creditNote) {
     vm.creditNote = {
       reason: input.creditNote.reason,
@@ -332,5 +398,7 @@ export function buildDocumentViewModel(input: RenderInput, o: ViewModelOptions):
   }
   if (o.config.text.headerNote?.trim()) vm.headerNote = o.config.text.headerNote.trim();
   if (o.config.text.footer?.trim()) vm.footer = o.config.text.footer.trim();
+  if (o.config.header.style === "image" && o.config.header.imageAssetId)
+    vm.headerImageUrl = o.assetUrl(o.config.header.imageAssetId);
   return vm;
 }

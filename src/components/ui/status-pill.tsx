@@ -1,14 +1,26 @@
+"use client";
+
 import { Mail } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { AnimatedBadge, type AnimatedBadgeStatus } from "@/components/motion/animated-badge";
 import { cn } from "@/lib/utils";
 
 export type Tone = "neutral" | "muted" | "success" | "warning" | "danger";
 
+/** Status palette (v2 §24.5): the tone classes replace beui's own palette on the badge. */
 const TONE: Record<Tone, string> = {
-  neutral: "bg-surface-2 text-ink-subtle",
-  muted: "bg-surface-2 text-ink-muted",
-  success: "bg-semantic-success/12 text-semantic-success",
-  warning: "bg-semantic-warning/12 text-semantic-warning",
-  danger: "bg-semantic-danger/12 text-semantic-danger",
+  neutral: "border-transparent bg-surface-2 text-ink-subtle",
+  muted: "border-transparent bg-surface-2 text-ink-muted",
+  success: "border-transparent bg-semantic-success/12 text-semantic-success",
+  warning: "border-transparent bg-semantic-warning/12 text-semantic-warning",
+  danger: "border-transparent bg-semantic-danger/12 text-semantic-danger",
+};
+const BADGE_STATUS: Record<Tone, AnimatedBadgeStatus> = {
+  neutral: "neutral",
+  muted: "neutral",
+  success: "success",
+  warning: "warning",
+  danger: "danger",
 };
 
 export function Pill({
@@ -18,16 +30,20 @@ export function Pill({
   ...props
 }: React.ComponentProps<"span"> & { tone?: Tone }) {
   return (
-    <span
+    <AnimatedBadge
+      status={BADGE_STATUS[tone]}
+      size="sm"
+      showIcon={false}
+      {...(typeof children === "string" ? { contentKey: children } : {})}
       className={cn(
         "inline-flex h-5 items-center gap-1 rounded-pill px-2 text-app-caption whitespace-nowrap",
         TONE[tone],
         className,
       )}
-      {...props}
+      {...(props as Record<string, unknown>)}
     >
       {children}
-    </span>
+    </AnimatedBadge>
   );
 }
 
@@ -35,28 +51,30 @@ export function Pill({
 export type DocumentDisplayStatus =
   "DRAFT" | "ISSUED" | "SENT" | "PARTIALLY_PAID" | "PAID" | "OVERDUE" | "VOID";
 
-const STATUS: Record<DocumentDisplayStatus, { tone: Tone; label: string }> = {
-  DRAFT: { tone: "neutral", label: "Draft" },
-  ISSUED: { tone: "muted", label: "Issued" },
-  SENT: { tone: "muted", label: "Sent" },
-  PARTIALLY_PAID: { tone: "warning", label: "Partially paid" },
-  PAID: { tone: "success", label: "Paid" },
-  OVERDUE: { tone: "danger", label: "Overdue" },
-  VOID: { tone: "danger", label: "Void" },
+/** Labels come from the `ui.statusPill` catalogue namespace, keyed by the status itself. */
+const STATUS_TONE: Record<DocumentDisplayStatus, Tone> = {
+  DRAFT: "neutral",
+  ISSUED: "muted",
+  SENT: "muted",
+  PARTIALLY_PAID: "warning",
+  PAID: "success",
+  OVERDUE: "danger",
+  VOID: "danger",
 };
 
 export function StatusPill({ status }: { status: DocumentDisplayStatus }) {
-  const { tone, label } = STATUS[status];
+  const t = useTranslations("ui.statusPill");
   return (
-    <Pill tone={tone} data-status={status}>
+    <Pill tone={STATUS_TONE[status]} data-status={status}>
       {status === "SENT" ? <Mail aria-hidden className="size-3" strokeWidth={1.5} /> : null}
-      {label}
+      {t(status)}
     </Pill>
   );
 }
 
 export function ActivePill({ active, archived }: { active?: boolean; archived?: boolean }) {
-  if (archived) return <Pill tone="neutral">Archived</Pill>;
-  if (active === false) return <Pill tone="neutral">Inactive</Pill>;
-  return <Pill tone="success">Active</Pill>;
+  const t = useTranslations("ui.activePill");
+  if (archived) return <Pill tone="neutral">{t("archived")}</Pill>;
+  if (active === false) return <Pill tone="neutral">{t("inactive")}</Pill>;
+  return <Pill tone="success">{t("active")}</Pill>;
 }
