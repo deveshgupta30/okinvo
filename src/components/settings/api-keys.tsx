@@ -1,13 +1,12 @@
 "use client";
 
-import { Check, Copy } from "lucide-react";
 import { useTranslations } from "next-intl";
 import * as React from "react";
 import { useActionState } from "react";
 import { FormMessage } from "@/components/forms/form-message";
 import { SubmitButton } from "@/components/submit-button";
-import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { CopyButton } from "@/components/ui/copy-button";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
@@ -27,32 +26,7 @@ const SCOPE_KEYS = {
 
 function CopyKey({ value }: { value: string }) {
   const t = useTranslations("settings.api.form");
-  const tc = useTranslations("common");
-  const [done, setDone] = React.useState(false);
-  return (
-    <Button
-      type="button"
-      variant="secondary"
-      size="sm"
-      aria-label={t("copyKey")}
-      onClick={async () => {
-        try {
-          await navigator.clipboard.writeText(value);
-          setDone(true);
-          setTimeout(() => setDone(false), 1500);
-        } catch {
-          // clipboard unavailable: the key is selectable
-        }
-      }}
-    >
-      {done ? (
-        <Check className="size-3.5" strokeWidth={1.5} />
-      ) : (
-        <Copy className="size-3.5" strokeWidth={1.5} />
-      )}
-      {done ? tc("copied") : tc("copy")}
-    </Button>
-  );
+  return <CopyButton value={value} ariaLabel={t("copyKey")} />;
 }
 
 /** Create form with scope checkboxes limited to the role's ceiling; the key is revealed once. */

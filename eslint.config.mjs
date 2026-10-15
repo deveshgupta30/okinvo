@@ -20,6 +20,7 @@ export default defineConfig([
     "src/lib/hooks/**",
     "src/lib/touch.ts",
     "src/lib/ease.ts",
+    "src/lib/presence-gate.tsx",
   ]),
   {
     files: ["**/*.{ts,tsx,mjs}"],

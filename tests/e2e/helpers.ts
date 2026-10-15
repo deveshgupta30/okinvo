@@ -165,7 +165,8 @@ export async function issueSimpleInvoice(
   await page.getByLabel("Line 1 rate").fill("1000");
   if (o.documentLocale) await page.locator("#documentLocale").selectOption(o.documentLocale);
   await page.getByRole("button", { name: "Save and issue" }).click();
-  await expect(page).toHaveURL(/\/invoices\/[^/]+$/);
+  // "/invoices/new" itself matches a loose pattern, so wait for the issued invoice's id
+  await expect(page).toHaveURL(/\/invoices\/(?!new(?:[/?#]|$))[^/]+/);
   return page.url();
 }
 

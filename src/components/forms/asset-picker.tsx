@@ -2,7 +2,12 @@
 
 import { FileText, ImagePlus, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useRef, useState } from "react";
+import { useState } from "react";
+import {
+  AttachmentsUpload,
+  DOCUMENT_TYPES,
+  IMAGE_TYPES,
+} from "@/components/documents/attachments-upload";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
@@ -33,7 +38,6 @@ export function AssetPicker({
   const [key, setKey] = useState(assetKey ?? "");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const fileRef = useRef<HTMLInputElement>(null);
 
   async function upload(file: File) {
     setBusy(true);
@@ -63,7 +67,6 @@ export function AssetPicker({
       setError(t("uploadFailed"));
     } finally {
       setBusy(false);
-      if (fileRef.current) fileRef.current.value = "";
     }
   }
 
@@ -87,21 +90,18 @@ export function AssetPicker({
           )}
         </div>
         <div className="flex flex-col gap-1">
-          <input
-            ref={fileRef}
-            type="file"
-            data-kind={kind}
-            accept={
-              kind === "RECEIPT"
-                ? "image/png,image/jpeg,image/webp,application/pdf"
-                : "image/png,image/jpeg,image/webp"
-            }
-            className="text-app-caption text-ink-subtle file:mr-2 file:h-7 file:rounded-md file:border file:border-hairline file:bg-surface-1 file:px-3 file:text-app-caption file:text-ink"
-            disabled={busy}
-            onChange={(e) => {
-              const f = e.target.files?.[0];
+          <AttachmentsUpload
+            dataKind={kind}
+            label={label}
+            accept={kind === "RECEIPT" ? DOCUMENT_TYPES : IMAGE_TYPES}
+            busy={busy}
+            onFilesAdded={(files) => {
+              const f = files[0];
               if (f) void upload(f);
             }}
+            onRejected={() =>
+              setError(kind === "RECEIPT" ? t("unsupportedReceipt") : t("unsupportedImage"))
+            }
           />
           <div className="flex items-center gap-2">
             {hint ? <span className="text-app-caption text-ink-subtle">{hint}</span> : null}
@@ -120,7 +120,6 @@ export function AssetPicker({
               </Button>
             ) : null}
           </div>
-          {busy ? <span className="text-app-caption text-ink-subtle">{t("uploading")}</span> : null}
           {error ? (
             <span role="alert" className="text-app-caption text-semantic-danger">
               {error}

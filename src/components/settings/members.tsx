@@ -1,13 +1,13 @@
 "use client";
 
-import { Check, Copy, UserPlus } from "lucide-react";
+import { UserPlus } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useActionState, useState } from "react";
+import { useActionState } from "react";
 import { ConfirmAction } from "@/components/confirm-action";
 import { FormMessage } from "@/components/forms/form-message";
 import { SubmitButton } from "@/components/submit-button";
 import { Avatar } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { CopyButton } from "@/components/ui/copy-button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
@@ -59,9 +59,7 @@ function RoleSelect({ member, self }: { member: MemberDto; self: boolean }) {
 
 function InviteForm() {
   const t = useTranslations("settings.users");
-  const tc = useTranslations("common");
   const [state, action] = useActionState<InviteState | null, FormData>(inviteMemberAction, null);
-  const [copied, setCopied] = useState(false);
   const failed = state && !state.ok ? state : null;
   const invited = state?.ok ? state.invited : null;
   return (
@@ -81,17 +79,7 @@ function InviteForm() {
           </span>
           <span className="flex flex-wrap items-center gap-2">
             <code className="font-mono text-app-mono">{invited.signInUrl}</code>
-            <Button
-              type="button"
-              variant="secondary"
-              size="sm"
-              onClick={async () => {
-                await navigator.clipboard.writeText(invited.signInUrl);
-                setCopied(true);
-              }}
-            >
-              {copied ? <Check /> : <Copy />} {copied ? tc("copied") : t("invite.copyLink")}
-            </Button>
+            <CopyButton value={invited.signInUrl} label={t("invite.copyLink")} />
           </span>
         </div>
       ) : null}

@@ -47,6 +47,26 @@ test("the dock sits at the bottom, the sidebar is hidden, and the dock navigates
   await expect(page.getByRole("dialog", { name: "Navigation" })).toBeVisible();
 });
 
+test("a confirmation opens as a bottom sheet and lists pull to refresh", async ({ page }) => {
+  await signInAs(page, EMAIL, "Smoke Owner");
+  await page.goto("/services");
+  await expect(page.getByLabel("Refreshable list")).toBeVisible();
+  await page
+    .getByRole("button", { name: /^(Archive|Restore)$/ })
+    .first()
+    .click();
+  const sheet = page.getByRole("dialog");
+  await expect(sheet).toBeVisible();
+  await expect(sheet.locator("[data-sheet]")).toBeVisible();
+  const box = await sheet.boundingBox();
+  const viewport = page.viewportSize();
+  expect(box && viewport ? Math.round(box.y + box.height) : 0).toBeGreaterThanOrEqual(
+    (viewport?.height ?? 0) - 2,
+  );
+  await sheet.getByRole("button", { name: "Cancel" }).click();
+  await expect(sheet).toBeHidden();
+});
+
 test("the invoice builder stacks on a phone and still previews", async ({ page }) => {
   await signInAs(page, EMAIL, "Smoke Owner");
   await page.goto("/invoices/new");

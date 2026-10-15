@@ -50,6 +50,10 @@ export const BEUI_COMPONENTS: readonly string[] = [
   "@beui/range-slider",
   "@beui/color-selector",
   "@beui/bouncy-accordion",
+  "@beui/bottom-sheet",
+  "@beui/pull-to-refresh",
+  "@beui/action-swap-blur",
+  "@beui/not-found-stacked",
 ];
 
 export type Subcommand = "fonts" | "wordlist" | "flags" | "rates" | "beui" | "all";
@@ -132,7 +136,7 @@ function vendoredFiles(): string[] {
   };
   walk(path.join(ROOT, "src", "components", "motion"));
   walk(path.join(ROOT, "src", "lib", "hooks"));
-  for (const f of ["touch.ts", "ease.ts"]) {
+  for (const f of ["touch.ts", "ease.ts", "presence-gate.tsx"]) {
     const full = path.join(ROOT, "src", "lib", f);
     if (existsSync(full)) out.push(full);
   }
