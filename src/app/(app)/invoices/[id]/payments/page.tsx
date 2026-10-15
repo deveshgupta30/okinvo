@@ -170,17 +170,19 @@ export default async function PaymentsPage({
                       node: (
                         <>
                           <div className="flex justify-end gap-1">
-                            {p.receiptAssetId ? (
-                              <Button asChild variant="tertiary" size="sm">
+                            {p.attachments.map((a, i) => (
+                              <Button key={a.id} asChild variant="tertiary" size="sm">
                                 <a
-                                  href={`/api/assets/id/${p.receiptAssetId}`}
+                                  href={`/api/assets/id/${a.assetId}`}
                                   target="_blank"
                                   rel="noopener"
                                 >
-                                  {t("receipt")}
+                                  {p.attachments.length > 1
+                                    ? t("receiptN", { n: i + 1 })
+                                    : t("receipt")}
                                 </a>
                               </Button>
-                            ) : null}
+                            ))}
                             <Button asChild variant="tertiary" size="sm">
                               <Link href={`/invoices/${id}/payments?edit=${p.id}`}>
                                 {tc("edit")}

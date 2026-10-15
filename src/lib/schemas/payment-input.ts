@@ -1,12 +1,12 @@
 import { z } from "zod";
 import { DateStringSchema } from "@/lib/dates";
-import { fDecimal, fOptional } from "@/lib/forms";
+import { fDecimal, fIdList, fOptional } from "@/lib/forms";
 import { D } from "@/lib/money";
 import { CurrencySchema } from "./currency";
 
 export const PAYMENT_KINDS = ["PAYMENT", "REFUND", "WRITE_OFF"] as const;
 
-/** SPEC §4.8 — one ledger entry. Amounts are in the invoice currency; refunds are negative. */
+/** SPEC §4.8: one ledger entry. Amounts are in the invoice currency; refunds are negative. */
 export const PaymentInputSchema = z
   .object({
     kind: z.enum(PAYMENT_KINDS),
@@ -22,7 +22,8 @@ export const PaymentInputSchema = z
     paymentMethodProfileId: fOptional(z.string().max(64)),
     reference: fOptional(z.string().trim().max(120)),
     notes: fOptional(z.string().trim().max(2000)),
-    receiptAssetId: fOptional(z.string().max(64)),
+    /** Receipts and bills (addendum §4): ids of uploaded RECEIPT assets, in display order. */
+    attachmentAssetIds: fIdList,
   })
   .superRefine((v, ctx) => {
     const amount = D(v.amountApplied);

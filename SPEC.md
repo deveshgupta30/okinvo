@@ -200,13 +200,14 @@ Regimes: `INDIA_GST`, `UK_VAT`, `US_SALES_TAX`, `NONE`. The regime is chosen per
 
 ### 4.8 Payments
 
-A payment records: date, kind (`PAYMENT`, `REFUND`, `WRITE_OFF`), **amount applied** (in invoice currency; negative for refunds), TDS deducted (part of the applied amount), amount received + currency + exchange rate (what actually landed in the bank), bank fees, receiving payment method, reference, notes, receipt upload.
+A payment records: date, kind (`PAYMENT`, `REFUND`, `WRITE_OFF`), **amount applied** (in invoice currency; negative for refunds), TDS deducted (part of the applied amount), amount received + currency + exchange rate (what actually landed in the bank), bank fees, receiving payment method, reference, notes, and any number of **receipts and bills** (PDF, PNG, JPEG or WebP through the upload rules of v2 §11.2; images are normalised to JPEG).
 
 Rules:
 - Only `ISSUED` invoices accept payments.
 - Cumulative applied amount may not exceed the outstanding balance except through an explicit `WRITE_OFF` (which itself is capped at the outstanding balance).
 - Recording, editing or deleting a payment recomputes the invoice balance in the same transaction and is audited.
-- The invoice's payments page is a ledger: running balance, totals by kind, TDS total.
+- The invoice's payments page is a ledger: running balance, totals by kind, TDS total. Each entry lists its receipts for download; the documents bundle carries them under `receipts/<number>/<date>-<n>`, and the all-data export lists the links (`paymentAttachments`).
+- The invoice page shows a **payment progress** checklist derived from the record, never stored: Issued, Sent, one "Payment recorded" line per payment (amount and date), Paid in full (issued with no balance left), Receipt attached (any entry with a receipt).
 
 ### 4.8a Products and SKUs
 

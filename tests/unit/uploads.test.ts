@@ -85,6 +85,11 @@ describe("sniffAndValidate", () => {
       expect(await code(sniffAndValidate(svg, kind, limits)), kind).toBe("UNSUPPORTED_TYPE");
     }
   });
+  it("refuses a corrupt image (valid magic bytes, unreadable data) as unsupported", async () => {
+    const corrupt = Buffer.concat([png.subarray(0, 24), Buffer.from("not really a png")]);
+    expect(await code(prepareUpload(corrupt, "RECEIPT", limits))).toBe("UNSUPPORTED_TYPE");
+  });
+
   it("allows PDF only for RECEIPT", async () => {
     expect(await sniffAndValidate(pdf, "RECEIPT", limits)).toEqual({
       contentType: "application/pdf",

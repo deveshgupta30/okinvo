@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useActionState, useState } from "react";
-import { AssetPicker } from "@/components/forms/asset-picker";
+import { ReceiptsField } from "@/components/payments/receipts-field";
 import { FormMessage } from "@/components/forms/form-message";
 import { SubmitButton } from "@/components/submit-button";
 import { Button } from "@/components/ui/button";
@@ -48,7 +48,8 @@ export function PaymentForm({
   const [fx, setFx] = useState(Boolean(values?.receivedCurrency || payment?.receivedCurrency));
 
   return (
-    <form action={action}>
+    // keyed by the entry so switching between "record" and "edit" resets every field
+    <form key={payment?.id ?? "new"} action={action}>
       <Card>
         <CardHeader>
           <div>
@@ -218,13 +219,7 @@ export function PaymentForm({
           <Field label={t("notes")} htmlFor="notes" error={errors?.notes}>
             <Textarea id="notes" name="notes" defaultValue={v("notes", payment?.notes)} />
           </Field>
-          <AssetPicker
-            name="receiptAssetId"
-            kind="RECEIPT"
-            label={t("receipt")}
-            assetId={payment?.receiptAssetId}
-            hint={t("receiptHint")}
-          />
+          <ReceiptsField name="attachmentAssetIds" initial={payment?.attachments ?? []} />
           <div className="flex items-center gap-2">
             <SubmitButton pendingLabel={tc("saving")}>
               {payment ? t("saveChanges") : t("record")}

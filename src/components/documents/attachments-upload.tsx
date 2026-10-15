@@ -29,6 +29,7 @@ export function AttachmentsUpload({
   onRejected,
   busy = false,
   disabled = false,
+  multiple = false,
   dataKind,
   label,
   className,
@@ -38,6 +39,8 @@ export function AttachmentsUpload({
   onRejected?: (files: File[]) => void;
   busy?: boolean;
   disabled?: boolean;
+  /** Take every dropped or chosen file instead of the first one (receipts on a payment). */
+  multiple?: boolean;
   /** Carried on the input for tests and styling (`data-kind`). */
   dataKind?: string;
   /** Accessible name of the input, usually the field label. */
@@ -51,7 +54,7 @@ export function AttachmentsUpload({
   const inactive = disabled || busy;
 
   const take = (list: FileList | null) => {
-    const files = Array.from(list ?? []).slice(0, 1);
+    const files = multiple ? Array.from(list ?? []) : Array.from(list ?? []).slice(0, 1);
     if (files.length === 0) return;
     const ok = files.filter((f) => isAccepted(f, accept));
     const bad = files.filter((f) => !isAccepted(f, accept));
@@ -91,7 +94,13 @@ export function AttachmentsUpload({
         )}
       </span>
       <span className="min-w-0 flex-1">
-        {busy ? t("uploading") : over ? t("dropActive") : t("dropHint")}
+        {busy
+          ? t("uploading")
+          : over
+            ? t("dropActive")
+            : multiple
+              ? t("dropHintMany")
+              : t("dropHint")}
       </span>
       <input
         ref={inputRef}
@@ -99,6 +108,7 @@ export function AttachmentsUpload({
         aria-label={label}
         {...(dataKind ? { "data-kind": dataKind } : {})}
         accept={accept.join(",")}
+        multiple={multiple}
         disabled={inactive}
         className="sr-only"
         onChange={(e) => {
