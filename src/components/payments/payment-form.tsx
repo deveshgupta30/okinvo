@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { DateField } from "@/components/ui/date-field";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { COMMON_CURRENCIES } from "@/lib/schemas";
@@ -73,11 +74,9 @@ export function PaymentForm({
               </Select>
             </Field>
             <Field label={t("date")} htmlFor="paymentDate" error={errors?.paymentDate} required>
-              <Input
+              <DateField
                 id="paymentDate"
                 name="paymentDate"
-                type="date"
-                className="font-mono"
                 defaultValue={v("paymentDate", payment?.paymentDate ?? today)}
               />
             </Field>

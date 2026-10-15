@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { PDFParse } from "pdf-parse";
-import { signInAs } from "./helpers";
+import { pickCombobox, signInAs } from "./helpers";
 
 /**
  * IRN registration through the manual connector (spec §9e): a GST profile with e-invoicing
@@ -63,8 +63,8 @@ test("pasting the IRP response registers the invoice and prints the IRN", async 
 
   // an issued invoice
   await page.goto("/invoices/new");
-  await page.locator("#issuerProfileId").selectOption({ label: profileLabel });
-  await page.locator("#clientId").selectOption({ label: clientName });
+  await pickCombobox(page, "#issuerProfileId", profileLabel);
+  await pickCombobox(page, "#clientId", clientName);
   await page.getByLabel("Line 1 description").fill("Design work");
   await page.getByLabel("Line 1 SAC/HSN").fill("998314");
   await page.getByLabel("Line 1 quantity").fill("1");

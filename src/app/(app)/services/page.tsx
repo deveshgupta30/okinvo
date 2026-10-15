@@ -9,7 +9,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { Amount } from "@/components/ui/mono";
 import { PageHeader } from "@/components/ui/page-header";
 import { ActivePill } from "@/components/ui/status-pill";
-import { TBody, TD, TH, THead, TR, Table } from "@/components/ui/table";
+import { ListTable } from "@/components/ui/list-table";
 import { formatAmount } from "@/lib/format";
 import {
   archiveServiceAction,
@@ -78,93 +78,103 @@ export default async function ServicesPage({
           }
         />
       ) : (
-        <Table cards>
-          <THead>
-            <TR>
-              <TH>{t("list.columns.name")}</TH>
-              <TH>{t("list.columns.unit")}</TH>
-              <TH numeric>{t("list.columns.rate")}</TH>
-              <TH>{t("list.columns.currency")}</TH>
-              <TH>{t("list.columns.sacHsn")}</TH>
-              <TH numeric>{t("list.columns.tax")}</TH>
-              <TH>{t("list.columns.status")}</TH>
-              <TH />
-            </TR>
-          </THead>
-          <TBody>
-            {services.map((s) => (
-              <TR key={s.id}>
-                <TD label={t("list.columns.name")} className="font-medium">
-                  {s.name}
-                </TD>
-                <TD label={t("list.columns.unit")}>{t(`units.${s.unitType}`)}</TD>
-                <TD label={t("list.columns.rate")} numeric>
-                  <Amount>{formatAmount(s.defaultRate, s.currency, locale)}</Amount>
-                </TD>
-                <TD label={t("list.columns.currency")} mono>
-                  {s.currency}
-                </TD>
-                <TD label={t("list.columns.sacHsn")} mono>
-                  {s.sacHsnCode ?? tc("emptyValue")}
-                </TD>
-                <TD label={t("list.columns.tax")} numeric>
-                  {s.defaultTaxRate}%
-                </TD>
-                <TD label={t("list.columns.status")}>
-                  <ActivePill active={s.isActive} archived={Boolean(s.archivedAt)} />
-                </TD>
-                <TD label="" className="text-right whitespace-nowrap">
-                  {canEdit ? (
-                    <>
-                      <div className="flex justify-end gap-1">
-                        <Button asChild variant="tertiary" size="sm">
-                          <Link href={`/services/${s.id}/edit`}>{tc("edit")}</Link>
-                        </Button>
-                        {!s.archivedAt ? (
-                          <form action={toggleServiceAction}>
-                            <input type="hidden" name="id" value={s.id} />
-                            <input
-                              type="hidden"
-                              name="isActive"
-                              value={s.isActive ? "false" : "true"}
+        <ListTable
+          empty={null}
+          columns={[
+            { key: "c0", header: t("list.columns.name") },
+            { key: "c1", header: t("list.columns.unit") },
+            { key: "c2", header: t("list.columns.rate"), numeric: true },
+            { key: "c3", header: t("list.columns.currency") },
+            { key: "c4", header: t("list.columns.sacHsn") },
+            { key: "c5", header: t("list.columns.tax"), numeric: true },
+            { key: "c6", header: t("list.columns.status") },
+            { key: "c7", header: "", sortable: false },
+          ]}
+          rows={services.map((s) => ({
+            id: s.id,
+            cells: {
+              c0: { node: s.name, className: "font-medium", sort: s.name },
+              c1: { node: <>{t(`units.${s.unitType}`)}</>, sort: s.unitType },
+              c2: {
+                node: (
+                  <>
+                    <Amount>{formatAmount(s.defaultRate, s.currency, locale)}</Amount>
+                  </>
+                ),
+                numeric: true,
+                sort: Number(s.defaultRate),
+              },
+              c3: { node: s.currency, mono: true, sort: s.currency },
+              c4: {
+                node: <>{s.sacHsnCode ?? tc("emptyValue")}</>,
+                mono: true,
+                sort: s.sacHsnCode ?? "",
+              },
+              c5: { node: <>{s.defaultTaxRate}%</>, numeric: true, sort: Number(s.defaultTaxRate) },
+              c6: {
+                node: (
+                  <>
+                    <ActivePill active={s.isActive} archived={Boolean(s.archivedAt)} />
+                  </>
+                ),
+                sort: s.archivedAt ? 2 : s.isActive ? 0 : 1,
+              },
+              c7: {
+                node: (
+                  <>
+                    {canEdit ? (
+                      <>
+                        <div className="flex justify-end gap-1">
+                          <Button asChild variant="tertiary" size="sm">
+                            <Link href={`/services/${s.id}/edit`}>{tc("edit")}</Link>
+                          </Button>
+                          {!s.archivedAt ? (
+                            <form action={toggleServiceAction}>
+                              <input type="hidden" name="id" value={s.id} />
+                              <input
+                                type="hidden"
+                                name="isActive"
+                                value={s.isActive ? "false" : "true"}
+                              />
+                              <input type="hidden" name="returnTo" value={returnTo} />
+                              <Button type="submit" variant="tertiary" size="sm">
+                                {s.isActive ? t("list.deactivate") : t("list.activate")}
+                              </Button>
+                            </form>
+                          ) : null}
+                          {s.archivedAt ? (
+                            <ConfirmAction
+                              action={unarchiveServiceAction}
+                              title={t("services.restoreTitle", { name: s.name })}
+                              confirmLabel={tc("restore")}
+                              hidden={{ id: s.id, returnTo }}
+                              trigger={tc("restore")}
+                              triggerVariant="tertiary"
+                              size="sm"
                             />
-                            <input type="hidden" name="returnTo" value={returnTo} />
-                            <Button type="submit" variant="tertiary" size="sm">
-                              {s.isActive ? t("list.deactivate") : t("list.activate")}
-                            </Button>
-                          </form>
-                        ) : null}
-                        {s.archivedAt ? (
-                          <ConfirmAction
-                            action={unarchiveServiceAction}
-                            title={t("services.restoreTitle", { name: s.name })}
-                            confirmLabel={tc("restore")}
-                            hidden={{ id: s.id, returnTo }}
-                            trigger={tc("restore")}
-                            triggerVariant="tertiary"
-                            size="sm"
-                          />
-                        ) : (
-                          <ConfirmAction
-                            action={archiveServiceAction}
-                            title={t("services.archiveTitle", { name: s.name })}
-                            description={t("list.archiveDescription")}
-                            confirmLabel={tc("archive")}
-                            hidden={{ id: s.id, returnTo }}
-                            trigger={tc("archive")}
-                            triggerVariant="tertiary"
-                            size="sm"
-                            destructive
-                          />
-                        )}
-                      </div>
-                    </>
-                  ) : null}
-                </TD>
-              </TR>
-            ))}
-          </TBody>
-        </Table>
+                          ) : (
+                            <ConfirmAction
+                              action={archiveServiceAction}
+                              title={t("services.archiveTitle", { name: s.name })}
+                              description={t("list.archiveDescription")}
+                              confirmLabel={tc("archive")}
+                              hidden={{ id: s.id, returnTo }}
+                              trigger={tc("archive")}
+                              triggerVariant="tertiary"
+                              size="sm"
+                              destructive
+                            />
+                          )}
+                        </div>
+                      </>
+                    ) : null}
+                  </>
+                ),
+                className: "text-right whitespace-nowrap",
+              },
+            },
+          }))}
+        />
       )}
     </>
   );

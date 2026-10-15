@@ -6,6 +6,7 @@ import { FormMessage } from "@/components/forms/form-message";
 import { SubmitButton } from "@/components/submit-button";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { DateField } from "@/components/ui/date-field";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { COUNTRIES } from "@/lib/countries";
@@ -71,12 +72,7 @@ export function LegalOperatorForm({ initial }: { initial: LegalOperator }) {
           error={errors?.effectiveDate}
           required
         >
-          <Input
-            id="effectiveDate"
-            name="effectiveDate"
-            type="date"
-            defaultValue={v("effectiveDate")}
-          />
+          <DateField id="effectiveDate" name="effectiveDate" defaultValue={v("effectiveDate")} />
         </Field>
         <Field
           label={t("contactEmail")}

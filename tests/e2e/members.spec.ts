@@ -66,7 +66,7 @@ test("owner invites a viewer; the viewer is read-only and cannot open settings",
   if (!alreadyMember) {
     await page.locator("#inviteEmail").fill(VIEWER);
     await page.locator("#inviteRole").selectOption("VIEWER");
-    await page.getByRole("button", { name: "Invite" }).click();
+    await page.getByRole("button", { name: "Invite", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(VIEWER);
     await expect(page.getByRole("status")).toContainText("/auth/sign-in");
   }

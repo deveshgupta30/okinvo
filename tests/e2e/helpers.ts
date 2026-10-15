@@ -3,6 +3,20 @@ import { expect, type Page } from "@playwright/test";
 /** The fixed password every e2e owner uses (AUTH_PASSWORD_SIGNIN=true on the server under test). */
 export const E2E_PASSWORD = "correct horse battery staple";
 
+/** Fills a date field (the native input keeps its id; the calendar beside it is optional). */
+export async function pickDate(page: Page, selector: string, isoDate: string): Promise<void> {
+  await page.locator(selector).fill(isoDate);
+}
+
+/** Chooses an option in a searchable select (beui combobox) by its visible label. */
+export async function pickCombobox(page: Page, selector: string, label: string): Promise<void> {
+  const input = page.locator(selector);
+  await input.click();
+  await input.fill(label);
+  await page.getByRole("option", { name: label, exact: true }).first().click();
+  await expect(input).toHaveValue(label);
+}
+
 /** True once the signed-in frame is on screen: the sidebar navigation (desktop) or the top bar's menu button (phones). */
 export async function shellVisible(page: Page): Promise<boolean> {
   const nav = page.getByRole("navigation", { name: "Primary" });
@@ -144,8 +158,8 @@ export async function issueSimpleInvoice(
 ): Promise<string> {
   const { profileLabel, clientName } = await createIssuerAndClient(page, stamp);
   await page.goto("/invoices/new");
-  await page.locator("#issuerProfileId").selectOption({ label: profileLabel });
-  await page.locator("#clientId").selectOption({ label: clientName });
+  await pickCombobox(page, "#issuerProfileId", profileLabel);
+  await pickCombobox(page, "#clientId", clientName);
   await page.getByLabel("Line 1 description").fill("Shared work");
   await page.getByLabel("Line 1 quantity").fill("1");
   await page.getByLabel("Line 1 rate").fill("1000");

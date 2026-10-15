@@ -1,9 +1,10 @@
 "use client";
 
-import type React from "react";
+import React, { useState } from "react";
 import { ArrowDown, ArrowUp, Plus, Trash2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import { ComboboxField } from "@/components/ui/combobox-field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
@@ -53,6 +54,7 @@ export function LineItemsEditor({
 }) {
   const t = useTranslations("invoices.lineItems");
   const ts = useTranslations("invoices.shared");
+  const [pickerKey, setPickerKey] = useState(0);
   const rows = items.length === 0 ? [EMPTY] : items;
   const update = (i: number, patch: Partial<BuilderItem>) =>
     onChange(rows.map((r, idx) => (idx === i ? { ...r, ...patch } : r)));
@@ -115,38 +117,32 @@ export function LineItemsEditor({
     <div className="flex flex-col gap-3">
       <div className="flex flex-wrap items-center gap-2">
         {services.length > 0 || products.length > 0 ? (
-          <Select
-            aria-label={t("addFromCatalogueAria")}
-            className="w-64"
-            value=""
-            onChange={(e) => {
-              const [kind, id] = e.target.value.split(":", 2);
+          <ComboboxField
+            key={pickerKey}
+            id="catalogue-picker"
+            label={t("addFromCatalogueAria")}
+            placeholder={t("addFromCatalogue")}
+            className="w-72"
+            onValueChange={(v) => {
+              const [kind, id] = v.split(":", 2);
               if (kind === "svc" && id) addFromService(id);
               if (kind === "prod" && id) addFromProduct(id);
-              e.target.value = "";
+              setPickerKey((k) => k + 1);
             }}
-          >
-            <option value="">{t("addFromCatalogue")}</option>
-            {services.length > 0 ? (
-              <optgroup label={t("services")}>
-                {services.map((s) => (
-                  <option key={s.id} value={`svc:${s.id}`}>
-                    {s.name} · {s.defaultRate} {s.currency}/
-                    {ts(`unitsLower.${UNIT_KEY[s.unitType]}`)}
-                  </option>
-                ))}
-              </optgroup>
-            ) : null}
-            {products.length > 0 ? (
-              <optgroup label={t("products")}>
-                {products.map((p) => (
-                  <option key={p.id} value={`prod:${p.id}`}>
-                    {p.sku} · {p.name} · {p.unitPrice} {p.currency}
-                  </option>
-                ))}
-              </optgroup>
-            ) : null}
-          </Select>
+            options={[
+              ...services.map((s) => ({
+                value: `svc:${s.id}`,
+                label: `${s.name} · ${s.defaultRate} ${s.currency}/${ts(`unitsLower.${UNIT_KEY[s.unitType]}`)}`,
+                group: t("services"),
+              })),
+              ...products.map((p) => ({
+                value: `prod:${p.id}`,
+                label: `${p.sku} · ${p.name} · ${p.unitPrice} ${p.currency}`,
+                keywords: [p.sku],
+                group: t("products"),
+              })),
+            ]}
+          />
         ) : null}
         <Button
           type="button"

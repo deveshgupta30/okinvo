@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { SliderField } from "@/components/ui/slider-field";
 import { Select } from "@/components/ui/select";
 import { AssetPicker } from "@/components/forms/asset-picker";
 import { Textarea } from "@/components/ui/textarea";
@@ -240,15 +241,14 @@ export function TemplateForm({
                 </Select>
               </Field>
               <Field label={t("logoHeight")} htmlFor="logoHeight">
-                <Input
+                <SliderField
                   id="logoHeight"
-                  type="number"
-                  min="8"
-                  max="40"
+                  label={t("logoHeight")}
+                  min={8}
+                  max={40}
                   value={config.logo.heightMm}
-                  onChange={(e) =>
-                    set("logo", { ...config.logo, heightMm: Number(e.target.value) || 16 })
-                  }
+                  onChange={(n) => set("logo", { ...config.logo, heightMm: n })}
+                  format={(n) => `${n} mm`}
                 />
               </Field>
               <Field label={t("documentTitle")} htmlFor="titleMode">
@@ -410,34 +410,26 @@ export function TemplateForm({
                 }
               />
               <Field label={t("imageOpacity")} htmlFor="headerOpacity">
-                <div className="flex items-center gap-3">
-                  <input
-                    id="headerOpacity"
-                    type="range"
-                    min="0"
-                    max="1"
-                    step="0.05"
-                    value={config.header.imageOpacity}
-                    onChange={(e) =>
-                      set("header", { ...config.header, imageOpacity: Number(e.target.value) })
-                    }
-                    className="w-full accent-primary"
-                  />
-                  <span className="app-mono w-10 text-right text-app-caption text-ink-subtle">
-                    {Math.round(config.header.imageOpacity * 100)}%
-                  </span>
-                </div>
+                <SliderField
+                  id="headerOpacity"
+                  label={t("imageOpacity")}
+                  min={0}
+                  max={1}
+                  step={0.05}
+                  value={config.header.imageOpacity}
+                  onChange={(n) => set("header", { ...config.header, imageOpacity: n })}
+                  format={(n) => `${Math.round(n * 100)}%`}
+                />
               </Field>
               <Field label={t("headerHeight")} htmlFor="headerHeight">
-                <Input
+                <SliderField
                   id="headerHeight"
-                  type="number"
-                  min="20"
-                  max="60"
+                  label={t("headerHeight")}
+                  min={20}
+                  max={60}
                   value={config.header.heightMm}
-                  onChange={(e) =>
-                    set("header", { ...config.header, heightMm: Number(e.target.value) || 32 })
-                  }
+                  onChange={(n) => set("header", { ...config.header, heightMm: n })}
+                  format={(n) => `${n} mm`}
                 />
               </Field>
               <Field label={t("bandText")} htmlFor="headerText">

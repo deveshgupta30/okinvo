@@ -9,7 +9,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { Amount } from "@/components/ui/mono";
 import { PageHeader } from "@/components/ui/page-header";
 import { ActivePill } from "@/components/ui/status-pill";
-import { TBody, TD, TH, THead, TR, Table } from "@/components/ui/table";
+import { ListTable } from "@/components/ui/list-table";
 import { formatAmount } from "@/lib/format";
 import {
   archiveProductAction,
@@ -78,95 +78,99 @@ export default async function ProductsPage({
           }
         />
       ) : (
-        <Table cards>
-          <THead>
-            <TR>
-              <TH>{t("list.columns.sku")}</TH>
-              <TH>{t("list.columns.name")}</TH>
-              <TH>{t("list.columns.unit")}</TH>
-              <TH numeric>{t("list.columns.price")}</TH>
-              <TH>{t("list.columns.currency")}</TH>
-              <TH>{t("list.columns.hsn")}</TH>
-              <TH numeric>{t("list.columns.tax")}</TH>
-              <TH>{t("list.columns.status")}</TH>
-              <TH />
-            </TR>
-          </THead>
-          <TBody>
-            {products.map((p) => (
-              <TR key={p.id}>
-                <TD label={t("list.columns.sku")} mono>
-                  {p.sku}
-                </TD>
-                <TD label={t("list.columns.name")} className="font-medium">
-                  {p.name}
-                </TD>
-                <TD label={t("list.columns.unit")}>{t(`units.${p.unitType}`)}</TD>
-                <TD label={t("list.columns.price")} numeric>
-                  <Amount>{formatAmount(p.unitPrice, p.currency, locale)}</Amount>
-                </TD>
-                <TD label={t("list.columns.currency")} mono>
-                  {p.currency}
-                </TD>
-                <TD label={t("list.columns.hsn")} mono>
-                  {p.hsnCode ?? tc("emptyValue")}
-                </TD>
-                <TD label={t("list.columns.tax")} numeric>
-                  {p.defaultTaxRate}%
-                </TD>
-                <TD label={t("list.columns.status")}>
-                  <ActivePill active={p.isActive} archived={Boolean(p.archivedAt)} />
-                </TD>
-                <TD label="" className="text-right whitespace-nowrap">
-                  {canEdit ? (
-                    <div className="flex justify-end gap-1">
-                      <Button asChild variant="tertiary" size="sm">
-                        <Link href={`/products/${p.id}/edit`}>{tc("edit")}</Link>
-                      </Button>
-                      {!p.archivedAt ? (
-                        <form action={toggleProductAction}>
-                          <input type="hidden" name="id" value={p.id} />
-                          <input
-                            type="hidden"
-                            name="isActive"
-                            value={p.isActive ? "false" : "true"}
+        <ListTable
+          empty={null}
+          columns={[
+            { key: "c0", header: t("list.columns.sku") },
+            { key: "c1", header: t("list.columns.name") },
+            { key: "c2", header: t("list.columns.unit") },
+            { key: "c3", header: t("list.columns.price"), numeric: true },
+            { key: "c4", header: t("list.columns.currency") },
+            { key: "c5", header: t("list.columns.hsn") },
+            { key: "c6", header: t("list.columns.tax"), numeric: true },
+            { key: "c7", header: t("list.columns.status") },
+            { key: "c8", header: "", sortable: false },
+          ]}
+          rows={products.map((p) => ({
+            id: p.id,
+            cells: {
+              c0: { node: p.sku, mono: true, sort: p.sku },
+              c1: { node: p.name, className: "font-medium", sort: p.name },
+              c2: { node: <>{t(`units.${p.unitType}`)}</>, sort: p.unitType },
+              c3: {
+                node: (
+                  <>
+                    <Amount>{formatAmount(p.unitPrice, p.currency, locale)}</Amount>
+                  </>
+                ),
+                numeric: true,
+                sort: Number(p.unitPrice),
+              },
+              c4: { node: p.currency, mono: true, sort: p.currency },
+              c5: { node: <>{p.hsnCode ?? tc("emptyValue")}</>, mono: true, sort: p.hsnCode ?? "" },
+              c6: { node: <>{p.defaultTaxRate}%</>, numeric: true, sort: Number(p.defaultTaxRate) },
+              c7: {
+                node: (
+                  <>
+                    <ActivePill active={p.isActive} archived={Boolean(p.archivedAt)} />
+                  </>
+                ),
+                sort: p.archivedAt ? 2 : p.isActive ? 0 : 1,
+              },
+              c8: {
+                node: (
+                  <>
+                    {canEdit ? (
+                      <div className="flex justify-end gap-1">
+                        <Button asChild variant="tertiary" size="sm">
+                          <Link href={`/products/${p.id}/edit`}>{tc("edit")}</Link>
+                        </Button>
+                        {!p.archivedAt ? (
+                          <form action={toggleProductAction}>
+                            <input type="hidden" name="id" value={p.id} />
+                            <input
+                              type="hidden"
+                              name="isActive"
+                              value={p.isActive ? "false" : "true"}
+                            />
+                            <input type="hidden" name="returnTo" value={returnTo} />
+                            <Button type="submit" variant="tertiary" size="sm">
+                              {p.isActive ? t("list.deactivate") : t("list.activate")}
+                            </Button>
+                          </form>
+                        ) : null}
+                        {p.archivedAt ? (
+                          <ConfirmAction
+                            action={unarchiveProductAction}
+                            title={t("products.restoreTitle", { sku: p.sku })}
+                            confirmLabel={tc("restore")}
+                            hidden={{ id: p.id, returnTo }}
+                            trigger={tc("restore")}
+                            triggerVariant="tertiary"
+                            size="sm"
                           />
-                          <input type="hidden" name="returnTo" value={returnTo} />
-                          <Button type="submit" variant="tertiary" size="sm">
-                            {p.isActive ? t("list.deactivate") : t("list.activate")}
-                          </Button>
-                        </form>
-                      ) : null}
-                      {p.archivedAt ? (
-                        <ConfirmAction
-                          action={unarchiveProductAction}
-                          title={t("products.restoreTitle", { sku: p.sku })}
-                          confirmLabel={tc("restore")}
-                          hidden={{ id: p.id, returnTo }}
-                          trigger={tc("restore")}
-                          triggerVariant="tertiary"
-                          size="sm"
-                        />
-                      ) : (
-                        <ConfirmAction
-                          action={archiveProductAction}
-                          title={t("products.archiveTitle", { sku: p.sku })}
-                          description={t("list.archiveDescription")}
-                          confirmLabel={tc("archive")}
-                          hidden={{ id: p.id, returnTo }}
-                          trigger={tc("archive")}
-                          triggerVariant="tertiary"
-                          size="sm"
-                          destructive
-                        />
-                      )}
-                    </div>
-                  ) : null}
-                </TD>
-              </TR>
-            ))}
-          </TBody>
-        </Table>
+                        ) : (
+                          <ConfirmAction
+                            action={archiveProductAction}
+                            title={t("products.archiveTitle", { sku: p.sku })}
+                            description={t("list.archiveDescription")}
+                            confirmLabel={tc("archive")}
+                            hidden={{ id: p.id, returnTo }}
+                            trigger={tc("archive")}
+                            triggerVariant="tertiary"
+                            size="sm"
+                            destructive
+                          />
+                        )}
+                      </div>
+                    ) : null}
+                  </>
+                ),
+                className: "text-right whitespace-nowrap",
+              },
+            },
+          }))}
+        />
       )}
     </>
   );

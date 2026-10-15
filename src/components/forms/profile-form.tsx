@@ -14,6 +14,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { MaskedField } from "@/components/ui/masked-field";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { EAS } from "@/lib/einvoice/eas";
@@ -162,7 +163,7 @@ export function ProfileForm({
         <CardContent>
           <FieldGroup>
             <Field label={t("pan")} htmlFor="panNumber" error={errors?.panNumber}>
-              <Input
+              <MaskedField
                 id="panNumber"
                 name="panNumber"
                 className="font-mono uppercase"
@@ -170,7 +171,7 @@ export function ProfileForm({
               />
             </Field>
             <Field label={t("gstin")} htmlFor="gstin" error={errors?.gstin}>
-              <Input
+              <MaskedField
                 id="gstin"
                 name="gstin"
                 className="font-mono uppercase"
@@ -178,7 +179,7 @@ export function ProfileForm({
               />
             </Field>
             <Field label={t("cin")} htmlFor="cinNumber" error={errors?.cinNumber}>
-              <Input
+              <MaskedField
                 id="cinNumber"
                 name="cinNumber"
                 className="font-mono"
@@ -186,7 +187,7 @@ export function ProfileForm({
               />
             </Field>
             <Field label={t("ukVatNumber")} htmlFor="ukVatNumber" error={errors?.ukVatNumber}>
-              <Input
+              <MaskedField
                 id="ukVatNumber"
                 name="ukVatNumber"
                 className="font-mono"
@@ -199,7 +200,7 @@ export function ProfileForm({
               error={errors?.usTaxId}
               hint={t("usTaxIdHint")}
             >
-              <Input
+              <MaskedField
                 id="usTaxId"
                 name="usTaxId"
                 className="font-mono"

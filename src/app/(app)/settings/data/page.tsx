@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Field } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
+import { DateField } from "@/components/ui/date-field";
 import { Mono } from "@/components/ui/mono";
 import { PageHeader } from "@/components/ui/page-header";
 import { Select } from "@/components/ui/select";
@@ -58,10 +58,10 @@ function PeriodFields({
         </Select>
       </Field>
       <Field label={tc("from")} htmlFor={`${idPrefix}-from`}>
-        <Input id={`${idPrefix}-from`} name="from" type="date" />
+        <DateField id={`${idPrefix}-from`} name="from" />
       </Field>
       <Field label={tc("to")} htmlFor={`${idPrefix}-to`}>
-        <Input id={`${idPrefix}-to`} name="to" type="date" />
+        <DateField id={`${idPrefix}-to`} name="to" />
       </Field>
       <Field label={t("issuer")} htmlFor={`${idPrefix}-issuer`}>
         <Select id={`${idPrefix}-issuer`} name="issuerProfileId" defaultValue="">

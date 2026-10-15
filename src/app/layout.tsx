@@ -4,7 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import "./globals.css";
 import { CookieNotice } from "@/components/cookie-notice";
-import { ACCENT_COOKIE, parseAccent } from "@/lib/accent";
+import { ACCENT_COOKIE, accentAttribute, accentStyle, parseAccent } from "@/lib/accent";
 import { COOKIE_NOTICE_COOKIE, isCookieNoticeDismissed } from "@/lib/cookie-notice";
 import { isRtl } from "@/lib/i18n/languages";
 import { publicOrigin } from "@/lib/site";
@@ -39,7 +39,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       lang={locale}
       dir={isRtl(locale) ? "rtl" : "ltr"}
       data-theme={initialTheme(mode)}
-      data-accent={accent}
+      data-accent={accentAttribute(accent)}
+      style={accentStyle(accent) as React.CSSProperties}
       suppressHydrationWarning
     >
       <head>

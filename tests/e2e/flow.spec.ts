@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { expect, test } from "@playwright/test";
 import ExcelJS from "exceljs";
-import { signInAs } from "./helpers";
+import { pickCombobox, signInAs } from "./helpers";
 
 /**
  * The whole owner journey through the real UI (SPEC §4, v2 §19). Needs AUTH_PASSWORD_SIGNIN=true
@@ -60,9 +60,14 @@ test("sign in, master data, invoice, issue, download, verify, pay, credit, templ
 
   // Invoice: catalogue line + ad hoc line, live preview, save & issue
   await page.goto("/invoices/new");
-  await page.locator("#issuerProfileId").selectOption({ label: profileLabel });
-  await page.locator("#clientId").selectOption({ label: clientName });
-  await page.getByLabel("Add from catalogue").selectOption({ index: 1 });
+  await pickCombobox(page, "#issuerProfileId", profileLabel);
+  await pickCombobox(page, "#clientId", clientName);
+  await page.locator("#catalogue-picker").click();
+  await page
+    .getByRole("listbox", { name: "Add from catalogue" })
+    .getByRole("option")
+    .first()
+    .click();
   await page.getByRole("button", { name: "Add line" }).click();
   await page.getByLabel("Line 2 description").fill("Ad hoc consulting");
   await page.getByLabel("Line 2 SAC/HSN").fill("998314");
