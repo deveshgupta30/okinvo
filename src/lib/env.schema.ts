@@ -85,6 +85,8 @@ const objectSchema = z
     RATE_LIMIT_STORE: z.enum(["memory", "postgres"]).default("memory"),
     /** Comma-separated host names the server may contact through fetchOutbound; empty = none (air-gapped). */
     OUTBOUND_ALLOW: z.string().default(""),
+    /** Refresh exchange rates once a day from open.er-api.com (needs the host on OUTBOUND_ALLOW); off = bundled table only. */
+    RATES_ONLINE: z.stringbool().default(false),
     /** 301 plain-http requests to https (health probes exempt); unset = on in production, off elsewhere. */
     FORCE_HTTPS: z.stringbool().optional(),
     /** Local, cookie-less page-view counts (Settings > Usage); nothing leaves the instance. */

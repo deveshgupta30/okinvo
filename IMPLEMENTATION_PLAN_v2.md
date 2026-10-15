@@ -738,6 +738,17 @@ model PaymentAttachment {
   @@index([paymentId])
 }
 
+// Exchange-rate tables from the optional daily refresh (v1.1 addendum §5); data/exchange-rates.json
+// is the bundled floor. rates: { "INR": "88.5", ... } per USD as decimal strings.
+model ExchangeRateSnapshot {
+  id        String   @id @default(uuid(7))
+  asOf      DateTime @unique @db.Date
+  base      String   @default("USD") @db.VarChar(3)
+  rates     Json
+  source    String
+  createdAt DateTime @default(now())
+}
+
 // ───────────────────────── Credit notes ─────────────────────────
 
 model CreditNote {
