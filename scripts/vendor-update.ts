@@ -158,7 +158,122 @@ function beui(): void {
     const text = readFileSync(file, "utf8");
     if (!text.startsWith("// @ts-nocheck")) writeFileSync(file, header + text);
   }
+  applyLabelPatches();
+  stripDashes();
   console.log(`beui: ${BEUI_COMPONENTS.length} components refreshed under src/components/motion`);
+}
+
+/**
+ * The vendored blocks hardcode a few English screen-reader labels with no prop to set them. These
+ * anchored replacements thread a label prop through (the okinvo wrappers pass catalogue strings);
+ * a refresh that moves an anchor fails loudly here rather than shipping an untranslated label.
+ */
+const LABEL_PATCHES: readonly [file: string, from: string, to: string][] = [
+  [
+    "src/components/motion/bottom-sheet.tsx",
+    "  children?: ReactNode;\n",
+    "  children?: ReactNode;\n  /** okinvo: accessible name of the backdrop close button (translated by the caller). */\n  closeLabel?: string;\n",
+  ],
+  [
+    "src/components/motion/bottom-sheet.tsx",
+    "  dismissThreshold = 120,\n}: BottomSheetProps) {",
+    '  dismissThreshold = 120,\n  closeLabel = "Close bottom sheet",\n}: BottomSheetProps) {',
+  ],
+  [
+    "src/components/motion/bottom-sheet.tsx",
+    'aria-label="Close bottom sheet"',
+    "aria-label={closeLabel}",
+  ],
+  [
+    "src/components/motion/animated-toast-stack.tsx",
+    'aria-label="Dismiss toast"',
+    "aria-label={dismissLabel}",
+  ],
+  [
+    "src/components/motion/date-range-picker.tsx",
+    'aria-label="Choose month"',
+    'aria-label={labels?.month ?? "Choose month"}',
+  ],
+  [
+    "src/components/motion/date-range-picker.tsx",
+    'aria-label="Choose year"',
+    'aria-label={labels?.year ?? "Choose year"}',
+  ],
+  [
+    "src/components/motion/date-range-picker.tsx",
+    "    <DateRangePickerContext.Provider value={ctx}>",
+    "    <DateRangePickerContext.Provider value={{ ...ctx, labels: props.labels }}>",
+  ],
+  [
+    "src/components/motion/date-range-picker.tsx",
+    "export function DateRangePickerHeader({\n  className,\n  ...props\n}: DateRangePickerHeaderProps) {\n  const {\n",
+    "export function DateRangePickerHeader({\n  className,\n  ...props\n}: DateRangePickerHeaderProps) {\n  const {\n    labels,\n",
+  ],
+  [
+    "src/components/motion/animated-toast-stack.tsx",
+    "  renderToast,\n}: {\n  toast: AnimatedToast;",
+    "  renderToast,\n  dismissLabel,\n}: {\n  toast: AnimatedToast;",
+  ],
+  [
+    "src/components/motion/animated-toast-stack.tsx",
+    "  renderToast?: (toast: AnimatedToast) => ReactNode;\n}) {\n  const reduce = useReducedMotion();",
+    "  renderToast?: (toast: AnimatedToast) => ReactNode;\n  dismissLabel: string;\n}) {\n  const reduce = useReducedMotion();",
+  ],
+  [
+    "src/components/motion/animated-toast-stack.tsx",
+    "            renderToast={renderToast}\n          />\n        ))}",
+    "            renderToast={renderToast}\n            dismissLabel={dismissLabel}\n          />\n        ))}",
+  ],
+];
+
+/** Props added once per file (interface and destructuring), each guarded by its own marker. */
+const PROP_PATCHES: readonly [file: string, marker: string, from: string, to: string][] = [
+  [
+    "src/components/motion/animated-toast-stack.tsx",
+    "dismissLabel?: string;",
+    "export interface AnimatedToastStackProps {\n",
+    "export interface AnimatedToastStackProps {\n  /** okinvo: accessible name of each toast's dismiss button (translated by the caller). */\n  dismissLabel?: string;\n",
+  ],
+  [
+    "src/components/motion/animated-toast-stack.tsx",
+    'dismissLabel = "Dismiss toast",',
+    "}: AnimatedToastStackProps)",
+    '  dismissLabel = "Dismiss toast",\n}: AnimatedToastStackProps)',
+  ],
+  [
+    "src/components/motion/date-range-picker/types.ts",
+    "labels?: { month?: string; year?: string };",
+    "export interface DateRangePickerProps {",
+    "export interface DateRangePickerProps {\n  /** okinvo: accessible names of the month and year choosers (translated by the caller). */\n  labels?: { month?: string; year?: string };",
+  ],
+];
+
+function applyLabelPatches(): void {
+  for (const [file, from, to] of LABEL_PATCHES) {
+    const p = path.join(ROOT, file);
+    const text = readFileSync(p, "utf8");
+    if (text.includes(to)) continue;
+    if (!text.includes(from)) {
+      throw new Error(`beui: label patch anchor missing in ${file}: ${from.slice(0, 40)}`);
+    }
+    writeFileSync(p, text.replace(from, to));
+  }
+  for (const [file, marker, from, to] of PROP_PATCHES) {
+    const p = path.join(ROOT, file);
+    const text = readFileSync(p, "utf8");
+    if (text.includes(marker)) continue;
+    if (!text.includes(from)) throw new Error(`beui: prop patch anchor missing in ${file}`);
+    writeFileSync(p, text.replace(from, to));
+  }
+}
+
+/** The repo never carries an em or en dash (owner rule); the registry's comments do. */
+function stripDashes(): void {
+  for (const file of vendoredFiles()) {
+    const text = readFileSync(file, "utf8");
+    const clean = text.replace(/ \u2014 /g, " - ").replace(/[\u2013\u2014]/g, "-");
+    if (clean !== text) writeFileSync(file, clean);
+  }
 }
 
 export async function vendorUpdate(sub: Subcommand): Promise<void> {

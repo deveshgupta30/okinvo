@@ -74,6 +74,8 @@ export type ToastClassNames = {
 };
 
 export interface AnimatedToastStackProps {
+  /** okinvo: accessible name of each toast's dismiss button (translated by the caller). */
+  dismissLabel?: string;
   toasts: AnimatedToast[];
   onDismiss?: (id: string) => void;
   position?: ToastPosition;
@@ -269,6 +271,7 @@ export function AnimatedToastStack({
   classNames,
   icons,
   renderToast,
+  dismissLabel = "Dismiss toast",
 }: AnimatedToastStackProps) {
   const [portalTarget, setPortalTarget] = useState<Element | null>(null);
   const visibleToasts = toasts.slice(-maxVisible);
@@ -304,6 +307,7 @@ export function AnimatedToastStack({
             classNames={classNames}
             icons={icons}
             renderToast={renderToast}
+            dismissLabel={dismissLabel}
           />
         ))}
       </AnimatePresence>
@@ -328,6 +332,7 @@ const ToastItem = memo(function ToastItem({
   classNames,
   icons,
   renderToast,
+  dismissLabel,
 }: {
   toast: AnimatedToast;
   index: number;
@@ -335,6 +340,7 @@ const ToastItem = memo(function ToastItem({
   classNames?: ToastClassNames;
   icons?: Partial<Record<ToastStatus, ReactNode>>;
   renderToast?: (toast: AnimatedToast) => ReactNode;
+  dismissLabel: string;
 }) {
   const reduce = useReducedMotion();
   const status = toast.status ?? "neutral";
@@ -489,7 +495,7 @@ const ToastItem = memo(function ToastItem({
               <button
                 type="button"
                 onClick={() => onDismiss?.(toast.id)}
-                aria-label="Dismiss toast"
+                aria-label={dismissLabel}
                 className={cn(
                   "inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted/80 hover:text-foreground",
                   classNames?.close,

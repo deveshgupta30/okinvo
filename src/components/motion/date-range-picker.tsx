@@ -97,7 +97,7 @@ export function DateRangePicker({
 }: DateRangePickerProps) {
   const ctx = useDateRangePickerController(props);
   return (
-    <DateRangePickerContext.Provider value={ctx}>
+    <DateRangePickerContext.Provider value={{ ...ctx, labels: props.labels }}>
       <MorphPopover
         open={ctx.open}
         onOpenChange={ctx.setOpen}
@@ -220,6 +220,7 @@ export function DateRangePickerHeader({
   ...props
 }: DateRangePickerHeaderProps) {
   const {
+    labels,
     monthTrigger,
     yearTrigger,
     view,
@@ -244,7 +245,7 @@ export function DateRangePickerHeader({
         <button
           ref={monthTrigger}
           type="button"
-          aria-label="Choose month"
+          aria-label={labels?.month ?? "Choose month"}
           aria-expanded={view === "months"}
           aria-controls={view === "months" ? choicesId : undefined}
           disabled={disabled}
@@ -267,14 +268,14 @@ export function DateRangePickerHeader({
         <button
           ref={yearTrigger}
           type="button"
-          aria-label="Choose year"
+          aria-label={labels?.year ?? "Choose year"}
           aria-expanded={view === "years"}
           aria-controls={view === "years" ? choicesId : undefined}
           disabled={disabled}
           onClick={() => openChoices("years")}
           className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-[13px] font-medium tabular-nums text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-40"
         >
-          {view === "years" ? `${yearPage}–${yearPageEnd}` : year}
+          {view === "years" ? `${yearPage}-${yearPageEnd}` : year}
           <ChevronDown
             size={12}
             aria-hidden="true"
@@ -751,7 +752,7 @@ export function DateRangePickerTrigger({
   const sameYear =
     ctx.value?.to && ctx.value.from.slice(0, 4) === ctx.value.to.slice(0, 4);
   const summary = ctx.value
-    ? `${(sameYear ? format : ctx.shortFormat).format(parse(ctx.value.from))} – ${ctx.value.to ? ctx.shortFormat.format(parse(ctx.value.to)) : "Select end"}`
+    ? `${(sameYear ? format : ctx.shortFormat).format(parse(ctx.value.from))} - ${ctx.value.to ? ctx.shortFormat.format(parse(ctx.value.to)) : "Select end"}`
     : placeholder;
   return (
     <MorphPopoverTrigger>

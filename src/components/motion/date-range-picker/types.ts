@@ -11,6 +11,8 @@ export interface DateRangePreset {
   value: DateRange;
 }
 export interface DateRangePickerProps {
+  /** okinvo: accessible names of the month and year choosers (translated by the caller). */
+  labels?: { month?: string; year?: string };
   value?: DateRange | null;
   defaultValue?: DateRange | null;
   onValueChange?: (range: DateRange | null) => void;

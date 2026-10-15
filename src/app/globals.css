@@ -167,6 +167,9 @@ html[data-theme-vt="circle-blur"]::view-transition-new(root) {
   --color-primary-hover: var(--accent-custom-primary-hover);
   --color-primary-focus: var(--accent-custom-primary-focus);
 }
+:root[data-theme="light"][data-accent="custom"] {
+  --color-primary-focus: var(--accent-custom-primary-focus-light);
+}
 
 /* Accent swatches: beui hides each radio with sr-only at the label's corner, which a rounded
    swatch does not cover; stretch the (invisible) radio over the whole swatch so a click, a tap

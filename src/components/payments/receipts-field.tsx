@@ -1,21 +1,18 @@
 "use client";
 
 import { FileText, Image as ImageIcon, X } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { AttachmentsUpload, DOCUMENT_TYPES } from "@/components/documents/attachments-upload";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { formatKilobytes } from "@/lib/format";
 import type { PaymentAttachmentDto } from "@/server/dal/payment-attachments";
 
 interface Uploaded {
   assetId: string;
   contentType: string;
   byteSize: number;
-}
-
-function kb(bytes: number): string {
-  return `${Math.max(1, Math.round(bytes / 1024))} KB`;
 }
 
 /**
@@ -33,6 +30,7 @@ export function ReceiptsField({
   const t = useTranslations("payments.form");
   const ta = useTranslations("assets");
   const tc = useTranslations("common");
+  const locale = useLocale();
   const [files, setFiles] = useState<Uploaded[]>(() =>
     initial.map((a) => ({ assetId: a.assetId, contentType: a.contentType, byteSize: a.byteSize })),
   );
@@ -130,7 +128,7 @@ export function ReceiptsField({
               >
                 {t("receiptN", { n: i + 1 })}
               </a>
-              <span className="text-ink-subtle">{kb(f.byteSize)}</span>
+              <span className="text-ink-subtle">{formatKilobytes(f.byteSize, locale)}</span>
               <Button
                 type="button"
                 variant="link"

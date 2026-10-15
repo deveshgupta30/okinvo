@@ -5,7 +5,8 @@ import { addDays, type DateString } from "@/lib/dates";
 /**
  * Local, cookie-less page views (addendum §2 item 19): one row per path per UTC day with a
  * counter, nothing else. No user, address or agent is stored, so there is nothing to consent to.
- * Off unless ANALYTICS_LOCAL=true; the app layout records the view after the response is sent.
+ * Off unless ANALYTICS_LOCAL=true; the shell's beacon posts every screen (hard loads and soft
+ * navigations alike) to /api/usage/view.
  */
 export interface UsageRow {
   day: DateString;

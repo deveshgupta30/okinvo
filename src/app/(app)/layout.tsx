@@ -1,16 +1,14 @@
-import { cookies, headers } from "next/headers";
-import { after } from "next/server";
+import { cookies } from "next/headers";
 import { Suspense } from "react";
 import { FlashFromSearch } from "@/components/flash-from-search";
+import { PageViewBeacon } from "@/components/page-view-beacon";
 import { AppShell } from "@/components/shell/app-shell";
 import { TimezoneDetect } from "@/components/timezone-detect";
 import { parseAccent } from "@/lib/accent";
-import { todayIn } from "@/lib/dates";
 import { env } from "@/lib/env";
 import { SIDEBAR_COOKIE, parseSidebar } from "@/lib/sidebar";
 import { parseThemeMode } from "@/lib/theme";
 import { optionalUser, requireUser } from "@/server/auth";
-import { recordPageView } from "@/server/dal/usage";
 import { getAccount } from "@/server/dal/users";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
@@ -18,11 +16,6 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   const [actor, cookieStore] = await Promise.all([optionalUser(), cookies()]);
   const account = actor ? await getAccount(actor) : null;
   const sidebar = parseSidebar(cookieStore.get(SIDEBAR_COOKIE)?.value);
-  if (env.ANALYTICS_LOCAL) {
-    // Local analytics (addendum §2 item 19): the screen and the UTC day, nothing about the person.
-    const pathname = (await headers()).get("x-pathname") ?? "/";
-    after(() => recordPageView(pathname, todayIn("UTC")).catch(() => {}));
-  }
   return (
     <AppShell
       user={{ name: user.name, email: user.email, avatarKey: account?.avatarKey ?? null }}
@@ -32,6 +25,8 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       minimal={account?.onboardedAt === null}
     >
       <TimezoneDetect current={user.timezone ?? null} />
+      {/* Local analytics (addendum §2 item 19): every screen, soft navigations included. */}
+      {env.ANALYTICS_LOCAL ? <PageViewBeacon /> : null}
       {children}
       <Suspense fallback={null}>
         <FlashFromSearch />

@@ -65,6 +65,7 @@ export function DateField({
         }}
       />
       <DateRangePicker
+        labels={{ month: t("chooseMonth"), year: t("chooseYear") }}
         value={range}
         onValueChange={pick}
         open={open}
