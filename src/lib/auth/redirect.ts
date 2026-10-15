@@ -15,6 +15,7 @@ const PUBLIC_PREFIXES = [
 const PUBLIC_FILES = new Set([
   "/favicon.ico",
   "/robots.txt",
+  "/sitemap.xml",
   "/icon.svg",
   "/apple-icon.png",
   "/manifest.webmanifest",
