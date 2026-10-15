@@ -1,6 +1,5 @@
 // @ts-nocheck -- vendored from beui.dev (pnpm vendor:update beui); checked by its own build, not this project's strict settings
 "use client";
-// beui.dev/components/motion/tooltip
 
 import { AnimatePresence } from "motion/react";
 import {

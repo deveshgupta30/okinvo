@@ -1,22 +1,22 @@
-import Link from "next/link";
-import { SearchX } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { Button } from "@/components/ui/button";
-import { EmptyState } from "@/components/ui/empty-state";
+import { NotFoundStacked } from "@/components/motion/not-found/stacked";
+import { NOT_FOUND_CLASS } from "@/components/not-found-class";
 
-/** `notFound()` from any signed-in page: rendered inside the shell, sidebar intact. */
+/** `notFound()` from any signed-in page: beui's stacked 404 inside the shell, sidebar intact. */
 export default async function AppNotFound() {
-  const t = await getTranslations("errors.appNotFound");
+  const [t, tn] = await Promise.all([
+    getTranslations("errors.appNotFound"),
+    getTranslations("shell.nav"),
+  ]);
   return (
-    <EmptyState
-      icon={SearchX}
+    <NotFoundStacked
       title={t("title")}
       description={t("body")}
-      action={
-        <Button asChild variant="secondary">
-          <Link href="/">{t("back")}</Link>
-        </Button>
-      }
+      homeHref="/"
+      homeLabel={t("back")}
+      browseHref="/invoices"
+      browseLabel={tn("invoices")}
+      className={`min-h-[60dvh] ${NOT_FOUND_CLASS}`}
     />
   );
 }

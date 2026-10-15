@@ -4,6 +4,7 @@ import * as React from "react";
 import { Table as BeuiTable, type TableColumn } from "@/components/motion/table";
 import { TBody, TD, TH, THead, TR, Table, TableEmpty } from "@/components/ui/table";
 import { useIsMobile } from "@/lib/is-mobile";
+import { RefreshableList } from "@/components/ui/refreshable-list";
 import { cn } from "@/lib/utils";
 
 export interface ListColumn {
@@ -102,43 +103,46 @@ export function ListTable({
   const isMobile = useIsMobile();
   const hydrated = useHydrated();
   if (isMobile || !hydrated) {
+    const table = (
+      <Table {...(isMobile ? { cards: true } : {})}>
+        <THead>
+          <TR>
+            {columns.map((c) => (
+              <TH key={c.key} {...(c.numeric ? { numeric: true } : {})}>
+                {c.header}
+              </TH>
+            ))}
+          </TR>
+        </THead>
+        <TBody>
+          {rows.length === 0 ? (
+            <TableEmpty colSpan={columns.length}>{empty}</TableEmpty>
+          ) : (
+            rows.map((row) => (
+              <TR key={row.id}>
+                {columns.map((c) => {
+                  const cell = row.cells[c.key];
+                  return (
+                    <TD
+                      key={c.key}
+                      label={c.header}
+                      {...((cell?.numeric ?? c.numeric) ? { numeric: true } : {})}
+                      {...(cell?.mono ? { mono: true } : {})}
+                      {...(cell?.className ? { className: cell.className } : {})}
+                    >
+                      {cell?.node}
+                    </TD>
+                  );
+                })}
+              </TR>
+            ))
+          )}
+        </TBody>
+      </Table>
+    );
     return (
       <div className={className}>
-        <Table {...(isMobile ? { cards: true } : {})}>
-          <THead>
-            <TR>
-              {columns.map((c) => (
-                <TH key={c.key} {...(c.numeric ? { numeric: true } : {})}>
-                  {c.header}
-                </TH>
-              ))}
-            </TR>
-          </THead>
-          <TBody>
-            {rows.length === 0 ? (
-              <TableEmpty colSpan={columns.length}>{empty}</TableEmpty>
-            ) : (
-              rows.map((row) => (
-                <TR key={row.id}>
-                  {columns.map((c) => {
-                    const cell = row.cells[c.key];
-                    return (
-                      <TD
-                        key={c.key}
-                        label={c.header}
-                        {...((cell?.numeric ?? c.numeric) ? { numeric: true } : {})}
-                        {...(cell?.mono ? { mono: true } : {})}
-                        {...(cell?.className ? { className: cell.className } : {})}
-                      >
-                        {cell?.node}
-                      </TD>
-                    );
-                  })}
-                </TR>
-              ))
-            )}
-          </TBody>
-        </Table>
+        {isMobile ? <RefreshableList>{table}</RefreshableList> : table}
       </div>
     );
   }

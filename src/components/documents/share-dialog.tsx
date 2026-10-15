@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Copy, Link2 } from "lucide-react";
+import { Link2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import * as React from "react";
 import { useActionState } from "react";
@@ -8,13 +8,8 @@ import { ConfirmAction } from "@/components/confirm-action";
 import { FormMessage } from "@/components/forms/form-message";
 import { SubmitButton } from "@/components/submit-button";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { CopyButton } from "@/components/ui/copy-button";
+import { ResponsiveDialog } from "@/components/ui/responsive-dialog";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
@@ -29,35 +24,6 @@ const STRENGTH_KEY = {
   good: "good",
   strong: "strong",
 } as const satisfies Record<PasswordStrength["label"], string>;
-
-function CopyButton({ value, label }: { value: string; label: string }) {
-  const t = useTranslations("share.dialog");
-  const [done, setDone] = React.useState(false);
-  return (
-    <Button
-      type="button"
-      variant="secondary"
-      size="sm"
-      aria-label={label}
-      onClick={async () => {
-        try {
-          await navigator.clipboard.writeText(value);
-          setDone(true);
-          setTimeout(() => setDone(false), 1500);
-        } catch {
-          // clipboard unavailable (insecure context): the value is selectable below
-        }
-      }}
-    >
-      {done ? (
-        <Check className="size-3.5" strokeWidth={1.5} />
-      ) : (
-        <Copy className="size-3.5" strokeWidth={1.5} />
-      )}
-      {done ? t("copied") : t("copy")}
-    </Button>
-  );
-}
 
 /**
  * "Share" on an issued document (spec §5.6): creates a public link, optionally behind a password
@@ -81,18 +47,20 @@ export function ShareDialog({
   const strength = passwordStrength(password);
   const created = state?.ok ? state.created : null;
   const live = links.filter((l) => !l.revokedAt);
+  const [open, setOpen] = React.useState(false);
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button type="button" variant="secondary">
-          <Link2 className="size-4" strokeWidth={1.5} /> {t("trigger")}
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="max-w-lg">
-        <DialogTitle>{t("title")}</DialogTitle>
-        <DialogDescription>{t("description")}</DialogDescription>
-
+    <>
+      <Button type="button" variant="secondary" onClick={() => setOpen(true)}>
+        <Link2 className="size-4" strokeWidth={1.5} /> {t("trigger")}
+      </Button>
+      <ResponsiveDialog
+        open={open}
+        onOpenChange={setOpen}
+        title={t("title")}
+        description={t("description")}
+        className="max-w-lg"
+      >
         {created ? (
           <div className="flex flex-col gap-3 rounded-md border border-hairline bg-surface-1 p-3">
             <p role="status" className="text-app-caption text-semantic-success">
@@ -100,7 +68,7 @@ export function ShareDialog({
             </p>
             <div className="flex items-center justify-between gap-2">
               <span className="text-app-label text-ink">{t("link")}</span>
-              <CopyButton value={created.url} label={t("copyLink")} />
+              <CopyButton value={created.url} ariaLabel={t("copyLink")} />
             </div>
             <code className="app-mono text-app-caption break-all text-ink select-all">
               {created.url}
@@ -109,7 +77,7 @@ export function ShareDialog({
               <>
                 <div className="flex items-center justify-between gap-2">
                   <span className="text-app-label text-ink">{t("password")}</span>
-                  <CopyButton value={created.password} label={t("copyPassword")} />
+                  <CopyButton value={created.password} ariaLabel={t("copyPassword")} />
                 </div>
                 <code
                   data-share-password
@@ -228,7 +196,7 @@ export function ShareDialog({
             </ul>
           </div>
         ) : null}
-      </DialogContent>
-    </Dialog>
+      </ResponsiveDialog>
+    </>
   );
 }
