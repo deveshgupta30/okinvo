@@ -49,6 +49,9 @@ describe("keyboard charset", () => {
   });
 
   it("the HTML pattern accepts the single-line set and nothing more", () => {
+    // Browsers compile the pattern attribute with the "v" flag, where unescaped ( ) { } / inside
+    // a class are syntax errors and the field would silently skip native validation.
+    expect(() => new RegExp(`^(?:${KEYBOARD_INPUT_PATTERN})$`, "v")).not.toThrow();
     const re = new RegExp(`^(?:${KEYBOARD_INPUT_PATTERN})$`);
     expect(re.test(KEYBOARD_CHARS + " ")).toBe(true);
     expect(re.test("a\u2014b")).toBe(false);
