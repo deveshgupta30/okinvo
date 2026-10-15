@@ -76,7 +76,7 @@ export function Sidebar({ user, initial, theme, minimal = false }: SidebarProps)
   );
 
   return (
-    <TooltipProvider delayDuration={300}>
+    <TooltipProvider delay={300}>
       <aside
         data-sidebar={state}
         className={cn(

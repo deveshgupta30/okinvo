@@ -12,7 +12,14 @@
  * Run the usual checks afterwards (pnpm fonts:check, pnpm notices, pnpm test) and commit.
  */
 import { spawnSync } from "node:child_process";
-import { copyFileSync, existsSync, readFileSync, writeFileSync } from "node:fs";
+import {
+  copyFileSync,
+  existsSync,
+  readdirSync,
+  readFileSync,
+  statSync,
+  writeFileSync,
+} from "node:fs";
 import path from "node:path";
 import { format, resolveConfig } from "prettier";
 
@@ -21,7 +28,17 @@ export const WORDLIST_URL = "https://www.eff.org/files/2016/09/08/eff_short_word
 export const WORDLIST_MODULE = path.join(ROOT, "src", "lib", "security", "eff-short-wordlist.ts");
 export const FLAG_CODES = ["us", "gb", "in"] as const;
 /** The beui components installed through `shadcn add` (filled in as the beui tasks land). */
-export const BEUI_COMPONENTS: readonly string[] = [];
+export const BEUI_COMPONENTS: readonly string[] = [
+  "@beui/input",
+  "@beui/select",
+  "@beui/checkbox",
+  "@beui/radio",
+  "@beui/switch",
+  "@beui/tooltip",
+  "@beui/animated-badge",
+  "@beui/animated-toast-stack",
+  "@beui/loader",
+];
 
 export type Subcommand = "fonts" | "wordlist" | "flags" | "rates" | "beui" | "all";
 const SUBCOMMANDS: readonly Subcommand[] = ["fonts", "wordlist", "flags", "rates", "beui", "all"];
@@ -90,12 +107,47 @@ function rates(): void {
   run("pnpm", ["exec", "tsx", script]);
 }
 
+/** Every file the beui registry writes outside src/lib/utils.ts. */
+function vendoredFiles(): string[] {
+  const out: string[] = [];
+  const walk = (dir: string) => {
+    if (!existsSync(dir)) return;
+    for (const entry of readdirSync(dir)) {
+      const full = path.join(dir, entry);
+      if (statSync(full).isDirectory()) walk(full);
+      else if (/\.tsx?$/.test(entry)) out.push(full);
+    }
+  };
+  walk(path.join(ROOT, "src", "components", "motion"));
+  for (const f of [
+    "hooks/use-dismiss.ts",
+    "hooks/use-hover-gesture.ts",
+    "hooks/use-tap-gesture.ts",
+    "touch.ts",
+    "ease.ts",
+  ]) {
+    const full = path.join(ROOT, "src", "lib", f);
+    if (existsSync(full)) out.push(full);
+  }
+  return out;
+}
+
 function beui(): void {
   if (BEUI_COMPONENTS.length === 0) {
     console.log("beui: no pinned components yet, skipped");
     return;
   }
   run("pnpm", ["dlx", "shadcn@latest", "add", "--overwrite", "--yes", ...BEUI_COMPONENTS]);
+  // The registry ships its own lib/utils.ts; ours extends tailwind-merge with the typography keys.
+  run("git", ["checkout", "--", "src/lib/utils.ts"]);
+  // Vendored source is checked by beui's own build: opt it out of this project's strict settings.
+  const header =
+    "// @ts-nocheck -- vendored from beui.dev (pnpm vendor:update beui); checked by its own build, not this project's strict settings\n";
+  for (const file of vendoredFiles()) {
+    const text = readFileSync(file, "utf8");
+    if (!text.startsWith("// @ts-nocheck")) writeFileSync(file, header + text);
+  }
+  console.log(`beui: ${BEUI_COMPONENTS.length} components refreshed under src/components/motion`);
 }
 
 export async function vendorUpdate(sub: Subcommand): Promise<void> {

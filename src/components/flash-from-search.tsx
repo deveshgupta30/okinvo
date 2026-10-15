@@ -1,62 +1,63 @@
 "use client";
 
-import { X } from "lucide-react";
-import { useTranslations } from "next-intl";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
+import {
+  AnimatedToastStack,
+  useAnimatedToastStack,
+  type ToastStatus,
+} from "@/components/motion/animated-toast-stack";
 import { readFlash, type Flash } from "@/lib/flash";
-import { cn } from "@/lib/utils";
 
-const RAIL: Record<Flash["kind"], string> = {
-  success: "border-l-semantic-success",
-  error: "border-l-semantic-danger",
-  info: "border-l-primary",
+const STATUS: Record<Flash["kind"], ToastStatus> = {
+  success: "success",
+  error: "error",
+  info: "info",
 };
+const DURATION_MS = 6000;
 
-/** Toast rendered from `?flash=`; strips the parameter so a reload does not repeat it. */
+/**
+ * Flash messages carried through a redirect as `?flash=` (every screen is a URL) shown as a
+ * toast in the beui stack: the stack's own hook times each toast out after a few seconds, the
+ * close button and a swipe dismiss it earlier, and the parameter is stripped so a reload does
+ * not repeat the message.
+ */
 export function FlashFromSearch() {
-  const tc = useTranslations("common");
   const params = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
   const raw = params.get("flash");
-  // Derived state: a new raw value replaces the shown flash during render (not in an effect).
-  const [shown, setShown] = useState<{ raw: string | null; flash: Flash | null }>({
-    raw: null,
-    flash: null,
-  });
-  if (raw && raw !== shown.raw) setShown({ raw, flash: readFlash(raw) });
+  const stack = useAnimatedToastStack({ defaultDuration: DURATION_MS });
+  const { showToast, dismissToast } = stack;
+  const hasError = stack.toasts.some((t) => t.status === "error");
+
+  const shownFor = useRef<string | null>(null);
 
   useEffect(() => {
-    if (!raw) return;
+    if (!raw || shownFor.current === raw) return; // once per flash, even when dev re-runs effects
+    shownFor.current = raw;
+    const flash = readFlash(raw);
+    if (flash) showToast({ title: flash.message, status: STATUS[flash.kind] });
     const rest = new URLSearchParams(params.toString());
     rest.delete("flash");
     const qs = rest.toString();
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
-    const t = setTimeout(() => setShown((s) => ({ ...s, flash: null })), 6000);
-    return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the raw flash changes
   }, [raw]);
 
-  const flash = shown.flash;
-  if (!flash) return null;
   return (
-    <div
-      role={flash.kind === "error" ? "alert" : "status"}
-      className={cn(
-        "fixed right-6 bottom-6 z-50 flex max-w-sm items-start gap-3 rounded-md border border-l-[3px] border-hairline-strong bg-surface-2 px-4 py-3 text-app-body text-ink",
-        RAIL[flash.kind],
-      )}
-    >
-      <span className="flex-1">{flash.message}</span>
-      <button
-        type="button"
-        aria-label={tc("dismiss")}
-        className="text-ink-subtle hover:text-ink"
-        onClick={() => setShown((s) => ({ ...s, flash: null }))}
-      >
-        <X className="size-4" strokeWidth={1.5} />
-      </button>
+    <div data-flash-stack role={hasError ? "alert" : "status"}>
+      <AnimatedToastStack
+        toasts={stack.toasts}
+        onDismiss={dismissToast}
+        position="bottom-right"
+        placement="fixed"
+        portal={false}
+        classNames={{
+          surface: "border-hairline-strong bg-surface-2 text-ink",
+          title: "text-app-body text-ink",
+        }}
+      />
     </div>
   );
 }

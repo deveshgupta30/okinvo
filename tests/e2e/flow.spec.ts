@@ -142,7 +142,7 @@ test("sign in, master data, invoice, issue, download, verify, pay, credit, templ
 
   // Changing the template later never rewrites an issued document
   await page.goto("/settings/templates");
-  const accentText = page.locator("#accent ~ input");
+  const accentText = page.locator("#accent-hex");
   await accentText.fill("#aa3366");
   await page.getByRole("button", { name: "Save template" }).click();
   await expect(page.getByText(/saved/i).first()).toBeVisible();

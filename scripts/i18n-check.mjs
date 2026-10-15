@@ -94,6 +94,7 @@ function* walk(dir) {
     const full = path.join(dir, entry);
     if (statSync(full).isDirectory()) {
       if (entry === "node_modules" || entry === "generated") continue;
+      if (entry === "motion" && dir.endsWith("components")) continue; // vendored beui (addendum §3)
       yield* walk(full);
     } else if (/\.(ts|tsx)$/.test(entry) && !/\.d\.ts$/.test(entry)) yield full;
   }

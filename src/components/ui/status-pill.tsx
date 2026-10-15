@@ -1,15 +1,26 @@
+"use client";
+
 import { Mail } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { AnimatedBadge, type AnimatedBadgeStatus } from "@/components/motion/animated-badge";
 import { cn } from "@/lib/utils";
 
 export type Tone = "neutral" | "muted" | "success" | "warning" | "danger";
 
+/** Status palette (v2 §24.5): the tone classes replace beui's own palette on the badge. */
 const TONE: Record<Tone, string> = {
-  neutral: "bg-surface-2 text-ink-subtle",
-  muted: "bg-surface-2 text-ink-muted",
-  success: "bg-semantic-success/12 text-semantic-success",
-  warning: "bg-semantic-warning/12 text-semantic-warning",
-  danger: "bg-semantic-danger/12 text-semantic-danger",
+  neutral: "border-transparent bg-surface-2 text-ink-subtle",
+  muted: "border-transparent bg-surface-2 text-ink-muted",
+  success: "border-transparent bg-semantic-success/12 text-semantic-success",
+  warning: "border-transparent bg-semantic-warning/12 text-semantic-warning",
+  danger: "border-transparent bg-semantic-danger/12 text-semantic-danger",
+};
+const BADGE_STATUS: Record<Tone, AnimatedBadgeStatus> = {
+  neutral: "neutral",
+  muted: "neutral",
+  success: "success",
+  warning: "warning",
+  danger: "danger",
 };
 
 export function Pill({
@@ -19,16 +30,20 @@ export function Pill({
   ...props
 }: React.ComponentProps<"span"> & { tone?: Tone }) {
   return (
-    <span
+    <AnimatedBadge
+      status={BADGE_STATUS[tone]}
+      size="sm"
+      showIcon={false}
+      {...(typeof children === "string" ? { contentKey: children } : {})}
       className={cn(
         "inline-flex h-5 items-center gap-1 rounded-pill px-2 text-app-caption whitespace-nowrap",
         TONE[tone],
         className,
       )}
-      {...props}
+      {...(props as Record<string, unknown>)}
     >
       {children}
-    </span>
+    </AnimatedBadge>
   );
 }
 
