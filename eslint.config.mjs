@@ -47,6 +47,26 @@ export default defineConfig([
     },
   },
   {
+    // Air-gapped operation (addendum §1): every font ships in the image.
+    files: ["src/**/*.{ts,tsx}"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "next/font/google",
+              message: "Fonts are vendored (@fontsource); next/font/google fetches at build time.",
+            },
+          ],
+          patterns: [
+            { group: ["next/font/google/*"], message: "Fonts are vendored (@fontsource)." },
+          ],
+        },
+      ],
+    },
+  },
+  {
     // Legal prose: apostrophes and quotation marks are text, not markup.
     files: ["src/app/(public)/legal/**/*.tsx"],
     rules: { "react/no-unescaped-entities": "off" },

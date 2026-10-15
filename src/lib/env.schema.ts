@@ -83,6 +83,10 @@ const objectSchema = z
     SMTP_REPLY_TO: optional,
 
     RATE_LIMIT_STORE: z.enum(["memory", "postgres"]).default("memory"),
+    /** Comma-separated host names the server may contact through fetchOutbound; empty = none (air-gapped). */
+    OUTBOUND_ALLOW: z.string().default(""),
+    /** 301 plain-http requests to https (health probes exempt); unset = on in production, off elsewhere. */
+    FORCE_HTTPS: z.stringbool().optional(),
     /** Build provenance baked into the image (docker/Dockerfile ARG → ENV); shown on Settings → Status. */
     OKINVO_BUILD_SHA: optional,
     OKINVO_BUILD_DATE: optional,

@@ -54,6 +54,10 @@ jobs:
       - run: pnpm design:lint && pnpm design:tokens --check
       - run: pnpm fonts:check && pnpm notices:check && pnpm env:docs:check && pnpm i18n:check
       - run: pnpm sdk:check # the committed OpenAPI document and SDK match the code
+      - name: air-gap guard over the production build
+        run: pnpm build && pnpm airgap:check
+        env: # next build validates nothing at build time, but the schema wants an origin
+          APP_URL: https://invoices.example.com
       - name: actionlint over the workflows
         run: |
           repo="${GITHUB_WORKSPACE//\\//}"
