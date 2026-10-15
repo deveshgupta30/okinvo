@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo هوم",
+    "save": "محفوظ ڪريو",
+    "cancel": "منسوخ ڪريو",
+    "continue": "جاري رکو",
+    "saving": "محفوظ ٿي رهيو آهي…",
+    "detect": "ڳوليو",
+    "yes": "ها",
+    "no": "نه",
+    "choose": "چونڊيو…",
+    "remove": "هٽايو",
+    "tryAgain": "ٻيهر ڪوشش ڪريو",
+    "dashboard": "ڊيش بورڊ",
+    "goToDashboard": "ڊيش بورڊ ڏانهن وڃو",
+    "or": "يا",
+    "invoice": "انوائس",
+    "creditNote": "ڪريڊٽ نوٽ",
+    "downloadPdf": "PDF ڊائونلوڊ ڪريو",
+    "edit": "ايڊٽ ڪريو",
+    "delete": "ڊليٽ ڪريو",
+    "downloadDocx": "DOCX ڊائونلوڊ ڪريو",
+    "downloadCii": "EN 16931 XML ڊائونلوڊ ڪريو",
+    "downloadUbl": "Peppol UBL ڊائونلوڊ ڪريو",
+    "downloadFacturX": "Factur-X PDF ڊائونلوڊ ڪريو",
+    "none": "ڪو به نه",
+    "dismiss": "بند ڪريو",
+    "all": "سڀ",
+    "previous": "اڳيون",
+    "next": "ايندڙ",
+    "go": "وڃو",
+    "search": "ڳولا",
+    "status": "حالت",
+    "total": "ڪل",
+    "currency": "ڪرنسي",
+    "from": "کان",
+    "to": "ڏانهن",
+    "reason": "سبب",
+    "history": "تاريخ",
+    "archive": "آرڪائيو ڪريو",
+    "restore": "بحال ڪريو",
+    "showArchived": "آرڪائيو ٿيل ڏيکاريو",
+    "hideArchived": "آرڪائيو ٿيل لڪايو",
+    "archived": "آرڪائيو ٿيل",
+    "default": "ڊفالٽ",
+    "setDefault": "ڊفالٽ مقرر ڪريو",
+    "revoke": "رد ڪريو",
+    "copy": "ڪاپي ڪريو",
+    "copied": "ڪاپي ٿي ويو",
+    "active": "سرگرم",
+    "pagination": "صفحا بندي",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "ڊيش بورڊ",
+      "invoices": "انوائسون",
+      "creditNotes": "ڪريڊٽ نوٽس",
+      "clients": "ڪلائنٽ",
+      "services": "خدمتون",
+      "products": "پراڊڪٽس",
+      "tools": "ڪرنسي"
+    },
+    "primaryNav": "بنيادي",
+    "settings": "سيٽنگون",
+    "openMenu": "مينيو کوليو",
+    "more": "وڌيڪ",
+    "navigation": "نيويگيشن",
+    "dock": "تڪڙي نيويگيشن",
+    "pagesAndAccount": "صفحا ۽ اڪائونٽ",
+    "collapseSidebar": "سائڊبار سوڙهو ڪريو",
+    "collapseSidebarHint": "سائڊبار سوڙهو ڪريو ([)",
+    "expandSidebar": "سائڊبار ويڪرو ڪريو",
+    "expandSidebarHint": "سائڊبار ويڪرو ڪريو ([)",
+    "theme": {
+      "label": "ٿيم",
+      "system": "سسٽم",
+      "light": "روشن",
+      "dark": "ڳاڙهو",
+      "current": "ٿيم: {mode}",
+      "switchTo": "ٿيم: {mode}. {next} ڏانهن مٽايو"
+    },
+    "userMenu": {
+      "label": "{name} جو اڪائونٽ مينيو",
+      "profile": "پروفائل",
+      "logOut": "لاگ آئوٽ"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "ڪرنسي ڪنورٽر",
+      "title": "ڪرنسي ڪنورٽر",
+      "description": "هن انسٽنس ۾ موجود مٽاسٽا جي شرحن جي جدول سان انهن ڪرنسين جي وچ ۾ تبديل ڪريو جن ۾ توهان انوائس ٺاهيو ٿا.",
+      "amount": "رقم",
+      "from": "کان",
+      "to": "ڏانهن",
+      "flip": "ڪرنسيون مٽايو",
+      "enterAmount": "رقم داخل ڪريو",
+      "asOf": "{date} تائين مٽاسٽا جون شرحون ({source})",
+      "sources": {
+        "bundled": "ايپ سان گڏ شامل",
+        "live": "آن لائن تازو ڪيل"
+      },
+      "note": "شرحون رڳو رهنمائي لاءِ آهن؛ جاري ڪيل انوائس تي شرح اها آهي جيڪا توهان جاري ڪرڻ وقت داخل ڪئي هئي."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "سائن ان",
+      "metaDescription": "پنهنجي سڃاڻپ فراهم ڪندڙ يا پاسورڊ سان okinvo ۾ سائن ان ڪريو، جيڪا پاڻ هوسٽ ٿيندڙ انوائسنگ ايپ آهي.",
+      "title": "سائن ان",
+      "subtitle": "رڳو اجازت لسٽ ۾ شامل اڪائونٽ داخل ٿي سگهن ٿا.",
+      "failed": "سائن ان ناڪام ٿيو.",
+      "noMethod": "ڪو به سائن ان طريقو ترتيب ڏنل ناهي. <code>.env</code> ۾ ڪو پروائيڊر جوڙو مقرر ڪريو جهڙوڪ <code>AUTH_GITHUB_*</code>، يا <code>AUTH_PASSWORD_SIGNIN=true</code>.",
+      "errors": {
+        "not_allowed": "اهو اڪائونٽ هن انسٽنس تي اجازت يافته ناهي، يا غير فعال ڪيو ويو آهي.",
+        "signin": "سائن ان مڪمل نه ٿيو. مهرباني ڪري ٻيهر ڪوشش ڪريو."
+      }
+    },
+    "password": {
+      "name": "نالو",
+      "email": "اي ميل",
+      "password": "پاسورڊ",
+      "signingIn": "سائن ان ٿي رهيو آهي…",
+      "createAccount": "اڪائونٽ ٺاهيو",
+      "signIn": "سائن ان",
+      "haveAPassword": "مون وٽ اڳ ۾ ئي پاسورڊ آهي",
+      "firstTime": "پهريون ڀيرو آيا آهيو؟ پاسورڊ مقرر ڪريو",
+      "failed": "سائن ان ناڪام ٿيو."
+    },
+    "social": {
+      "redirecting": "ريڊائريڪٽ ٿي رهيو آهي…",
+      "continueWith": "{provider} سان جاري رکو",
+      "failed": "سائن ان شروع نه ٿي سگهيو."
+    },
+    "error": {
+      "metaTitle": "سائن ان جي غلطي",
+      "metaDescription": "سائن ان مڪمل نه ٿيو. هي صفحو ٻڌائي ٿو ته ڇا غلط ٿيو ۽ ٻيهر ڪيئن ڪوشش ڪجي.",
+      "title": "سائن ان ناڪام ٿيو",
+      "body": "سڃاڻپ پروائيڊر <code>{value}</code> موٽايو. جيڪڏهن توهان جو پتو هن انسٽنس جي اجازت لسٽ ۾ ناهي، مالڪ کي چئو ته اهو شامل ڪري.",
+      "back": "سائن ان ڏانهن واپس"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "سيٽنگون",
+      "profiles": "پروفائل",
+      "paymentMethods": "ادائيگي جا طريقا",
+      "templates": "ٽيمپليٽس",
+      "email": "اي ميل",
+      "security": "سيڪيورٽي",
+      "users": "استعمال ڪندڙ",
+      "data": "ڊيٽا",
+      "legal": "قانوني",
+      "einvoicing": "اي-انوائسنگ",
+      "account": "اڪائونٽ",
+      "appearance": "ظاهري شڪل",
+      "api": "API",
+      "status": "حالت",
+      "usage": "استعمال"
+    },
+    "account": {
+      "metaTitle": "اڪائونٽ",
+      "title": "اڪائونٽ",
+      "description": "توهان جي تصوير، نالو، علائقو، ٻولي ۽ ٽائم زون.",
+      "photo": {
+        "title": "تصوير",
+        "description": "سائڊبار ۽ يوزر مينيو ۾ ڏيکاري ويندي."
+      },
+      "form": {
+        "title": "اڪائونٽ",
+        "description": "توهان ڪيئن نظر اچو ٿا ۽ “اڄ” ڪهڙو آهي.",
+        "displayName": "ڏيکاريل نالو",
+        "signInEmail": "سائن ان اي ميل",
+        "signInEmailHint": "هن انسٽنس تي توهان جي سڃاڻپ؛ هتي ايڊٽ نٿي ٿي سگهي.",
+        "timezone": "ٽائم زون",
+        "timezoneHint": "جاري ڪرڻ جي تاريخن، آخري تاريخن ۽ ڊيش بورڊ لاءِ “اڄ”",
+        "regionTitle": "علائقو",
+        "regionDescription": "نون جاري ڪندڙ پروفائلن ۽ ڊيش بورڊ لاءِ ڊفالٽ، جيستائين پروفائل ٺهي.",
+        "country": "ملڪ",
+        "currency": "ڪرنسي",
+        "suggested": "هن ملڪ لاءِ تجويز ڪيل:",
+        "language": "ٻولي",
+        "languageHint": "ايپ جي پنهنجي ٻولي. دستاويز هر پروفائل جي پنهنجي لوڪيل کي استعمال ڪن ٿا.",
+        "machineTranslated": "هي ٻولي مشيني ترجمو ٿيل آهي. اصلاحن جو آجيان آهي: <link>GitHub تي بهتر ڪريو</link>.",
+        "save": "ترجيحون محفوظ ڪريو"
+      },
+      "regions": {
+        "Africa": "آفريقا",
+        "Americas": "آمريڪا",
+        "Asia": "ايشيا",
+        "Europe": "يورپ",
+        "MiddleEast": "وچ اوڀر",
+        "Oceania": "اوشينيا",
+        "Constructed": "ٺاهيل"
+      },
+      "privacy": {
+        "title": "رازداري",
+        "description": "okinvo رڳو اهي ڪوڪيز مقرر ڪري ٿو جيڪي ڪم ڪرڻ لاءِ ضروري آهن. ڪو اينالٽڪس ناهي، ڪو ٽريڪنگ ناهي.",
+        "cookiePolicy": "ڪوڪي پاليسي",
+        "showNoticeAgain": "ڪوڪي نوٽيس ٻيهر ڏيکاريو"
+      }
+    },
+    "avatar": {
+      "changePhoto": "تصوير مٽايو",
+      "addPhoto": "تصوير شامل ڪريو",
+      "hint": "PNG، JPEG يا WebP. هر هنڌ دائري جي صورت ۾ ڏيکاري ويندي؛ محفوظ ڪرڻ کان اڳ زوم ۽ هلائي سگهو ٿا.",
+      "tooLarge": "اها تصوير تمام وڏي آهي.",
+      "uploadFailed": "اپلوڊ ناڪام ٿيو.",
+      "choose": "پروفائل تصوير چونڊيو",
+      "dialogTitle": "پنهنجي تصوير جي جڳهه مقرر ڪريو",
+      "dialogDescription": "هلائڻ لاءِ ڇڪيو، زوم ڪرڻ لاءِ اسڪرول يا پنچ ڪريو. دائرو اهو آهي جيڪو سڀ ڏسندا.",
+      "zoom": "زوم",
+      "save": "تصوير محفوظ ڪريو"
+    },
+    "appearance": {
+      "metaTitle": "ظاهري شڪل",
+      "title": "ظاهري شڪل",
+      "description": "ٿيم ۽ ايڪسينٽ رنگ، توهان جي اڪائونٽ ۾ محفوظ ٿين ٿا.",
+      "theme": {
+        "title": "ٿيم",
+        "description": "سسٽم جي پيروي ڪريو، يا روشن يا ڳاڙهو مقرر ڪريو.",
+        "label": "ٿيم",
+        "system": "سسٽم جي پيروي ڪريو",
+        "systemHint": "توهان جي OS سان مٽجي ٿو",
+        "light": "روشن",
+        "lightHint": "اڇو پس منظر",
+        "dark": "ڳاڙهو",
+        "darkHint": "ڪارو جي ويجهو پس منظر"
+      },
+      "accent": {
+        "title": "ايڪسينٽ",
+        "description": "بنيادي بٽڻ، فوڪس رِنگز ۽ سرگرم صفحي جي نشاني لاءِ استعمال ٿئي ٿو. مِنٽ برانڊ مارڪ سان ميل کائي ٿو.",
+        "label": "ايڪسينٽ رنگ",
+        "customHint": "يا پنھنجو ڪو به رنگ چونڊيو"
+      },
+      "accents": {
+        "mint": "مِنٽ",
+        "lavender": "لَيوينڊر",
+        "sky": "آسماني",
+        "peach": "آڙو",
+        "butter": "مکڻي",
+        "rose": "گلابي",
+        "sage": "سيج",
+        "lilac": "لائيليڪ",
+        "custom": "ڪسٽم"
+      }
+    },
+    "profiles": {
+      "metaTitle": "جاري ڪندڙ پروفائل",
+      "title": "جاري ڪندڙ پروفائل",
+      "description": "اهي قانوني سڃاڻپون جن کان توهان بل جاري ڪريو ٿا. ڊفالٽ وارو نون انوائسن کي اڳ ۾ ڀري ٿو.",
+      "breadcrumb": "پروفائل",
+      "newProfile": "نئون پروفائل",
+      "emptyTitle": "اڃا ڪو جاري ڪندڙ پروفائل ناهي",
+      "emptyDescription": "اها سڃاڻپ ٺاهيو جنهن کان توهان انوائس جاري ڪريو ٿا: PAN سان فرد، يا توهان جي ڪمپني.",
+      "createProfile": "پروفائل ٺاهيو",
+      "columns": {
+        "label": "ليبل",
+        "legalName": "قانوني نالو",
+        "type": "قسم",
+        "country": "ملڪ",
+        "currency": "ڪرنسي",
+        "regime": "ٽيڪس نظام",
+        "status": "حالت"
+      },
+      "types": {
+        "company": "ڪمپني",
+        "individual": "فرد"
+      },
+      "makeDefaultTitle": "{label} کي ڊفالٽ بڻايو؟",
+      "makeDefaultDescription": "نوان انوائس هن پروفائل کان شروع ٿيندا.",
+      "restoreTitle": "{label} بحال ڪريون؟",
+      "archiveTitle": "{label} آرڪائيو ڪريون؟",
+      "archiveDescription": "اهو چونڊ لسٽن مان غائب ٿي ويندو؛ موجود انوائسن کي هٿ نه لڳندو.",
+      "new": {
+        "metaTitle": "نئون جاري ڪندڙ پروفائل",
+        "title": "نئون جاري ڪندڙ پروفائل",
+        "prefilled": "توهان جي جوابن مان ڀريل؛ پتو ۽ ٽيڪس تفصيل چيڪ ڪريو، پوءِ محفوظ ڪريو."
+      },
+      "edit": {
+        "metaTitle": "جاري ڪندڙ پروفائل ايڊٽ ڪريو",
+        "template": "ٽيمپليٽ",
+        "deleteTitle": "{label} ڊليٽ ڪريون؟",
+        "deleteDescription": "رڳو تڏهن ممڪن آهي جڏهن ڪو انوائس يا ڪريڊٽ نوٽ هن پروفائل جو حوالو نه ڏئي. ٻي صورت ۾ آرڪائيو ڪريو."
+      },
+      "template": {
+        "metaTitle": "پروفائل ٽيمپليٽ",
+        "title": "{label} لاءِ ٽيمپليٽ",
+        "ownTemplate": "پنهنجو ٽيمپليٽ",
+        "instanceTemplate": "انسٽنس ٽيمپليٽ",
+        "resetTitle": "انسٽنس ٽيمپليٽ ٻيهر استعمال ڪريون؟",
+        "resetDescription": "هن پروفائل جي پنهنجي ترتيب هٽائي ويندي؛ جاري ٿيل دستاويزن تي اثر نه پوندو.",
+        "useInstance": "انسٽنس ٽيمپليٽ استعمال ڪريو",
+        "usingInstanceTitle": "انسٽنس ٽيمپليٽ استعمال ٿي رهيو آهي",
+        "usingInstanceDescription": "هن پروفائل جا دستاويز سيٽنگون → ٽيمپليٽس جي پيروي ڪن ٿا. انهن کي الڳ ڪرڻ لاءِ چونڊيو.",
+        "customise": "هن پروفائل لاءِ مختلف ٽيمپليٽ استعمال ڪريو",
+        "openInstance": "انسٽنس ٽيمپليٽ کوليو"
+      },
+      "form": {
+        "identityTitle": "سڃاڻپ",
+        "identityDescription": "انوائس ڪنهن طرفان آهي.",
+        "type": "قسم",
+        "label": "ليبل",
+        "labelHint": "رڳو چونڊ لسٽن ۾ ڏيکاريو ويندو",
+        "legalName": "قانوني نالو",
+        "tradeName": "واپاري نالو",
+        "designation": "عهدو",
+        "email": "اي ميل",
+        "phone": "فون",
+        "website": "ويب سائيٽ",
+        "addressTitle": "پتو",
+        "taxTitle": "ٽيڪس سڃاڻپ",
+        "taxDescription": "رڳو اهي جيڪي توهان تي لاڳو ٿين ٿا؛ ڇپائي هر انوائس لاءِ ڪنٽرول ٿئي ٿي.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "UK VAT نمبر",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "محفوظ ڪرڻ وقت ڳجهو ڪيل",
+        "lutNumber": "LUT نمبر",
+        "lutNumberHint": "IGST کان سواءِ برآمدات لاءِ",
+        "lutFiscalYear": "LUT مالي سال",
+        "lutFiscalYearHint": "مثال طور 2026-27",
+        "einvoiceTitle": "اي-انوائسنگ",
+        "einvoiceDescription": "هي پروفائل اي-انوائسز ۾ پنهنجي سڃاڻپ ڪيئن ڪرائي ٿو؛ ڪنيڪٽر ۽ سندون سيٽنگون > اي-انوائسنگ ۾ آهن.",
+        "electronicAddress": "اليڪٽرانڪ پتو",
+        "electronicAddressHint": "هن جاري ڪندڙ جو Peppol يا EN 16931 سڃاڻپ ڪندڙ، جيڪو وڪرو ڪندڙ جي اليڪٽرانڪ پتي طور ڇپجي ٿو.",
+        "electronicAddressScheme": "اليڪٽرانڪ پتي جي اسڪيم",
+        "electronicAddressSchemeNone": "ڪا اسڪيم ناهي",
+        "einvoiceEnabled": "هن پروفائل لاءِ اي-انوائسنگ فعال",
+        "einvoiceEnabledHint": "ان جي جاري ڪيل دستاويزن تي GST اي-انوائس JSON، Factur-X ۽ UBL ڊائونلوڊ ۽ IRN رجسٽريشن پيش ڪري ٿو.",
+        "defaultsTitle": "ڊفالٽس",
+        "baseCurrency": "بنيادي ڪرنسي",
+        "locale": "دستاويز لوڪيل",
+        "localeHint": "دستاويزن تي انگن ۽ تاريخن جي فارميٽنگ",
+        "fiscalYearStart": "مالي سال شروع ٿئي ٿو",
+        "months": {
+          "january": "جنوري",
+          "february": "فيبروري",
+          "march": "مارچ",
+          "april": "اپريل",
+          "may": "مئي",
+          "june": "جون",
+          "july": "جولاءِ",
+          "august": "آگسٽ",
+          "september": "سيپٽمبر",
+          "october": "آڪٽوبر",
+          "november": "نومبر",
+          "december": "ڊسمبر"
+        },
+        "taxRegime": "ڊفالٽ ٽيڪس نظام",
+        "regimes": {
+          "indiaGst": "انڊيا GST",
+          "ukVat": "UK VAT",
+          "usSalesTax": "US سيلز ٽيڪس",
+          "none": "ٽيڪس ناهي"
+        },
+        "invoiceNumberFormat": "انوائس نمبر فارميٽ",
+        "invoiceNumberFormatHint": "ٽوڪن: {tokens}",
+        "creditNoteNumberFormat": "ڪريڊٽ نوٽ نمبر فارميٽ",
+        "tdsRate": "متوقع TDS شرح (%)",
+        "tdsRateHint": "معلوماتي، متوقع ڪٽوتي طور ڇپجي ٿي",
+        "defaultNotes": "ڊفالٽ نوٽس",
+        "defaultTerms": "ڊفالٽ شرطون",
+        "printTitle": "ڊفالٽ طور ڇا ڇپجي ٿو",
+        "printDescription": "هر انوائس انهن کي ڪاپي ڪري ٿو ۽ انفرادي طور تبديل ڪري سگهي ٿو.",
+        "emailTitle": "اي ميل",
+        "emailDescription": "موڪلڻ جي ڪمپوزر لاءِ ڊفالٽس. پليس هولڊرز: {placeholders}",
+        "emailCc": "ڊفالٽ CC",
+        "emailBcc": "ڊفالٽ BCC",
+        "commaSeparated": "ڪاما سان ڌار ڪيل",
+        "invoiceSubject": "انوائس جو موضوع",
+        "invoiceSubjectHint": "خالي ڇڏڻ تي اندروني ٽيمپليٽ استعمال ٿيندو",
+        "creditNoteSubject": "ڪريڊٽ نوٽ جو موضوع",
+        "invoiceBody": "انوائس جو متن",
+        "creditNoteBody": "ڪريڊٽ نوٽ جو متن",
+        "artworkTitle": "آرٽ ورڪ",
+        "artworkDescription": "PNG، JPEG يا WebP 2 MB تائين؛ دستخط ۽ مهر شفافيت برقرار رکن ٿا.",
+        "logo": "لوگو",
+        "signature": "دستخط",
+        "stamp": "مهر",
+        "transparentPng": "شفاف PNG",
+        "save": "پروفائل محفوظ ڪريو"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "ادائيگي جا طريقا",
+      "title": "ادائيگي جا طريقا",
+      "description": "ڪلائنٽ توهان کي ڪيئن ادائيگي ڪن ٿا. تفصيل ڳجها ڪيل آهن ۽ جاري ڪرڻ وقت هر انوائس ۾ منجمد ٿين ٿا.",
+      "newMethod": "نئون طريقو",
+      "emptyTitle": "اڃا ڪو ادائيگي جو طريقو ناهي",
+      "emptyDescription": "بئنڪ اڪائونٽ، UPI ID يا والٽ شامل ڪريو ته جيئن انوائس ڪلائنٽ کي ٻڌائي سگهن ته ادائيگي ڪٿي ڪجي.",
+      "addMethod": "طريقو شامل ڪريو",
+      "columns": {
+        "name": "نالو",
+        "type": "قسم",
+        "currency": "ڪرنسي",
+        "status": "حالت"
+      },
+      "types": {
+        "bankTransfer": "بئنڪ ٽرانسفر",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "ڪسٽم"
+      },
+      "makeDefaultTitle": "{name} کي ڊفالٽ بڻايو؟",
+      "restoreTitle": "{name} بحال ڪريون؟",
+      "archiveTitle": "{name} آرڪائيو ڪريون؟",
+      "archiveDescription": "جاري ٿيل انوائس اهو اسنيپ شاٽ رکن ٿا جيڪو ڇپيو.",
+      "new": {
+        "metaTitle": "نئون ادائيگي جو طريقو",
+        "title": "نئون ادائيگي جو طريقو"
+      },
+      "edit": {
+        "metaTitle": "ادائيگي جو طريقو ايڊٽ ڪريو",
+        "title": "{name} ايڊٽ ڪريو",
+        "deleteTitle": "{name} ڊليٽ ڪريون؟",
+        "deleteDescription": "رڳو تڏهن ممڪن آهي جڏهن ڪو انوائس يا ادائيگي ان جو حوالو نه ڏئي. ٻي صورت ۾ آرڪائيو ڪريو."
+      },
+      "form": {
+        "name": "نالو",
+        "nameHint": "ادائيگي واري بلاڪ جي عنوان طور ڇپجي ٿو",
+        "type": "قسم",
+        "currency": "ڪرنسي",
+        "currencyHint": "اختياري؛ رڳو حوالي لاءِ ڏيکاري ويندي",
+        "anyCurrency": "ڪا به",
+        "instructions": "هدايتون",
+        "instructionsHint": "تفصيلن جي هيٺان ڇپجي ٿي",
+        "isDefault": "ڊفالٽ طريقو",
+        "isDefaultDescription": "نون انوائسن تي اڳ ۾ چونڊيل",
+        "isActive": "سرگرم",
+        "detailsTitle": "تفصيل",
+        "detailsDescription": "محفوظ ڪرڻ وقت ڳجها ڪيل؛ جاري ٿيڻ وقت هر انوائس ۾ اسنيپ شاٽ ٿين ٿا.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "وصول ڪندڙ جو نالو",
+        "lines": "لائينون",
+        "linesHint": "هر قطار ۾ هڪ لائين، جيئن آهي تيئن ڇپجي ٿي",
+        "accountEmail": "اڪائونٽ اي ميل / هينڊل",
+        "bank": {
+          "accountHolder": "اڪائونٽ هولڊر",
+          "accountNumber": "اڪائونٽ نمبر",
+          "bankName": "بئنڪ جو نالو",
+          "branch": "برانچ",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "روٽنگ / سارٽ ڪوڊ"
+        },
+        "save": "ادائيگي جو طريقو محفوظ ڪريو"
+      }
+    },
+    "templates": {
+      "metaTitle": "دستاويز ٽيمپليٽس",
+      "title": "دستاويز ٽيمپليٽس",
+      "customised": "ڪسٽمائيز ٿيل",
+      "builtIn": "اندروني ڊفالٽ",
+      "description": "انوائس ۽ ڪريڊٽ نوٽس ڪيئن نظر اچن ٿا. جاري ٿيل دستاويز اهو ٽيمپليٽ رکن ٿا جنهن سان جاري ٿيا.",
+      "resetTitle": "اندروني ڊفالٽ تي ري سيٽ ڪريون؟",
+      "resetDescription": "توهان جي ڪسٽمائيزيشن هٽائي ويندي؛ اڳ ۾ جاري ٿيل دستاويزن تي اثر نه پوندو.",
+      "reset": "ري سيٽ",
+      "resetTrigger": "ڊفالٽس تي ري سيٽ ڪريو",
+      "importTitle": "امپورٽ",
+      "importDescription": "اڳ ۾ ايڪسپورٽ ڪيل ترتيب بحال ڪريو.",
+      "overridesTitle": "هر پروفائل لاءِ اوور رائيڊس",
+      "overridesDescription": "پروفائل پنهنجي ايڊٽ صفحي تان پنهنجو ٽيمپليٽ چونڊي سگهي ٿو.",
+      "noOverrides": "هر پروفائل انسٽنس ٽيمپليٽ استعمال ڪري ٿو.",
+      "import": {
+        "json": "ٽيمپليٽ JSON",
+        "jsonHint": "Export JSON سان ٺهيل فائل پيسٽ ڪريو؛ غائب ڪيز ڊفالٽس تي موٽن ٿيون",
+        "importing": "امپورٽ ٿي رهيو آهي…",
+        "submit": "امپورٽ"
+      },
+      "form": {
+        "templateTitle": "ٽيمپليٽ",
+        "templateDescription": "ڇهه اندروني؛ هيٺ ڏنل ڪسٽمائيزيشن جيڪو به چونڊيو اهو لاڳو ٿئي ٿي.",
+        "templateGroup": "ٽيمپليٽ",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "جديد ۽ هوادار، سينس سيريف، هيڊر هيٺان ايڪسينٽ لائين."
+          },
+          "classic": {
+            "name": "Classic",
+            "character": "روايتي حد بندي وارو جدول، سيريف عنوان، دٻي ۾ ڪل رقم."
+          },
+          "compact": {
+            "name": "Compact",
+            "character": "ڊگهين شين جي لسٽ لاءِ گھاٽو ترتيب؛ ننڍو ٽائيپ، گهٽ ورهائيندڙ."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "خاموش ۽ کليل: ڪو لائين يا دٻو ناهي، هلڪا ليبل، گھڻي خالي جاءِ."
+          },
+          "letterhead": {
+            "name": "Letterhead",
+            "character": "توهان جو لوگو ۽ نالو هر صفحي جي مٿان رنگ پٽي يا تصوير تي."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "رنگ پٽي واري هيڊر؛ ڌريون، جدول هيڊر ۽ ڪل رقم هلڪي ايڪسينٽ ٽِنٽ تي."
+          }
+        },
+        "paperTitle": "ڪاغذ ۽ ٽائيپ",
+        "paperSize": "ڪاغذ جو سائيز",
+        "paperLetter": "Letter",
+        "margins": "حاشيا",
+        "marginsNormal": "عام",
+        "marginsNarrow": "تنگ",
+        "headingFont": "عنوان جو فونٽ",
+        "bodyFont": "متن جو فونٽ",
+        "fontSans": "سينس",
+        "fontSerif": "سيريف",
+        "tableStyle": "جدول جو انداز",
+        "tableRuled": "لڪيرن وارو",
+        "tableZebra": "زيبرا",
+        "tablePlain": "سادو",
+        "accentColour": "ايڪسينٽ رنگ",
+        "textColour": "متن جو رنگ",
+        "logoPosition": "لوگو جي جڳهه",
+        "positionLeft": "کاٻي",
+        "positionCentre": "وچ",
+        "positionRight": "ساڄي",
+        "logoHeight": "لوگو جي اونچائي (mm)",
+        "documentTitle": "دستاويز جو عنوان",
+        "titleAuto": "خودڪار (GST کي ڌيان ۾ رکي)",
+        "titleCustom": "ڪسٽم",
+        "titlePlaceholder": "مثال طور PROFORMA INVOICE",
+        "qrPosition": "QR جي جڳهه",
+        "qrFooter": "فوٽر",
+        "qrHeader": "هيڊر",
+        "qrBesideTotals": "ڪل رقم جي ڀرسان",
+        "amountInWords": "رقم لفظن ۾",
+        "wordsBelowTotal": "ڪل رقم جي هيٺان",
+        "wordsFooter": "فوٽر",
+        "wordsHidden": "لڪيل",
+        "subtotalRow": "ذيلي ڪل قطار",
+        "discountRow": "رعايت قطار",
+        "taxLines": "ٽيڪس لائينون",
+        "tdsExpected": "متوقع TDS",
+        "roundingRow": "گول ڪرڻ جي قطار",
+        "pageNumbers": "صفحا نمبر",
+        "headerTitle": "هيڊر",
+        "headerDescription": "هر صفحي جي مٿان رنگ پٽي يا تصوير. Letterhead ۽ Modern پٽي ڏيکارين ٿا جيستائين توهان ٻيو نه چونڊيو.",
+        "headerStyle": "هيڊر جو انداز",
+        "headerNone": "ڪو به نه",
+        "headerBand": "رنگ پٽي",
+        "headerImage": "تصوير",
+        "bandColour": "پٽي جو رنگ",
+        "bandColourHex": "پٽي جو رنگ (hex)",
+        "headerImageLabel": "هيڊر تصوير",
+        "headerImageHint": "PNG، JPEG يا WebP 2400 px ويڪر تائين؛ اها صفحي جي پوري ويڪر کي ڍڪي ٿي.",
+        "imageOpacity": "تصوير جي شفافيت",
+        "headerHeight": "هيڊر جي اونچائي (mm)",
+        "bandText": "پٽي تي متن",
+        "bandTextAuto": "خودڪار (پٽي جي رنگ مان)",
+        "bandTextLight": "روشن",
+        "bandTextDark": "ڳاڙهو",
+        "textTitle": "متن",
+        "headerNote": "هيڊر نوٽ",
+        "footer": "فوٽر",
+        "signatureCaption": "دستخط جو عنوان",
+        "draftWatermark": "مسودي جو واٽر مارڪ",
+        "labelsTitle": "ليبل",
+        "labelsDescription": "ڊفالٽ لفظن لاءِ فيلڊ خالي ڇڏيو.",
+        "save": "ٽيمپليٽ محفوظ ڪريو",
+        "downloadSample": "نمونو PDF ڊائونلوڊ ڪريو",
+        "exportJson": "JSON ايڪسپورٽ ڪريو"
+      }
+    },
+    "email": {
+      "metaTitle": "اي ميل",
+      "title": "اي ميل",
+      "configuredSettings": "سيٽنگن ۾ ترتيب ڏنل",
+      "configuredEnv": "ماحول طرفان ترتيب ڏنل",
+      "notConfigured": "ترتيب ڏنل ناهي: ميل ايپ طريقو",
+      "description": "دستاويز ڪمپوزر مان محفوظ ٿيل PDF سان موڪليا وڃن ٿا. هتي جون سيٽنگون ماحول ۾ SMTP_* کي اوور رائيڊ ڪن ٿيون.",
+      "sendTest": "{email} ڏانهن ٽيسٽ اي ميل موڪليو",
+      "removeTitle": "محفوظ ٿيل SMTP سيٽنگون هٽايون؟",
+      "removeEnvTakesOver": "ماحول جون SMTP_* قيمتون سنڀاليندا.",
+      "removeFallsBack": "اي ميل ميل ايپ طريقي تي موٽندي.",
+      "removeTrigger": "محفوظ ٿيل سيٽنگون هٽايو",
+      "smtpTitle": "SMTP سرور",
+      "smtpFromEnv": "هن وقت ماحول مان ورتل؛ هتي محفوظ ڪرڻ ان کي اوور رائيڊ ڪري ٿو.",
+      "smtpPasswordNote": "پاسورڊ محفوظ ڪرڻ وقت ڳجهو ڪيل آهي ۽ ٻيهر ڪڏهن به نه ڏيکاريو ويندو.",
+      "defaultsTitle": "ڊفالٽ وصول ڪندڙ",
+      "defaultsDescription": "انسٽنس ويڪر CC/BCC؛ جاري ڪندڙ پروفائل پنهنجا شامل ڪن ٿا.",
+      "sentTitle": "موڪليل ميل",
+      "sentDescription": "آخري 50 ڪوششون، ناڪامين ۽ دستي موڪلڻ سميت.",
+      "smtp": {
+        "host": "هوسٽ",
+        "port": "پورٽ",
+        "security": "سيڪيورٽي",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "ڪا به نه (LAN ريلي)",
+        "user": "يوزرنيم",
+        "password": "پاسورڊ",
+        "passwordStored": "محفوظ ۽ ڳجهو ڪيل؛ رکڻ لاءِ خالي ڇڏيو",
+        "passwordEncrypted": "محفوظ ڪرڻ وقت ڳجهو ڪيل",
+        "from": "موڪليندڙ جو پتو",
+        "fromName": "موڪليندڙ جو نالو",
+        "replyTo": "جواب ڏانهن",
+        "save": "SMTP سيٽنگون محفوظ ڪريو"
+      },
+      "defaults": {
+        "cc": "ڊفالٽ CC",
+        "ccHint": "هر ڪمپوزر ۾ شامل ٿئي ٿو؛ ڪاما سان ڌار ڪيل",
+        "bcc": "ڊفالٽ BCC",
+        "save": "ڊفالٽس محفوظ ڪريو"
+      }
+    },
+    "security": {
+      "metaTitle": "سيڪيورٽي",
+      "title": "سيڪيورٽي",
+      "description": "توهان ڪٿي سائن ان آهيو، ۽ هر شيءِ جيڪا تبديل ٿي.",
+      "sessions": {
+        "title": "سرگرم سيشنز",
+        "description": "سيشن رد ڪرڻ اهو ڊوائيس فوري طور سائن آئوٽ ڪري ٿو.",
+        "signOutOthers": {
+          "title": "ٻين هر هنڌ کان سائن آئوٽ ڪريون؟",
+          "description": "هن کان سواءِ هر سيشن رد ٿي ويندو.",
+          "confirm": "ٻين کي سائن آئوٽ ڪريو",
+          "trigger": "ٻين هر هنڌ کان سائن آئوٽ"
+        },
+        "columns": {
+          "device": "ڊوائيس",
+          "ipAddress": "IP پتو",
+          "signedIn": "سائن ان ٿيو",
+          "lastSeen": "آخري ڀيرو ڏٺو ويو",
+          "expires": "ختم ٿئي ٿو"
+        },
+        "thisDevice": "هي ڊوائيس",
+        "revokeTitle": "هي سيشن رد ڪريون؟",
+        "unknownDevice": "اڻڄاتل ڊوائيس",
+        "unknownBrowser": "اڻڄاتل",
+        "agentOnOs": "{os} تي {browser}"
+      },
+      "audit": {
+        "title": "آڊٽ لاگ",
+        "count": "{count, plural, one {# واقعو} other {# واقعا}}",
+        "entity": "اداري",
+        "actionContains": "عمل ۾ شامل آهي",
+        "filter": "فلٽر",
+        "reset": "ري سيٽ",
+        "columns": {
+          "when": "ڪڏهن",
+          "who": "ڪير",
+          "action": "عمل",
+          "entity": "اداري",
+          "summary": "خلاصو"
+        },
+        "empty": "انهن فلٽرن سان ڪو واقعو ميل نٿو کائي.",
+        "system": "سسٽم",
+        "changes": "تبديليون",
+        "page": "صفحو {page} / {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "استعمال ڪندڙ",
+      "title": "استعمال ڪندڙ",
+      "description": "ڪير هن انسٽنس ۾ سائن ان ڪري سگهي ٿو ۽ ڇا ڪري سگهي ٿو.",
+      "roles": {
+        "owner": "مالڪ",
+        "editor": "ايڊيٽر",
+        "viewer": "ڏسندڙ"
+      },
+      "roleHints": {
+        "owner": "هر شيءِ، سيٽنگون ۽ ميمبر سميت",
+        "editor": "ڪلائنٽ، ڪيٽلاگ، انوائس، ڪريڊٽ نوٽس، ادائيگيون، اي ميل",
+        "viewer": "رڳو پڙهڻ"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "{email} جو ڪردار",
+      "invite": {
+        "title": "ڪنهن کي دعوت ڏيو",
+        "description": "اهي دعوت ڏنل پتي سان (سڃاڻپ پروائيڊر يا پاسورڊ) سائن ان ڪن ٿا ۽ توهان جو چونڊيل ڪردار حاصل ڪن ٿا.",
+        "sent": "دعوت {email} ڏانهن اي ميل ڪئي وئي.",
+        "readyWithError": "{email} لاءِ دعوت تيار آهي. اي ميل موڪلي نه سگهي ({error})؛ کين هي لنڪ موڪليو:",
+        "readyNoSmtp": "{email} لاءِ دعوت تيار آهي. ڪو SMTP ترتيب ڏنل ناهي؛ کين هي لنڪ موڪليو:",
+        "copyLink": "لنڪ ڪاپي ڪريو",
+        "email": "اي ميل",
+        "emailPlaceholder": "person@example.com",
+        "role": "ڪردار",
+        "submit": "دعوت ڏيو",
+        "inviting": "دعوت ڏئي رهيا آهيون…"
+      },
+      "members": {
+        "title": "ميمبر",
+        "description": "گهٽ ۾ گهٽ هڪ سرگرم مالڪ هميشه رهي ٿو.",
+        "columns": {
+          "person": "شخص",
+          "role": "ڪردار",
+          "lastSignIn": "آخري سائن ان",
+          "status": "حالت"
+        },
+        "nameYou": "{name} (توهان)",
+        "deactivated": "غير فعال",
+        "reactivate": {
+          "title": "{email} ٻيهر فعال ڪريون؟",
+          "description": "اهي پنهنجي اڳوڻي ڪردار سان ٻيهر سائن ان ڪري سگهن ٿا.",
+          "confirm": "ٻيهر فعال ڪريو"
+        },
+        "deactivate": {
+          "title": "{email} غير فعال ڪريون؟",
+          "description": "هر سيشن هاڻي ختم ٿي ويندو ۽ ٻيهر فعال ٿيڻ تائين اهي سائن ان نٿا ڪري سگهن. انهن جي تاريخ رهندي.",
+          "confirm": "غير فعال ڪريو"
+        }
+      },
+      "invitations": {
+        "title": "زير التوا دعوتون",
+        "description": "اهي پتا جيڪي سائن ان ڪري سگهن ٿا پر اڃا نه ڪيو آهي.",
+        "columns": {
+          "email": "اي ميل",
+          "role": "ڪردار",
+          "invited": "دعوت ڏني وئي"
+        },
+        "empty": "ڪا به زير التوا دعوت ناهي.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "{email} جي دعوت رد ڪريون؟"
+      }
+    },
+    "data": {
+      "metaTitle": "ڊيٽا",
+      "title": "ڊيٽا",
+      "description": "هر شيءِ منتقل ٿيڻ جوڳي آهي: ڊيٽا سيٽ CSV يا Excel طور، منتقلي لاءِ مڪمل اسنيپ شاٽ، توهان جي اڪائونٽنٽ لاءِ PDFs، ۽ هڪ جانچيل بيڪ اپ طريقو.",
+      "period": {
+        "fiscalYear": "مالي سال",
+        "fiscalYearHint": "تاريخن کي اوور رائيڊ ڪري ٿو",
+        "issuer": "جاري ڪندڙ"
+      },
+      "exportAll": {
+        "title": "سڀ ڊيٽا ايڪسپورٽ ڪريو",
+        "description": "هڪ ZIP جنهن ۾ هر ڊيٽا سيٽ CSV طور ۽ <mono>data.json</mono> شامل آهي، سڀني ٽيبلن جو رشتيدار اسنيپ شاٽ. ڳجها ڪيل فيلڊ (ادائيگي جي طريقي جا تفصيل، SMTP پاسورڊ) ٻاهر رهن ٿا؛ اندر README انهن جي لسٽ ڏئي ٿو.",
+        "download": "okinvo-data ZIP ڊائونلوڊ ڪريو"
+      },
+      "exportDocuments": {
+        "title": "دستاويز ايڪسپورٽ ڪريو",
+        "description": "هڪ مدت لاءِ هر جاري ٿيل ۽ منسوخ ٿيل انوائس ۽ ڪريڊٽ نوٽ PDF، نمبر سان نالو ڏنل، نمبرن، ڪل رقمن ۽ هيشن جي <mono>index.csv</mono> سان. غائب PDFs رستي ۾ ٺاهيا وڃن ٿا.",
+        "docx": "هر دستاويز جي DOCX ڪاپي به شامل ڪريو",
+        "facturx": "EN 16931 XML سميت Factur-X PDF/A-3 ڪاپي به شامل ڪريو",
+        "download": "دستاويز ZIP ڊائونلوڊ ڪريو"
+      },
+      "datasets": {
+        "title": "ڊيٽا سيٽ",
+        "description": "ساڳيا ايڪسپورٽس جيڪي انڊيڪس صفحا پيش ڪن ٿا، سڀني تي مدت ۽ جاري ڪندڙ لاڳو ٿيل. ادائيگيون تاريخ جي حد استعمال ڪن ٿيون؛ ڪلائنٽ ۽ خدمتون مدت کي نظرانداز ڪن ٿيون.",
+        "columns": {
+          "dataset": "ڊيٽا سيٽ",
+          "filters": "لاڳو ٿيل فلٽر",
+          "download": "ڊائونلوڊ"
+        },
+        "names": {
+          "invoices": "انوائس رجسٽر",
+          "invoiceItems": "انوائس لائين آئٽمز",
+          "payments": "ادائيگين جو کاتو",
+          "creditNotes": "ڪريڊٽ نوٽس رجسٽر",
+          "clients": "ڪلائنٽ",
+          "services": "خدمتون",
+          "gstSummary": "GST خلاصو",
+          "tdsSummary": "TDS خلاصو"
+        },
+        "filters": {
+          "periodIssuer": "مدت، جاري ڪندڙ",
+          "dateRangeIssuer": "تاريخ جي حد، جاري ڪندڙ",
+          "includesArchived": "آرڪائيو ٿيل شامل آهن"
+        }
+      },
+      "backups": {
+        "title": "بيڪ اپ",
+        "notWired": "ڪا بيڪ اپ سروس ڳنڍيل ناهي",
+        "noRun": "اڃا ڪو بيڪ اپ نه هليو آهي",
+        "lastOk": "آخري بيڪ اپ ٺيڪ",
+        "lastFailed": "آخري بيڪ اپ ناڪام",
+        "description": "Compose <mono>backup</mono> سروس Postgres ڊمپ ڪري ٿي ۽ <mono>BACKUP_CRON</mono> تي اسٽوريج والِيوم آرڪائيو ڪري ٿي، <mono>backups</mono> والِيوم ۾ <mono>BACKUP_RETENTION_DAYS</mono> جي تاريخ رکي ٿي، ۽ اسٽيٽس فائل لکي ٿي جيڪا هي صفحو پڙهي ٿو.",
+        "finished": "مڪمل ٿيو",
+        "databaseDump": "ڊيٽابيس ڊمپ",
+        "storageArchive": "اسٽوريج آرڪائيو",
+        "size": "سائيز",
+        "sizeMb": "{size} MB",
+        "error": "غلطي",
+        "runNow": "هاڻي هڪ هلايو، يا فائلن جي جوڙي مان بحال ڪريو:",
+        "restoreDrill": "بحالي جو طريقو CI ۾ <mono>scripts/restore-drill.sh</mono> سان آزمايو ويندو آهي: سيڊ، بيڪ اپ، صفايو، بحالي، پوءِ قطارن جي ڳڻپ ۽ PDF هيش جو موازنو."
+      }
+    },
+    "legal": {
+      "metaTitle": "قانوني",
+      "metaDescription": "هي انسٽنس ڪير هلائي ٿو: عوامي قانوني صفحن تي ڇپيل تفصيل.",
+      "title": "قانوني",
+      "description": "عوامي قانوني صفحا هي تفصيل ڇاپين ٿا. جيستائين هر فيلڊ ڀريل نه ٿئي، صفحا نمايان پليس هولڊرز ڏيکارين ٿا.",
+      "operator": {
+        "title": "آپريٽر جا تفصيل",
+        "complete": "مڪمل",
+        "missing": "{count} غائب: {fields}",
+        "description": "توهان، هن انسٽنس کي هلائيندڙ شخص يا ڪمپني جي حيثيت ۾، اهو آپريٽر آهيو جنهن جو دستاويز حوالو ڏين ٿا. هتي ڪجهه به ڪٿي موڪليو نٿو وڃي؛ اهو هيٺين صفحن تي ڇپجي ٿو."
+      },
+      "fieldLabels": {
+        "legalName": "آپريٽر جو قانوني نالو",
+        "entityType": "اداري جو قسم",
+        "address": "آپريٽر جو پتو",
+        "country": "آپريٽر جو ملڪ",
+        "contactEmail": "رابطي جو اي ميل",
+        "privacyEmail": "رازداري جو اي ميل",
+        "dpoEmail": "ڊيٽا پروٽيڪشن آفيسر جو اي ميل",
+        "governingLaw": "لاڳو قانون",
+        "venue": "تڪرارن جو مقام",
+        "effectiveDate": "اثرائتي تاريخ"
+      },
+      "publicPages": {
+        "title": "عوامي صفحا",
+        "description": "سائن ان صفحي، شيئر ويور ۽ ڪوڪي نوٽيس مان ڳنڍيل.",
+        "terms": "خدمت جون شرطون",
+        "acceptableUse": "قابل قبول استعمال پاليسي",
+        "privacy": "رازداري پاليسي",
+        "cookies": "ڪوڪي پاليسي",
+        "dataRetention": "ڊيٽا برقرار رکڻ",
+        "security": "سيڪيورٽي",
+        "licenses": "لائسنس ۽ ٽئين ڌر جا نوٽيس"
+      },
+      "form": {
+        "legalName": "قانوني نالو",
+        "entityType": "اداري جو قسم",
+        "individual": "فرد / واحد مالڪ",
+        "company": "ڪمپني / رجسٽرڊ اداري",
+        "address": "پتو",
+        "addressHint": "شرطن ۽ رازداري پاليسي ۾ آپريٽر جي ڊاک جي پتي طور ڇپجي ٿو.",
+        "country": "ملڪ",
+        "effectiveDate": "اثرائتي تاريخ",
+        "contactEmail": "رابطي جو اي ميل",
+        "privacyEmail": "رازداري جو اي ميل",
+        "privacyEmailHint": "ڊيٽا جي مالڪن جون درخواستون هتي وڃن ٿيون؛ رابطي وارو پتو ٿي سگهي ٿو.",
+        "dpoEmail": "ڊيٽا پروٽيڪشن آفيسر جو اي ميل",
+        "dpoEmailHint": "رڳو جيڪڏهن توهان مقرر ڪيو آهي.",
+        "governingLaw": "لاڳو قانون",
+        "governingLawHint": "مثال طور “هندستان جا قانون” يا “انگلينڊ ۽ ويلز جا قانون”.",
+        "venue": "تڪرارن جو مقام",
+        "venueHint": "مثال طور “Bengaluru، Karnataka جون عدالتون”.",
+        "submit": "آپريٽر جا تفصيل محفوظ ڪريو"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "اي-انوائسنگ",
+      "title": "اي-انوائسنگ",
+      "description": "في جاري ڪندڙ پروفائل: ڪهڙو ڪنيڪٽر هندستاني اي-انوائسز رجسٽر ڪري ٿو، ۽ Factur-X ۽ UBL آئوٽ پٽ ڪهڙي يورپي پروفائل جي پيروي ڪن ٿا. سندون ڳجهي ڪوڊ ۾ محفوظ ڪيون وڃن ٿيون ۽ ٻيهر نه ڏيکاريون وڃن ٿيون.",
+      "noProfiles": "پهرين هڪ جاري ڪندڙ پروفائل ٺاهيو.",
+      "profile": "جاري ڪندڙ پروفائل",
+      "enabled": "فعال",
+      "disabled": "غير فعال",
+      "enabledHint": "اي-انوائسنگ کي في پروفائل سيٽنگون > پروفائل ۾ آن يا آف ڪريو.",
+      "india": {
+        "title": "هندستان (GST اي-انوائس، IRN)",
+        "description": "IRN هتي چونڊيل ڪنيڪٽر ذريعي رجسٽر ٿئي ٿو؛ دستي ڪنيڪٽر پورٽل جو جواب هٿ سان وٺي ٿو.",
+        "connector": "ڪنيڪٽر",
+        "connectorNone": "بند",
+        "connectorManual": "دستي (IRP جواب پيسٽ ڪريو)",
+        "connectorNic": "NIC IRP API (سينڊ باڪس يا پروڊڪشن)",
+        "nicUnverified": "NIC ڪنيڪٽر شايع ٿيل API جي پيروي ڪري ٿو ۽ صرف رڪارڊ ٿيل فڪسچرز تي آزمايو ويو آهي؛ سندون ملڻ تائين لائيو سينڊ باڪس تي ان جي تصديق نه ٿي آهي.",
+        "env": "ماحول",
+        "sandbox": "سينڊ باڪس",
+        "production": "پروڊڪشن",
+        "baseUrl": "بنيادي URL",
+        "baseUrlHint": "ماحول جي ڊفالٽ لاءِ خالي ڇڏيو.",
+        "clientId": "ڪلائنٽ آئي ڊي",
+        "clientSecret": "ڪلائنٽ سيڪريٽ",
+        "username": "يوزرنيم",
+        "password": "پاسورڊ",
+        "gstin": "GSTIN",
+        "publicKey": "IRP جي عوامي ڪنجي (PEM)",
+        "publicKeyHint": "سائن ان ڪرڻ کان پوءِ پورٽل تان ڊائونلوڊ ڪريو؛ اها IRP ڏانهن موڪليل سندن کي ويڙهي ٿي.",
+        "publicKeyStored": "محفوظ ٿيل؛ رکڻ لاءِ خالي ڇڏيو.",
+        "secretStored": "ڳجهي ڪوڊ ۾ محفوظ ٿيل؛ رکڻ لاءِ خالي ڇڏيو.",
+        "secretEncrypted": "اسٽوريج ۾ ڳجهي ڪوڊ ۾ محفوظ."
+      },
+      "eu": {
+        "title": "يورپ (Factur-X، UBL)",
+        "description": "هن ورزن ۾ EN 16931 ئي واحد پروفائل آهي؛ Factur-X ۽ UBL ڊائونلوڊ ان کي استعمال ڪن ٿا.",
+        "profile": "پروفائل",
+        "profileNone": "بند",
+        "en16931": "EN 16931"
+      },
+      "save": "اي-انوائسنگ سيٽنگون محفوظ ڪريو"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "اسڪرپٽس، SDK ۽ MCP ڪلائنٽس لاءِ API ڪيز، curl مثالن سان.",
+      "title": "API",
+      "description": "اسڪرپٽس، SDK ۽ MCP ڪلائنٽس لاءِ ڪيز. ڪيئي گهڻ ۾ گهڻو اهو ڪري سگهي ٿي جيڪو توهان جو ڪردار ڪري سگهي ٿو؛ اها هڪ ڀيرو ڏيکاري وڃي ٿي.",
+      "create": {
+        "title": "ڪي ٺاهيو",
+        "description": "ان کي <mono>Authorization: Bearer okv_…</mono> طور موڪليو. ان کي سورس ڪوڊ ۽ چيٽ لاگز کان ٻاهر رکو؛ جيڪڏهن ليڪ ٿئي ته هيٺ رد ڪريو."
+      },
+      "keys": {
+        "title": "ڪيز",
+        "descriptionOwner": "هن انسٽنس جون سڀ ڪيز؛ مالڪ ڪنهن به کي رد ڪري سگهن ٿا.",
+        "descriptionOwn": "توهان جون ڪيز.",
+        "columns": {
+          "name": "نالو",
+          "prefix": "اڳياڙي",
+          "scopes": "اسڪوپس",
+          "owner": "مالڪ",
+          "lastUsed": "آخري استعمال",
+          "expires": "ختم ٿئي ٿي",
+          "status": "حالت"
+        },
+        "empty": "اڃا ڪي API ڪيز ناهن.",
+        "never": "ڪڏهن به نه",
+        "revoked": "رد ٿيل",
+        "expired": "ختم ٿيل",
+        "revokeTitle": "{name} رد ڪريون؟",
+        "revokeDescription": "هن ڪي استعمال ڪندڙ ڪلائنٽس فوري طور ڪم ڪرڻ بند ڪندا.",
+        "activeCount": "{count, plural, one {# سرگرم ڪي.} other {# سرگرم ڪيز.}}"
+      },
+      "examples": {
+        "title": "مثال",
+        "description": "<mono>$OKINVO_KEY</mono> کي ڪنهن ڪي سان مٽايو. ورزن ٿيل REST API، ان جو OpenAPI دستاويز (<mono>/api/openapi.json</mono>)، TypeScript SDK ۽ MCP سرور v1.1 منصوبي جي ايندڙ ڪمن سان اچن ٿا؛ اسٽيٽس اينڊ پوائنٽ اڄ ڪم ڪري ٿو.",
+        "rateLimit": "حد کان وڌيڪ ڪالون <mono>Retry-After</mono> هيڊر سان 429 جو جواب ڏين ٿيون (هر ڪي لاءِ في منٽ 120 درخواستون). ڪي جا اسڪوپس ان جي مالڪ جي موجوده ڪردار سان محدود آهن."
+      },
+      "form": {
+        "copyKey": "API ڪي ڪاپي ڪريو",
+        "name": "نالو",
+        "namePlaceholder": "مثال طور اڪائونٽنگ اسڪرپٽ",
+        "expires": "ختم ٿئي ٿي",
+        "in30Days": "30 ڏينهن ۾",
+        "in90Days": "90 ڏينهن ۾",
+        "inAYear": "هڪ سال ۾",
+        "never": "ڪڏهن به نه",
+        "scopes": "اسڪوپس",
+        "submit": "API ڪي ٺاهيو",
+        "creating": "ٺاهي رهيا آهيون…"
+      },
+      "scopes": {
+        "invoicesRead": "انوائس پڙهو",
+        "invoicesCreate": "انوائس ٺاهيو ۽ جاري ڪريو",
+        "creditNotesRead": "ڪريڊٽ نوٽس پڙهو",
+        "creditNotesCreate": "ڪريڊٽ نوٽس ٺاهيو ۽ جاري ڪريو",
+        "catalogueRead": "ڪلائنٽ، خدمتون ۽ پراڊڪٽس پڙهو",
+        "documentsRead": "محفوظ ٿيل PDFs ۽ DOCX ڪاپيون ڊائونلوڊ ڪريو",
+        "statusRead": "انسٽنس جي حالت پڙهو"
+      }
+    },
+    "status": {
+      "metaTitle": "حالت",
+      "metaDescription": "هن انسٽنس جو ورزن، ڊيٽابيس، اسٽوريج، اي ميل ۽ بيڪ اپ جي صحت.",
+      "title": "حالت",
+      "description": "هي انسٽنس ڇا هلائي رهيو آهي ۽ ڇا ان جا حصا جواب ڏين ٿا.",
+      "recheck": "ٻيهر چيڪ ڪريو",
+      "health": {
+        "ok": "ٺيڪ",
+        "warning": "ڊيڄاريندڙ",
+        "failed": "ناڪام",
+        "na": "ترتيب ڏنل ناهي"
+      },
+      "overall": {
+        "ok": "سڀ ڪجهه ٺيڪ",
+        "degraded": "گهٽ ٿيل",
+        "failed": "ناڪام"
+      },
+      "version": "بلڊ {hasSha, select, yes {<mono>{sha}</mono>} other {(sha اڻڄاتل)}} · ٺهيو {built} · Node <mono>{node}</mono> · هلندڙ {uptime} · چيڪ ٿيل {checked}",
+      "dateUnknown": "(تاريخ اڻڄاتل)",
+      "uptime": {
+        "days": "{d}d {h}h {m}m",
+        "hours": "{h}h {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "ڊيٽابيس",
+        "storage": "اسٽوريج",
+        "rateLimiting": "شرح جي حد",
+        "email": "اي ميل",
+        "backups": "بيڪ اپ"
+      },
+      "db": {
+        "detail": "{latency} ms · آخري مائگريشن <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # اڻپورا مائگريشن}}",
+        "noMigration": "ڪو به نه"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · {latency} ms ۾ پروب آبجيڪٽ جو لکڻ، پڙهڻ ۽ ڊليٽ",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> اسٽور {store, select, memory {(هڪ ريپليڪا)} other {(ريپليڪن ۾ گڏيل)}}",
+      "smtp": {
+        "configured": "SMTP {source, select, settings {سيٽنگن جو صفحو} env {ماحول} other {}} کان · آخري ٽيسٽ {lastTest} · آخري 24 ڪلاڪ: {sent} موڪليا، {failed} ناڪام",
+        "none": "ڪو SMTP سرور ناهي؛ ڪمپوزر “ميل ايپ ۾ کوليو” پيش ڪري ٿو. <link>ترتيب ڏيو</link>"
+      },
+      "backups": {
+        "notWired": "ڪا بيڪ اپ سروس ڳنڍيل ناهي (BACKUP_STATUS_FILE مقرر نه آهي).",
+        "noRun": "بيڪ اپ سروس ڳنڍيل آهي؛ اڃا ڪو رن رڪارڊ ناهي.",
+        "ok": "آخري رن {finishedAt} تي ڪامياب ٿيو{days, plural, =0 {} one { · برقرار رکڻ # ڏينهن} other { · برقرار رکڻ # ڏينهن}}",
+        "failed": "آخري رن ناڪام ٿيو: {error} {finishedAt} تي{days, plural, =0 {} one { · برقرار رکڻ # ڏينهن} other { · برقرار رکڻ # ڏينهن}}"
+      },
+      "footer": "ساڳيو رپورٽ نگراني لاءِ <mono>/api/health/status</mono> تي JSON طور موجود آهي (سائن ان سيشن يا API ڪي)."
+    },
+    "usage": {
+      "metaTitle": "استعمال",
+      "metaDescription": "هن انسٽينس تي هر اسڪرين ۽ ڏينهن موجب صفحن جا ڏيک، مقامي طور ڳڻيل.",
+      "title": "استعمال",
+      "description": "هر اسڪرين ڪيترا ڀيرا کوليو ويو، رڳو هن انسٽينس تي ڳڻيو وڃي ٿو: ڪي ڪوڪيز ناهن، ڪي پتا ناهن، ڪجهه به ڪٿي به موڪليو نٿو وڃي.",
+      "last30Days": "گذريل 30 ڏينهن",
+      "total": "{count, plural, =0 {صفحي جو ڪو ڏيک ناهي} one {# صفحي جو ڏيک} other {# صفحن جا ڏيک}}",
+      "off": "ڳڻپ بند آهي. هن انسٽينس تي صفحن جا ڏيک ڳڻڻ لاءِ ANALYTICS_LOCAL=true مقرر ڪريو.",
+      "empty": "اڃا تائين صفحن جو ڪو ڏيک رڪارڊ نه ٿيو آهي.",
+      "columns": {
+        "day": "ڏينهن",
+        "path": "اسڪرين",
+        "views": "ڏيک"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "ڀليڪار",
+    "progress": "پيشرفت",
+    "steps": {
+      "aboutYou": "توهان بابت",
+      "howYouUse": "توهان ڪيئن استعمال ڪندا",
+      "allSet": "سڀ تيار"
+    },
+    "step1": {
+      "title": "اسان کي پنهنجي باري ۾ ٻڌايو",
+      "subtitle": "هي توهان جا ڊفالٽس مقرر ڪري ٿو؛ هر قيمت بعد ۾ سيٽنگن ۾ تبديل ٿي سگهي ٿي.",
+      "name": "نالو",
+      "email": "اي ميل",
+      "emailHint": "توهان جي سائن ان سڃاڻپ. اها بعد ۾ سيٽنگون → سيڪيورٽي مان تبديل ٿي سگهي ٿي.",
+      "country": "ملڪ",
+      "currency": "پسنديده ڪرنسي",
+      "currencyHint": "نون پروفائلن ۽ ڊيش بورڊ لاءِ استعمال ٿئي ٿي جيستائين پروفائل ٺهي."
+    },
+    "step2": {
+      "title": "توهان okinvo ڪيئن استعمال ڪندا؟",
+      "subtitle": "رڳو ڊفالٽس تبديل ٿين ٿا؛ ڪجهه به بند نه ٿيندو.",
+      "usage": "استعمال",
+      "personal": "ذاتي انوائسنگ",
+      "personalHint": "پنهنجي نالي سان فري لانس ڪم",
+      "business": "ڪاروباري انوائسنگ",
+      "businessHint": "رجسٽرڊ ڪاروبار کان انوائس",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "VAT نمبر",
+        "other": "ٽيڪس رجسٽريشن نمبر"
+      },
+      "taxQuestion": {
+        "IN": "ڇا توهان وٽ GSTIN آهي؟",
+        "GB": "ڇا توهان VAT رجسٽرڊ آهيو؟",
+        "other": "ڇا توهان وٽ انوائسن تي ڇپائڻ لاءِ ٽيڪس رجسٽريشن نمبر آهي؟"
+      }
+    },
+    "step3": {
+      "title": "توهان تيار آهيو",
+      "body": "اڳيون، پنهنجو پهريون جاري ڪندڙ پروفائل ٺاهيو: نالو، پتو ۽ ٽيڪس تفصيل جيڪي توهان جي انوائسن تي ڇپجن ٿا. جيڪو توهان ٻڌايو اسان ڀري ڇڏيو آهي.",
+      "go": "پروفائلن ڏانهن وڃو",
+      "opening": "کلي رهيو آهي…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "شرطون",
+      "privacy": "رازداري",
+      "cookies": "ڪوڪيز",
+      "security": "سيڪيورٽي"
+    },
+    "cookieNotice": {
+      "label": "ڪوڪي نوٽيس",
+      "body": "اسان رڳو سختي سان ضروري ڪوڪيز استعمال ڪريون ٿا: توهان جو سيشن ۽ توهان جون ڏيکاڻ جون ترجيحون. ڪو اينالٽڪس ناهي، ڪو ٽريڪنگ ناهي.",
+      "policy": "ڪوڪي پاليسي",
+      "gotIt": "سمجهي ويس"
+    },
+    "nav": {
+      "label": "قانوني",
+      "cookies": "ڪوڪيز",
+      "privacy": "رازداري",
+      "terms": "شرطون",
+      "acceptableUse": "قابل قبول استعمال",
+      "retention": "برقرار رکڻ",
+      "security": "سيڪيورٽي",
+      "licences": "لائسنس"
+    },
+    "operatorNotice": "okinvo پاڻ ميزباني ڪيل سافٽ ويئر آهي؛ هن انسٽنس جو آپريٽر ان جي استعمال جو ذميوار آهي.",
+    "doc": {
+      "effectiveOn": "اثرائتو <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "مواد"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "آپريٽر جو قانوني نالو",
+        "entityType": "اداري جو قسم",
+        "address": "آپريٽر جو پتو",
+        "country": "آپريٽر جو ملڪ",
+        "contactEmail": "رابطي جو اي ميل",
+        "privacyEmail": "رازداري جو اي ميل",
+        "dpoEmail": "ڊيٽا پروٽيڪشن آفيسر جو اي ميل",
+        "governingLaw": "لاڳو قانون",
+        "venue": "تڪرارن جو مقام",
+        "effectiveDate": "اثرائتي تاريخ"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "ملي نه سگهيو",
+      "title": "هن پتي تي ڪجهه به ناهي",
+      "body": "لنڪ پراڻو ٿي سگهي ٿو، يا جنهن دستاويز ڏانهن اشارو ڪري رهيو هو اهو ڪڏهن جاري ئي نه ٿيو."
+    },
+    "forbidden": {
+      "metaTitle": "اجازت ناهي",
+      "title": "هي اڪائونٽ اهو نٿو ڪري سگهي",
+      "body": "توهان جو ڪردار هن جي اجازت نٿو ڏئي. مالڪ کان رسائي گهرو، يا ڪنهن اهڙي اڪائونٽ سان سائن ان ڪريو جنهن وٽ آهي."
+    },
+    "error": {
+      "title": "ڪجهه غلط ٿي ويو",
+      "body": "هن درخواست سان ڪجهه به تبديل نه ٿيو. ٻيهر ڪوشش ڪريو؛ جيڪڏهن ٿيندو رهي، سرور لاگ ۾ تفصيل آهن.",
+      "digest": "غلطي {digest}",
+      "generic": "غلطي"
+    },
+    "appNotFound": {
+      "title": "ملي نه سگهيو",
+      "body": "هي رڪارڊ موجود ناهي، يا توهان جي ڏسڻ دوران ڊليٽ ٿي ويو.",
+      "back": "ڊيش بورڊ ڏانهن واپس"
+    },
+    "validation": {
+      "required": "گهربل",
+      "tooLong": "گهڻ ۾ گهڻو {max} اکر",
+      "invalidEmail": "صحيح اي ميل هجڻ گهرجي",
+      "invalidDate": "YYYY-MM-DD شڪل ۾ ڪئلينڊر تاريخ هجڻ گهرجي",
+      "invalidAmount": "نمبر هجڻ گهرجي",
+      "wholeNumber": "پورو نمبر هجڻ گهرجي",
+      "greaterThanZero": "صفر کان وڌيڪ هجڻ گهرجي",
+      "fixFields": "مهرباني ڪري نمايان ڪيل فيلڊ درست ڪريو.",
+      "charset": "رڳو معياري ڪيبورڊ اکر جائز آهن."
+    }
+  },
+  "verify": {
+    "metaTitle": "دستاويز جي تصديق",
+    "metaDescription": "چيڪ ڪريو ته انوائس يا ڪريڊٽ نوٽ موڪليندڙ جاري ڪيو آهي ۽ ان ۾ ڪا تبديلي نه آئي آهي.",
+    "heading": "دستاويز جي تصديق",
+    "rateLimited": "هن پتي تان تمام گهڻيون چڪاسون. مهرباني ڪري هڪ منٽ ۾ ٻيهر ڪوشش ڪريو.",
+    "notFound": {
+      "title": "اهڙو ڪو دستاويز ناهي",
+      "body": "هي لنڪ ڪنهن جاري ٿيل دستاويز سان ميل نٿو کائي. QR ڪوڊ يا ڏنل لنڪ چيڪ ڪريو، يا جاري ڪندڙ سان رابطو ڪريو."
+    },
+    "status": {
+      "void": "منسوخ",
+      "valid": "صحيح"
+    },
+    "issuedBy": "جاري ڪندڙ",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "جنهن کي جاري ٿيو",
+    "issueDate": "جاري ڪرڻ جي تاريخ",
+    "total": "ڪل",
+    "voided": "هي دستاويز جاري ڪندڙ طرفان منسوخ ڪيو ويو ۽ هاڻي صحيح ناهي.",
+    "storedCopies": {
+      "title": "محفوظ ڪاپيون",
+      "description": "جاري ڪندڙ وٽ هر PDF ورزن جو SHA-256. پنهنجي براؤزر ۾ موازنو ڪرڻ لاءِ پنهنجي ڪاپي چونڊيو: ڪجهه به اپلوڊ نٿو ٿئي.",
+      "empty": "اڃا ڪو PDF ٺهيل ناهي.",
+      "protectedVersion": "پاسورڊ سان محفوظ ڪاپي {version}",
+      "version": "ورزن {version}"
+    },
+    "check": {
+      "label": "پنهنجي ڪاپي چيڪ ڪريو",
+      "hashing": "هيش ٿي رهيو آهي…",
+      "match": "توهان جي ڪاپي ورزن {version} سان بلڪل ميل کائي ٿي.",
+      "mismatch": "توهان جي ڪاپي ڪنهن به محفوظ ورزن سان ميل نٿي کائي."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "شيئر ڪيل دستاويز",
+      "metaDescription": "توهان سان شيئر ڪيل دستاويز: ان کي آنلائن ڏسو ۽ PDF ڊائونلوڊ ڪريو.",
+      "rateLimited": "هن پتي تان تمام گهڻيون درخواستون. مهرباني ڪري هڪ منٽ ۾ ٻيهر ڪوشش ڪريو.",
+      "unavailable": {
+        "title": "هي لنڪ دستياب ناهي",
+        "body": "ٿي سگهي ٿو ختم ٿي ويو هجي يا جاري ڪندڙ رد ڪيو هجي. کانئن نئون گهرو."
+      },
+      "lockedTitleInvoice": "{issuer} کان انوائس",
+      "lockedTitleCreditNote": "{issuer} کان ڪريڊٽ نوٽ",
+      "lockedBody": "هي دستاويز پاسورڊ سان محفوظ آهي. اهو پاسورڊ داخل ڪريو جيڪو جاري ڪندڙ توهان کي ڏنو.",
+      "void": "منسوخ",
+      "protectedPdf": "PDF ساڳئي پاسورڊ سان کلي ٿو. اها پڙهي ۽ ڇپائي سگهجي ٿي؛ ڪاپي ڪرڻ ۽ ايڊٽ ڪرڻ بند آهن.",
+      "byline": "{issuer} کان {client} ڏانهن · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "پاسورڊ",
+      "limited": "تمام گهڻيون ڪوششون. مهرباني ڪري پندرهن منٽ انتظار ڪريو ۽ ٻيهر ڪوشش ڪريو.",
+      "wrong": "اهو پاسورڊ صحيح ناهي.",
+      "submit": "دستاويز کوليو"
+    },
+    "dialog": {
+      "trigger": "شيئر ڪريو",
+      "title": "هي دستاويز شيئر ڪريو",
+      "description": "جنهن وٽ لنڪ آهي اهو ان کي ڏسي ۽ ڊائونلوڊ ڪري سگهي ٿو جيستائين اها ختم ٿئي يا توهان رد ڪريو. پاسورڊ پاڻ PDF کي به بچائي ٿو: اها پاسورڊ سان کلي ٿي ۽ پڙهي ۽ ڇپائي سگهجي ٿي، ايڊٽ يا ڪاپي نه.",
+      "link": "لنڪ",
+      "copyLink": "لنڪ ڪاپي ڪريو",
+      "password": "پاسورڊ",
+      "copyPassword": "پاسورڊ ڪاپي ڪريو",
+      "sendSeparately": "پاسورڊ لنڪ کان الڳ موڪليو. توهان ان کي هيٺ ڏنل لسٽ ۾ ٻيهر ڏسي سگهو ٿا.",
+      "copy": "ڪاپي ڪريو",
+      "copied": "ڪاپي ٿي ويو",
+      "expires": "ختم ٿئي ٿو",
+      "expiry": {
+        "d7": "7 ڏينهن ۾",
+        "d30": "30 ڏينهن ۾",
+        "d90": "90 ڏينهن ۾",
+        "never": "ڪڏهن به نه"
+      },
+      "protection": "تحفظ",
+      "protectionOptions": {
+        "auto": "پاسورڊ: پاسفريز ٺاهيو",
+        "manual": "پاسورڊ: پنهنجو چونڊيو",
+        "none": "ڪو پاسورڊ ناهي (کليل لنڪ)"
+      },
+      "passwordHint": "گهٽ ۾ گهٽ 8 اکر.",
+      "strength": "مضبوطي: {label}",
+      "strengthLabels": {
+        "veryWeak": "تمام ڪمزور",
+        "weak": "ڪمزور",
+        "fair": "وچولو",
+        "good": "سٺو",
+        "strong": "مضبوط"
+      },
+      "creating": "ٺاهي رهيا آهيون…",
+      "create": "لنڪ ٺاهيو",
+      "activeLinks": "سرگرم لنڪس",
+      "passwordProtected": "پاسورڊ سان محفوظ",
+      "openLink": "لنڪ کوليو",
+      "linkExpires": "{kind} · {date} تي ختم ٿئي ٿو",
+      "linkNeverExpires": "{kind} · ڪڏهن به ختم نٿو ٿئي",
+      "revoke": {
+        "title": "هي لنڪ رد ڪريون؟",
+        "description": "لنڪ سڀني لاءِ فوري طور ڪم ڪرڻ بند ڪري ٿو جن وٽ آهي.",
+        "label": "رد ڪريو"
+      },
+      "linkPassword": "پاسورڊ: <code>{password}</code>",
+      "counts": "{views, plural, other {# ڏسڻ}} · {downloads, plural, other {# ڊائونلوڊ}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "ڪريڊٽ نوٽس",
+      "title": "ڪريڊٽ نوٽس",
+      "description": "جاري ٿيل انوائسن جي خلاف ٺاهيا وڃن ٿا؛ هر هڪ جاري ٿيڻ وقت پنهنجي انوائس جو بقايا گھٽائي ٿو.",
+      "newCreditNote": "نئون ڪريڊٽ نوٽ",
+      "filters": {
+        "from": "کان",
+        "to": "ڏانهن",
+        "issuer": "جاري ڪندڙ",
+        "client": "ڪلائنٽ",
+        "status": "حالت",
+        "search": "ڳولا",
+        "all": "سڀ",
+        "searchPlaceholder": "نمبر، سبب، ڪلائنٽ",
+        "go": "وڃو"
+      },
+      "statuses": {
+        "DRAFT": "مسودو",
+        "ISSUED": "جاري ٿيل",
+        "SENT": "موڪليل",
+        "VOID": "منسوخ"
+      },
+      "empty": {
+        "title": "اڃا ڪو ڪريڊٽ نوٽ ناهي",
+        "description": "جاري ٿيل انوائس کوليو ۽ “ڪريڊٽ نوٽ” چونڊيو ته جيئن جيڪو قرض آهي اهو گهٽجي."
+      },
+      "noMatch": "انهن فلٽرن سان ڪو ڪريڊٽ نوٽ ميل نٿو کائي.",
+      "columns": {
+        "number": "نمبر",
+        "against": "خلاف",
+        "client": "ڪلائنٽ",
+        "issueDate": "جاري ڪرڻ جي تاريخ",
+        "reason": "سبب",
+        "total": "ڪل",
+        "status": "حالت"
+      },
+      "draft": "مسودو"
+    },
+    "new": {
+      "metaTitle": "نئون ڪريڊٽ نوٽ",
+      "title": "نئون ڪريڊٽ نوٽ",
+      "description": "ڪريڊٽ نوٽ جاري ٿيل انوائس جي خلاف ٺاهيو وڃي ٿو ۽ ان جو بقايا گھٽائي ٿو.",
+      "nothingToCredit": {
+        "title": "ڪريڊٽ ڪرڻ لاءِ ڪجهه ناهي",
+        "description": "ڪريڊٽ نوٽس لاءِ بقايا سان جاري ٿيل انوائس گهرجي.",
+        "openInvoices": "انوائس کوليو"
+      },
+      "whichInvoice": "ڪهڙو انوائس؟",
+      "invoice": "انوائس",
+      "invoiceOption": "{number} · {client} · بقايا {balance}",
+      "issuedOnly": "ڪريڊٽ نوٽس رڳو جاري ٿيل انوائسن جي خلاف ٺاهيا وڃن ٿا.",
+      "invoiceFallback": "انوائس"
+    },
+    "edit": {
+      "metaTitle": "ڪريڊٽ نوٽ ايڊٽ ڪريو",
+      "title": "مسودو ڪريڊٽ نوٽ ايڊٽ ڪريو",
+      "immutable": "جاري ٿيل ڪريڊٽ نوٽس ناقابل تبديل آهن.",
+      "draft": "مسودو"
+    },
+    "detail": {
+      "metaTitle": "ڪريڊٽ نوٽ",
+      "draftTitle": "مسودو ڪريڊٽ نوٽ",
+      "meta": "{client} · <invoice>{number}</invoice> جي خلاف · جاري ٿيو <mono>{date}</mono>",
+      "previewPdf": "PDF پريويو",
+      "issue": {
+        "title": "هي ڪريڊٽ نوٽ جاري ڪريون؟",
+        "description": "نمبر مختص ٿئي ٿو، انوائس جو بقايا گھٽجي ٿو ۽ دستاويز ناقابل تبديل ٿي وڃي ٿو.",
+        "label": "جاري ڪريو"
+      },
+      "deleteDraft": {
+        "title": "هي مسودو ڊليٽ ڪريون؟"
+      },
+      "sendByEmail": "اي ميل ذريعي موڪليو",
+      "markSent": {
+        "title": "موڪليل طور نشان لڳايون؟",
+        "label": "موڪليل طور نشان لڳايو"
+      },
+      "void": {
+        "title": "هي ڪريڊٽ نوٽ منسوخ ڪريون؟",
+        "description": "انوائس جو بقايا بحال ٿي ويندو؛ نمبر ڪڏهن به ٻيهر استعمال نه ٿيندو.",
+        "reason": "سبب",
+        "label": "منسوخ ڪريو"
+      },
+      "voided": "{date} تي منسوخ ٿيو: {reason}",
+      "amounts": {
+        "title": "رقمون",
+        "reason": "سبب",
+        "creditAmount": "ڪريڊٽ رقم",
+        "total": "ڪل",
+        "balanceNow": "انوائس جو هاڻوڪو بقايا",
+        "sent": "موڪليل"
+      },
+      "documents": {
+        "title": "محفوظ ٿيل دستاويز",
+        "description": "هر ورزن رکيو ويندو آهي؛ تصديق وارو صفحو سڀ هيش لسٽ ڪري ٿو.",
+        "regenerateTitle": "نئون PDF ورزن ٺاهيون؟",
+        "generate": "ٺاهيو",
+        "newVersion": "نئون ورزن",
+        "renderedOnFirstDownload": "PDF پهرين ڊائونلوڊ تي ٺاهيو ويندو آهي.",
+        "protectedCopy": "پاسورڊ سان محفوظ ڪاپي {version}",
+        "version": "ورزن {version}",
+        "verificationLink": "تصديق لنڪ: <link>{path}…</link>"
+      },
+      "draftsPreview": "مسودن جو پريويو ايڊيٽر ۾ لائيو ڏيکاريو وڃي ٿو."
+    },
+    "send": {
+      "metaTitle": "ڪريڊٽ نوٽ موڪليو",
+      "title": "<mono>{number}</mono> موڪليو",
+      "previousSends": "اڳيان موڪليل"
+    },
+    "builder": {
+      "against": "<mono>{number}</mono> جي خلاف",
+      "summary": "{client} · ڪل {total} · بقايا {balance} · ٽيڪس ايبل گنجائش ≈ {headroom}",
+      "issueDate": "جاري ڪرڻ جي تاريخ",
+      "creditAmount": "ڪريڊٽ رقم (ٽيڪس کان سواءِ)",
+      "creditAmountHint": "ٽيڪس انوائس جي ٽيڪس لائينن مان ورهايو وڃي ٿو",
+      "reason": "سبب",
+      "picker": {
+        "title": "انوائس لائينن مان حساب ڪريو",
+        "description": "پوريون لائينون يا سيڪڙو نشان لڳايو؛ هي رڳو مٿين رقم ڀري ٿو.",
+        "line": "لائين",
+        "subtotal": "ذيلي ڪل",
+        "credit": "ڪريڊٽ",
+        "percent": "%",
+        "creditLine": "ڪريڊٽ لائين {position}",
+        "percentOfLine": "لائين {position} جو سيڪڙو"
+      },
+      "saveDraft": "مسودو محفوظ ڪريو",
+      "issuing": "جاري ٿي رهيو آهي…",
+      "saveAndIssue": "محفوظ ڪريو ۽ جاري ڪريو"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "ادائيگي ملي",
+        "REFUND": "واپسي جاري ٿي",
+        "WRITE_OFF": "رائيٽ آف"
+      },
+      "editTitle": "داخلا ايڊٽ ڪريو",
+      "recordTitle": "ادائيگي درج ڪريو",
+      "description": "رقمون انوائس جي ڪرنسي ۾ آهن ({currency}); ڪٽيل TDS لاڳو ٿيل رقم جو حصو آهي.",
+      "kind": "قسم",
+      "date": "تاريخ",
+      "amountRefunded": "واپس ڪيل رقم (منفي)",
+      "amountApplied": "لاڳو ٿيل رقم",
+      "refundHint": "منفي رقم داخل ڪريو، مثال طور -500",
+      "tdsDeducted": "ڪٽيل TDS",
+      "tdsHint": "ٽيڪس جيڪو ڪلائنٽ روڪيو؛ لاڳو ٿيل رقم ۾ ڳڻيو وڃي ٿو",
+      "bankFees": "بئنڪ فيس",
+      "receivedInto": "ڪٿي ملي",
+      "noMethod": "-",
+      "reference": "حوالو",
+      "referenceHint": "UTR، ٽرانزيڪشن ID، چيڪ نمبر",
+      "otherCurrency": "ٻي ڪرنسي ۾ ملي",
+      "amountReceived": "ملي رقم",
+      "receivedCurrency": "ملي ڪرنسي",
+      "exchangeRate": "مٽاسٽا جي شرح",
+      "exchangeRateHint": "1 يونٽ ملي = ؟ {currency}",
+      "notes": "نوٽس",
+      "receiptHint": "PNG، JPEG، WebP يا PDF 10 MB تائين",
+      "receipts": "رسيدون ۽ بل",
+      "receiptN": "رسيد {n}",
+      "removeReceipt": "رسيد {n} هٽايو",
+      "saveChanges": "تبديليون محفوظ ڪريو",
+      "record": "درج ڪريو"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "بل ڏانهن",
+      "shipTo": "موڪلڻ ڏانهن",
+      "invoice": "انوائس",
+      "creditNote": "ڪريڊٽ نوٽ",
+      "issueDate": "جاري ڪرڻ جي تاريخ",
+      "dueDate": "آخري تاريخ",
+      "number": "نمبر",
+      "description": "تفصيل",
+      "sacHsn": "SAC/HSN",
+      "qty": "مقدار",
+      "unit": "يونٽ",
+      "rate": "ريٽ",
+      "tax": "ٽيڪس",
+      "amount": "رقم",
+      "subtotal": "ذيلي ڪل",
+      "discount": "رعايت",
+      "taxable": "ٽيڪس لاڳو رقم",
+      "total": "ڪل",
+      "amountDue": "واجب الادا رقم",
+      "tdsExpected": "متوقع TDS",
+      "netExpected": "متوقع خالص",
+      "rounding": "گول ڪرڻ",
+      "paymentDetails": "ادائيگي جا تفصيل",
+      "notes": "نوٽس",
+      "terms": "شرطون",
+      "placeOfSupply": "فراهمي جو هنڌ",
+      "poReference": "PO حوالو",
+      "amountInWords": "لفظن ۾ رقم",
+      "signature": "مجاز دستخط ڪندڙ"
+    },
+    "title": {
+      "taxInvoice": "ٽيڪس انوائس",
+      "billOfSupply": "سپلائي جو بل",
+      "invoice": "انوائس",
+      "creditNote": "ڪريڊٽ نوٽ"
+    },
+    "text": {
+      "pageOf": "صفحو {page} مان {total}",
+      "scanToVerify": "تصديق لاءِ اسڪين ڪريو",
+      "taxId": "ٽيڪس ID",
+      "void": "منسوخ",
+      "draftWatermark": "مسودو - ٽيڪس انوائس ناهي",
+      "paymentTermsDays": "{days} ڏينهن",
+      "irn": "IRN",
+      "ackNo": "رسيد نمبر",
+      "ackDate": "رسيد جي تاريخ",
+      "einvoiceCancelled": "اي-انوائس منسوخ"
+    },
+    "ui": {
+      "pageEstimate": "اٽڪل {count, plural, one {# صفحو} other {# صفحا}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "پيغام",
+      "description": "جاري ڪندڙ پروفائل جي ٽيمپليٽس مان اڳ ۾ ڀريل. جيستائين توهان موڪليو تي ڪلڪ نه ڪريو ڪجهه به نٿو موڪليو وڃي.",
+      "to": "ڏانهن",
+      "toHint": "ڪاما سان ڌار ڪيل",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "موضوع",
+      "body": "متن",
+      "bodyHint": "سادو متن؛ لنڪس ڪلڪ لائق ٿين ٿا",
+      "attachment": "ڳنڍيل",
+      "attachmentHint": "محفوظ ٿيل ڪاپي، <mono>{name}</mono> نالي سان (يا .docx)؛ ان جو مواد تبديل نٿو ٿي سگهي.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "موڪلي رهيا آهيون…",
+      "send": "موڪليو",
+      "openInMailApp": "ميل ايپ ۾ کوليو",
+      "noSmtp": "ڪو SMTP سرور ترتيب ڏنل ناهي (سيٽنگون → اي ميل). مسودو پنهنجي ميل ايپ ۾ کوليو، ڊائونلوڊ ڪيل PDF ڳنڍيو، پوءِ هيٺ موڪليل طور نشان لڳايو.",
+      "markAsSent": "موڪليل طور نشان لڳايو"
+    },
+    "sentLog": {
+      "when": "ڪڏهن",
+      "document": "دستاويز",
+      "to": "ڏانهن",
+      "subject": "موضوع",
+      "status": "حالت",
+      "empty": "اڃا ڪجهه به موڪليل ناهي.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "موڪليل",
+        "FAILED": "ناڪام",
+        "MANUAL": "دستي"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "هيلو، {name}",
+    "fiscalYear": "مالي سال {year}",
+    "fiscalYearWithBase": "مالي سال {year} · بنيادي ڪرنسي {currency} ({profile})",
+    "newCreditNote": "نئون ڪريڊٽ نوٽ",
+    "welcomeTitle": "{appName} ۾ ڀليڪار",
+    "welcomeDescription": "اهو جاري ڪندڙ پروفائل ٺاهي شروع ڪريو جنهن کان توهان بل جاري ڪريو ٿا، پوءِ ڪلائنٽ ۽ پنهنجو پهريون انوائس شامل ڪريو.",
+    "createProfile": "پنهنجو پروفائل ٺاهيو",
+    "tiles": {
+      "outstanding": "بقايا",
+      "overdue": "مدي کان وڌيل",
+      "billedThisFy": "هن مالي سال ۾ بل ٿيل",
+      "receivedThisFy": "هن مالي سال ۾ ملي",
+      "drafts": "مسودا",
+      "invoiceCount": "{count, plural, one {# انوائس} other {# انوائسون}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "ادائيگيون ڪٽي واپسيون، رڪارڊ ٿيل FX تي",
+      "awaitingIssue": "جاري ٿيڻ جو انتظار",
+      "nothingPending": "ڪجهه به زير التوا ناهي"
+    },
+    "recentInvoices": "تازا انوائس",
+    "allInvoices": "سڀ انوائس",
+    "noInvoicesYet": "اڃا ڪو انوائس ناهي.",
+    "columns": {
+      "number": "نمبر",
+      "client": "ڪلائنٽ",
+      "issued": "جاري ٿيو"
+    },
+    "topClients": "بقايا مطابق مٿيان ڪلائنٽ",
+    "nothingOutstanding": "ڪجهه به بقايا ناهي."
+  },
+  "exports": {
+    "export": "ايڪسپورٽ",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "انوائسون",
+      "newInvoice": "نئون انوائس",
+      "draft": "مسودو",
+      "aDraft": "هڪ مسودو",
+      "statuses": {
+        "draft": "مسودو",
+        "issued": "جاري ٿيل",
+        "sent": "موڪليل",
+        "partiallyPaid": "جزوي ادا ٿيل",
+        "paid": "ادا ٿيل",
+        "overdue": "مدي کان وڌيل",
+        "void": "منسوخ"
+      },
+      "lifecycle": {
+        "draft": "مسودو",
+        "issued": "جاري ٿيل",
+        "void": "منسوخ"
+      },
+      "units": {
+        "hour": "ڪلاڪ",
+        "day": "ڏينهن",
+        "fixed": "مقرر",
+        "milestone": "سنگ ميل",
+        "unit": "يونٽ"
+      },
+      "unitsLower": {
+        "hour": "ڪلاڪ",
+        "day": "ڏينهن",
+        "fixed": "مقرر",
+        "milestone": "سنگ ميل",
+        "unit": "يونٽ"
+      },
+      "supplyTypes": {
+        "intraState": "رياست اندر",
+        "interState": "رياستن جي وچ ۾",
+        "exportLut": "برآمد lut",
+        "exportWithTax": "ٽيڪس سان برآمد",
+        "reverseCharge": "ريورس چارج",
+        "notApplicable": "لاڳو نٿو ٿئي"
+      }
+    },
+    "list": {
+      "description": "مسودا، جاري ٿيل ۽ منسوخ انوائس؛ حالتون ادائيگين ۽ آخري تاريخن مان نڪرن ٿيون.",
+      "fiscalYear": "مالي سال",
+      "issuer": "جاري ڪندڙ",
+      "client": "ڪلائنٽ",
+      "searchPlaceholder": "نمبر، PO، ڪلائنٽ",
+      "emptyTitle": "اڃا ڪو انوائس ناهي",
+      "emptyDescription": "پنهنجو پهريون انوائس ٺاهيو: ڪلائنٽ چونڊيو، لائينون شامل ڪريو، پريويو ڏسو، پوءِ جاري ڪريو.",
+      "columns": {
+        "number": "نمبر",
+        "client": "ڪلائنٽ",
+        "issuer": "جاري ڪندڙ",
+        "issueDate": "جاري ڪرڻ جي تاريخ",
+        "due": "آخري تاريخ",
+        "balance": "بقايا"
+      },
+      "noMatches": "انهن فلٽرن سان ڪو انوائس ميل نٿو کائي.",
+      "count": "{count, plural, one {# انوائس} other {# انوائسون}}",
+      "countPaged": "{count, plural, one {# انوائس} other {# انوائسون}} · صفحو {page} / {pages}",
+      "register": "رجسٽر",
+      "einvoice": "اي-انوائس",
+      "einvoiceFilters": {
+        "registered": "IRN رجسٽر ٿيل",
+        "none": "رجسٽر ٿيل ناهي",
+        "cancelled": "IRN منسوخ"
+      }
+    },
+    "new": {
+      "noProfileTitle": "پهرين جاري ڪندڙ پروفائل ٺاهيو",
+      "noProfileDescription": "انوائس قانوني سڃاڻپ مان جاري ٿئي ٿو: پنهنجو پروفائل ان جي ٽيڪس ID ۽ نمبرنگ سان ترتيب ڏيو.",
+      "createProfile": "پروفائل ٺاهيو"
+    },
+    "edit": {
+      "metaTitle": "انوائس ايڊٽ ڪريو",
+      "title": "مسودو ايڊٽ ڪريو",
+      "immutableFlash": "جاري ٿيل انوائس ناقابل تبديل آهن. ان کي درست ڪرڻ لاءِ “منسوخ ڪريو ۽ ٻيهر جاري ڪريو” استعمال ڪريو."
+    },
+    "detail": {
+      "metaTitle": "انوائس",
+      "draftInvoice": "مسودو انوائس",
+      "issuedDue": "جاري ٿيو <mono>{issued}</mono>، آخري تاريخ <mono>{due}</mono>",
+      "replaces": "{number} جي جاءِ وٺي ٿو",
+      "replacedBy": "{number} طرفان بدلايو ويو",
+      "previewPdf": "PDF پريويو",
+      "downloadEInvoice": "اي انوائس JSON ڊائونلوڊ ڪريو",
+      "issueTitle": "هي انوائس جاري ڪريون؟",
+      "issueDescription": "نمبر مختص ٿئي ٿو ۽ دستاويز ناقابل تبديل ٿي وڃي ٿو.",
+      "issue": "جاري ڪريو",
+      "deleteDraftTitle": "هي مسودو ڊليٽ ڪريون؟",
+      "sendByEmail": "اي ميل ذريعي موڪليو",
+      "recordPayment": "ادائيگي درج ڪريو",
+      "progress": {
+        "title": "ادائگي جي پيشرفت",
+        "description": "هي انوائس جاري ٿيڻ کان رسيد ڳنڍجڻ تائين ڪٿي آهي.",
+        "issued": "جاري ڪيل",
+        "sent": "موڪليل",
+        "payment": "ادائگي رڪارڊ ٿي",
+        "paymentOn": "<mono>{amount}</mono> جي ادائگي <mono>{date}</mono> تي رڪارڊ ٿي",
+        "paid": "پوري ادائگي ٿي وئي",
+        "receipt": "رسيد ڳنڍيل",
+        "done": "مڪمل",
+        "pending": "باقي"
+      },
+      "creditNote": "ڪريڊٽ نوٽ",
+      "markSentTitle": "موڪليل طور نشان لڳايون؟",
+      "markSentDescription": "رڪارڊ ڪري ٿو ته ڪلائنٽ کي هي انوائس ملي چڪو آهي.",
+      "markSent": "موڪليل طور نشان لڳايو",
+      "voidReissueTitle": "منسوخ ڪري ٻيهر جاري ڪريون؟",
+      "voidReissueDescription": "اصل منسوخ ٿئي ٿو ۽ ساڳئي مواد سان ڳنڍيل مسودو ايڊٽ لاءِ کلي ٿو.",
+      "voidReissue": "منسوخ ڪريو ۽ ٻيهر جاري ڪريو",
+      "voidTitle": "هي انوائس منسوخ ڪريون؟",
+      "voidDescription": "رڳو درج ٿيل ادائيگين کان سواءِ ممڪن آهي؛ نمبر ڪڏهن به ٻيهر استعمال نه ٿيندو.",
+      "void": "منسوخ ڪريو",
+      "voided": "{date} تي منسوخ ٿيو: {reason}",
+      "amounts": "رقمون",
+      "subtotal": "ذيلي ڪل",
+      "discount": "رعايت",
+      "discountPercent": "رعايت ({percent})",
+      "rounding": "گول ڪرڻ",
+      "tdsExpected": "متوقع TDS ({percent})",
+      "paid": "ادا ٿيل",
+      "credited": "ڪريڊٽ ٿيل",
+      "balanceDue": "بقايا واجب",
+      "supply": "فراهمي",
+      "fxToBase": "FX بنيادي ڏانهن",
+      "poReference": "PO حوالو",
+      "sent": "موڪليل",
+      "lineItems": "لائين آئٽمز",
+      "columns": {
+        "description": "تفصيل",
+        "sacHsn": "SAC/HSN",
+        "qty": "مقدار",
+        "rate": "شرح",
+        "tax": "ٽيڪس",
+        "amount": "رقم"
+      },
+      "creditNotes": "ڪريڊٽ نوٽس",
+      "storedDocuments": "محفوظ ٿيل دستاويز",
+      "storedDocumentsHint": "هر ورزن رکيو ويندو آهي؛ تصديق وارو صفحو سڀ هيش لسٽ ڪري ٿو.",
+      "regenerateTitle": "نئون PDF ورزن ٺاهيون؟",
+      "regenerateDescription": "منجمد اسنيپ شاٽ مان ٻيهر ٺاهي ٿو (مثال طور رينڊرر جي درستي کان پوءِ). اڳيان ورزن رهن ٿا.",
+      "regenerate": "ٺاهيو",
+      "newVersion": "نئون ورزن",
+      "renderedOnFirstDownload": "PDF پهرين ڊائونلوڊ تي ٺاهيو ويندو آهي.",
+      "protectedCopy": "پاسورڊ سان محفوظ ڪاپي {version}",
+      "version": "ورزن {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "تصديق لنڪ:",
+      "draftPreviewHint": "مسودن جو پريويو ايڊيٽر ۾ لائيو ڏيکاريو وڃي ٿو؛ صفحو ڏسڻ لاءِ <link>واٽر مارڪ وارو PDF</link> کوليو.",
+      "einvoice": {
+        "title": "اي-انوائس (ڀارت)",
+        "description": "هن انوائس جي انوائس رجسٽريشن پورٽل ۾ رجسٽريشن؛ رجسٽر ٿيل دستاويز تي ان جو IRN ۽ پورٽل جو دستخط ٿيل QR ڇپجي ٿو.",
+        "connector": "ڪنيڪٽر",
+        "connectors": {
+          "manual": "دستي",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "هن پروفائل لاءِ سيٽنگون > اي-انوائسنگ ۾ ڪو ڪنيڪٽر ترتيب ڏنل ناهي.",
+        "statuses": {
+          "none": "رجسٽر ٿيل ناهي",
+          "generated": "JSON ٺهيل",
+          "registered": "رجسٽر ٿيل",
+          "cancelled": "منسوخ",
+          "failed": "رجسٽريشن ناڪام"
+        },
+        "irn": "IRN",
+        "ackNo": "رسيد نمبر",
+        "ackDate": "رسيد جي تاريخ",
+        "cancelReason": "منسوخي",
+        "generate": "IRN ٺاهيو",
+        "pasteLabel": "IRP جو جواب",
+        "pasteHint": "هن انوائس جي اي-انوائس JSON لاءِ پورٽل يا توهان جي GSP جيڪو JSON موٽايو آهي سو پيسٽ ڪريو (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "IRN رڪارڊ ڪريو",
+        "cancelReasonLabel": "منسوخي جو سبب",
+        "cancelReasons": {
+          "1": "نقل",
+          "2": "ڊيٽا داخل ڪرڻ ۾ غلطي",
+          "3": "آرڊر منسوخ",
+          "4": "ٻيو"
+        },
+        "cancel": "IRN منسوخ ڪريو",
+        "cancelWindow": "پورٽل رسيد کان 24 ڪلاڪن اندر منسوخي جي اجازت ڏئي ٿو."
+      }
+    },
+    "history": {
+      "metaTitle": "انوائس جي تاريخ",
+      "title": "تاريخ <mono>{number}</mono>",
+      "reissueChain": "ٻيهر جاري ڪرڻ جي زنجير",
+      "replaces": "<link>{number}</link> جي جاءِ وٺي ٿو",
+      "replacedBy": "<link>{number}</link> طرفان بدلايو ويو",
+      "auditTrail": "آڊٽ ٽريل",
+      "columns": {
+        "when": "ڪڏهن",
+        "who": "ڪير",
+        "action": "عمل",
+        "summary": "خلاصو"
+      },
+      "noEvents": "اڃا ڪو واقعو ناهي.",
+      "system": "سسٽم",
+      "emails": "اي ميلون"
+    },
+    "payments": {
+      "title": "ادائيگيون",
+      "description": "{client} · ڪل {total}",
+      "backToInvoice": "انوائس ڏانهن واپس",
+      "ledger": "کاتو",
+      "columns": {
+        "date": "تاريخ",
+        "kind": "قسم",
+        "applied": "لاڳو ٿيل",
+        "tds": "TDS",
+        "received": "ملي",
+        "reference": "حوالو",
+        "balance": "بقايا"
+      },
+      "noPayments": "اڃا ڪا ادائيگي درج ناهي.",
+      "kinds": {
+        "payment": "ادائيگي",
+        "refund": "واپسي",
+        "writeOff": "رائيٽ آف"
+      },
+      "receipt": "رسيد",
+      "receiptN": "رسيد {n}",
+      "deleteEntryTitle": "هي داخلا ڊليٽ ڪريون؟",
+      "deleteEntryDescription": "انوائس جو بقايا ٻيهر حساب ٿيندو.",
+      "totals": "ڪل رقمون",
+      "invoiceTotal": "انوائس ڪل",
+      "credited": "ڪريڊٽ ٿيل",
+      "refunds": "واپسيون",
+      "writeOffs": "رائيٽ آف",
+      "tdsDeducted": "ڪٽيل TDS",
+      "bankFees": "بئنڪ فيس",
+      "balanceDue": "بقايا واجب",
+      "onlyIssued": "رڳو جاري ٿيل انوائس ادائيگيون قبول ڪن ٿا."
+    },
+    "send": {
+      "metaTitle": "انوائس موڪليو",
+      "title": "<mono>{number}</mono> موڪليو",
+      "alreadySent": "اڳ ۾ ئي موڪليل طور نشان لڳل؛ ٻيهر موڪلڻ هڪ ٻي لاگ داخلا شامل ڪري ٿو.",
+      "previousSends": "اڳيان موڪليل"
+    },
+    "builder": {
+      "parties": "ڌريون",
+      "issuerProfile": "جاري ڪندڙ پروفائل",
+      "client": "ڪلائنٽ",
+      "archivedOption": "{label} (آرڪائيو ٿيل)",
+      "issueDate": "جاري ڪرڻ جي تاريخ",
+      "dueDate": "آخري تاريخ",
+      "fxRate": "بنيادي ڪرنسي ڏانهن FX شرح",
+      "fxHint": "1 {currency} = ؟ {base} (رڳو رپورٽنگ لاءِ)",
+      "poReference": "PO حوالو",
+      "lineItems": "لائين آئٽمز",
+      "lineItemsHint": "ڪيٽلاگ مان چونڊيو ته ان جون قيمتون ڪاپي ٿين، يا لائين لکو.",
+      "taxDiscountTds": "ٽيڪس، رعايت ۽ TDS",
+      "taxRegime": "ٽيڪس نظام",
+      "regimes": {
+        "indiaGst": "انڊيا GST",
+        "ukVat": "UK VAT",
+        "usSalesTax": "US سيلز ٽيڪس",
+        "none": "ٽيڪس ناهي"
+      },
+      "reverseCharge": "ريورس چارج",
+      "reverseChargeHint": "ٽيڪس وصول ڪندڙ طرفان ادا ٿيڻ وارو",
+      "discount": "رعايت",
+      "percent": "سيڪڙو",
+      "amount": "رقم",
+      "rounding": "گول ڪرڻ جي ترتيب",
+      "roundingHint": "اختياري، پوري يونٽ تائين؛ 1 کان گهٽ هجڻ گهرجي",
+      "round": "گول ڪريو",
+      "tdsRate": "متوقع TDS شرح (%)",
+      "tdsRateHint": "معلوماتي؛ TDS تفصيل آن هجڻ تي ڇپجي ٿو",
+      "paymentMethods": "ادائيگي جا طريقا",
+      "paymentMethodsHint": "نشان لڳائڻ جي ترتيب ۾ ڇپجن ٿا.",
+      "noPaymentMethods": "ڪو سرگرم ادائيگي جو طريقو ناهي. <link>هڪ شامل ڪريو</link>.",
+      "whatPrints": "ڇا ڇپجي ٿو",
+      "whatPrintsHint": "جاري ڪندڙ پروفائل جي ڊفالٽس کان شروع ٿئي ٿو.",
+      "documentLanguage": "دستاويز جي ٻولي",
+      "documentLanguageHint": "ليبل، تاريخون ۽ رقمون هن ٻولي ۾ ڇپجن ٿيون؛ ڪلائنٽ جي ترجيح، نه ته پروفائيل جي.",
+      "notesAndTerms": "نوٽس ۽ شرطون",
+      "notes": "نوٽس",
+      "terms": "شرطون",
+      "saveDraft": "مسودو محفوظ ڪريو",
+      "issuing": "جاري ٿي رهيو آهي…",
+      "saveAndIssue": "محفوظ ڪريو ۽ جاري ڪريو",
+      "subtotal": "ذيلي ڪل",
+      "tax": "ٽيڪس",
+      "tdsExpected": "متوقع TDS",
+      "netExpected": "متوقع خالص"
+    },
+    "lineItems": {
+      "addFromCatalogue": "ڪيٽلاگ مان شامل ڪريو…",
+      "services": "خدمتون",
+      "products": "پراڊڪٽس",
+      "addLine": "لائين شامل ڪريو",
+      "columns": {
+        "description": "تفصيل",
+        "sacHsn": "SAC/HSN",
+        "qty": "مقدار",
+        "unit": "يونٽ",
+        "rate": "شرح",
+        "taxPercent": "ٽيڪس %"
+      },
+      "aria": {
+        "description": "لائين {line} جو تفصيل",
+        "sacHsn": "لائين {line} SAC/HSN",
+        "quantity": "لائين {line} جي مقدار",
+        "unit": "لائين {line} جو يونٽ",
+        "rate": "لائين {line} جي شرح",
+        "taxRate": "لائين {line} جي ٽيڪس شرح"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "مستثنى",
+      "moveUp": "مٿي ڪريو",
+      "moveDown": "هيٺ ڪريو",
+      "removeLine": "لائين هٽايو",
+      "shortcutHint": "تفصيل ۾ Ctrl/⌘+Enter لائين شامل ڪري ٿو.",
+      "addFromCatalogueAria": "ڪيٽلاگ مان شامل ڪريو"
+    },
+    "display": {
+      "groups": {
+        "issuer": "جاري ڪندڙ جا تفصيل",
+        "client": "ڪلائنٽ جا تفصيل",
+        "document": "دستاويز جا حصا"
+      },
+      "fields": {
+        "showLogo": "لوگو",
+        "showTradeName": "واپاري نالو",
+        "showDesignation": "عهدو",
+        "showEmail": "اي ميل",
+        "showPhone": "فون",
+        "showWebsite": "ويب سائيٽ",
+        "showFullAddress": "پورو پتو",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "دستخط",
+        "showStamp": "مهر",
+        "showContactPerson": "رابطي وارو شخص",
+        "showBillingAddress": "بلنگ پتو",
+        "showShippingAddress": "شپنگ پتو",
+        "showTaxIdentifier": "ٽيڪس سڃاڻپ",
+        "showPlaceOfSupply": "فراهمي جي جڳهه",
+        "showDueDate": "آخري تاريخ",
+        "showPaymentTerms": "ادائيگي جون شرطون",
+        "showSacCodeColumn": "SAC ڪوڊ ڪالم",
+        "showQuantityColumn": "مقدار ڪالم",
+        "showUnitPriceColumn": "يونٽ قيمت ڪالم",
+        "showTaxColumn": "ٽيڪس ڪالم",
+        "showTdsBreakdown": "TDS تفصيل",
+        "showQrVerification": "QR تصديق",
+        "showNotes": "نوٽس",
+        "showTerms": "شرطون",
+        "showReplacesReference": "بدلائڻ جو حوالو",
+        "showAmountInWords": "رقم لفظن ۾",
+        "showSupplyStatement": "فراهمي جو بيان",
+        "showRoundingLine": "گول ڪرڻ جي لائين",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "ڪلائنٽ",
+      "description": "هر ڪو جنهن کي توهان بل ڏيو ٿا. انوائس وارا ڪلائنٽ آرڪائيو ٿين ٿا، ڪڏهن به ڊليٽ نه.",
+      "newClient": "نئون ڪلائنٽ",
+      "searchPlaceholder": "نالي سان ڳوليو",
+      "searchLabel": "ڪلائنٽ ڳوليو",
+      "emptyTitle": "اڃا ڪو ڪلائنٽ ناهي",
+      "emptyDescription": "اهي ماڻهو ۽ ڪمپنيون شامل ڪريو جن کي توهان انوائس ڏيو ٿا؛ انهن جي ڪرنسي ۽ ادائيگي جون شرطون هر انوائس کي اڳ ۾ ڀرين ٿيون.",
+      "addClient": "ڪلائنٽ شامل ڪريو",
+      "noMatch": "“{q}” سان ڪو ڪلائنٽ ميل نٿو کائي.",
+      "termsDays": "{days} ڏ",
+      "columns": {
+        "name": "نالو",
+        "contact": "رابطو",
+        "email": "اي ميل",
+        "country": "ملڪ",
+        "currency": "ڪرنسي",
+        "terms": "شرطون",
+        "status": "حالت"
+      }
+    },
+    "new": {
+      "title": "نئون ڪلائنٽ"
+    },
+    "edit": {
+      "metaTitle": "ڪلائنٽ ايڊٽ ڪريو",
+      "title": "{name} ايڊٽ ڪريو"
+    },
+    "detail": {
+      "metaTitle": "ڪلائنٽ",
+      "newInvoice": "نئون انوائس",
+      "restoreTitle": "هي ڪلائنٽ بحال ڪريون؟",
+      "archiveTitle": "هي ڪلائنٽ آرڪائيو ڪريون؟",
+      "archiveDescription": "اهو چونڊ لسٽن مان نڪري ٿو؛ انوائس ۽ تاريخ سلامت رهن ٿا.",
+      "deleteTitle": "هي ڪلائنٽ ڊليٽ ڪريون؟",
+      "deleteDescription": "رڳو تڏهن ممڪن آهي جڏهن ڪو انوائس ڪلائنٽ جو حوالو نه ڏئي.",
+      "details": "تفصيل",
+      "contact": "رابطو",
+      "email": "اي ميل",
+      "phone": "فون",
+      "country": "ملڪ",
+      "gstState": "GST {code}",
+      "taxId": "ٽيڪس ID",
+      "currency": "ڪرنسي",
+      "paymentTerms": "ادائيگي جون شرطون",
+      "paymentTermsDays": "{days} ڏينهن",
+      "expectedTds": "متوقع TDS",
+      "notes": "نوٽس",
+      "addresses": "پتا",
+      "billing": "بلنگ",
+      "shipping": "شپنگ",
+      "lifetime": "ڪل عمر",
+      "openRegister": "رجسٽر کوليو",
+      "noIssued": "اڃا ڪو جاري ٿيل انوائس ناهي.",
+      "noIssuedWithDrafts": "اڃا ڪو جاري ٿيل انوائس ناهي ({drafts} مسودو).",
+      "firstLatest": "پهريون انوائس <mono>{first}</mono>، تازو <mono>{latest}</mono>{drafts, plural, =0 {} one { · # مسودو} other { · # مسودا}}",
+      "lifetimeColumns": {
+        "currency": "ڪرنسي",
+        "invoices": "انوائسون",
+        "billed": "بل ٿيل",
+        "received": "ملي",
+        "credited": "ڪريڊٽ ٿيل",
+        "outstanding": "بقايا",
+        "overdue": "مدي کان وڌيل"
+      },
+      "recentInvoices": "تازا انوائس",
+      "noInvoices": "هن ڪلائنٽ لاءِ اڃا ڪو انوائس ناهي.",
+      "recentColumns": {
+        "number": "نمبر",
+        "issueDate": "جاري ڪرڻ جي تاريخ",
+        "due": "آخري تاريخ",
+        "total": "ڪل",
+        "balance": "بقايا",
+        "status": "حالت"
+      }
+    },
+    "form": {
+      "cardTitle": "ڪلائنٽ",
+      "displayName": "ڏيکاريل نالو",
+      "contactPerson": "رابطي وارو شخص",
+      "email": "اي ميل",
+      "phone": "فون",
+      "taxIdType": "ٽيڪس ID جو قسم",
+      "taxIdTypeNone": "ڪو به نه",
+      "taxId": "ٽيڪس ID",
+      "currency": "ڪرنسي",
+      "paymentTerms": "ادائيگي جون شرطون (ڏينهن)",
+      "expectedTdsRate": "متوقع TDS شرح (%)",
+      "preferredLanguage": "دستاويز جي ٻولي",
+      "preferredLanguageFollow": "جاري ڪندڙ جي پروفائيل جي پيروي ڪريو",
+      "buyerReference": "خريدار جو حوالو",
+      "buyerReferenceHint": "اي-انوائسز ۾ خريدار جي پنهنجي حوالي (آرڊر يا ڪاسٽ-سينٽر نمبر) طور ڇپجي ٿو.",
+      "electronicAddress": "اليڪٽرانڪ پتو",
+      "electronicAddressHint": "Peppol يا EN 16931 سڃاڻپ ڪندڙ، جنهن تحت هي ڪلائنٽ اي-انوائسز وصول ڪري ٿو.",
+      "electronicAddressScheme": "اليڪٽرانڪ پتي جي اسڪيم",
+      "electronicAddressSchemeNone": "ڪا اسڪيم ناهي",
+      "notes": "نوٽس",
+      "billingAddress": "بلنگ پتو",
+      "shippingAddress": "شپنگ پتو",
+      "differentFromBilling": "بلنگ کان مختلف",
+      "save": "ڪلائنٽ محفوظ ڪريو"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "ڪلاڪ",
+      "DAY": "ڏينهن",
+      "FIXED": "مقرر",
+      "MILESTONE": "سنگ ميل",
+      "UNIT": "يونٽ"
+    },
+    "list": {
+      "activate": "فعال ڪريو",
+      "deactivate": "غير فعال ڪريو",
+      "archiveDescription": "موجود انوائس لائينون پنهنجيون ڪاپي ٿيل قيمتون رکن ٿيون.",
+      "deleteDescription": "رڳو تڏهن ممڪن آهي جڏهن ڪا انوائس لائين ان جو حوالو نه ڏئي. ٻي صورت ۾ آرڪائيو ڪريو.",
+      "columns": {
+        "sku": "SKU",
+        "name": "نالو",
+        "unit": "يونٽ",
+        "rate": "شرح",
+        "price": "قيمت",
+        "currency": "ڪرنسي",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "ٽيڪس",
+        "status": "حالت"
+      }
+    },
+    "services": {
+      "title": "خدمتون",
+      "description": "توهان جو ڪيٽلاگ. خدمت چونڊڻ ان جون قيمتون انوائس لائين تي ڪاپي ڪري ٿو.",
+      "newService": "نئين خدمت",
+      "emptyTitle": "اڃا ڪا خدمت ناهي",
+      "emptyDescription": "جيڪو وڪڻو ٿا شامل ڪريو - ڪلاڪ جي ڊيزائن، مقرر فيس سنگ ميل - ان جي SAC/HSN ڪوڊ ۽ ٽيڪس شرح سان.",
+      "addService": "خدمت شامل ڪريو",
+      "restoreTitle": "{name} بحال ڪريون؟",
+      "archiveTitle": "{name} آرڪائيو ڪريون؟",
+      "deleteTitle": "{name} ڊليٽ ڪريون؟",
+      "editMetaTitle": "خدمت ايڊٽ ڪريو",
+      "editTitle": "{name} ايڊٽ ڪريو"
+    },
+    "products": {
+      "title": "پراڊڪٽس",
+      "description": "سامان جيڪو توهان وڪڻو ٿا، هر هڪ SKU سان. پراڊڪٽ چونڊڻ ان جون قيمتون انوائس لائين تي ڪاپي ڪري ٿو.",
+      "newProduct": "نئين پراڊڪٽ",
+      "emptyTitle": "اڃا ڪا پراڊڪٽ ناهي",
+      "emptyDescription": "سامان جيڪو وڪڻو ٿا SKU، HSN ڪوڊ، يونٽ قيمت ۽ ٽيڪس شرح سان شامل ڪريو.",
+      "addProduct": "پراڊڪٽ شامل ڪريو",
+      "restoreTitle": "{sku} بحال ڪريون؟",
+      "archiveTitle": "{sku} آرڪائيو ڪريون؟",
+      "deleteTitle": "{sku} ڊليٽ ڪريون؟",
+      "editMetaTitle": "پراڊڪٽ ايڊٽ ڪريو",
+      "editTitle": "{sku} ايڊٽ ڪريو"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "منفرد ڪوڊ جيڪو لائين جي تفصيل هيٺان ڇپجي ٿو",
+      "name": "نالو",
+      "unit": "يونٽ",
+      "defaultRate": "ڊفالٽ شرح",
+      "unitPrice": "يونٽ قيمت",
+      "currency": "ڪرنسي",
+      "sacHsnCode": "SAC / HSN ڪوڊ",
+      "sacHsnHint": "GST انوائسن تي گهربل",
+      "hsnCode": "HSN ڪوڊ",
+      "hsnHint": "سامان لاءِ GST انوائسن تي گهربل",
+      "defaultTaxRate": "ڊفالٽ ٽيڪس شرح (%)",
+      "description": "تفصيل",
+      "descriptionHint": "لائين جو تفصيل اڳ ۾ ڀري ٿو",
+      "active": "سرگرم",
+      "serviceInactiveHint": "غير فعال خدمتون انوائس چونڊيندڙ کان ٻاهر رهن ٿيون",
+      "productInactiveHint": "غير فعال پراڊڪٽس انوائس چونڊيندڙ کان ٻاهر رهن ٿيون",
+      "saveService": "خدمت محفوظ ڪريو",
+      "saveProduct": "پراڊڪٽ محفوظ ڪريو"
+    },
+    "tags": {
+      "legend": "پروفائل",
+      "hint": "اهي جاري ڪندڙ پروفائل نشان لڳايو جيڪي هي وڪڻن ٿا. هر پروفائل کي پيش ڪرڻ لاءِ سڀ بي نشان ڇڏيو."
+    }
+  },
+  "address": {
+    "line1": "پتي جي لائين 1",
+    "line2": "پتي جي لائين 2",
+    "city": "شهر",
+    "stateRegion": "رياست / علائقو",
+    "postalCode": "پوسٽل ڪوڊ",
+    "country": "ملڪ",
+    "state": "رياست",
+    "gstStateCodeHint": "GST رياست ڪوڊ {code}",
+    "pickStateHint": "GST رياست ڪوڊ لاءِ رياست چونڊيو",
+    "stateRegionCode": "رياست / علائقي جو ڪوڊ",
+    "stateRegionCodePlaceholder": "مثال طور CA"
+  },
+  "assets": {
+    "tooLarge": "اها فائل تمام وڏي آهي.",
+    "unsupportedReceipt": "PNG، JPEG، WebP تصوير يا PDF استعمال ڪريو.",
+    "unsupportedImage": "PNG، JPEG يا WebP تصوير استعمال ڪريو.",
+    "uploadFailed": "اپلوڊ ناڪام ٿيو.",
+    "uploading": "اپلوڊ ٿي رهيو آهي…",
+    "dropHint": "فائل هتي ڇڪيو، يا چونڊيو",
+    "dropHintMany": "فائلون هتي ڇڪيو، يا چونڊيو",
+    "dropActive": "اپلوڊ ڪرڻ لاءِ ڇڏيو"
+  },
+  "ui": {
+    "breadcrumb": "بريڊ ڪرمب",
+    "close": "بند ڪريو",
+    "closeMenu": "مينيو بند ڪريو",
+    "reveal": "ڏيکاريو",
+    "hide": "لڪايو",
+    "openCalendar": "ڪئلينڊر کوليو",
+    "chooseMonth": "مهينو چونڊيو",
+    "chooseYear": "سال چونڊيو",
+    "searchOptions": "ڳولڻ لاءِ ٽائيپ ڪريو",
+    "noMatches": "ڪو ميل ناهي",
+    "pullToRefresh": {
+      "label": "ريفريش ٿيڻ جوڳي فهرست",
+      "pulling": "ريفريش ڪرڻ لاءِ هيٺ ڇڪيو",
+      "release": "ريفريش ڪرڻ لاءِ ڇڏيو",
+      "refreshing": "ريفريش ٿي رهيو آهي"
+    },
+    "inputCharset": "رڳو معياري ڪيبورڊ اکر جائز آهن.",
+    "confirm": {
+      "working": "ڪم ٿي رهيو آهي…"
+    },
+    "statusPill": {
+      "DRAFT": "مسودو",
+      "ISSUED": "جاري ٿيل",
+      "SENT": "موڪليل",
+      "PARTIALLY_PAID": "جزوي ادا ٿيل",
+      "PAID": "ادا ٿيل",
+      "OVERDUE": "مدي کان وڌيل",
+      "VOID": "منسوخ"
+    },
+    "activePill": {
+      "active": "سرگرم",
+      "archived": "آرڪائيو ٿيل",
+      "inactive": "غير فعال"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "ڪجهه غلط ٿي ويو.",
+    "fixFields": "مهرباني ڪري نمايان ڪيل فيلڊ درست ڪريو.",
+    "accountSaved": "اڪائونٽ ترجيحون محفوظ ٿيون",
+    "apiKeyCreated": "API ڪي ٺهي وئي. هاڻي ڪاپي ڪريو: اها رڳو هڪ ڀيرو ڏيکاري وڃي ٿي.",
+    "saved": "{name} محفوظ ٿيو",
+    "savedProfile": "پروفائل {label} محفوظ ٿيو",
+    "clientArchived": "ڪلائنٽ آرڪائيو ٿيو",
+    "clientRestored": "ڪلائنٽ بحال ٿيو",
+    "clientDeleted": "ڪلائنٽ ڊليٽ ٿيو",
+    "productArchived": "پراڊڪٽ آرڪائيو ٿي",
+    "productRestored": "پراڊڪٽ بحال ٿي",
+    "productActivated": "پراڊڪٽ فعال ٿي",
+    "productDeactivated": "پراڊڪٽ غير فعال ٿي",
+    "serviceArchived": "خدمت آرڪائيو ٿي",
+    "serviceRestored": "خدمت بحال ٿي",
+    "serviceActivated": "خدمت فعال ٿي",
+    "serviceDeactivated": "خدمت غير فعال ٿي",
+    "defaultProfileUpdated": "ڊفالٽ پروفائل اپڊيٽ ٿيو",
+    "profileArchived": "پروفائل آرڪائيو ٿيو",
+    "profileRestored": "پروفائل بحال ٿيو",
+    "profileDeleted": "پروفائل ڊليٽ ٿيو",
+    "defaultPaymentMethodUpdated": "ڊفالٽ ادائيگي جو طريقو اپڊيٽ ٿيو",
+    "paymentMethodArchived": "ادائيگي جو طريقو آرڪائيو ٿيو",
+    "paymentMethodRestored": "ادائيگي جو طريقو بحال ٿيو",
+    "paymentMethodDeleted": "ادائيگي جو طريقو ڊليٽ ٿيو",
+    "issued": "{number} جاري ٿيو",
+    "savedAsDraft": "مسودي طور محفوظ ٿيو. {reason}",
+    "draftSaved": "مسودو محفوظ ٿيو",
+    "invoiceVoided": "انوائس منسوخ ٿيو",
+    "originalVoided": "اصل منسوخ ٿيو؛ بدل مسودو ايڊٽ ڪريو",
+    "markedAsSent": "موڪليل طور نشان لڳو",
+    "draftDeleted": "مسودو ڊليٽ ٿيو",
+    "generatedPdf": "PDF ورزن {version} ٺهيو",
+    "creditNoteVoided": "ڪريڊٽ نوٽ منسوخ ٿيو؛ انوائس جو بقايا بحال ٿيو",
+    "draftCreditNoteDeleted": "مسودو ڪريڊٽ نوٽ ڊليٽ ٿيو",
+    "mailRefused": "ميل سرور پيغام رد ڪيو: {error}. ڪوشش لاگ ٿي وئي.",
+    "unknownError": "اڻڄاتل غلطي",
+    "sentTo": "{recipients} ڏانهن موڪليو ويو",
+    "smtpSaved": "SMTP سيٽنگون محفوظ ٿيون",
+    "smtpRemoved": "محفوظ ٿيل SMTP سيٽنگون هٽايون ويون",
+    "testEmailSent": "ٽيسٽ اي ميل {email} ڏانهن موڪلي وئي",
+    "testFailed": "ٽيسٽ ناڪام ٿي: {error}",
+    "defaultRecipientsSaved": "ڊفالٽ وصول ڪندڙ محفوظ ٿيا",
+    "invitationSent": "دعوت موڪلي وئي",
+    "invitationReady": "دعوت تيار آهي",
+    "unknownRole": "اڻڄاتل ڪردار",
+    "roleUpdated": "ڪردار اپڊيٽ ٿيو",
+    "accountDeactivated": "اڪائونٽ غير فعال ٿيو",
+    "accountReactivated": "اڪائونٽ ٻيهر فعال ٿيو",
+    "invitationRevoked": "دعوت رد ٿي",
+    "paymentUpdated": "ادائيگي اپڊيٽ ٿي",
+    "paymentRecorded": "ادائيگي درج ٿي",
+    "paymentDeleted": "ادائيگي ڊليٽ ٿي",
+    "sessionRevoked": "سيشن رد ٿيو",
+    "noOtherSessions": "ڪو ٻيو سيشن ناهي",
+    "signedOutOthers": "{count} ٻين سيشنن مان سائن آئوٽ ٿيو",
+    "sharePasswordRequired": "پاسورڊ داخل ڪريو، يا ڪو ٺاهڻ ڏيو.",
+    "shareLinkCreated": "شيئر لنڪ ٺهي وئي.",
+    "templateSaved": "ٽيمپليٽ محفوظ ٿيو؛ مستقبل جا دستاويز ان کي استعمال ڪندا",
+    "templateReset": "ٽيمپليٽ اندروني ڊفالٽ تي ري سيٽ ٿيو",
+    "templateImported": "ٽيمپليٽ امپورٽ ٿيو",
+    "profileTemplateCleared": "پروفائل ٻيهر انسٽنس ٽيمپليٽ استعمال ڪري ٿو",
+    "operatorSaved": "آپريٽر جا تفصيل محفوظ ٿيا. قانوني صفحا هاڻي انهن کي ڏيکارين ٿا.",
+    "einvoiceSettingsSaved": "اي-انوائسنگ سيٽنگون محفوظ ٿيون",
+    "irnRegistered": "IRN {irn} رجسٽر ٿيو؛ PDF ان سان گڏ ٻيهر ٺاهيو ويو",
+    "irnRecorded": "IRN رڪارڊ ٿيو؛ PDF ان سان گڏ ٻيهر ٺاهيو ويو",
+    "irnCancelled": "IRN منسوخ ٿيو؛ PDF ٻيهر ٺاهيو ويو"
+  }
+}

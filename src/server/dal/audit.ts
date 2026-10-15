@@ -31,6 +31,11 @@ export async function audit(
 ): Promise<void> {
   const before = asJson(details.before);
   const after = asJson(details.after);
+  // Keys act on behalf of their user; the trail says which key did it.
+  const summary =
+    actor?.via === "api-key" && actor.apiKeyName
+      ? `${details.summary ?? action} (via API key "${actor.apiKeyName}")`
+      : (details.summary ?? null);
   const actorExists = actor
     ? (await tx.user.findUnique({ where: { id: actor.userId }, select: { id: true } })) !== null
     : false;
@@ -40,11 +45,12 @@ export async function audit(
       action,
       entityType,
       entityId,
-      summary: details.summary ?? null,
+      summary,
       ...(before !== undefined ? { before } : {}),
       ...(after !== undefined ? { after } : {}),
       ipAddress: actor?.ip ?? null,
       userAgent: actor?.userAgent ?? null,
+      actorRole: actor?.role ?? null,
     },
   });
 }

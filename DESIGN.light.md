@@ -1,17 +1,17 @@
 ---
 version: alpha
 name: Linear-design-analysis-light
-description: "Inverse light theme for okinvo. Same token names as DESIGN.md; only colour values differ. White canvas, grey surface ladder that gets darker as it lifts, pure-black ink, lavender accent unchanged, status colours darkened to pass WCAG AA on white."
+description: "Inverse light theme for okinvo. Same token names as DESIGN.md; only colour values differ. White canvas, grey surface ladder that gets darker as it lifts, pure-black ink, pastel accents slightly deepened for white, status colours darkened to pass WCAG AA on white."
 
 colors:
-  primary: "#5e6ad2"
-  on-primary: "#ffffff"
-  primary-hover: "#4f5bc4"
-  primary-focus: "#5e69d1"
+  primary: "#6cc994"
+  on-primary: "#17191e"
+  primary-hover: "#5fbf87"
+  primary-focus: "#2f8f5c"
   ink: "#000000"
   ink-muted: "#3c3f44"
   ink-subtle: "#62666d"
-  ink-tertiary: "#8a8f98"
+  ink-tertiary: "#737780"
   canvas: "#ffffff"
   surface-1: "#f5f6f6"
   surface-2: "#eeeff0"
@@ -31,6 +31,39 @@ colors:
   semantic-danger: "#b91c1c"
   semantic-danger-fill: "#c83a3a"
   link: "#4a55bd"
+  brand-dot: "#87d9a8"
+  accent-mint-primary: "#6cc994"
+  accent-mint-on-primary: "#17191e"
+  accent-mint-primary-hover: "#5fbf87"
+  accent-mint-primary-focus: "#2f8f5c"
+  accent-lavender-primary: "#a19ee8"
+  accent-lavender-on-primary: "#17191e"
+  accent-lavender-primary-hover: "#918de3"
+  accent-lavender-primary-focus: "#6b67cf"
+  accent-sky-primary: "#74b4ea"
+  accent-sky-on-primary: "#17191e"
+  accent-sky-primary-hover: "#62a8e4"
+  accent-sky-primary-focus: "#2f7fc4"
+  accent-peach-primary: "#eea581"
+  accent-peach-on-primary: "#17191e"
+  accent-peach-primary-hover: "#e9956c"
+  accent-peach-primary-focus: "#c75f2e"
+  accent-butter-primary: "#e8d06a"
+  accent-butter-on-primary: "#17191e"
+  accent-butter-primary-hover: "#e0c552"
+  accent-butter-primary-focus: "#8a7300"
+  accent-rose-primary: "#ea8ea3"
+  accent-rose-on-primary: "#17191e"
+  accent-rose-primary-hover: "#e37b93"
+  accent-rose-primary-focus: "#c94868"
+  accent-sage-primary: "#a3c48a"
+  accent-sage-on-primary: "#17191e"
+  accent-sage-primary-hover: "#93b878"
+  accent-sage-primary-focus: "#4f7f30"
+  accent-lilac-primary: "#c9a0e8"
+  accent-lilac-on-primary: "#17191e"
+  accent-lilac-primary-hover: "#bd8ee2"
+  accent-lilac-primary-focus: "#8e52bf"
 ---
 
 ## Overview
@@ -40,5 +73,5 @@ Light counterpart of `DESIGN.md`. Only `colors` are declared; typography, roundi
 ## Colors
 
 - **Ink** (#000000) on canvas is 21:1; **Ink Subtle** moves to #62666d (5.77:1) because the dark file's #8a8f98 is only 3.25:1 on white.
-- **Primary** stays #5e6ad2 (4.70:1 — buttons, focus, indicators); body-size links use **Link** #4a55bd (6.32:1).
-- **Success / Warning / Danger** are #1a7f37 / #c2410c / #b91c1c — the dark values fail AA on white (3.17 / 2.23 / 3.48).
+- **Primary** stays #5e6ad2 (4.70:1 - buttons, focus, indicators); body-size links use **Link** #4a55bd (6.32:1).
+- **Success / Warning / Danger** are #1a7f37 / #c2410c / #b91c1c - the dark values fail AA on white (3.17 / 2.23 / 3.48).

@@ -27,6 +27,8 @@ export interface BuilderItem {
   taxRate: string;
   taxExempt?: boolean;
   serviceItemId?: string;
+  productId?: string;
+  sku?: string;
 }
 
 export interface BuilderValues {
@@ -45,13 +47,39 @@ export interface BuilderValues {
   tdsRate: string;
   paymentMethodIds: string[];
   displayConfig: DisplayConfig;
+  /** The language the document prints in (SPEC §4.10). */
+  documentLocale: string;
   poReference: string;
   notes: string;
   terms: string;
 }
 
+/**
+ * The issuer fields the builder and its live preview read. The builder is a client component, so
+ * this is what reaches the browser: decrypted identifiers (US tax id), e-mail templates, number
+ * formats and storage keys stay on the server.
+ */
+export type BuilderProfile = Omit<
+  ProfileDto,
+  | "usTaxId"
+  | "emailCc"
+  | "emailBcc"
+  | "emailInvoiceSubject"
+  | "emailInvoiceBody"
+  | "emailCreditNoteSubject"
+  | "emailCreditNoteBody"
+  | "templateConfigOverride"
+  | "invoiceNumberFormat"
+  | "creditNoteNumberFormat"
+  | "logoKey"
+  | "signatureKey"
+  | "stampKey"
+  | "createdAt"
+  | "updatedAt"
+> & { hasGstin: boolean };
+
 export interface PreviewContext {
-  profile: ProfileDto | null;
+  profile: BuilderProfile | null;
   client: ClientDto | null;
   methods: PaymentMethodDto[];
 }
@@ -121,6 +149,7 @@ export function previewFromBuilder(values: BuilderValues, ctx: PreviewContext): 
     unitPrice: num(item.unitPrice, `Line ${position} rate`, warnings),
     taxRate: num(item.taxRate, `Line ${position} tax rate`, warnings),
     taxExempt: item.taxExempt ?? false,
+    sku: item.sku ?? null,
   }));
   const discountValue =
     values.discountType && values.discountValue.trim()
@@ -232,7 +261,7 @@ export function previewFromBuilder(values: BuilderValues, ctx: PreviewContext): 
     issueDate: issueDate || "2000-01-01",
     dueDate: DateStringSchema.safeParse(values.dueDate).success ? values.dueDate : null,
     currency,
-    locale: profile?.locale ?? "en-IN",
+    locale: values.documentLocale || "en-US",
     issuer,
     client: clientSnap,
     paymentMethods,
@@ -255,6 +284,7 @@ export function previewFromBuilder(values: BuilderValues, ctx: PreviewContext): 
         lineSubtotal: m(line?.lineSubtotal ?? "0"),
         taxRate: src?.taxRate ?? "0",
         taxExempt: src?.taxExempt ?? false,
+        sku: src?.sku ?? null,
         taxAmount: m(line?.taxAmount ?? "0"),
         lineTotal: m(line?.lineTotal ?? "0"),
       };

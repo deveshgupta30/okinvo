@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Pàgina printzipale de okinvo",
+    "save": "Sarva",
+    "cancel": "Annulla",
+    "continue": "Sighi",
+    "saving": "Sarvende…",
+    "detect": "Rileva",
+    "yes": "Eja",
+    "no": "Non",
+    "choose": "Sèbera…",
+    "remove": "Fùrria",
+    "tryAgain": "Torra a proare",
+    "dashboard": "Pannellu de controllu",
+    "goToDashboard": "Bae a su pannellu de controllu",
+    "or": "o",
+    "invoice": "Fatura",
+    "creditNote": "Nota de crèditu",
+    "downloadPdf": "Iscàrriga PDF",
+    "edit": "Modìfica",
+    "delete": "Cantzella",
+    "downloadDocx": "Iscàrriga DOCX",
+    "downloadCii": "Iscàrriga EN 16931 XML",
+    "downloadUbl": "Iscàrriga Peppol UBL",
+    "downloadFacturX": "Iscàrriga Factur-X PDF",
+    "none": "Perunu",
+    "dismiss": "Serra",
+    "all": "Totus",
+    "previous": "Pretzedente",
+    "next": "Imbeniente",
+    "go": "Bae",
+    "search": "Chirca",
+    "status": "Istadu",
+    "total": "Totale",
+    "currency": "Moneda",
+    "from": "Dae",
+    "to": "A",
+    "reason": "Motivu",
+    "history": "Cronologia",
+    "archive": "Archìvia",
+    "restore": "Ripristina",
+    "showArchived": "Mustra archiviados",
+    "hideArchived": "Cua archiviados",
+    "archived": "Archiviadu",
+    "default": "Predefinidu",
+    "setDefault": "Imposta comente predefinidu",
+    "revoke": "Revoca",
+    "copy": "Còpia",
+    "copied": "Copiadu",
+    "active": "Ativu",
+    "pagination": "Paginatzione",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Pannellu de controllu",
+      "invoices": "Faturas",
+      "creditNotes": "Notas de crèditu",
+      "clients": "Clientes",
+      "services": "Servìtzios",
+      "products": "Produtos",
+      "tools": "Divisa"
+    },
+    "primaryNav": "Printzipale",
+    "settings": "Impostatziones",
+    "openMenu": "Aberi su menù",
+    "more": "Àteru",
+    "navigation": "Navigatzione",
+    "dock": "Navigatzione lestra",
+    "pagesAndAccount": "Pàginas e contu",
+    "collapseSidebar": "Riduni sa barra laterale",
+    "collapseSidebarHint": "Riduni sa barra laterale ([)",
+    "expandSidebar": "Ampra sa barra laterale",
+    "expandSidebarHint": "Ampra sa barra laterale ([)",
+    "theme": {
+      "label": "Tema",
+      "system": "Sistema",
+      "light": "Craru",
+      "dark": "Iscuru",
+      "current": "Tema: {mode}",
+      "switchTo": "Tema: {mode}. Colla a {next}"
+    },
+    "userMenu": {
+      "label": "Menù de su contu de {name}",
+      "profile": "Profilu",
+      "logOut": "Essi"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Cunvertidore de divisas",
+      "title": "Cunvertidore de divisas",
+      "description": "Cunverti tra sas divisas in sas cales faghes fatura, cun sa tabella de sos tassos de cambiu de custa istàntzia.",
+      "amount": "Cantidade",
+      "from": "Dae",
+      "to": "A",
+      "flip": "Cuncàmbia sas divisas",
+      "enterAmount": "Inserta una cantidade",
+      "asOf": "Tassos de cambiu a su {date} ({source})",
+      "sources": {
+        "bundled": "includidos in s'aplicatzione",
+        "live": "atualizados in lìnia"
+      },
+      "note": "Sos tassos sunt pro orientamentu; su tassu de una fatura emìtida est cussu chi as inseridu cando l'as emìtida."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Intrada",
+      "metaDescription": "Intra in okinvo, s'aplicatzione de fatturatzione auto-ospitada, cun su frunidore de identidade o sa password tua.",
+      "title": "Intrada",
+      "subtitle": "Podent intrare isceti sos contos in sa lista de permissu.",
+      "failed": "S’intrada est faddida.",
+      "noMethod": "Perunu mètodu de intrada est cunfiguradu. Imposta una paja de frunidore comente <code>AUTH_GITHUB_*</code>, o <code>AUTH_PASSWORD_SIGNIN=true</code>, in <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Custu contu no est permìtidu in custa istàntzia, o est istadu disativadu.",
+        "signin": "S’intrada no est istada cumpletada. Torra a proare."
+      }
+    },
+    "password": {
+      "name": "Nùmene",
+      "email": "Email",
+      "password": "Crae",
+      "signingIn": "Intrende…",
+      "createAccount": "Crea unu contu",
+      "signIn": "Intra",
+      "haveAPassword": "Tenzo giai una crae",
+      "firstTime": "Prima borta inoghe? Imposta una crae",
+      "failed": "S’intrada est faddida."
+    },
+    "social": {
+      "redirecting": "Torrende a indiritzare…",
+      "continueWith": "Sighi cun {provider}",
+      "failed": "S’intrada no at pòtzidu cumintzare."
+    },
+    "error": {
+      "metaTitle": "Errore de intrada",
+      "metaDescription": "S'intrada no est istada cumpletada. Sa pàgina ispiegat ite est andadu male e comente torrare a proare.",
+      "title": "S’intrada est faddida",
+      "body": "Su frunidore de identidade at torradu <code>{value}</code>. Si s’indiritzu tuo no est in sa lista de permissu de custa istàntzia, pedi a su proprietàriu de lu agiùnghere.",
+      "back": "Torra a s’intrada"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Impostatziones",
+      "profiles": "Profilos",
+      "paymentMethods": "Mètodos de pagamentu",
+      "templates": "Modellos",
+      "email": "Email",
+      "security": "Seguresa",
+      "users": "Impitadores",
+      "data": "Datos",
+      "legal": "Legale",
+      "einvoicing": "E-fattura",
+      "account": "Contu",
+      "appearance": "Aspetu",
+      "api": "API",
+      "status": "Istadu",
+      "usage": "Impreu"
+    },
+    "account": {
+      "metaTitle": "Contu",
+      "title": "Contu",
+      "description": "Sa fotografia tua, nùmene, regione, limba e fusu oràriu.",
+      "photo": {
+        "title": "Fotografia",
+        "description": "Mustrada in sa barra laterale e in su menù de s’impitadore."
+      },
+      "form": {
+        "title": "Contu",
+        "description": "Comente apares e cando est “oe”.",
+        "displayName": "Nùmene mustradu",
+        "signInEmail": "Email de intrada",
+        "signInEmailHint": "S’identidade tua in custa istàntzia; no si podet modificare inoghe.",
+        "timezone": "Fusu oràriu",
+        "timezoneHint": "“Oe” pro datas de emissione, iscadèntzias e pannellu de controllu",
+        "regionTitle": "Regione",
+        "regionDescription": "Valores predefinidos pro profilos noos de emitente e pro su pannellu de controllu fintzas a cando esistit unu profilu.",
+        "country": "Paisu",
+        "currency": "Moneda",
+        "suggested": "Cussigiada pro custu paisu:",
+        "language": "Limba",
+        "languageHint": "Sa limba de s’aplicatzione etotu. Sos documentos impreant sa limba de cada profilu.",
+        "machineTranslated": "Custa limba est istada tradùida automaticamente. Sas curreziones sunt bene-bènnidas: <link>megiora sa tradutzione in GitHub</link>.",
+        "save": "Sarva sas preferèntzias"
+      },
+      "regions": {
+        "Africa": "Àfrica",
+        "Americas": "Amèricas",
+        "Asia": "Àsia",
+        "Europe": "Europa",
+        "MiddleEast": "Mediu Oriente",
+        "Oceania": "Otzeània",
+        "Constructed": "Costruidas"
+      },
+      "privacy": {
+        "title": "Riservadesa",
+        "description": "okinvo impostat isceti sos cookies chi serbint pro funtzionare. Peruna analisi, perunu sighimentu.",
+        "cookiePolicy": "Polìtica de sos cookies",
+        "showNoticeAgain": "Mustra torra s’avisu subra de sos cookies"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Muda sa fotografia",
+      "addPhoto": "Agiunghe una fotografia",
+      "hint": "PNG, JPEG o WebP. Mustrada comente chirculu in ogni logu; da podes ampliare e mòvere in antis de sarvare.",
+      "tooLarge": "Sa fotografia est tropu manna.",
+      "uploadFailed": "Su carrigamentu est faddidu.",
+      "choose": "Sèbera una fotografia de profilu",
+      "dialogTitle": "Pone sa fotografia",
+      "dialogDescription": "Traghe pro mòvere, iscurre o pinchiga pro ampliare. Su chirculu est su chi bident totus.",
+      "zoom": "Ingrandimentu",
+      "save": "Sarva sa fotografia"
+    },
+    "appearance": {
+      "metaTitle": "Aspetu",
+      "title": "Aspetu",
+      "description": "Tema e colore de agiudu, sarvados in su contu tuo.",
+      "theme": {
+        "title": "Tema",
+        "description": "Sighi su sistema, o ferma su craru o s’iscuru.",
+        "label": "Tema",
+        "system": "Sighi su sistema",
+        "systemHint": "Cambiat cun su sistema operativu",
+        "light": "Craru",
+        "lightHint": "Fundu biancu",
+        "dark": "Iscuru",
+        "darkHint": "Fundu cuasi nieddu"
+      },
+      "accent": {
+        "title": "Acentu",
+        "description": "Impreadu pro su butone printzipale, sos aneddos de fogu e su sinnu de sa pàgina ativa. Sa menta andat cun su sìmbulu de sa marca.",
+        "label": "Colore de acentu",
+        "customHint": "O sèbera unu colore tuo"
+      },
+      "accents": {
+        "mint": "Menta",
+        "lavender": "Lavanda",
+        "sky": "Chelu",
+        "peach": "Pèrsighe",
+        "butter": "Burru",
+        "rose": "Rosa",
+        "sage": "Salvia",
+        "lilac": "Lilla",
+        "custom": "Personalizadu"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Profilos de emitente",
+      "title": "Profilos de emitente",
+      "description": "Sas identidades legales dae sas cales faturas. Cussa predefinida cumpletat sas faturas noas.",
+      "breadcrumb": "Profilos",
+      "newProfile": "Profilu nou",
+      "emptyTitle": "Perunu profilu de emitente ancora",
+      "emptyDescription": "Crea s’identidade dae sa cale faturas: una persone fìsica cun PAN, o s’impresa tua.",
+      "createProfile": "Crea unu profilu",
+      "columns": {
+        "label": "Etichetta",
+        "legalName": "Nùmene legale",
+        "type": "Casta",
+        "country": "Paisu",
+        "currency": "Moneda",
+        "regime": "Regime",
+        "status": "Istadu"
+      },
+      "types": {
+        "company": "Impresa",
+        "individual": "Persone fìsica"
+      },
+      "makeDefaultTitle": "Impostare {label} comente predefinidu?",
+      "makeDefaultDescription": "Sas faturas noas ant a cumintzare dae custu profilu.",
+      "restoreTitle": "Ripristinare {label}?",
+      "archiveTitle": "Archiviare {label}?",
+      "archiveDescription": "Isparit dae sas listas de seletzione; sas faturas esistentes non sunt tocadas.",
+      "new": {
+        "metaTitle": "Profilu de emitente nou",
+        "title": "Profilu de emitente nou",
+        "prefilled": "Cumpletadu cun sas rispostas tuas; controlla s’indiritzu e sos datos fiscales, tando sarva."
+      },
+      "edit": {
+        "metaTitle": "Modìfica profilu de emitente",
+        "template": "Modellu",
+        "deleteTitle": "Cantzellare {label}?",
+        "deleteDescription": "Possìbile isceti si peruna fatura o nota de crèditu faghet riferimentu a custu profilu. Dae si no, archìvialu."
+      },
+      "template": {
+        "metaTitle": "Modellu de profilu",
+        "title": "Modellu pro {label}",
+        "ownTemplate": "Modellu própriu",
+        "instanceTemplate": "Modellu de s’istàntzia",
+        "resetTitle": "Impreare torra su modellu de s’istàntzia?",
+        "resetDescription": "Sa cunfiguratzione pròpria de custu profilu benit fùrriada; sos documentos emitidos non sunt tocados.",
+        "useInstance": "Imprea su modellu de s’istàntzia",
+        "usingInstanceTitle": "Impreende su modellu de s’istàntzia",
+        "usingInstanceDescription": "Sos documentos de custu profilu sighint Impostatziones → Modellos. Sèbera de los personalizare a banda.",
+        "customise": "Imprea unu modellu diferente pro custu profilu",
+        "openInstance": "Aberi su modellu de s’istàntzia"
+      },
+      "form": {
+        "identityTitle": "Identidade",
+        "identityDescription": "Chie emitit sa fatura.",
+        "type": "Casta",
+        "label": "Etichetta",
+        "labelHint": "Mustrada isceti in sas listas de seletzione",
+        "legalName": "Nùmene legale",
+        "tradeName": "Nùmene cummertziale",
+        "designation": "Ruolu",
+        "email": "Email",
+        "phone": "Telèfonu",
+        "website": "Situ web",
+        "addressTitle": "Indiritzu",
+        "taxTitle": "Identificadores fiscales",
+        "taxDescription": "Isceti sos chi ti pertocant; sa istampa si controllat pro cada fatura.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Nùmeru IVA de su Regnu Unidu",
+        "usTaxId": "EIN / SSN de sos USA",
+        "usTaxIdHint": "Critografadu in riposu",
+        "lutNumber": "Nùmeru LUT",
+        "lutNumberHint": "Pro esportatziones sena IGST",
+        "lutFiscalYear": "Annu finantziàriu LUT",
+        "lutFiscalYearHint": "pro esempru 2026-27",
+        "einvoiceTitle": "E-fattura",
+        "einvoiceDescription": "Comente custu profilu s’identificat in is e-fatturas; su connettore e is credentziales sunt in Cunfiguratziones > E-fattura.",
+        "electronicAddress": "Indiritzu eletrònicu",
+        "electronicAddressHint": "S’identificadore Peppol o EN 16931 de custu emitente, imprentadu comente indiritzu eletrònicu de su bendidore.",
+        "electronicAddressScheme": "Ischema de s’indiritzu eletrònicu",
+        "electronicAddressSchemeNone": "Peruna ischema",
+        "einvoiceEnabled": "E-fattura ativada pro custu profilu",
+        "einvoiceEnabledHint": "Ofertat in is documentos emitidos is iscarrigamentos de s’e-fattura GST in JSON, Factur-X e UBL e sa registratzione de s’IRN.",
+        "defaultsTitle": "Valores predefinidos",
+        "baseCurrency": "Moneda de base",
+        "locale": "Impostatzione regionale de su documentu",
+        "localeHint": "Formatu de nùmeros e datas in sos documentos",
+        "fiscalYearStart": "S’annu fiscale cumintzat in",
+        "months": {
+          "january": "Gennarzu",
+          "february": "Freàrgiu",
+          "march": "Martzu",
+          "april": "Abrile",
+          "may": "Maju",
+          "june": "Làmpadas",
+          "july": "Trìulas",
+          "august": "Austu",
+          "september": "Cabudanni",
+          "october": "Santugaine",
+          "november": "Onniasantu",
+          "december": "Paschixedda"
+        },
+        "taxRegime": "Regime fiscale predefinidu",
+        "regimes": {
+          "indiaGst": "GST de s’Ìndia",
+          "ukVat": "IVA de su Regnu Unidu",
+          "usSalesTax": "Impostu subra de sas vendas de sos USA",
+          "none": "Peruna tassa"
+        },
+        "invoiceNumberFormat": "Formatu de su nùmeru de fatura",
+        "invoiceNumberFormatHint": "Tokens: {tokens}",
+        "creditNoteNumberFormat": "Formatu de su nùmeru de sa nota de crèditu",
+        "tdsRate": "Aliquota TDS atesa (%)",
+        "tdsRateHint": "Informativa, istampada comente deduzione atesa",
+        "defaultNotes": "Notas predefinidas",
+        "defaultTerms": "Cunditziones predefinidas",
+        "printTitle": "Ite benit istampadu de default",
+        "printDescription": "Cada fatura las copiat e las podet modificare una pro una.",
+        "emailTitle": "Email",
+        "emailDescription": "Valores predefinidos pro s’editore de imbiu. Segnaposto: {placeholders}",
+        "emailCc": "CC predefinidu",
+        "emailBcc": "BCC predefinidu",
+        "commaSeparated": "Separados cun virgula",
+        "invoiceSubject": "Ogetu de sa fatura",
+        "invoiceSubjectHint": "Bòidu imprea su modellu integradu",
+        "creditNoteSubject": "Ogetu de sa nota de crèditu",
+        "invoiceBody": "Testu de sa fatura",
+        "creditNoteBody": "Testu de sa nota de crèditu",
+        "artworkTitle": "Grafica",
+        "artworkDescription": "PNG, JPEG o WebP fintzas a 2 MB; sa firma e su timbru mantenint sa trasparèntzia.",
+        "logo": "Logo",
+        "signature": "Firma",
+        "stamp": "Timbru",
+        "transparentPng": "PNG trasparente",
+        "save": "Sarva su profilu"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Mètodos de pagamentu",
+      "title": "Mètodos de pagamentu",
+      "description": "Comente ti pagant sos clientes. Sos detàllios sunt critografados e congelados in cada fatura cando est emitida.",
+      "newMethod": "Mètodu nou",
+      "emptyTitle": "Perunu mètodu de pagamentu ancora",
+      "emptyDescription": "Agiunghe unu contu bancàriu, un ID UPI o una bussa, gasi sas faturas indicant a sos clientes ube pagare.",
+      "addMethod": "Agiunghe unu mètodu",
+      "columns": {
+        "name": "Nùmene",
+        "type": "Casta",
+        "currency": "Moneda",
+        "status": "Istadu"
+      },
+      "types": {
+        "bankTransfer": "Bonifìtziu bancàriu",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Personalizadu"
+      },
+      "makeDefaultTitle": "Impostare {name} comente predefinidu?",
+      "restoreTitle": "Ripristinare {name}?",
+      "archiveTitle": "Archiviare {name}?",
+      "archiveDescription": "Sas faturas emitidas mantenent s’istantànea chi ant istampadu.",
+      "new": {
+        "metaTitle": "Mètodu de pagamentu nou",
+        "title": "Mètodu de pagamentu nou"
+      },
+      "edit": {
+        "metaTitle": "Modìfica mètodu de pagamentu",
+        "title": "Modìfica {name}",
+        "deleteTitle": "Cantzellare {name}?",
+        "deleteDescription": "Possìbile isceti si peruna fatura o pagamentu faghet riferimentu a issu. Dae si no, archìvialu."
+      },
+      "form": {
+        "name": "Nùmene",
+        "nameHint": "Istampadu comente tìtulu de su blocu de pagamentu",
+        "type": "Casta",
+        "currency": "Moneda",
+        "currencyHint": "Optzionale; mustrada isceti pro cuntestu",
+        "anyCurrency": "Cale si siat",
+        "instructions": "Istrutziones",
+        "instructionsHint": "Istampadas suta de sos detàllios",
+        "isDefault": "Mètodu predefinidu",
+        "isDefaultDescription": "Pre-seletzionadu in sas faturas noas",
+        "isActive": "Ativu",
+        "detailsTitle": "Detàllios",
+        "detailsDescription": "Critografados in riposu; copiados comente istantànea in cada fatura cando est emitida.",
+        "vpa": "ID UPI (VPA)",
+        "payeeName": "Nùmene de su beneficiàriu",
+        "lines": "Lìnias",
+        "linesHint": "Una lìnia pro riga, istampada comente est",
+        "accountEmail": "Email / identificadore de su contu",
+        "bank": {
+          "accountHolder": "Titulare de su contu",
+          "accountNumber": "Nùmeru de contu",
+          "bankName": "Nùmene de sa banca",
+          "branch": "Filiale",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Còdighe de instradamentu / sort code"
+        },
+        "save": "Sarva su mètodu de pagamentu"
+      }
+    },
+    "templates": {
+      "metaTitle": "Modellos de documentos",
+      "title": "Modellos de documentos",
+      "customised": "Personalizadu",
+      "builtIn": "Predefinidu integradu",
+      "description": "Comente paren sas faturas e sas notas de crèditu. Sos documentos emitidos mantenent su modellu cun su cale sunt istados emitidos.",
+      "resetTitle": "Torrare a su predefinidu integradu?",
+      "resetDescription": "Sa personalizatzione tua benit fùrriada; sos documentos giai emitidos non sunt tocados.",
+      "reset": "Riprìstina",
+      "resetTrigger": "Riprìstina sos predefinidos",
+      "importTitle": "Importa",
+      "importDescription": "Ripristina una cunfiguratzione esportada in antis.",
+      "overridesTitle": "Eccetziones pro profilu",
+      "overridesDescription": "Unu profilu podet optare pro unu modellu pròpriu dae sa pàgina sua de modìfica.",
+      "noOverrides": "Cada profilu imprea su modellu de s’istàntzia.",
+      "import": {
+        "json": "JSON de su modellu",
+        "jsonHint": "Incolla unu file produidu dae Esporta JSON; sas craes mancantes torrant a sos valores predefinidos",
+        "importing": "Importende…",
+        "submit": "Importa"
+      },
+      "form": {
+        "templateTitle": "Modellu",
+        "templateDescription": "Ses modellos integrados; sa personalizatzione inoghe suta si aplicat a cale si siat chi sèberas.",
+        "templateGroup": "Modellu",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Modernu e lèngiu, sena grazias, lìnia de acentu suta de s’intestatzione."
+          },
+          "classic": {
+            "name": "Clàssicu",
+            "character": "Tabella traditzionale cun bordu, tìtulos cun grazias, totales in caja."
+          },
+          "compact": {
+            "name": "Compatu",
+            "character": "Disposizione fitta pro listas longas de elementos; testu prus minore, mancu separadores."
+          },
+          "minimal": {
+            "name": "Minimale",
+            "character": "Tranquillu e ispaziosu: peruna lìnia o caja, etichettas lèbias, medas ispàtzios."
+          },
+          "letterhead": {
+            "name": "Carta intestada",
+            "character": "Su logo e su nùmene tuo in una fascia de colore o in una immàgine in cùrmine de cada pàgina."
+          },
+          "modern": {
+            "name": "Modernu",
+            "character": "Intestatzione cun fascia de colore; partes, intestatzione de sa tabella e totales subra de una sfumadura crara de acentu."
+          }
+        },
+        "paperTitle": "Paperi e caràteres",
+        "paperSize": "Mannària de su paperi",
+        "paperLetter": "Letter",
+        "margins": "Margines",
+        "marginsNormal": "Normales",
+        "marginsNarrow": "Istrintos",
+        "headingFont": "Caràtere de sos tìtulos",
+        "bodyFont": "Caràtere de su testu",
+        "fontSans": "Sena grazias",
+        "fontSerif": "Cun grazias",
+        "tableStyle": "Istile de sa tabella",
+        "tableRuled": "Cun lìnias",
+        "tableZebra": "Zebra",
+        "tablePlain": "Semplitze",
+        "accentColour": "Colore de acentu",
+        "textColour": "Colore de su testu",
+        "logoPosition": "Positzione de su logo",
+        "positionLeft": "Manca",
+        "positionCentre": "Tzentru",
+        "positionRight": "Dereta",
+        "logoHeight": "Artària de su logo (mm)",
+        "documentTitle": "Tìtulu de su documentu",
+        "titleAuto": "Automàticu (segundu GST)",
+        "titleCustom": "Personalizadu",
+        "titlePlaceholder": "pro esempru FATURA PROFORMA",
+        "qrPosition": "Positzione de su QR",
+        "qrFooter": "Pè de pàgina",
+        "qrHeader": "Intestatzione",
+        "qrBesideTotals": "Acanta a sos totales",
+        "amountInWords": "Importu in lìteras",
+        "wordsBelowTotal": "Suta de sos totales",
+        "wordsFooter": "Pè de pàgina",
+        "wordsHidden": "Cuadu",
+        "subtotalRow": "Riga de su subtotale",
+        "discountRow": "Riga de s’iscontu",
+        "taxLines": "Rigas de tassas",
+        "tdsExpected": "TDS atesu",
+        "roundingRow": "Riga de s’arrotondamentu",
+        "pageNumbers": "Nùmeros de pàgina",
+        "headerTitle": "Intestatzione",
+        "headerDescription": "Una fascia de colore o una immàgine in cùrmine de cada pàgina. Carta intestada e Modernu mustrant una fascia a nono chi sèberes diversamente.",
+        "headerStyle": "Istile de s’intestatzione",
+        "headerNone": "Peruna",
+        "headerBand": "Fascia de colore",
+        "headerImage": "Immàgine",
+        "bandColour": "Colore de sa fascia",
+        "bandColourHex": "Colore de sa fascia (hex)",
+        "headerImageLabel": "Immàgine de s’intestatzione",
+        "headerImageHint": "PNG, JPEG o WebP fintzas a 2400 px de largària; ocupat totu sa largària de sa pàgina.",
+        "imageOpacity": "Opacidade de s’immàgine",
+        "headerHeight": "Artària de s’intestatzione (mm)",
+        "bandText": "Testu in sa fascia",
+        "bandTextAuto": "Automàticu (dae su colore de sa fascia)",
+        "bandTextLight": "Craru",
+        "bandTextDark": "Iscuru",
+        "textTitle": "Testu",
+        "headerNote": "Nota de s’intestatzione",
+        "footer": "Pè de pàgina",
+        "signatureCaption": "Didascalia de sa firma",
+        "draftWatermark": "Filigrana pro sa bozza",
+        "labelsTitle": "Etichettas",
+        "labelsDescription": "Lassa unu campu bòidu pro mantènnere sa formulatzione predefinida.",
+        "save": "Sarva su modellu",
+        "downloadSample": "Iscàrriga PDF de esempru",
+        "exportJson": "Esporta JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Email",
+      "title": "Email",
+      "configuredSettings": "Cunfiguradu in Impostatziones",
+      "configuredEnv": "Cunfiguradu dae s’ambiente",
+      "notConfigured": "Non cunfiguradu: fluidu cun s’aplicatzione de posta",
+      "description": "Sos documentos si imbiant dae s’editore cun su PDF sarvadu allegadu. Sas impostatziones de inoghe sobrascrient SMTP_* de s’ambiente.",
+      "sendTest": "Imbia email de proa a {email}",
+      "removeTitle": "Fùrriare sas impostatziones SMTP sarvadas?",
+      "removeEnvTakesOver": "Sos valores SMTP_* de s’ambiente pigant su postu.",
+      "removeFallsBack": "S’email torrat a su fluidu cun s’aplicatzione de posta.",
+      "removeTrigger": "Fùrria sas impostatziones sarvadas",
+      "smtpTitle": "Serbidore SMTP",
+      "smtpFromEnv": "Imòe leadu dae s’ambiente; sarvende inoghe lu sobrascries.",
+      "smtpPasswordNote": "Sa crae est critografada in riposu e non benit mustrada mai prus.",
+      "defaultsTitle": "Destinatàrios predefinidos",
+      "defaultsDescription": "CC/BCC pro totu s’istàntzia; sos profilos de emitente agiunghent sos issoro.",
+      "sentTitle": "Posta imbiada",
+      "sentDescription": "Sos ùrtimos 50 tentativos, incluidos sos faddimentos e sos imbios manuales.",
+      "smtp": {
+        "host": "Host",
+        "port": "Porta",
+        "security": "Seguresa",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Peruna (relay LAN)",
+        "user": "Nùmene impitadore",
+        "password": "Crae",
+        "passwordStored": "Sarvada e critografada; lassa bòidu pro la mantènnere",
+        "passwordEncrypted": "Critografada in riposu",
+        "from": "Indiritzu de su remitente",
+        "fromName": "Nùmene de su remitente",
+        "replyTo": "Rispondi a",
+        "save": "Sarva sas impostatziones SMTP"
+      },
+      "defaults": {
+        "cc": "CC predefinidu",
+        "ccHint": "Agiuntu a cada editore; separados cun virgula",
+        "bcc": "BCC predefinidu",
+        "save": "Sarva sos predefinidos"
+      }
+    },
+    "security": {
+      "metaTitle": "Seguresa",
+      "title": "Seguresa",
+      "description": "Ube ses intradu e totu su chi est cambiadu.",
+      "sessions": {
+        "title": "Sessiones ativas",
+        "description": "Revocare una sessione faghet essire cussu dispositivu in s’ora.",
+        "signOutOthers": {
+          "title": "Essire dae totu sas àteras sessiones?",
+          "description": "Cada sessione foras de custa benit revocada.",
+          "confirm": "Essi dae sas àteras",
+          "trigger": "Essi dae totu sas àteras sessiones"
+        },
+        "columns": {
+          "device": "Dispositivu",
+          "ipAddress": "Indiritzu IP",
+          "signedIn": "Intrada",
+          "lastSeen": "Ùrtima atividade",
+          "expires": "Iscadit"
+        },
+        "thisDevice": "Custu dispositivu",
+        "revokeTitle": "Revocare custa sessione?",
+        "unknownDevice": "Dispositivu disconnotu",
+        "unknownBrowser": "Disconnotu",
+        "agentOnOs": "{browser} in {os}"
+      },
+      "audit": {
+        "title": "Registru de revisione",
+        "count": "{count, plural, one {# eventu} other {# eventos}}",
+        "entity": "Entidade",
+        "actionContains": "S’atzione cuntenet",
+        "filter": "Filtra",
+        "reset": "Riprìstina",
+        "columns": {
+          "when": "Cando",
+          "who": "Chie",
+          "action": "Atzione",
+          "entity": "Entidade",
+          "summary": "Resumu"
+        },
+        "empty": "Perunu eventu currispondet a custos filtros.",
+        "system": "Sistema",
+        "changes": "Modìficas",
+        "page": "Pàgina {page} de {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Impitadores",
+      "title": "Impitadores",
+      "description": "Chie podet intrare in custa istàntzia e ite podet fàghere.",
+      "roles": {
+        "owner": "Proprietàriu",
+        "editor": "Editore",
+        "viewer": "Lettore"
+      },
+      "roleHints": {
+        "owner": "Totu, incluidas sas impostatziones e sos membros",
+        "editor": "Clientes, catàlogu, faturas, notas de crèditu, pagamentos, email",
+        "viewer": "Isceti letura"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Ruolu de {email}",
+      "invite": {
+        "title": "Invita a calicunu",
+        "description": "Intrant cun s’indiritzu invitadu (unu frunidore de identidade o una crae) e retzint su ruolu chi sèberas.",
+        "sent": "Invitu imbiadu pro email a {email}.",
+        "readyWithError": "Invitu prontu pro {email}. S’email no at pòtzidu èssere imbiada ({error}); imbia·lis custu ligàmene:",
+        "readyNoSmtp": "Invitu prontu pro {email}. Perunu SMTP est cunfiguradu; imbia·lis custu ligàmene:",
+        "copyLink": "Còpia su ligàmene",
+        "email": "Email",
+        "emailPlaceholder": "persone@example.com",
+        "role": "Ruolu",
+        "submit": "Invita",
+        "inviting": "Invitende…"
+      },
+      "members": {
+        "title": "Membros",
+        "description": "Abarrat sempre a su mancu unu proprietàriu ativu.",
+        "columns": {
+          "person": "Persone",
+          "role": "Ruolu",
+          "lastSignIn": "Ùrtima intrada",
+          "status": "Istadu"
+        },
+        "nameYou": "{name} (tue)",
+        "deactivated": "Disativadu",
+        "reactivate": {
+          "title": "Riativare {email}?",
+          "description": "Podent intrare torra cun su ruolu de in antis.",
+          "confirm": "Riativa"
+        },
+        "deactivate": {
+          "title": "Disativare {email}?",
+          "description": "Cada sessione si serrat como e non podent intrare fintzas a sa riativatzione. Sa cronologia abarrat.",
+          "confirm": "Disativa"
+        }
+      },
+      "invitations": {
+        "title": "Invitos in isetu",
+        "description": "Indiritzos chi podent intrare ma no ant fatu ancora.",
+        "columns": {
+          "email": "Email",
+          "role": "Ruolu",
+          "invited": "Invitadu"
+        },
+        "empty": "Perunu invitu in isetu.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Revocare s’invitu pro {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Datos",
+      "title": "Datos",
+      "description": "Totu est portàbile: sets de datos in CSV o Excel, un’istantànea cumpleta pro sa migratzione, sos PDF pro su contabile tuo e una rutina de backup proada.",
+      "period": {
+        "fiscalYear": "Annu fiscale",
+        "fiscalYearHint": "Sobrascrit sas datas",
+        "issuer": "Emitente"
+      },
+      "exportAll": {
+        "title": "Esporta totu sos datos",
+        "description": "Unu ZIP cun cada set de datos in CSV prus <mono>data.json</mono>, un’istantànea relatzionale de totu sas tabellas. Sos campos critografados (detàllios de sos mètodos de pagamentu, crae SMTP) abarrant foras; su README a intro los elencat.",
+        "download": "Iscàrriga su ZIP okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "Esporta documentos",
+        "description": "Cada PDF de fatura e nota de crèditu, emitidu o annulladu, pro unu perìodu, nominadu cun su nùmeru, cun un <mono>index.csv</mono> de nùmeros, totales e hash. Sos PDF mancantes benint generados in caminu.",
+        "docx": "Include fintzas una còpia DOCX de cada documentu",
+        "facturx": "Include fintzas una còpia Factur-X PDF/A-3 cun s’XML EN 16931 incorporadu",
+        "download": "Iscàrriga su ZIP de sos documentos"
+      },
+      "datasets": {
+        "title": "Sets de datos",
+        "description": "Sos matessi esportos chi ofrint sas pàginas de indice, cun unu perìodu e un’emitente aplicados a totus. Sos pagamentos impreant s’intervallu de datas; clientes e servìtzios non cunsiderant su perìodu.",
+        "columns": {
+          "dataset": "Set de datos",
+          "filters": "Filtros aplicados",
+          "download": "Iscarrigamentu"
+        },
+        "names": {
+          "invoices": "Registru de faturas",
+          "invoiceItems": "Rigas de fatura",
+          "payments": "Registru de pagamentos",
+          "creditNotes": "Registru de notas de crèditu",
+          "clients": "Clientes",
+          "services": "Servìtzios",
+          "gstSummary": "Resumu GST",
+          "tdsSummary": "Resumu TDS"
+        },
+        "filters": {
+          "periodIssuer": "perìodu, emitente",
+          "dateRangeIssuer": "intervallu de datas, emitente",
+          "includesArchived": "include archiviados"
+        }
+      },
+      "backups": {
+        "title": "Backup",
+        "notWired": "Perunu servìtziu de backup colligadu",
+        "noRun": "Perunu backup est istadu esecutadu ancora",
+        "lastOk": "S’ùrtimu backup est andadu bene",
+        "lastFailed": "S’ùrtimu backup est faddidu",
+        "description": "Su servìtziu Compose <mono>backup</mono> iscàrrigat Postgres e archìviat su volume de archiviatzione segundu <mono>BACKUP_CRON</mono>, mantenet <mono>BACKUP_RETENTION_DAYS</mono> de cronologia in su volume <mono>backups</mono> e iscriet unu file de istadu chi custa pàgina leghet.",
+        "finished": "Acabbadu",
+        "databaseDump": "Iscarrigamentu de sa base de datos",
+        "storageArchive": "Archìviu de archiviatzione",
+        "size": "Mannària",
+        "sizeMb": "{size} MB",
+        "error": "Errore",
+        "runNow": "Esecuta·ne unu como, o ripristina dae una paja de files:",
+        "restoreDrill": "Sa proceddura de ripristinu benit esercitada in CI dae <mono>scripts/restore-drill.sh</mono>: populatzione, backup, cantzelladura, ripristinu, tando cunfrontu de sos nùmeros de rigas e de un hash PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "Legale",
+      "metaDescription": "Chie operat custa istàntzia: sos detàllios istampados in sas pàginas legales pùblicas.",
+      "title": "Legale",
+      "description": "Sas pàginas legales pùblicas istampant custos detàllios. Fintzas a cando cada campu no est cumpletadu, sas pàginas mustrant segnaposto evidentziados.",
+      "operator": {
+        "title": "Detàllios de s’operadore",
+        "complete": "Cumpletu",
+        "missing": "{count} mancantes: {fields}",
+        "description": "Tue, comente persone o impresa chi operat custa istàntzia, ses s’operadore a chie sos documentos faghent riferimentu. Nudda de inoghe benit imbiadu a logu perunu; est istampadu in sas pàginas de suta."
+      },
+      "fieldLabels": {
+        "legalName": "Nùmene legale de s’operadore",
+        "entityType": "Casta de entidade",
+        "address": "Indiritzu de s’operadore",
+        "country": "Paisu de s’operadore",
+        "contactEmail": "Email de cuntatu",
+        "privacyEmail": "Email pro sa riservadesa",
+        "dpoEmail": "Email de su responsàbile de sa protetzione de sos datos",
+        "governingLaw": "Lege aplicàbile",
+        "venue": "Fòru pro sas cuntierras",
+        "effectiveDate": "Data de intrada in vigore"
+      },
+      "publicPages": {
+        "title": "Pàginas pùblicas",
+        "description": "Ligadas dae sa pàgina de intrada, dae su visualizadore de cumpartzidura e dae s’avisu subra de sos cookies.",
+        "terms": "Cunditziones de servìtziu",
+        "acceptableUse": "Polìtica de impreu atzetàbile",
+        "privacy": "Polìtica de riservadesa",
+        "cookies": "Polìtica de sos cookies",
+        "dataRetention": "Cunservatzione de sos datos",
+        "security": "Seguresa",
+        "licenses": "Lissèntzias e avisos de terzos"
+      },
+      "form": {
+        "legalName": "Nùmene legale",
+        "entityType": "Casta de entidade",
+        "individual": "Persone fìsica / ditta individuale",
+        "company": "Impresa / entidade registrada",
+        "address": "Indiritzu",
+        "addressHint": "Istampadu in sas Cunditziones e in sa Polìtica de riservadesa comente indiritzu postale de s’operadore.",
+        "country": "Paisu",
+        "effectiveDate": "Data de intrada in vigore",
+        "contactEmail": "Email de cuntatu",
+        "privacyEmail": "Email pro sa riservadesa",
+        "privacyEmailHint": "Ube andant sas rechestas de sos interessados; podet èssere s’indiritzu de cuntatu.",
+        "dpoEmail": "Email de su responsàbile de sa protetzione de sos datos",
+        "dpoEmailHint": "Isceti si nd’as nominadu unu.",
+        "governingLaw": "Lege aplicàbile",
+        "governingLawHint": "Pro esempru “sas leges de s’Ìndia” o “sas leges de Inghilterra e Galles”.",
+        "venue": "Fòru pro sas cuntierras",
+        "venueHint": "Pro esempru “sos tribunales de Bengaluru, Karnataka”.",
+        "submit": "Sarva sos detàllios de s’operadore"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fattura",
+      "title": "E-fattura",
+      "description": "Pro cada profilu de emitente: cale connettore registrat is e-fatturas indianas e cale profilu europeu sighint is archìvios Factur-X e UBL. Is credentziales sunt sarvadas tzifradas e non benint mai mustradas ancora.",
+      "noProfiles": "Crea in antis unu profilu de emitente.",
+      "profile": "Profilu de emitente",
+      "enabled": "Ativadu",
+      "disabled": "Disativadu",
+      "enabledHint": "Ativa o disativa s’e-fattura pro cada profilu in Cunfiguratziones > Profilos.",
+      "india": {
+        "title": "Ìndia (e-fattura GST, IRN)",
+        "description": "S’IRN benit registradu cun su connettore sèberadu inoghe; su connettore manuale retzit a manu sa risposta de su portale.",
+        "connector": "Connettore",
+        "connectorNone": "Istudadu",
+        "connectorManual": "Manuale (incolla sa risposta de s’IRP)",
+        "connectorNic": "NIC IRP API (sandbox o produtzione)",
+        "nicUnverified": "Su connettore NIC sighit s’API pubblicada e est proadu isceti cun datos registrados; no est verificadu in unu sandbox reale fintzas a cando non benint fornidas is credentziales.",
+        "env": "Ambiente",
+        "sandbox": "Sandbox",
+        "production": "Produtzione",
+        "baseUrl": "URL de base",
+        "baseUrlHint": "Lassa bòidu pro s’ambiente predefinidu.",
+        "clientId": "ID de su cliente",
+        "clientSecret": "Segretu de su cliente",
+        "username": "Nùmene utente",
+        "password": "Crae",
+        "gstin": "GSTIN",
+        "publicKey": "Crae pùblica IRP (PEM)",
+        "publicKeyHint": "Iscàrrigala dae su portale a pustis de s’ingressu; incarta is credentziales imbiadas a s’IRP.",
+        "publicKeyStored": "Sarvada; lassa bòidu pro mantènnere·la.",
+        "secretStored": "Sarvadu tzifradu; lassa bòidu pro lu mantènnere.",
+        "secretEncrypted": "Sarvadu tzifradu in riposu."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 est su profilu ùnicu in custa versione; is iscarrigamentos Factur-X e UBL ddu impreant.",
+        "profile": "Profilu",
+        "profileNone": "Istudadu",
+        "en16931": "EN 16931"
+      },
+      "save": "Sarva is cunfiguratziones de s’e-fattura"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Craes API pro script, SDK e clientes MCP, cun esempros de curl.",
+      "title": "API",
+      "description": "Craes pro script, SDK e clientes MCP. Una crae podet fàghere a su màssimu su chi podet su ruolu tuo; benit mustrada una borta isceti.",
+      "create": {
+        "title": "Crea una crae",
+        "description": "Imbia·la comente <mono>Authorization: Bearer okv_…</mono>. Tènnela foras de su còdighe fonte e de sos registros de sas chistiones; revoca·la inoghe suta si si perdet."
+      },
+      "keys": {
+        "title": "Craes",
+        "descriptionOwner": "Cada crae de custa istàntzia; sos proprietàrios nd’autzant revocare cale si siat.",
+        "descriptionOwn": "Sas craes tuas.",
+        "columns": {
+          "name": "Nùmene",
+          "prefix": "Prefissu",
+          "scopes": "Ambitos",
+          "owner": "Proprietàriu",
+          "lastUsed": "Ùrtimu impreu",
+          "expires": "Iscadit",
+          "status": "Istadu"
+        },
+        "empty": "Peruna crae API ancora.",
+        "never": "mai",
+        "revoked": "Revocada",
+        "expired": "Iscadida",
+        "revokeTitle": "Revocare {name}?",
+        "revokeDescription": "Sos clientes chi impreant custa crae si firmant in s’ora.",
+        "activeCount": "{count, plural, one {# crae ativa.} other {# craes ativas.}}"
+      },
+      "examples": {
+        "title": "Esempros",
+        "description": "Sostitui <mono>$OKINVO_KEY</mono> cun una crae. S’API REST versionada, su documentu OpenAPI suo (<mono>/api/openapi.json</mono>), s’SDK TypeScript e su serbidore MCP bàtzigant cun sas atividades imbeniente de su pianu v1.1; s’endpoint de istadu funtzionat giai.",
+        "rateLimit": "Sas tzaiadas sobra de su lìmite retzint 429 cun un’intestatzione <mono>Retry-After</mono> (120 rechestas a su minutu pro crae). Sos ambitos de una crae sunt limitados dae su ruolu atuale de su proprietàriu."
+      },
+      "form": {
+        "copyKey": "Còpia sa crae API",
+        "name": "Nùmene",
+        "namePlaceholder": "pro esempru script de contabilidade",
+        "expires": "Iscadit",
+        "in30Days": "In 30 dies",
+        "in90Days": "In 90 dies",
+        "inAYear": "In un’annu",
+        "never": "Mai",
+        "scopes": "Ambitos",
+        "submit": "Crea sa crae API",
+        "creating": "Creende…"
+      },
+      "scopes": {
+        "invoicesRead": "Lege sas faturas",
+        "invoicesCreate": "Crea e emite faturas",
+        "creditNotesRead": "Lege sas notas de crèditu",
+        "creditNotesCreate": "Crea e emite notas de crèditu",
+        "catalogueRead": "Lege clientes, servìtzios e produtos",
+        "documentsRead": "Iscàrriga PDF sarvados e còpias DOCX",
+        "statusRead": "Lege s’istadu de s’istàntzia"
+      }
+    },
+    "status": {
+      "metaTitle": "Istadu",
+      "metaDescription": "Versione, base de datos, archiviatzione, email e istadu de sos backup de custa istàntzia.",
+      "title": "Istadu",
+      "description": "Ite est esecutende custa istàntzia e si sas partes sues rispondent.",
+      "recheck": "Controlla torra",
+      "health": {
+        "ok": "OK",
+        "warning": "Avisu",
+        "failed": "Faddidu",
+        "na": "Non cunfiguradu"
+      },
+      "overall": {
+        "ok": "Totu a pòsitu",
+        "degraded": "Degradadu",
+        "failed": "Faddidu"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(sha disconnotu)}} · costruidu {built} · Node <mono>{node}</mono> · ativu dae {uptime} · controlladu {checked}",
+      "dateUnknown": "(data disconnota)",
+      "uptime": {
+        "days": "{d}d {h}h {m}m",
+        "hours": "{h}h {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Base de datos",
+        "storage": "Archiviatzione",
+        "rateLimiting": "Lìmite de rechestas",
+        "email": "Email",
+        "backups": "Backup"
+      },
+      "db": {
+        "detail": "{latency} ms · ùrtima migratzione <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # migratziones non acabbadas}}",
+        "noMigration": "peruna"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · iscritura, letura e cantzelladura de un’ogetu de proa in {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "archiviu <mono>{store}</mono> {store, select, memory {(una repllica)} other {(cumpartzidu intre repllicas)}}",
+      "smtp": {
+        "configured": "SMTP dae {source, select, settings {the settings page} env {the environment} other {}} · ùrtima proa {lastTest} · ùrtimas 24 h: {sent} imbiados, {failed} faddidos",
+        "none": "Perunu serbidore SMTP; s’editore ofrit “Aberi in s’aplicatzione de posta”. <link>Cunfigura</link>"
+      },
+      "backups": {
+        "notWired": "Perunu servìtziu de backup colligadu (BACKUP_STATUS_FILE no impostadu).",
+        "noRun": "Servìtziu de backup colligadu; peruna esecutzione registrada ancora.",
+        "ok": "S’ùrtima esecutzione est andada bene a {finishedAt}{days, plural, =0 {} one { · cunservatzione # die} other { · cunservatzione # dies}}",
+        "failed": "S’ùrtima esecutzione est faddida: {error} a {finishedAt}{days, plural, =0 {} one { · cunservatzione # die} other { · cunservatzione # dies}}"
+      },
+      "footer": "Su matessi informe est a disponimentu comente JSON a <mono>/api/health/status</mono> pro su monitoraggiu (sessione intrada o crae API)."
+    },
+    "usage": {
+      "metaTitle": "Impreu",
+      "metaDescription": "Visualizatziones de pàgina po ischermu e die in custa istàntzia, contadas in locu.",
+      "title": "Impreu",
+      "description": "Cantu bortas est istadu abertu cada ischermu, contadu isceti in custa istàntzia: peruna cookie, perunu indiritzu, nudda benit imbiadu in peruna parte.",
+      "last30Days": "Ùrtimos 30 dies",
+      "total": "{count, plural, =0 {Peruna visualizatzione de pàgina} one {# visualizatzione de pàgina} other {# visualizatziones de pàgina}}",
+      "off": "Su contu est disativadu. Imposta ANALYTICS_LOCAL=true po contare is visualizatziones de pàgina in custa istàntzia.",
+      "empty": "Ancora peruna visualizatzione de pàgina registrada.",
+      "columns": {
+        "day": "Die",
+        "path": "Ischermu",
+        "views": "Visualizatziones"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Bene bènnidu",
+    "progress": "Progressu",
+    "steps": {
+      "aboutYou": "Subra de tue",
+      "howYouUse": "Comente l’as a impreare",
+      "allSet": "Totu a puntu"
+    },
+    "step1": {
+      "title": "Nara·nos de tue",
+      "subtitle": "Custu impostat sos valores predefinidos; cada valore si podet cambiare a pustis in Impostatziones.",
+      "name": "Nùmene",
+      "email": "Email",
+      "emailHint": "S’identidade tua de intrada. Si podet cambiare a pustis dae Impostatziones → Seguresa.",
+      "country": "Paisu",
+      "currency": "Moneda preferida",
+      "currencyHint": "Impreada pro sos profilos noos e pro su pannellu de controllu fintzas a cando esistit unu profilu."
+    },
+    "step2": {
+      "title": "Comente as a impreare okinvo?",
+      "subtitle": "Cambiant isceti sos valores predefinidos; nudda est blocadu.",
+      "usage": "Impreu",
+      "personal": "Fatura personale",
+      "personalHint": "Traballu autònomu a nùmene tuo",
+      "business": "Fatura pro impresas",
+      "businessHint": "Faturas de un’impresa registrada",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Nùmeru IVA",
+        "other": "Nùmeru de registru fiscale"
+      },
+      "taxQuestion": {
+        "IN": "Tenes unu GSTIN?",
+        "GB": "Ses registradu pro s’IVA?",
+        "other": "Tenes unu nùmeru de registru fiscale de istampare in sas faturas?"
+      }
+    },
+    "step3": {
+      "title": "Totu a puntu",
+      "body": "Como crea su primu profilu de emitente: su nùmene, s’indiritzu e sos datos fiscales chi benint istampados in sas faturas tuas. Amus cumpletadu su chi nos as nadu.",
+      "go": "Bae a sos profilos",
+      "opening": "Abertura…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Cunditziones",
+      "privacy": "Riservadesa",
+      "cookies": "Cookies",
+      "security": "Seguresa"
+    },
+    "cookieNotice": {
+      "label": "Avisu subra de sos cookies",
+      "body": "Impreamus isceti cookies de importu istrintu: sa sessione tua e sas preferèntzias de visualizatzione. Peruna analisi, perunu sighimentu.",
+      "policy": "Polìtica de sos cookies",
+      "gotIt": "Cumpresu"
+    },
+    "nav": {
+      "label": "Legale",
+      "cookies": "Cookies",
+      "privacy": "Riservadesa",
+      "terms": "Cunditziones",
+      "acceptableUse": "Impreu atzetàbile",
+      "retention": "Cunservatzione",
+      "security": "Seguresa",
+      "licences": "Lissèntzias"
+    },
+    "operatorNotice": "okinvo est software auto-ospitadu; s’operadore de custa istàntzia est responsàbile de s’impreu suo.",
+    "doc": {
+      "effectiveOn": "In vigore dae <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Cuntenidos"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Nùmene legale de s’operadore",
+        "entityType": "Casta de entidade",
+        "address": "Indiritzu de s’operadore",
+        "country": "Paisu de s’operadore",
+        "contactEmail": "Email de cuntatu",
+        "privacyEmail": "Email pro sa riservadesa",
+        "dpoEmail": "Email de su responsàbile de sa protetzione de sos datos",
+        "governingLaw": "Lege aplicàbile",
+        "venue": "Fòru pro sas cuntierras",
+        "effectiveDate": "Data de intrada in vigore"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Non agatadu",
+      "title": "Nudda in custu indiritzu",
+      "body": "Su ligàmene podet èssere betzu, o su documentu a chie puntaiat no est istadu emitidu mai."
+    },
+    "forbidden": {
+      "metaTitle": "Non permìtidu",
+      "title": "Custu contu non podet fàghere custu",
+      "body": "Su ruolu tuo no lu permitit. Pedi s’atzessu a unu proprietàriu, o intra cun unu contu chi l’at."
+    },
+    "error": {
+      "title": "Calicuna cosa est andada male",
+      "body": "Custa rechesta no at cambiadu nudda. Torra a proare; si sighit gasi, su registru de su serbidore tenet sos detàllios.",
+      "digest": "errore {digest}",
+      "generic": "errore"
+    },
+    "appNotFound": {
+      "title": "Non agatadu",
+      "body": "Custu registru no esistit, o est istadu cantzelladu mentras lu abbaidaias.",
+      "back": "Torra a su pannellu de controllu"
+    },
+    "validation": {
+      "required": "obligatòriu",
+      "tooLong": "a su màssimu {max} caràteres",
+      "invalidEmail": "depet èssere un’email vàlida",
+      "invalidDate": "depet èssere una data de calendàriu in formatu YYYY-MM-DD",
+      "invalidAmount": "depet èssere unu nùmeru",
+      "wholeNumber": "depet èssere unu nùmeru intreu",
+      "greaterThanZero": "depet èssere prus mannu de zero",
+      "fixFields": "Currege sos campos evidentziados.",
+      "charset": "Sunt permìtidos isceti caràteres istandard de tastiera."
+    }
+  },
+  "verify": {
+    "metaTitle": "Verìfica documentu",
+    "metaDescription": "Controlla chi una fatura o una nota de crèditu siat istada emìtida dae chie l'at imbiada e no siat istada modificada.",
+    "heading": "Verìfica de su documentu",
+    "rateLimited": "Tropu controllos dae custu indiritzu. Torra a proare intre unu minutu.",
+    "notFound": {
+      "title": "Documentu inesistente",
+      "body": "Custu ligàmene non currispondet a perunu documentu emitidu. Controlla su còdighe QR o su ligàmene chi as retzidu, o cuntata s’emitente."
+    },
+    "status": {
+      "void": "Annulladu",
+      "valid": "Vàlidu"
+    },
+    "issuedBy": "Emitidu dae",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Emitidu a",
+    "issueDate": "Data de emissione",
+    "total": "Totale",
+    "voided": "Custu documentu est istadu annulladu dae s’emitente e non est prus vàlidu.",
+    "storedCopies": {
+      "title": "Còpias sarvadas",
+      "description": "SHA-256 de cada versione PDF chi tenet s’emitente. Sèbera sa còpia tua pro la cunfrontare in su navigadore: nudda benit carrigadu.",
+      "empty": "Perunu PDF est istadu generadu ancora.",
+      "protectedVersion": "Còpia protetta cun crae {version}",
+      "version": "Versione {version}"
+    },
+    "check": {
+      "label": "Controlla sa còpia tua",
+      "hashing": "Calculende s’hash…",
+      "match": "Sa còpia tua currispondet esatamente a sa versione {version}.",
+      "mismatch": "Sa còpia tua no currispondet a peruna versione sarvada."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Documentu cumpartzidu",
+      "metaDescription": "Unu documentu cumpartzidu cun tegus: càstiadolu in lìnia e iscàrriga su PDF.",
+      "rateLimited": "Tropu rechestas dae custu indiritzu. Torra a proare intre unu minutu.",
+      "unavailable": {
+        "title": "Custu ligàmene no est a disponimentu",
+        "body": "Podet èssere iscadidu o revocadu dae s’emitente. Pedi·nde unu nou."
+      },
+      "lockedTitleInvoice": "Fatura de {issuer}",
+      "lockedTitleCreditNote": "Nota de crèditu de {issuer}",
+      "lockedBody": "Custu documentu est protetu cun una crae. Inserta sa crae chi t’at dadu s’emitente.",
+      "void": "Annulladu",
+      "protectedPdf": "Su PDF si abbèrgiat cun sa matessi crae. Si podet leghere e istampare; sa còpia e sa modìfica sunt blocadas.",
+      "byline": "Dae {issuer} a {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Crae",
+      "limited": "Tropu tentativos. Isetta 15 minutos e torra a proare.",
+      "wrong": "Custa crae no est giusta.",
+      "submit": "Aberi su documentu"
+    },
+    "dialog": {
+      "trigger": "Cumparti",
+      "title": "Cumparti custu documentu",
+      "description": "Chie tenet su ligàmene lu podet bìdere e iscarrigare fintzas a cando iscadit o lu revocas. Una crae pro tègere fintzas su PDF etotu: si abbèrgiat cun sa crae e si podet leghere e istampare, no modificare o copiare.",
+      "link": "Ligàmene",
+      "copyLink": "Còpia su ligàmene",
+      "password": "Crae",
+      "copyPassword": "Còpia sa crae",
+      "sendSeparately": "Imbia sa crae a banda dae su ligàmene. Da podes bìdere torra in sa lista de suta.",
+      "copy": "Còpia",
+      "copied": "Copiadu",
+      "expires": "Iscadit",
+      "expiry": {
+        "d7": "In 7 dies",
+        "d30": "In 30 dies",
+        "d90": "In 90 dies",
+        "never": "Mai"
+      },
+      "protection": "Protetzione",
+      "protectionOptions": {
+        "auto": "Crae: gènera una frase de atzessu",
+        "manual": "Crae: sèbera sa mia",
+        "none": "Peruna crae (ligàmene abertu)"
+      },
+      "passwordHint": "A su mancu 8 caràteres.",
+      "strength": "Fortza: {label}",
+      "strengthLabels": {
+        "veryWeak": "meda dèbile",
+        "weak": "dèbile",
+        "fair": "discreta",
+        "good": "bona",
+        "strong": "forte"
+      },
+      "creating": "Creende…",
+      "create": "Crea ligàmene",
+      "activeLinks": "Ligàmenes ativos",
+      "passwordProtected": "Protetu cun crae",
+      "openLink": "Aberi su ligàmene",
+      "linkExpires": "{kind} · iscadit {date}",
+      "linkNeverExpires": "{kind} · non iscadit mai",
+      "revoke": {
+        "title": "Revocare custu ligàmene?",
+        "description": "Su ligàmene si firmat in s’ora pro totus sos chi lu tenent.",
+        "label": "Revoca"
+      },
+      "linkPassword": "Crae: <code>{password}</code>",
+      "counts": "{views, plural, one {# visualizatzione} other {# visualizatziones}} · {downloads, plural, one {# iscarrigamentu} other {# iscarrigamentos}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Notas de crèditu",
+      "title": "Notas de crèditu",
+      "description": "Emitidas contra faturas emitidas; cada una reduit su saldu de sa fatura sua cando est emitida.",
+      "newCreditNote": "Nota de crèditu noa",
+      "filters": {
+        "from": "Dae",
+        "to": "A",
+        "issuer": "Emitente",
+        "client": "Cliente",
+        "status": "Istadu",
+        "search": "Chirca",
+        "all": "Totus",
+        "searchPlaceholder": "Nùmeru, motivu, cliente",
+        "go": "Bae"
+      },
+      "statuses": {
+        "DRAFT": "Bozza",
+        "ISSUED": "Emitida",
+        "SENT": "Imbiada",
+        "VOID": "Annullada"
+      },
+      "empty": {
+        "title": "Peruna nota de crèditu ancora",
+        "description": "Aberi una fatura emitida e sèbera “Nota de crèditu” pro reduire su chi devet."
+      },
+      "noMatch": "Peruna nota de crèditu currispondet a custos filtros.",
+      "columns": {
+        "number": "Nùmeru",
+        "against": "Contra",
+        "client": "Cliente",
+        "issueDate": "Data de emissione",
+        "reason": "Motivu",
+        "total": "Totale",
+        "status": "Istadu"
+      },
+      "draft": "Bozza"
+    },
+    "new": {
+      "metaTitle": "Nota de crèditu noa",
+      "title": "Nota de crèditu noa",
+      "description": "Una nota de crèditu si emitit contra una fatura emitida e nd’abbasciat su saldu.",
+      "nothingToCredit": {
+        "title": "Nudda de acreditare",
+        "description": "Sas notas de crèditu pedint una fatura emitida cun saldu abertu.",
+        "openInvoices": "Aberi sas faturas"
+      },
+      "whichInvoice": "Ite fatura?",
+      "invoice": "Fatura",
+      "invoiceOption": "{number} · {client} · saldu {balance}",
+      "issuedOnly": "Sas notas de crèditu si emitint isceti contra faturas emitidas.",
+      "invoiceFallback": "Fatura"
+    },
+    "edit": {
+      "metaTitle": "Modìfica nota de crèditu",
+      "title": "Modìfica bozza de nota de crèditu",
+      "immutable": "Sas notas de crèditu emitidas non sunt modificàbiles.",
+      "draft": "Bozza"
+    },
+    "detail": {
+      "metaTitle": "Nota de crèditu",
+      "draftTitle": "Bozza de nota de crèditu",
+      "meta": "{client} · contra <invoice>{number}</invoice> · emitida <mono>{date}</mono>",
+      "previewPdf": "Anteprima PDF",
+      "issue": {
+        "title": "Emitere custa nota de crèditu?",
+        "description": "Benit assignadu unu nùmeru, su saldu de sa fatura benit reduidu e su documentu divenit non modificàbile.",
+        "label": "Emite"
+      },
+      "deleteDraft": {
+        "title": "Cantzellare custa bozza?"
+      },
+      "sendByEmail": "Imbia pro email",
+      "markSent": {
+        "title": "Sinnare comente imbiada?",
+        "label": "Sinna comente imbiada"
+      },
+      "void": {
+        "title": "Annullare custa nota de crèditu?",
+        "description": "Su saldu de sa fatura benit ripristinadu; su nùmeru non benit riutilizadu mai.",
+        "reason": "Motivu",
+        "label": "Annulla"
+      },
+      "voided": "Annullada su {date}: {reason}",
+      "amounts": {
+        "title": "Importos",
+        "reason": "Motivu",
+        "creditAmount": "Importu de su crèditu",
+        "total": "Totale",
+        "balanceNow": "Saldu de sa fatura como",
+        "sent": "Imbiada"
+      },
+      "documents": {
+        "title": "Documentos sarvados",
+        "description": "Cada versione benit mantènnida; sa pàgina de verìfica elencat totu sos hash.",
+        "regenerateTitle": "Generare una versione PDF noa?",
+        "generate": "Gènera",
+        "newVersion": "Versione noa",
+        "renderedOnFirstDownload": "Su PDF benit generadu a su primu iscarrigamentu.",
+        "protectedCopy": "Còpia protetta cun crae {version}",
+        "version": "Versione {version}",
+        "verificationLink": "Ligàmene de verìfica: <link>{path}…</link>"
+      },
+      "draftsPreview": "Sas bozzas si bident in anteprima diretamente in s’editore."
+    },
+    "send": {
+      "metaTitle": "Imbia nota de crèditu",
+      "title": "Imbia <mono>{number}</mono>",
+      "previousSends": "Imbios pretzedentes"
+    },
+    "builder": {
+      "against": "Contra <mono>{number}</mono>",
+      "summary": "{client} · totale {total} · saldu {balance} · margine imponìbile ≈ {headroom}",
+      "issueDate": "Data de emissione",
+      "creditAmount": "Importu de su crèditu (tassas esclusas)",
+      "creditAmountHint": "Sa tassa benit ripartida dae sas rigas de tassas de sa fatura",
+      "reason": "Motivu",
+      "picker": {
+        "title": "Càlcula dae sas rigas de sa fatura",
+        "description": "Sinna rigas intreas o una pertzentuale; custu cumpletat isceti s’importu de subra.",
+        "line": "Riga",
+        "subtotal": "Subtotale",
+        "credit": "Crèditu",
+        "percent": "%",
+        "creditLine": "Acredita sa riga {position}",
+        "percentOfLine": "Pertzentuale de sa riga {position}"
+      },
+      "saveDraft": "Sarva sa bozza",
+      "issuing": "Emitende…",
+      "saveAndIssue": "Sarva e emite"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Pagamentu retzidu",
+        "REFUND": "Rimborsu emitidu",
+        "WRITE_OFF": "Cantzelladura de crèditu"
+      },
+      "editTitle": "Modìfica registratzione",
+      "recordTitle": "Registra unu pagamentu",
+      "description": "Sos importos sunt in sa moneda de sa fatura ({currency}); su TDS detràtu faghet parte de s’importu aplicadu.",
+      "kind": "Casta",
+      "date": "Data",
+      "amountRefunded": "Importu rimborsadu (negativu)",
+      "amountApplied": "Importu aplicadu",
+      "refundHint": "Inserta un’importu negativu, pro esempru -500",
+      "tdsDeducted": "TDS detràtu",
+      "tdsHint": "Tassa trategnida dae su cliente; contat in s’importu aplicadu",
+      "bankFees": "Cumissiones bancàrias",
+      "receivedInto": "Retzidu in",
+      "noMethod": "-",
+      "reference": "Riferimentu",
+      "referenceHint": "UTR, ID de sa transatzione, nùmeru de assegnu",
+      "otherCurrency": "Retzidu in un’àtera moneda",
+      "amountReceived": "Importu retzidu",
+      "receivedCurrency": "Moneda retzida",
+      "exchangeRate": "Cambiu",
+      "exchangeRateHint": "1 unidade retzida = ? {currency}",
+      "notes": "Notas",
+      "receiptHint": "PNG, JPEG, WebP o PDF fintzas a 10 MB",
+      "receipts": "Ricevutas e fatturas",
+      "receiptN": "Ricevuta {n}",
+      "removeReceipt": "Boga sa ricevuta {n}",
+      "saveChanges": "Sarva sas modìficas",
+      "record": "Registra"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Faturare a",
+      "shipTo": "Imbiare a",
+      "invoice": "Fatura",
+      "creditNote": "Nota de crèditu",
+      "issueDate": "Data de emissione",
+      "dueDate": "Data de iscadèntzia",
+      "number": "Nùmeru",
+      "description": "Descritzione",
+      "sacHsn": "SAC/HSN",
+      "qty": "Cant.",
+      "unit": "Unidade",
+      "rate": "Tariffa",
+      "tax": "Tassa",
+      "amount": "Importu",
+      "subtotal": "Subtotale",
+      "discount": "Iscontu",
+      "taxable": "Importu tassabile",
+      "total": "Totale",
+      "amountDue": "Importu dovidu",
+      "tdsExpected": "TDS isperadu",
+      "netExpected": "Netu isperadu",
+      "rounding": "Arrotondamentu",
+      "paymentDetails": "Datos de pagamentu",
+      "notes": "Notas",
+      "terms": "Cunditziones",
+      "placeOfSupply": "Logu de frunidura",
+      "poReference": "Referèntzia ordinatzione (PO)",
+      "amountInWords": "Importu in lìteras",
+      "signature": "Firmadore autorizadu"
+    },
+    "title": {
+      "taxInvoice": "FATURA FISCALE",
+      "billOfSupply": "DOCUMENTU DE FRUNIDURA",
+      "invoice": "FATURA",
+      "creditNote": "NOTA DE CRÈDITU"
+    },
+    "text": {
+      "pageOf": "Pàgina {page} de {total}",
+      "scanToVerify": "Scansiona pro verificare",
+      "taxId": "ID fiscale",
+      "void": "ANNULLADU",
+      "draftWatermark": "BOZZA - no est una fatura fiscale",
+      "paymentTermsDays": "{days} dies",
+      "irn": "IRN",
+      "ackNo": "Nr. de cunfirma",
+      "ackDate": "Data de cunfirma",
+      "einvoiceCancelled": "E-FATTURA ANNULLADA"
+    },
+    "ui": {
+      "pageEstimate": "cir. {count, plural, one {# pàgina} other {# pàginas}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Messàgiu",
+      "description": "Pre-cumpletadu dae sos modellos de su profilu de emitente. Nudda benit imbiadu fintzas a cando no pinchigas Imbia.",
+      "to": "A",
+      "toHint": "Separados cun virgula",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Ogetu",
+      "body": "Testu",
+      "bodyHint": "Testu sèmpiche; sos ligàmenes divenint cricàbiles",
+      "attachment": "Allegadu",
+      "attachmentHint": "Sa còpia sarvada, nominada <mono>{name}</mono> (o .docx); su cuntenidu suo non si podet cambiare.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Imbiende…",
+      "send": "Imbia",
+      "openInMailApp": "Aberi in s’aplicatzione de posta",
+      "noSmtp": "Perunu serbidore SMTP est cunfiguradu (Impostatziones → Email). Aberi sa bozza in s’aplicatzione de posta, allega su PDF iscarrigadu, tando sinnala·da comente imbiada inoghe suta.",
+      "markAsSent": "Sinna comente imbiadu"
+    },
+    "sentLog": {
+      "when": "Cando",
+      "document": "Documentu",
+      "to": "A",
+      "subject": "Ogetu",
+      "status": "Istadu",
+      "empty": "Nudda imbiadu ancora.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "imbiadu",
+        "FAILED": "faddidu",
+        "MANUAL": "manuale"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Ciao, {name}",
+    "fiscalYear": "Annu fiscale {year}",
+    "fiscalYearWithBase": "Annu fiscale {year} · moneda de base {currency} ({profile})",
+    "newCreditNote": "Nota de crèditu noa",
+    "welcomeTitle": "Bene bènnidu in {appName}",
+    "welcomeDescription": "Cumintza creende su profilu de emitente dae su cale faturas, tando agiunghe unu cliente e sa prima fatura.",
+    "createProfile": "Crea su profilu tuo",
+    "tiles": {
+      "outstanding": "Abertu",
+      "overdue": "Iscadidu",
+      "billedThisFy": "Faturadu in custu AF",
+      "receivedThisFy": "Retzidu in custu AF",
+      "drafts": "Bozzas",
+      "invoiceCount": "{count, plural, one {# fatura} other {# faturas}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Pagamentos in mancu de rimborsos, a su cambiu registradu",
+      "awaitingIssue": "in isetu de emissione",
+      "nothingPending": "nudda in isetu"
+    },
+    "recentInvoices": "Faturas retzentes",
+    "allInvoices": "Totu sas faturas",
+    "noInvoicesYet": "Peruna fatura ancora.",
+    "columns": {
+      "number": "Nùmeru",
+      "client": "Cliente",
+      "issued": "Emitida"
+    },
+    "topClients": "Clientes cun prus abertu",
+    "nothingOutstanding": "Nudda de abertu."
+  },
+  "exports": {
+    "export": "Esporta",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Faturas",
+      "newInvoice": "Fatura noa",
+      "draft": "Bozza",
+      "aDraft": "una bozza",
+      "statuses": {
+        "draft": "Bozza",
+        "issued": "Emitida",
+        "sent": "Imbiada",
+        "partiallyPaid": "Pagada in parte",
+        "paid": "Pagada",
+        "overdue": "Iscadida",
+        "void": "Annullada"
+      },
+      "lifecycle": {
+        "draft": "bozza",
+        "issued": "emitida",
+        "void": "annullada"
+      },
+      "units": {
+        "hour": "Ora",
+        "day": "Die",
+        "fixed": "Fissu",
+        "milestone": "Tapa",
+        "unit": "Unidade"
+      },
+      "unitsLower": {
+        "hour": "ora",
+        "day": "die",
+        "fixed": "fissu",
+        "milestone": "tapa",
+        "unit": "unidade"
+      },
+      "supplyTypes": {
+        "intraState": "intra-istadu",
+        "interState": "inter-istadu",
+        "exportLut": "esportu lut",
+        "exportWithTax": "esportu cun tassa",
+        "reverseCharge": "inversione contabile",
+        "notApplicable": "non aplicàbile"
+      }
+    },
+    "list": {
+      "description": "Faturas in bozza, emitidas e annulladas; sos istados derivant dae pagamentos e iscadèntzias.",
+      "fiscalYear": "Annu fiscale",
+      "issuer": "Emitente",
+      "client": "Cliente",
+      "searchPlaceholder": "Nùmeru, PO, cliente",
+      "emptyTitle": "Peruna fatura ancora",
+      "emptyDescription": "Costrui sa prima fatura: sèbera unu cliente, agiunghe rigas, abbàida s’anteprima, tando emitela.",
+      "columns": {
+        "number": "Nùmeru",
+        "client": "Cliente",
+        "issuer": "Emitente",
+        "issueDate": "Data de emissione",
+        "due": "Iscadèntzia",
+        "balance": "Saldu"
+      },
+      "noMatches": "Peruna fatura currispondet a custos filtros.",
+      "count": "{count, plural, one {# fatura} other {# faturas}}",
+      "countPaged": "{count, plural, one {# fatura} other {# faturas}} · pàgina {page} de {pages}",
+      "register": "registru",
+      "einvoice": "E-fattura",
+      "einvoiceFilters": {
+        "registered": "IRN registradu",
+        "none": "No registrada",
+        "cancelled": "IRN annulladu"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Crea in antis unu profilu de emitente",
+      "noProfileDescription": "Una fatura si emitit dae un’identidade legale: cunfigura su profilu tuo cun sos còdighes fiscales e sa numeratzione.",
+      "createProfile": "Crea unu profilu"
+    },
+    "edit": {
+      "metaTitle": "Modìfica fatura",
+      "title": "Modìfica bozza",
+      "immutableFlash": "Sas faturas emitidas non sunt modificàbiles. Imprea “Annulla e riemite” pro la corrègere."
+    },
+    "detail": {
+      "metaTitle": "Fatura",
+      "draftInvoice": "Fatura in bozza",
+      "issuedDue": "Emitida <mono>{issued}</mono>, iscadèntzia <mono>{due}</mono>",
+      "replaces": "Sostituit {number}",
+      "replacedBy": "Sostituida dae {number}",
+      "previewPdf": "Anteprima PDF",
+      "downloadEInvoice": "Iscàrriga su JSON de sa fattura elettrònica",
+      "issueTitle": "Emitere custa fatura?",
+      "issueDescription": "Benit assignadu unu nùmeru e su documentu divenit non modificàbile.",
+      "issue": "Emite",
+      "deleteDraftTitle": "Cantzellare custa bozza?",
+      "sendByEmail": "Imbia pro email",
+      "recordPayment": "Registra pagamentu",
+      "progress": {
+        "title": "Progressu de su pagamentu",
+        "description": "A ue est custa fattura, dae s'emissione a una ricevuta in archìviu.",
+        "issued": "Emitida",
+        "sent": "Imbiada",
+        "payment": "Pagamentu registradu",
+        "paymentOn": "Pagamentu de <mono>{amount}</mono> registradu su <mono>{date}</mono>",
+        "paid": "Pagada totalmente",
+        "receipt": "Ricevuta alligada",
+        "done": "fatu",
+        "pending": "in isetu"
+      },
+      "creditNote": "Nota de crèditu",
+      "markSentTitle": "Sinnare comente imbiada?",
+      "markSentDescription": "Registrat chi su cliente at retzidu custa fatura.",
+      "markSent": "Sinna comente imbiada",
+      "voidReissueTitle": "Annullare e riemitere?",
+      "voidReissueDescription": "S’originale benit annulladu e s’abbèrgiat pro modìfica una bozza ligada cun su matessi cuntenidu.",
+      "voidReissue": "Annulla e riemite",
+      "voidTitle": "Annullare custa fatura?",
+      "voidDescription": "Possìbile isceti sena pagamentos registrados; su nùmeru non benit riutilizadu mai.",
+      "void": "Annulla",
+      "voided": "Annullada su {date}: {reason}",
+      "amounts": "Importos",
+      "subtotal": "Subtotale",
+      "discount": "Iscontu",
+      "discountPercent": "Iscontu ({percent})",
+      "rounding": "Arrotondamentu",
+      "tdsExpected": "TDS atesu ({percent})",
+      "paid": "Pagadu",
+      "credited": "Acreditadu",
+      "balanceDue": "Saldu dovidu",
+      "supply": "Frunimentu",
+      "fxToBase": "Cambiu a sa base",
+      "poReference": "Riferimentu PO",
+      "sent": "Imbiada",
+      "lineItems": "Rigas de sa fatura",
+      "columns": {
+        "description": "Descritzione",
+        "sacHsn": "SAC/HSN",
+        "qty": "Cant.",
+        "rate": "Tariffa",
+        "tax": "Tassa",
+        "amount": "Importu"
+      },
+      "creditNotes": "Notas de crèditu",
+      "storedDocuments": "Documentos sarvados",
+      "storedDocumentsHint": "Cada versione benit mantènnida; sa pàgina de verìfica elencat totu sos hash.",
+      "regenerateTitle": "Generare una versione PDF noa?",
+      "regenerateDescription": "Si generat torra dae s’istantànea congelada (pro esempru a pustis de una currezione de su generadore). Sas versiones pretzedentes abarrant.",
+      "regenerate": "Gènera",
+      "newVersion": "Versione noa",
+      "renderedOnFirstDownload": "Su PDF benit generadu a su primu iscarrigamentu.",
+      "protectedCopy": "Còpia protetta cun crae {version}",
+      "version": "Versione {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Ligàmene de verìfica:",
+      "draftPreviewHint": "Sas bozzas si bident in anteprima in s’editore; aberi <link>su PDF cun filigrana</link> pro bìdere sa pàgina.",
+      "einvoice": {
+        "title": "E-fattura (Ìndia)",
+        "description": "Registratzione de custa fattura in s’Invoice Registration Portal; unu documentu registradu istampat s’IRN suu e su QR firmadu de su portale.",
+        "connector": "Connettore",
+        "connectors": {
+          "manual": "Manuale",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Pro custu profilu perunu connettore est cunfiguradu in Cunfiguratziones > E-fattura.",
+        "statuses": {
+          "none": "No registrada",
+          "generated": "JSON generadu",
+          "registered": "Registrada",
+          "cancelled": "Annullada",
+          "failed": "Registratzione faddida"
+        },
+        "irn": "IRN",
+        "ackNo": "Nr. de cunfirma",
+        "ackDate": "Data de cunfirma",
+        "cancelReason": "Annullamentu",
+        "generate": "Genera IRN",
+        "pasteLabel": "Risposta de s’IRP",
+        "pasteHint": "Incolla su JSON torradu dae su portale o dae su GSP tuo pro su JSON de e-fattura de custa fattura (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Registra IRN",
+        "cancelReasonLabel": "Motivu de s’annullamentu",
+        "cancelReasons": {
+          "1": "Duplicadu",
+          "2": "Errore in s’inserimentu de datos",
+          "3": "Cumanda annullada",
+          "4": "Àteru"
+        },
+        "cancel": "Annulla IRN",
+        "cancelWindow": "Su portale permitit s’annullamentu intro de 24 oras dae sa cunfirma."
+      }
+    },
+    "history": {
+      "metaTitle": "Cronologia de sa fatura",
+      "title": "Cronologia <mono>{number}</mono>",
+      "reissueChain": "Cadena de riemissiones",
+      "replaces": "Sostituit <link>{number}</link>",
+      "replacedBy": "Sostituida dae <link>{number}</link>",
+      "auditTrail": "Tracia de revisione",
+      "columns": {
+        "when": "Cando",
+        "who": "Chie",
+        "action": "Atzione",
+        "summary": "Resumu"
+      },
+      "noEvents": "Perunu eventu ancora.",
+      "system": "Sistema",
+      "emails": "Email"
+    },
+    "payments": {
+      "title": "Pagamentos",
+      "description": "{client} · {total} totale",
+      "backToInvoice": "Torra a sa fatura",
+      "ledger": "Registru",
+      "columns": {
+        "date": "Data",
+        "kind": "Casta",
+        "applied": "Aplicadu",
+        "tds": "TDS",
+        "received": "Retzidu",
+        "reference": "Riferimentu",
+        "balance": "Saldu"
+      },
+      "noPayments": "Perunu pagamentu registradu ancora.",
+      "kinds": {
+        "payment": "Pagamentu",
+        "refund": "Rimborsu",
+        "writeOff": "Cantzelladura de crèditu"
+      },
+      "receipt": "Ricevuta",
+      "receiptN": "Ricevuta {n}",
+      "deleteEntryTitle": "Cantzellare custa registratzione?",
+      "deleteEntryDescription": "Su saldu de sa fatura benit recalculadu.",
+      "totals": "Totales",
+      "invoiceTotal": "Totale de sa fatura",
+      "credited": "Acreditadu",
+      "refunds": "Rimborsos",
+      "writeOffs": "Cantzelladuras de crèditu",
+      "tdsDeducted": "TDS detràtu",
+      "bankFees": "Cumissiones bancàrias",
+      "balanceDue": "Saldu dovidu",
+      "onlyIssued": "Isceti sas faturas emitidas acetant pagamentos."
+    },
+    "send": {
+      "metaTitle": "Imbia fatura",
+      "title": "Imbia <mono>{number}</mono>",
+      "alreadySent": "Giai sinnada comente imbiada; imbiende torra si agiunghet un’àtera registratzione in su registru.",
+      "previousSends": "Imbios pretzedentes"
+    },
+    "builder": {
+      "parties": "Partes",
+      "issuerProfile": "Profilu de emitente",
+      "client": "Cliente",
+      "archivedOption": "{label} (archiviadu)",
+      "issueDate": "Data de emissione",
+      "dueDate": "Data de iscadèntzia",
+      "fxRate": "Cambiu a sa moneda de base",
+      "fxHint": "1 {currency} = ? {base} (isceti pro relata)",
+      "poReference": "Riferimentu PO",
+      "lineItems": "Rigas de sa fatura",
+      "lineItemsHint": "Sèbera dae su catàlogu pro copiare sos valores, o iscrie una riga.",
+      "taxDiscountTds": "Tassa, iscontu e TDS",
+      "taxRegime": "Regime fiscale",
+      "regimes": {
+        "indiaGst": "GST de s’Ìndia",
+        "ukVat": "IVA de su Regnu Unidu",
+        "usSalesTax": "Impostu subra de sas vendas de sos USA",
+        "none": "Peruna tassa"
+      },
+      "reverseCharge": "Inversione contabile",
+      "reverseChargeHint": "Tassa dovida dae su destinatàriu",
+      "discount": "Iscontu",
+      "percent": "Pertzentuale",
+      "amount": "Importu",
+      "rounding": "Agiustu de arrotondamentu",
+      "roundingHint": "Optzionale, a una unidade intrea; depet èssere suta de 1",
+      "round": "Arrotonda",
+      "tdsRate": "Aliquota TDS atesa (%)",
+      "tdsRateHint": "Informativa; istampada cando sa distintzione TDS est ativa",
+      "paymentMethods": "Mètodos de pagamentu",
+      "paymentMethodsHint": "Istampados in s’òrdine de sa seletzione.",
+      "noPaymentMethods": "Perunu mètodu de pagamentu ativu. <link>Agiunghe·ne unu</link>.",
+      "whatPrints": "Ite benit istampadu",
+      "whatPrintsHint": "Cumintzat dae sos valores predefinidos de su profilu de emitente.",
+      "documentLanguage": "Limba de su documentu",
+      "documentLanguageHint": "Is etichetas, is datas e is importos benint istampados in custa limba; sa preferèntzia de su cliente, otherunu cussa de su profilu.",
+      "notesAndTerms": "Notas e cunditziones",
+      "notes": "Notas",
+      "terms": "Cunditziones",
+      "saveDraft": "Sarva sa bozza",
+      "issuing": "Emitende…",
+      "saveAndIssue": "Sarva e emite",
+      "subtotal": "Subtotale",
+      "tax": "Tassa",
+      "tdsExpected": "TDS atesu",
+      "netExpected": "Netu atesu"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Agiunghe dae su catàlogu…",
+      "services": "Servìtzios",
+      "products": "Produtos",
+      "addLine": "Agiunghe riga",
+      "columns": {
+        "description": "Descritzione",
+        "sacHsn": "SAC/HSN",
+        "qty": "Cant.",
+        "unit": "Unidade",
+        "rate": "Tariffa",
+        "taxPercent": "Tassa %"
+      },
+      "aria": {
+        "description": "Descritzione de sa riga {line}",
+        "sacHsn": "SAC/HSN de sa riga {line}",
+        "quantity": "Cantidade de sa riga {line}",
+        "unit": "Unidade de sa riga {line}",
+        "rate": "Tariffa de sa riga {line}",
+        "taxRate": "Aliquota de tassa de sa riga {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Esentadu",
+      "moveUp": "Move in susu",
+      "moveDown": "Move in giosu",
+      "removeLine": "Fùrria sa riga",
+      "shortcutHint": "Ctrl/⌘+Enter in una descritzione agiunghet una riga.",
+      "addFromCatalogueAria": "Agiunghe dae su catàlogu"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Detàllios de s’emitente",
+        "client": "Detàllios de su cliente",
+        "document": "Setziones de su documentu"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Nùmene cummertziale",
+        "showDesignation": "Ruolu",
+        "showEmail": "Email",
+        "showPhone": "Telèfonu",
+        "showWebsite": "Situ web",
+        "showFullAddress": "Indiritzu cumpletu",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Firma",
+        "showStamp": "Timbru",
+        "showContactPerson": "Persone de cuntatu",
+        "showBillingAddress": "Indiritzu de faturatzione",
+        "showShippingAddress": "Indiritzu de ispeditzione",
+        "showTaxIdentifier": "Identificadore fiscale",
+        "showPlaceOfSupply": "Logu de frunimentu",
+        "showDueDate": "Data de iscadèntzia",
+        "showPaymentTerms": "Cunditziones de pagamentu",
+        "showSacCodeColumn": "Colunna còdighe SAC",
+        "showQuantityColumn": "Colunna cantidade",
+        "showUnitPriceColumn": "Colunna prètziu unitàriu",
+        "showTaxColumn": "Colunna tassa",
+        "showTdsBreakdown": "Distintzione TDS",
+        "showQrVerification": "Verìfica cun QR",
+        "showNotes": "Notas",
+        "showTerms": "Cunditziones",
+        "showReplacesReference": "Riferimentu de sostituzione",
+        "showAmountInWords": "Importu in lìteras",
+        "showSupplyStatement": "Dichiaratzione de frunimentu",
+        "showRoundingLine": "Riga de arrotondamentu",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Clientes",
+      "description": "Totus sos chi faturas. Sos clientes cun faturas benint archiviados, mai cantzellados.",
+      "newClient": "Cliente nou",
+      "searchPlaceholder": "Chirca pro nùmene",
+      "searchLabel": "Chirca clientes",
+      "emptyTitle": "Perunu cliente ancora",
+      "emptyDescription": "Agiunghe sas persones e sas impresas a sas cales faturas; sa moneda e sas cunditziones de pagamentu issoro cumpletant cada fatura.",
+      "addClient": "Agiunghe unu cliente",
+      "noMatch": "Perunu cliente currispondet a “{q}”.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Nùmene",
+        "contact": "Cuntatu",
+        "email": "Email",
+        "country": "Paisu",
+        "currency": "Moneda",
+        "terms": "Cunditziones",
+        "status": "Istadu"
+      }
+    },
+    "new": {
+      "title": "Cliente nou"
+    },
+    "edit": {
+      "metaTitle": "Modìfica cliente",
+      "title": "Modìfica {name}"
+    },
+    "detail": {
+      "metaTitle": "Cliente",
+      "newInvoice": "Fatura noa",
+      "restoreTitle": "Ripristinare custu cliente?",
+      "archiveTitle": "Archiviare custu cliente?",
+      "archiveDescription": "Essit dae sas listas de seletzione; faturas e cronologia abarrant intatas.",
+      "deleteTitle": "Cantzellare custu cliente?",
+      "deleteDescription": "Possìbile isceti si peruna fatura faghet riferimentu a su cliente.",
+      "details": "Detàllios",
+      "contact": "Cuntatu",
+      "email": "Email",
+      "phone": "Telèfonu",
+      "country": "Paisu",
+      "gstState": "GST {code}",
+      "taxId": "ID fiscale",
+      "currency": "Moneda",
+      "paymentTerms": "Cunditziones de pagamentu",
+      "paymentTermsDays": "{days} dies",
+      "expectedTds": "TDS atesu",
+      "notes": "Notas",
+      "addresses": "Indiritzos",
+      "billing": "Faturatzione",
+      "shipping": "Ispeditzione",
+      "lifetime": "Totale istòricu",
+      "openRegister": "Aberi su registru",
+      "noIssued": "Peruna fatura emitida ancora.",
+      "noIssuedWithDrafts": "Peruna fatura emitida ancora ({drafts} bozza).",
+      "firstLatest": "Prima fatura <mono>{first}</mono>, ùrtima <mono>{latest}</mono>{drafts, plural, =0 {} one { · # bozza} other { · # bozzas}}",
+      "lifetimeColumns": {
+        "currency": "Moneda",
+        "invoices": "Faturas",
+        "billed": "Faturadu",
+        "received": "Retzidu",
+        "credited": "Acreditadu",
+        "outstanding": "Abertu",
+        "overdue": "Iscadidu"
+      },
+      "recentInvoices": "Faturas retzentes",
+      "noInvoices": "Peruna fatura pro custu cliente ancora.",
+      "recentColumns": {
+        "number": "Nùmeru",
+        "issueDate": "Data de emissione",
+        "due": "Iscadèntzia",
+        "total": "Totale",
+        "balance": "Saldu",
+        "status": "Istadu"
+      }
+    },
+    "form": {
+      "cardTitle": "Cliente",
+      "displayName": "Nùmene mustradu",
+      "contactPerson": "Persone de cuntatu",
+      "email": "Email",
+      "phone": "Telèfonu",
+      "taxIdType": "Casta de ID fiscale",
+      "taxIdTypeNone": "Perunu",
+      "taxId": "ID fiscale",
+      "currency": "Moneda",
+      "paymentTerms": "Cunditziones de pagamentu (dies)",
+      "expectedTdsRate": "Aliquota TDS atesa (%)",
+      "preferredLanguage": "Limba de su documentu",
+      "preferredLanguageFollow": "Sighire su profilu de s’emitente",
+      "buyerReference": "Riferimentu de s’acuistadore",
+      "buyerReferenceHint": "Imprentadu in is e-fatturas comente riferimentu pròpiu de s’acuistadore (unu nùmeru de cumanda o de tzentru de costu).",
+      "electronicAddress": "Indiritzu eletrònicu",
+      "electronicAddressHint": "S’identificadore Peppol o EN 16931 cun su cale custu cliente retzit e-fatturas.",
+      "electronicAddressScheme": "Ischema de s’indiritzu eletrònicu",
+      "electronicAddressSchemeNone": "Peruna ischema",
+      "notes": "Notas",
+      "billingAddress": "Indiritzu de faturatzione",
+      "shippingAddress": "Indiritzu de ispeditzione",
+      "differentFromBilling": "Diferente de sa faturatzione",
+      "save": "Sarva su cliente"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Ora",
+      "DAY": "Die",
+      "FIXED": "Fissu",
+      "MILESTONE": "Tapa",
+      "UNIT": "Unidade"
+    },
+    "list": {
+      "activate": "Ativa",
+      "deactivate": "Disativa",
+      "archiveDescription": "Sas rigas de fatura esistentes mantenent sos valores copiados.",
+      "deleteDescription": "Possìbile isceti si peruna riga de fatura faghet riferimentu a issu. Dae si no, archìvialu.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Nùmene",
+        "unit": "Unidade",
+        "rate": "Tariffa",
+        "price": "Prètziu",
+        "currency": "Moneda",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Tassa",
+        "status": "Istadu"
+      }
+    },
+    "services": {
+      "title": "Servìtzios",
+      "description": "Su catàlogu tuo. Seberende unu servìtziu, sos valores suos si copiant in sa riga de sa fatura.",
+      "newService": "Servìtziu nou",
+      "emptyTitle": "Perunu servìtziu ancora",
+      "emptyDescription": "Agiunghe su chi bendes - disegnu a ora, una tapa a cumpensu fissu - cun su còdighe SAC/HSN e s’aliquota de tassa.",
+      "addService": "Agiunghe unu servìtziu",
+      "restoreTitle": "Ripristinare {name}?",
+      "archiveTitle": "Archiviare {name}?",
+      "deleteTitle": "Cantzellare {name}?",
+      "editMetaTitle": "Modìfica servìtziu",
+      "editTitle": "Modìfica {name}"
+    },
+    "products": {
+      "title": "Produtos",
+      "description": "Benes chi bendes, cadaunu cun unu SKU. Seberende unu produtu, sos valores suos si copiant in sa riga de sa fatura.",
+      "newProduct": "Produtu nou",
+      "emptyTitle": "Perunu produtu ancora",
+      "emptyDescription": "Agiunghe sos benes chi bendes cun SKU, còdighe HSN, prètziu unitàriu e aliquota de tassa.",
+      "addProduct": "Agiunghe unu produtu",
+      "restoreTitle": "Ripristinare {sku}?",
+      "archiveTitle": "Archiviare {sku}?",
+      "deleteTitle": "Cantzellare {sku}?",
+      "editMetaTitle": "Modìfica produtu",
+      "editTitle": "Modìfica {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Còdighe ùnicu istampadu suta de sa descritzione de sa riga",
+      "name": "Nùmene",
+      "unit": "Unidade",
+      "defaultRate": "Tariffa predefinida",
+      "unitPrice": "Prètziu unitàriu",
+      "currency": "Moneda",
+      "sacHsnCode": "Còdighe SAC / HSN",
+      "sacHsnHint": "Obligatòriu in sas faturas GST",
+      "hsnCode": "Còdighe HSN",
+      "hsnHint": "Obligatòriu in sas faturas GST pro sos benes",
+      "defaultTaxRate": "Aliquota de tassa predefinida (%)",
+      "description": "Descritzione",
+      "descriptionHint": "Cumpletat sa descritzione de sa riga",
+      "active": "Ativu",
+      "serviceInactiveHint": "Sos servìtzios inativos abarrant foras de su seletore de sa fatura",
+      "productInactiveHint": "Sos produtos inativos abarrant foras de su seletore de sa fatura",
+      "saveService": "Sarva su servìtziu",
+      "saveProduct": "Sarva su produtu"
+    },
+    "tags": {
+      "legend": "Profilos",
+      "hint": "Sinna sos profilos de emitente chi bendent custu. Lassa totus non sinnados pro l’ofrire a cada profilu."
+    }
+  },
+  "address": {
+    "line1": "Indiritzu, lìnia 1",
+    "line2": "Indiritzu, lìnia 2",
+    "city": "Tzitade",
+    "stateRegion": "Istadu / regione",
+    "postalCode": "Còdighe postale",
+    "country": "Paisu",
+    "state": "Istadu",
+    "gstStateCodeHint": "Còdighe de istadu GST {code}",
+    "pickStateHint": "Sèbera s’istadu pro su còdighe de istadu GST",
+    "stateRegionCode": "Còdighe de istadu / regione",
+    "stateRegionCodePlaceholder": "pro esempru CA"
+  },
+  "assets": {
+    "tooLarge": "Su file est tropu mannu.",
+    "unsupportedReceipt": "Imprea un’immàgine PNG, JPEG, WebP o unu PDF.",
+    "unsupportedImage": "Imprea un’immàgine PNG, JPEG o WebP.",
+    "uploadFailed": "Su carrigamentu est faddidu.",
+    "uploading": "Carrighende…",
+    "dropHint": "Traba unu archìviu inoghe, o sèbera·ne unu",
+    "dropHintMany": "Traga is archìvios inoghe, o sèbera·ddos",
+    "dropActive": "Lassa andare pro carrigare"
+  },
+  "ui": {
+    "breadcrumb": "Percursu de navigatzione",
+    "close": "Serra",
+    "closeMenu": "Serra su menù",
+    "reveal": "Ammustra",
+    "hide": "Cua",
+    "openCalendar": "Aberi su calendàriu",
+    "chooseMonth": "Sèbera su mese",
+    "chooseYear": "Sèbera s'annu",
+    "searchOptions": "Iscrie pro chircare",
+    "noMatches": "Peruna currispondèntzia",
+    "pullToRefresh": {
+      "label": "Lista agiornàbile",
+      "pulling": "Tira in bàsciu pro agiornare",
+      "release": "Lassa andare pro agiornare",
+      "refreshing": "Agiornende"
+    },
+    "inputCharset": "Sunt permìtidos isceti caràteres istandard de tastiera.",
+    "confirm": {
+      "working": "Traballende…"
+    },
+    "statusPill": {
+      "DRAFT": "Bozza",
+      "ISSUED": "Emitida",
+      "SENT": "Imbiada",
+      "PARTIALLY_PAID": "Pagada in parte",
+      "PAID": "Pagada",
+      "OVERDUE": "Iscadida",
+      "VOID": "Annullada"
+    },
+    "activePill": {
+      "active": "Ativu",
+      "archived": "Archiviadu",
+      "inactive": "Inativu"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Calicuna cosa est andada male.",
+    "fixFields": "Currege sos campos evidentziados.",
+    "accountSaved": "Preferèntzias de su contu sarvadas",
+    "apiKeyCreated": "Crae API creada. Copia·da como: benit mustrada una borta isceti.",
+    "saved": "{name} sarvadu",
+    "savedProfile": "Profilu {label} sarvadu",
+    "clientArchived": "Cliente archiviadu",
+    "clientRestored": "Cliente ripristinadu",
+    "clientDeleted": "Cliente cantzelladu",
+    "productArchived": "Produtu archiviadu",
+    "productRestored": "Produtu ripristinadu",
+    "productActivated": "Produtu ativadu",
+    "productDeactivated": "Produtu disativadu",
+    "serviceArchived": "Servìtziu archiviadu",
+    "serviceRestored": "Servìtziu ripristinadu",
+    "serviceActivated": "Servìtziu ativadu",
+    "serviceDeactivated": "Servìtziu disativadu",
+    "defaultProfileUpdated": "Profilu predefinidu agiornadu",
+    "profileArchived": "Profilu archiviadu",
+    "profileRestored": "Profilu ripristinadu",
+    "profileDeleted": "Profilu cantzelladu",
+    "defaultPaymentMethodUpdated": "Mètodu de pagamentu predefinidu agiornadu",
+    "paymentMethodArchived": "Mètodu de pagamentu archiviadu",
+    "paymentMethodRestored": "Mètodu de pagamentu ripristinadu",
+    "paymentMethodDeleted": "Mètodu de pagamentu cantzelladu",
+    "issued": "{number} emitida",
+    "savedAsDraft": "Sarvada comente bozza. {reason}",
+    "draftSaved": "Bozza sarvada",
+    "invoiceVoided": "Fatura annullada",
+    "originalVoided": "S’originale est annulladu; modìfica sa bozza de sostituzione",
+    "markedAsSent": "Sinnada comente imbiada",
+    "draftDeleted": "Bozza cantzellada",
+    "generatedPdf": "Versione PDF {version} generada",
+    "creditNoteVoided": "Nota de crèditu annullada; su saldu de sa fatura est ripristinadu",
+    "draftCreditNoteDeleted": "Bozza de nota de crèditu cantzellada",
+    "mailRefused": "Su serbidore de posta at refudadu su messàgiu: {error}. Su tentativu est istadu registradu.",
+    "unknownError": "errore disconnotu",
+    "sentTo": "Imbiadu a {recipients}",
+    "smtpSaved": "Impostatziones SMTP sarvadas",
+    "smtpRemoved": "Impostatziones SMTP sarvadas fùrriadas",
+    "testEmailSent": "Email de proa imbiada a {email}",
+    "testFailed": "Proa faddida: {error}",
+    "defaultRecipientsSaved": "Destinatàrios predefinidos sarvados",
+    "invitationSent": "Invitu imbiadu",
+    "invitationReady": "Invitu prontu",
+    "unknownRole": "Ruolu disconnotu",
+    "roleUpdated": "Ruolu agiornadu",
+    "accountDeactivated": "Contu disativadu",
+    "accountReactivated": "Contu riativadu",
+    "invitationRevoked": "Invitu revocadu",
+    "paymentUpdated": "Pagamentu agiornadu",
+    "paymentRecorded": "Pagamentu registradu",
+    "paymentDeleted": "Pagamentu cantzelladu",
+    "sessionRevoked": "Sessione revocada",
+    "noOtherSessions": "Peruna àtera sessione",
+    "signedOutOthers": "Essidu dae {count} àteras sessiones",
+    "sharePasswordRequired": "Inserta una crae, o lassa chi nde siat generada una.",
+    "shareLinkCreated": "Ligàmene de cumpartzidura creadu.",
+    "templateSaved": "Modellu sarvadu; sos documentos imbenientes lu impreant",
+    "templateReset": "Modellu ripristinadu a su predefinidu integradu",
+    "templateImported": "Modellu importadu",
+    "profileTemplateCleared": "Su profilu imprea torra su modellu de s’istàntzia",
+    "operatorSaved": "Detàllios de s’operadore sarvados. Sas pàginas legales mustrant como.",
+    "einvoiceSettingsSaved": "Cunfiguratziones de s’e-fattura sarvadas",
+    "irnRegistered": "IRN {irn} registradu; su PDF est istadu generadu torra cun issu",
+    "irnRecorded": "IRN registradu; su PDF est istadu generadu torra cun issu",
+    "irnCancelled": "IRN annulladu; su PDF est istadu generadu torra"
+  }
+}

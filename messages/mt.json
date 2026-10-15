@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Home ta’ okinvo",
+    "save": "Ssejvja",
+    "cancel": "Ikkanċella",
+    "continue": "Kompli",
+    "saving": "Qed jiġi ssejvjat…",
+    "detect": "Skopri",
+    "yes": "Iva",
+    "no": "Le",
+    "choose": "Agħżel…",
+    "remove": "Neħħi",
+    "tryAgain": "Erġa’ pprova",
+    "dashboard": "Dashboard",
+    "goToDashboard": "Mur għad-dashboard",
+    "or": "jew",
+    "invoice": "Fattura",
+    "creditNote": "Nota ta’ kreditu",
+    "downloadPdf": "Niżżel il-PDF",
+    "edit": "Editja",
+    "delete": "Ħassar",
+    "downloadDocx": "Niżżel id-DOCX",
+    "downloadCii": "Niżżel EN 16931 XML",
+    "downloadUbl": "Niżżel Peppol UBL",
+    "downloadFacturX": "Niżżel il-Factur-X PDF",
+    "none": "L-ebda",
+    "dismiss": "Agħlaq",
+    "all": "Kollha",
+    "previous": "Preċedenti",
+    "next": "Li jmiss",
+    "go": "Mur",
+    "search": "Fittex",
+    "status": "Status",
+    "total": "Total",
+    "currency": "Munita",
+    "from": "Minn",
+    "to": "Sa",
+    "reason": "Raġuni",
+    "history": "Storja",
+    "archive": "Arkivja",
+    "restore": "Irrestawra",
+    "showArchived": "Uri l-arkivjati",
+    "hideArchived": "Aħbi l-arkivjati",
+    "archived": "Arkivjat",
+    "default": "Default",
+    "setDefault": "Issettja bħala default",
+    "revoke": "Irrevoka",
+    "copy": "Ikkopja",
+    "copied": "Ikkopjat",
+    "active": "Attiv",
+    "pagination": "Paġinazzjoni",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "invoices": "Fatturi",
+      "creditNotes": "Noti ta’ kreditu",
+      "clients": "Klijenti",
+      "services": "Servizzi",
+      "products": "Prodotti",
+      "tools": "Munita"
+    },
+    "primaryNav": "Prinċipali",
+    "settings": "Settings",
+    "openMenu": "Iftaħ il-menu",
+    "more": "Aktar",
+    "navigation": "Navigazzjoni",
+    "dock": "Navigazzjoni rapida",
+    "pagesAndAccount": "Paġni u kont",
+    "collapseSidebar": "Ikkolassa l-bar tal-ġenb",
+    "collapseSidebarHint": "Ikkolassa l-bar tal-ġenb ([)",
+    "expandSidebar": "Espandi l-bar tal-ġenb",
+    "expandSidebarHint": "Espandi l-bar tal-ġenb ([)",
+    "theme": {
+      "label": "Tema",
+      "system": "Sistema",
+      "light": "Ċar",
+      "dark": "Skur",
+      "current": "Tema: {mode}",
+      "switchTo": "Tema: {mode}. Aqleb għal {next}"
+    },
+    "userMenu": {
+      "label": "Menu tal-kont ta’ {name}",
+      "profile": "Profil",
+      "logOut": "Oħroġ"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Konvertitur tal-munita",
+      "title": "Konvertitur tal-munita",
+      "description": "Ikkonverti bejn il-muniti li fihom toħroġ il-fatturi, bit-tabella tar-rati tal-kambju li għandha din l-istanza.",
+      "amount": "Ammont",
+      "from": "Minn",
+      "to": "Għal",
+      "flip": "Biddel il-muniti",
+      "enterAmount": "Daħħal ammont",
+      "asOf": "Rati tal-kambju mill-{date} ({source})",
+      "sources": {
+        "bundled": "inkluż mal-app",
+        "live": "aġġornat online"
+      },
+      "note": "Ir-rati huma għal gwida biss; ir-rata fuq fattura maħruġa hija dik li daħħalt meta ħarġitha."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Idħol",
+      "metaDescription": "Idħol f'okinvo, l-app tal-fatturar ospitata minnek innifsek, bil-fornitur tal-identità jew bil-password tiegħek.",
+      "title": "Idħol",
+      "subtitle": "Il-kontijiet fil-lista tal-approvazzjoni biss jistgħu jidħlu.",
+      "failed": "L-idħul falla.",
+      "noMethod": "Ebda metodu ta’ dħul mhu kkonfigurat. Issettja par ta’ fornitur bħal <code>AUTH_GITHUB_*</code>, jew <code>AUTH_PASSWORD_SIGNIN=true</code>, f’<code>.env</code>.",
+      "errors": {
+        "not_allowed": "Dan il-kont mhuwiex permess f’din l-istanza, jew ġie diżattivat.",
+        "signin": "L-idħul ma tlestiex. Jekk jogħġbok erġa’ pprova."
+      }
+    },
+    "password": {
+      "name": "Isem",
+      "email": "Email",
+      "password": "Password",
+      "signingIn": "Qed jidħol…",
+      "createAccount": "Oħloq kont",
+      "signIn": "Idħol",
+      "haveAPassword": "Diġà għandi password",
+      "firstTime": "L-ewwel darba hawn? Issettja password",
+      "failed": "L-idħul falla."
+    },
+    "social": {
+      "redirecting": "Qed jerġa’ jiġi indirizzat…",
+      "continueWith": "Kompli b’{provider}",
+      "failed": "L-idħul ma setax jibda."
+    },
+    "error": {
+      "metaTitle": "Żball fl-idħul",
+      "metaDescription": "L-idħul ma tlestiex. Il-paġna tispjega x'żbalja u kif tipprova mill-ġdid.",
+      "title": "L-idħul falla",
+      "body": "Il-fornitur tal-identità rritorna <code>{value}</code>. Jekk l-indirizz tiegħek mhuwiex fil-lista tal-approvazzjoni ta’ din l-istanza, itlob lis-sid iżidu.",
+      "back": "Lura għall-idħul"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Settings",
+      "profiles": "Profili",
+      "paymentMethods": "Metodi ta’ ħlas",
+      "templates": "Mudelli",
+      "email": "Email",
+      "security": "Sigurtà",
+      "users": "Utenti",
+      "data": "Dejta",
+      "legal": "Legali",
+      "einvoicing": "E-fatturar",
+      "account": "Kont",
+      "appearance": "Dehra",
+      "api": "API",
+      "status": "Status",
+      "usage": "Użu"
+    },
+    "account": {
+      "metaTitle": "Kont",
+      "title": "Kont",
+      "description": "Ritratt tiegħek, isem, reġjun, lingwa u żona tal-ħin.",
+      "photo": {
+        "title": "Ritratt",
+        "description": "Jidher fil-bar tal-ġenb u fil-menu tal-utent."
+      },
+      "form": {
+        "title": "Kont",
+        "description": "Kif tidher u meta huwa “illum”.",
+        "displayName": "Isem murija",
+        "signInEmail": "Email tal-idħul",
+        "signInEmailHint": "L-identità tiegħek f’din l-istanza; ma tistax tiġi editjata hawn.",
+        "timezone": "Żona tal-ħin",
+        "timezoneHint": "“Illum” għad-dati tal-ħruġ, id-dati tal-iskadenza u d-dashboard",
+        "regionTitle": "Reġjun",
+        "regionDescription": "Valuri default għal profili ġodda tal-ħruġ u għad-dashboard sakemm jeżisti profil.",
+        "country": "Pajjiż",
+        "currency": "Munita",
+        "suggested": "Issuġġerit għal dan il-pajjiż:",
+        "language": "Lingwa",
+        "languageHint": "Il-lingwa tal-app nnifisha. Id-dokumenti jużaw il-lokal proprju ta’ kull profil.",
+        "machineTranslated": "Din il-lingwa ġiet tradotta bil-magna. Korrezzjonijiet huma milqugħa: <link>ittejjeb fuq GitHub</link>.",
+        "save": "Ssejvja l-preferenzi"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerika",
+        "Asia": "Asja",
+        "Europe": "Ewropa",
+        "MiddleEast": "Nofsinhar tal-Lvant",
+        "Oceania": "Oċeanja",
+        "Constructed": "Lingwi mibnija"
+      },
+      "privacy": {
+        "title": "Privatezza",
+        "description": "okinvo jissettja biss il-cookies li jeħtieġ biex jaħdem. L-ebda analitika, l-ebda traċċar.",
+        "cookiePolicy": "Politika tal-cookies",
+        "showNoticeAgain": "Uri l-avviż tal-cookies mill-ġdid"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Biddel ir-ritratt",
+      "addPhoto": "Żid ritratt",
+      "hint": "PNG, JPEG jew WebP. Jidher bħala ċirku kullimkien; tista’ tiżżumja u tiċċaqlaq qabel tissejvja.",
+      "tooLarge": "Dak ir-ritratt huwa kbir wisq.",
+      "uploadFailed": "It-tlugħ falla.",
+      "choose": "Agħżel ritratt tal-profil",
+      "dialogTitle": "Poġġi r-ritratt tiegħek",
+      "dialogDescription": "Iġbed biex iċċaqlaq, iskrollja jew ikkurkura biex tiżżumja. Iċ-ċirku huwa dak li jaraw kulħadd.",
+      "zoom": "Żum",
+      "save": "Ssejvja r-ritratt"
+    },
+    "appearance": {
+      "metaTitle": "Dehra",
+      "title": "Dehra",
+      "description": "Tema u kulur tal-aċċent, issejvjati fil-kont tiegħek.",
+      "theme": {
+        "title": "Tema",
+        "description": "Segwi s-sistema, jew iffissa ċar jew skur.",
+        "label": "Tema",
+        "system": "Segwi s-sistema",
+        "systemHint": "Jinbidel mas-sistema operattiva",
+        "light": "Ċar",
+        "lightHint": "Kanvas abjad",
+        "dark": "Skur",
+        "darkHint": "Kanvas kważi iswed"
+      },
+      "accent": {
+        "title": "Aċċent",
+        "description": "Użat għall-buttuna primarja, ir-ringijiet tal-focus u l-marka tal-paġna attiva. In-nagħnugħ jaqbel mas-simbolu tad-ditta.",
+        "label": "Kulur tal-aċċent",
+        "customHint": "Jew agħżel kwalunkwe kulur tiegħek"
+      },
+      "accents": {
+        "mint": "Nagħnugħ",
+        "lavender": "Lavanda",
+        "sky": "Blu tas-sema",
+        "peach": "Ħawħ",
+        "butter": "Isfar tal-butir",
+        "rose": "Ward",
+        "sage": "Salvja",
+        "lilac": "Lilla",
+        "custom": "Personalizzat"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Profili tal-ħruġ",
+      "title": "Profili tal-ħruġ",
+      "description": "L-identitajiet legali li minnhom tiffattura. Dak default jimla minn qabel il-fatturi l-ġodda.",
+      "breadcrumb": "Profili",
+      "newProfile": "Profil ġdid",
+      "emptyTitle": "Għad m’hemm ebda profil tal-ħruġ",
+      "emptyDescription": "Oħloq l-identità li minnha tiffattura: individwu b’PAN, jew il-kumpanija tiegħek.",
+      "createProfile": "Oħloq profil",
+      "columns": {
+        "label": "Tikketta",
+        "legalName": "Isem legali",
+        "type": "Tip",
+        "country": "Pajjiż",
+        "currency": "Munita",
+        "regime": "Reġim",
+        "status": "Status"
+      },
+      "types": {
+        "company": "Kumpanija",
+        "individual": "Individwu"
+      },
+      "makeDefaultTitle": "Agħmel {label} default?",
+      "makeDefaultDescription": "Il-fatturi l-ġodda jibdew minn dan il-profil.",
+      "restoreTitle": "Irrestawra {label}?",
+      "archiveTitle": "Arkivja {label}?",
+      "archiveDescription": "Jisparixxi mil-listi tal-għażla; il-fatturi eżistenti ma jinbidlux.",
+      "new": {
+        "metaTitle": "Profil ġdid tal-ħruġ",
+        "title": "Profil ġdid tal-ħruġ",
+        "prefilled": "Mimli mit-tweġibiet tiegħek; iċċekkja l-indirizz u d-dettalji tat-taxxa, imbagħad ssejvja."
+      },
+      "edit": {
+        "metaTitle": "Editja l-profil tal-ħruġ",
+        "template": "Mudell",
+        "deleteTitle": "Ħassar {label}?",
+        "deleteDescription": "Possibbli biss sakemm ebda fattura jew nota ta’ kreditu ma tirreferi għal dan il-profil. Inkella arkivjah."
+      },
+      "template": {
+        "metaTitle": "Mudell tal-profil",
+        "title": "Mudell għal {label}",
+        "ownTemplate": "Mudell proprju",
+        "instanceTemplate": "Mudell tal-istanza",
+        "resetTitle": "Erġa’ uża l-mudell tal-istanza?",
+        "resetDescription": "Il-konfigurazzjoni proprja ta’ dan il-profil titneħħa; id-dokumenti maħruġa ma jinbidlux.",
+        "useInstance": "Uża l-mudell tal-istanza",
+        "usingInstanceTitle": "Qed jintuża l-mudell tal-istanza",
+        "usingInstanceDescription": "Id-dokumenti minn dan il-profil isegwu Settings → Mudelli. Agħżel li tippersonalizzahom separatament.",
+        "customise": "Uża mudell differenti għal dan il-profil",
+        "openInstance": "Iftaħ il-mudell tal-istanza"
+      },
+      "form": {
+        "identityTitle": "Identità",
+        "identityDescription": "Minn min hija l-fattura.",
+        "type": "Tip",
+        "label": "Tikketta",
+        "labelHint": "Jidher biss fil-listi tal-għażla",
+        "legalName": "Isem legali",
+        "tradeName": "Isem kummerċjali",
+        "designation": "Kariga",
+        "email": "Email",
+        "phone": "Telefon",
+        "website": "Websajt",
+        "addressTitle": "Indirizz",
+        "taxTitle": "Identifikaturi tat-taxxa",
+        "taxDescription": "Biss dawk li japplikaw għalik; l-istampar jiġi kkontrollat għal kull fattura.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Numru tal-VAT tar-Renju Unit",
+        "usTaxId": "EIN / SSN tal-Istati Uniti",
+        "usTaxIdHint": "Ikkriptat meta jinħażen",
+        "lutNumber": "Numru LUT",
+        "lutNumberHint": "Għal esportazzjonijiet mingħajr IGST",
+        "lutFiscalYear": "Sena finanzjarja LUT",
+        "lutFiscalYearHint": "eż. 2026-27",
+        "einvoiceTitle": "E-fatturar",
+        "einvoiceDescription": "Kif dan il-profil jidentifika lilu nnifsu fl-e-fatturi; il-konnettur u l-kredenzjali jinsabu f’Issettjar > E-fatturar.",
+        "electronicAddress": "Indirizz elettroniku",
+        "electronicAddressHint": "L-identifikatur Peppol jew EN 16931 ta’ dan il-ħarrieġ, stampat bħala l-indirizz elettroniku tal-bejjiegħ.",
+        "electronicAddressScheme": "Skema tal-indirizz elettroniku",
+        "electronicAddressSchemeNone": "L-ebda skema",
+        "einvoiceEnabled": "E-fatturar attivat għal dan il-profil",
+        "einvoiceEnabledHint": "Joffri t-tniżżil tal-JSON tal-e-fattura GST, Factur-X u UBL u r-reġistrazzjoni tal-IRN fuq id-dokumenti maħruġa tiegħu.",
+        "defaultsTitle": "Valuri default",
+        "baseCurrency": "Munita bażi",
+        "locale": "Lokal tad-dokumenti",
+        "localeHint": "Formattjar tan-numri u tad-dati fuq id-dokumenti",
+        "fiscalYearStart": "Is-sena fiskali tibda f’",
+        "months": {
+          "january": "Jannar",
+          "february": "Frar",
+          "march": "Marzu",
+          "april": "April",
+          "may": "Mejju",
+          "june": "Ġunju",
+          "july": "Lulju",
+          "august": "Awwissu",
+          "september": "Settembru",
+          "october": "Ottubru",
+          "november": "Novembru",
+          "december": "Diċembru"
+        },
+        "taxRegime": "Reġim tat-taxxa default",
+        "regimes": {
+          "indiaGst": "GST tal-Indja",
+          "ukVat": "VAT tar-Renju Unit",
+          "usSalesTax": "Taxxa fuq il-bejgħ tal-Istati Uniti",
+          "none": "Ebda taxxa"
+        },
+        "invoiceNumberFormat": "Format tan-numru tal-fattura",
+        "invoiceNumberFormatHint": "Tokens: {tokens}",
+        "creditNoteNumberFormat": "Format tan-numru tan-nota ta’ kreditu",
+        "tdsRate": "Rata mistennija tat-TDS (%)",
+        "tdsRateHint": "Informattiv, jiġi stampat bħala tnaqqis mistenni",
+        "defaultNotes": "Noti default",
+        "defaultTerms": "Termini default",
+        "printTitle": "X’jiġi stampat b’mod default",
+        "printDescription": "Kull fattura tikkopja dawn u tista’ tbiddilhom individwalment.",
+        "emailTitle": "Email",
+        "emailDescription": "Valuri default għall-kompożitur tal-għoti. Placeholders: {placeholders}",
+        "emailCc": "CC default",
+        "emailBcc": "BCC default",
+        "commaSeparated": "Separati b’virgola",
+        "invoiceSubject": "Suġġett tal-fattura",
+        "invoiceSubjectHint": "Jekk jitħalla vojt jintuża l-mudell integrat",
+        "creditNoteSubject": "Suġġett tan-nota ta’ kreditu",
+        "invoiceBody": "Test tal-fattura",
+        "creditNoteBody": "Test tan-nota ta’ kreditu",
+        "artworkTitle": "Grafika",
+        "artworkDescription": "PNG, JPEG jew WebP sa 2 MB; il-firma u t-timbru jżommu t-trasparenza.",
+        "logo": "Logo",
+        "signature": "Firma",
+        "stamp": "Timbru",
+        "transparentPng": "PNG trasparenti",
+        "save": "Ssejvja l-profil"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Metodi ta’ ħlas",
+      "title": "Metodi ta’ ħlas",
+      "description": "Kif il-klijenti jħallsuk. Id-dettalji huma kkriptati u jiġu ffriżati f’kull fattura meta toħroġ.",
+      "newMethod": "Metodu ġdid",
+      "emptyTitle": "Għad m’hemm ebda metodu ta’ ħlas",
+      "emptyDescription": "Żid kont bankarju, UPI ID jew wallet sabiex il-fatturi jkunu jistgħu jgħidu lill-klijenti fejn iħallsu.",
+      "addMethod": "Żid metodu",
+      "columns": {
+        "name": "Isem",
+        "type": "Tip",
+        "currency": "Munita",
+        "status": "Status"
+      },
+      "types": {
+        "bankTransfer": "Trasferiment bankarju",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Personalizzat"
+      },
+      "makeDefaultTitle": "Agħmel {name} default?",
+      "restoreTitle": "Irrestawra {name}?",
+      "archiveTitle": "Arkivja {name}?",
+      "archiveDescription": "Il-fatturi maħruġa jżommu l-istampa li stampaw.",
+      "new": {
+        "metaTitle": "Metodu ġdid ta’ ħlas",
+        "title": "Metodu ġdid ta’ ħlas"
+      },
+      "edit": {
+        "metaTitle": "Editja l-metodu ta’ ħlas",
+        "title": "Editja {name}",
+        "deleteTitle": "Ħassar {name}?",
+        "deleteDescription": "Possibbli biss sakemm ebda fattura jew ħlas ma jirreferi għalih. Inkella arkivjah."
+      },
+      "form": {
+        "name": "Isem",
+        "nameHint": "Jiġi stampat bħala l-intestatura tal-blokk tal-ħlas",
+        "type": "Tip",
+        "currency": "Munita",
+        "currencyHint": "Fakultattiv; jintwera biss għall-kuntest",
+        "anyCurrency": "Kwalunkwe",
+        "instructions": "Istruzzjonijiet",
+        "instructionsHint": "Jiġu stampati taħt id-dettalji",
+        "isDefault": "Metodu default",
+        "isDefaultDescription": "Magħżul minn qabel fuq fatturi ġodda",
+        "isActive": "Attiv",
+        "detailsTitle": "Dettalji",
+        "detailsDescription": "Ikkriptati meta jinħażnu; jiġu llogati bħala stampa f’kull fattura meta toħroġ.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "Isem il-benefiċjarju",
+        "lines": "Linji",
+        "linesHint": "Linja waħda għal kull ringiela, stampata kif inhi",
+        "accountEmail": "Email / handle tal-kont",
+        "bank": {
+          "accountHolder": "Detentur tal-kont",
+          "accountNumber": "Numru tal-kont",
+          "bankName": "Isem tal-bank",
+          "branch": "Fergħa",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Kodiċi tar-routing / sort code"
+        },
+        "save": "Ssejvja l-metodu ta’ ħlas"
+      }
+    },
+    "templates": {
+      "metaTitle": "Mudelli tad-dokumenti",
+      "title": "Mudelli tad-dokumenti",
+      "customised": "Personalizzat",
+      "builtIn": "Default integrat",
+      "description": "Kif jidhru l-fatturi u n-noti ta’ kreditu. Id-dokumenti maħruġa jżommu l-mudell li bih inħarġu.",
+      "resetTitle": "Erġa’ għad-default integrat?",
+      "resetDescription": "Il-personalizzazzjoni tiegħek titneħħa; id-dokumenti diġà maħruġa ma jinbidlux.",
+      "reset": "Reset",
+      "resetTrigger": "Reset għad-default",
+      "importTitle": "Importa",
+      "importDescription": "Irrestawra konfigurazzjoni esportata qabel.",
+      "overridesTitle": "Sostituzzjonijiet għal kull profil",
+      "overridesDescription": "Profil jista’ jagħżel mudell proprju mill-paġna tal-editjar tiegħu.",
+      "noOverrides": "Kull profil juża l-mudell tal-istanza.",
+      "import": {
+        "json": "JSON tal-mudell",
+        "jsonHint": "Waħħal fajl prodott minn Esporta JSON; ċwievet neqsin jirrikorru għad-default",
+        "importing": "Qed jimporta…",
+        "submit": "Importa"
+      },
+      "form": {
+        "templateTitle": "Mudell",
+        "templateDescription": "Sitt mudelli integrati; il-personalizzazzjoni t’hawn taħt tapplika għal dak li tagħżel.",
+        "templateGroup": "Mudell",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Modern u arjuż, sans-serif, linja ta’ aċċent taħt l-intestatura."
+          },
+          "classic": {
+            "name": "Classic",
+            "character": "Tabella tradizzjonali bil-fruntieri, intestaturi serif, totali f’kaxxa."
+          },
+          "compact": {
+            "name": "Compact",
+            "character": "Tqassim dens għal listi twal ta’ oġġetti; tipa iżgħar, anqas separaturi."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "Kalm u spazjuż: l-ebda linji jew kaxxi, tikketti ħfief, ħafna spazju."
+          },
+          "letterhead": {
+            "name": "Letterhead",
+            "character": "Il-logo u l-isem tiegħek fuq faxxa ta’ kulur jew immaġni fil-quċċata ta’ kull paġna."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Intestatura b’faxxa ta’ kulur; partijiet, intestatura tat-tabella u totali fuq tinta ċara tal-aċċent."
+          }
+        },
+        "paperTitle": "Karta u tipa",
+        "paperSize": "Daqs tal-karta",
+        "paperLetter": "Letter",
+        "margins": "Marġini",
+        "marginsNormal": "Normali",
+        "marginsNarrow": "Dojoq",
+        "headingFont": "Font tal-intestaturi",
+        "bodyFont": "Font tat-test",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "Stil tat-tabella",
+        "tableRuled": "Bil-linji",
+        "tableZebra": "Żebra",
+        "tablePlain": "Sempliċi",
+        "accentColour": "Kulur tal-aċċent",
+        "textColour": "Kulur tat-test",
+        "logoPosition": "Pożizzjoni tal-logo",
+        "positionLeft": "Xellug",
+        "positionCentre": "Nofs",
+        "positionRight": "Lemin",
+        "logoHeight": "Għoli tal-logo (mm)",
+        "documentTitle": "Titolu tad-dokument",
+        "titleAuto": "Awtomatiku (konxju tal-GST)",
+        "titleCustom": "Personalizzat",
+        "titlePlaceholder": "eż. FATTURA PROFORMA",
+        "qrPosition": "Pożizzjoni tal-QR",
+        "qrFooter": "Footer",
+        "qrHeader": "Header",
+        "qrBesideTotals": "Ħdejn it-totali",
+        "amountInWords": "Ammont bil-kliem",
+        "wordsBelowTotal": "Taħt it-totali",
+        "wordsFooter": "Footer",
+        "wordsHidden": "Moħbi",
+        "subtotalRow": "Ringiela tas-subtotal",
+        "discountRow": "Ringiela tad-skont",
+        "taxLines": "Linji tat-taxxa",
+        "tdsExpected": "TDS mistenni",
+        "roundingRow": "Ringiela tat-tqarrib",
+        "pageNumbers": "Numri tal-paġni",
+        "headerTitle": "Header",
+        "headerDescription": "Faxxa ta’ kulur jew immaġni fil-quċċata ta’ kull paġna. Letterhead u Modern juru faxxa sakemm ma tagħżilx mod ieħor.",
+        "headerStyle": "Stil tal-header",
+        "headerNone": "L-ebda",
+        "headerBand": "Faxxa ta’ kulur",
+        "headerImage": "Immaġni",
+        "bandColour": "Kulur tal-faxxa",
+        "bandColourHex": "Kulur tal-faxxa (hex)",
+        "headerImageLabel": "Immaġni tal-header",
+        "headerImageHint": "PNG, JPEG jew WebP sa wisa’ ta’ 2400 px; tkopri l-wisa’ tal-paġna.",
+        "imageOpacity": "Opaċità tal-immaġni",
+        "headerHeight": "Għoli tal-header (mm)",
+        "bandText": "Test fuq il-faxxa",
+        "bandTextAuto": "Awtomatiku (mill-kulur tal-faxxa)",
+        "bandTextLight": "Ċar",
+        "bandTextDark": "Skur",
+        "textTitle": "Test",
+        "headerNote": "Nota tal-header",
+        "footer": "Footer",
+        "signatureCaption": "Didaskalija tal-firma",
+        "draftWatermark": "Watermark tad-draft",
+        "labelsTitle": "Tikketti",
+        "labelsDescription": "Ħalli qasam vojt biex iżżomm il-kliem default.",
+        "save": "Ssejvja l-mudell",
+        "downloadSample": "Niżżel PDF kampjun",
+        "exportJson": "Esporta JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Email",
+      "title": "Email",
+      "configuredSettings": "Ikkonfigurat fis-Settings",
+      "configuredEnv": "Ikkonfigurat mill-ambjent",
+      "notConfigured": "Mhux ikkonfigurat: fluss tal-app tal-posta",
+      "description": "Id-dokumenti jintbagħtu mill-kompożitur bil-PDF maħżun magħqud. Is-settings hawn jegħlbu SMTP_* fl-ambjent.",
+      "sendTest": "Ibgħat email tat-test lil {email}",
+      "removeTitle": "Neħħi s-settings SMTP maħżunin?",
+      "removeEnvTakesOver": "Il-valuri SMTP_* tal-ambjent jieħdu post.",
+      "removeFallsBack": "L-email terġa’ lura għall-fluss tal-app tal-posta.",
+      "removeTrigger": "Neħħi s-settings maħżunin",
+      "smtpTitle": "Server SMTP",
+      "smtpFromEnv": "Bħalissa meħud mill-ambjent; is-sejvjar hawn jegħlibu.",
+      "smtpPasswordNote": "Il-password hija kkriptata meta tinħażen u qatt ma tintwera mill-ġdid.",
+      "defaultsTitle": "Riċevituri default",
+      "defaultsDescription": "CC/BCC fuq l-istanza kollha; il-profili tal-ħruġ iżidu tagħhom stess.",
+      "sentTitle": "Posta mibgħuta",
+      "sentDescription": "L-aħħar 50 tentattiv, inklużi l-falliment u l-ibgħat manwali.",
+      "smtp": {
+        "host": "Host",
+        "port": "Port",
+        "security": "Sigurtà",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "L-ebda (relay LAN)",
+        "user": "Isem tal-utent",
+        "password": "Password",
+        "passwordStored": "Maħżuna u kkriptata; ħalliha vojta biex iżżommha",
+        "passwordEncrypted": "Ikkriptata meta tinħażen",
+        "from": "Indirizz tal-mittent",
+        "fromName": "Isem tal-mittent",
+        "replyTo": "Wieġeb lil",
+        "save": "Ssejvja s-settings SMTP"
+      },
+      "defaults": {
+        "cc": "CC default",
+        "ccHint": "Miżjud ma’ kull kompożitur; separat b’virgola",
+        "bcc": "BCC default",
+        "save": "Ssejvja d-default"
+      }
+    },
+    "security": {
+      "metaTitle": "Sigurtà",
+      "title": "Sigurtà",
+      "description": "Fejn int dieħel, u dak kollu li nbidel.",
+      "sessions": {
+        "title": "Sessjonijiet attivi",
+        "description": "Meta tirrevoka sessjoni, dak l-apparat joħroġ minnufih.",
+        "signOutOthers": {
+          "title": "Oħroġ minn kullimkien ieħor?",
+          "description": "Kull sessjoni minbarra din tiġi rrevokata.",
+          "confirm": "Oħroġ l-oħrajn",
+          "trigger": "Oħroġ minn kullimkien ieħor"
+        },
+        "columns": {
+          "device": "Apparat",
+          "ipAddress": "Indirizz IP",
+          "signedIn": "Dħalt",
+          "lastSeen": "Dehru l-aħħar",
+          "expires": "Jiskadi"
+        },
+        "thisDevice": "Dan l-apparat",
+        "revokeTitle": "Tirrevoka din is-sessjoni?",
+        "unknownDevice": "Apparat mhux magħruf",
+        "unknownBrowser": "Mhux magħruf",
+        "agentOnOs": "{browser} fuq {os}"
+      },
+      "audit": {
+        "title": "Reġistru tal-verifika",
+        "count": "{count, plural, one {# avveniment} two {# avvenimenti} few {# avvenimenti} many {# avvenimenti} other {# avvenimenti}}",
+        "entity": "Entità",
+        "actionContains": "L-azzjoni fiha",
+        "filter": "Iffiltra",
+        "reset": "Reset",
+        "columns": {
+          "when": "Meta",
+          "who": "Min",
+          "action": "Azzjoni",
+          "entity": "Entità",
+          "summary": "Sommarju"
+        },
+        "empty": "Ebda avveniment ma jaqbel ma’ dawn il-filtri.",
+        "system": "Sistema",
+        "changes": "Bidliet",
+        "page": "Paġna {page} minn {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Utenti",
+      "title": "Utenti",
+      "description": "Min jista’ jidħol f’din l-istanza u x’jista’ jagħmel.",
+      "roles": {
+        "owner": "Sid",
+        "editor": "Editur",
+        "viewer": "Qarrej"
+      },
+      "roleHints": {
+        "owner": "Kollox, inkluż is-settings u l-membri",
+        "editor": "Klijenti, katalgu, fatturi, noti ta’ kreditu, ħlasijiet, email",
+        "viewer": "Qari biss"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Rwol ta’ {email}",
+      "invite": {
+        "title": "Stieden lil xi ħadd",
+        "description": "Jidħlu bl-indirizz mistieden (fornitur tal-identità jew password) u jiksbu r-rwol li tagħżel.",
+        "sent": "Stedina mibgħuta bl-email lil {email}.",
+        "readyWithError": "Stedina lesta għal {email}. L-email ma setgħetx tintbagħat ({error}); ibgħat lilhom dan il-link:",
+        "readyNoSmtp": "Stedina lesta għal {email}. L-ebda SMTP mhu kkonfigurat; ibgħat lilhom dan il-link:",
+        "copyLink": "Ikkopja l-link",
+        "email": "Email",
+        "emailPlaceholder": "persuna@example.com",
+        "role": "Rwol",
+        "submit": "Stieden",
+        "inviting": "Qed jistieden…"
+      },
+      "members": {
+        "title": "Membri",
+        "description": "Dejjem jibqa’ mill-inqas sid attiv wieħed.",
+        "columns": {
+          "person": "Persuna",
+          "role": "Rwol",
+          "lastSignIn": "L-aħħar dħul",
+          "status": "Status"
+        },
+        "nameYou": "{name} (int)",
+        "deactivated": "Diżattivat",
+        "reactivate": {
+          "title": "Erġa’ attiva {email}?",
+          "description": "Jistgħu jerġgħu jidħlu bir-rwol preċedenti tagħhom.",
+          "confirm": "Erġa’ attiva"
+        },
+        "deactivate": {
+          "title": "Iddiżattiva {email}?",
+          "description": "Kull sessjoni tintemm issa u ma jistgħux jidħlu sakemm jerġgħu jiġu attivati. L-istorja tagħhom tibqa’.",
+          "confirm": "Iddiżattiva"
+        }
+      },
+      "invitations": {
+        "title": "Stediniet pendenti",
+        "description": "Indirizzi li jistgħu jidħlu iżda għadhom ma għamlux hekk.",
+        "columns": {
+          "email": "Email",
+          "role": "Rwol",
+          "invited": "Mistieden"
+        },
+        "empty": "Ebda stedina pendenti.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Tirrevoka l-istedina għal {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Dejta",
+      "title": "Dejta",
+      "description": "Kollox huwa portabbli: settijiet tad-dejta bħala CSV jew Excel, snapshot sħiħ għall-migrazzjoni, il-PDFs għall-kontabilista tiegħek, u rutina ttestjata tal-backup.",
+      "period": {
+        "fiscalYear": "Sena fiskali",
+        "fiscalYearHint": "Jegħleb id-dati",
+        "issuer": "Min joħroġ"
+      },
+      "exportAll": {
+        "title": "Esporta d-dejta kollha",
+        "description": "ZIP b’kull sett tad-dejta bħala CSV flimkien ma’ <mono>data.json</mono>, snapshot relazzjonali tat-tabelli kollha. Il-oqsma kkriptati (dettalji tal-metodi ta’ ħlas, password SMTP) jibqgħu barra; ir-README ġewwa jelenkahom.",
+        "download": "Niżżel il-ZIP okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "Esporta d-dokumenti",
+        "description": "Kull PDF ta’ fattura u nota ta’ kreditu maħruġa u annullata għal perjodu, msemmija bin-numru, b’<mono>index.csv</mono> ta’ numri, totali u hashes. PDFs neqsin jiġu ġġenerati waqt il-proċess.",
+        "docx": "Inkludi wkoll kopja DOCX ta’ kull dokument",
+        "facturx": "Inkludi wkoll kopja Factur-X PDF/A-3 bl-EN 16931 XML inkorporat",
+        "download": "Niżżel il-ZIP tad-dokumenti"
+      },
+      "datasets": {
+        "title": "Settijiet tad-dejta",
+        "description": "L-istess esportazzjonijiet li joffru l-paġni tal-indiċi, b’perjodu u min joħroġ applikati għalihom kollha. Il-ħlasijiet jużaw il-firxa tad-dati; il-klijenti u s-servizzi jinjoraw il-perjodu.",
+        "columns": {
+          "dataset": "Sett tad-dejta",
+          "filters": "Filtri applikati",
+          "download": "Niżżel"
+        },
+        "names": {
+          "invoices": "Reġistru tal-fatturi",
+          "invoiceItems": "Linji tal-fatturi",
+          "payments": "Ledger tal-ħlasijiet",
+          "creditNotes": "Reġistru tan-noti ta’ kreditu",
+          "clients": "Klijenti",
+          "services": "Servizzi",
+          "gstSummary": "Sommarju tal-GST",
+          "tdsSummary": "Sommarju tat-TDS"
+        },
+        "filters": {
+          "periodIssuer": "perjodu, min joħroġ",
+          "dateRangeIssuer": "firxa tad-dati, min joħroġ",
+          "includesArchived": "jinkludi l-arkivjati"
+        }
+      },
+      "backups": {
+        "title": "Backups",
+        "notWired": "Ebda servizz tal-backup konness",
+        "noRun": "Għadu ma saret ebda backup",
+        "lastOk": "L-aħħar backup OK",
+        "lastFailed": "L-aħħar backup falla",
+        "description": "Is-servizz Compose <mono>backup</mono> jagħmel dump tal-Postgres u jarkivja l-volum tal-ħażna fuq <mono>BACKUP_CRON</mono>, iżomm <mono>BACKUP_RETENTION_DAYS</mono> ta’ storja fil-volum <mono>backups</mono>, u jikteb fajl tal-istatus li din il-paġna taqra.",
+        "finished": "Tlesta",
+        "databaseDump": "Dump tad-database",
+        "storageArchive": "Arkivju tal-ħażna",
+        "size": "Daqs",
+        "sizeMb": "{size} MB",
+        "error": "Żball",
+        "runNow": "Mexxi waħda issa, jew irrestawra minn par fajls:",
+        "restoreDrill": "Il-proċedura tar-restawr tiġi eżerċitata fis-CI minn <mono>scripts/restore-drill.sh</mono>: seed, backup, imsaħ, irrestawra, imbagħad qabbel l-għadd tar-ringieli u hash ta’ PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "Legali",
+      "metaDescription": "Min jopera din l-istanza: id-dettalji stampati fuq il-paġni legali pubbliċi.",
+      "title": "Legali",
+      "description": "Il-paġni legali pubbliċi jistampaw dawn id-dettalji. Sakemm kull qasam ma jimtilix, il-paġni juru placeholders enfasizzati.",
+      "operator": {
+        "title": "Dettalji tal-operatur",
+        "complete": "Komplut",
+        "missing": "{count} neqsin: {fields}",
+        "description": "Int, bħala l-persuna jew il-kumpanija li topera din l-istanza, int l-operatur li għalih jirreferu d-dokumenti. Xejn minn dan ma jintbagħat imkien; jiġi stampat fuq il-paġni t’hawn taħt."
+      },
+      "fieldLabels": {
+        "legalName": "Isem legali tal-operatur",
+        "entityType": "Tip ta’ entità",
+        "address": "Indirizz tal-operatur",
+        "country": "Pajjiż tal-operatur",
+        "contactEmail": "Email tal-kuntatt",
+        "privacyEmail": "Email tal-privatezza",
+        "dpoEmail": "Email tal-uffiċjal tal-protezzjoni tad-dejta",
+        "governingLaw": "Liġi applikabbli",
+        "venue": "Fora għat-tilwim",
+        "effectiveDate": "Data tal-effett"
+      },
+      "publicPages": {
+        "title": "Paġni pubbliċi",
+        "description": "Marbuta mill-paġna tal-idħul, mill-viewer tal-kondiviżjoni u mill-avviż tal-cookies.",
+        "terms": "Termini tas-Servizz",
+        "acceptableUse": "Politika ta’ Użu Aċċettabbli",
+        "privacy": "Politika tal-Privatezza",
+        "cookies": "Politika tal-Cookies",
+        "dataRetention": "Żamma tad-dejta",
+        "security": "Sigurtà",
+        "licenses": "Liċenzji u avviżi ta’ terzi"
+      },
+      "form": {
+        "legalName": "Isem legali",
+        "entityType": "Tip ta’ entità",
+        "individual": "Individwu / sid uniku",
+        "company": "Kumpanija / entità reġistrata",
+        "address": "Indirizz",
+        "addressHint": "Jiġi stampat fit-Termini u fil-Politika tal-Privatezza bħala l-indirizz postali tal-operatur.",
+        "country": "Pajjiż",
+        "effectiveDate": "Data tal-effett",
+        "contactEmail": "Email tal-kuntatt",
+        "privacyEmail": "Email tal-privatezza",
+        "privacyEmailHint": "Fejn imorru t-talbiet tas-suġġetti tad-dejta; jista’ jkun l-indirizz tal-kuntatt.",
+        "dpoEmail": "Email tal-uffiċjal tal-protezzjoni tad-dejta",
+        "dpoEmailHint": "Biss jekk inħatar wieħed.",
+        "governingLaw": "Liġi applikabbli",
+        "governingLawHint": "Pereżempju \"il-liġijiet tal-Indja\" jew \"il-liġijiet ta’ Ingilterra u Wales\".",
+        "venue": "Fora għat-tilwim",
+        "venueHint": "Pereżempju \"il-qrati ta’ Bengaluru, Karnataka\".",
+        "submit": "Ssejvja d-dettalji tal-operatur"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fatturar",
+      "title": "E-fatturar",
+      "description": "Għal kull profil tal-ħruġ: liema konnettur jirreġistra l-e-fatturi Indjani, u liema profil Ewropew isegwu l-outputs Factur-X u UBL. Il-kredenzjali jinħażnu kriptati u ma jintwerewx aktar.",
+      "noProfiles": "Oħloq profil tal-ħruġ l-ewwel.",
+      "profile": "Profil tal-ħruġ",
+      "enabled": "Attivat",
+      "disabled": "Diżattivat",
+      "enabledHint": "Attiva jew itfi l-e-fatturar għal kull profil f’Issettjar > Profili.",
+      "india": {
+        "title": "l-Indja (e-fattura GST, IRN)",
+        "description": "L-IRN jiġi rreġistrat permezz tal-konnettur magħżul hawnhekk; il-konnettur manwali jieħu r-risposta tal-portal bl-idejn.",
+        "connector": "Konnettur",
+        "connectorNone": "Mitfi",
+        "connectorManual": "Manwali (waħħal ir-risposta tal-IRP)",
+        "connectorNic": "API NIC IRP (sandbox jew produzzjoni)",
+        "nicUnverified": "Il-konnettur NIC isegwi l-API ppubblikata u ġie ttestjat biss b’fixtures irreġistrati; mhux ivverifikat fuq sandbox ħaj sakemm jiġu pprovduti l-kredenzjali.",
+        "env": "Ambjent",
+        "sandbox": "Sandbox",
+        "production": "Produzzjoni",
+        "baseUrl": "URL bażi",
+        "baseUrlHint": "Ħallih vojt għad-default tal-ambjent.",
+        "clientId": "Id tal-klijent",
+        "clientSecret": "Sigriet tal-klijent",
+        "username": "Isem l-utent",
+        "password": "Password",
+        "gstin": "GSTIN",
+        "publicKey": "Ċavetta pubblika tal-IRP (PEM)",
+        "publicKeyHint": "Niżżilha mill-portal wara li tidħol; tipproteġi l-kredenzjali mibgħuta lill-IRP.",
+        "publicKeyStored": "Maħżuna; ħalliha vojta biex iżżommha.",
+        "secretStored": "Maħżun kriptat; ħallih vojt biex iżżommu.",
+        "secretEncrypted": "Maħżun kriptat."
+      },
+      "eu": {
+        "title": "Ewropa (Factur-X, UBL)",
+        "description": "EN 16931 huwa l-unika profil f’din il-verżjoni; it-tniżżil ta’ Factur-X u UBL jużah.",
+        "profile": "Profil",
+        "profileNone": "Mitfi",
+        "en16931": "EN 16931"
+      },
+      "save": "Issejvja l-issettjar tal-e-fatturar"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Ċwievet API għal skripts, l-SDK u klijenti MCP, b’eżempji curl.",
+      "title": "API",
+      "description": "Ċwievet għal skripts, l-SDK u klijenti MCP. Ċavetta tista’ tagħmel l-aktar dak li jista’ jagħmel ir-rwol tiegħek; tintwera darba biss.",
+      "create": {
+        "title": "Oħloq ċavetta",
+        "description": "Ibgħatha bħala <mono>Authorization: Bearer okv_…</mono>. Żommha barra mill-kodiċi sors u mir-reġistri tal-chat; irrevokaha hawn taħt jekk titnixxa."
+      },
+      "keys": {
+        "title": "Ċwievet",
+        "descriptionOwner": "Kull ċavetta ta’ din l-istanza; is-sidien jistgħu jirrevokaw kwalunkwe waħda.",
+        "descriptionOwn": "Iċ-ċwievet tiegħek.",
+        "columns": {
+          "name": "Isem",
+          "prefix": "Prefiss",
+          "scopes": "Scopes",
+          "owner": "Sid",
+          "lastUsed": "Użata l-aħħar",
+          "expires": "Tiskadi",
+          "status": "Status"
+        },
+        "empty": "Għad m’hemm ebda ċavetta API.",
+        "never": "qatt",
+        "revoked": "Irrevokata",
+        "expired": "Skadiet",
+        "revokeTitle": "Tirrevoka {name}?",
+        "revokeDescription": "Il-klijenti li jużaw din iċ-ċavetta jieqfu jaħdmu minnufih.",
+        "activeCount": "{count, plural, one {# ċavetta attiva.} two {# ċwievet attivi.} few {# ċwievet attivi.} many {# ċwievet attivi.} other {# ċwievet attivi.}}"
+      },
+      "examples": {
+        "title": "Eżempji",
+        "description": "Ibdel <mono>$OKINVO_KEY</mono> b’ċavetta. L-API REST bil-verżjonijiet, id-dokument OpenAPI tiegħu (<mono>/api/openapi.json</mono>), l-SDK TypeScript u s-server MCP jaslu mal-ħidmiet li jmiss tal-pjan v1.1; l-endpoint tal-istatus jaħdem illum.",
+        "rateLimit": "Sejħiet li jaqbżu l-limitu jirċievu 429 b’header <mono>Retry-After</mono> (120 talba kull minuta għal kull ċavetta). L-scopes ta’ ċavetta huma limitati mir-rwol attwali tas-sid tagħha."
+      },
+      "form": {
+        "copyKey": "Ikkopja ċ-ċavetta API",
+        "name": "Isem",
+        "namePlaceholder": "eż. skript tal-kontabilità",
+        "expires": "Tiskadi",
+        "in30Days": "Fi 30 jum",
+        "in90Days": "Fi 90 jum",
+        "inAYear": "Fi sena",
+        "never": "Qatt",
+        "scopes": "Scopes",
+        "submit": "Oħloq ċavetta API",
+        "creating": "Qed toħloq…"
+      },
+      "scopes": {
+        "invoicesRead": "Aqra l-fatturi",
+        "invoicesCreate": "Oħloq u oħroġ fatturi",
+        "creditNotesRead": "Aqra n-noti ta’ kreditu",
+        "creditNotesCreate": "Oħloq u oħroġ noti ta’ kreditu",
+        "catalogueRead": "Aqra l-klijenti, is-servizzi u l-prodotti",
+        "documentsRead": "Niżżel PDFs maħżunin u kopji DOCX",
+        "statusRead": "Aqra l-istatus tal-istanza"
+      }
+    },
+    "status": {
+      "metaTitle": "Status",
+      "metaDescription": "Verżjoni, database, ħażna, email u saħħa tal-backup ta’ din l-istanza.",
+      "title": "Status",
+      "description": "X’qed iħaddem din l-istanza u jekk partijiet tagħha jwieġbux.",
+      "recheck": "Iċċekkja mill-ġdid",
+      "health": {
+        "ok": "OK",
+        "warning": "Twissija",
+        "failed": "Falla",
+        "na": "Mhux ikkonfigurat"
+      },
+      "overall": {
+        "ok": "Kollox tajjeb",
+        "degraded": "Degradat",
+        "failed": "Falla"
+      },
+      "version": "Bini {hasSha, select, yes {<mono>{sha}</mono>} other {(sha mhux magħruf)}} · mibni {built} · Node <mono>{node}</mono> · attiv {uptime} · iċċekkjat {checked}",
+      "dateUnknown": "(data mhux magħrufa)",
+      "uptime": {
+        "days": "{d}j {h}s {m}m",
+        "hours": "{h}s {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Database",
+        "storage": "Ħażna",
+        "rateLimiting": "Limitazzjoni tar-rata",
+        "email": "Email",
+        "backups": "Backups"
+      },
+      "db": {
+        "detail": "{latency} ms · l-aħħar migrazzjoni <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # migrazzjoni/jiet mhux lesti}}",
+        "noMigration": "xejn"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · kitba, qari u tħassir ta’ oġġett tat-test f’{latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "ħażna <mono>{store}</mono> {store, select, memory {(replika waħda)} other {(maqsuma bejn ir-repliki)}}",
+      "smtp": {
+        "configured": "SMTP minn {source, select, settings {the settings page} env {the environment} other {}} · l-aħħar test {lastTest} · l-aħħar 24 siegħa: {sent} mibgħuta, {failed} fallew",
+        "none": "L-ebda server SMTP; il-kompożitur joffri “Iftaħ fl-app tal-posta”. <link>Ikkonfigura</link>"
+      },
+      "backups": {
+        "notWired": "Ebda servizz tal-backup konness (BACKUP_STATUS_FILE mhux issettjat).",
+        "noRun": "Servizz tal-backup konness; għadu ma ġie rreġistrat ebda eżekuzzjoni.",
+        "ok": "L-aħħar eżekuzzjoni rnexxiet fi {finishedAt}{days, plural, =0 {} one { · żamma # jum} two { · żamma # ijiem} few { · żamma # ijiem} many { · żamma # jum} other { · żamma # jum}}",
+        "failed": "L-aħħar eżekuzzjoni falliet: {error} fi {finishedAt}{days, plural, =0 {} one { · żamma # jum} two { · żamma # ijiem} few { · żamma # ijiem} many { · żamma # jum} other { · żamma # jum}}"
+      },
+      "footer": "L-istess rapport huwa disponibbli bħala JSON f’<mono>/api/health/status</mono> għall-monitoraġġ (sessjoni mdaħħla jew ċavetta API)."
+    },
+    "usage": {
+      "metaTitle": "Użu",
+      "metaDescription": "Wiri tal-paġni għal kull skrin u jum fuq din l-istanza, magħduda lokalment.",
+      "title": "Użu",
+      "description": "Kemm-il darba nfetaħ kull skrin, magħdud fuq din l-istanza biss: l-ebda cookie, l-ebda indirizz, xejn ma jintbagħat imkien.",
+      "last30Days": "L-aħħar 30 jum",
+      "total": "{count, plural, =0 {Ebda wiri tal-paġna} one {# wiri tal-paġna} two {# wirjiet tal-paġna} few {# wirjiet tal-paġna} many {# wiri tal-paġna} other {# wiri tal-paġna}}",
+      "off": "Il-għadd mitfi. Issettja ANALYTICS_LOCAL=true biex jingħaddu l-wiri tal-paġni fuq din l-istanza.",
+      "empty": "Għad ma ġie rreġistrat ebda wiri tal-paġni.",
+      "columns": {
+        "day": "Jum",
+        "path": "Skrin",
+        "views": "Wiri"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Merħba",
+    "progress": "Progress",
+    "steps": {
+      "aboutYou": "Dwarek",
+      "howYouUse": "Kif se tużah",
+      "allSet": "Kollox lest"
+    },
+    "step1": {
+      "title": "Għidilna dwarek",
+      "subtitle": "Dan jissettja d-default tiegħek; kull valur jista’ jinbidel aktar tard fis-Settings.",
+      "name": "Isem",
+      "email": "Email",
+      "emailHint": "L-identità tiegħek tal-idħul. Tista’ tinbidel aktar tard minn Settings → Sigurtà.",
+      "country": "Pajjiż",
+      "currency": "Munita preferuta",
+      "currencyHint": "Użata għal profili ġodda u d-dashboard sakemm jeżisti profil."
+    },
+    "step2": {
+      "title": "Kif se tuża okinvo?",
+      "subtitle": "Biss id-default jinbidlu; xejn ma jinqafel.",
+      "usage": "Użu",
+      "personal": "Fatturar personali",
+      "personalHint": "Xogħol freelance f’ismek",
+      "business": "Fatturar tan-negozju",
+      "businessHint": "Fatturi minn negozju reġistrat",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Numru tal-VAT",
+        "other": "Numru ta’ reġistrazzjoni tat-taxxa"
+      },
+      "taxQuestion": {
+        "IN": "Għandek GSTIN?",
+        "GB": "Int irreġistrat għall-VAT?",
+        "other": "Għandek numru ta’ reġistrazzjoni tat-taxxa biex jiġi stampat fuq il-fatturi?"
+      }
+    },
+    "step3": {
+      "title": "Kollox lest",
+      "body": "Imbagħad, oħloq l-ewwel profil tal-ħruġ tiegħek: l-isem, l-indirizz u d-dettalji tat-taxxa li jiġu stampati fuq il-fatturi tiegħek. Imlejna dak li għidtilna.",
+      "go": "Mur għall-profili",
+      "opening": "Qed jinfetaħ…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Termini",
+      "privacy": "Privatezza",
+      "cookies": "Cookies",
+      "security": "Sigurtà"
+    },
+    "cookieNotice": {
+      "label": "Avviż tal-cookies",
+      "body": "Nużaw biss cookies strettament neċessarji: is-sessjoni tiegħek u l-preferenzi tad-dehra. L-ebda analitika, l-ebda traċċar.",
+      "policy": "Politika tal-cookies",
+      "gotIt": "Fhimt"
+    },
+    "nav": {
+      "label": "Legali",
+      "cookies": "Cookies",
+      "privacy": "Privatezza",
+      "terms": "Termini",
+      "acceptableUse": "Użu aċċettabbli",
+      "retention": "Żamma",
+      "security": "Sigurtà",
+      "licences": "Liċenzji"
+    },
+    "operatorNotice": "okinvo huwa softwer self-hosted; l-operatur ta’ din l-istanza huwa responsabbli għall-użu tiegħu.",
+    "doc": {
+      "effectiveOn": "Effettiv <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Werrej"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Isem legali tal-operatur",
+        "entityType": "Tip ta’ entità",
+        "address": "Indirizz tal-operatur",
+        "country": "Pajjiż tal-operatur",
+        "contactEmail": "Email tal-kuntatt",
+        "privacyEmail": "Email tal-privatezza",
+        "dpoEmail": "Email tal-uffiċjal tal-protezzjoni tad-dejta",
+        "governingLaw": "Liġi applikabbli",
+        "venue": "Fora għat-tilwim",
+        "effectiveDate": "Data tal-effett"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Ma nstabx",
+      "title": "M’hemm xejn f’dan l-indirizz",
+      "body": "Il-link jista’ jkun skadut, jew id-dokument li kien jindika qatt ma nħareġ."
+    },
+    "forbidden": {
+      "metaTitle": "Mhux permess",
+      "title": "Dan il-kont ma jistax jagħmel dan",
+      "body": "Ir-rwol tiegħek ma jippermettix dan. Itlob aċċess minn sid, jew idħol b’kont li għandu."
+    },
+    "error": {
+      "title": "Xi ħaġa marret ħażin",
+      "body": "Din it-talba ma biddlet xejn. Erġa’ pprova; jekk tibqa’ sseħħ, ir-reġistru tas-server fih id-dettalji.",
+      "digest": "żball {digest}",
+      "generic": "żball"
+    },
+    "appNotFound": {
+      "title": "Ma nstabx",
+      "body": "Dan ir-rekord ma jeżistix, jew tneħħa waqt li kont qed tħares lejh.",
+      "back": "Lura għad-dashboard"
+    },
+    "validation": {
+      "required": "meħtieġ",
+      "tooLong": "l-aktar {max} karattri",
+      "invalidEmail": "irid ikun email validu",
+      "invalidDate": "irid ikun data tal-kalendarju fil-format YYYY-MM-DD",
+      "invalidAmount": "irid ikun numru",
+      "wholeNumber": "irid ikun numru sħiħ",
+      "greaterThanZero": "irid ikun akbar minn żero",
+      "fixFields": "Jekk jogħġbok ikkoreġi l-oqsma enfasizzati.",
+      "charset": "Il-karattri standard tat-tastiera biss huma permessi."
+    }
+  },
+  "verify": {
+    "metaTitle": "Ivverifika d-dokument",
+    "metaDescription": "Iċċekkja li fattura jew nota ta' kreditu ħarġet mingħand min bagħatha u ma nbidlitx.",
+    "heading": "Verifika tad-dokument",
+    "rateLimited": "Wisq verifiki minn dan l-indirizz. Jekk jogħġbok erġa’ pprova f’minuta.",
+    "notFound": {
+      "title": "Ebda dokument bħal dan",
+      "body": "Dan il-link ma jaqbel ma’ ebda dokument maħruġ. Iċċekkja l-kodiċi QR jew il-link li ngħatajt, jew ikkuntattja lil min ħareġ id-dokument."
+    },
+    "status": {
+      "void": "Annullat",
+      "valid": "Validu"
+    },
+    "issuedBy": "Maħruġ minn",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Maħruġ lil",
+    "issueDate": "Data tal-ħruġ",
+    "total": "Total",
+    "voided": "Dan id-dokument ġie annullat minn min ħareġu u m’għadux validu.",
+    "storedCopies": {
+      "title": "Kopji maħżunin",
+      "description": "SHA-256 ta’ kull verżjoni PDF li għandu min ħareġ id-dokument. Agħżel il-kopja tiegħek biex tqabbilha fil-browser tiegħek: xejn ma jitla’.",
+      "empty": "Għadu ma ġie ġġenerat ebda PDF.",
+      "protectedVersion": "Kopja protetta bil-password {version}",
+      "version": "Verżjoni {version}"
+    },
+    "check": {
+      "label": "Iċċekkja l-kopja tiegħek",
+      "hashing": "Qed jikkalkula l-hash…",
+      "match": "Il-kopja tiegħek taqbel eżattament mal-verżjoni {version}.",
+      "mismatch": "Il-kopja tiegħek ma taqbel ma’ ebda verżjoni maħżuna."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Dokument maqsum",
+      "metaDescription": "Dokument maqsum miegħek: ara hu online u niżżel il-PDF.",
+      "rateLimited": "Wisq talbiet minn dan l-indirizz. Jekk jogħġbok erġa’ pprova f’minuta.",
+      "unavailable": {
+        "title": "Dan il-link mhuwiex disponibbli",
+        "body": "Jista’ jkun skada jew ġie rrevokat minn min ħareġ id-dokument. Itlob wieħed ġdid."
+      },
+      "lockedTitleInvoice": "Fattura minn {issuer}",
+      "lockedTitleCreditNote": "Nota ta’ kreditu minn {issuer}",
+      "lockedBody": "Dan id-dokument huwa protett bil-password. Daħħal il-password li tak min ħareġ id-dokument.",
+      "void": "Annullat",
+      "protectedPdf": "Il-PDF jiftaħ bl-istess password. Jista’ jinqara u jiġi stampat; il-kopjar u l-editjar huma mgħalqin.",
+      "byline": "Minn {issuer} lil {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Password",
+      "limited": "Wisq tentattivi. Jekk jogħġbok stenna ħmistax-il minuta u erġa’ pprova.",
+      "wrong": "Dik il-password mhijiex korretta.",
+      "submit": "Iftaħ id-dokument"
+    },
+    "dialog": {
+      "trigger": "Aqsam",
+      "title": "Aqsam dan id-dokument",
+      "description": "Kull min għandu l-link jista’ jarah u jniżżlu sakemm jiskadi jew tirrevokah. Password tipproteġi wkoll il-PDF innifsu: jinfetaħ bil-password u jista’ jinqara u jiġi stampat, mhux editjat jew ikkupjat.",
+      "link": "Link",
+      "copyLink": "Ikkopja l-link",
+      "password": "Password",
+      "copyPassword": "Ikkopja l-password",
+      "sendSeparately": "Ibgħat il-password separatament mil-link. Tista’ terġa’ taraha fil-lista t’hawn taħt.",
+      "copy": "Ikkopja",
+      "copied": "Ikkopjat",
+      "expires": "Jiskadi",
+      "expiry": {
+        "d7": "Fi 7 ijiem",
+        "d30": "Fi 30 jum",
+        "d90": "Fi 90 jum",
+        "never": "Qatt"
+      },
+      "protection": "Protezzjoni",
+      "protectionOptions": {
+        "auto": "Password: iġġenera passphrase",
+        "manual": "Password: agħżel tiegħi",
+        "none": "L-ebda password (link miftuħ)"
+      },
+      "passwordHint": "Mill-inqas 8 karattri.",
+      "strength": "Qawwa: {label}",
+      "strengthLabels": {
+        "veryWeak": "dgħajfa ħafna",
+        "weak": "dgħajfa",
+        "fair": "diċenti",
+        "good": "tajba",
+        "strong": "b’saħħitha"
+      },
+      "creating": "Qed toħloq…",
+      "create": "Oħloq link",
+      "activeLinks": "Links attivi",
+      "passwordProtected": "Protett bil-password",
+      "openLink": "Iftaħ il-link",
+      "linkExpires": "{kind} · jiskadi {date}",
+      "linkNeverExpires": "{kind} · qatt ma jiskadi",
+      "revoke": {
+        "title": "Tirrevoka dan il-link?",
+        "description": "Il-link jieqaf jaħdem minnufih għal kull min għandu.",
+        "label": "Irrevoka"
+      },
+      "linkPassword": "Password: <code>{password}</code>",
+      "counts": "{views, plural, one {# dehra} two {# dehriet} few {# dehriet} many {# dehra} other {# dehra}} · {downloads, plural, one {# tniżżil} two {# tniżżiliet} few {# tniżżiliet} many {# tniżżil} other {# tniżżil}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Noti ta’ kreditu",
+      "title": "Noti ta’ kreditu",
+      "description": "Maħruġa kontra fatturi maħruġa; kull waħda tnaqqas il-bilanċ tal-fattura tagħha meta toħroġ.",
+      "newCreditNote": "Nota ta’ kreditu ġdida",
+      "filters": {
+        "from": "Minn",
+        "to": "Sa",
+        "issuer": "Min joħroġ",
+        "client": "Klijent",
+        "status": "Status",
+        "search": "Fittex",
+        "all": "Kollha",
+        "searchPlaceholder": "Numru, raġuni, klijent",
+        "go": "Mur"
+      },
+      "statuses": {
+        "DRAFT": "Abbozz",
+        "ISSUED": "Maħruġa",
+        "SENT": "Mibgħuta",
+        "VOID": "Annullata"
+      },
+      "empty": {
+        "title": "Għad m’hemm ebda nota ta’ kreditu",
+        "description": "Iftaħ fattura maħruġa u agħżel “Nota ta’ kreditu” biex tnaqqas dak li għandha."
+      },
+      "noMatch": "Ebda nota ta’ kreditu ma taqbel ma’ dawn il-filtri.",
+      "columns": {
+        "number": "Numru",
+        "against": "Kontra",
+        "client": "Klijent",
+        "issueDate": "Data tal-ħruġ",
+        "reason": "Raġuni",
+        "total": "Total",
+        "status": "Status"
+      },
+      "draft": "Abbozz"
+    },
+    "new": {
+      "metaTitle": "Nota ta’ kreditu ġdida",
+      "title": "Nota ta’ kreditu ġdida",
+      "description": "Nota ta’ kreditu toħroġ kontra fattura maħruġa u tnaqqas il-bilanċ tagħha.",
+      "nothingToCredit": {
+        "title": "M’hemm xejn x’tikkreditja",
+        "description": "In-noti ta’ kreditu jeħtieġu fattura maħruġa b’bilanċ pendenti.",
+        "openInvoices": "Iftaħ il-fatturi"
+      },
+      "whichInvoice": "Liema fattura?",
+      "invoice": "Fattura",
+      "invoiceOption": "{number} · {client} · bilanċ {balance}",
+      "issuedOnly": "In-noti ta’ kreditu joħorġu biss kontra fatturi maħruġa.",
+      "invoiceFallback": "Fattura"
+    },
+    "edit": {
+      "metaTitle": "Editja n-nota ta’ kreditu",
+      "title": "Editja abbozz ta’ nota ta’ kreditu",
+      "immutable": "In-noti ta’ kreditu maħruġa ma jistgħux jinbidlu.",
+      "draft": "Abbozz"
+    },
+    "detail": {
+      "metaTitle": "Nota ta’ kreditu",
+      "draftTitle": "Abbozz ta’ nota ta’ kreditu",
+      "meta": "{client} · kontra <invoice>{number}</invoice> · maħruġa <mono>{date}</mono>",
+      "previewPdf": "Previżjoni tal-PDF",
+      "issue": {
+        "title": "Toħroġ din in-nota ta’ kreditu?",
+        "description": "Jiġi allokat numru, il-bilanċ tal-fattura jitnaqqas u d-dokument ma jibqax jinbidel.",
+        "label": "Oħroġ"
+      },
+      "deleteDraft": {
+        "title": "Tħassar dan l-abbozz?"
+      },
+      "sendByEmail": "Ibgħat bl-email",
+      "markSent": {
+        "title": "Timmarka bħala mibgħuta?",
+        "label": "Immarka bħala mibgħuta"
+      },
+      "void": {
+        "title": "Tannulla din in-nota ta’ kreditu?",
+        "description": "Il-bilanċ tal-fattura jiġi rrestawrat; in-numru qatt ma jerġa’ jintuża.",
+        "reason": "Raġuni",
+        "label": "Annulla"
+      },
+      "voided": "Annullata {date}: {reason}",
+      "amounts": {
+        "title": "Ammonti",
+        "reason": "Raġuni",
+        "creditAmount": "Ammont tal-kreditu",
+        "total": "Total",
+        "balanceNow": "Bilanċ tal-fattura issa",
+        "sent": "Mibgħuta"
+      },
+      "documents": {
+        "title": "Dokumenti maħżunin",
+        "description": "Kull verżjoni tinżamm; il-paġna tal-verifika telenka l-hashes kollha.",
+        "regenerateTitle": "Iġġenera verżjoni PDF ġdida?",
+        "generate": "Iġġenera",
+        "newVersion": "Verżjoni ġdida",
+        "renderedOnFirstDownload": "Il-PDF jiġi ġġenerat fl-ewwel tniżżil.",
+        "protectedCopy": "Kopja protetta bil-password {version}",
+        "version": "Verżjoni {version}",
+        "verificationLink": "Link tal-verifika: <link>{path}…</link>"
+      },
+      "draftsPreview": "L-abbozzi jidhru live fl-editur."
+    },
+    "send": {
+      "metaTitle": "Ibgħat in-nota ta’ kreditu",
+      "title": "Ibgħat <mono>{number}</mono>",
+      "previousSends": "Ibgħatiet preċedenti"
+    },
+    "builder": {
+      "against": "Kontra <mono>{number}</mono>",
+      "summary": "{client} · total {total} · bilanċ {balance} · marġni taxxabbli ≈ {headroom}",
+      "issueDate": "Data tal-ħruġ",
+      "creditAmount": "Ammont tal-kreditu (mingħajr taxxa)",
+      "creditAmountHint": "It-taxxa titqassam mil-linji tat-taxxa tal-fattura",
+      "reason": "Raġuni",
+      "picker": {
+        "title": "Ikkalkula mil-linji tal-fattura",
+        "description": "Immarka linji sħaħ jew perċentwal; dan jimla biss l-ammont ta’ hawn fuq.",
+        "line": "Linja",
+        "subtotal": "Subtotal",
+        "credit": "Kreditu",
+        "percent": "%",
+        "creditLine": "Linja tal-kreditu {position}",
+        "percentOfLine": "Perċentwal tal-linja {position}"
+      },
+      "saveDraft": "Ssejvja l-abbozz",
+      "issuing": "Qed toħroġ…",
+      "saveAndIssue": "Ssejvja u oħroġ"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Ħlas riċevut",
+        "REFUND": "Rifużjoni maħruġa",
+        "WRITE_OFF": "Tħassir tad-dejn"
+      },
+      "editTitle": "Editja l-entrata",
+      "recordTitle": "Irreġistra ħlas",
+      "description": "L-ammonti huma fil-munita tal-fattura ({currency}); it-TDS imnaqqas huwa parti mill-ammont applikat.",
+      "kind": "Tip",
+      "date": "Data",
+      "amountRefunded": "Ammont rifuż (negattiv)",
+      "amountApplied": "Ammont applikat",
+      "refundHint": "Daħħal ammont negattiv, eż. -500",
+      "tdsDeducted": "TDS imnaqqas",
+      "tdsHint": "Taxxa li l-klijent żamm lura; tgħodd lejn l-ammont applikat",
+      "bankFees": "Miżati bankarji",
+      "receivedInto": "Riċevut f’",
+      "noMethod": "-",
+      "reference": "Referenza",
+      "referenceHint": "UTR, id tat-tranżazzjoni, numru taċ-ċekk",
+      "otherCurrency": "Riċevut f’munita oħra",
+      "amountReceived": "Ammont riċevut",
+      "receivedCurrency": "Munita riċevuta",
+      "exchangeRate": "Rata tal-kambju",
+      "exchangeRateHint": "1 unità riċevuta = ? {currency}",
+      "notes": "Noti",
+      "receiptHint": "PNG, JPEG, WebP jew PDF sa 10 MB",
+      "receipts": "Irċevuti u kontijiet",
+      "receiptN": "Irċevuta {n}",
+      "removeReceipt": "Neħħi l-irċevuta {n}",
+      "saveChanges": "Ssejvja l-bidliet",
+      "record": "Irreġistra"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Fattura lil",
+      "shipTo": "Ibgħat lil",
+      "invoice": "Fattura",
+      "creditNote": "Nota ta’ kreditu",
+      "issueDate": "Data tal-ħruġ",
+      "dueDate": "Data tal-iskadenza",
+      "number": "Numru",
+      "description": "Deskrizzjoni",
+      "sacHsn": "SAC/HSN",
+      "qty": "Kwant.",
+      "unit": "Unità",
+      "rate": "Rata",
+      "tax": "Taxxa",
+      "amount": "Ammont",
+      "subtotal": "Subtotal",
+      "discount": "Skont",
+      "taxable": "Ammont taxxabbli",
+      "total": "Total",
+      "amountDue": "Ammont dovut",
+      "tdsExpected": "TDS mistenni",
+      "netExpected": "Net mistenni",
+      "rounding": "Tqarrib",
+      "paymentDetails": "Dettalji tal-ħlas",
+      "notes": "Noti",
+      "terms": "Termini",
+      "placeOfSupply": "Post tal-fornitura",
+      "poReference": "Referenza tal-ordni ta’ xiri",
+      "amountInWords": "Ammont bil-kliem",
+      "signature": "Firmatarju awtorizzat"
+    },
+    "title": {
+      "taxInvoice": "FATTURA TAT-TAXXA",
+      "billOfSupply": "DOKUMENT TAL-FORNITURA",
+      "invoice": "FATTURA",
+      "creditNote": "NOTA TA’ KREDITU"
+    },
+    "text": {
+      "pageOf": "Paġna {page} minn {total}",
+      "scanToVerify": "Skennja biex tivverifika",
+      "taxId": "ID tat-taxxa",
+      "void": "ANNULLAT",
+      "draftWatermark": "DRAFT - mhix fattura tat-taxxa",
+      "paymentTermsDays": "{days} jum",
+      "irn": "IRN",
+      "ackNo": "Nru tal-konferma",
+      "ackDate": "Data tal-konferma",
+      "einvoiceCancelled": "E-FATTURA MSEJJAĦ"
+    },
+    "ui": {
+      "pageEstimate": "madwar {count, plural, one {# paġna} two {# paġni} few {# paġni} many {# paġna} other {# paġna}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Messaġġ",
+      "description": "Mimli minn qabel mill-mudelli tal-profil tal-ħruġ. Xejn ma jintbagħat sakemm ma tikklikkjax Ibgħat.",
+      "to": "Lil",
+      "toHint": "Separati b’virgola",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Suġġett",
+      "body": "Test",
+      "bodyHint": "Test sempliċi; il-links isiru jistgħu jiġu kklikkjati",
+      "attachment": "Anness",
+      "attachmentHint": "Il-kopja maħżuna, bl-isem <mono>{name}</mono> (jew .docx); il-kontenut tagħha ma jistax jinbidel.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Qed jibgħat…",
+      "send": "Ibgħat",
+      "openInMailApp": "Iftaħ fl-app tal-posta",
+      "noSmtp": "L-ebda server SMTP mhu kkonfigurat (Settings → Email). Iftaħ l-abbozz fl-app tal-posta tiegħek, waħħal il-PDF imniżżel, imbagħad immarkah bħala mibgħut hawn taħt.",
+      "markAsSent": "Immarka bħala mibgħut"
+    },
+    "sentLog": {
+      "when": "Meta",
+      "document": "Dokument",
+      "to": "Lil",
+      "subject": "Suġġett",
+      "status": "Status",
+      "empty": "Għadu ma ntbagħat xejn.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "mibgħut",
+        "FAILED": "falla",
+        "MANUAL": "manwali"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Bonġu, {name}",
+    "fiscalYear": "Sena fiskali {year}",
+    "fiscalYearWithBase": "Sena fiskali {year} · munita bażi {currency} ({profile})",
+    "newCreditNote": "Nota ta’ kreditu ġdida",
+    "welcomeTitle": "Merħba f’{appName}",
+    "welcomeDescription": "Ibda billi toħloq il-profil tal-ħruġ li minnu tiffattura, imbagħad żid klijent u l-ewwel fattura tiegħek.",
+    "createProfile": "Oħloq il-profil tiegħek",
+    "tiles": {
+      "outstanding": "Pendenti",
+      "overdue": "Skaduti",
+      "billedThisFy": "Iffatturat f’din is-sena fiskali",
+      "receivedThisFy": "Riċevut f’din is-sena fiskali",
+      "drafts": "Abbozzi",
+      "invoiceCount": "{count, plural, one {# fattura} two {# fatturi} few {# fatturi} many {# fattura} other {# fattura}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Ħlasijiet naqqas rifużjonijiet, bil-FX irreġistrat",
+      "awaitingIssue": "jistenna l-ħruġ",
+      "nothingPending": "xejn pendenti"
+    },
+    "recentInvoices": "Fatturi riċenti",
+    "allInvoices": "Il-fatturi kollha",
+    "noInvoicesYet": "Għad m’hemm ebda fattura.",
+    "columns": {
+      "number": "Numru",
+      "client": "Klijent",
+      "issued": "Maħruġa"
+    },
+    "topClients": "L-aqwa klijenti skont pendenti",
+    "nothingOutstanding": "Xejn pendenti."
+  },
+  "exports": {
+    "export": "Esporta",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Fatturi",
+      "newInvoice": "Fattura ġdida",
+      "draft": "Abbozz",
+      "aDraft": "abbozz",
+      "statuses": {
+        "draft": "Abbozz",
+        "issued": "Maħruġa",
+        "sent": "Mibgħuta",
+        "partiallyPaid": "Imħallsa parzjalment",
+        "paid": "Imħallsa",
+        "overdue": "Skaduta",
+        "void": "Annullata"
+      },
+      "lifecycle": {
+        "draft": "abbozz",
+        "issued": "maħruġa",
+        "void": "annullata"
+      },
+      "units": {
+        "hour": "Siegħa",
+        "day": "Jum",
+        "fixed": "Fiss",
+        "milestone": "Pass importanti",
+        "unit": "Unità"
+      },
+      "unitsLower": {
+        "hour": "siegħa",
+        "day": "jum",
+        "fixed": "fiss",
+        "milestone": "pass importanti",
+        "unit": "unità"
+      },
+      "supplyTypes": {
+        "intraState": "ġewwa l-istat",
+        "interState": "bejn stati",
+        "exportLut": "esportazzjoni lut",
+        "exportWithTax": "esportazzjoni bit-taxxa",
+        "reverseCharge": "reverse charge",
+        "notApplicable": "mhux applikabbli"
+      }
+    },
+    "list": {
+      "description": "Abbozzi, fatturi maħruġa u annullati; l-istatus jiġi minn ħlasijiet u dati tal-iskadenza.",
+      "fiscalYear": "Sena fiskali",
+      "issuer": "Min joħroġ",
+      "client": "Klijent",
+      "searchPlaceholder": "Numru, PO, klijent",
+      "emptyTitle": "Għad m’hemm ebda fattura",
+      "emptyDescription": "Ibni l-ewwel fattura tiegħek: agħżel klijent, żid linji, ara l-previżjoni, imbagħad oħrġa.",
+      "columns": {
+        "number": "Numru",
+        "client": "Klijent",
+        "issuer": "Min joħroġ",
+        "issueDate": "Data tal-ħruġ",
+        "due": "Skadenza",
+        "balance": "Bilanċ"
+      },
+      "noMatches": "Ebda fattura ma taqbel ma’ dawn il-filtri.",
+      "count": "{count, plural, one {# fattura} two {# fatturi} few {# fatturi} many {# fattura} other {# fattura}}",
+      "countPaged": "{count, plural, one {# fattura} two {# fatturi} few {# fatturi} many {# fattura} other {# fattura}} · paġna {page} minn {pages}",
+      "register": "reġistru",
+      "einvoice": "E-fattura",
+      "einvoiceFilters": {
+        "registered": "IRN irreġistrat",
+        "none": "Mhux irreġistrata",
+        "cancelled": "IRN ikkanċellat"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Oħloq profil tal-ħruġ l-ewwel",
+      "noProfileDescription": "Fattura toħroġ minn identità legali: waqqaf il-profil tiegħek bl-ID tat-taxxa u n-numerazzjoni.",
+      "createProfile": "Oħloq profil"
+    },
+    "edit": {
+      "metaTitle": "Editja l-fattura",
+      "title": "Editja l-abbozz",
+      "immutableFlash": "Il-fatturi maħruġa ma jistgħux jinbidlu. Uża “Annulla u erġa’ oħroġ” biex tikkoreġiha."
+    },
+    "detail": {
+      "metaTitle": "Fattura",
+      "draftInvoice": "Abbozz ta’ fattura",
+      "issuedDue": "Maħruġa <mono>{issued}</mono>, tiskadi <mono>{due}</mono>",
+      "replaces": "Tissostitwixxi {number}",
+      "replacedBy": "Sostitwita minn {number}",
+      "previewPdf": "Previżjoni tal-PDF",
+      "downloadEInvoice": "Niżżel il-JSON tal-e-invoice",
+      "issueTitle": "Toħroġ din il-fattura?",
+      "issueDescription": "Jiġi allokat numru u d-dokument ma jibqax jinbidel.",
+      "issue": "Oħroġ",
+      "deleteDraftTitle": "Tħassar dan l-abbozz?",
+      "sendByEmail": "Ibgħat bl-email",
+      "recordPayment": "Irreġistra ħlas",
+      "progress": {
+        "title": "Progress tal-ħlas",
+        "description": "Fejn qiegħda din il-fattura, mill-ħruġ sa irċevuta fl-arkivju.",
+        "issued": "Maħruġa",
+        "sent": "Mibgħuta",
+        "payment": "Ħlas irreġistrat",
+        "paymentOn": "Ħlas ta' <mono>{amount}</mono> irreġistrat fl-<mono>{date}</mono>",
+        "paid": "Imħallsa kollha",
+        "receipt": "Irċevuta mehmuża",
+        "done": "lest",
+        "pending": "pendenti"
+      },
+      "creditNote": "Nota ta’ kreditu",
+      "markSentTitle": "Timmarka bħala mibgħuta?",
+      "markSentDescription": "Jirreġistra li l-klijent irċieva din il-fattura.",
+      "markSent": "Immarka bħala mibgħuta",
+      "voidReissueTitle": "Tannulla u terġa’ toħroġ?",
+      "voidReissueDescription": "L-oriġinal jiġi annullat u jinfetaħ abbozz marbut bl-istess kontenut għall-editjar.",
+      "voidReissue": "Annulla u erġa’ oħroġ",
+      "voidTitle": "Tannulla din il-fattura?",
+      "voidDescription": "Possibbli biss mingħajr ħlasijiet irreġistrati; in-numru qatt ma jerġa’ jintuża.",
+      "void": "Annulla",
+      "voided": "Annullata {date}: {reason}",
+      "amounts": "Ammonti",
+      "subtotal": "Subtotal",
+      "discount": "Skont",
+      "discountPercent": "Skont ({percent})",
+      "rounding": "Tqarrib",
+      "tdsExpected": "TDS mistenni ({percent})",
+      "paid": "Imħallsa",
+      "credited": "Ikkreditata",
+      "balanceDue": "Bilanċ dovut",
+      "supply": "Provvista",
+      "fxToBase": "FX għall-bażi",
+      "poReference": "Referenza PO",
+      "sent": "Mibgħuta",
+      "lineItems": "Linji tal-fattura",
+      "columns": {
+        "description": "Deskrizzjoni",
+        "sacHsn": "SAC/HSN",
+        "qty": "Kwant.",
+        "rate": "Rata",
+        "tax": "Taxxa",
+        "amount": "Ammont"
+      },
+      "creditNotes": "Noti ta’ kreditu",
+      "storedDocuments": "Dokumenti maħżunin",
+      "storedDocumentsHint": "Kull verżjoni tinżamm; il-paġna tal-verifika telenka l-hashes kollha.",
+      "regenerateTitle": "Iġġenera verżjoni PDF ġdida?",
+      "regenerateDescription": "Terġa’ tiġi ġġenerata mill-istampa ffriżata (pereżempju wara tiswija tar-renderer). Il-verżjonijiet preċedenti jibqgħu.",
+      "regenerate": "Iġġenera",
+      "newVersion": "Verżjoni ġdida",
+      "renderedOnFirstDownload": "Il-PDF jiġi ġġenerat fl-ewwel tniżżil.",
+      "protectedCopy": "Kopja protetta bil-password {version}",
+      "version": "Verżjoni {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Link tal-verifika:",
+      "draftPreviewHint": "L-abbozzi jidhru live fl-editur; iftaħ <link>il-PDF bil-watermark</link> biex tara l-paġna.",
+      "einvoice": {
+        "title": "E-fattura (l-Indja)",
+        "description": "Ir-reġistrazzjoni ta’ din il-fattura mal-Invoice Registration Portal; dokument irreġistrat jistampa l-IRN tiegħu u l-QR iffirmat tal-portal.",
+        "connector": "Konnettur",
+        "connectors": {
+          "manual": "Manwali",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Ebda konnettur mhu kkonfigurat għal dan il-profil taħt Issettjar > E-fatturar.",
+        "statuses": {
+          "none": "Mhux irreġistrata",
+          "generated": "JSON ġġenerat",
+          "registered": "Irreġistrata",
+          "cancelled": "Ikkanċellata",
+          "failed": "Ir-reġistrazzjoni falliet"
+        },
+        "irn": "IRN",
+        "ackNo": "Nru tal-konferma",
+        "ackDate": "Data tal-konferma",
+        "cancelReason": "Kanċellazzjoni",
+        "generate": "Iġġenera IRN",
+        "pasteLabel": "Tweġiba tal-IRP",
+        "pasteHint": "Waħħal il-JSON li l-portal jew il-GSP tiegħek irritorna għall-JSON tal-e-fattura ta’ din il-fattura (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Irreġistra IRN",
+        "cancelReasonLabel": "Raġuni tal-kanċellazzjoni",
+        "cancelReasons": {
+          "1": "Duplikat",
+          "2": "Żball fl-input tad-data",
+          "3": "Ordni kkanċellat",
+          "4": "Oħrajn"
+        },
+        "cancel": "Ikkanċella IRN",
+        "cancelWindow": "Il-portal jippermetti kanċellazzjoni fi żmien 24 siegħa mill-konferma."
+      }
+    },
+    "history": {
+      "metaTitle": "Storja tal-fattura",
+      "title": "Storja <mono>{number}</mono>",
+      "reissueChain": "Katina tal-ħruġ mill-ġdid",
+      "replaces": "Tissostitwixxi <link>{number}</link>",
+      "replacedBy": "Sostitwita minn <link>{number}</link>",
+      "auditTrail": "Traċċa tal-verifika",
+      "columns": {
+        "when": "Meta",
+        "who": "Min",
+        "action": "Azzjoni",
+        "summary": "Sommarju"
+      },
+      "noEvents": "Għad m’hemm ebda avveniment.",
+      "system": "Sistema",
+      "emails": "Emails"
+    },
+    "payments": {
+      "title": "Ħlasijiet",
+      "description": "{client} · {total} total",
+      "backToInvoice": "Lura għall-fattura",
+      "ledger": "Ledger",
+      "columns": {
+        "date": "Data",
+        "kind": "Tip",
+        "applied": "Applikat",
+        "tds": "TDS",
+        "received": "Riċevut",
+        "reference": "Referenza",
+        "balance": "Bilanċ"
+      },
+      "noPayments": "Għad m’hemm ebda ħlas irreġistrat.",
+      "kinds": {
+        "payment": "Ħlas",
+        "refund": "Rifużjoni",
+        "writeOff": "Tħassir tad-dejn"
+      },
+      "receipt": "Irċevuta",
+      "receiptN": "Irċevuta {n}",
+      "deleteEntryTitle": "Tħassar din l-entrata?",
+      "deleteEntryDescription": "Il-bilanċ tal-fattura jerġa’ jiġi kkalkulat.",
+      "totals": "Totali",
+      "invoiceTotal": "Total tal-fattura",
+      "credited": "Ikkreditat",
+      "refunds": "Rifużjonijiet",
+      "writeOffs": "Tħassir tad-djun",
+      "tdsDeducted": "TDS imnaqqas",
+      "bankFees": "Miżati bankarji",
+      "balanceDue": "Bilanċ dovut",
+      "onlyIssued": "Il-fatturi maħruġa biss jaċċettaw ħlasijiet."
+    },
+    "send": {
+      "metaTitle": "Ibgħat il-fattura",
+      "title": "Ibgħat <mono>{number}</mono>",
+      "alreadySent": "Diġà mmarkata bħala mibgħuta; jekk terġa’ tibgħat tiżdied entrata oħra fir-reġistru.",
+      "previousSends": "Ibgħatiet preċedenti"
+    },
+    "builder": {
+      "parties": "Partijiet",
+      "issuerProfile": "Profil tal-ħruġ",
+      "client": "Klijent",
+      "archivedOption": "{label} (arkivjat)",
+      "issueDate": "Data tal-ħruġ",
+      "dueDate": "Data tal-iskadenza",
+      "fxRate": "Rata FX għall-munita bażi",
+      "fxHint": "1 {currency} = ? {base} (għar-rappurtar biss)",
+      "poReference": "Referenza PO",
+      "lineItems": "Linji tal-fattura",
+      "lineItemsHint": "Agħżel mill-katalgu biex tikkopja l-valuri tiegħu, jew ittajpja linja.",
+      "taxDiscountTds": "Taxxa, skont u TDS",
+      "taxRegime": "Reġim tat-taxxa",
+      "regimes": {
+        "indiaGst": "GST tal-Indja",
+        "ukVat": "VAT tar-Renju Unit",
+        "usSalesTax": "Taxxa fuq il-bejgħ tal-Istati Uniti",
+        "none": "Ebda taxxa"
+      },
+      "reverseCharge": "Reverse charge",
+      "reverseChargeHint": "Taxxa pagabbli mir-riċevitur",
+      "discount": "Skont",
+      "percent": "Perċentwal",
+      "amount": "Ammont",
+      "rounding": "Aġġustament tat-tqarrib",
+      "roundingHint": "Fakultattiv, għal unità sħiħa; irid ikun inqas minn 1",
+      "round": "Qarreb",
+      "tdsRate": "Rata mistennija tat-TDS (%)",
+      "tdsRateHint": "Informattiv; jiġi stampat meta d-dettall tat-TDS ikun mixgħul",
+      "paymentMethods": "Metodi ta’ ħlas",
+      "paymentMethodsHint": "Jiġu stampati fl-ordni li ġew immarkati.",
+      "noPaymentMethods": "Ebda metodu ta’ ħlas attiv. <link>Żid wieħed</link>.",
+      "whatPrints": "X’jiġi stampat",
+      "whatPrintsHint": "Jibda mid-default tal-profil tal-ħruġ.",
+      "documentLanguage": "Lingwa tad-dokument",
+      "documentLanguageHint": "It-tikketti, id-dati u l-ammonti jiġu stampati f’din il-lingwa; il-preferenza tal-klijent, inkella dik tal-profil.",
+      "notesAndTerms": "Noti u termini",
+      "notes": "Noti",
+      "terms": "Termini",
+      "saveDraft": "Ssejvja l-abbozz",
+      "issuing": "Qed toħroġ…",
+      "saveAndIssue": "Ssejvja u oħroġ",
+      "subtotal": "Subtotal",
+      "tax": "Taxxa",
+      "tdsExpected": "TDS mistenni",
+      "netExpected": "Net mistenni"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Żid mill-katalgu…",
+      "services": "Servizzi",
+      "products": "Prodotti",
+      "addLine": "Żid linja",
+      "columns": {
+        "description": "Deskrizzjoni",
+        "sacHsn": "SAC/HSN",
+        "qty": "Kwant.",
+        "unit": "Unità",
+        "rate": "Rata",
+        "taxPercent": "Taxxa %"
+      },
+      "aria": {
+        "description": "Deskrizzjoni tal-linja {line}",
+        "sacHsn": "SAC/HSN tal-linja {line}",
+        "quantity": "Kwantità tal-linja {line}",
+        "unit": "Unità tal-linja {line}",
+        "rate": "Rata tal-linja {line}",
+        "taxRate": "Rata tat-taxxa tal-linja {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Eżenti",
+      "moveUp": "Ċaqlaq ’il fuq",
+      "moveDown": "Ċaqlaq ’l isfel",
+      "removeLine": "Neħħi l-linja",
+      "shortcutHint": "Ctrl/⌘+Enter f’deskrizzjoni jżid linja.",
+      "addFromCatalogueAria": "Żid mill-katalgu"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Dettalji ta’ min joħroġ",
+        "client": "Dettalji tal-klijent",
+        "document": "Sezzjonijiet tad-dokument"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Isem kummerċjali",
+        "showDesignation": "Kariga",
+        "showEmail": "Email",
+        "showPhone": "Telefon",
+        "showWebsite": "Websajt",
+        "showFullAddress": "Indirizz sħiħ",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Firma",
+        "showStamp": "Timbru",
+        "showContactPerson": "Persuna ta’ kuntatt",
+        "showBillingAddress": "Indirizz tal-fatturar",
+        "showShippingAddress": "Indirizz tal-konsenja",
+        "showTaxIdentifier": "Identifikatur tat-taxxa",
+        "showPlaceOfSupply": "Post tal-provvista",
+        "showDueDate": "Data tal-iskadenza",
+        "showPaymentTerms": "Termini tal-ħlas",
+        "showSacCodeColumn": "Kolonna tal-kodiċi SAC",
+        "showQuantityColumn": "Kolonna tal-kwantità",
+        "showUnitPriceColumn": "Kolonna tal-prezz tal-unità",
+        "showTaxColumn": "Kolonna tat-taxxa",
+        "showTdsBreakdown": "Dettall tat-TDS",
+        "showQrVerification": "Verifika QR",
+        "showNotes": "Noti",
+        "showTerms": "Termini",
+        "showReplacesReference": "Referenza tas-sostituzzjoni",
+        "showAmountInWords": "Ammont bil-kliem",
+        "showSupplyStatement": "Dikjarazzjoni tal-provvista",
+        "showRoundingLine": "Linja tat-tqarrib",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Klijenti",
+      "description": "Kull min tiffattura. Il-klijenti bil-fatturi jiġu arkivjati, qatt imħassra.",
+      "newClient": "Klijent ġdid",
+      "searchPlaceholder": "Fittex skont l-isem",
+      "searchLabel": "Fittex klijenti",
+      "emptyTitle": "Għad m’hemm ebda klijent",
+      "emptyDescription": "Żid in-nies u l-kumpaniji li tiffattura; il-munita u t-termini tal-ħlas tagħhom jimlew minn qabel kull fattura.",
+      "addClient": "Żid klijent",
+      "noMatch": "Ebda klijent ma jaqbel ma’ “{q}”.",
+      "termsDays": "{days} j",
+      "columns": {
+        "name": "Isem",
+        "contact": "Kuntatt",
+        "email": "Email",
+        "country": "Pajjiż",
+        "currency": "Munita",
+        "terms": "Termini",
+        "status": "Status"
+      }
+    },
+    "new": {
+      "title": "Klijent ġdid"
+    },
+    "edit": {
+      "metaTitle": "Editja l-klijent",
+      "title": "Editja {name}"
+    },
+    "detail": {
+      "metaTitle": "Klijent",
+      "newInvoice": "Fattura ġdida",
+      "restoreTitle": "Tirrestawra dan il-klijent?",
+      "archiveTitle": "Tarkivja dan il-klijent?",
+      "archiveDescription": "Joħroġ mil-listi tal-għażla; il-fatturi u l-istorja jibqgħu intatti.",
+      "deleteTitle": "Tħassar dan il-klijent?",
+      "deleteDescription": "Possibbli biss sakemm ebda fattura ma tirreferi għall-klijent.",
+      "details": "Dettalji",
+      "contact": "Kuntatt",
+      "email": "Email",
+      "phone": "Telefon",
+      "country": "Pajjiż",
+      "gstState": "GST {code}",
+      "taxId": "ID tat-taxxa",
+      "currency": "Munita",
+      "paymentTerms": "Termini tal-ħlas",
+      "paymentTermsDays": "{days} jiem",
+      "expectedTds": "TDS mistenni",
+      "notes": "Noti",
+      "addresses": "Indirizzi",
+      "billing": "Fatturar",
+      "shipping": "Konsenja",
+      "lifetime": "Matul il-ħajja",
+      "openRegister": "Iftaħ ir-reġistru",
+      "noIssued": "Għad m’hemm ebda fattura maħruġa.",
+      "noIssuedWithDrafts": "Għad m’hemm ebda fattura maħruġa ({drafts} abbozz).",
+      "firstLatest": "L-ewwel fattura <mono>{first}</mono>, l-aħħar <mono>{latest}</mono>{drafts, plural, =0 {} one { · # abbozz} two { · # abbozzi} few { · # abbozzi} many { · # abbozz} other { · # abbozz}}",
+      "lifetimeColumns": {
+        "currency": "Munita",
+        "invoices": "Fatturi",
+        "billed": "Iffatturat",
+        "received": "Riċevut",
+        "credited": "Ikkreditat",
+        "outstanding": "Pendenti",
+        "overdue": "Skadut"
+      },
+      "recentInvoices": "Fatturi riċenti",
+      "noInvoices": "Għad m’hemm ebda fattura għal dan il-klijent.",
+      "recentColumns": {
+        "number": "Numru",
+        "issueDate": "Data tal-ħruġ",
+        "due": "Skadenza",
+        "total": "Total",
+        "balance": "Bilanċ",
+        "status": "Status"
+      }
+    },
+    "form": {
+      "cardTitle": "Klijent",
+      "displayName": "Isem murija",
+      "contactPerson": "Persuna ta’ kuntatt",
+      "email": "Email",
+      "phone": "Telefon",
+      "taxIdType": "Tip ta’ ID tat-taxxa",
+      "taxIdTypeNone": "L-ebda",
+      "taxId": "ID tat-taxxa",
+      "currency": "Munita",
+      "paymentTerms": "Termini tal-ħlas (jiem)",
+      "expectedTdsRate": "Rata mistennija tat-TDS (%)",
+      "preferredLanguage": "Lingwa tad-dokument",
+      "preferredLanguageFollow": "Segwi l-profil tal-hriġ",
+      "buyerReference": "Referenza tax-xerrej",
+      "buyerReferenceHint": "Stampata fl-e-fatturi bħala r-referenza proprja tax-xerrej (numru ta’ ordni jew ta’ ċentru tal-ispiża).",
+      "electronicAddress": "Indirizz elettroniku",
+      "electronicAddressHint": "L-identifikatur Peppol jew EN 16931 li bih dan il-klijent jirċievi e-fatturi.",
+      "electronicAddressScheme": "Skema tal-indirizz elettroniku",
+      "electronicAddressSchemeNone": "L-ebda skema",
+      "notes": "Noti",
+      "billingAddress": "Indirizz tal-fatturar",
+      "shippingAddress": "Indirizz tal-konsenja",
+      "differentFromBilling": "Differenti mill-fatturar",
+      "save": "Ssejvja l-klijent"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Siegħa",
+      "DAY": "Jum",
+      "FIXED": "Fiss",
+      "MILESTONE": "Pass importanti",
+      "UNIT": "Unità"
+    },
+    "list": {
+      "activate": "Attiva",
+      "deactivate": "Iddiżattiva",
+      "archiveDescription": "Il-linji eżistenti tal-fatturi jżommu l-valuri kkupjati tagħhom.",
+      "deleteDescription": "Possibbli biss sakemm ebda linja ta’ fattura ma tirreferi għaliha. Inkella arkivjaha.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Isem",
+        "unit": "Unità",
+        "rate": "Rata",
+        "price": "Prezz",
+        "currency": "Munita",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Taxxa",
+        "status": "Status"
+      }
+    },
+    "services": {
+      "title": "Servizzi",
+      "description": "Il-katalgu tiegħek. Meta tagħżel servizz, il-valuri tiegħu jiġu kkupjati fuq il-linja tal-fattura.",
+      "newService": "Servizz ġdid",
+      "emptyTitle": "Għad m’hemm ebda servizz",
+      "emptyDescription": "Żid dak li tbigħ - disinn bis-siegħa, pass importanti bi prezz fiss - bil-kodiċi SAC/HSN u r-rata tat-taxxa.",
+      "addService": "Żid servizz",
+      "restoreTitle": "Irrestawra {name}?",
+      "archiveTitle": "Arkivja {name}?",
+      "deleteTitle": "Ħassar {name}?",
+      "editMetaTitle": "Editja s-servizz",
+      "editTitle": "Editja {name}"
+    },
+    "products": {
+      "title": "Prodotti",
+      "description": "Oġġetti li tbigħ, kull wieħed b’SKU. Meta tagħżel prodott, il-valuri tiegħu jiġu kkupjati fuq il-linja tal-fattura.",
+      "newProduct": "Prodott ġdid",
+      "emptyTitle": "Għad m’hemm ebda prodott",
+      "emptyDescription": "Żid l-oġġetti li tbigħ b’SKU, kodiċi HSN, prezz tal-unità u rata tat-taxxa.",
+      "addProduct": "Żid prodott",
+      "restoreTitle": "Irrestawra {sku}?",
+      "archiveTitle": "Arkivja {sku}?",
+      "deleteTitle": "Ħassar {sku}?",
+      "editMetaTitle": "Editja l-prodott",
+      "editTitle": "Editja {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Kodiċi uniku stampat taħt id-deskrizzjoni tal-linja",
+      "name": "Isem",
+      "unit": "Unità",
+      "defaultRate": "Rata default",
+      "unitPrice": "Prezz tal-unità",
+      "currency": "Munita",
+      "sacHsnCode": "Kodiċi SAC / HSN",
+      "sacHsnHint": "Meħtieġ fuq fatturi GST",
+      "hsnCode": "Kodiċi HSN",
+      "hsnHint": "Meħtieġ fuq fatturi GST għal oġġetti",
+      "defaultTaxRate": "Rata tat-taxxa default (%)",
+      "description": "Deskrizzjoni",
+      "descriptionHint": "Jimla minn qabel id-deskrizzjoni tal-linja",
+      "active": "Attiv",
+      "serviceInactiveHint": "Servizzi inattivi jibqgħu barra mill-għażla tal-fattura",
+      "productInactiveHint": "Prodotti inattivi jibqgħu barra mill-għażla tal-fattura",
+      "saveService": "Ssejvja s-servizz",
+      "saveProduct": "Ssejvja l-prodott"
+    },
+    "tags": {
+      "legend": "Profili",
+      "hint": "Immarka l-profili tal-ħruġ li jbigħu dan. Ħalli kollha mhux immarkati biex joffrih lil kull profil."
+    }
+  },
+  "address": {
+    "line1": "Linja tal-indirizz 1",
+    "line2": "Linja tal-indirizz 2",
+    "city": "Belt",
+    "stateRegion": "Stat / reġjun",
+    "postalCode": "Kodiċi postali",
+    "country": "Pajjiż",
+    "state": "Stat",
+    "gstStateCodeHint": "Kodiċi GST tal-istat {code}",
+    "pickStateHint": "Agħżel l-istat għall-kodiċi GST tal-istat",
+    "stateRegionCode": "Kodiċi tal-istat / reġjun",
+    "stateRegionCodePlaceholder": "eż. CA"
+  },
+  "assets": {
+    "tooLarge": "Dak il-fajl huwa kbir wisq.",
+    "unsupportedReceipt": "Uża immaġni PNG, JPEG, WebP jew PDF.",
+    "unsupportedImage": "Uża immaġni PNG, JPEG jew WebP.",
+    "uploadFailed": "It-tlugħ falla.",
+    "uploading": "Qed jitla’…",
+    "dropHint": "Kaxkar fajl hawn, jew agħżel wieħed",
+    "dropHintMany": "Kaxkar il-fajls hawn, jew agħżilhom",
+    "dropActive": "Ħalli biex tillowdja"
+  },
+  "ui": {
+    "breadcrumb": "Breadcrumb",
+    "close": "Agħlaq",
+    "closeMenu": "Agħlaq il-menu",
+    "reveal": "Uri",
+    "hide": "Aħbi",
+    "openCalendar": "Iftaħ il-kalendarju",
+    "chooseMonth": "Agħżel ix-xahar",
+    "chooseYear": "Agħżel is-sena",
+    "searchOptions": "Ittajpja biex tfittex",
+    "noMatches": "L-ebda korrispondenza",
+    "pullToRefresh": {
+      "label": "Lista li tista' tiġġedded",
+      "pulling": "Iġbed 'l isfel biex tgħaddel",
+      "release": "Ħalli biex tgħaddel",
+      "refreshing": "Qed jiġġedded"
+    },
+    "inputCharset": "Il-karattri standard tat-tastiera biss huma permessi.",
+    "confirm": {
+      "working": "Qed jaħdem…"
+    },
+    "statusPill": {
+      "DRAFT": "Abbozz",
+      "ISSUED": "Maħruġa",
+      "SENT": "Mibgħuta",
+      "PARTIALLY_PAID": "Imħallsa parzjalment",
+      "PAID": "Imħallsa",
+      "OVERDUE": "Skaduta",
+      "VOID": "Annullata"
+    },
+    "activePill": {
+      "active": "Attiv",
+      "archived": "Arkivjat",
+      "inactive": "Inattiv"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Xi ħaġa marret ħażin.",
+    "fixFields": "Jekk jogħġbok ikkoreġi l-oqsma enfasizzati.",
+    "accountSaved": "Preferenzi tal-kont issejvjati",
+    "apiKeyCreated": "Ċavetta API maħluqa. Ikkopjaha issa: tintwera darba biss.",
+    "saved": "Issejvjat {name}",
+    "savedProfile": "Profil issejvjat {label}",
+    "clientArchived": "Klijent arkivjat",
+    "clientRestored": "Klijent irrestawrat",
+    "clientDeleted": "Klijent imħassar",
+    "productArchived": "Prodott arkivjat",
+    "productRestored": "Prodott irrestawrat",
+    "productActivated": "Prodott attivat",
+    "productDeactivated": "Prodott diżattivat",
+    "serviceArchived": "Servizz arkivjat",
+    "serviceRestored": "Servizz irrestawrat",
+    "serviceActivated": "Servizz attivat",
+    "serviceDeactivated": "Servizz diżattivat",
+    "defaultProfileUpdated": "Profil default aġġornat",
+    "profileArchived": "Profil arkivjat",
+    "profileRestored": "Profil irrestawrat",
+    "profileDeleted": "Profil imħassar",
+    "defaultPaymentMethodUpdated": "Metodu ta’ ħlas default aġġornat",
+    "paymentMethodArchived": "Metodu ta’ ħlas arkivjat",
+    "paymentMethodRestored": "Metodu ta’ ħlas irrestawrat",
+    "paymentMethodDeleted": "Metodu ta’ ħlas imħassar",
+    "issued": "Maħruġa {number}",
+    "savedAsDraft": "Issejvjat bħala abbozz. {reason}",
+    "draftSaved": "Abbozz issejvjat",
+    "invoiceVoided": "Fattura annullata",
+    "originalVoided": "L-oriġinal annullat; editja l-abbozz tas-sostituzzjoni",
+    "markedAsSent": "Immarkata bħala mibgħuta",
+    "draftDeleted": "Abbozz imħassar",
+    "generatedPdf": "Verżjoni PDF {version} iġġenerata",
+    "creditNoteVoided": "Nota ta’ kreditu annullata; il-bilanċ tal-fattura rrestawrat",
+    "draftCreditNoteDeleted": "Abbozz ta’ nota ta’ kreditu mħassar",
+    "mailRefused": "Is-server tal-posta rrifjuta l-messaġġ: {error}. It-tentattiv ġie rreġistrat.",
+    "unknownError": "żball mhux magħruf",
+    "sentTo": "Mibgħut lil {recipients}",
+    "smtpSaved": "Settings SMTP issejvjati",
+    "smtpRemoved": "Settings SMTP maħżunin imneħħija",
+    "testEmailSent": "Email tat-test mibgħuta lil {email}",
+    "testFailed": "It-test falla: {error}",
+    "defaultRecipientsSaved": "Riċevituri default issejvjati",
+    "invitationSent": "Stedina mibgħuta",
+    "invitationReady": "Stedina lesta",
+    "unknownRole": "Rwol mhux magħruf",
+    "roleUpdated": "Rwol aġġornat",
+    "accountDeactivated": "Kont diżattivat",
+    "accountReactivated": "Kont attivat mill-ġdid",
+    "invitationRevoked": "Stedina rrevokata",
+    "paymentUpdated": "Ħlas aġġornat",
+    "paymentRecorded": "Ħlas irreġistrat",
+    "paymentDeleted": "Ħlas imħassar",
+    "sessionRevoked": "Sessjoni rrevokata",
+    "noOtherSessions": "Ebda sessjoni oħra",
+    "signedOutOthers": "Ħarġet minn {count} sessjoni/jiet oħra",
+    "sharePasswordRequired": "Daħħal password, jew ħalli waħda tiġi ġġenerata.",
+    "shareLinkCreated": "Link tal-kondiviżjoni maħluq.",
+    "templateSaved": "Mudell issejvjat; id-dokumenti futuri jużawh",
+    "templateReset": "Mudell irrisettjat għad-default integrat",
+    "templateImported": "Mudell importat",
+    "profileTemplateCleared": "Il-profil juża l-mudell tal-istanza mill-ġdid",
+    "operatorSaved": "Dettalji tal-operatur issejvjati. Il-paġni legali issa juruhom.",
+    "einvoiceSettingsSaved": "Issettjar tal-e-fatturar issejvjat",
+    "irnRegistered": "IRN {irn} irreġistrat; il-PDF ġie ġġenerat mill-ġdid miegħu",
+    "irnRecorded": "IRN irreġistrat; il-PDF ġie ġġenerat mill-ġdid miegħu",
+    "irnCancelled": "IRN ikkanċellat; il-PDF ġie ġġenerat mill-ġdid"
+  }
+}

@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo forsíða",
+    "save": "Goym",
+    "cancel": "Ógilda",
+    "continue": "Halt fram",
+    "saving": "Goymir…",
+    "detect": "Finn",
+    "yes": "Ja",
+    "no": "Nei",
+    "choose": "Vel…",
+    "remove": "Strika",
+    "tryAgain": "Royn aftur",
+    "dashboard": "Yvirlit",
+    "goToDashboard": "Far til yvirlitið",
+    "or": "ella",
+    "invoice": "Rokning",
+    "creditNote": "Kreditnota",
+    "downloadPdf": "Tak PDF niður",
+    "edit": "Rætta",
+    "delete": "Sletta",
+    "downloadDocx": "Tak DOCX niður",
+    "downloadCii": "Tak EN 16931 XML niður",
+    "downloadUbl": "Tak Peppol UBL niður",
+    "downloadFacturX": "Tak Factur-X PDF niður",
+    "none": "Eingin",
+    "dismiss": "Lat aftur",
+    "all": "Alt",
+    "previous": "Undanfarna",
+    "next": "Næsta",
+    "go": "Far",
+    "search": "Leita",
+    "status": "Støða",
+    "total": "Samanlagt",
+    "currency": "Gjaldoyra",
+    "from": "Frá",
+    "to": "Til",
+    "reason": "Orsøk",
+    "history": "Søga",
+    "archive": "Goym í skjalasavn",
+    "restore": "Endurskapa",
+    "showArchived": "Vís goymd",
+    "hideArchived": "Fjal goymd",
+    "archived": "Goymt",
+    "default": "Sjálvvirði",
+    "setDefault": "Set sum sjálvvirði",
+    "revoke": "Aftur kalla",
+    "copy": "Avrita",
+    "copied": "Avritað",
+    "active": "Virkið",
+    "pagination": "Síðuskiftan",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Yvirlit",
+      "invoices": "Rokningar",
+      "creditNotes": "Kreditnotur",
+      "clients": "Kundar",
+      "services": "Tænastur",
+      "products": "Vørur",
+      "tools": "Gjaldoyra"
+    },
+    "primaryNav": "Høvuðs",
+    "settings": "Stillingar",
+    "openMenu": "Opna valmynd",
+    "more": "Meira",
+    "navigation": "Leiðsøgn",
+    "dock": "Skjót flyting",
+    "pagesAndAccount": "Síður og kontu",
+    "collapseSidebar": "Lat síðulistan saman",
+    "collapseSidebarHint": "Lat síðulistan saman ([)",
+    "expandSidebar": "Víðka síðulistan",
+    "expandSidebarHint": "Víðka síðulistan ([)",
+    "theme": {
+      "label": "Tema",
+      "system": "Skipan",
+      "light": "Ljóst",
+      "dark": "Myrkt",
+      "current": "Tema: {mode}",
+      "switchTo": "Tema: {mode}. Skift til {next}"
+    },
+    "userMenu": {
+      "label": "Kontovalmynd hjá {name}",
+      "profile": "Vanga",
+      "logOut": "Rita út"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Gjaldoyraskiftari",
+      "title": "Gjaldoyraskiftari",
+      "description": "Rokna um ímillum gjaldoyrarnar, tú fakturerar í, við kursatabellini, sum hendan instansin hevur.",
+      "amount": "Upphædd",
+      "from": "Frá",
+      "to": "Til",
+      "flip": "Skift um gjaldoyrarnar",
+      "enterAmount": "Skriva eina upphædd",
+      "asOf": "Gjaldoyrakursir frá {date} ({source})",
+      "sources": {
+        "bundled": "fylgja við appini",
+        "live": "dagførdir á netinum"
+      },
+      "note": "Kursirnir eru til vegleiðingar; kursurin á einum útgivnum reiknaði er sá, sum tú skrivaði, tá tú gavst hann út."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Rita inn",
+      "metaDescription": "Rita inn á okinvo, sjálvhýsta rokningarappina, við samleikaveitara tínum ella loyniorði tínum.",
+      "title": "Rita inn",
+      "subtitle": "Einans loyvdar kontur kunnu koma inn.",
+      "failed": "Innritan miseydnaðist.",
+      "noMethod": "Eingin innritanarháttur er stillaður. Set eitt veitarapar, til dømis <code>AUTH_GITHUB_*</code>, ella <code>AUTH_PASSWORD_SIGNIN=true</code>, í <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Henda kontan er ikki loyvd á hesi uppsetingini, ella hon er gjørd óvirkin.",
+        "signin": "Innritan varð ikki fullførd. Vinaliga royn aftur."
+      }
+    },
+    "password": {
+      "name": "Navn",
+      "email": "Teldupostur",
+      "password": "Loyniorð",
+      "signingIn": "Ritar inn…",
+      "createAccount": "Stovna kontu",
+      "signIn": "Rita inn",
+      "haveAPassword": "Eg havi longu eitt loyniorð",
+      "firstTime": "Fyrstu ferð her? Set eitt loyniorð",
+      "failed": "Innritan miseydnaðist."
+    },
+    "social": {
+      "redirecting": "Víðarisendir…",
+      "continueWith": "Halt fram við {provider}",
+      "failed": "Innritan kundi ikki byrja."
+    },
+    "error": {
+      "metaTitle": "Innritanarfeilur",
+      "metaDescription": "Innritanin eydnaðist ikki. Síðan greiðir frá, hvat fór galið og hvussu tú kanst royna aftur.",
+      "title": "Innritan miseydnaðist",
+      "body": "Samleikaveitarin sendi <code>{value}</code> aftur. Um adressan hjá tær ikki er á loyvislistanum á hesi uppsetingini, bið eigaran leggja hana afturat.",
+      "back": "Aftur til innritan"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Stillingar",
+      "profiles": "Vangar",
+      "paymentMethods": "Gjaldsháttir",
+      "templates": "Fyrimyndir",
+      "email": "Teldupostur",
+      "security": "Trygd",
+      "users": "Brúkarar",
+      "data": "Dáta",
+      "legal": "Løgfrøði",
+      "einvoicing": "E-rokning",
+      "account": "Konta",
+      "appearance": "Útsjóndur",
+      "api": "API",
+      "status": "Støða",
+      "usage": "Brúk"
+    },
+    "account": {
+      "metaTitle": "Konta",
+      "title": "Konta",
+      "description": "Mynd, navn, øki, mál og tíðarøki hjá tær.",
+      "photo": {
+        "title": "Mynd",
+        "description": "Víst í síðulistanum og brúkaravalmyndini."
+      },
+      "form": {
+        "title": "Konta",
+        "description": "Hvussu tú sært út, og nær “í dag” er.",
+        "displayName": "Víst navn",
+        "signInEmail": "Innritanar teldupostur",
+        "signInEmailHint": "Samleiki tín á hesi uppsetingini; hann kann ikki rættast her.",
+        "timezone": "Tíðarøki",
+        "timezoneHint": "“Í dag” fyri útgávudagfestingar, gjaldsfreist og yvirlitið",
+        "regionTitle": "Øki",
+        "regionDescription": "Sjálvvirði fyri nýggjar útgevaravangar og yvirlitið til ein vangi er til.",
+        "country": "Land",
+        "currency": "Gjaldoyra",
+        "suggested": "Uppskotið fyri hetta landið:",
+        "language": "Mál",
+        "languageHint": "Málið í appini sjálvum. Skjøl nýta málstillingina hjá hvørjum vanga.",
+        "machineTranslated": "Hetta málið er maskinuppsett. Rættingar eru vælkomnar: <link>bøt um tað á GitHub</link>.",
+        "save": "Goym ynskir"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerika",
+        "Asia": "Asia",
+        "Europe": "Evropa",
+        "MiddleEast": "Miðeystur",
+        "Oceania": "Oseania",
+        "Constructed": "Smíðað mál"
+      },
+      "privacy": {
+        "title": "Privatlív",
+        "description": "okinvo setur bara tær cookies, sum eru neyðugar til at virka. Eingin analysa, eingin eftirfylgjan.",
+        "cookiePolicy": "Cookie-politikkur",
+        "showNoticeAgain": "Vís cookie-fráboðanina aftur"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Skift mynd",
+      "addPhoto": "Legg mynd afturat",
+      "hint": "PNG, JPEG ella WebP. Víst sum ringur allastaðni; tú kanst zooma og flyta hana áðrenn tú goymir.",
+      "tooLarge": "Myndin er ov stór.",
+      "uploadFailed": "Upphavan miseydnaðist.",
+      "choose": "Vel eina vangamynd",
+      "dialogTitle": "Støðusetan av mynd tíni",
+      "dialogDescription": "Drag fyri at flyta, rulla ella klipp fyri at zooma. Ringurin er tað, sum øll síggja.",
+      "zoom": "Zoom",
+      "save": "Goym mynd"
+    },
+    "appearance": {
+      "metaTitle": "Útsjóndur",
+      "title": "Útsjóndur",
+      "description": "Tema og átrykslitur, goymt á kontuni hjá tær.",
+      "theme": {
+        "title": "Tema",
+        "description": "Fylg skipanini, ella set ljóst ella myrkt fast.",
+        "label": "Tema",
+        "system": "Fylg skipanini",
+        "systemHint": "Skiftir við stýrisskipanini hjá tær",
+        "light": "Ljóst",
+        "lightHint": "Hvítur flatur",
+        "dark": "Myrkt",
+        "darkHint": "Næstan svartur flatur"
+      },
+      "accent": {
+        "title": "Átrykslitur",
+        "description": "Brúktur til høvuðsknøttin, fokusringar og merkið fyri virknu síðuna. Mynta passar til merkið.",
+        "label": "Átrykslitur",
+        "customHint": "Ella vel ein nakran lit sjálvur"
+      },
+      "accents": {
+        "mint": "Mynta",
+        "lavender": "Lavendil",
+        "sky": "Himin",
+        "peach": "Ferskja",
+        "butter": "Smør",
+        "rose": "Rósa",
+        "sage": "Salvia",
+        "lilac": "Lilja",
+        "custom": "Sjálvvald"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Útgevaravangar",
+      "title": "Útgevaravangar",
+      "description": "Løgfrøðiligu samleikarnir, tú sendir rokningar frá. Sjálvvirðið fyllir nýggjar rokningar út frammanundan.",
+      "breadcrumb": "Vangar",
+      "newProfile": "Nýggjur vangi",
+      "emptyTitle": "Eingin útgevaravangi enn",
+      "emptyDescription": "Stovna samleikan, tú sendir rokningar frá: ein einstaklingur við PAN, ella fyritøkan hjá tær.",
+      "createProfile": "Stovna ein vanga",
+      "columns": {
+        "label": "Heiti",
+        "legalName": "Løgfrøðiligt navn",
+        "type": "Slag",
+        "country": "Land",
+        "currency": "Gjaldoyra",
+        "regime": "Skipan",
+        "status": "Støða"
+      },
+      "types": {
+        "company": "Fyritøka",
+        "individual": "Einstaklingur"
+      },
+      "makeDefaultTitle": "Ger {label} til sjálvvirði?",
+      "makeDefaultDescription": "Nýggjar rokningar byrja við hesum vanga.",
+      "restoreTitle": "Endurskapa {label}?",
+      "archiveTitle": "Goym {label} í skjalasavn?",
+      "archiveDescription": "Hann hvørvur úr valskránum; verandi rokningar verða ikki rørdar.",
+      "new": {
+        "metaTitle": "Nýggjur útgevaravangi",
+        "title": "Nýggjur útgevaravangi",
+        "prefilled": "Fyltur út úr svarum tínum; eftirkanna adressu og skattaupplýsingar, og goym so."
+      },
+      "edit": {
+        "metaTitle": "Rætta útgevaravanga",
+        "template": "Fyrimynd",
+        "deleteTitle": "Sletta {label}?",
+        "deleteDescription": "Bara møguligt, tá eingin rokning ella kreditnota vísir til hendan vangan. Annars goym hann í skjalasavn."
+      },
+      "template": {
+        "metaTitle": "Vangafyrimynd",
+        "title": "Fyrimynd fyri {label}",
+        "ownTemplate": "Egin fyrimynd",
+        "instanceTemplate": "Fyrimynd hjá uppsetingini",
+        "resetTitle": "Brúka fyrimynd uppsetingarinnar aftur?",
+        "resetDescription": "Egna uppsetingin hjá hesum vanga verður strikað; útgivin skjøl verða ikki fyri ávirkan.",
+        "useInstance": "Brúka fyrimynd uppsetingarinnar",
+        "usingInstanceTitle": "Brúkar fyrimynd uppsetingarinnar",
+        "usingInstanceDescription": "Skjøl frá hesum vanga fylgja Stillingar → Fyrimyndir. Vel tað til fyri at tillaga tey sær.",
+        "customise": "Brúka aðra fyrimynd fyri hendan vangan",
+        "openInstance": "Opna fyrimynd uppsetingarinnar"
+      },
+      "form": {
+        "identityTitle": "Samleiki",
+        "identityDescription": "Hvør rokningin er frá.",
+        "type": "Slag",
+        "label": "Heiti",
+        "labelHint": "Bara víst í valskrám",
+        "legalName": "Løgfrøðiligt navn",
+        "tradeName": "Handilsnavn",
+        "designation": "Starvsheiti",
+        "email": "Teldupostur",
+        "phone": "Telefon",
+        "website": "Heimasíða",
+        "addressTitle": "Adressa",
+        "taxTitle": "Skattaauðkenni",
+        "taxDescription": "Bara tey, sum eiga við teg; prentan verður stýrd fyri hvørja rokning.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "UK VAT-nummar",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "Krypterað í goymslu",
+        "lutNumber": "LUT-nummar",
+        "lutNumberHint": "Fyri útflutning uttan IGST",
+        "lutFiscalYear": "LUT roknskaparár",
+        "lutFiscalYearHint": "t.d. 2026-27",
+        "einvoiceTitle": "E-rokning",
+        "einvoiceDescription": "Hvussu hesin vangin kennir seg á e-rokningum; sambindingin og atgongdarupplýsingarnar eru undir Stillingar > E-rokning.",
+        "electronicAddress": "Elektroniskt bústaðarfang",
+        "electronicAddressHint": "Peppol- ella EN 16931-kennarin hjá hesum útgevara, prentaður sum elektroniskt bústaðarfang seljarans.",
+        "electronicAddressScheme": "Skipan fyri elektroniskt bústaðarfang",
+        "electronicAddressSchemeNone": "Eingin skipan",
+        "einvoiceEnabled": "E-rokning virkin fyri hendan vangan",
+        "einvoiceEnabledHint": "Bjóðar niðurtøkur av GST e-rokning JSON, Factur-X og UBL og IRN-skráseting á útgivnum skjølum hansara.",
+        "defaultsTitle": "Sjálvvirði",
+        "baseCurrency": "Grundgjaldoyra",
+        "locale": "Skjalamálstilling",
+        "localeHint": "Sniðgeving av tølum og dagfestingum á skjølum",
+        "fiscalYearStart": "Roknskaparárið byrjar í",
+        "months": {
+          "january": "januar",
+          "february": "februar",
+          "march": "mars",
+          "april": "apríl",
+          "may": "mai",
+          "june": "juni",
+          "july": "juli",
+          "august": "august",
+          "september": "september",
+          "october": "oktober",
+          "november": "november",
+          "december": "desember"
+        },
+        "taxRegime": "Sjálvvirðis skattaskipan",
+        "regimes": {
+          "indiaGst": "India GST",
+          "ukVat": "UK VAT",
+          "usSalesTax": "US søluskattur",
+          "none": "Eingin skattur"
+        },
+        "invoiceNumberFormat": "Snið á rokningarnummari",
+        "invoiceNumberFormatHint": "Tekin: {tokens}",
+        "creditNoteNumberFormat": "Snið á kreditnotunummari",
+        "tdsRate": "Væntað TDS-gjald (%)",
+        "tdsRateHint": "Til kunning, prentað sum væntaður frádráttur",
+        "defaultNotes": "Sjálvvirðis viðmerkingar",
+        "defaultTerms": "Sjálvvirðis treytir",
+        "printTitle": "Hvat verður prentað sum sjálvvirði",
+        "printDescription": "Hvør rokning avritar hetta og kann broytast sær.",
+        "emailTitle": "Teldupostur",
+        "emailDescription": "Sjálvvirði fyri sendingarskrivaran. Plássvarar: {placeholders}",
+        "emailCc": "Sjálvvirðis CC",
+        "emailBcc": "Sjálvvirðis BCC",
+        "commaSeparated": "Skild við komma",
+        "invoiceSubject": "Evni á rokning",
+        "invoiceSubjectHint": "Tómt brúkar innbygdu fyrimyndina",
+        "creditNoteSubject": "Evni á kreditnotu",
+        "invoiceBody": "Tekstur í rokning",
+        "creditNoteBody": "Tekstur í kreditnotu",
+        "artworkTitle": "Myndaevni",
+        "artworkDescription": "PNG, JPEG ella WebP upp til 2 MB; undirskrift og stempul varðveita gjøgnumskygni.",
+        "logo": "Ímynd",
+        "signature": "Undirskrift",
+        "stamp": "Stempul",
+        "transparentPng": "Gjøgnumskygt PNG",
+        "save": "Goym vanga"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Gjaldsháttir",
+      "title": "Gjaldsháttir",
+      "description": "Hvussu kundar rinda tær. Smálutir eru krypteraðir og fryst í hvørja rokning, tá hon verður útgivin.",
+      "newMethod": "Nýggjur háttur",
+      "emptyTitle": "Eingir gjaldsháttir enn",
+      "emptyDescription": "Legg eina bankakontu, UPI ID ella pengabuks afturat, so rokningar kunnu siga kundum, hvar teir skulu rinda.",
+      "addMethod": "Legg ein hátt afturat",
+      "columns": {
+        "name": "Navn",
+        "type": "Slag",
+        "currency": "Gjaldoyra",
+        "status": "Støða"
+      },
+      "types": {
+        "bankTransfer": "Bankaflyting",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Sjálvvalt"
+      },
+      "makeDefaultTitle": "Ger {name} til sjálvvirði?",
+      "restoreTitle": "Endurskapa {name}?",
+      "archiveTitle": "Goym {name} í skjalasavn?",
+      "archiveDescription": "Útgivnar rokningar varðveita myndina, sum varð prentað.",
+      "new": {
+        "metaTitle": "Nýggjur gjaldsháttur",
+        "title": "Nýggjur gjaldsháttur"
+      },
+      "edit": {
+        "metaTitle": "Rætta gjaldsátt",
+        "title": "Rætta {name}",
+        "deleteTitle": "Sletta {name}?",
+        "deleteDescription": "Bara møguligt, tá eingin rokning ella gjaldan vísir til hann. Annars goym hann í skjalasavn."
+      },
+      "form": {
+        "name": "Navn",
+        "nameHint": "Prentað sum yvirskrift á gjaldsblokkinum",
+        "type": "Slag",
+        "currency": "Gjaldoyra",
+        "currencyHint": "Valfrítt; bara víst til samanhang",
+        "anyCurrency": "Hvør sum helst",
+        "instructions": "Vegleiðing",
+        "instructionsHint": "Prentað undir smálutunum",
+        "isDefault": "Sjálvvirðis háttur",
+        "isDefaultDescription": "Frammanundan valdur á nýggjum rokningum",
+        "isActive": "Virkin",
+        "detailsTitle": "Smálutir",
+        "detailsDescription": "Krypterað í goymslu; fryst í hvørja rokning, tá hon verður útgivin.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "Navn á móttakara",
+        "lines": "Linjur",
+        "linesHint": "Ein linja fyri hvørja røð, prentað sum er",
+        "accountEmail": "Teldupostur / heiti á kontu",
+        "bank": {
+          "accountHolder": "Kontoeigari",
+          "accountNumber": "Kontonummar",
+          "bankName": "Navn á banka",
+          "branch": "Deild",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Routing / sort code"
+        },
+        "save": "Goym gjaldsátt"
+      }
+    },
+    "templates": {
+      "metaTitle": "Skjalafyrimyndir",
+      "title": "Skjalafyrimyndir",
+      "customised": "Tillagað",
+      "builtIn": "Innbygt sjálvvirði",
+      "description": "Hvussu rokningar og kreditnotur síggja út. Útgivin skjøl varðveita fyrimyndina, tey vórðu útgivin við.",
+      "resetTitle": "Endurset til innbygda sjálvvirðið?",
+      "resetDescription": "Tillagingin hjá tær verður strikað; skjøl, sum longu eru útgivin, verða ikki fyri ávirkan.",
+      "reset": "Endurset",
+      "resetTrigger": "Endurset til sjálvvirði",
+      "importTitle": "Innles",
+      "importDescription": "Endurskapa eina uppsetan, sum áður varð útflutt.",
+      "overridesTitle": "Undantøk fyri vanga",
+      "overridesDescription": "Ein vangi kann velja sær egna fyrimynd frá rættingarsíðuni hjá sær.",
+      "noOverrides": "Hvør vangi brúkar fyrimynd uppsetingarinnar.",
+      "import": {
+        "json": "Fyrimynd JSON",
+        "jsonHint": "Set eina fílu inn, sum Útflut JSON hevur gjørt; manglandi lyklar fara aftur til sjálvvirði",
+        "importing": "Innlesur…",
+        "submit": "Innles"
+      },
+      "form": {
+        "templateTitle": "Fyrimynd",
+        "templateDescription": "Seks innbygdar; tillagingin niðanfyri eigur við tí, sum tú velur.",
+        "templateGroup": "Fyrimynd",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Nútímans og luftigt, sans-serif, átrykkslinja undir høvdinum."
+          },
+          "classic": {
+            "name": "Classic",
+            "character": "Vanlig talva við rammum, serif yvirskriftir, umgirdar samanlagdar upphæddir."
+          },
+          "compact": {
+            "name": "Compact",
+            "character": "Tætt uppsetan fyri long evnislisti; minni skrift, færri skiljarar."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "Spakuligt og rúmligt: eingir strikur ella kassar, ljós heiti, nógv luft."
+          },
+          "letterhead": {
+            "name": "Letterhead",
+            "character": "Ímynd og navn hjá tær á litbandi ella mynd yvir á hvørja síðu."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Høvd við litbandi; partar, talvuhøvd og samanlagdar upphæddir á bleikum átrykslitatónum."
+          }
+        },
+        "paperTitle": "Pappír og skrift",
+        "paperSize": "Pappírsstødd",
+        "paperLetter": "Letter",
+        "margins": "Kantar",
+        "marginsNormal": "Vanligir",
+        "marginsNarrow": "Smalir",
+        "headingFont": "Skriftslag í yvirskriftum",
+        "bodyFont": "Skriftslag í teksti",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "Talvusnið",
+        "tableRuled": "Við strikum",
+        "tableZebra": "Sebra",
+        "tablePlain": "Slætt",
+        "accentColour": "Átrykslitur",
+        "textColour": "Tekstlitur",
+        "logoPosition": "Støða á ímynd",
+        "positionLeft": "Vinstra",
+        "positionCentre": "Mið",
+        "positionRight": "Høgra",
+        "logoHeight": "Hædd á ímynd (mm)",
+        "documentTitle": "Skjalayvirskrift",
+        "titleAuto": "Sjálvvirkandi (GST-vitandi)",
+        "titleCustom": "Sjálvvalt",
+        "titlePlaceholder": "t.d. PROFORMA ROKNING",
+        "qrPosition": "Støða á QR",
+        "qrFooter": "Fótur",
+        "qrHeader": "Høvd",
+        "qrBesideTotals": "Við síðuna av samanlagdum",
+        "amountInWords": "Upphædd í orðum",
+        "wordsBelowTotal": "Undir samanlagdum",
+        "wordsFooter": "Fótur",
+        "wordsHidden": "Fjalt",
+        "subtotalRow": "Millumsamanlagt røð",
+        "discountRow": "Avsláttarrøð",
+        "taxLines": "Skattalinjur",
+        "tdsExpected": "Væntað TDS",
+        "roundingRow": "Rundingarrøð",
+        "pageNumbers": "Síðutøl",
+        "headerTitle": "Høvd",
+        "headerDescription": "Eitt litband ella ein mynd yvir á hvørja síðu. Letterhead og Modern vísa eitt band, uttan so at tú velur annað.",
+        "headerStyle": "Høvdssnið",
+        "headerNone": "Einki",
+        "headerBand": "Litband",
+        "headerImage": "Mynd",
+        "bandColour": "Litur á bandi",
+        "bandColourHex": "Litur á bandi (hex)",
+        "headerImageLabel": "Høvdsmynd",
+        "headerImageHint": "PNG, JPEG ella WebP upp til 2400 px breitt; hon røkkur yvir alla síðubreiddina.",
+        "imageOpacity": "Ógjøgnumskygni á mynd",
+        "headerHeight": "Hædd á høvdi (mm)",
+        "bandText": "Tekstur á bandinum",
+        "bandTextAuto": "Sjálvvirkandi (eftir litinum á bandinum)",
+        "bandTextLight": "Ljóst",
+        "bandTextDark": "Myrkt",
+        "textTitle": "Tekstur",
+        "headerNote": "Viðmerking í høvdi",
+        "footer": "Fótur",
+        "signatureCaption": "Undirskriftartekstur",
+        "draftWatermark": "Vatnmerki á uppskoti",
+        "labelsTitle": "Heiti",
+        "labelsDescription": "Lat ein reit standa tóman fyri at varðveita sjálvvirðis orðingina.",
+        "save": "Goym fyrimynd",
+        "downloadSample": "Tak sýnispdf niður",
+        "exportJson": "Útflut JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Teldupostur",
+      "title": "Teldupostur",
+      "configuredSettings": "Stillað í Stillingum",
+      "configuredEnv": "Stillað av umhvørvinum",
+      "notConfigured": "Ikki stillað: teldupostforrit",
+      "description": "Skjøl verða send frá skrivaranum við goymdu PDF-fíluni viðfestari. Stillingar her eru yvirskipaðar SMTP_* í umhvørvinum.",
+      "sendTest": "Send royndarteldupost til {email}",
+      "removeTitle": "Strika goymdar SMTP-stillingar?",
+      "removeEnvTakesOver": "SMTP_*-virðini í umhvørvinum taka yvir.",
+      "removeFallsBack": "Teldupostur fer aftur til teldupostforrit.",
+      "removeTrigger": "Strika goymdar stillingar",
+      "smtpTitle": "SMTP-ambætari",
+      "smtpFromEnv": "Verður nú tikið úr umhvørvinum; at goyma her yvirskipar tað.",
+      "smtpPasswordNote": "Loyniorðið er krypterað í goymslu og verður ongantíð víst aftur.",
+      "defaultsTitle": "Sjálvvirðis móttakarar",
+      "defaultsDescription": "CC/BCC fyri alla uppsetingina; útgevaravangar leggja síni afturat.",
+      "sentTitle": "Send post",
+      "sentDescription": "Seinastu 50 royndirnar, íroknað miseydnaðar og handsendingar.",
+      "smtp": {
+        "host": "Ambætari",
+        "port": "Port",
+        "security": "Trygd",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Eingin (LAN-relay)",
+        "user": "Brúkaranavn",
+        "password": "Loyniorð",
+        "passwordStored": "Goymt og krypterað; lat standa tómt fyri at varðveita tað",
+        "passwordEncrypted": "Krypterað í goymslu",
+        "from": "Sendaraadressa",
+        "fromName": "Navn á sendara",
+        "replyTo": "Svara til",
+        "save": "Goym SMTP-stillingar"
+      },
+      "defaults": {
+        "cc": "Sjálvvirðis CC",
+        "ccHint": "Lagt afturat hvørjum skrivara; skilt við komma",
+        "bcc": "Sjálvvirðis BCC",
+        "save": "Goym sjálvvirði"
+      }
+    },
+    "security": {
+      "metaTitle": "Trygd",
+      "title": "Trygd",
+      "description": "Hvar tú ert innritað(ur), og alt, sum er broytt.",
+      "sessions": {
+        "title": "Virknar setur",
+        "description": "At kalla eina setu aftur ritar tað tólið út beinanvegin.",
+        "signOutOthers": {
+          "title": "Rita út allastaðni annars?",
+          "description": "Allar setur uttan hesa verða afturkallaðar.",
+          "confirm": "Rita onnur út",
+          "trigger": "Rita út allastaðni annars"
+        },
+        "columns": {
+          "device": "Tól",
+          "ipAddress": "IP-adressa",
+          "signedIn": "Innritað",
+          "lastSeen": "Seinast sæð",
+          "expires": "Gongur út"
+        },
+        "thisDevice": "Hetta tólið",
+        "revokeTitle": "Kalla hesa setuna aftur?",
+        "unknownDevice": "Ókent tól",
+        "unknownBrowser": "Ókent",
+        "agentOnOs": "{browser} á {os}"
+      },
+      "audit": {
+        "title": "Grannskoðanarbók",
+        "count": "{count, plural, one {# hending} other {# hendingar}}",
+        "entity": "Eind",
+        "actionContains": "Handling inniheldur",
+        "filter": "Filtrera",
+        "reset": "Endurset",
+        "columns": {
+          "when": "Nær",
+          "who": "Hvør",
+          "action": "Handling",
+          "entity": "Eind",
+          "summary": "Samandráttur"
+        },
+        "empty": "Eingin hending samsvarar við hesar filtur.",
+        "system": "Skipan",
+        "changes": "Broytingar",
+        "page": "Síða {page} av {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Brúkarar",
+      "title": "Brúkarar",
+      "description": "Hvør kann rita inn á hesa uppsetingina og hvat teir mega.",
+      "roles": {
+        "owner": "Eigari",
+        "editor": "Rættari",
+        "viewer": "Sjónari"
+      },
+      "roleHints": {
+        "owner": "Alt, íroknað stillingar og limir",
+        "editor": "Kundar, vørulisti, rokningar, kreditnotur, gjaldanir, teldupostur",
+        "viewer": "Bara lesing"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Leiklutur hjá {email}",
+      "invite": {
+        "title": "Bjóða einum",
+        "description": "Hann ritar inn við bodnu adressuni (ein samleikaveitari ella eitt loyniorð) og fær leiklutin, sum tú velur.",
+        "sent": "Innbjóðing send við teldupósti til {email}.",
+        "readyWithError": "Innbjóðing klár til {email}. Teldupósturin kundi ikki sendast ({error}); send teimum hesa leinkju:",
+        "readyNoSmtp": "Innbjóðing klár til {email}. Eingin SMTP er stillaður; send teimum hesa leinkju:",
+        "copyLink": "Avrita leinkju",
+        "email": "Teldupostur",
+        "emailPlaceholder": "person@example.com",
+        "role": "Leiklutur",
+        "submit": "Bjóða",
+        "inviting": "Bjóðar…"
+      },
+      "members": {
+        "title": "Limir",
+        "description": "Í minsta lagi ein virkin eigari er altíð eftir.",
+        "columns": {
+          "person": "Persónur",
+          "role": "Leiklutur",
+          "lastSignIn": "Seinasta innritan",
+          "status": "Støða"
+        },
+        "nameYou": "{name} (tú)",
+        "deactivated": "Óvirkin",
+        "reactivate": {
+          "title": "Virkja {email} aftur?",
+          "description": "Hann kann rita inn aftur við fyrra leiklutinum.",
+          "confirm": "Virkja aftur"
+        },
+        "deactivate": {
+          "title": "Ger {email} óvirkin?",
+          "description": "Allar setur enda nú og hann kann ikki rita inn, fyrr enn hann verður virkjaður aftur. Søga hansara verður verandi.",
+          "confirm": "Ger óvirkin"
+        }
+      },
+      "invitations": {
+        "title": "Bíðandi innbjóðingar",
+        "description": "Adressur, sum kunnu rita inn, men ikki hava gjørt tað enn.",
+        "columns": {
+          "email": "Teldupostur",
+          "role": "Leiklutur",
+          "invited": "Bodin"
+        },
+        "empty": "Eingin bíðandi innbjóðing.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Kalla innbjóðingina til {email} aftur?"
+      }
+    },
+    "data": {
+      "metaTitle": "Dáta",
+      "title": "Dáta",
+      "description": "Alt er flytiligt: dátusett sum CSV ella Excel, ein fullur snap til flyting, PDF-skjøl til roknskaparan og ein royndur trygdaravritsrútina.",
+      "period": {
+        "fiscalYear": "Roknskaparár",
+        "fiscalYearHint": "Yvirskipar dagfestingarnar",
+        "issuer": "Útgevari"
+      },
+      "exportAll": {
+        "title": "Útflut alla dátu",
+        "description": "Ein ZIP við hvørjum dátusetti sum CSV umframt <mono>data.json</mono>, ein relationellan snap av øllum talvum. Krypteraðir reitir (smálutir um gjaldsháttir, SMTP-loyniorð) eru ikki við; README-fílan inni skrásetir tá.",
+        "download": "Tak okinvo-data ZIP niður"
+      },
+      "exportDocuments": {
+        "title": "Útflut skjøl",
+        "description": "Allar útgivnar og ógildaðar rokningar og kreditnotur sum PDF fyri eitt tíðarskeið, nevndar eftir nummari, við einum <mono>index.csv</mono> yvir nummur, samanlagdar upphæddir og hash. Manglandi PDF-ir verða gjørdar á vegnum.",
+        "docx": "Tak eisini DOCX-avrit av hvørjum skjali við",
+        "facturx": "Tak eisini Factur-X PDF/A-3-avrit við innbygdum EN 16931 XML við",
+        "download": "Tak skjala-ZIP niður"
+      },
+      "datasets": {
+        "title": "Dátusett",
+        "description": "Sama útflutning, sum indexsíðurnar bjóða, við tíðarskeiði og útgevara nýttum á tey øll. Gjaldanir nýta dagfestingarbilið; kundar og tænastur sleppa tíðarskeiðnum.",
+        "columns": {
+          "dataset": "Dátusett",
+          "filters": "Nýttar filtur",
+          "download": "Tak niður"
+        },
+        "names": {
+          "invoices": "Rokningarskrá",
+          "invoiceItems": "Rokningarlinjur",
+          "payments": "Gjaldsbók",
+          "creditNotes": "Kreditnotuskrá",
+          "clients": "Kundar",
+          "services": "Tænastur",
+          "gstSummary": "GST-samandráttur",
+          "tdsSummary": "TDS-samandráttur"
+        },
+        "filters": {
+          "periodIssuer": "tíðarskeið, útgevari",
+          "dateRangeIssuer": "dagfestingarbil, útgevari",
+          "includesArchived": "inniheldur goymd"
+        }
+      },
+      "backups": {
+        "title": "Trygdaravrit",
+        "notWired": "Eingin trygdaravritstænasta tengd",
+        "noRun": "Eitt trygdaravrit er ikki koyrt enn",
+        "lastOk": "Seinasta trygdaravrit eydnaðist",
+        "lastFailed": "Seinasta trygdaravrit miseydnaðist",
+        "description": "Compose-tænastan <mono>backup</mono> goymir Postgres og leggur goymslubindið í skjalasavn eftir <mono>BACKUP_CRON</mono>, varðveitir <mono>BACKUP_RETENTION_DAYS</mono> av søgu í bindinum <mono>backups</mono> og skrivar eina støðufílu, sum hendan síðan lesur.",
+        "finished": "Liðugt",
+        "databaseDump": "Dátugrunnsavrit",
+        "storageArchive": "Goymslusavn",
+        "size": "Stødd",
+        "sizeMb": "{size} MB",
+        "error": "Feilur",
+        "runNow": "Koyr eitt nú, ella endurskapa úr einum pari av fílum:",
+        "restoreDrill": "Endurskapanarháttin verður royndur í CI av <mono>scripts/restore-drill.sh</mono>: sáa, trygdaravrit, tøma, endurskapa, og so samanbera røðtøl og eitt PDF-hash."
+      }
+    },
+    "legal": {
+      "metaTitle": "Løgfrøði",
+      "metaDescription": "Hvør rekur hesa uppsetingina: upplýsingarnar, sum verða prentaðar á almennu løgfrøðisíðurnar.",
+      "title": "Løgfrøði",
+      "description": "Almennu løgfrøðisíðurnar prenta hesar upplýsingar. Til allir reitir eru útfyltir, vísa síðurnar upplýstar plássvarar.",
+      "operator": {
+        "title": "Upplýsingar um rekstrarhavara",
+        "complete": "Fullfíggjað",
+        "missing": "{count} manglar: {fields}",
+        "description": "Tú, sum persónur ella fyritøka, ið rekur hesa uppsetingina, ert rekstrarhavarin, sum skjølini vísa til. Einki verður sent nakrastaðni; tað verður prentað á síðurnar niðanfyri."
+      },
+      "fieldLabels": {
+        "legalName": "Løgfrøðiligt navn á rekstrarhavara",
+        "entityType": "Einindarslag",
+        "address": "Adressa hjá rekstrarhavara",
+        "country": "Land hjá rekstrarhavara",
+        "contactEmail": "Samskiftisteldupostur",
+        "privacyEmail": "Privatlívsteldupostur",
+        "dpoEmail": "Teldupostur hjá dátuverndarfulltrúa",
+        "governingLaw": "Galdandi løggáva",
+        "venue": "Rættarstaður fyri ósemjur",
+        "effectiveDate": "Gildisdagur"
+      },
+      "publicPages": {
+        "title": "Almennar síður",
+        "description": "Leinkja frá innritanarsíðuni, deilingarsjónaranum og cookie-fráboðanini.",
+        "terms": "Tænastutreytir",
+        "acceptableUse": "Politikkur um loyvda nýtslu",
+        "privacy": "Privatlívspolitikkur",
+        "cookies": "Cookie-politikkur",
+        "dataRetention": "Varðveiting av dátu",
+        "security": "Trygd",
+        "licenses": "Loyvi og fráboðanir um triðjapart"
+      },
+      "form": {
+        "legalName": "Løgfrøðiligt navn",
+        "entityType": "Einindarslag",
+        "individual": "Einstaklingur / einkarfyritøka",
+        "company": "Fyritøka / skrásett eind",
+        "address": "Adressa",
+        "addressHint": "Prentað í Treytunum og Privatlívspolitikkinum sum postadressa rekstrarhavarans.",
+        "country": "Land",
+        "effectiveDate": "Gildisdagur",
+        "contactEmail": "Samskiftisteldupostur",
+        "privacyEmail": "Privatlívsteldupostur",
+        "privacyEmailHint": "Hvar umbøn frá skrásettum fara; kann vera samskiftisadressan.",
+        "dpoEmail": "Teldupostur hjá dátuverndarfulltrúa",
+        "dpoEmailHint": "Bara um tú hevur útnevnt ein.",
+        "governingLaw": "Galdandi løggáva",
+        "governingLawHint": "Til dømis “løgirnar í India” ella “løgirnar í Onglandi og Wales”.",
+        "venue": "Rættarstaður fyri ósemjur",
+        "venueHint": "Til dømis “rættirnir í Bengaluru, Karnataka”.",
+        "submit": "Goym upplýsingar um rekstrarhavara"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-rokning",
+      "title": "E-rokning",
+      "description": "Fyri hvønn útgevaravanga: hvør sambinding skrásetur indiskar e-rokningar, og hvønn evropeiskan vanga Factur-X og UBL úttøkini fylgja. Atgongdarupplýsingar verða goymdar bronglaðar og verða ongantíð víst aftur.",
+      "noProfiles": "Stovna fyrst ein útgevaravanga.",
+      "profile": "Útgevaravangi",
+      "enabled": "Virkið",
+      "disabled": "Óvirkið",
+      "enabledHint": "Tendra ella sløkk e-rokning fyri hvønn vanga undir Stillingar > Vangar.",
+      "india": {
+        "title": "India (GST e-rokning, IRN)",
+        "description": "IRN verður skrásett gjøgnum sambindingina, sum er valt her; handsambindingin tekur ímóti svari portalsins við hond.",
+        "connector": "Sambinding",
+        "connectorNone": "Sløkt",
+        "connectorManual": "Við hond (set IRP-svarið inn)",
+        "connectorNic": "NIC IRP API (sandkassi ella framleiðsla)",
+        "nicUnverified": "NIC-sambindingin fylgir útgivna APIinum og er bert royndur móti upptiknum royndardátum; hon er ikki váttað móti livandi sandkassa, fyrr enn atgongdarupplýsingar eru givnar.",
+        "env": "Umhvørvi",
+        "sandbox": "Sandkassi",
+        "production": "Framleiðsla",
+        "baseUrl": "Grunn-URL",
+        "baseUrlHint": "Lat standa tómt fyri forsettan umhvørvisins.",
+        "clientId": "Kunda-ID",
+        "clientSecret": "Kunda loyniorð",
+        "username": "Brúkaranavn",
+        "password": "Loyniorð",
+        "gstin": "GSTIN",
+        "publicKey": "Almenn IRP-lykil (PEM)",
+        "publicKeyHint": "Tak hann niður frá portalinum eftir innritan; hann umbýtir tær lyklaorð, sum verða send til IRP.",
+        "publicKeyStored": "Goymdur; lat vera tóman fyri at varðveita hann.",
+        "secretStored": "Goymt bronglað; lat standa tómt fyri at varðveita tað.",
+        "secretEncrypted": "Goymt bronglað í hvíld."
+      },
+      "eu": {
+        "title": "Evropa (Factur-X, UBL)",
+        "description": "EN 16931 er einasti vangin í hesi útgávu; niðurtøkur av Factur-X og UBL brúka hann.",
+        "profile": "Vangi",
+        "profileNone": "Sløkt",
+        "en16931": "EN 16931"
+      },
+      "save": "Goym stillingar fyri e-rokning"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API-lyklar til skriftir, SDK og MCP-kundar, við curl-dømum.",
+      "title": "API",
+      "description": "Lyklar til skriftir, SDK og MCP-kundar. Ein lykil kann í mesta lagi tað, sum leiklutur tín loyvir; hann verður bara víst eina ferð.",
+      "create": {
+        "title": "Stovna ein lykil",
+        "description": "Send hann sum <mono>Authorization: Bearer okv_…</mono>. Halt hann burtur frá keldukotu og samrøðubókum; kalla hann aftur niðanfyri, um hann lekur."
+      },
+      "keys": {
+        "title": "Lyklar",
+        "descriptionOwner": "Allir lyklar á hesi uppsetingini; eigarar kunnu kalla hvønn sum helst aftur.",
+        "descriptionOwn": "Tínir lyklar.",
+        "columns": {
+          "name": "Navn",
+          "prefix": "Forskeyti",
+          "scopes": "Umfør",
+          "owner": "Eigari",
+          "lastUsed": "Seinast brúktur",
+          "expires": "Gongur út",
+          "status": "Støða"
+        },
+        "empty": "Eingir API-lyklar enn.",
+        "never": "ongantíð",
+        "revoked": "Afturkallaður",
+        "expired": "Útgingin",
+        "revokeTitle": "Kalla {name} aftur?",
+        "revokeDescription": "Kundar, sum nýta hendan lykilin, steðga beinanvegin.",
+        "activeCount": "{count, plural, one {# virkin lykil.} other {# virknir lyklar.}}"
+      },
+      "examples": {
+        "title": "Dømi",
+        "description": "Set ein lykil í staðin fyri <mono>$OKINVO_KEY</mono>. Útgávubundna REST-API-ið, OpenAPI-skjalið (<mono>/api/openapi.json</mono>), TypeScript SDK og MCP-ambætarin koma við næstu uppgávum í v1.1-ætlanini; støðuendapunktið virkar longu í dag.",
+        "rateLimit": "Áheitanir omanfyri markið svara við 429 og høvdinum <mono>Retry-After</mono> (120 umbønir um minuttið fyri hvønn lykil). Umføri lykilsins eru avmarkað av núverandi leiklutinum hjá eigaranum."
+      },
+      "form": {
+        "copyKey": "Avrita API-lykil",
+        "name": "Navn",
+        "namePlaceholder": "t.d. roknskaparskrift",
+        "expires": "Gongur út",
+        "in30Days": "Um 30 dagar",
+        "in90Days": "Um 90 dagar",
+        "inAYear": "Um eitt ár",
+        "never": "Ongantíð",
+        "scopes": "Umfør",
+        "submit": "Stovna API-lykil",
+        "creating": "Stovnar…"
+      },
+      "scopes": {
+        "invoicesRead": "Les rokningar",
+        "invoicesCreate": "Stovna og útgev rokningar",
+        "creditNotesRead": "Les kreditnotur",
+        "creditNotesCreate": "Stovna og útgev kreditnotur",
+        "catalogueRead": "Les kundar, tænastur og vørur",
+        "documentsRead": "Tak goymdar PDF-ir og DOCX-avrit niður",
+        "statusRead": "Les støðuna á uppsetingini"
+      }
+    },
+    "status": {
+      "metaTitle": "Støða",
+      "metaDescription": "Útgáva, dátugrunnur, goymsla, teldupostur og trygdaravritsstøða á hesi uppsetingini.",
+      "title": "Støða",
+      "description": "Hvat hendan uppsetingin koyrir, og um partarnir svara.",
+      "recheck": "Eftirkanna aftur",
+      "health": {
+        "ok": "OK",
+        "warning": "Ávaring",
+        "failed": "Miseydnað",
+        "na": "Ikki stillað"
+      },
+      "overall": {
+        "ok": "Alt er í lagi",
+        "degraded": "Skerd",
+        "failed": "Miseydnað"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(sha ókent)}} · bygt {built} · Node <mono>{node}</mono> · uppi {uptime} · eftirkannað {checked}",
+      "dateUnknown": "(dagfesting ókend)",
+      "uptime": {
+        "days": "{d}d {h}t {m}m",
+        "hours": "{h}t {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Dátugrunnur",
+        "storage": "Goymsla",
+        "rateLimiting": "Tøkumarkan",
+        "email": "Teldupostur",
+        "backups": "Trygdaravrit"
+      },
+      "db": {
+        "detail": "{latency} ms · seinasta flyting <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # ófullfíggjað flyting(ar)}}",
+        "noMigration": "eingin"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · skriving, lesing og striking av royndarlutinum á {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono>-goymsla {store, select, memory {(ein eftirmynd)} other {(deild millum eftirmyndir)}}",
+      "smtp": {
+        "configured": "SMTP frá {source, select, settings {the settings page} env {the environment} other {}} · seinasta royndin {lastTest} · seinastu 24 tímar: {sent} sent, {failed} miseydnað",
+        "none": "Eingin SMTP-ambætari; skrivarin bjóðar “Opna í teldupostforriti”. <link>Stilla</link>"
+      },
+      "backups": {
+        "notWired": "Eingin trygdaravritstænasta tengd (BACKUP_STATUS_FILE ikki sett).",
+        "noRun": "Trygdaravritstænasta tengd; eingin koyring skrásett enn.",
+        "ok": "Seinasta koyring eydnaðist {finishedAt}{days, plural, =0 {} one { · varðveiting # dagur} other { · varðveiting # dagar}}",
+        "failed": "Seinasta koyring miseydnaðist: {error} {finishedAt}{days, plural, =0 {} one { · varðveiting # dagur} other { · varðveiting # dagar}}"
+      },
+      "footer": "Sama frágreiðing fæst sum JSON á <mono>/api/health/status</mono> til eftirlit (innritað seta ella API-lykil)."
+    },
+    "usage": {
+      "metaTitle": "Brúk",
+      "metaDescription": "Síðuvísingar fyri hvønn skíggja og dag á hesi instansini, tald lokalt.",
+      "title": "Brúk",
+      "description": "Hvussu ofta hvør skíggi er opnaður, tald bert á hesi instansini: eingir cookies, ongar adressur, einki verður sent nakrastaðni.",
+      "last30Days": "Seinastu 30 dagar",
+      "total": "{count, plural, =0 {Ongar síðuvísingar} one {# síðuvísing} other {# síðuvísingar}}",
+      "off": "Talingin er slökt. Set ANALYTICS_LOCAL=true fyri at telja síðuvísingar á hesi instansini.",
+      "empty": "Ongar síðuvísingar skrásettar enn.",
+      "columns": {
+        "day": "Dagur",
+        "path": "Skíggi",
+        "views": "Vísingar"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Vælkomin",
+    "progress": "Frambrá",
+    "steps": {
+      "aboutYou": "Um teg",
+      "howYouUse": "Hvussu tú nýtir tað",
+      "allSet": "Klárt"
+    },
+    "step1": {
+      "title": "Sig okkum frá tær",
+      "subtitle": "Hetta setur sjálvvirði tíni; hvørt virði kann broytast seinni í Stillingum.",
+      "name": "Navn",
+      "email": "Teldupostur",
+      "emailHint": "Innritanarsamleiki tín. Hann kann broytast frá Stillingum → Trygd seinni.",
+      "country": "Land",
+      "currency": "Valda gjaldoyra",
+      "currencyHint": "Brúkt fyri nýggjar vangar og yvirlitið til ein vangi er til."
+    },
+    "step2": {
+      "title": "Hvussu ætlar tú at nýta okinvo?",
+      "subtitle": "Bara sjálvvirði broytast; einki er læst.",
+      "usage": "Nýtsla",
+      "personal": "Persónlig rokningargerð",
+      "personalHint": "Sjálvstøðugt arbeiði í egnum navni",
+      "business": "Fyritøkurokningargerð",
+      "businessHint": "Rokningar frá skrásettari fyritøku",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "VAT-nummar",
+        "other": "Skattaskrásetingarnummar"
+      },
+      "taxQuestion": {
+        "IN": "Hevur tú eitt GSTIN?",
+        "GB": "Ert tú VAT-skrásettur?",
+        "other": "Hevur tú eitt skattaskrásetingarnummar at prenta á rokningar?"
+      }
+    },
+    "step3": {
+      "title": "Alt er klárt",
+      "body": "Stovna næst fyrsta útgevaravanga tín: navn, adressu og skattaupplýsingar, sum verða prentað á rokningarnar. Vit hava útfylt tað, sum tú segði okkum.",
+      "go": "Far til vangar",
+      "opening": "Opnar…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Treytir",
+      "privacy": "Privatlív",
+      "cookies": "Cookies",
+      "security": "Trygd"
+    },
+    "cookieNotice": {
+      "label": "Cookie-fráboðan",
+      "body": "Vit nýta bert neyðugar cookies: setuna hjá tær og skjástillingar tínar. Eingin analysa, eingin eftirfylgjan.",
+      "policy": "Cookie-politikkur",
+      "gotIt": "Skilt"
+    },
+    "nav": {
+      "label": "Løgfrøði",
+      "cookies": "Cookies",
+      "privacy": "Privatlív",
+      "terms": "Treytir",
+      "acceptableUse": "Loyvd nýtsla",
+      "retention": "Varðveiting",
+      "security": "Trygd",
+      "licences": "Loyvi"
+    },
+    "operatorNotice": "okinvo er sjálvhýst forrit; rekstrarhavarin á hesi uppsetingini er ábyrgdur av nýtsluni.",
+    "doc": {
+      "effectiveOn": "Í gildi <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Innihald"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Løgfrøðiligt navn á rekstrarhavara",
+        "entityType": "Einindarslag",
+        "address": "Adressa hjá rekstrarhavara",
+        "country": "Land hjá rekstrarhavara",
+        "contactEmail": "Samskiftisteldupostur",
+        "privacyEmail": "Privatlívsteldupostur",
+        "dpoEmail": "Teldupostur hjá dátuverndarfulltrúa",
+        "governingLaw": "Galdandi løggáva",
+        "venue": "Rættarstaður fyri ósemjur",
+        "effectiveDate": "Gildisdagur"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Ikki funnið",
+      "title": "Einki er á hesi adressuni",
+      "body": "Leinkjan kann vera gomul, ella skjalið, hon vísti á, varð ongantíð útgivið."
+    },
+    "forbidden": {
+      "metaTitle": "Ikki loyvt",
+      "title": "Henda kontan kann ikki gera hetta",
+      "body": "Leiklutur tín loyvir tí ikki. Bið ein eigara um atgongd, ella rita inn við eini kontu, sum hevur hana."
+    },
+    "error": {
+      "title": "Okkurt gekk galið",
+      "body": "Einki varð broytt av hesi umbøn. Royn aftur; um tað heldur áfram, eru smálutirnir í ambætaraskránni.",
+      "digest": "feilur {digest}",
+      "generic": "feilur"
+    },
+    "appNotFound": {
+      "title": "Ikki funnið",
+      "body": "Henda skráin er ikki til, ella hon varð slettað, meðan tú hyggjaði at henni.",
+      "back": "Aftur til yvirlitið"
+    },
+    "validation": {
+      "required": "kravt",
+      "tooLong": "í mesta lagi {max} tekin",
+      "invalidEmail": "má vera ein gildur teldupostur",
+      "invalidDate": "má vera ein kalendaradagur á sniðinum YYYY-MM-DD",
+      "invalidAmount": "má vera eitt tal",
+      "wholeNumber": "má vera eitt heiltal",
+      "greaterThanZero": "má vera størri enn null",
+      "fixFields": "Vinaliga rætta teir upplýstu reitirnar.",
+      "charset": "Bara vanlig tekin á tastatúrinum eru loyvd."
+    }
+  },
+  "verify": {
+    "metaTitle": "Kanna skjal",
+    "metaDescription": "Kanna, at ein rokning ella kreditnota er útgivin av sendaranum og ikki er broytt.",
+    "heading": "Skjalakanning",
+    "rateLimited": "Ov nógvar kanningar frá hesi adressuni. Vinaliga royn aftur um eina minnu.",
+    "notFound": {
+      "title": "Einki slíkt skjal",
+      "body": "Henda leinkjan samsvarar ikki við nakað útgivið skjal. Kanna QR-kotuna ella leinkjuna, sum tú fekst, ella set teg í samband við útgevaran."
+    },
+    "status": {
+      "void": "Ógildað",
+      "valid": "Gildugt"
+    },
+    "issuedBy": "Útgivið av",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Útgivið til",
+    "issueDate": "Útgávudagur",
+    "total": "Samanlagt",
+    "voided": "Hetta skjalið varð ógildað av útgevaranum og er ikki longur gildugt.",
+    "storedCopies": {
+      "title": "Goymd avrit",
+      "description": "SHA-256 av hvørji PDF-útgávu, sum útgevarin hevur. Vel títt avrit fyri at samanbera tað í kagganum hjá tær: einki verður sent upp.",
+      "empty": "Eingin PDF er gjørd enn.",
+      "protectedVersion": "Avrit verja við loyniorði {version}",
+      "version": "Útgáva {version}"
+    },
+    "check": {
+      "label": "Kanna títt avrit",
+      "hashing": "Hashar…",
+      "match": "Títt avrit samsvarar júst við útgávu {version}.",
+      "mismatch": "Títt avrit samsvarar ikki við nakra goymda útgávu."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Deilt skjal",
+      "metaDescription": "Eitt skjal deilt við teg: sær tað á netinum og tak PDF niður.",
+      "rateLimited": "Ov nógvar umbønir frá hesi adressuni. Vinaliga royn aftur um eina minnu.",
+      "unavailable": {
+        "title": "Henda leinkjan er ikki tøk",
+        "body": "Hon kann vera útgingin ella afturkallað av útgevaranum. Bið hann um eina nýggja."
+      },
+      "lockedTitleInvoice": "Rokning frá {issuer}",
+      "lockedTitleCreditNote": "Kreditnota frá {issuer}",
+      "lockedBody": "Hetta skjalið er verja við loyniorði. Skriva loyniorðið, sum útgevarin gav tær.",
+      "void": "Ógildað",
+      "protectedPdf": "PDF-in opnast við sama loyniorði. Hon kann lesast og prentast; avritan og rætting eru læst.",
+      "byline": "Frá {issuer} til {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Loyniorð",
+      "limited": "Ov nógvar royndir. Vinaliga bíða fimtan minuttir og royn aftur.",
+      "wrong": "Hetta loyniorðið er ikki rætt.",
+      "submit": "Opna skjal"
+    },
+    "dialog": {
+      "trigger": "Deil",
+      "title": "Deil hetta skjalið",
+      "description": "Øll við leinkjuni kunnu síggja og taka tað niður, til tað gongur út, ella til tú kallar tað aftur. Eitt loyniorð verjir eisini PDF-ina sjálva: hon opnast við loyniorðinum og kann lesast og prentast, ikki rættast ella avritast.",
+      "link": "Leinkja",
+      "copyLink": "Avrita leinkju",
+      "password": "Loyniorð",
+      "copyPassword": "Avrita loyniorð",
+      "sendSeparately": "Send loyniorðið sær frá leinkjuni. Tú kanst síggja tað aftur á listanum niðanfyri.",
+      "copy": "Avrita",
+      "copied": "Avritað",
+      "expires": "Gongur út",
+      "expiry": {
+        "d7": "Um 7 dagar",
+        "d30": "Um 30 dagar",
+        "d90": "Um 90 dagar",
+        "never": "Ongantíð"
+      },
+      "protection": "Vernd",
+      "protectionOptions": {
+        "auto": "Loyniorð: ger ein loyniorðasetning",
+        "manual": "Loyniorð: vel mítt egna",
+        "none": "Einki loyniorð (opin leinkja)"
+      },
+      "passwordHint": "Í minsta lagi 8 tekin.",
+      "strength": "Styrki: {label}",
+      "strengthLabels": {
+        "veryWeak": "sera veikt",
+        "weak": "veikt",
+        "fair": "sømiligt",
+        "good": "gott",
+        "strong": "sterkt"
+      },
+      "creating": "Stovnar…",
+      "create": "Stovna leinkju",
+      "activeLinks": "Virknar leinkjur",
+      "passwordProtected": "Verja við loyniorði",
+      "openLink": "Opna leinkju",
+      "linkExpires": "{kind} · gongur út {date}",
+      "linkNeverExpires": "{kind} · gongur ongantíð út",
+      "revoke": {
+        "title": "Kalla hesa leinkjuna aftur?",
+        "description": "Leinkjan steðgar beinanvegin fyri øll, sum hava hana.",
+        "label": "Kalla aftur"
+      },
+      "linkPassword": "Loyniorð: <code>{password}</code>",
+      "counts": "{views, plural, one {# vísing} other {# vísingar}} · {downloads, plural, one {# niðurtøka} other {# niðurtøkur}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Kreditnotur",
+      "title": "Kreditnotur",
+      "description": "Gjørdar móti útgivnum rokningum; hvør lækkar rokningarbalansuna, tá hon verður útgivin.",
+      "newCreditNote": "Nýggj kreditnota",
+      "filters": {
+        "from": "Frá",
+        "to": "Til",
+        "issuer": "Útgevari",
+        "client": "Kundi",
+        "status": "Støða",
+        "search": "Leita",
+        "all": "Alt",
+        "searchPlaceholder": "Nummar, orsøk, kundi",
+        "go": "Far"
+      },
+      "statuses": {
+        "DRAFT": "Uppskot",
+        "ISSUED": "Útgivin",
+        "SENT": "Send",
+        "VOID": "Ógildað"
+      },
+      "empty": {
+        "title": "Ongar kreditnotur enn",
+        "description": "Opna eina útgivna rokning og vel “Kreditnota” fyri at lækka tað, hon skyldar."
+      },
+      "noMatch": "Ongar kreditnotur samsvara við hesar filtur.",
+      "columns": {
+        "number": "Nummar",
+        "against": "Móti",
+        "client": "Kundi",
+        "issueDate": "Útgávudagur",
+        "reason": "Orsøk",
+        "total": "Samanlagt",
+        "status": "Støða"
+      },
+      "draft": "Uppskot"
+    },
+    "new": {
+      "metaTitle": "Nýggj kreditnota",
+      "title": "Nýggj kreditnota",
+      "description": "Ein kreditnota verður gjørd móti eini útgivnari rokning og lækkar balansuna á henni.",
+      "nothingToCredit": {
+        "title": "Einki at krediterað",
+        "description": "Kreditnotur krevja eina útgivna rokning við útistandandi balansu.",
+        "openInvoices": "Opna rokningarnar"
+      },
+      "whichInvoice": "Hvør rokning?",
+      "invoice": "Rokning",
+      "invoiceOption": "{number} · {client} · balansa {balance}",
+      "issuedOnly": "Kreditnotur verða bara gjørdar móti útgivnum rokningum.",
+      "invoiceFallback": "Rokning"
+    },
+    "edit": {
+      "metaTitle": "Rætta kreditnotu",
+      "title": "Rætta uppskot til kreditnotu",
+      "immutable": "Útgivnar kreditnotur kunnu ikki broytast.",
+      "draft": "Uppskot"
+    },
+    "detail": {
+      "metaTitle": "Kreditnota",
+      "draftTitle": "Uppskot til kreditnotu",
+      "meta": "{client} · móti <invoice>{number}</invoice> · útgivin <mono>{date}</mono>",
+      "previewPdf": "Forskoðan av PDF",
+      "issue": {
+        "title": "Útgev hesa kreditnotu?",
+        "description": "Eitt nummar verður tillutað, balansan á rokningini lækkar og skjalið kann ikki longur broytast.",
+        "label": "Útgev"
+      },
+      "deleteDraft": {
+        "title": "Sletta hetta uppskotið?"
+      },
+      "sendByEmail": "Send við teldupósti",
+      "markSent": {
+        "title": "Merk sum sent?",
+        "label": "Merk sum sent"
+      },
+      "void": {
+        "title": "Ógilda hesa kreditnotu?",
+        "description": "Balansan á rokningini verður endurskapað; nummarið verður ongantíð brúkt aftur.",
+        "reason": "Orsøk",
+        "label": "Ógilda"
+      },
+      "voided": "Ógildað {date}: {reason}",
+      "amounts": {
+        "title": "Upphæddir",
+        "reason": "Orsøk",
+        "creditAmount": "Kreditupphædd",
+        "total": "Samanlagt",
+        "balanceNow": "Balansa á rokning nú",
+        "sent": "Send"
+      },
+      "documents": {
+        "title": "Goymd skjøl",
+        "description": "Hvør útgáva verður varðveitt; kanningarsíðan listar allar hashar.",
+        "regenerateTitle": "Ger eina nýggja PDF-útgávu?",
+        "generate": "Ger",
+        "newVersion": "Nýggj útgáva",
+        "renderedOnFirstDownload": "PDF-in verður gjørd við fyrstu niðurtøku.",
+        "protectedCopy": "Avrit verja við loyniorði {version}",
+        "version": "Útgáva {version}",
+        "verificationLink": "Kanningarleinkja: <link>{path}…</link>"
+      },
+      "draftsPreview": "Uppskot hava beinleiðis forskoðan í rættaranum."
+    },
+    "send": {
+      "metaTitle": "Send kreditnotu",
+      "title": "Send <mono>{number}</mono>",
+      "previousSends": "Fyrru sendingar"
+    },
+    "builder": {
+      "against": "Móti <mono>{number}</mono>",
+      "summary": "{client} · samanlagt {total} · balansa {balance} · skattskyldugt pláss ≈ {headroom}",
+      "issueDate": "Útgávudagur",
+      "creditAmount": "Kreditupphædd (uttan skatt)",
+      "creditAmountHint": "Skatturin verður býttur út frá skattalinjunum á rokningini",
+      "reason": "Orsøk",
+      "picker": {
+        "title": "Rokna út frá rokningarlinjum",
+        "description": "Kvittera heilar linjur ella eitt prosent; hetta fyllir bara upphæddina omanfyri út.",
+        "line": "Linja",
+        "subtotal": "Millumsamanlagt",
+        "credit": "Kredit",
+        "percent": "%",
+        "creditLine": "Krediterað linju {position}",
+        "percentOfLine": "Prosent av linju {position}"
+      },
+      "saveDraft": "Goym uppskot",
+      "issuing": "Útgevur…",
+      "saveAndIssue": "Goym og útgev"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Móttikin gjalding",
+        "REFUND": "Útgivin afturrinding",
+        "WRITE_OFF": "Avskriving"
+      },
+      "editTitle": "Rætta posteringina",
+      "recordTitle": "Skráset eina gjalding",
+      "description": "Upphæddir eru í gjaldoyranum á rokningini ({currency}); frádrigið TDS er partur av nýttu upphæddini.",
+      "kind": "Slag",
+      "date": "Dagur",
+      "amountRefunded": "Afturrindað upphædd (negativ)",
+      "amountApplied": "Nýtt upphædd",
+      "refundHint": "Skriva eina negativa upphædd, t.d. -500",
+      "tdsDeducted": "Frádrigið TDS",
+      "tdsHint": "Skattur, sum kundin helt aftur; verður roknaður við í nýttu upphæddini",
+      "bankFees": "Bankagjøld",
+      "receivedInto": "Móttikið á",
+      "noMethod": "-",
+      "reference": "Tilvísing",
+      "referenceHint": "UTR, flytingarkenni, tjekkanummar",
+      "otherCurrency": "Móttikið í øðrum gjaldoyra",
+      "amountReceived": "Móttikin upphædd",
+      "receivedCurrency": "Móttikið gjaldoyra",
+      "exchangeRate": "Gjaldoyrakurs",
+      "exchangeRateHint": "1 eind móttikin = ? {currency}",
+      "notes": "Viðmerkingar",
+      "receiptHint": "PNG, JPEG, WebP ella PDF upp til 10 MB",
+      "receipts": "Kvittanir og rokningar",
+      "receiptN": "Kvittan {n}",
+      "removeReceipt": "Tak kvittan {n} burtur",
+      "saveChanges": "Goym broytingar",
+      "record": "Skráset"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Rokning til",
+      "shipTo": "Send til",
+      "invoice": "Rokning",
+      "creditNote": "Kreditnota",
+      "issueDate": "Útgávudagur",
+      "dueDate": "Gjaldsdagur",
+      "number": "Nummar",
+      "description": "Lýsing",
+      "sacHsn": "SAC/HSN",
+      "qty": "Nøgd",
+      "unit": "Eind",
+      "rate": "Prísur",
+      "tax": "Skattur",
+      "amount": "Upphædd",
+      "subtotal": "Millumsamanlagt",
+      "discount": "Avsláttur",
+      "taxable": "Skattskyldug upphædd",
+      "total": "Samanlagt",
+      "amountDue": "Skyldug upphædd",
+      "tdsExpected": "Væntaður TDS",
+      "netExpected": "Væntað netto",
+      "rounding": "Avrundan",
+      "paymentDetails": "Smb. gjald",
+      "notes": "Viðmerkingar",
+      "terms": "Treytir",
+      "placeOfSupply": "Veitingarstaður",
+      "poReference": "PO-tilvísing",
+      "amountInWords": "Upphædd í orðum",
+      "signature": "Heimilaður undirskrivari"
+    },
+    "title": {
+      "taxInvoice": "SKATTAROKNING",
+      "billOfSupply": "VEITINGARSKJAL",
+      "invoice": "ROKNING",
+      "creditNote": "KREDITNOTA"
+    },
+    "text": {
+      "pageOf": "Síða {page} av {total}",
+      "scanToVerify": "Skanna fyri at váttað",
+      "taxId": "Skatta-ID",
+      "void": "ÓGILDAÐ",
+      "draftWatermark": "UPPKAST - ikki skattarokning",
+      "paymentTermsDays": "{days} dagar",
+      "irn": "IRN",
+      "ackNo": "Váttanar nr.",
+      "ackDate": "Váttanardagur",
+      "einvoiceCancelled": "E-ROKNING ÓGILDAÐ"
+    },
+    "ui": {
+      "pageEstimate": "umleið {count, plural, one {# síða} other {# síður}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Boð",
+      "description": "Frammanundan útfyllt úr fyrimyndum útgevaravangans. Einki verður sent, fyrr enn tú klikkar á Send.",
+      "to": "Til",
+      "toHint": "Skilt við komma",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Evni",
+      "body": "Tekstur",
+      "bodyHint": "Reinur tekstur; leinkjur gerast klikkbarar",
+      "attachment": "Viðfesting",
+      "attachmentHint": "Goymda avritið, nevnt <mono>{name}</mono> (ella .docx); innihaldið kann ikki broytast.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Sendir…",
+      "send": "Send",
+      "openInMailApp": "Opna í teldupostforriti",
+      "noSmtp": "Eingin SMTP-ambætari er stillaður (Stillingar → Teldupostur). Opna uppskotið í teldupostforritinum, fest niðurtikna PDF-in við, og merk tað so sum sent niðanfyri.",
+      "markAsSent": "Merk sum sent"
+    },
+    "sentLog": {
+      "when": "Nær",
+      "document": "Skjal",
+      "to": "Til",
+      "subject": "Evni",
+      "status": "Støða",
+      "empty": "Einki sent enn.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "sent",
+        "FAILED": "miseydnað",
+        "MANUAL": "handvirkið"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Hey, {name}",
+    "fiscalYear": "Roknskaparár {year}",
+    "fiscalYearWithBase": "Roknskaparár {year} · grundgjaldoyra {currency} ({profile})",
+    "newCreditNote": "Nýggj kreditnota",
+    "welcomeTitle": "Vælkomin til {appName}",
+    "welcomeDescription": "Byrja við at stovna útgevaravangan, tú sendir rokningar frá, og legg so ein kunda og fyrstu rokning tína afturat.",
+    "createProfile": "Stovna vanga tín",
+    "tiles": {
+      "outstanding": "Útistandandi",
+      "overdue": "Fallið til gjaldsdagin",
+      "billedThisFy": "Rokningarsent hetta árið",
+      "receivedThisFy": "Móttikið hetta árið",
+      "drafts": "Uppskot",
+      "invoiceCount": "{count, plural, one {# rokning} other {# rokningar}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Gjaldanir uttan afturrindingar, við skrásettum gjaldoyrakursi",
+      "awaitingIssue": "bíðar eftir útgávu",
+      "nothingPending": "einki bíðar"
+    },
+    "recentInvoices": "Nýggjar rokningar",
+    "allInvoices": "Allar rokningar",
+    "noInvoicesYet": "Ongar rokningar enn.",
+    "columns": {
+      "number": "Nummar",
+      "client": "Kundi",
+      "issued": "Útgivin"
+    },
+    "topClients": "Størstu kundar eftir útistandandi",
+    "nothingOutstanding": "Einki útistandandi."
+  },
+  "exports": {
+    "export": "Útflut",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Rokningar",
+      "newInvoice": "Nýggj rokning",
+      "draft": "Uppskot",
+      "aDraft": "eitt uppskot",
+      "statuses": {
+        "draft": "Uppskot",
+        "issued": "Útgivin",
+        "sent": "Send",
+        "partiallyPaid": "Partvís goldin",
+        "paid": "Goldin",
+        "overdue": "Fallin til gjaldsdagin",
+        "void": "Ógildað"
+      },
+      "lifecycle": {
+        "draft": "uppskot",
+        "issued": "útgivin",
+        "void": "ógildað"
+      },
+      "units": {
+        "hour": "Tími",
+        "day": "Dagur",
+        "fixed": "Fast",
+        "milestone": "Áfangi",
+        "unit": "Eind"
+      },
+      "unitsLower": {
+        "hour": "tími",
+        "day": "dagur",
+        "fixed": "fast",
+        "milestone": "áfangi",
+        "unit": "eind"
+      },
+      "supplyTypes": {
+        "intraState": "innan fylki",
+        "interState": "millum fylki",
+        "exportLut": "útflutningur lut",
+        "exportWithTax": "útflutningur við skatti",
+        "reverseCharge": "viðvíkjandi skattaskyldu",
+        "notApplicable": "ikki viðkomandi"
+      }
+    },
+    "list": {
+      "description": "Uppskot, útgivnar og ógildaðar rokningar; støður verða leiddar av gjaldingum og gjaldsdøgum.",
+      "fiscalYear": "Roknskaparár",
+      "issuer": "Útgevari",
+      "client": "Kundi",
+      "searchPlaceholder": "Nummar, PO, kundi",
+      "emptyTitle": "Ongar rokningar enn",
+      "emptyDescription": "Bygg fyrstu rokning tína: vel ein kunda, legg linjur afturat, hygg at forskoðanini, og útgev hana so.",
+      "columns": {
+        "number": "Nummar",
+        "client": "Kundi",
+        "issuer": "Útgevari",
+        "issueDate": "Útgávudagur",
+        "due": "Gjaldsdagur",
+        "balance": "Balansa"
+      },
+      "noMatches": "Ongar rokningar samsvara við hesar filtur.",
+      "count": "{count, plural, one {# rokning} other {# rokningar}}",
+      "countPaged": "{count, plural, one {# rokning} other {# rokningar}} · síða {page} av {pages}",
+      "register": "skrá",
+      "einvoice": "E-rokning",
+      "einvoiceFilters": {
+        "registered": "IRN skrásett",
+        "none": "Ikki skrásett",
+        "cancelled": "IRN ógildað"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Stovna fyrst ein útgevaravanga",
+      "noProfileDescription": "Ein rokning verður útgivin frá einum løgfrøðiligum samleika: set vanga tín upp við skattaauðkennum og nummarskipan.",
+      "createProfile": "Stovna ein vanga"
+    },
+    "edit": {
+      "metaTitle": "Rætta rokning",
+      "title": "Rætta uppskot",
+      "immutableFlash": "Útgivnar rokningar kunnu ikki broytast. Brúka “Ógilda og útgev aftur” fyri at rætta hana."
+    },
+    "detail": {
+      "metaTitle": "Rokning",
+      "draftInvoice": "Uppskot til rokning",
+      "issuedDue": "Útgivin <mono>{issued}</mono>, gjaldsdagur <mono>{due}</mono>",
+      "replaces": "Erstatar {number}",
+      "replacedBy": "Erstatt av {number}",
+      "previewPdf": "Forskoðan av PDF",
+      "downloadEInvoice": "Tak niður e-rokning JSON",
+      "issueTitle": "Útgev hesa rokning?",
+      "issueDescription": "Eitt nummar verður tillutað og skjalið kann ikki longur broytast.",
+      "issue": "Útgev",
+      "deleteDraftTitle": "Sletta hetta uppskotið?",
+      "sendByEmail": "Send við teldupósti",
+      "recordPayment": "Skráset gjalding",
+      "progress": {
+        "title": "Gongdin í gjaldinum",
+        "description": "Hvar henda rokningin er stødd, frá útgávu til kvittanar í skjalasavninum.",
+        "issued": "Útgivin",
+        "sent": "Send",
+        "payment": "Gjald skrásett",
+        "paymentOn": "Gjald upp á <mono>{amount}</mono> skrásett <mono>{date}</mono>",
+        "paid": "Goldin fullkomiliga",
+        "receipt": "Kvittan viðfest",
+        "done": "liðugt",
+        "pending": "bíðar"
+      },
+      "creditNote": "Kreditnota",
+      "markSentTitle": "Merk sum send?",
+      "markSentDescription": "Skrásetur, at kundin hevur móttikið hesa rokning.",
+      "markSent": "Merk sum send",
+      "voidReissueTitle": "Ógilda og útgev aftur?",
+      "voidReissueDescription": "Upprunin verður ógildaður og eitt tengt uppskot við sama innihaldi opnast til rætting.",
+      "voidReissue": "Ógilda og útgev aftur",
+      "voidTitle": "Ógilda hesa rokning?",
+      "voidDescription": "Bara møguligt uttan skrásettar gjaldingar; nummarið verður ongantíð brúkt aftur.",
+      "void": "Ógilda",
+      "voided": "Ógildað {date}: {reason}",
+      "amounts": "Upphæddir",
+      "subtotal": "Millumsamanlagt",
+      "discount": "Avsláttur",
+      "discountPercent": "Avsláttur ({percent})",
+      "rounding": "Runding",
+      "tdsExpected": "Væntað TDS ({percent})",
+      "paid": "Goldið",
+      "credited": "Krediterað",
+      "balanceDue": "Skyldug balansa",
+      "supply": "Veiting",
+      "fxToBase": "Gjaldoyrakursur til grundgjaldoyra",
+      "poReference": "PO-tilvísing",
+      "sent": "Send",
+      "lineItems": "Rokningarlinjur",
+      "columns": {
+        "description": "Lýsing",
+        "sacHsn": "SAC/HSN",
+        "qty": "Nøgd",
+        "rate": "Prísur",
+        "tax": "Skattur",
+        "amount": "Upphædd"
+      },
+      "creditNotes": "Kreditnotur",
+      "storedDocuments": "Goymd skjøl",
+      "storedDocumentsHint": "Hvør útgáva verður varðveitt; kanningarsíðan listar allar hashar.",
+      "regenerateTitle": "Ger eina nýggja PDF-útgávu?",
+      "regenerateDescription": "Gerð aftur út frá fryst snapi (til dømis eftir eina rætting í renderaranum). Fyrru útgávur verða verandi.",
+      "regenerate": "Ger",
+      "newVersion": "Nýggj útgáva",
+      "renderedOnFirstDownload": "PDF-in verður gjørd við fyrstu niðurtøku.",
+      "protectedCopy": "Avrit verja við loyniorði {version}",
+      "version": "Útgáva {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Kanningarleinkja:",
+      "draftPreviewHint": "Uppskot hava beinleiðis forskoðan í rættaranum; opna <link>PDF-ina við vatnmerki</link> fyri at síggja síðuna.",
+      "einvoice": {
+        "title": "E-rokning (India)",
+        "description": "Skráseting av hesi rokning á Invoice Registration Portal; eitt skrásett skjal prentar sítt IRN og undirskrivaða QR-kotu portalsins.",
+        "connector": "Tengi",
+        "connectors": {
+          "manual": "Manuelt",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Einki tengi er sett upp til hesa vangan undir Stillingar > E-rokning.",
+        "statuses": {
+          "none": "Ikki skrásett",
+          "generated": "JSON framleitt",
+          "registered": "Skrásett",
+          "cancelled": "Ógildað",
+          "failed": "Skráseting miseydnaðist"
+        },
+        "irn": "IRN",
+        "ackNo": "Váttanar nr.",
+        "ackDate": "Váttanardagur",
+        "cancelReason": "Ógilding",
+        "generate": "Framleið IRN",
+        "pasteLabel": "Svar frá IRP",
+        "pasteHint": "Set inn JSON, sum portalurin ella tín GSP sendi aftur til e-rokning-JSON hjá hesi rokning (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Skráset IRN",
+        "cancelReasonLabel": "Orsøk til ógilding",
+        "cancelReasons": {
+          "1": "Tvíritan",
+          "2": "Villa í dataskráseting",
+          "3": "Pantan ógildað",
+          "4": "Annað"
+        },
+        "cancel": "Ógilda IRN",
+        "cancelWindow": "Portalurin loyvir ógilding innan 24 tímar eftir váttanina."
+      }
+    },
+    "history": {
+      "metaTitle": "Rokningarsøga",
+      "title": "Søga <mono>{number}</mono>",
+      "reissueChain": "Endurútgávukeðja",
+      "replaces": "Erstatar <link>{number}</link>",
+      "replacedBy": "Erstatt av <link>{number}</link>",
+      "auditTrail": "Grannskoðanarslóð",
+      "columns": {
+        "when": "Nær",
+        "who": "Hvør",
+        "action": "Handling",
+        "summary": "Samandráttur"
+      },
+      "noEvents": "Ongar hendingar enn.",
+      "system": "Skipan",
+      "emails": "Teldupostar"
+    },
+    "payments": {
+      "title": "Gjaldingar",
+      "description": "{client} · {total} samanlagt",
+      "backToInvoice": "Aftur til rokningina",
+      "ledger": "Høvuðsbók",
+      "columns": {
+        "date": "Dagur",
+        "kind": "Slag",
+        "applied": "Nýtt",
+        "tds": "TDS",
+        "received": "Móttikið",
+        "reference": "Tilvísing",
+        "balance": "Balansa"
+      },
+      "noPayments": "Ongar gjaldingar skrásettar enn.",
+      "kinds": {
+        "payment": "Gjalding",
+        "refund": "Afturrinding",
+        "writeOff": "Avskriving"
+      },
+      "receipt": "Kvittan",
+      "receiptN": "Kvittan {n}",
+      "deleteEntryTitle": "Sletta hesa posteringina?",
+      "deleteEntryDescription": "Balansan á rokningini verður endurroknað.",
+      "totals": "Samanlagt",
+      "invoiceTotal": "Samanlagt á rokning",
+      "credited": "Krediterað",
+      "refunds": "Afturrindingar",
+      "writeOffs": "Avskrivingar",
+      "tdsDeducted": "Frádrigið TDS",
+      "bankFees": "Bankagjøld",
+      "balanceDue": "Skyldug balansa",
+      "onlyIssued": "Bara útgivnar rokningar taka ímóti gjaldingum."
+    },
+    "send": {
+      "metaTitle": "Send rokning",
+      "title": "Send <mono>{number}</mono>",
+      "alreadySent": "Longu merkt sum send; at senda aftur leggur eina aðra postering í bókina.",
+      "previousSends": "Fyrru sendingar"
+    },
+    "builder": {
+      "parties": "Partar",
+      "issuerProfile": "Útgevaravangi",
+      "client": "Kundi",
+      "archivedOption": "{label} (goymt)",
+      "issueDate": "Útgávudagur",
+      "dueDate": "Gjaldsdagur",
+      "fxRate": "Gjaldoyrakursur til grundgjaldoyra",
+      "fxHint": "1 {currency} = ? {base} (bara til frágreiðing)",
+      "poReference": "PO-tilvísing",
+      "lineItems": "Rokningarlinjur",
+      "lineItemsHint": "Vel úr vørulistanum fyri at avrita virðini, ella skriva eina linju.",
+      "taxDiscountTds": "Skattur, avsláttur og TDS",
+      "taxRegime": "Skattaskipan",
+      "regimes": {
+        "indiaGst": "India GST",
+        "ukVat": "UK VAT",
+        "usSalesTax": "US søluskattur",
+        "none": "Eingin skattur"
+      },
+      "reverseCharge": "Viðvíkjandi skattaskyldu",
+      "reverseChargeHint": "Skattur, sum móttakarin rindar",
+      "discount": "Avsláttur",
+      "percent": "Prosent",
+      "amount": "Upphædd",
+      "rounding": "Rundingarjavning",
+      "roundingHint": "Valfrítt, til eina heila eind; má vera undir 1",
+      "round": "Rund",
+      "tdsRate": "Væntað TDS-gjald (%)",
+      "tdsRateHint": "Til kunning; prentað tá TDS-sundurgreiningin er tendrað",
+      "paymentMethods": "Gjaldsháttir",
+      "paymentMethodsHint": "Prentað í tí raðfylgju, tey eru kvittað.",
+      "noPaymentMethods": "Eingir virknir gjaldsháttir. <link>Legg ein afturat</link>.",
+      "whatPrints": "Hvat verður prentað",
+      "whatPrintsHint": "Byrjar við sjálvvirðunum hjá útgevaravangans.",
+      "documentLanguage": "Skjalamál",
+      "documentLanguageHint": "Merkingar, dagfestingar og upphæddir verða prentaðar á hesum máli; ynski kundans, annars málið hjá vangamyndini.",
+      "notesAndTerms": "Viðmerkingar og treytir",
+      "notes": "Viðmerkingar",
+      "terms": "Treytir",
+      "saveDraft": "Goym uppskot",
+      "issuing": "Útgevur…",
+      "saveAndIssue": "Goym og útgev",
+      "subtotal": "Millumsamanlagt",
+      "tax": "Skattur",
+      "tdsExpected": "Væntað TDS",
+      "netExpected": "Væntað netto"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Legg afturat úr vørulista…",
+      "services": "Tænastur",
+      "products": "Vørur",
+      "addLine": "Legg linju afturat",
+      "columns": {
+        "description": "Lýsing",
+        "sacHsn": "SAC/HSN",
+        "qty": "Nøgd",
+        "unit": "Eind",
+        "rate": "Prísur",
+        "taxPercent": "Skattur %"
+      },
+      "aria": {
+        "description": "Lýsing á linju {line}",
+        "sacHsn": "SAC/HSN á linju {line}",
+        "quantity": "Nøgd á linju {line}",
+        "unit": "Eind á linju {line}",
+        "rate": "Prísur á linju {line}",
+        "taxRate": "Skattasatsur á linju {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Undantikið",
+      "moveUp": "Flyt upp",
+      "moveDown": "Flyt niður",
+      "removeLine": "Strika linju",
+      "shortcutHint": "Ctrl/⌘+Enter í einari lýsing leggur eina linju afturat.",
+      "addFromCatalogueAria": "Legg afturat úr vørulista"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Upplýsingar um útgevara",
+        "client": "Upplýsingar um kunda",
+        "document": "Partar av skjali"
+      },
+      "fields": {
+        "showLogo": "Ímynd",
+        "showTradeName": "Handilsnavn",
+        "showDesignation": "Starvsheiti",
+        "showEmail": "Teldupostur",
+        "showPhone": "Telefon",
+        "showWebsite": "Heimasíða",
+        "showFullAddress": "Full adressa",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Undirskrift",
+        "showStamp": "Stempul",
+        "showContactPerson": "Samskiftispersónur",
+        "showBillingAddress": "Rokningaradressa",
+        "showShippingAddress": "Sendingaradressa",
+        "showTaxIdentifier": "Skattaauðkenni",
+        "showPlaceOfSupply": "Veitingarstaður",
+        "showDueDate": "Gjaldsdagur",
+        "showPaymentTerms": "Gjaldstreytir",
+        "showSacCodeColumn": "SAC-kotudálkur",
+        "showQuantityColumn": "Nøgdardálkur",
+        "showUnitPriceColumn": "Einindarprísdálkur",
+        "showTaxColumn": "Skattadálkur",
+        "showTdsBreakdown": "TDS-sundurgreining",
+        "showQrVerification": "QR-váttan",
+        "showNotes": "Viðmerkingar",
+        "showTerms": "Treytir",
+        "showReplacesReference": "Tilvísing til tað, sum verður erstatt",
+        "showAmountInWords": "Upphædd í orðum",
+        "showSupplyStatement": "Veitingaryvirlýsing",
+        "showRoundingLine": "Rundingarlinja",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Kundar",
+      "description": "Øll, tú sendir rokning. Kundar við rokningum verða goymdir í skjalasavn, ongantíð slettaðir.",
+      "newClient": "Nýggjur kundi",
+      "searchPlaceholder": "Leita eftir navni",
+      "searchLabel": "Leita eftir kundum",
+      "emptyTitle": "Ongir kundar enn",
+      "emptyDescription": "Legg fólkini og fyritøkurnar, tú sendir rokning, afturat; gjaldoyra teirra og gjaldstreytir fylla hvørja rokning út frammanundan.",
+      "addClient": "Legg ein kunda afturat",
+      "noMatch": "Ongir kundar samsvara við “{q}”.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Navn",
+        "contact": "Samband",
+        "email": "Teldupostur",
+        "country": "Land",
+        "currency": "Gjaldoyra",
+        "terms": "Treytir",
+        "status": "Støða"
+      }
+    },
+    "new": {
+      "title": "Nýggjur kundi"
+    },
+    "edit": {
+      "metaTitle": "Rætta kunda",
+      "title": "Rætta {name}"
+    },
+    "detail": {
+      "metaTitle": "Kundi",
+      "newInvoice": "Nýggj rokning",
+      "restoreTitle": "Endurskapa hendan kundan?",
+      "archiveTitle": "Goym hendan kundan í skjalasavn?",
+      "archiveDescription": "Hann fer úr valskránum; rokningar og søga verða óskerd.",
+      "deleteTitle": "Sletta hendan kundan?",
+      "deleteDescription": "Bara møguligt, tá eingin rokning vísir til kundan.",
+      "details": "Smálutir",
+      "contact": "Samband",
+      "email": "Teldupostur",
+      "phone": "Telefon",
+      "country": "Land",
+      "gstState": "GST {code}",
+      "taxId": "Skattaauðkenni",
+      "currency": "Gjaldoyra",
+      "paymentTerms": "Gjaldstreytir",
+      "paymentTermsDays": "{days} dagar",
+      "expectedTds": "Væntað TDS",
+      "notes": "Viðmerkingar",
+      "addresses": "Adressur",
+      "billing": "Rokning",
+      "shipping": "Sending",
+      "lifetime": "Samanlagt yvir alt",
+      "openRegister": "Opna skránna",
+      "noIssued": "Ongar útgivnar rokningar enn.",
+      "noIssuedWithDrafts": "Ongar útgivnar rokningar enn ({drafts} uppskot).",
+      "firstLatest": "Fyrsta rokning <mono>{first}</mono>, seinasta <mono>{latest}</mono>{drafts, plural, =0 {} one { · # uppskot} other { · # uppskot}}",
+      "lifetimeColumns": {
+        "currency": "Gjaldoyra",
+        "invoices": "Rokningar",
+        "billed": "Rokningarsent",
+        "received": "Móttikið",
+        "credited": "Krediterað",
+        "outstanding": "Útistandandi",
+        "overdue": "Fallið til gjaldsdagin"
+      },
+      "recentInvoices": "Nýggjar rokningar",
+      "noInvoices": "Ongar rokningar til hendan kundan enn.",
+      "recentColumns": {
+        "number": "Nummar",
+        "issueDate": "Útgávudagur",
+        "due": "Gjaldsdagur",
+        "total": "Samanlagt",
+        "balance": "Balansa",
+        "status": "Støða"
+      }
+    },
+    "form": {
+      "cardTitle": "Kundi",
+      "displayName": "Víst navn",
+      "contactPerson": "Samskiftispersónur",
+      "email": "Teldupostur",
+      "phone": "Telefon",
+      "taxIdType": "Slag av skattaauðkenni",
+      "taxIdTypeNone": "Einki",
+      "taxId": "Skattaauðkenni",
+      "currency": "Gjaldoyra",
+      "paymentTerms": "Gjaldstreytir (dagar)",
+      "expectedTdsRate": "Væntað TDS-gjald (%)",
+      "preferredLanguage": "Skjalamál",
+      "preferredLanguageFollow": "Fylg útgevaraprofilinum",
+      "buyerReference": "Keypara tilvísing",
+      "buyerReferenceHint": "Prentað á e-rokningar sum egin tilvísing keyparans (ein pantanar- ella kostnaðarstaðarnummar).",
+      "electronicAddress": "Elektroniskt bústaðarfang",
+      "electronicAddressHint": "Peppol- ella EN 16931-kennarin, sum hesin kundin móttekur e-rokningar undir.",
+      "electronicAddressScheme": "Skipan fyri elektroniskt bústaðarfang",
+      "electronicAddressSchemeNone": "Eingin skipan",
+      "notes": "Viðmerkingar",
+      "billingAddress": "Rokningaradressa",
+      "shippingAddress": "Sendingaradressa",
+      "differentFromBilling": "Ymisk frá rokningaradressuni",
+      "save": "Goym kunda"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Tími",
+      "DAY": "Dagur",
+      "FIXED": "Fast",
+      "MILESTONE": "Áfangi",
+      "UNIT": "Eind"
+    },
+    "list": {
+      "activate": "Virkja",
+      "deactivate": "Ger óvirkið",
+      "archiveDescription": "Verandi rokningarlinjur varðveita avritaðu virðini.",
+      "deleteDescription": "Bara møguligt, tá eingin rokningarlinja vísir til tað. Annars goym tað í skjalasavn.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Navn",
+        "unit": "Eind",
+        "rate": "Prísur",
+        "price": "Prísur",
+        "currency": "Gjaldoyra",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Skattur",
+        "status": "Støða"
+      }
+    },
+    "services": {
+      "title": "Tænastur",
+      "description": "Vørulisti tín. At velja eina tænastu avritar virðini á rokningarlinjuna.",
+      "newService": "Nýggj tænasta",
+      "emptyTitle": "Ongar tænastur enn",
+      "emptyDescription": "Legg tað, tú selur, afturat - tíðargjald fyri tilrættalegging, ein fastan áfanga - við SAC/HSN-kotu og skattasatsi.",
+      "addService": "Legg eina tænastu afturat",
+      "restoreTitle": "Endurskapa {name}?",
+      "archiveTitle": "Goym {name} í skjalasavn?",
+      "deleteTitle": "Sletta {name}?",
+      "editMetaTitle": "Rætta tænastu",
+      "editTitle": "Rætta {name}"
+    },
+    "products": {
+      "title": "Vørur",
+      "description": "Vørur, tú selur, hvør við einum SKU. At velja eina vøru avritar virðini á rokningarlinjuna.",
+      "newProduct": "Nýggj vøra",
+      "emptyTitle": "Ongar vørur enn",
+      "emptyDescription": "Legg vørurnar, tú selur, afturat við SKU, HSN-kotu, einindarprísi og skattasatsi.",
+      "addProduct": "Legg eina vøru afturat",
+      "restoreTitle": "Endurskapa {sku}?",
+      "archiveTitle": "Goym {sku} í skjalasavn?",
+      "deleteTitle": "Sletta {sku}?",
+      "editMetaTitle": "Rætta vøru",
+      "editTitle": "Rætta {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Einstøk kota prentað undir linjulýsingini",
+      "name": "Navn",
+      "unit": "Eind",
+      "defaultRate": "Sjálvvirðis prísur",
+      "unitPrice": "Einindarprísur",
+      "currency": "Gjaldoyra",
+      "sacHsnCode": "SAC / HSN-kota",
+      "sacHsnHint": "Kravd á GST-rokningum",
+      "hsnCode": "HSN-kota",
+      "hsnHint": "Kravd á GST-rokningum fyri vørur",
+      "defaultTaxRate": "Sjálvvirðis skattasatsur (%)",
+      "description": "Lýsing",
+      "descriptionHint": "Fyllir linjulýsingina út frammanundan",
+      "active": "Virkið",
+      "serviceInactiveHint": "Óvirknar tænastur eru ikki við í rokningarvalinum",
+      "productInactiveHint": "Óvirknar vørur eru ikki við í rokningarvalinum",
+      "saveService": "Goym tænastu",
+      "saveProduct": "Goym vøru"
+    },
+    "tags": {
+      "legend": "Vangar",
+      "hint": "Kvittera útgevaravangarnar, sum selja hetta. Lat øll vera ókvittað fyri at bjóða tað øllum vangum."
+    }
+  },
+  "address": {
+    "line1": "Adressulinja 1",
+    "line2": "Adressulinja 2",
+    "city": "Býur",
+    "stateRegion": "Fylki / øki",
+    "postalCode": "Postnummar",
+    "country": "Land",
+    "state": "Fylki",
+    "gstStateCodeHint": "GST-fylkiskota {code}",
+    "pickStateHint": "Vel fylkið til GST-fylkiskotuna",
+    "stateRegionCode": "Fylkis- / økiskota",
+    "stateRegionCodePlaceholder": "t.d. CA"
+  },
+  "assets": {
+    "tooLarge": "Fílan er ov stór.",
+    "unsupportedReceipt": "Brúka eina PNG-, JPEG-, WebP-mynd ella eina PDF.",
+    "unsupportedImage": "Brúka eina PNG-, JPEG- ella WebP-mynd.",
+    "uploadFailed": "Upphavan miseydnaðist.",
+    "uploading": "Letur upp…",
+    "dropHint": "Drag eina fílu higar, ella vel eina",
+    "dropHintMany": "Dragið fílur higar, ella veljið tær",
+    "dropActive": "Slepp fyri at leggja upp"
+  },
+  "ui": {
+    "breadcrumb": "Leiðarmerki",
+    "close": "Lat aftur",
+    "closeMenu": "Lat valmynd aftur",
+    "reveal": "Vís",
+    "hide": "Fjal",
+    "openCalendar": "Opna kalendara",
+    "chooseMonth": "Vel mánað",
+    "chooseYear": "Vel ár",
+    "searchOptions": "Skriva fyri at leita",
+    "noMatches": "Eingi úrslit",
+    "pullToRefresh": {
+      "label": "Listi sum kann endurnýggjast",
+      "pulling": "Drag fyri at endurnýggja",
+      "release": "Slepp fyri at endurnýggja",
+      "refreshing": "Endurnýggjar"
+    },
+    "inputCharset": "Bara vanlig tekin á tastatúrinum eru loyvd.",
+    "confirm": {
+      "working": "Arbeiðir…"
+    },
+    "statusPill": {
+      "DRAFT": "Uppskot",
+      "ISSUED": "Útgivin",
+      "SENT": "Send",
+      "PARTIALLY_PAID": "Partvís goldin",
+      "PAID": "Goldin",
+      "OVERDUE": "Fallin til gjaldsdagin",
+      "VOID": "Ógildað"
+    },
+    "activePill": {
+      "active": "Virkið",
+      "archived": "Goymt",
+      "inactive": "Óvirkið"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Okkurt gekk galið.",
+    "fixFields": "Vinaliga rætta teir upplýstu reitirnar.",
+    "accountSaved": "Kontoynskir goymdir",
+    "apiKeyCreated": "API-lykil stovnaður. Avrita hann nú: hann verður bara víst eina ferð.",
+    "saved": "{name} goymt",
+    "savedProfile": "Vangi {label} goymdur",
+    "clientArchived": "Kundi goymdur í skjalasavn",
+    "clientRestored": "Kundi endurskapaður",
+    "clientDeleted": "Kundi slettaður",
+    "productArchived": "Vøra goymd í skjalasavn",
+    "productRestored": "Vøra endurskapað",
+    "productActivated": "Vøra virkjað",
+    "productDeactivated": "Vøra gjørd óvirkin",
+    "serviceArchived": "Tænasta goymd í skjalasavn",
+    "serviceRestored": "Tænasta endurskapað",
+    "serviceActivated": "Tænasta virkjað",
+    "serviceDeactivated": "Tænasta gjørd óvirkin",
+    "defaultProfileUpdated": "Sjálvvirðis vangi dagførdur",
+    "profileArchived": "Vangi goymdur í skjalasavn",
+    "profileRestored": "Vangi endurskapaður",
+    "profileDeleted": "Vangi slettaður",
+    "defaultPaymentMethodUpdated": "Sjálvvirðis gjaldsháttur dagførdur",
+    "paymentMethodArchived": "Gjaldsháttur goymdur í skjalasavn",
+    "paymentMethodRestored": "Gjaldsháttur endurskapaður",
+    "paymentMethodDeleted": "Gjaldsháttur slettaður",
+    "issued": "{number} útgivin",
+    "savedAsDraft": "Goymt sum uppskot. {reason}",
+    "draftSaved": "Uppskot goymt",
+    "invoiceVoided": "Rokning ógildað",
+    "originalVoided": "Upprunin ógildaður; rætta uppskotið til erstatning",
+    "markedAsSent": "Merkt sum sent",
+    "draftDeleted": "Uppskot slettað",
+    "generatedPdf": "PDF-útgáva {version} gjørd",
+    "creditNoteVoided": "Kreditnota ógildað; balansan á rokningini er endurskapað",
+    "draftCreditNoteDeleted": "Uppskot til kreditnotu slettað",
+    "mailRefused": "Teldupostambætarin noktaði boðunum: {error}. Roynd varð skrásett.",
+    "unknownError": "ókendur feilur",
+    "sentTo": "Sent til {recipients}",
+    "smtpSaved": "SMTP-stillingar goymdar",
+    "smtpRemoved": "Goymdar SMTP-stillingar strikaðar",
+    "testEmailSent": "Royndarteldupostur sendur til {email}",
+    "testFailed": "Roynd miseydnaðist: {error}",
+    "defaultRecipientsSaved": "Sjálvvirðis móttakarar goymdir",
+    "invitationSent": "Innbjóðing send",
+    "invitationReady": "Innbjóðing klár",
+    "unknownRole": "Ókendur leiklutur",
+    "roleUpdated": "Leiklutur dagførdur",
+    "accountDeactivated": "Konta gjørd óvirkin",
+    "accountReactivated": "Konta virkjað aftur",
+    "invitationRevoked": "Innbjóðing afturkallað",
+    "paymentUpdated": "Gjalding dagførd",
+    "paymentRecorded": "Gjalding skrásett",
+    "paymentDeleted": "Gjalding slettað",
+    "sessionRevoked": "Seta afturkallað",
+    "noOtherSessions": "Ongar aðrar setur",
+    "signedOutOthers": "Ritaði út av {count} aðrari/aðrum setu(m)",
+    "sharePasswordRequired": "Skriva eitt loyniorð, ella lat eitt verða gjørt.",
+    "shareLinkCreated": "Deilingarleinkja stovnað.",
+    "templateSaved": "Fyrimynd goymd; komandi skjøl nýta hana",
+    "templateReset": "Fyrimynd endursett til innbygda sjálvvirðið",
+    "templateImported": "Fyrimynd innlisin",
+    "profileTemplateCleared": "Vangin brúkar aftur fyrimynd uppsetingarinnar",
+    "operatorSaved": "Upplýsingar um rekstrarhavara goymdar. Løgfrøðisíðurnar vísa tær nú.",
+    "einvoiceSettingsSaved": "Stillingar fyri e-rokning goymdar",
+    "irnRegistered": "IRN {irn} skrásett; PDF varð framleitt av nýggjum við tí",
+    "irnRecorded": "IRN skrásett; PDF varð framleitt av nýggjum við tí",
+    "irnCancelled": "IRN ógildað; PDF varð framleitt av nýggjum"
+  }
+}

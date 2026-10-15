@@ -4,7 +4,8 @@ import { suggestRoundingAdjustment } from "@/lib/invoices";
 import { D } from "@/lib/money";
 
 import Link from "next/link";
-import { useActionState, useDeferredValue, useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
+import { useActionState, useDeferredValue, useEffect, useMemo, useState } from "react";
 import { ScaledPreview } from "@/components/documents/scaled-preview";
 import { DisplayConfigFields } from "@/components/forms/display-config-fields";
 import { FormMessage } from "@/components/forms/form-message";
@@ -15,26 +16,58 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { DateField } from "@/components/ui/date-field";
+import { ComboboxField } from "@/components/ui/combobox-field";
 import { Amount } from "@/components/ui/mono";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { addDays } from "@/lib/dates";
 import { buildDocumentViewModel, DocumentPreview, PAPER } from "@/lib/documents";
 import { formatMoney } from "@/lib/format";
+import { DEFAULT_DOCUMENT_MESSAGES, type DocumentMessages } from "@/lib/i18n/document-messages";
+import { DEFAULT_LOCALE, languagesByRegion, type Region } from "@/lib/i18n/languages";
+import { matchLocale } from "@/lib/i18n/resolve";
 import { previewFromBuilder, type BuilderValues } from "@/lib/invoices/client-preview";
 import { COMMON_CURRENCIES, DEFAULT_TEMPLATE_CONFIG, TAX_REGIMES } from "@/lib/schemas";
 import { GST_RATES, UK_VAT_RATES } from "@/lib/tax";
 import { saveDraft } from "@/server/actions/invoices";
 import type { BuilderContext } from "@/server/dal/invoice-builder";
 
-const REGIME_LABELS: Record<(typeof TAX_REGIMES)[number], string> = {
-  INDIA_GST: "India GST",
-  UK_VAT: "UK VAT",
-  US_SALES_TAX: "US sales tax",
-  NONE: "No tax",
-};
+/** Region → its `settings.account.regions` catalogue key (the same grouping as the account page). */
+const REGION_KEY = {
+  Africa: "Africa",
+  Americas: "Americas",
+  Asia: "Asia",
+  Europe: "Europe",
+  "Middle East": "MiddleEast",
+  Oceania: "Oceania",
+  Constructed: "Constructed",
+} as const satisfies Record<Region, string>;
+
+/** The client's preferred document language, else the profile's locale, else en-US (SPEC §4.10). */
+const defaultDocumentLocale = (
+  client: { preferredLocale: string | null } | null,
+  profile: { locale: string } | null,
+) =>
+  client?.preferredLocale ??
+  (profile ? matchLocale([profile.locale]) : undefined) ??
+  DEFAULT_LOCALE;
+
+/** Tax regime → its `invoices.builder.regimes` catalogue key. */
+const REGIME_KEY = {
+  INDIA_GST: "indiaGst",
+  UK_VAT: "ukVat",
+  US_SALES_TAX: "usSalesTax",
+  NONE: "none",
+} as const satisfies Record<(typeof TAX_REGIMES)[number], string>;
 
 const PT_TO_PX = 96 / 72;
+
+/** Catalogue items with no tags are offered to every profile; tagged ones only to theirs (spec §5.2). */
+const offeredTo =
+  (issuerProfileId: string) =>
+  (item: { issuerProfileIds: string[] }): boolean =>
+    item.issuerProfileIds.length === 0 || item.issuerProfileIds.includes(issuerProfileId);
 
 export function InvoiceBuilder({
   context,
@@ -43,6 +76,8 @@ export function InvoiceBuilder({
   context: BuilderContext;
   invoiceId: string | null;
 }) {
+  const t = useTranslations("invoices.builder");
+  const tc = useTranslations("common");
   const [state, action] = useActionState(saveDraft.bind(null, invoiceId), null);
   const [values, setValues] = useState<BuilderValues>(context.initial);
   const deferred = useDeferredValue(values);
@@ -51,6 +86,27 @@ export function InvoiceBuilder({
   const profile = context.profiles.find((p) => p.id === values.issuerProfileId) ?? null;
   const client = context.clients.find((c) => c.id === values.clientId) ?? null;
   const config = (profile && context.templateConfigs[profile.id]) ?? DEFAULT_TEMPLATE_CONFIG;
+  const tr = useTranslations("settings.account.regions");
+
+  // The live preview prints in the chosen document language: its strings come from the server
+  // once per language and are kept for the session.
+  const [messagesByLocale, setMessagesByLocale] = useState<Record<string, DocumentMessages>>({
+    [DEFAULT_LOCALE]: DEFAULT_DOCUMENT_MESSAGES,
+  });
+  const documentLocale = values.documentLocale || DEFAULT_LOCALE;
+  useEffect(() => {
+    if (messagesByLocale[documentLocale]) return;
+    let cancelled = false;
+    fetch(`/api/documents/messages?locale=${encodeURIComponent(documentLocale)}`)
+      .then((r) => (r.ok ? (r.json() as Promise<DocumentMessages>) : DEFAULT_DOCUMENT_MESSAGES))
+      .catch(() => DEFAULT_DOCUMENT_MESSAGES)
+      .then((m) => {
+        if (!cancelled) setMessagesByLocale((s) => ({ ...s, [documentLocale]: m }));
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [documentLocale, messagesByLocale]);
 
   const preview = useMemo(() => {
     const p = context.profiles.find((x) => x.id === deferred.issuerProfileId) ?? null;
@@ -65,9 +121,10 @@ export function InvoiceBuilder({
       assetUrl: (id) => `/api/assets/id/${id}`,
       config,
       draft: true,
+      messages: messagesByLocale[deferred.documentLocale] ?? DEFAULT_DOCUMENT_MESSAGES,
     });
     return { ...result, vm };
-  }, [deferred, context, config]);
+  }, [deferred, context, config, messagesByLocale]);
 
   const set = <K extends keyof BuilderValues>(key: K, v: BuilderValues[K]) =>
     setValues((s) => ({ ...s, [key]: v }));
@@ -83,6 +140,7 @@ export function InvoiceBuilder({
       notes: s.notes || (p?.defaultNotes ?? ""),
       terms: s.terms || (p?.defaultTerms ?? ""),
       tdsRate: client?.defaultTdsRate ?? p?.defaultTdsRate ?? s.tdsRate,
+      documentLocale: defaultDocumentLocale(client, p ?? null),
     }));
   };
   const onClient = (id: string) => {
@@ -93,6 +151,7 @@ export function InvoiceBuilder({
       currency: c?.currency ?? s.currency,
       dueDate: c ? addDays(s.issueDate || context.today, c.paymentTermsDays) : s.dueDate,
       tdsRate: c?.defaultTdsRate ?? profile?.defaultTdsRate ?? s.tdsRate,
+      documentLocale: defaultDocumentLocale(c ?? null, profile),
     }));
   };
 
@@ -111,68 +170,65 @@ export function InvoiceBuilder({
         <FormMessage state={state} />
         <Card>
           <CardHeader>
-            <CardTitle>Parties</CardTitle>
+            <CardTitle>{t("parties")}</CardTitle>
           </CardHeader>
           <CardContent>
             <FieldGroup>
               <Field
-                label="Issuer profile"
+                label={t("issuerProfile")}
                 htmlFor="issuerProfileId"
                 error={errors?.issuerProfileId}
                 required
               >
-                <Select
+                <ComboboxField
                   id="issuerProfileId"
                   name="issuerProfileId"
+                  label={t("issuerProfile")}
                   value={values.issuerProfileId}
-                  onChange={(e) => onProfile(e.target.value)}
-                >
-                  <option value="">Choose…</option>
-                  {context.profiles.map((p) => (
-                    <option key={p.id} value={p.id}>
-                      {p.label}
-                      {p.archivedAt ? " (archived)" : ""}
-                    </option>
-                  ))}
-                </Select>
+                  onValueChange={onProfile}
+                  placeholder={tc("choose")}
+                  invalid={Boolean(errors?.issuerProfileId)}
+                  options={context.profiles.map((p) => ({
+                    value: p.id,
+                    label: p.archivedAt ? t("archivedOption", { label: p.label }) : p.label,
+                  }))}
+                />
               </Field>
-              <Field label="Client" htmlFor="clientId" error={errors?.clientId} required>
-                <Select
+              <Field label={t("client")} htmlFor="clientId" error={errors?.clientId} required>
+                <ComboboxField
                   id="clientId"
                   name="clientId"
+                  label={t("client")}
                   value={values.clientId}
-                  onChange={(e) => onClient(e.target.value)}
-                >
-                  <option value="">Choose…</option>
-                  {context.clients.map((c) => (
-                    <option key={c.id} value={c.id}>
-                      {c.displayName}
-                      {c.archivedAt ? " (archived)" : ""}
-                    </option>
-                  ))}
-                </Select>
+                  onValueChange={onClient}
+                  placeholder={tc("choose")}
+                  invalid={Boolean(errors?.clientId)}
+                  options={context.clients.map((c) => ({
+                    value: c.id,
+                    label: c.archivedAt
+                      ? t("archivedOption", { label: c.displayName })
+                      : c.displayName,
+                    ...(c.email ? { keywords: [c.email] } : {}),
+                  }))}
+                />
               </Field>
-              <Field label="Issue date" htmlFor="issueDate" error={errors?.issueDate} required>
-                <Input
+              <Field label={t("issueDate")} htmlFor="issueDate" error={errors?.issueDate} required>
+                <DateField
                   id="issueDate"
                   name="issueDate"
-                  type="date"
-                  className="font-mono"
                   value={values.issueDate}
                   onChange={(e) => set("issueDate", e.target.value)}
                 />
               </Field>
-              <Field label="Due date" htmlFor="dueDate" error={errors?.dueDate} required>
-                <Input
+              <Field label={t("dueDate")} htmlFor="dueDate" error={errors?.dueDate} required>
+                <DateField
                   id="dueDate"
                   name="dueDate"
-                  type="date"
-                  className="font-mono"
                   value={values.dueDate}
                   onChange={(e) => set("dueDate", e.target.value)}
                 />
               </Field>
-              <Field label="Currency" htmlFor="currency" error={errors?.currency} required>
+              <Field label={tc("currency")} htmlFor="currency" error={errors?.currency} required>
                 <Select
                   id="currency"
                   name="currency"
@@ -192,12 +248,12 @@ export function InvoiceBuilder({
                 </Select>
               </Field>
               <Field
-                label="FX rate to base currency"
+                label={t("fxRate")}
                 htmlFor="fxRateToBase"
                 error={errors?.fxRateToBase}
                 hint={
                   profile
-                    ? `1 ${values.currency} = ? ${profile.baseCurrency} (reporting only)`
+                    ? t("fxHint", { currency: values.currency, base: profile.baseCurrency })
                     : undefined
                 }
               >
@@ -211,7 +267,7 @@ export function InvoiceBuilder({
                   onChange={(e) => set("fxRateToBase", e.target.value)}
                 />
               </Field>
-              <Field label="PO reference" htmlFor="poReference" error={errors?.poReference}>
+              <Field label={t("poReference")} htmlFor="poReference" error={errors?.poReference}>
                 <Input
                   id="poReference"
                   name="poReference"
@@ -226,16 +282,15 @@ export function InvoiceBuilder({
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Line items</CardTitle>
-              <CardDescription>
-                Pick from the catalogue to copy its values, or type a line.
-              </CardDescription>
+              <CardTitle>{t("lineItems")}</CardTitle>
+              <CardDescription>{t("lineItemsHint")}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
             <LineItemsEditor
               items={values.items}
-              services={context.services}
+              services={context.services.filter(offeredTo(values.issuerProfileId))}
+              products={context.products.filter(offeredTo(values.issuerProfileId))}
               rates={rates}
               allowExempt={values.taxRegime === "UK_VAT"}
               errors={errors}
@@ -246,11 +301,11 @@ export function InvoiceBuilder({
 
         <Card>
           <CardHeader>
-            <CardTitle>Tax, discount and TDS</CardTitle>
+            <CardTitle>{t("taxDiscountTds")}</CardTitle>
           </CardHeader>
           <CardContent>
             <FieldGroup>
-              <Field label="Tax regime" htmlFor="taxRegime" error={errors?.taxRegime} required>
+              <Field label={t("taxRegime")} htmlFor="taxRegime" error={errors?.taxRegime} required>
                 <Select
                   id="taxRegime"
                   name="taxRegime"
@@ -259,7 +314,7 @@ export function InvoiceBuilder({
                 >
                   {TAX_REGIMES.map((r) => (
                     <option key={r} value={r}>
-                      {REGIME_LABELS[r]}
+                      {t(`regimes.${REGIME_KEY[r]}`)}
                     </option>
                   ))}
                 </Select>
@@ -267,14 +322,14 @@ export function InvoiceBuilder({
               <div className="flex items-end pb-2">
                 <Checkbox
                   name="isReverseCharge"
-                  label="Reverse charge"
-                  description="Tax payable by the recipient"
+                  label={t("reverseCharge")}
+                  description={t("reverseChargeHint")}
                   checked={values.isReverseCharge}
                   onChange={(e) => set("isReverseCharge", e.target.checked)}
                 />
               </div>
               <Field
-                label="Discount"
+                label={t("discount")}
                 htmlFor="discount.type"
                 error={errors?.["discount.value"] ?? errors?.discount}
               >
@@ -288,9 +343,9 @@ export function InvoiceBuilder({
                     }
                     className="w-36"
                   >
-                    <option value="">None</option>
-                    <option value="PERCENT">Percent</option>
-                    <option value="AMOUNT">Amount</option>
+                    <option value="">{tc("none")}</option>
+                    <option value="PERCENT">{t("percent")}</option>
+                    <option value="AMOUNT">{t("amount")}</option>
                   </Select>
                   <Input
                     name="discount.value"
@@ -304,10 +359,10 @@ export function InvoiceBuilder({
                 </div>
               </Field>
               <Field
-                label="Rounding adjustment"
+                label={t("rounding")}
                 htmlFor="roundingAdjustment"
                 error={errors?.roundingAdjustment}
-                hint="Optional, to a whole unit; must be under 1"
+                hint={t("roundingHint")}
               >
                 <div className="flex gap-2">
                   <Input
@@ -331,15 +386,15 @@ export function InvoiceBuilder({
                       set("roundingAdjustment", adj.isZero() ? "" : adj.toFixed(2));
                     }}
                   >
-                    Round
+                    {t("round")}
                   </Button>
                 </div>
               </Field>
               <Field
-                label="Expected TDS rate (%)"
+                label={t("tdsRate")}
                 htmlFor="tdsRate"
                 error={errors?.tdsRate}
-                hint="Informational; printed when the TDS breakdown is on"
+                hint={t("tdsRateHint")}
               >
                 <Input
                   id="tdsRate"
@@ -359,18 +414,20 @@ export function InvoiceBuilder({
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Payment methods</CardTitle>
-              <CardDescription>Printed in the order ticked.</CardDescription>
+              <CardTitle>{t("paymentMethods")}</CardTitle>
+              <CardDescription>{t("paymentMethodsHint")}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
             {context.methods.length === 0 ? (
               <p className="text-app-body text-ink-subtle">
-                No active payment methods.{" "}
-                <Link href="/settings/payment-methods/new" className="text-link">
-                  Add one
-                </Link>
-                .
+                {t.rich("noPaymentMethods", {
+                  link: (chunks) => (
+                    <Link href="/settings/payment-methods/new" className="text-link">
+                      {chunks}
+                    </Link>
+                  ),
+                })}
               </p>
             ) : (
               <div className="flex flex-col gap-2">
@@ -403,26 +460,53 @@ export function InvoiceBuilder({
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>What prints</CardTitle>
-              <CardDescription>Starts from the issuer profile&apos;s defaults.</CardDescription>
+              <CardTitle>{t("whatPrints")}</CardTitle>
+              <CardDescription>{t("whatPrintsHint")}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
-            <DisplayConfigFields
-              key={values.issuerProfileId}
-              prefix="display"
-              config={values.displayConfig}
-              onChange={(cfg) => set("displayConfig", cfg)}
-            />
+            <FieldGroup>
+              <Field
+                label={t("documentLanguage")}
+                htmlFor="documentLocale"
+                error={errors?.documentLocale}
+                hint={t("documentLanguageHint")}
+              >
+                <Select
+                  id="documentLocale"
+                  name="documentLocale"
+                  value={documentLocale}
+                  onChange={(e) => set("documentLocale", e.target.value)}
+                >
+                  {languagesByRegion().map((group) => (
+                    <optgroup key={group.region} label={tr(REGION_KEY[group.region])}>
+                      {group.languages.map((l) => (
+                        <option key={l.tag} value={l.tag} lang={l.tag}>
+                          {l.name}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ))}
+                </Select>
+              </Field>
+            </FieldGroup>
+            <div className="mt-6">
+              <DisplayConfigFields
+                key={values.issuerProfileId}
+                prefix="display"
+                config={values.displayConfig}
+                onChange={(cfg) => set("displayConfig", cfg)}
+              />
+            </div>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Notes and terms</CardTitle>
+            <CardTitle>{t("notesAndTerms")}</CardTitle>
           </CardHeader>
           <CardContent>
-            <Field label="Notes" htmlFor="notes" error={errors?.notes}>
+            <Field label={t("notes")} htmlFor="notes" error={errors?.notes}>
               <Textarea
                 id="notes"
                 name="notes"
@@ -430,7 +514,7 @@ export function InvoiceBuilder({
                 onChange={(e) => set("notes", e.target.value)}
               />
             </Field>
-            <Field label="Terms" htmlFor="terms" error={errors?.terms}>
+            <Field label={t("terms")} htmlFor="terms" error={errors?.terms}>
               <Textarea
                 id="terms"
                 name="terms"
@@ -442,14 +526,14 @@ export function InvoiceBuilder({
         </Card>
 
         <div className="flex flex-wrap items-center gap-2">
-          <SubmitButton name="intent" value="save" variant="secondary" pendingLabel="Saving…">
-            Save draft
+          <SubmitButton name="intent" value="save" variant="secondary" pendingLabel={tc("saving")}>
+            {t("saveDraft")}
           </SubmitButton>
-          <SubmitButton name="intent" value="issue" pendingLabel="Issuing…">
-            Save and issue
+          <SubmitButton name="intent" value="issue" pendingLabel={t("issuing")}>
+            {t("saveAndIssue")}
           </SubmitButton>
           <Button asChild variant="tertiary">
-            <Link href={invoiceId ? `/invoices/${invoiceId}` : "/invoices"}>Cancel</Link>
+            <Link href={invoiceId ? `/invoices/${invoiceId}` : "/invoices"}>{tc("cancel")}</Link>
           </Button>
         </div>
       </div>
@@ -457,7 +541,7 @@ export function InvoiceBuilder({
       <aside className="flex min-w-0 flex-col gap-4 xl:sticky xl:top-6 xl:self-start">
         <Card className="p-4">
           <dl className="grid grid-cols-[1fr_auto] gap-y-1 text-app-body">
-            <dt className="text-ink-subtle">Subtotal</dt>
+            <dt className="text-ink-subtle">{t("subtotal")}</dt>
             <dd className="text-right">
               <Amount>
                 {formatMoney(preview.totals.subtotal, preview.input.currency, locale)}
@@ -465,7 +549,7 @@ export function InvoiceBuilder({
             </dd>
             {preview.totals.discountAmount !== "0.00" && preview.totals.discountAmount !== "0" ? (
               <>
-                <dt className="text-ink-subtle">Discount</dt>
+                <dt className="text-ink-subtle">{t("discount")}</dt>
                 <dd className="text-right">
                   <Amount>
                     −{formatMoney(preview.totals.discountAmount, preview.input.currency, locale)}
@@ -473,25 +557,25 @@ export function InvoiceBuilder({
                 </dd>
               </>
             ) : null}
-            <dt className="text-ink-subtle">Tax</dt>
+            <dt className="text-ink-subtle">{t("tax")}</dt>
             <dd className="text-right">
               <Amount>
                 {formatMoney(preview.totals.taxAmount, preview.input.currency, locale)}
               </Amount>
             </dd>
-            <dt className="text-app-label text-ink">Total</dt>
+            <dt className="text-app-label text-ink">{tc("total")}</dt>
             <dd className="text-right text-app-section">
               <Amount>{formatMoney(preview.totals.total, preview.input.currency, locale)}</Amount>
             </dd>
             {preview.totals.tdsExpected !== "0.00" && preview.totals.tdsExpected !== "0" ? (
               <>
-                <dt className="text-ink-subtle">TDS expected</dt>
+                <dt className="text-ink-subtle">{t("tdsExpected")}</dt>
                 <dd className="text-right">
                   <Amount>
                     {formatMoney(preview.totals.tdsExpected, preview.input.currency, locale)}
                   </Amount>
                 </dd>
-                <dt className="text-ink-subtle">Net expected</dt>
+                <dt className="text-ink-subtle">{t("netExpected")}</dt>
                 <dd className="text-right">
                   <Amount>
                     {formatMoney(preview.totals.netExpected, preview.input.currency, locale)}

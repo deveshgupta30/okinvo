@@ -1,25 +1,66 @@
 import "server-only";
 import { addDays, todayIn } from "@/lib/dates";
 import { prisma } from "@/lib/db";
-import type { BuilderValues } from "@/lib/invoices/client-preview";
+import { DEFAULT_LOCALE } from "@/lib/i18n/languages";
+import { matchLocale } from "@/lib/i18n/resolve";
+import type { BuilderProfile, BuilderValues } from "@/lib/invoices/client-preview";
 import type { TemplateConfig } from "@/lib/schemas";
 import type { Actor } from "@/server/actor";
 import { listClients, type ClientDto } from "./clients";
 import { getInvoice, type InvoiceDto } from "./invoices";
 import { listPaymentMethods, type PaymentMethodDto } from "./payment-methods";
 import { listProfiles, type ProfileDto } from "./profiles";
+import { listProducts, type ProductDto } from "./products";
 import { listServices, type ServiceDto } from "./services";
 import { resolveTemplateConfig } from "./templates";
 
+export type { BuilderProfile } from "@/lib/invoices/client-preview";
+
+/** Projects a profile onto what the browser may see (see `BuilderProfile`). */
+export function toBuilderProfile(p: ProfileDto): BuilderProfile {
+  const {
+    usTaxId: _usTaxId,
+    emailCc: _emailCc,
+    emailBcc: _emailBcc,
+    emailInvoiceSubject: _emailInvoiceSubject,
+    emailInvoiceBody: _emailInvoiceBody,
+    emailCreditNoteSubject: _emailCreditNoteSubject,
+    emailCreditNoteBody: _emailCreditNoteBody,
+    templateConfigOverride: _templateConfigOverride,
+    invoiceNumberFormat: _invoiceNumberFormat,
+    creditNoteNumberFormat: _creditNoteNumberFormat,
+    logoKey: _logoKey,
+    signatureKey: _signatureKey,
+    stampKey: _stampKey,
+    createdAt: _createdAt,
+    updatedAt: _updatedAt,
+    ...rest
+  } = p;
+  return { ...rest, hasGstin: p.gstin !== null && p.gstin !== "" };
+}
+
 /** Everything the builder needs in one serialisable object. */
 export interface BuilderContext {
-  profiles: ProfileDto[];
+  profiles: BuilderProfile[];
   clients: ClientDto[];
   services: ServiceDto[];
+  products: ProductDto[];
   methods: PaymentMethodDto[];
   templateConfigs: Record<string, TemplateConfig>;
   initial: BuilderValues;
   today: string;
+}
+
+/** The client's preferred document language, else the profile's locale, else en-US (SPEC §4.10). */
+export function defaultDocumentLocale(
+  client: Pick<ClientDto, "preferredLocale"> | null,
+  profile: Pick<ProfileDto, "locale"> | null,
+): string {
+  return (
+    client?.preferredLocale ??
+    (profile ? matchLocale([profile.locale]) : undefined) ??
+    DEFAULT_LOCALE
+  );
 }
 
 export function valuesFromInvoice(inv: InvoiceDto): BuilderValues {
@@ -39,8 +80,12 @@ export function valuesFromInvoice(inv: InvoiceDto): BuilderValues {
       quantity: i.quantity.replace(/\.?0+$/, ""),
       unitPrice: i.unitPrice,
       taxRate: i.taxRate,
+      taxExempt: i.taxExempt,
       ...(i.serviceItemId ? { serviceItemId: i.serviceItemId } : {}),
+      ...(i.productId ? { productId: i.productId } : {}),
+      ...(i.sku ? { sku: i.sku } : {}),
     })),
+    documentLocale: inv.documentLocale,
     discountType: inv.discountType ?? "",
     discountValue: inv.discountValue ?? "",
     roundingAdjustment:
@@ -60,12 +105,14 @@ export async function builderContext(
   actor: Actor,
   o: { invoiceId?: string | null; clientId?: string | null; issuerProfileId?: string | null },
 ): Promise<BuilderContext> {
-  const [profiles, clients, services, methods] = await Promise.all([
+  const [fullProfiles, clients, services, products, methods] = await Promise.all([
     listProfiles(actor),
     listClients(actor),
     listServices(actor, { activeOnly: true }),
+    listProducts(actor, { activeOnly: true }),
     listPaymentMethods(actor, { activeOnly: true, decrypt: true }),
   ]);
+  const profiles = fullProfiles.map(toBuilderProfile);
   const today = todayIn(actor.timezone);
   const templateConfigs: Record<string, TemplateConfig> = {};
   for (const p of profiles) templateConfigs[p.id] = await resolveTemplateConfig(prisma, p.id);
@@ -77,7 +124,7 @@ export async function builderContext(
     // An archived party still edits; make sure its row is present for the pickers.
     if (!profiles.some((p) => p.id === inv.issuerProfileId)) {
       const { getProfile } = await import("./profiles");
-      profiles.push(await getProfile(actor, inv.issuerProfileId));
+      profiles.push(toBuilderProfile(await getProfile(actor, inv.issuerProfileId)));
     }
     if (!clients.some((c) => c.id === inv.clientId)) {
       const { getClient } = await import("./clients");
@@ -114,10 +161,11 @@ export async function builderContext(
       paymentMethodIds: methods.filter((m) => m.isDefault).map((m) => m.id),
       displayConfig:
         profile?.defaultDisplayConfig ?? (await import("@/lib/schemas")).DEFAULT_DISPLAY_CONFIG,
+      documentLocale: defaultDocumentLocale(client, profile),
       poReference: "",
       notes: profile?.defaultNotes ?? "",
       terms: profile?.defaultTerms ?? "",
     };
   }
-  return { profiles, clients, services, methods, templateConfigs, initial, today };
+  return { profiles, clients, services, products, methods, templateConfigs, initial, today };
 }

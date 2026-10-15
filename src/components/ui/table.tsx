@@ -1,10 +1,27 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-export function Table({ className, ...props }: React.ComponentProps<"table">) {
+/**
+ * Data table. With `cards`, rows become stacked cards below `md` and every cell shows its column
+ * name from `TD`'s `label` (CSS in globals.css, `.table-cards`); without it the table scrolls
+ * horizontally, which suits wide ledgers better than wrapping.
+ */
+export function Table({
+  className,
+  cards,
+  ...props
+}: React.ComponentProps<"table"> & { cards?: boolean }) {
   return (
-    <div className="w-full overflow-x-auto rounded-lg border border-hairline">
-      <table className={cn("w-full border-collapse text-app-table", className)} {...props} />
+    <div
+      className={cn(
+        "rounded-sg w-full overflow-x-auto border border-hairline",
+        cards && "max-md:overflow-visible max-md:rounded-none max-md:border-0",
+      )}
+    >
+      <table
+        className={cn("w-full border-collapse text-app-table", cards && "table-cards", className)}
+        {...props}
+      />
     </div>
   );
 }
@@ -35,8 +52,8 @@ export function TH({
     <th
       scope="col"
       className={cn(
-        "h-10 px-3 text-left text-app-label font-medium whitespace-nowrap text-ink-subtle",
-        numeric && "text-right",
+        "h-10 px-3 text-start text-app-label font-medium whitespace-nowrap text-ink-subtle",
+        numeric && "text-end",
         className,
       )}
       {...props}
@@ -48,13 +65,15 @@ export function TD({
   className,
   numeric,
   mono,
+  label,
   ...props
-}: React.ComponentProps<"td"> & { numeric?: boolean; mono?: boolean }) {
+}: React.ComponentProps<"td"> & { numeric?: boolean; mono?: boolean; label?: string }) {
   return (
     <td
+      {...(label !== undefined ? { "data-label": label } : {})}
       className={cn(
         "px-3 py-2 align-middle text-ink",
-        numeric && "text-right text-app-amount tabular-nums",
+        numeric && "text-end text-app-amount tabular-nums",
         mono && "text-app-mono",
         className,
       )}

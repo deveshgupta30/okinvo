@@ -16,6 +16,7 @@ const actor: Actor = {
   name: "Owner",
   role: "OWNER",
   timezone: "Asia/Kolkata",
+  locale: "en-US",
 };
 const tag = `inv-${Date.now()}`;
 const address = {
@@ -131,6 +132,10 @@ describe.skipIf(!url)("invoice DAL", () => {
 
   afterAll(async () => {
     await prisma.payment.deleteMany({ where: { invoice: { poReference: tag } } });
+    await prisma.creditNoteTaxLine.deleteMany({
+      where: { creditNote: { invoice: { poReference: tag } } },
+    });
+    await prisma.creditNote.deleteMany({ where: { invoice: { poReference: tag } } });
     await prisma.document.deleteMany({ where: { invoice: { poReference: tag } } });
     await prisma.invoice.deleteMany({ where: { replacesInvoice: { poReference: tag } } });
     await prisma.invoice.deleteMany({ where: { poReference: tag } });
@@ -218,16 +223,112 @@ describe.skipIf(!url)("invoice DAL", () => {
     expect(issued.verificationToken).not.toBe(d.verificationToken);
     expect(issued.issuerSnapshot?.legalName).toBe(`${tag} Legal Name`);
     expect(issued.issuerSnapshot?.gstin).toBe("29ABCDE1234F1Z5");
+    // e-invoicing (spec §9e): the structured addresses travel with the snapshots and the GST
+    // e-invoice JSON builds from them alone
+    expect(issued.issuerSnapshot?.address?.postalCode).toBe("560001");
+    expect(issued.clientSnapshot?.address?.city).toBe("Bengaluru");
+    const { einvoiceInputFromInvoice } = await import("@/lib/einvoice/input");
+    const { toGstEInvoice } = await import("@/lib/einvoice/gst/build");
+    const gst = toGstEInvoice(einvoiceInputFromInvoice(issued));
+    expect(gst.DocDtls.No).toBe(issued.number);
+    expect(gst.ValDtls.TotInvVal).toBe(Number(issued.total));
+    expect(gst.SellerDtls.Pin).toBe(560001);
+    // the download route serves the same JSON to an API key with documents:read
+    const keyUserId = `einv-${tag}`;
+    // API keys only authenticate admitted users: an invitation row admits the test e-mail
+    const keyEmail = `${tag}@example.com`;
+    await prisma.allowedEmail.create({ data: { email: keyEmail, role: "VIEWER" } });
+    await prisma.user.create({
+      data: {
+        id: keyUserId,
+        name: "Key",
+        email: `${tag}@example.com`,
+        role: "VIEWER",
+        onboardedAt: new Date(),
+      },
+    });
+    try {
+      const keys = await import("@/server/dal/api-keys");
+      const { key } = await keys.createApiKey(
+        { ...actor, userId: keyUserId, email: `${tag}@example.com`, role: "VIEWER" },
+        { name: "docs", scopes: ["documents:read"] },
+      );
+      const route = await import("@/app/api/documents/einvoice/[id]/route");
+      const res = await route.GET(
+        new Request(`http://127.0.0.1:3000/api/documents/einvoice/${d.id}?format=gst`, {
+          headers: { authorization: `Bearer ${key}` },
+        }),
+        { params: Promise.resolve({ id: d.id }) },
+      );
+      expect(res.status).toBe(200);
+      expect(res.headers.get("content-disposition")).toContain("-einvoice.json");
+      expect(((await res.json()) as { DocDtls: { No: string } }).DocDtls.No).toBe(issued.number);
+      // the EN 16931 outputs serve XML under their own file names
+      for (const format of ["cii", "ubl"] as const) {
+        const xml = await route.GET(
+          new Request(`http://127.0.0.1:3000/api/documents/einvoice/${d.id}?format=${format}`, {
+            headers: { authorization: `Bearer ${key}` },
+          }),
+          { params: Promise.resolve({ id: d.id }) },
+        );
+        expect(xml.status).toBe(200);
+        expect(xml.headers.get("content-type")).toContain("application/xml");
+        expect(xml.headers.get("content-disposition")).toContain(`-${format}.xml`);
+        const body = await xml.text();
+        expect(body).toContain(format === "cii" ? "rsm:CrossIndustryInvoice" : "<Invoice");
+        expect(body).toContain(issued.number!);
+      }
+      const bad = await route.GET(
+        new Request(`http://127.0.0.1:3000/api/documents/einvoice/${d.id}?format=pdf`, {
+          headers: { authorization: `Bearer ${key}` },
+        }),
+        { params: Promise.resolve({ id: d.id }) },
+      );
+      expect(bad.status).toBe(400);
+    } finally {
+      await prisma.apiKey.deleteMany({ where: { userId: keyUserId } });
+      await prisma.auditEvent.deleteMany({ where: { actorId: keyUserId } }).catch(() => undefined);
+      await prisma.user.delete({ where: { id: keyUserId } });
+      await prisma.allowedEmail.deleteMany({ where: { email: keyEmail } });
+    }
     expect(issued.issuerSnapshot?.pan).toBeUndefined(); // showPan is false by default
     expect(issued.clientSnapshot?.displayName).toBe(`${tag} client`);
     expect(issued.paymentMethodsSnapshot?.[0]?.lines.some((l) => l.value === "000111222333")).toBe(
       true,
     );
-    expect(issued.templateSnapshot?.templateId).toBe("ledger");
+    // the snapshot is whatever template is in force for the profile (the shared dev DB may hold
+    // a saved instance template from an e2e run), never a hard-coded default
+    const { resolveTemplateConfig } = await import("@/server/dal/templates");
+    expect(issued.templateSnapshot?.templateId).toBe(
+      (await resolveTemplateConfig(prisma, profileId)).templateId,
+    );
     expect(issued.placeOfSupply).toBe("Karnataka (29)");
     expect(issued.displayStatus).toBe("ISSUED");
     const events = await prisma.auditEvent.findMany({ where: { entityId: d.id } });
     expect(events.map((e) => e.action)).toContain("invoice.issued");
+  });
+
+  it("prints in its own language, fixed at issue whatever the client prefers later", async () => {
+    const d = await inv.createDraft(actor, draftInput({ documentLocale: "de" }));
+    ids.invoices.push(d.id);
+    expect(d.documentLocale).toBe("de");
+    const issued = await inv.issueInvoice(actor, d.id);
+    expect(issued.documentLocale).toBe("de");
+    // the client's preference changing afterwards does not touch the issued document
+    await prisma.client.update({ where: { id: clientId }, data: { preferredLocale: "fr-FR" } });
+    expect((await inv.getInvoice(actor, d.id)).documentLocale).toBe("de");
+    const { renderInputFromInvoice } = await import("@/server/dal/documents");
+    expect(renderInputFromInvoice(await inv.getInvoice(actor, d.id)).locale).toBe("de");
+    // a credit note copies its invoice's language
+    const cn = await import("@/server/dal/credit-notes");
+    const note = await cn.createCreditNoteDraft(actor, {
+      invoiceId: d.id,
+      reason: "Language check",
+      subtotal: "100.00",
+      issueDate: "2026-04-16",
+    });
+    expect(note.documentLocale).toBe("de");
+    await prisma.client.update({ where: { id: clientId }, data: { preferredLocale: null } });
   });
 
   it("leaves no gap when an issue fails validation", async () => {

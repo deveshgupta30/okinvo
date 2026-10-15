@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useActionState, useMemo, useState } from "react";
 import { ScaledPreview } from "@/components/documents/scaled-preview";
 import { FormMessage } from "@/components/forms/form-message";
@@ -9,36 +10,55 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { SliderField } from "@/components/ui/slider-field";
 import { Select } from "@/components/ui/select";
+import { AssetPicker } from "@/components/forms/asset-picker";
 import { Textarea } from "@/components/ui/textarea";
 import { DocumentPreview, PAPER, sampleViewModel } from "@/lib/documents";
+import { FONT_CATALOG } from "@/lib/documents/fonts/catalog";
 import {
   DEFAULT_LABELS,
   LABEL_KEYS,
   TEMPLATE_IDS,
+  type FontId,
   type LabelKey,
   type TemplateConfig,
-  type TemplateId,
 } from "@/lib/schemas";
 import { cn } from "@/lib/utils";
 import { saveTemplateAction } from "@/server/actions/templates";
 
 const PT_TO_PX = 96 / 72;
 
-const TEMPLATE_INFO: Record<TemplateId, { name: string; character: string }> = {
-  ledger: {
-    name: "Ledger",
-    character: "Modern and airy, sans-serif, accent rule under the header.",
-  },
-  classic: {
-    name: "Classic",
-    character: "Traditional bordered table, serif headings, boxed totals.",
-  },
-  compact: {
-    name: "Compact",
-    character: "Dense layout for long item lists; smaller type, fewer separators.",
-  },
+const FONTS_BY_CATEGORY = {
+  sans: FONT_CATALOG.filter((f) => f.category === "sans"),
+  serif: FONT_CATALOG.filter((f) => f.category === "serif"),
 };
+
+/** Native select (type to jump) grouped Sans/Serif; each family name is set in itself. */
+function FontPicker({
+  id,
+  value,
+  onChange,
+}: {
+  id: string;
+  value: FontId;
+  onChange: (id: FontId) => void;
+}) {
+  const t = useTranslations("settings.templates.form");
+  return (
+    <Select id={id} value={value} onChange={(e) => onChange(e.target.value as FontId)}>
+      {(["sans", "serif"] as const).map((category) => (
+        <optgroup key={category} label={category === "sans" ? t("fontSans") : t("fontSerif")}>
+          {FONTS_BY_CATEGORY[category].map((f) => (
+            <option key={f.id} value={f.id} style={{ fontFamily: `"${f.family}"` }}>
+              {f.family}
+            </option>
+          ))}
+        </optgroup>
+      ))}
+    </Select>
+  );
+}
 
 export function TemplateForm({
   scope,
@@ -49,6 +69,8 @@ export function TemplateForm({
   initial: TemplateConfig;
   cancelHref?: string;
 }) {
+  const t = useTranslations("settings.templates.form");
+  const tc = useTranslations("common");
   const [state, action] = useActionState(saveTemplateAction.bind(null, scope), null);
   const [config, setConfig] = useState<TemplateConfig>(initial);
   const vm = useMemo(() => sampleViewModel(config), [config]);
@@ -74,14 +96,16 @@ export function TemplateForm({
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Template</CardTitle>
-              <CardDescription>
-                Three built-ins; the customisation below applies to whichever you pick.
-              </CardDescription>
+              <CardTitle>{t("templateTitle")}</CardTitle>
+              <CardDescription>{t("templateDescription")}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-3 md:grid-cols-3" role="radiogroup" aria-label="Template">
+            <div
+              className="grid gap-3 md:grid-cols-3"
+              role="radiogroup"
+              aria-label={t("templateGroup")}
+            >
               {TEMPLATE_IDS.map((id) => (
                 <button
                   key={id}
@@ -94,9 +118,9 @@ export function TemplateForm({
                     config.templateId === id ? "border-primary bg-surface-2" : "border-hairline",
                   )}
                 >
-                  <span className="block text-app-label text-ink">{TEMPLATE_INFO[id].name}</span>
+                  <span className="block text-app-label text-ink">{t(`templates.${id}.name`)}</span>
                   <span className="mt-1 block text-app-caption text-ink-subtle">
-                    {TEMPLATE_INFO[id].character}
+                    {t(`templates.${id}.character`)}
                   </span>
                 </button>
               ))}
@@ -106,11 +130,11 @@ export function TemplateForm({
 
         <Card>
           <CardHeader>
-            <CardTitle>Paper and type</CardTitle>
+            <CardTitle>{t("paperTitle")}</CardTitle>
           </CardHeader>
           <CardContent>
             <FieldGroup>
-              <Field label="Paper size" htmlFor="paperSize">
+              <Field label={t("paperSize")} htmlFor="paperSize">
                 <Select
                   id="paperSize"
                   value={config.paper.size}
@@ -122,10 +146,10 @@ export function TemplateForm({
                   }
                 >
                   <option value="A4">A4</option>
-                  <option value="LETTER">Letter</option>
+                  <option value="LETTER">{t("paperLetter")}</option>
                 </Select>
               </Field>
-              <Field label="Margins" htmlFor="margins">
+              <Field label={t("margins")} htmlFor="margins">
                 <Select
                   id="margins"
                   value={config.paper.margins}
@@ -136,22 +160,25 @@ export function TemplateForm({
                     })
                   }
                 >
-                  <option value="normal">Normal</option>
-                  <option value="narrow">Narrow</option>
+                  <option value="normal">{t("marginsNormal")}</option>
+                  <option value="narrow">{t("marginsNarrow")}</option>
                 </Select>
               </Field>
-              <Field label="Font pairing" htmlFor="font">
-                <Select
-                  id="font"
-                  value={config.font}
-                  onChange={(e) => set("font", e.target.value as TemplateConfig["font"])}
-                >
-                  <option value="inter">Inter</option>
-                  <option value="ibm-plex-sans">IBM Plex Sans</option>
-                  <option value="source-serif-4+inter">Source Serif 4 headings + Inter</option>
-                </Select>
+              <Field label={t("headingFont")} htmlFor="fontHeading">
+                <FontPicker
+                  id="fontHeading"
+                  value={config.font.heading}
+                  onChange={(heading) => set("font", { ...config.font, heading })}
+                />
               </Field>
-              <Field label="Table style" htmlFor="tableStyle">
+              <Field label={t("bodyFont")} htmlFor="fontBody">
+                <FontPicker
+                  id="fontBody"
+                  value={config.font.body}
+                  onChange={(body) => set("font", { ...config.font, body })}
+                />
+              </Field>
+              <Field label={t("tableStyle")} htmlFor="tableStyle">
                 <Select
                   id="tableStyle"
                   value={config.table.style}
@@ -159,12 +186,12 @@ export function TemplateForm({
                     set("table", { style: e.target.value as TemplateConfig["table"]["style"] })
                   }
                 >
-                  <option value="ruled">Ruled</option>
-                  <option value="zebra">Zebra</option>
-                  <option value="plain">Plain</option>
+                  <option value="ruled">{t("tableRuled")}</option>
+                  <option value="zebra">{t("tableZebra")}</option>
+                  <option value="plain">{t("tablePlain")}</option>
                 </Select>
               </Field>
-              <Field label="Accent colour" htmlFor="accent">
+              <Field label={t("accentColour")} htmlFor="accent">
                 <div className="flex gap-2">
                   <input
                     id="accent"
@@ -174,13 +201,14 @@ export function TemplateForm({
                     className="h-8 w-12 rounded-md border border-input bg-surface-1"
                   />
                   <Input
+                    id="accent-hex"
                     value={config.colors.accent}
                     className="font-mono"
                     onChange={(e) => set("colors", { ...config.colors, accent: e.target.value })}
                   />
                 </div>
               </Field>
-              <Field label="Text colour" htmlFor="textColour">
+              <Field label={t("textColour")} htmlFor="textColour">
                 <div className="flex gap-2">
                   <input
                     id="textColour"
@@ -196,7 +224,7 @@ export function TemplateForm({
                   />
                 </div>
               </Field>
-              <Field label="Logo position" htmlFor="logoPosition">
+              <Field label={t("logoPosition")} htmlFor="logoPosition">
                 <Select
                   id="logoPosition"
                   value={config.logo.position}
@@ -207,24 +235,23 @@ export function TemplateForm({
                     })
                   }
                 >
-                  <option value="left">Left</option>
-                  <option value="center">Centre</option>
-                  <option value="right">Right</option>
+                  <option value="left">{t("positionLeft")}</option>
+                  <option value="center">{t("positionCentre")}</option>
+                  <option value="right">{t("positionRight")}</option>
                 </Select>
               </Field>
-              <Field label="Logo height (mm)" htmlFor="logoHeight">
-                <Input
+              <Field label={t("logoHeight")} htmlFor="logoHeight">
+                <SliderField
                   id="logoHeight"
-                  type="number"
-                  min="8"
-                  max="40"
+                  label={t("logoHeight")}
+                  min={8}
+                  max={40}
                   value={config.logo.heightMm}
-                  onChange={(e) =>
-                    set("logo", { ...config.logo, heightMm: Number(e.target.value) || 16 })
-                  }
+                  onChange={(n) => set("logo", { ...config.logo, heightMm: n })}
+                  format={(n) => `${n} mm`}
                 />
               </Field>
-              <Field label="Document title" htmlFor="titleMode">
+              <Field label={t("documentTitle")} htmlFor="titleMode">
                 <div className="flex gap-2">
                   <Select
                     id="titleMode"
@@ -237,11 +264,11 @@ export function TemplateForm({
                     }
                     className="w-40"
                   >
-                    <option value="auto">Automatic (GST-aware)</option>
-                    <option value="custom">Custom</option>
+                    <option value="auto">{t("titleAuto")}</option>
+                    <option value="custom">{t("titleCustom")}</option>
                   </Select>
                   <Input
-                    placeholder="e.g. PROFORMA INVOICE"
+                    placeholder={t("titlePlaceholder")}
                     maxLength={40}
                     value={config.title.custom ?? ""}
                     disabled={config.title.mode !== "custom"}
@@ -249,7 +276,7 @@ export function TemplateForm({
                   />
                 </div>
               </Field>
-              <Field label="QR position" htmlFor="qrPosition">
+              <Field label={t("qrPosition")} htmlFor="qrPosition">
                 <Select
                   id="qrPosition"
                   value={config.qr.position}
@@ -257,12 +284,12 @@ export function TemplateForm({
                     set("qr", { position: e.target.value as TemplateConfig["qr"]["position"] })
                   }
                 >
-                  <option value="footer">Footer</option>
-                  <option value="header">Header</option>
-                  <option value="beside-totals">Beside totals</option>
+                  <option value="footer">{t("qrFooter")}</option>
+                  <option value="header">{t("qrHeader")}</option>
+                  <option value="beside-totals">{t("qrBesideTotals")}</option>
                 </Select>
               </Field>
-              <Field label="Amount in words" htmlFor="words">
+              <Field label={t("amountInWords")} htmlFor="words">
                 <Select
                   id="words"
                   value={config.totals.amountInWords}
@@ -273,50 +300,50 @@ export function TemplateForm({
                     })
                   }
                 >
-                  <option value="below-total">Below totals</option>
-                  <option value="footer">Footer</option>
-                  <option value="hidden">Hidden</option>
+                  <option value="below-total">{t("wordsBelowTotal")}</option>
+                  <option value="footer">{t("wordsFooter")}</option>
+                  <option value="hidden">{t("wordsHidden")}</option>
                 </Select>
               </Field>
             </FieldGroup>
             <div className="grid gap-2 md:grid-cols-3">
               <Checkbox
-                label="Subtotal row"
+                label={t("subtotalRow")}
                 checked={config.totals.showSubtotal}
                 onChange={(e) =>
                   set("totals", { ...config.totals, showSubtotal: e.target.checked })
                 }
               />
               <Checkbox
-                label="Discount row"
+                label={t("discountRow")}
                 checked={config.totals.showDiscount}
                 onChange={(e) =>
                   set("totals", { ...config.totals, showDiscount: e.target.checked })
                 }
               />
               <Checkbox
-                label="Tax lines"
+                label={t("taxLines")}
                 checked={config.totals.showTaxLines}
                 onChange={(e) =>
                   set("totals", { ...config.totals, showTaxLines: e.target.checked })
                 }
               />
               <Checkbox
-                label="TDS expected"
+                label={t("tdsExpected")}
                 checked={config.totals.showTdsExpected}
                 onChange={(e) =>
                   set("totals", { ...config.totals, showTdsExpected: e.target.checked })
                 }
               />
               <Checkbox
-                label="Rounding row"
+                label={t("roundingRow")}
                 checked={config.totals.showRounding}
                 onChange={(e) =>
                   set("totals", { ...config.totals, showRounding: e.target.checked })
                 }
               />
               <Checkbox
-                label="Page numbers"
+                label={t("pageNumbers")}
                 checked={config.pageNumbers}
                 onChange={(e) => set("pageNumbers", e.target.checked)}
               />
@@ -326,11 +353,112 @@ export function TemplateForm({
 
         <Card>
           <CardHeader>
-            <CardTitle>Text</CardTitle>
+            <div>
+              <CardTitle>{t("headerTitle")}</CardTitle>
+              <CardDescription>{t("headerDescription")}</CardDescription>
+            </div>
           </CardHeader>
           <CardContent>
             <FieldGroup>
-              <Field label="Header note" htmlFor="headerNote">
+              <Field label={t("headerStyle")} htmlFor="headerStyle">
+                <Select
+                  id="headerStyle"
+                  value={config.header.style}
+                  onChange={(e) =>
+                    set("header", {
+                      ...config.header,
+                      style: e.target.value as TemplateConfig["header"]["style"],
+                    })
+                  }
+                >
+                  <option value="none">{t("headerNone")}</option>
+                  <option value="band">{t("headerBand")}</option>
+                  <option value="image">{t("headerImage")}</option>
+                </Select>
+              </Field>
+              <Field label={t("bandColour")} htmlFor="headerColor">
+                <div className="flex gap-2">
+                  <input
+                    id="headerColor"
+                    type="color"
+                    value={config.header.color}
+                    onChange={(e) => set("header", { ...config.header, color: e.target.value })}
+                    className="h-8 w-12 rounded-md border border-input bg-surface-1"
+                  />
+                  <Input
+                    value={config.header.color}
+                    className="font-mono"
+                    aria-label={t("bandColourHex")}
+                    onChange={(e) => set("header", { ...config.header, color: e.target.value })}
+                  />
+                </div>
+              </Field>
+              <AssetPicker
+                name="headerImageAssetId"
+                kind="LETTERHEAD"
+                label={t("headerImageLabel")}
+                assetId={config.header.imageAssetId ?? null}
+                hint={t("headerImageHint")}
+                onChange={(assetId) =>
+                  set(
+                    "header",
+                    (() => {
+                      const { imageAssetId: _drop, ...rest } = config.header;
+                      return assetId ? { ...rest, imageAssetId: assetId, style: "image" } : rest;
+                    })(),
+                  )
+                }
+              />
+              <Field label={t("imageOpacity")} htmlFor="headerOpacity">
+                <SliderField
+                  id="headerOpacity"
+                  label={t("imageOpacity")}
+                  min={0}
+                  max={1}
+                  step={0.05}
+                  value={config.header.imageOpacity}
+                  onChange={(n) => set("header", { ...config.header, imageOpacity: n })}
+                  format={(n) => `${Math.round(n * 100)}%`}
+                />
+              </Field>
+              <Field label={t("headerHeight")} htmlFor="headerHeight">
+                <SliderField
+                  id="headerHeight"
+                  label={t("headerHeight")}
+                  min={20}
+                  max={60}
+                  value={config.header.heightMm}
+                  onChange={(n) => set("header", { ...config.header, heightMm: n })}
+                  format={(n) => `${n} mm`}
+                />
+              </Field>
+              <Field label={t("bandText")} htmlFor="headerText">
+                <Select
+                  id="headerText"
+                  value={config.header.text}
+                  onChange={(e) =>
+                    set("header", {
+                      ...config.header,
+                      text: e.target.value as TemplateConfig["header"]["text"],
+                    })
+                  }
+                >
+                  <option value="auto">{t("bandTextAuto")}</option>
+                  <option value="light">{t("bandTextLight")}</option>
+                  <option value="dark">{t("bandTextDark")}</option>
+                </Select>
+              </Field>
+            </FieldGroup>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>{t("textTitle")}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <FieldGroup>
+              <Field label={t("headerNote")} htmlFor="headerNote">
                 <Textarea
                   id="headerNote"
                   maxLength={300}
@@ -338,7 +466,7 @@ export function TemplateForm({
                   onChange={(e) => set("text", { ...config.text, headerNote: e.target.value })}
                 />
               </Field>
-              <Field label="Footer" htmlFor="footer">
+              <Field label={t("footer")} htmlFor="footer">
                 <Textarea
                   id="footer"
                   maxLength={300}
@@ -346,7 +474,7 @@ export function TemplateForm({
                   onChange={(e) => set("text", { ...config.text, footer: e.target.value })}
                 />
               </Field>
-              <Field label="Signature caption" htmlFor="signatureCaption">
+              <Field label={t("signatureCaption")} htmlFor="signatureCaption">
                 <Input
                   id="signatureCaption"
                   maxLength={60}
@@ -357,7 +485,7 @@ export function TemplateForm({
                   }
                 />
               </Field>
-              <Field label="Draft watermark" htmlFor="draftWatermark">
+              <Field label={t("draftWatermark")} htmlFor="draftWatermark">
                 <Input
                   id="draftWatermark"
                   maxLength={40}
@@ -372,8 +500,8 @@ export function TemplateForm({
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Labels</CardTitle>
-              <CardDescription>Leave a field blank to keep the default wording.</CardDescription>
+              <CardTitle>{t("labelsTitle")}</CardTitle>
+              <CardDescription>{t("labelsDescription")}</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
@@ -394,18 +522,18 @@ export function TemplateForm({
         </Card>
 
         <div className="flex flex-wrap items-center gap-2">
-          <SubmitButton pendingLabel="Saving…">Save template</SubmitButton>
+          <SubmitButton pendingLabel={tc("saving")}>{t("save")}</SubmitButton>
           <Button asChild variant="secondary">
             <a href={sampleHref} target="_blank" rel="noopener">
-              Download sample PDF
+              {t("downloadSample")}
             </a>
           </Button>
           <Button type="button" variant="secondary" onClick={() => downloadJson(json)}>
-            Export JSON
+            {t("exportJson")}
           </Button>
           {cancelHref ? (
             <Button asChild variant="tertiary">
-              <a href={cancelHref}>Cancel</a>
+              <a href={cancelHref}>{tc("cancel")}</a>
             </Button>
           ) : null}
         </div>

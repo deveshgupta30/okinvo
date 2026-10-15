@@ -3,6 +3,7 @@ import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 
 export default defineConfig([
+  { ignores: ["sdk/src/**", "openapi/**"] },
   ...nextVitals,
   ...nextTs,
   globalIgnores([
@@ -14,6 +15,12 @@ export default defineConfig([
     "test-results/**",
     "coverage/**",
     ".superpowers/**",
+    // vendored beui components (addendum §3): refreshed by pnpm vendor:update beui, not edited here
+    "src/components/motion/**",
+    "src/lib/hooks/**",
+    "src/lib/touch.ts",
+    "src/lib/ease.ts",
+    "src/lib/presence-gate.tsx",
   ]),
   {
     files: ["**/*.{ts,tsx,mjs}"],
@@ -44,5 +51,35 @@ export default defineConfig([
         },
       ],
     },
+  },
+  {
+    // Launch checklist item 10: every image carries a meaningful alt, or alt="" when decorative.
+    files: ["src/**/*.tsx"],
+    rules: { "jsx-a11y/alt-text": "error" },
+  },
+  {
+    // Air-gapped operation (addendum §1): every font ships in the image.
+    files: ["src/**/*.{ts,tsx}"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "next/font/google",
+              message: "Fonts are vendored (@fontsource); next/font/google fetches at build time.",
+            },
+          ],
+          patterns: [
+            { group: ["next/font/google/*"], message: "Fonts are vendored (@fontsource)." },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    // Legal prose: apostrophes and quotation marks are text, not markup.
+    files: ["src/app/(public)/legal/**/*.tsx"],
+    rules: { "react/no-unescaped-entities": "off" },
   },
 ]);

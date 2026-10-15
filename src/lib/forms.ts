@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { findDisallowed, INPUT_CHARSET_MESSAGE } from "@/lib/input-charset";
 import { D } from "@/lib/money";
 import { DEFAULT_DISPLAY_CONFIG, type DisplayConfig } from "@/lib/schemas/display-config";
 import { parseEmailList } from "@/lib/schemas/smtp";
@@ -59,15 +60,30 @@ export function parseForm<T>(schema: z.ZodType<T>, formData: FormData): ParseRes
   return parseObject(schema, formToObject(formData));
 }
 
+/** Credentials are hashed or encrypted, never rendered or interpreted: the charset does not apply. */
+const CREDENTIAL_KEY = /(password|passphrase|secret)$/i;
+
+/**
+ * Every string in the submitted value must stay inside the keyboard charset (SPEC.md §6.6);
+ * offending paths get a field error before Zod runs, and Zod's own issues are merged in.
+ */
 export function parseObject<T>(schema: z.ZodType<T>, input: unknown): ParseResult<T> {
+  const charset = findDisallowed(input).filter((v) => !CREDENTIAL_KEY.test(v.path));
   const r = schema.safeParse(input);
-  if (r.success) return { ok: true, data: r.data };
+  if (r.success && charset.length === 0) return { ok: true, data: r.data };
   const fieldErrors: FieldErrors = {};
-  for (const issue of r.error.issues) {
-    const key = issue.path.length ? issue.path.map(String).join(".") : "_form";
-    (fieldErrors[key] ??= []).push(issue.message);
+  for (const v of charset) (fieldErrors[v.path || "_form"] ??= []).push(INPUT_CHARSET_MESSAGE);
+  if (!r.success) {
+    for (const issue of r.error.issues) {
+      const key = issue.path.length ? issue.path.map(String).join(".") : "_form";
+      (fieldErrors[key] ??= []).push(issue.message);
+    }
   }
-  return { ok: false, fieldErrors, message: "Please correct the highlighted fields." };
+  return {
+    ok: false,
+    fieldErrors,
+    message: charset.length ? INPUT_CHARSET_MESSAGE : "Please correct the highlighted fields.",
+  };
 }
 
 // ───── field coercions for HTML forms ─────
@@ -134,3 +150,9 @@ export function readDisplayConfigFromForm(formData: FormData, prefix: string): D
   }
   return out as unknown as DisplayConfig;
 }
+
+/** Checkbox groups post one string, several strings, or nothing: always an array of ids. */
+export const fIdList = z.preprocess(
+  (v) => (v === undefined || v === null || v === "" ? [] : Array.isArray(v) ? v : [v]),
+  z.array(z.string().trim().min(1).max(64)).max(50),
+);

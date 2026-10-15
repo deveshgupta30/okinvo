@@ -14,7 +14,7 @@ import {
   unarchivePaymentMethod,
   updatePaymentMethod,
 } from "@/server/dal/payment-methods";
-import { errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
+import { actionT, errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
 
 const LIST = "/settings/payment-methods";
 
@@ -24,6 +24,7 @@ export async function savePaymentMethod(
   formData: FormData,
 ): Promise<ActionState> {
   const actor = await requireOwner();
+  const t = await actionT();
   const raw = formToObject(formData);
   const type = String(raw.type ?? "");
   const detailsRaw = (raw.details ?? {}) as Record<string, unknown>;
@@ -50,14 +51,14 @@ export async function savePaymentMethod(
     return failedWith(e, formData);
   }
   revalidatePath(LIST);
-  redirect(withFlash(LIST, { kind: "success", message: `Saved ${name}` }));
+  redirect(withFlash(LIST, { kind: "success", message: t("saved", { name }) }));
 }
 
 async function simple(formData: FormData, fn: () => Promise<void>, success: string) {
   try {
     await fn();
   } catch (e) {
-    redirect(withFlash(LIST, { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(LIST, { kind: "error", message: await errorMessage(e) }));
   }
   revalidatePath(LIST);
   redirect(withFlash(LIST, { kind: "success", message: success }));
@@ -65,36 +66,40 @@ async function simple(formData: FormData, fn: () => Promise<void>, success: stri
 
 export async function setDefaultPaymentMethodAction(formData: FormData): Promise<void> {
   const actor = await requireOwner();
+  const t = await actionT();
   await simple(
     formData,
     () => setDefaultPaymentMethod(actor, str(formData, "id")),
-    "Default payment method updated",
+    t("defaultPaymentMethodUpdated"),
   );
 }
 
 export async function archivePaymentMethodAction(formData: FormData): Promise<void> {
   const actor = await requireOwner();
+  const t = await actionT();
   await simple(
     formData,
     () => archivePaymentMethod(actor, str(formData, "id")),
-    "Payment method archived",
+    t("paymentMethodArchived"),
   );
 }
 
 export async function unarchivePaymentMethodAction(formData: FormData): Promise<void> {
   const actor = await requireOwner();
+  const t = await actionT();
   await simple(
     formData,
     () => unarchivePaymentMethod(actor, str(formData, "id")),
-    "Payment method restored",
+    t("paymentMethodRestored"),
   );
 }
 
 export async function deletePaymentMethodAction(formData: FormData): Promise<void> {
   const actor = await requireOwner();
+  const t = await actionT();
   await simple(
     formData,
     () => deletePaymentMethod(actor, str(formData, "id")),
-    "Payment method deleted",
+    t("paymentMethodDeleted"),
   );
 }

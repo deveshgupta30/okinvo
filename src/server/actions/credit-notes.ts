@@ -6,7 +6,7 @@ import { after } from "next/server";
 import { withFlash } from "@/lib/flash";
 import { parseForm } from "@/lib/forms";
 import { CreditNoteInputSchema } from "@/lib/schemas/credit-note-input";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import {
   createCreditNoteDraft,
   deleteCreditNoteDraft,
@@ -17,7 +17,7 @@ import {
 } from "@/server/dal/credit-notes";
 import { ensureDocument, regenerateDocument } from "@/server/dal/documents";
 import { isDalError } from "@/server/dal/errors";
-import { errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
+import { actionT, errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
 
 const LIST = "/credit-notes";
 const overview = (id: string) => `${LIST}/${id}`;
@@ -37,7 +37,8 @@ export async function saveCreditNoteDraft(
   _prev: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const parsed = parseForm(CreditNoteInputSchema, formData);
   if (!parsed.ok) return failedParse(parsed, formData);
   let savedId: string;
@@ -58,82 +59,98 @@ export async function saveCreditNoteDraft(
       const issued = await issueCreditNote(actor, savedId);
       scheduleRender(savedId);
       redirect(
-        withFlash(overview(savedId), { kind: "success", message: `Issued ${issued.number}` }),
+        withFlash(overview(savedId), {
+          kind: "success",
+          message: t("issued", { number: issued.number ?? "" }),
+        }),
       );
     } catch (e) {
       if (!isDalError(e)) throw e;
       redirect(
-        withFlash(overview(savedId), { kind: "error", message: `Saved as draft. ${e.message}` }),
+        withFlash(overview(savedId), {
+          kind: "error",
+          message: t("savedAsDraft", { reason: e.message }),
+        }),
       );
     }
   }
-  redirect(withFlash(overview(savedId), { kind: "success", message: "Draft saved" }));
+  redirect(withFlash(overview(savedId), { kind: "success", message: t("draftSaved") }));
 }
 
 export async function issueCreditNoteAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const id = str(formData, "id");
   let number: string | null = null;
   try {
     number = (await issueCreditNote(actor, id)).number;
   } catch (e) {
-    redirect(withFlash(overview(id), { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(overview(id), { kind: "error", message: await errorMessage(e) }));
   }
   scheduleRender(id);
   revalidatePath(LIST);
-  redirect(withFlash(overview(id), { kind: "success", message: `Issued ${number}` }));
+  redirect(
+    withFlash(overview(id), { kind: "success", message: t("issued", { number: number ?? "" }) }),
+  );
 }
 
 export async function voidCreditNoteAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const id = str(formData, "id");
   try {
     await voidCreditNote(actor, id, str(formData, "reason"));
   } catch (e) {
-    redirect(withFlash(overview(id), { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(overview(id), { kind: "error", message: await errorMessage(e) }));
   }
   revalidatePath(LIST);
   redirect(
     withFlash(overview(id), {
       kind: "success",
-      message: "Credit note voided; the invoice balance is restored",
+      message: t("creditNoteVoided"),
     }),
   );
 }
 
 export async function markCreditNoteSentAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const id = str(formData, "id");
   try {
     await markCreditNoteSent(actor, id);
   } catch (e) {
-    redirect(withFlash(overview(id), { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(overview(id), { kind: "error", message: await errorMessage(e) }));
   }
-  redirect(withFlash(overview(id), { kind: "success", message: "Marked as sent" }));
+  redirect(withFlash(overview(id), { kind: "success", message: t("markedAsSent") }));
 }
 
 export async function deleteCreditNoteDraftAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const id = str(formData, "id");
   let invoiceId = "";
   try {
     invoiceId = await deleteCreditNoteDraft(actor, id);
   } catch (e) {
-    redirect(withFlash(overview(id), { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(overview(id), { kind: "error", message: await errorMessage(e) }));
   }
   revalidatePath(LIST);
   redirect(
-    withFlash(`/invoices/${invoiceId}`, { kind: "success", message: "Draft credit note deleted" }),
+    withFlash(`/invoices/${invoiceId}`, { kind: "success", message: t("draftCreditNoteDeleted") }),
   );
 }
 
 export async function regenerateCreditNoteDocumentAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const id = str(formData, "id");
   try {
     const doc = await regenerateDocument(actor, "CREDIT_NOTE", id);
     redirect(
-      withFlash(overview(id), { kind: "success", message: `Generated PDF version ${doc.version}` }),
+      withFlash(overview(id), {
+        kind: "success",
+        message: t("generatedPdf", { version: doc.version }),
+      }),
     );
   } catch (e) {
     if (!isDalError(e)) throw e;

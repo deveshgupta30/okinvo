@@ -55,8 +55,15 @@ export async function dashboardData(
     ? await prisma.issuerProfile.findUnique({ where: { id: o.issuerProfileId } })
     : ((await prisma.issuerProfile.findFirst({ where: { isDefault: true } })) ??
       (await prisma.issuerProfile.findFirst({ orderBy: { createdAt: "asc" } })));
-  const baseCurrency = profile?.baseCurrency ?? "INR";
-  const locale = profile?.locale ?? "en-IN";
+  // Before the first profile exists the dashboard follows the account's own region preferences.
+  const prefs = profile
+    ? null
+    : await prisma.user.findUnique({
+        where: { id: actor.userId },
+        select: { currency: true, locale: true },
+      });
+  const baseCurrency = profile?.baseCurrency ?? prefs?.currency ?? "INR";
+  const locale = profile?.locale ?? prefs?.locale ?? "en-IN";
   const startMonth = profile?.fiscalYearStartMonth ?? 4;
   const today = todayIn(actor.timezone);
   const fiscalYear = fiscalYearOf(today, startMonth);

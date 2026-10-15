@@ -1,11 +1,17 @@
 "use client";
 
 import { FileText, ImagePlus, X } from "lucide-react";
-import { useRef, useState } from "react";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
+import {
+  AttachmentsUpload,
+  DOCUMENT_TYPES,
+  IMAGE_TYPES,
+} from "@/components/documents/attachments-upload";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
-type Kind = "LOGO" | "SIGNATURE" | "STAMP" | "RECEIPT";
+type Kind = "LOGO" | "SIGNATURE" | "STAMP" | "RECEIPT" | "LETTERHEAD";
 
 /** Uploads through /api/uploads and keeps the asset id in a hidden field named `name`. */
 export function AssetPicker({
@@ -15,6 +21,7 @@ export function AssetPicker({
   assetId,
   assetKey,
   hint,
+  onChange,
 }: {
   name: string;
   kind: Kind;
@@ -22,12 +29,15 @@ export function AssetPicker({
   assetId?: string | null | undefined;
   assetKey?: string | null | undefined;
   hint?: string;
+  /** Called with the new asset id after an upload, or null on Remove (controlled consumers). */
+  onChange?: ((assetId: string | null) => void) | undefined;
 }) {
+  const t = useTranslations("assets");
+  const tc = useTranslations("common");
   const [id, setId] = useState(assetId ?? "");
   const [key, setKey] = useState(assetKey ?? "");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const fileRef = useRef<HTMLInputElement>(null);
 
   async function upload(file: File) {
     setBusy(true);
@@ -41,22 +51,22 @@ export function AssetPicker({
       if (!res.ok || !json.assetId || !json.storageKey) {
         setError(
           json.error === "TOO_LARGE"
-            ? "That file is too large."
+            ? t("tooLarge")
             : json.error === "UNSUPPORTED_TYPE"
               ? kind === "RECEIPT"
-                ? "Use a PNG, JPEG, WebP image or a PDF."
-                : "Use a PNG, JPEG or WebP image."
-              : "Upload failed.",
+                ? t("unsupportedReceipt")
+                : t("unsupportedImage")
+              : t("uploadFailed"),
         );
         return;
       }
       setId(json.assetId);
       setKey(json.storageKey);
+      onChange?.(json.assetId);
     } catch {
-      setError("Upload failed.");
+      setError(t("uploadFailed"));
     } finally {
       setBusy(false);
-      if (fileRef.current) fileRef.current.value = "";
     }
   }
 
@@ -68,10 +78,10 @@ export function AssetPicker({
         <div className="flex size-16 items-center justify-center overflow-hidden rounded-md border border-hairline bg-surface-2">
           {key && key.endsWith(".pdf") ? (
             <FileText aria-hidden className="size-6 text-ink-subtle" strokeWidth={1.5} />
-          ) : key ? (
+          ) : key || id ? (
             // eslint-disable-next-line @next/next/no-img-element -- private, session-gated asset route
             <img
-              src={`/api/assets/${key}`}
+              src={key ? `/api/assets/${key}` : `/api/assets/id/${id}`}
               alt=""
               className="max-h-full max-w-full object-contain"
             />
@@ -80,20 +90,18 @@ export function AssetPicker({
           )}
         </div>
         <div className="flex flex-col gap-1">
-          <input
-            ref={fileRef}
-            type="file"
-            accept={
-              kind === "RECEIPT"
-                ? "image/png,image/jpeg,image/webp,application/pdf"
-                : "image/png,image/jpeg,image/webp"
-            }
-            className="text-app-caption text-ink-subtle file:mr-2 file:h-7 file:rounded-md file:border file:border-hairline file:bg-surface-1 file:px-3 file:text-app-caption file:text-ink"
-            disabled={busy}
-            onChange={(e) => {
-              const f = e.target.files?.[0];
+          <AttachmentsUpload
+            dataKind={kind}
+            label={label}
+            accept={kind === "RECEIPT" ? DOCUMENT_TYPES : IMAGE_TYPES}
+            busy={busy}
+            onFilesAdded={(files) => {
+              const f = files[0];
               if (f) void upload(f);
             }}
+            onRejected={() =>
+              setError(kind === "RECEIPT" ? t("unsupportedReceipt") : t("unsupportedImage"))
+            }
           />
           <div className="flex items-center gap-2">
             {hint ? <span className="text-app-caption text-ink-subtle">{hint}</span> : null}
@@ -105,13 +113,13 @@ export function AssetPicker({
                 onClick={() => {
                   setId("");
                   setKey("");
+                  onChange?.(null);
                 }}
               >
-                <X className="size-3" strokeWidth={1.5} /> Remove
+                <X className="size-3" strokeWidth={1.5} /> {tc("remove")}
               </Button>
             ) : null}
           </div>
-          {busy ? <span className="text-app-caption text-ink-subtle">Uploading…</span> : null}
           {error ? (
             <span role="alert" className="text-app-caption text-semantic-danger">
               {error}

@@ -4,20 +4,25 @@ import {
   Image,
   Page,
   StyleSheet,
-  Text,
+  Text as PlainText,
   View,
   type DocumentProps,
   type TextProps,
 } from "@react-pdf/renderer";
 import type { ReactElement } from "react";
 import type { TemplateConfig } from "@/lib/schemas";
+import { PROTECT_PERMISSIONS, type ProtectOptions } from "../protect";
+import { pageOf } from "../page-text";
 import type { DocumentViewModel, TotalsRow } from "../view-model";
+import { RunText as Text } from "./run-text";
 import { SYMBOL_FAMILY, splitCurrency, templateStyle, type TemplateStyle } from "./styles";
 
 export interface PdfImages {
   logo?: string;
   signature?: string;
   stamp?: string;
+  /** Letterhead header image, spanning the page width on every page. */
+  header?: string;
 }
 
 interface Props {
@@ -25,6 +30,8 @@ interface Props {
   config: TemplateConfig;
   images: PdfImages;
   createdAt: Date;
+  /** When set, the file is AES-256 encrypted: open with the user password, print only. */
+  protect?: ProtectOptions | undefined;
 }
 
 /** Currency strings: the symbol run goes to the face that has the glyph (₹ is not in latin). */
@@ -32,13 +39,14 @@ function Money({ value, style }: { value: string; style?: TextProps["style"] }) 
   const { prefix, number, suffix } = splitCurrency(value);
   const needsSymbol = /[^\x00-\x7F]/.test(prefix + suffix);
   const styleProp = style ? { style } : {};
-  if (!needsSymbol) return <Text {...styleProp}>{value}</Text>;
+  // digits and symbols only: the plain primitive, no script runs to cut
+  if (!needsSymbol) return <PlainText {...styleProp}>{value}</PlainText>;
   return (
-    <Text {...styleProp}>
-      {prefix ? <Text style={{ fontFamily: SYMBOL_FAMILY }}>{prefix}</Text> : null}
+    <PlainText {...styleProp}>
+      {prefix ? <PlainText style={{ fontFamily: SYMBOL_FAMILY }}>{prefix}</PlainText> : null}
       {number}
-      {suffix ? <Text style={{ fontFamily: SYMBOL_FAMILY }}>{suffix}</Text> : null}
-    </Text>
+      {suffix ? <PlainText style={{ fontFamily: SYMBOL_FAMILY }}>{suffix}</PlainText> : null}
+    </PlainText>
   );
 }
 
@@ -49,16 +57,49 @@ function makeStyles(s: TemplateStyle) {
       fontFamily: s.body,
       fontSize: s.base,
       color: s.text,
-      paddingTop: s.margin,
+      paddingTop: s.headerStyle === "none" ? s.margin : s.headerHeight + 14,
       paddingBottom: s.margin + 18,
       paddingHorizontal: s.margin,
       lineHeight: 1.35,
+      // RTL document language (spec §9c): text aligns right; numbers keep their own alignment
+      textAlign: s.rtl ? "right" : "left",
     },
     heading: { fontFamily: s.heading, fontWeight: 600 },
     muted: { color: s.muted },
     small: { fontSize: s.base - 1.5 },
     mono: { fontFamily: s.body },
-    header: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start" },
+    header: {
+      flexDirection: s.rtl ? "row-reverse" : "row",
+      justifyContent: "space-between",
+      alignItems: "flex-start",
+    },
+    bandFill: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      height: s.headerHeight,
+      backgroundColor: s.headerColor,
+    },
+    bandImage: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: s.paper.width,
+      height: s.headerHeight,
+      objectFit: "cover",
+      opacity: s.headerImageOpacity,
+    },
+    band: {
+      position: "absolute",
+      top: 0,
+      left: s.margin,
+      right: s.margin,
+      height: s.headerHeight,
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
     headerRule: {
       marginTop: 10,
       marginBottom: 14,
@@ -69,12 +110,18 @@ function makeStyles(s: TemplateStyle) {
       fontFamily: s.heading,
       fontWeight: 600,
       fontSize: s.base * 2,
+      lineHeight: 1.2,
       letterSpacing: -0.3,
       color: s.variant === "ledger" ? s.accent : s.text,
     },
     meta: { flexDirection: "row", gap: 14, marginTop: 6 },
     metaLabel: { color: s.muted, fontSize: s.base - 1 },
-    parties: { flexDirection: "row", gap: 24, marginBottom: 14 },
+    parties: {
+      flexDirection: "row",
+      gap: 24,
+      marginBottom: 14,
+      ...(s.tinted ? { backgroundColor: s.tint, padding: 8, borderRadius: 3 } : {}),
+    },
     party: { flex: 1 },
     eyebrow: {
       fontSize: s.base - 1.5,
@@ -89,18 +136,18 @@ function makeStyles(s: TemplateStyle) {
       borderColor: s.hairline,
     },
     th: {
-      flexDirection: "row",
-      backgroundColor: s.tableBorders ? "#f3f4f6" : "transparent",
+      flexDirection: s.rtl ? "row-reverse" : "row",
+      backgroundColor: s.tinted ? s.tint : s.tableBorders ? "#f3f4f6" : "transparent",
       borderBottomWidth: 1,
       borderBottomColor: s.tableBorders ? s.hairline : s.accentRule ? s.accent : s.hairline,
       paddingVertical: pad,
       paddingHorizontal: pad,
       fontSize: s.base - 1,
-      color: s.muted,
+      color: s.tinted ? s.accent : s.muted,
       fontWeight: 500,
     },
     tr: {
-      flexDirection: "row",
+      flexDirection: s.rtl ? "row-reverse" : "row",
       paddingVertical: pad + 1,
       paddingHorizontal: pad,
       borderBottomWidth: s.tableStyle === "plain" ? 0 : 0.5,
@@ -109,17 +156,22 @@ function makeStyles(s: TemplateStyle) {
     zebra: { backgroundColor: s.zebra },
     cell: { paddingRight: 4 },
     num: { textAlign: "right" },
-    totalsWrap: { flexDirection: "row", justifyContent: "flex-end", marginTop: 10 },
+    totalsWrap: {
+      flexDirection: "row",
+      justifyContent: s.rtl ? "flex-start" : "flex-end",
+      marginTop: 10,
+    },
     totals: {
       width: "46%",
       borderWidth: s.boxedTotals ? 1 : 0,
       borderColor: s.hairline,
       padding: s.boxedTotals ? 6 : 0,
+      ...(s.tinted ? { backgroundColor: s.tint, padding: 8, borderRadius: 3 } : {}),
     },
     totalRow: { flexDirection: "row", justifyContent: "space-between", paddingVertical: 2 },
     totalEmphasis: {
       borderTopWidth: 1,
-      borderTopColor: s.accentRule ? s.accent : s.text,
+      borderTopColor: s.accentRule ? s.accent : s.minimal ? s.hairline : s.text,
       marginTop: 3,
       paddingTop: 4,
       fontWeight: 600,
@@ -145,7 +197,8 @@ function makeStyles(s: TemplateStyle) {
     signatureBox: { alignItems: "flex-end", width: 170 },
     pageFooter: {
       position: "absolute",
-      bottom: s.margin / 2,
+      // anchored from the top edge: react-pdf 4.9 drops a fixed box anchored with `bottom` when it holds a render-prop Text
+      top: s.paper.height - s.margin / 2 - 12,
       left: s.margin,
       right: s.margin,
       flexDirection: "row",
@@ -173,14 +226,14 @@ function makeStyles(s: TemplateStyle) {
 
 function widths(cols: DocumentViewModel["columns"]) {
   const w = {
-    pos: "5%",
+    pos: "4%",
     desc: "0%",
-    sac: cols.sac ? "11%" : "0%",
-    qty: cols.qty ? "9%" : "0%",
-    unit: cols.qty ? "8%" : "0%",
-    rate: cols.rate ? "13%" : "0%",
-    tax: cols.tax ? "15%" : "0%",
-    amount: "16%",
+    sac: cols.sac ? "9%" : "0%",
+    qty: cols.qty ? "7%" : "0%",
+    unit: cols.qty ? "7%" : "0%",
+    rate: cols.rate ? "12%" : "0%",
+    tax: cols.tax ? "13%" : "0%",
+    amount: "14%",
   };
   const used = [w.pos, w.sac, w.qty, w.unit, w.rate, w.tax, w.amount].reduce(
     (n, x) => n + parseFloat(x),
@@ -190,22 +243,32 @@ function widths(cols: DocumentViewModel["columns"]) {
   return w;
 }
 
-export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElement<DocumentProps> {
-  const s = templateStyle(config);
+export function DocumentPdf({
+  vm,
+  config,
+  images,
+  createdAt,
+  protect,
+}: Props): ReactElement<DocumentProps> {
+  const s = templateStyle(config, vm.locale);
   const st = makeStyles(s);
   const w = widths(vm.columns);
+  // every string below prints through script runs bound to this document's language
+  const run = { base: s.body, locale: vm.locale };
   const docLabel = vm.kind === "CREDIT_NOTE" ? vm.labels.creditNote : vm.labels.invoice;
   const totalsRows = (rows: TotalsRow[]) =>
     rows.map((r) => (
       <View key={r.key} style={r.emphasis ? [st.totalRow, st.totalEmphasis] : st.totalRow}>
-        <Text>{r.label}</Text>
+        <Text run={run}>{r.label}</Text>
         <Money value={r.value} />
       </View>
     ));
   const qr = vm.qrDataUrl ? (
     <View style={{ alignItems: "center", width: 80 }}>
       <Image src={vm.qrDataUrl} style={st.qr} />
-      <Text style={[st.small, st.muted, { marginTop: 2 }]}>Scan to verify</Text>
+      <Text run={run} style={[st.small, st.muted, { marginTop: 2 }]}>
+        {vm.text.scanToVerify}
+      </Text>
     </View>
   ) : null;
 
@@ -216,6 +279,9 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
         style={{ height: s.logoHeight, objectFit: "contain", maxWidth: 160 }}
       />
     ) : null;
+  // With a band or image header the identity (logo, name, title, number) moves onto the band.
+  const inBand = s.headerStyle !== "none";
+  const bandText = s.headerText === "light" ? "#ffffff" : s.text;
 
   return (
     <Document
@@ -225,12 +291,66 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
       producer="okinvo"
       creationDate={createdAt}
       modificationDate={createdAt}
+      {...(protect
+        ? {
+            pdfVersion: "1.7ext3" as const, // AES-256 (R10)
+            userPassword: protect.userPassword,
+            ownerPassword: protect.ownerPassword,
+            permissions: PROTECT_PERMISSIONS,
+          }
+        : {})}
     >
       <Page size={[s.paper.width, s.paper.height]} style={st.page}>
         {vm.watermark ? (
-          <Text fixed style={st.watermark}>
+          <Text run={run} fixed style={st.watermark}>
             {vm.watermark}
           </Text>
+        ) : null}
+        {vm.einvoice?.cancelled ? (
+          <Text run={run} fixed style={st.watermark}>
+            {vm.text.einvoiceCancelled}
+          </Text>
+        ) : null}
+
+        {s.headerStyle === "band" ? <View fixed style={st.bandFill} /> : null}
+        {s.headerStyle === "image" && images.header ? (
+          <Image fixed src={images.header} style={st.bandImage} />
+        ) : null}
+        {inBand ? (
+          <View style={st.band}>
+            <View
+              style={{
+                flexDirection: s.logoAlign === "right" ? "row-reverse" : "row",
+                gap: 12,
+                alignItems: "center",
+              }}
+            >
+              {logo}
+              <View>
+                <Text run={run} style={[st.heading, { fontSize: s.base + 5, color: bandText }]}>
+                  {vm.issuer.legalName}
+                </Text>
+                {vm.issuer.tradeName ? (
+                  <Text run={run} style={{ color: bandText, opacity: 0.8 }}>
+                    {vm.issuer.tradeName}
+                  </Text>
+                ) : null}
+              </View>
+            </View>
+            <View style={{ alignItems: "flex-end" }}>
+              <Text run={run} style={[st.title, { color: bandText }]}>
+                {vm.title}
+              </Text>
+              {vm.number ? (
+                <Text
+                  run={run}
+                  style={[st.heading, { fontSize: s.base + 2, marginTop: 2, color: bandText }]}
+                >
+                  {vm.number}
+                </Text>
+              ) : null}
+            </View>
+          </View>
         ) : null}
 
         {/* Header */}
@@ -244,24 +364,44 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
               justifyContent: s.logoAlign === "center" ? "center" : "flex-start",
             }}
           >
-            {logo}
+            {inBand ? null : logo}
             <View>
-              <Text style={[st.heading, { fontSize: s.base + 3 }]}>{vm.issuer.legalName}</Text>
-              {vm.issuer.tradeName ? <Text style={st.muted}>{vm.issuer.tradeName}</Text> : null}
+              {inBand ? null : (
+                <Text run={run} style={[st.heading, { fontSize: s.base + 3 }]}>
+                  {vm.issuer.legalName}
+                </Text>
+              )}
+              {vm.issuer.tradeName && !inBand ? (
+                <Text run={run} style={st.muted}>
+                  {vm.issuer.tradeName}
+                </Text>
+              ) : null}
               {vm.issuer.addressLines.map((l, i) => (
-                <Text key={i} style={st.muted}>
+                <Text run={run} key={i} style={st.muted}>
                   {l}
                 </Text>
               ))}
-              {vm.issuer.email ? <Text style={st.muted}>{vm.issuer.email}</Text> : null}
-              {vm.issuer.phone ? <Text style={st.muted}>{vm.issuer.phone}</Text> : null}
-              {vm.issuer.website ? <Text style={st.muted}>{vm.issuer.website}</Text> : null}
-              {vm.issuer.gstin ? <Text>GSTIN {vm.issuer.gstin}</Text> : null}
-              {vm.issuer.pan ? <Text>PAN {vm.issuer.pan}</Text> : null}
-              {vm.issuer.cin ? <Text>CIN {vm.issuer.cin}</Text> : null}
-              {vm.issuer.ukVatNumber ? <Text>VAT {vm.issuer.ukVatNumber}</Text> : null}
+              {vm.issuer.email ? (
+                <Text run={run} style={st.muted}>
+                  {vm.issuer.email}
+                </Text>
+              ) : null}
+              {vm.issuer.phone ? (
+                <Text run={run} style={st.muted}>
+                  {vm.issuer.phone}
+                </Text>
+              ) : null}
+              {vm.issuer.website ? (
+                <Text run={run} style={st.muted}>
+                  {vm.issuer.website}
+                </Text>
+              ) : null}
+              {vm.issuer.gstin ? <Text run={run}>GSTIN {vm.issuer.gstin}</Text> : null}
+              {vm.issuer.pan ? <Text run={run}>PAN {vm.issuer.pan}</Text> : null}
+              {vm.issuer.cin ? <Text run={run}>CIN {vm.issuer.cin}</Text> : null}
+              {vm.issuer.ukVatNumber ? <Text run={run}>VAT {vm.issuer.ukVatNumber}</Text> : null}
               {vm.issuer.lutNumber ? (
-                <Text>
+                <Text run={run}>
                   LUT {vm.issuer.lutNumber}
                   {vm.issuer.lutFiscalYear ? ` (${vm.issuer.lutFiscalYear})` : ""}
                 </Text>
@@ -269,64 +409,111 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
             </View>
           </View>
           <View style={{ alignItems: "flex-end" }}>
-            <Text style={st.title}>{vm.title}</Text>
-            {vm.number ? (
-              <Text style={[st.heading, { fontSize: s.base + 2, marginTop: 2 }]}>{vm.number}</Text>
+            {inBand ? null : (
+              <Text run={run} style={st.title}>
+                {vm.title}
+              </Text>
+            )}
+            {vm.number && !inBand ? (
+              <Text run={run} style={[st.heading, { fontSize: s.base + 2, marginTop: 2 }]}>
+                {vm.number}
+              </Text>
             ) : null}
-            {vm.replaces ? <Text style={st.muted}>{vm.replaces}</Text> : null}
+            {vm.replaces ? (
+              <Text run={run} style={st.muted}>
+                {vm.replaces}
+              </Text>
+            ) : null}
             <View style={[st.meta, { justifyContent: "flex-end" }]}>
               <View>
-                <Text style={st.metaLabel}>{vm.labels.issueDate}</Text>
-                <Text>{vm.issueDate}</Text>
+                <Text run={run} style={st.metaLabel}>
+                  {vm.labels.issueDate}
+                </Text>
+                <Text run={run}>{vm.issueDate}</Text>
               </View>
               {vm.dueDate ? (
                 <View>
-                  <Text style={st.metaLabel}>{vm.labels.dueDate}</Text>
-                  <Text>{vm.dueDate}</Text>
+                  <Text run={run} style={st.metaLabel}>
+                    {vm.labels.dueDate}
+                  </Text>
+                  <Text run={run}>{vm.dueDate}</Text>
                 </View>
               ) : null}
               {vm.paymentTerms ? (
                 <View>
-                  <Text style={st.metaLabel}>Terms</Text>
-                  <Text>{vm.paymentTerms}</Text>
+                  <Text run={run} style={st.metaLabel}>
+                    {vm.labels.terms}
+                  </Text>
+                  <Text run={run}>{vm.paymentTerms}</Text>
                 </View>
               ) : null}
             </View>
+            {vm.einvoice ? (
+              <View style={{ marginTop: 4 }}>
+                <Text run={run} style={st.metaLabel}>
+                  {vm.text.irn}
+                </Text>
+                <Text run={run} style={st.small}>
+                  {vm.einvoice.irn}
+                </Text>
+                <Text run={run} style={[st.small, st.muted]}>
+                  {vm.text.ackNo} {vm.einvoice.ackNo} · {vm.text.ackDate} {vm.einvoice.ackDate}
+                </Text>
+              </View>
+            ) : null}
             {vm.poReference ? (
-              <Text style={[st.muted, { marginTop: 4 }]}>
+              <Text run={run} style={[st.muted, { marginTop: 4 }]}>
                 {vm.labels.poReference}: {vm.poReference}
               </Text>
             ) : null}
             {s.qrPosition === "header" ? <View style={{ marginTop: 6 }}>{qr}</View> : null}
           </View>
         </View>
-        {vm.headerNote ? <Text style={[st.muted, { marginTop: 6 }]}>{vm.headerNote}</Text> : null}
+        {vm.headerNote ? (
+          <Text run={run} style={[st.muted, { marginTop: 6 }]}>
+            {vm.headerNote}
+          </Text>
+        ) : null}
         <View style={st.headerRule} />
 
         {/* Parties */}
         <View style={st.parties}>
           <View style={st.party}>
-            <Text style={st.eyebrow}>{vm.labels.billTo}</Text>
-            <Text style={st.heading}>{vm.client.displayName}</Text>
-            {vm.client.contactPerson ? <Text>{vm.client.contactPerson}</Text> : null}
+            <Text run={run} style={st.eyebrow}>
+              {vm.labels.billTo}
+            </Text>
+            <Text run={run} style={st.heading}>
+              {vm.client.displayName}
+            </Text>
+            {vm.client.contactPerson ? <Text run={run}>{vm.client.contactPerson}</Text> : null}
             {vm.client.billingAddressLines.map((l, i) => (
-              <Text key={i} style={st.muted}>
+              <Text run={run} key={i} style={st.muted}>
                 {l}
               </Text>
             ))}
-            {vm.client.email ? <Text style={st.muted}>{vm.client.email}</Text> : null}
-            {vm.client.phone ? <Text style={st.muted}>{vm.client.phone}</Text> : null}
+            {vm.client.email ? (
+              <Text run={run} style={st.muted}>
+                {vm.client.email}
+              </Text>
+            ) : null}
+            {vm.client.phone ? (
+              <Text run={run} style={st.muted}>
+                {vm.client.phone}
+              </Text>
+            ) : null}
             {vm.client.taxId ? (
-              <Text>
-                {vm.client.taxIdType ?? "Tax ID"} {vm.client.taxId}
+              <Text run={run}>
+                {vm.client.taxIdType ?? vm.text.taxId} {vm.client.taxId}
               </Text>
             ) : null}
           </View>
           {vm.client.shippingAddressLines?.length ? (
             <View style={st.party}>
-              <Text style={st.eyebrow}>{vm.labels.shipTo}</Text>
+              <Text run={run} style={st.eyebrow}>
+                {vm.labels.shipTo}
+              </Text>
               {vm.client.shippingAddressLines.map((l, i) => (
-                <Text key={i} style={st.muted}>
+                <Text run={run} key={i} style={st.muted}>
                   {l}
                 </Text>
               ))}
@@ -336,22 +523,26 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
             <View style={st.party}>
               {vm.placeOfSupply ? (
                 <>
-                  <Text style={st.eyebrow}>{vm.labels.placeOfSupply}</Text>
-                  <Text>{vm.placeOfSupply}</Text>
+                  <Text run={run} style={st.eyebrow}>
+                    {vm.labels.placeOfSupply}
+                  </Text>
+                  <Text run={run}>{vm.placeOfSupply}</Text>
                 </>
               ) : null}
               {vm.creditNote ? (
                 <View style={{ marginTop: vm.placeOfSupply ? 6 : 0 }}>
-                  <Text style={st.eyebrow}>
+                  <Text run={run} style={st.eyebrow}>
                     Against{" "}
                     {docLabel === vm.labels.creditNote
                       ? vm.labels.invoice.toLowerCase()
                       : "invoice"}
                   </Text>
-                  <Text>
+                  <Text run={run}>
                     {vm.creditNote.againstNumber} · {vm.creditNote.againstDate}
                   </Text>
-                  <Text style={[st.muted, { marginTop: 2 }]}>{vm.creditNote.reason}</Text>
+                  <Text run={run} style={[st.muted, { marginTop: 2 }]}>
+                    {vm.creditNote.reason}
+                  </Text>
                 </View>
               ) : null}
             </View>
@@ -362,24 +553,40 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
         {vm.items.length > 0 ? (
           <View style={st.table}>
             <View style={st.th} fixed>
-              <Text style={[st.cell, { width: w.pos }]}>#</Text>
-              <Text style={[st.cell, { width: w.desc }]}>{vm.labels.description}</Text>
+              <Text run={run} style={[st.cell, { width: w.pos }]}>
+                #
+              </Text>
+              <Text run={run} style={[st.cell, { width: w.desc }]}>
+                {vm.labels.description}
+              </Text>
               {vm.columns.sac ? (
-                <Text style={[st.cell, { width: w.sac }]}>{vm.labels.sacHsn}</Text>
+                <Text run={run} style={[st.cell, { width: w.sac }]}>
+                  {vm.labels.sacHsn}
+                </Text>
               ) : null}
               {vm.columns.qty ? (
-                <Text style={[st.cell, st.num, { width: w.qty }]}>{vm.labels.qty}</Text>
+                <Text run={run} style={[st.cell, st.num, { width: w.qty }]}>
+                  {vm.labels.qty}
+                </Text>
               ) : null}
               {vm.columns.qty ? (
-                <Text style={[st.cell, { width: w.unit }]}>{vm.labels.unit}</Text>
+                <Text run={run} style={[st.cell, { width: w.unit }]}>
+                  {vm.labels.unit}
+                </Text>
               ) : null}
               {vm.columns.rate ? (
-                <Text style={[st.cell, st.num, { width: w.rate }]}>{vm.labels.rate}</Text>
+                <Text run={run} style={[st.cell, st.num, { width: w.rate }]}>
+                  {vm.labels.rate}
+                </Text>
               ) : null}
               {vm.columns.tax ? (
-                <Text style={[st.cell, st.num, { width: w.tax }]}>{vm.labels.tax}</Text>
+                <Text run={run} style={[st.cell, st.num, { width: w.tax }]}>
+                  {vm.labels.tax}
+                </Text>
               ) : null}
-              <Text style={[st.cell, st.num, { width: w.amount }]}>{vm.labels.amount}</Text>
+              <Text run={run} style={[st.cell, st.num, { width: w.amount }]}>
+                {vm.labels.amount}
+              </Text>
             </View>
             {vm.items.map((it, idx) => (
               <View
@@ -387,26 +594,43 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
                 style={s.tableStyle === "zebra" && idx % 2 === 1 ? [st.tr, st.zebra] : st.tr}
                 wrap={false}
               >
-                <Text style={[st.cell, { width: w.pos }]}>{it.position}</Text>
-                <Text style={[st.cell, { width: w.desc }]}>{it.description}</Text>
+                <Text run={run} style={[st.cell, { width: w.pos }]}>
+                  {it.position}
+                </Text>
+                <Text run={run} style={[st.cell, { width: w.desc }]}>
+                  {it.sku ? `${it.description}\nSKU ${it.sku}` : it.description}
+                </Text>
                 {vm.columns.sac ? (
-                  <Text style={[st.cell, { width: w.sac }]}>{it.sacHsnCode ?? ""}</Text>
-                ) : null}
-                {vm.columns.qty ? (
-                  <Text style={[st.cell, st.num, { width: w.qty }]}>{it.qty}</Text>
-                ) : null}
-                {vm.columns.qty ? (
-                  <Text style={[st.cell, { width: w.unit }]}>{it.unit}</Text>
-                ) : null}
-                {vm.columns.rate ? (
-                  <Text style={[st.cell, st.num, { width: w.rate }]}>{it.rate}</Text>
-                ) : null}
-                {vm.columns.tax ? (
-                  <Text style={[st.cell, st.num, { width: w.tax }]}>
-                    {it.taxAmount} ({it.taxRate})
+                  <Text run={run} style={[st.cell, { width: w.sac }]}>
+                    {it.sacHsnCode ?? ""}
                   </Text>
                 ) : null}
-                <Text style={[st.cell, st.num, { width: w.amount }]}>
+                {vm.columns.qty ? (
+                  <Text run={run} style={[st.cell, st.num, { width: w.qty }]}>
+                    {it.qty}
+                  </Text>
+                ) : null}
+                {vm.columns.qty ? (
+                  <Text run={run} style={[st.cell, { width: w.unit }]}>
+                    {it.unit}
+                  </Text>
+                ) : null}
+                {vm.columns.rate ? (
+                  <Text run={run} style={[st.cell, st.num, { width: w.rate }]}>
+                    {it.rate}
+                  </Text>
+                ) : null}
+                {vm.columns.tax ? (
+                  <View style={[st.cell, { width: w.tax }]}>
+                    <Text run={run} style={st.num}>
+                      {it.taxAmount}
+                    </Text>
+                    <Text run={run} style={[st.num, st.small, st.muted]}>
+                      {it.taxRate}
+                    </Text>
+                  </View>
+                ) : null}
+                <Text run={run} style={[st.cell, st.num, { width: w.amount }]}>
                   {vm.columns.tax ? it.lineSubtotal : it.lineTotal}
                 </Text>
               </View>
@@ -415,34 +639,52 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
         ) : null}
 
         {/* Totals */}
-        <View style={st.totalsWrap}>
-          {s.qrPosition === "beside-totals" && qr ? <View style={{ flex: 1 }}>{qr}</View> : null}
-          <View style={st.totals}>{totalsRows(vm.totals.rows)}</View>
+        <View wrap={false}>
+          <View style={st.totalsWrap}>
+            {s.qrPosition === "beside-totals" && qr ? <View style={{ flex: 1 }}>{qr}</View> : null}
+            <View style={st.totals}>{totalsRows(vm.totals.rows)}</View>
+          </View>
+          {vm.totals.amountInWords && s.wordsPosition === "below-total" ? (
+            <Text run={run} style={st.words}>
+              <Text run={run} style={st.muted}>
+                {vm.labels.amountInWords}:{" "}
+              </Text>
+              {vm.totals.amountInWords}
+            </Text>
+          ) : null}
         </View>
-        {vm.totals.amountInWords && s.wordsPosition === "below-total" ? (
-          <Text style={st.words}>
-            <Text style={st.muted}>{vm.labels.amountInWords}: </Text>
-            {vm.totals.amountInWords}
+        {vm.supplyStatement ? (
+          <Text run={run} style={st.statement}>
+            {vm.supplyStatement}
           </Text>
         ) : null}
-        {vm.supplyStatement ? <Text style={st.statement}>{vm.supplyStatement}</Text> : null}
 
         {/* Payment details */}
         {vm.paymentMethods.length > 0 ? (
-          <View style={st.section}>
-            <Text style={st.sectionTitle}>{vm.labels.paymentDetails}</Text>
+          <View style={st.section} minPresenceAhead={40}>
+            <Text run={run} style={st.sectionTitle}>
+              {vm.labels.paymentDetails}
+            </Text>
             <View style={{ flexDirection: "row", gap: 18, flexWrap: "wrap" }}>
               {vm.paymentMethods.map((m, i) => (
                 <View key={i} style={{ minWidth: "40%" }}>
-                  <Text style={{ fontWeight: 500 }}>{m.name}</Text>
+                  <Text run={run} style={{ fontWeight: 500 }}>
+                    {m.name}
+                  </Text>
                   {m.lines.map((l, j) => (
                     <View key={j} style={st.payLine}>
-                      {l.label ? <Text style={st.payLabel}>{l.label}</Text> : null}
-                      <Text>{l.value}</Text>
+                      {l.label ? (
+                        <Text run={run} style={st.payLabel}>
+                          {l.label}
+                        </Text>
+                      ) : null}
+                      <Text run={run}>{l.value}</Text>
                     </View>
                   ))}
                   {m.instructions ? (
-                    <Text style={[st.muted, st.small]}>{m.instructions}</Text>
+                    <Text run={run} style={[st.muted, st.small]}>
+                      {m.instructions}
+                    </Text>
                   ) : null}
                 </View>
               ))}
@@ -451,15 +693,21 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
         ) : null}
 
         {vm.notes ? (
-          <View style={st.section}>
-            <Text style={st.sectionTitle}>{vm.labels.notes}</Text>
-            <Text>{vm.notes}</Text>
+          <View style={st.section} minPresenceAhead={30}>
+            <Text run={run} style={st.sectionTitle}>
+              {vm.labels.notes}
+            </Text>
+            <Text run={run}>{vm.notes}</Text>
           </View>
         ) : null}
         {vm.terms ? (
-          <View style={st.section}>
-            <Text style={st.sectionTitle}>{vm.labels.terms}</Text>
-            <Text style={st.muted}>{vm.terms}</Text>
+          <View style={st.section} minPresenceAhead={30}>
+            <Text run={run} style={st.sectionTitle}>
+              {vm.labels.terms}
+            </Text>
+            <Text run={run} style={st.muted}>
+              {vm.terms}
+            </Text>
           </View>
         ) : null}
 
@@ -468,13 +716,17 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
           <View style={{ flex: 1 }}>
             {s.qrPosition === "footer" ? qr : null}
             {vm.totals.amountInWords && s.wordsPosition === "footer" ? (
-              <Text style={st.words}>
-                <Text style={st.muted}>{vm.labels.amountInWords}: </Text>
+              <Text run={run} style={st.words}>
+                <Text run={run} style={st.muted}>
+                  {vm.labels.amountInWords}:{" "}
+                </Text>
                 {vm.totals.amountInWords}
               </Text>
             ) : null}
             {vm.footer ? (
-              <Text style={[st.muted, st.small, { marginTop: 6 }]}>{vm.footer}</Text>
+              <Text run={run} style={[st.muted, st.small, { marginTop: 6 }]}>
+                {vm.footer}
+              </Text>
             ) : null}
           </View>
           {vm.showSignature || vm.showStamp ? (
@@ -487,19 +739,28 @@ export function DocumentPdf({ vm, config, images, createdAt }: Props): ReactElem
                   <Image src={images.signature} style={{ height: 36, objectFit: "contain" }} />
                 ) : null}
               </View>
-              <Text style={{ fontWeight: 500, marginTop: 4 }}>{vm.issuer.legalName}</Text>
-              <Text style={[st.muted, st.small]}>{vm.signatureCaption}</Text>
+              <Text run={run} style={{ fontWeight: 500, marginTop: 4 }}>
+                {vm.issuer.legalName}
+              </Text>
+              <Text run={run} style={[st.muted, st.small]}>
+                {vm.signatureCaption}
+              </Text>
             </View>
           ) : null}
         </View>
 
         <View style={st.pageFooter} fixed>
-          <Text>
+          <Text run={run}>
             {vm.number ? `${docLabel} ${vm.number}` : vm.title}
-            {vm.isVoid ? " · VOID" : ""}
+            {vm.isVoid ? ` · ${vm.text.void}` : ""}
           </Text>
           {s.pageNumbers ? (
-            <Text render={({ pageNumber, totalPages }) => `Page ${pageNumber} of ${totalPages}`} />
+            <Text
+              run={run}
+              render={({ pageNumber, totalPages }) =>
+                pageOf(vm.text.pageOf, pageNumber, totalPages)
+              }
+            />
           ) : null}
         </View>
       </Page>

@@ -6,11 +6,26 @@ on:
 permissions:
   contents: read
 
+# Jobs run on the self-hosted runner when one is online, otherwise on GitHub-hosted Ubuntu (see
+# pick-runner.yml). The self-hosted runner is the owner's Windows workstation with Docker Desktop
+# and Git Bash, so: every `run` step is bash, Docker Compose gets its own project name and host
+# ports so it never touches the dev containers, nothing listens on 3000, and the two Linux-only
+# steps (Trivy's installer, QEMU) have a Windows alternative.
+defaults:
+  run:
+    shell: bash
+
 env:
   PNPM_VERSION: 10.34.5
   NODE_VERSION: 24.21.0
-  DATABASE_URL: postgresql://okinvo:okinvo@127.0.0.1:5432/okinvo
-  APP_URL: http://127.0.0.1:3000
+  # Isolated Compose project and ports (compose.dev.yml reads DEV_* with the usual defaults).
+  COMPOSE_PROJECT_NAME: okinvo-ci
+  DEV_PG_PORT: "5433"
+  DEV_SMTP_PORT: "2526"
+  DEV_MAILPIT_PORT: "8026"
+  MSYS_NO_PATHCONV: "1" # Git Bash on Windows: keep /container/paths in docker arguments as they are
+  DATABASE_URL: postgresql://okinvo:okinvo@127.0.0.1:5433/okinvo
+  APP_URL: http://127.0.0.1:3100
   AUTH_SECRET: ci-only-secret-value-that-is-long-enough-0123456789
   FIELD_ENCRYPTION_KEY: BwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwc=
   # `pnpm start` runs with NODE_ENV=production, whose validation requires an allow-list and a provider.
@@ -19,8 +34,38 @@ env:
   AUTH_GITHUB_SECRET: ci-placeholder
 
 jobs:
+  runner:
+    uses: ./.github/workflows/pick-runner.yml
+    secrets: inherit
+
+  lint: # static checks and generated-file freshness; no database, no browser
+    needs: runner
+    runs-on: ${{ fromJSON(needs.runner.outputs.labels) }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with: { version: "${{ env.PNPM_VERSION }}" }
+      - uses: actions/setup-node@v7
+        with: { node-version: "${{ env.NODE_VERSION }}", cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm db:generate # the Prisma client is a type dependency of typecheck and lint
+      - run: pnpm lint && pnpm typecheck && pnpm format:check
+      - run: pnpm design:lint && pnpm design:tokens --check
+      - run: pnpm fonts:check && pnpm notices:check && pnpm env:docs:check && pnpm i18n:check
+      - run: pnpm sdk:check # the committed OpenAPI document and SDK match the code
+      - name: air-gap guard over the production build
+        run: pnpm build && pnpm airgap:check
+        env: # next build validates nothing at build time, but the schema wants an origin
+          APP_URL: https://invoices.example.com
+      - name: actionlint over the workflows
+        run: |
+          repo="${GITHUB_WORKSPACE//\\//}"
+          docker run --rm -v "$repo:/repo" -w /repo rhysd/actionlint:1.7.7 -color
+
   test:
-    runs-on: ubuntu-latest
+    needs: [runner, lint]
+    runs-on: ${{ fromJSON(needs.runner.outputs.labels) }}
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -30,18 +75,20 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: docker compose -f compose.dev.yml up -d --wait postgres mailpit
       - run: pnpm db:generate
-      - run: pnpm lint && pnpm typecheck && pnpm format:check
-      - run: pnpm design:lint && pnpm design:tokens --check
       - run: pnpm db:migrate
       - run: pnpm db:check # migrations replayed into a shadow DB must equal schema.prisma
       - run: pnpm test -- --coverage
-        env: { MAILPIT_URL: http://127.0.0.1:8025 } # the email test delivers through Mailpit
+        env: # the email test delivers through Mailpit
+          MAILPIT_URL: http://127.0.0.1:8026
+          MAILPIT_SMTP_PORT: "2526"
       - run: pnpm audit --audit-level=high
       - run: pnpm build
+      - if: always()
+        run: docker compose -f compose.dev.yml down -v --remove-orphans
 
   restore-drill: # seed → backup.sh → wipe → restore.sh → row counts and one PDF hash match
-    needs: test
-    runs-on: ubuntu-latest
+    needs: [runner, test]
+    runs-on: ${{ fromJSON(needs.runner.outputs.labels) }}
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -52,24 +99,30 @@ jobs:
       - run: docker compose -f compose.dev.yml up -d --wait postgres
       - run: pnpm db:generate
       - run: scripts/restore-drill.sh # owns a database whose name must contain "drill"
-        env: { DATABASE_URL: postgresql://okinvo:okinvo@127.0.0.1:5432/okinvo_drill }
+        env:
+          DATABASE_URL: postgresql://okinvo:okinvo@127.0.0.1:5433/okinvo_drill
+          DRILL_NETWORK: okinvo-ci_default
+      - if: always()
+        run: docker compose -f compose.dev.yml down -v --remove-orphans
 
   k8s: # the Kustomize overlays must build and pass kubeconform's strict schema check
-    runs-on: ubuntu-latest
+    needs: runner
+    runs-on: ${{ fromJSON(needs.runner.outputs.labels) }}
     steps:
       - uses: actions/checkout@v7
       - run: |
           set -euo pipefail
-          mkdir -p /tmp/k8s
-          for o in compose-parity with-seaweedfs; do
-            kubectl kustomize --load-restrictor LoadRestrictionsNone "k8s/overlays/$o" > "/tmp/k8s/$o.yaml"
+          out="${RUNNER_TEMP//\\//}/k8s" # forward slashes: Docker Desktop on Windows accepts C:/… bind mounts
+          mkdir -p "$out"
+          for o in compose-parity with-seaweedfs with-docs; do
+            kubectl kustomize --load-restrictor LoadRestrictionsNone "k8s/overlays/$o" > "$out/$o.yaml"
           done
-          docker run --rm -v /tmp/k8s:/m ghcr.io/yannh/kubeconform:v0.7.0 -strict -summary /m/compose-parity.yaml /m/with-seaweedfs.yaml
+          docker run --rm -v "$out:/m" ghcr.io/yannh/kubeconform:v0.7.0 -strict -summary /m/compose-parity.yaml /m/with-seaweedfs.yaml /m/with-docs.yaml
       - run: bash -n scripts/release.sh scripts/restore-drill.sh docker/backup/backup.sh docker/backup/restore.sh
 
   e2e:
-    needs: test
-    runs-on: ubuntu-latest
+    needs: [runner, test]
+    runs-on: ${{ fromJSON(needs.runner.outputs.labels) }}
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -83,15 +136,21 @@ jobs:
       - run: pnpm test:e2e
         env:
           CI: "true"
+          E2E_PORT: "3100" # playwright.config.ts: the production server and baseURL use this port
+          E2E_PROD: "1" # tests/e2e/perf.spec.ts: budgets measured against the production build only
           AUTH_PASSWORD_SIGNIN: "true"
-          AUTH_ALLOWED_EMAILS: e2e@example.com,smoke@example.com # password sign-up needs exact entries
+          AUTH_ALLOWED_EMAILS: e2e@example.com,smoke@example.com,e2e-onboard@example.com,e2e-i18n@example.com # password sign-up needs exact entries
+          FORCE_HTTPS: "false" # the production server is reached over plain http on localhost
+          ANALYTICS_LOCAL: "true" # usage.spec.ts exercises the page-view beacon
       - uses: actions/upload-artifact@v7
         if: failure()
         with: { name: playwright-report, path: playwright-report }
+      - if: always()
+        run: docker compose -f compose.dev.yml down -v --remove-orphans
 
   image:
-    needs: test
-    runs-on: ubuntu-latest
+    needs: [runner, test]
+    runs-on: ${{ fromJSON(needs.runner.outputs.labels) }}
     steps:
       - uses: actions/checkout@v7
       - uses: docker/setup-buildx-action@v4
@@ -103,12 +162,21 @@ jobs:
           push: false
           load: true
           tags: okinvo:ci
-      - uses: aquasecurity/trivy-action@v0.36.0
+          build-args: |
+            BUILD_SHA=${{ github.sha }}
+            BUILD_DATE=${{ github.event.head_commit.timestamp || github.event.pull_request.updated_at || '' }}
+      - if: runner.os == 'Linux'
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: okinvo:ci
           severity: HIGH,CRITICAL
           exit-code: "1"
           ignore-unfixed: true
+      - if: runner.os != 'Linux'
+        name: trivy through its container (the action's installer needs a Linux shell)
+        run: |
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:0.70.0 \
+            image --severity HIGH,CRITICAL --exit-code 1 --ignore-unfixed --skip-version-check --scanners vuln okinvo:ci
       - name: the runtime image ships no package manager (npm, npx, corepack, yarn)
         run: |
           docker run --rm --entrypoint sh okinvo:ci -c \
@@ -116,18 +184,21 @@ jobs:
              && ! command -v npm >/dev/null && ! command -v npx >/dev/null \
              && ! command -v corepack >/dev/null && ! command -v yarn >/dev/null' \
             || { echo "runtime image still ships a package manager"; exit 1; }
-      - name: container smoke — an invalid env must stop the process, a valid one must answer /live
+      - name: container smoke - an invalid env must stop the process, a valid one must answer /live
         run: |
           set -euo pipefail
           if docker run --rm -e APP_URL=http://x -e DATABASE_URL=postgresql://u:p@h:5432/d \
                -e AUTH_SECRET=short -e FIELD_ENCRYPTION_KEY=bad okinvo:ci; then
             echo "container kept running with an invalid environment"; exit 1
           fi
-          docker run -d --name okinvo-smoke -p 3000:3000 \
-            -e APP_URL=http://127.0.0.1:3000 -e DATABASE_URL=postgresql://u:p@h:5432/d \
+          docker rm -f okinvo-smoke >/dev/null 2>&1 || true
+          docker run -d --name okinvo-smoke -p 127.0.0.1:3200:3000 \
+            -e APP_URL=http://127.0.0.1:3200 -e DATABASE_URL=postgresql://u:p@h:5432/d \
             -e AUTH_SECRET="$AUTH_SECRET" -e FIELD_ENCRYPTION_KEY="$FIELD_ENCRYPTION_KEY" \
             -e AUTH_ALLOWED_EMAILS="$AUTH_ALLOWED_EMAILS" \
             -e AUTH_GITHUB_ID="$AUTH_GITHUB_ID" -e AUTH_GITHUB_SECRET="$AUTH_GITHUB_SECRET" okinvo:ci
-          for i in $(seq 1 30); do curl -sf http://127.0.0.1:3000/api/health/live && break; sleep 1; done
-          curl -sf http://127.0.0.1:3000/api/health/live
+          for _ in $(seq 1 30); do curl -sf http://127.0.0.1:3200/api/health/live && break; sleep 1; done
+          curl -sf http://127.0.0.1:3200/api/health/live
           docker rm -f okinvo-smoke
+      - if: always()
+        run: docker rm -f okinvo-smoke >/dev/null 2>&1 || true

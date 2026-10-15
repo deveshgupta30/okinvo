@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo sākums",
+    "save": "Saglabāt",
+    "cancel": "Atcelt",
+    "continue": "Turpināt",
+    "saving": "Saglabā…",
+    "detect": "Noteikt",
+    "yes": "Jā",
+    "no": "Nē",
+    "choose": "Izvēlēties…",
+    "remove": "Noņemt",
+    "tryAgain": "Mēģināt vēlreiz",
+    "dashboard": "Pārskats",
+    "goToDashboard": "Doties uz pārskatu",
+    "or": "vai",
+    "invoice": "Rēķins",
+    "creditNote": "Kredītrēķins",
+    "downloadPdf": "Lejupielādēt PDF",
+    "edit": "Rediģēt",
+    "delete": "Dzēst",
+    "downloadDocx": "Lejupielādēt DOCX",
+    "downloadCii": "Lejupielādēt EN 16931 XML",
+    "downloadUbl": "Lejupielādēt Peppol UBL",
+    "downloadFacturX": "Lejupielādēt Factur-X PDF",
+    "none": "Nav",
+    "dismiss": "Aizvērt",
+    "all": "Visi",
+    "previous": "Iepriekšējā",
+    "next": "Nākamā",
+    "go": "Aiziet",
+    "search": "Meklēt",
+    "status": "Statuss",
+    "total": "Kopā",
+    "currency": "Valūta",
+    "from": "No",
+    "to": "Līdz",
+    "reason": "Iemesls",
+    "history": "Vēsture",
+    "archive": "Arhivēt",
+    "restore": "Atjaunot",
+    "showArchived": "Rādīt arhivētos",
+    "hideArchived": "Slēpt arhivētos",
+    "archived": "Arhivēts",
+    "default": "Noklusējums",
+    "setDefault": "Iestatīt kā noklusējumu",
+    "revoke": "Atsaukt",
+    "copy": "Kopēt",
+    "copied": "Nokopēts",
+    "active": "Aktīvs",
+    "pagination": "Lappušu pārlūkošana",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Pārskats",
+      "invoices": "Rēķini",
+      "creditNotes": "Kredītrēķini",
+      "clients": "Klienti",
+      "services": "Pakalpojumi",
+      "products": "Preces",
+      "tools": "Valūta"
+    },
+    "primaryNav": "Galvenā",
+    "settings": "Iestatījumi",
+    "openMenu": "Atvērt izvēlni",
+    "more": "Vairāk",
+    "navigation": "Navigācija",
+    "dock": "Ātrā navigācija",
+    "pagesAndAccount": "Lapas un konts",
+    "collapseSidebar": "Sakļaut sānjoslu",
+    "collapseSidebarHint": "Sakļaut sānjoslu ([)",
+    "expandSidebar": "Izvērst sānjoslu",
+    "expandSidebarHint": "Izvērst sānjoslu ([)",
+    "theme": {
+      "label": "Motīvs",
+      "system": "Sistēmas",
+      "light": "Gaišs",
+      "dark": "Tumšs",
+      "current": "Motīvs: {mode}",
+      "switchTo": "Motīvs: {mode}. Pārslēgt uz {next}"
+    },
+    "userMenu": {
+      "label": "Konta izvēlne: {name}",
+      "profile": "Profils",
+      "logOut": "Iziet"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Valūtu pārveidotājs",
+      "title": "Valūtu pārveidotājs",
+      "description": "Pārveidojiet starp valūtām, kurās izrakstāt rēķinus, izmantojot šīs instances valūtu kursu tabulu.",
+      "amount": "Summa",
+      "from": "No",
+      "to": "Uz",
+      "flip": "Apmainīt valūtas",
+      "enterAmount": "Ievadiet summu",
+      "asOf": "Valūtu kursi uz {date} ({source})",
+      "sources": {
+        "bundled": "iekļauti lietotnē",
+        "live": "atjaunināti tiešsaistē"
+      },
+      "note": "Kursi ir orientējoši; izrakstītā rēķinā ir tas kurss, ko ievadījāt, to izrakstot."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Pieteikšanās",
+      "metaDescription": "Piesakieties okinvo, pašmitinātā rēķinu lietotnē, ar savu identitātes sniedzēju vai paroli.",
+      "title": "Pieteikšanās",
+      "subtitle": "Pieteikties var tikai atļauto sarakstā iekļauti konti.",
+      "failed": "Pieteikšanās neizdevās.",
+      "noMethod": "Nav konfigurēta neviena pieteikšanās metode. Iestatiet pakalpojuma sniedzēja pāri, piemēram, <code>AUTH_GITHUB_*</code>, vai <code>AUTH_PASSWORD_SIGNIN=true</code> failā <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Šis konts šajā instancē nav atļauts vai ir deaktivizēts.",
+        "signin": "Pieteikšanās netika pabeigta. Lūdzu, mēģiniet vēlreiz."
+      }
+    },
+    "password": {
+      "name": "Vārds",
+      "email": "E-pasts",
+      "password": "Parole",
+      "signingIn": "Piesakās…",
+      "createAccount": "Izveidot kontu",
+      "signIn": "Pieteikties",
+      "haveAPassword": "Man jau ir parole",
+      "firstTime": "Pirmo reizi šeit? Iestatiet paroli",
+      "failed": "Pieteikšanās neizdevās."
+    },
+    "social": {
+      "redirecting": "Pārvirza…",
+      "continueWith": "Turpināt ar {provider}",
+      "failed": "Pieteikšanos neizdevās sākt."
+    },
+    "error": {
+      "metaTitle": "Pieteikšanās kļūda",
+      "metaDescription": "Pieteikšanās netika pabeigta. Lapā paskaidrots, kas notika nepareizi un kā mēģināt vēlreiz.",
+      "title": "Pieteikšanās neizdevās",
+      "body": "Identitātes sniedzējs atgrieza <code>{value}</code>. Ja jūsu adrese nav šīs instances atļauto sarakstā, lūdziet īpašniekam to pievienot.",
+      "back": "Atpakaļ uz pieteikšanos"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Iestatījumi",
+      "profiles": "Profili",
+      "paymentMethods": "Maksājumu veidi",
+      "templates": "Veidnes",
+      "email": "E-pasts",
+      "security": "Drošība",
+      "users": "Lietotāji",
+      "data": "Dati",
+      "legal": "Juridiskā informācija",
+      "einvoicing": "E-rēķini",
+      "account": "Konts",
+      "appearance": "Izskats",
+      "api": "API",
+      "status": "Statuss",
+      "usage": "Lietojums"
+    },
+    "account": {
+      "metaTitle": "Konts",
+      "title": "Konts",
+      "description": "Jūsu foto, vārds, reģions, valoda un laika josla.",
+      "photo": {
+        "title": "Foto",
+        "description": "Tiek rādīts sānjoslā un lietotāja izvēlnē."
+      },
+      "form": {
+        "title": "Konts",
+        "description": "Kā jūs tiekat attēlots un kad ir “šodien”.",
+        "displayName": "Attēlojamais vārds",
+        "signInEmail": "Pieteikšanās e-pasts",
+        "signInEmailHint": "Jūsu identitāte šajā instancē; to šeit nevar mainīt.",
+        "timezone": "Laika josla",
+        "timezoneHint": "“Šodien” izrakstīšanas datumiem, termiņiem un pārskatam",
+        "regionTitle": "Reģions",
+        "regionDescription": "Noklusējumi jauniem izrakstītāja profiliem un pārskatam, kamēr profils vēl nepastāv.",
+        "country": "Valsts",
+        "currency": "Valūta",
+        "suggested": "Ieteikts šai valstij:",
+        "language": "Valoda",
+        "languageHint": "Pašas lietotnes valoda. Dokumentos tiek izmantota katra profila sava lokalizācija.",
+        "machineTranslated": "Šī valoda ir tulkota automātiski. Labojumi ir laipni gaidīti: <link>uzlabojiet to GitHub</link>.",
+        "save": "Saglabāt preferences"
+      },
+      "regions": {
+        "Africa": "Āfrika",
+        "Americas": "Amerikas",
+        "Asia": "Āzija",
+        "Europe": "Eiropa",
+        "MiddleEast": "Tuvie Austrumi",
+        "Oceania": "Okeānija",
+        "Constructed": "Mākslīgās"
+      },
+      "privacy": {
+        "title": "Privātums",
+        "description": "okinvo izmanto tikai darbībai nepieciešamās sīkdatnes. Nekādas analītikas, nekādas izsekošanas.",
+        "cookiePolicy": "Sīkdatņu politika",
+        "showNoticeAgain": "Rādīt sīkdatņu paziņojumu vēlreiz"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Mainīt foto",
+      "addPhoto": "Pievienot foto",
+      "hint": "PNG, JPEG vai WebP. Visur tiek rādīts kā aplis; pirms saglabāšanas varat to tuvināt un pārvietot.",
+      "tooLarge": "Šis foto ir pārāk liels.",
+      "uploadFailed": "Augšupielāde neizdevās.",
+      "choose": "Izvēlieties profila foto",
+      "dialogTitle": "Novietojiet savu foto",
+      "dialogDescription": "Velciet, lai pārvietotu, ritiniet vai savelciet pirkstus, lai tuvinātu. Aplis ir tas, ko redz visi.",
+      "zoom": "Tuvinājums",
+      "save": "Saglabāt foto"
+    },
+    "appearance": {
+      "metaTitle": "Izskats",
+      "title": "Izskats",
+      "description": "Motīvs un akcenta krāsa, saglabāti jūsu kontā.",
+      "theme": {
+        "title": "Motīvs",
+        "description": "Sekot sistēmai vai fiksēt gaišu vai tumšu.",
+        "label": "Motīvs",
+        "system": "Sekot sistēmai",
+        "systemHint": "Pārslēdzas kopā ar jūsu OS",
+        "light": "Gaišs",
+        "lightHint": "Balts fons",
+        "dark": "Tumšs",
+        "darkHint": "Gandrīz melns fons"
+      },
+      "accent": {
+        "title": "Akcents",
+        "description": "Izmanto galvenajai pogai, fokusa apvadiem un aktīvās lapas atzīmei. Piparmētra atbilst zīmola zīmei.",
+        "label": "Akcenta krāsa",
+        "customHint": "Vai izvēlieties savu krāsu"
+      },
+      "accents": {
+        "mint": "Piparmētra",
+        "lavender": "Lavanda",
+        "sky": "Debesu zila",
+        "peach": "Persiks",
+        "butter": "Sviesta dzeltena",
+        "rose": "Roze",
+        "sage": "Salvija",
+        "lilac": "Ceriņu",
+        "custom": "Pielāgota"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Izrakstītāja profili",
+      "title": "Izrakstītāja profili",
+      "description": "Juridiskās identitātes, no kurām izrakstāt rēķinus. Noklusējuma profils iepriekš aizpilda jaunus rēķinus.",
+      "breadcrumb": "Profili",
+      "newProfile": "Jauns profils",
+      "emptyTitle": "Vēl nav izrakstītāja profila",
+      "emptyDescription": "Izveidojiet identitāti, no kuras izrakstāt rēķinus: privātpersonu ar PAN vai savu uzņēmumu.",
+      "createProfile": "Izveidot profilu",
+      "columns": {
+        "label": "Nosaukums",
+        "legalName": "Juridiskais nosaukums",
+        "type": "Veids",
+        "country": "Valsts",
+        "currency": "Valūta",
+        "regime": "Režīms",
+        "status": "Statuss"
+      },
+      "types": {
+        "company": "Uzņēmums",
+        "individual": "Privātpersona"
+      },
+      "makeDefaultTitle": "Iestatīt {label} kā noklusējumu?",
+      "makeDefaultDescription": "Jauni rēķini sāksies no šī profila.",
+      "restoreTitle": "Atjaunot {label}?",
+      "archiveTitle": "Arhivēt {label}?",
+      "archiveDescription": "Tas pazūd no izvēles sarakstiem; esošie rēķini netiek mainīti.",
+      "new": {
+        "metaTitle": "Jauns izrakstītāja profils",
+        "title": "Jauns izrakstītāja profils",
+        "prefilled": "Aizpildīts pēc jūsu atbildēm; pārbaudiet adresi un nodokļu datus, pēc tam saglabājiet."
+      },
+      "edit": {
+        "metaTitle": "Rediģēt izrakstītāja profilu",
+        "template": "Veidne",
+        "deleteTitle": "Dzēst {label}?",
+        "deleteDescription": "Iespējams tikai tad, ja neviens rēķins vai kredītrēķins uz šo profilu neatsaucas. Pretējā gadījumā arhivējiet to."
+      },
+      "template": {
+        "metaTitle": "Profila veidne",
+        "title": "Veidne profilam {label}",
+        "ownTemplate": "Sava veidne",
+        "instanceTemplate": "Instances veidne",
+        "resetTitle": "Atkal izmantot instances veidni?",
+        "resetDescription": "Šī profila konfigurācija tiek noņemta; izrakstītie dokumenti netiek mainīti.",
+        "useInstance": "Izmantot instances veidni",
+        "usingInstanceTitle": "Tiek izmantota instances veidne",
+        "usingInstanceDescription": "Šī profila dokumenti seko sadaļai Iestatījumi → Veidnes. Izvēlieties, lai pielāgotu tos atsevišķi.",
+        "customise": "Izmantot citu veidni šim profilam",
+        "openInstance": "Atvērt instances veidni"
+      },
+      "form": {
+        "identityTitle": "Identitāte",
+        "identityDescription": "Kas izraksta rēķinu.",
+        "type": "Veids",
+        "label": "Nosaukums",
+        "labelHint": "Tiek rādīts tikai izvēles sarakstos",
+        "legalName": "Juridiskais nosaukums",
+        "tradeName": "Komercnosaukums",
+        "designation": "Amats",
+        "email": "E-pasts",
+        "phone": "Tālrunis",
+        "website": "Tīmekļa vietne",
+        "addressTitle": "Adrese",
+        "taxTitle": "Nodokļu identifikatori",
+        "taxDescription": "Tikai tie, kas attiecas uz jums; drukāšana tiek kontrolēta katram rēķinam atsevišķi.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Apvienotās Karalistes PVN numurs",
+        "usTaxId": "ASV EIN / SSN",
+        "usTaxIdHint": "Šifrēts glabāšanas laikā",
+        "lutNumber": "LUT numurs",
+        "lutNumberHint": "Eksportam bez IGST",
+        "lutFiscalYear": "LUT finanšu gads",
+        "lutFiscalYearHint": "piem., 2026-27",
+        "einvoiceTitle": "E-rēķini",
+        "einvoiceDescription": "Kā šis profils sevi identificē e-rēķinos; savienotājs un akreditācijas dati ir sadaļā Iestatījumi > E-rēķini.",
+        "electronicAddress": "Elektroniskā adrese",
+        "electronicAddressHint": "Šī izrakstītāja Peppol vai EN 16931 identifikators, kas tiek drukāts kā pārdevēja elektroniskā adrese.",
+        "electronicAddressScheme": "Elektroniskās adreses shēma",
+        "electronicAddressSchemeNone": "Nav shēmas",
+        "einvoiceEnabled": "E-rēķini šim profilam ir iespējoti",
+        "einvoiceEnabledHint": "Izsniegtajiem dokumentiem piedāvā GST e-rēķina JSON, Factur-X un UBL lejupielādes un IRN reģistrāciju.",
+        "defaultsTitle": "Noklusējumi",
+        "baseCurrency": "Bāzes valūta",
+        "locale": "Dokumentu lokalizācija",
+        "localeHint": "Skaitļu un datumu formatējums dokumentos",
+        "fiscalYearStart": "Finanšu gads sākas",
+        "months": {
+          "january": "janvārī",
+          "february": "februārī",
+          "march": "martā",
+          "april": "aprīlī",
+          "may": "maijā",
+          "june": "jūnijā",
+          "july": "jūlijā",
+          "august": "augustā",
+          "september": "septembrī",
+          "october": "oktobrī",
+          "november": "novembrī",
+          "december": "decembrī"
+        },
+        "taxRegime": "Noklusējuma nodokļu režīms",
+        "regimes": {
+          "indiaGst": "Indijas GST",
+          "ukVat": "Apvienotās Karalistes PVN",
+          "usSalesTax": "ASV pārdošanas nodoklis",
+          "none": "Bez nodokļa"
+        },
+        "invoiceNumberFormat": "Rēķina numura formāts",
+        "invoiceNumberFormatHint": "Marķieri: {tokens}",
+        "creditNoteNumberFormat": "Kredītrēķina numura formāts",
+        "tdsRate": "Paredzamā TDS likme (%)",
+        "tdsRateHint": "Informatīva, drukāta kā paredzamais ieturējums",
+        "defaultNotes": "Noklusējuma piezīmes",
+        "defaultTerms": "Noklusējuma noteikumi",
+        "printTitle": "Kas tiek drukāts pēc noklusējuma",
+        "printDescription": "Katrs rēķins šos iestatījumus kopē un var tos mainīt atsevišķi.",
+        "emailTitle": "E-pasts",
+        "emailDescription": "Noklusējumi sūtīšanas redaktoram. Vietturi: {placeholders}",
+        "emailCc": "Noklusējuma CC",
+        "emailBcc": "Noklusējuma BCC",
+        "commaSeparated": "Atdalīts ar komatiem",
+        "invoiceSubject": "Rēķina tēma",
+        "invoiceSubjectHint": "Ja tukšs, tiek izmantota iebūvētā veidne",
+        "creditNoteSubject": "Kredītrēķina tēma",
+        "invoiceBody": "Rēķina teksts",
+        "creditNoteBody": "Kredītrēķina teksts",
+        "artworkTitle": "Grafika",
+        "artworkDescription": "PNG, JPEG vai WebP līdz 2 MB; paraksts un zīmogs saglabā caurspīdīgumu.",
+        "logo": "Logotips",
+        "signature": "Paraksts",
+        "stamp": "Zīmogs",
+        "transparentPng": "Caurspīdīgs PNG",
+        "save": "Saglabāt profilu"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Maksājumu veidi",
+      "title": "Maksājumu veidi",
+      "description": "Kā klienti jums maksā. Dati tiek šifrēti un izrakstīšanas brīdī iesaldēti katrā rēķinā.",
+      "newMethod": "Jauns veids",
+      "emptyTitle": "Vēl nav maksājumu veidu",
+      "emptyDescription": "Pievienojiet bankas kontu, UPI ID vai maku, lai rēķinos varētu norādīt, kur klientiem maksāt.",
+      "addMethod": "Pievienot veidu",
+      "columns": {
+        "name": "Nosaukums",
+        "type": "Veids",
+        "currency": "Valūta",
+        "status": "Statuss"
+      },
+      "types": {
+        "bankTransfer": "Bankas pārskaitījums",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Pielāgots"
+      },
+      "makeDefaultTitle": "Iestatīt {name} kā noklusējumu?",
+      "restoreTitle": "Atjaunot {name}?",
+      "archiveTitle": "Arhivēt {name}?",
+      "archiveDescription": "Izrakstītie rēķini saglabā momentuzņēmumu, kas tika izdrukāts.",
+      "new": {
+        "metaTitle": "Jauns maksājumu veids",
+        "title": "Jauns maksājumu veids"
+      },
+      "edit": {
+        "metaTitle": "Rediģēt maksājumu veidu",
+        "title": "Rediģēt {name}",
+        "deleteTitle": "Dzēst {name}?",
+        "deleteDescription": "Iespējams tikai tad, ja neviens rēķins vai maksājums uz to neatsaucas. Pretējā gadījumā arhivējiet to."
+      },
+      "form": {
+        "name": "Nosaukums",
+        "nameHint": "Tiek drukāts kā maksājuma bloka virsraksts",
+        "type": "Veids",
+        "currency": "Valūta",
+        "currencyHint": "Neobligāti; tiek rādīts tikai kā konteksts",
+        "anyCurrency": "Jebkura",
+        "instructions": "Norādījumi",
+        "instructionsHint": "Tiek drukāti zem datiem",
+        "isDefault": "Noklusējuma veids",
+        "isDefaultDescription": "Iepriekš atlasīts jaunos rēķinos",
+        "isActive": "Aktīvs",
+        "detailsTitle": "Dati",
+        "detailsDescription": "Šifrēti glabāšanas laikā; izrakstīšanas brīdī tiek iekopēti katrā rēķinā.",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "Saņēmēja vārds",
+        "lines": "Rindas",
+        "linesHint": "Viena rinda katrā rindā, drukāta tāda, kāda ir",
+        "accountEmail": "Konta e-pasts / identifikators",
+        "bank": {
+          "accountHolder": "Konta īpašnieks",
+          "accountNumber": "Konta numurs",
+          "bankName": "Bankas nosaukums",
+          "branch": "Filiāle",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Maršrutēšanas / filiāles kods"
+        },
+        "save": "Saglabāt maksājumu veidu"
+      }
+    },
+    "templates": {
+      "metaTitle": "Dokumentu veidnes",
+      "title": "Dokumentu veidnes",
+      "customised": "Pielāgota",
+      "builtIn": "Iebūvētais noklusējums",
+      "description": "Kā izskatās rēķini un kredītrēķini. Izrakstītie dokumenti saglabā veidni, ar kuru tie tika izrakstīti.",
+      "resetTitle": "Atiestatīt uz iebūvēto noklusējumu?",
+      "resetDescription": "Jūsu pielāgojumi tiek noņemti; jau izrakstītie dokumenti netiek mainīti.",
+      "reset": "Atiestatīt",
+      "resetTrigger": "Atiestatīt uz noklusējumiem",
+      "importTitle": "Importēt",
+      "importDescription": "Atjaunot iepriekš eksportētu konfigurāciju.",
+      "overridesTitle": "Pārklājumi pa profiliem",
+      "overridesDescription": "Profils var izvēlēties savu veidni savā rediģēšanas lapā.",
+      "noOverrides": "Visi profili izmanto instances veidni.",
+      "import": {
+        "json": "Veidnes JSON",
+        "jsonHint": "Ielīmējiet failu, kas izveidots ar Eksportēt JSON; trūkstošās atslēgas tiek aizstātas ar noklusējumiem",
+        "importing": "Importē…",
+        "submit": "Importēt"
+      },
+      "form": {
+        "templateTitle": "Veidne",
+        "templateDescription": "Seši iebūvētie varianti; zemāk redzamie pielāgojumi attiecas uz to, kuru izvēlēsieties.",
+        "templateGroup": "Veidne",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Mūsdienīga un viegla, bezserifa burti, akcenta svītra zem galvenes."
+          },
+          "classic": {
+            "name": "Klasiska",
+            "character": "Tradicionāla tabula ar apmalēm, serifa virsraksti, ierāmēti kopsummu lauki."
+          },
+          "compact": {
+            "name": "Kompakta",
+            "character": "Blīvs izkārtojums gariem pozīciju sarakstiem; mazāks burtu izmērs, mazāk atdalītāju."
+          },
+          "minimal": {
+            "name": "Minimāla",
+            "character": "Mierīga un telpaina: bez līnijām un rāmjiem, vieglas birkas, daudz gaisa."
+          },
+          "letterhead": {
+            "name": "Veidlapa",
+            "character": "Jūsu logotips un nosaukums uz krāsu joslas vai attēla katras lappuses augšdaļā."
+          },
+          "modern": {
+            "name": "Moderna",
+            "character": "Galvene ar krāsu joslu; puses, tabulas galvene un kopsummas uz gaiša akcenta toņa."
+          }
+        },
+        "paperTitle": "Papīrs un burti",
+        "paperSize": "Papīra izmērs",
+        "paperLetter": "Letter",
+        "margins": "Malas",
+        "marginsNormal": "Parastas",
+        "marginsNarrow": "Šauras",
+        "headingFont": "Virsrakstu fonts",
+        "bodyFont": "Pamatteksta fonts",
+        "fontSans": "Bezserifa",
+        "fontSerif": "Serifa",
+        "tableStyle": "Tabulas stils",
+        "tableRuled": "Ar līnijām",
+        "tableZebra": "Svītrota",
+        "tablePlain": "Vienkārša",
+        "accentColour": "Akcenta krāsa",
+        "textColour": "Teksta krāsa",
+        "logoPosition": "Logotipa novietojums",
+        "positionLeft": "Pa kreisi",
+        "positionCentre": "Centrā",
+        "positionRight": "Pa labi",
+        "logoHeight": "Logotipa augstums (mm)",
+        "documentTitle": "Dokumenta nosaukums",
+        "titleAuto": "Automātisks (ņem vērā GST)",
+        "titleCustom": "Pielāgots",
+        "titlePlaceholder": "piem., PROFORMA RĒĶINS",
+        "qrPosition": "QR novietojums",
+        "qrFooter": "Kājene",
+        "qrHeader": "Galvene",
+        "qrBesideTotals": "Blakus kopsummām",
+        "amountInWords": "Summa vārdiem",
+        "wordsBelowTotal": "Zem kopsummām",
+        "wordsFooter": "Kājene",
+        "wordsHidden": "Paslēpta",
+        "subtotalRow": "Starpsummas rinda",
+        "discountRow": "Atlaides rinda",
+        "taxLines": "Nodokļu rindas",
+        "tdsExpected": "Paredzamais TDS",
+        "roundingRow": "Noapaļošanas rinda",
+        "pageNumbers": "Lappušu numuri",
+        "headerTitle": "Galvene",
+        "headerDescription": "Krāsu josla vai attēls katras lappuses augšdaļā. Veidlapa un Moderna rāda joslu, ja neizvēlaties citādi.",
+        "headerStyle": "Galvenes stils",
+        "headerNone": "Nav",
+        "headerBand": "Krāsu josla",
+        "headerImage": "Attēls",
+        "bandColour": "Joslas krāsa",
+        "bandColourHex": "Joslas krāsa (hex)",
+        "headerImageLabel": "Galvenes attēls",
+        "headerImageHint": "PNG, JPEG vai WebP līdz 2400 px platumā; tas aizņem visu lappuses platumu.",
+        "imageOpacity": "Attēla necaurspīdīgums",
+        "headerHeight": "Galvenes augstums (mm)",
+        "bandText": "Teksts uz joslas",
+        "bandTextAuto": "Automātisks (pēc joslas krāsas)",
+        "bandTextLight": "Gaišs",
+        "bandTextDark": "Tumšs",
+        "textTitle": "Teksts",
+        "headerNote": "Galvenes piezīme",
+        "footer": "Kājene",
+        "signatureCaption": "Paraksta paskaidrojums",
+        "draftWatermark": "Melnraksta ūdenszīme",
+        "labelsTitle": "Birkas",
+        "labelsDescription": "Atstājiet lauku tukšu, lai saglabātu noklusējuma formulējumu.",
+        "save": "Saglabāt veidni",
+        "downloadSample": "Lejupielādēt parauga PDF",
+        "exportJson": "Eksportēt JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "E-pasts",
+      "title": "E-pasts",
+      "configuredSettings": "Konfigurēts iestatījumos",
+      "configuredEnv": "Konfigurēts ar vides mainīgajiem",
+      "notConfigured": "Nav konfigurēts: pasta lietotnes plūsma",
+      "description": "Dokumenti tiek sūtīti no redaktora ar pievienotu saglabāto PDF. Šeit norādītie iestatījumi pārsedz SMTP_* vidē.",
+      "sendTest": "Sūtīt testa e-pastu uz {email}",
+      "removeTitle": "Noņemt saglabātos SMTP iestatījumus?",
+      "removeEnvTakesOver": "Tiks izmantotas vides SMTP_* vērtības.",
+      "removeFallsBack": "E-pasts atgriezīsies pie pasta lietotnes plūsmas.",
+      "removeTrigger": "Noņemt saglabātos iestatījumus",
+      "smtpTitle": "SMTP serveris",
+      "smtpFromEnv": "Pašlaik ņemts no vides; saglabāšana šeit to pārsedz.",
+      "smtpPasswordNote": "Parole tiek šifrēta glabāšanas laikā un vairs netiek rādīta.",
+      "defaultsTitle": "Noklusējuma adresāti",
+      "defaultsDescription": "Visas instances CC/BCC; izrakstītāja profili pievieno savus.",
+      "sentTitle": "Nosūtītais pasts",
+      "sentDescription": "Pēdējie 50 mēģinājumi, ieskaitot neveiksmīgos un manuālos nosūtījumus.",
+      "smtp": {
+        "host": "Resursdators",
+        "port": "Ports",
+        "security": "Drošība",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Nav (LAN retranslators)",
+        "user": "Lietotājvārds",
+        "password": "Parole",
+        "passwordStored": "Saglabāta un šifrēta; atstājiet tukšu, lai paturētu",
+        "passwordEncrypted": "Šifrēta glabāšanas laikā",
+        "from": "Sūtītāja adrese",
+        "fromName": "Sūtītāja vārds",
+        "replyTo": "Atbildes adrese",
+        "save": "Saglabāt SMTP iestatījumus"
+      },
+      "defaults": {
+        "cc": "Noklusējuma CC",
+        "ccHint": "Tiek pievienots katram redaktoram; atdalīts ar komatiem",
+        "bcc": "Noklusējuma BCC",
+        "save": "Saglabāt noklusējumus"
+      }
+    },
+    "security": {
+      "metaTitle": "Drošība",
+      "title": "Drošība",
+      "description": "Kur esat pieteicies un viss, kas mainījies.",
+      "sessions": {
+        "title": "Aktīvās sesijas",
+        "description": "Sesijas atsaukšana nekavējoties izraksta šo ierīci.",
+        "signOutOthers": {
+          "title": "Izrakstīties visur citur?",
+          "description": "Tiek atsauktas visas sesijas, izņemot šo.",
+          "confirm": "Izrakstīt citas",
+          "trigger": "Izrakstīties visur citur"
+        },
+        "columns": {
+          "device": "Ierīce",
+          "ipAddress": "IP adrese",
+          "signedIn": "Pieteicies",
+          "lastSeen": "Pēdējoreiz redzēts",
+          "expires": "Beidzas"
+        },
+        "thisDevice": "Šī ierīce",
+        "revokeTitle": "Atsaukt šo sesiju?",
+        "unknownDevice": "Nezināma ierīce",
+        "unknownBrowser": "Nezināma",
+        "agentOnOs": "{browser} sistēmā {os}"
+      },
+      "audit": {
+        "title": "Audita žurnāls",
+        "count": "{count, plural, zero {# notikumu} one {# notikums} other {# notikumi}}",
+        "entity": "Objekts",
+        "actionContains": "Darbība satur",
+        "filter": "Filtrēt",
+        "reset": "Atiestatīt",
+        "columns": {
+          "when": "Kad",
+          "who": "Kas",
+          "action": "Darbība",
+          "entity": "Objekts",
+          "summary": "Kopsavilkums"
+        },
+        "empty": "Neviens notikums neatbilst šiem filtriem.",
+        "system": "Sistēma",
+        "changes": "Izmaiņas",
+        "page": "{page}. lappuse no {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Lietotāji",
+      "title": "Lietotāji",
+      "description": "Kas var pieteikties šajā instancē un ko tie drīkst darīt.",
+      "roles": {
+        "owner": "Īpašnieks",
+        "editor": "Redaktors",
+        "viewer": "Skatītājs"
+      },
+      "roleHints": {
+        "owner": "Viss, ieskaitot iestatījumus un dalībniekus",
+        "editor": "Klienti, katalogs, rēķini, kredītrēķini, maksājumi, e-pasts",
+        "viewer": "Tikai lasīšana"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Lietotāja {email} loma",
+      "invite": {
+        "title": "Uzaicināt kādu",
+        "description": "Viņi piesakās ar uzaicināto adresi (identitātes sniedzējs vai parole) un saņem jūsu izvēlēto lomu.",
+        "sent": "Uzaicinājums nosūtīts pa e-pastu uz {email}.",
+        "readyWithError": "Uzaicinājums adresātam {email} ir gatavs. E-pastu nevarēja nosūtīt ({error}); nosūtiet viņiem šo saiti:",
+        "readyNoSmtp": "Uzaicinājums adresātam {email} ir gatavs. SMTP nav konfigurēts; nosūtiet viņiem šo saiti:",
+        "copyLink": "Kopēt saiti",
+        "email": "E-pasts",
+        "emailPlaceholder": "persona@example.com",
+        "role": "Loma",
+        "submit": "Uzaicināt",
+        "inviting": "Uzaicina…"
+      },
+      "members": {
+        "title": "Dalībnieki",
+        "description": "Vienmēr paliek vismaz viens aktīvs īpašnieks.",
+        "columns": {
+          "person": "Persona",
+          "role": "Loma",
+          "lastSignIn": "Pēdējā pieteikšanās",
+          "status": "Statuss"
+        },
+        "nameYou": "{name} (jūs)",
+        "deactivated": "Deaktivizēts",
+        "reactivate": {
+          "title": "Atkārtoti aktivizēt {email}?",
+          "description": "Viņi atkal var pieteikties ar iepriekšējo lomu.",
+          "confirm": "Atkārtoti aktivizēt"
+        },
+        "deactivate": {
+          "title": "Deaktivizēt {email}?",
+          "description": "Visas sesijas tiek beigtas tūlīt, un viņi nevar pieteikties, kamēr konts nav atkārtoti aktivizēts. Vēsture paliek.",
+          "confirm": "Deaktivizēt"
+        }
+      },
+      "invitations": {
+        "title": "Gaidošie uzaicinājumi",
+        "description": "Adreses, kas var pieteikties, bet vēl nav to darījušas.",
+        "columns": {
+          "email": "E-pasts",
+          "role": "Loma",
+          "invited": "Uzaicināts"
+        },
+        "empty": "Nav gaidošu uzaicinājumu.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Atsaukt uzaicinājumu adresātam {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Dati",
+      "title": "Dati",
+      "description": "Viss ir pārnesams: datu kopas kā CSV vai Excel, pilns momentuzņēmums migrēšanai, PDF faili jūsu grāmatvedim un pārbaudīta rezerves kopēšanas procedūra.",
+      "period": {
+        "fiscalYear": "Finanšu gads",
+        "fiscalYearHint": "Pārsedz datumus",
+        "issuer": "Izrakstītājs"
+      },
+      "exportAll": {
+        "title": "Eksportēt visus datus",
+        "description": "ZIP ar katru datu kopu kā CSV un <mono>data.json</mono>, visu tabulu relāciju momentuzņēmumu. Šifrētie lauki (maksājumu veidu dati, SMTP parole) netiek iekļauti; to sarakstu atradīsiet iekšā esošajā README.",
+        "download": "Lejupielādēt okinvo-data ZIP"
+      },
+      "exportDocuments": {
+        "title": "Eksportēt dokumentus",
+        "description": "Katrs periodā izrakstītais un anulētais rēķina un kredītrēķina PDF, nosaukts pēc numura, ar <mono>index.csv</mono>, kurā ir numuri, kopsummas un jaucējkodi. Trūkstošie PDF tiek izveidoti pa ceļam.",
+        "docx": "Pievienot arī katra dokumenta DOCX kopiju",
+        "facturx": "Pievienot arī Factur-X PDF/A-3 kopiju ar iegulto EN 16931 XML",
+        "download": "Lejupielādēt dokumentu ZIP"
+      },
+      "datasets": {
+        "title": "Datu kopas",
+        "description": "Tie paši eksporti, ko piedāvā saraksta lapas, ar periodu un izrakstītāju, kas piemērots visiem. Maksājumiem tiek izmantots datumu diapazons; klienti un pakalpojumi periodu ignorē.",
+        "columns": {
+          "dataset": "Datu kopa",
+          "filters": "Piemērotie filtri",
+          "download": "Lejupielāde"
+        },
+        "names": {
+          "invoices": "Rēķinu reģistrs",
+          "invoiceItems": "Rēķinu pozīcijas",
+          "payments": "Maksājumu žurnāls",
+          "creditNotes": "Kredītrēķinu reģistrs",
+          "clients": "Klienti",
+          "services": "Pakalpojumi",
+          "gstSummary": "GST kopsavilkums",
+          "tdsSummary": "TDS kopsavilkums"
+        },
+        "filters": {
+          "periodIssuer": "periods, izrakstītājs",
+          "dateRangeIssuer": "datumu diapazons, izrakstītājs",
+          "includesArchived": "ietver arhivētos"
+        }
+      },
+      "backups": {
+        "title": "Rezerves kopijas",
+        "notWired": "Rezerves kopēšanas pakalpojums nav pieslēgts",
+        "noRun": "Rezerves kopēšana vēl nav veikta",
+        "lastOk": "Pēdējā rezerves kopija veiksmīga",
+        "lastFailed": "Pēdējā rezerves kopija neizdevās",
+        "description": "Compose pakalpojums <mono>backup</mono> izveido Postgres izrakstu un arhivē krātuves sējumu pēc <mono>BACKUP_CRON</mono>, glabā <mono>BACKUP_RETENTION_DAYS</mono> vēstures sējumā <mono>backups</mono> un ieraksta statusa failu, ko lasa šī lapa.",
+        "finished": "Pabeigta",
+        "databaseDump": "Datubāzes izraksts",
+        "storageArchive": "Krātuves arhīvs",
+        "size": "Izmērs",
+        "sizeMb": "{size} MB",
+        "error": "Kļūda",
+        "runNow": "Palaidiet vienu tagad vai atjaunojiet no failu pāra:",
+        "restoreDrill": "Atjaunošanas procedūra tiek pārbaudīta CI ar <mono>scripts/restore-drill.sh</mono>: aizpildīt, izveidot kopiju, iztīrīt, atjaunot, tad salīdzināt rindu skaitu un PDF jaucējkodu."
+      }
+    },
+    "legal": {
+      "metaTitle": "Juridiskā informācija",
+      "metaDescription": "Kas uztur šo instanci: dati, kas tiek drukāti publiskajās juridiskajās lapās.",
+      "title": "Juridiskā informācija",
+      "description": "Publiskās juridiskās lapas drukā šos datus. Kamēr visi lauki nav aizpildīti, lapās tiek rādīti izcelti vietturi.",
+      "operator": {
+        "title": "Uzturētāja dati",
+        "complete": "Pabeigts",
+        "missing": "Trūkst: {count}: {fields}",
+        "description": "Jūs kā persona vai uzņēmums, kas uztur šo instanci, esat uzturētājs, uz kuru atsaucas dokumenti. Nekas no šejienes netiek nekur sūtīts; tas tiek drukāts zemāk redzamajās lapās."
+      },
+      "fieldLabels": {
+        "legalName": "Uzturētāja juridiskais nosaukums",
+        "entityType": "Vienības veids",
+        "address": "Uzturētāja adrese",
+        "country": "Uzturētāja valsts",
+        "contactEmail": "Kontaktu e-pasts",
+        "privacyEmail": "Privātuma e-pasts",
+        "dpoEmail": "Datu aizsardzības speciālista e-pasts",
+        "governingLaw": "Piemērojamie tiesību akti",
+        "venue": "Strīdu izskatīšanas vieta",
+        "effectiveDate": "Spēkā stāšanās datums"
+      },
+      "publicPages": {
+        "title": "Publiskās lapas",
+        "description": "Saistītas no pieteikšanās lapas, kopīgošanas skatītāja un sīkdatņu paziņojuma.",
+        "terms": "Pakalpojuma noteikumi",
+        "acceptableUse": "Pieņemamas lietošanas politika",
+        "privacy": "Privātuma politika",
+        "cookies": "Sīkdatņu politika",
+        "dataRetention": "Datu glabāšana",
+        "security": "Drošība",
+        "licenses": "Licences un trešo pušu paziņojumi"
+      },
+      "form": {
+        "legalName": "Juridiskais nosaukums",
+        "entityType": "Vienības veids",
+        "individual": "Privātpersona / individuālais komersants",
+        "company": "Uzņēmums / reģistrēta vienība",
+        "address": "Adrese",
+        "addressHint": "Tiek drukāta noteikumos un privātuma politikā kā uzturētāja pasta adrese.",
+        "country": "Valsts",
+        "effectiveDate": "Spēkā stāšanās datums",
+        "contactEmail": "Kontaktu e-pasts",
+        "privacyEmail": "Privātuma e-pasts",
+        "privacyEmailHint": "Uz kurieni tiek sūtīti datu subjektu pieprasījumi; var būt kontaktu adrese.",
+        "dpoEmail": "Datu aizsardzības speciālista e-pasts",
+        "dpoEmailHint": "Tikai tad, ja esat iecēlis šādu speciālistu.",
+        "governingLaw": "Piemērojamie tiesību akti",
+        "governingLawHint": "Piemēram, \"Latvijas Republikas tiesību akti\" vai \"Anglijas un Velsas tiesību akti\".",
+        "venue": "Strīdu izskatīšanas vieta",
+        "venueHint": "Piemēram, \"Rīgas tiesas\".",
+        "submit": "Saglabāt uzturētāja datus"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-rēķini",
+      "title": "E-rēķini",
+      "description": "Katram izrakstītāja profilam: kurš savienotājs reģistrē Indijas e-rēķinus un kuru Eiropas profilu izmanto Factur-X un UBL izvades. Akreditācijas dati tiek glabāti šifrēti un vairs netiek rādīti.",
+      "noProfiles": "Vispirms izveidojiet izrakstītāja profilu.",
+      "profile": "Izrakstītāja profils",
+      "enabled": "Iespējots",
+      "disabled": "Atspējots",
+      "enabledHint": "Ieslēdziet vai izslēdziet e-rēķinus katram profilam sadaļā Iestatījumi > Profili.",
+      "india": {
+        "title": "Indija (GST e-rēķins, IRN)",
+        "description": "IRN tiek reģistrēts ar šeit izvēlēto savienotāju; manuālais savienotājs portāla atbildi saņem ar roku.",
+        "connector": "Savienotājs",
+        "connectorNone": "Izslēgts",
+        "connectorManual": "Manuāli (ielīmējiet IRP atbildi)",
+        "connectorNic": "NIC IRP API (smilškaste vai ražošana)",
+        "nicUnverified": "NIC savienotājs seko publicētajam API un ir pārbaudīts tikai ar ierakstītiem datiem; tas nav pārbaudīts reālā smilškastē, kamēr nav norādīti akreditācijas dati.",
+        "env": "Vide",
+        "sandbox": "Smilškaste",
+        "production": "Ražošana",
+        "baseUrl": "Pamata URL",
+        "baseUrlHint": "Atstājiet tukšu, lai izmantotu vides noklusējumu.",
+        "clientId": "Klienta ID",
+        "clientSecret": "Klienta noslēpums",
+        "username": "Lietotājvārds",
+        "password": "Parole",
+        "gstin": "GSTIN",
+        "publicKey": "IRP publiskā atslēga (PEM)",
+        "publicKeyHint": "Lejupielādējiet to portālā pēc pieteikšanās; tā aizsargā IRP nosūtītos akreditācijas datus.",
+        "publicKeyStored": "Saglabāta; atstājiet tukšu, lai paturētu.",
+        "secretStored": "Glabāts šifrēts; atstājiet tukšu, lai paturētu.",
+        "secretEncrypted": "Glabāts šifrēts."
+      },
+      "eu": {
+        "title": "Eiropa (Factur-X, UBL)",
+        "description": "EN 16931 ir vienīgais profils šajā versijā; Factur-X un UBL lejupielādes to izmanto.",
+        "profile": "Profils",
+        "profileNone": "Izslēgts",
+        "en16931": "EN 16931"
+      },
+      "save": "Saglabāt e-rēķinu iestatījumus"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API atslēgas skriptiem, SDK un MCP klientiem, ar curl piemēriem.",
+      "title": "API",
+      "description": "Atslēgas skriptiem, SDK un MCP klientiem. Atslēga var darīt ne vairāk par jūsu lomu; tā tiek parādīta vienu reizi.",
+      "create": {
+        "title": "Izveidot atslēgu",
+        "description": "Sūtiet to kā <mono>Authorization: Bearer okv_…</mono>. Neturiet to pirmkodā un tērzēšanas žurnālos; ja tā noplūst, atsauciet to zemāk."
+      },
+      "keys": {
+        "title": "Atslēgas",
+        "descriptionOwner": "Visas šīs instances atslēgas; īpašnieki var atsaukt jebkuru no tām.",
+        "descriptionOwn": "Jūsu atslēgas.",
+        "columns": {
+          "name": "Nosaukums",
+          "prefix": "Prefikss",
+          "scopes": "Darbības jomas",
+          "owner": "Īpašnieks",
+          "lastUsed": "Pēdējoreiz izmantota",
+          "expires": "Beidzas",
+          "status": "Statuss"
+        },
+        "empty": "Vēl nav API atslēgu.",
+        "never": "nekad",
+        "revoked": "Atsaukta",
+        "expired": "Beigusies",
+        "revokeTitle": "Atsaukt {name}?",
+        "revokeDescription": "Klienti, kas izmanto šo atslēgu, pārstāj darboties nekavējoties.",
+        "activeCount": "{count, plural, zero {# aktīvu atslēgu.} one {# aktīva atslēga.} other {# aktīvas atslēgas.}}"
+      },
+      "examples": {
+        "title": "Piemēri",
+        "description": "Aizstājiet <mono>$OKINVO_KEY</mono> ar atslēgu. Versionētais REST API, tā OpenAPI dokuments (<mono>/api/openapi.json</mono>), TypeScript SDK un MCP serveris tiks piegādāti ar nākamajiem v1.1 plāna uzdevumiem; statusa galapunkts darbojas jau šodien.",
+        "rateLimit": "Pārsniegtā limita izsaukumi atbild ar 429 un <mono>Retry-After</mono> galveni (120 pieprasījumi minūtē uz atslēgu). Atslēgas darbības jomas ierobežo tās īpašnieka pašreizējā loma."
+      },
+      "form": {
+        "copyKey": "Kopēt API atslēgu",
+        "name": "Nosaukums",
+        "namePlaceholder": "piem., grāmatvedības skripts",
+        "expires": "Beidzas",
+        "in30Days": "30 dienās",
+        "in90Days": "90 dienās",
+        "inAYear": "Gada laikā",
+        "never": "Nekad",
+        "scopes": "Darbības jomas",
+        "submit": "Izveidot API atslēgu",
+        "creating": "Izveido…"
+      },
+      "scopes": {
+        "invoicesRead": "Lasīt rēķinus",
+        "invoicesCreate": "Izveidot un izrakstīt rēķinus",
+        "creditNotesRead": "Lasīt kredītrēķinus",
+        "creditNotesCreate": "Izveidot un izrakstīt kredītrēķinus",
+        "catalogueRead": "Lasīt klientus, pakalpojumus un preces",
+        "documentsRead": "Lejupielādēt saglabātos PDF un DOCX kopijas",
+        "statusRead": "Lasīt instances statusu"
+      }
+    },
+    "status": {
+      "metaTitle": "Statuss",
+      "metaDescription": "Šīs instances versija, datubāzes, krātuves, e-pasta un rezerves kopēšanas stāvoklis.",
+      "title": "Statuss",
+      "description": "Ko šī instance palaiž un vai tās daļas atbild.",
+      "recheck": "Pārbaudīt vēlreiz",
+      "health": {
+        "ok": "Kārtībā",
+        "warning": "Brīdinājums",
+        "failed": "Kļūme",
+        "na": "Nav konfigurēts"
+      },
+      "overall": {
+        "ok": "Viss kārtībā",
+        "degraded": "Pasliktināts",
+        "failed": "Kļūme"
+      },
+      "version": "Būvējums {hasSha, select, yes {<mono>{sha}</mono>} other {(sha nezināms)}} · uzbūvēts {built} · Node <mono>{node}</mono> · darbojas {uptime} · pārbaudīts {checked}",
+      "dateUnknown": "(datums nezināms)",
+      "uptime": {
+        "days": "{d} d {h} h {m} min",
+        "hours": "{h} h {m} min",
+        "minutes": "{m} min"
+      },
+      "rows": {
+        "database": "Datubāze",
+        "storage": "Krātuve",
+        "rateLimiting": "Ātruma ierobežošana",
+        "email": "E-pasts",
+        "backups": "Rezerves kopijas"
+      },
+      "db": {
+        "detail": "{latency} ms · pēdējā migrācija <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · nepabeigtas migrācijas: #}}",
+        "noMigration": "nav"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · testa objekta rakstīšana, lasīšana un dzēšana {latency} ms laikā",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> krātuve {store, select, memory {(viena replika)} other {(koplietota starp replikām)}}",
+      "smtp": {
+        "configured": "SMTP no {source, select, settings {the settings page} env {the environment} other {}} · pēdējais tests {lastTest} · pēdējās 24 h: {sent} nosūtīti, {failed} neizdevušies",
+        "none": "Nav SMTP servera; redaktors piedāvā “Atvērt pasta lietotnē”. <link>Konfigurēt</link>"
+      },
+      "backups": {
+        "notWired": "Rezerves kopēšanas pakalpojums nav pieslēgts (BACKUP_STATUS_FILE nav iestatīts).",
+        "noRun": "Rezerves kopēšanas pakalpojums pieslēgts; palaišana vēl nav reģistrēta.",
+        "ok": "Pēdējā palaišana bija veiksmīga {finishedAt}{days, plural, =0 {} zero { · glabāšana # dienu} one { · glabāšana # diena} other { · glabāšana # dienas}}",
+        "failed": "Pēdējā palaišana neizdevās: {error} {finishedAt}{days, plural, =0 {} zero { · glabāšana # dienu} one { · glabāšana # diena} other { · glabāšana # dienas}}"
+      },
+      "footer": "Tas pats pārskats ir pieejams kā JSON adresē <mono>/api/health/status</mono> uzraudzībai (pieteikusies sesija vai API atslēga)."
+    },
+    "usage": {
+      "metaTitle": "Lietojums",
+      "metaDescription": "Lapu skatījumi pa ekrāniem un dienām šajā instancē, uzskaitīti lokāli.",
+      "title": "Lietojums",
+      "description": "Cik reižu katrs ekrāns ir atvērts, uzskaitīts tikai šajā instancē: bez sīkdatnēm, bez adresēm, nekas netiek nekur sūtīts.",
+      "last30Days": "Pēdējās 30 dienas",
+      "total": "{count, plural, =0 {Nav lapu skatījumu} zero {# lapu skatījumu} one {# lapas skatījums} other {# lapu skatījumi}}",
+      "off": "Uzskaite ir izslēgta. Iestatiet ANALYTICS_LOCAL=true, lai šajā instancē uzskaitītu lapu skatījumus.",
+      "empty": "Lapu skatījumi vēl nav reģistrēti.",
+      "columns": {
+        "day": "Diena",
+        "path": "Ekrāns",
+        "views": "Skatījumi"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Laipni lūdzam",
+    "progress": "Progress",
+    "steps": {
+      "aboutYou": "Par jums",
+      "howYouUse": "Kā to izmantosiet",
+      "allSet": "Viss gatavs"
+    },
+    "step1": {
+      "title": "Pastāstiet par sevi",
+      "subtitle": "Tas iestata jūsu noklusējumus; katru vērtību vēlāk var mainīt iestatījumos.",
+      "name": "Vārds",
+      "email": "E-pasts",
+      "emailHint": "Jūsu pieteikšanās identitāte. To vēlāk var mainīt sadaļā Iestatījumi → Drošība.",
+      "country": "Valsts",
+      "currency": "Vēlamā valūta",
+      "currencyHint": "Tiek izmantota jauniem profiliem un pārskatam, kamēr profils vēl nepastāv."
+    },
+    "step2": {
+      "title": "Kā jūs izmantosiet okinvo?",
+      "subtitle": "Mainās tikai noklusējumi; nekas netiek bloķēts.",
+      "usage": "Lietojums",
+      "personal": "Personiskā rēķinu izrakstīšana",
+      "personalHint": "Brīvlaicīgs darbs savā vārdā",
+      "business": "Uzņēmuma rēķinu izrakstīšana",
+      "businessHint": "Rēķini no reģistrēta uzņēmuma",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "PVN numurs",
+        "other": "Nodokļu reģistrācijas numurs"
+      },
+      "taxQuestion": {
+        "IN": "Vai jums ir GSTIN?",
+        "GB": "Vai esat reģistrēts PVN maksātājs?",
+        "other": "Vai jums ir nodokļu reģistrācijas numurs, ko drukāt rēķinos?"
+      }
+    },
+    "step3": {
+      "title": "Viss gatavs",
+      "body": "Tālāk izveidojiet savu pirmo izrakstītāja profilu: nosaukumu, adresi un nodokļu datus, kas tiek drukāti jūsu rēķinos. Esam aizpildījuši to, ko mums pastāstījāt.",
+      "go": "Doties uz profiliem",
+      "opening": "Atver…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Noteikumi",
+      "privacy": "Privātums",
+      "cookies": "Sīkdatnes",
+      "security": "Drošība"
+    },
+    "cookieNotice": {
+      "label": "Sīkdatņu paziņojums",
+      "body": "Mēs izmantojam tikai obligāti nepieciešamās sīkdatnes: jūsu sesiju un attēlojuma preferences. Nekādas analītikas, nekādas izsekošanas.",
+      "policy": "Sīkdatņu politika",
+      "gotIt": "Sapratu"
+    },
+    "nav": {
+      "label": "Juridiskā informācija",
+      "cookies": "Sīkdatnes",
+      "privacy": "Privātums",
+      "terms": "Noteikumi",
+      "acceptableUse": "Pieņemama lietošana",
+      "retention": "Glabāšana",
+      "security": "Drošība",
+      "licences": "Licences"
+    },
+    "operatorNotice": "okinvo ir pašu uzturēta programmatūra; šīs instances uzturētājs ir atbildīgs par tās lietošanu.",
+    "doc": {
+      "effectiveOn": "Spēkā no <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Saturs"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Uzturētāja juridiskais nosaukums",
+        "entityType": "Vienības veids",
+        "address": "Uzturētāja adrese",
+        "country": "Uzturētāja valsts",
+        "contactEmail": "Kontaktu e-pasts",
+        "privacyEmail": "Privātuma e-pasts",
+        "dpoEmail": "Datu aizsardzības speciālista e-pasts",
+        "governingLaw": "Piemērojamie tiesību akti",
+        "venue": "Strīdu izskatīšanas vieta",
+        "effectiveDate": "Spēkā stāšanās datums"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Nav atrasts",
+      "title": "Šajā adresē nekā nav",
+      "body": "Saite var būt novecojusi vai dokuments, uz kuru tā norādīja, nekad netika izrakstīts."
+    },
+    "forbidden": {
+      "metaTitle": "Nav atļauts",
+      "title": "Šis konts to nevar darīt",
+      "body": "Jūsu loma to neatļauj. Lūdziet īpašniekam piekļuvi vai pieteikties ar kontu, kuram tā ir."
+    },
+    "error": {
+      "title": "Kaut kas nogāja greizi",
+      "body": "Šis pieprasījums neko nemainīja. Mēģiniet vēlreiz; ja tas turpinās, informācija ir servera žurnālā.",
+      "digest": "kļūda {digest}",
+      "generic": "kļūda"
+    },
+    "appNotFound": {
+      "title": "Nav atrasts",
+      "body": "Šis ieraksts neeksistē vai tika izdzēsts, kamēr to skatījāties.",
+      "back": "Atpakaļ uz pārskatu"
+    },
+    "validation": {
+      "required": "obligāts",
+      "tooLong": "ne vairāk kā {max} rakstzīmes",
+      "invalidEmail": "jābūt derīgai e-pasta adresei",
+      "invalidDate": "jābūt kalendāra datumam formā GGGG-MM-DD",
+      "invalidAmount": "jābūt skaitlim",
+      "wholeNumber": "jābūt veselam skaitlim",
+      "greaterThanZero": "jābūt lielākam par nulli",
+      "fixFields": "Lūdzu, izlabojiet izceltos laukus.",
+      "charset": "Atļautas tikai standarta tastatūras rakstzīmes."
+    }
+  },
+  "verify": {
+    "metaTitle": "Pārbaudīt dokumentu",
+    "metaDescription": "Pārbaudiet, vai rēķinu vai kredītrēķinu izrakstījis tā sūtītājs un vai tas nav mainīts.",
+    "heading": "Dokumenta pārbaude",
+    "rateLimited": "Pārāk daudz pārbaužu no šīs adreses. Lūdzu, mēģiniet vēlreiz pēc minūtes.",
+    "notFound": {
+      "title": "Šāda dokumenta nav",
+      "body": "Šī saite neatbilst nevienam izrakstītam dokumentam. Pārbaudiet QR kodu vai saiti, ko saņēmāt, vai sazinieties ar izrakstītāju."
+    },
+    "status": {
+      "void": "Anulēts",
+      "valid": "Derīgs"
+    },
+    "issuedBy": "Izrakstījis",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Izrakstīts",
+    "issueDate": "Izrakstīšanas datums",
+    "total": "Kopā",
+    "voided": "Izrakstītājs šo dokumentu ir anulējis, un tas vairs nav derīgs.",
+    "storedCopies": {
+      "title": "Saglabātās kopijas",
+      "description": "Katras izrakstītāja glabātās PDF versijas SHA-256. Izvēlieties savu kopiju, lai to salīdzinātu pārlūkā: nekas netiek augšupielādēts.",
+      "empty": "Vēl nav izveidots neviens PDF.",
+      "protectedVersion": "Ar paroli aizsargāta kopija {version}",
+      "version": "Versija {version}"
+    },
+    "check": {
+      "label": "Pārbaudīt savu kopiju",
+      "hashing": "Aprēķina jaucējkodu…",
+      "match": "Jūsu kopija precīzi atbilst versijai {version}.",
+      "mismatch": "Jūsu kopija neatbilst nevienai saglabātajai versijai."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Kopīgots dokuments",
+      "metaDescription": "Ar jums kopīgots dokuments: skatiet to tiešsaistē un lejupielādējiet PDF.",
+      "rateLimited": "Pārāk daudz pieprasījumu no šīs adreses. Lūdzu, mēģiniet vēlreiz pēc minūtes.",
+      "unavailable": {
+        "title": "Šī saite nav pieejama",
+        "body": "Tā var būt beigusies vai izrakstītājs to ir atsaucis. Palūdziet jaunu."
+      },
+      "lockedTitleInvoice": "Rēķins no {issuer}",
+      "lockedTitleCreditNote": "Kredītrēķins no {issuer}",
+      "lockedBody": "Šis dokuments ir aizsargāts ar paroli. Ievadiet paroli, ko jums iedeva izrakstītājs.",
+      "void": "Anulēts",
+      "protectedPdf": "PDF atveras ar to pašu paroli. To var lasīt un drukāt; kopēšana un rediģēšana ir bloķēta.",
+      "byline": "No {issuer} uz {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Parole",
+      "limited": "Pārāk daudz mēģinājumu. Lūdzu, uzgaidiet piecpadsmit minūtes un mēģiniet vēlreiz.",
+      "wrong": "Šī parole nav pareiza.",
+      "submit": "Atvērt dokumentu"
+    },
+    "dialog": {
+      "trigger": "Kopīgot",
+      "title": "Kopīgot šo dokumentu",
+      "description": "Ikviens ar saiti var to skatīt un lejupielādēt, līdz tā beidzas vai jūs to atsaucat. Parole aizsargā arī pašu PDF: tas atveras ar paroli, to var lasīt un drukāt, bet ne rediģēt vai kopēt.",
+      "link": "Saite",
+      "copyLink": "Kopēt saiti",
+      "password": "Parole",
+      "copyPassword": "Kopēt paroli",
+      "sendSeparately": "Nosūtiet paroli atsevišķi no saites. To varat redzēt vēlreiz zemāk esošajā sarakstā.",
+      "copy": "Kopēt",
+      "copied": "Nokopēts",
+      "expires": "Beidzas",
+      "expiry": {
+        "d7": "7 dienās",
+        "d30": "30 dienās",
+        "d90": "90 dienās",
+        "never": "Nekad"
+      },
+      "protection": "Aizsardzība",
+      "protectionOptions": {
+        "auto": "Parole: ģenerēt paroles frāzi",
+        "manual": "Parole: izvēlēties savu",
+        "none": "Bez paroles (atvērta saite)"
+      },
+      "passwordHint": "Vismaz 8 rakstzīmes.",
+      "strength": "Stiprums: {label}",
+      "strengthLabels": {
+        "veryWeak": "ļoti vāja",
+        "weak": "vāja",
+        "fair": "vidēja",
+        "good": "laba",
+        "strong": "stipra"
+      },
+      "creating": "Izveido…",
+      "create": "Izveidot saiti",
+      "activeLinks": "Aktīvās saites",
+      "passwordProtected": "Aizsargāts ar paroli",
+      "openLink": "Atvērt saiti",
+      "linkExpires": "{kind} · beidzas {date}",
+      "linkNeverExpires": "{kind} · nekad nebeidzas",
+      "revoke": {
+        "title": "Atsaukt šo saiti?",
+        "description": "Saite nekavējoties pārstāj darboties visiem, kam tā ir.",
+        "label": "Atsaukt"
+      },
+      "linkPassword": "Parole: <code>{password}</code>",
+      "counts": "{views, plural, zero {# skatījumu} one {# skatījums} other {# skatījumi}} · {downloads, plural, zero {# lejupielāžu} one {# lejupielāde} other {# lejupielādes}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Kredītrēķini",
+      "title": "Kredītrēķini",
+      "description": "Izrakstīti pret izrakstītiem rēķiniem; katrs izrakstīšanas brīdī samazina sava rēķina atlikumu.",
+      "newCreditNote": "Jauns kredītrēķins",
+      "filters": {
+        "from": "No",
+        "to": "Līdz",
+        "issuer": "Izrakstītājs",
+        "client": "Klients",
+        "status": "Statuss",
+        "search": "Meklēt",
+        "all": "Visi",
+        "searchPlaceholder": "Numurs, iemesls, klients",
+        "go": "Aiziet"
+      },
+      "statuses": {
+        "DRAFT": "Melnraksts",
+        "ISSUED": "Izrakstīts",
+        "SENT": "Nosūtīts",
+        "VOID": "Anulēts"
+      },
+      "empty": {
+        "title": "Vēl nav kredītrēķinu",
+        "description": "Atveriet izrakstītu rēķinu un izvēlieties “Kredītrēķins”, lai samazinātu tā parādu."
+      },
+      "noMatch": "Neviens kredītrēķins neatbilst šiem filtriem.",
+      "columns": {
+        "number": "Numurs",
+        "against": "Pret",
+        "client": "Klients",
+        "issueDate": "Izrakstīšanas datums",
+        "reason": "Iemesls",
+        "total": "Kopā",
+        "status": "Statuss"
+      },
+      "draft": "Melnraksts"
+    },
+    "new": {
+      "metaTitle": "Jauns kredītrēķins",
+      "title": "Jauns kredītrēķins",
+      "description": "Kredītrēķins tiek izrakstīts pret izrakstītu rēķinu un samazina tā atlikumu.",
+      "nothingToCredit": {
+        "title": "Nav ko kreditēt",
+        "description": "Kredītrēķiniem ir nepieciešams izrakstīts rēķins ar neapmaksātu atlikumu.",
+        "openInvoices": "Atvērt rēķinus"
+      },
+      "whichInvoice": "Kuru rēķinu?",
+      "invoice": "Rēķins",
+      "invoiceOption": "{number} · {client} · atlikums {balance}",
+      "issuedOnly": "Kredītrēķini tiek izrakstīti tikai pret izrakstītiem rēķiniem.",
+      "invoiceFallback": "Rēķins"
+    },
+    "edit": {
+      "metaTitle": "Rediģēt kredītrēķinu",
+      "title": "Rediģēt kredītrēķina melnrakstu",
+      "immutable": "Izrakstītie kredītrēķini ir nemaināmi.",
+      "draft": "Melnraksts"
+    },
+    "detail": {
+      "metaTitle": "Kredītrēķins",
+      "draftTitle": "Kredītrēķina melnraksts",
+      "meta": "{client} · pret <invoice>{number}</invoice> · izrakstīts <mono>{date}</mono>",
+      "previewPdf": "Priekšskatīt PDF",
+      "issue": {
+        "title": "Izrakstīt šo kredītrēķinu?",
+        "description": "Tiek piešķirts numurs, rēķina atlikums tiek samazināts un dokuments kļūst nemaināms.",
+        "label": "Izrakstīt"
+      },
+      "deleteDraft": {
+        "title": "Dzēst šo melnrakstu?"
+      },
+      "sendByEmail": "Sūtīt pa e-pastu",
+      "markSent": {
+        "title": "Atzīmēt kā nosūtītu?",
+        "label": "Atzīmēt kā nosūtītu"
+      },
+      "void": {
+        "title": "Anulēt šo kredītrēķinu?",
+        "description": "Rēķina atlikums tiek atjaunots; numurs netiek izmantots atkārtoti.",
+        "reason": "Iemesls",
+        "label": "Anulēt"
+      },
+      "voided": "Anulēts {date}: {reason}",
+      "amounts": {
+        "title": "Summas",
+        "reason": "Iemesls",
+        "creditAmount": "Kredīta summa",
+        "total": "Kopā",
+        "balanceNow": "Rēķina atlikums tagad",
+        "sent": "Nosūtīts"
+      },
+      "documents": {
+        "title": "Saglabātie dokumenti",
+        "description": "Tiek glabāta katra versija; pārbaudes lapā ir visi jaucējkodi.",
+        "regenerateTitle": "Izveidot jaunu PDF versiju?",
+        "generate": "Izveidot",
+        "newVersion": "Jauna versija",
+        "renderedOnFirstDownload": "PDF tiek izveidots pirmajā lejupielādē.",
+        "protectedCopy": "Ar paroli aizsargāta kopija {version}",
+        "version": "Versija {version}",
+        "verificationLink": "Pārbaudes saite: <link>{path}…</link>"
+      },
+      "draftsPreview": "Melnrakstu priekšskatījums ir redzams redaktorā."
+    },
+    "send": {
+      "metaTitle": "Sūtīt kredītrēķinu",
+      "title": "Sūtīt <mono>{number}</mono>",
+      "previousSends": "Iepriekšējie nosūtījumi"
+    },
+    "builder": {
+      "against": "Pret <mono>{number}</mono>",
+      "summary": "{client} · kopā {total} · atlikums {balance} · apliekamā rezerve ≈ {headroom}",
+      "issueDate": "Izrakstīšanas datums",
+      "creditAmount": "Kredīta summa (bez nodokļa)",
+      "creditAmountHint": "Nodoklis tiek sadalīts pēc rēķina nodokļu rindām",
+      "reason": "Iemesls",
+      "picker": {
+        "title": "Aprēķināt no rēķina rindām",
+        "description": "Atzīmējiet veselas rindas vai procentu; tas tikai aizpilda augstāk norādīto summu.",
+        "line": "Rinda",
+        "subtotal": "Starpsumma",
+        "credit": "Kredīts",
+        "percent": "%",
+        "creditLine": "Kreditēt rindu {position}",
+        "percentOfLine": "Procents no rindas {position}"
+      },
+      "saveDraft": "Saglabāt melnrakstu",
+      "issuing": "Izraksta…",
+      "saveAndIssue": "Saglabāt un izrakstīt"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Saņemts maksājums",
+        "REFUND": "Izdarīta atmaksa",
+        "WRITE_OFF": "Norakstīšana"
+      },
+      "editTitle": "Rediģēt ierakstu",
+      "recordTitle": "Reģistrēt maksājumu",
+      "description": "Summas ir rēķina valūtā ({currency}); ieturētais TDS ir daļa no piemērotās summas.",
+      "kind": "Veids",
+      "date": "Datums",
+      "amountRefunded": "Atmaksātā summa (negatīva)",
+      "amountApplied": "Piemērotā summa",
+      "refundHint": "Ievadiet negatīvu summu, piem., -500",
+      "tdsDeducted": "Ieturētais TDS",
+      "tdsHint": "Nodoklis, ko klients ieturēja; ieskaitās piemērotajā summā",
+      "bankFees": "Bankas komisijas",
+      "receivedInto": "Saņemts kontā",
+      "noMethod": "-",
+      "reference": "Atsauce",
+      "referenceHint": "UTR, darījuma ID, čeka numurs",
+      "otherCurrency": "Saņemts citā valūtā",
+      "amountReceived": "Saņemtā summa",
+      "receivedCurrency": "Saņemtā valūta",
+      "exchangeRate": "Maiņas kurss",
+      "exchangeRateHint": "1 saņemtā vienība = ? {currency}",
+      "notes": "Piezīmes",
+      "receiptHint": "PNG, JPEG, WebP vai PDF līdz 10 MB",
+      "receipts": "Kvītis un rēķini",
+      "receiptN": "Kvīts {n}",
+      "removeReceipt": "Noņemt kvīti {n}",
+      "saveChanges": "Saglabāt izmaiņas",
+      "record": "Reģistrēt"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Rēķins adresēts",
+      "shipTo": "Piegādāt uz",
+      "invoice": "Rēķins",
+      "creditNote": "Kredītrēķins",
+      "issueDate": "Izrakstīšanas datums",
+      "dueDate": "Apmaksas termiņš",
+      "number": "Numurs",
+      "description": "Apraksts",
+      "sacHsn": "SAC/HSN",
+      "qty": "Daudz.",
+      "unit": "Mērvienība",
+      "rate": "Cena",
+      "tax": "Nodoklis",
+      "amount": "Summa",
+      "subtotal": "Starpsumma",
+      "discount": "Atlaide",
+      "taxable": "Apliekamā summa",
+      "total": "Kopā",
+      "amountDue": "Apmaksājamā summa",
+      "tdsExpected": "Paredzamais TDS",
+      "netExpected": "Paredzamā neto summa",
+      "rounding": "Noapaļošana",
+      "paymentDetails": "Maksājuma informācija",
+      "notes": "Piezīmes",
+      "terms": "Noteikumi",
+      "placeOfSupply": "Piegādes vieta",
+      "poReference": "Pasūtījuma atsauce",
+      "amountInWords": "Summa vārdiem",
+      "signature": "Pilnvarotā persona"
+    },
+    "title": {
+      "taxInvoice": "PVN RĒĶINS",
+      "billOfSupply": "PIEGĀDES DOKUMENTS",
+      "invoice": "RĒĶINS",
+      "creditNote": "KREDĪTRĒĶINS"
+    },
+    "text": {
+      "pageOf": "{page}. lpp. no {total}",
+      "scanToVerify": "Skenējiet, lai pārbaudītu",
+      "taxId": "Nodokļu ID",
+      "void": "ANULĒTS",
+      "draftWatermark": "MELNRAKSTS - nav nodokļu rēķins",
+      "paymentTermsDays": "{days} dienas",
+      "irn": "IRN",
+      "ackNo": "Apstiprinājuma nr.",
+      "ackDate": "Apstiprinājuma datums",
+      "einvoiceCancelled": "E-RĒĶINS ANULĒTS"
+    },
+    "ui": {
+      "pageEstimate": "apm. {count, plural, zero {# lappušu} one {# lappuse} other {# lappuses}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Ziņojums",
+      "description": "Iepriekš aizpildīts no izrakstītāja profila veidnēm. Nekas netiek sūtīts, kamēr nenospiežat Sūtīt.",
+      "to": "Kam",
+      "toHint": "Atdalīts ar komatiem",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Tēma",
+      "body": "Teksts",
+      "bodyHint": "Vienkāršs teksts; saites kļūst noklikšķināmas",
+      "attachment": "Pielikums",
+      "attachmentHint": "Saglabātā kopija ar nosaukumu <mono>{name}</mono> (vai .docx); tās saturu nevar mainīt.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Sūta…",
+      "send": "Sūtīt",
+      "openInMailApp": "Atvērt pasta lietotnē",
+      "noSmtp": "SMTP serveris nav konfigurēts (Iestatījumi → E-pasts). Atveriet melnrakstu pasta lietotnē, pievienojiet lejupielādēto PDF, pēc tam zemāk atzīmējiet kā nosūtītu.",
+      "markAsSent": "Atzīmēt kā nosūtītu"
+    },
+    "sentLog": {
+      "when": "Kad",
+      "document": "Dokuments",
+      "to": "Kam",
+      "subject": "Tēma",
+      "status": "Statuss",
+      "empty": "Vēl nekas nav nosūtīts.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "nosūtīts",
+        "FAILED": "neizdevās",
+        "MANUAL": "manuāli"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Sveiki, {name}",
+    "fiscalYear": "Finanšu gads {year}",
+    "fiscalYearWithBase": "Finanšu gads {year} · bāzes valūta {currency} ({profile})",
+    "newCreditNote": "Jauns kredītrēķins",
+    "welcomeTitle": "Laipni lūdzam {appName}",
+    "welcomeDescription": "Sāciet ar izrakstītāja profila izveidi, no kura izrakstāt rēķinus, pēc tam pievienojiet klientu un savu pirmo rēķinu.",
+    "createProfile": "Izveidot profilu",
+    "tiles": {
+      "outstanding": "Neapmaksāts",
+      "overdue": "Kavēts",
+      "billedThisFy": "Izrakstīts šajā FG",
+      "receivedThisFy": "Saņemts šajā FG",
+      "drafts": "Melnraksti",
+      "invoiceCount": "{count, plural, zero {# rēķinu} one {# rēķins} other {# rēķini}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Maksājumi mīnus atmaksas, pēc reģistrētā valūtas kursa",
+      "awaitingIssue": "gaida izrakstīšanu",
+      "nothingPending": "nekas negaida"
+    },
+    "recentInvoices": "Nesenie rēķini",
+    "allInvoices": "Visi rēķini",
+    "noInvoicesYet": "Vēl nav rēķinu.",
+    "columns": {
+      "number": "Numurs",
+      "client": "Klients",
+      "issued": "Izrakstīts"
+    },
+    "topClients": "Klienti ar lielāko neapmaksāto summu",
+    "nothingOutstanding": "Nekas nav neapmaksāts."
+  },
+  "exports": {
+    "export": "Eksportēt",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Rēķini",
+      "newInvoice": "Jauns rēķins",
+      "draft": "Melnraksts",
+      "aDraft": "melnraksts",
+      "statuses": {
+        "draft": "Melnraksts",
+        "issued": "Izrakstīts",
+        "sent": "Nosūtīts",
+        "partiallyPaid": "Daļēji apmaksāts",
+        "paid": "Apmaksāts",
+        "overdue": "Kavēts",
+        "void": "Anulēts"
+      },
+      "lifecycle": {
+        "draft": "melnraksts",
+        "issued": "izrakstīts",
+        "void": "anulēts"
+      },
+      "units": {
+        "hour": "Stunda",
+        "day": "Diena",
+        "fixed": "Fiksēta",
+        "milestone": "Posms",
+        "unit": "Vienība"
+      },
+      "unitsLower": {
+        "hour": "stunda",
+        "day": "diena",
+        "fixed": "fiksēta",
+        "milestone": "posms",
+        "unit": "vienība"
+      },
+      "supplyTypes": {
+        "intraState": "štata iekšienē",
+        "interState": "starp štatiem",
+        "exportLut": "eksports ar LUT",
+        "exportWithTax": "eksports ar nodokli",
+        "reverseCharge": "apgrieztā maksāšana",
+        "notApplicable": "nav piemērojams"
+      }
+    },
+    "list": {
+      "description": "Melnraksti, izrakstīti un anulēti rēķini; statusi izriet no maksājumiem un apmaksas termiņiem.",
+      "fiscalYear": "Finanšu gads",
+      "issuer": "Izrakstītājs",
+      "client": "Klients",
+      "searchPlaceholder": "Numurs, PO, klients",
+      "emptyTitle": "Vēl nav rēķinu",
+      "emptyDescription": "Izveidojiet savu pirmo rēķinu: izvēlieties klientu, pievienojiet rindas, skatiet priekšskatījumu, pēc tam izrakstiet to.",
+      "columns": {
+        "number": "Numurs",
+        "client": "Klients",
+        "issuer": "Izrakstītājs",
+        "issueDate": "Izrakstīšanas datums",
+        "due": "Termiņš",
+        "balance": "Atlikums"
+      },
+      "noMatches": "Neviens rēķins neatbilst šiem filtriem.",
+      "count": "{count, plural, zero {# rēķinu} one {# rēķins} other {# rēķini}}",
+      "countPaged": "{count, plural, zero {# rēķinu} one {# rēķins} other {# rēķini}} · {page}. lappuse no {pages}",
+      "register": "reģistrs",
+      "einvoice": "E-rēķins",
+      "einvoiceFilters": {
+        "registered": "IRN reģistrēts",
+        "none": "Nav reģistrēts",
+        "cancelled": "IRN anulēts"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Vispirms izveidojiet izrakstītāja profilu",
+      "noProfileDescription": "Rēķins tiek izrakstīts no juridiskas identitātes: iestatiet savu profilu ar nodokļu ID un numerāciju.",
+      "createProfile": "Izveidot profilu"
+    },
+    "edit": {
+      "metaTitle": "Rediģēt rēķinu",
+      "title": "Rediģēt melnrakstu",
+      "immutableFlash": "Izrakstītie rēķini ir nemaināmi. Lai to labotu, izmantojiet “Anulēt un izrakstīt atkārtoti”."
+    },
+    "detail": {
+      "metaTitle": "Rēķins",
+      "draftInvoice": "Rēķina melnraksts",
+      "issuedDue": "Izrakstīts <mono>{issued}</mono>, termiņš <mono>{due}</mono>",
+      "replaces": "Aizstāj {number}",
+      "replacedBy": "Aizstāts ar {number}",
+      "previewPdf": "Priekšskatīt PDF",
+      "downloadEInvoice": "Lejupielādēt e-rēķina JSON",
+      "issueTitle": "Izrakstīt šo rēķinu?",
+      "issueDescription": "Tiek piešķirts numurs, un dokuments kļūst nemaināms.",
+      "issue": "Izrakstīt",
+      "deleteDraftTitle": "Dzēst šo melnrakstu?",
+      "sendByEmail": "Sūtīt pa e-pastu",
+      "recordPayment": "Reģistrēt maksājumu",
+      "progress": {
+        "title": "Maksājuma gaita",
+        "description": "Kurā posmā ir šis rēķins, no izrakstīšanas līdz kvītij lietā.",
+        "issued": "Izrakstīts",
+        "sent": "Nosūtīts",
+        "payment": "Maksājums reģistrēts",
+        "paymentOn": "Maksājums <mono>{amount}</mono> reģistrēts <mono>{date}</mono>",
+        "paid": "Pilnībā samaksāts",
+        "receipt": "Kvīts pievienota",
+        "done": "gatavs",
+        "pending": "gaida"
+      },
+      "creditNote": "Kredītrēķins",
+      "markSentTitle": "Atzīmēt kā nosūtītu?",
+      "markSentDescription": "Reģistrē, ka klients ir saņēmis šo rēķinu.",
+      "markSent": "Atzīmēt kā nosūtītu",
+      "voidReissueTitle": "Anulēt un izrakstīt atkārtoti?",
+      "voidReissueDescription": "Oriģināls tiek anulēts, un rediģēšanai tiek atvērts saistīts melnraksts ar tādu pašu saturu.",
+      "voidReissue": "Anulēt un izrakstīt atkārtoti",
+      "voidTitle": "Anulēt šo rēķinu?",
+      "voidDescription": "Iespējams tikai bez reģistrētiem maksājumiem; numurs netiek izmantots atkārtoti.",
+      "void": "Anulēt",
+      "voided": "Anulēts {date}: {reason}",
+      "amounts": "Summas",
+      "subtotal": "Starpsumma",
+      "discount": "Atlaide",
+      "discountPercent": "Atlaide ({percent})",
+      "rounding": "Noapaļošana",
+      "tdsExpected": "Paredzamais TDS ({percent})",
+      "paid": "Apmaksāts",
+      "credited": "Kreditēts",
+      "balanceDue": "Apmaksājamais atlikums",
+      "supply": "Piegāde",
+      "fxToBase": "Kurss uz bāzes valūtu",
+      "poReference": "PO atsauce",
+      "sent": "Nosūtīts",
+      "lineItems": "Rēķina rindas",
+      "columns": {
+        "description": "Apraksts",
+        "sacHsn": "SAC/HSN",
+        "qty": "Daudz.",
+        "rate": "Likme",
+        "tax": "Nodoklis",
+        "amount": "Summa"
+      },
+      "creditNotes": "Kredītrēķini",
+      "storedDocuments": "Saglabātie dokumenti",
+      "storedDocumentsHint": "Tiek glabāta katra versija; pārbaudes lapā ir visi jaucējkodi.",
+      "regenerateTitle": "Izveidot jaunu PDF versiju?",
+      "regenerateDescription": "Tiek izveidots vēlreiz no iesaldētā momentuzņēmuma (piemēram, pēc ģenerēšanas kļūdas labojuma). Iepriekšējās versijas paliek.",
+      "regenerate": "Izveidot",
+      "newVersion": "Jauna versija",
+      "renderedOnFirstDownload": "PDF tiek izveidots pirmajā lejupielādē.",
+      "protectedCopy": "Ar paroli aizsargāta kopija {version}",
+      "version": "Versija {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Pārbaudes saite:",
+      "draftPreviewHint": "Melnrakstu priekšskatījums ir redzams redaktorā; atveriet <link>PDF ar ūdenszīmi</link>, lai redzētu lappusi.",
+      "einvoice": {
+        "title": "E-rēķins (Indija)",
+        "description": "Šī rēķina reģistrācija Invoice Registration Portal; reģistrēts dokuments tiek drukāts ar savu IRN un portāla parakstīto QR.",
+        "connector": "Savienotājs",
+        "connectors": {
+          "manual": "Manuāli",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Šim profilam nav konfigurēts neviens savienotājs sadaļā Iestatījumi > E-rēķini.",
+        "statuses": {
+          "none": "Nav reģistrēts",
+          "generated": "JSON ģenerēts",
+          "registered": "Reģistrēts",
+          "cancelled": "Anulēts",
+          "failed": "Reģistrācija neizdevās"
+        },
+        "irn": "IRN",
+        "ackNo": "Apstiprinājuma nr.",
+        "ackDate": "Apstiprinājuma datums",
+        "cancelReason": "Anulēšana",
+        "generate": "Ģenerēt IRN",
+        "pasteLabel": "IRP atbilde",
+        "pasteHint": "Ielīmējiet JSON, ko portāls vai jūsu GSP atgrieza par šī rēķina e-rēķina JSON (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Ierakstīt IRN",
+        "cancelReasonLabel": "Anulēšanas iemesls",
+        "cancelReasons": {
+          "1": "Dublikāts",
+          "2": "Datu ievades kļūda",
+          "3": "Pasūtījums atcelts",
+          "4": "Cits"
+        },
+        "cancel": "Anulēt IRN",
+        "cancelWindow": "Portāls atļauj anulēšanu 24 stundu laikā pēc apstiprinājuma."
+      }
+    },
+    "history": {
+      "metaTitle": "Rēķina vēsture",
+      "title": "Vēsture <mono>{number}</mono>",
+      "reissueChain": "Atkārtotas izrakstīšanas ķēde",
+      "replaces": "Aizstāj <link>{number}</link>",
+      "replacedBy": "Aizstāts ar <link>{number}</link>",
+      "auditTrail": "Audita pēdas",
+      "columns": {
+        "when": "Kad",
+        "who": "Kas",
+        "action": "Darbība",
+        "summary": "Kopsavilkums"
+      },
+      "noEvents": "Vēl nav notikumu.",
+      "system": "Sistēma",
+      "emails": "E-pasti"
+    },
+    "payments": {
+      "title": "Maksājumi",
+      "description": "{client} · kopā {total}",
+      "backToInvoice": "Atpakaļ uz rēķinu",
+      "ledger": "Žurnāls",
+      "columns": {
+        "date": "Datums",
+        "kind": "Veids",
+        "applied": "Piemērots",
+        "tds": "TDS",
+        "received": "Saņemts",
+        "reference": "Atsauce",
+        "balance": "Atlikums"
+      },
+      "noPayments": "Vēl nav reģistrētu maksājumu.",
+      "kinds": {
+        "payment": "Maksājums",
+        "refund": "Atmaksa",
+        "writeOff": "Norakstīšana"
+      },
+      "receipt": "Kvīts",
+      "receiptN": "Kvīts {n}",
+      "deleteEntryTitle": "Dzēst šo ierakstu?",
+      "deleteEntryDescription": "Rēķina atlikums tiek pārrēķināts.",
+      "totals": "Kopsummas",
+      "invoiceTotal": "Rēķina kopsumma",
+      "credited": "Kreditēts",
+      "refunds": "Atmaksas",
+      "writeOffs": "Norakstīšanas",
+      "tdsDeducted": "Ieturētais TDS",
+      "bankFees": "Bankas komisijas",
+      "balanceDue": "Apmaksājamais atlikums",
+      "onlyIssued": "Maksājumus pieņem tikai izrakstīti rēķini."
+    },
+    "send": {
+      "metaTitle": "Sūtīt rēķinu",
+      "title": "Sūtīt <mono>{number}</mono>",
+      "alreadySent": "Jau atzīmēts kā nosūtīts; atkārtota sūtīšana pievieno vēl vienu žurnāla ierakstu.",
+      "previousSends": "Iepriekšējie nosūtījumi"
+    },
+    "builder": {
+      "parties": "Puses",
+      "issuerProfile": "Izrakstītāja profils",
+      "client": "Klients",
+      "archivedOption": "{label} (arhivēts)",
+      "issueDate": "Izrakstīšanas datums",
+      "dueDate": "Apmaksas termiņš",
+      "fxRate": "Kurss uz bāzes valūtu",
+      "fxHint": "1 {currency} = ? {base} (tikai atskaitēm)",
+      "poReference": "PO atsauce",
+      "lineItems": "Rēķina rindas",
+      "lineItemsHint": "Izvēlieties no kataloga, lai nokopētu tā vērtības, vai ierakstiet rindu.",
+      "taxDiscountTds": "Nodoklis, atlaide un TDS",
+      "taxRegime": "Nodokļu režīms",
+      "regimes": {
+        "indiaGst": "Indijas GST",
+        "ukVat": "Apvienotās Karalistes PVN",
+        "usSalesTax": "ASV pārdošanas nodoklis",
+        "none": "Bez nodokļa"
+      },
+      "reverseCharge": "Apgrieztā maksāšana",
+      "reverseChargeHint": "Nodokli maksā saņēmējs",
+      "discount": "Atlaide",
+      "percent": "Procents",
+      "amount": "Summa",
+      "rounding": "Noapaļošanas korekcija",
+      "roundingHint": "Neobligāti, līdz veselai vienībai; jābūt mazākai par 1",
+      "round": "Noapaļot",
+      "tdsRate": "Paredzamā TDS likme (%)",
+      "tdsRateHint": "Informatīva; tiek drukāta, kad TDS sadalījums ir ieslēgts",
+      "paymentMethods": "Maksājumu veidi",
+      "paymentMethodsHint": "Tiek drukāti atzīmēšanas secībā.",
+      "noPaymentMethods": "Nav aktīvu maksājumu veidu. <link>Pievienot</link>.",
+      "whatPrints": "Kas tiek drukāts",
+      "whatPrintsHint": "Sākas no izrakstītāja profila noklusējumiem.",
+      "documentLanguage": "Dokumenta valoda",
+      "documentLanguageHint": "Etiķetes, datumi un summas tiek drukāti šajā valodā; klienta izvēle, citādi profila valoda.",
+      "notesAndTerms": "Piezīmes un noteikumi",
+      "notes": "Piezīmes",
+      "terms": "Noteikumi",
+      "saveDraft": "Saglabāt melnrakstu",
+      "issuing": "Izraksta…",
+      "saveAndIssue": "Saglabāt un izrakstīt",
+      "subtotal": "Starpsumma",
+      "tax": "Nodoklis",
+      "tdsExpected": "Paredzamais TDS",
+      "netExpected": "Paredzamā neto summa"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Pievienot no kataloga…",
+      "services": "Pakalpojumi",
+      "products": "Preces",
+      "addLine": "Pievienot rindu",
+      "columns": {
+        "description": "Apraksts",
+        "sacHsn": "SAC/HSN",
+        "qty": "Daudz.",
+        "unit": "Vienība",
+        "rate": "Likme",
+        "taxPercent": "Nodoklis %"
+      },
+      "aria": {
+        "description": "{line}. rindas apraksts",
+        "sacHsn": "{line}. rindas SAC/HSN",
+        "quantity": "{line}. rindas daudzums",
+        "unit": "{line}. rindas vienība",
+        "rate": "{line}. rindas likme",
+        "taxRate": "{line}. rindas nodokļa likme"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Atbrīvots",
+      "moveUp": "Pārvietot uz augšu",
+      "moveDown": "Pārvietot uz leju",
+      "removeLine": "Noņemt rindu",
+      "shortcutHint": "Ctrl/⌘+Enter aprakstā pievieno rindu.",
+      "addFromCatalogueAria": "Pievienot no kataloga"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Izrakstītāja dati",
+        "client": "Klienta dati",
+        "document": "Dokumenta sadaļas"
+      },
+      "fields": {
+        "showLogo": "Logotips",
+        "showTradeName": "Komercnosaukums",
+        "showDesignation": "Amats",
+        "showEmail": "E-pasts",
+        "showPhone": "Tālrunis",
+        "showWebsite": "Tīmekļa vietne",
+        "showFullAddress": "Pilna adrese",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Paraksts",
+        "showStamp": "Zīmogs",
+        "showContactPerson": "Kontaktpersona",
+        "showBillingAddress": "Norēķinu adrese",
+        "showShippingAddress": "Piegādes adrese",
+        "showTaxIdentifier": "Nodokļu identifikators",
+        "showPlaceOfSupply": "Piegādes vieta",
+        "showDueDate": "Apmaksas termiņš",
+        "showPaymentTerms": "Apmaksas noteikumi",
+        "showSacCodeColumn": "SAC koda kolonna",
+        "showQuantityColumn": "Daudzuma kolonna",
+        "showUnitPriceColumn": "Vienības cenas kolonna",
+        "showTaxColumn": "Nodokļa kolonna",
+        "showTdsBreakdown": "TDS sadalījums",
+        "showQrVerification": "QR pārbaude",
+        "showNotes": "Piezīmes",
+        "showTerms": "Noteikumi",
+        "showReplacesReference": "Aizstāšanas atsauce",
+        "showAmountInWords": "Summa vārdiem",
+        "showSupplyStatement": "Piegādes paziņojums",
+        "showRoundingLine": "Noapaļošanas rinda",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Klienti",
+      "description": "Visi, kam izrakstāt rēķinus. Klienti ar rēķiniem tiek arhivēti, nekad neizdzēsti.",
+      "newClient": "Jauns klients",
+      "searchPlaceholder": "Meklēt pēc nosaukuma",
+      "searchLabel": "Meklēt klientus",
+      "emptyTitle": "Vēl nav klientu",
+      "emptyDescription": "Pievienojiet cilvēkus un uzņēmumus, kuriem izrakstāt rēķinus; to valūta un apmaksas noteikumi iepriekš aizpilda katru rēķinu.",
+      "addClient": "Pievienot klientu",
+      "noMatch": "Neviens klients neatbilst “{q}”.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Nosaukums",
+        "contact": "Kontaktpersona",
+        "email": "E-pasts",
+        "country": "Valsts",
+        "currency": "Valūta",
+        "terms": "Noteikumi",
+        "status": "Statuss"
+      }
+    },
+    "new": {
+      "title": "Jauns klients"
+    },
+    "edit": {
+      "metaTitle": "Rediģēt klientu",
+      "title": "Rediģēt {name}"
+    },
+    "detail": {
+      "metaTitle": "Klients",
+      "newInvoice": "Jauns rēķins",
+      "restoreTitle": "Atjaunot šo klientu?",
+      "archiveTitle": "Arhivēt šo klientu?",
+      "archiveDescription": "Tas pazūd no izvēles sarakstiem; rēķini un vēsture paliek neskarti.",
+      "deleteTitle": "Dzēst šo klientu?",
+      "deleteDescription": "Iespējams tikai tad, ja neviens rēķins uz klientu neatsaucas.",
+      "details": "Dati",
+      "contact": "Kontaktpersona",
+      "email": "E-pasts",
+      "phone": "Tālrunis",
+      "country": "Valsts",
+      "gstState": "GST {code}",
+      "taxId": "Nodokļu ID",
+      "currency": "Valūta",
+      "paymentTerms": "Apmaksas noteikumi",
+      "paymentTermsDays": "{days} dienas",
+      "expectedTds": "Paredzamais TDS",
+      "notes": "Piezīmes",
+      "addresses": "Adreses",
+      "billing": "Norēķinu",
+      "shipping": "Piegādes",
+      "lifetime": "Kopumā",
+      "openRegister": "Atvērt reģistru",
+      "noIssued": "Vēl nav izrakstītu rēķinu.",
+      "noIssuedWithDrafts": "Vēl nav izrakstītu rēķinu (melnraksti: {drafts}).",
+      "firstLatest": "Pirmais rēķins <mono>{first}</mono>, jaunākais <mono>{latest}</mono>{drafts, plural, =0 {} zero { · # melnrakstu} one { · # melnraksts} other { · # melnraksti}}",
+      "lifetimeColumns": {
+        "currency": "Valūta",
+        "invoices": "Rēķini",
+        "billed": "Izrakstīts",
+        "received": "Saņemts",
+        "credited": "Kreditēts",
+        "outstanding": "Neapmaksāts",
+        "overdue": "Kavēts"
+      },
+      "recentInvoices": "Nesenie rēķini",
+      "noInvoices": "Šim klientam vēl nav rēķinu.",
+      "recentColumns": {
+        "number": "Numurs",
+        "issueDate": "Izrakstīšanas datums",
+        "due": "Termiņš",
+        "total": "Kopā",
+        "balance": "Atlikums",
+        "status": "Statuss"
+      }
+    },
+    "form": {
+      "cardTitle": "Klients",
+      "displayName": "Attēlojamais nosaukums",
+      "contactPerson": "Kontaktpersona",
+      "email": "E-pasts",
+      "phone": "Tālrunis",
+      "taxIdType": "Nodokļu ID veids",
+      "taxIdTypeNone": "Nav",
+      "taxId": "Nodokļu ID",
+      "currency": "Valūta",
+      "paymentTerms": "Apmaksas termiņš (dienas)",
+      "expectedTdsRate": "Paredzamā TDS likme (%)",
+      "preferredLanguage": "Dokumenta valoda",
+      "preferredLanguageFollow": "Izmantot izsniedzēja profilu",
+      "buyerReference": "Pircēja atsauce",
+      "buyerReferenceHint": "E-rēķinos tiek drukāta kā paša pircēja atsauce (pasūtījuma vai izmaksu centra numurs).",
+      "electronicAddress": "Elektroniskā adrese",
+      "electronicAddressHint": "Peppol vai EN 16931 identifikators, ar kuru šis klients saņem e-rēķinus.",
+      "electronicAddressScheme": "Elektroniskās adreses shēma",
+      "electronicAddressSchemeNone": "Nav shēmas",
+      "notes": "Piezīmes",
+      "billingAddress": "Norēķinu adrese",
+      "shippingAddress": "Piegādes adrese",
+      "differentFromBilling": "Atšķiras no norēķinu adreses",
+      "save": "Saglabāt klientu"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Stunda",
+      "DAY": "Diena",
+      "FIXED": "Fiksēta",
+      "MILESTONE": "Posms",
+      "UNIT": "Vienība"
+    },
+    "list": {
+      "activate": "Aktivizēt",
+      "deactivate": "Deaktivizēt",
+      "archiveDescription": "Esošās rēķinu rindas saglabā nokopētās vērtības.",
+      "deleteDescription": "Iespējams tikai tad, ja neviena rēķina rinda uz to neatsaucas. Pretējā gadījumā arhivējiet to.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Nosaukums",
+        "unit": "Vienība",
+        "rate": "Likme",
+        "price": "Cena",
+        "currency": "Valūta",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Nodoklis",
+        "status": "Statuss"
+      }
+    },
+    "services": {
+      "title": "Pakalpojumi",
+      "description": "Jūsu katalogs. Izvēloties pakalpojumu, tā vērtības tiek nokopētas rēķina rindā.",
+      "newService": "Jauns pakalpojums",
+      "emptyTitle": "Vēl nav pakalpojumu",
+      "emptyDescription": "Pievienojiet to, ko pārdodat - stundas dizains, fiksētas maksas posms - ar SAC/HSN kodu un nodokļa likmi.",
+      "addService": "Pievienot pakalpojumu",
+      "restoreTitle": "Atjaunot {name}?",
+      "archiveTitle": "Arhivēt {name}?",
+      "deleteTitle": "Dzēst {name}?",
+      "editMetaTitle": "Rediģēt pakalpojumu",
+      "editTitle": "Rediģēt {name}"
+    },
+    "products": {
+      "title": "Preces",
+      "description": "Preces, ko pārdodat, katrai ar SKU. Izvēloties preci, tās vērtības tiek nokopētas rēķina rindā.",
+      "newProduct": "Jauna prece",
+      "emptyTitle": "Vēl nav preču",
+      "emptyDescription": "Pievienojiet preces, ko pārdodat, ar SKU, HSN kodu, vienības cenu un nodokļa likmi.",
+      "addProduct": "Pievienot preci",
+      "restoreTitle": "Atjaunot {sku}?",
+      "archiveTitle": "Arhivēt {sku}?",
+      "deleteTitle": "Dzēst {sku}?",
+      "editMetaTitle": "Rediģēt preci",
+      "editTitle": "Rediģēt {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Unikāls kods, kas tiek drukāts zem rindas apraksta",
+      "name": "Nosaukums",
+      "unit": "Vienība",
+      "defaultRate": "Noklusējuma likme",
+      "unitPrice": "Vienības cena",
+      "currency": "Valūta",
+      "sacHsnCode": "SAC / HSN kods",
+      "sacHsnHint": "Obligāts GST rēķinos",
+      "hsnCode": "HSN kods",
+      "hsnHint": "Obligāts GST rēķinos precēm",
+      "defaultTaxRate": "Noklusējuma nodokļa likme (%)",
+      "description": "Apraksts",
+      "descriptionHint": "Iepriekš aizpilda rindas aprakstu",
+      "active": "Aktīvs",
+      "serviceInactiveHint": "Neaktīvie pakalpojumi netiek rādīti rēķina izvēlē",
+      "productInactiveHint": "Neaktīvās preces netiek rādītas rēķina izvēlē",
+      "saveService": "Saglabāt pakalpojumu",
+      "saveProduct": "Saglabāt preci"
+    },
+    "tags": {
+      "legend": "Profili",
+      "hint": "Atzīmējiet izrakstītāja profilus, kas to pārdod. Atstājiet visus neatzīmētus, lai piedāvātu to katram profilam."
+    }
+  },
+  "address": {
+    "line1": "Adreses 1. rinda",
+    "line2": "Adreses 2. rinda",
+    "city": "Pilsēta",
+    "stateRegion": "Štats / reģions",
+    "postalCode": "Pasta indekss",
+    "country": "Valsts",
+    "state": "Štats",
+    "gstStateCodeHint": "GST štata kods {code}",
+    "pickStateHint": "Izvēlieties štatu GST štata kodam",
+    "stateRegionCode": "Štata / reģiona kods",
+    "stateRegionCodePlaceholder": "piem., CA"
+  },
+  "assets": {
+    "tooLarge": "Šis fails ir pārāk liels.",
+    "unsupportedReceipt": "Izmantojiet PNG, JPEG, WebP attēlu vai PDF.",
+    "unsupportedImage": "Izmantojiet PNG, JPEG vai WebP attēlu.",
+    "uploadFailed": "Augšupielāde neizdevās.",
+    "uploading": "Augšupielādē…",
+    "dropHint": "Velciet failu šeit vai izvēlieties",
+    "dropHintMany": "Velciet failus šeit vai izvēlieties tos",
+    "dropActive": "Atlaidiet, lai augšupielādētu"
+  },
+  "ui": {
+    "breadcrumb": "Navigācijas ceļš",
+    "close": "Aizvērt",
+    "closeMenu": "Aizvērt izvēlni",
+    "reveal": "Rādīt",
+    "hide": "Paslēpt",
+    "openCalendar": "Atvērt kalendāru",
+    "chooseMonth": "Izvēlieties mēnesi",
+    "chooseYear": "Izvēlieties gadu",
+    "searchOptions": "Rakstiet, lai meklētu",
+    "noMatches": "Nav atbilstību",
+    "pullToRefresh": {
+      "label": "Atsvaidzināms saraksts",
+      "pulling": "Velciet uz leju, lai atsvaidzinātu",
+      "release": "Atlaidiet, lai atsvaidzinātu",
+      "refreshing": "Notiek atsvaidzināšana"
+    },
+    "inputCharset": "Atļautas tikai standarta tastatūras rakstzīmes.",
+    "confirm": {
+      "working": "Darbojas…"
+    },
+    "statusPill": {
+      "DRAFT": "Melnraksts",
+      "ISSUED": "Izrakstīts",
+      "SENT": "Nosūtīts",
+      "PARTIALLY_PAID": "Daļēji apmaksāts",
+      "PAID": "Apmaksāts",
+      "OVERDUE": "Kavēts",
+      "VOID": "Anulēts"
+    },
+    "activePill": {
+      "active": "Aktīvs",
+      "archived": "Arhivēts",
+      "inactive": "Neaktīvs"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Kaut kas nogāja greizi.",
+    "fixFields": "Lūdzu, izlabojiet izceltos laukus.",
+    "accountSaved": "Konta preferences saglabātas",
+    "apiKeyCreated": "API atslēga izveidota. Nokopējiet to tagad: tā tiek parādīta tikai vienu reizi.",
+    "saved": "Saglabāts: {name}",
+    "savedProfile": "Saglabāts profils {label}",
+    "clientArchived": "Klients arhivēts",
+    "clientRestored": "Klients atjaunots",
+    "clientDeleted": "Klients izdzēsts",
+    "productArchived": "Prece arhivēta",
+    "productRestored": "Prece atjaunota",
+    "productActivated": "Prece aktivizēta",
+    "productDeactivated": "Prece deaktivizēta",
+    "serviceArchived": "Pakalpojums arhivēts",
+    "serviceRestored": "Pakalpojums atjaunots",
+    "serviceActivated": "Pakalpojums aktivizēts",
+    "serviceDeactivated": "Pakalpojums deaktivizēts",
+    "defaultProfileUpdated": "Noklusējuma profils atjaunināts",
+    "profileArchived": "Profils arhivēts",
+    "profileRestored": "Profils atjaunots",
+    "profileDeleted": "Profils izdzēsts",
+    "defaultPaymentMethodUpdated": "Noklusējuma maksājumu veids atjaunināts",
+    "paymentMethodArchived": "Maksājumu veids arhivēts",
+    "paymentMethodRestored": "Maksājumu veids atjaunots",
+    "paymentMethodDeleted": "Maksājumu veids izdzēsts",
+    "issued": "Izrakstīts {number}",
+    "savedAsDraft": "Saglabāts kā melnraksts. {reason}",
+    "draftSaved": "Melnraksts saglabāts",
+    "invoiceVoided": "Rēķins anulēts",
+    "originalVoided": "Oriģināls anulēts; rediģējiet aizstājošo melnrakstu",
+    "markedAsSent": "Atzīmēts kā nosūtīts",
+    "draftDeleted": "Melnraksts izdzēsts",
+    "generatedPdf": "Izveidota PDF versija {version}",
+    "creditNoteVoided": "Kredītrēķins anulēts; rēķina atlikums atjaunots",
+    "draftCreditNoteDeleted": "Kredītrēķina melnraksts izdzēsts",
+    "mailRefused": "Pasta serveris noraidīja ziņojumu: {error}. Mēģinājums tika reģistrēts.",
+    "unknownError": "nezināma kļūda",
+    "sentTo": "Nosūtīts: {recipients}",
+    "smtpSaved": "SMTP iestatījumi saglabāti",
+    "smtpRemoved": "Saglabātie SMTP iestatījumi noņemti",
+    "testEmailSent": "Testa e-pasts nosūtīts uz {email}",
+    "testFailed": "Tests neizdevās: {error}",
+    "defaultRecipientsSaved": "Noklusējuma adresāti saglabāti",
+    "invitationSent": "Uzaicinājums nosūtīts",
+    "invitationReady": "Uzaicinājums gatavs",
+    "unknownRole": "Nezināma loma",
+    "roleUpdated": "Loma atjaunināta",
+    "accountDeactivated": "Konts deaktivizēts",
+    "accountReactivated": "Konts atkārtoti aktivizēts",
+    "invitationRevoked": "Uzaicinājums atsaukts",
+    "paymentUpdated": "Maksājums atjaunināts",
+    "paymentRecorded": "Maksājums reģistrēts",
+    "paymentDeleted": "Maksājums izdzēsts",
+    "sessionRevoked": "Sesija atsaukta",
+    "noOtherSessions": "Nav citu sesiju",
+    "signedOutOthers": "Izrakstīts no citām sesijām: {count}",
+    "sharePasswordRequired": "Ievadiet paroli vai ļaujiet to ģenerēt.",
+    "shareLinkCreated": "Kopīgošanas saite izveidota.",
+    "templateSaved": "Veidne saglabāta; turpmākie dokumenti to izmantos",
+    "templateReset": "Veidne atiestatīta uz iebūvēto noklusējumu",
+    "templateImported": "Veidne importēta",
+    "profileTemplateCleared": "Profils atkal izmanto instances veidni",
+    "operatorSaved": "Uzturētāja dati saglabāti. Juridiskās lapas tagad tos rāda.",
+    "einvoiceSettingsSaved": "E-rēķinu iestatījumi saglabāti",
+    "irnRegistered": "IRN {irn} reģistrēts; PDF tika atkārtoti ģenerēts ar to",
+    "irnRecorded": "IRN ierakstīts; PDF tika atkārtoti ģenerēts ar to",
+    "irnCancelled": "IRN anulēts; PDF tika atkārtoti ģenerēts"
+  }
+}

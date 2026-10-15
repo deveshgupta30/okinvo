@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { shellVisible } from "./helpers";
 
 const bodyBackground = (page: Page) =>
   page.evaluate(() => getComputedStyle(document.body).backgroundColor);
@@ -8,7 +9,7 @@ test("liveness and readiness probes", async ({ request }) => {
   expect(live.status()).toBe(200);
   expect(await live.json()).toEqual({ ok: true });
   // Readiness may legitimately be 503 for a moment after a cold start (dev: first Prisma
-  // engine load); it must become — and stay — 200 with the database reported ok.
+  // engine load); it must become - and stay - 200 with the database reported ok.
   await expect
     .poll(async () => (await request.get("/api/health/ready")).status(), { timeout: 15_000 })
     .toBe(200);
@@ -26,6 +27,27 @@ test("sign-in page renders with security headers", async ({ page }) => {
   expect(response?.headers()["x-content-type-options"]).toBe("nosniff");
   await expect(page.getByRole("heading", { name: "Sign in" })).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+});
+
+test("brand assets: wordmark on sign-in, favicon and manifest reachable without a session", async ({
+  page,
+  request,
+}) => {
+  await page.goto("/auth/sign-in");
+  await expect(page.getByRole("img", { name: "okinvo" })).toBeVisible();
+  expect(await page.locator('link[rel="icon"]').count()).toBeGreaterThan(0);
+  for (const path of [
+    "/icon.svg",
+    "/apple-icon.png",
+    "/manifest.webmanifest",
+    "/icons/icon-192.png",
+  ]) {
+    const res = await request.get(path, { maxRedirects: 0 });
+    expect(res.status(), path).toBe(200);
+  }
+  const manifest = await (await request.get("/manifest.webmanifest")).json();
+  expect(manifest.name).toBe("okinvo");
+  expect(manifest.icons.length).toBeGreaterThanOrEqual(2);
 });
 
 test("theme: explicit cookies win over the OS, no cookie and garbage follow the OS", async ({
@@ -78,7 +100,6 @@ test("anonymous visitors are sent to sign-in; the shell shows the primary naviga
   const email = "smoke@example.com";
   const password = "correct horse battery staple";
   const form = page.getByTestId("password-sign-in");
-  const nav = page.getByRole("navigation", { name: "Primary" });
   // The dashboard compiles on first hit in dev, and a click before hydration reloads the page:
   // give each attempt time to land, and the whole sign-in a generous budget.
   test.setTimeout(180_000);
@@ -87,9 +108,13 @@ test("anonymous visitors are sent to sign-in; the shell shows the primary naviga
     await form.getByLabel("Password").fill(password);
     await form.getByRole("button", { name: "Sign in" }).click();
     // Either the shell appears (signed in) or the form reports "Invalid email or password".
-    await expect(nav.or(form.getByRole("alert")).first()).toBeVisible({ timeout: 30_000 });
+    await expect
+      .poll(async () => (await shellVisible(page)) || (await form.getByRole("alert").isVisible()), {
+        timeout: 30_000,
+      })
+      .toBe(true);
   }).toPass({ timeout: 120_000 });
-  if (!(await nav.isVisible())) {
+  if (!(await shellVisible(page))) {
     await form.getByRole("button", { name: /First time here/ }).click();
     await form.getByLabel("Name").fill("Smoke Owner");
     await form.getByLabel("Email").fill(email);
@@ -97,6 +122,9 @@ test("anonymous visitors are sent to sign-in; the shell shows the primary naviga
     await form.getByRole("button", { name: "Create account" }).click();
   }
 
+  // Desktop: the sidebar; phones: the same navigation inside the drawer.
+  const nav = page.getByRole("navigation", { name: "Primary" });
+  if (!(await nav.isVisible())) await page.getByRole("button", { name: "Open menu" }).click();
   await expect(nav.getByRole("link", { name: "Invoices" })).toBeVisible();
   await expect(nav.getByRole("link", { name: "Dashboard" })).toHaveAttribute(
     "aria-current",

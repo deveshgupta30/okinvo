@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "صفحه اصلی okinvo",
+    "save": "ذخیره",
+    "cancel": "لغو",
+    "continue": "ادامه",
+    "saving": "در حال ذخیره…",
+    "detect": "تشخیص",
+    "yes": "بله",
+    "no": "خیر",
+    "choose": "انتخاب کنید…",
+    "remove": "حذف",
+    "tryAgain": "تلاش دوباره",
+    "dashboard": "داشبورد",
+    "goToDashboard": "رفتن به داشبورد",
+    "or": "یا",
+    "invoice": "فاکتور",
+    "creditNote": "اعلامیه بستانکاری",
+    "downloadPdf": "دانلود PDF",
+    "edit": "ویرایش",
+    "delete": "حذف",
+    "downloadDocx": "دانلود DOCX",
+    "downloadCii": "دانلود EN 16931 XML",
+    "downloadUbl": "دانلود Peppol UBL",
+    "downloadFacturX": "دانلود Factur-X PDF",
+    "none": "هیچ",
+    "dismiss": "بستن",
+    "all": "همه",
+    "previous": "قبلی",
+    "next": "بعدی",
+    "go": "برو",
+    "search": "جستجو",
+    "status": "وضعیت",
+    "total": "جمع کل",
+    "currency": "ارز",
+    "from": "از",
+    "to": "تا",
+    "reason": "دلیل",
+    "history": "تاریخچه",
+    "archive": "بایگانی",
+    "restore": "بازیابی",
+    "showArchived": "نمایش بایگانی‌شده‌ها",
+    "hideArchived": "پنهان کردن بایگانی‌شده‌ها",
+    "archived": "بایگانی‌شده",
+    "default": "پیش‌فرض",
+    "setDefault": "تنظیم به‌عنوان پیش‌فرض",
+    "revoke": "ابطال",
+    "copy": "کپی",
+    "copied": "کپی شد",
+    "active": "فعال",
+    "pagination": "صفحه‌بندی",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "داشبورد",
+      "invoices": "فاکتورها",
+      "creditNotes": "اعلامیه‌های بستانکاری",
+      "clients": "مشتریان",
+      "services": "خدمات",
+      "products": "محصولات",
+      "tools": "ارز"
+    },
+    "primaryNav": "اصلی",
+    "settings": "تنظیمات",
+    "openMenu": "باز کردن منو",
+    "more": "بیشتر",
+    "navigation": "پیمایش",
+    "dock": "پیمایش سریع",
+    "pagesAndAccount": "صفحه‌ها و حساب",
+    "collapseSidebar": "جمع کردن نوار کناری",
+    "collapseSidebarHint": "جمع کردن نوار کناری ([)",
+    "expandSidebar": "باز کردن نوار کناری",
+    "expandSidebarHint": "باز کردن نوار کناری ([)",
+    "theme": {
+      "label": "پوسته",
+      "system": "سیستم",
+      "light": "روشن",
+      "dark": "تیره",
+      "current": "پوسته: {mode}",
+      "switchTo": "پوسته: {mode}. تغییر به {next}"
+    },
+    "userMenu": {
+      "label": "منوی حساب {name}",
+      "profile": "نمایه",
+      "logOut": "خروج"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "مبدل ارز",
+      "title": "مبدل ارز",
+      "description": "بین ارزهایی که با آن‌ها فاکتور صادر می‌کنید، با جدول نرخ ارز این نسخه تبدیل کنید.",
+      "amount": "مبلغ",
+      "from": "از",
+      "to": "به",
+      "flip": "جابه‌جایی دو ارز",
+      "enterAmount": "مبلغی وارد کنید",
+      "asOf": "نرخ‌های ارز تا تاریخ {date} ({source})",
+      "sources": {
+        "bundled": "همراه برنامه",
+        "live": "به‌روزشده آنلاین"
+      },
+      "note": "نرخ‌ها صرفاً راهنما هستند؛ نرخ فاکتور صادرشده همان است که هنگام صدور وارد کرده‌اید."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "ورود",
+      "metaDescription": "با ارائه‌دهنده هویت یا گذرواژه خود وارد okinvo، برنامه صدور فاکتور خودمیزبان، شوید.",
+      "title": "ورود",
+      "subtitle": "فقط حساب‌های موجود در فهرست مجاز می‌توانند وارد شوند.",
+      "failed": "ورود ناموفق بود.",
+      "noMethod": "هیچ روش ورودی پیکربندی نشده است. یک جفت ارائه‌دهنده مانند <code>AUTH_GITHUB_*</code> یا <code>AUTH_PASSWORD_SIGNIN=true</code> را در <code>.env</code> تنظیم کنید.",
+      "errors": {
+        "not_allowed": "این حساب در این نمونه مجاز نیست یا غیرفعال شده است.",
+        "signin": "ورود کامل نشد. لطفاً دوباره تلاش کنید."
+      }
+    },
+    "password": {
+      "name": "نام",
+      "email": "ایمیل",
+      "password": "گذرواژه",
+      "signingIn": "در حال ورود…",
+      "createAccount": "ایجاد حساب",
+      "signIn": "ورود",
+      "haveAPassword": "من از قبل گذرواژه دارم",
+      "firstTime": "اولین بار است؟ یک گذرواژه تعیین کنید",
+      "failed": "ورود ناموفق بود."
+    },
+    "social": {
+      "redirecting": "در حال هدایت…",
+      "continueWith": "ادامه با {provider}",
+      "failed": "شروع ورود ممکن نشد."
+    },
+    "error": {
+      "metaTitle": "خطای ورود",
+      "metaDescription": "ورود کامل نشد. این صفحه توضیح می‌دهد چه مشکلی پیش آمد و چگونه دوباره تلاش کنید.",
+      "title": "ورود ناموفق بود",
+      "body": "ارائه‌دهنده هویت مقدار <code>{value}</code> را برگرداند. اگر نشانی شما در فهرست مجاز این نمونه نیست، از مالک بخواهید آن را اضافه کند.",
+      "back": "بازگشت به ورود"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "تنظیمات",
+      "profiles": "نمایه‌ها",
+      "paymentMethods": "روش‌های پرداخت",
+      "templates": "قالب‌ها",
+      "email": "ایمیل",
+      "security": "امنیت",
+      "users": "کاربران",
+      "data": "داده‌ها",
+      "legal": "حقوقی",
+      "einvoicing": "فاکتور الکترونیکی",
+      "account": "حساب",
+      "appearance": "ظاهر",
+      "api": "API",
+      "status": "وضعیت",
+      "usage": "میزان استفاده"
+    },
+    "account": {
+      "metaTitle": "حساب",
+      "title": "حساب",
+      "description": "عکس، نام، منطقه، زبان و منطقه زمانی شما.",
+      "photo": {
+        "title": "عکس",
+        "description": "در نوار کناری و منوی کاربر نمایش داده می‌شود."
+      },
+      "form": {
+        "title": "حساب",
+        "description": "نحوه نمایش شما و اینکه «امروز» چه تاریخی است.",
+        "displayName": "نام نمایشی",
+        "signInEmail": "ایمیل ورود",
+        "signInEmailHint": "هویت شما در این نمونه؛ از اینجا قابل ویرایش نیست.",
+        "timezone": "منطقه زمانی",
+        "timezoneHint": "«امروز» برای تاریخ صدور، سررسیدها و داشبورد",
+        "regionTitle": "منطقه",
+        "regionDescription": "پیش‌فرض‌ها برای نمایه‌های جدید صادرکننده و برای داشبورد تا زمان ایجاد نمایه.",
+        "country": "کشور",
+        "currency": "ارز",
+        "suggested": "پیشنهادی برای این کشور:",
+        "language": "زبان",
+        "languageHint": "زبان خود برنامه. اسناد از محلی‌سازی هر نمایه استفاده می‌کنند.",
+        "machineTranslated": "این زبان با ترجمه ماشینی ارائه شده است. اصلاحات شما ارزشمند است: <link>در GitHub بهترش کنید</link>.",
+        "save": "ذخیره ترجیحات"
+      },
+      "regions": {
+        "Africa": "آفریقا",
+        "Americas": "قاره آمریکا",
+        "Asia": "آسیا",
+        "Europe": "اروپا",
+        "MiddleEast": "خاورمیانه",
+        "Oceania": "اقیانوسیه",
+        "Constructed": "ساختگی"
+      },
+      "privacy": {
+        "title": "حریم خصوصی",
+        "description": "okinvo فقط کوکی‌های لازم برای کارکرد را تنظیم می‌کند. بدون تحلیل‌گر و بدون ردیابی.",
+        "cookiePolicy": "سیاست کوکی",
+        "showNoticeAgain": "نمایش دوباره اعلان کوکی"
+      }
+    },
+    "avatar": {
+      "changePhoto": "تغییر عکس",
+      "addPhoto": "افزودن عکس",
+      "hint": "PNG، JPEG یا WebP. در همه جا به‌صورت دایره نمایش داده می‌شود؛ پیش از ذخیره می‌توانید آن را بزرگ‌نمایی و جابه‌جا کنید.",
+      "tooLarge": "این عکس بیش از حد بزرگ است.",
+      "uploadFailed": "بارگذاری ناموفق بود.",
+      "choose": "انتخاب عکس نمایه",
+      "dialogTitle": "جایگاه عکس خود را تنظیم کنید",
+      "dialogDescription": "برای جابه‌جایی بکشید، برای بزرگ‌نمایی اسکرول یا انگشتان را جمع/باز کنید. دایره همان چیزی است که همه می‌بینند.",
+      "zoom": "بزرگ‌نمایی",
+      "save": "ذخیره عکس"
+    },
+    "appearance": {
+      "metaTitle": "ظاهر",
+      "title": "ظاهر",
+      "description": "پوسته و رنگ تأکیدی که در حساب شما ذخیره می‌شود.",
+      "theme": {
+        "title": "پوسته",
+        "description": "از سیستم پیروی کنید یا روشن یا تیره را ثابت کنید.",
+        "label": "پوسته",
+        "system": "پیروی از سیستم",
+        "systemHint": "با سیستم‌عامل شما تغییر می‌کند",
+        "light": "روشن",
+        "lightHint": "زمینه سفید",
+        "dark": "تیره",
+        "darkHint": "زمینه تقریباً سیاه"
+      },
+      "accent": {
+        "title": "رنگ تأکیدی",
+        "description": "برای دکمه اصلی، حلقه‌های تمرکز و نشانگر صفحه فعال استفاده می‌شود. رنگ نعنایی با نشان برند هماهنگ است.",
+        "label": "رنگ تأکیدی",
+        "customHint": "یا هر رنگ دلخواه خود را انتخاب کنید"
+      },
+      "accents": {
+        "mint": "نعنایی",
+        "lavender": "اسطوخودوسی",
+        "sky": "آسمانی",
+        "peach": "هلویی",
+        "butter": "کره‌ای",
+        "rose": "گلی",
+        "sage": "مریم‌گلی",
+        "lilac": "یاسی",
+        "custom": "سفارشی"
+      }
+    },
+    "profiles": {
+      "metaTitle": "نمایه‌های صادرکننده",
+      "title": "نمایه‌های صادرکننده",
+      "description": "هویت‌های حقوقی که با آن‌ها فاکتور صادر می‌کنید. نمایه پیش‌فرض فاکتورهای جدید را از پیش پر می‌کند.",
+      "breadcrumb": "نمایه‌ها",
+      "newProfile": "نمایه جدید",
+      "emptyTitle": "هنوز نمایه صادرکننده‌ای وجود ندارد",
+      "emptyDescription": "هویتی را بسازید که با آن فاکتور صادر می‌کنید: یک فرد دارای PAN یا شرکت شما.",
+      "createProfile": "ایجاد نمایه",
+      "columns": {
+        "label": "برچسب",
+        "legalName": "نام حقوقی",
+        "type": "نوع",
+        "country": "کشور",
+        "currency": "ارز",
+        "regime": "نظام مالیاتی",
+        "status": "وضعیت"
+      },
+      "types": {
+        "company": "شرکت",
+        "individual": "فرد"
+      },
+      "makeDefaultTitle": "{label} پیش‌فرض شود؟",
+      "makeDefaultDescription": "فاکتورهای جدید از این نمایه شروع می‌شوند.",
+      "restoreTitle": "{label} بازیابی شود؟",
+      "archiveTitle": "{label} بایگانی شود؟",
+      "archiveDescription": "از فهرست‌های انتخاب ناپدید می‌شود؛ فاکتورهای موجود بدون تغییر می‌مانند.",
+      "new": {
+        "metaTitle": "نمایه صادرکننده جدید",
+        "title": "نمایه صادرکننده جدید",
+        "prefilled": "از پاسخ‌های شما پر شده است؛ نشانی و جزئیات مالیاتی را بررسی و سپس ذخیره کنید."
+      },
+      "edit": {
+        "metaTitle": "ویرایش نمایه صادرکننده",
+        "template": "قالب",
+        "deleteTitle": "{label} حذف شود؟",
+        "deleteDescription": "فقط تا زمانی ممکن است که هیچ فاکتور یا اعلامیه بستانکاری به این نمایه ارجاع نداشته باشد. در غیر این صورت آن را بایگانی کنید."
+      },
+      "template": {
+        "metaTitle": "قالب نمایه",
+        "title": "قالب {label}",
+        "ownTemplate": "قالب اختصاصی",
+        "instanceTemplate": "قالب نمونه",
+        "resetTitle": "دوباره از قالب نمونه استفاده شود؟",
+        "resetDescription": "پیکربندی اختصاصی این نمایه حذف می‌شود؛ اسناد صادرشده تأثیری نمی‌پذیرند.",
+        "useInstance": "استفاده از قالب نمونه",
+        "usingInstanceTitle": "استفاده از قالب نمونه",
+        "usingInstanceDescription": "اسناد این نمایه از تنظیمات ← قالب‌ها پیروی می‌کنند. برای سفارشی‌سازی جداگانه آن را انتخاب کنید.",
+        "customise": "استفاده از قالبی متفاوت برای این نمایه",
+        "openInstance": "باز کردن قالب نمونه"
+      },
+      "form": {
+        "identityTitle": "هویت",
+        "identityDescription": "فاکتور از طرف چه کسی صادر می‌شود.",
+        "type": "نوع",
+        "label": "برچسب",
+        "labelHint": "فقط در فهرست‌های انتخاب نمایش داده می‌شود",
+        "legalName": "نام حقوقی",
+        "tradeName": "نام تجاری",
+        "designation": "سمت",
+        "email": "ایمیل",
+        "phone": "تلفن",
+        "website": "وب‌سایت",
+        "addressTitle": "نشانی",
+        "taxTitle": "شناسه‌های مالیاتی",
+        "taxDescription": "فقط مواردی که برای شما صدق می‌کنند؛ چاپ برای هر فاکتور جداگانه کنترل می‌شود.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "شماره UK VAT",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "رمزگذاری‌شده در ذخیره‌سازی",
+        "lutNumber": "شماره LUT",
+        "lutNumberHint": "برای صادرات بدون IGST",
+        "lutFiscalYear": "سال مالی LUT",
+        "lutFiscalYearHint": "مثلاً 2026-27",
+        "einvoiceTitle": "فاکتور الکترونیکی",
+        "einvoiceDescription": "این نمایه چگونه خود را در فاکتورهای الکترونیکی معرفی می‌کند؛ رابط و اطلاعات دسترسی در تنظیمات > فاکتور الکترونیکی قرار دارند.",
+        "electronicAddress": "نشانی الکترونیکی",
+        "electronicAddressHint": "شناسه Peppol یا EN 16931 این صادرکننده که به عنوان نشانی الکترونیکی فروشنده چاپ می‌شود.",
+        "electronicAddressScheme": "طرح نشانی الکترونیکی",
+        "electronicAddressSchemeNone": "بدون طرح",
+        "einvoiceEnabled": "فاکتور الکترونیکی برای این نمایه فعال است",
+        "einvoiceEnabledHint": "دانلودهای GST e-invoice JSON، Factur-X و UBL و ثبت IRN را روی اسناد صادرشده آن ارائه می‌دهد.",
+        "defaultsTitle": "پیش‌فرض‌ها",
+        "baseCurrency": "ارز پایه",
+        "locale": "محلی‌سازی سند",
+        "localeHint": "قالب‌بندی اعداد و تاریخ در اسناد",
+        "fiscalYearStart": "سال مالی شروع می‌شود در",
+        "months": {
+          "january": "ژانویه",
+          "february": "فوریه",
+          "march": "مارس",
+          "april": "آوریل",
+          "may": "مه",
+          "june": "ژوئن",
+          "july": "ژوئیه",
+          "august": "اوت",
+          "september": "سپتامبر",
+          "october": "اکتبر",
+          "november": "نوامبر",
+          "december": "دسامبر"
+        },
+        "taxRegime": "نظام مالیاتی پیش‌فرض",
+        "regimes": {
+          "indiaGst": "GST هند",
+          "ukVat": "UK VAT",
+          "usSalesTax": "مالیات فروش آمریکا",
+          "none": "بدون مالیات"
+        },
+        "invoiceNumberFormat": "قالب شماره فاکتور",
+        "invoiceNumberFormatHint": "توکن‌ها: {tokens}",
+        "creditNoteNumberFormat": "قالب شماره اعلامیه بستانکاری",
+        "tdsRate": "نرخ مورد انتظار TDS (%)",
+        "tdsRateHint": "اطلاعاتی؛ به‌صورت کسر مورد انتظار چاپ می‌شود",
+        "defaultNotes": "یادداشت‌های پیش‌فرض",
+        "defaultTerms": "شرایط پیش‌فرض",
+        "printTitle": "آنچه به‌طور پیش‌فرض چاپ می‌شود",
+        "printDescription": "هر فاکتور این موارد را کپی می‌کند و می‌تواند آن‌ها را جداگانه تغییر دهد.",
+        "emailTitle": "ایمیل",
+        "emailDescription": "پیش‌فرض‌ها برای ویرایشگر ارسال. جایگزین‌ها: {placeholders}",
+        "emailCc": "CC پیش‌فرض",
+        "emailBcc": "BCC پیش‌فرض",
+        "commaSeparated": "جداشده با ویرگول",
+        "invoiceSubject": "موضوع فاکتور",
+        "invoiceSubjectHint": "اگر خالی باشد از قالب داخلی استفاده می‌شود",
+        "creditNoteSubject": "موضوع اعلامیه بستانکاری",
+        "invoiceBody": "متن فاکتور",
+        "creditNoteBody": "متن اعلامیه بستانکاری",
+        "artworkTitle": "تصاویر",
+        "artworkDescription": "PNG، JPEG یا WebP تا 2 MB؛ امضا و مهر شفافیت خود را حفظ می‌کنند.",
+        "logo": "لوگو",
+        "signature": "امضا",
+        "stamp": "مهر",
+        "transparentPng": "PNG شفاف",
+        "save": "ذخیره نمایه"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "روش‌های پرداخت",
+      "title": "روش‌های پرداخت",
+      "description": "نحوه پرداخت مشتریان به شما. جزئیات رمزگذاری می‌شوند و هنگام صدور در هر فاکتور ثابت می‌شوند.",
+      "newMethod": "روش جدید",
+      "emptyTitle": "هنوز روش پرداختی وجود ندارد",
+      "emptyDescription": "یک حساب بانکی، شناسه UPI یا کیف پول اضافه کنید تا فاکتورها به مشتریان بگویند کجا پرداخت کنند.",
+      "addMethod": "افزودن روش",
+      "columns": {
+        "name": "نام",
+        "type": "نوع",
+        "currency": "ارز",
+        "status": "وضعیت"
+      },
+      "types": {
+        "bankTransfer": "انتقال بانکی",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "سفارشی"
+      },
+      "makeDefaultTitle": "{name} پیش‌فرض شود؟",
+      "restoreTitle": "{name} بازیابی شود؟",
+      "archiveTitle": "{name} بایگانی شود؟",
+      "archiveDescription": "فاکتورهای صادرشده تصویر ثابتی را که چاپ شده بود حفظ می‌کنند.",
+      "new": {
+        "metaTitle": "روش پرداخت جدید",
+        "title": "روش پرداخت جدید"
+      },
+      "edit": {
+        "metaTitle": "ویرایش روش پرداخت",
+        "title": "ویرایش {name}",
+        "deleteTitle": "{name} حذف شود؟",
+        "deleteDescription": "فقط تا زمانی ممکن است که هیچ فاکتور یا پرداختی به آن ارجاع نداشته باشد. در غیر این صورت آن را بایگانی کنید."
+      },
+      "form": {
+        "name": "نام",
+        "nameHint": "به‌عنوان عنوان بخش پرداخت چاپ می‌شود",
+        "type": "نوع",
+        "currency": "ارز",
+        "currencyHint": "اختیاری؛ فقط برای اطلاع نمایش داده می‌شود",
+        "anyCurrency": "هر ارزی",
+        "instructions": "راهنما",
+        "instructionsHint": "زیر جزئیات چاپ می‌شود",
+        "isDefault": "روش پیش‌فرض",
+        "isDefaultDescription": "در فاکتورهای جدید از پیش انتخاب می‌شود",
+        "isActive": "فعال",
+        "detailsTitle": "جزئیات",
+        "detailsDescription": "رمزگذاری‌شده در ذخیره‌سازی؛ هنگام صدور هر فاکتور، به‌صورت تصویر ثابت در آن ثبت می‌شود.",
+        "vpa": "شناسه UPI (VPA)",
+        "payeeName": "نام دریافت‌کننده",
+        "lines": "خطوط",
+        "linesHint": "یک خط در هر سطر، بدون تغییر چاپ می‌شود",
+        "accountEmail": "ایمیل / شناسه حساب",
+        "bank": {
+          "accountHolder": "صاحب حساب",
+          "accountNumber": "شماره حساب",
+          "bankName": "نام بانک",
+          "branch": "شعبه",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "کد مسیریابی / Sort"
+        },
+        "save": "ذخیره روش پرداخت"
+      }
+    },
+    "templates": {
+      "metaTitle": "قالب‌های سند",
+      "title": "قالب‌های سند",
+      "customised": "سفارشی‌شده",
+      "builtIn": "پیش‌فرض داخلی",
+      "description": "ظاهر فاکتورها و اعلامیه‌های بستانکاری. اسناد صادرشده همان قالبی را که با آن صادر شده‌اند نگه می‌دارند.",
+      "resetTitle": "بازنشانی به پیش‌فرض داخلی؟",
+      "resetDescription": "سفارشی‌سازی شما حذف می‌شود؛ اسنادی که قبلاً صادر شده‌اند تأثیری نمی‌پذیرند.",
+      "reset": "بازنشانی",
+      "resetTrigger": "بازنشانی به پیش‌فرض‌ها",
+      "importTitle": "درون‌ریزی",
+      "importDescription": "پیکربندی‌ای را که قبلاً برون‌بری شده بازیابی کنید.",
+      "overridesTitle": "جایگزین‌های هر نمایه",
+      "overridesDescription": "هر نمایه می‌تواند از صفحه ویرایش خود قالب اختصاصی انتخاب کند.",
+      "noOverrides": "همه نمایه‌ها از قالب نمونه استفاده می‌کنند.",
+      "import": {
+        "json": "JSON قالب",
+        "jsonHint": "فایل تولیدشده با برون‌بری JSON را جای‌گذاری کنید؛ کلیدهای غایب به پیش‌فرض برمی‌گردند",
+        "importing": "در حال درون‌ریزی…",
+        "submit": "درون‌ریزی"
+      },
+      "form": {
+        "templateTitle": "قالب",
+        "templateDescription": "شش قالب داخلی؛ سفارشی‌سازی زیر روی هر کدام که انتخاب کنید اعمال می‌شود.",
+        "templateGroup": "قالب",
+        "templates": {
+          "ledger": {
+            "name": "دفتر کل",
+            "character": "مدرن و بازتر، بدون سریف، خط تأکیدی زیر سربرگ."
+          },
+          "classic": {
+            "name": "کلاسیک",
+            "character": "جدول سنتی دارای حاشیه، عنوان‌های سریف‌دار، جمع‌های قاب‌دار."
+          },
+          "compact": {
+            "name": "فشرده",
+            "character": "چیدمان متراکم برای فهرست‌های بلند اقلام؛ حروف کوچک‌تر و جداکننده‌های کمتر."
+          },
+          "minimal": {
+            "name": "مینیمال",
+            "character": "آرام و باز: بدون خط و قاب، برچسب‌های ملایم و فضای خالی فراوان."
+          },
+          "letterhead": {
+            "name": "سربرگ",
+            "character": "لوگو و نام شما روی یک نوار رنگی یا تصویر در بالای هر صفحه."
+          },
+          "modern": {
+            "name": "امروزی",
+            "character": "سربرگ با نوار رنگی؛ طرفین، سرجدول و جمع‌ها روی زمینه‌ای کم‌رنگ از رنگ تأکیدی."
+          }
+        },
+        "paperTitle": "کاغذ و حروف",
+        "paperSize": "اندازه کاغذ",
+        "paperLetter": "Letter",
+        "margins": "حاشیه‌ها",
+        "marginsNormal": "معمولی",
+        "marginsNarrow": "باریک",
+        "headingFont": "قلم عنوان",
+        "bodyFont": "قلم متن",
+        "fontSans": "بدون سریف",
+        "fontSerif": "سریف‌دار",
+        "tableStyle": "سبک جدول",
+        "tableRuled": "خط‌دار",
+        "tableZebra": "راه‌راه",
+        "tablePlain": "ساده",
+        "accentColour": "رنگ تأکیدی",
+        "textColour": "رنگ متن",
+        "logoPosition": "جایگاه لوگو",
+        "positionLeft": "چپ",
+        "positionCentre": "وسط",
+        "positionRight": "راست",
+        "logoHeight": "ارتفاع لوگو (mm)",
+        "documentTitle": "عنوان سند",
+        "titleAuto": "خودکار (مطابق GST)",
+        "titleCustom": "سفارشی",
+        "titlePlaceholder": "مثلاً PROFORMA INVOICE",
+        "qrPosition": "جایگاه QR",
+        "qrFooter": "پانوشت",
+        "qrHeader": "سربرگ",
+        "qrBesideTotals": "کنار جمع‌ها",
+        "amountInWords": "مبلغ به حروف",
+        "wordsBelowTotal": "زیر جمع‌ها",
+        "wordsFooter": "پانوشت",
+        "wordsHidden": "پنهان",
+        "subtotalRow": "سطر جمع جزء",
+        "discountRow": "سطر تخفیف",
+        "taxLines": "سطرهای مالیات",
+        "tdsExpected": "TDS مورد انتظار",
+        "roundingRow": "سطر گرد کردن",
+        "pageNumbers": "شماره صفحه‌ها",
+        "headerTitle": "سربرگ",
+        "headerDescription": "یک نوار رنگی یا تصویر در بالای هر صفحه. قالب‌های سربرگ و امروزی نوار را نشان می‌دهند مگر اینکه گزینه دیگری انتخاب کنید.",
+        "headerStyle": "سبک سربرگ",
+        "headerNone": "هیچ",
+        "headerBand": "نوار رنگی",
+        "headerImage": "تصویر",
+        "bandColour": "رنگ نوار",
+        "bandColourHex": "رنگ نوار (hex)",
+        "headerImageLabel": "تصویر سربرگ",
+        "headerImageHint": "PNG، JPEG یا WebP تا عرض 2400 px؛ در تمام عرض صفحه کشیده می‌شود.",
+        "imageOpacity": "کدری تصویر",
+        "headerHeight": "ارتفاع سربرگ (mm)",
+        "bandText": "متن روی نوار",
+        "bandTextAuto": "خودکار (از روی رنگ نوار)",
+        "bandTextLight": "روشن",
+        "bandTextDark": "تیره",
+        "textTitle": "متن",
+        "headerNote": "یادداشت سربرگ",
+        "footer": "پانوشت",
+        "signatureCaption": "عنوان امضا",
+        "draftWatermark": "واترمارک پیش‌نویس",
+        "labelsTitle": "برچسب‌ها",
+        "labelsDescription": "برای حفظ عبارت پیش‌فرض، فیلد را خالی بگذارید.",
+        "save": "ذخیره قالب",
+        "downloadSample": "دانلود PDF نمونه",
+        "exportJson": "برون‌بری JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "ایمیل",
+      "title": "ایمیل",
+      "configuredSettings": "پیکربندی‌شده در تنظیمات",
+      "configuredEnv": "پیکربندی‌شده از طریق محیط",
+      "notConfigured": "پیکربندی نشده: روش برنامه ایمیل",
+      "description": "اسناد از ویرایشگر ارسال همراه با PDF ذخیره‌شده پیوست می‌شوند. تنظیمات اینجا مقادیر SMTP_* در محیط را بازنویسی می‌کنند.",
+      "sendTest": "ارسال ایمیل آزمایشی به {email}",
+      "removeTitle": "تنظیمات ذخیره‌شده SMTP حذف شود؟",
+      "removeEnvTakesOver": "مقادیر SMTP_* محیط جایگزین می‌شوند.",
+      "removeFallsBack": "ایمیل به روش برنامه ایمیل بازمی‌گردد.",
+      "removeTrigger": "حذف تنظیمات ذخیره‌شده",
+      "smtpTitle": "سرور SMTP",
+      "smtpFromEnv": "در حال حاضر از محیط گرفته شده است؛ ذخیره در اینجا آن را بازنویسی می‌کند.",
+      "smtpPasswordNote": "گذرواژه در ذخیره‌سازی رمزگذاری می‌شود و دیگر نمایش داده نخواهد شد.",
+      "defaultsTitle": "گیرندگان پیش‌فرض",
+      "defaultsDescription": "CC/BCC در سطح نمونه؛ نمایه‌های صادرکننده موارد خود را اضافه می‌کنند.",
+      "sentTitle": "ایمیل‌های ارسال‌شده",
+      "sentDescription": "۵۰ تلاش آخر، شامل شکست‌ها و ارسال‌های دستی.",
+      "smtp": {
+        "host": "میزبان",
+        "port": "درگاه",
+        "security": "امنیت",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "هیچ (رله LAN)",
+        "user": "نام کاربری",
+        "password": "گذرواژه",
+        "passwordStored": "ذخیره و رمزگذاری شده؛ برای حفظ آن خالی بگذارید",
+        "passwordEncrypted": "رمزگذاری‌شده در ذخیره‌سازی",
+        "from": "نشانی فرستنده",
+        "fromName": "نام فرستنده",
+        "replyTo": "نشانی پاسخ",
+        "save": "ذخیره تنظیمات SMTP"
+      },
+      "defaults": {
+        "cc": "CC پیش‌فرض",
+        "ccHint": "به هر ویرایشگر اضافه می‌شود؛ جداشده با ویرگول",
+        "bcc": "BCC پیش‌فرض",
+        "save": "ذخیره پیش‌فرض‌ها"
+      }
+    },
+    "security": {
+      "metaTitle": "امنیت",
+      "title": "امنیت",
+      "description": "کجا وارد شده‌اید و هر آنچه تغییر کرده است.",
+      "sessions": {
+        "title": "نشست‌های فعال",
+        "description": "ابطال یک نشست، آن دستگاه را بی‌درنگ از حساب خارج می‌کند.",
+        "signOutOthers": {
+          "title": "خروج از همه جای دیگر؟",
+          "description": "همه نشست‌ها به‌جز این نشست باطل می‌شوند.",
+          "confirm": "خروج بقیه",
+          "trigger": "خروج از همه جای دیگر"
+        },
+        "columns": {
+          "device": "دستگاه",
+          "ipAddress": "نشانی IP",
+          "signedIn": "زمان ورود",
+          "lastSeen": "آخرین فعالیت",
+          "expires": "انقضا"
+        },
+        "thisDevice": "این دستگاه",
+        "revokeTitle": "این نشست باطل شود؟",
+        "unknownDevice": "دستگاه ناشناس",
+        "unknownBrowser": "ناشناس",
+        "agentOnOs": "{browser} روی {os}"
+      },
+      "audit": {
+        "title": "گزارش حسابرسی",
+        "count": "{count, plural, one {# رویداد} other {# رویداد}}",
+        "entity": "موجودیت",
+        "actionContains": "عمل شامل",
+        "filter": "فیلتر",
+        "reset": "بازنشانی",
+        "columns": {
+          "when": "زمان",
+          "who": "چه کسی",
+          "action": "عمل",
+          "entity": "موجودیت",
+          "summary": "خلاصه"
+        },
+        "empty": "هیچ رویدادی با این فیلترها مطابقت ندارد.",
+        "system": "سیستم",
+        "changes": "تغییرات",
+        "page": "صفحه {page} از {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "کاربران",
+      "title": "کاربران",
+      "description": "چه کسانی می‌توانند وارد این نمونه شوند و چه کارهایی مجازند.",
+      "roles": {
+        "owner": "مالک",
+        "editor": "ویرایشگر",
+        "viewer": "بیننده"
+      },
+      "roleHints": {
+        "owner": "همه چیز، از جمله تنظیمات و اعضا",
+        "editor": "مشتریان، کاتالوگ، فاکتورها، اعلامیه‌های بستانکاری، پرداخت‌ها، ایمیل",
+        "viewer": "فقط خواندنی"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "نقش {email}",
+      "invite": {
+        "title": "دعوت از یک نفر",
+        "description": "با نشانی دعوت‌شده (از طریق ارائه‌دهنده هویت یا گذرواژه) وارد می‌شوند و نقشی را که انتخاب کنید می‌گیرند.",
+        "sent": "دعوت‌نامه به {email} ایمیل شد.",
+        "readyWithError": "دعوت‌نامه برای {email} آماده است. ایمیل ارسال نشد ({error})؛ این پیوند را برایشان بفرستید:",
+        "readyNoSmtp": "دعوت‌نامه برای {email} آماده است. SMTP پیکربندی نشده است؛ این پیوند را برایشان بفرستید:",
+        "copyLink": "کپی پیوند",
+        "email": "ایمیل",
+        "emailPlaceholder": "person@example.com",
+        "role": "نقش",
+        "submit": "دعوت",
+        "inviting": "در حال دعوت…"
+      },
+      "members": {
+        "title": "اعضا",
+        "description": "همیشه دست‌کم یک مالک فعال باقی می‌ماند.",
+        "columns": {
+          "person": "شخص",
+          "role": "نقش",
+          "lastSignIn": "آخرین ورود",
+          "status": "وضعیت"
+        },
+        "nameYou": "{name} (شما)",
+        "deactivated": "غیرفعال",
+        "reactivate": {
+          "title": "{email} دوباره فعال شود؟",
+          "description": "می‌توانند با نقش قبلی خود دوباره وارد شوند.",
+          "confirm": "فعال‌سازی مجدد"
+        },
+        "deactivate": {
+          "title": "{email} غیرفعال شود؟",
+          "description": "همه نشست‌ها همین حالا پایان می‌یابند و تا فعال‌سازی مجدد نمی‌توانند وارد شوند. تاریخچه آن‌ها حفظ می‌شود.",
+          "confirm": "غیرفعال‌سازی"
+        }
+      },
+      "invitations": {
+        "title": "دعوت‌نامه‌های در انتظار",
+        "description": "نشانی‌هایی که مجاز به ورود هستند اما هنوز وارد نشده‌اند.",
+        "columns": {
+          "email": "ایمیل",
+          "role": "نقش",
+          "invited": "تاریخ دعوت"
+        },
+        "empty": "دعوت‌نامه‌ای در انتظار نیست.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "دعوت‌نامه {email} باطل شود؟"
+      }
+    },
+    "data": {
+      "metaTitle": "داده‌ها",
+      "title": "داده‌ها",
+      "description": "همه چیز قابل انتقال است: مجموعه‌داده‌ها به‌صورت CSV یا Excel، یک تصویر کامل برای مهاجرت، PDFها برای حسابدار شما و یک روال پشتیبان‌گیری آزموده‌شده.",
+      "period": {
+        "fiscalYear": "سال مالی",
+        "fiscalYearHint": "تاریخ‌ها را بازنویسی می‌کند",
+        "issuer": "صادرکننده"
+      },
+      "exportAll": {
+        "title": "برون‌بری همه داده‌ها",
+        "description": "یک ZIP شامل هر مجموعه‌داده به‌صورت CSV به‌همراه <mono>data.json</mono>، تصویری رابطه‌ای از همه جدول‌ها. فیلدهای رمزگذاری‌شده (جزئیات روش پرداخت، گذرواژه SMTP) خارج می‌مانند؛ README داخل آن فهرستشان را دارد.",
+        "download": "دانلود ZIP داده‌های okinvo"
+      },
+      "exportDocuments": {
+        "title": "برون‌بری اسناد",
+        "description": "PDF همه فاکتورها و اعلامیه‌های بستانکاری صادرشده و باطل‌شده در یک دوره، با نام شماره‌شان، به‌همراه <mono>index.csv</mono> شامل شماره‌ها، جمع‌ها و هش‌ها. PDFهای غایب در همان لحظه تولید می‌شوند.",
+        "docx": "نسخه DOCX هر سند نیز گنجانده شود",
+        "facturx": "نسخه Factur-X PDF/A-3 همراه با EN 16931 XML تعبیه‌شده نیز گنجانده شود",
+        "download": "دانلود ZIP اسناد"
+      },
+      "datasets": {
+        "title": "مجموعه‌داده‌ها",
+        "description": "همان برون‌بری‌هایی که صفحه‌های فهرست ارائه می‌دهند، با اعمال دوره و صادرکننده روی همه. پرداخت‌ها از بازه تاریخ استفاده می‌کنند؛ مشتریان و خدمات دوره را نادیده می‌گیرند.",
+        "columns": {
+          "dataset": "مجموعه‌داده",
+          "filters": "فیلترهای اعمال‌شده",
+          "download": "دانلود"
+        },
+        "names": {
+          "invoices": "دفتر فاکتورها",
+          "invoiceItems": "اقلام فاکتور",
+          "payments": "دفتر پرداخت‌ها",
+          "creditNotes": "دفتر اعلامیه‌های بستانکاری",
+          "clients": "مشتریان",
+          "services": "خدمات",
+          "gstSummary": "خلاصه GST",
+          "tdsSummary": "خلاصه TDS"
+        },
+        "filters": {
+          "periodIssuer": "دوره، صادرکننده",
+          "dateRangeIssuer": "بازه تاریخ، صادرکننده",
+          "includesArchived": "شامل بایگانی‌شده‌ها"
+        }
+      },
+      "backups": {
+        "title": "پشتیبان‌ها",
+        "notWired": "هیچ سرویس پشتیبان‌گیری متصل نیست",
+        "noRun": "هنوز هیچ پشتیبانی اجرا نشده است",
+        "lastOk": "آخرین پشتیبان موفق بود",
+        "lastFailed": "آخرین پشتیبان ناموفق بود",
+        "description": "سرویس <mono>backup</mono> در Compose بر اساس <mono>BACKUP_CRON</mono> از Postgres خروجی می‌گیرد و حجم ذخیره‌سازی را آرشیو می‌کند، تاریخچه <mono>BACKUP_RETENTION_DAYS</mono> را در حجم <mono>backups</mono> نگه می‌دارد و فایل وضعیتی می‌نویسد که این صفحه آن را می‌خواند.",
+        "finished": "پایان",
+        "databaseDump": "خروجی پایگاه داده",
+        "storageArchive": "آرشیو ذخیره‌سازی",
+        "size": "اندازه",
+        "sizeMb": "{size} MB",
+        "error": "خطا",
+        "runNow": "همین حالا یکی اجرا کنید، یا از یک جفت فایل بازیابی کنید:",
+        "restoreDrill": "روال بازیابی در CI با <mono>scripts/restore-drill.sh</mono> آزموده می‌شود: بذردهی، پشتیبان‌گیری، پاک‌سازی، بازیابی و سپس مقایسه تعداد سطرها و هش PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "حقوقی",
+      "metaDescription": "چه کسی این نمونه را اداره می‌کند: جزئیاتی که در صفحه‌های حقوقی عمومی چاپ می‌شود.",
+      "title": "حقوقی",
+      "description": "صفحه‌های حقوقی عمومی این جزئیات را چاپ می‌کنند. تا زمانی که همه فیلدها پر نشوند، صفحه‌ها جایگزین‌های برجسته نشان می‌دهند.",
+      "operator": {
+        "title": "جزئیات بهره‌بردار",
+        "complete": "کامل",
+        "missing": "{count} مورد ناقص: {fields}",
+        "description": "شما، به‌عنوان شخص یا شرکتی که این نمونه را اداره می‌کند، بهره‌برداری هستید که اسناد به آن اشاره می‌کنند. هیچ‌چیز از اینجا به جایی ارسال نمی‌شود؛ در صفحه‌های زیر چاپ می‌شود."
+      },
+      "fieldLabels": {
+        "legalName": "نام حقوقی بهره‌بردار",
+        "entityType": "نوع نهاد",
+        "address": "نشانی بهره‌بردار",
+        "country": "کشور بهره‌بردار",
+        "contactEmail": "ایمیل تماس",
+        "privacyEmail": "ایمیل حریم خصوصی",
+        "dpoEmail": "ایمیل مسئول حفاظت از داده",
+        "governingLaw": "قانون حاکم",
+        "venue": "مرجع حل اختلاف",
+        "effectiveDate": "تاریخ اجرا"
+      },
+      "publicPages": {
+        "title": "صفحه‌های عمومی",
+        "description": "از صفحه ورود، نمایشگر اشتراک‌گذاری و اعلان کوکی پیوند داده می‌شوند.",
+        "terms": "شرایط خدمات",
+        "acceptableUse": "سیاست استفاده قابل قبول",
+        "privacy": "سیاست حریم خصوصی",
+        "cookies": "سیاست کوکی",
+        "dataRetention": "نگهداری داده‌ها",
+        "security": "امنیت",
+        "licenses": "مجوزها و اعلان‌های اشخاص ثالث"
+      },
+      "form": {
+        "legalName": "نام حقوقی",
+        "entityType": "نوع نهاد",
+        "individual": "فرد / مالک انفرادی",
+        "company": "شرکت / نهاد ثبت‌شده",
+        "address": "نشانی",
+        "addressHint": "در شرایط خدمات و سیاست حریم خصوصی به‌عنوان نشانی پستی بهره‌بردار چاپ می‌شود.",
+        "country": "کشور",
+        "effectiveDate": "تاریخ اجرا",
+        "contactEmail": "ایمیل تماس",
+        "privacyEmail": "ایمیل حریم خصوصی",
+        "privacyEmailHint": "درخواست‌های صاحبان داده به اینجا می‌رود؛ می‌تواند همان نشانی تماس باشد.",
+        "dpoEmail": "ایمیل مسئول حفاظت از داده",
+        "dpoEmailHint": "فقط در صورتی که مسئولی منصوب کرده باشید.",
+        "governingLaw": "قانون حاکم",
+        "governingLawHint": "برای مثال «قوانین هند» یا «قوانین انگلستان و ولز».",
+        "venue": "مرجع حل اختلاف",
+        "venueHint": "برای مثال «دادگاه‌های بنگلور، کارناتاکا».",
+        "submit": "ذخیره جزئیات بهره‌بردار"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "فاکتور الکترونیکی",
+      "title": "فاکتور الکترونیکی",
+      "description": "برای هر نمایه صادرکننده: کدام رابط فاکتورهای الکترونیکی هند را ثبت می‌کند و خروجی‌های Factur-X و UBL از کدام نمایه اروپایی پیروی می‌کنند. اطلاعات دسترسی رمزگذاری‌شده ذخیره می‌شوند و دیگر نمایش داده نمی‌شوند.",
+      "noProfiles": "ابتدا یک نمایه صادرکننده ایجاد کنید.",
+      "profile": "نمایه صادرکننده",
+      "enabled": "فعال",
+      "disabled": "غیرفعال",
+      "enabledHint": "فاکتور الکترونیکی را برای هر نمایه در تنظیمات > نمایه‌ها روشن یا خاموش کنید.",
+      "india": {
+        "title": "هند (GST e-invoice, IRN)",
+        "description": "IRN از طریق رابط انتخاب‌شده در اینجا ثبت می‌شود؛ رابط دستی پاسخ پورتال را که به صورت دستی وارد شده می‌پذیرد.",
+        "connector": "رابط",
+        "connectorNone": "خاموش",
+        "connectorManual": "دستی (پاسخ IRP را جای‌گذاری کنید)",
+        "connectorNic": "NIC IRP API (sandbox یا production)",
+        "nicUnverified": "رابط NIC از API منتشرشده پیروی می‌کند و فقط با نمونه‌های ضبط‌شده آزمایش شده است؛ تا زمانی که اطلاعات دسترسی ارائه نشود، روی sandbox واقعی تأیید نشده است.",
+        "env": "محیط",
+        "sandbox": "Sandbox",
+        "production": "Production",
+        "baseUrl": "URL پایه",
+        "baseUrlHint": "برای پیش‌فرض محیط خالی بگذارید.",
+        "clientId": "شناسه مشتری",
+        "clientSecret": "رمز مشتری",
+        "username": "نام کاربری",
+        "password": "گذرواژه",
+        "gstin": "GSTIN",
+        "publicKey": "کلید عمومی IRP (PEM)",
+        "publicKeyHint": "پس از ورود، آن را از پورتال دانلود کنید؛ اطلاعات هویتی ارسالی به IRP را رمزگذاری می‌کند.",
+        "publicKeyStored": "ذخیره شد؛ برای حفظ آن خالی بگذارید.",
+        "secretStored": "رمزگذاری‌شده ذخیره شده است؛ برای حفظ آن خالی بگذارید.",
+        "secretEncrypted": "رمزگذاری‌شده ذخیره می‌شود."
+      },
+      "eu": {
+        "title": "اروپا (Factur-X, UBL)",
+        "description": "EN 16931 تنها نمایه در این نسخه است؛ دانلودهای Factur-X و UBL از آن استفاده می‌کنند.",
+        "profile": "نمایه",
+        "profileNone": "خاموش",
+        "en16931": "EN 16931"
+      },
+      "save": "ذخیره تنظیمات فاکتور الکترونیکی"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "کلیدهای API برای اسکریپت‌ها، SDK و کلاینت‌های MCP، همراه با نمونه‌های curl.",
+      "title": "API",
+      "description": "کلیدها برای اسکریپت‌ها، SDK و کلاینت‌های MCP. یک کلید حداکثر می‌تواند همان کاری را بکند که نقش شما می‌تواند؛ فقط یک بار نمایش داده می‌شود.",
+      "create": {
+        "title": "ایجاد کلید",
+        "description": "آن را به‌صورت <mono>Authorization: Bearer okv_…</mono> ارسال کنید. آن را از کد منبع و گزارش‌های گفتگو دور نگه دارید؛ اگر لو رفت، از پایین ابطالش کنید."
+      },
+      "keys": {
+        "title": "کلیدها",
+        "descriptionOwner": "همه کلیدهای این نمونه؛ مالکان می‌توانند هر کدام را باطل کنند.",
+        "descriptionOwn": "کلیدهای شما.",
+        "columns": {
+          "name": "نام",
+          "prefix": "پیشوند",
+          "scopes": "دامنه‌ها",
+          "owner": "مالک",
+          "lastUsed": "آخرین استفاده",
+          "expires": "انقضا",
+          "status": "وضعیت"
+        },
+        "empty": "هنوز کلید API وجود ندارد.",
+        "never": "هرگز",
+        "revoked": "باطل‌شده",
+        "expired": "منقضی‌شده",
+        "revokeTitle": "{name} باطل شود؟",
+        "revokeDescription": "کلاینت‌هایی که از این کلید استفاده می‌کنند بی‌درنگ از کار می‌افتند.",
+        "activeCount": "{count, plural, one {# کلید فعال.} other {# کلید فعال.}}"
+      },
+      "examples": {
+        "title": "نمونه‌ها",
+        "description": "<mono>$OKINVO_KEY</mono> را با یک کلید جایگزین کنید. REST API نسخه‌دار، سند OpenAPI آن (<mono>/api/openapi.json</mono>)، SDK نوع‌نویسی‌شده TypeScript و سرور MCP همراه با کارهای بعدی طرح v1.1 می‌رسند؛ نقطه پایانی وضعیت هم‌اکنون کار می‌کند.",
+        "rateLimit": "فراخوانی‌های بیش از حد مجاز با 429 و سرآیند <mono>Retry-After</mono> پاسخ داده می‌شوند (120 درخواست در دقیقه برای هر کلید). دامنه‌های یک کلید به نقش فعلی مالک آن محدود می‌شود."
+      },
+      "form": {
+        "copyKey": "کپی کلید API",
+        "name": "نام",
+        "namePlaceholder": "مثلاً اسکریپت حسابداری",
+        "expires": "انقضا",
+        "in30Days": "۳۰ روز دیگر",
+        "in90Days": "۹۰ روز دیگر",
+        "inAYear": "یک سال دیگر",
+        "never": "هرگز",
+        "scopes": "دامنه‌ها",
+        "submit": "ایجاد کلید API",
+        "creating": "در حال ایجاد…"
+      },
+      "scopes": {
+        "invoicesRead": "خواندن فاکتورها",
+        "invoicesCreate": "ایجاد و صدور فاکتورها",
+        "creditNotesRead": "خواندن اعلامیه‌های بستانکاری",
+        "creditNotesCreate": "ایجاد و صدور اعلامیه‌های بستانکاری",
+        "catalogueRead": "خواندن مشتریان، خدمات و محصولات",
+        "documentsRead": "دانلود PDFهای ذخیره‌شده و نسخه‌های DOCX",
+        "statusRead": "خواندن وضعیت نمونه"
+      }
+    },
+    "status": {
+      "metaTitle": "وضعیت",
+      "metaDescription": "نسخه، پایگاه داده، ذخیره‌سازی، ایمیل و سلامت پشتیبان‌گیری این نمونه.",
+      "title": "وضعیت",
+      "description": "این نمونه چه چیزی را اجرا می‌کند و آیا بخش‌های آن پاسخ می‌دهند.",
+      "recheck": "بررسی دوباره",
+      "health": {
+        "ok": "سالم",
+        "warning": "هشدار",
+        "failed": "ناموفق",
+        "na": "پیکربندی نشده"
+      },
+      "overall": {
+        "ok": "همه چیز خوب است",
+        "degraded": "عملکرد کاهش‌یافته",
+        "failed": "ناموفق"
+      },
+      "version": "ساخت {hasSha, select, yes {<mono>{sha}</mono>} other {(sha ناشناس)}} · ساخته‌شده {built} · Node <mono>{node}</mono> · زمان فعالیت {uptime} · بررسی {checked}",
+      "dateUnknown": "(تاریخ ناشناس)",
+      "uptime": {
+        "days": "{d}d {h}h {m}m",
+        "hours": "{h}h {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "پایگاه داده",
+        "storage": "ذخیره‌سازی",
+        "rateLimiting": "محدودسازی نرخ",
+        "email": "ایمیل",
+        "backups": "پشتیبان‌ها"
+      },
+      "db": {
+        "detail": "{latency} ms · آخرین مهاجرت <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # مهاجرت ناتمام}}",
+        "noMigration": "هیچ"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · نوشتن، خواندن و حذف یک شیء آزمایشی در {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "مخزن <mono>{store}</mono> {store, select, memory {(یک نسخه)} other {(مشترک میان نسخه‌ها)}}",
+      "smtp": {
+        "configured": "SMTP از {source, select, settings {صفحه تنظیمات} env {محیط} other {}} · آخرین آزمایش {lastTest} · ۲۴ ساعت گذشته: {sent} ارسال‌شده، {failed} ناموفق",
+        "none": "هیچ سرور SMTP وجود ندارد؛ ویرایشگر «باز کردن در برنامه ایمیل» را پیشنهاد می‌کند. <link>پیکربندی</link>"
+      },
+      "backups": {
+        "notWired": "هیچ سرویس پشتیبان‌گیری متصل نیست (BACKUP_STATUS_FILE تنظیم نشده).",
+        "noRun": "سرویس پشتیبان‌گیری متصل است؛ هنوز اجرایی ثبت نشده است.",
+        "ok": "آخرین اجرا در {finishedAt} موفق بود{days, plural, =0 {} one { · نگهداری # روز} other { · نگهداری # روز}}",
+        "failed": "آخرین اجرا ناموفق بود: {error} در {finishedAt}{days, plural, =0 {} one { · نگهداری # روز} other { · نگهداری # روز}}"
+      },
+      "footer": "همین گزارش برای پایش به‌صورت JSON در <mono>/api/health/status</mono> در دسترس است (نشست ورود یا کلید API)."
+    },
+    "usage": {
+      "metaTitle": "میزان استفاده",
+      "metaDescription": "بازدید صفحه‌ها به تفکیک صفحه نمایش و روز در این نمونه، شمارش‌شده به‌صورت محلی.",
+      "title": "میزان استفاده",
+      "description": "هر صفحه نمایش چند بار باز شده است، فقط در همین نمونه شمارش می‌شود: بدون کوکی، بدون نشانی، و هیچ چیزی به جایی ارسال نمی‌شود.",
+      "last30Days": "۳۰ روز گذشته",
+      "total": "{count, plural, =0 {بدون بازدید صفحه} one {# بازدید صفحه} other {# بازدید صفحه}}",
+      "off": "شمارش خاموش است. برای شمارش بازدید صفحه‌ها در این نمونه، ANALYTICS_LOCAL=true را تنظیم کنید.",
+      "empty": "هنوز بازدیدی ثبت نشده است.",
+      "columns": {
+        "day": "روز",
+        "path": "صفحه نمایش",
+        "views": "بازدیدها"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "خوش آمدید",
+    "progress": "پیشرفت",
+    "steps": {
+      "aboutYou": "درباره شما",
+      "howYouUse": "نحوه استفاده شما",
+      "allSet": "آماده است"
+    },
+    "step1": {
+      "title": "درباره خودتان بگویید",
+      "subtitle": "این پیش‌فرض‌های شما را تعیین می‌کند؛ هر مقدار را بعداً می‌توان در تنظیمات تغییر داد.",
+      "name": "نام",
+      "email": "ایمیل",
+      "emailHint": "هویت ورود شما. بعداً می‌توان آن را از تنظیمات ← امنیت تغییر داد.",
+      "country": "کشور",
+      "currency": "ارز ترجیحی",
+      "currencyHint": "برای نمایه‌های جدید و داشبورد تا زمان ایجاد نمایه استفاده می‌شود."
+    },
+    "step2": {
+      "title": "چگونه از okinvo استفاده خواهید کرد؟",
+      "subtitle": "فقط پیش‌فرض‌ها تغییر می‌کنند؛ چیزی قفل نمی‌شود.",
+      "usage": "نوع استفاده",
+      "personal": "فاکتور شخصی",
+      "personalHint": "کار فریلنسری به نام خودتان",
+      "business": "فاکتور کسب‌وکار",
+      "businessHint": "فاکتورهایی از طرف یک کسب‌وکار ثبت‌شده",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "شماره VAT",
+        "other": "شماره ثبت مالیاتی"
+      },
+      "taxQuestion": {
+        "IN": "آیا GSTIN دارید؟",
+        "GB": "آیا در VAT ثبت‌نام کرده‌اید؟",
+        "other": "آیا شماره ثبت مالیاتی برای چاپ روی فاکتورها دارید؟"
+      }
+    },
+    "step3": {
+      "title": "همه چیز آماده است",
+      "body": "در گام بعد نخستین نمایه صادرکننده خود را بسازید: نام، نشانی و جزئیات مالیاتی که روی فاکتورهایتان چاپ می‌شود. آنچه گفتید را از قبل پر کرده‌ایم.",
+      "go": "رفتن به نمایه‌ها",
+      "opening": "در حال باز شدن…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "شرایط",
+      "privacy": "حریم خصوصی",
+      "cookies": "کوکی‌ها",
+      "security": "امنیت"
+    },
+    "cookieNotice": {
+      "label": "اعلان کوکی",
+      "body": "ما فقط از کوکی‌های کاملاً ضروری استفاده می‌کنیم: نشست شما و ترجیحات نمایشی‌تان. بدون تحلیل‌گر و بدون ردیابی.",
+      "policy": "سیاست کوکی",
+      "gotIt": "متوجه شدم"
+    },
+    "nav": {
+      "label": "حقوقی",
+      "cookies": "کوکی‌ها",
+      "privacy": "حریم خصوصی",
+      "terms": "شرایط",
+      "acceptableUse": "استفاده قابل قبول",
+      "retention": "نگهداری",
+      "security": "امنیت",
+      "licences": "مجوزها"
+    },
+    "operatorNotice": "okinvo نرم‌افزاری خودمیزبان است؛ بهره‌بردار این نمونه مسئول استفاده از آن است.",
+    "doc": {
+      "effectiveOn": "اجرا از <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "فهرست مطالب"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "نام حقوقی بهره‌بردار",
+        "entityType": "نوع نهاد",
+        "address": "نشانی بهره‌بردار",
+        "country": "کشور بهره‌بردار",
+        "contactEmail": "ایمیل تماس",
+        "privacyEmail": "ایمیل حریم خصوصی",
+        "dpoEmail": "ایمیل مسئول حفاظت از داده",
+        "governingLaw": "قانون حاکم",
+        "venue": "مرجع حل اختلاف",
+        "effectiveDate": "تاریخ اجرا"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "یافت نشد",
+      "title": "در این نشانی چیزی وجود ندارد",
+      "body": "ممکن است پیوند قدیمی باشد، یا سندی که به آن اشاره می‌کرد هرگز صادر نشده باشد."
+    },
+    "forbidden": {
+      "metaTitle": "مجاز نیست",
+      "title": "این حساب نمی‌تواند چنین کاری انجام دهد",
+      "body": "نقش شما اجازه این کار را نمی‌دهد. از یک مالک دسترسی بخواهید یا با حسابی که دسترسی دارد وارد شوید."
+    },
+    "error": {
+      "title": "مشکلی پیش آمد",
+      "body": "این درخواست چیزی را تغییر نداد. دوباره تلاش کنید؛ اگر ادامه یافت، جزئیات در گزارش سرور است.",
+      "digest": "خطا {digest}",
+      "generic": "خطا"
+    },
+    "appNotFound": {
+      "title": "یافت نشد",
+      "body": "این رکورد وجود ندارد یا هنگامی که آن را می‌دیدید حذف شده است.",
+      "back": "بازگشت به داشبورد"
+    },
+    "validation": {
+      "required": "الزامی",
+      "tooLong": "حداکثر {max} نویسه",
+      "invalidEmail": "باید یک ایمیل معتبر باشد",
+      "invalidDate": "باید یک تاریخ تقویمی به شکل YYYY-MM-DD باشد",
+      "invalidAmount": "باید یک عدد باشد",
+      "wholeNumber": "باید یک عدد صحیح باشد",
+      "greaterThanZero": "باید بزرگ‌تر از صفر باشد",
+      "fixFields": "لطفاً فیلدهای مشخص‌شده را اصلاح کنید.",
+      "charset": "فقط نویسه‌های استاندارد صفحه‌کلید مجاز است."
+    }
+  },
+  "verify": {
+    "metaTitle": "تأیید سند",
+    "metaDescription": "بررسی کنید که فاکتور یا اعتبارنامه توسط فرستنده آن صادر شده و تغییر نکرده است.",
+    "heading": "تأیید سند",
+    "rateLimited": "بررسی‌های بیش از حد از این نشانی. لطفاً یک دقیقه دیگر دوباره تلاش کنید.",
+    "notFound": {
+      "title": "چنین سندی وجود ندارد",
+      "body": "این پیوند با هیچ سند صادرشده‌ای مطابقت ندارد. کد QR یا پیوندی را که به شما داده شده بررسی کنید، یا با صادرکننده تماس بگیرید."
+    },
+    "status": {
+      "void": "باطل",
+      "valid": "معتبر"
+    },
+    "issuedBy": "صادرکننده",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "صادرشده برای",
+    "issueDate": "تاریخ صدور",
+    "total": "جمع کل",
+    "voided": "این سند توسط صادرکننده باطل شده و دیگر معتبر نیست.",
+    "storedCopies": {
+      "title": "نسخه‌های ذخیره‌شده",
+      "description": "SHA-256 هر نسخه PDF که صادرکننده نگه می‌دارد. نسخه خود را برای مقایسه در مرورگرتان انتخاب کنید: چیزی بارگذاری نمی‌شود.",
+      "empty": "هنوز هیچ PDF تولید نشده است.",
+      "protectedVersion": "نسخه دارای گذرواژه {version}",
+      "version": "نسخه {version}"
+    },
+    "check": {
+      "label": "بررسی نسخه شما",
+      "hashing": "در حال محاسبه هش…",
+      "match": "نسخه شما دقیقاً با نسخه {version} مطابقت دارد.",
+      "mismatch": "نسخه شما با هیچ‌یک از نسخه‌های ذخیره‌شده مطابقت ندارد."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "سند به‌اشتراک‌گذاشته‌شده",
+      "metaDescription": "سندی که با شما به اشتراک گذاشته شده است: آن را آنلاین ببینید و PDF را دانلود کنید.",
+      "rateLimited": "درخواست‌های بیش از حد از این نشانی. لطفاً یک دقیقه دیگر دوباره تلاش کنید.",
+      "unavailable": {
+        "title": "این پیوند در دسترس نیست",
+        "body": "ممکن است منقضی شده یا توسط صادرکننده باطل شده باشد. از او پیوند جدیدی بخواهید."
+      },
+      "lockedTitleInvoice": "فاکتور از {issuer}",
+      "lockedTitleCreditNote": "اعلامیه بستانکاری از {issuer}",
+      "lockedBody": "این سند با گذرواژه محافظت می‌شود. گذرواژه‌ای را که صادرکننده به شما داده وارد کنید.",
+      "void": "باطل",
+      "protectedPdf": "PDF با همان گذرواژه باز می‌شود. می‌توان آن را خواند و چاپ کرد؛ کپی و ویرایش قفل است.",
+      "byline": "از {issuer} به {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "گذرواژه",
+      "limited": "تلاش‌های بیش از حد. لطفاً پانزده دقیقه صبر کنید و دوباره تلاش کنید.",
+      "wrong": "این گذرواژه درست نیست.",
+      "submit": "باز کردن سند"
+    },
+    "dialog": {
+      "trigger": "اشتراک‌گذاری",
+      "title": "اشتراک‌گذاری این سند",
+      "description": "هر کسی که پیوند را داشته باشد می‌تواند تا زمان انقضا یا ابطال آن را ببیند و دانلود کند. گذرواژه خود PDF را هم محافظت می‌کند: با گذرواژه باز می‌شود و می‌توان آن را خواند و چاپ کرد، نه ویرایش یا کپی.",
+      "link": "پیوند",
+      "copyLink": "کپی پیوند",
+      "password": "گذرواژه",
+      "copyPassword": "کپی گذرواژه",
+      "sendSeparately": "گذرواژه را جدا از پیوند بفرستید. می‌توانید آن را دوباره در فهرست زیر ببینید.",
+      "copy": "کپی",
+      "copied": "کپی شد",
+      "expires": "انقضا",
+      "expiry": {
+        "d7": "۷ روز دیگر",
+        "d30": "۳۰ روز دیگر",
+        "d90": "۹۰ روز دیگر",
+        "never": "هرگز"
+      },
+      "protection": "محافظت",
+      "protectionOptions": {
+        "auto": "گذرواژه: تولید یک عبارت عبور",
+        "manual": "گذرواژه: انتخاب خودم",
+        "none": "بدون گذرواژه (پیوند باز)"
+      },
+      "passwordHint": "دست‌کم ۸ نویسه.",
+      "strength": "قدرت: {label}",
+      "strengthLabels": {
+        "veryWeak": "بسیار ضعیف",
+        "weak": "ضعیف",
+        "fair": "متوسط",
+        "good": "خوب",
+        "strong": "قوی"
+      },
+      "creating": "در حال ایجاد…",
+      "create": "ایجاد پیوند",
+      "activeLinks": "پیوندهای فعال",
+      "passwordProtected": "دارای گذرواژه",
+      "openLink": "باز کردن پیوند",
+      "linkExpires": "{kind} · انقضا {date}",
+      "linkNeverExpires": "{kind} · هرگز منقضی نمی‌شود",
+      "revoke": {
+        "title": "این پیوند باطل شود؟",
+        "description": "پیوند بی‌درنگ برای همه کسانی که آن را دارند از کار می‌افتد.",
+        "label": "ابطال"
+      },
+      "linkPassword": "گذرواژه: <code>{password}</code>",
+      "counts": "{views, plural, other {# بازدید}} · {downloads, plural, other {# دانلود}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "اعلامیه‌های بستانکاری",
+      "title": "اعلامیه‌های بستانکاری",
+      "description": "بر اساس فاکتورهای صادرشده ثبت می‌شوند؛ هر کدام هنگام صدور مانده فاکتور خود را کاهش می‌دهد.",
+      "newCreditNote": "اعلامیه بستانکاری جدید",
+      "filters": {
+        "from": "از",
+        "to": "تا",
+        "issuer": "صادرکننده",
+        "client": "مشتری",
+        "status": "وضعیت",
+        "search": "جستجو",
+        "all": "همه",
+        "searchPlaceholder": "شماره، دلیل، مشتری",
+        "go": "برو"
+      },
+      "statuses": {
+        "DRAFT": "پیش‌نویس",
+        "ISSUED": "صادرشده",
+        "SENT": "ارسال‌شده",
+        "VOID": "باطل"
+      },
+      "empty": {
+        "title": "هنوز اعلامیه بستانکاری‌ای وجود ندارد",
+        "description": "یک فاکتور صادرشده را باز کنید و «اعلامیه بستانکاری» را برای کاهش بدهی آن انتخاب کنید."
+      },
+      "noMatch": "هیچ اعلامیه بستانکاری‌ای با این فیلترها مطابقت ندارد.",
+      "columns": {
+        "number": "شماره",
+        "against": "مربوط به",
+        "client": "مشتری",
+        "issueDate": "تاریخ صدور",
+        "reason": "دلیل",
+        "total": "جمع کل",
+        "status": "وضعیت"
+      },
+      "draft": "پیش‌نویس"
+    },
+    "new": {
+      "metaTitle": "اعلامیه بستانکاری جدید",
+      "title": "اعلامیه بستانکاری جدید",
+      "description": "اعلامیه بستانکاری بر اساس یک فاکتور صادرشده ثبت می‌شود و مانده آن را کاهش می‌دهد.",
+      "nothingToCredit": {
+        "title": "چیزی برای بستانکاری نیست",
+        "description": "اعلامیه‌های بستانکاری به یک فاکتور صادرشده با مانده معوق نیاز دارند.",
+        "openInvoices": "باز کردن فاکتورها"
+      },
+      "whichInvoice": "کدام فاکتور؟",
+      "invoice": "فاکتور",
+      "invoiceOption": "{number} · {client} · مانده {balance}",
+      "issuedOnly": "اعلامیه‌های بستانکاری فقط بر اساس فاکتورهای صادرشده ثبت می‌شوند.",
+      "invoiceFallback": "فاکتور"
+    },
+    "edit": {
+      "metaTitle": "ویرایش اعلامیه بستانکاری",
+      "title": "ویرایش پیش‌نویس اعلامیه بستانکاری",
+      "immutable": "اعلامیه‌های بستانکاری صادرشده تغییرناپذیرند.",
+      "draft": "پیش‌نویس"
+    },
+    "detail": {
+      "metaTitle": "اعلامیه بستانکاری",
+      "draftTitle": "پیش‌نویس اعلامیه بستانکاری",
+      "meta": "{client} · مربوط به <invoice>{number}</invoice> · صادرشده در <mono>{date}</mono>",
+      "previewPdf": "پیش‌نمایش PDF",
+      "issue": {
+        "title": "این اعلامیه بستانکاری صادر شود؟",
+        "description": "یک شماره اختصاص می‌یابد، مانده فاکتور کاهش می‌یابد و سند تغییرناپذیر می‌شود.",
+        "label": "صدور"
+      },
+      "deleteDraft": {
+        "title": "این پیش‌نویس حذف شود؟"
+      },
+      "sendByEmail": "ارسال با ایمیل",
+      "markSent": {
+        "title": "به‌عنوان ارسال‌شده علامت‌گذاری شود؟",
+        "label": "علامت‌گذاری به‌عنوان ارسال‌شده"
+      },
+      "void": {
+        "title": "این اعلامیه بستانکاری باطل شود؟",
+        "description": "مانده فاکتور بازیابی می‌شود؛ شماره هرگز دوباره استفاده نمی‌شود.",
+        "reason": "دلیل",
+        "label": "ابطال"
+      },
+      "voided": "باطل‌شده در {date}: {reason}",
+      "amounts": {
+        "title": "مبالغ",
+        "reason": "دلیل",
+        "creditAmount": "مبلغ بستانکاری",
+        "total": "جمع کل",
+        "balanceNow": "مانده فعلی فاکتور",
+        "sent": "ارسال‌شده"
+      },
+      "documents": {
+        "title": "اسناد ذخیره‌شده",
+        "description": "هر نسخه نگه داشته می‌شود؛ صفحه تأیید همه هش‌ها را فهرست می‌کند.",
+        "regenerateTitle": "نسخه جدید PDF تولید شود؟",
+        "generate": "تولید",
+        "newVersion": "نسخه جدید",
+        "renderedOnFirstDownload": "PDF هنگام نخستین دانلود تولید می‌شود.",
+        "protectedCopy": "نسخه دارای گذرواژه {version}",
+        "version": "نسخه {version}",
+        "verificationLink": "پیوند تأیید: <link>{path}…</link>"
+      },
+      "draftsPreview": "پیش‌نمایش پیش‌نویس‌ها به‌صورت زنده در ویرایشگر نشان داده می‌شود."
+    },
+    "send": {
+      "metaTitle": "ارسال اعلامیه بستانکاری",
+      "title": "ارسال <mono>{number}</mono>",
+      "previousSends": "ارسال‌های پیشین"
+    },
+    "builder": {
+      "against": "مربوط به <mono>{number}</mono>",
+      "summary": "{client} · جمع {total} · مانده {balance} · ظرفیت مشمول مالیات ≈ {headroom}",
+      "issueDate": "تاریخ صدور",
+      "creditAmount": "مبلغ بستانکاری (بدون مالیات)",
+      "creditAmountHint": "مالیات بر اساس سطرهای مالیاتی فاکتور تسهیم می‌شود",
+      "reason": "دلیل",
+      "picker": {
+        "title": "محاسبه از روی سطرهای فاکتور",
+        "description": "سطرهای کامل یا یک درصد را علامت بزنید؛ این فقط مبلغ بالا را پر می‌کند.",
+        "line": "سطر",
+        "subtotal": "جمع جزء",
+        "credit": "بستانکاری",
+        "percent": "%",
+        "creditLine": "سطر بستانکاری {position}",
+        "percentOfLine": "درصد سطر {position}"
+      },
+      "saveDraft": "ذخیره پیش‌نویس",
+      "issuing": "در حال صدور…",
+      "saveAndIssue": "ذخیره و صدور"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "پرداخت دریافت‌شده",
+        "REFUND": "بازپرداخت صادرشده",
+        "WRITE_OFF": "مطالبه سوخت‌شده"
+      },
+      "editTitle": "ویرایش ثبت",
+      "recordTitle": "ثبت پرداخت",
+      "description": "مبالغ به ارز فاکتور ({currency}) هستند؛ TDS کسرشده بخشی از مبلغ اعمال‌شده است.",
+      "kind": "نوع",
+      "date": "تاریخ",
+      "amountRefunded": "مبلغ بازپرداخت‌شده (منفی)",
+      "amountApplied": "مبلغ اعمال‌شده",
+      "refundHint": "یک مبلغ منفی وارد کنید، مثلاً -500",
+      "tdsDeducted": "TDS کسرشده",
+      "tdsHint": "مالیاتی که مشتری نگه داشته؛ جزو مبلغ اعمال‌شده محاسبه می‌شود",
+      "bankFees": "کارمزد بانکی",
+      "receivedInto": "دریافت‌شده در",
+      "noMethod": "-",
+      "reference": "ارجاع",
+      "referenceHint": "UTR، شناسه تراکنش، شماره چک",
+      "otherCurrency": "دریافت‌شده به ارز دیگر",
+      "amountReceived": "مبلغ دریافتی",
+      "receivedCurrency": "ارز دریافتی",
+      "exchangeRate": "نرخ تبدیل",
+      "exchangeRateHint": "۱ واحد دریافتی = ؟ {currency}",
+      "notes": "یادداشت‌ها",
+      "receiptHint": "PNG، JPEG، WebP یا PDF تا 10 MB",
+      "receipts": "رسیدها و صورت‌حساب‌ها",
+      "receiptN": "رسید {n}",
+      "removeReceipt": "حذف رسید {n}",
+      "saveChanges": "ذخیره تغییرات",
+      "record": "ثبت"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "صورت‌حساب برای",
+      "shipTo": "ارسال به",
+      "invoice": "فاکتور",
+      "creditNote": "اعلامیه بستانکاری",
+      "issueDate": "تاریخ صدور",
+      "dueDate": "تاریخ سررسید",
+      "number": "شماره",
+      "description": "شرح",
+      "sacHsn": "SAC/HSN",
+      "qty": "تعداد",
+      "unit": "واحد",
+      "rate": "نرخ",
+      "tax": "مالیات",
+      "amount": "مبلغ",
+      "subtotal": "جمع جزء",
+      "discount": "تخفیف",
+      "taxable": "مبلغ مشمول مالیات",
+      "total": "جمع کل",
+      "amountDue": "مبلغ قابل پرداخت",
+      "tdsExpected": "TDS مورد انتظار",
+      "netExpected": "خالص مورد انتظار",
+      "rounding": "گرد کردن",
+      "paymentDetails": "جزئیات پرداخت",
+      "notes": "یادداشت‌ها",
+      "terms": "شرایط",
+      "placeOfSupply": "محل عرضه",
+      "poReference": "ارجاع سفارش خرید (PO)",
+      "amountInWords": "مبلغ به حروف",
+      "signature": "امضای مجاز"
+    },
+    "title": {
+      "taxInvoice": "فاکتور مالیاتی",
+      "billOfSupply": "برگه عرضه",
+      "invoice": "فاکتور",
+      "creditNote": "اعلامیه بستانکاری"
+    },
+    "text": {
+      "pageOf": "صفحه {page} از {total}",
+      "scanToVerify": "برای تأیید اسکن کنید",
+      "taxId": "شناسه مالیاتی",
+      "void": "باطل",
+      "draftWatermark": "پیش‌نویس - فاکتور مالیاتی نیست",
+      "paymentTermsDays": "{days} روز",
+      "irn": "IRN",
+      "ackNo": "شماره تأییدیه",
+      "ackDate": "تاریخ تأییدیه",
+      "einvoiceCancelled": "فاکتور الکترونیکی ابطال شد"
+    },
+    "ui": {
+      "pageEstimate": "حدود {count, plural, one {# صفحه} other {# صفحه}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "پیام",
+      "description": "از قالب‌های نمایه صادرکننده از پیش پر شده است. تا روی ارسال کلیک نکنید چیزی فرستاده نمی‌شود.",
+      "to": "به",
+      "toHint": "جداشده با ویرگول",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "موضوع",
+      "body": "متن",
+      "bodyHint": "متن ساده؛ پیوندها قابل کلیک می‌شوند",
+      "attachment": "پیوست",
+      "attachmentHint": "نسخه ذخیره‌شده با نام <mono>{name}</mono> (یا .docx)؛ محتوای آن قابل تغییر نیست.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "در حال ارسال…",
+      "send": "ارسال",
+      "openInMailApp": "باز کردن در برنامه ایمیل",
+      "noSmtp": "هیچ سرور SMTP پیکربندی نشده است (تنظیمات ← ایمیل). پیش‌نویس را در برنامه ایمیل خود باز کنید، PDF دانلودشده را پیوست کنید و سپس در زیر آن را به‌عنوان ارسال‌شده علامت بزنید.",
+      "markAsSent": "علامت‌گذاری به‌عنوان ارسال‌شده"
+    },
+    "sentLog": {
+      "when": "زمان",
+      "document": "سند",
+      "to": "به",
+      "subject": "موضوع",
+      "status": "وضعیت",
+      "empty": "هنوز چیزی ارسال نشده است.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "ارسال‌شده",
+        "FAILED": "ناموفق",
+        "MANUAL": "دستی"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "سلام، {name}",
+    "fiscalYear": "سال مالی {year}",
+    "fiscalYearWithBase": "سال مالی {year} · ارز پایه {currency} ({profile})",
+    "newCreditNote": "اعلامیه بستانکاری جدید",
+    "welcomeTitle": "به {appName} خوش آمدید",
+    "welcomeDescription": "با ایجاد نمایه صادرکننده‌ای که با آن فاکتور صادر می‌کنید شروع کنید، سپس یک مشتری و نخستین فاکتور خود را اضافه کنید.",
+    "createProfile": "ایجاد نمایه شما",
+    "tiles": {
+      "outstanding": "معوق",
+      "overdue": "سررسید گذشته",
+      "billedThisFy": "صورت‌حساب‌شده در این سال مالی",
+      "receivedThisFy": "دریافت‌شده در این سال مالی",
+      "drafts": "پیش‌نویس‌ها",
+      "invoiceCount": "{count, plural, one {# فاکتور} other {# فاکتور}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "پرداخت‌ها منهای بازپرداخت‌ها، با نرخ ارز ثبت‌شده",
+      "awaitingIssue": "در انتظار صدور",
+      "nothingPending": "چیزی در انتظار نیست"
+    },
+    "recentInvoices": "فاکتورهای اخیر",
+    "allInvoices": "همه فاکتورها",
+    "noInvoicesYet": "هنوز فاکتوری وجود ندارد.",
+    "columns": {
+      "number": "شماره",
+      "client": "مشتری",
+      "issued": "تاریخ صدور"
+    },
+    "topClients": "مشتریان برتر بر اساس مبلغ معوق",
+    "nothingOutstanding": "مبلغ معوقی وجود ندارد."
+  },
+  "exports": {
+    "export": "برون‌بری",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "فاکتورها",
+      "newInvoice": "فاکتور جدید",
+      "draft": "پیش‌نویس",
+      "aDraft": "یک پیش‌نویس",
+      "statuses": {
+        "draft": "پیش‌نویس",
+        "issued": "صادرشده",
+        "sent": "ارسال‌شده",
+        "partiallyPaid": "پرداخت جزئی",
+        "paid": "پرداخت‌شده",
+        "overdue": "سررسید گذشته",
+        "void": "باطل"
+      },
+      "lifecycle": {
+        "draft": "پیش‌نویس",
+        "issued": "صادرشده",
+        "void": "باطل"
+      },
+      "units": {
+        "hour": "ساعت",
+        "day": "روز",
+        "fixed": "مقطوع",
+        "milestone": "مرحله",
+        "unit": "واحد"
+      },
+      "unitsLower": {
+        "hour": "ساعت",
+        "day": "روز",
+        "fixed": "مقطوع",
+        "milestone": "مرحله",
+        "unit": "واحد"
+      },
+      "supplyTypes": {
+        "intraState": "درون‌ایالتی",
+        "interState": "بین‌ایالتی",
+        "exportLut": "صادرات LUT",
+        "exportWithTax": "صادرات با مالیات",
+        "reverseCharge": "معکوس‌سازی مالیات",
+        "notApplicable": "قابل اعمال نیست"
+      }
+    },
+    "list": {
+      "description": "فاکتورهای پیش‌نویس، صادرشده و باطل؛ وضعیت‌ها از پرداخت‌ها و سررسیدها استخراج می‌شوند.",
+      "fiscalYear": "سال مالی",
+      "issuer": "صادرکننده",
+      "client": "مشتری",
+      "searchPlaceholder": "شماره، PO، مشتری",
+      "emptyTitle": "هنوز فاکتوری وجود ندارد",
+      "emptyDescription": "نخستین فاکتور خود را بسازید: مشتری را انتخاب کنید، سطرها را اضافه کنید، پیش‌نمایش را ببینید و سپس صادر کنید.",
+      "columns": {
+        "number": "شماره",
+        "client": "مشتری",
+        "issuer": "صادرکننده",
+        "issueDate": "تاریخ صدور",
+        "due": "سررسید",
+        "balance": "مانده"
+      },
+      "noMatches": "هیچ فاکتوری با این فیلترها مطابقت ندارد.",
+      "count": "{count, plural, one {# فاکتور} other {# فاکتور}}",
+      "countPaged": "{count, plural, one {# فاکتور} other {# فاکتور}} · صفحه {page} از {pages}",
+      "register": "دفتر",
+      "einvoice": "فاکتور الکترونیکی",
+      "einvoiceFilters": {
+        "registered": "IRN ثبت شده",
+        "none": "ثبت نشده",
+        "cancelled": "IRN ابطال شده"
+      }
+    },
+    "new": {
+      "noProfileTitle": "ابتدا یک نمایه صادرکننده بسازید",
+      "noProfileDescription": "فاکتور از یک هویت حقوقی صادر می‌شود: نمایه خود را با شناسه‌های مالیاتی و شماره‌گذاری آن تنظیم کنید.",
+      "createProfile": "ایجاد نمایه"
+    },
+    "edit": {
+      "metaTitle": "ویرایش فاکتور",
+      "title": "ویرایش پیش‌نویس",
+      "immutableFlash": "فاکتورهای صادرشده تغییرناپذیرند. برای اصلاح آن از «ابطال و صدور مجدد» استفاده کنید."
+    },
+    "detail": {
+      "metaTitle": "فاکتور",
+      "draftInvoice": "پیش‌نویس فاکتور",
+      "issuedDue": "صادرشده در <mono>{issued}</mono>، سررسید <mono>{due}</mono>",
+      "replaces": "جایگزین {number} می‌شود",
+      "replacedBy": "جایگزین‌شده با {number}",
+      "previewPdf": "پیش‌نمایش PDF",
+      "downloadEInvoice": "دانلود JSON فاکتور الکترونیکی",
+      "issueTitle": "این فاکتور صادر شود؟",
+      "issueDescription": "یک شماره اختصاص می‌یابد و سند تغییرناپذیر می‌شود.",
+      "issue": "صدور",
+      "deleteDraftTitle": "این پیش‌نویس حذف شود؟",
+      "sendByEmail": "ارسال با ایمیل",
+      "recordPayment": "ثبت پرداخت",
+      "progress": {
+        "title": "پیشرفت پرداخت",
+        "description": "این فاکتور در چه مرحله‌ای است، از صدور تا ثبت رسید در پرونده.",
+        "issued": "صادر شد",
+        "sent": "ارسال شد",
+        "payment": "پرداخت ثبت شد",
+        "paymentOn": "پرداخت <mono>{amount}</mono> در <mono>{date}</mono> ثبت شد",
+        "paid": "به‌طور کامل پرداخت شد",
+        "receipt": "رسید پیوست شد",
+        "done": "انجام شد",
+        "pending": "در انتظار"
+      },
+      "creditNote": "اعلامیه بستانکاری",
+      "markSentTitle": "به‌عنوان ارسال‌شده علامت‌گذاری شود؟",
+      "markSentDescription": "ثبت می‌کند که مشتری این فاکتور را دریافت کرده است.",
+      "markSent": "علامت‌گذاری به‌عنوان ارسال‌شده",
+      "voidReissueTitle": "ابطال و صدور مجدد؟",
+      "voidReissueDescription": "فاکتور اصلی باطل می‌شود و یک پیش‌نویس مرتبط با همان محتوا برای ویرایش باز می‌شود.",
+      "voidReissue": "ابطال و صدور مجدد",
+      "voidTitle": "این فاکتور باطل شود؟",
+      "voidDescription": "فقط بدون پرداخت ثبت‌شده ممکن است؛ شماره هرگز دوباره استفاده نمی‌شود.",
+      "void": "ابطال",
+      "voided": "باطل‌شده در {date}: {reason}",
+      "amounts": "مبالغ",
+      "subtotal": "جمع جزء",
+      "discount": "تخفیف",
+      "discountPercent": "تخفیف ({percent})",
+      "rounding": "گرد کردن",
+      "tdsExpected": "TDS مورد انتظار ({percent})",
+      "paid": "پرداخت‌شده",
+      "credited": "بستانکاری‌شده",
+      "balanceDue": "مانده بدهی",
+      "supply": "عرضه",
+      "fxToBase": "نرخ ارز به پایه",
+      "poReference": "ارجاع PO",
+      "sent": "ارسال‌شده",
+      "lineItems": "اقلام فاکتور",
+      "columns": {
+        "description": "شرح",
+        "sacHsn": "SAC/HSN",
+        "qty": "تعداد",
+        "rate": "نرخ",
+        "tax": "مالیات",
+        "amount": "مبلغ"
+      },
+      "creditNotes": "اعلامیه‌های بستانکاری",
+      "storedDocuments": "اسناد ذخیره‌شده",
+      "storedDocumentsHint": "هر نسخه نگه داشته می‌شود؛ صفحه تأیید همه هش‌ها را فهرست می‌کند.",
+      "regenerateTitle": "نسخه جدید PDF تولید شود؟",
+      "regenerateDescription": "از روی تصویر ثابت‌شده دوباره تولید می‌شود (مثلاً پس از اصلاح رندرکننده). نسخه‌های پیشین می‌مانند.",
+      "regenerate": "تولید",
+      "newVersion": "نسخه جدید",
+      "renderedOnFirstDownload": "PDF هنگام نخستین دانلود تولید می‌شود.",
+      "protectedCopy": "نسخه دارای گذرواژه {version}",
+      "version": "نسخه {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "پیوند تأیید:",
+      "draftPreviewHint": "پیش‌نمایش پیش‌نویس‌ها به‌صورت زنده در ویرایشگر نشان داده می‌شود؛ برای دیدن صفحه، <link>PDF واترمارک‌دار</link> را باز کنید.",
+      "einvoice": {
+        "title": "فاکتور الکترونیکی (هند)",
+        "description": "ثبت این فاکتور در پورتال ثبت فاکتور (Invoice Registration Portal)؛ سند ثبت‌شده همراه با IRN و کد QR امضاشده پورتال چاپ می‌شود.",
+        "connector": "رابط",
+        "connectors": {
+          "manual": "دستی",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "برای این نمایه رابطی پیکربندی نشده است: تنظیمات > فاکتور الکترونیکی.",
+        "statuses": {
+          "none": "ثبت نشده",
+          "generated": "JSON ساخته شد",
+          "registered": "ثبت شده",
+          "cancelled": "ابطال شده",
+          "failed": "ثبت ناموفق بود"
+        },
+        "irn": "IRN",
+        "ackNo": "شماره تأییدیه",
+        "ackDate": "تاریخ تأییدیه",
+        "cancelReason": "ابطال",
+        "generate": "ساخت IRN",
+        "pasteLabel": "پاسخ IRP",
+        "pasteHint": "JSON بازگردانده‌شده توسط پورتال یا GSP خود را برای JSON فاکتور الکترونیکی این فاکتور جای‌گذاری کنید (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "ثبت IRN",
+        "cancelReasonLabel": "دلیل ابطال",
+        "cancelReasons": {
+          "1": "تکراری",
+          "2": "اشتباه در ورود داده",
+          "3": "سفارش لغو شد",
+          "4": "سایر"
+        },
+        "cancel": "ابطال IRN",
+        "cancelWindow": "پورتال ابطال را تا 24 ساعت پس از تأییدیه مجاز می‌داند."
+      }
+    },
+    "history": {
+      "metaTitle": "تاریخچه فاکتور",
+      "title": "تاریخچه <mono>{number}</mono>",
+      "reissueChain": "زنجیره صدور مجدد",
+      "replaces": "جایگزین <link>{number}</link> می‌شود",
+      "replacedBy": "جایگزین‌شده با <link>{number}</link>",
+      "auditTrail": "رد حسابرسی",
+      "columns": {
+        "when": "زمان",
+        "who": "چه کسی",
+        "action": "عمل",
+        "summary": "خلاصه"
+      },
+      "noEvents": "هنوز رویدادی وجود ندارد.",
+      "system": "سیستم",
+      "emails": "ایمیل‌ها"
+    },
+    "payments": {
+      "title": "پرداخت‌ها",
+      "description": "{client} · جمع {total}",
+      "backToInvoice": "بازگشت به فاکتور",
+      "ledger": "دفتر",
+      "columns": {
+        "date": "تاریخ",
+        "kind": "نوع",
+        "applied": "اعمال‌شده",
+        "tds": "TDS",
+        "received": "دریافتی",
+        "reference": "ارجاع",
+        "balance": "مانده"
+      },
+      "noPayments": "هنوز پرداختی ثبت نشده است.",
+      "kinds": {
+        "payment": "پرداخت",
+        "refund": "بازپرداخت",
+        "writeOff": "مطالبه سوخت‌شده"
+      },
+      "receipt": "رسید",
+      "receiptN": "رسید {n}",
+      "deleteEntryTitle": "این ثبت حذف شود؟",
+      "deleteEntryDescription": "مانده فاکتور دوباره محاسبه می‌شود.",
+      "totals": "جمع‌ها",
+      "invoiceTotal": "جمع فاکتور",
+      "credited": "بستانکاری‌شده",
+      "refunds": "بازپرداخت‌ها",
+      "writeOffs": "مطالبات سوخت‌شده",
+      "tdsDeducted": "TDS کسرشده",
+      "bankFees": "کارمزد بانکی",
+      "balanceDue": "مانده بدهی",
+      "onlyIssued": "فقط فاکتورهای صادرشده پرداخت می‌پذیرند."
+    },
+    "send": {
+      "metaTitle": "ارسال فاکتور",
+      "title": "ارسال <mono>{number}</mono>",
+      "alreadySent": "از قبل به‌عنوان ارسال‌شده علامت خورده است؛ ارسال دوباره یک ورودی دیگر به گزارش می‌افزاید.",
+      "previousSends": "ارسال‌های پیشین"
+    },
+    "builder": {
+      "parties": "طرفین",
+      "issuerProfile": "نمایه صادرکننده",
+      "client": "مشتری",
+      "archivedOption": "{label} (بایگانی‌شده)",
+      "issueDate": "تاریخ صدور",
+      "dueDate": "تاریخ سررسید",
+      "fxRate": "نرخ ارز به ارز پایه",
+      "fxHint": "۱ {currency} = ؟ {base} (فقط برای گزارش‌گیری)",
+      "poReference": "ارجاع PO",
+      "lineItems": "اقلام فاکتور",
+      "lineItemsHint": "برای کپی مقادیر از کاتالوگ انتخاب کنید، یا یک سطر بنویسید.",
+      "taxDiscountTds": "مالیات، تخفیف و TDS",
+      "taxRegime": "نظام مالیاتی",
+      "regimes": {
+        "indiaGst": "GST هند",
+        "ukVat": "UK VAT",
+        "usSalesTax": "مالیات فروش آمریکا",
+        "none": "بدون مالیات"
+      },
+      "reverseCharge": "معکوس‌سازی مالیات",
+      "reverseChargeHint": "مالیات بر عهده دریافت‌کننده است",
+      "discount": "تخفیف",
+      "percent": "درصد",
+      "amount": "مبلغ",
+      "rounding": "تعدیل گرد کردن",
+      "roundingHint": "اختیاری، تا یک واحد کامل؛ باید کمتر از ۱ باشد",
+      "round": "گرد کردن",
+      "tdsRate": "نرخ مورد انتظار TDS (%)",
+      "tdsRateHint": "اطلاعاتی؛ هنگام روشن بودن تفکیک TDS چاپ می‌شود",
+      "paymentMethods": "روش‌های پرداخت",
+      "paymentMethodsHint": "به ترتیب علامت‌گذاری چاپ می‌شوند.",
+      "noPaymentMethods": "هیچ روش پرداخت فعالی وجود ندارد. <link>یکی اضافه کنید</link>.",
+      "whatPrints": "آنچه چاپ می‌شود",
+      "whatPrintsHint": "از پیش‌فرض‌های نمایه صادرکننده شروع می‌شود.",
+      "documentLanguage": "زبان سند",
+      "documentLanguageHint": "برچسب‌ها، تاریخ‌ها و مبالغ به این زبان چاپ می‌شوند؛ ترجیح مشتری، وگرنه زبان نمایه.",
+      "notesAndTerms": "یادداشت‌ها و شرایط",
+      "notes": "یادداشت‌ها",
+      "terms": "شرایط",
+      "saveDraft": "ذخیره پیش‌نویس",
+      "issuing": "در حال صدور…",
+      "saveAndIssue": "ذخیره و صدور",
+      "subtotal": "جمع جزء",
+      "tax": "مالیات",
+      "tdsExpected": "TDS مورد انتظار",
+      "netExpected": "خالص مورد انتظار"
+    },
+    "lineItems": {
+      "addFromCatalogue": "افزودن از کاتالوگ…",
+      "services": "خدمات",
+      "products": "محصولات",
+      "addLine": "افزودن سطر",
+      "columns": {
+        "description": "شرح",
+        "sacHsn": "SAC/HSN",
+        "qty": "تعداد",
+        "unit": "واحد",
+        "rate": "نرخ",
+        "taxPercent": "مالیات %"
+      },
+      "aria": {
+        "description": "شرح سطر {line}",
+        "sacHsn": "SAC/HSN سطر {line}",
+        "quantity": "تعداد سطر {line}",
+        "unit": "واحد سطر {line}",
+        "rate": "نرخ سطر {line}",
+        "taxRate": "نرخ مالیات سطر {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "معاف",
+      "moveUp": "انتقال به بالا",
+      "moveDown": "انتقال به پایین",
+      "removeLine": "حذف سطر",
+      "shortcutHint": "Ctrl/⌘+Enter در شرح، یک سطر اضافه می‌کند.",
+      "addFromCatalogueAria": "افزودن از کاتالوگ"
+    },
+    "display": {
+      "groups": {
+        "issuer": "جزئیات صادرکننده",
+        "client": "جزئیات مشتری",
+        "document": "بخش‌های سند"
+      },
+      "fields": {
+        "showLogo": "لوگو",
+        "showTradeName": "نام تجاری",
+        "showDesignation": "سمت",
+        "showEmail": "ایمیل",
+        "showPhone": "تلفن",
+        "showWebsite": "وب‌سایت",
+        "showFullAddress": "نشانی کامل",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "امضا",
+        "showStamp": "مهر",
+        "showContactPerson": "شخص تماس",
+        "showBillingAddress": "نشانی صورت‌حساب",
+        "showShippingAddress": "نشانی ارسال",
+        "showTaxIdentifier": "شناسه مالیاتی",
+        "showPlaceOfSupply": "محل عرضه",
+        "showDueDate": "تاریخ سررسید",
+        "showPaymentTerms": "شرایط پرداخت",
+        "showSacCodeColumn": "ستون کد SAC",
+        "showQuantityColumn": "ستون تعداد",
+        "showUnitPriceColumn": "ستون قیمت واحد",
+        "showTaxColumn": "ستون مالیات",
+        "showTdsBreakdown": "تفکیک TDS",
+        "showQrVerification": "تأیید با QR",
+        "showNotes": "یادداشت‌ها",
+        "showTerms": "شرایط",
+        "showReplacesReference": "ارجاع جایگزینی",
+        "showAmountInWords": "مبلغ به حروف",
+        "showSupplyStatement": "بیانیه عرضه",
+        "showRoundingLine": "سطر گرد کردن",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "مشتریان",
+      "description": "همه کسانی که برایشان صورت‌حساب صادر می‌کنید. مشتریانی که فاکتور دارند بایگانی می‌شوند و هرگز حذف نمی‌شوند.",
+      "newClient": "مشتری جدید",
+      "searchPlaceholder": "جستجو بر اساس نام",
+      "searchLabel": "جستجوی مشتریان",
+      "emptyTitle": "هنوز مشتری‌ای وجود ندارد",
+      "emptyDescription": "افراد و شرکت‌هایی را که برایشان فاکتور صادر می‌کنید اضافه کنید؛ ارز و شرایط پرداخت آن‌ها هر فاکتور را از پیش پر می‌کند.",
+      "addClient": "افزودن مشتری",
+      "noMatch": "هیچ مشتری‌ای با «{q}» مطابقت ندارد.",
+      "termsDays": "{days} روز",
+      "columns": {
+        "name": "نام",
+        "contact": "تماس",
+        "email": "ایمیل",
+        "country": "کشور",
+        "currency": "ارز",
+        "terms": "شرایط",
+        "status": "وضعیت"
+      }
+    },
+    "new": {
+      "title": "مشتری جدید"
+    },
+    "edit": {
+      "metaTitle": "ویرایش مشتری",
+      "title": "ویرایش {name}"
+    },
+    "detail": {
+      "metaTitle": "مشتری",
+      "newInvoice": "فاکتور جدید",
+      "restoreTitle": "این مشتری بازیابی شود؟",
+      "archiveTitle": "این مشتری بایگانی شود؟",
+      "archiveDescription": "از فهرست‌های انتخاب خارج می‌شود؛ فاکتورها و تاریخچه دست‌نخورده می‌مانند.",
+      "deleteTitle": "این مشتری حذف شود؟",
+      "deleteDescription": "فقط تا زمانی ممکن است که هیچ فاکتوری به این مشتری ارجاع نداشته باشد.",
+      "details": "جزئیات",
+      "contact": "تماس",
+      "email": "ایمیل",
+      "phone": "تلفن",
+      "country": "کشور",
+      "gstState": "GST {code}",
+      "taxId": "شناسه مالیاتی",
+      "currency": "ارز",
+      "paymentTerms": "شرایط پرداخت",
+      "paymentTermsDays": "{days} روز",
+      "expectedTds": "TDS مورد انتظار",
+      "notes": "یادداشت‌ها",
+      "addresses": "نشانی‌ها",
+      "billing": "صورت‌حساب",
+      "shipping": "ارسال",
+      "lifetime": "کل دوره",
+      "openRegister": "باز کردن دفتر",
+      "noIssued": "هنوز فاکتور صادرشده‌ای وجود ندارد.",
+      "noIssuedWithDrafts": "هنوز فاکتور صادرشده‌ای وجود ندارد ({drafts} پیش‌نویس).",
+      "firstLatest": "نخستین فاکتور <mono>{first}</mono>، آخرین <mono>{latest}</mono>{drafts, plural, =0 {} one { · # پیش‌نویس} other { · # پیش‌نویس}}",
+      "lifetimeColumns": {
+        "currency": "ارز",
+        "invoices": "فاکتورها",
+        "billed": "صورت‌حساب‌شده",
+        "received": "دریافت‌شده",
+        "credited": "بستانکاری‌شده",
+        "outstanding": "معوق",
+        "overdue": "سررسید گذشته"
+      },
+      "recentInvoices": "فاکتورهای اخیر",
+      "noInvoices": "هنوز فاکتوری برای این مشتری وجود ندارد.",
+      "recentColumns": {
+        "number": "شماره",
+        "issueDate": "تاریخ صدور",
+        "due": "سررسید",
+        "total": "جمع کل",
+        "balance": "مانده",
+        "status": "وضعیت"
+      }
+    },
+    "form": {
+      "cardTitle": "مشتری",
+      "displayName": "نام نمایشی",
+      "contactPerson": "شخص تماس",
+      "email": "ایمیل",
+      "phone": "تلفن",
+      "taxIdType": "نوع شناسه مالیاتی",
+      "taxIdTypeNone": "هیچ",
+      "taxId": "شناسه مالیاتی",
+      "currency": "ارز",
+      "paymentTerms": "شرایط پرداخت (روز)",
+      "expectedTdsRate": "نرخ مورد انتظار TDS (%)",
+      "preferredLanguage": "زبان سند",
+      "preferredLanguageFollow": "پیروی از نمایهٔ صادرکننده",
+      "buyerReference": "ارجاع خریدار",
+      "buyerReferenceHint": "در فاکتورهای الکترونیکی به عنوان ارجاع خود خریدار (شماره سفارش یا مرکز هزینه) چاپ می‌شود.",
+      "electronicAddress": "نشانی الکترونیکی",
+      "electronicAddressHint": "شناسه Peppol یا EN 16931 که این مشتری فاکتورهای الکترونیکی را با آن دریافت می‌کند.",
+      "electronicAddressScheme": "طرح نشانی الکترونیکی",
+      "electronicAddressSchemeNone": "بدون طرح",
+      "notes": "یادداشت‌ها",
+      "billingAddress": "نشانی صورت‌حساب",
+      "shippingAddress": "نشانی ارسال",
+      "differentFromBilling": "متفاوت از صورت‌حساب",
+      "save": "ذخیره مشتری"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "ساعت",
+      "DAY": "روز",
+      "FIXED": "مقطوع",
+      "MILESTONE": "مرحله",
+      "UNIT": "واحد"
+    },
+    "list": {
+      "activate": "فعال‌سازی",
+      "deactivate": "غیرفعال‌سازی",
+      "archiveDescription": "سطرهای فاکتور موجود مقادیر کپی‌شده خود را حفظ می‌کنند.",
+      "deleteDescription": "فقط تا زمانی ممکن است که هیچ سطر فاکتوری به آن ارجاع نداشته باشد. در غیر این صورت آن را بایگانی کنید.",
+      "columns": {
+        "sku": "SKU",
+        "name": "نام",
+        "unit": "واحد",
+        "rate": "نرخ",
+        "price": "قیمت",
+        "currency": "ارز",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "مالیات",
+        "status": "وضعیت"
+      }
+    },
+    "services": {
+      "title": "خدمات",
+      "description": "کاتالوگ شما. انتخاب یک خدمت، مقادیر آن را روی سطر فاکتور کپی می‌کند.",
+      "newService": "خدمت جدید",
+      "emptyTitle": "هنوز خدمتی وجود ندارد",
+      "emptyDescription": "آنچه می‌فروشید را اضافه کنید - طراحی ساعتی، یک مرحله با کارمزد ثابت - همراه با کد SAC/HSN و نرخ مالیات آن.",
+      "addService": "افزودن خدمت",
+      "restoreTitle": "{name} بازیابی شود؟",
+      "archiveTitle": "{name} بایگانی شود؟",
+      "deleteTitle": "{name} حذف شود؟",
+      "editMetaTitle": "ویرایش خدمت",
+      "editTitle": "ویرایش {name}"
+    },
+    "products": {
+      "title": "محصولات",
+      "description": "کالاهایی که می‌فروشید، هر کدام با یک SKU. انتخاب یک محصول، مقادیر آن را روی سطر فاکتور کپی می‌کند.",
+      "newProduct": "محصول جدید",
+      "emptyTitle": "هنوز محصولی وجود ندارد",
+      "emptyDescription": "کالاهایی را که می‌فروشید با SKU، کد HSN، قیمت واحد و نرخ مالیات اضافه کنید.",
+      "addProduct": "افزودن محصول",
+      "restoreTitle": "{sku} بازیابی شود؟",
+      "archiveTitle": "{sku} بایگانی شود؟",
+      "deleteTitle": "{sku} حذف شود؟",
+      "editMetaTitle": "ویرایش محصول",
+      "editTitle": "ویرایش {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "کد یکتایی که زیر شرح سطر چاپ می‌شود",
+      "name": "نام",
+      "unit": "واحد",
+      "defaultRate": "نرخ پیش‌فرض",
+      "unitPrice": "قیمت واحد",
+      "currency": "ارز",
+      "sacHsnCode": "کد SAC / HSN",
+      "sacHsnHint": "در فاکتورهای GST الزامی است",
+      "hsnCode": "کد HSN",
+      "hsnHint": "برای کالاها در فاکتورهای GST الزامی است",
+      "defaultTaxRate": "نرخ مالیات پیش‌فرض (%)",
+      "description": "شرح",
+      "descriptionHint": "شرح سطر را از پیش پر می‌کند",
+      "active": "فعال",
+      "serviceInactiveHint": "خدمات غیرفعال از فهرست انتخاب فاکتور بیرون می‌مانند",
+      "productInactiveHint": "محصولات غیرفعال از فهرست انتخاب فاکتور بیرون می‌مانند",
+      "saveService": "ذخیره خدمت",
+      "saveProduct": "ذخیره محصول"
+    },
+    "tags": {
+      "legend": "نمایه‌ها",
+      "hint": "نمایه‌های صادرکننده‌ای را که این را می‌فروشند علامت بزنید. برای ارائه آن به همه نمایه‌ها، همه را بدون علامت بگذارید."
+    }
+  },
+  "address": {
+    "line1": "سطر اول نشانی",
+    "line2": "سطر دوم نشانی",
+    "city": "شهر",
+    "stateRegion": "استان / منطقه",
+    "postalCode": "کد پستی",
+    "country": "کشور",
+    "state": "ایالت",
+    "gstStateCodeHint": "کد ایالت GST {code}",
+    "pickStateHint": "ایالت را برای کد ایالت GST انتخاب کنید",
+    "stateRegionCode": "کد استان / منطقه",
+    "stateRegionCodePlaceholder": "مثلاً CA"
+  },
+  "assets": {
+    "tooLarge": "این فایل بیش از حد بزرگ است.",
+    "unsupportedReceipt": "از تصویر PNG، JPEG، WebP یا PDF استفاده کنید.",
+    "unsupportedImage": "از تصویر PNG، JPEG یا WebP استفاده کنید.",
+    "uploadFailed": "بارگذاری ناموفق بود.",
+    "uploading": "در حال بارگذاری…",
+    "dropHint": "فایلی را اینجا بکشید یا یکی را انتخاب کنید",
+    "dropHintMany": "فایل‌ها را اینجا بکشید، یا انتخاب کنید",
+    "dropActive": "برای بارگذاری رها کنید"
+  },
+  "ui": {
+    "breadcrumb": "مسیر صفحه",
+    "close": "بستن",
+    "closeMenu": "بستن منو",
+    "reveal": "نمایش",
+    "hide": "پنهان کردن",
+    "openCalendar": "باز کردن تقویم",
+    "chooseMonth": "انتخاب ماه",
+    "chooseYear": "انتخاب سال",
+    "searchOptions": "برای جستجو تایپ کنید",
+    "noMatches": "موردی یافت نشد",
+    "pullToRefresh": {
+      "label": "فهرست قابل تازه‌سازی",
+      "pulling": "برای تازه‌سازی بکشید",
+      "release": "برای تازه‌سازی رها کنید",
+      "refreshing": "در حال تازه‌سازی"
+    },
+    "inputCharset": "فقط نویسه‌های استاندارد صفحه‌کلید مجاز است.",
+    "confirm": {
+      "working": "در حال انجام…"
+    },
+    "statusPill": {
+      "DRAFT": "پیش‌نویس",
+      "ISSUED": "صادرشده",
+      "SENT": "ارسال‌شده",
+      "PARTIALLY_PAID": "پرداخت جزئی",
+      "PAID": "پرداخت‌شده",
+      "OVERDUE": "سررسید گذشته",
+      "VOID": "باطل"
+    },
+    "activePill": {
+      "active": "فعال",
+      "archived": "بایگانی‌شده",
+      "inactive": "غیرفعال"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "مشکلی پیش آمد.",
+    "fixFields": "لطفاً فیلدهای مشخص‌شده را اصلاح کنید.",
+    "accountSaved": "ترجیحات حساب ذخیره شد",
+    "apiKeyCreated": "کلید API ایجاد شد. همین حالا آن را کپی کنید: فقط یک بار نمایش داده می‌شود.",
+    "saved": "{name} ذخیره شد",
+    "savedProfile": "نمایه {label} ذخیره شد",
+    "clientArchived": "مشتری بایگانی شد",
+    "clientRestored": "مشتری بازیابی شد",
+    "clientDeleted": "مشتری حذف شد",
+    "productArchived": "محصول بایگانی شد",
+    "productRestored": "محصول بازیابی شد",
+    "productActivated": "محصول فعال شد",
+    "productDeactivated": "محصول غیرفعال شد",
+    "serviceArchived": "خدمت بایگانی شد",
+    "serviceRestored": "خدمت بازیابی شد",
+    "serviceActivated": "خدمت فعال شد",
+    "serviceDeactivated": "خدمت غیرفعال شد",
+    "defaultProfileUpdated": "نمایه پیش‌فرض به‌روزرسانی شد",
+    "profileArchived": "نمایه بایگانی شد",
+    "profileRestored": "نمایه بازیابی شد",
+    "profileDeleted": "نمایه حذف شد",
+    "defaultPaymentMethodUpdated": "روش پرداخت پیش‌فرض به‌روزرسانی شد",
+    "paymentMethodArchived": "روش پرداخت بایگانی شد",
+    "paymentMethodRestored": "روش پرداخت بازیابی شد",
+    "paymentMethodDeleted": "روش پرداخت حذف شد",
+    "issued": "{number} صادر شد",
+    "savedAsDraft": "به‌عنوان پیش‌نویس ذخیره شد. {reason}",
+    "draftSaved": "پیش‌نویس ذخیره شد",
+    "invoiceVoided": "فاکتور باطل شد",
+    "originalVoided": "فاکتور اصلی باطل شد؛ پیش‌نویس جایگزین را ویرایش کنید",
+    "markedAsSent": "به‌عنوان ارسال‌شده علامت‌گذاری شد",
+    "draftDeleted": "پیش‌نویس حذف شد",
+    "generatedPdf": "نسخه {version} از PDF تولید شد",
+    "creditNoteVoided": "اعلامیه بستانکاری باطل شد؛ مانده فاکتور بازیابی شد",
+    "draftCreditNoteDeleted": "پیش‌نویس اعلامیه بستانکاری حذف شد",
+    "mailRefused": "سرور ایمیل پیام را نپذیرفت: {error}. این تلاش ثبت شد.",
+    "unknownError": "خطای ناشناخته",
+    "sentTo": "به {recipients} ارسال شد",
+    "smtpSaved": "تنظیمات SMTP ذخیره شد",
+    "smtpRemoved": "تنظیمات ذخیره‌شده SMTP حذف شد",
+    "testEmailSent": "ایمیل آزمایشی به {email} ارسال شد",
+    "testFailed": "آزمایش ناموفق بود: {error}",
+    "defaultRecipientsSaved": "گیرندگان پیش‌فرض ذخیره شدند",
+    "invitationSent": "دعوت‌نامه ارسال شد",
+    "invitationReady": "دعوت‌نامه آماده است",
+    "unknownRole": "نقش ناشناخته",
+    "roleUpdated": "نقش به‌روزرسانی شد",
+    "accountDeactivated": "حساب غیرفعال شد",
+    "accountReactivated": "حساب دوباره فعال شد",
+    "invitationRevoked": "دعوت‌نامه باطل شد",
+    "paymentUpdated": "پرداخت به‌روزرسانی شد",
+    "paymentRecorded": "پرداخت ثبت شد",
+    "paymentDeleted": "پرداخت حذف شد",
+    "sessionRevoked": "نشست باطل شد",
+    "noOtherSessions": "نشست دیگری وجود ندارد",
+    "signedOutOthers": "از {count} نشست دیگر خارج شد",
+    "sharePasswordRequired": "یک گذرواژه وارد کنید، یا بگذارید تولید شود.",
+    "shareLinkCreated": "پیوند اشتراک‌گذاری ایجاد شد.",
+    "templateSaved": "قالب ذخیره شد؛ اسناد بعدی از آن استفاده می‌کنند",
+    "templateReset": "قالب به پیش‌فرض داخلی بازنشانی شد",
+    "templateImported": "قالب درون‌ریزی شد",
+    "profileTemplateCleared": "نمایه دوباره از قالب نمونه استفاده می‌کند",
+    "operatorSaved": "جزئیات بهره‌بردار ذخیره شد. صفحه‌های حقوقی اکنون آن‌ها را نشان می‌دهند.",
+    "einvoiceSettingsSaved": "تنظیمات فاکتور الکترونیکی ذخیره شد",
+    "irnRegistered": "IRN {irn} ثبت شد؛ PDF با آن دوباره ساخته شد",
+    "irnRecorded": "IRN ثبت شد؛ PDF با آن دوباره ساخته شد",
+    "irnCancelled": "IRN ابطال شد؛ PDF دوباره ساخته شد"
+  }
+}

@@ -1,5 +1,5 @@
 /**
- * Soft delete (SPEC §4.2–4.5): archivable aggregates are hidden from list queries unless the
+ * Soft delete (SPEC §4.2-4.5): archivable aggregates are hidden from list queries unless the
  * caller names `archivedAt` explicitly (`archivedAt: {}` means "either"). Applied by the Prisma
  * client extension in `lib/db.ts`; DAL code never hand-writes `archivedAt: null` filters.
  */
@@ -7,6 +7,7 @@ export const ARCHIVABLE_MODELS: ReadonlySet<string> = new Set([
   "IssuerProfile",
   "Client",
   "ServiceItem",
+  "Product",
   "PaymentMethodProfile",
 ]);
 

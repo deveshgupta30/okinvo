@@ -1,5 +1,6 @@
 import "server-only";
-import { Prisma } from "@/generated/prisma/client";
+import { EInvoiceStateSchema, type EInvoiceState } from "@/lib/schemas/einvoice-state";
+import { Prisma, type DocumentFormat } from "@/generated/prisma/client";
 import {
   addDays,
   compareDates,
@@ -49,6 +50,8 @@ export interface InvoiceItemDto {
   id: string;
   position: number;
   serviceItemId: string | null;
+  productId: string | null;
+  sku: string | null;
   description: string;
   sacHsnCode: string | null;
   unitType: "HOUR" | "DAY" | "FIXED" | "MILESTONE" | "UNIT";
@@ -84,9 +87,12 @@ export interface InvoiceListRow {
   issuerLabel: string;
   locale: string;
   sentAt: string | null;
+  /** E-invoice registration status (spec §9e); NONE until a JSON is generated. */
+  einvoiceStatus: EInvoiceState["status"];
 }
 
 export interface InvoiceDto extends InvoiceListRow {
+  einvoice: EInvoiceState | null;
   fiscalYear: string | null;
   sequenceNumber: number | null;
   issuedAt: string | null;
@@ -117,6 +123,8 @@ export interface InvoiceDto extends InvoiceListRow {
   notes: string | null;
   terms: string | null;
   displayConfig: DisplayConfig;
+  /** The language the document prints in (SPEC §4.10); fixed once issued like everything else. */
+  documentLocale: string;
   templateSnapshot: TemplateConfig | null;
   issuerSnapshot: IssuerSnapshot | null;
   clientSnapshot: ClientSnapshot | null;
@@ -129,14 +137,16 @@ export interface InvoiceDto extends InvoiceListRow {
     id: string;
     label: string;
     legalName: string;
+    gstin: string | null;
+    einvoiceEnabled: boolean;
     locale: string;
     baseCurrency: string;
     fiscalYearStartMonth: number;
-    gstin: string | null;
   };
   client: { id: string; displayName: string; email: string | null; paymentTermsDays: number };
   documents: {
     id: string;
+    format: DocumentFormat;
     version: number;
     sha256: string;
     byteSize: number;
@@ -169,6 +179,7 @@ const DETAIL_INCLUDE = {
       baseCurrency: true,
       fiscalYearStartMonth: true,
       gstin: true,
+      einvoiceEnabled: true,
     },
   },
   client: { select: { id: true, displayName: true, email: true, paymentTermsDays: true } },
@@ -245,6 +256,9 @@ function toDto(row: DetailRow, today: DateString): InvoiceDto {
     notes: row.notes,
     terms: row.terms,
     displayConfig: mergeDisplayConfig(row.displayConfig),
+    documentLocale: row.documentLocale,
+    einvoice: parseEInvoice(row.einvoice),
+    einvoiceStatus: parseEInvoice(row.einvoice)?.status ?? "NONE",
     templateSnapshot: row.templateSnapshot ? mergeTemplateConfig(row.templateSnapshot) : null,
     issuerSnapshot: parseSnapshot(IssuerSnapshotSchema, row.issuerSnapshot),
     clientSnapshot: parseSnapshot(ClientSnapshotSchema, row.clientSnapshot),
@@ -265,6 +279,8 @@ function toDto(row: DetailRow, today: DateString): InvoiceDto {
       lineSubtotal: money(i.lineSubtotal, c),
       taxRate: D(i.taxRate.toString()).toString(),
       taxExempt: i.taxExempt,
+      productId: i.productId,
+      sku: i.sku,
       taxAmount: money(i.taxAmount, c),
       lineTotal: money(i.lineTotal, c),
     })),
@@ -284,6 +300,7 @@ function toDto(row: DetailRow, today: DateString): InvoiceDto {
     client: row.client,
     documents: row.documents.map((d) => ({
       id: d.id,
+      format: d.format,
       version: d.version,
       sha256: d.sha256,
       byteSize: d.byteSize,
@@ -335,6 +352,8 @@ function itemsCreate(input: InvoiceDraftInput, c: Computed) {
     return {
       position,
       serviceItemId: it.serviceItemId ?? null,
+      productId: it.productId ?? null,
+      sku: it.sku ?? null,
       description: it.description,
       sacHsnCode: it.sacHsnCode ?? null,
       unitType: it.unitType,
@@ -377,6 +396,13 @@ async function loadParties(tx: Tx, input: InvoiceDraftInput) {
   return { issuer, client };
 }
 
+/** The stored registration state; a stale or absent value reads as NONE. */
+function parseEInvoice(value: unknown): EInvoiceState | null {
+  if (value === null || value === undefined) return null;
+  const parsed = EInvoiceStateSchema.safeParse(value);
+  return parsed.success ? parsed.data : null;
+}
+
 function draftData(input: InvoiceDraftInput, c: Computed, placeOfSupply: string | null) {
   return {
     issuerProfileId: input.issuerProfileId,
@@ -395,6 +421,7 @@ function draftData(input: InvoiceDraftInput, c: Computed, placeOfSupply: string 
     notes: input.notes ?? null,
     terms: input.terms ?? null,
     displayConfig: json(input.displayConfig),
+    documentLocale: input.documentLocale,
     ...totalsData(c, input.currency),
     balanceDue: toMoneyString(c.totals.total, input.currency),
     items: { create: itemsCreate(input, c) },
@@ -744,6 +771,7 @@ export async function voidAndReissue(actor: Actor, id: string, reason: string): 
         notes: old.notes,
         terms: old.terms,
         displayConfig: old.displayConfig as Prisma.InputJsonValue,
+        documentLocale: old.documentLocale,
         replacesInvoiceId: old.id,
         ...tokenFields(),
         items: {
@@ -826,6 +854,23 @@ export async function listInvoices(
       ...(filters.issuerProfileId ? { issuerProfileId: filters.issuerProfileId } : {}),
       ...(filters.clientId ? { clientId: filters.clientId } : {}),
       ...(filters.currency ? { currency: filters.currency } : {}),
+      ...(filters.einvoice === "registered"
+        ? { einvoice: { path: ["status"], equals: "REGISTERED" } }
+        : filters.einvoice === "cancelled"
+          ? { einvoice: { path: ["status"], equals: "CANCELLED" } }
+          : filters.einvoice === "none"
+            ? {
+                // nested so the search's own OR stays intact
+                AND: [
+                  {
+                    OR: [
+                      { einvoice: { equals: Prisma.DbNull } },
+                      { einvoice: { path: ["status"], equals: "NONE" } },
+                    ],
+                  },
+                ],
+              }
+            : {}),
       ...(filters.status === "DRAFT" || filters.status === "VOID"
         ? { status: filters.status }
         : {}),
@@ -883,6 +928,7 @@ export async function listInvoices(
     issuerLabel: r.issuerProfile.label,
     locale: r.issuerProfile.locale,
     sentAt: r.sentAt?.toISOString() ?? null,
+    einvoiceStatus: parseEInvoice(r.einvoice)?.status ?? "NONE",
   }));
   // Derived statuses (PAID, OVERDUE, …) depend on "today" in the viewer's zone, so filter here.
   return filters.status ? list.filter((r) => r.displayStatus === filters.status) : list;

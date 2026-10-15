@@ -22,7 +22,7 @@ FROM deps AS migrate
 COPY prisma ./prisma
 COPY prisma.config.ts ./
 # The schema engine is fetched by @prisma/engines' postinstall (allow-listed in package.json
-# `pnpm.onlyBuiltDependencies`). Verify it is present now — the runtime network has no egress —
+# `pnpm.onlyBuiltDependencies`). Verify it is present now - the runtime network has no egress - 
 # and let the unprivileged user own the directory so the CLI never tries to write as root.
 # pnpm (installed by npm in `base`) is self-contained; the migration image never runs npm, npx,
 # corepack or yarn, so they leave with their bundled dependencies (Trivy flags npm's).
@@ -36,7 +36,10 @@ CMD ["pnpm", "prisma", "migrate", "deploy"]
 
 # ── Runtime image ──
 FROM ${NODE_IMAGE} AS runner
-ENV NODE_ENV=production PORT=3000 HOSTNAME=0.0.0.0 NEXT_TELEMETRY_DISABLED=1
+ARG BUILD_SHA=""
+ARG BUILD_DATE=""
+ENV NODE_ENV=production PORT=3000 HOSTNAME=0.0.0.0 NEXT_TELEMETRY_DISABLED=1 \
+    OKINVO_BUILD_SHA=$BUILD_SHA OKINVO_BUILD_DATE=$BUILD_DATE
 # The runtime only runs `node server.js`: npm, npx, corepack and yarn leave with their bundled
 # dependencies (Trivy flags npm's), which also keeps the image smaller.
 RUN apk add --no-cache tini && addgroup -S -g 1001 app && adduser -S -u 1001 -G app app \
@@ -47,6 +50,7 @@ WORKDIR /app
 COPY --from=build --chown=app:app /app/.next/standalone ./
 COPY --from=build --chown=app:app /app/.next/static ./.next/static
 COPY --from=build --chown=app:app /app/public ./public
+COPY --from=build --chown=app:app /app/THIRD_PARTY_NOTICES.md ./
 USER app
 EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=20s CMD wget -qO- http://127.0.0.1:3000/api/health/live || exit 1

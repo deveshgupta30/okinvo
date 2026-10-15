@@ -1,6 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import * as React from "react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/motion/breadcrumb";
 
 export interface Crumb {
   href: string;
@@ -21,21 +31,37 @@ export function PageHeader({
   actions?: React.ReactNode;
   meta?: React.ReactNode;
 }) {
+  const t = useTranslations("ui");
   return (
     <div className="mb-6 flex flex-col gap-2">
       {breadcrumb.length > 0 ? (
-        <nav aria-label="Breadcrumb" className="flex h-5 items-center gap-1 text-app-caption">
-          {breadcrumb.map((c, i) => (
-            <React.Fragment key={c.href}>
-              {i > 0 ? (
-                <ChevronRight aria-hidden className="size-3 text-ink-tertiary" strokeWidth={1.5} />
-              ) : null}
-              <Link href={c.href} className="text-ink-subtle hover:text-ink">
-                {c.label}
-              </Link>
-            </React.Fragment>
-          ))}
-        </nav>
+        <Breadcrumb aria-label={t("breadcrumb")} className="flex h-5 items-center text-app-caption">
+          <BreadcrumbList overflowLabel={t("breadcrumb")} className="gap-1 text-app-caption">
+            {breadcrumb.map((c, i) => (
+              <BreadcrumbItem key={c.href} className="inline-flex items-center gap-1">
+                {i > 0 ? (
+                  <BreadcrumbSeparator>
+                    <ChevronRight
+                      aria-hidden
+                      className="size-3 text-ink-tertiary"
+                      strokeWidth={1.5}
+                    />
+                  </BreadcrumbSeparator>
+                ) : null}
+                <BreadcrumbLink
+                  className="text-ink-subtle hover:text-ink"
+                  render={({ className, children }) => (
+                    <Link href={c.href} className={className ?? ""}>
+                      {children}
+                    </Link>
+                  )}
+                >
+                  {c.label}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+            ))}
+          </BreadcrumbList>
+        </Breadcrumb>
       ) : null}
       <div className="flex min-h-12 flex-wrap items-center justify-between gap-4">
         <div className="flex min-w-0 flex-col gap-1">

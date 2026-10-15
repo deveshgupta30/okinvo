@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import ExcelJS from "exceljs";
+import { pickCombobox, signInAs } from "./helpers";
 
 /**
  * The whole owner journey through the real UI (SPEC §4, v2 §19). Needs AUTH_PASSWORD_SIGNIN=true
@@ -14,49 +15,14 @@ const stamp = Date.now();
 // Password sign-up needs an exact allow-list entry (no *@domain), so the owner is a fixed address:
 // created on the first run against a database, signed in on every later run.
 const email = "e2e@example.com";
-const password = "correct horse battery staple";
 const profileLabel = `E2E profile ${stamp}`;
 const clientName = `E2E client ${stamp}`;
 const serviceName = `E2E service ${stamp}`;
 
-async function signIn(page: Page) {
-  await page.goto("/auth/sign-in");
-  const form = page.getByTestId("password-sign-in");
-  const shell = page.getByRole("navigation", { name: "Primary" });
-  // The toggle is client-side: keep clicking until hydration makes it take effect.
-  await expect(async () => {
-    await form.getByRole("button", { name: /First time here/ }).click();
-    await expect(form.getByLabel("Name")).toBeVisible({ timeout: 1_000 });
-  }).toPass({ timeout: 60_000 });
-  await form.getByLabel("Name").fill("E2E Owner");
-  await form.getByLabel("Email").fill(email);
-  await form.getByLabel("Password").fill(password);
-  await form.getByRole("button", { name: "Create account" }).click();
-  // Second and later runs: the account exists ("User already exists"), so sign in instead.
-  const exists = form.getByText(/user already exists|already exists/i);
-  await expect(shell.or(exists).first()).toBeVisible({ timeout: 30_000 });
-  if (!(await shell.isVisible())) await signInAgain(page);
-  await expect(shell).toBeVisible();
-}
-
-/** The existing account, through the password sign-in (not sign-up) branch of the same form. */
-async function signInAgain(page: Page) {
-  await page.goto("/auth/sign-in");
-  const form = page.getByTestId("password-sign-in");
-  await expect(async () => {
-    await form.getByLabel("Email").fill(email);
-    await form.getByLabel("Password").fill(password);
-    await form.getByRole("button", { name: "Sign in" }).click();
-    await expect(page.getByRole("navigation", { name: "Primary" })).toBeVisible({
-      timeout: 5_000,
-    });
-  }).toPass({ timeout: 60_000 });
-}
-
 test("sign in, master data, invoice, issue, download, verify, pay, credit, template, export", async ({
   page,
 }) => {
-  await signIn(page);
+  await signInAs(page, email, "E2E Owner");
 
   // Issuer profile
   await page.goto("/settings/profiles/new");
@@ -94,9 +60,14 @@ test("sign in, master data, invoice, issue, download, verify, pay, credit, templ
 
   // Invoice: catalogue line + ad hoc line, live preview, save & issue
   await page.goto("/invoices/new");
-  await page.locator("#issuerProfileId").selectOption({ label: profileLabel });
-  await page.locator("#clientId").selectOption({ label: clientName });
-  await page.getByLabel("Add from catalogue").selectOption({ index: 1 });
+  await pickCombobox(page, "#issuerProfileId", profileLabel);
+  await pickCombobox(page, "#clientId", clientName);
+  await page.locator("#catalogue-picker").click();
+  await page
+    .getByRole("listbox", { name: "Add from catalogue" })
+    .getByRole("option")
+    .first()
+    .click();
   await page.getByRole("button", { name: "Add line" }).click();
   await page.getByLabel("Line 2 description").fill("Ad hoc consulting");
   await page.getByLabel("Line 2 SAC/HSN").fill("998314");
@@ -142,7 +113,7 @@ test("sign in, master data, invoice, issue, download, verify, pay, credit, templ
   await expect(page.getByText("No such document")).toBeVisible();
 
   // Back in as the same owner through the password sign-in branch
-  await signInAgain(page);
+  await signInAs(page, email, "E2E Owner");
 
   // Partial payment → PARTIALLY_PAID (a fully paid invoice could not take a credit note)
   await page.goto(`/invoices/${invoiceId}/payments`);
@@ -176,7 +147,7 @@ test("sign in, master data, invoice, issue, download, verify, pay, credit, templ
 
   // Changing the template later never rewrites an issued document
   await page.goto("/settings/templates");
-  const accentText = page.locator("#accent ~ input");
+  const accentText = page.locator("#accent-hex");
   await accentText.fill("#aa3366");
   await page.getByRole("button", { name: "Save template" }).click();
   await expect(page.getByText(/saved/i).first()).toBeVisible();

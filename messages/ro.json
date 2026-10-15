@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Pagina principală okinvo",
+    "save": "Salvează",
+    "cancel": "Anulează",
+    "continue": "Continuă",
+    "saving": "Se salvează…",
+    "detect": "Detectează",
+    "yes": "Da",
+    "no": "Nu",
+    "choose": "Alege…",
+    "remove": "Elimină",
+    "tryAgain": "Încearcă din nou",
+    "dashboard": "Panou de control",
+    "goToDashboard": "Mergi la panoul de control",
+    "or": "sau",
+    "invoice": "Factură",
+    "creditNote": "Notă de credit",
+    "downloadPdf": "Descarcă PDF",
+    "edit": "Editează",
+    "delete": "Șterge",
+    "downloadDocx": "Descarcă DOCX",
+    "downloadCii": "Descarcă EN 16931 XML",
+    "downloadUbl": "Descarcă Peppol UBL",
+    "downloadFacturX": "Descarcă Factur-X PDF",
+    "none": "Niciunul",
+    "dismiss": "Închide",
+    "all": "Toate",
+    "previous": "Anterior",
+    "next": "Următor",
+    "go": "Mergi",
+    "search": "Caută",
+    "status": "Stare",
+    "total": "Total",
+    "currency": "Monedă",
+    "from": "De la",
+    "to": "Până la",
+    "reason": "Motiv",
+    "history": "Istoric",
+    "archive": "Arhivează",
+    "restore": "Restaurează",
+    "showArchived": "Arată arhivate",
+    "hideArchived": "Ascunde arhivate",
+    "archived": "Arhivat",
+    "default": "Implicit",
+    "setDefault": "Setează ca implicit",
+    "revoke": "Revocă",
+    "copy": "Copiază",
+    "copied": "Copiat",
+    "active": "Activ",
+    "pagination": "Paginare",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Panou de control",
+      "invoices": "Facturi",
+      "creditNotes": "Note de credit",
+      "clients": "Clienți",
+      "services": "Servicii",
+      "products": "Produse",
+      "tools": "Valute"
+    },
+    "primaryNav": "Principal",
+    "settings": "Setări",
+    "openMenu": "Deschide meniul",
+    "more": "Mai multe",
+    "navigation": "Navigare",
+    "dock": "Navigare rapidă",
+    "pagesAndAccount": "Pagini și cont",
+    "collapseSidebar": "Restrânge bara laterală",
+    "collapseSidebarHint": "Restrânge bara laterală ([)",
+    "expandSidebar": "Extinde bara laterală",
+    "expandSidebarHint": "Extinde bara laterală ([)",
+    "theme": {
+      "label": "Temă",
+      "system": "Sistem",
+      "light": "Luminoasă",
+      "dark": "Întunecată",
+      "current": "Temă: {mode}",
+      "switchTo": "Temă: {mode}. Comută la {next}"
+    },
+    "userMenu": {
+      "label": "Meniul contului pentru {name}",
+      "profile": "Profil",
+      "logOut": "Deconectare"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Convertor valutar",
+      "title": "Convertor valutar",
+      "description": "Convertește între monedele în care facturezi, cu tabelul cursurilor de schimb pe care îl conține această instanță.",
+      "amount": "Sumă",
+      "from": "Din",
+      "to": "În",
+      "flip": "Inversează monedele",
+      "enterAmount": "Introdu o sumă",
+      "asOf": "Cursuri de schimb la data de {date} ({source})",
+      "sources": {
+        "bundled": "incluse în aplicație",
+        "live": "actualizate online"
+      },
+      "note": "Cursurile sunt orientative; cursul de pe o factură emisă este cel introdus de tine la emitere."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Autentificare",
+      "metaDescription": "Conectează-te la okinvo, aplicația de facturare autogăzduită, cu furnizorul tău de identitate sau cu parola.",
+      "title": "Autentificare",
+      "subtitle": "Doar conturile din lista de permisiuni pot intra.",
+      "failed": "Autentificarea a eșuat.",
+      "noMethod": "Nicio metodă de autentificare nu este configurată. Setați o pereche de furnizor, precum <code>AUTH_GITHUB_*</code>, sau <code>AUTH_PASSWORD_SIGNIN=true</code>, în <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Acest cont nu este permis pe această instanță sau a fost dezactivat.",
+        "signin": "Autentificarea nu s-a finalizat. Încercați din nou."
+      }
+    },
+    "password": {
+      "name": "Nume",
+      "email": "E-mail",
+      "password": "Parolă",
+      "signingIn": "Se autentifică…",
+      "createAccount": "Creează cont",
+      "signIn": "Autentificare",
+      "haveAPassword": "Am deja o parolă",
+      "firstTime": "Prima dată aici? Setați o parolă",
+      "failed": "Autentificarea a eșuat."
+    },
+    "social": {
+      "redirecting": "Se redirecționează…",
+      "continueWith": "Continuă cu {provider}",
+      "failed": "Autentificarea nu a putut porni."
+    },
+    "error": {
+      "metaTitle": "Eroare de autentificare",
+      "metaDescription": "Conectarea nu s-a finalizat. Pagina explică ce a mers prost și cum poți încerca din nou.",
+      "title": "Autentificarea a eșuat",
+      "body": "Furnizorul de identitate a returnat <code>{value}</code>. Dacă adresa dvs. nu se află în lista de permisiuni a acestei instanțe, cereți proprietarului să o adauge.",
+      "back": "Înapoi la autentificare"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Setări",
+      "profiles": "Profiluri",
+      "paymentMethods": "Metode de plată",
+      "templates": "Șabloane",
+      "email": "E-mail",
+      "security": "Securitate",
+      "users": "Utilizatori",
+      "data": "Date",
+      "legal": "Juridic",
+      "einvoicing": "E-factura",
+      "account": "Cont",
+      "appearance": "Aspect",
+      "api": "API",
+      "status": "Stare",
+      "usage": "Utilizare"
+    },
+    "account": {
+      "metaTitle": "Cont",
+      "title": "Cont",
+      "description": "Fotografia, numele, regiunea, limba și fusul orar.",
+      "photo": {
+        "title": "Fotografie",
+        "description": "Afișată în bara laterală și în meniul utilizatorului."
+      },
+      "form": {
+        "title": "Cont",
+        "description": "Cum apăreți și când este „astăzi”.",
+        "displayName": "Nume afișat",
+        "signInEmail": "E-mail de autentificare",
+        "signInEmailHint": "Identitatea dvs. pe această instanță; nu poate fi editată aici.",
+        "timezone": "Fus orar",
+        "timezoneHint": "„Astăzi” pentru datele de emitere, scadențe și panoul de control",
+        "regionTitle": "Regiune",
+        "regionDescription": "Valori implicite pentru profilurile noi de emitent și pentru panoul de control până la crearea unui profil.",
+        "country": "Țară",
+        "currency": "Monedă",
+        "suggested": "Sugerată pentru această țară:",
+        "language": "Limbă",
+        "languageHint": "Limba aplicației însăși. Documentele folosesc setarea regională proprie a fiecărui profil.",
+        "machineTranslated": "Această limbă a fost tradusă automat. Corecturile sunt binevenite: <link>îmbunătățiți traducerea pe GitHub</link>.",
+        "save": "Salvează preferințele"
+      },
+      "regions": {
+        "Africa": "Africa",
+        "Americas": "Americi",
+        "Asia": "Asia",
+        "Europe": "Europa",
+        "MiddleEast": "Orientul Mijlociu",
+        "Oceania": "Oceania",
+        "Constructed": "Construite"
+      },
+      "privacy": {
+        "title": "Confidențialitate",
+        "description": "okinvo setează doar cookie-urile necesare funcționării. Fără analiză, fără urmărire.",
+        "cookiePolicy": "Politica privind cookie-urile",
+        "showNoticeAgain": "Afișează din nou notificarea despre cookie-uri"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Schimbă fotografia",
+      "addPhoto": "Adaugă fotografie",
+      "hint": "PNG, JPEG sau WebP. Se afișează peste tot sub formă de cerc; o puteți mări și muta înainte de salvare.",
+      "tooLarge": "Fotografia este prea mare.",
+      "uploadFailed": "Încărcarea a eșuat.",
+      "choose": "Alegeți o fotografie de profil",
+      "dialogTitle": "Poziționați fotografia",
+      "dialogDescription": "Trageți pentru a muta, derulați sau ciupiți pentru a mări. Cercul este ceea ce văd toți.",
+      "zoom": "Mărire",
+      "save": "Salvează fotografia"
+    },
+    "appearance": {
+      "metaTitle": "Aspect",
+      "title": "Aspect",
+      "description": "Tema și culoarea de accent, salvate în contul dvs.",
+      "theme": {
+        "title": "Temă",
+        "description": "Urmați sistemul sau fixați tema luminoasă ori întunecată.",
+        "label": "Temă",
+        "system": "Urmează sistemul",
+        "systemHint": "Se schimbă odată cu sistemul de operare",
+        "light": "Luminoasă",
+        "lightHint": "Fundal alb",
+        "dark": "Întunecată",
+        "darkHint": "Fundal aproape negru"
+      },
+      "accent": {
+        "title": "Accent",
+        "description": "Folosit pentru butonul principal, inelele de focalizare și marcajul paginii active. Menta se potrivește cu sigla mărcii.",
+        "label": "Culoare de accent",
+        "customHint": "Sau alegeți orice culoare proprie"
+      },
+      "accents": {
+        "mint": "Mentă",
+        "lavender": "Lavandă",
+        "sky": "Azuriu",
+        "peach": "Piersică",
+        "butter": "Unt",
+        "rose": "Roz",
+        "sage": "Salvie",
+        "lilac": "Liliac",
+        "custom": "Personalizat"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Profiluri de emitent",
+      "title": "Profiluri de emitent",
+      "description": "Identitățile juridice din care facturați. Cea implicită completează facturile noi.",
+      "breadcrumb": "Profiluri",
+      "newProfile": "Profil nou",
+      "emptyTitle": "Niciun profil de emitent încă",
+      "emptyDescription": "Creați identitatea din care facturați: o persoană fizică cu PAN sau firma dvs.",
+      "createProfile": "Creează un profil",
+      "columns": {
+        "label": "Etichetă",
+        "legalName": "Denumire legală",
+        "type": "Tip",
+        "country": "Țară",
+        "currency": "Monedă",
+        "regime": "Regim",
+        "status": "Stare"
+      },
+      "types": {
+        "company": "Companie",
+        "individual": "Persoană fizică"
+      },
+      "makeDefaultTitle": "Setați {label} ca implicit?",
+      "makeDefaultDescription": "Facturile noi vor porni de la acest profil.",
+      "restoreTitle": "Restaurați {label}?",
+      "archiveTitle": "Arhivați {label}?",
+      "archiveDescription": "Dispare din liste de selecție; facturile existente rămân neatinse.",
+      "new": {
+        "metaTitle": "Profil de emitent nou",
+        "title": "Profil de emitent nou",
+        "prefilled": "Completat din răspunsurile dvs.; verificați adresa și datele fiscale, apoi salvați."
+      },
+      "edit": {
+        "metaTitle": "Editare profil de emitent",
+        "template": "Șablon",
+        "deleteTitle": "Ștergeți {label}?",
+        "deleteDescription": "Posibil doar cât timp nicio factură sau notă de credit nu face referire la acest profil. Altfel, arhivați-l."
+      },
+      "template": {
+        "metaTitle": "Șablon de profil",
+        "title": "Șablon pentru {label}",
+        "ownTemplate": "Șablon propriu",
+        "instanceTemplate": "Șablonul instanței",
+        "resetTitle": "Folosiți din nou șablonul instanței?",
+        "resetDescription": "Configurația proprie a acestui profil este eliminată; documentele emise nu sunt afectate.",
+        "useInstance": "Folosește șablonul instanței",
+        "usingInstanceTitle": "Se folosește șablonul instanței",
+        "usingInstanceDescription": "Documentele din acest profil urmează Setări → Șabloane. Optați pentru personalizare separată.",
+        "customise": "Folosește un șablon diferit pentru acest profil",
+        "openInstance": "Deschide șablonul instanței"
+      },
+      "form": {
+        "identityTitle": "Identitate",
+        "identityDescription": "Cine emite factura.",
+        "type": "Tip",
+        "label": "Etichetă",
+        "labelHint": "Afișată doar în liste de selecție",
+        "legalName": "Denumire legală",
+        "tradeName": "Denumire comercială",
+        "designation": "Funcție",
+        "email": "E-mail",
+        "phone": "Telefon",
+        "website": "Site web",
+        "addressTitle": "Adresă",
+        "taxTitle": "Identificatori fiscali",
+        "taxDescription": "Doar cei care vi se aplică; imprimarea se controlează pentru fiecare factură.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Număr TVA Marea Britanie",
+        "usTaxId": "EIN / SSN SUA",
+        "usTaxIdHint": "Criptat în repaus",
+        "lutNumber": "Număr LUT",
+        "lutNumberHint": "Pentru exporturi fără IGST",
+        "lutFiscalYear": "An financiar LUT",
+        "lutFiscalYearHint": "de ex. 2026-27",
+        "einvoiceTitle": "E-factura",
+        "einvoiceDescription": "Cum se identifică acest profil în e-facturi; conectorul și datele de autentificare se află în Setări > E-factura.",
+        "electronicAddress": "Adresă electronică",
+        "electronicAddressHint": "Identificatorul Peppol sau EN 16931 al acestui emitent, tipărit ca adresă electronică a vânzătorului.",
+        "electronicAddressScheme": "Schema adresei electronice",
+        "electronicAddressSchemeNone": "Fără schemă",
+        "einvoiceEnabled": "E-factura activată pentru acest profil",
+        "einvoiceEnabledHint": "Oferă pe documentele emise descărcările e-facturii GST în format JSON, Factur-X și UBL și înregistrarea IRN.",
+        "defaultsTitle": "Valori implicite",
+        "baseCurrency": "Moneda de bază",
+        "locale": "Setare regională a documentului",
+        "localeHint": "Formatarea numerelor și a datelor în documente",
+        "fiscalYearStart": "Anul fiscal începe în",
+        "months": {
+          "january": "ianuarie",
+          "february": "februarie",
+          "march": "martie",
+          "april": "aprilie",
+          "may": "mai",
+          "june": "iunie",
+          "july": "iulie",
+          "august": "august",
+          "september": "septembrie",
+          "october": "octombrie",
+          "november": "noiembrie",
+          "december": "decembrie"
+        },
+        "taxRegime": "Regim fiscal implicit",
+        "regimes": {
+          "indiaGst": "GST India",
+          "ukVat": "TVA Marea Britanie",
+          "usSalesTax": "Taxă pe vânzări SUA",
+          "none": "Fără taxă"
+        },
+        "invoiceNumberFormat": "Formatul numărului de factură",
+        "invoiceNumberFormatHint": "Jetoane: {tokens}",
+        "creditNoteNumberFormat": "Formatul numărului notei de credit",
+        "tdsRate": "Cota TDS preconizată (%)",
+        "tdsRateHint": "Cu titlu informativ, imprimată ca deducere preconizată",
+        "defaultNotes": "Note implicite",
+        "defaultTerms": "Condiții implicite",
+        "printTitle": "Ce se imprimă implicit",
+        "printDescription": "Fiecare factură le copiază și le poate modifica individual.",
+        "emailTitle": "E-mail",
+        "emailDescription": "Valori implicite pentru editorul de trimitere. Substituenți: {placeholders}",
+        "emailCc": "CC implicit",
+        "emailBcc": "BCC implicit",
+        "commaSeparated": "Separate prin virgulă",
+        "invoiceSubject": "Subiectul facturii",
+        "invoiceSubjectHint": "Gol folosește șablonul încorporat",
+        "creditNoteSubject": "Subiectul notei de credit",
+        "invoiceBody": "Corpul facturii",
+        "creditNoteBody": "Corpul notei de credit",
+        "artworkTitle": "Grafică",
+        "artworkDescription": "PNG, JPEG sau WebP până la 2 MB; semnătura și ștampila păstrează transparența.",
+        "logo": "Siglă",
+        "signature": "Semnătură",
+        "stamp": "Ștampilă",
+        "transparentPng": "PNG transparent",
+        "save": "Salvează profilul"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Metode de plată",
+      "title": "Metode de plată",
+      "description": "Cum vă plătesc clienții. Detaliile sunt criptate și înghețate în fiecare factură la emitere.",
+      "newMethod": "Metodă nouă",
+      "emptyTitle": "Nicio metodă de plată încă",
+      "emptyDescription": "Adăugați un cont bancar, un ID UPI sau un portofel, pentru ca facturile să indice clienților unde să plătească.",
+      "addMethod": "Adaugă o metodă",
+      "columns": {
+        "name": "Nume",
+        "type": "Tip",
+        "currency": "Monedă",
+        "status": "Stare"
+      },
+      "types": {
+        "bankTransfer": "Transfer bancar",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Personalizată"
+      },
+      "makeDefaultTitle": "Setați {name} ca implicită?",
+      "restoreTitle": "Restaurați {name}?",
+      "archiveTitle": "Arhivați {name}?",
+      "archiveDescription": "Facturile emise păstrează instantaneul imprimat.",
+      "new": {
+        "metaTitle": "Metodă de plată nouă",
+        "title": "Metodă de plată nouă"
+      },
+      "edit": {
+        "metaTitle": "Editare metodă de plată",
+        "title": "Editare {name}",
+        "deleteTitle": "Ștergeți {name}?",
+        "deleteDescription": "Posibil doar cât timp nicio factură sau plată nu face referire la ea. Altfel, arhivați-o."
+      },
+      "form": {
+        "name": "Nume",
+        "nameHint": "Imprimat ca titlu al blocului de plată",
+        "type": "Tip",
+        "currency": "Monedă",
+        "currencyHint": "Opțional; afișată doar pentru context",
+        "anyCurrency": "Oricare",
+        "instructions": "Instrucțiuni",
+        "instructionsHint": "Imprimate sub detalii",
+        "isDefault": "Metodă implicită",
+        "isDefaultDescription": "Preselectată pe facturile noi",
+        "isActive": "Activă",
+        "detailsTitle": "Detalii",
+        "detailsDescription": "Criptate în repaus; incluse ca instantaneu în fiecare factură la emitere.",
+        "vpa": "ID UPI (VPA)",
+        "payeeName": "Numele beneficiarului",
+        "lines": "Rânduri",
+        "linesHint": "Un rând pe linie, imprimat ca atare",
+        "accountEmail": "E-mail / identificator cont",
+        "bank": {
+          "accountHolder": "Titularul contului",
+          "accountNumber": "Număr de cont",
+          "bankName": "Numele băncii",
+          "branch": "Sucursală",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Cod de rutare / sort code"
+        },
+        "save": "Salvează metoda de plată"
+      }
+    },
+    "templates": {
+      "metaTitle": "Șabloane de documente",
+      "title": "Șabloane de documente",
+      "customised": "Personalizat",
+      "builtIn": "Implicit încorporat",
+      "description": "Cum arată facturile și notele de credit. Documentele emise păstrează șablonul cu care au fost emise.",
+      "resetTitle": "Reveniți la valoarea implicită încorporată?",
+      "resetDescription": "Personalizarea dvs. este eliminată; documentele deja emise nu sunt afectate.",
+      "reset": "Resetează",
+      "resetTrigger": "Resetează la valorile implicite",
+      "importTitle": "Import",
+      "importDescription": "Restaurați o configurație exportată anterior.",
+      "overridesTitle": "Excepții pe profil",
+      "overridesDescription": "Un profil poate opta pentru un șablon propriu din pagina sa de editare.",
+      "noOverrides": "Fiecare profil folosește șablonul instanței.",
+      "import": {
+        "json": "JSON al șablonului",
+        "jsonHint": "Lipiți un fișier produs de Exportă JSON; cheile lipsă revin la valorile implicite",
+        "importing": "Se importă…",
+        "submit": "Importă"
+      },
+      "form": {
+        "templateTitle": "Șablon",
+        "templateDescription": "Șase șabloane încorporate; personalizarea de mai jos se aplică celui ales.",
+        "templateGroup": "Șablon",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Modern și aerisit, fără serife, linie de accent sub antet."
+          },
+          "classic": {
+            "name": "Clasic",
+            "character": "Tabel tradițional cu chenar, titluri cu serife, totaluri încadrate."
+          },
+          "compact": {
+            "name": "Compact",
+            "character": "Aspect dens pentru liste lungi de articole; text mai mic, mai puține separatoare."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "Calm și spațios: fără linii sau casete, etichete subtile, mult spațiu liber."
+          },
+          "letterhead": {
+            "name": "Hârtie cu antet",
+            "character": "Sigla și numele dvs. pe o bandă colorată sau pe o imagine, în partea de sus a fiecărei pagini."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Antet cu bandă colorată; părțile, antetul tabelului și totalurile pe o nuanță pală de accent."
+          }
+        },
+        "paperTitle": "Hârtie și font",
+        "paperSize": "Dimensiunea hârtiei",
+        "paperLetter": "Letter",
+        "margins": "Margini",
+        "marginsNormal": "Normale",
+        "marginsNarrow": "Înguste",
+        "headingFont": "Fontul titlurilor",
+        "bodyFont": "Fontul textului",
+        "fontSans": "Fără serife",
+        "fontSerif": "Cu serife",
+        "tableStyle": "Stilul tabelului",
+        "tableRuled": "Cu linii",
+        "tableZebra": "Zebră",
+        "tablePlain": "Simplu",
+        "accentColour": "Culoare de accent",
+        "textColour": "Culoarea textului",
+        "logoPosition": "Poziția siglei",
+        "positionLeft": "Stânga",
+        "positionCentre": "Centru",
+        "positionRight": "Dreapta",
+        "logoHeight": "Înălțimea siglei (mm)",
+        "documentTitle": "Titlul documentului",
+        "titleAuto": "Automat (conform GST)",
+        "titleCustom": "Personalizat",
+        "titlePlaceholder": "de ex. FACTURĂ PROFORMA",
+        "qrPosition": "Poziția codului QR",
+        "qrFooter": "Subsol",
+        "qrHeader": "Antet",
+        "qrBesideTotals": "Lângă totaluri",
+        "amountInWords": "Suma în litere",
+        "wordsBelowTotal": "Sub totaluri",
+        "wordsFooter": "Subsol",
+        "wordsHidden": "Ascunsă",
+        "subtotalRow": "Rândul subtotalului",
+        "discountRow": "Rândul reducerii",
+        "taxLines": "Rânduri de taxe",
+        "tdsExpected": "TDS preconizat",
+        "roundingRow": "Rândul rotunjirii",
+        "pageNumbers": "Numerele paginilor",
+        "headerTitle": "Antet",
+        "headerDescription": "O bandă colorată sau o imagine în partea de sus a fiecărei pagini. Hârtia cu antet și Modern afișează o bandă, dacă nu alegeți altfel.",
+        "headerStyle": "Stilul antetului",
+        "headerNone": "Niciunul",
+        "headerBand": "Bandă colorată",
+        "headerImage": "Imagine",
+        "bandColour": "Culoarea benzii",
+        "bandColourHex": "Culoarea benzii (hex)",
+        "headerImageLabel": "Imaginea antetului",
+        "headerImageHint": "PNG, JPEG sau WebP până la 2400 px lățime; ocupă toată lățimea paginii.",
+        "imageOpacity": "Opacitatea imaginii",
+        "headerHeight": "Înălțimea antetului (mm)",
+        "bandText": "Textul de pe bandă",
+        "bandTextAuto": "Automat (după culoarea benzii)",
+        "bandTextLight": "Deschis",
+        "bandTextDark": "Închis",
+        "textTitle": "Text",
+        "headerNote": "Notă în antet",
+        "footer": "Subsol",
+        "signatureCaption": "Legenda semnăturii",
+        "draftWatermark": "Filigran pentru ciornă",
+        "labelsTitle": "Etichete",
+        "labelsDescription": "Lăsați un câmp gol pentru a păstra formularea implicită.",
+        "save": "Salvează șablonul",
+        "downloadSample": "Descarcă PDF de probă",
+        "exportJson": "Exportă JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "E-mail",
+      "title": "E-mail",
+      "configuredSettings": "Configurat în Setări",
+      "configuredEnv": "Configurat prin mediu",
+      "notConfigured": "Neconfigurat: flux prin aplicația de e-mail",
+      "description": "Documentele se trimit din editor cu PDF-ul stocat atașat. Setările de aici suprascriu SMTP_* din mediu.",
+      "sendTest": "Trimite e-mail de test către {email}",
+      "removeTitle": "Eliminați setările SMTP stocate?",
+      "removeEnvTakesOver": "Preiau valorile SMTP_* din mediu.",
+      "removeFallsBack": "E-mailul revine la fluxul prin aplicația de e-mail.",
+      "removeTrigger": "Elimină setările stocate",
+      "smtpTitle": "Server SMTP",
+      "smtpFromEnv": "Preluat în prezent din mediu; salvarea aici îl suprascrie.",
+      "smtpPasswordNote": "Parola este criptată în repaus și nu se mai afișează niciodată.",
+      "defaultsTitle": "Destinatari impliciți",
+      "defaultsDescription": "CC/BCC la nivel de instanță; profilurile de emitent adaugă ale lor.",
+      "sentTitle": "E-mailuri trimise",
+      "sentDescription": "Ultimele 50 de încercări, inclusiv eșecurile și trimiterile manuale.",
+      "smtp": {
+        "host": "Gazdă",
+        "port": "Port",
+        "security": "Securitate",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Fără (releu LAN)",
+        "user": "Nume de utilizator",
+        "password": "Parolă",
+        "passwordStored": "Stocată și criptată; lăsați gol pentru a o păstra",
+        "passwordEncrypted": "Criptată în repaus",
+        "from": "Adresa expeditorului",
+        "fromName": "Numele expeditorului",
+        "replyTo": "Adresă de răspuns",
+        "save": "Salvează setările SMTP"
+      },
+      "defaults": {
+        "cc": "CC implicit",
+        "ccHint": "Adăugat în fiecare editor; separat prin virgulă",
+        "bcc": "BCC implicit",
+        "save": "Salvează valorile implicite"
+      }
+    },
+    "security": {
+      "metaTitle": "Securitate",
+      "title": "Securitate",
+      "description": "Unde sunteți autentificat și tot ce s-a schimbat.",
+      "sessions": {
+        "title": "Sesiuni active",
+        "description": "Revocarea unei sesiuni deconectează imediat acel dispozitiv.",
+        "signOutOthers": {
+          "title": "Deconectați toate celelalte sesiuni?",
+          "description": "Toate sesiunile, cu excepția celei curente, sunt revocate.",
+          "confirm": "Deconectează celelalte",
+          "trigger": "Deconectează toate celelalte sesiuni"
+        },
+        "columns": {
+          "device": "Dispozitiv",
+          "ipAddress": "Adresă IP",
+          "signedIn": "Autentificat",
+          "lastSeen": "Ultima activitate",
+          "expires": "Expiră"
+        },
+        "thisDevice": "Acest dispozitiv",
+        "revokeTitle": "Revocați această sesiune?",
+        "unknownDevice": "Dispozitiv necunoscut",
+        "unknownBrowser": "Necunoscut",
+        "agentOnOs": "{browser} pe {os}"
+      },
+      "audit": {
+        "title": "Jurnal de audit",
+        "count": "{count, plural, one {# eveniment} few {# evenimente} other {# de evenimente}}",
+        "entity": "Entitate",
+        "actionContains": "Acțiunea conține",
+        "filter": "Filtrează",
+        "reset": "Resetează",
+        "columns": {
+          "when": "Când",
+          "who": "Cine",
+          "action": "Acțiune",
+          "entity": "Entitate",
+          "summary": "Rezumat"
+        },
+        "empty": "Niciun eveniment nu corespunde acestor filtre.",
+        "system": "Sistem",
+        "changes": "Modificări",
+        "page": "Pagina {page} din {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Utilizatori",
+      "title": "Utilizatori",
+      "description": "Cine se poate autentifica pe această instanță și ce poate face.",
+      "roles": {
+        "owner": "Proprietar",
+        "editor": "Editor",
+        "viewer": "Cititor"
+      },
+      "roleHints": {
+        "owner": "Totul, inclusiv setările și membrii",
+        "editor": "Clienți, catalog, facturi, note de credit, plăți, e-mail",
+        "viewer": "Doar citire"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Rolul lui {email}",
+      "invite": {
+        "title": "Invitați pe cineva",
+        "description": "Se autentifică cu adresa invitată (un furnizor de identitate sau o parolă) și primesc rolul ales de dvs.",
+        "sent": "Invitația a fost trimisă prin e-mail către {email}.",
+        "readyWithError": "Invitația pentru {email} este pregătită. E-mailul nu a putut fi trimis ({error}); trimiteți-le acest link:",
+        "readyNoSmtp": "Invitația pentru {email} este pregătită. Niciun SMTP nu este configurat; trimiteți-le acest link:",
+        "copyLink": "Copiază linkul",
+        "email": "E-mail",
+        "emailPlaceholder": "persoana@example.com",
+        "role": "Rol",
+        "submit": "Invită",
+        "inviting": "Se invită…"
+      },
+      "members": {
+        "title": "Membri",
+        "description": "Rămâne întotdeauna cel puțin un proprietar activ.",
+        "columns": {
+          "person": "Persoană",
+          "role": "Rol",
+          "lastSignIn": "Ultima autentificare",
+          "status": "Stare"
+        },
+        "nameYou": "{name} (dvs.)",
+        "deactivated": "Dezactivat",
+        "reactivate": {
+          "title": "Reactivați {email}?",
+          "description": "Se pot autentifica din nou cu rolul anterior.",
+          "confirm": "Reactivează"
+        },
+        "deactivate": {
+          "title": "Dezactivați {email}?",
+          "description": "Toate sesiunile se încheie acum și nu se mai pot autentifica până la reactivare. Istoricul rămâne.",
+          "confirm": "Dezactivează"
+        }
+      },
+      "invitations": {
+        "title": "Invitații în așteptare",
+        "description": "Adrese care se pot autentifica, dar încă nu au făcut-o.",
+        "columns": {
+          "email": "E-mail",
+          "role": "Rol",
+          "invited": "Invitat"
+        },
+        "empty": "Nicio invitație în așteptare.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Revocați invitația pentru {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Date",
+      "title": "Date",
+      "description": "Totul este portabil: seturi de date în CSV sau Excel, un instantaneu complet pentru migrare, PDF-urile pentru contabil și o rutină de backup testată.",
+      "period": {
+        "fiscalYear": "An fiscal",
+        "fiscalYearHint": "Suprascrie datele",
+        "issuer": "Emitent"
+      },
+      "exportAll": {
+        "title": "Exportă toate datele",
+        "description": "Un ZIP cu fiecare set de date în CSV, plus <mono>data.json</mono>, un instantaneu relațional al tuturor tabelelor. Câmpurile criptate (detaliile metodelor de plată, parola SMTP) rămân în afară; fișierul README din interior le enumeră.",
+        "download": "Descarcă ZIP okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "Exportă documente",
+        "description": "Fiecare PDF de factură și notă de credit, emis sau anulat, pentru o perioadă, denumit după număr, cu un <mono>index.csv</mono> cu numere, totaluri și sume de control. PDF-urile lipsă sunt generate pe parcurs.",
+        "docx": "Include și o copie DOCX a fiecărui document",
+        "facturx": "Include și o copie Factur-X PDF/A-3 cu XML-ul EN 16931 încorporat",
+        "download": "Descarcă ZIP cu documente"
+      },
+      "datasets": {
+        "title": "Seturi de date",
+        "description": "Aceleași exporturi oferite de paginile de index, cu o perioadă și un emitent aplicate tuturor. Plățile folosesc intervalul de date; clienții și serviciile ignoră perioada.",
+        "columns": {
+          "dataset": "Set de date",
+          "filters": "Filtre aplicate",
+          "download": "Descărcare"
+        },
+        "names": {
+          "invoices": "Registrul de facturi",
+          "invoiceItems": "Rânduri de factură",
+          "payments": "Registrul de plăți",
+          "creditNotes": "Registrul notelor de credit",
+          "clients": "Clienți",
+          "services": "Servicii",
+          "gstSummary": "Rezumat GST",
+          "tdsSummary": "Rezumat TDS"
+        },
+        "filters": {
+          "periodIssuer": "perioadă, emitent",
+          "dateRangeIssuer": "interval de date, emitent",
+          "includesArchived": "include arhivate"
+        }
+      },
+      "backups": {
+        "title": "Backup-uri",
+        "notWired": "Niciun serviciu de backup conectat",
+        "noRun": "Încă nu a rulat niciun backup",
+        "lastOk": "Ultimul backup a reușit",
+        "lastFailed": "Ultimul backup a eșuat",
+        "description": "Serviciul Compose <mono>backup</mono> exportă Postgres și arhivează volumul de stocare conform <mono>BACKUP_CRON</mono>, păstrează <mono>BACKUP_RETENTION_DAYS</mono> de istoric în volumul <mono>backups</mono> și scrie un fișier de stare pe care îl citește această pagină.",
+        "finished": "Finalizat",
+        "databaseDump": "Export bază de date",
+        "storageArchive": "Arhivă de stocare",
+        "size": "Dimensiune",
+        "sizeMb": "{size} MB",
+        "error": "Eroare",
+        "runNow": "Rulați unul acum sau restaurați dintr-o pereche de fișiere:",
+        "restoreDrill": "Procedura de restaurare este exersată în CI de <mono>scripts/restore-drill.sh</mono>: populare, backup, ștergere, restaurare, apoi compararea numărului de rânduri și a unei sume de control PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "Juridic",
+      "metaDescription": "Cine operează această instanță: datele imprimate pe paginile juridice publice.",
+      "title": "Juridic",
+      "description": "Paginile juridice publice imprimă aceste date. Până când fiecare câmp este completat, paginile afișează substituenți evidențiați.",
+      "operator": {
+        "title": "Datele operatorului",
+        "complete": "Complet",
+        "missing": "{count} lipsă: {fields}",
+        "description": "Dvs., ca persoană sau companie care operează această instanță, sunteți operatorul la care se referă documentele. Nimic din aceste date nu este trimis nicăieri; sunt imprimate pe paginile de mai jos."
+      },
+      "fieldLabels": {
+        "legalName": "Denumirea legală a operatorului",
+        "entityType": "Tipul entității",
+        "address": "Adresa operatorului",
+        "country": "Țara operatorului",
+        "contactEmail": "E-mail de contact",
+        "privacyEmail": "E-mail pentru confidențialitate",
+        "dpoEmail": "E-mailul responsabilului cu protecția datelor",
+        "governingLaw": "Legea aplicabilă",
+        "venue": "Instanța pentru litigii",
+        "effectiveDate": "Data intrării în vigoare"
+      },
+      "publicPages": {
+        "title": "Pagini publice",
+        "description": "Legate din pagina de autentificare, vizualizatorul de partajare și notificarea despre cookie-uri.",
+        "terms": "Termeni și condiții",
+        "acceptableUse": "Politica de utilizare acceptabilă",
+        "privacy": "Politica de confidențialitate",
+        "cookies": "Politica privind cookie-urile",
+        "dataRetention": "Păstrarea datelor",
+        "security": "Securitate",
+        "licenses": "Licențe și notificări ale terților"
+      },
+      "form": {
+        "legalName": "Denumire legală",
+        "entityType": "Tipul entității",
+        "individual": "Persoană fizică / întreprinzător individual",
+        "company": "Companie / entitate înregistrată",
+        "address": "Adresă",
+        "addressHint": "Imprimată în Termeni și în Politica de confidențialitate ca adresă poștală a operatorului.",
+        "country": "Țară",
+        "effectiveDate": "Data intrării în vigoare",
+        "contactEmail": "E-mail de contact",
+        "privacyEmail": "E-mail pentru confidențialitate",
+        "privacyEmailHint": "Unde ajung cererile persoanelor vizate; poate fi adresa de contact.",
+        "dpoEmail": "E-mailul responsabilului cu protecția datelor",
+        "dpoEmailHint": "Doar dacă ați numit unul.",
+        "governingLaw": "Legea aplicabilă",
+        "governingLawHint": "De exemplu „legile Indiei” sau „legile Angliei și Țării Galilor”.",
+        "venue": "Instanța pentru litigii",
+        "venueHint": "De exemplu „instanțele din Bengaluru, Karnataka”.",
+        "submit": "Salvează datele operatorului"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-factura",
+      "title": "E-factura",
+      "description": "Pentru fiecare profil de emitent: ce conector înregistrează e-facturile indiene și ce profil european urmează fișierele Factur-X și UBL. Datele de autentificare sunt stocate criptat și nu mai sunt afișate niciodată.",
+      "noProfiles": "Creați mai întâi un profil de emitent.",
+      "profile": "Profil de emitent",
+      "enabled": "Activat",
+      "disabled": "Dezactivat",
+      "enabledHint": "Activați sau dezactivați e-factura pentru fiecare profil în Setări > Profiluri.",
+      "india": {
+        "title": "India (e-factura GST, IRN)",
+        "description": "IRN este înregistrat prin conectorul ales aici; conectorul manual preia manual răspunsul portalului.",
+        "connector": "Conector",
+        "connectorNone": "Oprit",
+        "connectorManual": "Manual (lipiți răspunsul IRP)",
+        "connectorNic": "NIC IRP API (sandbox sau producție)",
+        "nicUnverified": "Conectorul NIC urmează API-ul publicat și este testat doar pe date înregistrate; nu este verificat într-un sandbox real până la furnizarea datelor de autentificare.",
+        "env": "Mediu",
+        "sandbox": "Sandbox",
+        "production": "Producție",
+        "baseUrl": "URL de bază",
+        "baseUrlHint": "Lăsați gol pentru valoarea implicită a mediului.",
+        "clientId": "ID client",
+        "clientSecret": "Secret client",
+        "username": "Nume utilizator",
+        "password": "Parolă",
+        "gstin": "GSTIN",
+        "publicKey": "Cheia publică IRP (PEM)",
+        "publicKeyHint": "Descărcați-o din portal după autentificare; criptează datele de autentificare trimise către IRP.",
+        "publicKeyStored": "Stocată; lăsați gol pentru a o păstra.",
+        "secretStored": "Stocat criptat; lăsați gol pentru a-l păstra.",
+        "secretEncrypted": "Stocat criptat în repaus."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 este singurul profil din această versiune; descărcările Factur-X și UBL îl folosesc.",
+        "profile": "Profil",
+        "profileNone": "Oprit",
+        "en16931": "EN 16931"
+      },
+      "save": "Salvează setările e-facturii"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Chei API pentru scripturi, SDK și clienți MCP, cu exemple curl.",
+      "title": "API",
+      "description": "Chei pentru scripturi, SDK și clienți MCP. O cheie poate face cel mult ce poate rolul dvs.; se afișează o singură dată.",
+      "create": {
+        "title": "Creați o cheie",
+        "description": "Trimiteți-o ca <mono>Authorization: Bearer okv_…</mono>. Păstrați-o în afara codului sursă și a jurnalelor de conversație; revocați-o mai jos dacă se scurge."
+      },
+      "keys": {
+        "title": "Chei",
+        "descriptionOwner": "Toate cheile acestei instanțe; proprietarii pot revoca oricare dintre ele.",
+        "descriptionOwn": "Cheile dvs.",
+        "columns": {
+          "name": "Nume",
+          "prefix": "Prefix",
+          "scopes": "Domenii",
+          "owner": "Proprietar",
+          "lastUsed": "Ultima utilizare",
+          "expires": "Expiră",
+          "status": "Stare"
+        },
+        "empty": "Nicio cheie API încă.",
+        "never": "niciodată",
+        "revoked": "Revocată",
+        "expired": "Expirată",
+        "revokeTitle": "Revocați {name}?",
+        "revokeDescription": "Clienții care folosesc această cheie nu mai funcționează imediat.",
+        "activeCount": "{count, plural, one {# cheie activă.} few {# chei active.} other {# de chei active.}}"
+      },
+      "examples": {
+        "title": "Exemple",
+        "description": "Înlocuiți <mono>$OKINVO_KEY</mono> cu o cheie. API-ul REST versionat, documentul său OpenAPI (<mono>/api/openapi.json</mono>), SDK-ul TypeScript și serverul MCP vin odată cu următoarele sarcini din planul v1.1; endpointul de stare funcționează deja.",
+        "rateLimit": "Apelurile peste limită primesc 429 cu un antet <mono>Retry-After</mono> (120 de cereri pe minut per cheie). Domeniile unei chei sunt plafonate de rolul curent al proprietarului ei."
+      },
+      "form": {
+        "copyKey": "Copiază cheia API",
+        "name": "Nume",
+        "namePlaceholder": "de ex. script de contabilitate",
+        "expires": "Expiră",
+        "in30Days": "În 30 de zile",
+        "in90Days": "În 90 de zile",
+        "inAYear": "Într-un an",
+        "never": "Niciodată",
+        "scopes": "Domenii",
+        "submit": "Creează cheie API",
+        "creating": "Se creează…"
+      },
+      "scopes": {
+        "invoicesRead": "Citește facturi",
+        "invoicesCreate": "Creează și emite facturi",
+        "creditNotesRead": "Citește note de credit",
+        "creditNotesCreate": "Creează și emite note de credit",
+        "catalogueRead": "Citește clienți, servicii și produse",
+        "documentsRead": "Descarcă PDF-uri stocate și copii DOCX",
+        "statusRead": "Citește starea instanței"
+      }
+    },
+    "status": {
+      "metaTitle": "Stare",
+      "metaDescription": "Versiunea, baza de date, stocarea, e-mailul și starea backup-urilor acestei instanțe.",
+      "title": "Stare",
+      "description": "Ce rulează această instanță și dacă părțile ei răspund.",
+      "recheck": "Verifică din nou",
+      "health": {
+        "ok": "OK",
+        "warning": "Avertisment",
+        "failed": "Eșuat",
+        "na": "Neconfigurat"
+      },
+      "overall": {
+        "ok": "Totul în ordine",
+        "degraded": "Degradat",
+        "failed": "Eșuat"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(sha necunoscut)}} · construit {built} · Node <mono>{node}</mono> · activ de {uptime} · verificat {checked}",
+      "dateUnknown": "(dată necunoscută)",
+      "uptime": {
+        "days": "{d}z {h}h {m}m",
+        "hours": "{h}h {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Bază de date",
+        "storage": "Stocare",
+        "rateLimiting": "Limitarea ratei",
+        "email": "E-mail",
+        "backups": "Backup-uri"
+      },
+      "db": {
+        "detail": "{latency} ms · ultima migrare <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # migrări nefinalizate}}",
+        "noMigration": "niciuna"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · scriere, citire și ștergere a unui obiect de probă în {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "stocare <mono>{store}</mono> {store, select, memory {(o singură replică)} other {(partajată între replici)}}",
+      "smtp": {
+        "configured": "SMTP din {source, select, settings {the settings page} env {the environment} other {}} · ultimul test {lastTest} · ultimele 24 h: {sent} trimise, {failed} eșuate",
+        "none": "Niciun server SMTP; editorul oferă „Deschide în aplicația de e-mail”. <link>Configurați</link>"
+      },
+      "backups": {
+        "notWired": "Niciun serviciu de backup conectat (BACKUP_STATUS_FILE nesetat).",
+        "noRun": "Serviciul de backup este conectat; nicio rulare înregistrată încă.",
+        "ok": "Ultima rulare a reușit la {finishedAt}{days, plural, =0 {} one { · retenție # zi} few { · retenție # zile} other { · retenție # de zile}}",
+        "failed": "Ultima rulare a eșuat: {error} la {finishedAt}{days, plural, =0 {} one { · retenție # zi} few { · retenție # zile} other { · retenție # de zile}}"
+      },
+      "footer": "Același raport este disponibil ca JSON la <mono>/api/health/status</mono> pentru monitorizare (sesiune autentificată sau cheie API)."
+    },
+    "usage": {
+      "metaTitle": "Utilizare",
+      "metaDescription": "Vizualizări de pagină pe ecran și pe zi pe această instanță, numărate local.",
+      "title": "Utilizare",
+      "description": "De câte ori a fost deschis fiecare ecran, numărat doar pe această instanță: fără cookie-uri, fără adrese, nimic nu este trimis nicăieri.",
+      "last30Days": "Ultimele 30 de zile",
+      "total": "{count, plural, =0 {Nicio vizualizare de pagină} one {# vizualizare de pagină} few {# vizualizări de pagină} other {# de vizualizări de pagină}}",
+      "off": "Numărarea este dezactivată. Setați ANALYTICS_LOCAL=true pentru a număra vizualizările de pagină pe această instanță.",
+      "empty": "Nu a fost înregistrată încă nicio vizualizare de pagină.",
+      "columns": {
+        "day": "Zi",
+        "path": "Ecran",
+        "views": "Vizualizări"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Bun venit",
+    "progress": "Progres",
+    "steps": {
+      "aboutYou": "Despre dvs.",
+      "howYouUse": "Cum îl veți folosi",
+      "allSet": "Gata"
+    },
+    "step1": {
+      "title": "Spuneți-ne despre dvs.",
+      "subtitle": "Aceasta setează valorile implicite; fiecare valoare poate fi schimbată ulterior în Setări.",
+      "name": "Nume",
+      "email": "E-mail",
+      "emailHint": "Identitatea dvs. de autentificare. Poate fi schimbată ulterior din Setări → Securitate.",
+      "country": "Țară",
+      "currency": "Moneda preferată",
+      "currencyHint": "Folosită pentru profilurile noi și panoul de control până la crearea unui profil."
+    },
+    "step2": {
+      "title": "Cum veți folosi okinvo?",
+      "subtitle": "Se schimbă doar valorile implicite; nimic nu este blocat.",
+      "usage": "Utilizare",
+      "personal": "Facturare personală",
+      "personalHint": "Muncă independentă în nume propriu",
+      "business": "Facturare pentru afaceri",
+      "businessHint": "Facturi emise de o firmă înregistrată",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Număr TVA",
+        "other": "Număr de înregistrare fiscală"
+      },
+      "taxQuestion": {
+        "IN": "Aveți un GSTIN?",
+        "GB": "Sunteți înregistrat în scopuri de TVA?",
+        "other": "Aveți un număr de înregistrare fiscală de imprimat pe facturi?"
+      }
+    },
+    "step3": {
+      "title": "Totul este gata",
+      "body": "Apoi, creați primul profil de emitent: numele, adresa și datele fiscale care se imprimă pe facturile dvs. Am completat ce ne-ați spus.",
+      "go": "Mergi la profiluri",
+      "opening": "Se deschide…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Termeni",
+      "privacy": "Confidențialitate",
+      "cookies": "Cookie-uri",
+      "security": "Securitate"
+    },
+    "cookieNotice": {
+      "label": "Notificare despre cookie-uri",
+      "body": "Folosim doar cookie-uri strict necesare: sesiunea dvs. și preferințele de afișare. Fără analiză, fără urmărire.",
+      "policy": "Politica privind cookie-urile",
+      "gotIt": "Am înțeles"
+    },
+    "nav": {
+      "label": "Juridic",
+      "cookies": "Cookie-uri",
+      "privacy": "Confidențialitate",
+      "terms": "Termeni",
+      "acceptableUse": "Utilizare acceptabilă",
+      "retention": "Păstrare",
+      "security": "Securitate",
+      "licences": "Licențe"
+    },
+    "operatorNotice": "okinvo este software găzduit de utilizator; operatorul acestei instanțe răspunde de utilizarea ei.",
+    "doc": {
+      "effectiveOn": "În vigoare din <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Cuprins"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Denumirea legală a operatorului",
+        "entityType": "Tipul entității",
+        "address": "Adresa operatorului",
+        "country": "Țara operatorului",
+        "contactEmail": "E-mail de contact",
+        "privacyEmail": "E-mail pentru confidențialitate",
+        "dpoEmail": "E-mailul responsabilului cu protecția datelor",
+        "governingLaw": "Legea aplicabilă",
+        "venue": "Instanța pentru litigii",
+        "effectiveDate": "Data intrării în vigoare"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Negăsit",
+      "title": "Nu există nimic la această adresă",
+      "body": "Linkul poate fi învechit sau documentul la care trimitea nu a fost niciodată emis."
+    },
+    "forbidden": {
+      "metaTitle": "Nepermis",
+      "title": "Acest cont nu poate face asta",
+      "body": "Rolul dvs. nu permite această acțiune. Cereți acces unui proprietar sau autentificați-vă cu un cont care îl are."
+    },
+    "error": {
+      "title": "Ceva nu a funcționat",
+      "body": "Această cerere nu a modificat nimic. Încercați din nou; dacă se repetă, jurnalul serverului conține detaliile.",
+      "digest": "eroare {digest}",
+      "generic": "eroare"
+    },
+    "appNotFound": {
+      "title": "Negăsit",
+      "body": "Această înregistrare nu există sau a fost ștearsă cât timp o priveați.",
+      "back": "Înapoi la panoul de control"
+    },
+    "validation": {
+      "required": "obligatoriu",
+      "tooLong": "cel mult {max} caractere",
+      "invalidEmail": "trebuie să fie un e-mail valid",
+      "invalidDate": "trebuie să fie o dată calendaristică în formatul YYYY-MM-DD",
+      "invalidAmount": "trebuie să fie un număr",
+      "wholeNumber": "trebuie să fie un număr întreg",
+      "greaterThanZero": "trebuie să fie mai mare decât zero",
+      "fixFields": "Corectați câmpurile evidențiate.",
+      "charset": "Sunt permise doar caractere standard de tastatură."
+    }
+  },
+  "verify": {
+    "metaTitle": "Verificare document",
+    "metaDescription": "Verifică dacă o factură sau o notă de credit a fost emisă de expeditor și nu a fost modificată.",
+    "heading": "Verificarea documentului",
+    "rateLimited": "Prea multe verificări de la această adresă. Încercați din nou peste un minut.",
+    "notFound": {
+      "title": "Document inexistent",
+      "body": "Acest link nu corespunde niciunui document emis. Verificați codul QR sau linkul primit sau contactați emitentul."
+    },
+    "status": {
+      "void": "Anulat",
+      "valid": "Valid"
+    },
+    "issuedBy": "Emis de",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Emis către",
+    "issueDate": "Data emiterii",
+    "total": "Total",
+    "voided": "Acest document a fost anulat de emitent și nu mai este valid.",
+    "storedCopies": {
+      "title": "Copii stocate",
+      "description": "SHA-256 pentru fiecare versiune PDF deținută de emitent. Alegeți copia dvs. pentru a o compara în browser: nu se încarcă nimic.",
+      "empty": "Încă nu a fost generat niciun PDF.",
+      "protectedVersion": "Copie protejată cu parolă {version}",
+      "version": "Versiunea {version}"
+    },
+    "check": {
+      "label": "Verificați copia dvs.",
+      "hashing": "Se calculează suma de control…",
+      "match": "Copia dvs. corespunde exact versiunii {version}.",
+      "mismatch": "Copia dvs. nu corespunde niciunei versiuni stocate."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Document partajat",
+      "metaDescription": "Un document partajat cu tine: vizualizează-l online și descarcă PDF-ul.",
+      "rateLimited": "Prea multe cereri de la această adresă. Încercați din nou peste un minut.",
+      "unavailable": {
+        "title": "Acest link nu este disponibil",
+        "body": "Poate a expirat sau a fost revocat de emitent. Cereți-i unul nou."
+      },
+      "lockedTitleInvoice": "Factură de la {issuer}",
+      "lockedTitleCreditNote": "Notă de credit de la {issuer}",
+      "lockedBody": "Acest document este protejat cu parolă. Introduceți parola primită de la emitent.",
+      "void": "Anulat",
+      "protectedPdf": "PDF-ul se deschide cu aceeași parolă. Poate fi citit și imprimat; copierea și editarea sunt blocate.",
+      "byline": "De la {issuer} către {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Parolă",
+      "limited": "Prea multe încercări. Așteptați cincisprezece minute și încercați din nou.",
+      "wrong": "Parola nu este corectă.",
+      "submit": "Deschide documentul"
+    },
+    "dialog": {
+      "trigger": "Partajează",
+      "title": "Partajați acest document",
+      "description": "Oricine are linkul îl poate vizualiza și descărca până când expiră sau îl revocați. O parolă protejează și PDF-ul în sine: se deschide cu parola și poate fi citit și imprimat, nu editat sau copiat.",
+      "link": "Link",
+      "copyLink": "Copiază linkul",
+      "password": "Parolă",
+      "copyPassword": "Copiază parola",
+      "sendSeparately": "Trimiteți parola separat de link. O puteți vedea din nou în lista de mai jos.",
+      "copy": "Copiază",
+      "copied": "Copiat",
+      "expires": "Expiră",
+      "expiry": {
+        "d7": "În 7 zile",
+        "d30": "În 30 de zile",
+        "d90": "În 90 de zile",
+        "never": "Niciodată"
+      },
+      "protection": "Protecție",
+      "protectionOptions": {
+        "auto": "Parolă: generează o frază de acces",
+        "manual": "Parolă: aleg eu una",
+        "none": "Fără parolă (link deschis)"
+      },
+      "passwordHint": "Cel puțin 8 caractere.",
+      "strength": "Putere: {label}",
+      "strengthLabels": {
+        "veryWeak": "foarte slabă",
+        "weak": "slabă",
+        "fair": "acceptabilă",
+        "good": "bună",
+        "strong": "puternică"
+      },
+      "creating": "Se creează…",
+      "create": "Creează link",
+      "activeLinks": "Linkuri active",
+      "passwordProtected": "Protejat cu parolă",
+      "openLink": "Deschide linkul",
+      "linkExpires": "{kind} · expiră {date}",
+      "linkNeverExpires": "{kind} · nu expiră niciodată",
+      "revoke": {
+        "title": "Revocați acest link?",
+        "description": "Linkul încetează imediat să funcționeze pentru toți cei care îl au.",
+        "label": "Revocă"
+      },
+      "linkPassword": "Parolă: <code>{password}</code>",
+      "counts": "{views, plural, one {# vizualizare} few {# vizualizări} other {# de vizualizări}} · {downloads, plural, one {# descărcare} few {# descărcări} other {# de descărcări}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Note de credit",
+      "title": "Note de credit",
+      "description": "Emise pe baza facturilor emise; fiecare reduce soldul facturii sale la emitere.",
+      "newCreditNote": "Notă de credit nouă",
+      "filters": {
+        "from": "De la",
+        "to": "Până la",
+        "issuer": "Emitent",
+        "client": "Client",
+        "status": "Stare",
+        "search": "Căutare",
+        "all": "Toate",
+        "searchPlaceholder": "Număr, motiv, client",
+        "go": "Mergi"
+      },
+      "statuses": {
+        "DRAFT": "Ciornă",
+        "ISSUED": "Emisă",
+        "SENT": "Trimisă",
+        "VOID": "Anulată"
+      },
+      "empty": {
+        "title": "Nicio notă de credit încă",
+        "description": "Deschideți o factură emisă și alegeți „Notă de credit” pentru a reduce suma datorată."
+      },
+      "noMatch": "Nicio notă de credit nu corespunde acestor filtre.",
+      "columns": {
+        "number": "Număr",
+        "against": "Pentru",
+        "client": "Client",
+        "issueDate": "Data emiterii",
+        "reason": "Motiv",
+        "total": "Total",
+        "status": "Stare"
+      },
+      "draft": "Ciornă"
+    },
+    "new": {
+      "metaTitle": "Notă de credit nouă",
+      "title": "Notă de credit nouă",
+      "description": "O notă de credit se emite pe baza unei facturi emise și îi reduce soldul.",
+      "nothingToCredit": {
+        "title": "Nimic de creditat",
+        "description": "Notele de credit necesită o factură emisă cu sold restant.",
+        "openInvoices": "Deschide facturile"
+      },
+      "whichInvoice": "Care factură?",
+      "invoice": "Factură",
+      "invoiceOption": "{number} · {client} · sold {balance}",
+      "issuedOnly": "Notele de credit se emit doar pe baza facturilor emise.",
+      "invoiceFallback": "Factură"
+    },
+    "edit": {
+      "metaTitle": "Editare notă de credit",
+      "title": "Editare ciornă de notă de credit",
+      "immutable": "Notele de credit emise sunt imuabile.",
+      "draft": "Ciornă"
+    },
+    "detail": {
+      "metaTitle": "Notă de credit",
+      "draftTitle": "Ciornă de notă de credit",
+      "meta": "{client} · pentru <invoice>{number}</invoice> · emisă <mono>{date}</mono>",
+      "previewPdf": "Previzualizare PDF",
+      "issue": {
+        "title": "Emiteți această notă de credit?",
+        "description": "Se alocă un număr, soldul facturii este redus, iar documentul devine imuabil.",
+        "label": "Emite"
+      },
+      "deleteDraft": {
+        "title": "Ștergeți această ciornă?"
+      },
+      "sendByEmail": "Trimite prin e-mail",
+      "markSent": {
+        "title": "Marcați ca trimisă?",
+        "label": "Marchează ca trimisă"
+      },
+      "void": {
+        "title": "Anulați această notă de credit?",
+        "description": "Soldul facturii este restabilit; numărul nu se reutilizează niciodată.",
+        "reason": "Motiv",
+        "label": "Anulează"
+      },
+      "voided": "Anulată la {date}: {reason}",
+      "amounts": {
+        "title": "Sume",
+        "reason": "Motiv",
+        "creditAmount": "Suma creditată",
+        "total": "Total",
+        "balanceNow": "Soldul facturii acum",
+        "sent": "Trimisă"
+      },
+      "documents": {
+        "title": "Documente stocate",
+        "description": "Fiecare versiune este păstrată; pagina de verificare listează toate sumele de control.",
+        "regenerateTitle": "Generați o versiune PDF nouă?",
+        "generate": "Generează",
+        "newVersion": "Versiune nouă",
+        "renderedOnFirstDownload": "PDF-ul este generat la prima descărcare.",
+        "protectedCopy": "Copie protejată cu parolă {version}",
+        "version": "Versiunea {version}",
+        "verificationLink": "Link de verificare: <link>{path}…</link>"
+      },
+      "draftsPreview": "Ciornele se previzualizează direct în editor."
+    },
+    "send": {
+      "metaTitle": "Trimitere notă de credit",
+      "title": "Trimite <mono>{number}</mono>",
+      "previousSends": "Trimiteri anterioare"
+    },
+    "builder": {
+      "against": "Pentru <mono>{number}</mono>",
+      "summary": "{client} · total {total} · sold {balance} · marjă impozabilă ≈ {headroom}",
+      "issueDate": "Data emiterii",
+      "creditAmount": "Suma creditată (fără taxe)",
+      "creditAmountHint": "Taxa este repartizată din rândurile de taxe ale facturii",
+      "reason": "Motiv",
+      "picker": {
+        "title": "Calculează din rândurile facturii",
+        "description": "Bifați rânduri întregi sau un procent; aceasta doar completează suma de mai sus.",
+        "line": "Rând",
+        "subtotal": "Subtotal",
+        "credit": "Credit",
+        "percent": "%",
+        "creditLine": "Creditează rândul {position}",
+        "percentOfLine": "Procent din rândul {position}"
+      },
+      "saveDraft": "Salvează ciorna",
+      "issuing": "Se emite…",
+      "saveAndIssue": "Salvează și emite"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Plată primită",
+        "REFUND": "Rambursare emisă",
+        "WRITE_OFF": "Ștergere din evidență"
+      },
+      "editTitle": "Editare înregistrare",
+      "recordTitle": "Înregistrați o plată",
+      "description": "Sumele sunt în moneda facturii ({currency}); TDS reținut face parte din suma aplicată.",
+      "kind": "Tip",
+      "date": "Data",
+      "amountRefunded": "Suma rambursată (negativă)",
+      "amountApplied": "Suma aplicată",
+      "refundHint": "Introduceți o sumă negativă, de ex. -500",
+      "tdsDeducted": "TDS reținut",
+      "tdsHint": "Taxa reținută de client; se numără în suma aplicată",
+      "bankFees": "Comisioane bancare",
+      "receivedInto": "Încasată în",
+      "noMethod": "-",
+      "reference": "Referință",
+      "referenceHint": "UTR, ID tranzacție, număr cec",
+      "otherCurrency": "Primită în altă monedă",
+      "amountReceived": "Suma primită",
+      "receivedCurrency": "Moneda primită",
+      "exchangeRate": "Curs de schimb",
+      "exchangeRateHint": "1 unitate primită = ? {currency}",
+      "notes": "Note",
+      "receiptHint": "PNG, JPEG, WebP sau PDF până la 10 MB",
+      "receipts": "Chitanțe și facturi",
+      "receiptN": "Chitanța {n}",
+      "removeReceipt": "Eliminați chitanța {n}",
+      "saveChanges": "Salvează modificările",
+      "record": "Înregistrează"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Facturat către",
+      "shipTo": "Livrat la",
+      "invoice": "Factură",
+      "creditNote": "Notă de credit",
+      "issueDate": "Data emiterii",
+      "dueDate": "Data scadenței",
+      "number": "Număr",
+      "description": "Descriere",
+      "sacHsn": "SAC/HSN",
+      "qty": "Cant.",
+      "unit": "UM",
+      "rate": "Tarif",
+      "tax": "Taxă",
+      "amount": "Sumă",
+      "subtotal": "Subtotal",
+      "discount": "Reducere",
+      "taxable": "Sumă impozabilă",
+      "total": "Total",
+      "amountDue": "Sumă de plată",
+      "tdsExpected": "TDS așteptat",
+      "netExpected": "Net așteptat",
+      "rounding": "Rotunjire",
+      "paymentDetails": "Detalii de plată",
+      "notes": "Note",
+      "terms": "Condiții",
+      "placeOfSupply": "Locul livrării",
+      "poReference": "Referință comandă (PO)",
+      "amountInWords": "Suma în litere",
+      "signature": "Semnatar autorizat"
+    },
+    "title": {
+      "taxInvoice": "FACTURĂ FISCALĂ",
+      "billOfSupply": "DOCUMENT DE LIVRARE",
+      "invoice": "FACTURĂ",
+      "creditNote": "NOTĂ DE CREDIT"
+    },
+    "text": {
+      "pageOf": "Pagina {page} din {total}",
+      "scanToVerify": "Scanați pentru verificare",
+      "taxId": "Cod fiscal",
+      "void": "ANULAT",
+      "draftWatermark": "CIORNĂ - nu este factură fiscală",
+      "paymentTermsDays": "{days} zile",
+      "irn": "IRN",
+      "ackNo": "Nr. confirmare",
+      "ackDate": "Data confirmării",
+      "einvoiceCancelled": "E-FACTURĂ ANULATĂ"
+    },
+    "ui": {
+      "pageEstimate": "aprox. {count, plural, one {# pagină} few {# pagini} other {# de pagini}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Mesaj",
+      "description": "Precompletat din șabloanele profilului de emitent. Nimic nu se trimite până nu faceți clic pe Trimite.",
+      "to": "Către",
+      "toHint": "Separate prin virgulă",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Subiect",
+      "body": "Corp",
+      "bodyHint": "Text simplu; linkurile devin accesibile prin clic",
+      "attachment": "Atașament",
+      "attachmentHint": "Copia stocată, numită <mono>{name}</mono> (sau .docx); conținutul ei nu poate fi modificat.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Se trimite…",
+      "send": "Trimite",
+      "openInMailApp": "Deschide în aplicația de e-mail",
+      "noSmtp": "Niciun server SMTP nu este configurat (Setări → E-mail). Deschideți ciorna în aplicația de e-mail, atașați PDF-ul descărcat, apoi marcați-o ca trimisă mai jos.",
+      "markAsSent": "Marchează ca trimis"
+    },
+    "sentLog": {
+      "when": "Când",
+      "document": "Document",
+      "to": "Către",
+      "subject": "Subiect",
+      "status": "Stare",
+      "empty": "Nimic trimis încă.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "trimis",
+        "FAILED": "eșuat",
+        "MANUAL": "manual"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Bună, {name}",
+    "fiscalYear": "Anul fiscal {year}",
+    "fiscalYearWithBase": "Anul fiscal {year} · moneda de bază {currency} ({profile})",
+    "newCreditNote": "Notă de credit nouă",
+    "welcomeTitle": "Bun venit în {appName}",
+    "welcomeDescription": "Începeți prin a crea profilul de emitent din care facturați, apoi adăugați un client și prima factură.",
+    "createProfile": "Creați-vă profilul",
+    "tiles": {
+      "outstanding": "Restant",
+      "overdue": "Întârziat",
+      "billedThisFy": "Facturat în acest AF",
+      "receivedThisFy": "Încasat în acest AF",
+      "drafts": "Ciorne",
+      "invoiceCount": "{count, plural, one {# factură} few {# facturi} other {# de facturi}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Plăți minus rambursări, la cursul valutar înregistrat",
+      "awaitingIssue": "în așteptarea emiterii",
+      "nothingPending": "nimic în așteptare"
+    },
+    "recentInvoices": "Facturi recente",
+    "allInvoices": "Toate facturile",
+    "noInvoicesYet": "Nicio factură încă.",
+    "columns": {
+      "number": "Număr",
+      "client": "Client",
+      "issued": "Emisă"
+    },
+    "topClients": "Clienți de top după sumă restantă",
+    "nothingOutstanding": "Nimic restant."
+  },
+  "exports": {
+    "export": "Exportă",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Facturi",
+      "newInvoice": "Factură nouă",
+      "draft": "Ciornă",
+      "aDraft": "o ciornă",
+      "statuses": {
+        "draft": "Ciornă",
+        "issued": "Emisă",
+        "sent": "Trimisă",
+        "partiallyPaid": "Plătită parțial",
+        "paid": "Plătită",
+        "overdue": "Întârziată",
+        "void": "Anulată"
+      },
+      "lifecycle": {
+        "draft": "ciornă",
+        "issued": "emisă",
+        "void": "anulată"
+      },
+      "units": {
+        "hour": "Oră",
+        "day": "Zi",
+        "fixed": "Fix",
+        "milestone": "Etapă",
+        "unit": "Unitate"
+      },
+      "unitsLower": {
+        "hour": "oră",
+        "day": "zi",
+        "fixed": "fix",
+        "milestone": "etapă",
+        "unit": "unitate"
+      },
+      "supplyTypes": {
+        "intraState": "intrastatal",
+        "interState": "interstatal",
+        "exportLut": "export lut",
+        "exportWithTax": "export cu taxă",
+        "reverseCharge": "taxare inversă",
+        "notApplicable": "nu se aplică"
+      }
+    },
+    "list": {
+      "description": "Facturi ciornă, emise și anulate; stările derivă din plăți și scadențe.",
+      "fiscalYear": "An fiscal",
+      "issuer": "Emitent",
+      "client": "Client",
+      "searchPlaceholder": "Număr, PO, client",
+      "emptyTitle": "Nicio factură încă",
+      "emptyDescription": "Construiți prima factură: alegeți un client, adăugați rânduri, urmăriți previzualizarea, apoi emiteți-o.",
+      "columns": {
+        "number": "Număr",
+        "client": "Client",
+        "issuer": "Emitent",
+        "issueDate": "Data emiterii",
+        "due": "Scadență",
+        "balance": "Sold"
+      },
+      "noMatches": "Nicio factură nu corespunde acestor filtre.",
+      "count": "{count, plural, one {# factură} few {# facturi} other {# de facturi}}",
+      "countPaged": "{count, plural, one {# factură} few {# facturi} other {# de facturi}} · pagina {page} din {pages}",
+      "register": "registru",
+      "einvoice": "E-factura",
+      "einvoiceFilters": {
+        "registered": "IRN înregistrat",
+        "none": "Neînregistrată",
+        "cancelled": "IRN anulat"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Creați mai întâi un profil de emitent",
+      "noProfileDescription": "O factură se emite dintr-o identitate juridică: configurați-vă profilul cu codurile fiscale și numerotarea.",
+      "createProfile": "Creează un profil"
+    },
+    "edit": {
+      "metaTitle": "Editare factură",
+      "title": "Editare ciornă",
+      "immutableFlash": "Facturile emise sunt imuabile. Folosiți „Anulează și reemite” pentru a o corecta."
+    },
+    "detail": {
+      "metaTitle": "Factură",
+      "draftInvoice": "Factură ciornă",
+      "issuedDue": "Emisă <mono>{issued}</mono>, scadentă <mono>{due}</mono>",
+      "replaces": "Înlocuiește {number}",
+      "replacedBy": "Înlocuită de {number}",
+      "previewPdf": "Previzualizare PDF",
+      "downloadEInvoice": "Descarcă JSON-ul e-facturii",
+      "issueTitle": "Emiteți această factură?",
+      "issueDescription": "Se alocă un număr, iar documentul devine imuabil.",
+      "issue": "Emite",
+      "deleteDraftTitle": "Ștergeți această ciornă?",
+      "sendByEmail": "Trimite prin e-mail",
+      "recordPayment": "Înregistrează plata",
+      "progress": {
+        "title": "Progresul plății",
+        "description": "În ce etapă se află această factură, de la emitere până la o chitanță arhivată.",
+        "issued": "Emisă",
+        "sent": "Trimisă",
+        "payment": "Plată înregistrată",
+        "paymentOn": "Plata de <mono>{amount}</mono> a fost înregistrată la <mono>{date}</mono>",
+        "paid": "Plătită integral",
+        "receipt": "Chitanță atașată",
+        "done": "finalizat",
+        "pending": "în așteptare"
+      },
+      "creditNote": "Notă de credit",
+      "markSentTitle": "Marcați ca trimisă?",
+      "markSentDescription": "Înregistrează faptul că clientul a primit această factură.",
+      "markSent": "Marchează ca trimisă",
+      "voidReissueTitle": "Anulați și reemiteți?",
+      "voidReissueDescription": "Originalul este anulat și se deschide pentru editare o ciornă legată, cu același conținut.",
+      "voidReissue": "Anulează și reemite",
+      "voidTitle": "Anulați această factură?",
+      "voidDescription": "Posibil doar fără plăți înregistrate; numărul nu se reutilizează niciodată.",
+      "void": "Anulează",
+      "voided": "Anulată la {date}: {reason}",
+      "amounts": "Sume",
+      "subtotal": "Subtotal",
+      "discount": "Reducere",
+      "discountPercent": "Reducere ({percent})",
+      "rounding": "Rotunjire",
+      "tdsExpected": "TDS preconizat ({percent})",
+      "paid": "Plătit",
+      "credited": "Creditat",
+      "balanceDue": "Sold de plată",
+      "supply": "Livrare",
+      "fxToBase": "Curs către moneda de bază",
+      "poReference": "Referință PO",
+      "sent": "Trimisă",
+      "lineItems": "Rânduri de factură",
+      "columns": {
+        "description": "Descriere",
+        "sacHsn": "SAC/HSN",
+        "qty": "Cant.",
+        "rate": "Tarif",
+        "tax": "Taxă",
+        "amount": "Sumă"
+      },
+      "creditNotes": "Note de credit",
+      "storedDocuments": "Documente stocate",
+      "storedDocumentsHint": "Fiecare versiune este păstrată; pagina de verificare listează toate sumele de control.",
+      "regenerateTitle": "Generați o versiune PDF nouă?",
+      "regenerateDescription": "Se generează din nou din instantaneul înghețat (de exemplu după o corecție a generatorului). Versiunile anterioare rămân.",
+      "regenerate": "Generează",
+      "newVersion": "Versiune nouă",
+      "renderedOnFirstDownload": "PDF-ul este generat la prima descărcare.",
+      "protectedCopy": "Copie protejată cu parolă {version}",
+      "version": "Versiunea {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Link de verificare:",
+      "draftPreviewHint": "Ciornele se previzualizează direct în editor; deschideți <link>PDF-ul cu filigran</link> pentru a vedea pagina.",
+      "einvoice": {
+        "title": "E-factură (India)",
+        "description": "Înregistrarea acestei facturi în Invoice Registration Portal; un document înregistrat afișează IRN-ul și codul QR semnat al portalului.",
+        "connector": "Conector",
+        "connectors": {
+          "manual": "Manual",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Niciun conector nu este configurat pentru acest profil în Setări > E-factura.",
+        "statuses": {
+          "none": "Neînregistrată",
+          "generated": "JSON generat",
+          "registered": "Înregistrată",
+          "cancelled": "Anulată",
+          "failed": "Înregistrare eșuată"
+        },
+        "irn": "IRN",
+        "ackNo": "Nr. confirmare",
+        "ackDate": "Data confirmării",
+        "cancelReason": "Anulare",
+        "generate": "Generați IRN",
+        "pasteLabel": "Răspuns IRP",
+        "pasteHint": "Lipiți JSON-ul returnat de portal sau de GSP-ul dvs. pentru JSON-ul de e-factură al acestei facturi (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Înregistrați IRN",
+        "cancelReasonLabel": "Motivul anulării",
+        "cancelReasons": {
+          "1": "Duplicat",
+          "2": "Eroare de introducere a datelor",
+          "3": "Comandă anulată",
+          "4": "Altele"
+        },
+        "cancel": "Anulați IRN",
+        "cancelWindow": "Portalul permite anularea în 24 de ore de la confirmare."
+      }
+    },
+    "history": {
+      "metaTitle": "Istoricul facturii",
+      "title": "Istoric <mono>{number}</mono>",
+      "reissueChain": "Lanțul de reemiteri",
+      "replaces": "Înlocuiește <link>{number}</link>",
+      "replacedBy": "Înlocuită de <link>{number}</link>",
+      "auditTrail": "Istoric de audit",
+      "columns": {
+        "when": "Când",
+        "who": "Cine",
+        "action": "Acțiune",
+        "summary": "Rezumat"
+      },
+      "noEvents": "Niciun eveniment încă.",
+      "system": "Sistem",
+      "emails": "E-mailuri"
+    },
+    "payments": {
+      "title": "Plăți",
+      "description": "{client} · {total} total",
+      "backToInvoice": "Înapoi la factură",
+      "ledger": "Registru",
+      "columns": {
+        "date": "Data",
+        "kind": "Tip",
+        "applied": "Aplicat",
+        "tds": "TDS",
+        "received": "Primit",
+        "reference": "Referință",
+        "balance": "Sold"
+      },
+      "noPayments": "Nicio plată înregistrată încă.",
+      "kinds": {
+        "payment": "Plată",
+        "refund": "Rambursare",
+        "writeOff": "Ștergere din evidență"
+      },
+      "receipt": "Chitanță",
+      "receiptN": "Chitanța {n}",
+      "deleteEntryTitle": "Ștergeți această înregistrare?",
+      "deleteEntryDescription": "Soldul facturii este recalculat.",
+      "totals": "Totaluri",
+      "invoiceTotal": "Totalul facturii",
+      "credited": "Creditat",
+      "refunds": "Rambursări",
+      "writeOffs": "Ștergeri din evidență",
+      "tdsDeducted": "TDS reținut",
+      "bankFees": "Comisioane bancare",
+      "balanceDue": "Sold de plată",
+      "onlyIssued": "Doar facturile emise acceptă plăți."
+    },
+    "send": {
+      "metaTitle": "Trimitere factură",
+      "title": "Trimite <mono>{number}</mono>",
+      "alreadySent": "Deja marcată ca trimisă; o nouă trimitere adaugă o altă înregistrare în jurnal.",
+      "previousSends": "Trimiteri anterioare"
+    },
+    "builder": {
+      "parties": "Părți",
+      "issuerProfile": "Profil de emitent",
+      "client": "Client",
+      "archivedOption": "{label} (arhivat)",
+      "issueDate": "Data emiterii",
+      "dueDate": "Data scadenței",
+      "fxRate": "Curs valutar către moneda de bază",
+      "fxHint": "1 {currency} = ? {base} (doar pentru raportare)",
+      "poReference": "Referință PO",
+      "lineItems": "Rânduri de factură",
+      "lineItemsHint": "Alegeți din catalog pentru a copia valorile sau tastați un rând.",
+      "taxDiscountTds": "Taxă, reducere și TDS",
+      "taxRegime": "Regim fiscal",
+      "regimes": {
+        "indiaGst": "GST India",
+        "ukVat": "TVA Marea Britanie",
+        "usSalesTax": "Taxă pe vânzări SUA",
+        "none": "Fără taxă"
+      },
+      "reverseCharge": "Taxare inversă",
+      "reverseChargeHint": "Taxa este plătită de destinatar",
+      "discount": "Reducere",
+      "percent": "Procent",
+      "amount": "Sumă",
+      "rounding": "Ajustare de rotunjire",
+      "roundingHint": "Opțională, la o unitate întreagă; trebuie să fie sub 1",
+      "round": "Rotunjește",
+      "tdsRate": "Cota TDS preconizată (%)",
+      "tdsRateHint": "Cu titlu informativ; imprimată când detalierea TDS este activă",
+      "paymentMethods": "Metode de plată",
+      "paymentMethodsHint": "Imprimate în ordinea bifării.",
+      "noPaymentMethods": "Nicio metodă de plată activă. <link>Adăugați una</link>.",
+      "whatPrints": "Ce se imprimă",
+      "whatPrintsHint": "Pornește de la valorile implicite ale profilului de emitent.",
+      "documentLanguage": "Limba documentului",
+      "documentLanguageHint": "Etichetele, datele și sumele se tipăresc în această limbă; preferința clientului, altfel cea a profilului.",
+      "notesAndTerms": "Note și condiții",
+      "notes": "Note",
+      "terms": "Condiții",
+      "saveDraft": "Salvează ciorna",
+      "issuing": "Se emite…",
+      "saveAndIssue": "Salvează și emite",
+      "subtotal": "Subtotal",
+      "tax": "Taxă",
+      "tdsExpected": "TDS preconizat",
+      "netExpected": "Net preconizat"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Adaugă din catalog…",
+      "services": "Servicii",
+      "products": "Produse",
+      "addLine": "Adaugă rând",
+      "columns": {
+        "description": "Descriere",
+        "sacHsn": "SAC/HSN",
+        "qty": "Cant.",
+        "unit": "Unitate",
+        "rate": "Tarif",
+        "taxPercent": "Taxă %"
+      },
+      "aria": {
+        "description": "Descrierea rândului {line}",
+        "sacHsn": "SAC/HSN rândul {line}",
+        "quantity": "Cantitatea rândului {line}",
+        "unit": "Unitatea rândului {line}",
+        "rate": "Tariful rândului {line}",
+        "taxRate": "Cota de taxă a rândului {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Scutit",
+      "moveUp": "Mută în sus",
+      "moveDown": "Mută în jos",
+      "removeLine": "Elimină rândul",
+      "shortcutHint": "Ctrl/⌘+Enter într-o descriere adaugă un rând.",
+      "addFromCatalogueAria": "Adaugă din catalog"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Detalii emitent",
+        "client": "Detalii client",
+        "document": "Secțiunile documentului"
+      },
+      "fields": {
+        "showLogo": "Siglă",
+        "showTradeName": "Denumire comercială",
+        "showDesignation": "Funcție",
+        "showEmail": "E-mail",
+        "showPhone": "Telefon",
+        "showWebsite": "Site web",
+        "showFullAddress": "Adresă completă",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Semnătură",
+        "showStamp": "Ștampilă",
+        "showContactPerson": "Persoană de contact",
+        "showBillingAddress": "Adresă de facturare",
+        "showShippingAddress": "Adresă de livrare",
+        "showTaxIdentifier": "Cod fiscal",
+        "showPlaceOfSupply": "Locul livrării",
+        "showDueDate": "Data scadenței",
+        "showPaymentTerms": "Condiții de plată",
+        "showSacCodeColumn": "Coloana cod SAC",
+        "showQuantityColumn": "Coloana cantitate",
+        "showUnitPriceColumn": "Coloana preț unitar",
+        "showTaxColumn": "Coloana taxă",
+        "showTdsBreakdown": "Detaliere TDS",
+        "showQrVerification": "Verificare prin QR",
+        "showNotes": "Note",
+        "showTerms": "Condiții",
+        "showReplacesReference": "Referință de înlocuire",
+        "showAmountInWords": "Suma în litere",
+        "showSupplyStatement": "Mențiune de livrare",
+        "showRoundingLine": "Rând de rotunjire",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Clienți",
+      "description": "Toți cei cărora le facturați. Clienții cu facturi sunt arhivați, niciodată șterși.",
+      "newClient": "Client nou",
+      "searchPlaceholder": "Căutare după nume",
+      "searchLabel": "Caută clienți",
+      "emptyTitle": "Niciun client încă",
+      "emptyDescription": "Adăugați persoanele și companiile cărora le facturați; moneda și condițiile lor de plată completează fiecare factură.",
+      "addClient": "Adaugă un client",
+      "noMatch": "Niciun client nu corespunde „{q}”.",
+      "termsDays": "{days} z",
+      "columns": {
+        "name": "Nume",
+        "contact": "Contact",
+        "email": "E-mail",
+        "country": "Țară",
+        "currency": "Monedă",
+        "terms": "Condiții",
+        "status": "Stare"
+      }
+    },
+    "new": {
+      "title": "Client nou"
+    },
+    "edit": {
+      "metaTitle": "Editare client",
+      "title": "Editare {name}"
+    },
+    "detail": {
+      "metaTitle": "Client",
+      "newInvoice": "Factură nouă",
+      "restoreTitle": "Restaurați acest client?",
+      "archiveTitle": "Arhivați acest client?",
+      "archiveDescription": "Dispare din listele de selecție; facturile și istoricul rămân intacte.",
+      "deleteTitle": "Ștergeți acest client?",
+      "deleteDescription": "Posibil doar cât timp nicio factură nu face referire la client.",
+      "details": "Detalii",
+      "contact": "Contact",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "country": "Țară",
+      "gstState": "GST {code}",
+      "taxId": "Cod fiscal",
+      "currency": "Monedă",
+      "paymentTerms": "Condiții de plată",
+      "paymentTermsDays": "{days} zile",
+      "expectedTds": "TDS preconizat",
+      "notes": "Note",
+      "addresses": "Adrese",
+      "billing": "Facturare",
+      "shipping": "Livrare",
+      "lifetime": "Pe toată durata",
+      "openRegister": "Deschide registrul",
+      "noIssued": "Nicio factură emisă încă.",
+      "noIssuedWithDrafts": "Nicio factură emisă încă ({drafts} ciornă).",
+      "firstLatest": "Prima factură <mono>{first}</mono>, ultima <mono>{latest}</mono>{drafts, plural, =0 {} one { · # ciornă} few { · # ciorne} other { · # de ciorne}}",
+      "lifetimeColumns": {
+        "currency": "Monedă",
+        "invoices": "Facturi",
+        "billed": "Facturat",
+        "received": "Încasat",
+        "credited": "Creditat",
+        "outstanding": "Restant",
+        "overdue": "Întârziat"
+      },
+      "recentInvoices": "Facturi recente",
+      "noInvoices": "Nicio factură pentru acest client încă.",
+      "recentColumns": {
+        "number": "Număr",
+        "issueDate": "Data emiterii",
+        "due": "Scadență",
+        "total": "Total",
+        "balance": "Sold",
+        "status": "Stare"
+      }
+    },
+    "form": {
+      "cardTitle": "Client",
+      "displayName": "Nume afișat",
+      "contactPerson": "Persoană de contact",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "taxIdType": "Tipul codului fiscal",
+      "taxIdTypeNone": "Niciunul",
+      "taxId": "Cod fiscal",
+      "currency": "Monedă",
+      "paymentTerms": "Condiții de plată (zile)",
+      "expectedTdsRate": "Cota TDS preconizată (%)",
+      "preferredLanguage": "Limba documentului",
+      "preferredLanguageFollow": "Urmează profilul emitentului",
+      "buyerReference": "Referința cumpărătorului",
+      "buyerReferenceHint": "Tipărită în e-facturi ca referință proprie a cumpărătorului (un număr de comandă sau de centru de cost).",
+      "electronicAddress": "Adresă electronică",
+      "electronicAddressHint": "Identificatorul Peppol sau EN 16931 sub care acest client primește e-facturi.",
+      "electronicAddressScheme": "Schema adresei electronice",
+      "electronicAddressSchemeNone": "Fără schemă",
+      "notes": "Note",
+      "billingAddress": "Adresa de facturare",
+      "shippingAddress": "Adresa de livrare",
+      "differentFromBilling": "Diferită de cea de facturare",
+      "save": "Salvează clientul"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Oră",
+      "DAY": "Zi",
+      "FIXED": "Fix",
+      "MILESTONE": "Etapă",
+      "UNIT": "Unitate"
+    },
+    "list": {
+      "activate": "Activează",
+      "deactivate": "Dezactivează",
+      "archiveDescription": "Rândurile de factură existente își păstrează valorile copiate.",
+      "deleteDescription": "Posibil doar cât timp niciun rând de factură nu face referire la el. Altfel, arhivați-l.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Nume",
+        "unit": "Unitate",
+        "rate": "Tarif",
+        "price": "Preț",
+        "currency": "Monedă",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Taxă",
+        "status": "Stare"
+      }
+    },
+    "services": {
+      "title": "Servicii",
+      "description": "Catalogul dvs. Alegerea unui serviciu copiază valorile lui pe rândul facturii.",
+      "newService": "Serviciu nou",
+      "emptyTitle": "Niciun serviciu încă",
+      "emptyDescription": "Adăugați ce vindeți - design cu ora, o etapă cu preț fix - cu codul SAC/HSN și cota de taxă.",
+      "addService": "Adaugă un serviciu",
+      "restoreTitle": "Restaurați {name}?",
+      "archiveTitle": "Arhivați {name}?",
+      "deleteTitle": "Ștergeți {name}?",
+      "editMetaTitle": "Editare serviciu",
+      "editTitle": "Editare {name}"
+    },
+    "products": {
+      "title": "Produse",
+      "description": "Bunurile pe care le vindeți, fiecare cu un SKU. Alegerea unui produs copiază valorile lui pe rândul facturii.",
+      "newProduct": "Produs nou",
+      "emptyTitle": "Niciun produs încă",
+      "emptyDescription": "Adăugați bunurile pe care le vindeți cu SKU, cod HSN, preț unitar și cotă de taxă.",
+      "addProduct": "Adaugă un produs",
+      "restoreTitle": "Restaurați {sku}?",
+      "archiveTitle": "Arhivați {sku}?",
+      "deleteTitle": "Ștergeți {sku}?",
+      "editMetaTitle": "Editare produs",
+      "editTitle": "Editare {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Cod unic imprimat sub descrierea rândului",
+      "name": "Nume",
+      "unit": "Unitate",
+      "defaultRate": "Tarif implicit",
+      "unitPrice": "Preț unitar",
+      "currency": "Monedă",
+      "sacHsnCode": "Cod SAC / HSN",
+      "sacHsnHint": "Obligatoriu pe facturile GST",
+      "hsnCode": "Cod HSN",
+      "hsnHint": "Obligatoriu pe facturile GST pentru bunuri",
+      "defaultTaxRate": "Cota de taxă implicită (%)",
+      "description": "Descriere",
+      "descriptionHint": "Precompletează descrierea rândului",
+      "active": "Activ",
+      "serviceInactiveHint": "Serviciile inactive nu apar în selectorul facturii",
+      "productInactiveHint": "Produsele inactive nu apar în selectorul facturii",
+      "saveService": "Salvează serviciul",
+      "saveProduct": "Salvează produsul"
+    },
+    "tags": {
+      "legend": "Profiluri",
+      "hint": "Bifați profilurile de emitent care vând aceasta. Lăsați toate nebifate pentru a o oferi fiecărui profil."
+    }
+  },
+  "address": {
+    "line1": "Adresa, rândul 1",
+    "line2": "Adresa, rândul 2",
+    "city": "Oraș",
+    "stateRegion": "Stat / regiune",
+    "postalCode": "Cod poștal",
+    "country": "Țară",
+    "state": "Stat",
+    "gstStateCodeHint": "Cod de stat GST {code}",
+    "pickStateHint": "Alegeți statul pentru codul de stat GST",
+    "stateRegionCode": "Cod de stat / regiune",
+    "stateRegionCodePlaceholder": "de ex. CA"
+  },
+  "assets": {
+    "tooLarge": "Fișierul este prea mare.",
+    "unsupportedReceipt": "Folosiți o imagine PNG, JPEG, WebP sau un PDF.",
+    "unsupportedImage": "Folosiți o imagine PNG, JPEG sau WebP.",
+    "uploadFailed": "Încărcarea a eșuat.",
+    "uploading": "Se încarcă…",
+    "dropHint": "Trageți un fișier aici sau alegeți unul",
+    "dropHintMany": "Trageți fișierele aici sau alegeți-le",
+    "dropActive": "Eliberați pentru a încărca"
+  },
+  "ui": {
+    "breadcrumb": "Calea de navigare",
+    "close": "Închide",
+    "closeMenu": "Închide meniul",
+    "reveal": "Afișează",
+    "hide": "Ascunde",
+    "openCalendar": "Deschide calendarul",
+    "chooseMonth": "Alege luna",
+    "chooseYear": "Alege anul",
+    "searchOptions": "Tastați pentru a căuta",
+    "noMatches": "Nicio potrivire",
+    "pullToRefresh": {
+      "label": "Listă reîmprospătabilă",
+      "pulling": "Trageți în jos pentru a reîmprospăta",
+      "release": "Eliberați pentru a reîmprospăta",
+      "refreshing": "Se reîmprospătează"
+    },
+    "inputCharset": "Sunt permise doar caractere standard de tastatură.",
+    "confirm": {
+      "working": "Se lucrează…"
+    },
+    "statusPill": {
+      "DRAFT": "Ciornă",
+      "ISSUED": "Emisă",
+      "SENT": "Trimisă",
+      "PARTIALLY_PAID": "Plătită parțial",
+      "PAID": "Plătită",
+      "OVERDUE": "Întârziată",
+      "VOID": "Anulată"
+    },
+    "activePill": {
+      "active": "Activ",
+      "archived": "Arhivat",
+      "inactive": "Inactiv"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Ceva nu a funcționat.",
+    "fixFields": "Corectați câmpurile evidențiate.",
+    "accountSaved": "Preferințele contului au fost salvate",
+    "apiKeyCreated": "Cheia API a fost creată. Copiați-o acum: se afișează o singură dată.",
+    "saved": "{name} a fost salvat",
+    "savedProfile": "Profilul {label} a fost salvat",
+    "clientArchived": "Client arhivat",
+    "clientRestored": "Client restaurat",
+    "clientDeleted": "Client șters",
+    "productArchived": "Produs arhivat",
+    "productRestored": "Produs restaurat",
+    "productActivated": "Produs activat",
+    "productDeactivated": "Produs dezactivat",
+    "serviceArchived": "Serviciu arhivat",
+    "serviceRestored": "Serviciu restaurat",
+    "serviceActivated": "Serviciu activat",
+    "serviceDeactivated": "Serviciu dezactivat",
+    "defaultProfileUpdated": "Profilul implicit a fost actualizat",
+    "profileArchived": "Profil arhivat",
+    "profileRestored": "Profil restaurat",
+    "profileDeleted": "Profil șters",
+    "defaultPaymentMethodUpdated": "Metoda de plată implicită a fost actualizată",
+    "paymentMethodArchived": "Metodă de plată arhivată",
+    "paymentMethodRestored": "Metodă de plată restaurată",
+    "paymentMethodDeleted": "Metodă de plată ștearsă",
+    "issued": "{number} a fost emisă",
+    "savedAsDraft": "Salvată ca ciornă. {reason}",
+    "draftSaved": "Ciornă salvată",
+    "invoiceVoided": "Factură anulată",
+    "originalVoided": "Originalul a fost anulat; editați ciorna de înlocuire",
+    "markedAsSent": "Marcată ca trimisă",
+    "draftDeleted": "Ciornă ștearsă",
+    "generatedPdf": "Versiunea PDF {version} a fost generată",
+    "creditNoteVoided": "Notă de credit anulată; soldul facturii este restabilit",
+    "draftCreditNoteDeleted": "Ciornă de notă de credit ștearsă",
+    "mailRefused": "Serverul de e-mail a refuzat mesajul: {error}. Încercarea a fost înregistrată.",
+    "unknownError": "eroare necunoscută",
+    "sentTo": "Trimis către {recipients}",
+    "smtpSaved": "Setările SMTP au fost salvate",
+    "smtpRemoved": "Setările SMTP stocate au fost eliminate",
+    "testEmailSent": "E-mail de test trimis către {email}",
+    "testFailed": "Testul a eșuat: {error}",
+    "defaultRecipientsSaved": "Destinatarii impliciți au fost salvați",
+    "invitationSent": "Invitație trimisă",
+    "invitationReady": "Invitație pregătită",
+    "unknownRole": "Rol necunoscut",
+    "roleUpdated": "Rol actualizat",
+    "accountDeactivated": "Cont dezactivat",
+    "accountReactivated": "Cont reactivat",
+    "invitationRevoked": "Invitație revocată",
+    "paymentUpdated": "Plată actualizată",
+    "paymentRecorded": "Plată înregistrată",
+    "paymentDeleted": "Plată ștearsă",
+    "sessionRevoked": "Sesiune revocată",
+    "noOtherSessions": "Nicio altă sesiune",
+    "signedOutOthers": "Deconectat din {count} alte sesiuni",
+    "sharePasswordRequired": "Introduceți o parolă sau lăsați să se genereze una.",
+    "shareLinkCreated": "Linkul de partajare a fost creat.",
+    "templateSaved": "Șablon salvat; documentele viitoare îl folosesc",
+    "templateReset": "Șablonul a fost resetat la valoarea implicită încorporată",
+    "templateImported": "Șablon importat",
+    "profileTemplateCleared": "Profilul folosește din nou șablonul instanței",
+    "operatorSaved": "Datele operatorului au fost salvate. Paginile juridice le afișează acum.",
+    "einvoiceSettingsSaved": "Setările e-facturii au fost salvate",
+    "irnRegistered": "IRN {irn} înregistrat; PDF-ul a fost regenerat cu acesta",
+    "irnRecorded": "IRN înregistrat; PDF-ul a fost regenerat cu acesta",
+    "irnCancelled": "IRN anulat; PDF-ul a fost regenerat"
+  }
+}

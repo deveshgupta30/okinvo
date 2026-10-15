@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo-forside",
+    "save": "Gem",
+    "cancel": "Annuller",
+    "continue": "Fortsæt",
+    "saving": "Gemmer…",
+    "detect": "Registrer",
+    "yes": "Ja",
+    "no": "Nej",
+    "choose": "Vælg…",
+    "remove": "Fjern",
+    "tryAgain": "Prøv igen",
+    "dashboard": "Overblik",
+    "goToDashboard": "Gå til overblikket",
+    "or": "eller",
+    "invoice": "Faktura",
+    "creditNote": "Kreditnota",
+    "downloadPdf": "Download PDF",
+    "edit": "Rediger",
+    "delete": "Slet",
+    "downloadDocx": "Download DOCX",
+    "downloadCii": "Download EN 16931 XML",
+    "downloadUbl": "Download Peppol UBL",
+    "downloadFacturX": "Download Factur-X PDF",
+    "none": "Ingen",
+    "dismiss": "Luk",
+    "all": "Alle",
+    "previous": "Forrige",
+    "next": "Næste",
+    "go": "Gå",
+    "search": "Søg",
+    "status": "Status",
+    "total": "I alt",
+    "currency": "Valuta",
+    "from": "Fra",
+    "to": "Til",
+    "reason": "Årsag",
+    "history": "Historik",
+    "archive": "Arkivér",
+    "restore": "Gendan",
+    "showArchived": "Vis arkiverede",
+    "hideArchived": "Skjul arkiverede",
+    "archived": "Arkiveret",
+    "default": "Standard",
+    "setDefault": "Angiv som standard",
+    "revoke": "Tilbagekald",
+    "copy": "Kopiér",
+    "copied": "Kopieret",
+    "active": "Aktiv",
+    "pagination": "Sideinddeling",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Overblik",
+      "invoices": "Fakturaer",
+      "creditNotes": "Kreditnotaer",
+      "clients": "Kunder",
+      "services": "Ydelser",
+      "products": "Produkter",
+      "tools": "Valuta"
+    },
+    "primaryNav": "Primær",
+    "settings": "Indstillinger",
+    "openMenu": "Åbn menu",
+    "more": "Mere",
+    "navigation": "Navigation",
+    "dock": "Hurtig navigation",
+    "pagesAndAccount": "Sider og konto",
+    "collapseSidebar": "Skjul sidepanel",
+    "collapseSidebarHint": "Skjul sidepanel ([)",
+    "expandSidebar": "Vis sidepanel",
+    "expandSidebarHint": "Vis sidepanel ([)",
+    "theme": {
+      "label": "Tema",
+      "system": "System",
+      "light": "Lyst",
+      "dark": "Mørkt",
+      "current": "Tema: {mode}",
+      "switchTo": "Tema: {mode}. Skift til {next}"
+    },
+    "userMenu": {
+      "label": "Kontomenu for {name}",
+      "profile": "Profil",
+      "logOut": "Log ud"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Valutaomregner",
+      "title": "Valutaomregner",
+      "description": "Omregn mellem de valutaer, du fakturerer i, med den valutakurstabel, som denne instans indeholder.",
+      "amount": "Beløb",
+      "from": "Fra",
+      "to": "Til",
+      "flip": "Byt om på valutaerne",
+      "enterAmount": "Indtast et beløb",
+      "asOf": "Valutakurser pr. {date} ({source})",
+      "sources": {
+        "bundled": "leveret med appen",
+        "live": "opdateret online"
+      },
+      "note": "Kurserne er vejledende; kursen på en udstedt faktura er den, du angav ved udstedelsen."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Log ind",
+      "metaDescription": "Log ind på okinvo, den selvhostede faktureringsapp, med din identitetsudbyder eller din adgangskode.",
+      "title": "Log ind",
+      "subtitle": "Kun godkendte konti kan komme ind.",
+      "failed": "Login mislykkedes.",
+      "noMethod": "Ingen loginmetode er konfigureret. Angiv et udbyderpar som <code>AUTH_GITHUB_*</code> eller <code>AUTH_PASSWORD_SIGNIN=true</code> i <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Den konto er ikke tilladt på denne instans eller er blevet deaktiveret.",
+        "signin": "Login blev ikke gennemført. Prøv igen."
+      }
+    },
+    "password": {
+      "name": "Navn",
+      "email": "E-mail",
+      "password": "Adgangskode",
+      "signingIn": "Logger ind…",
+      "createAccount": "Opret konto",
+      "signIn": "Log ind",
+      "haveAPassword": "Jeg har allerede en adgangskode",
+      "firstTime": "Første gang her? Angiv en adgangskode",
+      "failed": "Login mislykkedes."
+    },
+    "social": {
+      "redirecting": "Omdirigerer…",
+      "continueWith": "Fortsæt med {provider}",
+      "failed": "Login kunne ikke startes."
+    },
+    "error": {
+      "metaTitle": "Loginfejl",
+      "metaDescription": "Indloggingen blev ikke gennemført. Siden forklarer, hvad der gik galt, og hvordan du prøver igen.",
+      "title": "Login mislykkedes",
+      "body": "Identitetsudbyderen returnerede <code>{value}</code>. Hvis din adresse ikke er på denne instans’ godkendelsesliste, så bed ejeren om at tilføje den.",
+      "back": "Tilbage til login"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Indstillinger",
+      "profiles": "Profiler",
+      "paymentMethods": "Betalingsmåder",
+      "templates": "Skabeloner",
+      "email": "E-mail",
+      "security": "Sikkerhed",
+      "users": "Brugere",
+      "data": "Data",
+      "legal": "Juridisk",
+      "einvoicing": "E-fakturering",
+      "account": "Konto",
+      "appearance": "Udseende",
+      "api": "API",
+      "status": "Status",
+      "usage": "Brug"
+    },
+    "account": {
+      "metaTitle": "Konto",
+      "title": "Konto",
+      "description": "Dit foto, navn, region, sprog og tidszone.",
+      "photo": {
+        "title": "Foto",
+        "description": "Vises i sidepanelet og brugermenuen."
+      },
+      "form": {
+        "title": "Konto",
+        "description": "Hvordan du vises, og hvornår “i dag” er.",
+        "displayName": "Visningsnavn",
+        "signInEmail": "Login-e-mail",
+        "signInEmailHint": "Din identitet på denne instans; den kan ikke redigeres her.",
+        "timezone": "Tidszone",
+        "timezoneHint": "“I dag” for udstedelsesdatoer, forfaldsdatoer og overblikket",
+        "regionTitle": "Region",
+        "regionDescription": "Standardværdier for nye udstederprofiler og for overblikket, indtil der findes en profil.",
+        "country": "Land",
+        "currency": "Valuta",
+        "suggested": "Foreslået for dette land:",
+        "language": "Sprog",
+        "languageHint": "Selve appens sprog. Dokumenter bruger hver profils eget sprog og format.",
+        "machineTranslated": "Dette sprog er maskinoversat. Rettelser er velkomne: <link>forbedr det på GitHub</link>.",
+        "save": "Gem indstillinger"
+      },
+      "regions": {
+        "Africa": "Afrika",
+        "Americas": "Amerika",
+        "Asia": "Asien",
+        "Europe": "Europa",
+        "MiddleEast": "Mellemøsten",
+        "Oceania": "Oceanien",
+        "Constructed": "Konstruerede sprog"
+      },
+      "privacy": {
+        "title": "Privatliv",
+        "description": "okinvo sætter kun de cookies, der er nødvendige for driften. Ingen analyse, ingen sporing.",
+        "cookiePolicy": "Cookiepolitik",
+        "showNoticeAgain": "Vis cookiemeddelelsen igen"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Skift foto",
+      "addPhoto": "Tilføj foto",
+      "hint": "PNG, JPEG eller WebP. Vises som en cirkel overalt; du kan zoome og flytte det, før du gemmer.",
+      "tooLarge": "Det foto er for stort.",
+      "uploadFailed": "Upload mislykkedes.",
+      "choose": "Vælg et profilfoto",
+      "dialogTitle": "Placér dit foto",
+      "dialogDescription": "Træk for at flytte, scroll eller knib for at zoome. Cirklen er det, alle ser.",
+      "zoom": "Zoom",
+      "save": "Gem foto"
+    },
+    "appearance": {
+      "metaTitle": "Udseende",
+      "title": "Udseende",
+      "description": "Tema og accentfarve, gemt på din konto.",
+      "theme": {
+        "title": "Tema",
+        "description": "Følg systemet, eller fastlås lyst eller mørkt.",
+        "label": "Tema",
+        "system": "Følg systemet",
+        "systemHint": "Skifter med dit operativsystem",
+        "light": "Lyst",
+        "lightHint": "Hvidt lærred",
+        "dark": "Mørkt",
+        "darkHint": "Næsten sort lærred"
+      },
+      "accent": {
+        "title": "Accent",
+        "description": "Bruges til den primære knap, fokusrammer og markeringen af den aktive side. Mint passer til varemærket.",
+        "label": "Accentfarve",
+        "customHint": "Eller vælg en helt egen farve"
+      },
+      "accents": {
+        "mint": "Mint",
+        "lavender": "Lavendel",
+        "sky": "Himmelblå",
+        "peach": "Fersken",
+        "butter": "Smør",
+        "rose": "Rosa",
+        "sage": "Salvie",
+        "lilac": "Syren",
+        "custom": "Brugerdefineret"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Udstederprofiler",
+      "title": "Udstederprofiler",
+      "description": "De juridiske identiteter, du fakturerer fra. Standardprofilen forudfylder nye fakturaer.",
+      "breadcrumb": "Profiler",
+      "newProfile": "Ny profil",
+      "emptyTitle": "Ingen udstederprofil endnu",
+      "emptyDescription": "Opret den identitet, du fakturerer fra: en enkeltperson med PAN eller din virksomhed.",
+      "createProfile": "Opret en profil",
+      "columns": {
+        "label": "Etiket",
+        "legalName": "Juridisk navn",
+        "type": "Type",
+        "country": "Land",
+        "currency": "Valuta",
+        "regime": "Skatteordning",
+        "status": "Status"
+      },
+      "types": {
+        "company": "Virksomhed",
+        "individual": "Enkeltperson"
+      },
+      "makeDefaultTitle": "Gøre {label} til standard?",
+      "makeDefaultDescription": "Nye fakturaer starter fra denne profil.",
+      "restoreTitle": "Gendan {label}?",
+      "archiveTitle": "Arkivér {label}?",
+      "archiveDescription": "Den forsvinder fra vælgerne; eksisterende fakturaer berøres ikke.",
+      "new": {
+        "metaTitle": "Ny udstederprofil",
+        "title": "Ny udstederprofil",
+        "prefilled": "Udfyldt ud fra dine svar; kontrollér adressen og skatteoplysningerne, og gem derefter."
+      },
+      "edit": {
+        "metaTitle": "Rediger udstederprofil",
+        "template": "Skabelon",
+        "deleteTitle": "Slet {label}?",
+        "deleteDescription": "Kun muligt, så længe ingen faktura eller kreditnota henviser til denne profil. Ellers skal du arkivere den."
+      },
+      "template": {
+        "metaTitle": "Profilskabelon",
+        "title": "Skabelon for {label}",
+        "ownTemplate": "Egen skabelon",
+        "instanceTemplate": "Instansskabelon",
+        "resetTitle": "Bruge instansskabelonen igen?",
+        "resetDescription": "Denne profils egen konfiguration fjernes; udstedte dokumenter berøres ikke.",
+        "useInstance": "Brug instansskabelonen",
+        "usingInstanceTitle": "Bruger instansskabelonen",
+        "usingInstanceDescription": "Dokumenter fra denne profil følger Indstillinger → Skabeloner. Vælg til for at tilpasse dem separat.",
+        "customise": "Brug en anden skabelon til denne profil",
+        "openInstance": "Åbn instansskabelonen"
+      },
+      "form": {
+        "identityTitle": "Identitet",
+        "identityDescription": "Hvem fakturaen kommer fra.",
+        "type": "Type",
+        "label": "Etiket",
+        "labelHint": "Vises kun i vælgere",
+        "legalName": "Juridisk navn",
+        "tradeName": "Handelsnavn",
+        "designation": "Titel",
+        "email": "E-mail",
+        "phone": "Telefon",
+        "website": "Websted",
+        "addressTitle": "Adresse",
+        "taxTitle": "Skatteidentifikatorer",
+        "taxDescription": "Kun dem, der gælder for dig; udskrivning styres pr. faktura.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Britisk momsnummer",
+        "usTaxId": "US EIN / SSN",
+        "usTaxIdHint": "Krypteret i hvile",
+        "lutNumber": "LUT-nummer",
+        "lutNumberHint": "Til eksport uden IGST",
+        "lutFiscalYear": "LUT-regnskabsår",
+        "lutFiscalYearHint": "fx 2026-27",
+        "einvoiceTitle": "E-fakturering",
+        "einvoiceDescription": "Hvordan denne profil identificerer sig på e-fakturaer; connectoren og legitimationsoplysningerne findes under Indstillinger > E-fakturering.",
+        "electronicAddress": "Elektronisk adresse",
+        "electronicAddressHint": "Udstederens Peppol- eller EN 16931-identifikator, vist som sælgers elektroniske adresse.",
+        "electronicAddressScheme": "Skema for elektronisk adresse",
+        "electronicAddressSchemeNone": "Intet skema",
+        "einvoiceEnabled": "E-fakturering aktiveret for denne profil",
+        "einvoiceEnabledHint": "Tilbyder download af GST e-faktura-JSON, Factur-X og UBL samt IRN-registrering på profilens udstedte dokumenter.",
+        "defaultsTitle": "Standardværdier",
+        "baseCurrency": "Basisvaluta",
+        "locale": "Dokumentets sprog og format",
+        "localeHint": "Tal- og datoformat på dokumenter",
+        "fiscalYearStart": "Regnskabsåret starter i",
+        "months": {
+          "january": "Januar",
+          "february": "Februar",
+          "march": "Marts",
+          "april": "April",
+          "may": "Maj",
+          "june": "Juni",
+          "july": "Juli",
+          "august": "August",
+          "september": "September",
+          "october": "Oktober",
+          "november": "November",
+          "december": "December"
+        },
+        "taxRegime": "Standardskatteordning",
+        "regimes": {
+          "indiaGst": "Indisk GST",
+          "ukVat": "Britisk moms",
+          "usSalesTax": "Amerikansk salgsafgift",
+          "none": "Ingen skat"
+        },
+        "invoiceNumberFormat": "Format for fakturanummer",
+        "invoiceNumberFormatHint": "Tokens: {tokens}",
+        "creditNoteNumberFormat": "Format for kreditnotanummer",
+        "tdsRate": "Forventet TDS-sats (%)",
+        "tdsRateHint": "Kun til information, udskrives som forventet fradrag",
+        "defaultNotes": "Standardnoter",
+        "defaultTerms": "Standardvilkår",
+        "printTitle": "Hvad der udskrives som standard",
+        "printDescription": "Hver faktura kopierer disse og kan ændre dem enkeltvis.",
+        "emailTitle": "E-mail",
+        "emailDescription": "Standardværdier for afsendelsesvinduet. Pladsholdere: {placeholders}",
+        "emailCc": "Standard-cc",
+        "emailBcc": "Standard-bcc",
+        "commaSeparated": "Kommasepareret",
+        "invoiceSubject": "Fakturaens emne",
+        "invoiceSubjectHint": "Tom bruger den indbyggede skabelon",
+        "creditNoteSubject": "Kreditnotaens emne",
+        "invoiceBody": "Fakturaens brødtekst",
+        "creditNoteBody": "Kreditnotaens brødtekst",
+        "artworkTitle": "Grafik",
+        "artworkDescription": "PNG, JPEG eller WebP op til 2 MB; underskrift og stempel bevarer gennemsigtighed.",
+        "logo": "Logo",
+        "signature": "Underskrift",
+        "stamp": "Stempel",
+        "transparentPng": "Gennemsigtig PNG",
+        "save": "Gem profil"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Betalingsmåder",
+      "title": "Betalingsmåder",
+      "description": "Hvordan kunder betaler dig. Oplysningerne er krypteret og fryses ind i hver faktura ved udstedelsen.",
+      "newMethod": "Ny betalingsmåde",
+      "emptyTitle": "Ingen betalingsmåder endnu",
+      "emptyDescription": "Tilføj en bankkonto, et UPI-id eller en pung, så fakturaer kan fortælle kunderne, hvor de skal betale.",
+      "addMethod": "Tilføj en betalingsmåde",
+      "columns": {
+        "name": "Navn",
+        "type": "Type",
+        "currency": "Valuta",
+        "status": "Status"
+      },
+      "types": {
+        "bankTransfer": "Bankoverførsel",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Brugerdefineret"
+      },
+      "makeDefaultTitle": "Gøre {name} til standard?",
+      "restoreTitle": "Gendan {name}?",
+      "archiveTitle": "Arkivér {name}?",
+      "archiveDescription": "Udstedte fakturaer beholder det øjebliksbillede, de blev udskrevet med.",
+      "new": {
+        "metaTitle": "Ny betalingsmåde",
+        "title": "Ny betalingsmåde"
+      },
+      "edit": {
+        "metaTitle": "Rediger betalingsmåde",
+        "title": "Rediger {name}",
+        "deleteTitle": "Slet {name}?",
+        "deleteDescription": "Kun muligt, så længe ingen faktura eller betaling henviser til den. Ellers skal du arkivere den."
+      },
+      "form": {
+        "name": "Navn",
+        "nameHint": "Udskrives som overskrift på betalingsblokken",
+        "type": "Type",
+        "currency": "Valuta",
+        "currencyHint": "Valgfri; vises kun som kontekst",
+        "anyCurrency": "Enhver",
+        "instructions": "Anvisninger",
+        "instructionsHint": "Udskrives under oplysningerne",
+        "isDefault": "Standardbetalingsmåde",
+        "isDefaultDescription": "Forvalgt på nye fakturaer",
+        "isActive": "Aktiv",
+        "detailsTitle": "Oplysninger",
+        "detailsDescription": "Krypteret i hvile; gemmes som øjebliksbillede i hver faktura ved udstedelsen.",
+        "vpa": "UPI-id (VPA)",
+        "payeeName": "Modtagerens navn",
+        "lines": "Linjer",
+        "linesHint": "Én linje pr. række, udskrevet uændret",
+        "accountEmail": "Konto-e-mail / brugernavn",
+        "bank": {
+          "accountHolder": "Kontoindehaver",
+          "accountNumber": "Kontonummer",
+          "bankName": "Banknavn",
+          "branch": "Filial",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Routing- / registreringsnummer"
+        },
+        "save": "Gem betalingsmåde"
+      }
+    },
+    "templates": {
+      "metaTitle": "Dokumentskabeloner",
+      "title": "Dokumentskabeloner",
+      "customised": "Tilpasset",
+      "builtIn": "Indbygget standard",
+      "description": "Hvordan fakturaer og kreditnotaer ser ud. Udstedte dokumenter beholder den skabelon, de blev udstedt med.",
+      "resetTitle": "Nulstil til den indbyggede standard?",
+      "resetDescription": "Din tilpasning fjernes; allerede udstedte dokumenter berøres ikke.",
+      "reset": "Nulstil",
+      "resetTrigger": "Nulstil til standard",
+      "importTitle": "Importér",
+      "importDescription": "Gendan en konfiguration, der tidligere er eksporteret.",
+      "overridesTitle": "Tilsidesættelser pr. profil",
+      "overridesDescription": "En profil kan vælge sin egen skabelon på sin redigeringsside.",
+      "noOverrides": "Alle profiler bruger instansskabelonen.",
+      "import": {
+        "json": "Skabelon-JSON",
+        "jsonHint": "Indsæt en fil fra Eksportér JSON; manglende nøgler falder tilbage til standardværdier",
+        "importing": "Importerer…",
+        "submit": "Importér"
+      },
+      "form": {
+        "templateTitle": "Skabelon",
+        "templateDescription": "Seks indbyggede; tilpasningen nedenfor gælder for den, du vælger.",
+        "templateGroup": "Skabelon",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Moderne og luftig, uden seriffer, accentlinje under sidehovedet."
+          },
+          "classic": {
+            "name": "Klassisk",
+            "character": "Traditionel tabel med kant, overskrifter med seriffer, indrammede totaler."
+          },
+          "compact": {
+            "name": "Kompakt",
+            "character": "Tæt layout til lange varelinjer; mindre skrift, færre skillelinjer."
+          },
+          "minimal": {
+            "name": "Minimal",
+            "character": "Rolig og rummelig: ingen linjer eller bokse, lette etiketter, masser af luft."
+          },
+          "letterhead": {
+            "name": "Brevhoved",
+            "character": "Dit logo og navn på et farvebånd eller billede øverst på hver side."
+          },
+          "modern": {
+            "name": "Moderne",
+            "character": "Sidehoved med farvebånd; parter, tabelhoved og totaler på en lys accenttone."
+          }
+        },
+        "paperTitle": "Papir og skrift",
+        "paperSize": "Papirstørrelse",
+        "paperLetter": "Letter",
+        "margins": "Margener",
+        "marginsNormal": "Normal",
+        "marginsNarrow": "Smal",
+        "headingFont": "Overskriftsskrift",
+        "bodyFont": "Brødtekstskrift",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "Tabelstil",
+        "tableRuled": "Med linjer",
+        "tableZebra": "Zebra",
+        "tablePlain": "Almindelig",
+        "accentColour": "Accentfarve",
+        "textColour": "Tekstfarve",
+        "logoPosition": "Logoplacering",
+        "positionLeft": "Venstre",
+        "positionCentre": "Midten",
+        "positionRight": "Højre",
+        "logoHeight": "Logohøjde (mm)",
+        "documentTitle": "Dokumenttitel",
+        "titleAuto": "Automatisk (GST-bevidst)",
+        "titleCustom": "Brugerdefineret",
+        "titlePlaceholder": "fx PROFORMAFAKTURA",
+        "qrPosition": "QR-placering",
+        "qrFooter": "Sidefod",
+        "qrHeader": "Sidehoved",
+        "qrBesideTotals": "Ved siden af totaler",
+        "amountInWords": "Beløb med ord",
+        "wordsBelowTotal": "Under totaler",
+        "wordsFooter": "Sidefod",
+        "wordsHidden": "Skjult",
+        "subtotalRow": "Række med subtotal",
+        "discountRow": "Række med rabat",
+        "taxLines": "Skattelinjer",
+        "tdsExpected": "Forventet TDS",
+        "roundingRow": "Række med afrunding",
+        "pageNumbers": "Sidetal",
+        "headerTitle": "Sidehoved",
+        "headerDescription": "Et farvebånd eller et billede øverst på hver side. Brevhoved og Moderne viser et bånd, medmindre du vælger andet.",
+        "headerStyle": "Sidehovedets stil",
+        "headerNone": "Ingen",
+        "headerBand": "Farvebånd",
+        "headerImage": "Billede",
+        "bandColour": "Båndfarve",
+        "bandColourHex": "Båndfarve (hex)",
+        "headerImageLabel": "Sidehovedbillede",
+        "headerImageHint": "PNG, JPEG eller WebP op til 2400 px bredt; det spænder over sidens bredde.",
+        "imageOpacity": "Billedets uigennemsigtighed",
+        "headerHeight": "Sidehovedets højde (mm)",
+        "bandText": "Tekst på båndet",
+        "bandTextAuto": "Automatisk (ud fra båndfarven)",
+        "bandTextLight": "Lys",
+        "bandTextDark": "Mørk",
+        "textTitle": "Tekst",
+        "headerNote": "Note i sidehovedet",
+        "footer": "Sidefod",
+        "signatureCaption": "Underskriftstekst",
+        "draftWatermark": "Vandmærke for kladde",
+        "labelsTitle": "Etiketter",
+        "labelsDescription": "Lad et felt stå tomt for at beholde standardformuleringen.",
+        "save": "Gem skabelon",
+        "downloadSample": "Download eksempel-PDF",
+        "exportJson": "Eksportér JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "E-mail",
+      "title": "E-mail",
+      "configuredSettings": "Konfigureret i Indstillinger",
+      "configuredEnv": "Konfigureret via miljøet",
+      "notConfigured": "Ikke konfigureret: mailapp-flow",
+      "description": "Dokumenter sendes fra afsendelsesvinduet med den gemte PDF vedhæftet. Indstillinger her tilsidesætter SMTP_* i miljøet.",
+      "sendTest": "Send test-e-mail til {email}",
+      "removeTitle": "Fjern de gemte SMTP-indstillinger?",
+      "removeEnvTakesOver": "Miljøets SMTP_*-værdier overtager.",
+      "removeFallsBack": "E-mail falder tilbage til mailapp-flowet.",
+      "removeTrigger": "Fjern gemte indstillinger",
+      "smtpTitle": "SMTP-server",
+      "smtpFromEnv": "Hentes i øjeblikket fra miljøet; at gemme her tilsidesætter det.",
+      "smtpPasswordNote": "Adgangskoden krypteres i hvile og vises aldrig igen.",
+      "defaultsTitle": "Standardmodtagere",
+      "defaultsDescription": "Cc/bcc for hele instansen; udstederprofiler tilføjer deres egne.",
+      "sentTitle": "Sendt post",
+      "sentDescription": "De seneste 50 forsøg, inklusive fejl og manuelle afsendelser.",
+      "smtp": {
+        "host": "Vært",
+        "port": "Port",
+        "security": "Sikkerhed",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Ingen (LAN-relay)",
+        "user": "Brugernavn",
+        "password": "Adgangskode",
+        "passwordStored": "Gemt og krypteret; lad feltet stå tomt for at beholde den",
+        "passwordEncrypted": "Krypteret i hvile",
+        "from": "Afsenderadresse",
+        "fromName": "Afsendernavn",
+        "replyTo": "Svar til",
+        "save": "Gem SMTP-indstillinger"
+      },
+      "defaults": {
+        "cc": "Standard-cc",
+        "ccHint": "Tilføjes til hvert afsendelsesvindue; kommasepareret",
+        "bcc": "Standard-bcc",
+        "save": "Gem standardværdier"
+      }
+    },
+    "security": {
+      "metaTitle": "Sikkerhed",
+      "title": "Sikkerhed",
+      "description": "Hvor du er logget ind, og alt, der er ændret.",
+      "sessions": {
+        "title": "Aktive sessioner",
+        "description": "Tilbagekaldelse af en session logger den enhed ud med det samme.",
+        "signOutOthers": {
+          "title": "Log ud alle andre steder?",
+          "description": "Alle sessioner undtagen denne tilbagekaldes.",
+          "confirm": "Log andre ud",
+          "trigger": "Log ud alle andre steder"
+        },
+        "columns": {
+          "device": "Enhed",
+          "ipAddress": "IP-adresse",
+          "signedIn": "Logget ind",
+          "lastSeen": "Sidst set",
+          "expires": "Udløber"
+        },
+        "thisDevice": "Denne enhed",
+        "revokeTitle": "Tilbagekald denne session?",
+        "unknownDevice": "Ukendt enhed",
+        "unknownBrowser": "Ukendt",
+        "agentOnOs": "{browser} på {os}"
+      },
+      "audit": {
+        "title": "Auditlog",
+        "count": "{count, plural, one {# hændelse} other {# hændelser}}",
+        "entity": "Objekt",
+        "actionContains": "Handling indeholder",
+        "filter": "Filtrer",
+        "reset": "Nulstil",
+        "columns": {
+          "when": "Hvornår",
+          "who": "Hvem",
+          "action": "Handling",
+          "entity": "Objekt",
+          "summary": "Resumé"
+        },
+        "empty": "Ingen hændelser matcher disse filtre.",
+        "system": "System",
+        "changes": "Ændringer",
+        "page": "Side {page} af {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Brugere",
+      "title": "Brugere",
+      "description": "Hvem der kan logge ind på denne instans, og hvad de må.",
+      "roles": {
+        "owner": "Ejer",
+        "editor": "Redaktør",
+        "viewer": "Læser"
+      },
+      "roleHints": {
+        "owner": "Alt, inklusive indstillinger og medlemmer",
+        "editor": "Kunder, katalog, fakturaer, kreditnotaer, betalinger, e-mail",
+        "viewer": "Skrivebeskyttet"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Rolle for {email}",
+      "invite": {
+        "title": "Invitér nogen",
+        "description": "De logger ind med den inviterede adresse (en identitetsudbyder eller en adgangskode) og får den rolle, du vælger.",
+        "sent": "Invitation sendt til {email}.",
+        "readyWithError": "Invitation klar til {email}. E-mailen kunne ikke sendes ({error}); send dem dette link:",
+        "readyNoSmtp": "Invitation klar til {email}. Ingen SMTP er konfigureret; send dem dette link:",
+        "copyLink": "Kopiér link",
+        "email": "E-mail",
+        "emailPlaceholder": "person@example.com",
+        "role": "Rolle",
+        "submit": "Invitér",
+        "inviting": "Inviterer…"
+      },
+      "members": {
+        "title": "Medlemmer",
+        "description": "Der er altid mindst én aktiv ejer.",
+        "columns": {
+          "person": "Person",
+          "role": "Rolle",
+          "lastSignIn": "Seneste login",
+          "status": "Status"
+        },
+        "nameYou": "{name} (dig)",
+        "deactivated": "Deaktiveret",
+        "reactivate": {
+          "title": "Genaktivér {email}?",
+          "description": "De kan logge ind igen med deres tidligere rolle.",
+          "confirm": "Genaktivér"
+        },
+        "deactivate": {
+          "title": "Deaktivér {email}?",
+          "description": "Alle sessioner afsluttes nu, og de kan ikke logge ind, før de genaktiveres. Deres historik bevares.",
+          "confirm": "Deaktivér"
+        }
+      },
+      "invitations": {
+        "title": "Ventende invitationer",
+        "description": "Adresser, der må logge ind, men endnu ikke har gjort det.",
+        "columns": {
+          "email": "E-mail",
+          "role": "Rolle",
+          "invited": "Inviteret"
+        },
+        "empty": "Ingen ventende invitationer.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Tilbagekald invitationen til {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Data",
+      "title": "Data",
+      "description": "Alt er flytbart: datasæt som CSV eller Excel, et fuldt øjebliksbillede til migrering, PDF’erne til din revisor og en afprøvet backuprutine.",
+      "period": {
+        "fiscalYear": "Regnskabsår",
+        "fiscalYearHint": "Tilsidesætter datoerne",
+        "issuer": "Udsteder"
+      },
+      "exportAll": {
+        "title": "Eksportér alle data",
+        "description": "En ZIP med hvert datasæt som CSV samt <mono>data.json</mono>, et relationelt øjebliksbillede af alle tabeller. Krypterede felter (betalingsoplysninger, SMTP-adgangskode) udelades; README-filen indeni angiver dem.",
+        "download": "Download okinvo-data-ZIP"
+      },
+      "exportDocuments": {
+        "title": "Eksportér dokumenter",
+        "description": "Hver udstedt og annulleret faktura og kreditnota som PDF for en periode, navngivet efter nummer, med en <mono>index.csv</mono> med numre, totaler og hashes. Manglende PDF’er genereres undervejs.",
+        "docx": "Inkludér også en DOCX-kopi af hvert dokument",
+        "facturx": "Inkludér også en Factur-X PDF/A-3-kopi med EN 16931 XML indlejret",
+        "download": "Download dokument-ZIP"
+      },
+      "datasets": {
+        "title": "Datasæt",
+        "description": "De samme eksporter som indeksiderne tilbyder, med en periode og udsteder anvendt på dem alle. Betalinger bruger datointervallet; kunder og ydelser ignorerer perioden.",
+        "columns": {
+          "dataset": "Datasæt",
+          "filters": "Anvendte filtre",
+          "download": "Download"
+        },
+        "names": {
+          "invoices": "Fakturaregister",
+          "invoiceItems": "Fakturalinjer",
+          "payments": "Betalingsjournal",
+          "creditNotes": "Kreditnotaregister",
+          "clients": "Kunder",
+          "services": "Ydelser",
+          "gstSummary": "GST-oversigt",
+          "tdsSummary": "TDS-oversigt"
+        },
+        "filters": {
+          "periodIssuer": "periode, udsteder",
+          "dateRangeIssuer": "datointerval, udsteder",
+          "includesArchived": "inkluderer arkiverede"
+        }
+      },
+      "backups": {
+        "title": "Backups",
+        "notWired": "Ingen backuptjeneste tilsluttet",
+        "noRun": "Ingen backup er kørt endnu",
+        "lastOk": "Seneste backup lykkedes",
+        "lastFailed": "Seneste backup mislykkedes",
+        "description": "Compose-tjenesten <mono>backup</mono> dumper Postgres og arkiverer lagervolumen efter <mono>BACKUP_CRON</mono>, beholder <mono>BACKUP_RETENTION_DAYS</mono> af historik i volumen <mono>backups</mono> og skriver en statusfil, som denne side læser.",
+        "finished": "Afsluttet",
+        "databaseDump": "Databasedump",
+        "storageArchive": "Lagerarkiv",
+        "size": "Størrelse",
+        "sizeMb": "{size} MB",
+        "error": "Fejl",
+        "runNow": "Kør en nu, eller gendan fra et filpar:",
+        "restoreDrill": "Gendannelsesproceduren afprøves i CI af <mono>scripts/restore-drill.sh</mono>: seed, backup, slet, gendan, og sammenlign derefter rækkeantal og en PDF-hash."
+      }
+    },
+    "legal": {
+      "metaTitle": "Juridisk",
+      "metaDescription": "Hvem der driver denne instans: oplysningerne, der udskrives på de offentlige juridiske sider.",
+      "title": "Juridisk",
+      "description": "De offentlige juridiske sider udskriver disse oplysninger. Indtil alle felter er udfyldt, viser siderne fremhævede pladsholdere.",
+      "operator": {
+        "title": "Oplysninger om operatøren",
+        "complete": "Komplet",
+        "missing": "{count} mangler: {fields}",
+        "description": "Du, som den person eller virksomhed der driver denne instans, er den operatør, dokumenterne henviser til. Intet her sendes nogen steder hen; det udskrives på siderne nedenfor."
+      },
+      "fieldLabels": {
+        "legalName": "Operatørens juridiske navn",
+        "entityType": "Enhedstype",
+        "address": "Operatørens adresse",
+        "country": "Operatørens land",
+        "contactEmail": "Kontakt-e-mail",
+        "privacyEmail": "Privatlivs-e-mail",
+        "dpoEmail": "Databeskyttelsesrådgiverens e-mail",
+        "governingLaw": "Lovvalg",
+        "venue": "Værneting",
+        "effectiveDate": "Ikrafttrædelsesdato"
+      },
+      "publicPages": {
+        "title": "Offentlige sider",
+        "description": "Der linkes til dem fra loginsiden, delingsvisningen og cookiemeddelelsen.",
+        "terms": "Servicevilkår",
+        "acceptableUse": "Politik for acceptabel brug",
+        "privacy": "Privatlivspolitik",
+        "cookies": "Cookiepolitik",
+        "dataRetention": "Opbevaring af data",
+        "security": "Sikkerhed",
+        "licenses": "Licenser og tredjepartsmeddelelser"
+      },
+      "form": {
+        "legalName": "Juridisk navn",
+        "entityType": "Enhedstype",
+        "individual": "Enkeltperson / enkeltmandsvirksomhed",
+        "company": "Virksomhed / registreret enhed",
+        "address": "Adresse",
+        "addressHint": "Udskrives i vilkårene og privatlivspolitikken som operatørens postadresse.",
+        "country": "Land",
+        "effectiveDate": "Ikrafttrædelsesdato",
+        "contactEmail": "Kontakt-e-mail",
+        "privacyEmail": "Privatlivs-e-mail",
+        "privacyEmailHint": "Hvor anmodninger fra registrerede sendes hen; kan være kontaktadressen.",
+        "dpoEmail": "Databeskyttelsesrådgiverens e-mail",
+        "dpoEmailHint": "Kun hvis du har udpeget en.",
+        "governingLaw": "Lovvalg",
+        "governingLawHint": "For eksempel \"Indiens love\" eller \"Englands og Waleses love\".",
+        "venue": "Værneting",
+        "venueHint": "For eksempel \"domstolene i Bengaluru, Karnataka\".",
+        "submit": "Gem operatøroplysninger"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fakturering",
+      "title": "E-fakturering",
+      "description": "Pr. udstederprofil: hvilken connector der registrerer indiske e-fakturaer, og hvilken europæisk profil Factur-X- og UBL-outputtet følger. Legitimationsoplysninger gemmes krypteret og vises aldrig igen.",
+      "noProfiles": "Opret først en udstederprofil.",
+      "profile": "Udstederprofil",
+      "enabled": "Aktiveret",
+      "disabled": "Deaktiveret",
+      "enabledHint": "Slå e-fakturering til eller fra pr. profil under Indstillinger > Profiler.",
+      "india": {
+        "title": "Indien (GST e-faktura, IRN)",
+        "description": "IRN registreres via den connector, der er valgt her; den manuelle connector tager imod portalens svar manuelt.",
+        "connector": "Connector",
+        "connectorNone": "Fra",
+        "connectorManual": "Manuel (indsæt IRP-svaret)",
+        "connectorNic": "NIC IRP API (sandbox eller produktion)",
+        "nicUnverified": "NIC-connectoren følger den offentliggjorte API og er kun testet mod optagede testdata; den er ikke verificeret mod en live sandbox, før der er angivet legitimationsoplysninger.",
+        "env": "Miljø",
+        "sandbox": "Sandbox",
+        "production": "Produktion",
+        "baseUrl": "Basis-URL",
+        "baseUrlHint": "Lad feltet stå tomt for miljøets standard.",
+        "clientId": "Klient-id",
+        "clientSecret": "Klienthemmelighed",
+        "username": "Brugernavn",
+        "password": "Adgangskode",
+        "gstin": "GSTIN",
+        "publicKey": "IRP-offentlig nøgle (PEM)",
+        "publicKeyHint": "Download den fra portalen, når du er logget ind; den omslutter de legitimationsoplysninger, der sendes til IRP.",
+        "publicKeyStored": "Gemt; lad feltet stå tomt for at beholde den.",
+        "secretStored": "Gemt krypteret; lad feltet stå tomt for at beholde den.",
+        "secretEncrypted": "Gemt krypteret i hvile."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 er den eneste profil i denne version; Factur-X- og UBL-downloads bruger den.",
+        "profile": "Profil",
+        "profileNone": "Fra",
+        "en16931": "EN 16931"
+      },
+      "save": "Gem indstillinger for e-fakturering"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API-nøgler til scripts, SDK’et og MCP-klienter, med curl-eksempler.",
+      "title": "API",
+      "description": "Nøgler til scripts, SDK’et og MCP-klienter. En nøgle kan højst det, din rolle kan; den vises én gang.",
+      "create": {
+        "title": "Opret en nøgle",
+        "description": "Send den som <mono>Authorization: Bearer okv_…</mono>. Hold den ude af kildekode og chatlogs; tilbagekald den nedenfor, hvis den lækker."
+      },
+      "keys": {
+        "title": "Nøgler",
+        "descriptionOwner": "Hver nøgle på denne instans; ejere kan tilbagekalde enhver af dem.",
+        "descriptionOwn": "Dine nøgler.",
+        "columns": {
+          "name": "Navn",
+          "prefix": "Præfiks",
+          "scopes": "Scopes",
+          "owner": "Ejer",
+          "lastUsed": "Sidst brugt",
+          "expires": "Udløber",
+          "status": "Status"
+        },
+        "empty": "Ingen API-nøgler endnu.",
+        "never": "aldrig",
+        "revoked": "Tilbagekaldt",
+        "expired": "Udløbet",
+        "revokeTitle": "Tilbagekald {name}?",
+        "revokeDescription": "Klienter, der bruger denne nøgle, holder straks op med at virke.",
+        "activeCount": "{count, plural, one {# aktiv nøgle.} other {# aktive nøgler.}}"
+      },
+      "examples": {
+        "title": "Eksempler",
+        "description": "Erstat <mono>$OKINVO_KEY</mono> med en nøgle. Den versionerede REST-API, dens OpenAPI-dokument (<mono>/api/openapi.json</mono>), TypeScript-SDK’et og MCP-serveren kommer med de næste opgaver i v1.1-planen; statusendepunktet virker allerede i dag.",
+        "rateLimit": "Kald over grænsen besvares med 429 og en <mono>Retry-After</mono>-header (120 forespørgsler pr. minut pr. nøgle). En nøgles scopes er begrænset af dens ejers aktuelle rolle."
+      },
+      "form": {
+        "copyKey": "Kopiér API-nøgle",
+        "name": "Navn",
+        "namePlaceholder": "fx regnskabsscript",
+        "expires": "Udløber",
+        "in30Days": "Om 30 dage",
+        "in90Days": "Om 90 dage",
+        "inAYear": "Om et år",
+        "never": "Aldrig",
+        "scopes": "Scopes",
+        "submit": "Opret API-nøgle",
+        "creating": "Opretter…"
+      },
+      "scopes": {
+        "invoicesRead": "Læs fakturaer",
+        "invoicesCreate": "Opret og udsted fakturaer",
+        "creditNotesRead": "Læs kreditnotaer",
+        "creditNotesCreate": "Opret og udsted kreditnotaer",
+        "catalogueRead": "Læs kunder, ydelser og produkter",
+        "documentsRead": "Download gemte PDF’er og DOCX-kopier",
+        "statusRead": "Læs instansens status"
+      }
+    },
+    "status": {
+      "metaTitle": "Status",
+      "metaDescription": "Version, database, lager, e-mail og backupstatus for denne instans.",
+      "title": "Status",
+      "description": "Hvad denne instans kører, og om dens dele svarer.",
+      "recheck": "Kontrollér igen",
+      "health": {
+        "ok": "OK",
+        "warning": "Advarsel",
+        "failed": "Mislykket",
+        "na": "Ikke konfigureret"
+      },
+      "overall": {
+        "ok": "Alt er fint",
+        "degraded": "Forringet",
+        "failed": "Mislykket"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(sha ukendt)}} · bygget {built} · Node <mono>{node}</mono> · oppetid {uptime} · kontrolleret {checked}",
+      "dateUnknown": "(dato ukendt)",
+      "uptime": {
+        "days": "{d} d {h} t {m} m",
+        "hours": "{h} t {m} m",
+        "minutes": "{m} m"
+      },
+      "rows": {
+        "database": "Database",
+        "storage": "Lager",
+        "rateLimiting": "Hastighedsbegrænsning",
+        "email": "E-mail",
+        "backups": "Backups"
+      },
+      "db": {
+        "detail": "{latency} ms · seneste migrering <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # ufuldførte migrering(er)}}",
+        "noMigration": "ingen"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · skrivning, læsning og sletning af et testobjekt på {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono>-lager {store, select, memory {(én replika)} other {(delt mellem replikaer)}}",
+      "smtp": {
+        "configured": "SMTP fra {source, select, settings {the settings page} env {the environment} other {}} · seneste test {lastTest} · seneste 24 t: {sent} sendt, {failed} mislykkedes",
+        "none": "Ingen SMTP-server; afsendelsesvinduet tilbyder “Åbn i mailapp”. <link>Konfigurér</link>"
+      },
+      "backups": {
+        "notWired": "Ingen backuptjeneste tilsluttet (BACKUP_STATUS_FILE er ikke sat).",
+        "noRun": "Backuptjeneste tilsluttet; ingen kørsel registreret endnu.",
+        "ok": "Seneste kørsel lykkedes kl. {finishedAt}{days, plural, =0 {} one { · opbevaring # dag} other { · opbevaring # dage}}",
+        "failed": "Seneste kørsel mislykkedes: {error} kl. {finishedAt}{days, plural, =0 {} one { · opbevaring # dag} other { · opbevaring # dage}}"
+      },
+      "footer": "Den samme rapport er tilgængelig som JSON på <mono>/api/health/status</mono> til overvågning (logget ind-session eller API-nøgle)."
+    },
+    "usage": {
+      "metaTitle": "Brug",
+      "metaDescription": "Sidevisninger pr. skærm og dag på denne instans, talt lokalt.",
+      "title": "Brug",
+      "description": "Hvor ofte hver skærm er blevet åbnet, talt kun på denne instans: ingen cookies, ingen adresser, intet sendes nogen steder hen.",
+      "last30Days": "Seneste 30 dage",
+      "total": "{count, plural, =0 {Ingen sidevisninger} one {# sidevisning} other {# sidevisninger}}",
+      "off": "Optælling er slået fra. Sæt ANALYTICS_LOCAL=true for at tælle sidevisninger på denne instans.",
+      "empty": "Ingen sidevisninger registreret endnu.",
+      "columns": {
+        "day": "Dag",
+        "path": "Skærm",
+        "views": "Visninger"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Velkommen",
+    "progress": "Fremskridt",
+    "steps": {
+      "aboutYou": "Om dig",
+      "howYouUse": "Sådan bruger du det",
+      "allSet": "Klar"
+    },
+    "step1": {
+      "title": "Fortæl os om dig",
+      "subtitle": "Dette angiver dine standardværdier; hver værdi kan ændres senere i Indstillinger.",
+      "name": "Navn",
+      "email": "E-mail",
+      "emailHint": "Din login-identitet. Den kan ændres senere under Indstillinger → Sikkerhed.",
+      "country": "Land",
+      "currency": "Foretrukken valuta",
+      "currencyHint": "Bruges til nye profiler og overblikket, indtil der findes en profil."
+    },
+    "step2": {
+      "title": "Hvordan vil du bruge okinvo?",
+      "subtitle": "Kun standardværdierne ændres; intet er låst fast.",
+      "usage": "Brug",
+      "personal": "Personlig fakturering",
+      "personalHint": "Freelanceopgaver i dit eget navn",
+      "business": "Erhvervsfakturering",
+      "businessHint": "Fakturaer fra en registreret virksomhed",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Momsnummer",
+        "other": "Skatteregistreringsnummer"
+      },
+      "taxQuestion": {
+        "IN": "Har du et GSTIN?",
+        "GB": "Er du momsregistreret?",
+        "other": "Har du et skatteregistreringsnummer, der skal udskrives på fakturaer?"
+      }
+    },
+    "step3": {
+      "title": "Du er klar",
+      "body": "Opret nu din første udstederprofil: navn, adresse og skatteoplysninger, der udskrives på dine fakturaer. Vi har udfyldt det, du fortalte os.",
+      "go": "Gå til profiler",
+      "opening": "Åbner…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Vilkår",
+      "privacy": "Privatliv",
+      "cookies": "Cookies",
+      "security": "Sikkerhed"
+    },
+    "cookieNotice": {
+      "label": "Cookiemeddelelse",
+      "body": "Vi bruger kun strengt nødvendige cookies: din session og dine visningsindstillinger. Ingen analyse, ingen sporing.",
+      "policy": "Cookiepolitik",
+      "gotIt": "Forstået"
+    },
+    "nav": {
+      "label": "Juridisk",
+      "cookies": "Cookies",
+      "privacy": "Privatliv",
+      "terms": "Vilkår",
+      "acceptableUse": "Acceptabel brug",
+      "retention": "Opbevaring",
+      "security": "Sikkerhed",
+      "licences": "Licenser"
+    },
+    "operatorNotice": "okinvo er selvhostet software; operatøren af denne instans er ansvarlig for brugen af den.",
+    "doc": {
+      "effectiveOn": "Gælder fra <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Indhold"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Operatørens juridiske navn",
+        "entityType": "Enhedstype",
+        "address": "Operatørens adresse",
+        "country": "Operatørens land",
+        "contactEmail": "Kontakt-e-mail",
+        "privacyEmail": "Privatlivs-e-mail",
+        "dpoEmail": "Databeskyttelsesrådgiverens e-mail",
+        "governingLaw": "Lovvalg",
+        "venue": "Værneting",
+        "effectiveDate": "Ikrafttrædelsesdato"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Ikke fundet",
+      "title": "Der er intet på denne adresse",
+      "body": "Linket kan være forældet, eller dokumentet, det pegede på, blev aldrig udstedt."
+    },
+    "forbidden": {
+      "metaTitle": "Ikke tilladt",
+      "title": "Denne konto kan ikke gøre det",
+      "body": "Din rolle tillader det ikke. Bed en ejer om adgang, eller log ind med en konto, der har den."
+    },
+    "error": {
+      "title": "Noget gik galt",
+      "body": "Intet blev ændret af denne forespørgsel. Prøv igen; hvis det bliver ved, står detaljerne i serverloggen.",
+      "digest": "fejl {digest}",
+      "generic": "fejl"
+    },
+    "appNotFound": {
+      "title": "Ikke fundet",
+      "body": "Denne post findes ikke, eller den blev slettet, mens du kiggede på den.",
+      "back": "Tilbage til overblikket"
+    },
+    "validation": {
+      "required": "påkrævet",
+      "tooLong": "højst {max} tegn",
+      "invalidEmail": "skal være en gyldig e-mail",
+      "invalidDate": "skal være en kalenderdato i formatet ÅÅÅÅ-MM-DD",
+      "invalidAmount": "skal være et tal",
+      "wholeNumber": "skal være et heltal",
+      "greaterThanZero": "skal være større end nul",
+      "fixFields": "Ret venligst de markerede felter.",
+      "charset": "Kun almindelige tastaturtegn er tilladt."
+    }
+  },
+  "verify": {
+    "metaTitle": "Bekræft dokument",
+    "metaDescription": "Kontrollér, at en faktura eller kreditnota er udstedt af afsenderen og ikke er ændret.",
+    "heading": "Dokumentbekræftelse",
+    "rateLimited": "For mange kontroller fra denne adresse. Prøv igen om et minut.",
+    "notFound": {
+      "title": "Intet sådant dokument",
+      "body": "Dette link matcher intet udstedt dokument. Kontrollér QR-koden eller det link, du fik, eller kontakt udstederen."
+    },
+    "status": {
+      "void": "Annulleret",
+      "valid": "Gyldigt"
+    },
+    "issuedBy": "Udstedt af",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Udstedt til",
+    "issueDate": "Udstedelsesdato",
+    "total": "I alt",
+    "voided": "Dette dokument blev annulleret af udstederen og er ikke længere gyldigt.",
+    "storedCopies": {
+      "title": "Gemte kopier",
+      "description": "SHA-256 af hver PDF-version, udstederen har. Vælg din kopi for at sammenligne den i din browser: intet uploades.",
+      "empty": "Der er endnu ikke genereret nogen PDF.",
+      "protectedVersion": "Adgangskodebeskyttet kopi {version}",
+      "version": "Version {version}"
+    },
+    "check": {
+      "label": "Kontrollér din kopi",
+      "hashing": "Beregner hash…",
+      "match": "Din kopi svarer nøjagtigt til version {version}.",
+      "mismatch": "Din kopi svarer ikke til nogen gemt version."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Delt dokument",
+      "metaDescription": "Et dokument delt med dig: se det online og download PDF'en.",
+      "rateLimited": "For mange forespørgsler fra denne adresse. Prøv igen om et minut.",
+      "unavailable": {
+        "title": "Dette link er ikke tilgængeligt",
+        "body": "Det er muligvis udløbet eller blevet tilbagekaldt af udstederen. Bed om et nyt."
+      },
+      "lockedTitleInvoice": "Faktura fra {issuer}",
+      "lockedTitleCreditNote": "Kreditnota fra {issuer}",
+      "lockedBody": "Dette dokument er beskyttet med adgangskode. Indtast den adgangskode, udstederen gav dig.",
+      "void": "Annulleret",
+      "protectedPdf": "PDF’en åbnes med den samme adgangskode. Den kan læses og udskrives; kopiering og redigering er låst.",
+      "byline": "Fra {issuer} til {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Adgangskode",
+      "limited": "For mange forsøg. Vent femten minutter, og prøv igen.",
+      "wrong": "Den adgangskode er ikke korrekt.",
+      "submit": "Åbn dokument"
+    },
+    "dialog": {
+      "trigger": "Del",
+      "title": "Del dette dokument",
+      "description": "Alle med linket kan se og downloade det, indtil det udløber, eller du tilbagekalder det. En adgangskode beskytter også selve PDF’en: den åbnes med adgangskoden og kan læses og udskrives, ikke redigeres eller kopieres.",
+      "link": "Link",
+      "copyLink": "Kopiér link",
+      "password": "Adgangskode",
+      "copyPassword": "Kopiér adgangskode",
+      "sendSeparately": "Send adgangskoden adskilt fra linket. Du kan se den igen på listen nedenfor.",
+      "copy": "Kopiér",
+      "copied": "Kopieret",
+      "expires": "Udløber",
+      "expiry": {
+        "d7": "Om 7 dage",
+        "d30": "Om 30 dage",
+        "d90": "Om 90 dage",
+        "never": "Aldrig"
+      },
+      "protection": "Beskyttelse",
+      "protectionOptions": {
+        "auto": "Adgangskode: generér en adgangsfrase",
+        "manual": "Adgangskode: vælg min egen",
+        "none": "Ingen adgangskode (åbent link)"
+      },
+      "passwordHint": "Mindst 8 tegn.",
+      "strength": "Styrke: {label}",
+      "strengthLabels": {
+        "veryWeak": "meget svag",
+        "weak": "svag",
+        "fair": "middel",
+        "good": "god",
+        "strong": "stærk"
+      },
+      "creating": "Opretter…",
+      "create": "Opret link",
+      "activeLinks": "Aktive links",
+      "passwordProtected": "Adgangskodebeskyttet",
+      "openLink": "Åbn link",
+      "linkExpires": "{kind} · udløber {date}",
+      "linkNeverExpires": "{kind} · udløber aldrig",
+      "revoke": {
+        "title": "Tilbagekald dette link?",
+        "description": "Linket holder straks op med at virke for alle, der har det.",
+        "label": "Tilbagekald"
+      },
+      "linkPassword": "Adgangskode: <code>{password}</code>",
+      "counts": "{views, plural, one {# visning} other {# visninger}} · {downloads, plural, one {# download} other {# downloads}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Kreditnotaer",
+      "title": "Kreditnotaer",
+      "description": "Oprettet mod udstedte fakturaer; hver reducerer sin fakturas saldo, når den udstedes.",
+      "newCreditNote": "Ny kreditnota",
+      "filters": {
+        "from": "Fra",
+        "to": "Til",
+        "issuer": "Udsteder",
+        "client": "Kunde",
+        "status": "Status",
+        "search": "Søg",
+        "all": "Alle",
+        "searchPlaceholder": "Nummer, årsag, kunde",
+        "go": "Gå"
+      },
+      "statuses": {
+        "DRAFT": "Kladde",
+        "ISSUED": "Udstedt",
+        "SENT": "Sendt",
+        "VOID": "Annulleret"
+      },
+      "empty": {
+        "title": "Ingen kreditnotaer endnu",
+        "description": "Åbn en udstedt faktura, og vælg “Kreditnota” for at reducere, hvad den skylder."
+      },
+      "noMatch": "Ingen kreditnotaer matcher disse filtre.",
+      "columns": {
+        "number": "Nummer",
+        "against": "Mod",
+        "client": "Kunde",
+        "issueDate": "Udstedelsesdato",
+        "reason": "Årsag",
+        "total": "I alt",
+        "status": "Status"
+      },
+      "draft": "Kladde"
+    },
+    "new": {
+      "metaTitle": "Ny kreditnota",
+      "title": "Ny kreditnota",
+      "description": "En kreditnota oprettes mod en udstedt faktura og reducerer dens saldo.",
+      "nothingToCredit": {
+        "title": "Intet at kreditere",
+        "description": "Kreditnotaer kræver en udstedt faktura med en udestående saldo.",
+        "openInvoices": "Åbn fakturaerne"
+      },
+      "whichInvoice": "Hvilken faktura?",
+      "invoice": "Faktura",
+      "invoiceOption": "{number} · {client} · saldo {balance}",
+      "issuedOnly": "Kreditnotaer oprettes kun mod udstedte fakturaer.",
+      "invoiceFallback": "Faktura"
+    },
+    "edit": {
+      "metaTitle": "Rediger kreditnota",
+      "title": "Rediger kreditnotakladde",
+      "immutable": "Udstedte kreditnotaer kan ikke ændres.",
+      "draft": "Kladde"
+    },
+    "detail": {
+      "metaTitle": "Kreditnota",
+      "draftTitle": "Kreditnotakladde",
+      "meta": "{client} · mod <invoice>{number}</invoice> · udstedt <mono>{date}</mono>",
+      "previewPdf": "Vis PDF-eksempel",
+      "issue": {
+        "title": "Udstede denne kreditnota?",
+        "description": "Et nummer tildeles, fakturaens saldo reduceres, og dokumentet kan ikke længere ændres.",
+        "label": "Udsted"
+      },
+      "deleteDraft": {
+        "title": "Slet denne kladde?"
+      },
+      "sendByEmail": "Send med e-mail",
+      "markSent": {
+        "title": "Markér som sendt?",
+        "label": "Markér som sendt"
+      },
+      "void": {
+        "title": "Annullér denne kreditnota?",
+        "description": "Fakturaens saldo gendannes; nummeret genbruges aldrig.",
+        "reason": "Årsag",
+        "label": "Annullér"
+      },
+      "voided": "Annulleret {date}: {reason}",
+      "amounts": {
+        "title": "Beløb",
+        "reason": "Årsag",
+        "creditAmount": "Kreditbeløb",
+        "total": "I alt",
+        "balanceNow": "Fakturaens saldo nu",
+        "sent": "Sendt"
+      },
+      "documents": {
+        "title": "Gemte dokumenter",
+        "description": "Hver version bevares; bekræftelsessiden viser alle hashes.",
+        "regenerateTitle": "Generér en ny PDF-version?",
+        "generate": "Generér",
+        "newVersion": "Ny version",
+        "renderedOnFirstDownload": "PDF’en genereres ved første download.",
+        "protectedCopy": "Adgangskodebeskyttet kopi {version}",
+        "version": "Version {version}",
+        "verificationLink": "Bekræftelseslink: <link>{path}…</link>"
+      },
+      "draftsPreview": "Kladder vises live i editoren."
+    },
+    "send": {
+      "metaTitle": "Send kreditnota",
+      "title": "Send <mono>{number}</mono>",
+      "previousSends": "Tidligere afsendelser"
+    },
+    "builder": {
+      "against": "Mod <mono>{number}</mono>",
+      "summary": "{client} · i alt {total} · saldo {balance} · beskatteligt råderum ≈ {headroom}",
+      "issueDate": "Udstedelsesdato",
+      "creditAmount": "Kreditbeløb (ekskl. skat)",
+      "creditAmountHint": "Skatten fordeles ud fra fakturaens skattelinjer",
+      "reason": "Årsag",
+      "picker": {
+        "title": "Beregn ud fra fakturalinjer",
+        "description": "Afkryds hele linjer eller en procentdel; dette udfylder kun beløbet ovenfor.",
+        "line": "Linje",
+        "subtotal": "Subtotal",
+        "credit": "Kredit",
+        "percent": "%",
+        "creditLine": "Kreditér linje {position}",
+        "percentOfLine": "Procent af linje {position}"
+      },
+      "saveDraft": "Gem kladde",
+      "issuing": "Udsteder…",
+      "saveAndIssue": "Gem og udsted"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Betaling modtaget",
+        "REFUND": "Refusion udstedt",
+        "WRITE_OFF": "Afskrivning"
+      },
+      "editTitle": "Rediger postering",
+      "recordTitle": "Registrér en betaling",
+      "description": "Beløb er i fakturaens valuta ({currency}); fratrukket TDS er en del af det anvendte beløb.",
+      "kind": "Art",
+      "date": "Dato",
+      "amountRefunded": "Refunderet beløb (negativt)",
+      "amountApplied": "Anvendt beløb",
+      "refundHint": "Indtast et negativt beløb, fx -500",
+      "tdsDeducted": "Fratrukket TDS",
+      "tdsHint": "Skat, kunden har tilbageholdt; tæller med i det anvendte beløb",
+      "bankFees": "Bankgebyrer",
+      "receivedInto": "Modtaget på",
+      "noMethod": "-",
+      "reference": "Reference",
+      "referenceHint": "UTR, transaktions-id, checknummer",
+      "otherCurrency": "Modtaget i en anden valuta",
+      "amountReceived": "Modtaget beløb",
+      "receivedCurrency": "Modtaget valuta",
+      "exchangeRate": "Valutakurs",
+      "exchangeRateHint": "1 modtaget enhed = ? {currency}",
+      "notes": "Noter",
+      "receiptHint": "PNG, JPEG, WebP eller PDF op til 10 MB",
+      "receipts": "Kvitteringer og regninger",
+      "receiptN": "Kvittering {n}",
+      "removeReceipt": "Fjern kvittering {n}",
+      "saveChanges": "Gem ændringer",
+      "record": "Registrér"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Faktureres til",
+      "shipTo": "Leveres til",
+      "invoice": "Faktura",
+      "creditNote": "Kreditnota",
+      "issueDate": "Udstedelsesdato",
+      "dueDate": "Forfaldsdato",
+      "number": "Nummer",
+      "description": "Beskrivelse",
+      "sacHsn": "SAC/HSN",
+      "qty": "Antal",
+      "unit": "Enhed",
+      "rate": "Sats",
+      "tax": "Moms",
+      "amount": "Beløb",
+      "subtotal": "Subtotal",
+      "discount": "Rabat",
+      "taxable": "Beskatningsgrundlag",
+      "total": "I alt",
+      "amountDue": "Skyldigt beløb",
+      "tdsExpected": "Forventet TDS",
+      "netExpected": "Forventet nettobeløb",
+      "rounding": "Afrunding",
+      "paymentDetails": "Betalingsoplysninger",
+      "notes": "Noter",
+      "terms": "Vilkår",
+      "placeOfSupply": "Leveringssted",
+      "poReference": "Indkøbsordrenr.",
+      "amountInWords": "Beløb i ord",
+      "signature": "Autoriseret underskriver"
+    },
+    "title": {
+      "taxInvoice": "FAKTURA MED MOMS",
+      "billOfSupply": "LEVERINGSBEVIS",
+      "invoice": "FAKTURA",
+      "creditNote": "KREDITNOTA"
+    },
+    "text": {
+      "pageOf": "Side {page} af {total}",
+      "scanToVerify": "Scan for at bekræfte",
+      "taxId": "Skatte-ID",
+      "void": "ANNULLERET",
+      "draftWatermark": "KLADDE - ikke en momsfaktura",
+      "paymentTermsDays": "{days} dage",
+      "irn": "IRN",
+      "ackNo": "Bekræftelsesnr.",
+      "ackDate": "Bekræftelsesdato",
+      "einvoiceCancelled": "E-FAKTURA ANNULLERET"
+    },
+    "ui": {
+      "pageEstimate": "ca. {count, plural, one {# side} other {# sider}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Besked",
+      "description": "Forudfyldt fra udstederprofilens skabeloner. Intet sendes, før du klikker på Send.",
+      "to": "Til",
+      "toHint": "Kommasepareret",
+      "cc": "Cc",
+      "bcc": "Bcc",
+      "subject": "Emne",
+      "body": "Brødtekst",
+      "bodyHint": "Almindelig tekst; links bliver klikbare",
+      "attachment": "Vedhæftet fil",
+      "attachmentHint": "Den gemte kopi, med navnet <mono>{name}</mono> (eller .docx); dens indhold kan ikke ændres.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Sender…",
+      "send": "Send",
+      "openInMailApp": "Åbn i mailapp",
+      "noSmtp": "Ingen SMTP-server er konfigureret (Indstillinger → E-mail). Åbn kladden i din mailapp, vedhæft den downloadede PDF, og markér den derefter som sendt nedenfor.",
+      "markAsSent": "Markér som sendt"
+    },
+    "sentLog": {
+      "when": "Hvornår",
+      "document": "Dokument",
+      "to": "Til",
+      "subject": "Emne",
+      "status": "Status",
+      "empty": "Intet sendt endnu.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "sendt",
+        "FAILED": "mislykket",
+        "MANUAL": "manuel"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Hej, {name}",
+    "fiscalYear": "Regnskabsår {year}",
+    "fiscalYearWithBase": "Regnskabsår {year} · basisvaluta {currency} ({profile})",
+    "newCreditNote": "Ny kreditnota",
+    "welcomeTitle": "Velkommen til {appName}",
+    "welcomeDescription": "Start med at oprette den udstederprofil, du fakturerer fra, og tilføj derefter en kunde og din første faktura.",
+    "createProfile": "Opret din profil",
+    "tiles": {
+      "outstanding": "Udestående",
+      "overdue": "Forfaldne",
+      "billedThisFy": "Faktureret i regnskabsåret",
+      "receivedThisFy": "Modtaget i regnskabsåret",
+      "drafts": "Kladder",
+      "invoiceCount": "{count, plural, one {# faktura} other {# fakturaer}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Betalinger minus refusioner, til registreret valutakurs",
+      "awaitingIssue": "afventer udstedelse",
+      "nothingPending": "intet afventer"
+    },
+    "recentInvoices": "Seneste fakturaer",
+    "allInvoices": "Alle fakturaer",
+    "noInvoicesYet": "Ingen fakturaer endnu.",
+    "columns": {
+      "number": "Nummer",
+      "client": "Kunde",
+      "issued": "Udstedt"
+    },
+    "topClients": "Største kunder efter udestående",
+    "nothingOutstanding": "Intet udestående."
+  },
+  "exports": {
+    "export": "Eksportér",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Fakturaer",
+      "newInvoice": "Ny faktura",
+      "draft": "Kladde",
+      "aDraft": "en kladde",
+      "statuses": {
+        "draft": "Kladde",
+        "issued": "Udstedt",
+        "sent": "Sendt",
+        "partiallyPaid": "Delvist betalt",
+        "paid": "Betalt",
+        "overdue": "Forfalden",
+        "void": "Annulleret"
+      },
+      "lifecycle": {
+        "draft": "kladde",
+        "issued": "udstedt",
+        "void": "annulleret"
+      },
+      "units": {
+        "hour": "Time",
+        "day": "Dag",
+        "fixed": "Fast",
+        "milestone": "Milepæl",
+        "unit": "Enhed"
+      },
+      "unitsLower": {
+        "hour": "time",
+        "day": "dag",
+        "fixed": "fast",
+        "milestone": "milepæl",
+        "unit": "enhed"
+      },
+      "supplyTypes": {
+        "intraState": "inden for staten",
+        "interState": "mellem stater",
+        "exportLut": "eksport med LUT",
+        "exportWithTax": "eksport med skat",
+        "reverseCharge": "omvendt betalingspligt",
+        "notApplicable": "ikke relevant"
+      }
+    },
+    "list": {
+      "description": "Kladder, udstedte og annullerede fakturaer; statusser udledes af betalinger og forfaldsdatoer.",
+      "fiscalYear": "Regnskabsår",
+      "issuer": "Udsteder",
+      "client": "Kunde",
+      "searchPlaceholder": "Nummer, indkøbsordre, kunde",
+      "emptyTitle": "Ingen fakturaer endnu",
+      "emptyDescription": "Opret din første faktura: vælg en kunde, tilføj linjer, se eksemplet, og udsted den.",
+      "columns": {
+        "number": "Nummer",
+        "client": "Kunde",
+        "issuer": "Udsteder",
+        "issueDate": "Udstedelsesdato",
+        "due": "Forfald",
+        "balance": "Saldo"
+      },
+      "noMatches": "Ingen fakturaer matcher disse filtre.",
+      "count": "{count, plural, one {# faktura} other {# fakturaer}}",
+      "countPaged": "{count, plural, one {# faktura} other {# fakturaer}} · side {page} af {pages}",
+      "register": "register",
+      "einvoice": "E-faktura",
+      "einvoiceFilters": {
+        "registered": "IRN registreret",
+        "none": "Ikke registreret",
+        "cancelled": "IRN annulleret"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Opret først en udstederprofil",
+      "noProfileDescription": "En faktura udstedes fra en juridisk identitet: opret din profil med skatte-id’er og nummerering.",
+      "createProfile": "Opret en profil"
+    },
+    "edit": {
+      "metaTitle": "Rediger faktura",
+      "title": "Rediger kladde",
+      "immutableFlash": "Udstedte fakturaer kan ikke ændres. Brug “Annullér og udsted igen” for at rette den."
+    },
+    "detail": {
+      "metaTitle": "Faktura",
+      "draftInvoice": "Fakturakladde",
+      "issuedDue": "Udstedt <mono>{issued}</mono>, forfalder <mono>{due}</mono>",
+      "replaces": "Erstatter {number}",
+      "replacedBy": "Erstattet af {number}",
+      "previewPdf": "Vis PDF-eksempel",
+      "downloadEInvoice": "Download e-faktura JSON",
+      "issueTitle": "Udstede denne faktura?",
+      "issueDescription": "Et nummer tildeles, og dokumentet kan ikke længere ændres.",
+      "issue": "Udsted",
+      "deleteDraftTitle": "Slet denne kladde?",
+      "sendByEmail": "Send med e-mail",
+      "recordPayment": "Registrér betaling",
+      "progress": {
+        "title": "Betalingsforløb",
+        "description": "Hvor denne faktura står, fra udstedelse til en kvittering i arkivet.",
+        "issued": "Udstedt",
+        "sent": "Sendt",
+        "payment": "Betaling registreret",
+        "paymentOn": "Betaling på <mono>{amount}</mono> registreret den <mono>{date}</mono>",
+        "paid": "Betalt fuldt ud",
+        "receipt": "Kvittering vedhæftet",
+        "done": "udført",
+        "pending": "afventer"
+      },
+      "creditNote": "Kreditnota",
+      "markSentTitle": "Markér som sendt?",
+      "markSentDescription": "Registrerer, at kunden har modtaget denne faktura.",
+      "markSent": "Markér som sendt",
+      "voidReissueTitle": "Annullér og udsted igen?",
+      "voidReissueDescription": "Originalen annulleres, og en tilknyttet kladde med samme indhold åbnes til redigering.",
+      "voidReissue": "Annullér og udsted igen",
+      "voidTitle": "Annullér denne faktura?",
+      "voidDescription": "Kun muligt uden registrerede betalinger; nummeret genbruges aldrig.",
+      "void": "Annullér",
+      "voided": "Annulleret {date}: {reason}",
+      "amounts": "Beløb",
+      "subtotal": "Subtotal",
+      "discount": "Rabat",
+      "discountPercent": "Rabat ({percent})",
+      "rounding": "Afrunding",
+      "tdsExpected": "Forventet TDS ({percent})",
+      "paid": "Betalt",
+      "credited": "Krediteret",
+      "balanceDue": "Skyldigt beløb",
+      "supply": "Leverance",
+      "fxToBase": "Valutakurs til basis",
+      "poReference": "Indkøbsordrereference",
+      "sent": "Sendt",
+      "lineItems": "Varelinjer",
+      "columns": {
+        "description": "Beskrivelse",
+        "sacHsn": "SAC/HSN",
+        "qty": "Antal",
+        "rate": "Pris",
+        "tax": "Skat",
+        "amount": "Beløb"
+      },
+      "creditNotes": "Kreditnotaer",
+      "storedDocuments": "Gemte dokumenter",
+      "storedDocumentsHint": "Hver version bevares; bekræftelsessiden viser alle hashes.",
+      "regenerateTitle": "Generér en ny PDF-version?",
+      "regenerateDescription": "Genereres igen ud fra det frosne øjebliksbillede (fx efter en rettelse i rendereren). Tidligere versioner bevares.",
+      "regenerate": "Generér",
+      "newVersion": "Ny version",
+      "renderedOnFirstDownload": "PDF’en genereres ved første download.",
+      "protectedCopy": "Adgangskodebeskyttet kopi {version}",
+      "version": "Version {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Bekræftelseslink:",
+      "draftPreviewHint": "Kladder vises live i editoren; åbn <link>PDF’en med vandmærke</link> for at se siden.",
+      "einvoice": {
+        "title": "E-faktura (Indien)",
+        "description": "Registrering af denne faktura på Invoice Registration Portal; et registreret dokument udskriver sit IRN og portalens signerede QR-kode.",
+        "connector": "Forbindelse",
+        "connectors": {
+          "manual": "Manuel",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Der er ikke konfigureret nogen forbindelse for denne profil under Indstillinger > E-fakturering.",
+        "statuses": {
+          "none": "Ikke registreret",
+          "generated": "JSON genereret",
+          "registered": "Registreret",
+          "cancelled": "Annulleret",
+          "failed": "Registrering mislykkedes"
+        },
+        "irn": "IRN",
+        "ackNo": "Bekræftelsesnr.",
+        "ackDate": "Bekræftelsesdato",
+        "cancelReason": "Annullering",
+        "generate": "Generér IRN",
+        "pasteLabel": "IRP-svar",
+        "pasteHint": "Indsæt den JSON, som portalen eller din GSP returnerede for e-faktura-JSON’en til denne faktura (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Registrér IRN",
+        "cancelReasonLabel": "Årsag til annullering",
+        "cancelReasons": {
+          "1": "Dublet",
+          "2": "Indtastningsfejl",
+          "3": "Ordre annulleret",
+          "4": "Andet"
+        },
+        "cancel": "Annullér IRN",
+        "cancelWindow": "Portalen tillader annullering inden for 24 timer efter bekræftelsen."
+      }
+    },
+    "history": {
+      "metaTitle": "Fakturahistorik",
+      "title": "Historik <mono>{number}</mono>",
+      "reissueChain": "Kæde af genudstedelser",
+      "replaces": "Erstatter <link>{number}</link>",
+      "replacedBy": "Erstattet af <link>{number}</link>",
+      "auditTrail": "Revisionsspor",
+      "columns": {
+        "when": "Hvornår",
+        "who": "Hvem",
+        "action": "Handling",
+        "summary": "Resumé"
+      },
+      "noEvents": "Ingen hændelser endnu.",
+      "system": "System",
+      "emails": "E-mails"
+    },
+    "payments": {
+      "title": "Betalinger",
+      "description": "{client} · {total} i alt",
+      "backToInvoice": "Tilbage til fakturaen",
+      "ledger": "Journal",
+      "columns": {
+        "date": "Dato",
+        "kind": "Art",
+        "applied": "Anvendt",
+        "tds": "TDS",
+        "received": "Modtaget",
+        "reference": "Reference",
+        "balance": "Saldo"
+      },
+      "noPayments": "Ingen betalinger registreret endnu.",
+      "kinds": {
+        "payment": "Betaling",
+        "refund": "Refusion",
+        "writeOff": "Afskrivning"
+      },
+      "receipt": "Kvittering",
+      "receiptN": "Kvittering {n}",
+      "deleteEntryTitle": "Slet denne postering?",
+      "deleteEntryDescription": "Fakturaens saldo beregnes igen.",
+      "totals": "Totaler",
+      "invoiceTotal": "Faktura i alt",
+      "credited": "Krediteret",
+      "refunds": "Refusioner",
+      "writeOffs": "Afskrivninger",
+      "tdsDeducted": "Fratrukket TDS",
+      "bankFees": "Bankgebyrer",
+      "balanceDue": "Skyldigt beløb",
+      "onlyIssued": "Kun udstedte fakturaer kan modtage betalinger."
+    },
+    "send": {
+      "metaTitle": "Send faktura",
+      "title": "Send <mono>{number}</mono>",
+      "alreadySent": "Allerede markeret som sendt; ny afsendelse tilføjer endnu en logpost.",
+      "previousSends": "Tidligere afsendelser"
+    },
+    "builder": {
+      "parties": "Parter",
+      "issuerProfile": "Udstederprofil",
+      "client": "Kunde",
+      "archivedOption": "{label} (arkiveret)",
+      "issueDate": "Udstedelsesdato",
+      "dueDate": "Forfaldsdato",
+      "fxRate": "Valutakurs til basisvaluta",
+      "fxHint": "1 {currency} = ? {base} (kun til rapportering)",
+      "poReference": "Indkøbsordrereference",
+      "lineItems": "Varelinjer",
+      "lineItemsHint": "Vælg fra kataloget for at kopiere dets værdier, eller skriv en linje.",
+      "taxDiscountTds": "Skat, rabat og TDS",
+      "taxRegime": "Skatteordning",
+      "regimes": {
+        "indiaGst": "Indisk GST",
+        "ukVat": "Britisk moms",
+        "usSalesTax": "Amerikansk salgsafgift",
+        "none": "Ingen skat"
+      },
+      "reverseCharge": "Omvendt betalingspligt",
+      "reverseChargeHint": "Skat betales af modtageren",
+      "discount": "Rabat",
+      "percent": "Procent",
+      "amount": "Beløb",
+      "rounding": "Afrundingsjustering",
+      "roundingHint": "Valgfri, til en hel enhed; skal være under 1",
+      "round": "Afrund",
+      "tdsRate": "Forventet TDS-sats (%)",
+      "tdsRateHint": "Til information; udskrives, når TDS-specifikationen er slået til",
+      "paymentMethods": "Betalingsmåder",
+      "paymentMethodsHint": "Udskrives i den rækkefølge, de er afkrydset.",
+      "noPaymentMethods": "Ingen aktive betalingsmåder. <link>Tilføj en</link>.",
+      "whatPrints": "Hvad der udskrives",
+      "whatPrintsHint": "Starter fra udstederprofilens standardværdier.",
+      "documentLanguage": "Dokumentsprog",
+      "documentLanguageHint": "Etiketter, datoer og beløb udskrives på dette sprog; kundens præference, ellers profilens.",
+      "notesAndTerms": "Noter og vilkår",
+      "notes": "Noter",
+      "terms": "Vilkår",
+      "saveDraft": "Gem kladde",
+      "issuing": "Udsteder…",
+      "saveAndIssue": "Gem og udsted",
+      "subtotal": "Subtotal",
+      "tax": "Skat",
+      "tdsExpected": "Forventet TDS",
+      "netExpected": "Forventet netto"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Tilføj fra katalog…",
+      "services": "Ydelser",
+      "products": "Produkter",
+      "addLine": "Tilføj linje",
+      "columns": {
+        "description": "Beskrivelse",
+        "sacHsn": "SAC/HSN",
+        "qty": "Antal",
+        "unit": "Enhed",
+        "rate": "Pris",
+        "taxPercent": "Skat %"
+      },
+      "aria": {
+        "description": "Beskrivelse af linje {line}",
+        "sacHsn": "SAC/HSN for linje {line}",
+        "quantity": "Antal for linje {line}",
+        "unit": "Enhed for linje {line}",
+        "rate": "Pris for linje {line}",
+        "taxRate": "Skattesats for linje {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Fritaget",
+      "moveUp": "Flyt op",
+      "moveDown": "Flyt ned",
+      "removeLine": "Fjern linje",
+      "shortcutHint": "Ctrl/⌘+Enter i en beskrivelse tilføjer en linje.",
+      "addFromCatalogueAria": "Tilføj fra katalog"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Udstederoplysninger",
+        "client": "Kundeoplysninger",
+        "document": "Dokumentafsnit"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Handelsnavn",
+        "showDesignation": "Titel",
+        "showEmail": "E-mail",
+        "showPhone": "Telefon",
+        "showWebsite": "Websted",
+        "showFullAddress": "Fuld adresse",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Underskrift",
+        "showStamp": "Stempel",
+        "showContactPerson": "Kontaktperson",
+        "showBillingAddress": "Faktureringsadresse",
+        "showShippingAddress": "Leveringsadresse",
+        "showTaxIdentifier": "Skatteidentifikator",
+        "showPlaceOfSupply": "Leveringssted",
+        "showDueDate": "Forfaldsdato",
+        "showPaymentTerms": "Betalingsbetingelser",
+        "showSacCodeColumn": "Kolonne for SAC-kode",
+        "showQuantityColumn": "Kolonne for antal",
+        "showUnitPriceColumn": "Kolonne for enhedspris",
+        "showTaxColumn": "Kolonne for skat",
+        "showTdsBreakdown": "TDS-specifikation",
+        "showQrVerification": "QR-bekræftelse",
+        "showNotes": "Noter",
+        "showTerms": "Vilkår",
+        "showReplacesReference": "Reference til erstattet faktura",
+        "showAmountInWords": "Beløb med ord",
+        "showSupplyStatement": "Leveranceerklæring",
+        "showRoundingLine": "Afrundingslinje",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Kunder",
+      "description": "Alle, du fakturerer. Kunder med fakturaer arkiveres, aldrig slettes.",
+      "newClient": "Ny kunde",
+      "searchPlaceholder": "Søg efter navn",
+      "searchLabel": "Søg i kunder",
+      "emptyTitle": "Ingen kunder endnu",
+      "emptyDescription": "Tilføj de personer og virksomheder, du fakturerer; deres valuta og betalingsbetingelser forudfylder hver faktura.",
+      "addClient": "Tilføj en kunde",
+      "noMatch": "Ingen kunder matcher “{q}”.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Navn",
+        "contact": "Kontakt",
+        "email": "E-mail",
+        "country": "Land",
+        "currency": "Valuta",
+        "terms": "Betingelser",
+        "status": "Status"
+      }
+    },
+    "new": {
+      "title": "Ny kunde"
+    },
+    "edit": {
+      "metaTitle": "Rediger kunde",
+      "title": "Rediger {name}"
+    },
+    "detail": {
+      "metaTitle": "Kunde",
+      "newInvoice": "Ny faktura",
+      "restoreTitle": "Gendan denne kunde?",
+      "archiveTitle": "Arkivér denne kunde?",
+      "archiveDescription": "Den forsvinder fra vælgerne; fakturaer og historik forbliver intakte.",
+      "deleteTitle": "Slet denne kunde?",
+      "deleteDescription": "Kun muligt, så længe ingen faktura henviser til kunden.",
+      "details": "Oplysninger",
+      "contact": "Kontakt",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "country": "Land",
+      "gstState": "GST {code}",
+      "taxId": "Skatte-id",
+      "currency": "Valuta",
+      "paymentTerms": "Betalingsbetingelser",
+      "paymentTermsDays": "{days} dage",
+      "expectedTds": "Forventet TDS",
+      "notes": "Noter",
+      "addresses": "Adresser",
+      "billing": "Fakturering",
+      "shipping": "Levering",
+      "lifetime": "Samlet",
+      "openRegister": "Åbn registret",
+      "noIssued": "Ingen udstedte fakturaer endnu.",
+      "noIssuedWithDrafts": "Ingen udstedte fakturaer endnu ({drafts} kladde).",
+      "firstLatest": "Første faktura <mono>{first}</mono>, seneste <mono>{latest}</mono>{drafts, plural, =0 {} one { · # kladde} other { · # kladder}}",
+      "lifetimeColumns": {
+        "currency": "Valuta",
+        "invoices": "Fakturaer",
+        "billed": "Faktureret",
+        "received": "Modtaget",
+        "credited": "Krediteret",
+        "outstanding": "Udestående",
+        "overdue": "Forfaldne"
+      },
+      "recentInvoices": "Seneste fakturaer",
+      "noInvoices": "Ingen fakturaer for denne kunde endnu.",
+      "recentColumns": {
+        "number": "Nummer",
+        "issueDate": "Udstedelsesdato",
+        "due": "Forfald",
+        "total": "I alt",
+        "balance": "Saldo",
+        "status": "Status"
+      }
+    },
+    "form": {
+      "cardTitle": "Kunde",
+      "displayName": "Visningsnavn",
+      "contactPerson": "Kontaktperson",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "taxIdType": "Type af skatte-id",
+      "taxIdTypeNone": "Ingen",
+      "taxId": "Skatte-id",
+      "currency": "Valuta",
+      "paymentTerms": "Betalingsbetingelser (dage)",
+      "expectedTdsRate": "Forventet TDS-sats (%)",
+      "preferredLanguage": "Dokumentsprog",
+      "preferredLanguageFollow": "Følg udstederprofilen",
+      "buyerReference": "Købers reference",
+      "buyerReferenceHint": "Vises på e-fakturaer som købers egen reference (et ordre- eller omkostningsstedsnummer).",
+      "electronicAddress": "Elektronisk adresse",
+      "electronicAddressHint": "Den Peppol- eller EN 16931-identifikator, som denne kunde modtager e-fakturaer under.",
+      "electronicAddressScheme": "Skema for elektronisk adresse",
+      "electronicAddressSchemeNone": "Intet skema",
+      "notes": "Noter",
+      "billingAddress": "Faktureringsadresse",
+      "shippingAddress": "Leveringsadresse",
+      "differentFromBilling": "Forskellig fra faktureringsadressen",
+      "save": "Gem kunde"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Time",
+      "DAY": "Dag",
+      "FIXED": "Fast",
+      "MILESTONE": "Milepæl",
+      "UNIT": "Enhed"
+    },
+    "list": {
+      "activate": "Aktivér",
+      "deactivate": "Deaktivér",
+      "archiveDescription": "Eksisterende fakturalinjer beholder deres kopierede værdier.",
+      "deleteDescription": "Kun muligt, så længe ingen fakturalinje henviser til den. Ellers skal du arkivere den.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Navn",
+        "unit": "Enhed",
+        "rate": "Pris",
+        "price": "Pris",
+        "currency": "Valuta",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Skat",
+        "status": "Status"
+      }
+    },
+    "services": {
+      "title": "Ydelser",
+      "description": "Dit katalog. Når du vælger en ydelse, kopieres dens værdier over på fakturalinjen.",
+      "newService": "Ny ydelse",
+      "emptyTitle": "Ingen ydelser endnu",
+      "emptyDescription": "Tilføj det, du sælger - design pr. time, en milepæl til fast pris - med dens SAC/HSN-kode og skattesats.",
+      "addService": "Tilføj en ydelse",
+      "restoreTitle": "Gendan {name}?",
+      "archiveTitle": "Arkivér {name}?",
+      "deleteTitle": "Slet {name}?",
+      "editMetaTitle": "Rediger ydelse",
+      "editTitle": "Rediger {name}"
+    },
+    "products": {
+      "title": "Produkter",
+      "description": "Varer, du sælger, hver med en SKU. Når du vælger et produkt, kopieres dets værdier over på fakturalinjen.",
+      "newProduct": "Nyt produkt",
+      "emptyTitle": "Ingen produkter endnu",
+      "emptyDescription": "Tilføj de varer, du sælger, med SKU, HSN-kode, enhedspris og skattesats.",
+      "addProduct": "Tilføj et produkt",
+      "restoreTitle": "Gendan {sku}?",
+      "archiveTitle": "Arkivér {sku}?",
+      "deleteTitle": "Slet {sku}?",
+      "editMetaTitle": "Rediger produkt",
+      "editTitle": "Rediger {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Unik kode, der udskrives under linjebeskrivelsen",
+      "name": "Navn",
+      "unit": "Enhed",
+      "defaultRate": "Standardpris",
+      "unitPrice": "Enhedspris",
+      "currency": "Valuta",
+      "sacHsnCode": "SAC- / HSN-kode",
+      "sacHsnHint": "Påkrævet på GST-fakturaer",
+      "hsnCode": "HSN-kode",
+      "hsnHint": "Påkrævet på GST-fakturaer for varer",
+      "defaultTaxRate": "Standardskattesats (%)",
+      "description": "Beskrivelse",
+      "descriptionHint": "Forudfylder linjebeskrivelsen",
+      "active": "Aktiv",
+      "serviceInactiveHint": "Inaktive ydelser vises ikke i fakturavælgeren",
+      "productInactiveHint": "Inaktive produkter vises ikke i fakturavælgeren",
+      "saveService": "Gem ydelse",
+      "saveProduct": "Gem produkt"
+    },
+    "tags": {
+      "legend": "Profiler",
+      "hint": "Afkryds de udstederprofiler, der sælger dette. Lad alle stå afkrydset fra for at tilbyde det til alle profiler."
+    }
+  },
+  "address": {
+    "line1": "Adresselinje 1",
+    "line2": "Adresselinje 2",
+    "city": "By",
+    "stateRegion": "Stat / region",
+    "postalCode": "Postnummer",
+    "country": "Land",
+    "state": "Stat",
+    "gstStateCodeHint": "GST-statskode {code}",
+    "pickStateHint": "Vælg staten for GST-statskoden",
+    "stateRegionCode": "Stats- / regionskode",
+    "stateRegionCodePlaceholder": "fx CA"
+  },
+  "assets": {
+    "tooLarge": "Den fil er for stor.",
+    "unsupportedReceipt": "Brug et PNG-, JPEG- eller WebP-billede eller en PDF.",
+    "unsupportedImage": "Brug et PNG-, JPEG- eller WebP-billede.",
+    "uploadFailed": "Upload mislykkedes.",
+    "uploading": "Uploader…",
+    "dropHint": "Træk en fil hertil, eller vælg en",
+    "dropHintMany": "Træk filer hertil, eller vælg dem",
+    "dropActive": "Slip for at uploade"
+  },
+  "ui": {
+    "breadcrumb": "Brødkrumme",
+    "close": "Luk",
+    "closeMenu": "Luk menu",
+    "reveal": "Vis",
+    "hide": "Skjul",
+    "openCalendar": "Åbn kalender",
+    "chooseMonth": "Vælg måned",
+    "chooseYear": "Vælg år",
+    "searchOptions": "Skriv for at søge",
+    "noMatches": "Ingen match",
+    "pullToRefresh": {
+      "label": "Liste der kan opdateres",
+      "pulling": "Træk for at opdatere",
+      "release": "Slip for at opdatere",
+      "refreshing": "Opdaterer"
+    },
+    "inputCharset": "Kun almindelige tastaturtegn er tilladt.",
+    "confirm": {
+      "working": "Arbejder…"
+    },
+    "statusPill": {
+      "DRAFT": "Kladde",
+      "ISSUED": "Udstedt",
+      "SENT": "Sendt",
+      "PARTIALLY_PAID": "Delvist betalt",
+      "PAID": "Betalt",
+      "OVERDUE": "Forfalden",
+      "VOID": "Annulleret"
+    },
+    "activePill": {
+      "active": "Aktiv",
+      "archived": "Arkiveret",
+      "inactive": "Inaktiv"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Noget gik galt.",
+    "fixFields": "Ret venligst de markerede felter.",
+    "accountSaved": "Kontoindstillinger gemt",
+    "apiKeyCreated": "API-nøgle oprettet. Kopiér den nu: den vises kun én gang.",
+    "saved": "{name} gemt",
+    "savedProfile": "Profil {label} gemt",
+    "clientArchived": "Kunde arkiveret",
+    "clientRestored": "Kunde gendannet",
+    "clientDeleted": "Kunde slettet",
+    "productArchived": "Produkt arkiveret",
+    "productRestored": "Produkt gendannet",
+    "productActivated": "Produkt aktiveret",
+    "productDeactivated": "Produkt deaktiveret",
+    "serviceArchived": "Ydelse arkiveret",
+    "serviceRestored": "Ydelse gendannet",
+    "serviceActivated": "Ydelse aktiveret",
+    "serviceDeactivated": "Ydelse deaktiveret",
+    "defaultProfileUpdated": "Standardprofil opdateret",
+    "profileArchived": "Profil arkiveret",
+    "profileRestored": "Profil gendannet",
+    "profileDeleted": "Profil slettet",
+    "defaultPaymentMethodUpdated": "Standardbetalingsmåde opdateret",
+    "paymentMethodArchived": "Betalingsmåde arkiveret",
+    "paymentMethodRestored": "Betalingsmåde gendannet",
+    "paymentMethodDeleted": "Betalingsmåde slettet",
+    "issued": "{number} udstedt",
+    "savedAsDraft": "Gemt som kladde. {reason}",
+    "draftSaved": "Kladde gemt",
+    "invoiceVoided": "Faktura annulleret",
+    "originalVoided": "Original annulleret; rediger erstatningskladden",
+    "markedAsSent": "Markeret som sendt",
+    "draftDeleted": "Kladde slettet",
+    "generatedPdf": "PDF-version {version} genereret",
+    "creditNoteVoided": "Kreditnota annulleret; fakturaens saldo er gendannet",
+    "draftCreditNoteDeleted": "Kreditnotakladde slettet",
+    "mailRefused": "Mailserveren afviste beskeden: {error}. Forsøget blev logget.",
+    "unknownError": "ukendt fejl",
+    "sentTo": "Sendt til {recipients}",
+    "smtpSaved": "SMTP-indstillinger gemt",
+    "smtpRemoved": "Gemte SMTP-indstillinger fjernet",
+    "testEmailSent": "Test-e-mail sendt til {email}",
+    "testFailed": "Test mislykkedes: {error}",
+    "defaultRecipientsSaved": "Standardmodtagere gemt",
+    "invitationSent": "Invitation sendt",
+    "invitationReady": "Invitation klar",
+    "unknownRole": "Ukendt rolle",
+    "roleUpdated": "Rolle opdateret",
+    "accountDeactivated": "Konto deaktiveret",
+    "accountReactivated": "Konto genaktiveret",
+    "invitationRevoked": "Invitation tilbagekaldt",
+    "paymentUpdated": "Betaling opdateret",
+    "paymentRecorded": "Betaling registreret",
+    "paymentDeleted": "Betaling slettet",
+    "sessionRevoked": "Session tilbagekaldt",
+    "noOtherSessions": "Ingen andre sessioner",
+    "signedOutOthers": "Logget ud af {count} anden/andre session(er)",
+    "sharePasswordRequired": "Indtast en adgangskode, eller lad en blive genereret.",
+    "shareLinkCreated": "Delingslink oprettet.",
+    "templateSaved": "Skabelon gemt; fremtidige dokumenter bruger den",
+    "templateReset": "Skabelon nulstillet til den indbyggede standard",
+    "templateImported": "Skabelon importeret",
+    "profileTemplateCleared": "Profilen bruger igen instansskabelonen",
+    "operatorSaved": "Operatøroplysninger gemt. De juridiske sider viser dem nu.",
+    "einvoiceSettingsSaved": "Indstillinger for e-fakturering gemt",
+    "irnRegistered": "IRN {irn} registreret; PDF’en blev genereret igen med det",
+    "irnRecorded": "IRN registreret; PDF’en blev genereret igen med det",
+    "irnCancelled": "IRN annulleret; PDF’en blev genereret igen"
+  }
+}

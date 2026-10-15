@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo መነሻ",
+    "save": "አስቀምጥ",
+    "cancel": "ሰርዝ",
+    "continue": "ቀጥል",
+    "saving": "በማስቀመጥ ላይ…",
+    "detect": "ለይ",
+    "yes": "አዎ",
+    "no": "አይ",
+    "choose": "ምረጥ…",
+    "remove": "አስወግድ",
+    "tryAgain": "እንደገና ሞክር",
+    "dashboard": "ዳሽቦርድ",
+    "goToDashboard": "ወደ ዳሽቦርድ ሂድ",
+    "or": "ወይም",
+    "invoice": "ደረሰኝ",
+    "creditNote": "የክሬዲት ማስታወሻ",
+    "downloadPdf": "PDF አውርድ",
+    "edit": "አርትዕ",
+    "delete": "ሰርዝ",
+    "downloadDocx": "DOCX አውርድ",
+    "downloadCii": "EN 16931 XML አውርድ",
+    "downloadUbl": "Peppol UBL አውርድ",
+    "downloadFacturX": "Factur-X PDF አውርድ",
+    "none": "ምንም",
+    "dismiss": "ዝጋ",
+    "all": "ሁሉም",
+    "previous": "ቀዳሚ",
+    "next": "ቀጣይ",
+    "go": "ሂድ",
+    "search": "ፈልግ",
+    "status": "ሁኔታ",
+    "total": "ድምር",
+    "currency": "ገንዘብ",
+    "from": "ከ",
+    "to": "እስከ",
+    "reason": "ምክንያት",
+    "history": "ታሪክ",
+    "archive": "አስቀምጥ በማህደር",
+    "restore": "መልስ",
+    "showArchived": "በማህደር የተቀመጡትን አሳይ",
+    "hideArchived": "በማህደር የተቀመጡትን ደብቅ",
+    "archived": "በማህደር የተቀመጠ",
+    "default": "ነባሪ",
+    "setDefault": "ነባሪ አድርግ",
+    "revoke": "ሰርዝ",
+    "copy": "ቅዳ",
+    "copied": "ተቀድቷል",
+    "active": "ንቁ",
+    "pagination": "የገጽ አሰሳ",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "ዳሽቦርድ",
+      "invoices": "ደረሰኞች",
+      "creditNotes": "የክሬዲት ማስታወሻዎች",
+      "clients": "ደንበኞች",
+      "services": "አገልግሎቶች",
+      "products": "ምርቶች",
+      "tools": "ምንዛሬ"
+    },
+    "primaryNav": "ዋና",
+    "settings": "ቅንብሮች",
+    "openMenu": "ምናሌ ክፈት",
+    "more": "ተጨማሪ",
+    "navigation": "አሰሳ",
+    "dock": "ፈጣን ዳሰሳ",
+    "pagesAndAccount": "ገጾች እና መለያ",
+    "collapseSidebar": "የጎን አሞሌን ሰብስብ",
+    "collapseSidebarHint": "የጎን አሞሌን ሰብስብ ([)",
+    "expandSidebar": "የጎን አሞሌን ዘርጋ",
+    "expandSidebarHint": "የጎን አሞሌን ዘርጋ ([)",
+    "theme": {
+      "label": "ገጽታ",
+      "system": "ሲስተም",
+      "light": "ብርሃን",
+      "dark": "ጨለማ",
+      "current": "ገጽታ፦ {mode}",
+      "switchTo": "ገጽታ፦ {mode}። ወደ {next} ቀይር"
+    },
+    "userMenu": {
+      "label": "የ{name} መለያ ምናሌ",
+      "profile": "መገለጫ",
+      "logOut": "ውጣ"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "የምንዛሬ መቀየሪያ",
+      "title": "የምንዛሬ መቀየሪያ",
+      "description": "የሚያስከፍሉባቸውን ምንዛሬዎች በዚህ አገልግሎት ባለው የምንዛሬ ተመን ሰንጠረዥ መሠረት ይቀይሩ።",
+      "amount": "መጠን",
+      "from": "ከ",
+      "to": "ወደ",
+      "flip": "ምንዛሬዎቹን ይቀያይሩ",
+      "enterAmount": "መጠን ያስገቡ",
+      "asOf": "የምንዛሬ ተመኖች እስከ {date} ({source})",
+      "sources": {
+        "bundled": "ከመተግበሪያው ጋር የተካተተ",
+        "live": "በመስመር ላይ የታደሰ"
+      },
+      "note": "ተመኖቹ ለመመሪያ ብቻ ናቸው፤ በተሰጠ ደረሰኝ ላይ ያለው ተመን ሲሰጥ ያስገቡት ነው።"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "ግባ",
+      "metaDescription": "በራስ በሚስተናገድ የክፍያ መጠየቂያ መተግበሪያ okinvo ውስጥ በማንነት አቅራቢዎ ወይም በይለፍ ቃልዎ ይግቡ።",
+      "title": "ግባ",
+      "subtitle": "በተፈቀደላቸው ዝርዝር ውስጥ ያሉ መለያዎች ብቻ መግባት ይችላሉ።",
+      "failed": "መግባት አልተሳካም።",
+      "noMethod": "ምንም የመግቢያ ዘዴ አልተዋቀረም። በ <code>.env</code> ውስጥ እንደ <code>AUTH_GITHUB_*</code> ያለ የአቅራቢ ጥንድ ወይም <code>AUTH_PASSWORD_SIGNIN=true</code> ያዘጋጁ።",
+      "errors": {
+        "not_allowed": "ያ መለያ በዚህ ምሳሌ ላይ አይፈቀድም፣ ወይም ተሰናክሏል።",
+        "signin": "መግባት አልተጠናቀቀም። እባክዎ እንደገና ይሞክሩ።"
+      }
+    },
+    "password": {
+      "name": "ስም",
+      "email": "ኢሜይል",
+      "password": "የይለፍ ቃል",
+      "signingIn": "በመግባት ላይ…",
+      "createAccount": "መለያ ፍጠር",
+      "signIn": "ግባ",
+      "haveAPassword": "የይለፍ ቃል አለኝ",
+      "firstTime": "ለመጀመሪያ ጊዜ ነዎት? የይለፍ ቃል ያዘጋጁ",
+      "failed": "መግባት አልተሳካም።"
+    },
+    "social": {
+      "redirecting": "በማዛወር ላይ…",
+      "continueWith": "በ{provider} ቀጥል",
+      "failed": "መግባት መጀመር አልተቻለም።"
+    },
+    "error": {
+      "metaTitle": "የመግቢያ ስህተት",
+      "metaDescription": "መግባቱ አልተጠናቀቀም። ገጹ ምን እንደተበላሸ እና እንዴት እንደገና መሞከር እንደሚቻል ያብራራል።",
+      "title": "መግባት አልተሳካም",
+      "body": "የማንነት አቅራቢው <code>{value}</code> መልሷል። አድራሻዎ በዚህ ምሳሌ የተፈቀደላቸው ዝርዝር ውስጥ ከሌለ፣ ባለቤቱ እንዲያክለው ይጠይቁ።",
+      "back": "ወደ መግቢያ ተመለስ"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "ቅንብሮች",
+      "profiles": "መገለጫዎች",
+      "paymentMethods": "የክፍያ ዘዴዎች",
+      "templates": "ንድፎች",
+      "email": "ኢሜይል",
+      "security": "ደህንነት",
+      "users": "ተጠቃሚዎች",
+      "data": "ውሂብ",
+      "legal": "ሕጋዊ",
+      "einvoicing": "ኤሌክትሮኒክ ደረሰኝ",
+      "account": "መለያ",
+      "appearance": "ገጽታ",
+      "api": "API",
+      "status": "ሁኔታ",
+      "usage": "አጠቃቀም"
+    },
+    "account": {
+      "metaTitle": "መለያ",
+      "title": "መለያ",
+      "description": "ፎቶዎ፣ ስምዎ፣ ክልልዎ፣ ቋንቋዎ እና የሰዓት ሰቅዎ።",
+      "photo": {
+        "title": "ፎቶ",
+        "description": "በጎን አሞሌ እና በተጠቃሚ ምናሌ ውስጥ ይታያል።"
+      },
+      "form": {
+        "title": "መለያ",
+        "description": "እንዴት እንደሚታዩ እና “ዛሬ” መቼ እንደሆነ።",
+        "displayName": "የሚታይ ስም",
+        "signInEmail": "የመግቢያ ኢሜይል",
+        "signInEmailHint": "በዚህ ምሳሌ ላይ ያለዎት ማንነት ነው፤ እዚህ ማርትዕ አይቻልም።",
+        "timezone": "የሰዓት ሰቅ",
+        "timezoneHint": "ለማውጫ ቀናት፣ ለመክፈያ ቀናት እና ለዳሽቦርድ “ዛሬ”",
+        "regionTitle": "ክልል",
+        "regionDescription": "መገለጫ እስኪኖር ድረስ ለአዲስ የሰጪ መገለጫዎች እና ለዳሽቦርድ ነባሪዎች።",
+        "country": "አገር",
+        "currency": "ገንዘብ",
+        "suggested": "ለዚህ አገር የተጠቆመ፦",
+        "language": "ቋንቋ",
+        "languageHint": "የመተግበሪያው ቋንቋ። ሰነዶች የእያንዳንዱን መገለጫ የራሱን ቋንቋ ይጠቀማሉ።",
+        "machineTranslated": "ይህ ቋንቋ በማሽን ተተርጉሟል። እርማቶች ይበረታታሉ፦ <link>በGitHub ላይ ያሻሽሉት</link>።",
+        "save": "ምርጫዎችን አስቀምጥ"
+      },
+      "regions": {
+        "Africa": "አፍሪካ",
+        "Americas": "አሜሪካ",
+        "Asia": "እስያ",
+        "Europe": "አውሮፓ",
+        "MiddleEast": "መካከለኛው ምሥራቅ",
+        "Oceania": "ኦሺኒያ",
+        "Constructed": "ሰው ሠራሽ"
+      },
+      "privacy": {
+        "title": "ግላዊነት",
+        "description": "okinvo ለመሥራት የሚያስፈልጉትን ኩኪዎች ብቻ ያዘጋጃል። ትንታኔ የለም፣ ክትትል የለም።",
+        "cookiePolicy": "የኩኪ ፖሊሲ",
+        "showNoticeAgain": "የኩኪ ማሳወቂያውን እንደገና አሳይ"
+      }
+    },
+    "avatar": {
+      "changePhoto": "ፎቶ ቀይር",
+      "addPhoto": "ፎቶ ጨምር",
+      "hint": "PNG፣ JPEG ወይም WebP። በሁሉም ቦታ እንደ ክብ ይታያል፤ ከማስቀመጥዎ በፊት ማጉላት እና ማንቀሳቀስ ይችላሉ።",
+      "tooLarge": "ያ ፎቶ በጣም ትልቅ ነው።",
+      "uploadFailed": "መስቀል አልተሳካም።",
+      "choose": "የመገለጫ ፎቶ ይምረጡ",
+      "dialogTitle": "ፎቶዎን ያስቀምጡ",
+      "dialogDescription": "ለማንቀሳቀስ ይጎትቱ፣ ለማጉላት ያሸብልሉ ወይም ይቆንጥጡ። ሁሉም ሰው የሚያየው ክቡን ነው።",
+      "zoom": "አጉላ",
+      "save": "ፎቶ አስቀምጥ"
+    },
+    "appearance": {
+      "metaTitle": "ገጽታ",
+      "title": "ገጽታ",
+      "description": "ገጽታ እና የአነጋገር ቀለም፣ በመለያዎ ውስጥ ይቀመጣል።",
+      "theme": {
+        "title": "ገጽታ",
+        "description": "ሲስተሙን ተከተል፣ ወይም ብርሃን ወይም ጨለማ ወስን።",
+        "label": "ገጽታ",
+        "system": "ሲስተሙን ተከተል",
+        "systemHint": "ከስርዓተ ክወናዎ ጋር ይቀያየራል",
+        "light": "ብርሃን",
+        "lightHint": "ነጭ ሸራ",
+        "dark": "ጨለማ",
+        "darkHint": "ጥቁር የሚመስል ሸራ"
+      },
+      "accent": {
+        "title": "የአነጋገር ቀለም",
+        "description": "ለዋናው አዝራር፣ ለትኩረት ቀለበቶች እና ለገባሪ ገጽ ምልክት ያገለግላል። ሚንት ከአርማው ጋር ይመሳሰላል።",
+        "label": "የአነጋገር ቀለም",
+        "customHint": "ወይም የራስዎን ማንኛውንም ቀለም ይምረጡ"
+      },
+      "accents": {
+        "mint": "ሚንት",
+        "lavender": "ላቬንደር",
+        "sky": "ሰማያዊ",
+        "peach": "ኮክ",
+        "butter": "ቅቤ",
+        "rose": "ሮዝ",
+        "sage": "ሳጅ",
+        "lilac": "ሊላክ",
+        "custom": "ብጁ"
+      }
+    },
+    "profiles": {
+      "metaTitle": "የሰጪ መገለጫዎች",
+      "title": "የሰጪ መገለጫዎች",
+      "description": "ደረሰኝ የሚያወጡበት ሕጋዊ ማንነቶች። ነባሪው አዲስ ደረሰኞችን አስቀድሞ ይሞላል።",
+      "breadcrumb": "መገለጫዎች",
+      "newProfile": "አዲስ መገለጫ",
+      "emptyTitle": "እስካሁን የሰጪ መገለጫ የለም",
+      "emptyDescription": "ደረሰኝ የሚያወጡበትን ማንነት ይፍጠሩ፦ PAN ያለው ግለሰብ ወይም ኩባንያዎ።",
+      "createProfile": "መገለጫ ፍጠር",
+      "columns": {
+        "label": "መለያ ስም",
+        "legalName": "ሕጋዊ ስም",
+        "type": "ዓይነት",
+        "country": "አገር",
+        "currency": "ገንዘብ",
+        "regime": "የታክስ ሥርዓት",
+        "status": "ሁኔታ"
+      },
+      "types": {
+        "company": "ኩባንያ",
+        "individual": "ግለሰብ"
+      },
+      "makeDefaultTitle": "{label}ን ነባሪ ላድርግ?",
+      "makeDefaultDescription": "አዲስ ደረሰኞች ከዚህ መገለጫ ይጀምራሉ።",
+      "restoreTitle": "{label}ን ልመልስ?",
+      "archiveTitle": "{label}ን በማህደር ላስቀምጥ?",
+      "archiveDescription": "ከመምረጫዎች ይጠፋል፤ ነባር ደረሰኞች አይነኩም።",
+      "new": {
+        "metaTitle": "አዲስ የሰጪ መገለጫ",
+        "title": "አዲስ የሰጪ መገለጫ",
+        "prefilled": "ከመልሶችዎ ተሞልቷል፤ አድራሻውን እና የታክስ ዝርዝሮችን ይፈትሹ፣ ከዚያ ያስቀምጡ።"
+      },
+      "edit": {
+        "metaTitle": "የሰጪ መገለጫ አርትዕ",
+        "template": "ንድፍ",
+        "deleteTitle": "{label}ን ልሰርዝ?",
+        "deleteDescription": "ይህን መገለጫ የሚጠቅስ ደረሰኝ ወይም የክሬዲት ማስታወሻ በማይኖርበት ጊዜ ብቻ ይቻላል። ካልሆነ በማህደር ያስቀምጡት።"
+      },
+      "template": {
+        "metaTitle": "የመገለጫ ንድፍ",
+        "title": "የ{label} ንድፍ",
+        "ownTemplate": "የራሱ ንድፍ",
+        "instanceTemplate": "የምሳሌ ንድፍ",
+        "resetTitle": "የምሳሌውን ንድፍ እንደገና ልጠቀም?",
+        "resetDescription": "የዚህ መገለጫ የራሱ ውቅር ይወገዳል፤ የወጡ ሰነዶች አይነኩም።",
+        "useInstance": "የምሳሌውን ንድፍ ተጠቀም",
+        "usingInstanceTitle": "የምሳሌውን ንድፍ በመጠቀም ላይ",
+        "usingInstanceDescription": "የዚህ መገለጫ ሰነዶች ቅንብሮች → ንድፎችን ይከተላሉ። ለየብቻ ለማበጀት ይምረጡ።",
+        "customise": "ለዚህ መገለጫ የተለየ ንድፍ ተጠቀም",
+        "openInstance": "የምሳሌውን ንድፍ ክፈት"
+      },
+      "form": {
+        "identityTitle": "ማንነት",
+        "identityDescription": "ደረሰኙ ከማን እንደሆነ።",
+        "type": "ዓይነት",
+        "label": "መለያ ስም",
+        "labelHint": "በመምረጫዎች ውስጥ ብቻ ይታያል",
+        "legalName": "ሕጋዊ ስም",
+        "tradeName": "የንግድ ስም",
+        "designation": "የሥራ ማዕረግ",
+        "email": "ኢሜይል",
+        "phone": "ስልክ",
+        "website": "ድረ ገጽ",
+        "addressTitle": "አድራሻ",
+        "taxTitle": "የታክስ መለያዎች",
+        "taxDescription": "ለእርስዎ የሚሠሩትን ብቻ፤ ማተም በየደረሰኙ ይወሰናል።",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "የዩኬ VAT ቁጥር",
+        "usTaxId": "የአሜሪካ EIN / SSN",
+        "usTaxIdHint": "በማከማቻ ላይ የተመሰጠረ",
+        "lutNumber": "LUT ቁጥር",
+        "lutNumberHint": "ያለ IGST ለሚላኩ ዕቃዎች",
+        "lutFiscalYear": "LUT የፋይናንስ ዓመት",
+        "lutFiscalYearHint": "ለምሳሌ 2026-27",
+        "einvoiceTitle": "ኤሌክትሮኒክ ደረሰኝ",
+        "einvoiceDescription": "ይህ መገለጫ በኤሌክትሮኒክ ደረሰኞች ውስጥ ራሱን እንዴት እንደሚለይ፤ ማገናኛውና ምስክርነቶቹ በቅንብሮች > ኤሌክትሮኒክ ደረሰኝ ስር ናቸው።",
+        "electronicAddress": "የኤሌክትሮኒክ አድራሻ",
+        "electronicAddressHint": "የዚህ አውጪ የPeppol ወይም EN 16931 መለያ፤ እንደ የሻጩ ኤሌክትሮኒክ አድራሻ ይታተማል።",
+        "electronicAddressScheme": "የኤሌክትሮኒክ አድራሻ እቅድ",
+        "electronicAddressSchemeNone": "ምንም እቅድ የለም",
+        "einvoiceEnabled": "ለዚህ መገለጫ ኤሌክትሮኒክ ደረሰኝ ነቅቷል",
+        "einvoiceEnabledHint": "በወጡት ሰነዶቹ ላይ የGST ኤሌክትሮኒክ ደረሰኝ JSON፣ Factur-X እና UBL ማውረዶችን እንዲሁም የIRN ምዝገባን ያቀርባል።",
+        "defaultsTitle": "ነባሪዎች",
+        "baseCurrency": "መሠረታዊ ገንዘብ",
+        "locale": "የሰነድ ቋንቋ ቅንብር",
+        "localeHint": "በሰነዶች ላይ የቁጥር እና የቀን አቀራረብ",
+        "fiscalYearStart": "የበጀት ዓመት የሚጀምረው በ",
+        "months": {
+          "january": "ጃንዋሪ",
+          "february": "ፌብሩዋሪ",
+          "march": "ማርች",
+          "april": "ኤፕሪል",
+          "may": "ሜይ",
+          "june": "ጁን",
+          "july": "ጁላይ",
+          "august": "ኦገስት",
+          "september": "ሴፕቴምበር",
+          "october": "ኦክቶበር",
+          "november": "ኖቬምበር",
+          "december": "ዲሴምበር"
+        },
+        "taxRegime": "ነባሪ የታክስ ሥርዓት",
+        "regimes": {
+          "indiaGst": "የህንድ GST",
+          "ukVat": "የዩኬ VAT",
+          "usSalesTax": "የአሜሪካ የሽያጭ ታክስ",
+          "none": "ታክስ የለም"
+        },
+        "invoiceNumberFormat": "የደረሰኝ ቁጥር ቅርጸት",
+        "invoiceNumberFormatHint": "ምልክቶች፦ {tokens}",
+        "creditNoteNumberFormat": "የክሬዲት ማስታወሻ ቁጥር ቅርጸት",
+        "tdsRate": "የሚጠበቅ የTDS ተመን (%)",
+        "tdsRateHint": "መረጃዊ ብቻ፣ እንደ የሚጠበቅ ተቀናሽ ይታተማል",
+        "defaultNotes": "ነባሪ ማስታወሻዎች",
+        "defaultTerms": "ነባሪ ውሎች",
+        "printTitle": "በነባሪ የሚታተመው",
+        "printDescription": "እያንዳንዱ ደረሰኝ እነዚህን ይገለብጣል እና በተናጠል ሊቀይራቸው ይችላል።",
+        "emailTitle": "ኢሜይል",
+        "emailDescription": "ለመላኪያ አዘጋጅ ነባሪዎች። ቦታ ያዦች፦ {placeholders}",
+        "emailCc": "ነባሪ CC",
+        "emailBcc": "ነባሪ BCC",
+        "commaSeparated": "በነጠላ ሰረዝ የተለዩ",
+        "invoiceSubject": "የደረሰኝ ርዕስ",
+        "invoiceSubjectHint": "ባዶ ከሆነ አብሮ የተሰራውን ንድፍ ይጠቀማል",
+        "creditNoteSubject": "የክሬዲት ማስታወሻ ርዕስ",
+        "invoiceBody": "የደረሰኝ አካል",
+        "creditNoteBody": "የክሬዲት ማስታወሻ አካል",
+        "artworkTitle": "ምስሎች",
+        "artworkDescription": "PNG፣ JPEG ወይም WebP እስከ 2 ሜባ፤ ፊርማ እና ማህተም ግልጽነታቸውን ይጠብቃሉ።",
+        "logo": "አርማ",
+        "signature": "ፊርማ",
+        "stamp": "ማህተም",
+        "transparentPng": "ግልጽ PNG",
+        "save": "መገለጫ አስቀምጥ"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "የክፍያ ዘዴዎች",
+      "title": "የክፍያ ዘዴዎች",
+      "description": "ደንበኞች እንዴት እንደሚከፍሉዎት። ዝርዝሮቹ ተመስጥረዋል እና በሚወጡበት ጊዜ በእያንዳንዱ ደረሰኝ ውስጥ ይቀዘቅዛሉ።",
+      "newMethod": "አዲስ ዘዴ",
+      "emptyTitle": "እስካሁን የክፍያ ዘዴ የለም",
+      "emptyDescription": "ደረሰኞች ደንበኞች የት እንደሚከፍሉ እንዲነግሩ የባንክ ሂሳብ፣ UPI መታወቂያ ወይም ዋሌት ያክሉ።",
+      "addMethod": "ዘዴ ጨምር",
+      "columns": {
+        "name": "ስም",
+        "type": "ዓይነት",
+        "currency": "ገንዘብ",
+        "status": "ሁኔታ"
+      },
+      "types": {
+        "bankTransfer": "የባንክ ዝውውር",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "ብጁ"
+      },
+      "makeDefaultTitle": "{name}ን ነባሪ ላድርግ?",
+      "restoreTitle": "{name}ን ልመልስ?",
+      "archiveTitle": "{name}ን በማህደር ላስቀምጥ?",
+      "archiveDescription": "የወጡ ደረሰኞች ያተሙትን ቅጂ ይይዛሉ።",
+      "new": {
+        "metaTitle": "አዲስ የክፍያ ዘዴ",
+        "title": "አዲስ የክፍያ ዘዴ"
+      },
+      "edit": {
+        "metaTitle": "የክፍያ ዘዴ አርትዕ",
+        "title": "{name} አርትዕ",
+        "deleteTitle": "{name}ን ልሰርዝ?",
+        "deleteDescription": "ይህን የሚጠቅስ ደረሰኝ ወይም ክፍያ በማይኖርበት ጊዜ ብቻ ይቻላል። ካልሆነ በማህደር ያስቀምጡት።"
+      },
+      "form": {
+        "name": "ስም",
+        "nameHint": "እንደ የክፍያ ክፍሉ ርዕስ ይታተማል",
+        "type": "ዓይነት",
+        "currency": "ገንዘብ",
+        "currencyHint": "አማራጭ፤ ለአውድ ብቻ ይታያል",
+        "anyCurrency": "ማንኛውም",
+        "instructions": "መመሪያዎች",
+        "instructionsHint": "ከዝርዝሮቹ በታች ይታተማል",
+        "isDefault": "ነባሪ ዘዴ",
+        "isDefaultDescription": "በአዲስ ደረሰኞች ላይ አስቀድሞ ይመረጣል",
+        "isActive": "ንቁ",
+        "detailsTitle": "ዝርዝሮች",
+        "detailsDescription": "በማከማቻ ላይ የተመሰጠረ፤ በሚወጣበት ጊዜ በእያንዳንዱ ደረሰኝ ውስጥ ቅጂ ይቀመጣል።",
+        "vpa": "UPI መታወቂያ (VPA)",
+        "payeeName": "የተከፋዩ ስም",
+        "lines": "መስመሮች",
+        "linesHint": "በአንድ ረድፍ አንድ መስመር፣ እንዳለ ይታተማል",
+        "accountEmail": "የመለያ ኢሜይል / መያዣ ስም",
+        "bank": {
+          "accountHolder": "የሂሳብ ባለቤት",
+          "accountNumber": "የሂሳብ ቁጥር",
+          "bankName": "የባንክ ስም",
+          "branch": "ቅርንጫፍ",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "የማዘዋወሪያ / የሶርት ኮድ"
+        },
+        "save": "የክፍያ ዘዴ አስቀምጥ"
+      }
+    },
+    "templates": {
+      "metaTitle": "የሰነድ ንድፎች",
+      "title": "የሰነድ ንድፎች",
+      "customised": "የተበጀ",
+      "builtIn": "አብሮ የተሰራ ነባሪ",
+      "description": "ደረሰኞች እና የክሬዲት ማስታወሻዎች እንዴት እንደሚታዩ። የወጡ ሰነዶች ሲወጡ የነበራቸውን ንድፍ ይይዛሉ።",
+      "resetTitle": "ወደ አብሮ የተሰራው ነባሪ ልመልስ?",
+      "resetDescription": "ማበጀትዎ ይወገዳል፤ ቀድሞ የወጡ ሰነዶች አይነኩም።",
+      "reset": "መልስ",
+      "resetTrigger": "ወደ ነባሪዎች መልስ",
+      "importTitle": "አስገባ",
+      "importDescription": "ቀደም ብሎ የተላከ ውቅር መልስ።",
+      "overridesTitle": "የመገለጫ መተኪያዎች",
+      "overridesDescription": "መገለጫ ከአርትዖት ገጹ የራሱን ንድፍ ሊመርጥ ይችላል።",
+      "noOverrides": "ሁሉም መገለጫዎች የምሳሌውን ንድፍ ይጠቀማሉ።",
+      "import": {
+        "json": "የንድፍ JSON",
+        "jsonHint": "JSON ላክ ያወጣውን ፋይል ይለጥፉ፤ የጎደሉ ቁልፎች ወደ ነባሪዎች ይመለሳሉ",
+        "importing": "በማስገባት ላይ…",
+        "submit": "አስገባ"
+      },
+      "form": {
+        "templateTitle": "ንድፍ",
+        "templateDescription": "ስድስት አብሮ የተሰሩ፤ ከታች ያለው ማበጀት የሚመርጡትን ማንኛውንም ይመለከታል።",
+        "templateGroup": "ንድፍ",
+        "templates": {
+          "ledger": {
+            "name": "ሌጀር",
+            "character": "ዘመናዊ እና ሰፊ፣ ሳንስ-ሰሪፍ፣ ከራስጌው በታች የአነጋገር መስመር።"
+          },
+          "classic": {
+            "name": "ክላሲክ",
+            "character": "ባህላዊ ድንበር ያለው ሠንጠረዥ፣ የሰሪፍ ርዕሶች፣ በሳጥን የተከበቡ ድምሮች።"
+          },
+          "compact": {
+            "name": "ጥብቅ",
+            "character": "ለረጅም የንጥል ዝርዝሮች ጥቅጥቅ ያለ አቀማመጥ፤ ትናንሽ ፊደላት፣ ጥቂት መለያያዎች።"
+          },
+          "minimal": {
+            "name": "አነስተኛ",
+            "character": "ጸጥ ያለ እና ሰፊ፦ መስመር ወይም ሳጥን የለም፣ ቀላል መለያዎች፣ ብዙ ባዶ ቦታ።"
+          },
+          "letterhead": {
+            "name": "ደብዳቤ ራስጌ",
+            "character": "አርማዎ እና ስምዎ በእያንዳንዱ ገጽ አናት ላይ በቀለም ሰቅ ወይም ምስል ላይ።"
+          },
+          "modern": {
+            "name": "ዘመናዊ",
+            "character": "የቀለም ሰቅ ራስጌ፤ ተዋዋዮች፣ የሠንጠረዥ ራስጌ እና ድምሮች በደካማ የአነጋገር ቀለም ላይ።"
+          }
+        },
+        "paperTitle": "ወረቀት እና ፊደል",
+        "paperSize": "የወረቀት መጠን",
+        "paperLetter": "ሌተር",
+        "margins": "ጠርዞች",
+        "marginsNormal": "መደበኛ",
+        "marginsNarrow": "ጠባብ",
+        "headingFont": "የርዕስ ፊደል",
+        "bodyFont": "የአካል ፊደል",
+        "fontSans": "ሳንስ",
+        "fontSerif": "ሰሪፍ",
+        "tableStyle": "የሠንጠረዥ ቅጥ",
+        "tableRuled": "በመስመር",
+        "tableZebra": "ዜብራ",
+        "tablePlain": "ተራ",
+        "accentColour": "የአነጋገር ቀለም",
+        "textColour": "የጽሑፍ ቀለም",
+        "logoPosition": "የአርማ ቦታ",
+        "positionLeft": "ግራ",
+        "positionCentre": "መሃል",
+        "positionRight": "ቀኝ",
+        "logoHeight": "የአርማ ቁመት (ሚሜ)",
+        "documentTitle": "የሰነድ ርዕስ",
+        "titleAuto": "ራስ-ሰር (GST ን ያገናዘበ)",
+        "titleCustom": "ብጁ",
+        "titlePlaceholder": "ለምሳሌ PROFORMA INVOICE",
+        "qrPosition": "የQR ቦታ",
+        "qrFooter": "ግርጌ",
+        "qrHeader": "ራስጌ",
+        "qrBesideTotals": "ከድምሮች አጠገብ",
+        "amountInWords": "መጠን በቃላት",
+        "wordsBelowTotal": "ከድምሮች በታች",
+        "wordsFooter": "ግርጌ",
+        "wordsHidden": "ተደብቋል",
+        "subtotalRow": "የንዑስ ድምር ረድፍ",
+        "discountRow": "የቅናሽ ረድፍ",
+        "taxLines": "የታክስ መስመሮች",
+        "tdsExpected": "የሚጠበቅ TDS",
+        "roundingRow": "የማጠጋጊያ ረድፍ",
+        "pageNumbers": "የገጽ ቁጥሮች",
+        "headerTitle": "ራስጌ",
+        "headerDescription": "በእያንዳንዱ ገጽ አናት ላይ የቀለም ሰቅ ወይም ምስል። ደብዳቤ ራስጌ እና ዘመናዊ ካልመረጡ በስተቀር ሰቅ ያሳያሉ።",
+        "headerStyle": "የራስጌ ቅጥ",
+        "headerNone": "ምንም",
+        "headerBand": "የቀለም ሰቅ",
+        "headerImage": "ምስል",
+        "bandColour": "የሰቅ ቀለም",
+        "bandColourHex": "የሰቅ ቀለም (hex)",
+        "headerImageLabel": "የራስጌ ምስል",
+        "headerImageHint": "PNG፣ JPEG ወይም WebP እስከ 2400 ፒክሰል ስፋት፤ የገጹን ስፋት ይሸፍናል።",
+        "imageOpacity": "የምስል ግልጽነት",
+        "headerHeight": "የራስጌ ቁመት (ሚሜ)",
+        "bandText": "በሰቁ ላይ ያለ ጽሑፍ",
+        "bandTextAuto": "ራስ-ሰር (ከሰቁ ቀለም)",
+        "bandTextLight": "ብርሃን",
+        "bandTextDark": "ጨለማ",
+        "textTitle": "ጽሑፍ",
+        "headerNote": "የራስጌ ማስታወሻ",
+        "footer": "ግርጌ",
+        "signatureCaption": "የፊርማ መግለጫ",
+        "draftWatermark": "የረቂቅ የውሃ ምልክት",
+        "labelsTitle": "መለያዎች",
+        "labelsDescription": "ነባሪውን ቃል ለማቆየት መስኩን ባዶ ይተዉት።",
+        "save": "ንድፍ አስቀምጥ",
+        "downloadSample": "ናሙና PDF አውርድ",
+        "exportJson": "JSON ላክ"
+      }
+    },
+    "email": {
+      "metaTitle": "ኢሜይል",
+      "title": "ኢሜይል",
+      "configuredSettings": "በቅንብሮች ውስጥ ተዋቅሯል",
+      "configuredEnv": "በአካባቢ ተዋቅሯል",
+      "notConfigured": "አልተዋቀረም፦ የደብዳቤ መተግበሪያ ፍሰት",
+      "description": "ሰነዶች ከተከማቸው PDF ጋር ከአዘጋጁ ይላካሉ። እዚህ ያሉ ቅንብሮች በአካባቢው ያሉትን SMTP_* ይተካሉ።",
+      "sendTest": "የሙከራ ኢሜይል ወደ {email} ላክ",
+      "removeTitle": "የተቀመጡትን የSMTP ቅንብሮች ላስወግድ?",
+      "removeEnvTakesOver": "የአካባቢው SMTP_* እሴቶች ይረከባሉ።",
+      "removeFallsBack": "ኢሜይል ወደ ደብዳቤ መተግበሪያ ፍሰት ይመለሳል።",
+      "removeTrigger": "የተቀመጡ ቅንብሮችን አስወግድ",
+      "smtpTitle": "የSMTP አገልጋይ",
+      "smtpFromEnv": "አሁን ከአካባቢው የተወሰደ ነው፤ እዚህ ማስቀመጥ ይተካዋል።",
+      "smtpPasswordNote": "የይለፍ ቃሉ በማከማቻ ላይ ተመስጥሯል እና ዳግም አይታይም።",
+      "defaultsTitle": "ነባሪ ተቀባዮች",
+      "defaultsDescription": "በምሳሌው ሁሉ CC/BCC፤ የሰጪ መገለጫዎች የራሳቸውን ይጨምራሉ።",
+      "sentTitle": "የተላኩ ደብዳቤዎች",
+      "sentDescription": "የመጨረሻዎቹ 50 ሙከራዎች፣ ውድቀቶችን እና በእጅ የተላኩትን ጨምሮ።",
+      "smtp": {
+        "host": "አስተናጋጅ",
+        "port": "ወደብ",
+        "security": "ደህንነት",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "ምንም (LAN ሪሌይ)",
+        "user": "የተጠቃሚ ስም",
+        "password": "የይለፍ ቃል",
+        "passwordStored": "የተቀመጠ እና የተመሰጠረ፤ ለማቆየት ባዶ ይተዉት",
+        "passwordEncrypted": "በማከማቻ ላይ የተመሰጠረ",
+        "from": "የላኪ አድራሻ",
+        "fromName": "የላኪ ስም",
+        "replyTo": "መልስ ወደ",
+        "save": "የSMTP ቅንብሮችን አስቀምጥ"
+      },
+      "defaults": {
+        "cc": "ነባሪ CC",
+        "ccHint": "ወደ እያንዳንዱ አዘጋጅ ይታከላል፤ በነጠላ ሰረዝ የተለዩ",
+        "bcc": "ነባሪ BCC",
+        "save": "ነባሪዎችን አስቀምጥ"
+      }
+    },
+    "security": {
+      "metaTitle": "ደህንነት",
+      "title": "ደህንነት",
+      "description": "የት እንደገቡ፣ እና የተቀየረው ሁሉ።",
+      "sessions": {
+        "title": "ንቁ ክፍለ ጊዜዎች",
+        "description": "ክፍለ ጊዜ መሻር ያንን መሣሪያ ወዲያውኑ ያስወጣል።",
+        "signOutOthers": {
+          "title": "ከሌሎች ቦታዎች ሁሉ ልውጣ?",
+          "description": "ከዚህ በስተቀር ሁሉም ክፍለ ጊዜዎች ይሻራሉ።",
+          "confirm": "ሌሎችን አስወጣ",
+          "trigger": "ከሌሎች ቦታዎች ሁሉ ውጣ"
+        },
+        "columns": {
+          "device": "መሣሪያ",
+          "ipAddress": "የIP አድራሻ",
+          "signedIn": "የገባበት",
+          "lastSeen": "መጨረሻ የታየው",
+          "expires": "የሚያበቃው"
+        },
+        "thisDevice": "ይህ መሣሪያ",
+        "revokeTitle": "ይህን ክፍለ ጊዜ ልሰርዝ?",
+        "unknownDevice": "ያልታወቀ መሣሪያ",
+        "unknownBrowser": "ያልታወቀ",
+        "agentOnOs": "{browser} በ{os} ላይ"
+      },
+      "audit": {
+        "title": "የኦዲት መዝገብ",
+        "count": "{count, plural, one {# ክስተት} other {# ክስተቶች}}",
+        "entity": "አካል",
+        "actionContains": "ድርጊቱ ይይዛል",
+        "filter": "አጣራ",
+        "reset": "ዳግም አስጀምር",
+        "columns": {
+          "when": "መቼ",
+          "who": "ማን",
+          "action": "ድርጊት",
+          "entity": "አካል",
+          "summary": "ማጠቃለያ"
+        },
+        "empty": "ከእነዚህ ማጣሪያዎች ጋር የሚዛመድ ክስተት የለም።",
+        "system": "ሲስተም",
+        "changes": "ለውጦች",
+        "page": "ገጽ {page} ከ{pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "ተጠቃሚዎች",
+      "title": "ተጠቃሚዎች",
+      "description": "ወደዚህ ምሳሌ መግባት የሚችሉ እና ምን ማድረግ እንደሚችሉ።",
+      "roles": {
+        "owner": "ባለቤት",
+        "editor": "አርታዒ",
+        "viewer": "ተመልካች"
+      },
+      "roleHints": {
+        "owner": "ቅንብሮችን እና አባላትን ጨምሮ ሁሉም ነገር",
+        "editor": "ደንበኞች፣ ካታሎግ፣ ደረሰኞች፣ የክሬዲት ማስታወሻዎች፣ ክፍያዎች፣ ኢሜይል",
+        "viewer": "ለማንበብ ብቻ"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "የ{email} ሚና",
+      "invite": {
+        "title": "ሰው ይጋብዙ",
+        "description": "በተጋበዘው አድራሻ (በማንነት አቅራቢ ወይም በይለፍ ቃል) ይገባሉ እና የመረጡትን ሚና ያገኛሉ።",
+        "sent": "ግብዣ ወደ {email} በኢሜይል ተልኳል።",
+        "readyWithError": "ለ{email} ግብዣ ዝግጁ ነው። ኢሜይሉ መላክ አልተቻለም ({error})፤ ይህን አገናኝ ይላኩላቸው፦",
+        "readyNoSmtp": "ለ{email} ግብዣ ዝግጁ ነው። SMTP አልተዋቀረም፤ ይህን አገናኝ ይላኩላቸው፦",
+        "copyLink": "አገናኝ ቅዳ",
+        "email": "ኢሜይል",
+        "emailPlaceholder": "person@example.com",
+        "role": "ሚና",
+        "submit": "ጋብዝ",
+        "inviting": "በመጋበዝ ላይ…"
+      },
+      "members": {
+        "title": "አባላት",
+        "description": "ቢያንስ አንድ ንቁ ባለቤት ሁልጊዜ ይቀራል።",
+        "columns": {
+          "person": "ሰው",
+          "role": "ሚና",
+          "lastSignIn": "መጨረሻ የገባበት",
+          "status": "ሁኔታ"
+        },
+        "nameYou": "{name} (እርስዎ)",
+        "deactivated": "ተሰናክሏል",
+        "reactivate": {
+          "title": "{email}ን ልመልስ?",
+          "description": "በቀድሞ ሚናቸው እንደገና መግባት ይችላሉ።",
+          "confirm": "መልስ"
+        },
+        "deactivate": {
+          "title": "{email}ን ላሰናክል?",
+          "description": "ሁሉም ክፍለ ጊዜዎች አሁን ያበቃሉ እና እስኪመለሱ ድረስ መግባት አይችሉም። ታሪካቸው ይቀራል።",
+          "confirm": "አሰናክል"
+        }
+      },
+      "invitations": {
+        "title": "በመጠባበቅ ላይ ያሉ ግብዣዎች",
+        "description": "መግባት የሚችሉ ግን እስካሁን ያልገቡ አድራሻዎች።",
+        "columns": {
+          "email": "ኢሜይል",
+          "role": "ሚና",
+          "invited": "የተጋበዘበት"
+        },
+        "empty": "በመጠባበቅ ላይ ያሉ ግብዣዎች የሉም።",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "የ{email} ግብዣን ልሰርዝ?"
+      }
+    },
+    "data": {
+      "metaTitle": "ውሂብ",
+      "title": "ውሂብ",
+      "description": "ሁሉም ነገር ተንቀሳቃሽ ነው፦ የውሂብ ስብስቦች እንደ CSV ወይም Excel፣ ለስደት ሙሉ ቅጽበታዊ ምስል፣ ለሂሳብ ባለሙያዎ PDFዎች፣ እና የተፈተነ የመጠባበቂያ ሂደት።",
+      "period": {
+        "fiscalYear": "የበጀት ዓመት",
+        "fiscalYearHint": "ቀናትን ይተካል",
+        "issuer": "ሰጪ"
+      },
+      "exportAll": {
+        "title": "ሁሉንም ውሂብ ላክ",
+        "description": "እያንዳንዱ የውሂብ ስብስብ እንደ CSV እና <mono>data.json</mono> የያዘ ZIP፣ የሁሉም ሠንጠረዦች ግንኙነታዊ ቅጽበታዊ ምስል። የተመሰጠሩ መስኮች (የክፍያ ዘዴ ዝርዝሮች፣ የSMTP የይለፍ ቃል) አይካተቱም፤ በውስጡ ያለው README ይዘረዝራቸዋል።",
+        "download": "okinvo-data ZIP አውርድ"
+      },
+      "exportDocuments": {
+        "title": "ሰነዶችን ላክ",
+        "description": "ለአንድ ጊዜ ወቅት የወጡ እና የተሻሩ ደረሰኞች እና የክሬዲት ማስታወሻዎች ሁሉ PDF፣ በቁጥር የተሰየሙ፣ ከቁጥሮች፣ ድምሮች እና ሃሾች <mono>index.csv</mono> ጋር። የጎደሉ PDFዎች በሂደት ይፈጠራሉ።",
+        "docx": "የእያንዳንዱን ሰነድ DOCX ቅጂም አካትት",
+        "facturx": "EN 16931 XML የተካተተበትን Factur-X PDF/A-3 ቅጂም አካትት",
+        "download": "የሰነዶች ZIP አውርድ"
+      },
+      "datasets": {
+        "title": "የውሂብ ስብስቦች",
+        "description": "የማውጫ ገጾቹ የሚሰጡት ተመሳሳይ ኤክስፖርቶች፣ ወቅት እና ሰጪ በሁሉም ላይ ተተግብሮ። ክፍያዎች የቀን ክልሉን ይጠቀማሉ፤ ደንበኞች እና አገልግሎቶች ወቅቱን ችላ ይላሉ።",
+        "columns": {
+          "dataset": "የውሂብ ስብስብ",
+          "filters": "የተተገበሩ ማጣሪያዎች",
+          "download": "አውርድ"
+        },
+        "names": {
+          "invoices": "የደረሰኞች መዝገብ",
+          "invoiceItems": "የደረሰኝ መስመር ንጥሎች",
+          "payments": "የክፍያዎች ደብተር",
+          "creditNotes": "የክሬዲት ማስታወሻዎች መዝገብ",
+          "clients": "ደንበኞች",
+          "services": "አገልግሎቶች",
+          "gstSummary": "የGST ማጠቃለያ",
+          "tdsSummary": "የTDS ማጠቃለያ"
+        },
+        "filters": {
+          "periodIssuer": "ወቅት፣ ሰጪ",
+          "dateRangeIssuer": "የቀን ክልል፣ ሰጪ",
+          "includesArchived": "በማህደር የተቀመጡትን ያካትታል"
+        }
+      },
+      "backups": {
+        "title": "መጠባበቂያዎች",
+        "notWired": "የመጠባበቂያ አገልግሎት አልተገናኘም",
+        "noRun": "እስካሁን ምንም መጠባበቂያ አልተሠራም",
+        "lastOk": "የመጨረሻው መጠባበቂያ ተሳክቷል",
+        "lastFailed": "የመጨረሻው መጠባበቂያ አልተሳካም",
+        "description": "የCompose <mono>backup</mono> አገልግሎት Postgres ን በ<mono>BACKUP_CRON</mono> ላይ ያወጣል እና የማከማቻ ቮልዩሙን በማህደር ያስቀምጣል፣ የ<mono>BACKUP_RETENTION_DAYS</mono> ታሪክ በ<mono>backups</mono> ቮልዩም ውስጥ ይይዛል፣ እና ይህ ገጽ የሚያነበውን የሁኔታ ፋይል ይጽፋል።",
+        "finished": "የተጠናቀቀው",
+        "databaseDump": "የውሂብ ጎታ ቅጂ",
+        "storageArchive": "የማከማቻ ማህደር",
+        "size": "መጠን",
+        "sizeMb": "{size} ሜባ",
+        "error": "ስህተት",
+        "runNow": "አሁን አንድ ያሂዱ፣ ወይም ከጥንድ ፋይሎች ይመልሱ፦",
+        "restoreDrill": "የመመለሻ ሂደቱ በCI ውስጥ በ<mono>scripts/restore-drill.sh</mono> ይሞከራል፦ መዝራት፣ መጠባበቅ፣ ማጥፋት፣ መመለስ፣ ከዚያ የረድፍ ቆጠራዎችን እና የPDF ሃሽን ማወዳደር።"
+      }
+    },
+    "legal": {
+      "metaTitle": "ሕጋዊ",
+      "metaDescription": "ይህን ምሳሌ የሚያንቀሳቅሰው ማን እንደሆነ፦ በሕዝብ ሕጋዊ ገጾች ላይ የሚታተሙ ዝርዝሮች።",
+      "title": "ሕጋዊ",
+      "description": "የሕዝብ ሕጋዊ ገጾቹ እነዚህን ዝርዝሮች ያትማሉ። ሁሉም መስኮች እስኪሞሉ ድረስ ገጾቹ ጎልተው የታዩ ቦታ ያዦችን ያሳያሉ።",
+      "operator": {
+        "title": "የኦፕሬተር ዝርዝሮች",
+        "complete": "ተጠናቋል",
+        "missing": "{count} ጎድሏል፦ {fields}",
+        "description": "ይህን ምሳሌ የሚያንቀሳቅሱ ሰው ወይም ኩባንያ እንደመሆንዎ፣ ሰነዶቹ የሚጠቅሱት ኦፕሬተር እርስዎ ነዎት። እዚህ ያለው ምንም ወደ ሌላ ቦታ አይላክም፤ ከታች ባሉት ገጾች ላይ ይታተማል።"
+      },
+      "fieldLabels": {
+        "legalName": "የኦፕሬተር ሕጋዊ ስም",
+        "entityType": "የአካል ዓይነት",
+        "address": "የኦፕሬተር አድራሻ",
+        "country": "የኦፕሬተር አገር",
+        "contactEmail": "የመገናኛ ኢሜይል",
+        "privacyEmail": "የግላዊነት ኢሜይል",
+        "dpoEmail": "የውሂብ ጥበቃ ኃላፊ ኢሜይል",
+        "governingLaw": "የሚመራ ሕግ",
+        "venue": "የክርክር ቦታ",
+        "effectiveDate": "የሚጸናበት ቀን"
+      },
+      "publicPages": {
+        "title": "የሕዝብ ገጾች",
+        "description": "ከመግቢያ ገጹ፣ ከማጋሪያ መመልከቻው እና ከኩኪ ማሳወቂያው የተያያዙ።",
+        "terms": "የአገልግሎት ውሎች",
+        "acceptableUse": "ተቀባይነት ያለው አጠቃቀም ፖሊሲ",
+        "privacy": "የግላዊነት ፖሊሲ",
+        "cookies": "የኩኪ ፖሊሲ",
+        "dataRetention": "የውሂብ ማቆያ",
+        "security": "ደህንነት",
+        "licenses": "ፈቃዶች እና የሶስተኛ ወገን ማሳወቂያዎች"
+      },
+      "form": {
+        "legalName": "ሕጋዊ ስም",
+        "entityType": "የአካል ዓይነት",
+        "individual": "ግለሰብ / ብቸኛ ባለቤት",
+        "company": "ኩባንያ / የተመዘገበ አካል",
+        "address": "አድራሻ",
+        "addressHint": "በውሎቹ እና በግላዊነት ፖሊሲው ውስጥ እንደ ኦፕሬተሩ የፖስታ አድራሻ ይታተማል።",
+        "country": "አገር",
+        "effectiveDate": "የሚጸናበት ቀን",
+        "contactEmail": "የመገናኛ ኢሜይል",
+        "privacyEmail": "የግላዊነት ኢሜይል",
+        "privacyEmailHint": "የውሂብ ባለቤት ጥያቄዎች የሚሄዱበት፤ የመገናኛ አድራሻው ሊሆን ይችላል።",
+        "dpoEmail": "የውሂብ ጥበቃ ኃላፊ ኢሜይል",
+        "dpoEmailHint": "ከሾሙ ብቻ።",
+        "governingLaw": "የሚመራ ሕግ",
+        "governingLawHint": "ለምሳሌ “የህንድ ሕጎች” ወይም “የእንግሊዝ እና ዌልስ ሕጎች”።",
+        "venue": "የክርክር ቦታ",
+        "venueHint": "ለምሳሌ “የቤንጋሉሩ፣ ካርናታካ ፍርድ ቤቶች”።",
+        "submit": "የኦፕሬተር ዝርዝሮችን አስቀምጥ"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "ኤሌክትሮኒክ ደረሰኝ",
+      "title": "ኤሌክትሮኒክ ደረሰኝ",
+      "description": "በአውጪ መገለጫ ደረጃ፡ የህንድ ኤሌክትሮኒክ ደረሰኞችን የሚመዘግበው ማገናኛ የትኛው እንደሆነ፣ እና የFactur-X እና UBL ውጤቶች የሚከተሉት የአውሮፓ መገለጫ የትኛው እንደሆነ። ምስክርነቶች ተመስጥረው ይቀመጣሉ እንጂ ዳግም አይታዩም።",
+      "noProfiles": "መጀመሪያ የአውጪ መገለጫ ይፍጠሩ።",
+      "profile": "የአውጪ መገለጫ",
+      "enabled": "ነቅቷል",
+      "disabled": "ተሰናክሏል",
+      "enabledHint": "ኤሌክትሮኒክ ደረሰኝን በቅንብሮች > መገለጫዎች ስር ለእያንዳንዱ መገለጫ ያብሩ ወይም ያጥፉ።",
+      "india": {
+        "title": "ህንድ (GST ኤሌክትሮኒክ ደረሰኝ፣ IRN)",
+        "description": "IRN እዚህ በተመረጠው ማገናኛ በኩል ይመዘገባል፤ በእጅ የሚሠራው ማገናኛ የፖርታሉን ምላሽ በእጅ ይቀበላል።",
+        "connector": "ማገናኛ",
+        "connectorNone": "ጠፍቷል",
+        "connectorManual": "በእጅ (የIRP ምላሽን ይለጥፉ)",
+        "connectorNic": "NIC IRP API (ሳንድቦክስ ወይም ምርት)",
+        "nicUnverified": "የNIC ማገናኛ የታተመውን API ይከተላል፤ የተመዘገቡ ናሙናዎች ላይ ብቻ ተፈትኗል፤ ምስክርነቶች እስኪቀርቡ ድረስ በቀጥታ ሳንድቦክስ ላይ አልተረጋገጠም።",
+        "env": "አካባቢ",
+        "sandbox": "ሳንድቦክስ",
+        "production": "ምርት",
+        "baseUrl": "መሠረት URL",
+        "baseUrlHint": "ለአካባቢው ነባሪ ባዶ ይተዉ።",
+        "clientId": "የደንበኛ መታወቂያ",
+        "clientSecret": "የደንበኛ ሚስጥር",
+        "username": "የተጠቃሚ ስም",
+        "password": "የይለፍ ቃል",
+        "gstin": "GSTIN",
+        "publicKey": "የIRP ይፋዊ ቁልፍ (PEM)",
+        "publicKeyHint": "ከገቡ በኋላ ከፖርታሉ ያውርዱት፤ ወደ IRP የሚላኩትን ምስክርነቶች ይጠቅልላል።",
+        "publicKeyStored": "ተቀምጧል፤ ለማቆየት ባዶ ይተዉ።",
+        "secretStored": "ተመስጥሮ ተቀምጧል፤ ለማቆየት ባዶ ይተዉ።",
+        "secretEncrypted": "ሲቀመጥ ተመስጥሮ ይቀመጣል።"
+      },
+      "eu": {
+        "title": "አውሮፓ (Factur-X፣ UBL)",
+        "description": "በዚህ ስሪት EN 16931 ብቸኛው መገለጫ ነው፤ የFactur-X እና UBL ማውረዶች ይጠቀሙበታል።",
+        "profile": "መገለጫ",
+        "profileNone": "ጠፍቷል",
+        "en16931": "EN 16931"
+      },
+      "save": "የኤሌክትሮኒክ ደረሰኝ ቅንብሮችን አስቀምጥ"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "ለስክሪፕቶች፣ ለSDK እና ለMCP ደንበኞች የAPI ቁልፎች፣ ከcurl ምሳሌዎች ጋር።",
+      "title": "API",
+      "description": "ለስክሪፕቶች፣ ለSDK እና ለMCP ደንበኞች ቁልፎች። ቁልፍ ከሚናዎ በላይ ማድረግ አይችልም፤ አንድ ጊዜ ብቻ ይታያል።",
+      "create": {
+        "title": "ቁልፍ ፍጠር",
+        "description": "እንደ <mono>Authorization: Bearer okv_…</mono> ይላኩት። ከምንጭ ኮድ እና ከውይይት መዝገቦች ያርቁት፤ ከተጋለጠ ከታች ይሰርዙት።"
+      },
+      "keys": {
+        "title": "ቁልፎች",
+        "descriptionOwner": "የዚህ ምሳሌ ሁሉም ቁልፎች፤ ባለቤቶች ማንኛውንም መሻር ይችላሉ።",
+        "descriptionOwn": "የእርስዎ ቁልፎች።",
+        "columns": {
+          "name": "ስም",
+          "prefix": "ቅድመ ቅጥያ",
+          "scopes": "ወሰኖች",
+          "owner": "ባለቤት",
+          "lastUsed": "መጨረሻ የዋለበት",
+          "expires": "የሚያበቃው",
+          "status": "ሁኔታ"
+        },
+        "empty": "እስካሁን የAPI ቁልፎች የሉም።",
+        "never": "በጭራሽ",
+        "revoked": "ተሽሯል",
+        "expired": "ጊዜው አልፏል",
+        "revokeTitle": "{name}ን ልሰርዝ?",
+        "revokeDescription": "ይህን ቁልፍ የሚጠቀሙ ደንበኞች ወዲያውኑ መሥራት ያቆማሉ።",
+        "activeCount": "{count, plural, one {# ንቁ ቁልፍ።} other {# ንቁ ቁልፎች።}}"
+      },
+      "examples": {
+        "title": "ምሳሌዎች",
+        "description": "<mono>$OKINVO_KEY</mono> ን በቁልፍ ይተኩ። የስሪት ያለው REST API፣ የOpenAPI ሰነዱ (<mono>/api/openapi.json</mono>)፣ የTypeScript SDK እና የMCP አገልጋዩ በv1.1 እቅድ ቀጣይ ተግባራት ይመጣሉ፤ የሁኔታ መድረሻው ዛሬ ይሠራል።",
+        "rateLimit": "ገደብ ያለፉ ጥሪዎች በ<mono>Retry-After</mono> ራስጌ 429 ይመልሳሉ (በደቂቃ በአንድ ቁልፍ 120 ጥያቄዎች)። የቁልፍ ወሰኖች በባለቤቱ አሁን ባለው ሚና ይገደባሉ።"
+      },
+      "form": {
+        "copyKey": "የAPI ቁልፍ ቅዳ",
+        "name": "ስም",
+        "namePlaceholder": "ለምሳሌ የሂሳብ ስክሪፕት",
+        "expires": "የሚያበቃው",
+        "in30Days": "በ30 ቀናት",
+        "in90Days": "በ90 ቀናት",
+        "inAYear": "በአንድ ዓመት",
+        "never": "በጭራሽ",
+        "scopes": "ወሰኖች",
+        "submit": "የAPI ቁልፍ ፍጠር",
+        "creating": "በመፍጠር ላይ…"
+      },
+      "scopes": {
+        "invoicesRead": "ደረሰኞችን አንብብ",
+        "invoicesCreate": "ደረሰኞችን ፍጠር እና አውጣ",
+        "creditNotesRead": "የክሬዲት ማስታወሻዎችን አንብብ",
+        "creditNotesCreate": "የክሬዲት ማስታወሻዎችን ፍጠር እና አውጣ",
+        "catalogueRead": "ደንበኞችን፣ አገልግሎቶችን እና ምርቶችን አንብብ",
+        "documentsRead": "የተከማቹ PDFዎችን እና DOCX ቅጂዎችን አውርድ",
+        "statusRead": "የምሳሌውን ሁኔታ አንብብ"
+      }
+    },
+    "status": {
+      "metaTitle": "ሁኔታ",
+      "metaDescription": "የዚህ ምሳሌ ስሪት፣ የውሂብ ጎታ፣ ማከማቻ፣ ኢሜይል እና የመጠባበቂያ ጤና።",
+      "title": "ሁኔታ",
+      "description": "ይህ ምሳሌ ምን እየሠራ እንዳለ እና ክፍሎቹ ምላሽ እየሰጡ እንደሆነ።",
+      "recheck": "እንደገና ፈትሽ",
+      "health": {
+        "ok": "ደህና",
+        "warning": "ማስጠንቀቂያ",
+        "failed": "አልተሳካም",
+        "na": "አልተዋቀረም"
+      },
+      "overall": {
+        "ok": "ሁሉም ደህና",
+        "degraded": "ተበላሽቷል",
+        "failed": "አልተሳካም"
+      },
+      "version": "ግንባታ {hasSha, select, yes {<mono>{sha}</mono>} other {(sha አይታወቅም)}} · የተገነባው {built} · Node <mono>{node}</mono> · የሥራ ጊዜ {uptime} · የተፈተሸው {checked}",
+      "dateUnknown": "(ቀን አይታወቅም)",
+      "uptime": {
+        "days": "{d}ቀ {h}ሰ {m}ደ",
+        "hours": "{h}ሰ {m}ደ",
+        "minutes": "{m}ደ"
+      },
+      "rows": {
+        "database": "የውሂብ ጎታ",
+        "storage": "ማከማቻ",
+        "rateLimiting": "የጥያቄ ገደብ",
+        "email": "ኢሜይል",
+        "backups": "መጠባበቂያዎች"
+      },
+      "db": {
+        "detail": "{latency} ሚሴ · የመጨረሻው ሽግግር <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # ያልተጠናቀቁ ሽግግሮች}}",
+        "noMigration": "የለም"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · የሙከራ ነገር መጻፍ፣ ማንበብ እና መሰረዝ በ{latency} ሚሴ",
+        "failed": "{driver}፦ {error}"
+      },
+      "rateLimit": "<mono>{store}</mono> ማከማቻ {store, select, memory {(አንድ ቅጂ)} other {(በቅጂዎች መካከል የተጋራ)}}",
+      "smtp": {
+        "configured": "SMTP ከ{source, select, settings {the settings page} env {the environment} other {}} · የመጨረሻ ሙከራ {lastTest} · ባለፉት 24 ሰዓታት፦ {sent} ተልከዋል፣ {failed} አልተሳካም",
+        "none": "SMTP አገልጋይ የለም፤ አዘጋጁ “በደብዳቤ መተግበሪያ ክፈት” ያቀርባል። <link>አዋቅር</link>"
+      },
+      "backups": {
+        "notWired": "የመጠባበቂያ አገልግሎት አልተገናኘም (BACKUP_STATUS_FILE አልተዘጋጀም)።",
+        "noRun": "የመጠባበቂያ አገልግሎት ተገናኝቷል፤ እስካሁን የተመዘገበ ሥራ የለም።",
+        "ok": "የመጨረሻው ሥራ በ{finishedAt} ተሳክቷል{days, plural, =0 {} one { · ማቆያ # ቀን} other { · ማቆያ # ቀናት}}",
+        "failed": "የመጨረሻው ሥራ አልተሳካም፦ {error} በ{finishedAt}{days, plural, =0 {} one { · ማቆያ # ቀን} other { · ማቆያ # ቀናት}}"
+      },
+      "footer": "ተመሳሳይ ሪፖርት ለክትትል በ<mono>/api/health/status</mono> እንደ JSON ይገኛል (የገባ ክፍለ ጊዜ ወይም የAPI ቁልፍ)።"
+    },
+    "usage": {
+      "metaTitle": "አጠቃቀም",
+      "metaDescription": "በዚህ ምሳሌ ላይ በየማያ ገጹ እና በየቀኑ የገጽ እይታዎች፣ በአካባቢው የተቆጠሩ።",
+      "title": "አጠቃቀም",
+      "description": "እያንዳንዱ ማያ ገጽ ስንት ጊዜ እንደተከፈተ፣ በዚህ ምሳሌ ላይ ብቻ የተቆጠረ፡ ኩኪዎች የሉም፣ አድራሻዎች የሉም፣ ወደ የትም ምንም አይላክም።",
+      "last30Days": "ያለፉት 30 ቀናት",
+      "total": "{count, plural, =0 {ምንም የገጽ እይታ የለም} one {# የገጽ እይታ} other {# የገጽ እይታዎች}}",
+      "off": "ቆጠራ ጠፍቷል። በዚህ ምሳሌ ላይ የገጽ እይታዎችን ለመቁጠር ANALYTICS_LOCAL=true ያዘጋጁ።",
+      "empty": "እስካሁን ምንም የገጽ እይታ አልተመዘገበም።",
+      "columns": {
+        "day": "ቀን",
+        "path": "ማያ ገጽ",
+        "views": "እይታዎች"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "እንኳን ደህና መጡ",
+    "progress": "ሂደት",
+    "steps": {
+      "aboutYou": "ስለ እርስዎ",
+      "howYouUse": "እንዴት እንደሚጠቀሙበት",
+      "allSet": "ሁሉም ዝግጁ"
+    },
+    "step1": {
+      "title": "ስለ እርስዎ ይንገሩን",
+      "subtitle": "ይህ ነባሪዎችዎን ያዘጋጃል፤ እያንዳንዱ እሴት በኋላ በቅንብሮች ውስጥ ሊቀየር ይችላል።",
+      "name": "ስም",
+      "email": "ኢሜይል",
+      "emailHint": "የመግቢያ ማንነትዎ። በኋላ ከቅንብሮች → ደህንነት ሊቀየር ይችላል።",
+      "country": "አገር",
+      "currency": "ተመራጭ ገንዘብ",
+      "currencyHint": "መገለጫ እስኪኖር ድረስ ለአዲስ መገለጫዎች እና ለዳሽቦርድ ያገለግላል።"
+    },
+    "step2": {
+      "title": "okinvo ን እንዴት ይጠቀማሉ?",
+      "subtitle": "ነባሪዎች ብቻ ይቀየራሉ፤ ምንም ነገር አይቆለፍም።",
+      "usage": "አጠቃቀም",
+      "personal": "የግል ደረሰኝ",
+      "personalHint": "በራስዎ ስም የሚሠሩ ነጻ ሥራዎች",
+      "business": "የንግድ ደረሰኝ",
+      "businessHint": "ከተመዘገበ ንግድ የሚወጡ ደረሰኞች",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "የVAT ቁጥር",
+        "other": "የታክስ ምዝገባ ቁጥር"
+      },
+      "taxQuestion": {
+        "IN": "GSTIN አለዎት?",
+        "GB": "በVAT ተመዝግበዋል?",
+        "other": "በደረሰኞች ላይ የሚታተም የታክስ ምዝገባ ቁጥር አለዎት?"
+      }
+    },
+    "step3": {
+      "title": "ሁሉም ዝግጁ ነው",
+      "body": "በመቀጠል የመጀመሪያ የሰጪ መገለጫዎን ይፍጠሩ፦ በደረሰኞችዎ ላይ የሚታተሙ ስም፣ አድራሻ እና የታክስ ዝርዝሮች። የነገሩንን ሞልተናል።",
+      "go": "ወደ መገለጫዎች ሂድ",
+      "opening": "በመክፈት ላይ…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "ውሎች",
+      "privacy": "ግላዊነት",
+      "cookies": "ኩኪዎች",
+      "security": "ደህንነት"
+    },
+    "cookieNotice": {
+      "label": "የኩኪ ማሳወቂያ",
+      "body": "በጣም አስፈላጊ የሆኑ ኩኪዎችን ብቻ እንጠቀማለን፦ ክፍለ ጊዜዎን እና የማሳያ ምርጫዎችዎን። ትንታኔ የለም፣ ክትትል የለም።",
+      "policy": "የኩኪ ፖሊሲ",
+      "gotIt": "ገባኝ"
+    },
+    "nav": {
+      "label": "ሕጋዊ",
+      "cookies": "ኩኪዎች",
+      "privacy": "ግላዊነት",
+      "terms": "ውሎች",
+      "acceptableUse": "ተቀባይነት ያለው አጠቃቀም",
+      "retention": "ማቆያ",
+      "security": "ደህንነት",
+      "licences": "ፈቃዶች"
+    },
+    "operatorNotice": "okinvo በራስ የሚስተናገድ ሶፍትዌር ነው፤ የዚህ ምሳሌ ኦፕሬተር ለአጠቃቀሙ ኃላፊነት አለበት።",
+    "doc": {
+      "effectiveOn": "የሚጸናው <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "ይዘቶች"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "የኦፕሬተር ሕጋዊ ስም",
+        "entityType": "የአካል ዓይነት",
+        "address": "የኦፕሬተር አድራሻ",
+        "country": "የኦፕሬተር አገር",
+        "contactEmail": "የመገናኛ ኢሜይል",
+        "privacyEmail": "የግላዊነት ኢሜይል",
+        "dpoEmail": "የውሂብ ጥበቃ ኃላፊ ኢሜይል",
+        "governingLaw": "የሚመራ ሕግ",
+        "venue": "የክርክር ቦታ",
+        "effectiveDate": "የሚጸናበት ቀን"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "አልተገኘም",
+      "title": "በዚህ አድራሻ ምንም የለም",
+      "body": "አገናኙ ጊዜው ያለፈበት ሊሆን ይችላል፣ ወይም የጠቆመው ሰነድ በጭራሽ አልወጣም።"
+    },
+    "forbidden": {
+      "metaTitle": "አይፈቀድም",
+      "title": "ይህ መለያ ያንን ማድረግ አይችልም",
+      "body": "ሚናዎ ይህን አይፈቅድም። ከባለቤት መዳረሻ ይጠይቁ፣ ወይም ያለው መለያ ይግቡ።"
+    },
+    "error": {
+      "title": "የሆነ ችግር ተፈጥሯል",
+      "body": "በዚህ ጥያቄ ምንም አልተቀየረም። እንደገና ይሞክሩ፤ ከቀጠለ፣ የአገልጋዩ መዝገብ ዝርዝሮቹን ይዟል።",
+      "digest": "ስህተት {digest}",
+      "generic": "ስህተት"
+    },
+    "appNotFound": {
+      "title": "አልተገኘም",
+      "body": "ይህ መዝገብ የለም፣ ወይም ሲመለከቱት ተሰርዟል።",
+      "back": "ወደ ዳሽቦርድ ተመለስ"
+    },
+    "validation": {
+      "required": "ያስፈልጋል",
+      "tooLong": "ቢበዛ {max} ቁምፊዎች",
+      "invalidEmail": "ትክክለኛ ኢሜይል መሆን አለበት",
+      "invalidDate": "በYYYY-MM-DD ቅርጸት የቀን መቁጠሪያ ቀን መሆን አለበት",
+      "invalidAmount": "ቁጥር መሆን አለበት",
+      "wholeNumber": "ጠቅላላ ቁጥር መሆን አለበት",
+      "greaterThanZero": "ከዜሮ በላይ መሆን አለበት",
+      "fixFields": "እባክዎ ጎልተው የታዩትን መስኮች ያርሙ።",
+      "charset": "መደበኛ የቁልፍ ሰሌዳ ቁምፊዎች ብቻ ይፈቀዳሉ።"
+    }
+  },
+  "verify": {
+    "metaTitle": "ሰነድ አረጋግጥ",
+    "metaDescription": "የክፍያ መጠየቂያ ወይም የክሬዲት ማስታወሻ በላኪው መሰጠቱን እና አለመቀየሩን ያረጋግጡ።",
+    "heading": "የሰነድ ማረጋገጫ",
+    "rateLimited": "ከዚህ አድራሻ በጣም ብዙ ፍተሻዎች። እባክዎ በአንድ ደቂቃ ውስጥ እንደገና ይሞክሩ።",
+    "notFound": {
+      "title": "እንዲህ ያለ ሰነድ የለም",
+      "body": "ይህ አገናኝ ከማንኛውም የወጣ ሰነድ ጋር አይዛመድም። QR ኮዱን ወይም የተሰጠዎትን አገናኝ ይፈትሹ፣ ወይም ሰጪውን ያነጋግሩ።"
+    },
+    "status": {
+      "void": "ተሽሯል",
+      "valid": "ትክክለኛ"
+    },
+    "issuedBy": "የሰጠው",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "የተሰጠው ለ",
+    "issueDate": "የወጣበት ቀን",
+    "total": "ድምር",
+    "voided": "ይህ ሰነድ በሰጪው ተሽሯል እና ከእንግዲህ ትክክለኛ አይደለም።",
+    "storedCopies": {
+      "title": "የተከማቹ ቅጂዎች",
+      "description": "ሰጪው የያዘው የእያንዳንዱ PDF ስሪት SHA-256። ለማወዳደር ቅጂዎን በአሳሽዎ ውስጥ ይምረጡ፦ ምንም አይሰቀልም።",
+      "empty": "እስካሁን ምንም PDF አልተፈጠረም።",
+      "protectedVersion": "በይለፍ ቃል የተጠበቀ ቅጂ {version}",
+      "version": "ስሪት {version}"
+    },
+    "check": {
+      "label": "ቅጂዎን ይፈትሹ",
+      "hashing": "ሃሽ በማስላት ላይ…",
+      "match": "ቅጂዎ ከስሪት {version} ጋር በትክክል ይዛመዳል።",
+      "mismatch": "ቅጂዎ ከማንኛውም የተከማቸ ስሪት ጋር አይዛመድም።"
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "የተጋራ ሰነድ",
+      "metaDescription": "ከእርስዎ ጋር የተጋራ ሰነድ፡ በመስመር ላይ ይመልከቱት እና PDF ያውርዱ።",
+      "rateLimited": "ከዚህ አድራሻ በጣም ብዙ ጥያቄዎች። እባክዎ በአንድ ደቂቃ ውስጥ እንደገና ይሞክሩ።",
+      "unavailable": {
+        "title": "ይህ አገናኝ አይገኝም",
+        "body": "ጊዜው አልፎ ወይም በሰጪው ተሽሮ ሊሆን ይችላል። አዲስ እንዲሰጡዎት ይጠይቋቸው።"
+      },
+      "lockedTitleInvoice": "ከ{issuer} የመጣ ደረሰኝ",
+      "lockedTitleCreditNote": "ከ{issuer} የመጣ የክሬዲት ማስታወሻ",
+      "lockedBody": "ይህ ሰነድ በይለፍ ቃል የተጠበቀ ነው። ሰጪው የሰጠዎትን የይለፍ ቃል ያስገቡ።",
+      "void": "ተሽሯል",
+      "protectedPdf": "PDFው በተመሳሳይ የይለፍ ቃል ይከፈታል። ማንበብ እና ማተም ይቻላል፤ መቅዳት እና ማርትዕ ተቆልፏል።",
+      "byline": "ከ{issuer} ወደ {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "የይለፍ ቃል",
+      "limited": "በጣም ብዙ ሙከራዎች። እባክዎ አሥራ አምስት ደቂቃ ይጠብቁ እና እንደገና ይሞክሩ።",
+      "wrong": "ያ የይለፍ ቃል ትክክል አይደለም።",
+      "submit": "ሰነድ ክፈት"
+    },
+    "dialog": {
+      "trigger": "አጋራ",
+      "title": "ይህን ሰነድ አጋራ",
+      "description": "አገናኙ ያለው ማንኛውም ሰው እስኪያልቅ ወይም እስኪሽሩ ድረስ ማየት እና ማውረድ ይችላል። የይለፍ ቃል PDFውንም ራሱ ይጠብቃል፦ በይለፍ ቃል ይከፈታል እና ማንበብ እና ማተም ይቻላል፣ ማርትዕ ወይም መቅዳት አይቻልም።",
+      "link": "አገናኝ",
+      "copyLink": "አገናኝ ቅዳ",
+      "password": "የይለፍ ቃል",
+      "copyPassword": "የይለፍ ቃል ቅዳ",
+      "sendSeparately": "የይለፍ ቃሉን ከአገናኙ ለይተው ይላኩ። ከታች ባለው ዝርዝር እንደገና ማየት ይችላሉ።",
+      "copy": "ቅዳ",
+      "copied": "ተቀድቷል",
+      "expires": "የሚያበቃው",
+      "expiry": {
+        "d7": "በ7 ቀናት",
+        "d30": "በ30 ቀናት",
+        "d90": "በ90 ቀናት",
+        "never": "በጭራሽ"
+      },
+      "protection": "ጥበቃ",
+      "protectionOptions": {
+        "auto": "የይለፍ ቃል፦ የይለፍ ሐረግ ፍጠር",
+        "manual": "የይለፍ ቃል፦ የራሴን ምረጥ",
+        "none": "የይለፍ ቃል የለም (ክፍት አገናኝ)"
+      },
+      "passwordHint": "ቢያንስ 8 ቁምፊዎች።",
+      "strength": "ጥንካሬ፦ {label}",
+      "strengthLabels": {
+        "veryWeak": "በጣም ደካማ",
+        "weak": "ደካማ",
+        "fair": "መካከለኛ",
+        "good": "ጥሩ",
+        "strong": "ጠንካራ"
+      },
+      "creating": "በመፍጠር ላይ…",
+      "create": "አገናኝ ፍጠር",
+      "activeLinks": "ንቁ አገናኞች",
+      "passwordProtected": "በይለፍ ቃል የተጠበቀ",
+      "openLink": "አገናኝ ክፈት",
+      "linkExpires": "{kind} · የሚያበቃው {date}",
+      "linkNeverExpires": "{kind} · አያበቃም",
+      "revoke": {
+        "title": "ይህን አገናኝ ልሰርዝ?",
+        "description": "አገናኙ ላላቸው ሁሉ ወዲያውኑ መሥራት ያቆማል።",
+        "label": "ሰርዝ"
+      },
+      "linkPassword": "የይለፍ ቃል፦ <code>{password}</code>",
+      "counts": "{views, plural, other {# እይታዎች}} · {downloads, plural, other {# ውርዶች}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "የክሬዲት ማስታወሻዎች",
+      "title": "የክሬዲት ማስታወሻዎች",
+      "description": "በወጡ ደረሰኞች ላይ የሚቀርቡ፤ እያንዳንዱ ሲወጣ የደረሰኙን ቀሪ ሂሳብ ይቀንሳል።",
+      "newCreditNote": "አዲስ የክሬዲት ማስታወሻ",
+      "filters": {
+        "from": "ከ",
+        "to": "እስከ",
+        "issuer": "ሰጪ",
+        "client": "ደንበኛ",
+        "status": "ሁኔታ",
+        "search": "ፈልግ",
+        "all": "ሁሉም",
+        "searchPlaceholder": "ቁጥር፣ ምክንያት፣ ደንበኛ",
+        "go": "ሂድ"
+      },
+      "statuses": {
+        "DRAFT": "ረቂቅ",
+        "ISSUED": "የወጣ",
+        "SENT": "የተላከ",
+        "VOID": "የተሻረ"
+      },
+      "empty": {
+        "title": "እስካሁን የክሬዲት ማስታወሻዎች የሉም",
+        "description": "የወጣ ደረሰኝ ይክፈቱ እና የሚከፈለውን ለመቀነስ “የክሬዲት ማስታወሻ” ይምረጡ።"
+      },
+      "noMatch": "ከእነዚህ ማጣሪያዎች ጋር የሚዛመድ የክሬዲት ማስታወሻ የለም።",
+      "columns": {
+        "number": "ቁጥር",
+        "against": "የሚቃወመው",
+        "client": "ደንበኛ",
+        "issueDate": "የወጣበት ቀን",
+        "reason": "ምክንያት",
+        "total": "ድምር",
+        "status": "ሁኔታ"
+      },
+      "draft": "ረቂቅ"
+    },
+    "new": {
+      "metaTitle": "አዲስ የክሬዲት ማስታወሻ",
+      "title": "አዲስ የክሬዲት ማስታወሻ",
+      "description": "የክሬዲት ማስታወሻ በወጣ ደረሰኝ ላይ ይቀርባል እና ቀሪ ሂሳቡን ይቀንሳል።",
+      "nothingToCredit": {
+        "title": "ክሬዲት የሚደረግ ምንም የለም",
+        "description": "የክሬዲት ማስታወሻዎች ቀሪ ሂሳብ ያለው የወጣ ደረሰኝ ይፈልጋሉ።",
+        "openInvoices": "ደረሰኞችን ክፈት"
+      },
+      "whichInvoice": "የትኛው ደረሰኝ?",
+      "invoice": "ደረሰኝ",
+      "invoiceOption": "{number} · {client} · ቀሪ {balance}",
+      "issuedOnly": "የክሬዲት ማስታወሻዎች በወጡ ደረሰኞች ላይ ብቻ ይቀርባሉ።",
+      "invoiceFallback": "ደረሰኝ"
+    },
+    "edit": {
+      "metaTitle": "የክሬዲት ማስታወሻ አርትዕ",
+      "title": "የረቂቅ ክሬዲት ማስታወሻ አርትዕ",
+      "immutable": "የወጡ የክሬዲት ማስታወሻዎች አይለወጡም።",
+      "draft": "ረቂቅ"
+    },
+    "detail": {
+      "metaTitle": "የክሬዲት ማስታወሻ",
+      "draftTitle": "የረቂቅ ክሬዲት ማስታወሻ",
+      "meta": "{client} · በ<invoice>{number}</invoice> ላይ · የወጣው <mono>{date}</mono>",
+      "previewPdf": "PDF ቅድመ እይታ",
+      "issue": {
+        "title": "ይህን የክሬዲት ማስታወሻ ላውጣ?",
+        "description": "ቁጥር ይመደባል፣ የደረሰኙ ቀሪ ሂሳብ ይቀንሳል እና ሰነዱ የማይለወጥ ይሆናል።",
+        "label": "አውጣ"
+      },
+      "deleteDraft": {
+        "title": "ይህን ረቂቅ ልሰርዝ?"
+      },
+      "sendByEmail": "በኢሜይል ላክ",
+      "markSent": {
+        "title": "እንደተላከ ላመልክት?",
+        "label": "እንደተላከ አመልክት"
+      },
+      "void": {
+        "title": "ይህን የክሬዲት ማስታወሻ ልሽር?",
+        "description": "የደረሰኙ ቀሪ ሂሳብ ይመለሳል፤ ቁጥሩ ዳግም አይጠቀምም።",
+        "reason": "ምክንያት",
+        "label": "ሽር"
+      },
+      "voided": "{date} ተሽሯል፦ {reason}",
+      "amounts": {
+        "title": "መጠኖች",
+        "reason": "ምክንያት",
+        "creditAmount": "የክሬዲት መጠን",
+        "total": "ድምር",
+        "balanceNow": "የደረሰኝ ቀሪ ሂሳብ አሁን",
+        "sent": "የተላከ"
+      },
+      "documents": {
+        "title": "የተከማቹ ሰነዶች",
+        "description": "እያንዳንዱ ስሪት ይቀመጣል፤ የማረጋገጫ ገጹ ሁሉንም ሃሾች ይዘረዝራል።",
+        "regenerateTitle": "አዲስ የPDF ስሪት ልፍጠር?",
+        "generate": "ፍጠር",
+        "newVersion": "አዲስ ስሪት",
+        "renderedOnFirstDownload": "PDFው በመጀመሪያ ማውረድ ላይ ይፈጠራል።",
+        "protectedCopy": "በይለፍ ቃል የተጠበቀ ቅጂ {version}",
+        "version": "ስሪት {version}",
+        "verificationLink": "የማረጋገጫ አገናኝ፦ <link>{path}…</link>"
+      },
+      "draftsPreview": "ረቂቆች ቅድመ እይታ በአርታዒው ውስጥ በቀጥታ ይታያል።"
+    },
+    "send": {
+      "metaTitle": "የክሬዲት ማስታወሻ ላክ",
+      "title": "<mono>{number}</mono> ላክ",
+      "previousSends": "ቀደም ያሉ መላኮች"
+    },
+    "builder": {
+      "against": "በ<mono>{number}</mono> ላይ",
+      "summary": "{client} · ድምር {total} · ቀሪ {balance} · ግብር የሚከፈልበት ቦታ ≈ {headroom}",
+      "issueDate": "የወጣበት ቀን",
+      "creditAmount": "የክሬዲት መጠን (ታክስ ሳይጨምር)",
+      "creditAmountHint": "ታክስ ከደረሰኙ የታክስ መስመሮች ይከፋፈላል",
+      "reason": "ምክንያት",
+      "picker": {
+        "title": "ከደረሰኝ መስመሮች አስላ",
+        "description": "ሙሉ መስመሮችን ወይም መቶኛ ምልክት ያድርጉ፤ ይህ ከላይ ያለውን መጠን ብቻ ይሞላል።",
+        "line": "መስመር",
+        "subtotal": "ንዑስ ድምር",
+        "credit": "ክሬዲት",
+        "percent": "%",
+        "creditLine": "የክሬዲት መስመር {position}",
+        "percentOfLine": "የመስመር {position} መቶኛ"
+      },
+      "saveDraft": "ረቂቅ አስቀምጥ",
+      "issuing": "በማውጣት ላይ…",
+      "saveAndIssue": "አስቀምጥ እና አውጣ"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "የተቀበለ ክፍያ",
+        "REFUND": "የተሰጠ ተመላሽ",
+        "WRITE_OFF": "ሰርዞ መተው"
+      },
+      "editTitle": "ግቤት አርትዕ",
+      "recordTitle": "ክፍያ መዝግብ",
+      "description": "መጠኖች በደረሰኙ ገንዘብ ({currency}) ናቸው፤ የተቀነሰው TDS ከተተገበረው መጠን አካል ነው።",
+      "kind": "ዓይነት",
+      "date": "ቀን",
+      "amountRefunded": "የተመለሰ መጠን (አሉታዊ)",
+      "amountApplied": "የተተገበረ መጠን",
+      "refundHint": "አሉታዊ መጠን ያስገቡ፣ ለምሳሌ -500",
+      "tdsDeducted": "የተቀነሰ TDS",
+      "tdsHint": "ደንበኛው የያዘው ታክስ፤ በተተገበረው መጠን ውስጥ ይቆጠራል",
+      "bankFees": "የባንክ ክፍያዎች",
+      "receivedInto": "የተቀበለበት",
+      "noMethod": "-",
+      "reference": "ማጣቀሻ",
+      "referenceHint": "UTR፣ የግብይት መታወቂያ፣ የቼክ ቁጥር",
+      "otherCurrency": "በሌላ ገንዘብ የተቀበለ",
+      "amountReceived": "የተቀበለ መጠን",
+      "receivedCurrency": "የተቀበለበት ገንዘብ",
+      "exchangeRate": "የምንዛሬ ተመን",
+      "exchangeRateHint": "1 የተቀበለ አሃድ = ? {currency}",
+      "notes": "ማስታወሻዎች",
+      "receiptHint": "PNG፣ JPEG፣ WebP ወይም PDF እስከ 10 ሜባ",
+      "receipts": "የክፍያ ደረሰኞች እና ሂሳቦች",
+      "receiptN": "የክፍያ ደረሰኝ {n}",
+      "removeReceipt": "የክፍያ ደረሰኝ {n} አስወግድ",
+      "saveChanges": "ለውጦችን አስቀምጥ",
+      "record": "መዝግብ"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "ተከፋይ",
+      "shipTo": "የሚላክለት",
+      "invoice": "ደረሰኝ",
+      "creditNote": "የክሬዲት ማስታወሻ",
+      "issueDate": "የወጣበት ቀን",
+      "dueDate": "የመክፈያ ቀን",
+      "number": "ቁጥር",
+      "description": "መግለጫ",
+      "sacHsn": "SAC/HSN",
+      "qty": "ብዛት",
+      "unit": "መለኪያ",
+      "rate": "ዋጋ",
+      "tax": "ታክስ",
+      "amount": "መጠን",
+      "subtotal": "ንዑስ ድምር",
+      "discount": "ቅናሽ",
+      "taxable": "ግብር የሚከፈልበት መጠን",
+      "total": "ድምር",
+      "amountDue": "የሚከፈል ቀሪ",
+      "tdsExpected": "የሚጠበቅ TDS",
+      "netExpected": "የሚጠበቅ የተጣራ",
+      "rounding": "ማጠጋጊያ",
+      "paymentDetails": "የክፍያ ዝርዝር",
+      "notes": "ማስታወሻዎች",
+      "terms": "ውሎች",
+      "placeOfSupply": "የአቅርቦት ቦታ",
+      "poReference": "የPO ማጣቀሻ",
+      "amountInWords": "መጠን በቃላት",
+      "signature": "የተፈቀደለት ፈራሚ"
+    },
+    "title": {
+      "taxInvoice": "የታክስ ደረሰኝ",
+      "billOfSupply": "የአቅርቦት ደረሰኝ",
+      "invoice": "ደረሰኝ",
+      "creditNote": "የክሬዲት ማስታወሻ"
+    },
+    "text": {
+      "pageOf": "ገጽ {page} ከ {total}",
+      "scanToVerify": "ለማረጋገጥ ስካን ያድርጉ",
+      "taxId": "የታክስ መታወቂያ",
+      "void": "ተሰርዟል",
+      "draftWatermark": "ረቂቅ - የታክስ ደረሰኝ አይደለም",
+      "paymentTermsDays": "{days} ቀናት",
+      "irn": "IRN",
+      "ackNo": "የእውቅና ቁጥር",
+      "ackDate": "የእውቅና ቀን",
+      "einvoiceCancelled": "ኤሌክትሮኒክ ደረሰኝ ተሰርዟል"
+    },
+    "ui": {
+      "pageEstimate": "ግምታዊ {count, plural, one {# ገጽ} other {# ገጾች}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "መልእክት",
+      "description": "ከሰጪ መገለጫው ንድፎች አስቀድሞ ተሞልቷል። እስኪልኩ ድረስ ምንም አይላክም።",
+      "to": "ለ",
+      "toHint": "በነጠላ ሰረዝ የተለዩ",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "ርዕስ",
+      "body": "አካል",
+      "bodyHint": "ተራ ጽሑፍ፤ አገናኞች ጠቅ ሊደረጉ ይችላሉ",
+      "attachment": "አባሪ",
+      "attachmentHint": "የተከማቸው ቅጂ፣ <mono>{name}</mono> የተሰየመ (ወይም .docx)፤ ይዘቱ ሊቀየር አይችልም።",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "በመላክ ላይ…",
+      "send": "ላክ",
+      "openInMailApp": "በደብዳቤ መተግበሪያ ክፈት",
+      "noSmtp": "SMTP አገልጋይ አልተዋቀረም (ቅንብሮች → ኢሜይል)። ረቂቁን በደብዳቤ መተግበሪያዎ ይክፈቱ፣ የወረደውን PDF ያያይዙ፣ ከዚያ ከታች እንደተላከ ያመልክቱ።",
+      "markAsSent": "እንደተላከ አመልክት"
+    },
+    "sentLog": {
+      "when": "መቼ",
+      "document": "ሰነድ",
+      "to": "ለ",
+      "subject": "ርዕስ",
+      "status": "ሁኔታ",
+      "empty": "እስካሁን የተላከ ምንም የለም።",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "ተልኳል",
+        "FAILED": "አልተሳካም",
+        "MANUAL": "በእጅ"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "ሰላም፣ {name}",
+    "fiscalYear": "የበጀት ዓመት {year}",
+    "fiscalYearWithBase": "የበጀት ዓመት {year} · መሠረታዊ ገንዘብ {currency} ({profile})",
+    "newCreditNote": "አዲስ የክሬዲት ማስታወሻ",
+    "welcomeTitle": "ወደ {appName} እንኳን ደህና መጡ",
+    "welcomeDescription": "ደረሰኝ የሚያወጡበትን የሰጪ መገለጫ በመፍጠር ይጀምሩ፣ ከዚያ ደንበኛ እና የመጀመሪያ ደረሰኝዎን ያክሉ።",
+    "createProfile": "መገለጫዎን ይፍጠሩ",
+    "tiles": {
+      "outstanding": "ያልተከፈለ",
+      "overdue": "ጊዜው ያለፈበት",
+      "billedThisFy": "በዚህ የበጀት ዓመት የተከፈለ ደረሰኝ",
+      "receivedThisFy": "በዚህ የበጀት ዓመት የተቀበለ",
+      "drafts": "ረቂቆች",
+      "invoiceCount": "{count, plural, one {# ደረሰኝ} other {# ደረሰኞች}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "ክፍያዎች ተመላሾች ተቀንሰው፣ በተመዘገበ ምንዛሬ",
+      "awaitingIssue": "መውጣት በመጠበቅ ላይ",
+      "nothingPending": "የሚጠብቅ ምንም የለም"
+    },
+    "recentInvoices": "የቅርብ ጊዜ ደረሰኞች",
+    "allInvoices": "ሁሉም ደረሰኞች",
+    "noInvoicesYet": "እስካሁን ደረሰኞች የሉም።",
+    "columns": {
+      "number": "ቁጥር",
+      "client": "ደንበኛ",
+      "issued": "የወጣ"
+    },
+    "topClients": "ባልተከፈለ መጠን ከፍተኛ ደንበኞች",
+    "nothingOutstanding": "ያልተከፈለ ምንም የለም።"
+  },
+  "exports": {
+    "export": "ላክ",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "ደረሰኞች",
+      "newInvoice": "አዲስ ደረሰኝ",
+      "draft": "ረቂቅ",
+      "aDraft": "ረቂቅ",
+      "statuses": {
+        "draft": "ረቂቅ",
+        "issued": "የወጣ",
+        "sent": "የተላከ",
+        "partiallyPaid": "በከፊል የተከፈለ",
+        "paid": "የተከፈለ",
+        "overdue": "ጊዜው ያለፈበት",
+        "void": "የተሻረ"
+      },
+      "lifecycle": {
+        "draft": "ረቂቅ",
+        "issued": "የወጣ",
+        "void": "የተሻረ"
+      },
+      "units": {
+        "hour": "ሰዓት",
+        "day": "ቀን",
+        "fixed": "ቋሚ",
+        "milestone": "ወሳኝ ደረጃ",
+        "unit": "አሃድ"
+      },
+      "unitsLower": {
+        "hour": "ሰዓት",
+        "day": "ቀን",
+        "fixed": "ቋሚ",
+        "milestone": "ወሳኝ ደረጃ",
+        "unit": "አሃድ"
+      },
+      "supplyTypes": {
+        "intraState": "በክልል ውስጥ",
+        "interState": "በክልሎች መካከል",
+        "exportLut": "ኤክስፖርት lut",
+        "exportWithTax": "ኤክስፖርት ከታክስ ጋር",
+        "reverseCharge": "ተገላቢጦሽ ክፍያ",
+        "notApplicable": "አይመለከትም"
+      }
+    },
+    "list": {
+      "description": "ረቂቅ፣ የወጡ እና የተሻሩ ደረሰኞች፤ ሁኔታዎች ከክፍያዎች እና ከመክፈያ ቀናት ይመነጫሉ።",
+      "fiscalYear": "የበጀት ዓመት",
+      "issuer": "ሰጪ",
+      "client": "ደንበኛ",
+      "searchPlaceholder": "ቁጥር፣ PO፣ ደንበኛ",
+      "emptyTitle": "እስካሁን ደረሰኞች የሉም",
+      "emptyDescription": "የመጀመሪያ ደረሰኝዎን ይገንቡ፦ ደንበኛ ይምረጡ፣ መስመሮች ይጨምሩ፣ ቅድመ እይታውን ይመልከቱ፣ ከዚያ ያውጡት።",
+      "columns": {
+        "number": "ቁጥር",
+        "client": "ደንበኛ",
+        "issuer": "ሰጪ",
+        "issueDate": "የወጣበት ቀን",
+        "due": "የመክፈያ ቀን",
+        "balance": "ቀሪ ሂሳብ"
+      },
+      "noMatches": "ከእነዚህ ማጣሪያዎች ጋር የሚዛመድ ደረሰኝ የለም።",
+      "count": "{count, plural, one {# ደረሰኝ} other {# ደረሰኞች}}",
+      "countPaged": "{count, plural, one {# ደረሰኝ} other {# ደረሰኞች}} · ገጽ {page} ከ{pages}",
+      "register": "መዝገብ",
+      "einvoice": "ኤሌክትሮኒክ ደረሰኝ",
+      "einvoiceFilters": {
+        "registered": "IRN የተመዘገበ",
+        "none": "ያልተመዘገበ",
+        "cancelled": "IRN የተሰረዘ"
+      }
+    },
+    "new": {
+      "noProfileTitle": "መጀመሪያ የሰጪ መገለጫ ይፍጠሩ",
+      "noProfileDescription": "ደረሰኝ ከሕጋዊ ማንነት ይወጣል፦ መገለጫዎን ከታክስ መታወቂያዎቹ እና ከቁጥር አሰጣጡ ጋር ያዘጋጁ።",
+      "createProfile": "መገለጫ ፍጠር"
+    },
+    "edit": {
+      "metaTitle": "ደረሰኝ አርትዕ",
+      "title": "ረቂቅ አርትዕ",
+      "immutableFlash": "የወጡ ደረሰኞች አይለወጡም። ለማስተካከል “ሽር እና እንደገና አውጣ” ይጠቀሙ።"
+    },
+    "detail": {
+      "metaTitle": "ደረሰኝ",
+      "draftInvoice": "የረቂቅ ደረሰኝ",
+      "issuedDue": "የወጣው <mono>{issued}</mono>፣ የመክፈያ ቀን <mono>{due}</mono>",
+      "replaces": "{number}ን ይተካል",
+      "replacedBy": "በ{number} ተተክቷል",
+      "previewPdf": "PDF ቅድመ እይታ",
+      "downloadEInvoice": "የኤሌክትሮኒክ ደረሰኝ JSON አውርድ",
+      "issueTitle": "ይህን ደረሰኝ ላውጣ?",
+      "issueDescription": "ቁጥር ይመደባል እና ሰነዱ የማይለወጥ ይሆናል።",
+      "issue": "አውጣ",
+      "deleteDraftTitle": "ይህን ረቂቅ ልሰርዝ?",
+      "sendByEmail": "በኢሜይል ላክ",
+      "recordPayment": "ክፍያ መዝግብ",
+      "progress": {
+        "title": "የክፍያ ሂደት",
+        "description": "ይህ ኢንቮይስ ከመውጣቱ እስከ የክፍያ ደረሰኝ ፋይል እስከሚደረግ ድረስ ያለበት ሁኔታ።",
+        "issued": "ወጥቷል",
+        "sent": "ተልኳል",
+        "payment": "ክፍያ ተመዝግቧል",
+        "paymentOn": "የ<mono>{amount}</mono> ክፍያ በ<mono>{date}</mono> ተመዝግቧል",
+        "paid": "ሙሉ በሙሉ ተከፍሏል",
+        "receipt": "የክፍያ ደረሰኝ ተያይዟል",
+        "done": "ተጠናቋል",
+        "pending": "በመጠባበቅ ላይ"
+      },
+      "creditNote": "የክሬዲት ማስታወሻ",
+      "markSentTitle": "እንደተላከ ላመልክት?",
+      "markSentDescription": "ደንበኛው ይህን ደረሰኝ እንደተቀበለ ይመዘግባል።",
+      "markSent": "እንደተላከ አመልክት",
+      "voidReissueTitle": "ልሽር እና እንደገና ላውጣ?",
+      "voidReissueDescription": "ዋናው ይሻራል እና ተመሳሳይ ይዘት ያለው የተያያዘ ረቂቅ ለአርትዖት ይከፈታል።",
+      "voidReissue": "ሽር እና እንደገና አውጣ",
+      "voidTitle": "ይህን ደረሰኝ ልሽር?",
+      "voidDescription": "ያለ የተመዘገቡ ክፍያዎች ብቻ ይቻላል፤ ቁጥሩ ዳግም አይጠቀምም።",
+      "void": "ሽር",
+      "voided": "{date} ተሽሯል፦ {reason}",
+      "amounts": "መጠኖች",
+      "subtotal": "ንዑስ ድምር",
+      "discount": "ቅናሽ",
+      "discountPercent": "ቅናሽ ({percent})",
+      "rounding": "ማጠጋጊያ",
+      "tdsExpected": "የሚጠበቅ TDS ({percent})",
+      "paid": "የተከፈለ",
+      "credited": "ክሬዲት የተደረገ",
+      "balanceDue": "የሚከፈል ቀሪ",
+      "supply": "አቅርቦት",
+      "fxToBase": "ወደ መሠረታዊ ምንዛሬ",
+      "poReference": "የPO ማጣቀሻ",
+      "sent": "የተላከ",
+      "lineItems": "የመስመር ንጥሎች",
+      "columns": {
+        "description": "መግለጫ",
+        "sacHsn": "SAC/HSN",
+        "qty": "ብዛት",
+        "rate": "ተመን",
+        "tax": "ታክስ",
+        "amount": "መጠን"
+      },
+      "creditNotes": "የክሬዲት ማስታወሻዎች",
+      "storedDocuments": "የተከማቹ ሰነዶች",
+      "storedDocumentsHint": "እያንዳንዱ ስሪት ይቀመጣል፤ የማረጋገጫ ገጹ ሁሉንም ሃሾች ይዘረዝራል።",
+      "regenerateTitle": "አዲስ የPDF ስሪት ልፍጠር?",
+      "regenerateDescription": "ከታቀዘቀዘው ቅጂ እንደገና ይፈጥራል (ለምሳሌ ከአሳላፊ ማስተካከያ በኋላ)። ቀደም ያሉ ስሪቶች ይቀራሉ።",
+      "regenerate": "ፍጠር",
+      "newVersion": "አዲስ ስሪት",
+      "renderedOnFirstDownload": "PDFው በመጀመሪያ ማውረድ ላይ ይፈጠራል።",
+      "protectedCopy": "በይለፍ ቃል የተጠበቀ ቅጂ {version}",
+      "version": "ስሪት {version}",
+      "sizeKb": "{size} ኪባ",
+      "verificationLink": "የማረጋገጫ አገናኝ፦",
+      "draftPreviewHint": "ረቂቆች በአርታዒው ውስጥ በቀጥታ ይታያሉ፤ ገጹን ለማየት <link>የውሃ ምልክት ያለውን PDF</link> ይክፈቱ።",
+      "einvoice": {
+        "title": "ኤሌክትሮኒክ ደረሰኝ (ህንድ)",
+        "description": "ይህን ደረሰኝ በኢንቮይስ ምዝገባ ፖርታል ማስመዝገብ፤ የተመዘገበ ሰነድ IRN እና የፖርታሉን የተፈረመ QR ያትማል።",
+        "connector": "ማገናኛ",
+        "connectors": {
+          "manual": "በእጅ",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "ለዚህ መገለጫ በቅንብሮች > ኤሌክትሮኒክ ደረሰኝ ስር ምንም ማገናኛ አልተዋቀረም።",
+        "statuses": {
+          "none": "ያልተመዘገበ",
+          "generated": "JSON ተፈጥሯል",
+          "registered": "ተመዝግቧል",
+          "cancelled": "ተሰርዟል",
+          "failed": "ምዝገባ አልተሳካም"
+        },
+        "irn": "IRN",
+        "ackNo": "የእውቅና ቁጥር",
+        "ackDate": "የእውቅና ቀን",
+        "cancelReason": "ስረዛ",
+        "generate": "IRN ፍጠር",
+        "pasteLabel": "የIRP ምላሽ",
+        "pasteHint": "ለዚህ ደረሰኝ የኤሌክትሮኒክ ደረሰኝ JSON ፖርታሉ ወይም GSP የመለሰውን JSON ይለጥፉ (Irn, AckNo, AckDt, SignedQRCode)።",
+        "record": "IRN መዝግብ",
+        "cancelReasonLabel": "የስረዛ ምክንያት",
+        "cancelReasons": {
+          "1": "ተደጋጋሚ",
+          "2": "የመረጃ ማስገባት ስህተት",
+          "3": "ትዕዛዝ ተሰርዟል",
+          "4": "ሌላ"
+        },
+        "cancel": "IRN ሰርዝ",
+        "cancelWindow": "ፖርታሉ ከእውቅናው በ24 ሰዓታት ውስጥ መሰረዝን ይፈቅዳል።"
+      }
+    },
+    "history": {
+      "metaTitle": "የደረሰኝ ታሪክ",
+      "title": "ታሪክ <mono>{number}</mono>",
+      "reissueChain": "የድጋሚ አወጣጥ ሰንሰለት",
+      "replaces": "<link>{number}</link>ን ይተካል",
+      "replacedBy": "በ<link>{number}</link> ተተክቷል",
+      "auditTrail": "የኦዲት ዱካ",
+      "columns": {
+        "when": "መቼ",
+        "who": "ማን",
+        "action": "ድርጊት",
+        "summary": "ማጠቃለያ"
+      },
+      "noEvents": "እስካሁን ክስተቶች የሉም።",
+      "system": "ሲስተም",
+      "emails": "ኢሜይሎች"
+    },
+    "payments": {
+      "title": "ክፍያዎች",
+      "description": "{client} · ድምር {total}",
+      "backToInvoice": "ወደ ደረሰኝ ተመለስ",
+      "ledger": "ደብተር",
+      "columns": {
+        "date": "ቀን",
+        "kind": "ዓይነት",
+        "applied": "የተተገበረ",
+        "tds": "TDS",
+        "received": "የተቀበለ",
+        "reference": "ማጣቀሻ",
+        "balance": "ቀሪ ሂሳብ"
+      },
+      "noPayments": "እስካሁን የተመዘገበ ክፍያ የለም።",
+      "kinds": {
+        "payment": "ክፍያ",
+        "refund": "ተመላሽ",
+        "writeOff": "ሰርዞ መተው"
+      },
+      "receipt": "ደረሰኝ",
+      "receiptN": "የክፍያ ደረሰኝ {n}",
+      "deleteEntryTitle": "ይህን ግቤት ልሰርዝ?",
+      "deleteEntryDescription": "የደረሰኙ ቀሪ ሂሳብ እንደገና ይሰላል።",
+      "totals": "ድምሮች",
+      "invoiceTotal": "የደረሰኝ ድምር",
+      "credited": "ክሬዲት የተደረገ",
+      "refunds": "ተመላሾች",
+      "writeOffs": "ሰርዞ መተዎች",
+      "tdsDeducted": "የተቀነሰ TDS",
+      "bankFees": "የባንክ ክፍያዎች",
+      "balanceDue": "የሚከፈል ቀሪ",
+      "onlyIssued": "የወጡ ደረሰኞች ብቻ ክፍያ ይቀበላሉ።"
+    },
+    "send": {
+      "metaTitle": "ደረሰኝ ላክ",
+      "title": "<mono>{number}</mono> ላክ",
+      "alreadySent": "አስቀድሞ እንደተላከ ተመልክቷል፤ እንደገና መላክ ሌላ የመዝገብ ግቤት ይጨምራል።",
+      "previousSends": "ቀደም ያሉ መላኮች"
+    },
+    "builder": {
+      "parties": "ተዋዋዮች",
+      "issuerProfile": "የሰጪ መገለጫ",
+      "client": "ደንበኛ",
+      "archivedOption": "{label} (በማህደር የተቀመጠ)",
+      "issueDate": "የወጣበት ቀን",
+      "dueDate": "የመክፈያ ቀን",
+      "fxRate": "ወደ መሠረታዊ ገንዘብ የምንዛሬ ተመን",
+      "fxHint": "1 {currency} = ? {base} (ለሪፖርት ብቻ)",
+      "poReference": "የPO ማጣቀሻ",
+      "lineItems": "የመስመር ንጥሎች",
+      "lineItemsHint": "እሴቶቹን ለመቅዳት ከካታሎግ ይምረጡ፣ ወይም መስመር ይተይቡ።",
+      "taxDiscountTds": "ታክስ፣ ቅናሽ እና TDS",
+      "taxRegime": "የታክስ ሥርዓት",
+      "regimes": {
+        "indiaGst": "የህንድ GST",
+        "ukVat": "የዩኬ VAT",
+        "usSalesTax": "የአሜሪካ የሽያጭ ታክስ",
+        "none": "ታክስ የለም"
+      },
+      "reverseCharge": "ተገላቢጦሽ ክፍያ",
+      "reverseChargeHint": "ታክሱ በተቀባዩ የሚከፈል",
+      "discount": "ቅናሽ",
+      "percent": "መቶኛ",
+      "amount": "መጠን",
+      "rounding": "የማጠጋጊያ ማስተካከያ",
+      "roundingHint": "አማራጭ፣ ወደ ሙሉ አሃድ፤ ከ1 በታች መሆን አለበት",
+      "round": "አጠጋጋ",
+      "tdsRate": "የሚጠበቅ የTDS ተመን (%)",
+      "tdsRateHint": "መረጃዊ ብቻ፤ የTDS ዝርዝር ሲበራ ይታተማል",
+      "paymentMethods": "የክፍያ ዘዴዎች",
+      "paymentMethodsHint": "ምልክት በተደረገበት ቅደም ተከተል ይታተማል።",
+      "noPaymentMethods": "ንቁ የክፍያ ዘዴዎች የሉም። <link>አንድ ያክሉ</link>።",
+      "whatPrints": "የሚታተመው",
+      "whatPrintsHint": "ከሰጪ መገለጫው ነባሪዎች ይጀምራል።",
+      "documentLanguage": "የሰነድ ቋንቋ",
+      "documentLanguageHint": "መለያዎች፣ ቀኖች እና መጠኖች በዚህ ቋንቋ ይታተማሉ፤ የደንበኛው ምርጫ፣ ከሌለ የመገለጫው።",
+      "notesAndTerms": "ማስታወሻዎች እና ውሎች",
+      "notes": "ማስታወሻዎች",
+      "terms": "ውሎች",
+      "saveDraft": "ረቂቅ አስቀምጥ",
+      "issuing": "በማውጣት ላይ…",
+      "saveAndIssue": "አስቀምጥ እና አውጣ",
+      "subtotal": "ንዑስ ድምር",
+      "tax": "ታክስ",
+      "tdsExpected": "የሚጠበቅ TDS",
+      "netExpected": "የሚጠበቅ የተጣራ"
+    },
+    "lineItems": {
+      "addFromCatalogue": "ከካታሎግ ጨምር…",
+      "services": "አገልግሎቶች",
+      "products": "ምርቶች",
+      "addLine": "መስመር ጨምር",
+      "columns": {
+        "description": "መግለጫ",
+        "sacHsn": "SAC/HSN",
+        "qty": "ብዛት",
+        "unit": "አሃድ",
+        "rate": "ተመን",
+        "taxPercent": "ታክስ %"
+      },
+      "aria": {
+        "description": "የመስመር {line} መግለጫ",
+        "sacHsn": "የመስመር {line} SAC/HSN",
+        "quantity": "የመስመር {line} ብዛት",
+        "unit": "የመስመር {line} አሃድ",
+        "rate": "የመስመር {line} ተመን",
+        "taxRate": "የመስመር {line} የታክስ ተመን"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "ነጻ",
+      "moveUp": "ወደ ላይ አንቀሳቅስ",
+      "moveDown": "ወደ ታች አንቀሳቅስ",
+      "removeLine": "መስመር አስወግድ",
+      "shortcutHint": "በመግለጫ ውስጥ Ctrl/⌘+Enter መስመር ይጨምራል።",
+      "addFromCatalogueAria": "ከካታሎግ ጨምር"
+    },
+    "display": {
+      "groups": {
+        "issuer": "የሰጪ ዝርዝሮች",
+        "client": "የደንበኛ ዝርዝሮች",
+        "document": "የሰነድ ክፍሎች"
+      },
+      "fields": {
+        "showLogo": "አርማ",
+        "showTradeName": "የንግድ ስም",
+        "showDesignation": "የሥራ ማዕረግ",
+        "showEmail": "ኢሜይል",
+        "showPhone": "ስልክ",
+        "showWebsite": "ድረ ገጽ",
+        "showFullAddress": "ሙሉ አድራሻ",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "ፊርማ",
+        "showStamp": "ማህተም",
+        "showContactPerson": "የመገናኛ ሰው",
+        "showBillingAddress": "የክፍያ መጠየቂያ አድራሻ",
+        "showShippingAddress": "የመላኪያ አድራሻ",
+        "showTaxIdentifier": "የታክስ መለያ",
+        "showPlaceOfSupply": "የአቅርቦት ቦታ",
+        "showDueDate": "የመክፈያ ቀን",
+        "showPaymentTerms": "የክፍያ ውሎች",
+        "showSacCodeColumn": "የSAC ኮድ አምድ",
+        "showQuantityColumn": "የብዛት አምድ",
+        "showUnitPriceColumn": "የአሃድ ዋጋ አምድ",
+        "showTaxColumn": "የታክስ አምድ",
+        "showTdsBreakdown": "የTDS ዝርዝር",
+        "showQrVerification": "የQR ማረጋገጫ",
+        "showNotes": "ማስታወሻዎች",
+        "showTerms": "ውሎች",
+        "showReplacesReference": "የሚተካው ማጣቀሻ",
+        "showAmountInWords": "መጠን በቃላት",
+        "showSupplyStatement": "የአቅርቦት መግለጫ",
+        "showRoundingLine": "የማጠጋጊያ መስመር",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "ደንበኞች",
+      "description": "የሚያስከፍሏቸው ሁሉ። ደረሰኝ ያላቸው ደንበኞች በማህደር ይቀመጣሉ እንጂ አይሰረዙም።",
+      "newClient": "አዲስ ደንበኛ",
+      "searchPlaceholder": "በስም ፈልግ",
+      "searchLabel": "ደንበኞችን ፈልግ",
+      "emptyTitle": "እስካሁን ደንበኞች የሉም",
+      "emptyDescription": "የሚያስከፍሏቸውን ሰዎች እና ኩባንያዎች ያክሉ፤ ገንዘባቸው እና የክፍያ ውላቸው እያንዳንዱን ደረሰኝ አስቀድሞ ይሞላል።",
+      "addClient": "ደንበኛ ጨምር",
+      "noMatch": "“{q}” ጋር የሚዛመድ ደንበኛ የለም።",
+      "termsDays": "{days} ቀ",
+      "columns": {
+        "name": "ስም",
+        "contact": "የመገናኛ ሰው",
+        "email": "ኢሜይል",
+        "country": "አገር",
+        "currency": "ገንዘብ",
+        "terms": "ውሎች",
+        "status": "ሁኔታ"
+      }
+    },
+    "new": {
+      "title": "አዲስ ደንበኛ"
+    },
+    "edit": {
+      "metaTitle": "ደንበኛ አርትዕ",
+      "title": "{name} አርትዕ"
+    },
+    "detail": {
+      "metaTitle": "ደንበኛ",
+      "newInvoice": "አዲስ ደረሰኝ",
+      "restoreTitle": "ይህን ደንበኛ ልመልስ?",
+      "archiveTitle": "ይህን ደንበኛ በማህደር ላስቀምጥ?",
+      "archiveDescription": "ከመምረጫዎች ይወጣል፤ ደረሰኞች እና ታሪክ አይነኩም።",
+      "deleteTitle": "ይህን ደንበኛ ልሰርዝ?",
+      "deleteDescription": "ደንበኛውን የሚጠቅስ ደረሰኝ በማይኖርበት ጊዜ ብቻ ይቻላል።",
+      "details": "ዝርዝሮች",
+      "contact": "የመገናኛ ሰው",
+      "email": "ኢሜይል",
+      "phone": "ስልክ",
+      "country": "አገር",
+      "gstState": "GST {code}",
+      "taxId": "የታክስ መታወቂያ",
+      "currency": "ገንዘብ",
+      "paymentTerms": "የክፍያ ውሎች",
+      "paymentTermsDays": "{days} ቀናት",
+      "expectedTds": "የሚጠበቅ TDS",
+      "notes": "ማስታወሻዎች",
+      "addresses": "አድራሻዎች",
+      "billing": "የክፍያ መጠየቂያ",
+      "shipping": "መላኪያ",
+      "lifetime": "ከመጀመሪያው ጀምሮ",
+      "openRegister": "መዝገቡን ክፈት",
+      "noIssued": "እስካሁን የወጡ ደረሰኞች የሉም።",
+      "noIssuedWithDrafts": "እስካሁን የወጡ ደረሰኞች የሉም ({drafts} ረቂቅ)።",
+      "firstLatest": "የመጀመሪያ ደረሰኝ <mono>{first}</mono>፣ የቅርብ ጊዜ <mono>{latest}</mono>{drafts, plural, =0 {} one { · # ረቂቅ} other { · # ረቂቆች}}",
+      "lifetimeColumns": {
+        "currency": "ገንዘብ",
+        "invoices": "ደረሰኞች",
+        "billed": "የተከፈለ ደረሰኝ",
+        "received": "የተቀበለ",
+        "credited": "ክሬዲት የተደረገ",
+        "outstanding": "ያልተከፈለ",
+        "overdue": "ጊዜው ያለፈበት"
+      },
+      "recentInvoices": "የቅርብ ጊዜ ደረሰኞች",
+      "noInvoices": "ለዚህ ደንበኛ እስካሁን ደረሰኞች የሉም።",
+      "recentColumns": {
+        "number": "ቁጥር",
+        "issueDate": "የወጣበት ቀን",
+        "due": "የመክፈያ ቀን",
+        "total": "ድምር",
+        "balance": "ቀሪ ሂሳብ",
+        "status": "ሁኔታ"
+      }
+    },
+    "form": {
+      "cardTitle": "ደንበኛ",
+      "displayName": "የሚታይ ስም",
+      "contactPerson": "የመገናኛ ሰው",
+      "email": "ኢሜይል",
+      "phone": "ስልክ",
+      "taxIdType": "የታክስ መታወቂያ ዓይነት",
+      "taxIdTypeNone": "ምንም",
+      "taxId": "የታክስ መታወቂያ",
+      "currency": "ገንዘብ",
+      "paymentTerms": "የክፍያ ውሎች (ቀናት)",
+      "expectedTdsRate": "የሚጠበቅ የTDS ተመን (%)",
+      "preferredLanguage": "የሰነድ ቋንቋ",
+      "preferredLanguageFollow": "የአውጪውን መገለጫ ተከተል",
+      "buyerReference": "የገዢ ማጣቀሻ",
+      "buyerReferenceHint": "በኤሌክትሮኒክ ደረሰኞች ላይ የገዢው ራሱ ማጣቀሻ (የትዕዛዝ ወይም የወጪ ማዕከል ቁጥር) ሆኖ ይታተማል።",
+      "electronicAddress": "የኤሌክትሮኒክ አድራሻ",
+      "electronicAddressHint": "ይህ ደንበኛ ኤሌክትሮኒክ ደረሰኞችን የሚቀበልበት የPeppol ወይም EN 16931 መለያ።",
+      "electronicAddressScheme": "የኤሌክትሮኒክ አድራሻ እቅድ",
+      "electronicAddressSchemeNone": "ምንም እቅድ የለም",
+      "notes": "ማስታወሻዎች",
+      "billingAddress": "የክፍያ መጠየቂያ አድራሻ",
+      "shippingAddress": "የመላኪያ አድራሻ",
+      "differentFromBilling": "ከክፍያ መጠየቂያው የተለየ",
+      "save": "ደንበኛ አስቀምጥ"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "ሰዓት",
+      "DAY": "ቀን",
+      "FIXED": "ቋሚ",
+      "MILESTONE": "ወሳኝ ደረጃ",
+      "UNIT": "አሃድ"
+    },
+    "list": {
+      "activate": "አንቃ",
+      "deactivate": "አሰናክል",
+      "archiveDescription": "ነባር የደረሰኝ መስመሮች የተቀዱ እሴቶቻቸውን ይይዛሉ።",
+      "deleteDescription": "ይህን የሚጠቅስ የደረሰኝ መስመር በማይኖርበት ጊዜ ብቻ ይቻላል። ካልሆነ በማህደር ያስቀምጡት።",
+      "columns": {
+        "sku": "SKU",
+        "name": "ስም",
+        "unit": "አሃድ",
+        "rate": "ተመን",
+        "price": "ዋጋ",
+        "currency": "ገንዘብ",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "ታክስ",
+        "status": "ሁኔታ"
+      }
+    },
+    "services": {
+      "title": "አገልግሎቶች",
+      "description": "ካታሎግዎ። አገልግሎት መምረጥ እሴቶቹን ወደ ደረሰኝ መስመር ይቀዳል።",
+      "newService": "አዲስ አገልግሎት",
+      "emptyTitle": "እስካሁን አገልግሎቶች የሉም",
+      "emptyDescription": "የሚሸጡትን ያክሉ - በሰዓት ዲዛይን፣ ቋሚ ክፍያ ያለው ወሳኝ ደረጃ - ከSAC/HSN ኮዱ እና ከታክስ ተመኑ ጋር።",
+      "addService": "አገልግሎት ጨምር",
+      "restoreTitle": "{name}ን ልመልስ?",
+      "archiveTitle": "{name}ን በማህደር ላስቀምጥ?",
+      "deleteTitle": "{name}ን ልሰርዝ?",
+      "editMetaTitle": "አገልግሎት አርትዕ",
+      "editTitle": "{name} አርትዕ"
+    },
+    "products": {
+      "title": "ምርቶች",
+      "description": "የሚሸጡ ዕቃዎች፣ እያንዳንዳቸው SKU ያላቸው። ምርት መምረጥ እሴቶቹን ወደ ደረሰኝ መስመር ይቀዳል።",
+      "newProduct": "አዲስ ምርት",
+      "emptyTitle": "እስካሁን ምርቶች የሉም",
+      "emptyDescription": "የሚሸጧቸውን ዕቃዎች ከSKU፣ ከHSN ኮድ፣ ከአሃድ ዋጋ እና ከታክስ ተመን ጋር ያክሉ።",
+      "addProduct": "ምርት ጨምር",
+      "restoreTitle": "{sku}ን ልመልስ?",
+      "archiveTitle": "{sku}ን በማህደር ላስቀምጥ?",
+      "deleteTitle": "{sku}ን ልሰርዝ?",
+      "editMetaTitle": "ምርት አርትዕ",
+      "editTitle": "{sku} አርትዕ"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "ከመስመር መግለጫው በታች የሚታተም ልዩ ኮድ",
+      "name": "ስም",
+      "unit": "አሃድ",
+      "defaultRate": "ነባሪ ተመን",
+      "unitPrice": "የአሃድ ዋጋ",
+      "currency": "ገንዘብ",
+      "sacHsnCode": "SAC / HSN ኮድ",
+      "sacHsnHint": "በGST ደረሰኞች ላይ ያስፈልጋል",
+      "hsnCode": "HSN ኮድ",
+      "hsnHint": "ለዕቃዎች በGST ደረሰኞች ላይ ያስፈልጋል",
+      "defaultTaxRate": "ነባሪ የታክስ ተመን (%)",
+      "description": "መግለጫ",
+      "descriptionHint": "የመስመር መግለጫውን አስቀድሞ ይሞላል",
+      "active": "ንቁ",
+      "serviceInactiveHint": "ንቁ ያልሆኑ አገልግሎቶች ከደረሰኝ መምረጫ ውጭ ይቆያሉ",
+      "productInactiveHint": "ንቁ ያልሆኑ ምርቶች ከደረሰኝ መምረጫ ውጭ ይቆያሉ",
+      "saveService": "አገልግሎት አስቀምጥ",
+      "saveProduct": "ምርት አስቀምጥ"
+    },
+    "tags": {
+      "legend": "መገለጫዎች",
+      "hint": "ይህን የሚሸጡ የሰጪ መገለጫዎችን ምልክት ያድርጉ። ለሁሉም መገለጫዎች ለማቅረብ ሁሉንም ምልክት ሳይደረግ ይተዉ።"
+    }
+  },
+  "address": {
+    "line1": "የአድራሻ መስመር 1",
+    "line2": "የአድራሻ መስመር 2",
+    "city": "ከተማ",
+    "stateRegion": "ክልል / ግዛት",
+    "postalCode": "የፖስታ ኮድ",
+    "country": "አገር",
+    "state": "ግዛት",
+    "gstStateCodeHint": "የGST ግዛት ኮድ {code}",
+    "pickStateHint": "ለGST ግዛት ኮድ ግዛቱን ይምረጡ",
+    "stateRegionCode": "የክልል / ግዛት ኮድ",
+    "stateRegionCodePlaceholder": "ለምሳሌ CA"
+  },
+  "assets": {
+    "tooLarge": "ያ ፋይል በጣም ትልቅ ነው።",
+    "unsupportedReceipt": "PNG፣ JPEG፣ WebP ምስል ወይም PDF ይጠቀሙ።",
+    "unsupportedImage": "PNG፣ JPEG ወይም WebP ምስል ይጠቀሙ።",
+    "uploadFailed": "መስቀል አልተሳካም።",
+    "uploading": "በመስቀል ላይ…",
+    "dropHint": "ፋይል እዚህ ይጎትቱ ወይም ይምረጡ",
+    "dropHintMany": "ፋይሎችን እዚህ ይጎትቱ ወይም ይምረጡ",
+    "dropActive": "ለመስቀል ይልቀቁ"
+  },
+  "ui": {
+    "breadcrumb": "የአሰሳ ዱካ",
+    "close": "ዝጋ",
+    "closeMenu": "ምናሌ ዝጋ",
+    "reveal": "አሳይ",
+    "hide": "ደብቅ",
+    "openCalendar": "የቀን መቁጠሪያ ክፈት",
+    "chooseMonth": "ወር ይምረጡ",
+    "chooseYear": "ዓመት ይምረጡ",
+    "searchOptions": "ለመፈለግ ይተይቡ",
+    "noMatches": "ምንም ተዛማጅ የለም",
+    "pullToRefresh": {
+      "label": "የሚታደስ ዝርዝር",
+      "pulling": "ለማደስ ይጎትቱ",
+      "release": "ለማደስ ይልቀቁ",
+      "refreshing": "በማደስ ላይ"
+    },
+    "inputCharset": "መደበኛ የቁልፍ ሰሌዳ ቁምፊዎች ብቻ ይፈቀዳሉ።",
+    "confirm": {
+      "working": "በመሥራት ላይ…"
+    },
+    "statusPill": {
+      "DRAFT": "ረቂቅ",
+      "ISSUED": "የወጣ",
+      "SENT": "የተላከ",
+      "PARTIALLY_PAID": "በከፊል የተከፈለ",
+      "PAID": "የተከፈለ",
+      "OVERDUE": "ጊዜው ያለፈበት",
+      "VOID": "የተሻረ"
+    },
+    "activePill": {
+      "active": "ንቁ",
+      "archived": "በማህደር የተቀመጠ",
+      "inactive": "ንቁ ያልሆነ"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "የሆነ ችግር ተፈጥሯል።",
+    "fixFields": "እባክዎ ጎልተው የታዩትን መስኮች ያርሙ።",
+    "accountSaved": "የመለያ ምርጫዎች ተቀምጠዋል",
+    "apiKeyCreated": "የAPI ቁልፍ ተፈጥሯል። አሁን ይቅዱት፦ አንድ ጊዜ ብቻ ይታያል።",
+    "saved": "{name} ተቀምጧል",
+    "savedProfile": "መገለጫ {label} ተቀምጧል",
+    "clientArchived": "ደንበኛ በማህደር ተቀምጧል",
+    "clientRestored": "ደንበኛ ተመልሷል",
+    "clientDeleted": "ደንበኛ ተሰርዟል",
+    "productArchived": "ምርት በማህደር ተቀምጧል",
+    "productRestored": "ምርት ተመልሷል",
+    "productActivated": "ምርት ነቅቷል",
+    "productDeactivated": "ምርት ተሰናክሏል",
+    "serviceArchived": "አገልግሎት በማህደር ተቀምጧል",
+    "serviceRestored": "አገልግሎት ተመልሷል",
+    "serviceActivated": "አገልግሎት ነቅቷል",
+    "serviceDeactivated": "አገልግሎት ተሰናክሏል",
+    "defaultProfileUpdated": "ነባሪ መገለጫ ተዘምኗል",
+    "profileArchived": "መገለጫ በማህደር ተቀምጧል",
+    "profileRestored": "መገለጫ ተመልሷል",
+    "profileDeleted": "መገለጫ ተሰርዟል",
+    "defaultPaymentMethodUpdated": "ነባሪ የክፍያ ዘዴ ተዘምኗል",
+    "paymentMethodArchived": "የክፍያ ዘዴ በማህደር ተቀምጧል",
+    "paymentMethodRestored": "የክፍያ ዘዴ ተመልሷል",
+    "paymentMethodDeleted": "የክፍያ ዘዴ ተሰርዟል",
+    "issued": "{number} ወጥቷል",
+    "savedAsDraft": "እንደ ረቂቅ ተቀምጧል። {reason}",
+    "draftSaved": "ረቂቅ ተቀምጧል",
+    "invoiceVoided": "ደረሰኝ ተሽሯል",
+    "originalVoided": "ዋናው ተሽሯል፤ ተተኪውን ረቂቅ ያርትዑ",
+    "markedAsSent": "እንደተላከ ተመልክቷል",
+    "draftDeleted": "ረቂቅ ተሰርዟል",
+    "generatedPdf": "የPDF ስሪት {version} ተፈጥሯል",
+    "creditNoteVoided": "የክሬዲት ማስታወሻ ተሽሯል፤ የደረሰኙ ቀሪ ሂሳብ ተመልሷል",
+    "draftCreditNoteDeleted": "የረቂቅ ክሬዲት ማስታወሻ ተሰርዟል",
+    "mailRefused": "የደብዳቤ አገልጋዩ መልእክቱን አልተቀበለም፦ {error}። ሙከራው ተመዝግቧል።",
+    "unknownError": "ያልታወቀ ስህተት",
+    "sentTo": "ወደ {recipients} ተልኳል",
+    "smtpSaved": "የSMTP ቅንብሮች ተቀምጠዋል",
+    "smtpRemoved": "የተቀመጡ የSMTP ቅንብሮች ተወግደዋል",
+    "testEmailSent": "የሙከራ ኢሜይል ወደ {email} ተልኳል",
+    "testFailed": "ሙከራው አልተሳካም፦ {error}",
+    "defaultRecipientsSaved": "ነባሪ ተቀባዮች ተቀምጠዋል",
+    "invitationSent": "ግብዣ ተልኳል",
+    "invitationReady": "ግብዣ ዝግጁ ነው",
+    "unknownRole": "ያልታወቀ ሚና",
+    "roleUpdated": "ሚና ተዘምኗል",
+    "accountDeactivated": "መለያ ተሰናክሏል",
+    "accountReactivated": "መለያ ተመልሷል",
+    "invitationRevoked": "ግብዣ ተሽሯል",
+    "paymentUpdated": "ክፍያ ተዘምኗል",
+    "paymentRecorded": "ክፍያ ተመዝግቧል",
+    "paymentDeleted": "ክፍያ ተሰርዟል",
+    "sessionRevoked": "ክፍለ ጊዜ ተሽሯል",
+    "noOtherSessions": "ሌሎች ክፍለ ጊዜዎች የሉም",
+    "signedOutOthers": "ከ{count} ሌሎች ክፍለ ጊዜ(ዎች) ወጥቷል",
+    "sharePasswordRequired": "የይለፍ ቃል ያስገቡ፣ ወይም እንዲፈጠር ይፍቀዱ።",
+    "shareLinkCreated": "የማጋሪያ አገናኝ ተፈጥሯል።",
+    "templateSaved": "ንድፍ ተቀምጧል፤ የወደፊት ሰነዶች ይጠቀሙበታል",
+    "templateReset": "ንድፍ ወደ አብሮ የተሰራው ነባሪ ተመልሷል",
+    "templateImported": "ንድፍ ገብቷል",
+    "profileTemplateCleared": "መገለጫው የምሳሌውን ንድፍ እንደገና ይጠቀማል",
+    "operatorSaved": "የኦፕሬተር ዝርዝሮች ተቀምጠዋል። ሕጋዊ ገጾቹ አሁን ያሳያቸዋል።",
+    "einvoiceSettingsSaved": "የኤሌክትሮኒክ ደረሰኝ ቅንብሮች ተቀምጠዋል",
+    "irnRegistered": "IRN {irn} ተመዝግቧል፤ PDF ከእሱ ጋር እንደገና ተፈጥሯል",
+    "irnRecorded": "IRN ተመዝግቦ ተቀምጧል፤ PDF ከእሱ ጋር እንደገና ተፈጥሯል",
+    "irnCancelled": "IRN ተሰርዟል፤ PDF እንደገና ተፈጥሯል"
+  }
+}

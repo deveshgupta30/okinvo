@@ -1,14 +1,24 @@
 import "server-only";
 import type { Readable } from "node:stream";
-import { Prisma } from "@/generated/prisma/client";
+import { Prisma, type DocumentFormat } from "@/generated/prisma/client";
 import { sha256Hex } from "@/lib/crypto";
 import { todayIn } from "@/lib/dates";
 import { prisma, type Tx } from "@/lib/db";
 import { qrDataUrl } from "@/lib/documents/qr";
+import type { ProtectOptions } from "@/lib/documents/protect";
+import { renderDocx } from "@/lib/documents/docx/render";
+import { toCii } from "@/lib/einvoice/cii/build";
+import { toFacturX } from "@/lib/einvoice/facturx/assemble";
+import { einvoiceInputFromCreditNote, einvoiceInputFromInvoice } from "@/lib/einvoice/input";
 import { renderPdf } from "@/lib/documents/render";
 import { sampleViewModel } from "@/lib/documents/sample";
-import { buildDocumentViewModel, type RenderInput } from "@/lib/documents/view-model";
+import {
+  buildDocumentViewModel,
+  type DocumentViewModel,
+  type RenderInput,
+} from "@/lib/documents/view-model";
 import { env } from "@/lib/env";
+import { documentMessages } from "@/lib/i18n/document-messages";
 import { buildSnapshots } from "@/lib/invoices/snapshots";
 import { safeFileStem } from "@/lib/numbering";
 import {
@@ -34,6 +44,8 @@ export type DocumentKind = "INVOICE" | "CREDIT_NOTE";
 export interface DocumentDto {
   id: string;
   kind: DocumentKind;
+  /** PDF is the canonical copy; PDF_PROTECTED copies are encrypted per request (spec §5.5). */
+  format: DocumentFormat;
   version: number;
   storageKey: string;
   sha256: string;
@@ -72,7 +84,7 @@ export function renderInputFromInvoice(inv: InvoiceDto): RenderInput {
     issueDate: inv.issueDate,
     dueDate: inv.dueDate,
     currency: inv.currency,
-    locale: inv.issuerSnapshot.locale,
+    locale: inv.documentLocale,
     issuer: inv.issuerSnapshot,
     client: inv.clientSnapshot,
     paymentMethods: inv.paymentMethodsSnapshot ?? [],
@@ -97,6 +109,7 @@ export function renderInputFromInvoice(inv: InvoiceDto): RenderInput {
     notes: inv.notes,
     terms: inv.terms,
     displayConfig: inv.displayConfig,
+    einvoice: inv.einvoice,
     replaces: inv.replaces,
     verificationToken: inv.verificationToken,
   };
@@ -145,34 +158,51 @@ export async function renderInputForDraft(tx: Tx, inv: InvoiceDto): Promise<Rend
   };
 }
 
-function filenameFor(kind: DocumentKind, number: string | null, version: number): string {
+function filenameFor(
+  kind: DocumentKind,
+  number: string | null,
+  version: number,
+  format: DocumentFormat = "PDF",
+): string {
   const stem = number
     ? safeFileStem(number)
     : kind === "INVOICE"
       ? "invoice-draft"
       : "credit-note-draft";
-  return version > 1 ? `${stem}-v${version}.pdf` : `${stem}.pdf`;
+  const suffix = format === "PDF_PROTECTED" ? "-protected" : format === "PDF_A3" ? "-facturx" : "";
+  const extension = format === "DOCX" ? "docx" : "pdf";
+  return version > 1
+    ? `${stem}-v${version}${suffix}.${extension}`
+    : `${stem}${suffix}.${extension}`;
 }
 
 type DocRow = Prisma.DocumentGetPayload<object>;
+
+/** The formats ensureDocument renders on demand; PDF_PROTECTED copies go through ensureProtectedDocument. */
+export type StoredFormat = "PDF" | "DOCX" | "PDF_A3";
 
 function toDto(row: DocRow, number: string | null): DocumentDto {
   return {
     id: row.id,
     kind: row.kind,
+    format: row.format,
     version: row.version,
     storageKey: row.storageKey,
     sha256: row.sha256,
     byteSize: row.byteSize,
     generatedAt: row.generatedAt.toISOString(),
-    filename: filenameFor(row.kind, number, row.version),
+    filename: filenameFor(row.kind, number, row.version, row.format),
   };
 }
 
-async function latestDocument(tx: Tx, kind: DocumentKind, id: string): Promise<DocRow | null> {
+async function latestDocument(
+  tx: Tx,
+  kind: DocumentKind,
+  id: string,
+  format: DocumentFormat = "PDF",
+): Promise<DocRow | null> {
   return tx.document.findFirst({
-    where:
-      kind === "INVOICE" ? { invoiceId: id, format: "PDF" } : { creditNoteId: id, format: "PDF" },
+    where: kind === "INVOICE" ? { invoiceId: id, format } : { creditNoteId: id, format },
     orderBy: { version: "desc" },
   });
 }
@@ -185,6 +215,7 @@ async function loadIssued(tx: Tx, kind: DocumentKind, id: string, today: string)
       input: creditNoteRenderInputFromSnapshot(cn),
       config: cn.templateSnapshot ?? (await resolveTemplateConfig(tx, cn.issuerProfileId)),
       number: cn.number,
+      einvoice: () => einvoiceInputFromCreditNote(cn),
       issuerProfileId: cn.issuerProfileId,
       fiscalYear: cn.fiscalYear ?? "unknown",
       issuedAt: cn.issuedAt ? new Date(cn.issuedAt) : new Date(0),
@@ -196,6 +227,7 @@ async function loadIssued(tx: Tx, kind: DocumentKind, id: string, today: string)
     input: renderInputFromInvoice(inv),
     config: inv.templateSnapshot ?? (await resolveTemplateConfig(tx, inv.issuerProfileId)),
     number: inv.number,
+    einvoice: () => einvoiceInputFromInvoice(inv),
     issuerProfileId: inv.issuerProfileId,
     fiscalYear: inv.fiscalYear ?? "unknown",
     issuedAt: inv.issuedAt ? new Date(inv.issuedAt) : new Date(0),
@@ -207,6 +239,8 @@ async function renderStored(
   kind: DocumentKind,
   id: string,
   version: number,
+  protect?: ProtectOptions,
+  format: StoredFormat = "PDF",
 ): Promise<DocRow> {
   const today = todayIn("UTC");
   const doc = await loadIssued(tx, kind, id, today);
@@ -215,8 +249,35 @@ async function renderStored(
     assetUrl,
     config: doc.config,
     draft: false,
+    messages: await documentMessages(doc.input.locale),
   });
-  const pdf = await renderPdf(vm, doc.config, { assets: readAssetBytes, createdAt: doc.issuedAt });
+  const rendered =
+    format === "DOCX"
+      ? await renderDocx(
+          vm.qrText ? { ...vm, qrDataUrl: await qrDataUrl(vm.qrText) } : vm,
+          doc.config,
+          await docxImages(vm, doc.config),
+        )
+      : await renderPdf(vm, doc.config, {
+          assets: readAssetBytes,
+          createdAt: doc.issuedAt,
+          ...(protect ? { protect } : {}),
+        });
+  // Factur-X (spec §9e): the canonical render becomes PDF/A-3b with the EN 16931 XML embedded.
+  const pdf =
+    format === "PDF_A3"
+      ? await toFacturX(rendered, toCii(doc.einvoice()), {
+          title: `${vm.title} ${vm.number ?? ""}`.trim(),
+          author: vm.issuer.legalName,
+          created: doc.issuedAt,
+          documentId: sha256Hex(`${kind}:${id}:${version}:facturx`).slice(0, 32),
+          kind,
+        })
+      : rendered;
+  const contentType =
+    format === "DOCX"
+      ? "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+      : "application/pdf";
   const sha256 = sha256Hex(pdf);
   const key = documentKey(
     kind,
@@ -224,20 +285,26 @@ async function renderStored(
     doc.fiscalYear.toLowerCase(),
     safeFileStem(doc.number ?? id).toLowerCase(),
     version,
+    {
+      ...(protect ? { suffix: "protected" } : format === "PDF_A3" ? { suffix: "facturx" } : {}),
+      ...(format === "DOCX" ? { extension: "docx" } : {}),
+    },
   );
   // Stored documents are immutable: never overwrite a blob that already exists at this key. A
   // blob with no row (a crash between put and insert, or a concurrent first render) is adopted
-  // when it is byte-identical to this render — renders are deterministic — else refused.
+  // when it is byte-identical to this render - renders are deterministic - else refused.
+  // Encrypted copies are never byte-identical (fresh encryption each time), so an existing blob
+  // at a protected key is always a refusal (R9).
   if (await storage.exists(key)) {
-    const existing = await bytesOf((await storage.get(key)).stream);
-    if (sha256Hex(existing) !== sha256) throw new DocumentExistsError(key);
+    const existing = protect ? null : await bytesOf((await storage.get(key)).stream);
+    if (!existing || sha256Hex(existing) !== sha256) throw new DocumentExistsError(key);
   } else {
-    await storage.put(key, pdf, { contentType: "application/pdf", byteSize: pdf.length });
+    await storage.put(key, pdf, { contentType, byteSize: pdf.length });
   }
   return tx.document.create({
     data: {
       kind,
-      format: "PDF",
+      format: protect ? "PDF_PROTECTED" : format,
       version,
       ...(kind === "INVOICE" ? { invoiceId: id } : { creditNoteId: id }),
       templateId: doc.config.templateId,
@@ -248,13 +315,36 @@ async function renderStored(
   });
 }
 
+/** The issuer's images and the header image as bytes for the DOCX writer (missing = omitted). */
+async function docxImages(vm: DocumentViewModel, config: TemplateConfig) {
+  const read = async (assetId: string | undefined) =>
+    assetId ? ((await readAssetBytes(assetId)) ?? undefined) : undefined;
+  const [logo, signature, stamp, header] = await Promise.all([
+    read(vm.showLogo ? vm.issuer.logoAssetId : undefined),
+    read(vm.showSignature ? vm.issuer.signatureAssetId : undefined),
+    read(vm.showStamp ? vm.issuer.stampAssetId : undefined),
+    read(config.header.style === "image" ? config.header.imageAssetId : undefined),
+  ]);
+  return {
+    ...(logo ? { logo } : {}),
+    ...(signature ? { signature } : {}),
+    ...(stamp ? { stamp } : {}),
+    ...(header ? { header } : {}),
+  };
+}
+
 /**
- * Idempotent: returns the stored PDF for an issued/void document, rendering and storing it on
- * first call. Two concurrent first calls both render; the unique (invoiceId, format, version)
+ * Idempotent: returns the stored PDF (or, with `format: "DOCX"`, the DOCX copy) for an
+ * issued/void document, rendering and storing it on first call. Two concurrent first calls both render; the unique (invoiceId, format, version)
  * constraint makes the loser re-read the winner's row (v2 §12.3).
  */
-export async function ensureDocument(kind: DocumentKind, id: string): Promise<DocumentDto> {
-  const existing = await latestDocument(prisma, kind, id);
+export async function ensureDocument(
+  kind: DocumentKind,
+  id: string,
+  o: { format?: StoredFormat } = {},
+): Promise<DocumentDto> {
+  const format = o.format ?? "PDF";
+  const existing = await latestDocument(prisma, kind, id, format);
   const numberOf = async () =>
     kind === "INVOICE"
       ? ((await prisma.invoice.findUnique({ where: { id }, select: { number: true } }))?.number ??
@@ -263,7 +353,7 @@ export async function ensureDocument(kind: DocumentKind, id: string): Promise<Do
           ?.number ?? null);
   if (existing) return toDto(existing, await numberOf());
   try {
-    const row = await renderStored(prisma, kind, id, 1);
+    const row = await renderStored(prisma, kind, id, 1, undefined, format);
     return toDto(row, await numberOf());
   } catch (e) {
     const lostRace =
@@ -272,13 +362,45 @@ export async function ensureDocument(kind: DocumentKind, id: string): Promise<Do
     if (lostRace) {
       // The winner wrote the blob first and its row follows within milliseconds; wait for it.
       for (let attempt = 0; attempt < 25; attempt++) {
-        const row = await latestDocument(prisma, kind, id);
+        const row = await latestDocument(prisma, kind, id, format);
         if (row) return toDto(row, await numberOf());
         await sleep(200);
       }
     }
     throw e;
   }
+}
+
+/**
+ * A password-protected copy (spec §5.5): a new PDF_PROTECTED version rendered from the same
+ * snapshot and AES-256 encrypted - opens with the user password, prints, nothing else. The
+ * canonical PDF is untouched; each call makes a fresh copy (and version) because the recipient's
+ * password differs. Passwords never reach the audit log.
+ */
+export async function ensureProtectedDocument(
+  actor: Actor,
+  kind: DocumentKind,
+  id: string,
+  protect: ProtectOptions,
+): Promise<DocumentDto> {
+  requireWriter(actor);
+  if (!protect.userPassword || !protect.ownerPassword) {
+    throw new InvariantError("A protected copy needs a user password and an owner password.");
+  }
+  const row = await prisma.$transaction(
+    async (tx) => {
+      const latest = await latestDocument(tx, kind, id, "PDF_PROTECTED");
+      const version = (latest?.version ?? 0) + 1;
+      const created = await renderStored(tx, kind, id, version, protect);
+      await audit(tx, actor, "document.protected", "Document", created.id, {
+        summary: `Password-protected ${kind.toLowerCase()} copy v${version}`,
+        after: { version, sha256: created.sha256, format: "PDF_PROTECTED" },
+      });
+      return created;
+    },
+    { maxWait: 15_000, timeout: 60_000 },
+  );
+  return toDto(row, await documentNumber(kind, id));
 }
 
 /** A new version (SPEC §4.6 "documents"): earlier versions stay, the verify page lists every hash. */
@@ -352,7 +474,13 @@ export async function renderCreditNoteDraftPreview(
     status: "DRAFT",
   });
   const config = await resolveTemplateConfig(prisma, cn.issuerProfileId);
-  const vm = buildDocumentViewModel(input, { appUrl: env.APP_URL, assetUrl, config, draft: true });
+  const vm = buildDocumentViewModel(input, {
+    appUrl: env.APP_URL,
+    assetUrl,
+    config,
+    draft: true,
+    messages: await documentMessages(input.locale),
+  });
   return renderPdf(vm, config, { assets: readAssetBytes });
 }
 
@@ -363,15 +491,56 @@ export async function renderDraftPreview(actor: Actor, invoiceId: string): Promi
     throw new InvariantError("Only drafts are previewed; download the stored PDF.");
   const input = await renderInputForDraft(prisma, inv);
   const config = await resolveTemplateConfig(prisma, inv.issuerProfileId);
-  const vm = buildDocumentViewModel(input, { appUrl: env.APP_URL, assetUrl, config, draft: true });
+  const vm = buildDocumentViewModel(input, {
+    appUrl: env.APP_URL,
+    assetUrl,
+    config,
+    draft: true,
+    messages: await documentMessages(input.locale),
+  });
   return renderPdf(vm, config, { assets: readAssetBytes });
+}
+
+/**
+ * The HTML view of an issued document (view-model + the config it was issued with, QR filled).
+ * `inlineImages` embeds the issuer's images and the header image as data URLs for pages that
+ * cannot reach the session-gated asset route (the public share page).
+ */
+export async function issuedDocumentView(
+  kind: DocumentKind,
+  id: string,
+  o: { inlineImages?: boolean } = {},
+): Promise<{ vm: DocumentViewModel; config: TemplateConfig }> {
+  const doc = await loadIssued(prisma, kind, id, todayIn("UTC"));
+  const inline = new Map<string, string>();
+  if (o.inlineImages) {
+    const ids = [
+      doc.input.issuer.logoAssetId,
+      doc.input.issuer.signatureAssetId,
+      doc.input.issuer.stampAssetId,
+      doc.config.header.style === "image" ? doc.config.header.imageAssetId : undefined,
+    ].filter((x): x is string => typeof x === "string" && x.length > 0);
+    for (const assetId of ids) {
+      const bytes = await readAssetBytes(assetId);
+      if (bytes) inline.set(assetId, `data:image/png;base64,${bytes.toString("base64")}`);
+    }
+  }
+  const vm = buildDocumentViewModel(doc.input, {
+    appUrl: env.APP_URL,
+    assetUrl: (assetId) => inline.get(assetId) ?? assetUrl(assetId),
+    config: doc.config,
+    draft: false,
+    messages: await documentMessages(doc.input.locale),
+  });
+  const withQr = vm.qrText ? { ...vm, qrDataUrl: await qrDataUrl(vm.qrText) } : vm;
+  return { vm: withQr, config: doc.config };
 }
 
 /** Settings → Templates sample PDF for any config (not necessarily the saved one). */
 export async function renderSamplePdf(config: TemplateConfig): Promise<Buffer> {
   const vm = sampleViewModel(config);
-  const withQr = vm.verifyUrl ? { ...vm, qrDataUrl: await qrDataUrl(vm.verifyUrl) } : vm;
-  return renderPdf(withQr, config, { assets: async () => null });
+  const withQr = vm.qrText ? { ...vm, qrDataUrl: await qrDataUrl(vm.qrText) } : vm;
+  return renderPdf(withQr, config, { assets: readAssetBytes });
 }
 
 /** The QR for an issued invoice's on-screen preview. */

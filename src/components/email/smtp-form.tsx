@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useActionState } from "react";
 import { FormMessage } from "@/components/forms/form-message";
 import { SubmitButton } from "@/components/submit-button";
@@ -10,6 +11,8 @@ import { saveEmailDefaultsAction, saveSmtpAction } from "@/server/actions/email"
 import type { SmtpSettingsView } from "@/server/dal/smtp-settings";
 
 export function SmtpForm({ settings }: { settings: SmtpSettingsView }) {
+  const t = useTranslations("settings.email.smtp");
+  const tc = useTranslations("common");
   const [state, action] = useActionState(saveSmtpAction, null);
   const errors = state?.fieldErrors;
   const stored = settings.source === "settings" ? settings : null;
@@ -19,7 +22,7 @@ export function SmtpForm({ settings }: { settings: SmtpSettingsView }) {
     <form action={action} className="flex flex-col gap-4">
       <FormMessage state={state} />
       <FieldGroup>
-        <Field label="Host" htmlFor="host" error={errors?.host} required>
+        <Field label={t("host")} htmlFor="host" error={errors?.host} required>
           <Input
             id="host"
             name="host"
@@ -28,7 +31,7 @@ export function SmtpForm({ settings }: { settings: SmtpSettingsView }) {
             placeholder="smtp.example.com"
           />
         </Field>
-        <Field label="Port" htmlFor="port" error={errors?.port} required>
+        <Field label={t("port")} htmlFor="port" error={errors?.port} required>
           <Input
             id="port"
             name="port"
@@ -38,18 +41,18 @@ export function SmtpForm({ settings }: { settings: SmtpSettingsView }) {
             defaultValue={v("port", stored?.port ?? settings.port ?? 587)}
           />
         </Field>
-        <Field label="Security" htmlFor="security" error={errors?.security} required>
+        <Field label={t("security")} htmlFor="security" error={errors?.security} required>
           <Select
             id="security"
             name="security"
             defaultValue={v("security", stored?.security ?? settings.security ?? "starttls")}
           >
-            <option value="starttls">STARTTLS (587)</option>
-            <option value="tls">TLS (465)</option>
-            <option value="none">None (LAN relay)</option>
+            <option value="starttls">{t("starttls")}</option>
+            <option value="tls">{t("tls")}</option>
+            <option value="none">{t("none")}</option>
           </Select>
         </Field>
-        <Field label="Username" htmlFor="user" error={errors?.user}>
+        <Field label={t("user")} htmlFor="user" error={errors?.user}>
           <Input
             id="user"
             name="user"
@@ -58,18 +61,14 @@ export function SmtpForm({ settings }: { settings: SmtpSettingsView }) {
           />
         </Field>
         <Field
-          label="Password"
+          label={t("password")}
           htmlFor="password"
           error={errors?.password}
-          hint={
-            stored?.hasPassword
-              ? "Stored and encrypted; leave blank to keep it"
-              : "Encrypted at rest"
-          }
+          hint={stored?.hasPassword ? t("passwordStored") : t("passwordEncrypted")}
         >
           <Input id="password" name="password" type="password" autoComplete="new-password" />
         </Field>
-        <Field label="From address" htmlFor="from" error={errors?.from} required>
+        <Field label={t("from")} htmlFor="from" error={errors?.from} required>
           <Input
             id="from"
             name="from"
@@ -77,14 +76,14 @@ export function SmtpForm({ settings }: { settings: SmtpSettingsView }) {
             defaultValue={v("from", stored?.from ?? settings.from)}
           />
         </Field>
-        <Field label="From name" htmlFor="fromName" error={errors?.fromName}>
+        <Field label={t("fromName")} htmlFor="fromName" error={errors?.fromName}>
           <Input
             id="fromName"
             name="fromName"
             defaultValue={v("fromName", stored?.fromName ?? settings.fromName)}
           />
         </Field>
-        <Field label="Reply-to" htmlFor="replyTo" error={errors?.replyTo}>
+        <Field label={t("replyTo")} htmlFor="replyTo" error={errors?.replyTo}>
           <Input
             id="replyTo"
             name="replyTo"
@@ -94,32 +93,29 @@ export function SmtpForm({ settings }: { settings: SmtpSettingsView }) {
         </Field>
       </FieldGroup>
       <div>
-        <SubmitButton pendingLabel="Saving…">Save SMTP settings</SubmitButton>
+        <SubmitButton pendingLabel={tc("saving")}>{t("save")}</SubmitButton>
       </div>
     </form>
   );
 }
 
 export function EmailDefaultsForm({ settings }: { settings: SmtpSettingsView }) {
+  const t = useTranslations("settings.email.defaults");
+  const tc = useTranslations("common");
   const [state, action] = useActionState(saveEmailDefaultsAction, null);
   const errors = state?.fieldErrors;
   return (
     <form action={action} className="flex flex-col gap-4">
       <FormMessage state={state} />
       <FieldGroup>
-        <Field
-          label="Default CC"
-          htmlFor="cc"
-          error={errors?.cc}
-          hint="Added to every composer; comma-separated"
-        >
+        <Field label={t("cc")} htmlFor="cc" error={errors?.cc} hint={t("ccHint")}>
           <Input
             id="cc"
             name="cc"
             defaultValue={state?.values?.cc ?? settings.emailDefaults.cc.join(", ")}
           />
         </Field>
-        <Field label="Default BCC" htmlFor="bcc" error={errors?.bcc}>
+        <Field label={t("bcc")} htmlFor="bcc" error={errors?.bcc}>
           <Input
             id="bcc"
             name="bcc"
@@ -128,8 +124,8 @@ export function EmailDefaultsForm({ settings }: { settings: SmtpSettingsView }) 
         </Field>
       </FieldGroup>
       <div>
-        <SubmitButton variant="secondary" pendingLabel="Saving…">
-          Save defaults
+        <SubmitButton variant="secondary" pendingLabel={tc("saving")}>
+          {t("save")}
         </SubmitButton>
       </div>
     </form>

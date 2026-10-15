@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Hafan okinvo",
+    "save": "Cadw",
+    "cancel": "Diddymu",
+    "continue": "Parhau",
+    "saving": "Yn cadw…",
+    "detect": "Canfod",
+    "yes": "Ydw",
+    "no": "Na",
+    "choose": "Dewis…",
+    "remove": "Dileu",
+    "tryAgain": "Rhoi cynnig arall arni",
+    "dashboard": "Dangosfwrdd",
+    "goToDashboard": "Mynd i’r dangosfwrdd",
+    "or": "neu",
+    "invoice": "Anfoneb",
+    "creditNote": "Nodyn credyd",
+    "downloadPdf": "Lawrlwytho PDF",
+    "edit": "Golygu",
+    "delete": "Dileu",
+    "downloadDocx": "Lawrlwytho DOCX",
+    "downloadCii": "Lawrlwytho EN 16931 XML",
+    "downloadUbl": "Lawrlwytho Peppol UBL",
+    "downloadFacturX": "Lawrlwytho Factur-X PDF",
+    "none": "Dim",
+    "dismiss": "Cau",
+    "all": "Pob un",
+    "previous": "Blaenorol",
+    "next": "Nesaf",
+    "go": "Mynd",
+    "search": "Chwilio",
+    "status": "Statws",
+    "total": "Cyfanswm",
+    "currency": "Arian cyfred",
+    "from": "O",
+    "to": "I",
+    "reason": "Rheswm",
+    "history": "Hanes",
+    "archive": "Archifo",
+    "restore": "Adfer",
+    "showArchived": "Dangos yr archif",
+    "hideArchived": "Cuddio’r archif",
+    "archived": "Wedi’i archifo",
+    "default": "Rhagosodedig",
+    "setDefault": "Gosod yn rhagosodedig",
+    "revoke": "Dirymu",
+    "copy": "Copïo",
+    "copied": "Wedi copïo",
+    "active": "Gweithredol",
+    "pagination": "Tudalennu",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Dangosfwrdd",
+      "invoices": "Anfonebau",
+      "creditNotes": "Nodiadau credyd",
+      "clients": "Cleientiaid",
+      "services": "Gwasanaethau",
+      "products": "Cynhyrchion",
+      "tools": "Arian cyfred"
+    },
+    "primaryNav": "Prif",
+    "settings": "Gosodiadau",
+    "openMenu": "Agor y ddewislen",
+    "more": "Mwy",
+    "navigation": "Llywio",
+    "dock": "Llywio cyflym",
+    "pagesAndAccount": "Tudalennau a chyfrif",
+    "collapseSidebar": "Cau’r bar ochr",
+    "collapseSidebarHint": "Cau’r bar ochr ([)",
+    "expandSidebar": "Agor y bar ochr",
+    "expandSidebarHint": "Agor y bar ochr ([)",
+    "theme": {
+      "label": "Thema",
+      "system": "System",
+      "light": "Golau",
+      "dark": "Tywyll",
+      "current": "Thema: {mode}",
+      "switchTo": "Thema: {mode}. Newid i {next}"
+    },
+    "userMenu": {
+      "label": "Dewislen cyfrif {name}",
+      "profile": "Proffil",
+      "logOut": "Allgofnodi"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Trawsnewidydd arian cyfred",
+      "title": "Trawsnewidydd arian cyfred",
+      "description": "Trosi rhwng yr arian cyfred rydych chi'n anfonebu ynddynt, gyda'r tabl cyfraddau cyfnewid sydd gan yr enghraifft hon.",
+      "amount": "Swm",
+      "from": "O",
+      "to": "I",
+      "flip": "Cyfnewid yr arian cyfred",
+      "enterAmount": "Rhowch swm",
+      "asOf": "Cyfraddau cyfnewid ar {date} ({source})",
+      "sources": {
+        "bundled": "wedi'u bwndelu gyda'r ap",
+        "live": "wedi'u hadnewyddu ar-lein"
+      },
+      "note": "Mae'r cyfraddau er arweiniad; y gyfradd ar anfoneb a gyhoeddwyd yw'r un a roesoch wrth ei chyhoeddi."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Mewngofnodi",
+      "metaDescription": "Mewngofnodwch i okinvo, yr ap anfonebu hunangynhaliol, gyda'ch darparwr hunaniaeth neu eich cyfrinair.",
+      "title": "Mewngofnodi",
+      "subtitle": "Dim ond cyfrifon a ganiateir all fynd i mewn.",
+      "failed": "Methodd y mewngofnodi.",
+      "noMethod": "Nid oes dull mewngofnodi wedi’i ffurfweddu. Gosodwch bâr darparwr fel <code>AUTH_GITHUB_*</code>, neu <code>AUTH_PASSWORD_SIGNIN=true</code>, yn <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Nid yw’r cyfrif hwnnw’n cael ei ganiatáu ar yr enghraifft hon, neu mae wedi’i ddadweithredu.",
+        "signin": "Ni chwblhawyd y mewngofnodi. Rhowch gynnig arall arni."
+      }
+    },
+    "password": {
+      "name": "Enw",
+      "email": "E-bost",
+      "password": "Cyfrinair",
+      "signingIn": "Yn mewngofnodi…",
+      "createAccount": "Creu cyfrif",
+      "signIn": "Mewngofnodi",
+      "haveAPassword": "Mae gennyf gyfrinair eisoes",
+      "firstTime": "Y tro cyntaf yma? Gosodwch gyfrinair",
+      "failed": "Methodd y mewngofnodi."
+    },
+    "social": {
+      "redirecting": "Yn ailgyfeirio…",
+      "continueWith": "Parhau gyda {provider}",
+      "failed": "Ni ellid cychwyn y mewngofnodi."
+    },
+    "error": {
+      "metaTitle": "Gwall mewngofnodi",
+      "metaDescription": "Ni chwblhawyd y mewngofnodi. Mae'r dudalen yn esbonio beth aeth o'i le a sut i roi cynnig arall arni.",
+      "title": "Methodd y mewngofnodi",
+      "body": "Dychwelodd y darparwr hunaniaeth <code>{value}</code>. Os nad yw eich cyfeiriad ar restr ganiatáu’r enghraifft hon, gofynnwch i’r perchennog ei ychwanegu.",
+      "back": "Yn ôl i’r mewngofnodi"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Gosodiadau",
+      "profiles": "Proffiliau",
+      "paymentMethods": "Dulliau talu",
+      "templates": "Templedi",
+      "email": "E-bost",
+      "security": "Diogelwch",
+      "users": "Defnyddwyr",
+      "data": "Data",
+      "legal": "Cyfreithiol",
+      "einvoicing": "E-anfonebu",
+      "account": "Cyfrif",
+      "appearance": "Golwg",
+      "api": "API",
+      "status": "Statws",
+      "usage": "Defnydd"
+    },
+    "account": {
+      "metaTitle": "Cyfrif",
+      "title": "Cyfrif",
+      "description": "Eich llun, enw, rhanbarth, iaith a chylch amser.",
+      "photo": {
+        "title": "Llun",
+        "description": "Yn cael ei ddangos yn y bar ochr a dewislen y defnyddiwr."
+      },
+      "form": {
+        "title": "Cyfrif",
+        "description": "Sut rydych yn ymddangos a phryd yw “heddiw”.",
+        "displayName": "Enw arddangos",
+        "signInEmail": "E-bost mewngofnodi",
+        "signInEmailHint": "Eich hunaniaeth ar yr enghraifft hon; ni ellir ei golygu yma.",
+        "timezone": "Cylch amser",
+        "timezoneHint": "“Heddiw” ar gyfer dyddiadau cyflwyno, dyddiadau dyledus a’r dangosfwrdd",
+        "regionTitle": "Rhanbarth",
+        "regionDescription": "Rhagosodiadau ar gyfer proffiliau cyflwynydd newydd ac ar gyfer y dangosfwrdd nes bod proffil yn bodoli.",
+        "country": "Gwlad",
+        "currency": "Arian cyfred",
+        "suggested": "Awgrymir ar gyfer y wlad hon:",
+        "language": "Iaith",
+        "languageHint": "Iaith yr ap ei hun. Mae dogfennau’n defnyddio locale pob proffil ei hun.",
+        "machineTranslated": "Cyfieithwyd yr iaith hon gan beiriant. Croesawir cywiriadau: <link>gwella hi ar GitHub</link>.",
+        "save": "Cadw’r dewisiadau"
+      },
+      "regions": {
+        "Africa": "Affrica",
+        "Americas": "Yr Americas",
+        "Asia": "Asia",
+        "Europe": "Ewrop",
+        "MiddleEast": "Y Dwyrain Canol",
+        "Oceania": "Oceania",
+        "Constructed": "Ieithoedd adeiledig"
+      },
+      "privacy": {
+        "title": "Preifatrwydd",
+        "description": "Mae okinvo ond yn gosod y cwcis sydd eu hangen i weithio. Dim dadansoddeg, dim tracio.",
+        "cookiePolicy": "Polisi cwcis",
+        "showNoticeAgain": "Dangos yr hysbysiad cwcis eto"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Newid y llun",
+      "addPhoto": "Ychwanegu llun",
+      "hint": "PNG, JPEG neu WebP. Yn cael ei ddangos fel cylch ym mhobman; gallwch ei chwyddo a’i symud cyn cadw.",
+      "tooLarge": "Mae’r llun hwnnw’n rhy fawr.",
+      "uploadFailed": "Methodd y llwytho i fyny.",
+      "choose": "Dewis llun proffil",
+      "dialogTitle": "Gosod eich llun",
+      "dialogDescription": "Llusgwch i symud, sgroliwch neu binsiwch i chwyddo. Y cylch yw’r hyn mae pawb yn ei weld.",
+      "zoom": "Chwyddo",
+      "save": "Cadw’r llun"
+    },
+    "appearance": {
+      "metaTitle": "Golwg",
+      "title": "Golwg",
+      "description": "Thema a lliw acen, wedi’u cadw yn eich cyfrif.",
+      "theme": {
+        "title": "Thema",
+        "description": "Dilyn y system, neu gloi’r golau neu’r tywyll.",
+        "label": "Thema",
+        "system": "Dilyn y system",
+        "systemHint": "Yn newid gyda’ch system weithredu",
+        "light": "Golau",
+        "lightHint": "Cynfas gwyn",
+        "dark": "Tywyll",
+        "darkHint": "Cynfas bron yn ddu"
+      },
+      "accent": {
+        "title": "Acen",
+        "description": "Yn cael ei ddefnyddio ar gyfer y prif fotwm, cylchoedd ffocws a marciwr y dudalen weithredol. Mae mintys yn cyd-fynd â marc y brand.",
+        "label": "Lliw acen",
+        "customHint": "Neu dewiswch unrhyw liw eich hun"
+      },
+      "accents": {
+        "mint": "Mintys",
+        "lavender": "Lafant",
+        "sky": "Awyr",
+        "peach": "Eirinen wlanog",
+        "butter": "Menyn",
+        "rose": "Rhosyn",
+        "sage": "Saets",
+        "lilac": "Lelog",
+        "custom": "Personol"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Proffiliau cyflwynydd",
+      "title": "Proffiliau cyflwynydd",
+      "description": "Yr hunaniaethau cyfreithiol rydych yn bilio ohonynt. Mae’r un rhagosodedig yn llenwi anfonebau newydd ymlaen llaw.",
+      "breadcrumb": "Proffiliau",
+      "newProfile": "Proffil newydd",
+      "emptyTitle": "Dim proffil cyflwynydd eto",
+      "emptyDescription": "Crëwch yr hunaniaeth rydych yn anfonebu ohoni: unigolyn â PAN, neu eich cwmni.",
+      "createProfile": "Creu proffil",
+      "columns": {
+        "label": "Label",
+        "legalName": "Enw cyfreithiol",
+        "type": "Math",
+        "country": "Gwlad",
+        "currency": "Arian cyfred",
+        "regime": "Trefn dreth",
+        "status": "Statws"
+      },
+      "types": {
+        "company": "Cwmni",
+        "individual": "Unigolyn"
+      },
+      "makeDefaultTitle": "Gwneud {label} yn rhagosodedig?",
+      "makeDefaultDescription": "Bydd anfonebau newydd yn cychwyn o’r proffil hwn.",
+      "restoreTitle": "Adfer {label}?",
+      "archiveTitle": "Archifo {label}?",
+      "archiveDescription": "Mae’n diflannu o’r dewiswyr; nid yw anfonebau presennol yn cael eu newid.",
+      "new": {
+        "metaTitle": "Proffil cyflwynydd newydd",
+        "title": "Proffil cyflwynydd newydd",
+        "prefilled": "Wedi’i lenwi o’ch atebion; gwiriwch y cyfeiriad a’r manylion treth, yna cadwch."
+      },
+      "edit": {
+        "metaTitle": "Golygu’r proffil cyflwynydd",
+        "template": "Templed",
+        "deleteTitle": "Dileu {label}?",
+        "deleteDescription": "Dim ond tra nad oes anfoneb na nodyn credyd yn cyfeirio at y proffil hwn. Fel arall, archifwch ef."
+      },
+      "template": {
+        "metaTitle": "Templed y proffil",
+        "title": "Templed ar gyfer {label}",
+        "ownTemplate": "Templed ei hun",
+        "instanceTemplate": "Templed yr enghraifft",
+        "resetTitle": "Defnyddio templed yr enghraifft eto?",
+        "resetDescription": "Caiff ffurfweddiad y proffil hwn ei hun ei ddileu; nid yw dogfennau a gyflwynwyd yn cael eu heffeithio.",
+        "useInstance": "Defnyddio templed yr enghraifft",
+        "usingInstanceTitle": "Yn defnyddio templed yr enghraifft",
+        "usingInstanceDescription": "Mae dogfennau o’r proffil hwn yn dilyn Gosodiadau → Templedi. Dewiswch i’w haddasu ar wahân.",
+        "customise": "Defnyddio templed gwahanol ar gyfer y proffil hwn",
+        "openInstance": "Agor templed yr enghraifft"
+      },
+      "form": {
+        "identityTitle": "Hunaniaeth",
+        "identityDescription": "Pwy sy’n anfon yr anfoneb.",
+        "type": "Math",
+        "label": "Label",
+        "labelHint": "Yn cael ei ddangos yn y dewiswyr yn unig",
+        "legalName": "Enw cyfreithiol",
+        "tradeName": "Enw masnachu",
+        "designation": "Teitl swydd",
+        "email": "E-bost",
+        "phone": "Ffôn",
+        "website": "Gwefan",
+        "addressTitle": "Cyfeiriad",
+        "taxTitle": "Dynodwyr treth",
+        "taxDescription": "Dim ond y rhai sy’n berthnasol i chi; rheolir argraffu fesul anfoneb.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Rhif TAW y DU",
+        "usTaxId": "EIN / SSN yr UD",
+        "usTaxIdHint": "Wedi’i amgryptio wrth orffwys",
+        "lutNumber": "Rhif LUT",
+        "lutNumberHint": "Ar gyfer allforion heb IGST",
+        "lutFiscalYear": "Blwyddyn ariannol LUT",
+        "lutFiscalYearHint": "e.e. 2026-27",
+        "einvoiceTitle": "E-anfonebu",
+        "einvoiceDescription": "Sut mae’r proffil hwn yn ei adnabod ei hun mewn e-anfonebau; mae’r cysylltydd a’r manylion mewngofnodi o dan Gosodiadau > E-anfonebu.",
+        "electronicAddress": "Cyfeiriad electronig",
+        "electronicAddressHint": "Dynodydd Peppol neu EN 16931 y cyflwynydd hwn, wedi’i argraffu fel cyfeiriad electronig y gwerthwr.",
+        "electronicAddressScheme": "Cynllun cyfeiriad electronig",
+        "electronicAddressSchemeNone": "Dim cynllun",
+        "einvoiceEnabled": "E-anfonebu wedi’i alluogi ar gyfer y proffil hwn",
+        "einvoiceEnabledHint": "Yn cynnig lawrlwythiadau JSON e-anfoneb GST, Factur-X ac UBL a chofrestru IRN ar ei ddogfennau a gyflwynwyd.",
+        "defaultsTitle": "Rhagosodiadau",
+        "baseCurrency": "Arian cyfred sylfaenol",
+        "locale": "Locale y ddogfen",
+        "localeHint": "Fformat rhifau a dyddiadau ar ddogfennau",
+        "fiscalYearStart": "Mae’r flwyddyn ariannol yn cychwyn ym mis",
+        "months": {
+          "january": "Ionawr",
+          "february": "Chwefror",
+          "march": "Mawrth",
+          "april": "Ebrill",
+          "may": "Mai",
+          "june": "Mehefin",
+          "july": "Gorffennaf",
+          "august": "Awst",
+          "september": "Medi",
+          "october": "Hydref",
+          "november": "Tachwedd",
+          "december": "Rhagfyr"
+        },
+        "taxRegime": "Trefn dreth ragosodedig",
+        "regimes": {
+          "indiaGst": "GST India",
+          "ukVat": "TAW y DU",
+          "usSalesTax": "Treth gwerthiant yr UD",
+          "none": "Dim treth"
+        },
+        "invoiceNumberFormat": "Fformat rhif anfoneb",
+        "invoiceNumberFormatHint": "Tocynnau: {tokens}",
+        "creditNoteNumberFormat": "Fformat rhif nodyn credyd",
+        "tdsRate": "Cyfradd TDS ddisgwyliedig (%)",
+        "tdsRateHint": "Gwybodaeth yn unig, wedi’i argraffu fel didyniad disgwyliedig",
+        "defaultNotes": "Nodiadau rhagosodedig",
+        "defaultTerms": "Telerau rhagosodedig",
+        "printTitle": "Beth sy’n cael ei argraffu yn ddiofyn",
+        "printDescription": "Mae pob anfoneb yn copïo’r rhain a gall eu newid yn unigol.",
+        "emailTitle": "E-bost",
+        "emailDescription": "Rhagosodiadau ar gyfer y cyfansoddwr anfon. Dalfannau: {placeholders}",
+        "emailCc": "CC rhagosodedig",
+        "emailBcc": "BCC rhagosodedig",
+        "commaSeparated": "Wedi’u gwahanu gan atalnodau",
+        "invoiceSubject": "Pwnc yr anfoneb",
+        "invoiceSubjectHint": "Os gadewir yn wag, defnyddir y templed mewnol",
+        "creditNoteSubject": "Pwnc y nodyn credyd",
+        "invoiceBody": "Corff yr anfoneb",
+        "creditNoteBody": "Corff y nodyn credyd",
+        "artworkTitle": "Gwaith celf",
+        "artworkDescription": "PNG, JPEG neu WebP hyd at 2 MB; mae’r llofnod a’r stamp yn cadw tryloywder.",
+        "logo": "Logo",
+        "signature": "Llofnod",
+        "stamp": "Stamp",
+        "transparentPng": "PNG tryloyw",
+        "save": "Cadw’r proffil"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Dulliau talu",
+      "title": "Dulliau talu",
+      "description": "Sut mae cleientiaid yn eich talu. Mae’r manylion wedi’u hamgryptio ac yn cael eu rhewi i bob anfoneb wrth ei chyflwyno.",
+      "newMethod": "Dull newydd",
+      "emptyTitle": "Dim dulliau talu eto",
+      "emptyDescription": "Ychwanegwch gyfrif banc, ID UPI neu waled fel y gall anfonebau ddweud wrth gleientiaid ble i dalu.",
+      "addMethod": "Ychwanegu dull",
+      "columns": {
+        "name": "Enw",
+        "type": "Math",
+        "currency": "Arian cyfred",
+        "status": "Statws"
+      },
+      "types": {
+        "bankTransfer": "Trosglwyddiad banc",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Personol"
+      },
+      "makeDefaultTitle": "Gwneud {name} yn rhagosodedig?",
+      "restoreTitle": "Adfer {name}?",
+      "archiveTitle": "Archifo {name}?",
+      "archiveDescription": "Mae anfonebau a gyflwynwyd yn cadw’r ciplun a argraffwyd ganddynt.",
+      "new": {
+        "metaTitle": "Dull talu newydd",
+        "title": "Dull talu newydd"
+      },
+      "edit": {
+        "metaTitle": "Golygu’r dull talu",
+        "title": "Golygu {name}",
+        "deleteTitle": "Dileu {name}?",
+        "deleteDescription": "Dim ond tra nad oes anfoneb na thaliad yn cyfeirio ato. Fel arall, archifwch ef."
+      },
+      "form": {
+        "name": "Enw",
+        "nameHint": "Wedi’i argraffu fel pennawd y bloc talu",
+        "type": "Math",
+        "currency": "Arian cyfred",
+        "currencyHint": "Dewisol; wedi’i ddangos er cyd-destun yn unig",
+        "anyCurrency": "Unrhyw un",
+        "instructions": "Cyfarwyddiadau",
+        "instructionsHint": "Wedi’i argraffu o dan y manylion",
+        "isDefault": "Dull rhagosodedig",
+        "isDefaultDescription": "Wedi’i ragddewis ar anfonebau newydd",
+        "isActive": "Gweithredol",
+        "detailsTitle": "Manylion",
+        "detailsDescription": "Wedi’u hamgryptio wrth orffwys; wedi’u cipio i bob anfoneb pan gaiff ei chyflwyno.",
+        "vpa": "ID UPI (VPA)",
+        "payeeName": "Enw’r derbynnydd",
+        "lines": "Llinellau",
+        "linesHint": "Un llinell fesul rhes, wedi’i hargraffu fel y mae",
+        "accountEmail": "E-bost / enw defnyddiwr y cyfrif",
+        "bank": {
+          "accountHolder": "Deiliad y cyfrif",
+          "accountNumber": "Rhif y cyfrif",
+          "bankName": "Enw’r banc",
+          "branch": "Cangen",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Cod llwybro / cod didoli"
+        },
+        "save": "Cadw’r dull talu"
+      }
+    },
+    "templates": {
+      "metaTitle": "Templedi dogfennau",
+      "title": "Templedi dogfennau",
+      "customised": "Wedi’i addasu",
+      "builtIn": "Rhagosodiad mewnol",
+      "description": "Sut mae anfonebau a nodiadau credyd yn edrych. Mae dogfennau a gyflwynwyd yn cadw’r templed y’u cyflwynwyd ag ef.",
+      "resetTitle": "Ailosod i’r rhagosodiad mewnol?",
+      "resetDescription": "Caiff eich addasiad ei ddileu; nid yw dogfennau a gyflwynwyd eisoes yn cael eu heffeithio.",
+      "reset": "Ailosod",
+      "resetTrigger": "Ailosod i’r rhagosodiadau",
+      "importTitle": "Mewnforio",
+      "importDescription": "Adfer ffurfweddiad a allforiwyd yn gynharach.",
+      "overridesTitle": "Diystyru fesul proffil",
+      "overridesDescription": "Gall proffil ddewis ei dempled ei hun o’i dudalen golygu.",
+      "noOverrides": "Mae pob proffil yn defnyddio templed yr enghraifft.",
+      "import": {
+        "json": "JSON y templed",
+        "jsonHint": "Gludwch ffeil a gynhyrchwyd gan Allforio JSON; mae allweddi coll yn disgyn yn ôl i’r rhagosodiadau",
+        "importing": "Yn mewnforio…",
+        "submit": "Mewnforio"
+      },
+      "form": {
+        "templateTitle": "Templed",
+        "templateDescription": "Chwech wedi’u hadeiladu i mewn; mae’r addasiad isod yn berthnasol i’r un a ddewiswch.",
+        "templateGroup": "Templed",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Modern ac awyrog, heb serifs, llinell acen o dan y pennyn."
+          },
+          "classic": {
+            "name": "Clasurol",
+            "character": "Tabl traddodiadol gyda borderi, penawdau gyda serifs, cyfansymiau mewn blychau."
+          },
+          "compact": {
+            "name": "Cryno",
+            "character": "Cynllun dwys ar gyfer rhestrau eitemau hir; teip llai, llai o wahanyddion."
+          },
+          "minimal": {
+            "name": "Minimol",
+            "character": "Tawel a gofodus: dim llinellau na blychau, labeli ysgafn, digon o le."
+          },
+          "letterhead": {
+            "name": "Pennawd llythyr",
+            "character": "Eich logo a’ch enw ar fand lliw neu ddelwedd ar draws brig pob tudalen."
+          },
+          "modern": {
+            "name": "Modern",
+            "character": "Pennyn gyda band lliw; partïon, pennyn y tabl a chyfansymiau ar arlliw acen golau."
+          }
+        },
+        "paperTitle": "Papur a theip",
+        "paperSize": "Maint y papur",
+        "paperLetter": "Letter",
+        "margins": "Ymylon",
+        "marginsNormal": "Arferol",
+        "marginsNarrow": "Cul",
+        "headingFont": "Ffont penawdau",
+        "bodyFont": "Ffont y corff",
+        "fontSans": "Sans",
+        "fontSerif": "Serif",
+        "tableStyle": "Arddull y tabl",
+        "tableRuled": "Gyda llinellau",
+        "tableZebra": "Sebra",
+        "tablePlain": "Plaen",
+        "accentColour": "Lliw acen",
+        "textColour": "Lliw’r testun",
+        "logoPosition": "Safle’r logo",
+        "positionLeft": "Chwith",
+        "positionCentre": "Canol",
+        "positionRight": "De",
+        "logoHeight": "Uchder y logo (mm)",
+        "documentTitle": "Teitl y ddogfen",
+        "titleAuto": "Awtomatig (yn ymwybodol o GST)",
+        "titleCustom": "Personol",
+        "titlePlaceholder": "e.e. ANFONEB PROFORMA",
+        "qrPosition": "Safle’r cod QR",
+        "qrFooter": "Troedyn",
+        "qrHeader": "Pennyn",
+        "qrBesideTotals": "Wrth ymyl y cyfansymiau",
+        "amountInWords": "Swm mewn geiriau",
+        "wordsBelowTotal": "O dan y cyfansymiau",
+        "wordsFooter": "Troedyn",
+        "wordsHidden": "Wedi’i guddio",
+        "subtotalRow": "Rhes is-gyfanswm",
+        "discountRow": "Rhes gostyngiad",
+        "taxLines": "Llinellau treth",
+        "tdsExpected": "TDS disgwyliedig",
+        "roundingRow": "Rhes talgrynnu",
+        "pageNumbers": "Rhifau tudalennau",
+        "headerTitle": "Pennyn",
+        "headerDescription": "Band lliw neu ddelwedd ar draws brig pob tudalen. Mae Pennawd llythyr a Modern yn dangos band oni bai eich bod yn dewis fel arall.",
+        "headerStyle": "Arddull y pennyn",
+        "headerNone": "Dim",
+        "headerBand": "Band lliw",
+        "headerImage": "Delwedd",
+        "bandColour": "Lliw’r band",
+        "bandColourHex": "Lliw’r band (hex)",
+        "headerImageLabel": "Delwedd y pennyn",
+        "headerImageHint": "PNG, JPEG neu WebP hyd at 2400 px o led; mae’n ymestyn ar draws lled y dudalen.",
+        "imageOpacity": "Anhryloywder y ddelwedd",
+        "headerHeight": "Uchder y pennyn (mm)",
+        "bandText": "Testun ar y band",
+        "bandTextAuto": "Awtomatig (o liw’r band)",
+        "bandTextLight": "Golau",
+        "bandTextDark": "Tywyll",
+        "textTitle": "Testun",
+        "headerNote": "Nodyn y pennyn",
+        "footer": "Troedyn",
+        "signatureCaption": "Capsiwn y llofnod",
+        "draftWatermark": "Dyfrnod drafft",
+        "labelsTitle": "Labeli",
+        "labelsDescription": "Gadewch faes yn wag i gadw’r geiriad rhagosodedig.",
+        "save": "Cadw’r templed",
+        "downloadSample": "Lawrlwytho PDF enghreifftiol",
+        "exportJson": "Allforio JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "E-bost",
+      "title": "E-bost",
+      "configuredSettings": "Wedi’i ffurfweddu yn y Gosodiadau",
+      "configuredEnv": "Wedi’i ffurfweddu gan yr amgylchedd",
+      "notConfigured": "Heb ei ffurfweddu: llif yr ap post",
+      "description": "Anfonir dogfennau o’r cyfansoddwr gyda’r PDF wedi’i storio ynghlwm. Mae’r gosodiadau yma’n diystyru SMTP_* yn yr amgylchedd.",
+      "sendTest": "Anfon e-bost prawf i {email}",
+      "removeTitle": "Dileu’r gosodiadau SMTP sydd wedi’u storio?",
+      "removeEnvTakesOver": "Mae gwerthoedd SMTP_* yr amgylchedd yn cymryd drosodd.",
+      "removeFallsBack": "Mae e-bost yn disgyn yn ôl i lif yr ap post.",
+      "removeTrigger": "Dileu’r gosodiadau sydd wedi’u storio",
+      "smtpTitle": "Gweinydd SMTP",
+      "smtpFromEnv": "Ar hyn o bryd yn dod o’r amgylchedd; mae cadw yma yn ei ddiystyru.",
+      "smtpPasswordNote": "Mae’r cyfrinair wedi’i amgryptio wrth orffwys ac ni chaiff ei ddangos eto.",
+      "defaultsTitle": "Derbynwyr rhagosodedig",
+      "defaultsDescription": "CC/BCC ar gyfer yr enghraifft gyfan; mae proffiliau cyflwynydd yn ychwanegu eu rhai eu hunain.",
+      "sentTitle": "Post a anfonwyd",
+      "sentDescription": "Y 50 ymgais diwethaf, gan gynnwys methiannau ac anfon â llaw.",
+      "smtp": {
+        "host": "Gwesteiwr",
+        "port": "Porth",
+        "security": "Diogelwch",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Dim (cyfnewidydd LAN)",
+        "user": "Enw defnyddiwr",
+        "password": "Cyfrinair",
+        "passwordStored": "Wedi’i storio a’i amgryptio; gadewch yn wag i’w gadw",
+        "passwordEncrypted": "Wedi’i amgryptio wrth orffwys",
+        "from": "Cyfeiriad anfon",
+        "fromName": "Enw’r anfonwr",
+        "replyTo": "Ateb i",
+        "save": "Cadw’r gosodiadau SMTP"
+      },
+      "defaults": {
+        "cc": "CC rhagosodedig",
+        "ccHint": "Wedi’i ychwanegu at bob cyfansoddwr; wedi’u gwahanu gan atalnodau",
+        "bcc": "BCC rhagosodedig",
+        "save": "Cadw’r rhagosodiadau"
+      }
+    },
+    "security": {
+      "metaTitle": "Diogelwch",
+      "title": "Diogelwch",
+      "description": "Ble rydych wedi mewngofnodi, a phopeth sydd wedi newid.",
+      "sessions": {
+        "title": "Sesiynau gweithredol",
+        "description": "Mae dirymu sesiwn yn allgofnodi’r ddyfais honno ar unwaith.",
+        "signOutOthers": {
+          "title": "Allgofnodi ym mhobman arall?",
+          "description": "Caiff pob sesiwn ac eithrio’r un hon ei dirymu.",
+          "confirm": "Allgofnodi’r lleill",
+          "trigger": "Allgofnodi ym mhobman arall"
+        },
+        "columns": {
+          "device": "Dyfais",
+          "ipAddress": "Cyfeiriad IP",
+          "signedIn": "Mewngofnodwyd",
+          "lastSeen": "Gwelwyd ddiwethaf",
+          "expires": "Yn dod i ben"
+        },
+        "thisDevice": "Y ddyfais hon",
+        "revokeTitle": "Dirymu’r sesiwn hon?",
+        "unknownDevice": "Dyfais anhysbys",
+        "unknownBrowser": "Anhysbys",
+        "agentOnOs": "{browser} ar {os}"
+      },
+      "audit": {
+        "title": "Log archwilio",
+        "count": "{count, plural, other {# digwyddiad}}",
+        "entity": "Endid",
+        "actionContains": "Mae’r weithred yn cynnwys",
+        "filter": "Hidlo",
+        "reset": "Ailosod",
+        "columns": {
+          "when": "Pryd",
+          "who": "Pwy",
+          "action": "Gweithred",
+          "entity": "Endid",
+          "summary": "Crynodeb"
+        },
+        "empty": "Nid oes digwyddiadau’n cyfateb i’r hidlyddion hyn.",
+        "system": "System",
+        "changes": "Newidiadau",
+        "page": "Tudalen {page} o {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Defnyddwyr",
+      "title": "Defnyddwyr",
+      "description": "Pwy all fewngofnodi i’r enghraifft hon a beth y gallant ei wneud.",
+      "roles": {
+        "owner": "Perchennog",
+        "editor": "Golygydd",
+        "viewer": "Gwyliwr"
+      },
+      "roleHints": {
+        "owner": "Popeth, gan gynnwys gosodiadau ac aelodau",
+        "editor": "Cleientiaid, catalog, anfonebau, nodiadau credyd, taliadau, e-bost",
+        "viewer": "Darllen yn unig"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Rôl {email}",
+      "invite": {
+        "title": "Gwahodd rhywun",
+        "description": "Maent yn mewngofnodi gyda’r cyfeiriad a wahoddwyd (darparwr hunaniaeth neu gyfrinair) ac yn cael y rôl a ddewiswch.",
+        "sent": "Anfonwyd y gwahoddiad drwy e-bost i {email}.",
+        "readyWithError": "Mae’r gwahoddiad yn barod ar gyfer {email}. Ni ellid anfon yr e-bost ({error}); anfonwch y ddolen hon atynt:",
+        "readyNoSmtp": "Mae’r gwahoddiad yn barod ar gyfer {email}. Nid oes SMTP wedi’i ffurfweddu; anfonwch y ddolen hon atynt:",
+        "copyLink": "Copïo’r ddolen",
+        "email": "E-bost",
+        "emailPlaceholder": "person@example.com",
+        "role": "Rôl",
+        "submit": "Gwahodd",
+        "inviting": "Yn gwahodd…"
+      },
+      "members": {
+        "title": "Aelodau",
+        "description": "Mae o leiaf un perchennog gweithredol bob amser yn aros.",
+        "columns": {
+          "person": "Person",
+          "role": "Rôl",
+          "lastSignIn": "Mewngofnodi diwethaf",
+          "status": "Statws"
+        },
+        "nameYou": "{name} (chi)",
+        "deactivated": "Wedi’i ddadweithredu",
+        "reactivate": {
+          "title": "Ail-weithredu {email}?",
+          "description": "Gallant fewngofnodi eto gyda’u rôl flaenorol.",
+          "confirm": "Ail-weithredu"
+        },
+        "deactivate": {
+          "title": "Dadweithredu {email}?",
+          "description": "Mae pob sesiwn yn dod i ben nawr ac ni allant fewngofnodi nes eu hail-weithredu. Mae eu hanes yn aros.",
+          "confirm": "Dadweithredu"
+        }
+      },
+      "invitations": {
+        "title": "Gwahoddiadau sy’n aros",
+        "description": "Cyfeiriadau a gaiff fewngofnodi ond sydd heb wneud hynny eto.",
+        "columns": {
+          "email": "E-bost",
+          "role": "Rôl",
+          "invited": "Gwahoddwyd"
+        },
+        "empty": "Dim gwahoddiadau’n aros.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Dirymu’r gwahoddiad i {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Data",
+      "title": "Data",
+      "description": "Mae popeth yn gludadwy: setiau data fel CSV neu Excel, ciplun llawn ar gyfer mudo, y PDFs ar gyfer eich cyfrifydd, a threfn gwneud copi wrth gefn a brofwyd.",
+      "period": {
+        "fiscalYear": "Blwyddyn ariannol",
+        "fiscalYearHint": "Yn diystyru’r dyddiadau",
+        "issuer": "Cyflwynydd"
+      },
+      "exportAll": {
+        "title": "Allforio’r holl ddata",
+        "description": "ZIP gyda phob set ddata fel CSV ynghyd â <mono>data.json</mono>, ciplun perthynol o’r holl dablau. Nid yw meysydd wedi’u hamgryptio (manylion dull talu, cyfrinair SMTP) yn cael eu cynnwys; mae’r README y tu mewn yn eu rhestru.",
+        "download": "Lawrlwytho ZIP okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "Allforio dogfennau",
+        "description": "Pob PDF anfoneb a nodyn credyd a gyflwynwyd ac a ddirymwyd ar gyfer cyfnod, wedi’i enwi yn ôl rhif, gyda <mono>index.csv</mono> o rifau, cyfansymiau a hashes. Caiff PDFs coll eu cynhyrchu ar y ffordd.",
+        "docx": "Cynnwys copi DOCX o bob dogfen hefyd",
+        "facturx": "Cynnwys copi Factur-X PDF/A-3 gyda’r EN 16931 XML wedi’i fewnosod hefyd",
+        "download": "Lawrlwytho ZIP dogfennau"
+      },
+      "datasets": {
+        "title": "Setiau data",
+        "description": "Yr un allforion ag y mae’r tudalennau mynegai yn eu cynnig, gyda chyfnod a chyflwynydd wedi’u cymhwyso i bob un. Mae taliadau’n defnyddio’r ystod dyddiadau; mae cleientiaid a gwasanaethau’n anwybyddu’r cyfnod.",
+        "columns": {
+          "dataset": "Set ddata",
+          "filters": "Hidlyddion a gymhwyswyd",
+          "download": "Lawrlwytho"
+        },
+        "names": {
+          "invoices": "Cofrestr anfonebau",
+          "invoiceItems": "Eitemau llinell anfonebau",
+          "payments": "Cyfriflyfr taliadau",
+          "creditNotes": "Cofrestr nodiadau credyd",
+          "clients": "Cleientiaid",
+          "services": "Gwasanaethau",
+          "gstSummary": "Crynodeb GST",
+          "tdsSummary": "Crynodeb TDS"
+        },
+        "filters": {
+          "periodIssuer": "cyfnod, cyflwynydd",
+          "dateRangeIssuer": "ystod dyddiadau, cyflwynydd",
+          "includesArchived": "yn cynnwys yr archif"
+        }
+      },
+      "backups": {
+        "title": "Copïau wrth gefn",
+        "notWired": "Dim gwasanaeth wrth gefn wedi’i gysylltu",
+        "noRun": "Nid oes copi wrth gefn wedi rhedeg eto",
+        "lastOk": "Llwyddodd y copi wrth gefn diwethaf",
+        "lastFailed": "Methodd y copi wrth gefn diwethaf",
+        "description": "Mae gwasanaeth Compose <mono>backup</mono> yn taflu Postgres ac yn archifo’r gyfrol storio ar <mono>BACKUP_CRON</mono>, yn cadw <mono>BACKUP_RETENTION_DAYS</mono> o hanes yn y gyfrol <mono>backups</mono>, ac yn ysgrifennu ffeil statws y mae’r dudalen hon yn ei darllen.",
+        "finished": "Gorffennwyd",
+        "databaseDump": "Tafliad y gronfa ddata",
+        "storageArchive": "Archif storio",
+        "size": "Maint",
+        "sizeMb": "{size} MB",
+        "error": "Gwall",
+        "runNow": "Rhedeg un nawr, neu adfer o bâr o ffeiliau:",
+        "restoreDrill": "Caiff y drefn adfer ei harfer yn CI gan <mono>scripts/restore-drill.sh</mono>: hadu, gwneud copi wrth gefn, sychu, adfer, yna cymharu nifer y rhesi a hash PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "Cyfreithiol",
+      "metaDescription": "Pwy sy’n gweithredu’r enghraifft hon: y manylion a argraffir ar y tudalennau cyfreithiol cyhoeddus.",
+      "title": "Cyfreithiol",
+      "description": "Mae’r tudalennau cyfreithiol cyhoeddus yn argraffu’r manylion hyn. Nes bod pob maes wedi’i lenwi, mae’r tudalennau’n dangos dalfannau wedi’u hamlygu.",
+      "operator": {
+        "title": "Manylion y gweithredwr",
+        "complete": "Cyflawn",
+        "missing": "{count} ar goll: {fields}",
+        "description": "Chi, fel y person neu’r cwmni sy’n gweithredu’r enghraifft hon, yw’r gweithredwr y mae’r dogfennau’n cyfeirio ato. Nid oes dim yma’n cael ei anfon i unman; caiff ei argraffu ar y tudalennau isod."
+      },
+      "fieldLabels": {
+        "legalName": "Enw cyfreithiol y gweithredwr",
+        "entityType": "Math o endid",
+        "address": "Cyfeiriad y gweithredwr",
+        "country": "Gwlad y gweithredwr",
+        "contactEmail": "E-bost cyswllt",
+        "privacyEmail": "E-bost preifatrwydd",
+        "dpoEmail": "E-bost y swyddog diogelu data",
+        "governingLaw": "Cyfraith lywodraethol",
+        "venue": "Lleoliad ar gyfer anghydfodau",
+        "effectiveDate": "Dyddiad dod i rym"
+      },
+      "publicPages": {
+        "title": "Tudalennau cyhoeddus",
+        "description": "Wedi’u cysylltu o’r dudalen mewngofnodi, y gwyliwr rhannu a’r hysbysiad cwcis.",
+        "terms": "Telerau Gwasanaeth",
+        "acceptableUse": "Polisi Defnydd Derbyniol",
+        "privacy": "Polisi Preifatrwydd",
+        "cookies": "Polisi Cwcis",
+        "dataRetention": "Cadw data",
+        "security": "Diogelwch",
+        "licenses": "Trwyddedau a hysbysiadau trydydd parti"
+      },
+      "form": {
+        "legalName": "Enw cyfreithiol",
+        "entityType": "Math o endid",
+        "individual": "Unigolyn / unig fasnachwr",
+        "company": "Cwmni / endid cofrestredig",
+        "address": "Cyfeiriad",
+        "addressHint": "Wedi’i argraffu yn y Telerau a’r Polisi Preifatrwydd fel cyfeiriad post y gweithredwr.",
+        "country": "Gwlad",
+        "effectiveDate": "Dyddiad dod i rym",
+        "contactEmail": "E-bost cyswllt",
+        "privacyEmail": "E-bost preifatrwydd",
+        "privacyEmailHint": "Ble mae ceisiadau gan wrthrychau data’n mynd; gall fod yn gyfeiriad cyswllt.",
+        "dpoEmail": "E-bost y swyddog diogelu data",
+        "dpoEmailHint": "Dim ond os ydych wedi penodi un.",
+        "governingLaw": "Cyfraith lywodraethol",
+        "governingLawHint": "Er enghraifft \"cyfreithiau India\" neu \"gyfreithiau Cymru a Lloegr\".",
+        "venue": "Lleoliad ar gyfer anghydfodau",
+        "venueHint": "Er enghraifft \"llysoedd Bengaluru, Karnataka\".",
+        "submit": "Cadw manylion y gweithredwr"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-anfonebu",
+      "title": "E-anfonebu",
+      "description": "Fesul proffil cyflwynydd: pa gysylltydd sy’n cofrestru e-anfonebau Indiaidd, a pha broffil Ewropeaidd y mae allbynnau Factur-X ac UBL yn ei ddilyn. Mae’r manylion mewngofnodi’n cael eu storio wedi’u hamgryptio ac ni chânt eu dangos eto.",
+      "noProfiles": "Crëwch broffil cyflwynydd yn gyntaf.",
+      "profile": "Proffil cyflwynydd",
+      "enabled": "Wedi’i alluogi",
+      "disabled": "Wedi’i analluogi",
+      "enabledHint": "Trowch e-anfonebu ymlaen neu i ffwrdd fesul proffil o dan Gosodiadau > Proffiliau.",
+      "india": {
+        "title": "India (e-anfoneb GST, IRN)",
+        "description": "Mae’r IRN yn cael ei gofrestru drwy’r cysylltydd a ddewiswyd yma; mae’r cysylltydd â llaw yn derbyn ymateb y porth â llaw.",
+        "connector": "Cysylltydd",
+        "connectorNone": "I ffwrdd",
+        "connectorManual": "Â llaw (gludwch ymateb yr IRP)",
+        "connectorNic": "API NIC IRP (blwch tywod neu gynhyrchu)",
+        "nicUnverified": "Mae’r cysylltydd NIC yn dilyn yr API cyhoeddedig ac wedi’i brofi yn erbyn data wedi’i recordio yn unig; nid yw wedi’i wirio yn erbyn blwch tywod byw nes y cyflenwir manylion mewngofnodi.",
+        "env": "Amgylchedd",
+        "sandbox": "Blwch tywod",
+        "production": "Cynhyrchu",
+        "baseUrl": "URL sylfaen",
+        "baseUrlHint": "Gadewch yn wag am ragosodiad yr amgylchedd.",
+        "clientId": "ID cleient",
+        "clientSecret": "Cyfrinach cleient",
+        "username": "Enw defnyddiwr",
+        "password": "Cyfrinair",
+        "gstin": "GSTIN",
+        "publicKey": "Allwedd gyhoeddus IRP (PEM)",
+        "publicKeyHint": "Lawrlwythwch hi o’r porth ar ôl mewngofnodi; mae’n lapio’r manylion mewngofnodi a anfonir i’r IRP.",
+        "publicKeyStored": "Wedi’i chadw; gadewch yn wag i’w chadw.",
+        "secretStored": "Wedi’i storio wedi’i amgryptio; gadewch yn wag i’w gadw.",
+        "secretEncrypted": "Wedi’i storio wedi’i amgryptio wrth orffwys."
+      },
+      "eu": {
+        "title": "Ewrop (Factur-X, UBL)",
+        "description": "EN 16931 yw’r unig broffil yn y fersiwn hon; mae lawrlwythiadau Factur-X ac UBL yn ei ddefnyddio.",
+        "profile": "Proffil",
+        "profileNone": "I ffwrdd",
+        "en16931": "EN 16931"
+      },
+      "save": "Cadw gosodiadau e-anfonebu"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Allweddi API ar gyfer sgriptiau, yr SDK a chleientiaid MCP, gydag enghreifftiau curl.",
+      "title": "API",
+      "description": "Allweddi ar gyfer sgriptiau, yr SDK a chleientiaid MCP. Gall allwedd wneud cymaint â’ch rôl chi ar y mwyaf; fe’i dangosir unwaith.",
+      "create": {
+        "title": "Creu allwedd",
+        "description": "Anfonwch hi fel <mono>Authorization: Bearer okv_…</mono>. Cadwch hi allan o god ffynhonnell a logiau sgwrs; dirymwch hi isod os caiff ei gollwng."
+      },
+      "keys": {
+        "title": "Allweddi",
+        "descriptionOwner": "Pob allwedd yr enghraifft hon; gall perchnogion ddirymu unrhyw un ohonynt.",
+        "descriptionOwn": "Eich allweddi.",
+        "columns": {
+          "name": "Enw",
+          "prefix": "Rhagddodiad",
+          "scopes": "Cwmpasau",
+          "owner": "Perchennog",
+          "lastUsed": "Defnyddiwyd ddiwethaf",
+          "expires": "Yn dod i ben",
+          "status": "Statws"
+        },
+        "empty": "Dim allweddi API eto.",
+        "never": "byth",
+        "revoked": "Wedi’i ddirymu",
+        "expired": "Wedi dod i ben",
+        "revokeTitle": "Dirymu {name}?",
+        "revokeDescription": "Mae cleientiaid sy’n defnyddio’r allwedd hon yn rhoi’r gorau i weithio ar unwaith.",
+        "activeCount": "{count, plural, other {# allwedd weithredol.}}"
+      },
+      "examples": {
+        "title": "Enghreifftiau",
+        "description": "Amnewidiwch <mono>$OKINVO_KEY</mono> ag allwedd. Mae’r API REST fersiynol, ei ddogfen OpenAPI (<mono>/api/openapi.json</mono>), yr SDK TypeScript a’r gweinydd MCP yn cyrraedd gyda thasgau nesaf cynllun v1.1; mae’r pwynt terfyn statws yn gweithio heddiw.",
+        "rateLimit": "Mae galwadau dros y terfyn yn cael ateb 429 gyda phennyn <mono>Retry-After</mono> (120 cais y funud i bob allwedd). Mae cwmpasau allwedd wedi’u capio gan rôl bresennol ei pherchennog."
+      },
+      "form": {
+        "copyKey": "Copïo’r allwedd API",
+        "name": "Enw",
+        "namePlaceholder": "e.e. sgript cyfrifo",
+        "expires": "Yn dod i ben",
+        "in30Days": "Ymhen 30 diwrnod",
+        "in90Days": "Ymhen 90 diwrnod",
+        "inAYear": "Ymhen blwyddyn",
+        "never": "Byth",
+        "scopes": "Cwmpasau",
+        "submit": "Creu allwedd API",
+        "creating": "Yn creu…"
+      },
+      "scopes": {
+        "invoicesRead": "Darllen anfonebau",
+        "invoicesCreate": "Creu a chyflwyno anfonebau",
+        "creditNotesRead": "Darllen nodiadau credyd",
+        "creditNotesCreate": "Creu a chyflwyno nodiadau credyd",
+        "catalogueRead": "Darllen cleientiaid, gwasanaethau a chynhyrchion",
+        "documentsRead": "Lawrlwytho PDFs a chopïau DOCX sydd wedi’u storio",
+        "statusRead": "Darllen statws yr enghraifft"
+      }
+    },
+    "status": {
+      "metaTitle": "Statws",
+      "metaDescription": "Fersiwn, cronfa ddata, storio, e-bost ac iechyd copïau wrth gefn yr enghraifft hon.",
+      "title": "Statws",
+      "description": "Beth mae’r enghraifft hon yn ei redeg ac a yw ei rhannau’n ateb.",
+      "recheck": "Gwirio eto",
+      "health": {
+        "ok": "Iawn",
+        "warning": "Rhybudd",
+        "failed": "Methwyd",
+        "na": "Heb ei ffurfweddu"
+      },
+      "overall": {
+        "ok": "Popeth yn dda",
+        "degraded": "Wedi’i ddiraddio",
+        "failed": "Methwyd"
+      },
+      "version": "Adeiladwaith {hasSha, select, yes {<mono>{sha}</mono>} other {(sha anhysbys)}} · adeiladwyd {built} · Node <mono>{node}</mono> · i fyny {uptime} · gwiriwyd {checked}",
+      "dateUnknown": "(dyddiad anhysbys)",
+      "uptime": {
+        "days": "{d}d {h}a {m}mun",
+        "hours": "{h}a {m}mun",
+        "minutes": "{m}mun"
+      },
+      "rows": {
+        "database": "Cronfa ddata",
+        "storage": "Storio",
+        "rateLimiting": "Cyfyngu cyfradd",
+        "email": "E-bost",
+        "backups": "Copïau wrth gefn"
+      },
+      "db": {
+        "detail": "{latency} ms · mudo diwethaf <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # mudo heb ei orffen}}",
+        "noMigration": "dim"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · ysgrifennu, darllen a dileu gwrthrych prawf mewn {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "Storfa <mono>{store}</mono> {store, select, memory {(un replica)} other {(wedi’i rhannu ar draws replicâu)}}",
+      "smtp": {
+        "configured": "SMTP o {source, select, settings {the settings page} env {the environment} other {}} · prawf diwethaf {lastTest} · 24 awr diwethaf: {sent} wedi’u hanfon, {failed} wedi methu",
+        "none": "Dim gweinydd SMTP; mae’r cyfansoddwr yn cynnig “Agor yn yr ap post”. <link>Ffurfweddu</link>"
+      },
+      "backups": {
+        "notWired": "Dim gwasanaeth wrth gefn wedi’i gysylltu (BACKUP_STATUS_FILE heb ei osod).",
+        "noRun": "Gwasanaeth wrth gefn wedi’i gysylltu; dim rhediad wedi’i gofnodi eto.",
+        "ok": "Llwyddodd y rhediad diwethaf am {finishedAt}{days, plural, =0 {} other { · cadw # diwrnod}}",
+        "failed": "Methodd y rhediad diwethaf: {error} am {finishedAt}{days, plural, =0 {} other { · cadw # diwrnod}}"
+      },
+      "footer": "Mae’r un adroddiad ar gael fel JSON yn <mono>/api/health/status</mono> ar gyfer monitro (sesiwn wedi’i mewngofnodi neu allwedd API)."
+    },
+    "usage": {
+      "metaTitle": "Defnydd",
+      "metaDescription": "Golygon tudalen fesul sgrin a diwrnod ar yr enghraifft hon, wedi'u cyfrif yn lleol.",
+      "title": "Defnydd",
+      "description": "Sawl gwaith yr agorwyd pob sgrin, wedi'i gyfrif ar yr enghraifft hon yn unig: dim cwcis, dim cyfeiriadau, ni anfonir dim i unman.",
+      "last30Days": "30 diwrnod diwethaf",
+      "total": "{count, plural, =0 {Dim golygon tudalen} zero {Dim golygon tudalen} one {# golwg tudalen} two {# olwg tudalen} few {# golwg tudalen} many {# golwg tudalen} other {# golwg tudalen}}",
+      "off": "Mae'r cyfrif i ffwrdd. Gosodwch ANALYTICS_LOCAL=true i gyfrif golygon tudalen ar yr enghraifft hon.",
+      "empty": "Dim golygon tudalen wedi'u cofnodi eto.",
+      "columns": {
+        "day": "Diwrnod",
+        "path": "Sgrin",
+        "views": "Golygon"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Croeso",
+    "progress": "Cynnydd",
+    "steps": {
+      "aboutYou": "Amdanoch chi",
+      "howYouUse": "Sut y byddwch yn ei ddefnyddio",
+      "allSet": "Popeth yn barod"
+    },
+    "step1": {
+      "title": "Dywedwch wrthym amdanoch chi",
+      "subtitle": "Mae hyn yn gosod eich rhagosodiadau; gellir newid pob gwerth yn nes ymlaen yn y Gosodiadau.",
+      "name": "Enw",
+      "email": "E-bost",
+      "emailHint": "Eich hunaniaeth mewngofnodi. Gellir ei newid o Gosodiadau → Diogelwch yn nes ymlaen.",
+      "country": "Gwlad",
+      "currency": "Arian cyfred dewisol",
+      "currencyHint": "Yn cael ei ddefnyddio ar gyfer proffiliau newydd a’r dangosfwrdd nes bod proffil yn bodoli."
+    },
+    "step2": {
+      "title": "Sut fyddwch chi’n defnyddio okinvo?",
+      "subtitle": "Dim ond y rhagosodiadau sy’n newid; nid oes dim wedi’i gloi.",
+      "usage": "Defnydd",
+      "personal": "Anfonebu personol",
+      "personalHint": "Gwaith llawrydd yn eich enw eich hun",
+      "business": "Anfonebu busnes",
+      "businessHint": "Anfonebau gan fusnes cofrestredig",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Rhif TAW",
+        "other": "Rhif cofrestru treth"
+      },
+      "taxQuestion": {
+        "IN": "A oes gennych GSTIN?",
+        "GB": "A ydych wedi’ch cofrestru ar gyfer TAW?",
+        "other": "A oes gennych rif cofrestru treth i’w argraffu ar anfonebau?"
+      }
+    },
+    "step3": {
+      "title": "Popeth yn barod",
+      "body": "Nesaf, crëwch eich proffil cyflwynydd cyntaf: yr enw, y cyfeiriad a’r manylion treth sy’n cael eu hargraffu ar eich anfonebau. Rydym wedi llenwi’r hyn a ddywedoch wrthym.",
+      "go": "Mynd i’r proffiliau",
+      "opening": "Yn agor…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Telerau",
+      "privacy": "Preifatrwydd",
+      "cookies": "Cwcis",
+      "security": "Diogelwch"
+    },
+    "cookieNotice": {
+      "label": "Hysbysiad cwcis",
+      "body": "Dim ond cwcis sy’n gwbl angenrheidiol a ddefnyddiwn: eich sesiwn a’ch dewisiadau arddangos. Dim dadansoddeg, dim tracio.",
+      "policy": "Polisi cwcis",
+      "gotIt": "Deall"
+    },
+    "nav": {
+      "label": "Cyfreithiol",
+      "cookies": "Cwcis",
+      "privacy": "Preifatrwydd",
+      "terms": "Telerau",
+      "acceptableUse": "Defnydd derbyniol",
+      "retention": "Cadw data",
+      "security": "Diogelwch",
+      "licences": "Trwyddedau"
+    },
+    "operatorNotice": "Meddalwedd hunan-westeio yw okinvo; gweithredwr yr enghraifft hon sy’n gyfrifol am ei defnyddio.",
+    "doc": {
+      "effectiveOn": "Yn dod i rym <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Cynnwys"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Enw cyfreithiol y gweithredwr",
+        "entityType": "Math o endid",
+        "address": "Cyfeiriad y gweithredwr",
+        "country": "Gwlad y gweithredwr",
+        "contactEmail": "E-bost cyswllt",
+        "privacyEmail": "E-bost preifatrwydd",
+        "dpoEmail": "E-bost y swyddog diogelu data",
+        "governingLaw": "Cyfraith lywodraethol",
+        "venue": "Lleoliad ar gyfer anghydfodau",
+        "effectiveDate": "Dyddiad dod i rym"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Heb ei ganfod",
+      "title": "Nid oes dim yn y cyfeiriad hwn",
+      "body": "Efallai bod y ddolen wedi hen basio, neu na chyflwynwyd y ddogfen yr oedd yn pwyntio ati erioed."
+    },
+    "forbidden": {
+      "metaTitle": "Heb ei ganiatáu",
+      "title": "Ni all y cyfrif hwn wneud hynny",
+      "body": "Nid yw eich rôl yn caniatáu hyn. Gofynnwch i berchennog am fynediad, neu mewngofnodwch gyda chyfrif sydd â mynediad."
+    },
+    "error": {
+      "title": "Aeth rhywbeth o’i le",
+      "body": "Ni newidiwyd dim gan y cais hwn. Rhowch gynnig arall arni; os bydd yn parhau, mae’r manylion yng nghofnod y gweinydd.",
+      "digest": "gwall {digest}",
+      "generic": "gwall"
+    },
+    "appNotFound": {
+      "title": "Heb ei ganfod",
+      "body": "Nid yw’r cofnod hwn yn bodoli, neu cafodd ei ddileu tra oeddech yn edrych arno.",
+      "back": "Yn ôl i’r dangosfwrdd"
+    },
+    "validation": {
+      "required": "gofynnol",
+      "tooLong": "{max} nod ar y mwyaf",
+      "invalidEmail": "rhaid iddo fod yn e-bost dilys",
+      "invalidDate": "rhaid iddo fod yn ddyddiad calendr ar ffurf BBBB-MM-DD",
+      "invalidAmount": "rhaid iddo fod yn rif",
+      "wholeNumber": "rhaid iddo fod yn rif cyfan",
+      "greaterThanZero": "rhaid iddo fod yn fwy na sero",
+      "fixFields": "Cywirwch y meysydd a amlygwyd.",
+      "charset": "Dim ond nodau bysellfwrdd safonol a ganiateir."
+    }
+  },
+  "verify": {
+    "metaTitle": "Dilysu dogfen",
+    "metaDescription": "Gwiriwch fod anfoneb neu nodyn credyd wedi'i gyhoeddi gan ei anfonwr ac nad yw wedi'i newid.",
+    "heading": "Dilysu dogfen",
+    "rateLimited": "Gormod o wiriadau o’r cyfeiriad hwn. Rhowch gynnig arall arni ymhen munud.",
+    "notFound": {
+      "title": "Dim dogfen o’r fath",
+      "body": "Nid yw’r ddolen hon yn cyfateb i unrhyw ddogfen a gyflwynwyd. Gwiriwch y cod QR neu’r ddolen a roddwyd i chi, neu cysylltwch â’r cyflwynydd."
+    },
+    "status": {
+      "void": "Wedi’i ddirymu",
+      "valid": "Dilys"
+    },
+    "issuedBy": "Cyflwynwyd gan",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Cyflwynwyd i",
+    "issueDate": "Dyddiad cyflwyno",
+    "total": "Cyfanswm",
+    "voided": "Dirymwyd y ddogfen hon gan y cyflwynydd ac nid yw bellach yn ddilys.",
+    "storedCopies": {
+      "title": "Copïau wedi’u storio",
+      "description": "SHA-256 o bob fersiwn PDF sydd gan y cyflwynydd. Dewiswch eich copi i’w gymharu yn eich porwr: ni chaiff dim ei lwytho i fyny.",
+      "empty": "Nid oes PDF wedi’i gynhyrchu eto.",
+      "protectedVersion": "Copi wedi’i ddiogelu â chyfrinair {version}",
+      "version": "Fersiwn {version}"
+    },
+    "check": {
+      "label": "Gwiriwch eich copi",
+      "hashing": "Yn cyfrifo hash…",
+      "match": "Mae eich copi’n cyfateb yn union i fersiwn {version}.",
+      "mismatch": "Nid yw eich copi’n cyfateb i unrhyw fersiwn sydd wedi’i storio."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Dogfen a rennir",
+      "metaDescription": "Dogfen a rannwyd gyda chi: gwelwch hi ar-lein a lawrlwythwch y PDF.",
+      "rateLimited": "Gormod o geisiadau o’r cyfeiriad hwn. Rhowch gynnig arall arni ymhen munud.",
+      "unavailable": {
+        "title": "Nid yw’r ddolen hon ar gael",
+        "body": "Efallai ei bod wedi dod i ben neu wedi’i dirymu gan y cyflwynydd. Gofynnwch iddynt am un newydd."
+      },
+      "lockedTitleInvoice": "Anfoneb gan {issuer}",
+      "lockedTitleCreditNote": "Nodyn credyd gan {issuer}",
+      "lockedBody": "Mae’r ddogfen hon wedi’i diogelu â chyfrinair. Rhowch y cyfrinair a roddodd y cyflwynydd i chi.",
+      "void": "Wedi’i ddirymu",
+      "protectedPdf": "Mae’r PDF yn agor gyda’r un cyfrinair. Gellir ei ddarllen a’i argraffu; mae copïo a golygu wedi’u cloi.",
+      "byline": "Gan {issuer} i {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Cyfrinair",
+      "limited": "Gormod o ymdrechion. Arhoswch bymtheg munud a rhowch gynnig arall arni.",
+      "wrong": "Nid yw’r cyfrinair hwnnw’n gywir.",
+      "submit": "Agor y ddogfen"
+    },
+    "dialog": {
+      "trigger": "Rhannu",
+      "title": "Rhannu’r ddogfen hon",
+      "description": "Gall unrhyw un sydd â’r ddolen ei gweld a’i lawrlwytho nes iddi ddod i ben neu nes i chi ei dirymu. Mae cyfrinair hefyd yn diogelu’r PDF ei hun: mae’n agor gyda’r cyfrinair a gellir ei ddarllen a’i argraffu, nid ei olygu na’i gopïo.",
+      "link": "Dolen",
+      "copyLink": "Copïo’r ddolen",
+      "password": "Cyfrinair",
+      "copyPassword": "Copïo’r cyfrinair",
+      "sendSeparately": "Anfonwch y cyfrinair ar wahân i’r ddolen. Gallwch ei weld eto yn y rhestr isod.",
+      "copy": "Copïo",
+      "copied": "Wedi copïo",
+      "expires": "Yn dod i ben",
+      "expiry": {
+        "d7": "Ymhen 7 diwrnod",
+        "d30": "Ymhen 30 diwrnod",
+        "d90": "Ymhen 90 diwrnod",
+        "never": "Byth"
+      },
+      "protection": "Diogelu",
+      "protectionOptions": {
+        "auto": "Cyfrinair: cynhyrchu ymadrodd cyfrin",
+        "manual": "Cyfrinair: dewis fy un fy hun",
+        "none": "Dim cyfrinair (dolen agored)"
+      },
+      "passwordHint": "O leiaf 8 nod.",
+      "strength": "Cryfder: {label}",
+      "strengthLabels": {
+        "veryWeak": "gwan iawn",
+        "weak": "gwan",
+        "fair": "gweddol",
+        "good": "da",
+        "strong": "cryf"
+      },
+      "creating": "Yn creu…",
+      "create": "Creu dolen",
+      "activeLinks": "Dolenni gweithredol",
+      "passwordProtected": "Wedi’i ddiogelu â chyfrinair",
+      "openLink": "Agor y ddolen",
+      "linkExpires": "{kind} · yn dod i ben {date}",
+      "linkNeverExpires": "{kind} · byth yn dod i ben",
+      "revoke": {
+        "title": "Dirymu’r ddolen hon?",
+        "description": "Mae’r ddolen yn rhoi’r gorau i weithio ar unwaith i bawb sydd â hi.",
+        "label": "Dirymu"
+      },
+      "linkPassword": "Cyfrinair: <code>{password}</code>",
+      "counts": "{views, plural, other {# golwg}} · {downloads, plural, other {# lawrlwythiad}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Nodiadau credyd",
+      "title": "Nodiadau credyd",
+      "description": "Wedi’u codi yn erbyn anfonebau a gyflwynwyd; mae pob un yn lleihau balans ei anfoneb pan gaiff ei gyflwyno.",
+      "newCreditNote": "Nodyn credyd newydd",
+      "filters": {
+        "from": "O",
+        "to": "I",
+        "issuer": "Cyflwynydd",
+        "client": "Cleient",
+        "status": "Statws",
+        "search": "Chwilio",
+        "all": "Pob un",
+        "searchPlaceholder": "Rhif, rheswm, cleient",
+        "go": "Mynd"
+      },
+      "statuses": {
+        "DRAFT": "Drafft",
+        "ISSUED": "Wedi’i gyflwyno",
+        "SENT": "Wedi’i anfon",
+        "VOID": "Wedi’i ddirymu"
+      },
+      "empty": {
+        "title": "Dim nodiadau credyd eto",
+        "description": "Agorwch anfoneb a gyflwynwyd a dewiswch “Nodyn credyd” i leihau’r hyn sy’n ddyledus arni."
+      },
+      "noMatch": "Nid oes nodiadau credyd yn cyfateb i’r hidlyddion hyn.",
+      "columns": {
+        "number": "Rhif",
+        "against": "Yn erbyn",
+        "client": "Cleient",
+        "issueDate": "Dyddiad cyflwyno",
+        "reason": "Rheswm",
+        "total": "Cyfanswm",
+        "status": "Statws"
+      },
+      "draft": "Drafft"
+    },
+    "new": {
+      "metaTitle": "Nodyn credyd newydd",
+      "title": "Nodyn credyd newydd",
+      "description": "Codir nodyn credyd yn erbyn anfoneb a gyflwynwyd ac mae’n lleihau ei balans.",
+      "nothingToCredit": {
+        "title": "Dim i’w gredydu",
+        "description": "Mae nodiadau credyd angen anfoneb a gyflwynwyd â balans sy’n weddill.",
+        "openInvoices": "Agor yr anfonebau"
+      },
+      "whichInvoice": "Pa anfoneb?",
+      "invoice": "Anfoneb",
+      "invoiceOption": "{number} · {client} · balans {balance}",
+      "issuedOnly": "Codir nodiadau credyd yn erbyn anfonebau a gyflwynwyd yn unig.",
+      "invoiceFallback": "Anfoneb"
+    },
+    "edit": {
+      "metaTitle": "Golygu’r nodyn credyd",
+      "title": "Golygu’r nodyn credyd drafft",
+      "immutable": "Mae nodiadau credyd a gyflwynwyd yn ddigyfnewid.",
+      "draft": "Drafft"
+    },
+    "detail": {
+      "metaTitle": "Nodyn credyd",
+      "draftTitle": "Nodyn credyd drafft",
+      "meta": "{client} · yn erbyn <invoice>{number}</invoice> · cyflwynwyd <mono>{date}</mono>",
+      "previewPdf": "Rhagolwg PDF",
+      "issue": {
+        "title": "Cyflwyno’r nodyn credyd hwn?",
+        "description": "Dyrennir rhif, lleihau balans yr anfoneb a daw’r ddogfen yn ddigyfnewid.",
+        "label": "Cyflwyno"
+      },
+      "deleteDraft": {
+        "title": "Dileu’r drafft hwn?"
+      },
+      "sendByEmail": "Anfon drwy e-bost",
+      "markSent": {
+        "title": "Nodi fel wedi’i anfon?",
+        "label": "Nodi fel wedi’i anfon"
+      },
+      "void": {
+        "title": "Dirymu’r nodyn credyd hwn?",
+        "description": "Adferir balans yr anfoneb; ni ailddefnyddir y rhif byth.",
+        "reason": "Rheswm",
+        "label": "Dirymu"
+      },
+      "voided": "Dirymwyd {date}: {reason}",
+      "amounts": {
+        "title": "Symiau",
+        "reason": "Rheswm",
+        "creditAmount": "Swm y credyd",
+        "total": "Cyfanswm",
+        "balanceNow": "Balans yr anfoneb nawr",
+        "sent": "Anfonwyd"
+      },
+      "documents": {
+        "title": "Dogfennau wedi’u storio",
+        "description": "Cedwir pob fersiwn; mae’r dudalen ddilysu’n rhestru’r holl hashes.",
+        "regenerateTitle": "Cynhyrchu fersiwn PDF newydd?",
+        "generate": "Cynhyrchu",
+        "newVersion": "Fersiwn newydd",
+        "renderedOnFirstDownload": "Caiff y PDF ei gynhyrchu wrth y lawrlwythiad cyntaf.",
+        "protectedCopy": "Copi wedi’i ddiogelu â chyfrinair {version}",
+        "version": "Fersiwn {version}",
+        "verificationLink": "Dolen ddilysu: <link>{path}…</link>"
+      },
+      "draftsPreview": "Mae drafftiau’n rhagolygu’n fyw yn y golygydd."
+    },
+    "send": {
+      "metaTitle": "Anfon y nodyn credyd",
+      "title": "Anfon <mono>{number}</mono>",
+      "previousSends": "Anfoniadau blaenorol"
+    },
+    "builder": {
+      "against": "Yn erbyn <mono>{number}</mono>",
+      "summary": "{client} · cyfanswm {total} · balans {balance} · lle i drethu ≈ {headroom}",
+      "issueDate": "Dyddiad cyflwyno",
+      "creditAmount": "Swm y credyd (heb gynnwys treth)",
+      "creditAmountHint": "Rhennir y dreth o linellau treth yr anfoneb",
+      "reason": "Rheswm",
+      "picker": {
+        "title": "Cyfrifo o linellau’r anfoneb",
+        "description": "Ticiwch linellau cyfan neu ganran; dim ond llenwi’r swm uchod y mae hyn.",
+        "line": "Llinell",
+        "subtotal": "Is-gyfanswm",
+        "credit": "Credyd",
+        "percent": "%",
+        "creditLine": "Credydu llinell {position}",
+        "percentOfLine": "Canran o linell {position}"
+      },
+      "saveDraft": "Cadw’r drafft",
+      "issuing": "Yn cyflwyno…",
+      "saveAndIssue": "Cadw a chyflwyno"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Taliad a dderbyniwyd",
+        "REFUND": "Ad-daliad a gyflwynwyd",
+        "WRITE_OFF": "Dileu dyled"
+      },
+      "editTitle": "Golygu’r cofnod",
+      "recordTitle": "Cofnodi taliad",
+      "description": "Mae symiau yn arian cyfred yr anfoneb ({currency}); mae TDS a ddidynnwyd yn rhan o’r swm a gymhwyswyd.",
+      "kind": "Math",
+      "date": "Dyddiad",
+      "amountRefunded": "Swm a ad-dalwyd (negatif)",
+      "amountApplied": "Swm a gymhwyswyd",
+      "refundHint": "Rhowch swm negatif, e.e. -500",
+      "tdsDeducted": "TDS a ddidynnwyd",
+      "tdsHint": "Treth a ataliwyd gan y cleient; yn cyfrif tuag at y swm a gymhwyswyd",
+      "bankFees": "Ffioedd banc",
+      "receivedInto": "Derbyniwyd i",
+      "noMethod": "-",
+      "reference": "Cyfeirnod",
+      "referenceHint": "UTR, ID trafodyn, rhif siec",
+      "otherCurrency": "Derbyniwyd mewn arian cyfred arall",
+      "amountReceived": "Swm a dderbyniwyd",
+      "receivedCurrency": "Arian cyfred a dderbyniwyd",
+      "exchangeRate": "Cyfradd gyfnewid",
+      "exchangeRateHint": "1 uned a dderbyniwyd = ? {currency}",
+      "notes": "Nodiadau",
+      "receiptHint": "PNG, JPEG, WebP neu PDF hyd at 10 MB",
+      "receipts": "Derbynebau a biliau",
+      "receiptN": "Derbynneb {n}",
+      "removeReceipt": "Dileu derbynneb {n}",
+      "saveChanges": "Cadw’r newidiadau",
+      "record": "Cofnodi"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Bil i",
+      "shipTo": "Anfon i",
+      "invoice": "Anfoneb",
+      "creditNote": "Nodyn credyd",
+      "issueDate": "Dyddiad cyflwyno",
+      "dueDate": "Dyddiad dyledus",
+      "number": "Rhif",
+      "description": "Disgrifiad",
+      "sacHsn": "SAC/HSN",
+      "qty": "Nifer",
+      "unit": "Uned",
+      "rate": "Cyfradd",
+      "tax": "Treth",
+      "amount": "Swm",
+      "subtotal": "Is-gyfanswm",
+      "discount": "Gostyngiad",
+      "taxable": "Swm trethadwy",
+      "total": "Cyfanswm",
+      "amountDue": "Swm sy’n ddyledus",
+      "tdsExpected": "TDS disgwyliedig",
+      "netExpected": "Net disgwyliedig",
+      "rounding": "Talgrynnu",
+      "paymentDetails": "Manylion talu",
+      "notes": "Nodiadau",
+      "terms": "Telerau",
+      "placeOfSupply": "Man cyflenwi",
+      "poReference": "Cyfeirnod PO",
+      "amountInWords": "Swm mewn geiriau",
+      "signature": "Llofnodwr awdurdodedig"
+    },
+    "title": {
+      "taxInvoice": "ANFONEB TRETH",
+      "billOfSupply": "BIL CYFLENWI",
+      "invoice": "ANFONEB",
+      "creditNote": "NODYN CREDYD"
+    },
+    "text": {
+      "pageOf": "Tudalen {page} o {total}",
+      "scanToVerify": "Sganiwch i wirio",
+      "taxId": "ID Treth",
+      "void": "DI-RYM",
+      "draftWatermark": "DRAFFT - nid anfoneb dreth",
+      "paymentTermsDays": "{days} diwrnod",
+      "irn": "IRN",
+      "ackNo": "Rhif cydnabod",
+      "ackDate": "Dyddiad cydnabod",
+      "einvoiceCancelled": "E-ANFONEB WEDI’I DDIDDYMU"
+    },
+    "ui": {
+      "pageEstimate": "tua {count, plural, other {# tudalen}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Neges",
+      "description": "Wedi’i ragllenwi o dempledi proffil y cyflwynydd. Ni anfonir dim nes i chi glicio Anfon.",
+      "to": "At",
+      "toHint": "Wedi’u gwahanu gan atalnodau",
+      "cc": "CC",
+      "bcc": "BCC",
+      "subject": "Pwnc",
+      "body": "Corff",
+      "bodyHint": "Testun plaen; mae dolenni’n dod yn gliciadwy",
+      "attachment": "Atodiad",
+      "attachmentHint": "Y copi sydd wedi’i storio, o’r enw <mono>{name}</mono> (neu .docx); ni ellir newid ei gynnwys.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Yn anfon…",
+      "send": "Anfon",
+      "openInMailApp": "Agor yn yr ap post",
+      "noSmtp": "Nid oes gweinydd SMTP wedi’i ffurfweddu (Gosodiadau → E-bost). Agorwch y drafft yn eich ap post, atodwch y PDF a lawrlwythwyd, yna nodwch ei fod wedi’i anfon isod.",
+      "markAsSent": "Nodi fel wedi’i anfon"
+    },
+    "sentLog": {
+      "when": "Pryd",
+      "document": "Dogfen",
+      "to": "At",
+      "subject": "Pwnc",
+      "status": "Statws",
+      "empty": "Dim wedi’i anfon eto.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "wedi’i anfon",
+        "FAILED": "wedi methu",
+        "MANUAL": "â llaw"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Helo, {name}",
+    "fiscalYear": "Blwyddyn ariannol {year}",
+    "fiscalYearWithBase": "Blwyddyn ariannol {year} · arian cyfred sylfaenol {currency} ({profile})",
+    "newCreditNote": "Nodyn credyd newydd",
+    "welcomeTitle": "Croeso i {appName}",
+    "welcomeDescription": "Dechreuwch trwy greu’r proffil cyflwynydd rydych yn bilio ohono, yna ychwanegwch gleient a’ch anfoneb gyntaf.",
+    "createProfile": "Creu eich proffil",
+    "tiles": {
+      "outstanding": "Heb ei dalu",
+      "overdue": "Gorddyledus",
+      "billedThisFy": "Biliwyd eleni ariannol",
+      "receivedThisFy": "Derbyniwyd eleni ariannol",
+      "drafts": "Drafftiau",
+      "invoiceCount": "{count, plural, other {# anfoneb}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Taliadau llai ad-daliadau, ar y gyfradd gyfnewid a gofnodwyd",
+      "awaitingIssue": "yn aros i’w gyflwyno",
+      "nothingPending": "dim yn aros"
+    },
+    "recentInvoices": "Anfonebau diweddar",
+    "allInvoices": "Pob anfoneb",
+    "noInvoicesYet": "Dim anfonebau eto.",
+    "columns": {
+      "number": "Rhif",
+      "client": "Cleient",
+      "issued": "Cyflwynwyd"
+    },
+    "topClients": "Prif gleientiaid yn ôl y swm sy’n weddill",
+    "nothingOutstanding": "Dim yn weddill."
+  },
+  "exports": {
+    "export": "Allforio",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Anfonebau",
+      "newInvoice": "Anfoneb newydd",
+      "draft": "Drafft",
+      "aDraft": "drafft",
+      "statuses": {
+        "draft": "Drafft",
+        "issued": "Wedi’i gyflwyno",
+        "sent": "Wedi’i anfon",
+        "partiallyPaid": "Wedi’i dalu’n rhannol",
+        "paid": "Wedi’i dalu",
+        "overdue": "Gorddyledus",
+        "void": "Wedi’i ddirymu"
+      },
+      "lifecycle": {
+        "draft": "drafft",
+        "issued": "wedi’i gyflwyno",
+        "void": "wedi’i ddirymu"
+      },
+      "units": {
+        "hour": "Awr",
+        "day": "Diwrnod",
+        "fixed": "Sefydlog",
+        "milestone": "Carreg filltir",
+        "unit": "Uned"
+      },
+      "unitsLower": {
+        "hour": "awr",
+        "day": "diwrnod",
+        "fixed": "sefydlog",
+        "milestone": "carreg filltir",
+        "unit": "uned"
+      },
+      "supplyTypes": {
+        "intraState": "o fewn y dalaith",
+        "interState": "rhwng taleithiau",
+        "exportLut": "allforio gyda LUT",
+        "exportWithTax": "allforio gyda threth",
+        "reverseCharge": "gwrthdroi’r tâl",
+        "notApplicable": "amherthnasol"
+      }
+    },
+    "list": {
+      "description": "Anfonebau drafft, a gyflwynwyd a dirymwyd; mae’r statws yn deillio o daliadau a dyddiadau dyledus.",
+      "fiscalYear": "Blwyddyn ariannol",
+      "issuer": "Cyflwynydd",
+      "client": "Cleient",
+      "searchPlaceholder": "Rhif, PO, cleient",
+      "emptyTitle": "Dim anfonebau eto",
+      "emptyDescription": "Adeiladwch eich anfoneb gyntaf: dewiswch gleient, ychwanegwch linellau, gwyliwch y rhagolwg, yna cyflwynwch hi.",
+      "columns": {
+        "number": "Rhif",
+        "client": "Cleient",
+        "issuer": "Cyflwynydd",
+        "issueDate": "Dyddiad cyflwyno",
+        "due": "Dyledus",
+        "balance": "Balans"
+      },
+      "noMatches": "Nid oes anfonebau’n cyfateb i’r hidlyddion hyn.",
+      "count": "{count, plural, other {# anfoneb}}",
+      "countPaged": "{count, plural, other {# anfoneb}} · tudalen {page} o {pages}",
+      "register": "cofrestr",
+      "einvoice": "E-anfoneb",
+      "einvoiceFilters": {
+        "registered": "IRN wedi’i gofrestru",
+        "none": "Heb ei chofrestru",
+        "cancelled": "IRN wedi’i ddiddymu"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Crëwch broffil cyflwynydd yn gyntaf",
+      "noProfileDescription": "Cyflwynir anfoneb o hunaniaeth gyfreithiol: sefydlwch eich proffil gyda’i ID treth a’i rifo.",
+      "createProfile": "Creu proffil"
+    },
+    "edit": {
+      "metaTitle": "Golygu’r anfoneb",
+      "title": "Golygu’r drafft",
+      "immutableFlash": "Mae anfonebau a gyflwynwyd yn ddigyfnewid. Defnyddiwch “Dirymu ac ailgyflwyno” i’w chywiro."
+    },
+    "detail": {
+      "metaTitle": "Anfoneb",
+      "draftInvoice": "Anfoneb ddrafft",
+      "issuedDue": "Cyflwynwyd <mono>{issued}</mono>, dyledus <mono>{due}</mono>",
+      "replaces": "Yn disodli {number}",
+      "replacedBy": "Wedi’i disodli gan {number}",
+      "previewPdf": "Rhagolwg PDF",
+      "downloadEInvoice": "Lawrlwytho JSON e-anfoneb",
+      "issueTitle": "Cyflwyno’r anfoneb hon?",
+      "issueDescription": "Dyrennir rhif a daw’r ddogfen yn ddigyfnewid.",
+      "issue": "Cyflwyno",
+      "deleteDraftTitle": "Dileu’r drafft hwn?",
+      "sendByEmail": "Anfon drwy e-bost",
+      "recordPayment": "Cofnodi taliad",
+      "progress": {
+        "title": "Cynnydd y taliad",
+        "description": "Ble mae'r anfoneb hon arni, o'i chyhoeddi hyd at dderbynneb ar ffeil.",
+        "issued": "Cyhoeddwyd",
+        "sent": "Anfonwyd",
+        "payment": "Taliad wedi'i gofnodi",
+        "paymentOn": "Taliad o <mono>{amount}</mono> wedi'i gofnodi ar <mono>{date}</mono>",
+        "paid": "Talwyd yn llawn",
+        "receipt": "Derbynneb ynghlwm",
+        "done": "wedi'i wneud",
+        "pending": "yn aros"
+      },
+      "creditNote": "Nodyn credyd",
+      "markSentTitle": "Nodi fel wedi’i anfon?",
+      "markSentDescription": "Cofnodi bod y cleient wedi derbyn yr anfoneb hon.",
+      "markSent": "Nodi fel wedi’i anfon",
+      "voidReissueTitle": "Dirymu ac ailgyflwyno?",
+      "voidReissueDescription": "Dirymir y gwreiddiol ac agorir drafft cysylltiedig â’r un cynnwys i’w olygu.",
+      "voidReissue": "Dirymu ac ailgyflwyno",
+      "voidTitle": "Dirymu’r anfoneb hon?",
+      "voidDescription": "Dim ond heb daliadau wedi’u cofnodi; ni ailddefnyddir y rhif byth.",
+      "void": "Dirymu",
+      "voided": "Dirymwyd {date}: {reason}",
+      "amounts": "Symiau",
+      "subtotal": "Is-gyfanswm",
+      "discount": "Gostyngiad",
+      "discountPercent": "Gostyngiad ({percent})",
+      "rounding": "Talgrynnu",
+      "tdsExpected": "TDS disgwyliedig ({percent})",
+      "paid": "Talwyd",
+      "credited": "Credydwyd",
+      "balanceDue": "Balans dyledus",
+      "supply": "Cyflenwad",
+      "fxToBase": "Cyfradd gyfnewid i’r sylfaen",
+      "poReference": "Cyfeirnod PO",
+      "sent": "Anfonwyd",
+      "lineItems": "Eitemau llinell",
+      "columns": {
+        "description": "Disgrifiad",
+        "sacHsn": "SAC/HSN",
+        "qty": "Nifer",
+        "rate": "Cyfradd",
+        "tax": "Treth",
+        "amount": "Swm"
+      },
+      "creditNotes": "Nodiadau credyd",
+      "storedDocuments": "Dogfennau wedi’u storio",
+      "storedDocumentsHint": "Cedwir pob fersiwn; mae’r dudalen ddilysu’n rhestru’r holl hashes.",
+      "regenerateTitle": "Cynhyrchu fersiwn PDF newydd?",
+      "regenerateDescription": "Yn cynhyrchu eto o’r ciplun wedi’i rewi (er enghraifft ar ôl trwsio’r cynhyrchydd). Mae fersiynau cynharach yn aros.",
+      "regenerate": "Cynhyrchu",
+      "newVersion": "Fersiwn newydd",
+      "renderedOnFirstDownload": "Caiff y PDF ei gynhyrchu wrth y lawrlwythiad cyntaf.",
+      "protectedCopy": "Copi wedi’i ddiogelu â chyfrinair {version}",
+      "version": "Fersiwn {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Dolen ddilysu:",
+      "draftPreviewHint": "Mae drafftiau’n rhagolygu’n fyw yn y golygydd; agorwch <link>y PDF gyda dyfrnod</link> i weld y dudalen.",
+      "einvoice": {
+        "title": "E-anfoneb (India)",
+        "description": "Cofrestru’r anfoneb hon gyda’r Invoice Registration Portal; mae dogfen gofrestredig yn argraffu ei IRN a chod QR llofnodedig y porth.",
+        "connector": "Cysylltydd",
+        "connectors": {
+          "manual": "Â llaw",
+          "nic": "API NIC IRP"
+        },
+        "notConfigured": "Nid oes cysylltydd wedi’i ffurfweddu ar gyfer y proffil hwn o dan Gosodiadau > E-anfonebu.",
+        "statuses": {
+          "none": "Heb ei chofrestru",
+          "generated": "JSON wedi’i gynhyrchu",
+          "registered": "Cofrestredig",
+          "cancelled": "Wedi’i ddiddymu",
+          "failed": "Methodd y cofrestru"
+        },
+        "irn": "IRN",
+        "ackNo": "Rhif cydnabod",
+        "ackDate": "Dyddiad cydnabod",
+        "cancelReason": "Diddymu",
+        "generate": "Cynhyrchu IRN",
+        "pasteLabel": "Ymateb IRP",
+        "pasteHint": "Gludwch y JSON a ddychwelodd y porth neu eich GSP ar gyfer JSON e-anfoneb yr anfoneb hon (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Cofnodi IRN",
+        "cancelReasonLabel": "Rheswm dros ddiddymu",
+        "cancelReasons": {
+          "1": "Dyblyg",
+          "2": "Camgymeriad wrth fewnbynnu data",
+          "3": "Archeb wedi’i diddymu",
+          "4": "Arall"
+        },
+        "cancel": "Diddymu IRN",
+        "cancelWindow": "Mae’r porth yn caniatáu diddymu o fewn 24 awr i’r cydnabyddiaeth."
+      }
+    },
+    "history": {
+      "metaTitle": "Hanes yr anfoneb",
+      "title": "Hanes <mono>{number}</mono>",
+      "reissueChain": "Cadwyn ailgyflwyno",
+      "replaces": "Yn disodli <link>{number}</link>",
+      "replacedBy": "Wedi’i disodli gan <link>{number}</link>",
+      "auditTrail": "Trywydd archwilio",
+      "columns": {
+        "when": "Pryd",
+        "who": "Pwy",
+        "action": "Gweithred",
+        "summary": "Crynodeb"
+      },
+      "noEvents": "Dim digwyddiadau eto.",
+      "system": "System",
+      "emails": "E-byst"
+    },
+    "payments": {
+      "title": "Taliadau",
+      "description": "{client} · {total} i gyd",
+      "backToInvoice": "Yn ôl i’r anfoneb",
+      "ledger": "Cyfriflyfr",
+      "columns": {
+        "date": "Dyddiad",
+        "kind": "Math",
+        "applied": "Cymhwyswyd",
+        "tds": "TDS",
+        "received": "Derbyniwyd",
+        "reference": "Cyfeirnod",
+        "balance": "Balans"
+      },
+      "noPayments": "Dim taliadau wedi’u cofnodi eto.",
+      "kinds": {
+        "payment": "Taliad",
+        "refund": "Ad-daliad",
+        "writeOff": "Dileu dyled"
+      },
+      "receipt": "Derbynneb",
+      "receiptN": "Derbynneb {n}",
+      "deleteEntryTitle": "Dileu’r cofnod hwn?",
+      "deleteEntryDescription": "Caiff balans yr anfoneb ei ailgyfrifo.",
+      "totals": "Cyfansymiau",
+      "invoiceTotal": "Cyfanswm yr anfoneb",
+      "credited": "Credydwyd",
+      "refunds": "Ad-daliadau",
+      "writeOffs": "Dileuon dyled",
+      "tdsDeducted": "TDS a ddidynnwyd",
+      "bankFees": "Ffioedd banc",
+      "balanceDue": "Balans dyledus",
+      "onlyIssued": "Dim ond anfonebau a gyflwynwyd sy’n derbyn taliadau."
+    },
+    "send": {
+      "metaTitle": "Anfon yr anfoneb",
+      "title": "Anfon <mono>{number}</mono>",
+      "alreadySent": "Eisoes wedi’i nodi fel wedi’i anfon; mae anfon eto’n ychwanegu cofnod log arall.",
+      "previousSends": "Anfoniadau blaenorol"
+    },
+    "builder": {
+      "parties": "Partïon",
+      "issuerProfile": "Proffil y cyflwynydd",
+      "client": "Cleient",
+      "archivedOption": "{label} (wedi’i archifo)",
+      "issueDate": "Dyddiad cyflwyno",
+      "dueDate": "Dyddiad dyledus",
+      "fxRate": "Cyfradd gyfnewid i’r arian cyfred sylfaenol",
+      "fxHint": "1 {currency} = ? {base} (adrodd yn unig)",
+      "poReference": "Cyfeirnod PO",
+      "lineItems": "Eitemau llinell",
+      "lineItemsHint": "Dewiswch o’r catalog i gopïo ei werthoedd, neu teipiwch linell.",
+      "taxDiscountTds": "Treth, gostyngiad a TDS",
+      "taxRegime": "Trefn dreth",
+      "regimes": {
+        "indiaGst": "GST India",
+        "ukVat": "TAW y DU",
+        "usSalesTax": "Treth gwerthiant yr UD",
+        "none": "Dim treth"
+      },
+      "reverseCharge": "Gwrthdroi’r tâl",
+      "reverseChargeHint": "Treth sy’n daladwy gan y derbynnydd",
+      "discount": "Gostyngiad",
+      "percent": "Canran",
+      "amount": "Swm",
+      "rounding": "Addasiad talgrynnu",
+      "roundingHint": "Dewisol, i uned gyfan; rhaid iddo fod o dan 1",
+      "round": "Talgrynnu",
+      "tdsRate": "Cyfradd TDS ddisgwyliedig (%)",
+      "tdsRateHint": "Gwybodaeth yn unig; wedi’i argraffu pan fo dadansoddiad TDS ymlaen",
+      "paymentMethods": "Dulliau talu",
+      "paymentMethodsHint": "Wedi’u hargraffu yn y drefn y’u ticiwyd.",
+      "noPaymentMethods": "Dim dulliau talu gweithredol. <link>Ychwanegu un</link>.",
+      "whatPrints": "Beth sy’n cael ei argraffu",
+      "whatPrintsHint": "Yn cychwyn o ragosodiadau proffil y cyflwynydd.",
+      "documentLanguage": "Iaith y ddogfen",
+      "documentLanguageHint": "Mae labeli, dyddiadau a symiau yn cael eu hargraffu yn yr iaith hon; dewis y cleient, fel arall iaith y proffil.",
+      "notesAndTerms": "Nodiadau a thelerau",
+      "notes": "Nodiadau",
+      "terms": "Telerau",
+      "saveDraft": "Cadw’r drafft",
+      "issuing": "Yn cyflwyno…",
+      "saveAndIssue": "Cadw a chyflwyno",
+      "subtotal": "Is-gyfanswm",
+      "tax": "Treth",
+      "tdsExpected": "TDS disgwyliedig",
+      "netExpected": "Net disgwyliedig"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Ychwanegu o’r catalog…",
+      "services": "Gwasanaethau",
+      "products": "Cynhyrchion",
+      "addLine": "Ychwanegu llinell",
+      "columns": {
+        "description": "Disgrifiad",
+        "sacHsn": "SAC/HSN",
+        "qty": "Nifer",
+        "unit": "Uned",
+        "rate": "Cyfradd",
+        "taxPercent": "Treth %"
+      },
+      "aria": {
+        "description": "Disgrifiad llinell {line}",
+        "sacHsn": "SAC/HSN llinell {line}",
+        "quantity": "Nifer llinell {line}",
+        "unit": "Uned llinell {line}",
+        "rate": "Cyfradd llinell {line}",
+        "taxRate": "Cyfradd dreth llinell {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Wedi’i eithrio",
+      "moveUp": "Symud i fyny",
+      "moveDown": "Symud i lawr",
+      "removeLine": "Dileu’r llinell",
+      "shortcutHint": "Mae Ctrl/⌘+Enter mewn disgrifiad yn ychwanegu llinell.",
+      "addFromCatalogueAria": "Ychwanegu o’r catalog"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Manylion y cyflwynydd",
+        "client": "Manylion y cleient",
+        "document": "Adrannau’r ddogfen"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Enw masnachu",
+        "showDesignation": "Teitl swydd",
+        "showEmail": "E-bost",
+        "showPhone": "Ffôn",
+        "showWebsite": "Gwefan",
+        "showFullAddress": "Cyfeiriad llawn",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Llofnod",
+        "showStamp": "Stamp",
+        "showContactPerson": "Person cyswllt",
+        "showBillingAddress": "Cyfeiriad bilio",
+        "showShippingAddress": "Cyfeiriad cludo",
+        "showTaxIdentifier": "Dynodwr treth",
+        "showPlaceOfSupply": "Man cyflenwi",
+        "showDueDate": "Dyddiad dyledus",
+        "showPaymentTerms": "Telerau talu",
+        "showSacCodeColumn": "Colofn cod SAC",
+        "showQuantityColumn": "Colofn nifer",
+        "showUnitPriceColumn": "Colofn pris uned",
+        "showTaxColumn": "Colofn treth",
+        "showTdsBreakdown": "Dadansoddiad TDS",
+        "showQrVerification": "Dilysu QR",
+        "showNotes": "Nodiadau",
+        "showTerms": "Telerau",
+        "showReplacesReference": "Cyfeirnod yr anfoneb a ddisodlir",
+        "showAmountInWords": "Swm mewn geiriau",
+        "showSupplyStatement": "Datganiad cyflenwi",
+        "showRoundingLine": "Llinell dalgrynnu",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Cleientiaid",
+      "description": "Pawb rydych yn eu bilio. Mae cleientiaid ag anfonebau’n cael eu harchifo, byth eu dileu.",
+      "newClient": "Cleient newydd",
+      "searchPlaceholder": "Chwilio yn ôl enw",
+      "searchLabel": "Chwilio cleientiaid",
+      "emptyTitle": "Dim cleientiaid eto",
+      "emptyDescription": "Ychwanegwch y bobl a’r cwmnïau rydych yn eu hanfonebu; mae eu harian cyfred a’u telerau talu yn llenwi pob anfoneb ymlaen llaw.",
+      "addClient": "Ychwanegu cleient",
+      "noMatch": "Nid oes cleientiaid yn cyfateb i “{q}”.",
+      "termsDays": "{days} d",
+      "columns": {
+        "name": "Enw",
+        "contact": "Cyswllt",
+        "email": "E-bost",
+        "country": "Gwlad",
+        "currency": "Arian cyfred",
+        "terms": "Telerau",
+        "status": "Statws"
+      }
+    },
+    "new": {
+      "title": "Cleient newydd"
+    },
+    "edit": {
+      "metaTitle": "Golygu’r cleient",
+      "title": "Golygu {name}"
+    },
+    "detail": {
+      "metaTitle": "Cleient",
+      "newInvoice": "Anfoneb newydd",
+      "restoreTitle": "Adfer y cleient hwn?",
+      "archiveTitle": "Archifo’r cleient hwn?",
+      "archiveDescription": "Mae’n gadael y dewiswyr; mae anfonebau a hanes yn aros yn gyfan.",
+      "deleteTitle": "Dileu’r cleient hwn?",
+      "deleteDescription": "Dim ond tra nad oes anfoneb yn cyfeirio at y cleient.",
+      "details": "Manylion",
+      "contact": "Cyswllt",
+      "email": "E-bost",
+      "phone": "Ffôn",
+      "country": "Gwlad",
+      "gstState": "GST {code}",
+      "taxId": "ID treth",
+      "currency": "Arian cyfred",
+      "paymentTerms": "Telerau talu",
+      "paymentTermsDays": "{days} diwrnod",
+      "expectedTds": "TDS disgwyliedig",
+      "notes": "Nodiadau",
+      "addresses": "Cyfeiriadau",
+      "billing": "Bilio",
+      "shipping": "Cludo",
+      "lifetime": "Oes gyfan",
+      "openRegister": "Agor y gofrestr",
+      "noIssued": "Dim anfonebau a gyflwynwyd eto.",
+      "noIssuedWithDrafts": "Dim anfonebau a gyflwynwyd eto ({drafts} drafft).",
+      "firstLatest": "Anfoneb gyntaf <mono>{first}</mono>, ddiweddaraf <mono>{latest}</mono>{drafts, plural, =0 {} other { · # drafft}}",
+      "lifetimeColumns": {
+        "currency": "Arian cyfred",
+        "invoices": "Anfonebau",
+        "billed": "Biliwyd",
+        "received": "Derbyniwyd",
+        "credited": "Credydwyd",
+        "outstanding": "Heb ei dalu",
+        "overdue": "Gorddyledus"
+      },
+      "recentInvoices": "Anfonebau diweddar",
+      "noInvoices": "Dim anfonebau ar gyfer y cleient hwn eto.",
+      "recentColumns": {
+        "number": "Rhif",
+        "issueDate": "Dyddiad cyflwyno",
+        "due": "Dyledus",
+        "total": "Cyfanswm",
+        "balance": "Balans",
+        "status": "Statws"
+      }
+    },
+    "form": {
+      "cardTitle": "Cleient",
+      "displayName": "Enw arddangos",
+      "contactPerson": "Person cyswllt",
+      "email": "E-bost",
+      "phone": "Ffôn",
+      "taxIdType": "Math o ID treth",
+      "taxIdTypeNone": "Dim",
+      "taxId": "ID treth",
+      "currency": "Arian cyfred",
+      "paymentTerms": "Telerau talu (diwrnodau)",
+      "expectedTdsRate": "Cyfradd TDS ddisgwyliedig (%)",
+      "preferredLanguage": "Iaith y ddogfen",
+      "preferredLanguageFollow": "Dilyn proffil y cyhoeddwr",
+      "buyerReference": "Cyfeirnod y prynwr",
+      "buyerReferenceHint": "Wedi’i argraffu mewn e-anfonebau fel cyfeirnod y prynwr ei hun (rhif archeb neu ganolfan gost).",
+      "electronicAddress": "Cyfeiriad electronig",
+      "electronicAddressHint": "Yr dynodydd Peppol neu EN 16931 y mae’r cleient hwn yn derbyn e-anfonebau oddi tano.",
+      "electronicAddressScheme": "Cynllun cyfeiriad electronig",
+      "electronicAddressSchemeNone": "Dim cynllun",
+      "notes": "Nodiadau",
+      "billingAddress": "Cyfeiriad bilio",
+      "shippingAddress": "Cyfeiriad cludo",
+      "differentFromBilling": "Gwahanol i’r cyfeiriad bilio",
+      "save": "Cadw’r cleient"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Awr",
+      "DAY": "Diwrnod",
+      "FIXED": "Sefydlog",
+      "MILESTONE": "Carreg filltir",
+      "UNIT": "Uned"
+    },
+    "list": {
+      "activate": "Gweithredu",
+      "deactivate": "Dadweithredu",
+      "archiveDescription": "Mae llinellau anfonebau presennol yn cadw eu gwerthoedd a gopïwyd.",
+      "deleteDescription": "Dim ond tra nad oes llinell anfoneb yn cyfeirio ato. Fel arall, archifwch ef.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Enw",
+        "unit": "Uned",
+        "rate": "Cyfradd",
+        "price": "Pris",
+        "currency": "Arian cyfred",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Treth",
+        "status": "Statws"
+      }
+    },
+    "services": {
+      "title": "Gwasanaethau",
+      "description": "Eich catalog. Mae dewis gwasanaeth yn copïo ei werthoedd i linell yr anfoneb.",
+      "newService": "Gwasanaeth newydd",
+      "emptyTitle": "Dim gwasanaethau eto",
+      "emptyDescription": "Ychwanegwch yr hyn rydych yn ei werthu - dylunio fesul awr, carreg filltir ffi sefydlog - gyda’i god SAC/HSN a’i gyfradd dreth.",
+      "addService": "Ychwanegu gwasanaeth",
+      "restoreTitle": "Adfer {name}?",
+      "archiveTitle": "Archifo {name}?",
+      "deleteTitle": "Dileu {name}?",
+      "editMetaTitle": "Golygu’r gwasanaeth",
+      "editTitle": "Golygu {name}"
+    },
+    "products": {
+      "title": "Cynhyrchion",
+      "description": "Nwyddau rydych yn eu gwerthu, pob un â SKU. Mae dewis cynnyrch yn copïo ei werthoedd i linell yr anfoneb.",
+      "newProduct": "Cynnyrch newydd",
+      "emptyTitle": "Dim cynhyrchion eto",
+      "emptyDescription": "Ychwanegwch y nwyddau rydych yn eu gwerthu gyda SKU, cod HSN, pris uned a chyfradd dreth.",
+      "addProduct": "Ychwanegu cynnyrch",
+      "restoreTitle": "Adfer {sku}?",
+      "archiveTitle": "Archifo {sku}?",
+      "deleteTitle": "Dileu {sku}?",
+      "editMetaTitle": "Golygu’r cynnyrch",
+      "editTitle": "Golygu {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Cod unigryw wedi’i argraffu o dan ddisgrifiad y llinell",
+      "name": "Enw",
+      "unit": "Uned",
+      "defaultRate": "Cyfradd ragosodedig",
+      "unitPrice": "Pris uned",
+      "currency": "Arian cyfred",
+      "sacHsnCode": "Cod SAC / HSN",
+      "sacHsnHint": "Gofynnol ar anfonebau GST",
+      "hsnCode": "Cod HSN",
+      "hsnHint": "Gofynnol ar anfonebau GST ar gyfer nwyddau",
+      "defaultTaxRate": "Cyfradd dreth ragosodedig (%)",
+      "description": "Disgrifiad",
+      "descriptionHint": "Yn llenwi disgrifiad y llinell ymlaen llaw",
+      "active": "Gweithredol",
+      "serviceInactiveHint": "Nid yw gwasanaethau anweithredol yn ymddangos yn newisydd yr anfoneb",
+      "productInactiveHint": "Nid yw cynhyrchion anweithredol yn ymddangos yn newisydd yr anfoneb",
+      "saveService": "Cadw’r gwasanaeth",
+      "saveProduct": "Cadw’r cynnyrch"
+    },
+    "tags": {
+      "legend": "Proffiliau",
+      "hint": "Ticiwch y proffiliau cyflwynydd sy’n gwerthu hwn. Gadewch bob un heb ei dicio i’w gynnig i bob proffil."
+    }
+  },
+  "address": {
+    "line1": "Llinell cyfeiriad 1",
+    "line2": "Llinell cyfeiriad 2",
+    "city": "Dinas",
+    "stateRegion": "Talaith / rhanbarth",
+    "postalCode": "Cod post",
+    "country": "Gwlad",
+    "state": "Talaith",
+    "gstStateCodeHint": "Cod talaith GST {code}",
+    "pickStateHint": "Dewiswch y dalaith ar gyfer cod talaith GST",
+    "stateRegionCode": "Cod talaith / rhanbarth",
+    "stateRegionCodePlaceholder": "e.e. CA"
+  },
+  "assets": {
+    "tooLarge": "Mae’r ffeil honno’n rhy fawr.",
+    "unsupportedReceipt": "Defnyddiwch ddelwedd PNG, JPEG, WebP neu PDF.",
+    "unsupportedImage": "Defnyddiwch ddelwedd PNG, JPEG neu WebP.",
+    "uploadFailed": "Methodd y llwytho i fyny.",
+    "uploading": "Yn llwytho i fyny…",
+    "dropHint": "Llusgwch ffeil yma, neu dewiswch un",
+    "dropHintMany": "Llusgwch ffeiliau yma, neu dewiswch nhw",
+    "dropActive": "Gollyngwch i uwchlwytho"
+  },
+  "ui": {
+    "breadcrumb": "Briwsion bara",
+    "close": "Cau",
+    "closeMenu": "Cau’r ddewislen",
+    "reveal": "Datgelu",
+    "hide": "Cuddio",
+    "openCalendar": "Agor y calendr",
+    "chooseMonth": "Dewiswch fis",
+    "chooseYear": "Dewiswch flwyddyn",
+    "searchOptions": "Teipiwch i chwilio",
+    "noMatches": "Dim canlyniadau",
+    "pullToRefresh": {
+      "label": "Rhestr adnewyddadwy",
+      "pulling": "Tynnwch i adnewyddu",
+      "release": "Rhyddhewch i adnewyddu",
+      "refreshing": "Yn adnewyddu"
+    },
+    "inputCharset": "Dim ond nodau bysellfwrdd safonol a ganiateir.",
+    "confirm": {
+      "working": "Yn gweithio…"
+    },
+    "statusPill": {
+      "DRAFT": "Drafft",
+      "ISSUED": "Wedi’i gyflwyno",
+      "SENT": "Wedi’i anfon",
+      "PARTIALLY_PAID": "Wedi’i dalu’n rhannol",
+      "PAID": "Wedi’i dalu",
+      "OVERDUE": "Gorddyledus",
+      "VOID": "Wedi’i ddirymu"
+    },
+    "activePill": {
+      "active": "Gweithredol",
+      "archived": "Wedi’i archifo",
+      "inactive": "Anweithredol"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Aeth rhywbeth o’i le.",
+    "fixFields": "Cywirwch y meysydd a amlygwyd.",
+    "accountSaved": "Cadwyd dewisiadau’r cyfrif",
+    "apiKeyCreated": "Crëwyd yr allwedd API. Copïwch hi nawr: dim ond unwaith y caiff ei dangos.",
+    "saved": "Cadwyd {name}",
+    "savedProfile": "Cadwyd y proffil {label}",
+    "clientArchived": "Archifwyd y cleient",
+    "clientRestored": "Adferwyd y cleient",
+    "clientDeleted": "Dilëwyd y cleient",
+    "productArchived": "Archifwyd y cynnyrch",
+    "productRestored": "Adferwyd y cynnyrch",
+    "productActivated": "Gweithredwyd y cynnyrch",
+    "productDeactivated": "Dadweithredwyd y cynnyrch",
+    "serviceArchived": "Archifwyd y gwasanaeth",
+    "serviceRestored": "Adferwyd y gwasanaeth",
+    "serviceActivated": "Gweithredwyd y gwasanaeth",
+    "serviceDeactivated": "Dadweithredwyd y gwasanaeth",
+    "defaultProfileUpdated": "Diweddarwyd y proffil rhagosodedig",
+    "profileArchived": "Archifwyd y proffil",
+    "profileRestored": "Adferwyd y proffil",
+    "profileDeleted": "Dilëwyd y proffil",
+    "defaultPaymentMethodUpdated": "Diweddarwyd y dull talu rhagosodedig",
+    "paymentMethodArchived": "Archifwyd y dull talu",
+    "paymentMethodRestored": "Adferwyd y dull talu",
+    "paymentMethodDeleted": "Dilëwyd y dull talu",
+    "issued": "Cyflwynwyd {number}",
+    "savedAsDraft": "Cadwyd fel drafft. {reason}",
+    "draftSaved": "Cadwyd y drafft",
+    "invoiceVoided": "Dirymwyd yr anfoneb",
+    "originalVoided": "Dirymwyd y gwreiddiol; golygwch y drafft newydd",
+    "markedAsSent": "Nodwyd fel wedi’i anfon",
+    "draftDeleted": "Dilëwyd y drafft",
+    "generatedPdf": "Cynhyrchwyd fersiwn PDF {version}",
+    "creditNoteVoided": "Dirymwyd y nodyn credyd; adferwyd balans yr anfoneb",
+    "draftCreditNoteDeleted": "Dilëwyd y nodyn credyd drafft",
+    "mailRefused": "Gwrthododd y gweinydd post y neges: {error}. Cofnodwyd yr ymgais.",
+    "unknownError": "gwall anhysbys",
+    "sentTo": "Anfonwyd at {recipients}",
+    "smtpSaved": "Cadwyd y gosodiadau SMTP",
+    "smtpRemoved": "Dilëwyd y gosodiadau SMTP sydd wedi’u storio",
+    "testEmailSent": "Anfonwyd e-bost prawf i {email}",
+    "testFailed": "Methodd y prawf: {error}",
+    "defaultRecipientsSaved": "Cadwyd y derbynwyr rhagosodedig",
+    "invitationSent": "Anfonwyd y gwahoddiad",
+    "invitationReady": "Mae’r gwahoddiad yn barod",
+    "unknownRole": "Rôl anhysbys",
+    "roleUpdated": "Diweddarwyd y rôl",
+    "accountDeactivated": "Dadweithredwyd y cyfrif",
+    "accountReactivated": "Ail-weithredwyd y cyfrif",
+    "invitationRevoked": "Dirymwyd y gwahoddiad",
+    "paymentUpdated": "Diweddarwyd y taliad",
+    "paymentRecorded": "Cofnodwyd y taliad",
+    "paymentDeleted": "Dilëwyd y taliad",
+    "sessionRevoked": "Dirymwyd y sesiwn",
+    "noOtherSessions": "Dim sesiynau eraill",
+    "signedOutOthers": "Allgofnodwyd o {count} sesiwn arall",
+    "sharePasswordRequired": "Rhowch gyfrinair, neu gadewch i un gael ei gynhyrchu.",
+    "shareLinkCreated": "Crëwyd y ddolen rannu.",
+    "templateSaved": "Cadwyd y templed; bydd dogfennau’r dyfodol yn ei ddefnyddio",
+    "templateReset": "Ailosodwyd y templed i’r rhagosodiad mewnol",
+    "templateImported": "Mewnforiwyd y templed",
+    "profileTemplateCleared": "Mae’r proffil yn defnyddio templed yr enghraifft eto",
+    "operatorSaved": "Cadwyd manylion y gweithredwr. Mae’r tudalennau cyfreithiol yn eu dangos nawr.",
+    "einvoiceSettingsSaved": "Cadwyd gosodiadau e-anfonebu",
+    "irnRegistered": "Cofrestrwyd IRN {irn}; cafodd y PDF ei ail-gynhyrchu gydag ef",
+    "irnRecorded": "Cofnodwyd IRN; cafodd y PDF ei ail-gynhyrchu gydag ef",
+    "irnCancelled": "Diddymwyd IRN; cafodd y PDF ei ail-gynhyrchu"
+  }
+}

@@ -16,6 +16,7 @@ const actor: Actor = {
   name: "O",
   role: "OWNER",
   timezone: "UTC",
+  locale: "en-US",
 };
 const tag = `pay-${Date.now()}`;
 const address = {

@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { withFlash } from "@/lib/flash";
 import { formToObject, parseObject } from "@/lib/forms";
 import { ClientInputSchema } from "@/lib/schemas/client-input";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import {
   archiveClient,
   createClient,
@@ -13,7 +13,7 @@ import {
   unarchiveClient,
   updateClient,
 } from "@/server/dal/clients";
-import { errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
+import { actionT, errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
 
 const LIST = "/clients";
 
@@ -22,7 +22,8 @@ export async function saveClient(
   _prev: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const raw = formToObject(formData);
   // One country select serves the client and both address blocks; shipping is optional.
   const withCountry = (a: unknown) => ({
@@ -44,7 +45,10 @@ export async function saveClient(
   revalidatePath(LIST);
   revalidatePath(`${LIST}/${saved.id}`);
   redirect(
-    withFlash(`${LIST}/${saved.id}`, { kind: "success", message: `Saved ${saved.displayName}` }),
+    withFlash(`${LIST}/${saved.id}`, {
+      kind: "success",
+      message: t("saved", { name: saved.displayName }),
+    }),
   );
 }
 
@@ -53,30 +57,33 @@ async function simple(formData: FormData, fn: () => Promise<void>, success: stri
   try {
     await fn();
   } catch (e) {
-    redirect(withFlash(back, { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(back, { kind: "error", message: await errorMessage(e) }));
   }
   revalidatePath(LIST);
   redirect(withFlash(back, { kind: "success", message: success }));
 }
 
 export async function archiveClientAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
-  await simple(formData, () => archiveClient(actor, str(formData, "id")), "Client archived");
+  const actor = await requireRole("EDITOR");
+  const t = await actionT();
+  await simple(formData, () => archiveClient(actor, str(formData, "id")), t("clientArchived"));
 }
 
 export async function unarchiveClientAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
-  await simple(formData, () => unarchiveClient(actor, str(formData, "id")), "Client restored");
+  const actor = await requireRole("EDITOR");
+  const t = await actionT();
+  await simple(formData, () => unarchiveClient(actor, str(formData, "id")), t("clientRestored"));
 }
 
 export async function deleteClientAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const id = str(formData, "id");
   try {
     await deleteClient(actor, id);
   } catch (e) {
-    redirect(withFlash(`${LIST}/${id}`, { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(`${LIST}/${id}`, { kind: "error", message: await errorMessage(e) }));
   }
   revalidatePath(LIST);
-  redirect(withFlash(LIST, { kind: "success", message: "Client deleted" }));
+  redirect(withFlash(LIST, { kind: "success", message: t("clientDeleted") }));
 }

@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Home di okinvo",
+    "save": "Salva",
+    "cancel": "Annulla",
+    "continue": "Continua",
+    "saving": "Salvataggio…",
+    "detect": "Rileva",
+    "yes": "Sì",
+    "no": "No",
+    "choose": "Scegli…",
+    "remove": "Rimuovi",
+    "tryAgain": "Riprova",
+    "dashboard": "Dashboard",
+    "goToDashboard": "Vai alla dashboard",
+    "or": "o",
+    "invoice": "Fattura",
+    "creditNote": "Nota di credito",
+    "downloadPdf": "Scarica PDF",
+    "edit": "Modifica",
+    "delete": "Elimina",
+    "downloadDocx": "Scarica DOCX",
+    "downloadCii": "Scarica EN 16931 XML",
+    "downloadUbl": "Scarica Peppol UBL",
+    "downloadFacturX": "Scarica Factur-X PDF",
+    "none": "Nessuno",
+    "dismiss": "Chiudi",
+    "all": "Tutti",
+    "previous": "Precedente",
+    "next": "Successivo",
+    "go": "Vai",
+    "search": "Cerca",
+    "status": "Stato",
+    "total": "Totale",
+    "currency": "Valuta",
+    "from": "Da",
+    "to": "A",
+    "reason": "Motivo",
+    "history": "Cronologia",
+    "archive": "Archivia",
+    "restore": "Ripristina",
+    "showArchived": "Mostra archiviati",
+    "hideArchived": "Nascondi archiviati",
+    "archived": "Archiviato",
+    "default": "Predefinito",
+    "setDefault": "Imposta come predefinito",
+    "revoke": "Revoca",
+    "copy": "Copia",
+    "copied": "Copiato",
+    "active": "Attivo",
+    "pagination": "Paginazione",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "invoices": "Fatture",
+      "creditNotes": "Note di credito",
+      "clients": "Clienti",
+      "services": "Servizi",
+      "products": "Prodotti",
+      "tools": "Valute"
+    },
+    "primaryNav": "Principale",
+    "settings": "Impostazioni",
+    "openMenu": "Apri il menu",
+    "more": "Altro",
+    "navigation": "Navigazione",
+    "dock": "Navigazione rapida",
+    "pagesAndAccount": "Pagine e account",
+    "collapseSidebar": "Comprimi la barra laterale",
+    "collapseSidebarHint": "Comprimi la barra laterale ([)",
+    "expandSidebar": "Espandi la barra laterale",
+    "expandSidebarHint": "Espandi la barra laterale ([)",
+    "theme": {
+      "label": "Tema",
+      "system": "Sistema",
+      "light": "Chiaro",
+      "dark": "Scuro",
+      "current": "Tema: {mode}",
+      "switchTo": "Tema: {mode}. Passa a {next}"
+    },
+    "userMenu": {
+      "label": "Menu dell’account di {name}",
+      "profile": "Profilo",
+      "logOut": "Esci"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Convertitore di valute",
+      "title": "Convertitore di valute",
+      "description": "Converti tra le valute in cui fatturi con la tabella dei cambi di questa istanza.",
+      "amount": "Importo",
+      "from": "Da",
+      "to": "A",
+      "flip": "Scambia le valute",
+      "enterAmount": "Inserisci un importo",
+      "asOf": "Cambi al {date} ({source})",
+      "sources": {
+        "bundled": "inclusi nell'app",
+        "live": "aggiornati online"
+      },
+      "note": "I cambi sono indicativi; il cambio di una fattura emessa è quello che hai inserito al momento dell'emissione."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Accedi",
+      "metaDescription": "Accedi a okinvo, l’app di fatturazione self-hosted, con il tuo provider di identità o la tua password.",
+      "title": "Accedi",
+      "subtitle": "Possono accedere solo gli account autorizzati.",
+      "failed": "Accesso non riuscito.",
+      "noMethod": "Nessun metodo di accesso è configurato. Imposta in <code>.env</code> una coppia di variabili di un provider, come <code>AUTH_GITHUB_*</code>, oppure <code>AUTH_PASSWORD_SIGNIN=true</code>.",
+      "errors": {
+        "not_allowed": "Questo account non è autorizzato su questa istanza oppure è stato disattivato.",
+        "signin": "L’accesso non è stato completato. Riprova."
+      }
+    },
+    "password": {
+      "name": "Nome",
+      "email": "Email",
+      "password": "Password",
+      "signingIn": "Accesso in corso…",
+      "createAccount": "Crea account",
+      "signIn": "Accedi",
+      "haveAPassword": "Ho già una password",
+      "firstTime": "Prima volta qui? Imposta una password",
+      "failed": "Accesso non riuscito."
+    },
+    "social": {
+      "redirecting": "Reindirizzamento…",
+      "continueWith": "Continua con {provider}",
+      "failed": "Impossibile avviare l’accesso."
+    },
+    "error": {
+      "metaTitle": "Errore di accesso",
+      "metaDescription": "L’accesso non è stato completato. La pagina spiega cosa è andato storto e come riprovare.",
+      "title": "Accesso non riuscito",
+      "body": "Il provider di identità ha restituito <code>{value}</code>. Se il tuo indirizzo non è nell’elenco degli accessi consentiti di questa istanza, chiedi al proprietario di aggiungerlo.",
+      "back": "Torna all’accesso"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Impostazioni",
+      "profiles": "Profili",
+      "paymentMethods": "Metodi di pagamento",
+      "templates": "Modelli",
+      "email": "Email",
+      "security": "Sicurezza",
+      "users": "Utenti",
+      "data": "Dati",
+      "legal": "Note legali",
+      "einvoicing": "Fatturazione elettronica",
+      "account": "Account",
+      "appearance": "Aspetto",
+      "api": "API",
+      "status": "Stato",
+      "usage": "Utilizzo"
+    },
+    "account": {
+      "metaTitle": "Account",
+      "title": "Account",
+      "description": "La tua foto, il nome, l’area geografica, la lingua e il fuso orario.",
+      "photo": {
+        "title": "Foto",
+        "description": "Mostrata nella barra laterale e nel menu utente."
+      },
+      "form": {
+        "title": "Account",
+        "description": "Come appari e quando è “oggi”.",
+        "displayName": "Nome visualizzato",
+        "signInEmail": "Email di accesso",
+        "signInEmailHint": "La tua identità su questa istanza; non può essere modificata qui.",
+        "timezone": "Fuso orario",
+        "timezoneHint": "“Oggi” per le date di emissione, le scadenze e la dashboard",
+        "regionTitle": "Area geografica",
+        "regionDescription": "Valori predefiniti per i nuovi profili emittente e per la dashboard finché non esiste un profilo.",
+        "country": "Paese",
+        "currency": "Valuta",
+        "suggested": "Suggerita per questo paese:",
+        "language": "Lingua",
+        "languageHint": "La lingua dell’app stessa. I documenti usano le impostazioni locali di ciascun profilo.",
+        "machineTranslated": "Questa lingua è stata tradotta automaticamente. Le correzioni sono benvenute: <link>miglioralo su GitHub</link>.",
+        "save": "Salva preferenze"
+      },
+      "regions": {
+        "Africa": "Africa",
+        "Americas": "Americhe",
+        "Asia": "Asia",
+        "Europe": "Europa",
+        "MiddleEast": "Medio Oriente",
+        "Oceania": "Oceania",
+        "Constructed": "Lingue costruite"
+      },
+      "privacy": {
+        "title": "Privacy",
+        "description": "okinvo imposta solo i cookie necessari al funzionamento. Nessuna analisi, nessun tracciamento.",
+        "cookiePolicy": "Cookie policy",
+        "showNoticeAgain": "Mostra di nuovo l’informativa sui cookie"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Cambia foto",
+      "addPhoto": "Aggiungi foto",
+      "hint": "PNG, JPEG o WebP. Viene mostrata ovunque in un cerchio; prima di salvare puoi ingrandirla e spostarla.",
+      "tooLarge": "La foto è troppo grande.",
+      "uploadFailed": "Caricamento non riuscito.",
+      "choose": "Scegli una foto del profilo",
+      "dialogTitle": "Posiziona la tua foto",
+      "dialogDescription": "Trascina per spostare, scorri o pizzica per ingrandire. Il cerchio è ciò che vedono tutti.",
+      "zoom": "Zoom",
+      "save": "Salva foto"
+    },
+    "appearance": {
+      "metaTitle": "Aspetto",
+      "title": "Aspetto",
+      "description": "Tema e colore di accento, salvati nel tuo account.",
+      "theme": {
+        "title": "Tema",
+        "description": "Segui il sistema oppure fissa il chiaro o lo scuro.",
+        "label": "Tema",
+        "system": "Segui il sistema",
+        "systemHint": "Cambia con il tuo sistema operativo",
+        "light": "Chiaro",
+        "lightHint": "Sfondo bianco",
+        "dark": "Scuro",
+        "darkHint": "Sfondo quasi nero"
+      },
+      "accent": {
+        "title": "Accento",
+        "description": "Usato per il pulsante principale, gli anelli di focus e l’indicatore della pagina attiva. Il menta richiama il marchio.",
+        "label": "Colore di accento",
+        "customHint": "Oppure scegli un colore a piacere"
+      },
+      "accents": {
+        "mint": "Menta",
+        "lavender": "Lavanda",
+        "sky": "Cielo",
+        "peach": "Pesca",
+        "butter": "Burro",
+        "rose": "Rosa",
+        "sage": "Salvia",
+        "lilac": "Lilla",
+        "custom": "Personalizzato"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Profili emittente",
+      "title": "Profili emittente",
+      "description": "Le identità legali da cui emetti fattura. Quella predefinita precompila le nuove fatture.",
+      "breadcrumb": "Profili",
+      "newProfile": "Nuovo profilo",
+      "emptyTitle": "Ancora nessun profilo emittente",
+      "emptyDescription": "Crea l’identità da cui fatturi: una persona fisica con codice PAN oppure la tua azienda.",
+      "createProfile": "Crea un profilo",
+      "columns": {
+        "label": "Etichetta",
+        "legalName": "Ragione sociale",
+        "type": "Tipo",
+        "country": "Paese",
+        "currency": "Valuta",
+        "regime": "Regime",
+        "status": "Stato"
+      },
+      "types": {
+        "company": "Azienda",
+        "individual": "Persona fisica"
+      },
+      "makeDefaultTitle": "Impostare {label} come predefinito?",
+      "makeDefaultDescription": "Le nuove fatture partiranno da questo profilo.",
+      "restoreTitle": "Ripristinare {label}?",
+      "archiveTitle": "Archiviare {label}?",
+      "archiveDescription": "Scompare dagli elenchi di selezione; le fatture esistenti restano invariate.",
+      "new": {
+        "metaTitle": "Nuovo profilo emittente",
+        "title": "Nuovo profilo emittente",
+        "prefilled": "Compilato con le tue risposte; controlla l’indirizzo e i dati fiscali, poi salva."
+      },
+      "edit": {
+        "metaTitle": "Modifica profilo emittente",
+        "template": "Modello",
+        "deleteTitle": "Eliminare {label}?",
+        "deleteDescription": "Possibile solo finché nessuna fattura o nota di credito fa riferimento a questo profilo. Altrimenti archivialo."
+      },
+      "template": {
+        "metaTitle": "Modello del profilo",
+        "title": "Modello per {label}",
+        "ownTemplate": "Modello proprio",
+        "instanceTemplate": "Modello dell’istanza",
+        "resetTitle": "Usare di nuovo il modello dell’istanza?",
+        "resetDescription": "La configurazione propria di questo profilo viene rimossa; i documenti emessi non cambiano.",
+        "useInstance": "Usa il modello dell’istanza",
+        "usingInstanceTitle": "Si usa il modello dell’istanza",
+        "usingInstanceDescription": "I documenti di questo profilo seguono Impostazioni → Modelli. Attiva l’opzione per personalizzarli separatamente.",
+        "customise": "Usa un modello diverso per questo profilo",
+        "openInstance": "Apri il modello dell’istanza"
+      },
+      "form": {
+        "identityTitle": "Identità",
+        "identityDescription": "Chi emette la fattura.",
+        "type": "Tipo",
+        "label": "Etichetta",
+        "labelHint": "Mostrata solo negli elenchi di selezione",
+        "legalName": "Ragione sociale",
+        "tradeName": "Nome commerciale",
+        "designation": "Qualifica",
+        "email": "Email",
+        "phone": "Telefono",
+        "website": "Sito web",
+        "addressTitle": "Indirizzo",
+        "taxTitle": "Identificativi fiscali",
+        "taxDescription": "Solo quelli che ti riguardano; la stampa è controllata per ogni fattura.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Partita IVA del Regno Unito",
+        "usTaxId": "EIN / SSN USA",
+        "usTaxIdHint": "Cifrato a riposo",
+        "lutNumber": "Numero LUT",
+        "lutNumberHint": "Per le esportazioni senza IGST",
+        "lutFiscalYear": "Anno finanziario LUT",
+        "lutFiscalYearHint": "ad es. 2026-27",
+        "einvoiceTitle": "Fatturazione elettronica",
+        "einvoiceDescription": "Come questo profilo si identifica nelle fatture elettroniche; il connettore e le credenziali si trovano in Impostazioni > Fatturazione elettronica.",
+        "electronicAddress": "Indirizzo elettronico",
+        "electronicAddressHint": "L’identificativo Peppol o EN 16931 di questo emittente, stampato come indirizzo elettronico del venditore.",
+        "electronicAddressScheme": "Schema dell’indirizzo elettronico",
+        "electronicAddressSchemeNone": "Nessuno schema",
+        "einvoiceEnabled": "Fatturazione elettronica abilitata per questo profilo",
+        "einvoiceEnabledHint": "Offre sui documenti emessi i download del JSON della fattura elettronica GST, di Factur-X e UBL e la registrazione dell’IRN.",
+        "defaultsTitle": "Valori predefiniti",
+        "baseCurrency": "Valuta di base",
+        "locale": "Impostazioni locali del documento",
+        "localeHint": "Formattazione di numeri e date nei documenti",
+        "fiscalYearStart": "L’anno fiscale inizia a",
+        "months": {
+          "january": "Gennaio",
+          "february": "Febbraio",
+          "march": "Marzo",
+          "april": "Aprile",
+          "may": "Maggio",
+          "june": "Giugno",
+          "july": "Luglio",
+          "august": "Agosto",
+          "september": "Settembre",
+          "october": "Ottobre",
+          "november": "Novembre",
+          "december": "Dicembre"
+        },
+        "taxRegime": "Regime fiscale predefinito",
+        "regimes": {
+          "indiaGst": "GST India",
+          "ukVat": "IVA Regno Unito",
+          "usSalesTax": "Sales tax USA",
+          "none": "Nessuna imposta"
+        },
+        "invoiceNumberFormat": "Formato del numero di fattura",
+        "invoiceNumberFormatHint": "Token: {tokens}",
+        "creditNoteNumberFormat": "Formato del numero della nota di credito",
+        "tdsRate": "Aliquota TDS prevista (%)",
+        "tdsRateHint": "Solo informativa, stampata come trattenuta prevista",
+        "defaultNotes": "Note predefinite",
+        "defaultTerms": "Condizioni predefinite",
+        "printTitle": "Cosa viene stampato per impostazione predefinita",
+        "printDescription": "Ogni fattura copia queste opzioni e può modificarle singolarmente.",
+        "emailTitle": "Email",
+        "emailDescription": "Valori predefiniti per il compositore di invio. Segnaposto: {placeholders}",
+        "emailCc": "CC predefinita",
+        "emailBcc": "CCN predefinita",
+        "commaSeparated": "Separati da virgole",
+        "invoiceSubject": "Oggetto della fattura",
+        "invoiceSubjectHint": "Se vuoto, usa il modello integrato",
+        "creditNoteSubject": "Oggetto della nota di credito",
+        "invoiceBody": "Testo della fattura",
+        "creditNoteBody": "Testo della nota di credito",
+        "artworkTitle": "Immagini",
+        "artworkDescription": "PNG, JPEG o WebP fino a 2 MB; firma e timbro mantengono la trasparenza.",
+        "logo": "Logo",
+        "signature": "Firma",
+        "stamp": "Timbro",
+        "transparentPng": "PNG trasparente",
+        "save": "Salva profilo"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Metodi di pagamento",
+      "title": "Metodi di pagamento",
+      "description": "Come ti pagano i clienti. I dettagli sono cifrati e congelati in ogni fattura al momento dell’emissione.",
+      "newMethod": "Nuovo metodo",
+      "emptyTitle": "Ancora nessun metodo di pagamento",
+      "emptyDescription": "Aggiungi un conto bancario, un ID UPI o un portafoglio, così le fatture indicano ai clienti dove pagare.",
+      "addMethod": "Aggiungi un metodo",
+      "columns": {
+        "name": "Nome",
+        "type": "Tipo",
+        "currency": "Valuta",
+        "status": "Stato"
+      },
+      "types": {
+        "bankTransfer": "Bonifico bancario",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Personalizzato"
+      },
+      "makeDefaultTitle": "Impostare {name} come predefinito?",
+      "restoreTitle": "Ripristinare {name}?",
+      "archiveTitle": "Archiviare {name}?",
+      "archiveDescription": "Le fatture emesse conservano l’istantanea che hanno stampato.",
+      "new": {
+        "metaTitle": "Nuovo metodo di pagamento",
+        "title": "Nuovo metodo di pagamento"
+      },
+      "edit": {
+        "metaTitle": "Modifica metodo di pagamento",
+        "title": "Modifica {name}",
+        "deleteTitle": "Eliminare {name}?",
+        "deleteDescription": "Possibile solo finché nessuna fattura o pagamento vi fa riferimento. Altrimenti archivialo."
+      },
+      "form": {
+        "name": "Nome",
+        "nameHint": "Stampato come intestazione del blocco di pagamento",
+        "type": "Tipo",
+        "currency": "Valuta",
+        "currencyHint": "Facoltativa; mostrata solo come contesto",
+        "anyCurrency": "Qualsiasi",
+        "instructions": "Istruzioni",
+        "instructionsHint": "Stampate sotto i dettagli",
+        "isDefault": "Metodo predefinito",
+        "isDefaultDescription": "Preselezionato nelle nuove fatture",
+        "isActive": "Attivo",
+        "detailsTitle": "Dettagli",
+        "detailsDescription": "Cifrati a riposo; copiati come istantanea in ogni fattura al momento dell’emissione.",
+        "vpa": "ID UPI (VPA)",
+        "payeeName": "Nome del beneficiario",
+        "lines": "Righe",
+        "linesHint": "Una riga per rigo, stampata così com’è",
+        "accountEmail": "Email / handle dell’account",
+        "bank": {
+          "accountHolder": "Intestatario del conto",
+          "accountNumber": "Numero di conto",
+          "bankName": "Nome della banca",
+          "branch": "Filiale",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Codice di instradamento / sort code"
+        },
+        "save": "Salva metodo di pagamento"
+      }
+    },
+    "templates": {
+      "metaTitle": "Modelli di documento",
+      "title": "Modelli di documento",
+      "customised": "Personalizzato",
+      "builtIn": "Predefinito integrato",
+      "description": "L’aspetto di fatture e note di credito. I documenti emessi conservano il modello con cui sono stati emessi.",
+      "resetTitle": "Ripristinare il predefinito integrato?",
+      "resetDescription": "La personalizzazione viene rimossa; i documenti già emessi non cambiano.",
+      "reset": "Ripristina",
+      "resetTrigger": "Ripristina i valori predefiniti",
+      "importTitle": "Importa",
+      "importDescription": "Ripristina una configurazione esportata in precedenza.",
+      "overridesTitle": "Modelli per singolo profilo",
+      "overridesDescription": "Un profilo può scegliere un proprio modello dalla sua pagina di modifica.",
+      "noOverrides": "Tutti i profili usano il modello dell’istanza.",
+      "import": {
+        "json": "JSON del modello",
+        "jsonHint": "Incolla un file prodotto da Esporta JSON; le chiavi mancanti usano i valori predefiniti",
+        "importing": "Importazione…",
+        "submit": "Importa"
+      },
+      "form": {
+        "templateTitle": "Modello",
+        "templateDescription": "Sei modelli integrati; la personalizzazione qui sotto si applica a quello che scegli.",
+        "templateGroup": "Modello",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Moderno e arioso, senza grazie, con una linea di accento sotto l’intestazione."
+          },
+          "classic": {
+            "name": "Classico",
+            "character": "Tabella tradizionale con bordi, titoli con grazie, totali riquadrati."
+          },
+          "compact": {
+            "name": "Compatto",
+            "character": "Impaginazione fitta per elenchi lunghi; carattere più piccolo, meno separatori."
+          },
+          "minimal": {
+            "name": "Minimale",
+            "character": "Sobrio e spazioso: niente linee né riquadri, etichette leggere, molto spazio."
+          },
+          "letterhead": {
+            "name": "Carta intestata",
+            "character": "Il tuo logo e il tuo nome su una fascia colorata o un’immagine in cima a ogni pagina."
+          },
+          "modern": {
+            "name": "Moderno",
+            "character": "Intestazione a fascia colorata; parti, intestazione della tabella e totali su una tinta chiara dell’accento."
+          }
+        },
+        "paperTitle": "Carta e caratteri",
+        "paperSize": "Formato carta",
+        "paperLetter": "Letter",
+        "margins": "Margini",
+        "marginsNormal": "Normali",
+        "marginsNarrow": "Stretti",
+        "headingFont": "Carattere dei titoli",
+        "bodyFont": "Carattere del testo",
+        "fontSans": "Senza grazie",
+        "fontSerif": "Con grazie",
+        "tableStyle": "Stile della tabella",
+        "tableRuled": "A righe",
+        "tableZebra": "Zebrata",
+        "tablePlain": "Semplice",
+        "accentColour": "Colore di accento",
+        "textColour": "Colore del testo",
+        "logoPosition": "Posizione del logo",
+        "positionLeft": "Sinistra",
+        "positionCentre": "Centro",
+        "positionRight": "Destra",
+        "logoHeight": "Altezza del logo (mm)",
+        "documentTitle": "Titolo del documento",
+        "titleAuto": "Automatico (secondo il GST)",
+        "titleCustom": "Personalizzato",
+        "titlePlaceholder": "ad es. FATTURA PROFORMA",
+        "qrPosition": "Posizione del QR",
+        "qrFooter": "Piè di pagina",
+        "qrHeader": "Intestazione",
+        "qrBesideTotals": "Accanto ai totali",
+        "amountInWords": "Importo in lettere",
+        "wordsBelowTotal": "Sotto i totali",
+        "wordsFooter": "Piè di pagina",
+        "wordsHidden": "Nascosto",
+        "subtotalRow": "Riga del subtotale",
+        "discountRow": "Riga dello sconto",
+        "taxLines": "Righe delle imposte",
+        "tdsExpected": "TDS previsto",
+        "roundingRow": "Riga dell’arrotondamento",
+        "pageNumbers": "Numeri di pagina",
+        "headerTitle": "Intestazione",
+        "headerDescription": "Una fascia colorata o un’immagine in cima a ogni pagina. Carta intestata e Moderno mostrano una fascia, salvo diversa scelta.",
+        "headerStyle": "Stile dell’intestazione",
+        "headerNone": "Nessuna",
+        "headerBand": "Fascia colorata",
+        "headerImage": "Immagine",
+        "bandColour": "Colore della fascia",
+        "bandColourHex": "Colore della fascia (esadecimale)",
+        "headerImageLabel": "Immagine dell’intestazione",
+        "headerImageHint": "PNG, JPEG o WebP fino a 2400 px di larghezza; occupa tutta la larghezza della pagina.",
+        "imageOpacity": "Opacità dell’immagine",
+        "headerHeight": "Altezza dell’intestazione (mm)",
+        "bandText": "Testo sulla fascia",
+        "bandTextAuto": "Automatico (in base al colore della fascia)",
+        "bandTextLight": "Chiaro",
+        "bandTextDark": "Scuro",
+        "textTitle": "Testo",
+        "headerNote": "Nota dell’intestazione",
+        "footer": "Piè di pagina",
+        "signatureCaption": "Didascalia della firma",
+        "draftWatermark": "Filigrana della bozza",
+        "labelsTitle": "Etichette",
+        "labelsDescription": "Lascia un campo vuoto per mantenere la dicitura predefinita.",
+        "save": "Salva modello",
+        "downloadSample": "Scarica PDF di esempio",
+        "exportJson": "Esporta JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Email",
+      "title": "Email",
+      "configuredSettings": "Configurato nelle impostazioni",
+      "configuredEnv": "Configurato dall’ambiente",
+      "notConfigured": "Non configurato: flusso con app di posta",
+      "description": "I documenti vengono inviati dal compositore con il PDF memorizzato in allegato. Le impostazioni qui sostituiscono SMTP_* dell’ambiente.",
+      "sendTest": "Invia email di prova a {email}",
+      "removeTitle": "Rimuovere le impostazioni SMTP memorizzate?",
+      "removeEnvTakesOver": "Subentrano i valori SMTP_* dell’ambiente.",
+      "removeFallsBack": "L’email torna al flusso con app di posta.",
+      "removeTrigger": "Rimuovi le impostazioni memorizzate",
+      "smtpTitle": "Server SMTP",
+      "smtpFromEnv": "Attualmente preso dall’ambiente; salvando qui lo si sostituisce.",
+      "smtpPasswordNote": "La password è cifrata a riposo e non viene mostrata di nuovo.",
+      "defaultsTitle": "Destinatari predefiniti",
+      "defaultsDescription": "CC/CCN valide per tutta l’istanza; i profili emittente aggiungono i propri.",
+      "sentTitle": "Posta inviata",
+      "sentDescription": "Gli ultimi 50 tentativi, compresi errori e invii manuali.",
+      "smtp": {
+        "host": "Host",
+        "port": "Porta",
+        "security": "Sicurezza",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Nessuna (relay LAN)",
+        "user": "Nome utente",
+        "password": "Password",
+        "passwordStored": "Memorizzata e cifrata; lascia vuoto per mantenerla",
+        "passwordEncrypted": "Cifrata a riposo",
+        "from": "Indirizzo mittente",
+        "fromName": "Nome del mittente",
+        "replyTo": "Rispondi a",
+        "save": "Salva impostazioni SMTP"
+      },
+      "defaults": {
+        "cc": "CC predefinita",
+        "ccHint": "Aggiunta a ogni messaggio; separati da virgole",
+        "bcc": "CCN predefinita",
+        "save": "Salva valori predefiniti"
+      }
+    },
+    "security": {
+      "metaTitle": "Sicurezza",
+      "title": "Sicurezza",
+      "description": "Dove hai effettuato l’accesso e tutto ciò che è cambiato.",
+      "sessions": {
+        "title": "Sessioni attive",
+        "description": "Revocare una sessione disconnette subito quel dispositivo.",
+        "signOutOthers": {
+          "title": "Disconnettere tutti gli altri dispositivi?",
+          "description": "Tutte le sessioni tranne questa vengono revocate.",
+          "confirm": "Disconnetti gli altri",
+          "trigger": "Disconnetti tutti gli altri"
+        },
+        "columns": {
+          "device": "Dispositivo",
+          "ipAddress": "Indirizzo IP",
+          "signedIn": "Accesso",
+          "lastSeen": "Ultima attività",
+          "expires": "Scade"
+        },
+        "thisDevice": "Questo dispositivo",
+        "revokeTitle": "Revocare questa sessione?",
+        "unknownDevice": "Dispositivo sconosciuto",
+        "unknownBrowser": "Sconosciuto",
+        "agentOnOs": "{browser} su {os}"
+      },
+      "audit": {
+        "title": "Registro di controllo",
+        "count": "{count, plural, one {# evento} other {# eventi}}",
+        "entity": "Entità",
+        "actionContains": "L’azione contiene",
+        "filter": "Filtra",
+        "reset": "Reimposta",
+        "columns": {
+          "when": "Quando",
+          "who": "Chi",
+          "action": "Azione",
+          "entity": "Entità",
+          "summary": "Riepilogo"
+        },
+        "empty": "Nessun evento corrisponde a questi filtri.",
+        "system": "Sistema",
+        "changes": "Modifiche",
+        "page": "Pagina {page} di {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Utenti",
+      "title": "Utenti",
+      "description": "Chi può accedere a questa istanza e cosa può fare.",
+      "roles": {
+        "owner": "Proprietario",
+        "editor": "Editor",
+        "viewer": "Visualizzatore"
+      },
+      "roleHints": {
+        "owner": "Tutto, comprese impostazioni e membri",
+        "editor": "Clienti, catalogo, fatture, note di credito, pagamenti, email",
+        "viewer": "Sola lettura"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Ruolo di {email}",
+      "invite": {
+        "title": "Invita qualcuno",
+        "description": "Accede con l’indirizzo invitato (un provider di identità o una password) e ottiene il ruolo che scegli.",
+        "sent": "Invito inviato per email a {email}.",
+        "readyWithError": "Invito pronto per {email}. Non è stato possibile inviare l’email ({error}); invia loro questo link:",
+        "readyNoSmtp": "Invito pronto per {email}. Nessun SMTP è configurato; invia loro questo link:",
+        "copyLink": "Copia il link",
+        "email": "Email",
+        "emailPlaceholder": "persona@example.com",
+        "role": "Ruolo",
+        "submit": "Invita",
+        "inviting": "Invio dell’invito…"
+      },
+      "members": {
+        "title": "Membri",
+        "description": "Rimane sempre almeno un proprietario attivo.",
+        "columns": {
+          "person": "Persona",
+          "role": "Ruolo",
+          "lastSignIn": "Ultimo accesso",
+          "status": "Stato"
+        },
+        "nameYou": "{name} (tu)",
+        "deactivated": "Disattivato",
+        "reactivate": {
+          "title": "Riattivare {email}?",
+          "description": "Potrà accedere di nuovo con il ruolo precedente.",
+          "confirm": "Riattiva"
+        },
+        "deactivate": {
+          "title": "Disattivare {email}?",
+          "description": "Tutte le sessioni terminano subito e non potrà accedere finché non viene riattivato. La sua cronologia resta.",
+          "confirm": "Disattiva"
+        }
+      },
+      "invitations": {
+        "title": "Inviti in sospeso",
+        "description": "Indirizzi che possono accedere ma non lo hanno ancora fatto.",
+        "columns": {
+          "email": "Email",
+          "role": "Ruolo",
+          "invited": "Invitato"
+        },
+        "empty": "Nessun invito in sospeso.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Revocare l’invito per {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Dati",
+      "title": "Dati",
+      "description": "Tutto è portabile: dataset in CSV o Excel, un’istantanea completa per la migrazione, i PDF per il tuo commercialista e una routine di backup testata.",
+      "period": {
+        "fiscalYear": "Anno fiscale",
+        "fiscalYearHint": "Sostituisce le date",
+        "issuer": "Emittente"
+      },
+      "exportAll": {
+        "title": "Esporta tutti i dati",
+        "description": "Un file ZIP con ogni dataset in CSV più <mono>data.json</mono>, un’istantanea relazionale di tutte le tabelle. I campi cifrati (dettagli dei metodi di pagamento, password SMTP) restano esclusi; il README all’interno li elenca.",
+        "download": "Scarica lo ZIP okinvo-data"
+      },
+      "exportDocuments": {
+        "title": "Esporta i documenti",
+        "description": "Tutti i PDF di fatture e note di credito emessi e annullati per un periodo, nominati per numero, con un <mono>index.csv</mono> di numeri, totali e hash. I PDF mancanti vengono generati al volo.",
+        "docx": "Includi anche una copia DOCX di ogni documento",
+        "facturx": "Includi anche una copia Factur-X PDF/A-3 con l’XML EN 16931 incorporato",
+        "download": "Scarica lo ZIP dei documenti"
+      },
+      "datasets": {
+        "title": "Dataset",
+        "description": "Le stesse esportazioni offerte dalle pagine di elenco, con periodo ed emittente applicati a tutte. I pagamenti usano l’intervallo di date; clienti e servizi ignorano il periodo.",
+        "columns": {
+          "dataset": "Dataset",
+          "filters": "Filtri applicati",
+          "download": "Scarica"
+        },
+        "names": {
+          "invoices": "Registro delle fatture",
+          "invoiceItems": "Righe delle fatture",
+          "payments": "Registro dei pagamenti",
+          "creditNotes": "Registro delle note di credito",
+          "clients": "Clienti",
+          "services": "Servizi",
+          "gstSummary": "Riepilogo GST",
+          "tdsSummary": "Riepilogo TDS"
+        },
+        "filters": {
+          "periodIssuer": "periodo, emittente",
+          "dateRangeIssuer": "intervallo di date, emittente",
+          "includesArchived": "include gli archiviati"
+        }
+      },
+      "backups": {
+        "title": "Backup",
+        "notWired": "Nessun servizio di backup collegato",
+        "noRun": "Nessun backup eseguito finora",
+        "lastOk": "Ultimo backup riuscito",
+        "lastFailed": "Ultimo backup non riuscito",
+        "description": "Il servizio Compose <mono>backup</mono> esegue il dump di Postgres e archivia il volume di storage secondo <mono>BACKUP_CRON</mono>, conserva <mono>BACKUP_RETENTION_DAYS</mono> di cronologia nel volume <mono>backups</mono> e scrive un file di stato che questa pagina legge.",
+        "finished": "Terminato",
+        "databaseDump": "Dump del database",
+        "storageArchive": "Archivio dello storage",
+        "size": "Dimensione",
+        "sizeMb": "{size} MB",
+        "error": "Errore",
+        "runNow": "Eseguine uno ora, oppure ripristina da una coppia di file:",
+        "restoreDrill": "La procedura di ripristino viene verificata in CI da <mono>scripts/restore-drill.sh</mono>: seed, backup, cancellazione, ripristino, poi confronto del numero di righe e dell’hash di un PDF."
+      }
+    },
+    "legal": {
+      "metaTitle": "Note legali",
+      "metaDescription": "Chi gestisce questa istanza: i dettagli stampati nelle pagine legali pubbliche.",
+      "title": "Note legali",
+      "description": "Le pagine legali pubbliche riportano questi dettagli. Finché ogni campo non è compilato, le pagine mostrano segnaposto evidenziati.",
+      "operator": {
+        "title": "Dati dell’operatore",
+        "complete": "Completo",
+        "missing": "{count} mancanti: {fields}",
+        "description": "Tu, come persona o azienda che gestisce questa istanza, sei l’operatore a cui si riferiscono i documenti. Nulla di quanto inserito qui viene inviato altrove; viene stampato nelle pagine qui sotto."
+      },
+      "fieldLabels": {
+        "legalName": "Ragione sociale dell’operatore",
+        "entityType": "Tipo di soggetto",
+        "address": "Indirizzo dell’operatore",
+        "country": "Paese dell’operatore",
+        "contactEmail": "Email di contatto",
+        "privacyEmail": "Email per la privacy",
+        "dpoEmail": "Email del responsabile della protezione dei dati",
+        "governingLaw": "Legge applicabile",
+        "venue": "Foro competente",
+        "effectiveDate": "Data di efficacia"
+      },
+      "publicPages": {
+        "title": "Pagine pubbliche",
+        "description": "Collegate dalla pagina di accesso, dal visualizzatore di condivisione e dall’informativa sui cookie.",
+        "terms": "Termini di servizio",
+        "acceptableUse": "Politica di uso accettabile",
+        "privacy": "Informativa sulla privacy",
+        "cookies": "Cookie policy",
+        "dataRetention": "Conservazione dei dati",
+        "security": "Sicurezza",
+        "licenses": "Licenze e avvisi di terze parti"
+      },
+      "form": {
+        "legalName": "Ragione sociale",
+        "entityType": "Tipo di soggetto",
+        "individual": "Persona fisica / ditta individuale",
+        "company": "Società / ente registrato",
+        "address": "Indirizzo",
+        "addressHint": "Stampato nei Termini e nell’Informativa sulla privacy come indirizzo postale dell’operatore.",
+        "country": "Paese",
+        "effectiveDate": "Data di efficacia",
+        "contactEmail": "Email di contatto",
+        "privacyEmail": "Email per la privacy",
+        "privacyEmailHint": "Dove arrivano le richieste degli interessati; può coincidere con l’indirizzo di contatto.",
+        "dpoEmail": "Email del responsabile della protezione dei dati",
+        "dpoEmailHint": "Solo se ne hai nominato uno.",
+        "governingLaw": "Legge applicabile",
+        "governingLawHint": "Ad esempio “la legge indiana” o “la legge inglese e gallese”.",
+        "venue": "Foro competente",
+        "venueHint": "Ad esempio “i tribunali di Bengaluru, Karnataka”.",
+        "submit": "Salva i dati dell’operatore"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "Fatturazione elettronica",
+      "title": "Fatturazione elettronica",
+      "description": "Per profilo emittente: quale connettore registra le fatture elettroniche indiane e quale profilo europeo seguono gli output Factur-X e UBL. Le credenziali sono archiviate cifrate e non vengono più mostrate.",
+      "noProfiles": "Crea prima un profilo emittente.",
+      "profile": "Profilo emittente",
+      "enabled": "Abilitata",
+      "disabled": "Disabilitata",
+      "enabledHint": "Attiva o disattiva la fatturazione elettronica per ciascun profilo in Impostazioni > Profili.",
+      "india": {
+        "title": "India (fattura elettronica GST, IRN)",
+        "description": "L’IRN viene registrato tramite il connettore scelto qui; il connettore manuale riceve a mano la risposta del portale.",
+        "connector": "Connettore",
+        "connectorNone": "Disattivato",
+        "connectorManual": "Manuale (incolla la risposta dell’IRP)",
+        "connectorNic": "API NIC IRP (sandbox o produzione)",
+        "nicUnverified": "Il connettore NIC segue l’API pubblicata ed è testato solo con fixture registrate; non è verificato su una sandbox reale finché non vengono fornite le credenziali.",
+        "env": "Ambiente",
+        "sandbox": "Sandbox",
+        "production": "Produzione",
+        "baseUrl": "URL di base",
+        "baseUrlHint": "Lascia vuoto per l’impostazione predefinita dell’ambiente.",
+        "clientId": "ID client",
+        "clientSecret": "Segreto client",
+        "username": "Nome utente",
+        "password": "Password",
+        "gstin": "GSTIN",
+        "publicKey": "Chiave pubblica IRP (PEM)",
+        "publicKeyHint": "Scaricala dal portale dopo aver effettuato l’accesso; protegge le credenziali inviate all’IRP.",
+        "publicKeyStored": "Salvata; lascia vuoto per mantenerla.",
+        "secretStored": "Archiviato cifrato; lascia vuoto per mantenerlo.",
+        "secretEncrypted": "Archiviato cifrato a riposo."
+      },
+      "eu": {
+        "title": "Europa (Factur-X, UBL)",
+        "description": "EN 16931 è l’unico profilo in questa versione; i download Factur-X e UBL lo usano.",
+        "profile": "Profilo",
+        "profileNone": "Disattivato",
+        "en16931": "EN 16931"
+      },
+      "save": "Salva le impostazioni di fatturazione elettronica"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "Chiavi API per script, SDK e client MCP, con esempi curl.",
+      "title": "API",
+      "description": "Chiavi per script, SDK e client MCP. Una chiave può fare al massimo ciò che consente il tuo ruolo; viene mostrata una sola volta.",
+      "create": {
+        "title": "Crea una chiave",
+        "description": "Inviala come <mono>Authorization: Bearer okv_…</mono>. Tienila fuori dal codice sorgente e dai log delle chat; revocala qui sotto se viene divulgata."
+      },
+      "keys": {
+        "title": "Chiavi",
+        "descriptionOwner": "Tutte le chiavi di questa istanza; i proprietari possono revocarle tutte.",
+        "descriptionOwn": "Le tue chiavi.",
+        "columns": {
+          "name": "Nome",
+          "prefix": "Prefisso",
+          "scopes": "Ambiti",
+          "owner": "Proprietario",
+          "lastUsed": "Ultimo utilizzo",
+          "expires": "Scade",
+          "status": "Stato"
+        },
+        "empty": "Ancora nessuna chiave API.",
+        "never": "mai",
+        "revoked": "Revocata",
+        "expired": "Scaduta",
+        "revokeTitle": "Revocare {name}?",
+        "revokeDescription": "I client che usano questa chiave smettono subito di funzionare.",
+        "activeCount": "{count, plural, one {# chiave attiva.} other {# chiavi attive.}}"
+      },
+      "examples": {
+        "title": "Esempi",
+        "description": "Sostituisci <mono>$OKINVO_KEY</mono> con una chiave. L’API REST versionata, il suo documento OpenAPI (<mono>/api/openapi.json</mono>), l’SDK TypeScript e il server MCP arrivano con le prossime attività del piano v1.1; l’endpoint di stato funziona già oggi.",
+        "rateLimit": "Le chiamate oltre il limite ricevono 429 con un’intestazione <mono>Retry-After</mono> (120 richieste al minuto per chiave). Gli ambiti di una chiave sono limitati dal ruolo attuale del suo proprietario."
+      },
+      "form": {
+        "copyKey": "Copia la chiave API",
+        "name": "Nome",
+        "namePlaceholder": "ad es. script di contabilità",
+        "expires": "Scadenza",
+        "in30Days": "Tra 30 giorni",
+        "in90Days": "Tra 90 giorni",
+        "inAYear": "Tra un anno",
+        "never": "Mai",
+        "scopes": "Ambiti",
+        "submit": "Crea chiave API",
+        "creating": "Creazione…"
+      },
+      "scopes": {
+        "invoicesRead": "Leggere le fatture",
+        "invoicesCreate": "Creare ed emettere fatture",
+        "creditNotesRead": "Leggere le note di credito",
+        "creditNotesCreate": "Creare ed emettere note di credito",
+        "catalogueRead": "Leggere clienti, servizi e prodotti",
+        "documentsRead": "Scaricare i PDF memorizzati e le copie DOCX",
+        "statusRead": "Leggere lo stato dell’istanza"
+      }
+    },
+    "status": {
+      "metaTitle": "Stato",
+      "metaDescription": "Versione, database, storage, email e stato dei backup di questa istanza.",
+      "title": "Stato",
+      "description": "Cosa esegue questa istanza e se le sue componenti rispondono.",
+      "recheck": "Ricontrolla",
+      "health": {
+        "ok": "OK",
+        "warning": "Avviso",
+        "failed": "Non riuscito",
+        "na": "Non configurato"
+      },
+      "overall": {
+        "ok": "Tutto a posto",
+        "degraded": "Prestazioni ridotte",
+        "failed": "Non riuscito"
+      },
+      "version": "Build {hasSha, select, yes {<mono>{sha}</mono>} other {(sha sconosciuto)}} · compilata il {built} · Node <mono>{node}</mono> · attivo da {uptime} · controllato {checked}",
+      "dateUnknown": "(data sconosciuta)",
+      "uptime": {
+        "days": "{d}g {h}h {m}m",
+        "hours": "{h}h {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Database",
+        "storage": "Storage",
+        "rateLimiting": "Limitazione della frequenza",
+        "email": "Email",
+        "backups": "Backup"
+      },
+      "db": {
+        "detail": "{latency} ms · ultima migrazione <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # migrazioni non terminate}}",
+        "noMigration": "nessuna"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · scrittura, lettura ed eliminazione di un oggetto di prova in {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "archivio <mono>{store}</mono> {store, select, memory {(una replica)} other {(condiviso tra le repliche)}}",
+      "smtp": {
+        "configured": "SMTP da {source, select, settings {the settings page} env {the environment} other {}} · ultimo test {lastTest} · ultime 24 h: {sent} inviate, {failed} non riuscite",
+        "none": "Nessun server SMTP; il compositore offre “Apri nell’app di posta”. <link>Configura</link>"
+      },
+      "backups": {
+        "notWired": "Nessun servizio di backup collegato (BACKUP_STATUS_FILE non impostato).",
+        "noRun": "Servizio di backup collegato; nessuna esecuzione registrata finora.",
+        "ok": "Ultima esecuzione riuscita il {finishedAt}{days, plural, =0 {} one { · conservazione # giorno} other { · conservazione # giorni}}",
+        "failed": "Ultima esecuzione non riuscita: {error} il {finishedAt}{days, plural, =0 {} one { · conservazione # giorno} other { · conservazione # giorni}}"
+      },
+      "footer": "Lo stesso rapporto è disponibile in JSON a <mono>/api/health/status</mono> per il monitoraggio (sessione autenticata o chiave API)."
+    },
+    "usage": {
+      "metaTitle": "Utilizzo",
+      "metaDescription": "Visualizzazioni di pagina per schermata e per giorno su questa istanza, conteggiate localmente.",
+      "title": "Utilizzo",
+      "description": "Quante volte è stata aperta ogni schermata, conteggiato solo su questa istanza: nessun cookie, nessun indirizzo, nulla viene inviato altrove.",
+      "last30Days": "Ultimi 30 giorni",
+      "total": "{count, plural, =0 {Nessuna visualizzazione di pagina} one {# visualizzazione di pagina} many {# di visualizzazioni di pagina} other {# visualizzazioni di pagina}}",
+      "off": "Il conteggio è disattivato. Imposta ANALYTICS_LOCAL=true per conteggiare le visualizzazioni di pagina su questa istanza.",
+      "empty": "Nessuna visualizzazione di pagina registrata finora.",
+      "columns": {
+        "day": "Giorno",
+        "path": "Schermata",
+        "views": "Visualizzazioni"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Benvenuto",
+    "progress": "Avanzamento",
+    "steps": {
+      "aboutYou": "Su di te",
+      "howYouUse": "Come lo userai",
+      "allSet": "Tutto pronto"
+    },
+    "step1": {
+      "title": "Parlaci di te",
+      "subtitle": "Questo imposta i valori predefiniti; ogni valore può essere modificato più avanti in Impostazioni.",
+      "name": "Nome",
+      "email": "Email",
+      "emailHint": "La tua identità di accesso. Può essere modificata più avanti da Impostazioni → Sicurezza.",
+      "country": "Paese",
+      "currency": "Valuta preferita",
+      "currencyHint": "Usata per i nuovi profili e per la dashboard finché non esiste un profilo."
+    },
+    "step2": {
+      "title": "Come userai okinvo?",
+      "subtitle": "Cambiano solo i valori predefiniti; nulla è vincolante.",
+      "usage": "Utilizzo",
+      "personal": "Fatturazione personale",
+      "personalHint": "Lavoro freelance a tuo nome",
+      "business": "Fatturazione aziendale",
+      "businessHint": "Fatture emesse da un’attività registrata",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "Partita IVA",
+        "other": "Numero di registrazione fiscale"
+      },
+      "taxQuestion": {
+        "IN": "Hai un GSTIN?",
+        "GB": "Sei registrato ai fini IVA?",
+        "other": "Hai un numero di registrazione fiscale da stampare sulle fatture?"
+      }
+    },
+    "step3": {
+      "title": "Tutto pronto",
+      "body": "Ora crea il tuo primo profilo emittente: nome, indirizzo e dati fiscali che compaiono sulle tue fatture. Abbiamo già compilato ciò che ci hai detto.",
+      "go": "Vai ai profili",
+      "opening": "Apertura…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Termini",
+      "privacy": "Privacy",
+      "cookies": "Cookie",
+      "security": "Sicurezza"
+    },
+    "cookieNotice": {
+      "label": "Informativa sui cookie",
+      "body": "Usiamo solo cookie strettamente necessari: la tua sessione e le tue preferenze di visualizzazione. Nessuna analisi, nessun tracciamento.",
+      "policy": "Cookie policy",
+      "gotIt": "Ho capito"
+    },
+    "nav": {
+      "label": "Note legali",
+      "cookies": "Cookie",
+      "privacy": "Privacy",
+      "terms": "Termini",
+      "acceptableUse": "Uso accettabile",
+      "retention": "Conservazione",
+      "security": "Sicurezza",
+      "licences": "Licenze"
+    },
+    "operatorNotice": "okinvo è un software self-hosted; l’operatore di questa istanza è responsabile del suo utilizzo.",
+    "doc": {
+      "effectiveOn": "In vigore dal <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Indice"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Ragione sociale dell’operatore",
+        "entityType": "Tipo di soggetto",
+        "address": "Indirizzo dell’operatore",
+        "country": "Paese dell’operatore",
+        "contactEmail": "Email di contatto",
+        "privacyEmail": "Email per la privacy",
+        "dpoEmail": "Email del responsabile della protezione dei dati",
+        "governingLaw": "Legge applicabile",
+        "venue": "Foro competente",
+        "effectiveDate": "Data di efficacia"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Non trovato",
+      "title": "A questo indirizzo non c’è nulla",
+      "body": "Il link potrebbe essere obsoleto, oppure il documento a cui puntava non è mai stato emesso."
+    },
+    "forbidden": {
+      "metaTitle": "Non consentito",
+      "title": "Questo account non può farlo",
+      "body": "Il tuo ruolo non lo consente. Chiedi l’accesso a un proprietario, oppure accedi con un account che lo possiede."
+    },
+    "error": {
+      "title": "Qualcosa è andato storto",
+      "body": "Questa richiesta non ha modificato nulla. Riprova; se il problema persiste, i dettagli sono nel log del server.",
+      "digest": "errore {digest}",
+      "generic": "errore"
+    },
+    "appNotFound": {
+      "title": "Non trovato",
+      "body": "Questo record non esiste, oppure è stato eliminato mentre lo stavi guardando.",
+      "back": "Torna alla dashboard"
+    },
+    "validation": {
+      "required": "obbligatorio",
+      "tooLong": "al massimo {max} caratteri",
+      "invalidEmail": "deve essere un’email valida",
+      "invalidDate": "deve essere una data di calendario nel formato AAAA-MM-GG",
+      "invalidAmount": "deve essere un numero",
+      "wholeNumber": "deve essere un numero intero",
+      "greaterThanZero": "deve essere maggiore di zero",
+      "fixFields": "Correggi i campi evidenziati.",
+      "charset": "Sono consentiti solo i caratteri standard della tastiera."
+    }
+  },
+  "verify": {
+    "metaTitle": "Verifica del documento",
+    "metaDescription": "Verifica che una fattura o una nota di credito sia stata emessa dal mittente e non sia stata alterata.",
+    "heading": "Verifica del documento",
+    "rateLimited": "Troppi controlli da questo indirizzo. Riprova tra un minuto.",
+    "notFound": {
+      "title": "Documento inesistente",
+      "body": "Questo link non corrisponde ad alcun documento emesso. Controlla il codice QR o il link che hai ricevuto, oppure contatta l’emittente."
+    },
+    "status": {
+      "void": "Annullato",
+      "valid": "Valido"
+    },
+    "issuedBy": "Emesso da",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Emesso a",
+    "issueDate": "Data di emissione",
+    "total": "Totale",
+    "voided": "Questo documento è stato annullato dall’emittente e non è più valido.",
+    "storedCopies": {
+      "title": "Copie memorizzate",
+      "description": "SHA-256 di ogni versione PDF conservata dall’emittente. Scegli la tua copia per confrontarla nel browser: non viene caricato nulla.",
+      "empty": "Nessun PDF è stato ancora generato.",
+      "protectedVersion": "Copia protetta da password {version}",
+      "version": "Versione {version}"
+    },
+    "check": {
+      "label": "Controlla la tua copia",
+      "hashing": "Calcolo dell’hash…",
+      "match": "La tua copia corrisponde esattamente alla versione {version}.",
+      "mismatch": "La tua copia non corrisponde ad alcuna versione memorizzata."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Documento condiviso",
+      "metaDescription": "Un documento condiviso con te: visualizzalo online e scarica il PDF.",
+      "rateLimited": "Troppe richieste da questo indirizzo. Riprova tra un minuto.",
+      "unavailable": {
+        "title": "Questo link non è disponibile",
+        "body": "Potrebbe essere scaduto o essere stato revocato dall’emittente. Chiedine uno nuovo."
+      },
+      "lockedTitleInvoice": "Fattura di {issuer}",
+      "lockedTitleCreditNote": "Nota di credito di {issuer}",
+      "lockedBody": "Questo documento è protetto da password. Inserisci la password che ti ha dato l’emittente.",
+      "void": "Annullato",
+      "protectedPdf": "Il PDF si apre con la stessa password. Può essere letto e stampato; copia e modifica sono bloccate.",
+      "byline": "Da {issuer} a {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Password",
+      "limited": "Troppi tentativi. Attendi quindici minuti e riprova.",
+      "wrong": "La password non è corretta.",
+      "submit": "Apri il documento"
+    },
+    "dialog": {
+      "trigger": "Condividi",
+      "title": "Condividi questo documento",
+      "description": "Chiunque abbia il link può visualizzarlo e scaricarlo finché non scade o non lo revochi. Una password protegge anche il PDF stesso: si apre con la password e può essere letto e stampato, non modificato né copiato.",
+      "link": "Link",
+      "copyLink": "Copia il link",
+      "password": "Password",
+      "copyPassword": "Copia la password",
+      "sendSeparately": "Invia la password separatamente dal link. Puoi rivederla nell’elenco qui sotto.",
+      "copy": "Copia",
+      "copied": "Copiato",
+      "expires": "Scadenza",
+      "expiry": {
+        "d7": "Tra 7 giorni",
+        "d30": "Tra 30 giorni",
+        "d90": "Tra 90 giorni",
+        "never": "Mai"
+      },
+      "protection": "Protezione",
+      "protectionOptions": {
+        "auto": "Password: genera una passphrase",
+        "manual": "Password: scelgo io",
+        "none": "Nessuna password (link aperto)"
+      },
+      "passwordHint": "Almeno 8 caratteri.",
+      "strength": "Robustezza: {label}",
+      "strengthLabels": {
+        "veryWeak": "molto debole",
+        "weak": "debole",
+        "fair": "discreta",
+        "good": "buona",
+        "strong": "forte"
+      },
+      "creating": "Creazione…",
+      "create": "Crea link",
+      "activeLinks": "Link attivi",
+      "passwordProtected": "Protetto da password",
+      "openLink": "Apri il link",
+      "linkExpires": "{kind} · scade il {date}",
+      "linkNeverExpires": "{kind} · non scade mai",
+      "revoke": {
+        "title": "Revocare questo link?",
+        "description": "Il link smette subito di funzionare per chiunque lo abbia.",
+        "label": "Revoca"
+      },
+      "linkPassword": "Password: <code>{password}</code>",
+      "counts": "{views, plural, other {# visualizzazioni}} · {downloads, plural, other {# download}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Note di credito",
+      "title": "Note di credito",
+      "description": "Emesse a fronte di fatture emesse; ciascuna riduce il saldo della sua fattura quando viene emessa.",
+      "newCreditNote": "Nuova nota di credito",
+      "filters": {
+        "from": "Da",
+        "to": "A",
+        "issuer": "Emittente",
+        "client": "Cliente",
+        "status": "Stato",
+        "search": "Cerca",
+        "all": "Tutti",
+        "searchPlaceholder": "Numero, motivo, cliente",
+        "go": "Vai"
+      },
+      "statuses": {
+        "DRAFT": "Bozza",
+        "ISSUED": "Emessa",
+        "SENT": "Inviata",
+        "VOID": "Annullata"
+      },
+      "empty": {
+        "title": "Ancora nessuna nota di credito",
+        "description": "Apri una fattura emessa e scegli “Nota di credito” per ridurre ciò che deve."
+      },
+      "noMatch": "Nessuna nota di credito corrisponde a questi filtri.",
+      "columns": {
+        "number": "Numero",
+        "against": "A fronte di",
+        "client": "Cliente",
+        "issueDate": "Data di emissione",
+        "reason": "Motivo",
+        "total": "Totale",
+        "status": "Stato"
+      },
+      "draft": "Bozza"
+    },
+    "new": {
+      "metaTitle": "Nuova nota di credito",
+      "title": "Nuova nota di credito",
+      "description": "Una nota di credito viene emessa a fronte di una fattura emessa e ne riduce il saldo.",
+      "nothingToCredit": {
+        "title": "Nulla da accreditare",
+        "description": "Le note di credito richiedono una fattura emessa con un saldo residuo.",
+        "openInvoices": "Apri le fatture"
+      },
+      "whichInvoice": "Quale fattura?",
+      "invoice": "Fattura",
+      "invoiceOption": "{number} · {client} · saldo {balance}",
+      "issuedOnly": "Le note di credito si emettono solo a fronte di fatture emesse.",
+      "invoiceFallback": "Fattura"
+    },
+    "edit": {
+      "metaTitle": "Modifica nota di credito",
+      "title": "Modifica la bozza della nota di credito",
+      "immutable": "Le note di credito emesse non sono modificabili.",
+      "draft": "Bozza"
+    },
+    "detail": {
+      "metaTitle": "Nota di credito",
+      "draftTitle": "Bozza di nota di credito",
+      "meta": "{client} · a fronte di <invoice>{number}</invoice> · emessa il <mono>{date}</mono>",
+      "previewPdf": "Anteprima PDF",
+      "issue": {
+        "title": "Emettere questa nota di credito?",
+        "description": "Viene assegnato un numero, il saldo della fattura viene ridotto e il documento diventa non modificabile.",
+        "label": "Emetti"
+      },
+      "deleteDraft": {
+        "title": "Eliminare questa bozza?"
+      },
+      "sendByEmail": "Invia per email",
+      "markSent": {
+        "title": "Segnare come inviata?",
+        "label": "Segna come inviata"
+      },
+      "void": {
+        "title": "Annullare questa nota di credito?",
+        "description": "Il saldo della fattura viene ripristinato; il numero non viene mai riutilizzato.",
+        "reason": "Motivo",
+        "label": "Annulla"
+      },
+      "voided": "Annullata il {date}: {reason}",
+      "amounts": {
+        "title": "Importi",
+        "reason": "Motivo",
+        "creditAmount": "Importo accreditato",
+        "total": "Totale",
+        "balanceNow": "Saldo attuale della fattura",
+        "sent": "Inviata"
+      },
+      "documents": {
+        "title": "Documenti memorizzati",
+        "description": "Ogni versione viene conservata; la pagina di verifica elenca tutti gli hash.",
+        "regenerateTitle": "Generare una nuova versione del PDF?",
+        "generate": "Genera",
+        "newVersion": "Nuova versione",
+        "renderedOnFirstDownload": "Il PDF viene generato al primo download.",
+        "protectedCopy": "Copia protetta da password {version}",
+        "version": "Versione {version}",
+        "verificationLink": "Link di verifica: <link>{path}…</link>"
+      },
+      "draftsPreview": "L’anteprima delle bozze è in tempo reale nell’editor."
+    },
+    "send": {
+      "metaTitle": "Invia nota di credito",
+      "title": "Invia <mono>{number}</mono>",
+      "previousSends": "Invii precedenti"
+    },
+    "builder": {
+      "against": "A fronte di <mono>{number}</mono>",
+      "summary": "{client} · totale {total} · saldo {balance} · margine imponibile ≈ {headroom}",
+      "issueDate": "Data di emissione",
+      "creditAmount": "Importo accreditato (imposte escluse)",
+      "creditAmountHint": "L’imposta è ripartita in base alle righe d’imposta della fattura",
+      "reason": "Motivo",
+      "picker": {
+        "title": "Calcola dalle righe della fattura",
+        "description": "Seleziona righe intere o una percentuale; questo compila solo l’importo qui sopra.",
+        "line": "Riga",
+        "subtotal": "Subtotale",
+        "credit": "Accredito",
+        "percent": "%",
+        "creditLine": "Accredita la riga {position}",
+        "percentOfLine": "Percentuale della riga {position}"
+      },
+      "saveDraft": "Salva bozza",
+      "issuing": "Emissione…",
+      "saveAndIssue": "Salva ed emetti"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Pagamento ricevuto",
+        "REFUND": "Rimborso emesso",
+        "WRITE_OFF": "Stralcio"
+      },
+      "editTitle": "Modifica voce",
+      "recordTitle": "Registra un pagamento",
+      "description": "Gli importi sono nella valuta della fattura ({currency}); il TDS trattenuto fa parte dell’importo applicato.",
+      "kind": "Tipo",
+      "date": "Data",
+      "amountRefunded": "Importo rimborsato (negativo)",
+      "amountApplied": "Importo applicato",
+      "refundHint": "Inserisci un importo negativo, ad es. -500",
+      "tdsDeducted": "TDS trattenuto",
+      "tdsHint": "Imposta trattenuta dal cliente; conta ai fini dell’importo applicato",
+      "bankFees": "Commissioni bancarie",
+      "receivedInto": "Incassato su",
+      "noMethod": "-",
+      "reference": "Riferimento",
+      "referenceHint": "UTR, ID transazione, numero dell’assegno",
+      "otherCurrency": "Ricevuto in un’altra valuta",
+      "amountReceived": "Importo ricevuto",
+      "receivedCurrency": "Valuta ricevuta",
+      "exchangeRate": "Tasso di cambio",
+      "exchangeRateHint": "1 unità ricevuta = ? {currency}",
+      "notes": "Note",
+      "receiptHint": "PNG, JPEG, WebP o PDF fino a 10 MB",
+      "receipts": "Ricevute e fatture",
+      "receiptN": "Ricevuta {n}",
+      "removeReceipt": "Rimuovi la ricevuta {n}",
+      "saveChanges": "Salva le modifiche",
+      "record": "Registra"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Fatturare a",
+      "shipTo": "Spedire a",
+      "invoice": "Fattura",
+      "creditNote": "Nota di credito",
+      "issueDate": "Data di emissione",
+      "dueDate": "Data di scadenza",
+      "number": "Numero",
+      "description": "Descrizione",
+      "sacHsn": "SAC/HSN",
+      "qty": "Qtà",
+      "unit": "Unità",
+      "rate": "Tariffa",
+      "tax": "Imposta",
+      "amount": "Importo",
+      "subtotal": "Subtotale",
+      "discount": "Sconto",
+      "taxable": "Imponibile",
+      "total": "Totale",
+      "amountDue": "Importo dovuto",
+      "tdsExpected": "TDS previsto",
+      "netExpected": "Netto previsto",
+      "rounding": "Arrotondamento",
+      "paymentDetails": "Dati di pagamento",
+      "notes": "Note",
+      "terms": "Condizioni",
+      "placeOfSupply": "Luogo di fornitura",
+      "poReference": "Riferimento ordine d’acquisto",
+      "amountInWords": "Importo in lettere",
+      "signature": "Firma autorizzata"
+    },
+    "title": {
+      "taxInvoice": "FATTURA FISCALE",
+      "billOfSupply": "DOCUMENTO DI FORNITURA",
+      "invoice": "FATTURA",
+      "creditNote": "NOTA DI CREDITO"
+    },
+    "text": {
+      "pageOf": "Pagina {page} di {total}",
+      "scanToVerify": "Scansiona per verificare",
+      "taxId": "ID fiscale",
+      "void": "ANNULLATA",
+      "draftWatermark": "BOZZA - non è una fattura fiscale",
+      "paymentTermsDays": "{days} giorni",
+      "irn": "IRN",
+      "ackNo": "N. conferma",
+      "ackDate": "Data conferma",
+      "einvoiceCancelled": "FATTURA ELETTRONICA ANNULLATA"
+    },
+    "ui": {
+      "pageEstimate": "circa {count, plural, one {# pagina} other {# pagine}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Messaggio",
+      "description": "Precompilato con i modelli del profilo emittente. Nulla viene inviato finché non fai clic su Invia.",
+      "to": "A",
+      "toHint": "Separati da virgole",
+      "cc": "CC",
+      "bcc": "CCN",
+      "subject": "Oggetto",
+      "body": "Testo",
+      "bodyHint": "Testo semplice; i link diventano cliccabili",
+      "attachment": "Allegato",
+      "attachmentHint": "La copia memorizzata, chiamata <mono>{name}</mono> (o .docx); il suo contenuto non può essere modificato.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Invio…",
+      "send": "Invia",
+      "openInMailApp": "Apri nell’app di posta",
+      "noSmtp": "Nessun server SMTP è configurato (Impostazioni → Email). Apri la bozza nella tua app di posta, allega il PDF scaricato, poi segnala l’invio qui sotto.",
+      "markAsSent": "Segna come inviato"
+    },
+    "sentLog": {
+      "when": "Quando",
+      "document": "Documento",
+      "to": "A",
+      "subject": "Oggetto",
+      "status": "Stato",
+      "empty": "Ancora nulla di inviato.",
+      "noDocument": "-",
+      "cc": "cc {list}",
+      "statuses": {
+        "SENT": "inviato",
+        "FAILED": "non riuscito",
+        "MANUAL": "manuale"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Ciao, {name}",
+    "fiscalYear": "Anno fiscale {year}",
+    "fiscalYearWithBase": "Anno fiscale {year} · valuta di base {currency} ({profile})",
+    "newCreditNote": "Nuova nota di credito",
+    "welcomeTitle": "Benvenuto in {appName}",
+    "welcomeDescription": "Inizia creando il profilo emittente da cui fatturi, poi aggiungi un cliente e la tua prima fattura.",
+    "createProfile": "Crea il tuo profilo",
+    "tiles": {
+      "outstanding": "Da incassare",
+      "overdue": "Scadute",
+      "billedThisFy": "Fatturato in questo anno fiscale",
+      "receivedThisFy": "Incassato in questo anno fiscale",
+      "drafts": "Bozze",
+      "invoiceCount": "{count, plural, one {# fattura} other {# fatture}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Pagamenti meno rimborsi, al cambio registrato",
+      "awaitingIssue": "in attesa di emissione",
+      "nothingPending": "nulla in sospeso"
+    },
+    "recentInvoices": "Fatture recenti",
+    "allInvoices": "Tutte le fatture",
+    "noInvoicesYet": "Ancora nessuna fattura.",
+    "columns": {
+      "number": "Numero",
+      "client": "Cliente",
+      "issued": "Emessa"
+    },
+    "topClients": "Clienti con il maggior importo da incassare",
+    "nothingOutstanding": "Nulla da incassare."
+  },
+  "exports": {
+    "export": "Esporta",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Fatture",
+      "newInvoice": "Nuova fattura",
+      "draft": "Bozza",
+      "aDraft": "una bozza",
+      "statuses": {
+        "draft": "Bozza",
+        "issued": "Emessa",
+        "sent": "Inviata",
+        "partiallyPaid": "Pagata in parte",
+        "paid": "Pagata",
+        "overdue": "Scaduta",
+        "void": "Annullata"
+      },
+      "lifecycle": {
+        "draft": "bozza",
+        "issued": "emessa",
+        "void": "annullata"
+      },
+      "units": {
+        "hour": "Ora",
+        "day": "Giorno",
+        "fixed": "Forfait",
+        "milestone": "Traguardo",
+        "unit": "Unità"
+      },
+      "unitsLower": {
+        "hour": "ora",
+        "day": "giorno",
+        "fixed": "forfait",
+        "milestone": "traguardo",
+        "unit": "unità"
+      },
+      "supplyTypes": {
+        "intraState": "intra-statale",
+        "interState": "inter-statale",
+        "exportLut": "esportazione LUT",
+        "exportWithTax": "esportazione con imposta",
+        "reverseCharge": "inversione contabile",
+        "notApplicable": "non applicabile"
+      }
+    },
+    "list": {
+      "description": "Fatture in bozza, emesse e annullate; gli stati derivano dai pagamenti e dalle scadenze.",
+      "fiscalYear": "Anno fiscale",
+      "issuer": "Emittente",
+      "client": "Cliente",
+      "searchPlaceholder": "Numero, ordine d’acquisto, cliente",
+      "emptyTitle": "Ancora nessuna fattura",
+      "emptyDescription": "Crea la tua prima fattura: scegli un cliente, aggiungi le righe, guarda l’anteprima, poi emettila.",
+      "columns": {
+        "number": "Numero",
+        "client": "Cliente",
+        "issuer": "Emittente",
+        "issueDate": "Data di emissione",
+        "due": "Scadenza",
+        "balance": "Saldo"
+      },
+      "noMatches": "Nessuna fattura corrisponde a questi filtri.",
+      "count": "{count, plural, one {# fattura} other {# fatture}}",
+      "countPaged": "{count, plural, one {# fattura} other {# fatture}} · pagina {page} di {pages}",
+      "register": "registro",
+      "einvoice": "Fattura elettronica",
+      "einvoiceFilters": {
+        "registered": "IRN registrato",
+        "none": "Non registrata",
+        "cancelled": "IRN annullato"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Crea prima un profilo emittente",
+      "noProfileDescription": "Una fattura è emessa da un’identità legale: configura il tuo profilo con i suoi identificativi fiscali e la numerazione.",
+      "createProfile": "Crea un profilo"
+    },
+    "edit": {
+      "metaTitle": "Modifica fattura",
+      "title": "Modifica bozza",
+      "immutableFlash": "Le fatture emesse non sono modificabili. Usa “Annulla e riemetti” per correggerla."
+    },
+    "detail": {
+      "metaTitle": "Fattura",
+      "draftInvoice": "Bozza di fattura",
+      "issuedDue": "Emessa il <mono>{issued}</mono>, scade il <mono>{due}</mono>",
+      "replaces": "Sostituisce {number}",
+      "replacedBy": "Sostituita da {number}",
+      "previewPdf": "Anteprima PDF",
+      "downloadEInvoice": "Scarica il JSON della fattura elettronica",
+      "issueTitle": "Emettere questa fattura?",
+      "issueDescription": "Viene assegnato un numero e il documento diventa non modificabile.",
+      "issue": "Emetti",
+      "deleteDraftTitle": "Eliminare questa bozza?",
+      "sendByEmail": "Invia per email",
+      "recordPayment": "Registra pagamento",
+      "progress": {
+        "title": "Avanzamento del pagamento",
+        "description": "A che punto è questa fattura, dall'emissione a una ricevuta archiviata.",
+        "issued": "Emessa",
+        "sent": "Inviata",
+        "payment": "Pagamento registrato",
+        "paymentOn": "Pagamento di <mono>{amount}</mono> registrato il <mono>{date}</mono>",
+        "paid": "Pagata per intero",
+        "receipt": "Ricevuta allegata",
+        "done": "fatto",
+        "pending": "in attesa"
+      },
+      "creditNote": "Nota di credito",
+      "markSentTitle": "Segnare come inviata?",
+      "markSentDescription": "Registra che il cliente ha ricevuto questa fattura.",
+      "markSent": "Segna come inviata",
+      "voidReissueTitle": "Annullare e riemettere?",
+      "voidReissueDescription": "L’originale viene annullato e si apre in modifica una bozza collegata con lo stesso contenuto.",
+      "voidReissue": "Annulla e riemetti",
+      "voidTitle": "Annullare questa fattura?",
+      "voidDescription": "Possibile solo senza pagamenti registrati; il numero non viene mai riutilizzato.",
+      "void": "Annulla",
+      "voided": "Annullata il {date}: {reason}",
+      "amounts": "Importi",
+      "subtotal": "Subtotale",
+      "discount": "Sconto",
+      "discountPercent": "Sconto ({percent})",
+      "rounding": "Arrotondamento",
+      "tdsExpected": "TDS previsto ({percent})",
+      "paid": "Pagato",
+      "credited": "Accreditato",
+      "balanceDue": "Saldo dovuto",
+      "supply": "Fornitura",
+      "fxToBase": "Cambio verso la valuta di base",
+      "poReference": "Riferimento ordine d’acquisto",
+      "sent": "Inviata",
+      "lineItems": "Righe",
+      "columns": {
+        "description": "Descrizione",
+        "sacHsn": "SAC/HSN",
+        "qty": "Qtà",
+        "rate": "Tariffa",
+        "tax": "Imposta",
+        "amount": "Importo"
+      },
+      "creditNotes": "Note di credito",
+      "storedDocuments": "Documenti memorizzati",
+      "storedDocumentsHint": "Ogni versione viene conservata; la pagina di verifica elenca tutti gli hash.",
+      "regenerateTitle": "Generare una nuova versione del PDF?",
+      "regenerateDescription": "Viene generato di nuovo dall’istantanea congelata (ad esempio dopo una correzione del renderer). Le versioni precedenti restano.",
+      "regenerate": "Genera",
+      "newVersion": "Nuova versione",
+      "renderedOnFirstDownload": "Il PDF viene generato al primo download.",
+      "protectedCopy": "Copia protetta da password {version}",
+      "version": "Versione {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Link di verifica:",
+      "draftPreviewHint": "L’anteprima delle bozze è in tempo reale nell’editor; apri <link>il PDF con filigrana</link> per vedere la pagina.",
+      "einvoice": {
+        "title": "Fattura elettronica (India)",
+        "description": "Registrazione di questa fattura presso l’Invoice Registration Portal; un documento registrato riporta il proprio IRN e il QR firmato del portale.",
+        "connector": "Connettore",
+        "connectors": {
+          "manual": "Manuale",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Nessun connettore è configurato per questo profilo in Impostazioni > Fatturazione elettronica.",
+        "statuses": {
+          "none": "Non registrata",
+          "generated": "JSON generato",
+          "registered": "Registrata",
+          "cancelled": "Annullata",
+          "failed": "Registrazione non riuscita"
+        },
+        "irn": "IRN",
+        "ackNo": "N. conferma",
+        "ackDate": "Data conferma",
+        "cancelReason": "Annullamento",
+        "generate": "Genera IRN",
+        "pasteLabel": "Risposta IRP",
+        "pasteHint": "Incolla il JSON restituito dal portale o dal tuo GSP per il JSON della fattura elettronica di questa fattura (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Registra IRN",
+        "cancelReasonLabel": "Motivo dell’annullamento",
+        "cancelReasons": {
+          "1": "Duplicato",
+          "2": "Errore di inserimento dati",
+          "3": "Ordine annullato",
+          "4": "Altro"
+        },
+        "cancel": "Annulla IRN",
+        "cancelWindow": "Il portale consente l’annullamento entro 24 ore dalla conferma."
+      }
+    },
+    "history": {
+      "metaTitle": "Cronologia della fattura",
+      "title": "Cronologia <mono>{number}</mono>",
+      "reissueChain": "Catena di riemissioni",
+      "replaces": "Sostituisce <link>{number}</link>",
+      "replacedBy": "Sostituita da <link>{number}</link>",
+      "auditTrail": "Registro di controllo",
+      "columns": {
+        "when": "Quando",
+        "who": "Chi",
+        "action": "Azione",
+        "summary": "Riepilogo"
+      },
+      "noEvents": "Ancora nessun evento.",
+      "system": "Sistema",
+      "emails": "Email"
+    },
+    "payments": {
+      "title": "Pagamenti",
+      "description": "{client} · totale {total}",
+      "backToInvoice": "Torna alla fattura",
+      "ledger": "Registro",
+      "columns": {
+        "date": "Data",
+        "kind": "Tipo",
+        "applied": "Applicato",
+        "tds": "TDS",
+        "received": "Ricevuto",
+        "reference": "Riferimento",
+        "balance": "Saldo"
+      },
+      "noPayments": "Ancora nessun pagamento registrato.",
+      "kinds": {
+        "payment": "Pagamento",
+        "refund": "Rimborso",
+        "writeOff": "Stralcio"
+      },
+      "receipt": "Ricevuta",
+      "receiptN": "Ricevuta {n}",
+      "deleteEntryTitle": "Eliminare questa voce?",
+      "deleteEntryDescription": "Il saldo della fattura viene ricalcolato.",
+      "totals": "Totali",
+      "invoiceTotal": "Totale della fattura",
+      "credited": "Accreditato",
+      "refunds": "Rimborsi",
+      "writeOffs": "Stralci",
+      "tdsDeducted": "TDS trattenuto",
+      "bankFees": "Commissioni bancarie",
+      "balanceDue": "Saldo dovuto",
+      "onlyIssued": "Solo le fatture emesse accettano pagamenti."
+    },
+    "send": {
+      "metaTitle": "Invia fattura",
+      "title": "Invia <mono>{number}</mono>",
+      "alreadySent": "Già segnata come inviata; un nuovo invio aggiunge un’altra voce al registro.",
+      "previousSends": "Invii precedenti"
+    },
+    "builder": {
+      "parties": "Parti",
+      "issuerProfile": "Profilo emittente",
+      "client": "Cliente",
+      "archivedOption": "{label} (archiviato)",
+      "issueDate": "Data di emissione",
+      "dueDate": "Data di scadenza",
+      "fxRate": "Tasso di cambio verso la valuta di base",
+      "fxHint": "1 {currency} = ? {base} (solo per i report)",
+      "poReference": "Riferimento ordine d’acquisto",
+      "lineItems": "Righe",
+      "lineItemsHint": "Scegli dal catalogo per copiarne i valori, oppure digita una riga.",
+      "taxDiscountTds": "Imposta, sconto e TDS",
+      "taxRegime": "Regime fiscale",
+      "regimes": {
+        "indiaGst": "GST India",
+        "ukVat": "IVA Regno Unito",
+        "usSalesTax": "Sales tax USA",
+        "none": "Nessuna imposta"
+      },
+      "reverseCharge": "Inversione contabile",
+      "reverseChargeHint": "Imposta dovuta dal destinatario",
+      "discount": "Sconto",
+      "percent": "Percentuale",
+      "amount": "Importo",
+      "rounding": "Arrotondamento",
+      "roundingHint": "Facoltativo, all’unità intera; deve essere inferiore a 1",
+      "round": "Arrotonda",
+      "tdsRate": "Aliquota TDS prevista (%)",
+      "tdsRateHint": "Solo informativa; stampata quando il dettaglio TDS è attivo",
+      "paymentMethods": "Metodi di pagamento",
+      "paymentMethodsHint": "Stampati nell’ordine di selezione.",
+      "noPaymentMethods": "Nessun metodo di pagamento attivo. <link>Aggiungine uno</link>.",
+      "whatPrints": "Cosa viene stampato",
+      "whatPrintsHint": "Parte dai valori predefiniti del profilo emittente.",
+      "documentLanguage": "Lingua del documento",
+      "documentLanguageHint": "Etichette, date e importi vengono stampati in questa lingua; la preferenza del cliente, altrimenti quella del profilo.",
+      "notesAndTerms": "Note e condizioni",
+      "notes": "Note",
+      "terms": "Condizioni",
+      "saveDraft": "Salva bozza",
+      "issuing": "Emissione…",
+      "saveAndIssue": "Salva ed emetti",
+      "subtotal": "Subtotale",
+      "tax": "Imposta",
+      "tdsExpected": "TDS previsto",
+      "netExpected": "Netto previsto"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Aggiungi dal catalogo…",
+      "services": "Servizi",
+      "products": "Prodotti",
+      "addLine": "Aggiungi riga",
+      "columns": {
+        "description": "Descrizione",
+        "sacHsn": "SAC/HSN",
+        "qty": "Qtà",
+        "unit": "Unità",
+        "rate": "Tariffa",
+        "taxPercent": "Imposta %"
+      },
+      "aria": {
+        "description": "Descrizione della riga {line}",
+        "sacHsn": "SAC/HSN della riga {line}",
+        "quantity": "Quantità della riga {line}",
+        "unit": "Unità della riga {line}",
+        "rate": "Tariffa della riga {line}",
+        "taxRate": "Aliquota della riga {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Esente",
+      "moveUp": "Sposta su",
+      "moveDown": "Sposta giù",
+      "removeLine": "Rimuovi riga",
+      "shortcutHint": "Ctrl/⌘+Invio in una descrizione aggiunge una riga.",
+      "addFromCatalogueAria": "Aggiungi dal catalogo"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Dati dell’emittente",
+        "client": "Dati del cliente",
+        "document": "Sezioni del documento"
+      },
+      "fields": {
+        "showLogo": "Logo",
+        "showTradeName": "Nome commerciale",
+        "showDesignation": "Qualifica",
+        "showEmail": "Email",
+        "showPhone": "Telefono",
+        "showWebsite": "Sito web",
+        "showFullAddress": "Indirizzo completo",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Firma",
+        "showStamp": "Timbro",
+        "showContactPerson": "Referente",
+        "showBillingAddress": "Indirizzo di fatturazione",
+        "showShippingAddress": "Indirizzo di spedizione",
+        "showTaxIdentifier": "Identificativo fiscale",
+        "showPlaceOfSupply": "Luogo di fornitura",
+        "showDueDate": "Data di scadenza",
+        "showPaymentTerms": "Termini di pagamento",
+        "showSacCodeColumn": "Colonna codice SAC",
+        "showQuantityColumn": "Colonna quantità",
+        "showUnitPriceColumn": "Colonna prezzo unitario",
+        "showTaxColumn": "Colonna imposta",
+        "showTdsBreakdown": "Dettaglio TDS",
+        "showQrVerification": "Verifica con QR",
+        "showNotes": "Note",
+        "showTerms": "Condizioni",
+        "showReplacesReference": "Riferimento al documento sostituito",
+        "showAmountInWords": "Importo in lettere",
+        "showSupplyStatement": "Dicitura sulla fornitura",
+        "showRoundingLine": "Riga di arrotondamento",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Clienti",
+      "description": "Tutti coloro a cui fatturi. I clienti con fatture vengono archiviati, mai eliminati.",
+      "newClient": "Nuovo cliente",
+      "searchPlaceholder": "Cerca per nome",
+      "searchLabel": "Cerca clienti",
+      "emptyTitle": "Ancora nessun cliente",
+      "emptyDescription": "Aggiungi le persone e le aziende a cui fatturi; la loro valuta e i termini di pagamento precompilano ogni fattura.",
+      "addClient": "Aggiungi un cliente",
+      "noMatch": "Nessun cliente corrisponde a “{q}”.",
+      "termsDays": "{days} g",
+      "columns": {
+        "name": "Nome",
+        "contact": "Referente",
+        "email": "Email",
+        "country": "Paese",
+        "currency": "Valuta",
+        "terms": "Termini",
+        "status": "Stato"
+      }
+    },
+    "new": {
+      "title": "Nuovo cliente"
+    },
+    "edit": {
+      "metaTitle": "Modifica cliente",
+      "title": "Modifica {name}"
+    },
+    "detail": {
+      "metaTitle": "Cliente",
+      "newInvoice": "Nuova fattura",
+      "restoreTitle": "Ripristinare questo cliente?",
+      "archiveTitle": "Archiviare questo cliente?",
+      "archiveDescription": "Esce dagli elenchi di selezione; fatture e cronologia restano intatte.",
+      "deleteTitle": "Eliminare questo cliente?",
+      "deleteDescription": "Possibile solo finché nessuna fattura fa riferimento al cliente.",
+      "details": "Dettagli",
+      "contact": "Referente",
+      "email": "Email",
+      "phone": "Telefono",
+      "country": "Paese",
+      "gstState": "GST {code}",
+      "taxId": "Identificativo fiscale",
+      "currency": "Valuta",
+      "paymentTerms": "Termini di pagamento",
+      "paymentTermsDays": "{days} giorni",
+      "expectedTds": "TDS previsto",
+      "notes": "Note",
+      "addresses": "Indirizzi",
+      "billing": "Fatturazione",
+      "shipping": "Spedizione",
+      "lifetime": "Storico complessivo",
+      "openRegister": "Apri il registro",
+      "noIssued": "Ancora nessuna fattura emessa.",
+      "noIssuedWithDrafts": "Ancora nessuna fattura emessa ({drafts} bozza).",
+      "firstLatest": "Prima fattura <mono>{first}</mono>, ultima <mono>{latest}</mono>{drafts, plural, =0 {} one { · # bozza} other { · # bozze}}",
+      "lifetimeColumns": {
+        "currency": "Valuta",
+        "invoices": "Fatture",
+        "billed": "Fatturato",
+        "received": "Incassato",
+        "credited": "Accreditato",
+        "outstanding": "Da incassare",
+        "overdue": "Scaduto"
+      },
+      "recentInvoices": "Fatture recenti",
+      "noInvoices": "Ancora nessuna fattura per questo cliente.",
+      "recentColumns": {
+        "number": "Numero",
+        "issueDate": "Data di emissione",
+        "due": "Scadenza",
+        "total": "Totale",
+        "balance": "Saldo",
+        "status": "Stato"
+      }
+    },
+    "form": {
+      "cardTitle": "Cliente",
+      "displayName": "Nome visualizzato",
+      "contactPerson": "Referente",
+      "email": "Email",
+      "phone": "Telefono",
+      "taxIdType": "Tipo di identificativo fiscale",
+      "taxIdTypeNone": "Nessuno",
+      "taxId": "Identificativo fiscale",
+      "currency": "Valuta",
+      "paymentTerms": "Termini di pagamento (giorni)",
+      "expectedTdsRate": "Aliquota TDS prevista (%)",
+      "preferredLanguage": "Lingua del documento",
+      "preferredLanguageFollow": "Segui il profilo dell’emittente",
+      "buyerReference": "Riferimento dell’acquirente",
+      "buyerReferenceHint": "Stampato nelle fatture elettroniche come riferimento proprio dell’acquirente (un numero d’ordine o di centro di costo).",
+      "electronicAddress": "Indirizzo elettronico",
+      "electronicAddressHint": "L’identificativo Peppol o EN 16931 con cui questo cliente riceve le fatture elettroniche.",
+      "electronicAddressScheme": "Schema dell’indirizzo elettronico",
+      "electronicAddressSchemeNone": "Nessuno schema",
+      "notes": "Note",
+      "billingAddress": "Indirizzo di fatturazione",
+      "shippingAddress": "Indirizzo di spedizione",
+      "differentFromBilling": "Diverso da quello di fatturazione",
+      "save": "Salva cliente"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Ora",
+      "DAY": "Giorno",
+      "FIXED": "Forfait",
+      "MILESTONE": "Traguardo",
+      "UNIT": "Unità"
+    },
+    "list": {
+      "activate": "Attiva",
+      "deactivate": "Disattiva",
+      "archiveDescription": "Le righe di fattura esistenti conservano i valori copiati.",
+      "deleteDescription": "Possibile solo finché nessuna riga di fattura vi fa riferimento. Altrimenti archivialo.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Nome",
+        "unit": "Unità",
+        "rate": "Tariffa",
+        "price": "Prezzo",
+        "currency": "Valuta",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Imposta",
+        "status": "Stato"
+      }
+    },
+    "services": {
+      "title": "Servizi",
+      "description": "Il tuo catalogo. Scegliere un servizio ne copia i valori nella riga della fattura.",
+      "newService": "Nuovo servizio",
+      "emptyTitle": "Ancora nessun servizio",
+      "emptyDescription": "Aggiungi ciò che vendi - design a ore, un traguardo a prezzo fisso - con il suo codice SAC/HSN e l’aliquota.",
+      "addService": "Aggiungi un servizio",
+      "restoreTitle": "Ripristinare {name}?",
+      "archiveTitle": "Archiviare {name}?",
+      "deleteTitle": "Eliminare {name}?",
+      "editMetaTitle": "Modifica servizio",
+      "editTitle": "Modifica {name}"
+    },
+    "products": {
+      "title": "Prodotti",
+      "description": "Beni che vendi, ciascuno con uno SKU. Scegliere un prodotto ne copia i valori nella riga della fattura.",
+      "newProduct": "Nuovo prodotto",
+      "emptyTitle": "Ancora nessun prodotto",
+      "emptyDescription": "Aggiungi i beni che vendi con SKU, codice HSN, prezzo unitario e aliquota.",
+      "addProduct": "Aggiungi un prodotto",
+      "restoreTitle": "Ripristinare {sku}?",
+      "archiveTitle": "Archiviare {sku}?",
+      "deleteTitle": "Eliminare {sku}?",
+      "editMetaTitle": "Modifica prodotto",
+      "editTitle": "Modifica {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Codice univoco stampato sotto la descrizione della riga",
+      "name": "Nome",
+      "unit": "Unità",
+      "defaultRate": "Tariffa predefinita",
+      "unitPrice": "Prezzo unitario",
+      "currency": "Valuta",
+      "sacHsnCode": "Codice SAC / HSN",
+      "sacHsnHint": "Obbligatorio nelle fatture GST",
+      "hsnCode": "Codice HSN",
+      "hsnHint": "Obbligatorio nelle fatture GST per i beni",
+      "defaultTaxRate": "Aliquota predefinita (%)",
+      "description": "Descrizione",
+      "descriptionHint": "Precompila la descrizione della riga",
+      "active": "Attivo",
+      "serviceInactiveHint": "I servizi inattivi non compaiono nel selettore delle fatture",
+      "productInactiveHint": "I prodotti inattivi non compaiono nel selettore delle fatture",
+      "saveService": "Salva servizio",
+      "saveProduct": "Salva prodotto"
+    },
+    "tags": {
+      "legend": "Profili",
+      "hint": "Seleziona i profili emittente che vendono questo articolo. Lascia tutto deselezionato per offrirlo a ogni profilo."
+    }
+  },
+  "address": {
+    "line1": "Indirizzo, riga 1",
+    "line2": "Indirizzo, riga 2",
+    "city": "Città",
+    "stateRegion": "Stato / regione",
+    "postalCode": "CAP",
+    "country": "Paese",
+    "state": "Stato",
+    "gstStateCodeHint": "Codice di stato GST {code}",
+    "pickStateHint": "Scegli lo stato per il codice di stato GST",
+    "stateRegionCode": "Codice di stato / regione",
+    "stateRegionCodePlaceholder": "ad es. CA"
+  },
+  "assets": {
+    "tooLarge": "Il file è troppo grande.",
+    "unsupportedReceipt": "Usa un’immagine PNG, JPEG, WebP oppure un PDF.",
+    "unsupportedImage": "Usa un’immagine PNG, JPEG o WebP.",
+    "uploadFailed": "Caricamento non riuscito.",
+    "uploading": "Caricamento…",
+    "dropHint": "Trascina un file qui o sceglilo",
+    "dropHintMany": "Trascina qui i file, oppure scegli",
+    "dropActive": "Rilascia per caricare"
+  },
+  "ui": {
+    "breadcrumb": "Percorso di navigazione",
+    "close": "Chiudi",
+    "closeMenu": "Chiudi il menu",
+    "reveal": "Mostra",
+    "hide": "Nascondi",
+    "openCalendar": "Apri calendario",
+    "chooseMonth": "Scegli il mese",
+    "chooseYear": "Scegli l'anno",
+    "searchOptions": "Digita per cercare",
+    "noMatches": "Nessun risultato",
+    "pullToRefresh": {
+      "label": "Elenco aggiornabile",
+      "pulling": "Trascina per aggiornare",
+      "release": "Rilascia per aggiornare",
+      "refreshing": "Aggiornamento in corso"
+    },
+    "inputCharset": "Sono consentiti solo i caratteri standard della tastiera.",
+    "confirm": {
+      "working": "Operazione in corso…"
+    },
+    "statusPill": {
+      "DRAFT": "Bozza",
+      "ISSUED": "Emessa",
+      "SENT": "Inviata",
+      "PARTIALLY_PAID": "Pagata in parte",
+      "PAID": "Pagata",
+      "OVERDUE": "Scaduta",
+      "VOID": "Annullata"
+    },
+    "activePill": {
+      "active": "Attivo",
+      "archived": "Archiviato",
+      "inactive": "Inattivo"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Qualcosa è andato storto.",
+    "fixFields": "Correggi i campi evidenziati.",
+    "accountSaved": "Preferenze dell’account salvate",
+    "apiKeyCreated": "Chiave API creata. Copiala ora: viene mostrata una sola volta.",
+    "saved": "{name} salvato",
+    "savedProfile": "Profilo {label} salvato",
+    "clientArchived": "Cliente archiviato",
+    "clientRestored": "Cliente ripristinato",
+    "clientDeleted": "Cliente eliminato",
+    "productArchived": "Prodotto archiviato",
+    "productRestored": "Prodotto ripristinato",
+    "productActivated": "Prodotto attivato",
+    "productDeactivated": "Prodotto disattivato",
+    "serviceArchived": "Servizio archiviato",
+    "serviceRestored": "Servizio ripristinato",
+    "serviceActivated": "Servizio attivato",
+    "serviceDeactivated": "Servizio disattivato",
+    "defaultProfileUpdated": "Profilo predefinito aggiornato",
+    "profileArchived": "Profilo archiviato",
+    "profileRestored": "Profilo ripristinato",
+    "profileDeleted": "Profilo eliminato",
+    "defaultPaymentMethodUpdated": "Metodo di pagamento predefinito aggiornato",
+    "paymentMethodArchived": "Metodo di pagamento archiviato",
+    "paymentMethodRestored": "Metodo di pagamento ripristinato",
+    "paymentMethodDeleted": "Metodo di pagamento eliminato",
+    "issued": "{number} emessa",
+    "savedAsDraft": "Salvata come bozza. {reason}",
+    "draftSaved": "Bozza salvata",
+    "invoiceVoided": "Fattura annullata",
+    "originalVoided": "Originale annullato; modifica la bozza sostitutiva",
+    "markedAsSent": "Segnata come inviata",
+    "draftDeleted": "Bozza eliminata",
+    "generatedPdf": "Versione PDF {version} generata",
+    "creditNoteVoided": "Nota di credito annullata; il saldo della fattura è ripristinato",
+    "draftCreditNoteDeleted": "Bozza di nota di credito eliminata",
+    "mailRefused": "Il server di posta ha rifiutato il messaggio: {error}. Il tentativo è stato registrato.",
+    "unknownError": "errore sconosciuto",
+    "sentTo": "Inviato a {recipients}",
+    "smtpSaved": "Impostazioni SMTP salvate",
+    "smtpRemoved": "Impostazioni SMTP memorizzate rimosse",
+    "testEmailSent": "Email di prova inviata a {email}",
+    "testFailed": "Test non riuscito: {error}",
+    "defaultRecipientsSaved": "Destinatari predefiniti salvati",
+    "invitationSent": "Invito inviato",
+    "invitationReady": "Invito pronto",
+    "unknownRole": "Ruolo sconosciuto",
+    "roleUpdated": "Ruolo aggiornato",
+    "accountDeactivated": "Account disattivato",
+    "accountReactivated": "Account riattivato",
+    "invitationRevoked": "Invito revocato",
+    "paymentUpdated": "Pagamento aggiornato",
+    "paymentRecorded": "Pagamento registrato",
+    "paymentDeleted": "Pagamento eliminato",
+    "sessionRevoked": "Sessione revocata",
+    "noOtherSessions": "Nessun’altra sessione",
+    "signedOutOthers": "Disconnesse {count} altre sessioni",
+    "sharePasswordRequired": "Inserisci una password, oppure lascia che ne venga generata una.",
+    "shareLinkCreated": "Link di condivisione creato.",
+    "templateSaved": "Modello salvato; i documenti futuri lo useranno",
+    "templateReset": "Modello ripristinato al predefinito integrato",
+    "templateImported": "Modello importato",
+    "profileTemplateCleared": "Il profilo usa di nuovo il modello dell’istanza",
+    "operatorSaved": "Dati dell’operatore salvati. Le pagine legali ora li mostrano.",
+    "einvoiceSettingsSaved": "Impostazioni di fatturazione elettronica salvate",
+    "irnRegistered": "IRN {irn} registrato; il PDF è stato rigenerato con esso",
+    "irnRecorded": "IRN registrato; il PDF è stato rigenerato con esso",
+    "irnCancelled": "IRN annullato; il PDF è stato rigenerato"
+  }
+}

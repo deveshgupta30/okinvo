@@ -13,6 +13,7 @@ describe.skipIf(!url)("account settings DAL", () => {
     name: "Before",
     role: "OWNER",
     timezone: "UTC",
+    locale: "en-US",
   };
   let prisma: typeof import("@/lib/db").prisma;
   let users: typeof import("@/server/dal/users");
@@ -32,6 +33,7 @@ describe.skipIf(!url)("account settings DAL", () => {
     const updated = await users.updateAccount(actor, {
       name: "After",
       timezone: "Asia/Kolkata",
+      locale: "en-US",
       theme: "light",
     });
     expect(updated).toMatchObject({ name: "After", timezone: "Asia/Kolkata", theme: "light" });

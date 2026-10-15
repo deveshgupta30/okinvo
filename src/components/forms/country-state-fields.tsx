@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
@@ -22,13 +23,15 @@ export function CountryStateFields({
   gstStateCode: string;
   errors?: FieldErrors | undefined;
 }) {
+  const t = useTranslations("address");
+  const tc = useTranslations("common");
   const [cc, setCc] = useState(country || "IN");
   const [iso, setIso] = useState(state);
   const gst = cc === "IN" ? (indianStateByIso(iso)?.gst ?? gstStateCode) : "";
   const known = COUNTRIES.some((c) => c.code === cc);
   return (
     <>
-      <Field label="Country" htmlFor="countryCode" error={errors?.countryCode} required>
+      <Field label={t("country")} htmlFor="countryCode" error={errors?.countryCode} required>
         <Select
           id="countryCode"
           name="countryCode"
@@ -45,10 +48,10 @@ export function CountryStateFields({
       </Field>
       {cc === "IN" ? (
         <Field
-          label="State"
+          label={t("state")}
           htmlFor="stateCode"
           error={errors?.stateCode ?? errors?.gstStateCode}
-          hint={gst ? `GST state code ${gst}` : "Pick the state for the GST state code"}
+          hint={gst ? t("gstStateCodeHint", { code: gst }) : t("pickStateHint")}
         >
           <Select
             id="stateCode"
@@ -56,7 +59,7 @@ export function CountryStateFields({
             value={iso}
             onChange={(e) => setIso(e.target.value)}
           >
-            <option value="">—</option>
+            <option value="">{tc("emptyValue")}</option>
             {INDIAN_STATES.map((s) => (
               <option key={s.iso} value={s.iso}>
                 {s.name}
@@ -66,13 +69,13 @@ export function CountryStateFields({
           <input type="hidden" name="gstStateCode" value={gst} />
         </Field>
       ) : (
-        <Field label="State / region code" htmlFor="stateCode" error={errors?.stateCode}>
+        <Field label={t("stateRegionCode")} htmlFor="stateCode" error={errors?.stateCode}>
           <Input
             id="stateCode"
             name="stateCode"
             value={iso}
             onChange={(e) => setIso(e.target.value)}
-            placeholder="e.g. CA"
+            placeholder={t("stateRegionCodePlaceholder")}
           />
         </Field>
       )}

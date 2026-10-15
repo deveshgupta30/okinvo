@@ -247,7 +247,9 @@ export async function sendDocumentEmail(
   const ctx = await documentContext(actor, input.kind, input.id);
   const smtp = await resolveSmtp();
   if (!smtp) throw new InvariantError("SMTP is not configured; use “Open in mail app” instead.");
-  const doc = await ensureDocument(input.kind, input.id);
+  const doc = await ensureDocument(input.kind, input.id, {
+    format: input.attachment === "docx" ? "DOCX" : "PDF",
+  });
   const { stream } = await getDocumentStream(actor, doc.id);
   const chunks: Buffer[] = [];
   for await (const c of stream) chunks.push(Buffer.from(c as Uint8Array));
@@ -264,7 +266,16 @@ export async function sendDocumentEmail(
       subject: input.subject,
       text: input.body,
       html: textToHtml(input.body),
-      attachments: [{ filename: doc.filename, content: pdf, contentType: "application/pdf" }],
+      attachments: [
+        {
+          filename: doc.filename,
+          content: pdf,
+          contentType:
+            doc.format === "DOCX"
+              ? "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+              : "application/pdf",
+        },
+      ],
     });
     providerMessageId = result.messageId;
   } catch (e) {

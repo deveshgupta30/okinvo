@@ -5,9 +5,9 @@ import { redirect } from "next/navigation";
 import { withFlash } from "@/lib/flash";
 import { parseForm } from "@/lib/forms";
 import { PaymentInputSchema } from "@/lib/schemas/payment-input";
-import { requireOwner } from "@/server/auth";
+import { requireRole } from "@/server/auth";
 import { deletePayment, recordPayment, updatePayment } from "@/server/dal/payments";
-import { errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
+import { actionT, errorMessage, failedParse, failedWith, str, type ActionState } from "./shared";
 
 const ledger = (invoiceId: string) => `/invoices/${invoiceId}/payments`;
 
@@ -17,7 +17,8 @@ export async function savePayment(
   _prev: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const parsed = parseForm(PaymentInputSchema, formData);
   if (!parsed.ok) return failedParse(parsed, formData);
   try {
@@ -31,21 +32,22 @@ export async function savePayment(
   redirect(
     withFlash(ledger(invoiceId), {
       kind: "success",
-      message: paymentId ? "Payment updated" : "Payment recorded",
+      message: paymentId ? t("paymentUpdated") : t("paymentRecorded"),
     }),
   );
 }
 
 export async function deletePaymentAction(formData: FormData): Promise<void> {
-  const actor = await requireOwner();
+  const actor = await requireRole("EDITOR");
+  const t = await actionT();
   const id = str(formData, "id");
   const invoiceId = str(formData, "invoiceId");
   try {
     await deletePayment(actor, id);
   } catch (e) {
-    redirect(withFlash(ledger(invoiceId), { kind: "error", message: errorMessage(e) }));
+    redirect(withFlash(ledger(invoiceId), { kind: "error", message: await errorMessage(e) }));
   }
   revalidatePath(`/invoices/${invoiceId}`);
   revalidatePath("/invoices");
-  redirect(withFlash(ledger(invoiceId), { kind: "success", message: "Payment deleted" }));
+  redirect(withFlash(ledger(invoiceId), { kind: "success", message: t("paymentDeleted") }));
 }

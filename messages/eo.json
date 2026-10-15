@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "Hejmo de okinvo",
+    "save": "Konservi",
+    "cancel": "Nuligi",
+    "continue": "Daŭrigi",
+    "saving": "Konservado…",
+    "detect": "Detekti",
+    "yes": "Jes",
+    "no": "Ne",
+    "choose": "Elekti…",
+    "remove": "Forigi",
+    "tryAgain": "Provi denove",
+    "dashboard": "Panelo",
+    "goToDashboard": "Iri al la panelo",
+    "or": "aŭ",
+    "invoice": "Fakturo",
+    "creditNote": "Kredita noto",
+    "downloadPdf": "Elŝuti PDF",
+    "edit": "Redakti",
+    "delete": "Forigi",
+    "downloadDocx": "Elŝuti DOCX",
+    "downloadCii": "Elŝuti EN 16931 XML",
+    "downloadUbl": "Elŝuti Peppol UBL",
+    "downloadFacturX": "Elŝuti Factur-X PDF",
+    "none": "Neniu",
+    "dismiss": "Fermi",
+    "all": "Ĉiuj",
+    "previous": "Antaŭa",
+    "next": "Sekva",
+    "go": "Iri",
+    "search": "Serĉi",
+    "status": "Stato",
+    "total": "Sumo",
+    "currency": "Valuto",
+    "from": "De",
+    "to": "Ĝis",
+    "reason": "Kialo",
+    "history": "Historio",
+    "archive": "Arkivi",
+    "restore": "Restaŭri",
+    "showArchived": "Montri arkivitajn",
+    "hideArchived": "Kaŝi arkivitajn",
+    "archived": "Arkivita",
+    "default": "Implicita",
+    "setDefault": "Fari implicita",
+    "revoke": "Revoki",
+    "copy": "Kopii",
+    "copied": "Kopiita",
+    "active": "Aktiva",
+    "pagination": "Paĝado",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "Panelo",
+      "invoices": "Fakturoj",
+      "creditNotes": "Kreditaj notoj",
+      "clients": "Klientoj",
+      "services": "Servoj",
+      "products": "Produktoj",
+      "tools": "Valuto"
+    },
+    "primaryNav": "Ĉefa",
+    "settings": "Agordoj",
+    "openMenu": "Malfermi menuon",
+    "more": "Pli",
+    "navigation": "Navigado",
+    "dock": "Rapida navigado",
+    "pagesAndAccount": "Paĝoj kaj konto",
+    "collapseSidebar": "Faldi flankan breton",
+    "collapseSidebarHint": "Faldi flankan breton ([)",
+    "expandSidebar": "Malfaldi flankan breton",
+    "expandSidebarHint": "Malfaldi flankan breton ([)",
+    "theme": {
+      "label": "Etoso",
+      "system": "Sistemo",
+      "light": "Hela",
+      "dark": "Malhela",
+      "current": "Etoso: {mode}",
+      "switchTo": "Etoso: {mode}. Ŝanĝi al {next}"
+    },
+    "userMenu": {
+      "label": "Konta menuo de {name}",
+      "profile": "Profilo",
+      "logOut": "Elsaluti"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "Valutŝanĝilo",
+      "title": "Valutŝanĝilo",
+      "description": "Konvertu inter la valutoj en kiuj vi fakturas, per la tabelo de kurzoj de ĉi tiu instalaĵo.",
+      "amount": "Sumo",
+      "from": "De",
+      "to": "Al",
+      "flip": "Interŝanĝi la valutojn",
+      "enterAmount": "Enigu sumon",
+      "asOf": "Kurzoj ekde {date} ({source})",
+      "sources": {
+        "bundled": "kunpakitaj kun la apo",
+        "live": "reete aktualigitaj"
+      },
+      "note": "La kurzoj estas gvidaj; la kurzo sur eldonita fakturo estas tiu, kiun vi enigis dum la eldonado."
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "Ensaluti",
+      "metaDescription": "Ensalutu en okinvo, la mem-gastigatan fakturan aplikaĵon, per via identeca provizanto aŭ via pasvorto.",
+      "title": "Ensaluti",
+      "subtitle": "Nur permesitaj kontoj povas eniri.",
+      "failed": "Ensaluto malsukcesis.",
+      "noMethod": "Neniu ensaluta metodo estas agordita. Starigu paron de provizanto kiel <code>AUTH_GITHUB_*</code>, aŭ <code>AUTH_PASSWORD_SIGNIN=true</code>, en <code>.env</code>.",
+      "errors": {
+        "not_allowed": "Tiu konto ne estas permesita en ĉi tiu instanco, aŭ ĝi estis malaktivigita.",
+        "signin": "La ensaluto ne finiĝis. Bonvolu provi denove."
+      }
+    },
+    "password": {
+      "name": "Nomo",
+      "email": "Retpoŝto",
+      "password": "Pasvorto",
+      "signingIn": "Ensalutado…",
+      "createAccount": "Krei konton",
+      "signIn": "Ensaluti",
+      "haveAPassword": "Mi jam havas pasvorton",
+      "firstTime": "Ĉu vi estas ĉi tie unuafoje? Starigu pasvorton",
+      "failed": "Ensaluto malsukcesis."
+    },
+    "social": {
+      "redirecting": "Alidirektado…",
+      "continueWith": "Daŭrigi per {provider}",
+      "failed": "La ensaluto ne povis komenciĝi."
+    },
+    "error": {
+      "metaTitle": "Ensaluta eraro",
+      "metaDescription": "La ensaluto ne finiĝis. La paĝo klarigas kio misfunkciis kaj kiel provi denove.",
+      "title": "Ensaluto malsukcesis",
+      "body": "La identeca provizanto resendis <code>{value}</code>. Se via adreso ne troviĝas en la permesolisto de ĉi tiu instanco, petu la posedanton aldoni ĝin.",
+      "back": "Reen al ensaluto"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "Agordoj",
+      "profiles": "Profiloj",
+      "paymentMethods": "Pagmetodoj",
+      "templates": "Ŝablonoj",
+      "email": "Retpoŝto",
+      "security": "Sekureco",
+      "users": "Uzantoj",
+      "data": "Datumoj",
+      "legal": "Jura",
+      "einvoicing": "E-fakturado",
+      "account": "Konto",
+      "appearance": "Aspekto",
+      "api": "API",
+      "status": "Stato",
+      "usage": "Uzado"
+    },
+    "account": {
+      "metaTitle": "Konto",
+      "title": "Konto",
+      "description": "Via foto, nomo, regiono, lingvo kaj horzono.",
+      "photo": {
+        "title": "Foto",
+        "description": "Montrata en la flanka breto kaj en la uzanta menuo."
+      },
+      "form": {
+        "title": "Konto",
+        "description": "Kiel vi aperas kaj kiam estas “hodiaŭ”.",
+        "displayName": "Montrata nomo",
+        "signInEmail": "Ensaluta retpoŝto",
+        "signInEmailHint": "Via identeco en ĉi tiu instanco; ĝi ne redaktiĝas ĉi tie.",
+        "timezone": "Horzono",
+        "timezoneHint": "“Hodiaŭ” por eldondatoj, limdatoj kaj la panelo",
+        "regionTitle": "Regiono",
+        "regionDescription": "Implicitaj valoroj por novaj eldonintaj profiloj kaj por la panelo ĝis profilo ekzistas.",
+        "country": "Lando",
+        "currency": "Valuto",
+        "suggested": "Sugestita por ĉi tiu lando:",
+        "language": "Lingvo",
+        "languageHint": "La lingvo de la aplikaĵo mem. Dokumentoj uzas la propran lokaĵaron de ĉiu profilo.",
+        "machineTranslated": "Ĉi tiu lingvo estis maŝine tradukita. Korektoj estas bonvenaj: <link>plibonigu ĝin en GitHub</link>.",
+        "save": "Konservi preferojn"
+      },
+      "regions": {
+        "Africa": "Afriko",
+        "Americas": "Ameriko",
+        "Asia": "Azio",
+        "Europe": "Eŭropo",
+        "MiddleEast": "Mezoriento",
+        "Oceania": "Oceanio",
+        "Constructed": "Konstruitaj"
+      },
+      "privacy": {
+        "title": "Privateco",
+        "description": "okinvo metas nur la kuketojn necesajn por funkcii. Neniu analizado, neniu spurado.",
+        "cookiePolicy": "Kuketa politiko",
+        "showNoticeAgain": "Montri la kuketan avizon denove"
+      }
+    },
+    "avatar": {
+      "changePhoto": "Ŝanĝi foton",
+      "addPhoto": "Aldoni foton",
+      "hint": "PNG, JPEG aŭ WebP. Ĉie montrata kiel cirklo; vi povas zomi kaj movi ĝin antaŭ konservi.",
+      "tooLarge": "Tiu foto estas tro granda.",
+      "uploadFailed": "Alŝuto malsukcesis.",
+      "choose": "Elekti profilan foton",
+      "dialogTitle": "Poziciigu vian foton",
+      "dialogDescription": "Trenu por movi, rulu aŭ pinĉu por zomi. La cirklo estas tio, kion ĉiuj vidas.",
+      "zoom": "Zomo",
+      "save": "Konservi foton"
+    },
+    "appearance": {
+      "metaTitle": "Aspekto",
+      "title": "Aspekto",
+      "description": "Etoso kaj emfaza koloro, konservitaj en via konto.",
+      "theme": {
+        "title": "Etoso",
+        "description": "Sekvi la sistemon, aŭ fiksi helan aŭ malhelan.",
+        "label": "Etoso",
+        "system": "Sekvi la sistemon",
+        "systemHint": "Ŝanĝiĝas kun via operaciumo",
+        "light": "Hela",
+        "lightHint": "Blanka kanvaso",
+        "dark": "Malhela",
+        "darkHint": "Preskaŭ nigra kanvaso"
+      },
+      "accent": {
+        "title": "Emfazo",
+        "description": "Uzata por la ĉefa butono, fokusaj ringoj kaj la marko de la aktiva paĝo. Mento kongruas kun la marko.",
+        "label": "Emfaza koloro",
+        "customHint": "Aŭ elektu ajnan propran koloron"
+      },
+      "accents": {
+        "mint": "Mento",
+        "lavender": "Lavendo",
+        "sky": "Ĉielo",
+        "peach": "Persiko",
+        "butter": "Butero",
+        "rose": "Rozo",
+        "sage": "Salvio",
+        "lilac": "Lilao",
+        "custom": "Propra"
+      }
+    },
+    "profiles": {
+      "metaTitle": "Eldonintaj profiloj",
+      "title": "Eldonintaj profiloj",
+      "description": "La juraj identecoj, el kiuj vi fakturas. La implicita pliplenigas novajn fakturojn.",
+      "breadcrumb": "Profiloj",
+      "newProfile": "Nova profilo",
+      "emptyTitle": "Ankoraŭ neniu eldonanta profilo",
+      "emptyDescription": "Kreu la identecon, el kiu vi fakturas: individuo kun PAN, aŭ via kompanio.",
+      "createProfile": "Krei profilon",
+      "columns": {
+        "label": "Etikedo",
+        "legalName": "Jura nomo",
+        "type": "Tipo",
+        "country": "Lando",
+        "currency": "Valuto",
+        "regime": "Reĝimo",
+        "status": "Stato"
+      },
+      "types": {
+        "company": "Kompanio",
+        "individual": "Individuo"
+      },
+      "makeDefaultTitle": "Ĉu fari {label} la implicita?",
+      "makeDefaultDescription": "Novaj fakturoj komenciĝos el ĉi tiu profilo.",
+      "restoreTitle": "Ĉu restaŭri {label}?",
+      "archiveTitle": "Ĉu arkivi {label}?",
+      "archiveDescription": "Ĝi malaperas el la elektiloj; ekzistantaj fakturoj restas netuŝitaj.",
+      "new": {
+        "metaTitle": "Nova eldonanta profilo",
+        "title": "Nova eldonanta profilo",
+        "prefilled": "Plenigita laŭ viaj respondoj; kontrolu la adreson kaj la impostajn detalojn, poste konservu."
+      },
+      "edit": {
+        "metaTitle": "Redakti eldonantan profilon",
+        "template": "Ŝablono",
+        "deleteTitle": "Ĉu forigi {label}?",
+        "deleteDescription": "Ebla nur dum neniu fakturo aŭ kredita noto referencas ĉi tiun profilon. Alie arkivu ĝin."
+      },
+      "template": {
+        "metaTitle": "Profila ŝablono",
+        "title": "Ŝablono por {label}",
+        "ownTemplate": "Propra ŝablono",
+        "instanceTemplate": "Ŝablono de la instanco",
+        "resetTitle": "Ĉu uzi la ŝablonon de la instanco denove?",
+        "resetDescription": "La propra agordo de ĉi tiu profilo estas forigita; eldonitaj dokumentoj ne ŝanĝiĝas.",
+        "useInstance": "Uzi la ŝablonon de la instanco",
+        "usingInstanceTitle": "Uzante la ŝablonon de la instanco",
+        "usingInstanceDescription": "Dokumentoj de ĉi tiu profilo sekvas Agordoj → Ŝablonoj. Elektu aparte por personecigi ilin.",
+        "customise": "Uzi alian ŝablonon por ĉi tiu profilo",
+        "openInstance": "Malfermi la ŝablonon de la instanco"
+      },
+      "form": {
+        "identityTitle": "Identeco",
+        "identityDescription": "Kiu eldonas la fakturon.",
+        "type": "Tipo",
+        "label": "Etikedo",
+        "labelHint": "Montrata nur en elektiloj",
+        "legalName": "Jura nomo",
+        "tradeName": "Komerca nomo",
+        "designation": "Titolo",
+        "email": "Retpoŝto",
+        "phone": "Telefono",
+        "website": "Retejo",
+        "addressTitle": "Adreso",
+        "taxTitle": "Impostaj identigiloj",
+        "taxDescription": "Nur tiuj, kiuj validas por vi; presado estas regata por ĉiu fakturo.",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "Brita VAT-numero",
+        "usTaxId": "Usona EIN / SSN",
+        "usTaxIdHint": "Ĉifrita en ripozo",
+        "lutNumber": "LUT-numero",
+        "lutNumberHint": "Por eksportoj sen IGST",
+        "lutFiscalYear": "LUT-financa jaro",
+        "lutFiscalYearHint": "ekz. 2026-27",
+        "einvoiceTitle": "E-fakturado",
+        "einvoiceDescription": "Kiel ĉi tiu profilo identigas sin en e-fakturoj; la konektilo kaj la akreditaĵoj troviĝas en Agordoj > E-fakturado.",
+        "electronicAddress": "Elektronika adreso",
+        "electronicAddressHint": "La Peppol- aŭ EN 16931-identigilo de ĉi tiu eldonanto, presita kiel la elektronika adreso de la vendisto.",
+        "electronicAddressScheme": "Skemo de elektronika adreso",
+        "electronicAddressSchemeNone": "Neniu skemo",
+        "einvoiceEnabled": "E-fakturado ebligita por ĉi tiu profilo",
+        "einvoiceEnabledHint": "Proponas elŝutojn de GST e-faktura JSON, Factur-X kaj UBL kaj la registradon de IRN sur ĝiaj eldonitaj dokumentoj.",
+        "defaultsTitle": "Implicitaj valoroj",
+        "baseCurrency": "Baza valuto",
+        "locale": "Lokaĵaro de dokumentoj",
+        "localeHint": "Formatado de nombroj kaj datoj en dokumentoj",
+        "fiscalYearStart": "La financa jaro komenciĝas en",
+        "months": {
+          "january": "Januaro",
+          "february": "Februaro",
+          "march": "Marto",
+          "april": "Aprilo",
+          "may": "Majo",
+          "june": "Junio",
+          "july": "Julio",
+          "august": "Aŭgusto",
+          "september": "Septembro",
+          "october": "Oktobro",
+          "november": "Novembro",
+          "december": "Decembro"
+        },
+        "taxRegime": "Implicita impostreĝimo",
+        "regimes": {
+          "indiaGst": "Barata GST",
+          "ukVat": "Brita VAT",
+          "usSalesTax": "Usona vendimposto",
+          "none": "Sen imposto"
+        },
+        "invoiceNumberFormat": "Formato de faktura numero",
+        "invoiceNumberFormatHint": "Ĵetonoj: {tokens}",
+        "creditNoteNumberFormat": "Formato de kredita nota numero",
+        "tdsRate": "Atendata TDS-takso (%)",
+        "tdsRateHint": "Informa, presita kiel atendata dedukto",
+        "defaultNotes": "Implicitaj notoj",
+        "defaultTerms": "Implicitaj kondiĉoj",
+        "printTitle": "Kio presiĝas implicite",
+        "printDescription": "Ĉiu fakturo kopias ĉi tiujn kaj povas ŝanĝi ilin individue.",
+        "emailTitle": "Retpoŝto",
+        "emailDescription": "Implicitaj valoroj por la sendokomponilo. Lokokupiloj: {placeholders}",
+        "emailCc": "Implicita Kk",
+        "emailBcc": "Implicita Ka",
+        "commaSeparated": "Disigitaj per komoj",
+        "invoiceSubject": "Temo de la fakturo",
+        "invoiceSubjectHint": "Malplena uzas la enkonstruitan ŝablonon",
+        "creditNoteSubject": "Temo de la kredita noto",
+        "invoiceBody": "Teksto de la fakturo",
+        "creditNoteBody": "Teksto de la kredita noto",
+        "artworkTitle": "Bildoj",
+        "artworkDescription": "PNG, JPEG aŭ WebP ĝis 2 MB; subskribo kaj stampo konservas travideblon.",
+        "logo": "Emblemo",
+        "signature": "Subskribo",
+        "stamp": "Stampo",
+        "transparentPng": "Travidebla PNG",
+        "save": "Konservi profilon"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "Pagmetodoj",
+      "title": "Pagmetodoj",
+      "description": "Kiel klientoj pagas al vi. Detaloj estas ĉifritaj kaj frostigitaj en ĉiu fakturo je eldono.",
+      "newMethod": "Nova metodo",
+      "emptyTitle": "Ankoraŭ neniu pagmetodo",
+      "emptyDescription": "Aldonu bankan konton, UPI-identigilon aŭ monujon, por ke fakturoj diru al klientoj, kie pagi.",
+      "addMethod": "Aldoni metodon",
+      "columns": {
+        "name": "Nomo",
+        "type": "Tipo",
+        "currency": "Valuto",
+        "status": "Stato"
+      },
+      "types": {
+        "bankTransfer": "Banka transigo",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "Propra"
+      },
+      "makeDefaultTitle": "Ĉu fari {name} la implicita?",
+      "restoreTitle": "Ĉu restaŭri {name}?",
+      "archiveTitle": "Ĉu arkivi {name}?",
+      "archiveDescription": "Eldonitaj fakturoj konservas la momentobildon, kiun ili presis.",
+      "new": {
+        "metaTitle": "Nova pagmetodo",
+        "title": "Nova pagmetodo"
+      },
+      "edit": {
+        "metaTitle": "Redakti pagmetodon",
+        "title": "Redakti {name}",
+        "deleteTitle": "Ĉu forigi {name}?",
+        "deleteDescription": "Ebla nur dum neniu fakturo aŭ pago referencas ĝin. Alie arkivu ĝin."
+      },
+      "form": {
+        "name": "Nomo",
+        "nameHint": "Presita kiel titolo de la pagbloko",
+        "type": "Tipo",
+        "currency": "Valuto",
+        "currencyHint": "Laŭvola; montrata nur kiel kunteksto",
+        "anyCurrency": "Ajna",
+        "instructions": "Instrukcioj",
+        "instructionsHint": "Presitaj sub la detaloj",
+        "isDefault": "Implicita metodo",
+        "isDefaultDescription": "Antaŭelektita en novaj fakturoj",
+        "isActive": "Aktiva",
+        "detailsTitle": "Detaloj",
+        "detailsDescription": "Ĉifritaj en ripozo; momentobildigitaj en ĉiu fakturo je ĝia eldono.",
+        "vpa": "UPI-identigilo (VPA)",
+        "payeeName": "Nomo de ricevanto",
+        "lines": "Linioj",
+        "linesHint": "Unu linio por vico, presita kiel estas",
+        "accountEmail": "Retpoŝto / identigilo de la konto",
+        "bank": {
+          "accountHolder": "Posedanto de la konto",
+          "accountNumber": "Konta numero",
+          "bankName": "Nomo de la banko",
+          "branch": "Filio",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "Direktokodo / sort code"
+        },
+        "save": "Konservi pagmetodon"
+      }
+    },
+    "templates": {
+      "metaTitle": "Dokumentaj ŝablonoj",
+      "title": "Dokumentaj ŝablonoj",
+      "customised": "Personecigita",
+      "builtIn": "Enkonstruita implicita",
+      "description": "Kiel aspektas fakturoj kaj kreditaj notoj. Eldonitaj dokumentoj konservas la ŝablonon, kun kiu ili estis eldonitaj.",
+      "resetTitle": "Ĉu restarigi la enkonstruitan implicitan?",
+      "resetDescription": "Via personecigo estas forigita; jam eldonitaj dokumentoj ne ŝanĝiĝas.",
+      "reset": "Restarigi",
+      "resetTrigger": "Restarigi implicitajn",
+      "importTitle": "Importi",
+      "importDescription": "Restaŭri antaŭe eksportitan agordon.",
+      "overridesTitle": "Superregoj laŭ profilo",
+      "overridesDescription": "Profilo povas elekti sian propran ŝablonon en sia redakta paĝo.",
+      "noOverrides": "Ĉiu profilo uzas la ŝablonon de la instanco.",
+      "import": {
+        "json": "JSON de ŝablono",
+        "jsonHint": "Algluu dosieron produktitan de Eksporti JSON; mankantaj ŝlosiloj uzas implicitajn valorojn",
+        "importing": "Importado…",
+        "submit": "Importi"
+      },
+      "form": {
+        "templateTitle": "Ŝablono",
+        "templateDescription": "Ses enkonstruitaj; la suba personecigo validas por tiu, kiun vi elektas.",
+        "templateGroup": "Ŝablono",
+        "templates": {
+          "ledger": {
+            "name": "Ledger",
+            "character": "Moderna kaj aera, senserifa, kun emfaza streko sub la kapo."
+          },
+          "classic": {
+            "name": "Klasika",
+            "character": "Tradicia tabelo kun randoj, serifaj titoloj, enkadrigitaj sumoj."
+          },
+          "compact": {
+            "name": "Kompakta",
+            "character": "Densa aranĝo por longaj listoj; pli malgranda tiparo, malpli da apartigiloj."
+          },
+          "minimal": {
+            "name": "Minimuma",
+            "character": "Trankvila kaj spaca: neniuj strekoj aŭ kestojn, helaj etikedoj, multe da aero."
+          },
+          "letterhead": {
+            "name": "Leterkapo",
+            "character": "Via emblemo kaj nomo sur kolora bendo aŭ bildo supre de ĉiu paĝo."
+          },
+          "modern": {
+            "name": "Moderna",
+            "character": "Kapo kun kolora bendo; partioj, tabela kapo kaj sumoj sur pala emfaza nuanco."
+          }
+        },
+        "paperTitle": "Papero kaj tiparo",
+        "paperSize": "Grando de papero",
+        "paperLetter": "Letter",
+        "margins": "Marĝenoj",
+        "marginsNormal": "Normalaj",
+        "marginsNarrow": "Mallarĝaj",
+        "headingFont": "Tiparo de titoloj",
+        "bodyFont": "Tiparo de teksto",
+        "fontSans": "Senserifa",
+        "fontSerif": "Serifa",
+        "tableStyle": "Tabela stilo",
+        "tableRuled": "Linieca",
+        "tableZebra": "Zebra",
+        "tablePlain": "Simpla",
+        "accentColour": "Emfaza koloro",
+        "textColour": "Teksta koloro",
+        "logoPosition": "Pozicio de emblemo",
+        "positionLeft": "Maldekstre",
+        "positionCentre": "Centre",
+        "positionRight": "Dekstre",
+        "logoHeight": "Alteco de emblemo (mm)",
+        "documentTitle": "Titolo de dokumento",
+        "titleAuto": "Aŭtomata (GST-konscia)",
+        "titleCustom": "Propra",
+        "titlePlaceholder": "ekz. PROFORMA FAKTURO",
+        "qrPosition": "Pozicio de QR",
+        "qrFooter": "Piedo",
+        "qrHeader": "Kapo",
+        "qrBesideTotals": "Apud la sumoj",
+        "amountInWords": "Sumo per vortoj",
+        "wordsBelowTotal": "Sub la sumoj",
+        "wordsFooter": "Piedo",
+        "wordsHidden": "Kaŝita",
+        "subtotalRow": "Vico de subsumo",
+        "discountRow": "Vico de rabato",
+        "taxLines": "Impostaj linioj",
+        "tdsExpected": "Atendata TDS",
+        "roundingRow": "Vico de ĉirkaŭigo",
+        "pageNumbers": "Paĝnumeroj",
+        "headerTitle": "Kapo",
+        "headerDescription": "Kolora bendo aŭ bildo supre de ĉiu paĝo. Leterkapo kaj Moderna montras bendon, krom se vi elektas alie.",
+        "headerStyle": "Stilo de kapo",
+        "headerNone": "Neniu",
+        "headerBand": "Kolora bendo",
+        "headerImage": "Bildo",
+        "bandColour": "Koloro de bendo",
+        "bandColourHex": "Koloro de bendo (hex)",
+        "headerImageLabel": "Kapa bildo",
+        "headerImageHint": "PNG, JPEG aŭ WebP ĝis 2400 px larĝa; ĝi kovras la paĝlarĝon.",
+        "imageOpacity": "Maltravidebleco de bildo",
+        "headerHeight": "Alteco de kapo (mm)",
+        "bandText": "Teksto sur la bendo",
+        "bandTextAuto": "Aŭtomata (laŭ la koloro de la bendo)",
+        "bandTextLight": "Hela",
+        "bandTextDark": "Malhela",
+        "textTitle": "Teksto",
+        "headerNote": "Kapa noto",
+        "footer": "Piedo",
+        "signatureCaption": "Legendo de subskribo",
+        "draftWatermark": "Akvomarko de malneto",
+        "labelsTitle": "Etikedoj",
+        "labelsDescription": "Lasu kampon malplena por konservi la implicitan vortumon.",
+        "save": "Konservi ŝablonon",
+        "downloadSample": "Elŝuti specimenan PDF",
+        "exportJson": "Eksporti JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "Retpoŝto",
+      "title": "Retpoŝto",
+      "configuredSettings": "Agordita en Agordoj",
+      "configuredEnv": "Agordita de la medio",
+      "notConfigured": "Ne agordita: fluo de retpoŝta aplikaĵo",
+      "description": "Dokumentoj estas senditaj el la komponilo kun la konservita PDF almetita. Agordoj ĉi tie superregas SMTP_* en la medio.",
+      "sendTest": "Sendi provan retpoŝton al {email}",
+      "removeTitle": "Ĉu forigi la konservitajn SMTP-agordojn?",
+      "removeEnvTakesOver": "La SMTP_*-valoroj de la medio transprenas.",
+      "removeFallsBack": "Retpoŝto reiras al la fluo de retpoŝta aplikaĵo.",
+      "removeTrigger": "Forigi konservitajn agordojn",
+      "smtpTitle": "SMTP-servilo",
+      "smtpFromEnv": "Nuntempe prenita el la medio; konservo ĉi tie superregas ĝin.",
+      "smtpPasswordNote": "La pasvorto estas ĉifrita en ripozo kaj neniam montriĝas denove.",
+      "defaultsTitle": "Implicitaj ricevantoj",
+      "defaultsDescription": "Kk/Ka por la tuta instanco; eldonintaj profiloj aldonas siajn proprajn.",
+      "sentTitle": "Senditaj mesaĝoj",
+      "sentDescription": "La lastaj 50 provoj, inkluzive de malsukcesoj kaj mana sendado.",
+      "smtp": {
+        "host": "Gastiganto",
+        "port": "Pordo",
+        "security": "Sekureco",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "Neniu (LAN-relajso)",
+        "user": "Uzantnomo",
+        "password": "Pasvorto",
+        "passwordStored": "Konservita kaj ĉifrita; lasu malplena por konservi ĝin",
+        "passwordEncrypted": "Ĉifrita en ripozo",
+        "from": "Adreso de sendinto",
+        "fromName": "Nomo de sendinto",
+        "replyTo": "Respondi al",
+        "save": "Konservi SMTP-agordojn"
+      },
+      "defaults": {
+        "cc": "Implicita Kk",
+        "ccHint": "Aldonita al ĉiu komponilo; disigita per komoj",
+        "bcc": "Implicita Ka",
+        "save": "Konservi implicitajn"
+      }
+    },
+    "security": {
+      "metaTitle": "Sekureco",
+      "title": "Sekureco",
+      "description": "Kie vi estas ensalutinta, kaj ĉio, kio ŝanĝiĝis.",
+      "sessions": {
+        "title": "Aktivaj seancoj",
+        "description": "Revoki seancon tuj elsalutigas tiun aparaton.",
+        "signOutOthers": {
+          "title": "Ĉu elsaluti ĉie alie?",
+          "description": "Ĉiu seanco krom ĉi tiu estas revokita.",
+          "confirm": "Elsaluti aliajn",
+          "trigger": "Elsaluti ĉie alie"
+        },
+        "columns": {
+          "device": "Aparato",
+          "ipAddress": "IP-adreso",
+          "signedIn": "Ensalutis",
+          "lastSeen": "Laste vidita",
+          "expires": "Eksvalidiĝas"
+        },
+        "thisDevice": "Ĉi tiu aparato",
+        "revokeTitle": "Ĉu revoki ĉi tiun seancon?",
+        "unknownDevice": "Nekonata aparato",
+        "unknownBrowser": "Nekonata",
+        "agentOnOs": "{browser} sur {os}"
+      },
+      "audit": {
+        "title": "Revizia protokolo",
+        "count": "{count, plural, one {# evento} other {# eventoj}}",
+        "entity": "Ento",
+        "actionContains": "Ago enhavas",
+        "filter": "Filtri",
+        "reset": "Restarigi",
+        "columns": {
+          "when": "Kiam",
+          "who": "Kiu",
+          "action": "Ago",
+          "entity": "Ento",
+          "summary": "Resumo"
+        },
+        "empty": "Neniu evento kongruas kun ĉi tiuj filtriloj.",
+        "system": "Sistemo",
+        "changes": "Ŝanĝoj",
+        "page": "Paĝo {page} el {pages}"
+      }
+    },
+    "users": {
+      "metaTitle": "Uzantoj",
+      "title": "Uzantoj",
+      "description": "Kiu povas ensaluti en ĉi tiu instanco kaj kion ili rajtas fari.",
+      "roles": {
+        "owner": "Posedanto",
+        "editor": "Redaktanto",
+        "viewer": "Spektanto"
+      },
+      "roleHints": {
+        "owner": "Ĉio, inkluzive de agordoj kaj membroj",
+        "editor": "Klientoj, katalogo, fakturoj, kreditaj notoj, pagoj, retpoŝto",
+        "viewer": "Nur legado"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "Rolo de {email}",
+      "invite": {
+        "title": "Inviti iun",
+        "description": "Ili ensalutas per la invitita adreso (identeca provizanto aŭ pasvorto) kaj ricevas la rolon, kiun vi elektas.",
+        "sent": "Invito sendita per retpoŝto al {email}.",
+        "readyWithError": "Invito preta por {email}. La retpoŝto ne povis esti sendita ({error}); sendu al ili ĉi tiun ligilon:",
+        "readyNoSmtp": "Invito preta por {email}. Neniu SMTP estas agordita; sendu al ili ĉi tiun ligilon:",
+        "copyLink": "Kopii ligilon",
+        "email": "Retpoŝto",
+        "emailPlaceholder": "persono@ekzemplo.com",
+        "role": "Rolo",
+        "submit": "Inviti",
+        "inviting": "Invitado…"
+      },
+      "members": {
+        "title": "Membroj",
+        "description": "Almenaŭ unu aktiva posedanto ĉiam restas.",
+        "columns": {
+          "person": "Persono",
+          "role": "Rolo",
+          "lastSignIn": "Lasta ensaluto",
+          "status": "Stato"
+        },
+        "nameYou": "{name} (vi)",
+        "deactivated": "Malaktivigita",
+        "reactivate": {
+          "title": "Ĉu reaktivigi {email}?",
+          "description": "Ili povas ensaluti denove kun sia antaŭa rolo.",
+          "confirm": "Reaktivigi"
+        },
+        "deactivate": {
+          "title": "Ĉu malaktivigi {email}?",
+          "description": "Ĉiu seanco finiĝas nun kaj ili ne povas ensaluti ĝis reaktivigo. Ilia historio restas.",
+          "confirm": "Malaktivigi"
+        }
+      },
+      "invitations": {
+        "title": "Pritraktataj invitoj",
+        "description": "Adresoj, kiuj povas ensaluti sed ankoraŭ ne faris tion.",
+        "columns": {
+          "email": "Retpoŝto",
+          "role": "Rolo",
+          "invited": "Invitita"
+        },
+        "empty": "Neniu pritraktata invito.",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "Ĉu revoki la inviton por {email}?"
+      }
+    },
+    "data": {
+      "metaTitle": "Datumoj",
+      "title": "Datumoj",
+      "description": "Ĉio estas portebla: datumaroj kiel CSV aŭ Excel, plena momentobildo por migrado, la PDF-oj por via kontisto, kaj provita rezerva procedo.",
+      "period": {
+        "fiscalYear": "Financa jaro",
+        "fiscalYearHint": "Superregas la datojn",
+        "issuer": "Eldoninto"
+      },
+      "exportAll": {
+        "title": "Eksporti ĉiujn datumojn",
+        "description": "ZIP kun ĉiu datumaro kiel CSV plus <mono>data.json</mono>, rilata momentobildo de ĉiuj tabeloj. Ĉifritaj kampoj (detaloj de pagmetodoj, SMTP-pasvorto) ne inkluziviĝas; la README interne listigas ilin.",
+        "download": "Elŝuti okinvo-data ZIP"
+      },
+      "exportDocuments": {
+        "title": "Eksporti dokumentojn",
+        "description": "Ĉiu eldonita kaj nuligita fakturo kaj kredita noto en PDF por periodo, nomita laŭ numero, kun <mono>index.csv</mono> de numeroj, sumoj kaj haketoj. Mankantaj PDF-oj estas generataj survoje.",
+        "docx": "Inkluzivi ankaŭ DOCX-kopion de ĉiu dokumento",
+        "facturx": "Inkluzivi ankaŭ Factur-X PDF/A-3-kopion kun enigita EN 16931 XML",
+        "download": "Elŝuti dokumentan ZIP"
+      },
+      "datasets": {
+        "title": "Datumaroj",
+        "description": "La samaj eksportoj, kiujn ofertas la indeksaj paĝoj, kun periodo kaj eldoninto aplikitaj al ĉiuj. Pagoj uzas la datan intervalon; klientoj kaj servoj ignoras la periodon.",
+        "columns": {
+          "dataset": "Datumaro",
+          "filters": "Aplikitaj filtriloj",
+          "download": "Elŝuti"
+        },
+        "names": {
+          "invoices": "Registro de fakturoj",
+          "invoiceItems": "Fakturaj linioj",
+          "payments": "Ĉefa libro de pagoj",
+          "creditNotes": "Registro de kreditaj notoj",
+          "clients": "Klientoj",
+          "services": "Servoj",
+          "gstSummary": "GST-resumo",
+          "tdsSummary": "TDS-resumo"
+        },
+        "filters": {
+          "periodIssuer": "periodo, eldoninto",
+          "dateRangeIssuer": "data intervalo, eldoninto",
+          "includesArchived": "inkluzivas arkivitajn"
+        }
+      },
+      "backups": {
+        "title": "Rezervaj kopioj",
+        "notWired": "Neniu rezerva servo konektita",
+        "noRun": "Ankoraŭ neniu rezerva kopio estis farita",
+        "lastOk": "Lasta rezerva kopio sukcesis",
+        "lastFailed": "Lasta rezerva kopio malsukcesis",
+        "description": "La Compose-servo <mono>backup</mono> elŝutas Postgres kaj arkivas la stokan volumon laŭ <mono>BACKUP_CRON</mono>, konservas <mono>BACKUP_RETENTION_DAYS</mono> da historio en la volumo <mono>backups</mono>, kaj skribas statan dosieron, kiun ĉi tiu paĝo legas.",
+        "finished": "Finiĝis",
+        "databaseDump": "Elŝuto de datumbazo",
+        "storageArchive": "Stoka arkivo",
+        "size": "Grando",
+        "sizeMb": "{size} MB",
+        "error": "Eraro",
+        "runNow": "Rulu unu nun, aŭ restaŭru el paro de dosieroj:",
+        "restoreDrill": "La restaŭra procedo estas ekzercata en CI de <mono>scripts/restore-drill.sh</mono>: semi, rezervi, viŝi, restaŭri, poste kompari vicnombrojn kaj PDF-haketon."
+      }
+    },
+    "legal": {
+      "metaTitle": "Jura",
+      "metaDescription": "Kiu funkciigas ĉi tiun instancon: la detaloj presitaj en la publikaj juraj paĝoj.",
+      "title": "Jura",
+      "description": "La publikaj juraj paĝoj presas ĉi tiujn detalojn. Ĝis ĉiu kampo estas plenigita, la paĝoj montras reliefigitajn lokokupilojn.",
+      "operator": {
+        "title": "Detaloj de funkciiganto",
+        "complete": "Plena",
+        "missing": "Mankas {count}: {fields}",
+        "description": "Vi, kiel la persono aŭ kompanio funkciiganta ĉi tiun instancon, estas la funkciiganto, al kiu la dokumentoj rilatas. Nenio ĉi tie estas sendata ien; ĝi presiĝas en la suba paĝoj."
+      },
+      "fieldLabels": {
+        "legalName": "Jura nomo de funkciiganto",
+        "entityType": "Tipo de ento",
+        "address": "Adreso de funkciiganto",
+        "country": "Lando de funkciiganto",
+        "contactEmail": "Kontakta retpoŝto",
+        "privacyEmail": "Privateca retpoŝto",
+        "dpoEmail": "Retpoŝto de datumprotekta oficiro",
+        "governingLaw": "Reganta juro",
+        "venue": "Loko por disputoj",
+        "effectiveDate": "Dato de efikiĝo"
+      },
+      "publicPages": {
+        "title": "Publikaj paĝoj",
+        "description": "Ligitaj de la ensaluta paĝo, la komuna spektilo kaj la kuketa avizo.",
+        "terms": "Kondiĉoj de servo",
+        "acceptableUse": "Politiko de akceptebla uzo",
+        "privacy": "Privateca politiko",
+        "cookies": "Kuketa politiko",
+        "dataRetention": "Konservado de datumoj",
+        "security": "Sekureco",
+        "licenses": "Licencoj kaj avizoj de triaj partioj"
+      },
+      "form": {
+        "legalName": "Jura nomo",
+        "entityType": "Tipo de ento",
+        "individual": "Individuo / sola posedanto",
+        "company": "Kompanio / registrita ento",
+        "address": "Adreso",
+        "addressHint": "Presita en la Kondiĉoj kaj la Privateca politiko kiel poŝta adreso de la funkciiganto.",
+        "country": "Lando",
+        "effectiveDate": "Dato de efikiĝo",
+        "contactEmail": "Kontakta retpoŝto",
+        "privacyEmail": "Privateca retpoŝto",
+        "privacyEmailHint": "Kien iras petoj de datumsubjektoj; povas esti la kontakta adreso.",
+        "dpoEmail": "Retpoŝto de datumprotekta oficiro",
+        "dpoEmailHint": "Nur se vi nomumis tian.",
+        "governingLaw": "Reganta juro",
+        "governingLawHint": "Ekzemple “la leĝoj de Barato” aŭ “la leĝoj de Anglio kaj Kimrio”.",
+        "venue": "Loko por disputoj",
+        "venueHint": "Ekzemple “la tribunaloj de Bengaluro, Karnatako”.",
+        "submit": "Konservi detalojn de funkciiganto"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "E-fakturado",
+      "title": "E-fakturado",
+      "description": "Laŭ eldonanta profilo: kiu konektilo registras hindajn e-fakturojn, kaj kiun eŭropan profilon sekvas la eligoj Factur-X kaj UBL. Akreditaĵoj estas konservataj ĉifritaj kaj neniam plu montriĝas.",
+      "noProfiles": "Kreu unue eldonantan profilon.",
+      "profile": "Eldonanta profilo",
+      "enabled": "Ebligita",
+      "disabled": "Malebligita",
+      "enabledHint": "Ŝaltu aŭ malŝaltu e-fakturadon laŭ profilo en Agordoj > Profiloj.",
+      "india": {
+        "title": "Barato (GST e-faktura, IRN)",
+        "description": "La IRN estas registrata per la ĉi tie elektita konektilo; la mana konektilo akceptas la respondon de la portalo permane.",
+        "connector": "Konektilo",
+        "connectorNone": "Malŝaltita",
+        "connectorManual": "Mana (algluu la IRP-respondon)",
+        "connectorNic": "NIC IRP API (sandbox aŭ produktado)",
+        "nicUnverified": "La NIC-konektilo sekvas la publikigitan API-on kaj estas provita nur kun registritaj datumoj; ĝi ne estas kontrolita kontraŭ viva sandbox ĝis akreditaĵoj estos liveritaj.",
+        "env": "Medio",
+        "sandbox": "Sandbox",
+        "production": "Produktado",
+        "baseUrl": "Baza URL",
+        "baseUrlHint": "Lasu malplena por la defaŭlto de la medio.",
+        "clientId": "Klienta identigilo",
+        "clientSecret": "Klienta sekreto",
+        "username": "Uzantnomo",
+        "password": "Pasvorto",
+        "gstin": "GSTIN",
+        "publicKey": "Publika ŝlosilo de IRP (PEM)",
+        "publicKeyHint": "Elŝutu ĝin de la portalo post ensaluto; ĝi envolvas la akreditaĵojn senditajn al la IRP.",
+        "publicKeyStored": "Konservita; lasu malplena por konservi ĝin.",
+        "secretStored": "Konservita ĉifrite; lasu malplena por konservi ĝin.",
+        "secretEncrypted": "Konservita ĉifrite en ripozo."
+      },
+      "eu": {
+        "title": "Eŭropo (Factur-X, UBL)",
+        "description": "EN 16931 estas la sola profilo en ĉi tiu versio; la elŝutoj Factur-X kaj UBL uzas ĝin.",
+        "profile": "Profilo",
+        "profileNone": "Malŝaltita",
+        "en16931": "EN 16931"
+      },
+      "save": "Konservi e-fakturadajn agordojn"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "API-ŝlosiloj por skriptoj, la SDK kaj MCP-klientoj, kun curl-ekzemploj.",
+      "title": "API",
+      "description": "Ŝlosiloj por skriptoj, la SDK kaj MCP-klientoj. Ŝlosilo povas fari maksimume tion, kion via rolo permesas; ĝi montriĝas unufoje.",
+      "create": {
+        "title": "Krei ŝlosilon",
+        "description": "Sendu ĝin kiel <mono>Authorization: Bearer okv_…</mono>. Tenu ĝin ekster fontkodo kaj babilaj protokoloj; revoku ĝin sube, se ĝi likas."
+      },
+      "keys": {
+        "title": "Ŝlosiloj",
+        "descriptionOwner": "Ĉiu ŝlosilo de ĉi tiu instanco; posedantoj povas revoki iun ajn.",
+        "descriptionOwn": "Viaj ŝlosiloj.",
+        "columns": {
+          "name": "Nomo",
+          "prefix": "Prefikso",
+          "scopes": "Ampleksoj",
+          "owner": "Posedanto",
+          "lastUsed": "Laste uzita",
+          "expires": "Eksvalidiĝas",
+          "status": "Stato"
+        },
+        "empty": "Ankoraŭ neniu API-ŝlosilo.",
+        "never": "neniam",
+        "revoked": "Revokita",
+        "expired": "Eksvalidiĝinta",
+        "revokeTitle": "Ĉu revoki {name}?",
+        "revokeDescription": "Klientoj uzantaj ĉi tiun ŝlosilon tuj ĉesas funkcii.",
+        "activeCount": "{count, plural, one {# aktiva ŝlosilo.} other {# aktivaj ŝlosiloj.}}"
+      },
+      "examples": {
+        "title": "Ekzemploj",
+        "description": "Anstataŭigu <mono>$OKINVO_KEY</mono> per ŝlosilo. La versiita REST-API, ĝia OpenAPI-dokumento (<mono>/api/openapi.json</mono>), la TypeScript-SDK kaj la MCP-servilo alvenos kun la sekvaj taskoj de la v1.1-plano; la statpunkto funkcias hodiaŭ.",
+        "rateLimit": "Vokoj super la limo ricevas 429 kun kapo <mono>Retry-After</mono> (120 petoj minute por ŝlosilo). La ampleksoj de ŝlosilo estas limigitaj de la nuna rolo de ĝia posedanto."
+      },
+      "form": {
+        "copyKey": "Kopii API-ŝlosilon",
+        "name": "Nomo",
+        "namePlaceholder": "ekz. kontada skripto",
+        "expires": "Eksvalidiĝas",
+        "in30Days": "Post 30 tagoj",
+        "in90Days": "Post 90 tagoj",
+        "inAYear": "Post unu jaro",
+        "never": "Neniam",
+        "scopes": "Ampleksoj",
+        "submit": "Krei API-ŝlosilon",
+        "creating": "Kreado…"
+      },
+      "scopes": {
+        "invoicesRead": "Legi fakturojn",
+        "invoicesCreate": "Krei kaj eldoni fakturojn",
+        "creditNotesRead": "Legi kreditajn notojn",
+        "creditNotesCreate": "Krei kaj eldoni kreditajn notojn",
+        "catalogueRead": "Legi klientojn, servojn kaj produktojn",
+        "documentsRead": "Elŝuti konservitajn PDF-ojn kaj DOCX-kopiojn",
+        "statusRead": "Legi la staton de la instanco"
+      }
+    },
+    "status": {
+      "metaTitle": "Stato",
+      "metaDescription": "Versio, datumbazo, stokado, retpoŝto kaj stato de rezervaj kopioj de ĉi tiu instanco.",
+      "title": "Stato",
+      "description": "Kion ĉi tiu instanco rulas kaj ĉu ĝiaj partoj respondas.",
+      "recheck": "Kontroli denove",
+      "health": {
+        "ok": "Bone",
+        "warning": "Averto",
+        "failed": "Malsukcesis",
+        "na": "Ne agordita"
+      },
+      "overall": {
+        "ok": "Ĉio bone",
+        "degraded": "Difektita",
+        "failed": "Malsukcesis"
+      },
+      "version": "Konstruo {hasSha, select, yes {<mono>{sha}</mono>} other {(sha nekonata)}} · konstruita {built} · Node <mono>{node}</mono> · funkcias {uptime} · kontrolita {checked}",
+      "dateUnknown": "(dato nekonata)",
+      "uptime": {
+        "days": "{d}t {h}h {m}m",
+        "hours": "{h}h {m}m",
+        "minutes": "{m}m"
+      },
+      "rows": {
+        "database": "Datumbazo",
+        "storage": "Stokado",
+        "rateLimiting": "Limigo de rapido",
+        "email": "Retpoŝto",
+        "backups": "Rezervaj kopioj"
+      },
+      "db": {
+        "detail": "{latency} ms · lasta migrado <mono>{migration}</mono>{hasDate, select, yes { ({finishedAt})} other {}}{pending, plural, =0 {} other { · # nefinita(j) migrado(j)}}",
+        "noMigration": "neniu"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · skribo, legado kaj forigo de provobjekto en {latency} ms",
+        "failed": "{driver}: {error}"
+      },
+      "rateLimit": "<mono>{store}</mono>-stoko {store, select, memory {(unu kopio)} other {(komuna inter kopioj)}}",
+      "smtp": {
+        "configured": "SMTP el {source, select, settings {the settings page} env {the environment} other {}} · lasta provo {lastTest} · lastaj 24 h: {sent} senditaj, {failed} malsukcesaj",
+        "none": "Neniu SMTP-servilo; la komponilo proponas “Malfermi en retpoŝta aplikaĵo”. <link>Agordi</link>"
+      },
+      "backups": {
+        "notWired": "Neniu rezerva servo konektita (BACKUP_STATUS_FILE ne agordita).",
+        "noRun": "Rezerva servo konektita; ankoraŭ neniu rulo registrita.",
+        "ok": "La lasta rulo sukcesis je {finishedAt}{days, plural, =0 {} one { · konservado # tago} other { · konservado # tagoj}}",
+        "failed": "La lasta rulo malsukcesis: {error} je {finishedAt}{days, plural, =0 {} one { · konservado # tago} other { · konservado # tagoj}}"
+      },
+      "footer": "La sama raporto haveblas kiel JSON ĉe <mono>/api/health/status</mono> por monitorado (ensalutinta seanco aŭ API-ŝlosilo)."
+    },
+    "usage": {
+      "metaTitle": "Uzado",
+      "metaDescription": "Paĝrigardoj laŭ ekrano kaj tago en ĉi tiu instanco, kalkulitaj loke.",
+      "title": "Uzado",
+      "description": "Kiom ofte ĉiu ekrano estis malfermita, kalkulite nur en ĉi tiu instanco: neniuj kuketoj, neniuj adresoj, nenio sendiĝas ien.",
+      "last30Days": "Lastaj 30 tagoj",
+      "total": "{count, plural, =0 {Neniu paĝrigardo} one {# paĝrigardo} other {# paĝrigardoj}}",
+      "off": "La kalkulado estas malŝaltita. Agordu ANALYTICS_LOCAL=true por kalkuli paĝrigardojn en ĉi tiu instanco.",
+      "empty": "Ankoraŭ neniu paĝrigardo registrita.",
+      "columns": {
+        "day": "Tago",
+        "path": "Ekrano",
+        "views": "Rigardoj"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "Bonvenon",
+    "progress": "Progreso",
+    "steps": {
+      "aboutYou": "Pri vi",
+      "howYouUse": "Kiel vi uzos ĝin",
+      "allSet": "Ĉio preta"
+    },
+    "step1": {
+      "title": "Rakontu al ni pri vi",
+      "subtitle": "Ĉi tio starigas viajn implicitajn valorojn; ĉiu valoro povas ŝanĝiĝi poste en Agordoj.",
+      "name": "Nomo",
+      "email": "Retpoŝto",
+      "emailHint": "Via ensaluta identeco. Ĝi povas esti ŝanĝita poste el Agordoj → Sekureco.",
+      "country": "Lando",
+      "currency": "Preferata valuto",
+      "currencyHint": "Uzata por novaj profiloj kaj la panelo ĝis profilo ekzistas."
+    },
+    "step2": {
+      "title": "Kiel vi uzos okinvo?",
+      "subtitle": "Nur la implicitaj valoroj ŝanĝiĝas; nenio estas ŝlosita.",
+      "usage": "Uzo",
+      "personal": "Persona fakturado",
+      "personalHint": "Libera laboro sub via propra nomo",
+      "business": "Komerca fakturado",
+      "businessHint": "Fakturoj de registrita komerco",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "VAT-numero",
+        "other": "Imposta registra numero"
+      },
+      "taxQuestion": {
+        "IN": "Ĉu vi havas GSTIN?",
+        "GB": "Ĉu vi estas VAT-registrita?",
+        "other": "Ĉu vi havas impostan registran numeron por presi sur fakturoj?"
+      }
+    },
+    "step3": {
+      "title": "Ĉio preta",
+      "body": "Poste, kreu vian unuan eldonantan profilon: la nomo, adreso kaj imposta detaloj, kiuj presiĝas sur viaj fakturoj. Ni plenigis tion, kion vi diris al ni.",
+      "go": "Iri al profiloj",
+      "opening": "Malfermado…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "Kondiĉoj",
+      "privacy": "Privateco",
+      "cookies": "Kuketoj",
+      "security": "Sekureco"
+    },
+    "cookieNotice": {
+      "label": "Kuketa avizo",
+      "body": "Ni uzas nur strikte necesajn kuketojn: vian seancon kaj viajn montrajn preferojn. Neniu analizado, neniu spurado.",
+      "policy": "Kuketa politiko",
+      "gotIt": "Komprenite"
+    },
+    "nav": {
+      "label": "Jura",
+      "cookies": "Kuketoj",
+      "privacy": "Privateco",
+      "terms": "Kondiĉoj",
+      "acceptableUse": "Akceptebla uzo",
+      "retention": "Konservado",
+      "security": "Sekureco",
+      "licences": "Licencoj"
+    },
+    "operatorNotice": "okinvo estas memgastigata programaro; la funkciiganto de ĉi tiu instanco respondecas pri ĝia uzo.",
+    "doc": {
+      "effectiveOn": "Efikas de <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "Enhavo"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "Jura nomo de funkciiganto",
+        "entityType": "Tipo de ento",
+        "address": "Adreso de funkciiganto",
+        "country": "Lando de funkciiganto",
+        "contactEmail": "Kontakta retpoŝto",
+        "privacyEmail": "Privateca retpoŝto",
+        "dpoEmail": "Retpoŝto de datumprotekta oficiro",
+        "governingLaw": "Reganta juro",
+        "venue": "Loko por disputoj",
+        "effectiveDate": "Dato de efikiĝo"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "Ne trovita",
+      "title": "Ĉe ĉi tiu adreso estas nenio",
+      "body": "La ligilo povas esti malnova, aŭ la dokumento, al kiu ĝi montris, neniam estis eldonita."
+    },
+    "forbidden": {
+      "metaTitle": "Ne permesita",
+      "title": "Ĉi tiu konto ne povas fari tion",
+      "body": "Via rolo ne permesas tion. Petu aliron de posedanto, aŭ ensalutu per konto, kiu havas ĝin."
+    },
+    "error": {
+      "title": "Io misfunkciis",
+      "body": "Ĉi tiu peto nenion ŝanĝis. Provu denove; se ĝi daŭre okazas, la servila protokolo havas la detalojn.",
+      "digest": "eraro {digest}",
+      "generic": "eraro"
+    },
+    "appNotFound": {
+      "title": "Ne trovita",
+      "body": "Ĉi tiu registraĵo ne ekzistas, aŭ ĝi estis forigita dum vi rigardis ĝin.",
+      "back": "Reen al la panelo"
+    },
+    "validation": {
+      "required": "deviga",
+      "tooLong": "maksimume {max} signoj",
+      "invalidEmail": "devas esti valida retpoŝto",
+      "invalidDate": "devas esti kalendara dato en la formo JJJJ-MM-TT",
+      "invalidAmount": "devas esti nombro",
+      "wholeNumber": "devas esti entjero",
+      "greaterThanZero": "devas esti pli granda ol nulo",
+      "fixFields": "Bonvolu korekti la reliefigitajn kampojn.",
+      "charset": "Nur ordinaraj klavaraj signoj estas permesitaj."
+    }
+  },
+  "verify": {
+    "metaTitle": "Kontroli dokumenton",
+    "metaDescription": "Kontrolu, ke fakturo aŭ kreditnoto estis eldonita de sia sendinto kaj ne estis ŝanĝita.",
+    "heading": "Kontrolo de dokumento",
+    "rateLimited": "Tro multaj kontroloj de ĉi tiu adreso. Bonvolu provi denove post minuto.",
+    "notFound": {
+      "title": "Neniu tia dokumento",
+      "body": "Ĉi tiu ligilo ne kongruas kun iu eldonita dokumento. Kontrolu la QR-kodon aŭ la ligilon, kiun vi ricevis, aŭ kontaktu la eldoninton."
+    },
+    "status": {
+      "void": "Nuligita",
+      "valid": "Valida"
+    },
+    "issuedBy": "Eldonita de",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "Eldonita al",
+    "issueDate": "Dato de eldono",
+    "total": "Sumo",
+    "voided": "Ĉi tiu dokumento estis nuligita de la eldoninto kaj ne plu validas.",
+    "storedCopies": {
+      "title": "Konservitaj kopioj",
+      "description": "SHA-256 de ĉiu PDF-versio, kiun posedas la eldoninto. Elektu vian kopion por kompari ĝin en via retumilo: nenio estas alŝutata.",
+      "empty": "Ankoraŭ neniu PDF estis generita.",
+      "protectedVersion": "Pasvorte protektita kopio {version}",
+      "version": "Versio {version}"
+    },
+    "check": {
+      "label": "Kontrolu vian kopion",
+      "hashing": "Haketado…",
+      "match": "Via kopio ekzakte kongruas kun versio {version}.",
+      "mismatch": "Via kopio ne kongruas kun iu konservita versio."
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "Komunigita dokumento",
+      "metaDescription": "Dokumento dividita kun vi: rigardu ĝin rete kaj elŝutu la PDF.",
+      "rateLimited": "Tro multaj petoj de ĉi tiu adreso. Bonvolu provi denove post minuto.",
+      "unavailable": {
+        "title": "Ĉi tiu ligilo ne estas disponebla",
+        "body": "Ĝi povas esti eksvalidiĝinta aŭ revokita de la eldoninto. Petu novan."
+      },
+      "lockedTitleInvoice": "Fakturo de {issuer}",
+      "lockedTitleCreditNote": "Kredita noto de {issuer}",
+      "lockedBody": "Ĉi tiu dokumento estas pasvorte protektita. Enigu la pasvorton, kiun la eldoninto donis al vi.",
+      "void": "Nuligita",
+      "protectedPdf": "La PDF malfermiĝas per la sama pasvorto. Ĝi povas esti legata kaj presata; kopiado kaj redaktado estas ŝlositaj.",
+      "byline": "De {issuer} al {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "Pasvorto",
+      "limited": "Tro multaj provoj. Bonvolu atendi dek kvin minutojn kaj provi denove.",
+      "wrong": "Tiu pasvorto ne ĝustas.",
+      "submit": "Malfermi dokumenton"
+    },
+    "dialog": {
+      "trigger": "Komuniki",
+      "title": "Komuniki ĉi tiun dokumenton",
+      "description": "Ĉiu kun la ligilo povas vidi kaj elŝuti ĝin ĝis ĝi eksvalidiĝos aŭ vi revokos ĝin. Pasvorto ankaŭ protektas la PDF mem: ĝi malfermiĝas per la pasvorto kaj povas esti legata kaj presata, ne redaktata nek kopiata.",
+      "link": "Ligilo",
+      "copyLink": "Kopii ligilon",
+      "password": "Pasvorto",
+      "copyPassword": "Kopii pasvorton",
+      "sendSeparately": "Sendu la pasvorton aparte de la ligilo. Vi povas vidi ĝin denove en la suba listo.",
+      "copy": "Kopii",
+      "copied": "Kopiita",
+      "expires": "Eksvalidiĝas",
+      "expiry": {
+        "d7": "Post 7 tagoj",
+        "d30": "Post 30 tagoj",
+        "d90": "Post 90 tagoj",
+        "never": "Neniam"
+      },
+      "protection": "Protekto",
+      "protectionOptions": {
+        "auto": "Pasvorto: generi pasfrazon",
+        "manual": "Pasvorto: elekti mian propran",
+        "none": "Sen pasvorto (malferma ligilo)"
+      },
+      "passwordHint": "Almenaŭ 8 signoj.",
+      "strength": "Forto: {label}",
+      "strengthLabels": {
+        "veryWeak": "tre malforta",
+        "weak": "malforta",
+        "fair": "mezbona",
+        "good": "bona",
+        "strong": "forta"
+      },
+      "creating": "Kreado…",
+      "create": "Krei ligilon",
+      "activeLinks": "Aktivaj ligiloj",
+      "passwordProtected": "Pasvorte protektita",
+      "openLink": "Malfermi ligilon",
+      "linkExpires": "{kind} · eksvalidiĝas {date}",
+      "linkNeverExpires": "{kind} · neniam eksvalidiĝas",
+      "revoke": {
+        "title": "Ĉu revoki ĉi tiun ligilon?",
+        "description": "La ligilo tuj ĉesas funkcii por ĉiu, kiu havas ĝin.",
+        "label": "Revoki"
+      },
+      "linkPassword": "Pasvorto: <code>{password}</code>",
+      "counts": "{views, plural, other {# vidoj}} · {downloads, plural, other {# elŝutoj}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "Kreditaj notoj",
+      "title": "Kreditaj notoj",
+      "description": "Elmetitaj kontraŭ eldonitaj fakturoj; ĉiu malpliigas la saldon de sia fakturo je eldono.",
+      "newCreditNote": "Nova kredita noto",
+      "filters": {
+        "from": "De",
+        "to": "Ĝis",
+        "issuer": "Eldoninto",
+        "client": "Kliento",
+        "status": "Stato",
+        "search": "Serĉi",
+        "all": "Ĉiuj",
+        "searchPlaceholder": "Numero, kialo, kliento",
+        "go": "Iri"
+      },
+      "statuses": {
+        "DRAFT": "Malneto",
+        "ISSUED": "Eldonita",
+        "SENT": "Sendita",
+        "VOID": "Nuligita"
+      },
+      "empty": {
+        "title": "Ankoraŭ neniu kredita noto",
+        "description": "Malfermu eldonitan fakturon kaj elektu “Kredita noto” por malpliigi tion, kion ĝi ŝuldas."
+      },
+      "noMatch": "Neniu kredita noto kongruas kun ĉi tiuj filtriloj.",
+      "columns": {
+        "number": "Numero",
+        "against": "Kontraŭ",
+        "client": "Kliento",
+        "issueDate": "Dato de eldono",
+        "reason": "Kialo",
+        "total": "Sumo",
+        "status": "Stato"
+      },
+      "draft": "Malneto"
+    },
+    "new": {
+      "metaTitle": "Nova kredita noto",
+      "title": "Nova kredita noto",
+      "description": "Kredita noto estas elmetita kontraŭ eldonita fakturo kaj malpliigas ĝian saldon.",
+      "nothingToCredit": {
+        "title": "Nenio por krediti",
+        "description": "Kreditaj notoj bezonas eldonitan fakturon kun nepagita saldo.",
+        "openInvoices": "Malfermi la fakturojn"
+      },
+      "whichInvoice": "Kiu fakturo?",
+      "invoice": "Fakturo",
+      "invoiceOption": "{number} · {client} · saldo {balance}",
+      "issuedOnly": "Kreditaj notoj estas elmetitaj nur kontraŭ eldonitaj fakturoj.",
+      "invoiceFallback": "Fakturo"
+    },
+    "edit": {
+      "metaTitle": "Redakti kreditan noton",
+      "title": "Redakti malnetan kreditan noton",
+      "immutable": "Eldonitaj kreditaj notoj estas neŝanĝeblaj.",
+      "draft": "Malneto"
+    },
+    "detail": {
+      "metaTitle": "Kredita noto",
+      "draftTitle": "Malneta kredita noto",
+      "meta": "{client} · kontraŭ <invoice>{number}</invoice> · eldonita <mono>{date}</mono>",
+      "previewPdf": "Antaŭvidi PDF",
+      "issue": {
+        "title": "Ĉu eldoni ĉi tiun kreditan noton?",
+        "description": "Numero estas asignita, la saldo de la fakturo malpliiĝas kaj la dokumento fariĝas neŝanĝebla.",
+        "label": "Eldoni"
+      },
+      "deleteDraft": {
+        "title": "Ĉu forigi ĉi tiun malnetan?"
+      },
+      "sendByEmail": "Sendi per retpoŝto",
+      "markSent": {
+        "title": "Ĉu marki kiel senditan?",
+        "label": "Marki kiel senditan"
+      },
+      "void": {
+        "title": "Ĉu nuligi ĉi tiun kreditan noton?",
+        "description": "La saldo de la fakturo estas restaŭrita; la numero neniam estas reuzata.",
+        "reason": "Kialo",
+        "label": "Nuligi"
+      },
+      "voided": "Nuligita {date}: {reason}",
+      "amounts": {
+        "title": "Sumoj",
+        "reason": "Kialo",
+        "creditAmount": "Kredita sumo",
+        "total": "Sumo",
+        "balanceNow": "Nuna saldo de la fakturo",
+        "sent": "Sendita"
+      },
+      "documents": {
+        "title": "Konservitaj dokumentoj",
+        "description": "Ĉiu versio estas konservita; la kontrola paĝo listigas ĉiujn haketojn.",
+        "regenerateTitle": "Ĉu generi novan PDF-version?",
+        "generate": "Generi",
+        "newVersion": "Nova versio",
+        "renderedOnFirstDownload": "La PDF estas generita je la unua elŝuto.",
+        "protectedCopy": "Pasvorte protektita kopio {version}",
+        "version": "Versio {version}",
+        "verificationLink": "Kontrola ligilo: <link>{path}…</link>"
+      },
+      "draftsPreview": "Malnetoj antaŭvidiĝas vive en la redaktilo."
+    },
+    "send": {
+      "metaTitle": "Sendi kreditan noton",
+      "title": "Sendi <mono>{number}</mono>",
+      "previousSends": "Antaŭaj sendoj"
+    },
+    "builder": {
+      "against": "Kontraŭ <mono>{number}</mono>",
+      "summary": "{client} · sumo {total} · saldo {balance} · impostebla marĝeno ≈ {headroom}",
+      "issueDate": "Dato de eldono",
+      "creditAmount": "Kredita sumo (sen imposto)",
+      "creditAmountHint": "Imposto estas dividata el la impostaj linioj de la fakturo",
+      "reason": "Kialo",
+      "picker": {
+        "title": "Kalkuli el fakturaj linioj",
+        "description": "Marku tutajn liniojn aŭ procenton; ĉi tio nur plenigas la supran sumon.",
+        "line": "Linio",
+        "subtotal": "Subsumo",
+        "credit": "Kredito",
+        "percent": "%",
+        "creditLine": "Kredito de linio {position}",
+        "percentOfLine": "Procento de linio {position}"
+      },
+      "saveDraft": "Konservi malnetan",
+      "issuing": "Eldonado…",
+      "saveAndIssue": "Konservi kaj eldoni"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "Ricevita pago",
+        "REFUND": "Eldonita repago",
+        "WRITE_OFF": "Elskribo"
+      },
+      "editTitle": "Redakti enskribon",
+      "recordTitle": "Registri pagon",
+      "description": "Sumoj estas en la valuto de la fakturo ({currency}); dedukita TDS estas parto de la aplikita sumo.",
+      "kind": "Speco",
+      "date": "Dato",
+      "amountRefunded": "Repagita sumo (negativa)",
+      "amountApplied": "Aplikita sumo",
+      "refundHint": "Enigu negativan sumon, ekz. -500",
+      "tdsDeducted": "Dedukita TDS",
+      "tdsHint": "Imposto retenita de la kliento; kalkuliĝas al la aplikita sumo",
+      "bankFees": "Bankaj kostoj",
+      "receivedInto": "Ricevita en",
+      "noMethod": "-",
+      "reference": "Referenco",
+      "referenceHint": "UTR, transakcia identigilo, ĉeknumero",
+      "otherCurrency": "Ricevita en alia valuto",
+      "amountReceived": "Ricevita sumo",
+      "receivedCurrency": "Ricevita valuto",
+      "exchangeRate": "Kurzo",
+      "exchangeRateHint": "1 ricevita unuo = ? {currency}",
+      "notes": "Notoj",
+      "receiptHint": "PNG, JPEG, WebP aŭ PDF ĝis 10 MB",
+      "receipts": "Kvitancoj kaj fakturoj",
+      "receiptN": "Kvitanco {n}",
+      "removeReceipt": "Forigi kvitancon {n}",
+      "saveChanges": "Konservi ŝanĝojn",
+      "record": "Registri"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "Fakturi al",
+      "shipTo": "Sendi al",
+      "invoice": "Fakturo",
+      "creditNote": "Kredita noto",
+      "issueDate": "Dato de eldono",
+      "dueDate": "Limdato",
+      "number": "Numero",
+      "description": "Priskribo",
+      "sacHsn": "SAC/HSN",
+      "qty": "Kvanto",
+      "unit": "Unuo",
+      "rate": "Prezo",
+      "tax": "Imposto",
+      "amount": "Sumo",
+      "subtotal": "Subsumo",
+      "discount": "Rabato",
+      "taxable": "Impostebla sumo",
+      "total": "Sumo",
+      "amountDue": "Pagenda sumo",
+      "tdsExpected": "Atendata TDS",
+      "netExpected": "Atendata neta sumo",
+      "rounding": "Rondigo",
+      "paymentDetails": "Detaloj de pago",
+      "notes": "Notoj",
+      "terms": "Kondiĉoj",
+      "placeOfSupply": "Loko de liverado",
+      "poReference": "Mendo-referenco",
+      "amountInWords": "Sumo per vortoj",
+      "signature": "Rajtigita subskribinto"
+    },
+    "title": {
+      "taxInvoice": "IMPOSTA FAKTURO",
+      "billOfSupply": "LIVERA DOKUMENTO",
+      "invoice": "FAKTURO",
+      "creditNote": "KREDITA NOTO"
+    },
+    "text": {
+      "pageOf": "Paĝo {page} el {total}",
+      "scanToVerify": "Skanu por kontroli",
+      "taxId": "Imposta ID",
+      "void": "NULIGITA",
+      "draftWatermark": "MALNETO - ne imposta fakturo",
+      "paymentTermsDays": "{days} tagoj",
+      "irn": "IRN",
+      "ackNo": "Konfirma nr.",
+      "ackDate": "Konfirma dato",
+      "einvoiceCancelled": "E-FAKTURO NULIGITA"
+    },
+    "ui": {
+      "pageEstimate": "ĉ. {count, plural, one {# paĝo} other {# paĝoj}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "Mesaĝo",
+      "description": "Antaŭplenigita el la ŝablonoj de la eldonanta profilo. Nenio estas sendata ĝis vi alklakos Sendi.",
+      "to": "Al",
+      "toHint": "Disigitaj per komoj",
+      "cc": "Kk",
+      "bcc": "Ka",
+      "subject": "Temo",
+      "body": "Teksto",
+      "bodyHint": "Simpla teksto; ligiloj fariĝas alklakeblaj",
+      "attachment": "Almeto",
+      "attachmentHint": "La konservita kopio, nomita <mono>{name}</mono> (aŭ .docx); ĝia enhavo ne ŝanĝeblas.",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "Sendado…",
+      "send": "Sendi",
+      "openInMailApp": "Malfermi en retpoŝta aplikaĵo",
+      "noSmtp": "Neniu SMTP-servilo estas agordita (Agordoj → Retpoŝto). Malfermu la malnetan en via retpoŝta aplikaĵo, almetu la elŝutitan PDF, poste marku ĝin kiel senditan sube.",
+      "markAsSent": "Marki kiel senditan"
+    },
+    "sentLog": {
+      "when": "Kiam",
+      "document": "Dokumento",
+      "to": "Al",
+      "subject": "Temo",
+      "status": "Stato",
+      "empty": "Ankoraŭ nenio sendita.",
+      "noDocument": "-",
+      "cc": "kk {list}",
+      "statuses": {
+        "SENT": "sendita",
+        "FAILED": "malsukcesa",
+        "MANUAL": "mana"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Saluton, {name}",
+    "fiscalYear": "Financa jaro {year}",
+    "fiscalYearWithBase": "Financa jaro {year} · baza valuto {currency} ({profile})",
+    "newCreditNote": "Nova kredita noto",
+    "welcomeTitle": "Bonvenon al {appName}",
+    "welcomeDescription": "Komencu kreante la eldonantan profilon, el kiu vi fakturas, poste aldonu klienton kaj vian unuan fakturon.",
+    "createProfile": "Krei vian profilon",
+    "tiles": {
+      "outstanding": "Nepagita",
+      "overdue": "Preterdata",
+      "billedThisFy": "Fakturita ĉi jare",
+      "receivedThisFy": "Ricevita ĉi jare",
+      "drafts": "Malnetoj",
+      "invoiceCount": "{count, plural, one {# fakturo} other {# fakturoj}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "Pagoj minus repagoj, laŭ registrita kurzo",
+      "awaitingIssue": "atendas eldonon",
+      "nothingPending": "nenio pritraktata"
+    },
+    "recentInvoices": "Lastaj fakturoj",
+    "allInvoices": "Ĉiuj fakturoj",
+    "noInvoicesYet": "Ankoraŭ neniu fakturo.",
+    "columns": {
+      "number": "Numero",
+      "client": "Kliento",
+      "issued": "Eldonita"
+    },
+    "topClients": "Ĉefaj klientoj laŭ nepagita sumo",
+    "nothingOutstanding": "Nenio nepagita."
+  },
+  "exports": {
+    "export": "Eksporti",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "Fakturoj",
+      "newInvoice": "Nova fakturo",
+      "draft": "Malneto",
+      "aDraft": "malneto",
+      "statuses": {
+        "draft": "Malneto",
+        "issued": "Eldonita",
+        "sent": "Sendita",
+        "partiallyPaid": "Parte pagita",
+        "paid": "Pagita",
+        "overdue": "Preterdata",
+        "void": "Nuligita"
+      },
+      "lifecycle": {
+        "draft": "malneto",
+        "issued": "eldonita",
+        "void": "nuligita"
+      },
+      "units": {
+        "hour": "Horo",
+        "day": "Tago",
+        "fixed": "Fiksa",
+        "milestone": "Mejloŝtono",
+        "unit": "Unuo"
+      },
+      "unitsLower": {
+        "hour": "horo",
+        "day": "tago",
+        "fixed": "fiksa",
+        "milestone": "mejloŝtono",
+        "unit": "unuo"
+      },
+      "supplyTypes": {
+        "intraState": "ene de la ŝtato",
+        "interState": "inter ŝtatoj",
+        "exportLut": "eksporto kun LUT",
+        "exportWithTax": "eksporto kun imposto",
+        "reverseCharge": "inversa ŝarĝo",
+        "notApplicable": "ne aplikebla"
+      }
+    },
+    "list": {
+      "description": "Malnetaj, eldonitaj kaj nuligitaj fakturoj; statoj devenas de pagoj kaj limdatoj.",
+      "fiscalYear": "Financa jaro",
+      "issuer": "Eldoninto",
+      "client": "Kliento",
+      "searchPlaceholder": "Numero, mendo, kliento",
+      "emptyTitle": "Ankoraŭ neniu fakturo",
+      "emptyDescription": "Kreu vian unuan fakturon: elektu klienton, aldonu liniojn, rigardu la antaŭvidon, poste eldonu ĝin.",
+      "columns": {
+        "number": "Numero",
+        "client": "Kliento",
+        "issuer": "Eldoninto",
+        "issueDate": "Dato de eldono",
+        "due": "Limdato",
+        "balance": "Saldo"
+      },
+      "noMatches": "Neniu fakturo kongruas kun ĉi tiuj filtriloj.",
+      "count": "{count, plural, one {# fakturo} other {# fakturoj}}",
+      "countPaged": "{count, plural, one {# fakturo} other {# fakturoj}} · paĝo {page} el {pages}",
+      "register": "registro",
+      "einvoice": "E-fakturo",
+      "einvoiceFilters": {
+        "registered": "IRN registrita",
+        "none": "Ne registrita",
+        "cancelled": "IRN nuligita"
+      }
+    },
+    "new": {
+      "noProfileTitle": "Unue kreu eldonantan profilon",
+      "noProfileDescription": "Fakturo estas eldonita el jura identeco: starigu vian profilon kun ĝiaj impostaj identigiloj kaj numerado.",
+      "createProfile": "Krei profilon"
+    },
+    "edit": {
+      "metaTitle": "Redakti fakturon",
+      "title": "Redakti malnetan",
+      "immutableFlash": "Eldonitaj fakturoj estas neŝanĝeblaj. Uzu “Nuligi kaj reeldoni” por korekti ĝin."
+    },
+    "detail": {
+      "metaTitle": "Fakturo",
+      "draftInvoice": "Malneta fakturo",
+      "issuedDue": "Eldonita <mono>{issued}</mono>, limdato <mono>{due}</mono>",
+      "replaces": "Anstataŭas {number}",
+      "replacedBy": "Anstataŭita de {number}",
+      "previewPdf": "Antaŭvidi PDF",
+      "downloadEInvoice": "Elŝuti e-fakturan JSON",
+      "issueTitle": "Ĉu eldoni ĉi tiun fakturon?",
+      "issueDescription": "Numero estas asignita kaj la dokumento fariĝas neŝanĝebla.",
+      "issue": "Eldoni",
+      "deleteDraftTitle": "Ĉu forigi ĉi tiun malnetan?",
+      "sendByEmail": "Sendi per retpoŝto",
+      "recordPayment": "Registri pagon",
+      "progress": {
+        "title": "Progreso de pago",
+        "description": "Kie troviĝas ĉi tiu fakturo, de eldono ĝis kvitanco en dosiero.",
+        "issued": "Eldonita",
+        "sent": "Sendita",
+        "payment": "Pago registrita",
+        "paymentOn": "Pago de <mono>{amount}</mono> registrita je <mono>{date}</mono>",
+        "paid": "Plene pagita",
+        "receipt": "Kvitanco almetita",
+        "done": "farita",
+        "pending": "atendanta"
+      },
+      "creditNote": "Kredita noto",
+      "markSentTitle": "Ĉu marki kiel senditan?",
+      "markSentDescription": "Registras, ke la kliento ricevis ĉi tiun fakturon.",
+      "markSent": "Marki kiel senditan",
+      "voidReissueTitle": "Ĉu nuligi kaj reeldoni?",
+      "voidReissueDescription": "La originalo estas nuligita kaj ligita malneto kun la sama enhavo malfermiĝas por redaktado.",
+      "voidReissue": "Nuligi kaj reeldoni",
+      "voidTitle": "Ĉu nuligi ĉi tiun fakturon?",
+      "voidDescription": "Ebla nur sen registritaj pagoj; la numero neniam estas reuzata.",
+      "void": "Nuligi",
+      "voided": "Nuligita {date}: {reason}",
+      "amounts": "Sumoj",
+      "subtotal": "Subsumo",
+      "discount": "Rabato",
+      "discountPercent": "Rabato ({percent})",
+      "rounding": "Ĉirkaŭigo",
+      "tdsExpected": "Atendata TDS ({percent})",
+      "paid": "Pagita",
+      "credited": "Kreditita",
+      "balanceDue": "Pagenda saldo",
+      "supply": "Liverado",
+      "fxToBase": "Kurzo al baza valuto",
+      "poReference": "Mendo-referenco",
+      "sent": "Sendita",
+      "lineItems": "Fakturaj linioj",
+      "columns": {
+        "description": "Priskribo",
+        "sacHsn": "SAC/HSN",
+        "qty": "Kvant.",
+        "rate": "Prezo",
+        "tax": "Imposto",
+        "amount": "Sumo"
+      },
+      "creditNotes": "Kreditaj notoj",
+      "storedDocuments": "Konservitaj dokumentoj",
+      "storedDocumentsHint": "Ĉiu versio estas konservita; la kontrola paĝo listigas ĉiujn haketojn.",
+      "regenerateTitle": "Ĉu generi novan PDF-version?",
+      "regenerateDescription": "Generas denove el la frostigita momentobildo (ekzemple post riparo de la bildigilo). Pli fruaj versioj restas.",
+      "regenerate": "Generi",
+      "newVersion": "Nova versio",
+      "renderedOnFirstDownload": "La PDF estas generita je la unua elŝuto.",
+      "protectedCopy": "Pasvorte protektita kopio {version}",
+      "version": "Versio {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "Kontrola ligilo:",
+      "draftPreviewHint": "Malnetoj antaŭvidiĝas vive en la redaktilo; malfermu <link>la PDF kun akvomarko</link> por vidi la paĝon.",
+      "einvoice": {
+        "title": "E-fakturo (Barato)",
+        "description": "Registrado de ĉi tiu fakturo ĉe la Invoice Registration Portal; registrita dokumento presas sian IRN kaj la subskribitan QR-kodon de la portalo.",
+        "connector": "Konektilo",
+        "connectors": {
+          "manual": "Mana",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "Neniu konektilo estas agordita por ĉi tiu profilo en Agordoj > E-fakturado.",
+        "statuses": {
+          "none": "Ne registrita",
+          "generated": "JSON generita",
+          "registered": "Registrita",
+          "cancelled": "Nuligita",
+          "failed": "Registrado malsukcesis"
+        },
+        "irn": "IRN",
+        "ackNo": "Konfirma nr.",
+        "ackDate": "Konfirma dato",
+        "cancelReason": "Nuligo",
+        "generate": "Generi IRN",
+        "pasteLabel": "Respondo de IRP",
+        "pasteHint": "Algluu la JSON, kiun la portalo aŭ via GSP resendis por la e-faktura JSON de ĉi tiu fakturo (Irn, AckNo, AckDt, SignedQRCode).",
+        "record": "Registri IRN",
+        "cancelReasonLabel": "Kialo de nuligo",
+        "cancelReasons": {
+          "1": "Duobligo",
+          "2": "Eraro pri datenenigo",
+          "3": "Mendo nuligita",
+          "4": "Aliaj"
+        },
+        "cancel": "Nuligi IRN",
+        "cancelWindow": "La portalo permesas nuligon ene de 24 horoj post la konfirmo."
+      }
+    },
+    "history": {
+      "metaTitle": "Historio de fakturo",
+      "title": "Historio <mono>{number}</mono>",
+      "reissueChain": "Ĉeno de reeldonoj",
+      "replaces": "Anstataŭas <link>{number}</link>",
+      "replacedBy": "Anstataŭita de <link>{number}</link>",
+      "auditTrail": "Revizia spuro",
+      "columns": {
+        "when": "Kiam",
+        "who": "Kiu",
+        "action": "Ago",
+        "summary": "Resumo"
+      },
+      "noEvents": "Ankoraŭ neniu evento.",
+      "system": "Sistemo",
+      "emails": "Retpoŝtoj"
+    },
+    "payments": {
+      "title": "Pagoj",
+      "description": "{client} · {total} entute",
+      "backToInvoice": "Reen al la fakturo",
+      "ledger": "Ĉefa libro",
+      "columns": {
+        "date": "Dato",
+        "kind": "Speco",
+        "applied": "Aplikita",
+        "tds": "TDS",
+        "received": "Ricevita",
+        "reference": "Referenco",
+        "balance": "Saldo"
+      },
+      "noPayments": "Ankoraŭ neniu pago registrita.",
+      "kinds": {
+        "payment": "Pago",
+        "refund": "Repago",
+        "writeOff": "Elskribo"
+      },
+      "receipt": "Kvitanco",
+      "receiptN": "Kvitanco {n}",
+      "deleteEntryTitle": "Ĉu forigi ĉi tiun enskribon?",
+      "deleteEntryDescription": "La saldo de la fakturo estas rekalkulita.",
+      "totals": "Sumoj",
+      "invoiceTotal": "Sumo de la fakturo",
+      "credited": "Kreditita",
+      "refunds": "Repagoj",
+      "writeOffs": "Elskriboj",
+      "tdsDeducted": "Dedukita TDS",
+      "bankFees": "Bankaj kostoj",
+      "balanceDue": "Pagenda saldo",
+      "onlyIssued": "Nur eldonitaj fakturoj akceptas pagojn."
+    },
+    "send": {
+      "metaTitle": "Sendi fakturon",
+      "title": "Sendi <mono>{number}</mono>",
+      "alreadySent": "Jam markita kiel sendita; nova sendado aldonas alian protokolan enskribon.",
+      "previousSends": "Antaŭaj sendoj"
+    },
+    "builder": {
+      "parties": "Partioj",
+      "issuerProfile": "Eldonanta profilo",
+      "client": "Kliento",
+      "archivedOption": "{label} (arkivita)",
+      "issueDate": "Dato de eldono",
+      "dueDate": "Limdato",
+      "fxRate": "Kurzo al baza valuto",
+      "fxHint": "1 {currency} = ? {base} (nur por raportado)",
+      "poReference": "Mendo-referenco",
+      "lineItems": "Fakturaj linioj",
+      "lineItemsHint": "Elektu el la katalogo por kopii ĝiajn valorojn, aŭ tajpu linion.",
+      "taxDiscountTds": "Imposto, rabato kaj TDS",
+      "taxRegime": "Impostreĝimo",
+      "regimes": {
+        "indiaGst": "Barata GST",
+        "ukVat": "Brita VAT",
+        "usSalesTax": "Usona vendimposto",
+        "none": "Sen imposto"
+      },
+      "reverseCharge": "Inversa ŝarĝo",
+      "reverseChargeHint": "Imposto pagenda de la ricevanto",
+      "discount": "Rabato",
+      "percent": "Procento",
+      "amount": "Sumo",
+      "rounding": "Ĉirkaŭiga ĝustigo",
+      "roundingHint": "Laŭvola, al tuta unuo; devas esti sub 1",
+      "round": "Ĉirkaŭigi",
+      "tdsRate": "Atendata TDS-takso (%)",
+      "tdsRateHint": "Informa; presita kiam la TDS-detalo estas ŝaltita",
+      "paymentMethods": "Pagmetodoj",
+      "paymentMethodsHint": "Presitaj en la ordo de markado.",
+      "noPaymentMethods": "Neniu aktiva pagmetodo. <link>Aldonu unu</link>.",
+      "whatPrints": "Kio presiĝas",
+      "whatPrintsHint": "Komenciĝas el la implicitaj valoroj de la eldonanta profilo.",
+      "documentLanguage": "Lingvo de la dokumento",
+      "documentLanguageHint": "Etikedoj, datoj kaj sumoj estas presataj en ĉi tiu lingvo; la prefero de la kliento, alie tiu de la profilo.",
+      "notesAndTerms": "Notoj kaj kondiĉoj",
+      "notes": "Notoj",
+      "terms": "Kondiĉoj",
+      "saveDraft": "Konservi malnetan",
+      "issuing": "Eldonado…",
+      "saveAndIssue": "Konservi kaj eldoni",
+      "subtotal": "Subsumo",
+      "tax": "Imposto",
+      "tdsExpected": "Atendata TDS",
+      "netExpected": "Atendata neto"
+    },
+    "lineItems": {
+      "addFromCatalogue": "Aldoni el katalogo…",
+      "services": "Servoj",
+      "products": "Produktoj",
+      "addLine": "Aldoni linion",
+      "columns": {
+        "description": "Priskribo",
+        "sacHsn": "SAC/HSN",
+        "qty": "Kvant.",
+        "unit": "Unuo",
+        "rate": "Prezo",
+        "taxPercent": "Imposto %"
+      },
+      "aria": {
+        "description": "Priskribo de linio {line}",
+        "sacHsn": "SAC/HSN de linio {line}",
+        "quantity": "Kvanto de linio {line}",
+        "unit": "Unuo de linio {line}",
+        "rate": "Prezo de linio {line}",
+        "taxRate": "Imposta takso de linio {line}"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "Senimposta",
+      "moveUp": "Movi supren",
+      "moveDown": "Movi malsupren",
+      "removeLine": "Forigi linion",
+      "shortcutHint": "Ctrl/⌘+Enter en priskribo aldonas linion.",
+      "addFromCatalogueAria": "Aldoni el katalogo"
+    },
+    "display": {
+      "groups": {
+        "issuer": "Detaloj de eldoninto",
+        "client": "Detaloj de kliento",
+        "document": "Sekcioj de dokumento"
+      },
+      "fields": {
+        "showLogo": "Emblemo",
+        "showTradeName": "Komerca nomo",
+        "showDesignation": "Titolo",
+        "showEmail": "Retpoŝto",
+        "showPhone": "Telefono",
+        "showWebsite": "Retejo",
+        "showFullAddress": "Plena adreso",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "Subskribo",
+        "showStamp": "Stampo",
+        "showContactPerson": "Kontakta persono",
+        "showBillingAddress": "Fakturada adreso",
+        "showShippingAddress": "Sendada adreso",
+        "showTaxIdentifier": "Imposta identigilo",
+        "showPlaceOfSupply": "Loko de liverado",
+        "showDueDate": "Limdato",
+        "showPaymentTerms": "Pagkondiĉoj",
+        "showSacCodeColumn": "Kolumno de SAC-kodo",
+        "showQuantityColumn": "Kolumno de kvanto",
+        "showUnitPriceColumn": "Kolumno de unuoprezo",
+        "showTaxColumn": "Kolumno de imposto",
+        "showTdsBreakdown": "Detalo de TDS",
+        "showQrVerification": "QR-kontrolo",
+        "showNotes": "Notoj",
+        "showTerms": "Kondiĉoj",
+        "showReplacesReference": "Referenco de anstataŭo",
+        "showAmountInWords": "Sumo per vortoj",
+        "showSupplyStatement": "Deklaro pri liverado",
+        "showRoundingLine": "Linio de ĉirkaŭigo",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "Klientoj",
+      "description": "Ĉiuj, al kiuj vi fakturas. Klientoj kun fakturoj estas arkivitaj, neniam forigitaj.",
+      "newClient": "Nova kliento",
+      "searchPlaceholder": "Serĉi laŭ nomo",
+      "searchLabel": "Serĉi klientojn",
+      "emptyTitle": "Ankoraŭ neniu kliento",
+      "emptyDescription": "Aldonu la homojn kaj kompaniojn, al kiuj vi fakturas; ilia valuto kaj pagkondiĉoj antaŭplenigas ĉiun fakturon.",
+      "addClient": "Aldoni klienton",
+      "noMatch": "Neniu kliento kongruas kun “{q}”.",
+      "termsDays": "{days} t",
+      "columns": {
+        "name": "Nomo",
+        "contact": "Kontakto",
+        "email": "Retpoŝto",
+        "country": "Lando",
+        "currency": "Valuto",
+        "terms": "Kondiĉoj",
+        "status": "Stato"
+      }
+    },
+    "new": {
+      "title": "Nova kliento"
+    },
+    "edit": {
+      "metaTitle": "Redakti klienton",
+      "title": "Redakti {name}"
+    },
+    "detail": {
+      "metaTitle": "Kliento",
+      "newInvoice": "Nova fakturo",
+      "restoreTitle": "Ĉu restaŭri ĉi tiun klienton?",
+      "archiveTitle": "Ĉu arkivi ĉi tiun klienton?",
+      "archiveDescription": "Li forlasas la elektilojn; fakturoj kaj historio restas netuŝitaj.",
+      "deleteTitle": "Ĉu forigi ĉi tiun klienton?",
+      "deleteDescription": "Ebla nur dum neniu fakturo referencas la klienton.",
+      "details": "Detaloj",
+      "contact": "Kontakto",
+      "email": "Retpoŝto",
+      "phone": "Telefono",
+      "country": "Lando",
+      "gstState": "GST {code}",
+      "taxId": "Imposta identigilo",
+      "currency": "Valuto",
+      "paymentTerms": "Pagkondiĉoj",
+      "paymentTermsDays": "{days} tagoj",
+      "expectedTds": "Atendata TDS",
+      "notes": "Notoj",
+      "addresses": "Adresoj",
+      "billing": "Fakturado",
+      "shipping": "Sendado",
+      "lifetime": "Tuta tempo",
+      "openRegister": "Malfermi la registron",
+      "noIssued": "Ankoraŭ neniu eldonita fakturo.",
+      "noIssuedWithDrafts": "Ankoraŭ neniu eldonita fakturo ({drafts} malneto).",
+      "firstLatest": "Unua fakturo <mono>{first}</mono>, lasta <mono>{latest}</mono>{drafts, plural, =0 {} one { · # malneto} other { · # malnetoj}}",
+      "lifetimeColumns": {
+        "currency": "Valuto",
+        "invoices": "Fakturoj",
+        "billed": "Fakturita",
+        "received": "Ricevita",
+        "credited": "Kreditita",
+        "outstanding": "Nepagita",
+        "overdue": "Preterdata"
+      },
+      "recentInvoices": "Lastaj fakturoj",
+      "noInvoices": "Ankoraŭ neniu fakturo por ĉi tiu kliento.",
+      "recentColumns": {
+        "number": "Numero",
+        "issueDate": "Dato de eldono",
+        "due": "Limdato",
+        "total": "Sumo",
+        "balance": "Saldo",
+        "status": "Stato"
+      }
+    },
+    "form": {
+      "cardTitle": "Kliento",
+      "displayName": "Montrata nomo",
+      "contactPerson": "Kontakta persono",
+      "email": "Retpoŝto",
+      "phone": "Telefono",
+      "taxIdType": "Tipo de imposta identigilo",
+      "taxIdTypeNone": "Neniu",
+      "taxId": "Imposta identigilo",
+      "currency": "Valuto",
+      "paymentTerms": "Pagkondiĉoj (tagoj)",
+      "expectedTdsRate": "Atendata TDS-takso (%)",
+      "preferredLanguage": "Lingvo de la dokumento",
+      "preferredLanguageFollow": "Sekvi la profilon de la eldonanto",
+      "buyerReference": "Aĉetanta referenco",
+      "buyerReferenceHint": "Presita en e-fakturoj kiel la propra referenco de la aĉetanto (mendo- aŭ kostocentra numero).",
+      "electronicAddress": "Elektronika adreso",
+      "electronicAddressHint": "La Peppol- aŭ EN 16931-identigilo, sub kiu ĉi tiu kliento ricevas e-fakturojn.",
+      "electronicAddressScheme": "Skemo de elektronika adreso",
+      "electronicAddressSchemeNone": "Neniu skemo",
+      "notes": "Notoj",
+      "billingAddress": "Fakturada adreso",
+      "shippingAddress": "Sendada adreso",
+      "differentFromBilling": "Malsama ol fakturada",
+      "save": "Konservi klienton"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "Horo",
+      "DAY": "Tago",
+      "FIXED": "Fiksa",
+      "MILESTONE": "Mejloŝtono",
+      "UNIT": "Unuo"
+    },
+    "list": {
+      "activate": "Aktivigi",
+      "deactivate": "Malaktivigi",
+      "archiveDescription": "Ekzistantaj fakturaj linioj konservas siajn kopiitajn valorojn.",
+      "deleteDescription": "Ebla nur dum neniu faktura linio referencas ĝin. Alie arkivu ĝin.",
+      "columns": {
+        "sku": "SKU",
+        "name": "Nomo",
+        "unit": "Unuo",
+        "rate": "Prezo",
+        "price": "Prezo",
+        "currency": "Valuto",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "Imposto",
+        "status": "Stato"
+      }
+    },
+    "services": {
+      "title": "Servoj",
+      "description": "Via katalogo. Elekto de servo kopias ĝiajn valorojn al la faktura linio.",
+      "newService": "Nova servo",
+      "emptyTitle": "Ankoraŭ neniu servo",
+      "emptyDescription": "Aldonu tion, kion vi vendas (horan dezajnon, mejloŝtonon kun fiksa pago) kun ĝia SAC/HSN-kodo kaj imposta takso.",
+      "addService": "Aldoni servon",
+      "restoreTitle": "Ĉu restaŭri {name}?",
+      "archiveTitle": "Ĉu arkivi {name}?",
+      "deleteTitle": "Ĉu forigi {name}?",
+      "editMetaTitle": "Redakti servon",
+      "editTitle": "Redakti {name}"
+    },
+    "products": {
+      "title": "Produktoj",
+      "description": "Varoj, kiujn vi vendas, ĉiu kun SKU. Elekto de produkto kopias ĝiajn valorojn al la faktura linio.",
+      "newProduct": "Nova produkto",
+      "emptyTitle": "Ankoraŭ neniu produkto",
+      "emptyDescription": "Aldonu la varojn, kiujn vi vendas, kun SKU, HSN-kodo, unuoprezo kaj imposta takso.",
+      "addProduct": "Aldoni produkton",
+      "restoreTitle": "Ĉu restaŭri {sku}?",
+      "archiveTitle": "Ĉu arkivi {sku}?",
+      "deleteTitle": "Ĉu forigi {sku}?",
+      "editMetaTitle": "Redakti produkton",
+      "editTitle": "Redakti {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "Unika kodo presita sub la priskribo de la linio",
+      "name": "Nomo",
+      "unit": "Unuo",
+      "defaultRate": "Implicita prezo",
+      "unitPrice": "Unuoprezo",
+      "currency": "Valuto",
+      "sacHsnCode": "SAC / HSN-kodo",
+      "sacHsnHint": "Deviga en GST-fakturoj",
+      "hsnCode": "HSN-kodo",
+      "hsnHint": "Deviga en GST-fakturoj por varoj",
+      "defaultTaxRate": "Implicita imposta takso (%)",
+      "description": "Priskribo",
+      "descriptionHint": "Antaŭplenigas la priskribon de la linio",
+      "active": "Aktiva",
+      "serviceInactiveHint": "Neaktivaj servoj ne aperas en la faktura elektilo",
+      "productInactiveHint": "Neaktivaj produktoj ne aperas en la faktura elektilo",
+      "saveService": "Konservi servon",
+      "saveProduct": "Konservi produkton"
+    },
+    "tags": {
+      "legend": "Profiloj",
+      "hint": "Marku la eldonantajn profilojn, kiuj vendas ĉi tion. Lasu ĉiujn nemarkitaj por oferti ĝin al ĉiu profilo."
+    }
+  },
+  "address": {
+    "line1": "Adreslinio 1",
+    "line2": "Adreslinio 2",
+    "city": "Urbo",
+    "stateRegion": "Ŝtato / regiono",
+    "postalCode": "Poŝtkodo",
+    "country": "Lando",
+    "state": "Ŝtato",
+    "gstStateCodeHint": "GST-ŝtata kodo {code}",
+    "pickStateHint": "Elektu la ŝtaton por la GST-ŝtata kodo",
+    "stateRegionCode": "Kodo de ŝtato / regiono",
+    "stateRegionCodePlaceholder": "ekz. CA"
+  },
+  "assets": {
+    "tooLarge": "Tiu dosiero estas tro granda.",
+    "unsupportedReceipt": "Uzu PNG-, JPEG-, WebP-bildon aŭ PDF.",
+    "unsupportedImage": "Uzu PNG-, JPEG- aŭ WebP-bildon.",
+    "uploadFailed": "Alŝuto malsukcesis.",
+    "uploading": "Alŝutado…",
+    "dropHint": "Trenu dosieron ĉi tien, aŭ elektu unu",
+    "dropHintMany": "Tiru dosierojn ĉi tien, aŭ elektu ilin",
+    "dropActive": "Faligu por alŝuti"
+  },
+  "ui": {
+    "breadcrumb": "Navigovojo",
+    "close": "Fermi",
+    "closeMenu": "Fermi menuon",
+    "reveal": "Montri",
+    "hide": "Kaŝi",
+    "openCalendar": "Malfermi kalendaron",
+    "chooseMonth": "Elektu monaton",
+    "chooseYear": "Elektu jaron",
+    "searchOptions": "Tajpu por serĉi",
+    "noMatches": "Neniu kongruo",
+    "pullToRefresh": {
+      "label": "Aktualigebla listo",
+      "pulling": "Tiru por aktualigi",
+      "release": "Lasu por aktualigi",
+      "refreshing": "Aktualigante"
+    },
+    "inputCharset": "Nur ordinaraj klavaraj signoj estas permesitaj.",
+    "confirm": {
+      "working": "Laborado…"
+    },
+    "statusPill": {
+      "DRAFT": "Malneto",
+      "ISSUED": "Eldonita",
+      "SENT": "Sendita",
+      "PARTIALLY_PAID": "Parte pagita",
+      "PAID": "Pagita",
+      "OVERDUE": "Preterdata",
+      "VOID": "Nuligita"
+    },
+    "activePill": {
+      "active": "Aktiva",
+      "archived": "Arkivita",
+      "inactive": "Neaktiva"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "Io misfunkciis.",
+    "fixFields": "Bonvolu korekti la reliefigitajn kampojn.",
+    "accountSaved": "Kontaj preferoj konservitaj",
+    "apiKeyCreated": "API-ŝlosilo kreita. Kopiu ĝin nun: ĝi montriĝas nur unufoje.",
+    "saved": "{name} konservita",
+    "savedProfile": "Profilo {label} konservita",
+    "clientArchived": "Kliento arkivita",
+    "clientRestored": "Kliento restaŭrita",
+    "clientDeleted": "Kliento forigita",
+    "productArchived": "Produkto arkivita",
+    "productRestored": "Produkto restaŭrita",
+    "productActivated": "Produkto aktivigita",
+    "productDeactivated": "Produkto malaktivigita",
+    "serviceArchived": "Servo arkivita",
+    "serviceRestored": "Servo restaŭrita",
+    "serviceActivated": "Servo aktivigita",
+    "serviceDeactivated": "Servo malaktivigita",
+    "defaultProfileUpdated": "Implicita profilo ĝisdatigita",
+    "profileArchived": "Profilo arkivita",
+    "profileRestored": "Profilo restaŭrita",
+    "profileDeleted": "Profilo forigita",
+    "defaultPaymentMethodUpdated": "Implicita pagmetodo ĝisdatigita",
+    "paymentMethodArchived": "Pagmetodo arkivita",
+    "paymentMethodRestored": "Pagmetodo restaŭrita",
+    "paymentMethodDeleted": "Pagmetodo forigita",
+    "issued": "{number} eldonita",
+    "savedAsDraft": "Konservita kiel malneto. {reason}",
+    "draftSaved": "Malneto konservita",
+    "invoiceVoided": "Fakturo nuligita",
+    "originalVoided": "Originalo nuligita; redaktu la anstataŭan malnetan",
+    "markedAsSent": "Markita kiel sendita",
+    "draftDeleted": "Malneto forigita",
+    "generatedPdf": "PDF-versio {version} generita",
+    "creditNoteVoided": "Kredita noto nuligita; la saldo de la fakturo estas restaŭrita",
+    "draftCreditNoteDeleted": "Malneta kredita noto forigita",
+    "mailRefused": "La retpoŝta servilo rifuzis la mesaĝon: {error}. La provo estis protokolita.",
+    "unknownError": "nekonata eraro",
+    "sentTo": "Sendita al {recipients}",
+    "smtpSaved": "SMTP-agordoj konservitaj",
+    "smtpRemoved": "Konservitaj SMTP-agordoj forigitaj",
+    "testEmailSent": "Proba retpoŝto sendita al {email}",
+    "testFailed": "Provo malsukcesis: {error}",
+    "defaultRecipientsSaved": "Implicitaj ricevantoj konservitaj",
+    "invitationSent": "Invito sendita",
+    "invitationReady": "Invito preta",
+    "unknownRole": "Nekonata rolo",
+    "roleUpdated": "Rolo ĝisdatigita",
+    "accountDeactivated": "Konto malaktivigita",
+    "accountReactivated": "Konto reaktivigita",
+    "invitationRevoked": "Invito revokita",
+    "paymentUpdated": "Pago ĝisdatigita",
+    "paymentRecorded": "Pago registrita",
+    "paymentDeleted": "Pago forigita",
+    "sessionRevoked": "Seanco revokita",
+    "noOtherSessions": "Neniuj aliaj seancoj",
+    "signedOutOthers": "Elsalutita el {count} alia(j) seanco(j)",
+    "sharePasswordRequired": "Enigu pasvorton, aŭ lasu generi unu.",
+    "shareLinkCreated": "Komuniga ligilo kreita.",
+    "templateSaved": "Ŝablono konservita; estontaj dokumentoj uzos ĝin",
+    "templateReset": "Ŝablono restarigita al la enkonstruita implicita",
+    "templateImported": "Ŝablono importita",
+    "profileTemplateCleared": "Profilo denove uzas la ŝablonon de la instanco",
+    "operatorSaved": "Detaloj de funkciiganto konservitaj. La juraj paĝoj nun montras ilin.",
+    "einvoiceSettingsSaved": "E-fakturadaj agordoj konservitaj",
+    "irnRegistered": "IRN {irn} registrita; la PDF estis regenerita kun ĝi",
+    "irnRecorded": "IRN registrita; la PDF estis regenerita kun ĝi",
+    "irnCancelled": "IRN nuligita; la PDF estis regenerita"
+  }
+}

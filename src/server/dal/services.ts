@@ -8,7 +8,10 @@ import { diffForAudit } from "./audit-redact";
 import { InvariantError, NotFoundError } from "./errors";
 import { requireWriter } from "./authz";
 
-type Row = NonNullable<Awaited<ReturnType<typeof prisma.serviceItem.findUnique>>>;
+const TAGS = { issuerProfiles: { select: { id: true } } } as const;
+type Row = NonNullable<Awaited<ReturnType<typeof prisma.serviceItem.findUnique>>> & {
+  issuerProfiles: { id: string }[];
+};
 
 export interface ServiceDto {
   id: string;
@@ -20,6 +23,7 @@ export interface ServiceDto {
   sacHsnCode: string | null;
   defaultTaxRate: string;
   isActive: boolean;
+  issuerProfileIds: string[];
   archivedAt: string | null;
   createdAt: string;
   updatedAt: string;
@@ -36,6 +40,7 @@ function toDto(row: Row): ServiceDto {
     sacHsnCode: row.sacHsnCode,
     defaultTaxRate: row.defaultTaxRate.toString(),
     isActive: row.isActive,
+    issuerProfileIds: row.issuerProfiles.map((p) => p.id),
     archivedAt: row.archivedAt?.toISOString() ?? null,
     createdAt: row.createdAt.toISOString(),
     updatedAt: row.updatedAt.toISOString(),
@@ -55,6 +60,12 @@ function toData(input: ServiceInput) {
   };
 }
 
+/** Tag rows: `connect` on create, `set` on update (replaces the whole set). */
+function tags(input: { issuerProfileIds: string[] }, mode: "connect" | "set") {
+  const ids = input.issuerProfileIds.map((id) => ({ id }));
+  return mode === "connect" ? { connect: ids } : { set: ids };
+}
+
 function auditView(row: Row): Record<string, unknown> {
   return {
     name: row.name,
@@ -65,26 +76,36 @@ function auditView(row: Row): Record<string, unknown> {
     sacHsnCode: row.sacHsnCode,
     defaultTaxRate: row.defaultTaxRate.toString(),
     isActive: row.isActive,
+    issuerProfileIds: row.issuerProfiles.map((p) => p.id),
     archivedAt: row.archivedAt,
   };
 }
 
 async function load(tx: Tx, id: string): Promise<Row> {
-  const row = await tx.serviceItem.findUnique({ where: { id } });
+  const row = await tx.serviceItem.findUnique({ where: { id }, include: TAGS });
   if (!row) throw new NotFoundError("Service", id);
   return row;
 }
 
 export async function listServices(
   _actor: Actor,
-  o: { includeArchived?: boolean; activeOnly?: boolean } = {},
+  o: { includeArchived?: boolean; activeOnly?: boolean; forIssuerProfileId?: string } = {},
 ): Promise<ServiceDto[]> {
   const rows = await prisma.serviceItem.findMany({
     where: {
       ...(o.includeArchived ? { archivedAt: {} } : {}),
       ...(o.activeOnly ? { isActive: true } : {}),
+      ...(o.forIssuerProfileId
+        ? {
+            OR: [
+              { issuerProfiles: { none: {} } },
+              { issuerProfiles: { some: { id: o.forIssuerProfileId } } },
+            ],
+          }
+        : {}),
     },
     orderBy: { name: "asc" },
+    include: TAGS,
   });
   return rows.map(toDto);
 }
@@ -96,7 +117,10 @@ export async function getService(_actor: Actor, id: string): Promise<ServiceDto>
 export async function createService(actor: Actor, input: ServiceInput): Promise<ServiceDto> {
   requireWriter(actor);
   return prisma.$transaction(async (tx) => {
-    const row = await tx.serviceItem.create({ data: toData(input) });
+    const row = await tx.serviceItem.create({
+      data: { ...toData(input), issuerProfiles: tags(input, "connect") },
+      include: TAGS,
+    });
     await audit(tx, actor, "service.created", "ServiceItem", row.id, {
       summary: `Created service ${row.name}`,
       after: auditView(row),
@@ -113,7 +137,11 @@ export async function updateService(
   requireWriter(actor);
   return prisma.$transaction(async (tx) => {
     const before = await load(tx, id);
-    const row = await tx.serviceItem.update({ where: { id }, data: toData(input) });
+    const row = await tx.serviceItem.update({
+      where: { id },
+      data: { ...toData(input), issuerProfiles: tags(input, "set") },
+      include: TAGS,
+    });
     const diff = diffForAudit(auditView(before), auditView(row));
     await audit(tx, actor, "service.updated", "ServiceItem", id, {
       summary: `Updated service ${row.name}`,

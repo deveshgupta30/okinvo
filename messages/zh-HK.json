@@ -1,0 +1,2211 @@
+{
+  "@@generated": true,
+  "@@source": "en-US",
+  "@@date": "2026-10-09",
+  "common": {
+    "appName": "okinvo",
+    "home": "okinvo 首頁",
+    "save": "儲存",
+    "cancel": "取消",
+    "continue": "繼續",
+    "saving": "儲存中…",
+    "detect": "偵測",
+    "yes": "是",
+    "no": "否",
+    "choose": "請選擇…",
+    "remove": "移除",
+    "tryAgain": "再試一次",
+    "dashboard": "儀表板",
+    "goToDashboard": "前往儀表板",
+    "or": "或",
+    "invoice": "發票",
+    "creditNote": "貸項通知單",
+    "downloadPdf": "下載 PDF",
+    "edit": "編輯",
+    "delete": "刪除",
+    "downloadDocx": "下載 DOCX",
+    "downloadCii": "下載 EN 16931 XML",
+    "downloadUbl": "下載 Peppol UBL",
+    "downloadFacturX": "下載 Factur-X PDF",
+    "none": "無",
+    "dismiss": "關閉",
+    "all": "全部",
+    "previous": "上一頁",
+    "next": "下一頁",
+    "go": "前往",
+    "search": "搜尋",
+    "status": "狀態",
+    "total": "總計",
+    "currency": "幣別",
+    "from": "從",
+    "to": "至",
+    "reason": "原因",
+    "history": "歷程記錄",
+    "archive": "封存",
+    "restore": "還原",
+    "showArchived": "顯示已封存項目",
+    "hideArchived": "隱藏已封存項目",
+    "archived": "已封存",
+    "default": "預設",
+    "setDefault": "設為預設",
+    "revoke": "撤銷",
+    "copy": "複製",
+    "copied": "已複製",
+    "active": "啟用中",
+    "pagination": "分頁",
+    "emptyValue": "-"
+  },
+  "shell": {
+    "nav": {
+      "dashboard": "儀表板",
+      "invoices": "發票",
+      "creditNotes": "貸項通知單",
+      "clients": "客戶",
+      "services": "服務",
+      "products": "產品",
+      "tools": "貨幣"
+    },
+    "primaryNav": "主要導覽",
+    "settings": "設定",
+    "openMenu": "開啟選單",
+    "more": "更多",
+    "navigation": "導覽",
+    "dock": "快速導覽",
+    "pagesAndAccount": "頁面與帳戶",
+    "collapseSidebar": "收合側邊欄",
+    "collapseSidebarHint": "收合側邊欄 ([)",
+    "expandSidebar": "展開側邊欄",
+    "expandSidebarHint": "展開側邊欄 ([)",
+    "theme": {
+      "label": "主題",
+      "system": "跟隨系統",
+      "light": "淺色",
+      "dark": "深色",
+      "current": "主題：{mode}",
+      "switchTo": "主題：{mode}。切換為{next}"
+    },
+    "userMenu": {
+      "label": "{name} 的帳戶選單",
+      "profile": "個人資料",
+      "logOut": "登出"
+    }
+  },
+  "tools": {
+    "currency": {
+      "metaTitle": "貨幣換算器",
+      "title": "貨幣換算器",
+      "description": "使用此實例內置的匯率表，在你開立發票所用的貨幣之間換算。",
+      "amount": "金額",
+      "from": "由",
+      "to": "至",
+      "flip": "互換貨幣",
+      "enterAmount": "請輸入金額",
+      "asOf": "匯率截至 {date}（{source}）",
+      "sources": {
+        "bundled": "隨應用程式內置",
+        "live": "已在線更新"
+      },
+      "note": "匯率只供參考；已開立發票上的匯率是你開立時輸入的匯率。"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "metaTitle": "登入",
+      "metaDescription": "使用身份提供者或密碼登入 okinvo，這款可自行託管的開發票應用程式。",
+      "title": "登入",
+      "subtitle": "僅限允許清單中的帳戶登入。",
+      "failed": "登入失敗。",
+      "noMethod": "尚未設定任何登入方式。請在 <code>.env</code> 中設定一組驗證提供者參數（例如 <code>AUTH_GITHUB_*</code>），或設定 <code>AUTH_PASSWORD_SIGNIN=true</code>。",
+      "errors": {
+        "not_allowed": "此帳戶不被允許使用本實例，或已被停用。",
+        "signin": "登入未完成，請再試一次。"
+      }
+    },
+    "password": {
+      "name": "姓名",
+      "email": "電子郵件",
+      "password": "密碼",
+      "signingIn": "登入中…",
+      "createAccount": "建立帳戶",
+      "signIn": "登入",
+      "haveAPassword": "我已有密碼",
+      "firstTime": "第一次使用？請設定密碼",
+      "failed": "登入失敗。"
+    },
+    "social": {
+      "redirecting": "重新導向中…",
+      "continueWith": "使用 {provider} 繼續",
+      "failed": "無法開始登入。"
+    },
+    "error": {
+      "metaTitle": "登入錯誤",
+      "metaDescription": "登入未能完成。本頁說明發生了什麼問題以及如何重試。",
+      "title": "登入失敗",
+      "body": "身分提供者傳回 <code>{value}</code>。若您的地址不在此實例的允許清單中，請聯絡擁有者將其加入。",
+      "back": "返回登入"
+    }
+  },
+  "settings": {
+    "nav": {
+      "label": "設定",
+      "profiles": "開立者設定檔",
+      "paymentMethods": "付款方式",
+      "templates": "範本",
+      "email": "電子郵件",
+      "security": "安全性",
+      "users": "用戶",
+      "data": "資料",
+      "legal": "法律",
+      "einvoicing": "電子發票",
+      "account": "帳戶",
+      "appearance": "外觀",
+      "api": "API",
+      "status": "狀態",
+      "usage": "使用情況"
+    },
+    "account": {
+      "metaTitle": "帳戶",
+      "title": "帳戶",
+      "description": "您的相片、姓名、地區、語言與時區。",
+      "photo": {
+        "title": "相片",
+        "description": "顯示於側邊欄與用戶選單。"
+      },
+      "form": {
+        "title": "帳戶",
+        "description": "您的顯示方式，以及「今天」的定義。",
+        "displayName": "顯示名稱",
+        "signInEmail": "登入電子郵件",
+        "signInEmailHint": "這是您在此實例上的身分，無法在此編輯。",
+        "timezone": "時區",
+        "timezoneHint": "開立日期、到期日與儀表板所使用的「今天」",
+        "regionTitle": "地區",
+        "regionDescription": "新開立者設定檔的預設值，在建立設定檔之前也用於儀表板。",
+        "country": "國家或地區",
+        "currency": "幣別",
+        "suggested": "此國家建議使用：",
+        "language": "語言",
+        "languageHint": "應用程式本身的語言。文件使用各設定檔自己的地區設定。",
+        "machineTranslated": "此語言為機器翻譯。歡迎提供修正：<link>在 GitHub 上協助改進</link>。",
+        "save": "儲存偏好設定"
+      },
+      "regions": {
+        "Africa": "非洲",
+        "Americas": "美洲",
+        "Asia": "亞洲",
+        "Europe": "歐洲",
+        "MiddleEast": "中東",
+        "Oceania": "大洋洲",
+        "Constructed": "人造語言"
+      },
+      "privacy": {
+        "title": "隱私權",
+        "description": "okinvo 僅設定運作所需的 Cookie。沒有分析，也沒有追蹤。",
+        "cookiePolicy": "Cookie 政策",
+        "showNoticeAgain": "再次顯示 Cookie 通知"
+      }
+    },
+    "avatar": {
+      "changePhoto": "更換相片",
+      "addPhoto": "新增相片",
+      "hint": "PNG、JPEG 或 WebP。一律以圓形顯示；儲存前可縮放與移動。",
+      "tooLarge": "這張相片太大。",
+      "uploadFailed": "上傳失敗。",
+      "choose": "選擇個人相片",
+      "dialogTitle": "調整相片位置",
+      "dialogDescription": "拖曳移動，捲動或雙指縮放。圓形範圍即為所有人看到的樣子。",
+      "zoom": "縮放",
+      "save": "儲存相片"
+    },
+    "appearance": {
+      "metaTitle": "外觀",
+      "title": "外觀",
+      "description": "主題與強調色，儲存於您的帳戶。",
+      "theme": {
+        "title": "主題",
+        "description": "跟隨系統，或固定使用淺色或深色。",
+        "label": "主題",
+        "system": "跟隨系統",
+        "systemHint": "隨作業系統切換",
+        "light": "淺色",
+        "lightHint": "白色畫布",
+        "dark": "深色",
+        "darkHint": "近黑色畫布"
+      },
+      "accent": {
+        "title": "強調色",
+        "description": "用於主要按鈕、焦點框與目前頁面標記。薄荷色與品牌標誌一致。",
+        "label": "強調色",
+        "customHint": "或自行選擇任何顏色"
+      },
+      "accents": {
+        "mint": "薄荷",
+        "lavender": "薰衣草",
+        "sky": "天藍",
+        "peach": "蜜桃",
+        "butter": "奶油黃",
+        "rose": "玫瑰",
+        "sage": "鼠尾草綠",
+        "lilac": "紫丁香",
+        "custom": "自訂"
+      }
+    },
+    "profiles": {
+      "metaTitle": "開立者設定檔",
+      "title": "開立者設定檔",
+      "description": "您用來開立發票的法律身分。預設的設定檔會預先填入新發票。",
+      "breadcrumb": "設定檔",
+      "newProfile": "新增設定檔",
+      "emptyTitle": "尚無開立者設定檔",
+      "emptyDescription": "建立您開立發票時使用的身分：持有 PAN 的個人，或您的公司。",
+      "createProfile": "建立設定檔",
+      "columns": {
+        "label": "標籤",
+        "legalName": "法定名稱",
+        "type": "類型",
+        "country": "國家或地區",
+        "currency": "幣別",
+        "regime": "稅制",
+        "status": "狀態"
+      },
+      "types": {
+        "company": "公司",
+        "individual": "個人"
+      },
+      "makeDefaultTitle": "將 {label} 設為預設？",
+      "makeDefaultDescription": "新發票將以此設定檔為起點。",
+      "restoreTitle": "還原 {label}？",
+      "archiveTitle": "封存 {label}？",
+      "archiveDescription": "它會從選擇清單中消失；既有發票不受影響。",
+      "new": {
+        "metaTitle": "新增開立者設定檔",
+        "title": "新增開立者設定檔",
+        "prefilled": "已根據您的回答填入；請檢查地址與稅務資料後再儲存。"
+      },
+      "edit": {
+        "metaTitle": "編輯開立者設定檔",
+        "template": "範本",
+        "deleteTitle": "刪除 {label}？",
+        "deleteDescription": "僅在沒有任何發票或貸項通知單參照此設定檔時才能刪除，否則請改為封存。"
+      },
+      "template": {
+        "metaTitle": "設定檔範本",
+        "title": "{label} 的範本",
+        "ownTemplate": "專屬範本",
+        "instanceTemplate": "實例範本",
+        "resetTitle": "改回使用實例範本？",
+        "resetDescription": "此設定檔自己的設定將被移除；已開立的文件不受影響。",
+        "useInstance": "使用實例範本",
+        "usingInstanceTitle": "使用實例範本中",
+        "usingInstanceDescription": "此設定檔的文件遵循「設定 → 範本」。選擇加入即可個別自訂。",
+        "customise": "為此設定檔使用不同的範本",
+        "openInstance": "開啟實例範本"
+      },
+      "form": {
+        "identityTitle": "身分",
+        "identityDescription": "發票的開立者。",
+        "type": "類型",
+        "label": "標籤",
+        "labelHint": "僅顯示於選擇清單",
+        "legalName": "法定名稱",
+        "tradeName": "商號名稱",
+        "designation": "職稱",
+        "email": "電子郵件",
+        "phone": "電話",
+        "website": "網站",
+        "addressTitle": "地址",
+        "taxTitle": "稅務識別碼",
+        "taxDescription": "僅填寫適用於您的項目；是否列印由每張發票各自控制。",
+        "pan": "PAN",
+        "gstin": "GSTIN",
+        "cin": "CIN",
+        "ukVatNumber": "英國 VAT 號碼",
+        "usTaxId": "美國 EIN / SSN",
+        "usTaxIdHint": "靜態加密儲存",
+        "lutNumber": "LUT 號碼",
+        "lutNumberHint": "適用於免 IGST 的出口",
+        "lutFiscalYear": "LUT 財政年度",
+        "lutFiscalYearHint": "例如 2026-27",
+        "einvoiceTitle": "電子發票",
+        "einvoiceDescription": "此設定檔在電子發票中表明身分的方式;連接器與憑證位於「設定 > 電子發票」。",
+        "electronicAddress": "電子地址",
+        "electronicAddressHint": "此開立者的 Peppol 或 EN 16931 識別碼,列印為賣方的電子地址。",
+        "electronicAddressScheme": "電子地址方案",
+        "electronicAddressSchemeNone": "無方案",
+        "einvoiceEnabled": "此設定檔已啟用電子發票",
+        "einvoiceEnabledHint": "在其已開立的文件上提供 GST 電子發票 JSON、Factur-X 與 UBL 下載,以及 IRN 註冊。",
+        "defaultsTitle": "預設值",
+        "baseCurrency": "基準幣別",
+        "locale": "文件地區設定",
+        "localeHint": "文件上的數字與日期格式",
+        "fiscalYearStart": "財政年度起始月份",
+        "months": {
+          "january": "一月",
+          "february": "二月",
+          "march": "三月",
+          "april": "四月",
+          "may": "五月",
+          "june": "六月",
+          "july": "七月",
+          "august": "八月",
+          "september": "九月",
+          "october": "十月",
+          "november": "十一月",
+          "december": "十二月"
+        },
+        "taxRegime": "預設稅制",
+        "regimes": {
+          "indiaGst": "印度 GST",
+          "ukVat": "英國 VAT",
+          "usSalesTax": "美國銷售稅",
+          "none": "不課稅"
+        },
+        "invoiceNumberFormat": "發票編號格式",
+        "invoiceNumberFormatHint": "標記：{tokens}",
+        "creditNoteNumberFormat": "貸項通知單編號格式",
+        "tdsRate": "預期 TDS 稅率 (%)",
+        "tdsRateHint": "僅供參考，將以預期扣繳額列印",
+        "defaultNotes": "預設備註",
+        "defaultTerms": "預設條款",
+        "printTitle": "預設列印內容",
+        "printDescription": "每張發票會複製這些設定，並可個別修改。",
+        "emailTitle": "電子郵件",
+        "emailDescription": "寄送編輯器的預設值。預留位置：{placeholders}",
+        "emailCc": "預設副本 (CC)",
+        "emailBcc": "預設密件副本 (BCC)",
+        "commaSeparated": "以逗號分隔",
+        "invoiceSubject": "發票主旨",
+        "invoiceSubjectHint": "留空則使用內建範本",
+        "creditNoteSubject": "貸項通知單主旨",
+        "invoiceBody": "發票內文",
+        "creditNoteBody": "貸項通知單內文",
+        "artworkTitle": "圖像",
+        "artworkDescription": "PNG、JPEG 或 WebP，最大 2 MB；簽名與印章會保留透明度。",
+        "logo": "標誌",
+        "signature": "簽名",
+        "stamp": "印章",
+        "transparentPng": "透明 PNG",
+        "save": "儲存設定檔"
+      }
+    },
+    "paymentMethods": {
+      "metaTitle": "付款方式",
+      "title": "付款方式",
+      "description": "客戶付款給您的方式。詳細資料會加密，並在開立時凍結寫入每張發票。",
+      "newMethod": "新增方式",
+      "emptyTitle": "尚無付款方式",
+      "emptyDescription": "新增銀行戶口、UPI ID 或電子錢包，讓發票能告知客戶付款去向。",
+      "addMethod": "新增付款方式",
+      "columns": {
+        "name": "名稱",
+        "type": "類型",
+        "currency": "幣別",
+        "status": "狀態"
+      },
+      "types": {
+        "bankTransfer": "銀行轉帳",
+        "upi": "UPI",
+        "wise": "Wise",
+        "revolut": "Revolut",
+        "paypal": "PayPal",
+        "custom": "自訂"
+      },
+      "makeDefaultTitle": "將 {name} 設為預設？",
+      "restoreTitle": "還原 {name}？",
+      "archiveTitle": "封存 {name}？",
+      "archiveDescription": "已開立的發票會保留當時列印的快照。",
+      "new": {
+        "metaTitle": "新增付款方式",
+        "title": "新增付款方式"
+      },
+      "edit": {
+        "metaTitle": "編輯付款方式",
+        "title": "編輯 {name}",
+        "deleteTitle": "刪除 {name}？",
+        "deleteDescription": "僅在沒有任何發票或付款參照時才能刪除，否則請改為封存。"
+      },
+      "form": {
+        "name": "名稱",
+        "nameHint": "作為付款區塊的標題列印",
+        "type": "類型",
+        "currency": "幣別",
+        "currencyHint": "選填；僅供參考顯示",
+        "anyCurrency": "不限",
+        "instructions": "說明",
+        "instructionsHint": "列印於詳細資料下方",
+        "isDefault": "預設方式",
+        "isDefaultDescription": "新發票預先選取",
+        "isActive": "啟用",
+        "detailsTitle": "詳細資料",
+        "detailsDescription": "靜態加密儲存；開立發票時會製作快照寫入。",
+        "vpa": "UPI ID (VPA)",
+        "payeeName": "收款人名稱",
+        "lines": "內容行",
+        "linesHint": "每列一行，原樣列印",
+        "accountEmail": "戶口電子郵件或帳戶代號",
+        "bank": {
+          "accountHolder": "戶名",
+          "accountNumber": "戶口號碼",
+          "bankName": "銀行名稱",
+          "branch": "分行",
+          "ifsc": "IFSC",
+          "swift": "SWIFT / BIC",
+          "iban": "IBAN",
+          "routingCode": "路由號碼 / 分行代碼"
+        },
+        "save": "儲存付款方式"
+      }
+    },
+    "templates": {
+      "metaTitle": "文件範本",
+      "title": "文件範本",
+      "customised": "已自訂",
+      "builtIn": "內建預設",
+      "description": "發票與貸項通知單的外觀。已開立的文件會保留開立時使用的範本。",
+      "resetTitle": "重設為內建預設？",
+      "resetDescription": "您的自訂內容將被移除；已開立的文件不受影響。",
+      "reset": "重設",
+      "resetTrigger": "重設為預設值",
+      "importTitle": "匯入",
+      "importDescription": "還原先前匯出的設定。",
+      "overridesTitle": "各設定檔覆寫",
+      "overridesDescription": "設定檔可在其編輯頁面選擇使用專屬範本。",
+      "noOverrides": "所有設定檔都使用實例範本。",
+      "import": {
+        "json": "範本 JSON",
+        "jsonHint": "貼上由「匯出 JSON」產生的檔案；缺少的鍵會使用預設值",
+        "importing": "匯入中…",
+        "submit": "匯入"
+      },
+      "form": {
+        "templateTitle": "範本",
+        "templateDescription": "六種內建範本；下方的自訂內容適用於您選擇的任一範本。",
+        "templateGroup": "範本",
+        "templates": {
+          "ledger": {
+            "name": "帳本",
+            "character": "現代而通透，無襯線字體，標題下方有強調色線條。"
+          },
+          "classic": {
+            "name": "經典",
+            "character": "傳統的框線表格，襯線標題，方框總計。"
+          },
+          "compact": {
+            "name": "精簡",
+            "character": "適合長項目清單的緊湊版面；字體較小，分隔線較少。"
+          },
+          "minimal": {
+            "name": "極簡",
+            "character": "安靜而寬敞：沒有線條或方框，標籤輕盈，留白充足。"
+          },
+          "letterhead": {
+            "name": "信頭",
+            "character": "您的標誌與名稱呈現於每頁頂端的色帶或圖像上。"
+          },
+          "modern": {
+            "name": "現代",
+            "character": "色帶標頭；當事方、表格標題與總計使用淡色強調底色。"
+          }
+        },
+        "paperTitle": "紙張與字體",
+        "paperSize": "紙張大小",
+        "paperLetter": "Letter",
+        "margins": "邊界",
+        "marginsNormal": "標準",
+        "marginsNarrow": "窄",
+        "headingFont": "標題字體",
+        "bodyFont": "內文字體",
+        "fontSans": "無襯線",
+        "fontSerif": "襯線",
+        "tableStyle": "表格樣式",
+        "tableRuled": "框線",
+        "tableZebra": "斑馬紋",
+        "tablePlain": "簡單",
+        "accentColour": "強調色",
+        "textColour": "文字顏色",
+        "logoPosition": "標誌位置",
+        "positionLeft": "靠左",
+        "positionCentre": "置中",
+        "positionRight": "靠右",
+        "logoHeight": "標誌高度 (mm)",
+        "documentTitle": "文件標題",
+        "titleAuto": "自動（依 GST 規定）",
+        "titleCustom": "自訂",
+        "titlePlaceholder": "例如 PROFORMA INVOICE",
+        "qrPosition": "QR 碼位置",
+        "qrFooter": "頁尾",
+        "qrHeader": "頁首",
+        "qrBesideTotals": "總計旁",
+        "amountInWords": "大寫金額",
+        "wordsBelowTotal": "總計下方",
+        "wordsFooter": "頁尾",
+        "wordsHidden": "隱藏",
+        "subtotalRow": "小計列",
+        "discountRow": "折扣列",
+        "taxLines": "稅額列",
+        "tdsExpected": "預期 TDS",
+        "roundingRow": "進位調整列",
+        "pageNumbers": "頁碼",
+        "headerTitle": "頁首",
+        "headerDescription": "每頁頂端的色帶或圖像。信頭與現代範本預設顯示色帶，除非您另行選擇。",
+        "headerStyle": "頁首樣式",
+        "headerNone": "無",
+        "headerBand": "色帶",
+        "headerImage": "圖像",
+        "bandColour": "色帶顏色",
+        "bandColourHex": "色帶顏色（十六進位）",
+        "headerImageLabel": "頁首圖像",
+        "headerImageHint": "PNG、JPEG 或 WebP，寬度最多 2400 px；會橫跨整個頁面寬度。",
+        "imageOpacity": "圖像不透明度",
+        "headerHeight": "頁首高度 (mm)",
+        "bandText": "色帶上的文字",
+        "bandTextAuto": "自動（依色帶顏色）",
+        "bandTextLight": "淺色",
+        "bandTextDark": "深色",
+        "textTitle": "文字",
+        "headerNote": "頁首備註",
+        "footer": "頁尾",
+        "signatureCaption": "簽名說明",
+        "draftWatermark": "草稿浮水印",
+        "labelsTitle": "標籤",
+        "labelsDescription": "欄位留空則使用預設用語。",
+        "save": "儲存範本",
+        "downloadSample": "下載範例 PDF",
+        "exportJson": "匯出 JSON"
+      }
+    },
+    "email": {
+      "metaTitle": "電子郵件",
+      "title": "電子郵件",
+      "configuredSettings": "已在設定中配置",
+      "configuredEnv": "已由環境配置",
+      "notConfigured": "未配置：使用郵件應用程式流程",
+      "description": "文件由編輯器寄出，並附上已儲存的 PDF。此處的設定會覆寫環境中的 SMTP_*。",
+      "sendTest": "寄送測試郵件至 {email}",
+      "removeTitle": "移除已儲存的 SMTP 設定？",
+      "removeEnvTakesOver": "將改用環境中的 SMTP_* 值。",
+      "removeFallsBack": "電子郵件將退回使用郵件應用程式流程。",
+      "removeTrigger": "移除已儲存的設定",
+      "smtpTitle": "SMTP 伺服器",
+      "smtpFromEnv": "目前取自環境；在此儲存會覆寫它。",
+      "smtpPasswordNote": "密碼會靜態加密儲存，且不會再次顯示。",
+      "defaultsTitle": "預設收件者",
+      "defaultsDescription": "適用於整個實例的 CC/BCC；開立者設定檔可另行新增。",
+      "sentTitle": "已寄出郵件",
+      "sentDescription": "最近 50 次嘗試，包含失敗與手動寄送。",
+      "smtp": {
+        "host": "主機",
+        "port": "連接埠",
+        "security": "安全性",
+        "starttls": "STARTTLS (587)",
+        "tls": "TLS (465)",
+        "none": "無（區域網絡中繼）",
+        "user": "用戶名稱",
+        "password": "密碼",
+        "passwordStored": "已儲存並加密；留空則保留",
+        "passwordEncrypted": "靜態加密儲存",
+        "from": "寄件者地址",
+        "fromName": "寄件者名稱",
+        "replyTo": "回覆地址",
+        "save": "儲存 SMTP 設定"
+      },
+      "defaults": {
+        "cc": "預設副本 (CC)",
+        "ccHint": "加入每一個編輯器；以逗號分隔",
+        "bcc": "預設密件副本 (BCC)",
+        "save": "儲存預設值"
+      }
+    },
+    "security": {
+      "metaTitle": "安全性",
+      "title": "安全性",
+      "description": "您目前登入的位置，以及所有變更。",
+      "sessions": {
+        "title": "使用中的工作階段",
+        "description": "撤銷工作階段會立即登出該裝置。",
+        "signOutOthers": {
+          "title": "登出其他所有裝置？",
+          "description": "除了目前這個工作階段外，其餘全部撤銷。",
+          "confirm": "登出其他裝置",
+          "trigger": "登出其他所有裝置"
+        },
+        "columns": {
+          "device": "裝置",
+          "ipAddress": "IP 位址",
+          "signedIn": "登入時間",
+          "lastSeen": "最後活動",
+          "expires": "到期時間"
+        },
+        "thisDevice": "此裝置",
+        "revokeTitle": "撤銷此工作階段？",
+        "unknownDevice": "未知裝置",
+        "unknownBrowser": "未知",
+        "agentOnOs": "{os} 上的 {browser}"
+      },
+      "audit": {
+        "title": "稽核記錄",
+        "count": "{count, plural, other {# 個事件}}",
+        "entity": "實體",
+        "actionContains": "動作包含",
+        "filter": "篩選",
+        "reset": "重設",
+        "columns": {
+          "when": "時間",
+          "who": "操作者",
+          "action": "動作",
+          "entity": "實體",
+          "summary": "摘要"
+        },
+        "empty": "沒有符合這些篩選條件的事件。",
+        "system": "系統",
+        "changes": "變更內容",
+        "page": "第 {page} 頁，共 {pages} 頁"
+      }
+    },
+    "users": {
+      "metaTitle": "用戶",
+      "title": "用戶",
+      "description": "誰可以登入此實例，以及他們能做什麼。",
+      "roles": {
+        "owner": "擁有者",
+        "editor": "編輯者",
+        "viewer": "檢視者"
+      },
+      "roleHints": {
+        "owner": "所有權限，包含設定與成員管理",
+        "editor": "客戶、目錄、發票、貸項通知單、付款、電子郵件",
+        "viewer": "唯讀"
+      },
+      "roleOption": "{role} - {hint}",
+      "roleOf": "{email} 的角色",
+      "invite": {
+        "title": "邀請成員",
+        "description": "對方使用受邀地址登入（透過身分提供者或密碼），並取得您選擇的角色。",
+        "sent": "已將邀請寄至 {email}。",
+        "readyWithError": "已為 {email} 準備好邀請。電子郵件無法寄出（{error}）；請將此連結傳給對方：",
+        "readyNoSmtp": "已為 {email} 準備好邀請。尚未設定 SMTP；請將此連結傳給對方：",
+        "copyLink": "複製連結",
+        "email": "電子郵件",
+        "emailPlaceholder": "person@example.com",
+        "role": "角色",
+        "submit": "邀請",
+        "inviting": "邀請中…"
+      },
+      "members": {
+        "title": "成員",
+        "description": "一律至少保留一位啟用中的擁有者。",
+        "columns": {
+          "person": "成員",
+          "role": "角色",
+          "lastSignIn": "最後登入",
+          "status": "狀態"
+        },
+        "nameYou": "{name}（您）",
+        "deactivated": "已停用",
+        "reactivate": {
+          "title": "重新啟用 {email}？",
+          "description": "對方可以用先前的角色再次登入。",
+          "confirm": "重新啟用"
+        },
+        "deactivate": {
+          "title": "停用 {email}？",
+          "description": "所有工作階段將立即結束，在重新啟用之前對方無法登入。歷程記錄會保留。",
+          "confirm": "停用"
+        }
+      },
+      "invitations": {
+        "title": "待處理的邀請",
+        "description": "可登入但尚未登入的地址。",
+        "columns": {
+          "email": "電子郵件",
+          "role": "角色",
+          "invited": "邀請時間"
+        },
+        "empty": "沒有待處理的邀請。",
+        "invitedAtBy": "{date} · {by}",
+        "revokeTitle": "撤銷對 {email} 的邀請？"
+      }
+    },
+    "data": {
+      "metaTitle": "資料",
+      "title": "資料",
+      "description": "一切皆可攜出：資料集可匯出為 CSV 或 Excel、完整快照可供遷移、PDF 可交給會計師，另有經過測試的備份流程。",
+      "period": {
+        "fiscalYear": "財政年度",
+        "fiscalYearHint": "會覆寫日期",
+        "issuer": "開立者"
+      },
+      "exportAll": {
+        "title": "匯出所有資料",
+        "description": "一個 ZIP，內含每個資料集的 CSV，以及 <mono>data.json</mono>（所有資料表的關聯式快照）。加密欄位（付款方式詳細資料、SMTP 密碼）不包含在內；內附的 README 會列出這些欄位。",
+        "download": "下載 okinvo-data ZIP"
+      },
+      "exportDocuments": {
+        "title": "匯出文件",
+        "description": "某一期間內所有已開立與已作廢的發票及貸項通知單 PDF，以編號命名，並附上 <mono>index.csv</mono>（含編號、總計與雜湊值）。缺少的 PDF 會在匯出過程中產生。",
+        "docx": "同時包含每份文件的 DOCX 副本",
+        "facturx": "同時包含內嵌 EN 16931 XML 的 Factur-X PDF/A-3 副本",
+        "download": "下載文件 ZIP"
+      },
+      "datasets": {
+        "title": "資料集",
+        "description": "與各索引頁提供的匯出相同，並對全部套用期間與開立者。付款使用日期範圍；客戶與服務則忽略期間。",
+        "columns": {
+          "dataset": "資料集",
+          "filters": "套用的篩選條件",
+          "download": "下載"
+        },
+        "names": {
+          "invoices": "發票登記簿",
+          "invoiceItems": "發票明細項目",
+          "payments": "付款分類帳",
+          "creditNotes": "貸項通知單登記簿",
+          "clients": "客戶",
+          "services": "服務",
+          "gstSummary": "GST 摘要",
+          "tdsSummary": "TDS 摘要"
+        },
+        "filters": {
+          "periodIssuer": "期間、開立者",
+          "dateRangeIssuer": "日期範圍、開立者",
+          "includesArchived": "包含已封存項目"
+        }
+      },
+      "backups": {
+        "title": "備份",
+        "notWired": "未連接備份服務",
+        "noRun": "尚未執行過備份",
+        "lastOk": "上次備份成功",
+        "lastFailed": "上次備份失敗",
+        "description": "Compose 的 <mono>backup</mono> 服務會依 <mono>BACKUP_CRON</mono> 傾印 Postgres 並封存儲存體磁碟區，在 <mono>backups</mono> 磁碟區中保留 <mono>BACKUP_RETENTION_DAYS</mono> 天的歷史，並寫入本頁讀取的狀態檔。",
+        "finished": "完成時間",
+        "databaseDump": "資料庫傾印",
+        "storageArchive": "儲存體封存",
+        "size": "大小",
+        "sizeMb": "{size} MB",
+        "error": "錯誤",
+        "runNow": "立即執行一次，或使用一組檔案還原：",
+        "restoreDrill": "還原程序由 <mono>scripts/restore-drill.sh</mono> 在 CI 中演練：植入資料、備份、清除、還原，然後比對資料列數與 PDF 雜湊值。"
+      }
+    },
+    "legal": {
+      "metaTitle": "法律",
+      "metaDescription": "誰營運此實例：列印於公開法律頁面的詳細資料。",
+      "title": "法律",
+      "description": "公開的法律頁面會列印這些詳細資料。在所有欄位填寫完成前，頁面會顯示醒目的預留位置。",
+      "operator": {
+        "title": "營運者詳細資料",
+        "complete": "已完成",
+        "missing": "缺少 {count} 項：{fields}",
+        "description": "您作為營運此實例的個人或公司，即是文件所指的營運者。這裡的內容不會傳送到任何地方，只會列印在下方的頁面上。"
+      },
+      "fieldLabels": {
+        "legalName": "營運者法定名稱",
+        "entityType": "實體類型",
+        "address": "營運者地址",
+        "country": "營運者所在國家或地區",
+        "contactEmail": "聯絡電子郵件",
+        "privacyEmail": "隱私權電子郵件",
+        "dpoEmail": "資料保護長電子郵件",
+        "governingLaw": "準據法",
+        "venue": "爭議管轄地",
+        "effectiveDate": "生效日期"
+      },
+      "publicPages": {
+        "title": "公開頁面",
+        "description": "從登入頁面、分享檢視頁面與 Cookie 通知連結而來。",
+        "terms": "服務條款",
+        "acceptableUse": "可接受使用政策",
+        "privacy": "隱私權政策",
+        "cookies": "Cookie 政策",
+        "dataRetention": "資料保存",
+        "security": "安全性",
+        "licenses": "授權與第三方聲明"
+      },
+      "form": {
+        "legalName": "法定名稱",
+        "entityType": "實體類型",
+        "individual": "個人 / 獨資經營者",
+        "company": "公司 / 登記實體",
+        "address": "地址",
+        "addressHint": "在服務條款與隱私權政策中列印為營運者的通訊地址。",
+        "country": "國家或地區",
+        "effectiveDate": "生效日期",
+        "contactEmail": "聯絡電子郵件",
+        "privacyEmail": "隱私權電子郵件",
+        "privacyEmailHint": "資料當事人請求的接收地址；可與聯絡地址相同。",
+        "dpoEmail": "資料保護長電子郵件",
+        "dpoEmailHint": "僅在您已指派時填寫。",
+        "governingLaw": "準據法",
+        "governingLawHint": "例如「印度法律」或「英格蘭與威爾斯法律」。",
+        "venue": "爭議管轄地",
+        "venueHint": "例如「卡納塔克邦班加羅爾法院」。",
+        "submit": "儲存營運者詳細資料"
+      }
+    },
+    "einvoicing": {
+      "metaTitle": "電子發票",
+      "title": "電子發票",
+      "description": "依開立者設定檔設定:由哪個連接器註冊印度電子發票,以及 Factur-X 與 UBL 輸出所遵循的歐洲設定檔。憑證以加密方式儲存,之後不會再顯示。",
+      "noProfiles": "請先建立開立者設定檔。",
+      "profile": "開立者設定檔",
+      "enabled": "已啟用",
+      "disabled": "已停用",
+      "enabledHint": "請在「設定 > 開立者設定檔」中依設定檔開啟或關閉電子發票。",
+      "india": {
+        "title": "印度(GST 電子發票、IRN)",
+        "description": "IRN 透過此處選擇的連接器註冊;手動連接器則以手動方式輸入入口網站的回應。",
+        "connector": "連接器",
+        "connectorNone": "關閉",
+        "connectorManual": "手動(貼上 IRP 回應)",
+        "connectorNic": "NIC IRP API(沙盒或正式環境)",
+        "nicUnverified": "NIC 連接器依循已發布的 API,僅以錄製的測試資料驗證;在提供憑證之前,尚未對實際沙盒驗證。",
+        "env": "環境",
+        "sandbox": "沙盒",
+        "production": "正式環境",
+        "baseUrl": "基底 URL",
+        "baseUrlHint": "留空則使用該環境的預設值。",
+        "clientId": "用戶端 ID",
+        "clientSecret": "用戶端密鑰",
+        "username": "用戶名稱",
+        "password": "密碼",
+        "gstin": "GSTIN",
+        "publicKey": "IRP 公開金鑰(PEM)",
+        "publicKeyHint": "登入入口網站後下載;它用於加密傳送至 IRP 的憑證。",
+        "publicKeyStored": "已儲存;留空則保留現有內容。",
+        "secretStored": "已加密儲存;留空則保留現有內容。",
+        "secretEncrypted": "靜態時已加密儲存。"
+      },
+      "eu": {
+        "title": "歐洲(Factur-X、UBL)",
+        "description": "此版本僅支援 EN 16931 設定檔;Factur-X 與 UBL 下載皆使用該設定檔。",
+        "profile": "設定檔",
+        "profileNone": "關閉",
+        "en16931": "EN 16931"
+      },
+      "save": "儲存電子發票設定"
+    },
+    "api": {
+      "metaTitle": "API",
+      "metaDescription": "供腳本、SDK 與 MCP 用戶端使用的 API 金鑰，附 curl 範例。",
+      "title": "API",
+      "description": "供腳本、SDK 與 MCP 用戶端使用的金鑰。金鑰的權限最多與您的角色相同；僅顯示一次。",
+      "create": {
+        "title": "建立金鑰",
+        "description": "以 <mono>Authorization: Bearer okv_…</mono> 傳送。請勿放入原始碼或聊天記錄；若外洩，請在下方撤銷。"
+      },
+      "keys": {
+        "title": "金鑰",
+        "descriptionOwner": "此實例的所有金鑰；擁有者可撤銷其中任何一個。",
+        "descriptionOwn": "您的金鑰。",
+        "columns": {
+          "name": "名稱",
+          "prefix": "前綴",
+          "scopes": "範圍",
+          "owner": "擁有者",
+          "lastUsed": "最後使用",
+          "expires": "到期",
+          "status": "狀態"
+        },
+        "empty": "尚無 API 金鑰。",
+        "never": "從未",
+        "revoked": "已撤銷",
+        "expired": "已到期",
+        "revokeTitle": "撤銷 {name}？",
+        "revokeDescription": "使用此金鑰的用戶端會立即失效。",
+        "activeCount": "{count, plural, other {# 個有效金鑰。}}"
+      },
+      "examples": {
+        "title": "範例",
+        "description": "請將 <mono>$OKINVO_KEY</mono> 換成金鑰。具版本的 REST API、其 OpenAPI 文件 (<mono>/api/openapi.json</mono>)、TypeScript SDK 與 MCP 伺服器將隨 v1.1 計畫的後續工作推出；狀態端點目前已可使用。",
+        "rateLimit": "超出限制的呼叫會回應 429 並附上 <mono>Retry-After</mono> 標頭（每個金鑰每分鐘 120 次請求）。金鑰的範圍上限取決於其擁有者目前的角色。"
+      },
+      "form": {
+        "copyKey": "複製 API 金鑰",
+        "name": "名稱",
+        "namePlaceholder": "例如 會計腳本",
+        "expires": "到期",
+        "in30Days": "30 天後",
+        "in90Days": "90 天後",
+        "inAYear": "一年後",
+        "never": "永不",
+        "scopes": "範圍",
+        "submit": "建立 API 金鑰",
+        "creating": "建立中…"
+      },
+      "scopes": {
+        "invoicesRead": "讀取發票",
+        "invoicesCreate": "建立並開立發票",
+        "creditNotesRead": "讀取貸項通知單",
+        "creditNotesCreate": "建立並開立貸項通知單",
+        "catalogueRead": "讀取客戶、服務與產品",
+        "documentsRead": "下載已儲存的 PDF 與 DOCX 副本",
+        "statusRead": "讀取實例狀態"
+      }
+    },
+    "status": {
+      "metaTitle": "狀態",
+      "metaDescription": "此實例的版本、資料庫、儲存體、電子郵件與備份健康狀況。",
+      "title": "狀態",
+      "description": "此實例正在執行的內容，以及各部分是否有回應。",
+      "recheck": "重新檢查",
+      "health": {
+        "ok": "正常",
+        "warning": "警告",
+        "failed": "失敗",
+        "na": "未配置"
+      },
+      "overall": {
+        "ok": "一切正常",
+        "degraded": "效能降低",
+        "failed": "失敗"
+      },
+      "version": "組建 {hasSha, select, yes {<mono>{sha}</mono>} other {（sha 未知）}} · 組建於 {built} · Node <mono>{node}</mono> · 已運行 {uptime} · 檢查於 {checked}",
+      "dateUnknown": "（日期未知）",
+      "uptime": {
+        "days": "{d} 天 {h} 小時 {m} 分",
+        "hours": "{h} 小時 {m} 分",
+        "minutes": "{m} 分"
+      },
+      "rows": {
+        "database": "資料庫",
+        "storage": "儲存體",
+        "rateLimiting": "速率限制",
+        "email": "電子郵件",
+        "backups": "備份"
+      },
+      "db": {
+        "detail": "{latency} ms · 最近一次遷移 <mono>{migration}</mono>{hasDate, select, yes {（{finishedAt}）} other {}}{pending, plural, =0 {} other { · # 個未完成的遷移}}",
+        "noMigration": "無"
+      },
+      "storage": {
+        "detail": "<mono>{driver}</mono> · 在 {latency} ms 內完成探測物件的寫入、讀取與刪除",
+        "failed": "{driver}：{error}"
+      },
+      "rateLimit": "<mono>{store}</mono> 儲存 {store, select, memory {（單一副本）} other {（跨副本共用）}}",
+      "smtp": {
+        "configured": "SMTP 來源：{source, select, settings {設定} env {環境變數} other {}} · 上次測試 {lastTest} · 過去 24 小時：已寄出 {sent} 封，失敗 {failed} 封",
+        "none": "沒有 SMTP 伺服器；編輯器會提供「在郵件應用程式中開啟」。<link>前往設定</link>"
+      },
+      "backups": {
+        "notWired": "未連接備份服務（BACKUP_STATUS_FILE 未設定）。",
+        "noRun": "已連接備份服務；尚無執行記錄。",
+        "ok": "上次執行成功，時間 {finishedAt}{days, plural, =0 {} other { · 保留 # 天}}",
+        "failed": "上次執行失敗：{error}，時間 {finishedAt}{days, plural, =0 {} other { · 保留 # 天}}"
+      },
+      "footer": "同一份報告也可透過 <mono>/api/health/status</mono> 以 JSON 取得，供監控使用（需已登入的工作階段或 API 金鑰）。"
+    },
+    "usage": {
+      "metaTitle": "使用情況",
+      "metaDescription": "此執行個體上按畫面和日期統計的頁面瀏覽次數，只在本機計算。",
+      "title": "使用情況",
+      "description": "每個畫面被開啟的次數，只在此執行個體上計算：不使用 Cookie，不記錄位址，不會向任何地方傳送資料。",
+      "last30Days": "過去 30 日",
+      "total": "{count, plural, =0 {沒有頁面瀏覽} other {# 次頁面瀏覽}}",
+      "off": "計數已關閉。設定 ANALYTICS_LOCAL=true 即可在此執行個體上計算頁面瀏覽次數。",
+      "empty": "尚未記錄任何頁面瀏覽。",
+      "columns": {
+        "day": "日期",
+        "path": "畫面",
+        "views": "瀏覽次數"
+      }
+    }
+  },
+  "onboarding": {
+    "metaTitle": "歡迎",
+    "progress": "進度",
+    "steps": {
+      "aboutYou": "關於您",
+      "howYouUse": "使用方式",
+      "allSet": "準備完成"
+    },
+    "step1": {
+      "title": "請介紹一下您自己",
+      "subtitle": "這會設定您的預設值；每個值之後都可以在設定中變更。",
+      "name": "姓名",
+      "email": "電子郵件",
+      "emailHint": "您的登入身分。之後可從「設定 → 安全性」變更。",
+      "country": "國家或地區",
+      "currency": "偏好幣別",
+      "currencyHint": "用於新設定檔，在建立設定檔之前也用於儀表板。"
+    },
+    "step2": {
+      "title": "您會如何使用 okinvo？",
+      "subtitle": "只會改變預設值；不會鎖定任何選擇。",
+      "usage": "用途",
+      "personal": "個人開立發票",
+      "personalHint": "以個人名義承接的自由工作",
+      "business": "企業開立發票",
+      "businessHint": "以登記企業的名義開立發票",
+      "taxLabel": {
+        "IN": "GSTIN",
+        "GB": "VAT 號碼",
+        "other": "稅務登記號碼"
+      },
+      "taxQuestion": {
+        "IN": "您有 GSTIN 嗎？",
+        "GB": "您已登記 VAT 嗎？",
+        "other": "您有要列印在發票上的稅務登記號碼嗎？"
+      }
+    },
+    "step3": {
+      "title": "一切就緒",
+      "body": "接下來，請建立您的第一個開立者設定檔：列印在發票上的名稱、地址與稅務資料。我們已填入您提供的內容。",
+      "go": "前往設定檔",
+      "opening": "開啟中…"
+    }
+  },
+  "legalChrome": {
+    "footer": {
+      "terms": "條款",
+      "privacy": "隱私權",
+      "cookies": "Cookie",
+      "security": "安全性"
+    },
+    "cookieNotice": {
+      "label": "Cookie 通知",
+      "body": "我們僅使用絕對必要的 Cookie：您的工作階段與顯示偏好。沒有分析，也沒有追蹤。",
+      "policy": "Cookie 政策",
+      "gotIt": "知道了"
+    },
+    "nav": {
+      "label": "法律",
+      "cookies": "Cookie",
+      "privacy": "隱私權",
+      "terms": "條款",
+      "acceptableUse": "可接受使用",
+      "retention": "保存",
+      "security": "安全性",
+      "licences": "授權"
+    },
+    "operatorNotice": "okinvo 是自行託管的軟件；此實例的營運者須對其使用負責。",
+    "doc": {
+      "effectiveOn": "生效日期 <mono>{date}</mono>"
+    },
+    "toc": {
+      "label": "目錄"
+    },
+    "placeholder": {
+      "fields": {
+        "legalName": "營運者法定名稱",
+        "entityType": "實體類型",
+        "address": "營運者地址",
+        "country": "營運者所在國家或地區",
+        "contactEmail": "聯絡電子郵件",
+        "privacyEmail": "隱私權電子郵件",
+        "dpoEmail": "資料保護長電子郵件",
+        "governingLaw": "準據法",
+        "venue": "爭議管轄地",
+        "effectiveDate": "生效日期"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "metaTitle": "找不到頁面",
+      "title": "此地址沒有任何內容",
+      "body": "連結可能已過期，或它所指向的文件從未開立。"
+    },
+    "forbidden": {
+      "metaTitle": "不允許",
+      "title": "此帳戶無法執行該操作",
+      "body": "您的角色不允許此操作。請向擁有者申請權限，或改用具備權限的帳戶登入。"
+    },
+    "error": {
+      "title": "發生錯誤",
+      "body": "此請求沒有變更任何內容。請再試一次；若持續發生，伺服器記錄中有詳細資訊。",
+      "digest": "錯誤 {digest}",
+      "generic": "錯誤"
+    },
+    "appNotFound": {
+      "title": "找不到",
+      "body": "此記錄不存在，或在您檢視時已被刪除。",
+      "back": "返回儀表板"
+    },
+    "validation": {
+      "required": "必填",
+      "tooLong": "最多 {max} 個字元",
+      "invalidEmail": "必須是有效的電子郵件",
+      "invalidDate": "必須是 YYYY-MM-DD 格式的日曆日期",
+      "invalidAmount": "必須是數字",
+      "wholeNumber": "必須是整數",
+      "greaterThanZero": "必須大於零",
+      "fixFields": "請修正標示的欄位。",
+      "charset": "僅允許標準鍵盤字元。"
+    }
+  },
+  "verify": {
+    "metaTitle": "驗證文件",
+    "metaDescription": "核實發票或貸項通知單確由其發送者開出，且未被竄改。",
+    "heading": "文件驗證",
+    "rateLimited": "此地址的檢查次數過多。請一分鐘後再試。",
+    "notFound": {
+      "title": "沒有這份文件",
+      "body": "此連結與任何已開立的文件都不符。請檢查 QR 碼或您收到的連結，或聯絡開立者。"
+    },
+    "status": {
+      "void": "已作廢",
+      "valid": "有效"
+    },
+    "issuedBy": "開立者",
+    "gstin": "GSTIN {gstin}",
+    "issuedTo": "開立對象",
+    "issueDate": "開立日期",
+    "total": "總計",
+    "voided": "此文件已由開立者作廢，不再有效。",
+    "storedCopies": {
+      "title": "已儲存的副本",
+      "description": "開立者所持每個 PDF 版本的 SHA-256。選擇您的副本即可在瀏覽器中比對：不會上傳任何內容。",
+      "empty": "尚未產生任何 PDF。",
+      "protectedVersion": "受密碼保護的副本 {version}",
+      "version": "版本 {version}"
+    },
+    "check": {
+      "label": "檢查您的副本",
+      "hashing": "計算雜湊中…",
+      "match": "您的副本與版本 {version} 完全相符。",
+      "mismatch": "您的副本與任何已儲存的版本都不相符。"
+    }
+  },
+  "share": {
+    "viewer": {
+      "title": "分享的文件",
+      "metaDescription": "與您分享的文件：在線查看並下載 PDF。",
+      "rateLimited": "此地址的請求次數過多。請一分鐘後再試。",
+      "unavailable": {
+        "title": "此連結無法使用",
+        "body": "它可能已過期或已被開立者撤銷。請向對方索取新的連結。"
+      },
+      "lockedTitleInvoice": "來自 {issuer} 的發票",
+      "lockedTitleCreditNote": "來自 {issuer} 的貸項通知單",
+      "lockedBody": "此文件受密碼保護。請輸入開立者提供的密碼。",
+      "void": "已作廢",
+      "protectedPdf": "PDF 以相同的密碼開啟。可閱讀與列印；複製與編輯已鎖定。",
+      "byline": "由 {issuer} 開給 {client} · <mono>{date}</mono> · <amount>{total}</amount>"
+    },
+    "password": {
+      "label": "密碼",
+      "limited": "嘗試次數過多。請等待十五分鐘後再試。",
+      "wrong": "密碼不正確。",
+      "submit": "開啟文件"
+    },
+    "dialog": {
+      "trigger": "分享",
+      "title": "分享此文件",
+      "description": "任何持有連結的人都可以檢視並下載，直到連結到期或您撤銷為止。密碼也會保護 PDF 本身：需輸入密碼才能開啟，可閱讀與列印，但無法編輯或複製。",
+      "link": "連結",
+      "copyLink": "複製連結",
+      "password": "密碼",
+      "copyPassword": "複製密碼",
+      "sendSeparately": "請將密碼與連結分開傳送。您可以在下方清單中再次查看。",
+      "copy": "複製",
+      "copied": "已複製",
+      "expires": "到期",
+      "expiry": {
+        "d7": "7 天後",
+        "d30": "30 天後",
+        "d90": "90 天後",
+        "never": "永不"
+      },
+      "protection": "保護",
+      "protectionOptions": {
+        "auto": "密碼：自動產生密碼短語",
+        "manual": "密碼：自行設定",
+        "none": "無密碼（公開連結）"
+      },
+      "passwordHint": "至少 8 個字元。",
+      "strength": "強度：{label}",
+      "strengthLabels": {
+        "veryWeak": "非常弱",
+        "weak": "弱",
+        "fair": "普通",
+        "good": "良好",
+        "strong": "強"
+      },
+      "creating": "建立中…",
+      "create": "建立連結",
+      "activeLinks": "有效連結",
+      "passwordProtected": "受密碼保護",
+      "openLink": "開啟連結",
+      "linkExpires": "{kind} · 到期 {date}",
+      "linkNeverExpires": "{kind} · 永不到期",
+      "revoke": {
+        "title": "撤銷此連結？",
+        "description": "所有持有此連結的人會立即無法使用。",
+        "label": "撤銷"
+      },
+      "linkPassword": "密碼：<code>{password}</code>",
+      "counts": "{views, plural, other {# 次檢視}} · {downloads, plural, other {# 次下載}}"
+    }
+  },
+  "creditNotes": {
+    "list": {
+      "metaTitle": "貸項通知單",
+      "title": "貸項通知單",
+      "description": "針對已開立的發票所開立；每張開立後都會減少其發票餘額。",
+      "newCreditNote": "新增貸項通知單",
+      "filters": {
+        "from": "從",
+        "to": "至",
+        "issuer": "開立者",
+        "client": "客戶",
+        "status": "狀態",
+        "search": "搜尋",
+        "all": "全部",
+        "searchPlaceholder": "編號、原因、客戶",
+        "go": "前往"
+      },
+      "statuses": {
+        "DRAFT": "草稿",
+        "ISSUED": "已開立",
+        "SENT": "已寄出",
+        "VOID": "已作廢"
+      },
+      "empty": {
+        "title": "尚無貸項通知單",
+        "description": "開啟已開立的發票並選擇「貸項通知單」，即可減少其應付金額。"
+      },
+      "noMatch": "沒有符合這些篩選條件的貸項通知單。",
+      "columns": {
+        "number": "編號",
+        "against": "對應發票",
+        "client": "客戶",
+        "issueDate": "開立日期",
+        "reason": "原因",
+        "total": "總計",
+        "status": "狀態"
+      },
+      "draft": "草稿"
+    },
+    "new": {
+      "metaTitle": "新增貸項通知單",
+      "title": "新增貸項通知單",
+      "description": "貸項通知單針對已開立的發票開立，並減少其餘額。",
+      "nothingToCredit": {
+        "title": "沒有可沖減的項目",
+        "description": "貸項通知單需要有未清餘額的已開立發票。",
+        "openInvoices": "開啟發票"
+      },
+      "whichInvoice": "針對哪張發票？",
+      "invoice": "發票",
+      "invoiceOption": "{number} · {client} · 餘額 {balance}",
+      "issuedOnly": "貸項通知單僅能針對已開立的發票開立。",
+      "invoiceFallback": "發票"
+    },
+    "edit": {
+      "metaTitle": "編輯貸項通知單",
+      "title": "編輯貸項通知單草稿",
+      "immutable": "已開立的貸項通知單無法修改。",
+      "draft": "草稿"
+    },
+    "detail": {
+      "metaTitle": "貸項通知單",
+      "draftTitle": "貸項通知單草稿",
+      "meta": "{client} · 對應 <invoice>{number}</invoice> · 開立於 <mono>{date}</mono>",
+      "previewPdf": "預覽 PDF",
+      "issue": {
+        "title": "開立此貸項通知單？",
+        "description": "將配發編號、減少發票餘額，且文件將無法再修改。",
+        "label": "開立"
+      },
+      "deleteDraft": {
+        "title": "刪除此草稿？"
+      },
+      "sendByEmail": "以電子郵件寄送",
+      "markSent": {
+        "title": "標示為已寄出？",
+        "label": "標示為已寄出"
+      },
+      "void": {
+        "title": "作廢此貸項通知單？",
+        "description": "發票餘額將恢復；此編號不會再使用。",
+        "reason": "原因",
+        "label": "作廢"
+      },
+      "voided": "於 {date} 作廢：{reason}",
+      "amounts": {
+        "title": "金額",
+        "reason": "原因",
+        "creditAmount": "沖減金額",
+        "total": "總計",
+        "balanceNow": "目前發票餘額",
+        "sent": "已寄出"
+      },
+      "documents": {
+        "title": "已儲存的文件",
+        "description": "每個版本都會保留；驗證頁面會列出所有雜湊值。",
+        "regenerateTitle": "產生新的 PDF 版本？",
+        "generate": "產生",
+        "newVersion": "新版本",
+        "renderedOnFirstDownload": "PDF 會在首次下載時產生。",
+        "protectedCopy": "受密碼保護的副本 {version}",
+        "version": "版本 {version}",
+        "verificationLink": "驗證連結：<link>{path}…</link>"
+      },
+      "draftsPreview": "草稿可在編輯器中即時預覽。"
+    },
+    "send": {
+      "metaTitle": "寄送貸項通知單",
+      "title": "寄送 <mono>{number}</mono>",
+      "previousSends": "先前的寄送記錄"
+    },
+    "builder": {
+      "against": "對應 <mono>{number}</mono>",
+      "summary": "{client} · 總計 {total} · 餘額 {balance} · 可沖減應稅額度約 {headroom}",
+      "issueDate": "開立日期",
+      "creditAmount": "沖減金額（不含稅）",
+      "creditAmountHint": "稅額依發票的稅額列按比例分攤",
+      "reason": "原因",
+      "picker": {
+        "title": "依發票明細計算",
+        "description": "勾選整行或輸入百分比；這只會填入上方的金額。",
+        "line": "明細",
+        "subtotal": "小計",
+        "credit": "沖減",
+        "percent": "%",
+        "creditLine": "沖減第 {position} 行",
+        "percentOfLine": "第 {position} 行的百分比"
+      },
+      "saveDraft": "儲存草稿",
+      "issuing": "開立中…",
+      "saveAndIssue": "儲存並開立"
+    }
+  },
+  "payments": {
+    "form": {
+      "kinds": {
+        "PAYMENT": "已收款項",
+        "REFUND": "已退款",
+        "WRITE_OFF": "沖銷"
+      },
+      "editTitle": "編輯項目",
+      "recordTitle": "記錄付款",
+      "description": "金額以發票幣別（{currency}）計；已扣繳的 TDS 屬於套用金額的一部分。",
+      "kind": "類別",
+      "date": "日期",
+      "amountRefunded": "退款金額（負數）",
+      "amountApplied": "套用金額",
+      "refundHint": "請輸入負數，例如 -500",
+      "tdsDeducted": "已扣繳 TDS",
+      "tdsHint": "客戶代扣的稅款；計入套用金額",
+      "bankFees": "銀行手續費",
+      "receivedInto": "收款帳戶",
+      "noMethod": "-",
+      "reference": "參考編號",
+      "referenceHint": "UTR、交易編號、支票號碼",
+      "otherCurrency": "以其他幣別收款",
+      "amountReceived": "實收金額",
+      "receivedCurrency": "收款幣別",
+      "exchangeRate": "匯率",
+      "exchangeRateHint": "1 單位收款幣別 = ? {currency}",
+      "notes": "備註",
+      "receiptHint": "PNG、JPEG、WebP 或 PDF，最大 10 MB",
+      "receipts": "收據及賬單",
+      "receiptN": "收據 {n}",
+      "removeReceipt": "移除收據 {n}",
+      "saveChanges": "儲存變更",
+      "record": "記錄"
+    }
+  },
+  "documents": {
+    "labels": {
+      "billTo": "收件人",
+      "shipTo": "送貨地址",
+      "invoice": "發票",
+      "creditNote": "貸項通知單",
+      "issueDate": "開立日期",
+      "dueDate": "到期日",
+      "number": "編號",
+      "description": "說明",
+      "sacHsn": "SAC/HSN",
+      "qty": "數量",
+      "unit": "單位",
+      "rate": "單價",
+      "tax": "稅額",
+      "amount": "金額",
+      "subtotal": "小計",
+      "discount": "折扣",
+      "taxable": "應稅金額",
+      "total": "總計",
+      "amountDue": "應付金額",
+      "tdsExpected": "預期 TDS",
+      "netExpected": "預期淨額",
+      "rounding": "四捨五入調整",
+      "paymentDetails": "付款資訊",
+      "notes": "備註",
+      "terms": "條款",
+      "placeOfSupply": "供應地點",
+      "poReference": "採購單參考編號",
+      "amountInWords": "大寫金額",
+      "signature": "授權簽署人"
+    },
+    "title": {
+      "taxInvoice": "稅務發票",
+      "billOfSupply": "供應單據",
+      "invoice": "發票",
+      "creditNote": "貸項通知單"
+    },
+    "text": {
+      "pageOf": "第 {page} 頁，共 {total} 頁",
+      "scanToVerify": "掃描驗證",
+      "taxId": "稅籍編號",
+      "void": "作廢",
+      "draftWatermark": "草稿 - 非稅務發票",
+      "paymentTermsDays": "{days} 日",
+      "irn": "IRN",
+      "ackNo": "確認編號",
+      "ackDate": "確認日期",
+      "einvoiceCancelled": "電子發票已作廢"
+    },
+    "ui": {
+      "pageEstimate": "約 {count, plural, other {# 頁}}"
+    }
+  },
+  "email": {
+    "composer": {
+      "title": "郵件內容",
+      "description": "由開立者設定檔的範本預先填入。在您按下寄送之前不會寄出任何內容。",
+      "to": "收件者",
+      "toHint": "以逗號分隔",
+      "cc": "副本 (CC)",
+      "bcc": "密件副本 (BCC)",
+      "subject": "主旨",
+      "body": "內文",
+      "bodyHint": "純文字；連結會變成可點擊",
+      "attachment": "附件",
+      "attachmentHint": "已儲存的副本，檔名為 <mono>{name}</mono>（或 .docx）；其內容無法更改。",
+      "pdf": "PDF",
+      "docx": "DOCX (Word)",
+      "sending": "寄送中…",
+      "send": "寄送",
+      "openInMailApp": "在郵件應用程式中開啟",
+      "noSmtp": "尚未設定 SMTP 伺服器（設定 → 電子郵件）。請在郵件應用程式中開啟草稿、附上已下載的 PDF，然後在下方標示為已寄出。",
+      "markAsSent": "標示為已寄出"
+    },
+    "sentLog": {
+      "when": "時間",
+      "document": "文件",
+      "to": "收件者",
+      "subject": "主旨",
+      "status": "狀態",
+      "empty": "尚未寄出任何郵件。",
+      "noDocument": "-",
+      "cc": "副本 {list}",
+      "statuses": {
+        "SENT": "已寄出",
+        "FAILED": "失敗",
+        "MANUAL": "手動"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "{name}，您好",
+    "fiscalYear": "{year} 財政年度",
+    "fiscalYearWithBase": "{year} 財政年度 · 基準幣別 {currency}（{profile}）",
+    "newCreditNote": "新增貸項通知單",
+    "welcomeTitle": "歡迎使用 {appName}",
+    "welcomeDescription": "請先建立您開立發票所用的開立者設定檔，然後新增客戶與您的第一張發票。",
+    "createProfile": "建立您的設定檔",
+    "tiles": {
+      "outstanding": "未收款",
+      "overdue": "逾期",
+      "billedThisFy": "本財政年度已開票",
+      "receivedThisFy": "本財政年度已收款",
+      "drafts": "草稿",
+      "invoiceCount": "{count, plural, other {# 張發票}}",
+      "fyRange": "{from} - {to}",
+      "receivedHint": "付款扣除退款，依記錄的匯率計算",
+      "awaitingIssue": "等待開立",
+      "nothingPending": "沒有待辦項目"
+    },
+    "recentInvoices": "最近的發票",
+    "allInvoices": "所有發票",
+    "noInvoicesYet": "尚無發票。",
+    "columns": {
+      "number": "編號",
+      "client": "客戶",
+      "issued": "開立日期"
+    },
+    "topClients": "未收款最多的客戶",
+    "nothingOutstanding": "沒有未收款項。"
+  },
+  "exports": {
+    "export": "匯出",
+    "csv": "CSV",
+    "xlsx": "Excel (XLSX)"
+  },
+  "invoices": {
+    "shared": {
+      "invoices": "發票",
+      "newInvoice": "新增發票",
+      "draft": "草稿",
+      "aDraft": "草稿",
+      "statuses": {
+        "draft": "草稿",
+        "issued": "已開立",
+        "sent": "已寄出",
+        "partiallyPaid": "部分付款",
+        "paid": "已付款",
+        "overdue": "逾期",
+        "void": "已作廢"
+      },
+      "lifecycle": {
+        "draft": "草稿",
+        "issued": "已開立",
+        "void": "已作廢"
+      },
+      "units": {
+        "hour": "小時",
+        "day": "天",
+        "fixed": "固定費用",
+        "milestone": "里程碑",
+        "unit": "單位"
+      },
+      "unitsLower": {
+        "hour": "小時",
+        "day": "天",
+        "fixed": "固定費用",
+        "milestone": "里程碑",
+        "unit": "單位"
+      },
+      "supplyTypes": {
+        "intraState": "邦內供應",
+        "interState": "跨邦供應",
+        "exportLut": "出口（LUT）",
+        "exportWithTax": "出口（含稅）",
+        "reverseCharge": "反向課稅",
+        "notApplicable": "不適用"
+      }
+    },
+    "list": {
+      "description": "草稿、已開立與已作廢的發票；狀態由付款與到期日推算。",
+      "fiscalYear": "財政年度",
+      "issuer": "開立者",
+      "client": "客戶",
+      "searchPlaceholder": "編號、採購單、客戶",
+      "emptyTitle": "尚無發票",
+      "emptyDescription": "建立您的第一張發票：選擇客戶、新增明細、查看預覽，然後開立。",
+      "columns": {
+        "number": "編號",
+        "client": "客戶",
+        "issuer": "開立者",
+        "issueDate": "開立日期",
+        "due": "到期",
+        "balance": "餘額"
+      },
+      "noMatches": "沒有符合這些篩選條件的發票。",
+      "count": "{count, plural, other {# 張發票}}",
+      "countPaged": "{count, plural, other {# 張發票}} · 第 {page} 頁，共 {pages} 頁",
+      "register": "登記簿",
+      "einvoice": "電子發票",
+      "einvoiceFilters": {
+        "registered": "IRN 已註冊",
+        "none": "未註冊",
+        "cancelled": "IRN 已取消"
+      }
+    },
+    "new": {
+      "noProfileTitle": "請先建立開立者設定檔",
+      "noProfileDescription": "發票由法律身分開立：請先設定您的設定檔，包含稅務識別碼與編號規則。",
+      "createProfile": "建立設定檔"
+    },
+    "edit": {
+      "metaTitle": "編輯發票",
+      "title": "編輯草稿",
+      "immutableFlash": "已開立的發票無法修改。請使用「作廢並重新開立」來更正。"
+    },
+    "detail": {
+      "metaTitle": "發票",
+      "draftInvoice": "發票草稿",
+      "issuedDue": "開立於 <mono>{issued}</mono>，到期日 <mono>{due}</mono>",
+      "replaces": "取代 {number}",
+      "replacedBy": "由 {number} 取代",
+      "previewPdf": "預覽 PDF",
+      "downloadEInvoice": "下載電子發票 JSON",
+      "issueTitle": "開立此發票？",
+      "issueDescription": "將配發編號，且文件將無法再修改。",
+      "issue": "開立",
+      "deleteDraftTitle": "刪除此草稿？",
+      "sendByEmail": "以電子郵件寄送",
+      "recordPayment": "記錄付款",
+      "progress": {
+        "title": "付款進度",
+        "description": "這張發票由發出到收據存檔的目前進度。",
+        "issued": "已發出",
+        "sent": "已發送",
+        "payment": "已記錄付款",
+        "paymentOn": "已於 <mono>{date}</mono> 記錄 <mono>{amount}</mono> 的付款",
+        "paid": "已全數付清",
+        "receipt": "已附收據",
+        "done": "已完成",
+        "pending": "待處理"
+      },
+      "creditNote": "貸項通知單",
+      "markSentTitle": "標示為已寄出？",
+      "markSentDescription": "記錄客戶已收到此發票。",
+      "markSent": "標示為已寄出",
+      "voidReissueTitle": "作廢並重新開立？",
+      "voidReissueDescription": "原發票將作廢，並開啟內容相同且已連結的草稿供您編輯。",
+      "voidReissue": "作廢並重新開立",
+      "voidTitle": "作廢此發票？",
+      "voidDescription": "僅在沒有付款記錄時才能作廢；此編號不會再使用。",
+      "void": "作廢",
+      "voided": "於 {date} 作廢：{reason}",
+      "amounts": "金額",
+      "subtotal": "小計",
+      "discount": "折扣",
+      "discountPercent": "折扣 ({percent})",
+      "rounding": "進位調整",
+      "tdsExpected": "預期 TDS ({percent})",
+      "paid": "已付款",
+      "credited": "已沖減",
+      "balanceDue": "應付餘額",
+      "supply": "供應類型",
+      "fxToBase": "對基準幣別匯率",
+      "poReference": "採購單編號",
+      "sent": "已寄出",
+      "lineItems": "明細項目",
+      "columns": {
+        "description": "說明",
+        "sacHsn": "SAC/HSN",
+        "qty": "數量",
+        "rate": "單價",
+        "tax": "稅額",
+        "amount": "金額"
+      },
+      "creditNotes": "貸項通知單",
+      "storedDocuments": "已儲存的文件",
+      "storedDocumentsHint": "每個版本都會保留；驗證頁面會列出所有雜湊值。",
+      "regenerateTitle": "產生新的 PDF 版本？",
+      "regenerateDescription": "從凍結的快照重新產生（例如在轉譯器修正之後）。先前的版本會保留。",
+      "regenerate": "產生",
+      "newVersion": "新版本",
+      "renderedOnFirstDownload": "PDF 會在首次下載時產生。",
+      "protectedCopy": "受密碼保護的副本 {version}",
+      "version": "版本 {version}",
+      "sizeKb": "{size} KB",
+      "verificationLink": "驗證連結：",
+      "draftPreviewHint": "草稿可在編輯器中即時預覽；開啟<link>含浮水印的 PDF</link>即可查看頁面。",
+      "einvoice": {
+        "title": "電子發票(印度)",
+        "description": "向發票登記入口網站(Invoice Registration Portal)註冊此發票;已註冊的文件會印出其 IRN 及入口網站的簽署 QR 碼。",
+        "connector": "連接器",
+        "connectors": {
+          "manual": "手動",
+          "nic": "NIC IRP API"
+        },
+        "notConfigured": "此設定檔尚未設定連接器,請至「設定 > 電子發票」設定。",
+        "statuses": {
+          "none": "未註冊",
+          "generated": "已產生 JSON",
+          "registered": "已註冊",
+          "cancelled": "已取消",
+          "failed": "註冊失敗"
+        },
+        "irn": "IRN",
+        "ackNo": "確認編號",
+        "ackDate": "確認日期",
+        "cancelReason": "取消原因",
+        "generate": "產生 IRN",
+        "pasteLabel": "IRP 回應",
+        "pasteHint": "請貼上入口網站或您的 GSP 針對此發票的電子發票 JSON 所傳回的 JSON(Irn、AckNo、AckDt、SignedQRCode)。",
+        "record": "記錄 IRN",
+        "cancelReasonLabel": "取消原因",
+        "cancelReasons": {
+          "1": "重複",
+          "2": "資料輸入錯誤",
+          "3": "訂單已取消",
+          "4": "其他"
+        },
+        "cancel": "取消 IRN",
+        "cancelWindow": "入口網站僅允許在確認後 24 小時內取消。"
+      }
+    },
+    "history": {
+      "metaTitle": "發票歷程記錄",
+      "title": "<mono>{number}</mono> 的歷程記錄",
+      "reissueChain": "重新開立鏈",
+      "replaces": "取代 <link>{number}</link>",
+      "replacedBy": "由 <link>{number}</link> 取代",
+      "auditTrail": "稽核軌跡",
+      "columns": {
+        "when": "時間",
+        "who": "操作者",
+        "action": "動作",
+        "summary": "摘要"
+      },
+      "noEvents": "尚無事件。",
+      "system": "系統",
+      "emails": "電子郵件"
+    },
+    "payments": {
+      "title": "付款",
+      "description": "{client} · 總計 {total}",
+      "backToInvoice": "返回發票",
+      "ledger": "分類帳",
+      "columns": {
+        "date": "日期",
+        "kind": "類別",
+        "applied": "套用金額",
+        "tds": "TDS",
+        "received": "實收",
+        "reference": "參考編號",
+        "balance": "餘額"
+      },
+      "noPayments": "尚無付款記錄。",
+      "kinds": {
+        "payment": "付款",
+        "refund": "退款",
+        "writeOff": "沖銷"
+      },
+      "receipt": "收據",
+      "receiptN": "收據 {n}",
+      "deleteEntryTitle": "刪除此項目？",
+      "deleteEntryDescription": "將重新計算發票餘額。",
+      "totals": "合計",
+      "invoiceTotal": "發票總計",
+      "credited": "已沖減",
+      "refunds": "退款",
+      "writeOffs": "沖銷",
+      "tdsDeducted": "已扣繳 TDS",
+      "bankFees": "銀行手續費",
+      "balanceDue": "應付餘額",
+      "onlyIssued": "僅已開立的發票可接受付款。"
+    },
+    "send": {
+      "metaTitle": "寄送發票",
+      "title": "寄送 <mono>{number}</mono>",
+      "alreadySent": "已標示為已寄出；再次寄送會新增一筆記錄。",
+      "previousSends": "先前的寄送記錄"
+    },
+    "builder": {
+      "parties": "當事方",
+      "issuerProfile": "開立者設定檔",
+      "client": "客戶",
+      "archivedOption": "{label}（已封存）",
+      "issueDate": "開立日期",
+      "dueDate": "到期日",
+      "fxRate": "對基準幣別匯率",
+      "fxHint": "1 {currency} = ? {base}（僅供報表）",
+      "poReference": "採購單編號",
+      "lineItems": "明細項目",
+      "lineItemsHint": "從目錄選取以複製其值，或自行輸入一行。",
+      "taxDiscountTds": "稅額、折扣與 TDS",
+      "taxRegime": "稅制",
+      "regimes": {
+        "indiaGst": "印度 GST",
+        "ukVat": "英國 VAT",
+        "usSalesTax": "美國銷售稅",
+        "none": "不課稅"
+      },
+      "reverseCharge": "反向課稅",
+      "reverseChargeHint": "稅款由收受方繳納",
+      "discount": "折扣",
+      "percent": "百分比",
+      "amount": "金額",
+      "rounding": "進位調整",
+      "roundingHint": "選填，進位至整數單位；必須小於 1",
+      "round": "進位",
+      "tdsRate": "預期 TDS 稅率 (%)",
+      "tdsRateHint": "僅供參考；開啟 TDS 明細時會列印",
+      "paymentMethods": "付款方式",
+      "paymentMethodsHint": "依勾選順序列印。",
+      "noPaymentMethods": "沒有啟用中的付款方式。<link>新增一個</link>。",
+      "whatPrints": "列印內容",
+      "whatPrintsHint": "以開立者設定檔的預設值為起點。",
+      "documentLanguage": "文件語言",
+      "documentLanguageHint": "標籤、日期與金額將以此語言列印：優先採用客戶的偏好，否則採用檔案設定的語言。",
+      "notesAndTerms": "備註與條款",
+      "notes": "備註",
+      "terms": "條款",
+      "saveDraft": "儲存草稿",
+      "issuing": "開立中…",
+      "saveAndIssue": "儲存並開立",
+      "subtotal": "小計",
+      "tax": "稅額",
+      "tdsExpected": "預期 TDS",
+      "netExpected": "預期淨額"
+    },
+    "lineItems": {
+      "addFromCatalogue": "從目錄新增…",
+      "services": "服務",
+      "products": "產品",
+      "addLine": "新增明細",
+      "columns": {
+        "description": "說明",
+        "sacHsn": "SAC/HSN",
+        "qty": "數量",
+        "unit": "單位",
+        "rate": "單價",
+        "taxPercent": "稅率 %"
+      },
+      "aria": {
+        "description": "第 {line} 行說明",
+        "sacHsn": "第 {line} 行 SAC/HSN",
+        "quantity": "第 {line} 行數量",
+        "unit": "第 {line} 行單位",
+        "rate": "第 {line} 行單價",
+        "taxRate": "第 {line} 行稅率"
+      },
+      "sku": "SKU {sku}",
+      "exempt": "免稅",
+      "moveUp": "上移",
+      "moveDown": "下移",
+      "removeLine": "移除明細",
+      "shortcutHint": "在說明欄中按 Ctrl/⌘+Enter 可新增一行。",
+      "addFromCatalogueAria": "從目錄新增"
+    },
+    "display": {
+      "groups": {
+        "issuer": "開立者詳細資料",
+        "client": "客戶詳細資料",
+        "document": "文件區段"
+      },
+      "fields": {
+        "showLogo": "標誌",
+        "showTradeName": "商號名稱",
+        "showDesignation": "職稱",
+        "showEmail": "電子郵件",
+        "showPhone": "電話",
+        "showWebsite": "網站",
+        "showFullAddress": "完整地址",
+        "showPan": "PAN",
+        "showGstin": "GSTIN",
+        "showCin": "CIN",
+        "showLut": "LUT",
+        "showSignature": "簽名",
+        "showStamp": "印章",
+        "showContactPerson": "聯絡人",
+        "showBillingAddress": "帳單地址",
+        "showShippingAddress": "送貨地址",
+        "showTaxIdentifier": "稅務識別碼",
+        "showPlaceOfSupply": "供應地點",
+        "showDueDate": "到期日",
+        "showPaymentTerms": "付款條件",
+        "showSacCodeColumn": "SAC 代碼欄",
+        "showQuantityColumn": "數量欄",
+        "showUnitPriceColumn": "單價欄",
+        "showTaxColumn": "稅額欄",
+        "showTdsBreakdown": "TDS 明細",
+        "showQrVerification": "QR 驗證碼",
+        "showNotes": "備註",
+        "showTerms": "條款",
+        "showReplacesReference": "取代參照",
+        "showAmountInWords": "大寫金額",
+        "showSupplyStatement": "供應聲明",
+        "showRoundingLine": "進位調整列",
+        "showSku": "SKU"
+      }
+    }
+  },
+  "clients": {
+    "list": {
+      "title": "客戶",
+      "description": "所有向您付款的對象。有發票的客戶只會封存，不會刪除。",
+      "newClient": "新增客戶",
+      "searchPlaceholder": "依名稱搜尋",
+      "searchLabel": "搜尋客戶",
+      "emptyTitle": "尚無客戶",
+      "emptyDescription": "新增您開立發票的個人與公司；他們的幣別與付款條件會預先填入每張發票。",
+      "addClient": "新增客戶",
+      "noMatch": "沒有符合「{q}」的客戶。",
+      "termsDays": "{days} 天",
+      "columns": {
+        "name": "名稱",
+        "contact": "聯絡人",
+        "email": "電子郵件",
+        "country": "國家或地區",
+        "currency": "幣別",
+        "terms": "條件",
+        "status": "狀態"
+      }
+    },
+    "new": {
+      "title": "新增客戶"
+    },
+    "edit": {
+      "metaTitle": "編輯客戶",
+      "title": "編輯 {name}"
+    },
+    "detail": {
+      "metaTitle": "客戶",
+      "newInvoice": "新增發票",
+      "restoreTitle": "還原此客戶？",
+      "archiveTitle": "封存此客戶？",
+      "archiveDescription": "它會從選擇清單中消失；發票與歷程記錄不受影響。",
+      "deleteTitle": "刪除此客戶？",
+      "deleteDescription": "僅在沒有任何發票參照此客戶時才能刪除。",
+      "details": "詳細資料",
+      "contact": "聯絡人",
+      "email": "電子郵件",
+      "phone": "電話",
+      "country": "國家或地區",
+      "gstState": "GST {code}",
+      "taxId": "稅務識別碼",
+      "currency": "幣別",
+      "paymentTerms": "付款條件",
+      "paymentTermsDays": "{days} 天",
+      "expectedTds": "預期 TDS",
+      "notes": "備註",
+      "addresses": "地址",
+      "billing": "帳單",
+      "shipping": "送貨",
+      "lifetime": "累計",
+      "openRegister": "開啟登記簿",
+      "noIssued": "尚無已開立的發票。",
+      "noIssuedWithDrafts": "尚無已開立的發票（{drafts} 張草稿）。",
+      "firstLatest": "第一張發票 <mono>{first}</mono>，最近一張 <mono>{latest}</mono>{drafts, plural, =0 {} other { · # 張草稿}}",
+      "lifetimeColumns": {
+        "currency": "幣別",
+        "invoices": "發票",
+        "billed": "已開票",
+        "received": "已收款",
+        "credited": "已沖減",
+        "outstanding": "未收款",
+        "overdue": "逾期"
+      },
+      "recentInvoices": "最近的發票",
+      "noInvoices": "此客戶尚無發票。",
+      "recentColumns": {
+        "number": "編號",
+        "issueDate": "開立日期",
+        "due": "到期",
+        "total": "總計",
+        "balance": "餘額",
+        "status": "狀態"
+      }
+    },
+    "form": {
+      "cardTitle": "客戶",
+      "displayName": "顯示名稱",
+      "contactPerson": "聯絡人",
+      "email": "電子郵件",
+      "phone": "電話",
+      "taxIdType": "稅務識別碼類型",
+      "taxIdTypeNone": "無",
+      "taxId": "稅務識別碼",
+      "currency": "幣別",
+      "paymentTerms": "付款條件（天）",
+      "expectedTdsRate": "預期 TDS 稅率 (%)",
+      "preferredLanguage": "文件語言",
+      "preferredLanguageFollow": "依循開立者檔案",
+      "buyerReference": "買方參考編號",
+      "buyerReferenceHint": "作為買方自身的參考編號(訂單或成本中心編號)列印於電子發票。",
+      "electronicAddress": "電子地址",
+      "electronicAddressHint": "此客戶接收電子發票所用的 Peppol 或 EN 16931 識別碼。",
+      "electronicAddressScheme": "電子地址方案",
+      "electronicAddressSchemeNone": "無方案",
+      "notes": "備註",
+      "billingAddress": "帳單地址",
+      "shippingAddress": "送貨地址",
+      "differentFromBilling": "與帳單地址不同",
+      "save": "儲存客戶"
+    }
+  },
+  "catalogue": {
+    "units": {
+      "HOUR": "小時",
+      "DAY": "天",
+      "FIXED": "固定費用",
+      "MILESTONE": "里程碑",
+      "UNIT": "單位"
+    },
+    "list": {
+      "activate": "啟用",
+      "deactivate": "停用",
+      "archiveDescription": "既有的發票明細會保留其已複製的值。",
+      "deleteDescription": "僅在沒有任何發票明細參照時才能刪除，否則請改為封存。",
+      "columns": {
+        "sku": "SKU",
+        "name": "名稱",
+        "unit": "單位",
+        "rate": "單價",
+        "price": "價格",
+        "currency": "幣別",
+        "sacHsn": "SAC / HSN",
+        "hsn": "HSN",
+        "tax": "稅額",
+        "status": "狀態"
+      }
+    },
+    "services": {
+      "title": "服務",
+      "description": "您的目錄。選取服務會將其值複製到發票明細。",
+      "newService": "新增服務",
+      "emptyTitle": "尚無服務",
+      "emptyDescription": "新增您銷售的項目（例如按小時計費的設計、固定費用的里程碑），並填入 SAC/HSN 代碼與稅率。",
+      "addService": "新增服務",
+      "restoreTitle": "還原 {name}？",
+      "archiveTitle": "封存 {name}？",
+      "deleteTitle": "刪除 {name}？",
+      "editMetaTitle": "編輯服務",
+      "editTitle": "編輯 {name}"
+    },
+    "products": {
+      "title": "產品",
+      "description": "您銷售的商品，每項都有 SKU。選取產品會將其值複製到發票明細。",
+      "newProduct": "新增產品",
+      "emptyTitle": "尚無產品",
+      "emptyDescription": "新增您銷售的商品，並填入 SKU、HSN 代碼、單價與稅率。",
+      "addProduct": "新增產品",
+      "restoreTitle": "還原 {sku}？",
+      "archiveTitle": "封存 {sku}？",
+      "deleteTitle": "刪除 {sku}？",
+      "editMetaTitle": "編輯產品",
+      "editTitle": "編輯 {sku}"
+    },
+    "forms": {
+      "sku": "SKU",
+      "skuHint": "列印在明細說明下方的唯一代碼",
+      "name": "名稱",
+      "unit": "單位",
+      "defaultRate": "預設單價",
+      "unitPrice": "單價",
+      "currency": "幣別",
+      "sacHsnCode": "SAC / HSN 代碼",
+      "sacHsnHint": "GST 發票必填",
+      "hsnCode": "HSN 代碼",
+      "hsnHint": "商品的 GST 發票必填",
+      "defaultTaxRate": "預設稅率 (%)",
+      "description": "說明",
+      "descriptionHint": "預先填入明細說明",
+      "active": "啟用",
+      "serviceInactiveHint": "停用的服務不會出現在發票選擇清單中",
+      "productInactiveHint": "停用的產品不會出現在發票選擇清單中",
+      "saveService": "儲存服務",
+      "saveProduct": "儲存產品"
+    },
+    "tags": {
+      "legend": "設定檔",
+      "hint": "勾選銷售此項目的開立者設定檔。全部不勾選則提供給每個設定檔。"
+    }
+  },
+  "address": {
+    "line1": "地址第 1 行",
+    "line2": "地址第 2 行",
+    "city": "城市",
+    "stateRegion": "州 / 省 / 地區",
+    "postalCode": "郵政編碼",
+    "country": "國家或地區",
+    "state": "邦",
+    "gstStateCodeHint": "GST 邦代碼 {code}",
+    "pickStateHint": "請選擇對應 GST 邦代碼的邦",
+    "stateRegionCode": "州 / 省 / 地區代碼",
+    "stateRegionCodePlaceholder": "例如 CA"
+  },
+  "assets": {
+    "tooLarge": "該檔案太大。",
+    "unsupportedReceipt": "請使用 PNG、JPEG、WebP 圖片或 PDF。",
+    "unsupportedImage": "請使用 PNG、JPEG 或 WebP 圖片。",
+    "uploadFailed": "上傳失敗。",
+    "uploading": "上傳中…",
+    "dropHint": "將檔案拖到此處，或選擇檔案",
+    "dropHintMany": "將檔案拖放到此處，或選擇檔案",
+    "dropActive": "放開以上載"
+  },
+  "ui": {
+    "breadcrumb": "導覽路徑",
+    "close": "關閉",
+    "closeMenu": "關閉選單",
+    "reveal": "顯示",
+    "hide": "隱藏",
+    "openCalendar": "開啟日曆",
+    "chooseMonth": "選擇月份",
+    "chooseYear": "選擇年份",
+    "searchOptions": "輸入以搜尋",
+    "noMatches": "沒有相符項目",
+    "pullToRefresh": {
+      "label": "可重新整理清單",
+      "pulling": "下拉以重新整理",
+      "release": "放開以重新整理",
+      "refreshing": "正在重新整理"
+    },
+    "inputCharset": "僅允許標準鍵盤字元。",
+    "confirm": {
+      "working": "處理中…"
+    },
+    "statusPill": {
+      "DRAFT": "草稿",
+      "ISSUED": "已開立",
+      "SENT": "已寄出",
+      "PARTIALLY_PAID": "部分付款",
+      "PAID": "已付款",
+      "OVERDUE": "逾期",
+      "VOID": "已作廢"
+    },
+    "activePill": {
+      "active": "啟用中",
+      "archived": "已封存",
+      "inactive": "已停用"
+    }
+  },
+  "actions": {
+    "somethingWentWrong": "發生錯誤。",
+    "fixFields": "請修正標示的欄位。",
+    "accountSaved": "已儲存帳戶偏好設定",
+    "apiKeyCreated": "已建立 API 金鑰。請立即複製：它只會顯示一次。",
+    "saved": "已儲存 {name}",
+    "savedProfile": "已儲存設定檔 {label}",
+    "clientArchived": "客戶已封存",
+    "clientRestored": "客戶已還原",
+    "clientDeleted": "客戶已刪除",
+    "productArchived": "產品已封存",
+    "productRestored": "產品已還原",
+    "productActivated": "產品已啟用",
+    "productDeactivated": "產品已停用",
+    "serviceArchived": "服務已封存",
+    "serviceRestored": "服務已還原",
+    "serviceActivated": "服務已啟用",
+    "serviceDeactivated": "服務已停用",
+    "defaultProfileUpdated": "已更新預設設定檔",
+    "profileArchived": "設定檔已封存",
+    "profileRestored": "設定檔已還原",
+    "profileDeleted": "設定檔已刪除",
+    "defaultPaymentMethodUpdated": "已更新預設付款方式",
+    "paymentMethodArchived": "付款方式已封存",
+    "paymentMethodRestored": "付款方式已還原",
+    "paymentMethodDeleted": "付款方式已刪除",
+    "issued": "已開立 {number}",
+    "savedAsDraft": "已儲存為草稿。{reason}",
+    "draftSaved": "草稿已儲存",
+    "invoiceVoided": "發票已作廢",
+    "originalVoided": "原發票已作廢；請編輯取代用的草稿",
+    "markedAsSent": "已標示為已寄出",
+    "draftDeleted": "草稿已刪除",
+    "generatedPdf": "已產生 PDF 版本 {version}",
+    "creditNoteVoided": "貸項通知單已作廢；發票餘額已恢復",
+    "draftCreditNoteDeleted": "貸項通知單草稿已刪除",
+    "mailRefused": "郵件伺服器拒絕了此郵件：{error}。此次嘗試已記錄。",
+    "unknownError": "未知錯誤",
+    "sentTo": "已寄至 {recipients}",
+    "smtpSaved": "SMTP 設定已儲存",
+    "smtpRemoved": "已移除儲存的 SMTP 設定",
+    "testEmailSent": "測試郵件已寄至 {email}",
+    "testFailed": "測試失敗：{error}",
+    "defaultRecipientsSaved": "預設收件者已儲存",
+    "invitationSent": "邀請已寄出",
+    "invitationReady": "邀請已準備好",
+    "unknownRole": "未知的角色",
+    "roleUpdated": "角色已更新",
+    "accountDeactivated": "帳戶已停用",
+    "accountReactivated": "帳戶已重新啟用",
+    "invitationRevoked": "邀請已撤銷",
+    "paymentUpdated": "付款已更新",
+    "paymentRecorded": "付款已記錄",
+    "paymentDeleted": "付款已刪除",
+    "sessionRevoked": "工作階段已撤銷",
+    "noOtherSessions": "沒有其他工作階段",
+    "signedOutOthers": "已登出其他 {count} 個工作階段",
+    "sharePasswordRequired": "請輸入密碼，或讓系統自動產生。",
+    "shareLinkCreated": "已建立分享連結。",
+    "templateSaved": "範本已儲存；之後的文件將使用它",
+    "templateReset": "範本已重設為內建預設",
+    "templateImported": "範本已匯入",
+    "profileTemplateCleared": "設定檔已改回使用實例範本",
+    "operatorSaved": "營運者詳細資料已儲存。法律頁面現在會顯示這些內容。",
+    "einvoiceSettingsSaved": "已儲存電子發票設定",
+    "irnRegistered": "IRN {irn} 已註冊,PDF 已重新產生",
+    "irnRecorded": "IRN 已記錄,PDF 已重新產生",
+    "irnCancelled": "IRN 已取消,PDF 已重新產生"
+  }
+}

@@ -121,7 +121,7 @@ describe("buildDocumentViewModel", () => {
     expect(vm.isDraft).toBe(true);
     expect(vm.number).toBeNull();
     expect(vm.verifyUrl).toBeUndefined();
-    expect(vm.watermark).toBe("DRAFT — not a tax invoice");
+    expect(vm.watermark).toBe("DRAFT - not a tax invoice");
   });
 
   it("prints supply statements and hides columns per the display config", () => {
