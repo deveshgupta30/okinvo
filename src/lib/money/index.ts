@@ -3,7 +3,7 @@ import Decimal from "decimal.js";
 /**
  * All money math in okinvo goes through this module (CLAUDE.md "Money"). Values are decimal.js
  * Decimals; rounding is half-up to the currency's minor units and happens only where SPEC.md
- * §4.6–4.9 say it does.
+ * §4.6-4.9 say it does.
  */
 Decimal.set({ precision: 28, rounding: Decimal.ROUND_HALF_UP });
 
@@ -30,7 +30,7 @@ export function minorUnits(currency: string): number {
   return units;
 }
 
-/** Half-up to the currency's minor units — the only rounding rule okinvo uses for money. */
+/** Half-up to the currency's minor units - the only rounding rule okinvo uses for money. */
 export function roundMoney(v: Decimal.Value, currency: string): Decimal {
   return new Decimal(v).toDecimalPlaces(minorUnits(currency), Decimal.ROUND_HALF_UP);
 }

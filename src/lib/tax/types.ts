@@ -51,7 +51,7 @@ export interface TaxLineResult {
   rate: Decimal;
   /** Σ taxableAmount of the lines charged at this (taxType, rate). */
   taxableAmount: Decimal;
-  /** Σ of the per-line, per-component rounded tax — never re-rounded. */
+  /** Σ of the per-line, per-component rounded tax - never re-rounded. */
   taxAmount: Decimal;
 }
 

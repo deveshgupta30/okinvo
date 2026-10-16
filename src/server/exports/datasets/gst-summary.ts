@@ -15,7 +15,7 @@ import { defineDataset } from "./types";
  * IGST lines stand at their own rate; an invoice that carries no GST line (export under LUT,
  * reverse charge, nil-rated) still gets one row at 0 % with its taxable value, because GSTR-1
  * wants zero-rated supplies listed too. Drafts and voided invoices are not supplies and are left
- * out — the register export lists them with their status and void reason.
+ * out - the register export lists them with their status and void reason.
  */
 export interface GstSummaryRow extends Record<string, string | null> {
   invoiceNumber: string | null;

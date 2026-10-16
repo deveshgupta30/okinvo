@@ -21,7 +21,7 @@ describe("pickerSubtotal", () => {
       ),
     ).toBe("10666.67");
   });
-  it("ignores unknown positions and clamps percentages to 0–100", () => {
+  it("ignores unknown positions and clamps percentages to 0-100", () => {
     expect(pickerSubtotal(items, [{ position: 9, mode: "whole" }], "INR")).toBe("0.00");
     expect(pickerSubtotal(items, [{ position: 1, mode: "percent", percent: "150" }], "INR")).toBe(
       "10000.00",

@@ -12,7 +12,7 @@ import { defineDataset } from "./types";
 /**
  * TDS summary (SPEC §4.11): one row per client (and currency, when a client was billed in more
  * than one) over the issued invoices of the period: how many, taxable billed, TDS the issuer
- * expected, and TDS the client actually deducted on the payments recorded against those invoices —
+ * expected, and TDS the client actually deducted on the payments recorded against those invoices -
  * attributed to the invoice's period, not the payment date, which is how Form 26AS is reconciled.
  * The PAN is read out of a GSTIN; any other tax ID is shown as is.
  */

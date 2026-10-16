@@ -140,7 +140,7 @@ describe("NumberFormatSchema", () => {
     expect(NumberFormatSchema.safeParse(`${"A".repeat(31)}{FY}{SEQ}`).success).toBe(true);
     expect(NumberFormatSchema.safeParse(`${"A".repeat(32)}{FY}{SEQ}`).success).toBe(false);
   });
-  it("rejects unknown tokens and padding outside 1–9", () => {
+  it("rejects unknown tokens and padding outside 1-9", () => {
     expect(NumberFormatSchema.safeParse("INV/{FOO}/{SEQ}").success).toBe(false);
     expect(NumberFormatSchema.safeParse("{SEQ:10}").success).toBe(false);
     expect(NumberFormatSchema.safeParse("{SEQ:0}").success).toBe(false);

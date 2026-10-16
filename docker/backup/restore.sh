@@ -1,6 +1,6 @@
 #!/bin/sh
 # okinvo restore (IMPLEMENTATION_PLAN_v2.md §16.4): put a database dump and a storage archive made
-# by backup.sh back in place. Stop the app first — `docker compose stop app` — so nothing writes
+# by backup.sh back in place. Stop the app first - `docker compose stop app` - so nothing writes
 # while the schema is replaced.
 #
 #   restore.sh <pg-dump> [<storage-tgz>]
@@ -42,4 +42,4 @@ if [ -n "$tgz" ]; then
   rm -rf "$staging" "$DATA_DIR/storage.previous"
 fi
 
-echo "okinvo restore: done — start the app again (docker compose start app)"
+echo "okinvo restore: done - start the app again (docker compose start app)"

@@ -73,7 +73,7 @@ export function sampleRenderInput(): RenderInput {
       },
       {
         position: 2,
-        description: "Design system — components and documentation",
+        description: "Design system - components and documentation",
         sacHsnCode: "998314",
         unitType: "HOUR",
         quantity: "32.500",
@@ -85,7 +85,7 @@ export function sampleRenderInput(): RenderInput {
       },
       {
         position: 3,
-        description: "Usability test — recruiting and moderation",
+        description: "Usability test - recruiting and moderation",
         sacHsnCode: "998314",
         unitType: "FIXED",
         quantity: "1.000",

@@ -1,5 +1,5 @@
 // Fails when replaying prisma/migrations into an empty shadow database does not produce
-// prisma/schema.prisma — i.e. someone edited the schema without a migration, or a hand-written
+// prisma/schema.prisma - i.e. someone edited the schema without a migration, or a hand-written
 // migration (partial unique indexes, per-issuer numbering) drifted from what the schema says.
 import "dotenv/config";
 import { execSync } from "node:child_process";
@@ -39,12 +39,12 @@ try {
     "pnpm exec prisma migrate diff --from-migrations prisma/migrations --to-schema prisma/schema.prisma --exit-code",
     { stdio: "inherit", env: { ...process.env, SHADOW_DATABASE_URL: shadowUrl } },
   );
-  console.log("db:check ok — migrations and schema.prisma agree");
+  console.log("db:check ok - migrations and schema.prisma agree");
 } catch (error) {
   const code = typeof error?.status === "number" ? error.status : 1;
   console.error(
     code === 2
-      ? "db:check FAILED — migrations replayed into the shadow database differ from schema.prisma"
+      ? "db:check FAILED - migrations replayed into the shadow database differ from schema.prisma"
       : "db:check errored (see above)",
   );
   process.exit(1);

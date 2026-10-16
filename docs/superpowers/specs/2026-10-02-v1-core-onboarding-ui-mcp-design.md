@@ -1,6 +1,6 @@
-# okinvo v1.1 — shell, onboarding, documents, platform, API/MCP, localisation: design
+# okinvo v1.1 - shell, onboarding, documents, platform, API/MCP, localisation: design
 
-Date 2026-10-02 · branch `feature/v1-core-onboarding-ui-mcp` (from `main@a81b0f7`) · status: **approved by the owner on 2026-10-02 (defaults in §10 confirmed; scope extended, see §9b–§9e)**
+Date 2026-10-02 · branch `feature/v1-core-onboarding-ui-mcp` (from `main@a81b0f7`) · status: **approved by the owner on 2026-10-02 (defaults in §10 confirmed; scope extended, see §9b-§9e)**
 
 This spec turns the owner's 27-point request (and the two "refined prompt" documents that came
 with it) into a design the existing codebase can carry. It is one umbrella document with seven
@@ -72,7 +72,7 @@ after any sub-project and still have a releasable app.
 
 ---
 
-## 3. Sub-project A — Shell & identity
+## 3. Sub-project A - Shell & identity
 
 ### 3.1 Pre-existing defects fixed first (test-first, one commit each)
 
@@ -117,13 +117,13 @@ after any sub-project and still have a releasable app.
   a tooltip when collapsed.
 - The aside is `sticky top-0 h-dvh`; the nav scrolls inside it; the footer stays visible.
 - **Footer hierarchy (top to bottom):** theme toggle, Settings, user block. Exactly as requested:
-  1. **Theme toggle** — a three-state segmented control (System / Light / Dark) when expanded, a
+  1. **Theme toggle** - a three-state segmented control (System / Light / Dark) when expanded, a
      single cycling icon button when collapsed. It writes the `okinvo.theme` cookie immediately
      (the inline init script already honours it on reload) and calls a server action
      `setThemeAction` that persists `User.theme` and is audited as `account.updated`.
-  2. **Settings** — link to `/settings` (a new index page that redirects to `/settings/profiles`,
+  2. **Settings** - link to `/settings` (a new index page that redirects to `/settings/profiles`,
      so the 404 goes away).
-  3. **User** — avatar + name + email; clicking opens a menu with **Profile** (`/settings/account`)
+  3. **User** - avatar + name + email; clicking opens a menu with **Profile** (`/settings/account`)
      and **Log out** (the existing `signOutAction`). Keyboard and screen-reader accessible
      (Radix `DropdownMenu` from the `radix-ui` umbrella already installed).
 - **Mobile (< 768 px):** the aside is hidden; a top bar with the mark, the page title and a
@@ -205,7 +205,7 @@ context has no `usTaxId`.
 
 ---
 
-## 4. Sub-project B — Onboarding & preferences
+## 4. Sub-project B - Onboarding & preferences
 
 ### 4.1 Data model
 
@@ -220,18 +220,18 @@ DAL (audited `account.updated`), not through Better Auth's `update-user`.
 - The signed-in layout redirects to `/onboarding` while `onboardedAt` is null (the sign-in,
   legal, health and public routes are exempt). The wizard cannot be skipped, but every step
   autosaves so a reload resumes.
-- **Step 1 — "Tell us about you."** Avatar (optional, cropper from A), Name (required), Email
-  (shown read-only with "This is your sign-in identity; change it from Settings → Security" —
+- **Step 1 - "Tell us about you."** Avatar (optional, cropper from A), Name (required), Email
+  (shown read-only with "This is your sign-in identity; change it from Settings → Security" -
   changing the identity email needs re-verification and is out of scope), Country (required;
   preselected from the browser timezone → country map, then `navigator.language` region, then
   India), Preferred currency (required; preselected from the country: IN→INR, GB→GBP, US→USD;
   the list is the full ISO 4217 set with the three pinned on top).
-- **Step 2 — "How will you use okinvo?"** Two cards: *Personal invoicing* / *Business
+- **Step 2 - "How will you use okinvo?"** Two cards: *Personal invoicing* / *Business
   invoicing*. Below, "Do you have a GSTIN?" Yes/No; Yes reveals a GSTIN input validated with the
   format regex and the mod-36 check digit (`src/lib/tax/gstin.ts`, unit-tested). Shown only when
   the country is India; for GB it becomes "Are you VAT registered?" with a VAT number field, for
   US nothing.
-- **Step 3 — "You're set."** Summary and a primary button **"Go to profiles →"** that marks
+- **Step 3 - "You're set."** Summary and a primary button **"Go to profiles →"** that marks
   `onboardedAt` and opens `/settings/profiles/new?from=onboarding`, which prefills label, legal
   name, email, country, base currency, locale and GSTIN/VAT from the answers.
 - Copy is written for a freelancer, short and plain; exact strings live in the plan.
@@ -253,11 +253,11 @@ profile form arrives prefilled, the dashboard greets by first name; mobile varia
 
 ---
 
-## 5. Sub-project C — Catalogue & documents
+## 5. Sub-project C - Catalogue & documents
 
 ### 5.1 Products with SKUs (item 24)
 
-- New model `Product`: `id`, `sku @unique` (1–40 chars, `[A-Za-z0-9._/-]`), `name`,
+- New model `Product`: `id`, `sku @unique` (1-40 chars, `[A-Za-z0-9._/-]`), `name`,
   `description?`, `unitType` (default `UNIT`), `unitPrice Decimal(14,2)`, `currency`,
   `hsnCode?`, `defaultTaxRate Decimal(5,2)`, `isActive`, `archivedAt`, timestamps,
   `invoiceItems`, `issuerProfiles IssuerProfile[]`.
@@ -307,7 +307,7 @@ profile form arrives prefilled, the dashboard greets by first name; mobile varia
   - **modern**: accent-coloured left column (issuer block, QR, payment details) and a wide right
     column for parties and the table.
 - New config block `header`: `{ style: "none" | "band" | "image", color?: "#rrggbb",
-  imageAssetId?: string, imageOpacity: 0–1 (default 1), heightMm: 20–60 (default 32),
+  imageAssetId?: string, imageOpacity: 0-1 (default 1), heightMm: 20-60 (default 32),
   text: "auto" | "light" | "dark" }`. `auto` picks light or dark text by the band colour's
   luminance; for images the text sits on a translucent scrim. The band is available on every
   template (default `none`; `letterhead` defaults to `band`).
@@ -387,7 +387,7 @@ protected PDF downloaded.
 
 ---
 
-## 6. Sub-project D — Platform & compliance
+## 6. Sub-project D - Platform & compliance
 
 ### 6.1 License, README (items 17, 18)
 
@@ -433,17 +433,17 @@ Account → Privacy shows the same list and a "Show the notice again" link.
 Public routes under `/legal/*`, server-rendered TSX (no markdown dependency, CSP-safe), printable,
 with a table of contents and "Last updated":
 
-- `/legal/terms` — Terms of Service (operator ↔ user: account, acceptable use pointer, fees
+- `/legal/terms` - Terms of Service (operator ↔ user: account, acceptable use pointer, fees
   (none), warranties, liability, termination, governing law, changes).
-- `/legal/acceptable-use` — Terms of Use / Acceptable Use Policy (prohibited uses, API and
+- `/legal/acceptable-use` - Terms of Use / Acceptable Use Policy (prohibited uses, API and
   MCP use, rate limits, security testing rules).
-- `/legal/privacy` — Privacy Policy (controller identity, data categories by feature, lawful
+- `/legal/privacy` - Privacy Policy (controller identity, data categories by feature, lawful
   bases, retention, processors (none by default; SMTP/S3 if configured), rights under GDPR,
   UK GDPR, CCPA and India's DPDP Act, international transfers, children, contact).
-- `/legal/cookies` — Cookie Policy (the table above).
-- `/legal/data-retention` — retention schedule per record type and the backup window.
-- `/legal/security` — security practices summary and responsible-disclosure contact.
-- `/legal/licenses` — third-party notices.
+- `/legal/cookies` - Cookie Policy (the table above).
+- `/legal/data-retention` - retention schedule per record type and the backup window.
+- `/legal/security` - security practices summary and responsible-disclosure contact.
+- `/legal/licenses` - third-party notices.
 
 The operator's details (legal name, address, contact and privacy e-mails, governing law, DPO)
 come from Settings → **Legal** (`AppSetting['legalOperator']`, Zod-validated). Unset fields render
@@ -469,7 +469,7 @@ render without placeholders when operator details are set, status page renders.
 
 ---
 
-## 7. Sub-project E — API keys, OpenAPI, SDK, MCP, skill
+## 7. Sub-project E - API keys, OpenAPI, SDK, MCP, skill
 
 ### 7.1 API keys (item 20)
 
@@ -536,7 +536,7 @@ issues? } }` with the same codes the actions use. Every POST is audited with the
 
 ---
 
-## 8. Sub-project F — Localisation (item 13)
+## 8. Sub-project F - Localisation (item 13)
 
 ### 8.1 Framework
 
@@ -559,7 +559,7 @@ issues? } }` with the same codes the actions use. Every POST is audited with the
 
 Default proposal: `en-US` and `en-GB` written by hand; the other 113 catalogues are generated
 by translation subagents in batches of ~10, each file carrying `"@@generated": true`, and the
-picker shows a small "Machine-translated — help improve" note for those locales linking to the
+picker shows a small "Machine-translated - help improve" note for those locales linking to the
 repository. Documents (PDFs) are not translated in this branch.
 
 ### 8.3 Tests (F)
@@ -570,7 +570,7 @@ order. Integration: `User.locale` round-trip. E2E: switching to `hi` changes the
 
 ---
 
-## 9. Sub-project G — Documentation site (item 20, Wiki.js)
+## 9. Sub-project G - Documentation site (item 20, Wiki.js)
 
 - Source of truth is the repo: `docs/wiki/**.md` (Getting started, Onboarding, Profiles,
   Clients, Services and Products, Invoices, Credit notes, Payments, Templates and fonts, Sharing
@@ -587,7 +587,7 @@ order. Integration: `User.locale` round-trip. E2E: switching to `hi` changes the
 
 ---
 
-## 9b. Sub-project H — Multi-user roles
+## 9b. Sub-project H - Multi-user roles
 
 Added to scope by the owner on 2026-10-02. Built right after B because API keys (E) and every
 later screen depend on it.
@@ -617,7 +617,7 @@ later screen depend on it.
   invitation accepted through the sign-in hook; e2e: a VIEWER sees no "New invoice" and gets
   403 pages on settings.
 
-## 9c. Sub-project I — Translated documents and non-Latin fonts
+## 9c. Sub-project I - Translated documents and non-Latin fonts
 
 Added to scope. Depends on F (catalogues) and C (template/font work).
 
@@ -650,7 +650,7 @@ Added to scope. Depends on F (catalogues) and C (template/font work).
   and mixed strings assert the PDF text layer round-trips through `pdf-parse`; snapshot of the
   `documents` namespace keys per locale.
 
-## 9d. Sub-project J — DOCX output
+## 9d. Sub-project J - DOCX output
 
 Added to scope. Depends on C (templates) and I (document language).
 
@@ -670,7 +670,7 @@ Added to scope. Depends on C (templates) and I (document language).
   description, the totals and the localised labels), integration (version rows and hashes),
   e2e download.
 
-## 9e. Sub-project K — E-invoicing
+## 9e. Sub-project K - E-invoicing
 
 Added to scope. Depends on C (products/HSN), H (settings role) and I (locale). Three outputs
 share one `src/lib/einvoice/` module built from the issued invoice's snapshot (never from live
@@ -679,7 +679,7 @@ rows), plus connectors.
 - **India (GST e-invoice, INV-01 schema v1.1):** `toGstEInvoice(invoice)` builds the JSON
   (`Version`, `TranDtls`, `DocDtls`, `SellerDtls`, `BuyerDtls`, `ItemList`, `ValDtls`, optional
   `ExpDtls` for exports under LUT) with a Zod schema mirroring the IRP's rules (GSTIN and PAN
-  patterns, 6-digit PIN, HSN 4–8 digits, state codes, totals reconciliation). "Download
+  patterns, 6-digit PIN, HSN 4-8 digits, state codes, totals reconciliation). "Download
   e-invoice JSON" works for every issued invoice whose issuer has a GSTIN. **IRN registration**
   goes through an `IrpConnector` interface: `manual` (the owner pastes or uploads the IRP's
   response: `Irn`, `AckNo`, `AckDt`, `SignedQRCode`, `SignedInvoice`) and `nic` (the NIC IRP
@@ -720,7 +720,7 @@ rows), plus connectors.
 
 1. **Translation scope.** Default: all 115 languages selectable; `en-US`/`en-GB` hand-written,
    113 machine-generated and labelled as such (≈ 800 strings × 113 ≈ 90 000 strings; roughly
-   2–3 M generated tokens; low-resource languages such as Inuktitut, Iñupiatun or Fula will be
+   2-3 M generated tokens; low-resource languages such as Inuktitut, Iñupiatun or Fula will be
    rough). Alternative: hand-quality catalogues for ~30 widely used languages now and the rest
    falling back to English until contributed.
 2. **License.** Default Apache-2.0 (patent grant, permissive, standard for self-hosted apps).
@@ -740,7 +740,7 @@ rows), plus connectors.
 
 ---
 
-## 11. Beyond this branch — what else would make okinvo polished, secure and compliant
+## 11. Beyond this branch - what else would make okinvo polished, secure and compliant
 
 Not scheduled; listed so the owner can pick the next branch.
 

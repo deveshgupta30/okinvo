@@ -44,7 +44,7 @@ const ONES = [
 ];
 const TENS = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
 
-// The digit groups below are plain integers 0–999 (table indices), never amounts.
+// The digit groups below are plain integers 0-999 (table indices), never amounts.
 
 function belowHundred(n: number): string {
   if (n < 20) return ONES[n] ?? "";

@@ -83,7 +83,7 @@ export function formatQuantity(v: Decimal.Value, locale: string): string {
   return normaliseIntlSpaces(nf.format(fixed(q)));
 }
 
-/** "18%" / "2.5%" — the rate as entered, without trailing zeros. */
+/** "18%" / "2.5%" - the rate as entered, without trailing zeros. */
 export function formatPercent(v: Decimal.Value): string {
   return `${fixed(D(v))}%`;
 }

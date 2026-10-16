@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { CURRENCY_WORDS, amountInWords } from "@/lib/format";
 import { D } from "@/lib/money";
 
-describe("amountInWords — Indian numbering (en-IN)", () => {
+describe("amountInWords - Indian numbering (en-IN)", () => {
   it("uses lakh and crore", () => {
     expect(amountInWords("1234567.00", "INR", "en-IN")).toBe(
       "Rupees Twelve Lakh Thirty-Four Thousand Five Hundred Sixty-Seven Only",
@@ -52,7 +52,7 @@ describe("amountInWords — Indian numbering (en-IN)", () => {
   });
 });
 
-describe("amountInWords — short scale (other locales)", () => {
+describe("amountInWords - short scale (other locales)", () => {
   it("uses million/billion", () => {
     expect(amountInWords("1234567.89", "USD", "en-US")).toBe(
       "US Dollars One Million Two Hundred Thirty-Four Thousand Five Hundred Sixty-Seven and Eighty-Nine Cents Only",
@@ -83,7 +83,7 @@ describe("amountInWords — short scale (other locales)", () => {
   });
 });
 
-describe("amountInWords — zero-decimal currencies", () => {
+describe("amountInWords - zero-decimal currencies", () => {
   it("never prints a minor part", () => {
     expect(amountInWords("1500", "JPY", "en-US")).toBe("Yen One Thousand Five Hundred Only");
     expect(amountInWords("1500", "JPY", "ja-JP")).toBe("Yen One Thousand Five Hundred Only");
@@ -92,7 +92,7 @@ describe("amountInWords — zero-decimal currencies", () => {
   });
 });
 
-describe("amountInWords — fallbacks and edge cases", () => {
+describe("amountInWords - fallbacks and edge cases", () => {
   it("falls back to the Intl display name and 'Cents' for currencies without a words entry", () => {
     expect(CURRENCY_WORDS["NZD"]).toBeUndefined();
     expect(amountInWords("10.50", "NZD", "en-NZ")).toBe(
