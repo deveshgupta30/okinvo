@@ -23,13 +23,31 @@ The order is migrate, app, caddy. `https://<APP_DOMAIN>/api/health/ready` answer
 app is up. Caddy obtains the certificate for `APP_DOMAIN` itself (an internal certificate for
 `localhost`).
 
+## From published images
+
+Every merge to `main` pushes the app and migration images to the GitHub Container Registry as
+`ghcr.io/deveshgupta30/okinvo:<tag>` and `<tag>-migrate`, where `<tag>` is `sha-<short commit>`
+or `latest`. `compose.example.yml` is the same stack without the build step, so a host needs no
+Node toolchain:
+
+```bash
+cp compose.example.yml compose.local.yml        # gitignored; edit it freely
+docker login ghcr.io                            # the packages are private: a token with read:packages
+docker compose -f compose.local.yml pull
+docker compose -f compose.local.yml up -d
+```
+
+Pin `OKINVO_VERSION` in `.env` to a `sha-` tag for repeatable installs. `OKINVO_IMAGE` switches
+the registry, for example to `docker.io/deveshgupta30/okinvo` for the versioned Docker Hub
+releases. The checkout is still needed for `docker/`, which the services mount.
+
 ## Configuration
 
 Every variable the app reads is documented in the README's configuration table and in
 `.env.example`. Compose-only variables: `APP_DOMAIN` (Caddy site), `DOCS_DOMAIN` (the docs
 site), `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`, `BACKUP_CRON`,
-`BACKUP_RETENTION_DAYS`, `OKINVO_VERSION` (image tag) and the build provenance pair `BUILD_SHA`,
-`BUILD_DATE`. Placeholder secrets stop the app on purpose.
+`BACKUP_RETENTION_DAYS`, `OKINVO_VERSION` (image tag), `OKINVO_IMAGE` (image repository, read
+only by `compose.example.yml`) and the build provenance pair `BUILD_SHA`, `BUILD_DATE`. Placeholder secrets stop the app on purpose.
 
 ## Another port
 
@@ -51,6 +69,9 @@ and set `APP_URL=https://localhost:8443`.
 git pull
 docker compose up -d --build        # or set OKINVO_VERSION to a published tag and skip --build
 ```
+
+From published images: change `OKINVO_VERSION` in `.env`, then
+`docker compose -f compose.local.yml pull && docker compose -f compose.local.yml up -d`.
 
 The migration container runs `prisma migrate deploy` before the new app starts; a failed
 migration leaves the old app running. Take a backup first.
