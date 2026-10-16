@@ -10,6 +10,11 @@ vulnerabilities:
     statement: >-
       mysql2 is an optional transitive dependency of the auth library; okinvo never opens a MySQL
       connection (PostgreSQL only through @prisma/adapter-pg). Already ignored in pnpm audit.
+  - id: GHSA-vfj7-8cjw-p6xm
+    statement: >-
+      braces 3.0.3 reaches the tree only through eslint-config-next (fast-glob, micromatch) at
+      lint time; it never runs in the image or against user input, and no patched release exists
+      yet. Ignored in pnpm audit as well; drop both entries when braces ships a fix.
 misconfigurations:
   - id: KSV-0109
     paths:
