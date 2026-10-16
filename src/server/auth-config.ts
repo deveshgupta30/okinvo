@@ -41,6 +41,9 @@ function createAuth() {
     appName: "okinvo",
     baseURL: env.APP_URL,
     secret: env.AUTH_SECRET,
+    // Better Auth limits sign-in and sign-up per client IP in production (3 per 10 s). The e2e
+    // suite signs its fixed owners in dozens of times from one address, so it turns this off.
+    ...(env.AUTH_RATE_LIMIT ? {} : { rateLimit: { enabled: false } }),
     database: prismaAdapter(prisma, { provider: "postgresql" }),
     // Email + password only when the owner opts in (R1); the allow-list hook below still gates sign-up.
     emailAndPassword: {

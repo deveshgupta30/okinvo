@@ -130,6 +130,11 @@ describe.skipIf(!url)("e-invoice registration", () => {
       }),
     );
     methodId = m.id;
+    invoiceId = await issueOne();
+  });
+
+  /** A fresh issued invoice of the fixture profile (the afterAll sweeps everything tagged). */
+  async function issueOne(): Promise<string> {
     const d = await inv.createDraft(
       owner,
       InvoiceDraftInputSchema.parse({
@@ -159,8 +164,8 @@ describe.skipIf(!url)("e-invoice registration", () => {
         poReference: tag,
       }),
     );
-    invoiceId = (await inv.issueInvoice(owner, d.id)).id;
-  });
+    return (await inv.issueInvoice(owner, d.id)).id;
+  }
 
   afterAll(async () => {
     await prisma.document.deleteMany({ where: { invoice: { poReference: tag } } });
@@ -182,6 +187,20 @@ describe.skipIf(!url)("e-invoice registration", () => {
     await expect(einv.generateIrn(owner, invoiceId)).rejects.toThrow(/paste/i);
     await expect(einv.recordManualIrn(viewer, invoiceId, fixtureIrpResponse())).rejects.toThrow();
     expect((await einv.einvoiceStatus(owner, invoiceId)).status).toBe("NONE");
+  });
+
+  it("registers an IRN recorded before the background first render stored its row: v1 stays, the IRN PDF is v2", async () => {
+    const id = await issueOne();
+    // The issue action renders v1 after its response (actions/invoices.ts scheduleRender). A
+    // registration inside that window finds the v1 blob in storage but no Document row yet.
+    const first = await docs.ensureDocument("INVOICE", id);
+    await prisma.document.delete({ where: { id: first.id } });
+    const state = await einv.recordManualIrn(owner, id, fixtureIrpResponse());
+    expect(state.status).toBe("REGISTERED");
+    const dto = await inv.getInvoice(owner, id);
+    expect(dto.documents.map((d) => d.version)).toEqual([1, 2]);
+    expect(dto.documents[0]!.sha256).toBe(first.sha256);
+    expect(dto.documents[1]!.sha256).not.toBe(first.sha256);
   });
 
   it("records the portal's response, carries the state and regenerates the PDF with the IRN", async () => {

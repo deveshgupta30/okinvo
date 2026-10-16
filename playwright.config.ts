@@ -53,6 +53,8 @@ export default defineConfig({
       // The production server (CI) would otherwise 301 every plain-http request to https
       // (FORCE_HTTPS defaults to on under NODE_ENV=production); the suite talks http to localhost.
       FORCE_HTTPS: "false",
+      // Every spec signs in from 127.0.0.1; Better Auth's per-IP limit (3 per 10 s) would 429 them.
+      AUTH_RATE_LIMIT: "false",
       // usage.spec.ts: the page-view beacon and Settings > Usage
       ANALYTICS_LOCAL: "true",
       AUTH_ALLOWED_EMAILS:

@@ -45,8 +45,25 @@ PDF/A-3 files.
 /**
  * @param {Record<string, Array<{ name: string; versions?: string[]; version?: string; author?: string; homepage?: string }>>} json
  */
+/**
+ * Prebuilt binaries that pnpm installs for the current platform only (`@img/sharp-win32-x64`,
+ * `@esbuild/linux-x64`, `lightningcss-win32-x64-msvc`, `@next/swc-darwin-arm64` ...). They carry
+ * their parent package's licence and differ between a Windows laptop and the Linux CI runner, so
+ * they are left out: the rendered file is then the same on every platform.
+ */
+const PLATFORM_RE =
+  /(^|[-/])(win32|linux|darwin|android|freebsd|openbsd|netbsd|sunos|aix|wasm32)(-|$)/;
+const ARCH_RE =
+  /(^|[-/])(x64|ia32|arm64|arm|armv7|ppc64|s390x|riscv64|loong64|mips64el|universal)(-|$)|libvips/;
+
+export function isPlatformPackage(name) {
+  return PLATFORM_RE.test(name) && ARCH_RE.test(name);
+}
+
 export function renderNotices(json) {
-  const licences = Object.keys(json).sort((a, b) => a.localeCompare(b));
+  const licences = Object.keys(json)
+    .filter((licence) => json[licence].some((p) => !isPlatformPackage(p.name)))
+    .sort((a, b) => a.localeCompare(b));
   const lines = [
     "# Third-party notices",
     "",
@@ -58,10 +75,16 @@ export function renderNotices(json) {
     "",
     "## Package licences (production dependencies)",
     "",
+    "Platform-specific prebuilt binaries (for example `@img/sharp-<os>-<arch>`, `@esbuild/<os>-<arch>`)",
+    "share the licence of their parent package and are not listed separately, so this file is the",
+    "same whichever platform generated it.",
+    "",
   ];
   let total = 0;
   for (const licence of licences) {
-    const pkgs = [...json[licence]].sort((a, b) => a.name.localeCompare(b.name));
+    const pkgs = json[licence]
+      .filter((p) => !isPlatformPackage(p.name))
+      .sort((a, b) => a.name.localeCompare(b.name));
     lines.push(`### ${licence} (${pkgs.length})`, "");
     for (const p of pkgs) {
       total += 1;

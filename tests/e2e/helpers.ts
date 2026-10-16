@@ -118,6 +118,23 @@ export async function signInExisting(page: Page, email: string): Promise<void> {
 
 /** The onboarding wizard marks itself hydrated; controlled inputs ignore clicks before that. */
 /**
+ * Creates a minimal Indian issuer profile through the UI. A fresh database (CI) has none, and
+ * the builder, the catalogue picker and the Profiles tag group all need at least one.
+ */
+export async function createProfile(page: Page, label: string, legalName: string): Promise<void> {
+  await page.goto("/settings/profiles/new");
+  await page.locator("#label").fill(label);
+  await page.locator("#legalName").fill(legalName);
+  await page.locator("#email").fill("issuer@example.com");
+  await page.locator("#stateCode").selectOption("KA");
+  await page.locator('[id="address.line1"]').fill("1 Test Street");
+  await page.locator('[id="address.city"]').fill("Bengaluru");
+  await page.getByRole("button", { name: "Save profile" }).click();
+  // the list itself, not the /new page the click started on: the save must have landed
+  await expect(page).toHaveURL(/\/settings\/profiles(?:[?#]|$)/);
+}
+
+/**
  * Creates an issuer profile and a client through the UI, both named after `stamp`, so a spec
  * works on parties of its own rather than whatever the shared database's default profile is.
  */
@@ -127,15 +144,7 @@ export async function createIssuerAndClient(
 ): Promise<{ profileLabel: string; clientName: string }> {
   const profileLabel = `${stamp} profile`;
   const clientName = `${stamp} client`;
-  await page.goto("/settings/profiles/new");
-  await page.locator("#label").fill(profileLabel);
-  await page.locator("#legalName").fill(`${stamp} Legal Name`);
-  await page.locator("#email").fill("issuer@example.com");
-  await page.locator("#stateCode").selectOption("KA");
-  await page.locator('[id="address.line1"]').fill("1 Test Street");
-  await page.locator('[id="address.city"]').fill("Bengaluru");
-  await page.getByRole("button", { name: "Save profile" }).click();
-  await expect(page).toHaveURL(/\/settings\/profiles/);
+  await createProfile(page, profileLabel, `${stamp} Legal Name`);
 
   await page.goto("/clients/new");
   await page.locator("#displayName").fill(clientName);

@@ -47,7 +47,8 @@ test("a new owner is walked through onboarding into a prefilled profile, once", 
   await page.getByRole("button", { name: "Continue" }).click();
 
   // Step 3 - done
-  await expect(page.getByRole("heading", { name: /You're set/ })).toBeVisible();
+  // "You're set" in the catalogue carries a typographic apostrophe; match either kind
+  await expect(page.getByRole("heading", { name: /You.re set/ })).toBeVisible();
   await waitHydrated(page);
   await page.getByRole("button", { name: /Go to profiles/ }).click();
   await expect(page).toHaveURL(/\/settings\/profiles\/new\?from=onboarding/);

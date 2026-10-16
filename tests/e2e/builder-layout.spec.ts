@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { signInAs } from "./helpers";
+import { createProfile, signInAs } from "./helpers";
 
 /**
  * The line-items table of the builder keeps its inputs usable when the form column is narrower
@@ -12,6 +12,9 @@ test.setTimeout(180_000);
 test("the builder's line inputs stay usable at 1440 px", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await signInAs(page, "e2e@example.com", "E2E Owner");
+  // the builder only opens once an issuer profile exists (a fresh database has none)
+  const stamp = Date.now().toString(36);
+  await createProfile(page, `Layout ${stamp} profile`, `Layout ${stamp} Legal Name`);
   await page.goto("/invoices/new");
   await expect(page.locator("[data-document-preview]")).toBeVisible();
   const qty = page.getByLabel("Line 1 quantity");
