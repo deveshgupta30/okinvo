@@ -29,6 +29,9 @@ export async function enforceRateLimit(
   bucket: Bucket,
   subject?: string,
 ): Promise<Response | null> {
+  // AUTH_RATE_LIMIT=false (the e2e suite only): its fixed owners sign in from one address far
+  // more often than a person would.
+  if (bucket === "auth" && !env.AUTH_RATE_LIMIT) return null;
   const key = `${bucket}:${subject ?? clientIp(headers, env.TRUST_PROXY)}`;
   const { limit, windowMs } = LIMITS[bucket];
   const decision = await rateLimiter.hit(key, limit, windowMs);

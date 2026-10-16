@@ -44,6 +44,7 @@ const objectSchema = z
       }),
     AUTH_ALLOWED_EMAILS: z.string().default(""),
     AUTH_PASSWORD_SIGNIN: z.stringbool().default(false), // email+password (allow-list still applies); e2e/CI and IdP-less owners
+    AUTH_RATE_LIMIT: z.stringbool().default(true), // per-IP limits on sign-in and sign-up (the auth bucket and Better Auth's own); only the e2e suite turns them off
     AUTH_LINKING_TRUSTED_PROVIDERS: z.string().default("google,github"),
     AUTH_GOOGLE_ID: optional,
     AUTH_GOOGLE_SECRET: optional,
