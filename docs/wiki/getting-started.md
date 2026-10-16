@@ -35,6 +35,8 @@ docker compose up -d --build
 Compose starts Postgres, runs the migrations, starts the app, the nightly backup service and
 Caddy. `https://<APP_DOMAIN>/api/health/ready` answers `200` once everything is up. If something
 else already owns ports 80 and 443, see [Operations: Compose](operations-compose.md#another-port).
+To run the published images instead of building, see
+[From published images](operations-compose.md#from-published-images).
 
 ## 2. Sign in
 

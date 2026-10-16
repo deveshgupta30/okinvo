@@ -91,6 +91,21 @@ cp .env.example .env && scripts/gen-secrets.sh >> .env    # then delete the two 
 docker compose up -d --build    # migrate → app → caddy (automatic TLS; internal CA for localhost)
 ```
 
+**From published images.** Every merge to `main` pushes both images to the GitHub Container
+Registry (`.github/workflows/ghcr.yml`, also runnable by hand from the Actions tab):
+`ghcr.io/deveshgupta30/okinvo:<tag>` and `:<tag>-migrate`, where `<tag>` is `sha-<short
+commit>` or `latest`. `compose.example.yml` is the same stack without the build step:
+
+```bash
+cp compose.example.yml compose.local.yml        # gitignored; edit it freely
+docker login ghcr.io                            # the packages are private: a token with read:packages
+docker compose -f compose.local.yml pull && docker compose -f compose.local.yml up -d
+```
+
+`OKINVO_VERSION` picks the tag and `OKINVO_IMAGE` the registry
+(`docker.io/deveshgupta30/okinvo` for the Docker Hub releases from `scripts/release.sh`). The
+clone is still needed for `docker/`, which the services mount.
+
 If something already owns ports 80/443, serve on another port with a local
 `compose.override.yml` (auto-applied, keep it out of git):
 
@@ -143,6 +158,13 @@ templates), integration (DAL against real Postgres, the issue transaction, concu
 end-to-end (sign-in → profile/client → build → issue → download → verify → pay → credit note →
 export, on desktop Chromium and a Pixel 7 profile). CI runs on the owner's self-hosted runner
 when it is online and on GitHub-hosted Ubuntu otherwise.
+
+| Workflow | Runs on | Does |
+|---|---|---|
+| `ci.yml` | pull requests, merges to `main` | Lint, tests, restore drill, image build and scan, e2e |
+| `ghcr.yml` | merges to `main`, manual | Builds both images and pushes them to `ghcr.io/deveshgupta30/okinvo` (no tests) |
+| `security.yml` | pull requests, merges to `main`, weekly | Trivy scan of the repository, Compose files, manifests and Dockerfile |
+| `release.yml` | manual | Multi-arch Docker Hub release, when the Docker Hub secrets exist |
 
 ## Configuration
 
@@ -212,7 +234,8 @@ Compose-only variables (`compose.yml`, not read by the app): `APP_DOMAIN` (Caddy
 `DOCS_DOMAIN` (the Wiki.js host of the optional `docs` profile),
 `POSTGRES_USER` / `POSTGRES_PASSWORD` / `POSTGRES_DB` (the bundled database; compose derives
 `DATABASE_URL`), `BACKUP_CRON` and `BACKUP_RETENTION_DAYS` (the backup service), `OKINVO_VERSION`
-(image tag), `BUILD_SHA` / `BUILD_DATE` (build provenance shown on Settings → Status).
+(image tag), `OKINVO_IMAGE` (image repository, `compose.example.yml` only), `BUILD_SHA` /
+`BUILD_DATE` (build provenance shown on Settings → Status).
 
 ## API, SDK and MCP
 
