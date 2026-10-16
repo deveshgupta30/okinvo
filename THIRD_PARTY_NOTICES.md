@@ -32,6 +32,10 @@ PDF/A-3 files.
 
 ## Package licences (production dependencies)
 
+Platform-specific prebuilt binaries (for example `@img/sharp-<os>-<arch>`, `@esbuild/<os>-<arch>`)
+share the licence of their parent package and are not listed separately, so this file is the
+same whichever platform generated it.
+
 ### (MIT AND Zlib) (1)
 
 - pako 1.0.11 (https://github.com/nodeca/pako)
@@ -113,14 +117,6 @@ PDF/A-3 files.
 - sharp 0.35.5 - Lovell Fuller (https://sharp.pixelplumbing.com)
 - text-decoder 1.2.7 - Holepunch (https://github.com/holepunchto/text-decoder#readme)
 - typescript 6.0.3 - Microsoft Corp. (https://www.typescriptlang.org/)
-
-### Apache-2.0 AND LGPL-3.0-or-later (1)
-
-- @img/sharp-win32-x64 0.35.5 - Lovell Fuller (https://sharp.pixelplumbing.com)
-
-### Apache-2.0 AND MIT (1)
-
-- @swc/core-win32-x64-msvc 1.16.13 - 강동윤 (https://swc.rs)
 
 ### BlueOak-1.0.0 (2)
 
@@ -206,7 +202,7 @@ PDF/A-3 files.
 - yargs-parser 18.1.3 - Ben Coe (https://github.com/yargs/yargs-parser#readme)
 - zod-to-json-schema 3.25.2 - Stefan Terdell (https://github.com/StefanTerdell/zod-to-json-schema#readme)
 
-### MIT (529)
+### MIT (525)
 
 - @babel/code-frame 7.29.7 - The Babel Team (https://babel.dev/docs/en/next/babel-code-frame)
 - @babel/compat-data 7.29.7 - The Babel Team (https://github.com/babel/babel#readme)
@@ -240,7 +236,6 @@ PDF/A-3 files.
 - @eloqnt/config 0.1.1 (https://cli.eloqnt.dev/docs/configuration)
 - @eloqnt/format-json 0.1.0 (https://cli.eloqnt.dev/docs/configuration)
 - @eloqnt/format-po 0.1.1 (https://cli.eloqnt.dev/docs/formats/po)
-- @esbuild/win32-x64 0.28.2 (https://github.com/evanw/esbuild#readme)
 - @fast-csv/format 4.3.5 - doug-martin (http://c2fo.github.com/fast-csv/packages/format)
 - @fast-csv/parse 4.3.6 - doug-martin (http://c2fo.github.com/fast-csv/packages/parse)
 - @floating-ui/core 1.8.0 - atomiks (https://floating-ui.com)
@@ -261,7 +256,6 @@ PDF/A-3 files.
 - @jridgewell/trace-mapping 0.3.31 - Justin Ridgewell (https://github.com/jridgewell/sourcemaps/tree/main/packages/trace-mapping)
 - @modelcontextprotocol/sdk 1.31.0 - Anthropic, PBC (https://modelcontextprotocol.io)
 - @next/env 16.3.8 - Next.js Team (https://github.com/vercel/next.js#readme)
-- @next/swc-win32-x64-msvc 16.3.8 (https://github.com/vercel/next.js#readme)
 - @noble/ciphers 1.3.0, 2.4.0 - Paul Miller (https://paulmillr.com/noble/)
 - @noble/hashes 1.8.0, 2.4.0 - Paul Miller (https://paulmillr.com/noble/)
 - @oozcitak/dom 2.0.2 - Ozgur Ozcitak (http://github.com/oozcitak/dom)
@@ -270,7 +264,6 @@ PDF/A-3 files.
 - @oozcitak/util 10.0.0 - Ozgur Ozcitak (http://github.com/oozcitak/util)
 - @oxc-project/types 0.152.0 - Boshen and oxc contributors (https://oxc.rs)
 - @parcel/watcher 2.6.0 (https://github.com/parcel-bundler/watcher#readme)
-- @parcel/watcher-win32-x64 2.6.0 (https://github.com/parcel-bundler/watcher#readme)
 - @pdf-lib/standard-fonts 1.0.0 - Andrew Dillon (https://github.com/Hopding/standard-fonts)
 - @pdf-lib/upng 1.0.1 - photopea (https://github.com/Hopding/upng#readme)
 - @pinojs/redact 0.4.0 - Matteo Collina (https://github.com/pinojs/redact#readme)
@@ -348,7 +341,6 @@ PDF/A-3 files.
 - @react-pdf/svg 1.1.1 - Diego Muracciole (https://github.com/diegomura/react-pdf#readme)
 - @react-pdf/textkit 7.0.1 (https://github.com/diegomura/react-pdf#readme)
 - @react-pdf/types 2.14.0 - Diego Muracciole (https://github.com/diegomura/react-pdf#readme)
-- @rolldown/binding-win32-x64-msvc 1.2.12 (https://rolldown.rs/)
 - @rolldown/pluginutils 1.0.1 (https://github.com/rolldown/plugins/tree/main/packages/pluginutils#readme)
 - @schummar/icu-type-parser 1.21.5 - Marco Schumacher (https://github.com/schummar/schummar-translate#readme)
 - @standard-schema/spec 1.1.0 - Colin McDonnell (https://standardschema.dev)
@@ -751,10 +743,9 @@ PDF/A-3 files.
 - chainsaw 0.1.0 - James Halliday (https://github.com/substack/node-chainsaw#readme)
 - traverse 0.3.9 - James Halliday (https://github.com/substack/js-traverse#readme)
 
-### MPL-2.0 (2)
+### MPL-2.0 (1)
 
 - lightningcss 1.33.0 (https://github.com/parcel-bundler/lightningcss#readme)
-- lightningcss-win32-x64-msvc 1.33.0 (https://github.com/parcel-bundler/lightningcss#readme)
 
 ### OFL-1.1 (2)
 
@@ -775,4 +766,4 @@ PDF/A-3 files.
 - postgres 3.4.7 - Rasmus Porsager (https://github.com/porsager/postgres)
 - robust-predicates 3.0.3 - Vladimir Agafonkin (https://github.com/mourner/robust-predicates#readme)
 
-_680 packages under 21 licences._
+_673 packages under 19 licences._

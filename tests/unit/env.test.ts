@@ -42,6 +42,10 @@ describe("serverSchema", () => {
     expect(env.TRUST_PROXY).toBe(true);
     expect(env.UPLOAD_MAX_IMAGE_MB).toBe(5);
   });
+  it("keeps Better Auth's sign-in rate limit on unless AUTH_RATE_LIMIT turns it off", () => {
+    expect(serverSchema.parse(base).AUTH_RATE_LIMIT).toBe(true);
+    expect(serverSchema.parse({ ...base, AUTH_RATE_LIMIT: "false" }).AUTH_RATE_LIMIT).toBe(false);
+  });
   it("rejects a non-postgres DATABASE_URL", () => {
     expect(() => serverSchema.parse({ ...base, DATABASE_URL: "mysql://x" })).toThrow(/postgres/);
   });

@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { signInAs } from "./helpers";
+import { createProfile, signInAs } from "./helpers";
 
 /**
  * Products (spec §5.1) and profile tags (§5.2) through the UI: a product with a SKU appears in
@@ -15,6 +15,10 @@ test("a product with a SKU is picked into an invoice and printed under the descr
 }) => {
   await signInAs(page, EMAIL, "E2E Owner");
   const sku = `E2E-${Date.now().toString(36).toUpperCase()}`;
+  // the Profiles group only appears with two or more profiles to choose between (one = every)
+  for (const n of [1, 2]) {
+    await createProfile(page, `Catalogue ${sku} ${n}`, `Catalogue ${sku} Legal Name ${n}`);
+  }
 
   await page.goto("/products/new");
   await page.locator("#sku").fill(sku);
@@ -25,7 +29,7 @@ test("a product with a SKU is picked into an invoice and printed under the descr
   // the Profiles group is present (tags) and left empty = offered to every profile
   await expect(page.getByRole("group", { name: "Profiles" })).toBeVisible();
   await page.getByRole("button", { name: "Save product" }).click();
-  await expect(page).toHaveURL(/\/products/);
+  await expect(page).toHaveURL(/\/products(?:[?#]|$)/); // the list: the save has landed
   await expect(page.getByText(sku)).toBeVisible();
 
   await page.goto("/invoices/new");

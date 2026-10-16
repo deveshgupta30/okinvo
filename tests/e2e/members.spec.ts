@@ -67,8 +67,10 @@ test("owner invites a viewer; the viewer is read-only and cannot open settings",
     await page.locator("#inviteEmail").fill(VIEWER);
     await page.locator("#inviteRole").selectOption("VIEWER");
     await page.getByRole("button", { name: "Invite", exact: true }).click();
-    await expect(page.getByRole("status")).toContainText(VIEWER);
-    await expect(page.getByRole("status")).toContainText("/auth/sign-in");
+    // the empty flash toast stack is a role=status element too; pick the invitation panel
+    const invitation = page.getByRole("status").filter({ hasText: /Invitation/ });
+    await expect(invitation).toContainText(VIEWER);
+    await expect(invitation).toContainText("/auth/sign-in");
   }
 
   const viewer = await viewerSession(browser);
