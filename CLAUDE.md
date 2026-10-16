@@ -71,6 +71,7 @@ pnpm i18n:check · pnpm openapi:export · pnpm sdk:generate · pnpm sdk:check ·
 pnpm docs:seed · pnpm docs:screenshots · pnpm docs:sync      (user guide: demo data, screenshots, Wiki.js publish)
 scripts/restore-drill.sh          (backup → wipe → restore against its own "drill" database; runs in CI)
 docker compose up -d --build      (M5 adds scripts/release.sh → docker.io/deveshgupta30/okinvo)
+docker compose -f compose.example.yml up -d   (the same stack from the published ghcr.io images, no build)
 ```
 
 `next lint` no longer exists in Next 16 - run `eslint` directly.
@@ -85,6 +86,7 @@ docker compose up -d --build      (M5 adds scripts/release.sh → docker.io/deve
 ## Git / delivery
 
 - GitHub `deveshgupta30/okinvo`; images `docker.io/deveshgupta30/okinvo` (local Docker is logged in; releases are built and pushed locally via `scripts/release.sh`, optionally by GitHub Actions if registry secrets are added).
+- Every merge to `main` (and a manual run) pushes both images to `ghcr.io/deveshgupta30/okinvo` through `.github/workflows/ghcr.yml`: tags `sha-<short commit>` and `latest`, the migration image with the same tag plus `-migrate`. Build and push only; the tests stay in `ci.yml`. `compose.example.yml` runs those images; keep it in step with `compose.yml` (only the image lines differ).
 - Conventional commits (`feat:`, `fix:`, `chore:`, `docs:`, `test:`, `refactor:`). Branch from `main`; never commit or push unless asked.
 - Repo-local git identity is already set to the personal account.
 - Pin exact dependency versions; Renovate keeps them current.

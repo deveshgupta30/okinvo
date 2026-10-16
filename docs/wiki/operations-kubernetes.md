@@ -40,6 +40,10 @@ cd k8s/base && kustomize edit set image docker.io/deveshgupta30/okinvo:1.1.0 && 
 kubectl kustomize --load-restrictor LoadRestrictionsNone k8s/overlays/compose-parity | kubectl apply -f -
 ```
 
+Every merge to `main` also publishes `ghcr.io/deveshgupta30/okinvo:sha-<short commit>` (and
+`-migrate`). To run those, set that image instead and give the namespace an `imagePullSecret`
+for `ghcr.io`, since the packages are private.
+
 ## Backups and restore
 
 The CronJob runs `backup.sh --now` at 02:00 cluster time into the `backups` volume and writes

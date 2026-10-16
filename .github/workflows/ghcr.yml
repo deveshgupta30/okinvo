@@ -1,0 +1,86 @@
+name: ghcr
+# Builds the two okinvo images and pushes them to the GitHub Container Registry, with the same
+# tag scheme as the Docker Hub releases (scripts/release.sh), so compose and Kustomize only swap
+# the registry prefix:
+#   ghcr.io/deveshgupta30/okinvo:<tag>          the app (Dockerfile target `runner`)
+#   ghcr.io/deveshgupta30/okinvo:<tag>-migrate  the one-shot migration job (target `migrate`)
+# <tag> is `sha-<short sha>` always, plus `latest` for main; a manual run can add one more (for
+# example 1.2.0). Runs on every merge to main and on demand. Build and push only: the tests, the
+# e2e suite and the image scan stay in ci.yml, so this costs one build per target and no more.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Extra tag to push as well (for example 1.2.0); leave empty for none
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+  packages: write # GITHUB_TOKEN pushes to this repository's packages
+
+concurrency:
+  group: ghcr-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: runner
+            suffix: ""
+          - target: migrate
+            suffix: -migrate
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: tags
+        id: tags
+        shell: bash
+        env:
+          EXTRA: ${{ inputs.tag }}
+          REF: ${{ github.ref }}
+        run: |
+          set -euo pipefail
+          image="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/okinvo"
+          suffix="${{ matrix.suffix }}"
+          tags="$image:sha-${GITHUB_SHA::7}$suffix"
+          if [ "$REF" = "refs/heads/main" ]; then tags="$tags,$image:latest$suffix"; fi
+          if [ -n "$EXTRA" ]; then
+            [[ "$EXTRA" =~ ^[A-Za-z0-9_][A-Za-z0-9_.-]{0,119}$ ]] || { echo "invalid tag: $EXTRA"; exit 1; }
+            tags="$tags,$image:$EXTRA$suffix"
+          fi
+          echo "tags=$tags" >> "$GITHUB_OUTPUT"
+          echo "date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/setup-buildx-action@v4
+
+      - uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: docker/Dockerfile
+          target: ${{ matrix.target }}
+          platforms: linux/amd64
+          push: true
+          tags: ${{ steps.tags.outputs.tags }}
+          build-args: |
+            BUILD_SHA=${{ github.sha }}
+            BUILD_DATE=${{ steps.tags.outputs.date }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.created=${{ steps.tags.outputs.date }}
+          cache-from: type=gha,scope=${{ matrix.target }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.target }}

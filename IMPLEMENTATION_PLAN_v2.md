@@ -49,7 +49,7 @@
 - **Personal, single-tenant, self-hosted.** Everything - app, database, blob storage, reverse proxy, backups - runs on the owner's Docker host **or** Kubernetes cluster. No managed cloud services of any kind.
 - **Finishable.** Prefer fewer moving parts. One app replica is the default; scaling out is supported but not optimised for.
 - **Correct where it matters.** Money, tax, numbering and immutability are tested first and hardest.
-- **Ship images to `docker.io/deveshgupta30/okinvo`.** Release builds happen on the owner's machine (already logged in) and optionally in GitHub Actions.
+- **Ship images to `docker.io/deveshgupta30/okinvo`.** Release builds happen on the owner's machine (already logged in) and optionally in GitHub Actions. Every merge to `main` also pushes build-only images to `ghcr.io/deveshgupta30/okinvo` (§18.2).
 
 ---
 
@@ -232,6 +232,7 @@ okinvo/
 │   └── seed.ts                   # dev-only sample data
 ├── prisma.config.ts
 ├── compose.yml                   # production stack - run from the repo root: `docker compose up -d`
+├── compose.example.yml           # the same stack from the published ghcr.io images (no build)
 ├── compose.dev.yml               # postgres (+ seaweedfs) only, for `pnpm dev` and CI
 ├── docker/
 │   ├── Dockerfile
@@ -247,7 +248,7 @@ okinvo/
 │   ├── design-tokens.ts          # DESIGN.md front matter → src/app/tokens.css; `--check` fails CI when stale
 │   └── restore.sh
 ├── tests/{unit,integration,e2e}/
-├── .github/workflows/{ci.yml,release.yml}
+├── .github/workflows/{ci.yml,ghcr.yml,security.yml,release.yml,pick-runner.yml}
 ├── .env.example
 ├── renovate.json
 ├── DESIGN.md                     # UI design tokens (design.md format), dark = canonical - see §24
@@ -1640,6 +1641,8 @@ Two optional additions, both off until you want them:
 
 - **`release.yml`** on tag `v*`: same buildx steps using `docker/login-action@v4` with repository secrets `DOCKERHUB_USERNAME` / `DOCKERHUB_TOKEN` (a Docker Hub *access token*, read/write scope on `okinvo` only).
 - **`act`** (`nektos/act`) to run `ci.yml` itself inside your local Docker: `act push -j test`. Useful when you don't want to wait for hosted runners.
+
+**Continuous images on GHCR (`ghcr.yml`).** Separately from the versioned releases, every merge to `main` and every manual run builds the `runner` and `migrate` targets for `linux/amd64` on a GitHub-hosted runner and pushes them with the repository's `GITHUB_TOKEN` (`packages: write`) to `ghcr.io/deveshgupta30/okinvo`, tagged `sha-<short commit>` and `latest` (plus `-migrate` for the migration image, as on Docker Hub); a manual run can add one more tag. It runs no tests and no scan, so it costs one build per target: `ci.yml` remains the gate. The packages inherit the repository's private visibility, so a host pulls them after `docker login ghcr.io` with a token that has `read:packages`. `compose.example.yml` is `compose.yml` without the `build:` sections, with the image repository in `OKINVO_IMAGE` (default `ghcr.io/deveshgupta30/okinvo`).
 
 ### 18.3 Renovate (`renovate.json`)
 
