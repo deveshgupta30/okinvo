@@ -1,0 +1,36 @@
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 💡 Idea oven
+
+        Half-baked is fine, that's what the oven is for. Drop it here, people can upvote and poke holes, and the good ones graduate to a proper [feature request](https://github.com/deveshgupta30/okinvo/issues/new?template=feature_request.yml).
+
+        One honest filter before you write: okinvo is for one business running its own invoices on its own box. Ideas that keep it small, correct and boring-in-a-good-way win.
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      placeholder: Recurring invoices, so my retainer client gets the same invoice on the 1st without me lifting a finger.
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters to you
+      description: The story behind it. "I forgot to invoice in March and nobody reminded me" counts.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: spice
+    attributes:
+      label: How badly do you want this?
+      options:
+        - "🌶️ Nice to have"
+        - "🌶️🌶️ I'd use it every week"
+        - "🌶️🌶️🌶️ I'm currently doing this by hand and it hurts"
+    validations:
+      required: true

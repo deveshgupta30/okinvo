@@ -1,0 +1,43 @@
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🙋 Ask away
+
+        No question is too basic. "How do I get past the Caddy certificate warning" has been asked by smarter people than either of us.
+
+        Quick wins before you post: the [user guide](https://github.com/deveshgupta30/okinvo/tree/main/docs/wiki) and Settings > Status answer a lot. When someone's reply solves it, mark it as the answer so the next person finds it.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      placeholder: How do I move my install to a new server without losing the invoice numbering?
+    validations:
+      required: true
+
+  - type: textarea
+    id: tried
+    attributes:
+      label: What have you tried so far?
+      description: Commands, settings, the doc page you read. It saves a round of "did you try turning it off and on".
+
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: How are you running it?
+      options:
+        - Docker Compose, built from source
+        - Docker Compose, published images
+        - Kubernetes
+        - Local development
+        - Not installed yet, just curious
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version (if installed)
+      description: Settings > Status shows the build commit.
+      placeholder: sha-151af97

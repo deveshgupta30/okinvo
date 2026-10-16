@@ -1,0 +1,75 @@
+name: "🧮 The maths is off"
+description: A total, a tax line, a rounding, a balance or an invoice number is wrong. These are the scary ones, so they get their own form.
+title: "maths: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Money bugs are the worst bugs, and I treat them that way. Give me the inputs and the number you expected, and I'll turn it into a test before I touch the fix.
+
+        Fake data is perfect here. A ₹1,000 line at 18 % shows the problem just as well as your real client.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which number is wrong?
+      options:
+        - Line or invoice total
+        - Tax (GST / IGST / CGST + SGST)
+        - Tax (VAT or another regime)
+        - Discount
+        - Rounding
+        - TDS
+        - Payment balance or status (paid, partly paid, overdue)
+        - Credit note amount
+        - Invoice or credit note number
+        - Currency conversion
+        - Export (CSV / XLSX) disagrees with the screen
+        - Something else that adds up wrong
+    validations:
+      required: true
+
+  - type: textarea
+    id: inputs
+    attributes:
+      label: The inputs
+      description: Currency, tax regime, every line (quantity, rate, tax rate, discount), place of supply, and anything else you typed.
+      placeholder: |
+        Currency: INR, regime: India GST, intra-state (KA to KA)
+        Line 1: qty 3, rate 333.33, GST 18 %
+        Invoice discount: 10 %
+    validations:
+      required: true
+
+  - type: textarea
+    id: got-vs-expected
+    attributes:
+      label: What okinvo said vs what it should say
+      description: Show your working if you can. I promise not to mark it.
+      placeholder: |
+        okinvo: total ₹1,061.99
+        expected: ₹1,062.00, because ...
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Settings > Status shows the build commit.
+      placeholder: sha-151af97
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issued
+    attributes:
+      label: Was the document already issued?
+      description: Issued documents never change, so this decides whether the fix is "correct it" or "credit note and reissue".
+      options:
+        - "No, it's still a draft"
+        - Yes, it's issued
+        - Yes, and it already went to the client 😬
+    validations:
+      required: true
