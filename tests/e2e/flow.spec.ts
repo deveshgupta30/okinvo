@@ -35,7 +35,7 @@ test("sign in, master data, invoice, issue, download, verify, pay, credit, templ
   await page.locator("#gstin").fill("29ABCDE1234F1Z5");
   await page.locator("#panNumber").fill("ABCDE1234F");
   await page.getByRole("button", { name: "Save profile" }).click();
-  await expect(page).toHaveURL(/\/settings\/profiles/);
+  await expect(page).toHaveURL(/\/settings\/profiles(?:[?#]|$)/);
   await expect(page.getByRole("cell", { name: profileLabel })).toBeVisible();
 
   // Client
@@ -176,8 +176,13 @@ test("sign in, master data, invoice, issue, download, verify, pay, credit, templ
   await wb.xlsx.load((await xlsx.body()) as unknown as ArrayBuffer);
   const sheet = wb.getWorksheet("Invoices register");
   expect(sheet?.getRow(1).getCell(1).value).toBe("Number");
-  expect(sheet?.getRow(2).getCell(1).value).toBe(number);
-  expect(sheet?.getRow(2).getCell(20).value).toBe(5310); // Total, a numeric cell
+  // every profile numbers from 001, so other specs' invoices can share this number: this run's
+  // row is the one issued under this profile's legal name
+  const mine = (sheet?.getRows(2, Math.max(sheet.rowCount - 1, 1)) ?? []).find(
+    (r) => r.getCell(1).value === number && r.getCell(5).value === "E2E Legal Name",
+  );
+  expect(mine).toBeDefined();
+  expect(mine?.getCell(20).value).toBe(5310); // Total, a numeric cell
   expect(wb.getWorksheet("Filters")?.getRow(1).getCell(2).value).toBe("invoices");
 
   // Sessions page lists this device

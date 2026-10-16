@@ -17,7 +17,7 @@ export async function GET(request: Request): Promise<Response> {
 
 /**
  * Sign-in, sign-up, password and sign-out calls are POSTs: 20 per minute per client IP (v2 §14).
- * GET (session reads, OAuth callbacks) stays unlimited — the client polls `get-session`.
+ * GET (session reads, OAuth callbacks) stays unlimited: the client polls `get-session`.
  */
 export async function POST(request: Request): Promise<Response> {
   const limited = await enforceRateLimit(request.headers, "auth");
