@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="logo/gen-word-light.svg">
+    <img src="logo/gen-word.svg" alt="okinvo" width="340">
+  </picture>
+</p>
+
 # okinvo
 
 Self-hosted invoicing for an independent professional or a small business: issuer profiles
@@ -93,8 +100,8 @@ docker compose up -d --build    # migrate → app → caddy (automatic TLS; inte
 
 **From published images.** Every merge to `main` pushes both images to the GitHub Container
 Registry (`.github/workflows/ghcr.yml`, also runnable by hand from the Actions tab):
-`ghcr.io/deveshgupta30/okinvo:<tag>` and `:<tag>-migrate`, where `<tag>` is `sha-<short
-commit>` or `latest`. `compose.example.yml` is the same stack without the build step:
+`ghcr.io/deveshgupta30/okinvo:<tag>` and `:<tag>-migrate`, where `<tag>` is the version in
+`package.json` (currently `1.0.0`), `sha-<short commit>` or `latest`. `compose.example.yml` is the same stack without the build step:
 
 ```bash
 cp compose.example.yml compose.local.yml        # gitignored; edit it freely
@@ -162,7 +169,7 @@ when it is online and on GitHub-hosted Ubuntu otherwise.
 | Workflow | Runs on | Does |
 |---|---|---|
 | `ci.yml` | pull requests, merges to `main` | Lint, tests, restore drill, image build and scan, e2e |
-| `ghcr.yml` | merges to `main`, manual | Builds both images and pushes them to `ghcr.io/deveshgupta30/okinvo` (no tests) |
+| `ghcr.yml` | merges to `main`, manual | Builds both images, pushes them to `ghcr.io/deveshgupta30/okinvo` and reports their CVEs with Docker Scout (no tests) |
 | `security.yml` | pull requests, merges to `main`, weekly | Trivy scan of the repository, Compose files, manifests and Dockerfile |
 | `release.yml` | manual | Multi-arch Docker Hub release, when the Docker Hub secrets exist |
 
@@ -305,9 +312,18 @@ Screenshots are regenerated with `pnpm docs:screenshots` against a dev server se
 HTTPS with HSTS, a nonce-based Content Security Policy, same-origin checks on state-changing
 requests, HttpOnly sessions, role checks in the DAL, encryption at rest for tax ids, payment
 details and credentials, re-encoded uploads, rate limits, an immutable audit log, pinned
-dependencies and Trivy scans of the repository, configuration and image. Report a weakness to
-the operator contact on `/legal/security` of your instance, or open a private security advisory
-on GitHub for the software itself.
+dependencies, Trivy scans of the repository, configuration and image, and Docker Scout CVE
+reports on every published image. Report a weakness to the operator contact on
+`/legal/security` of your instance, or privately for the software itself as `SECURITY.md`
+describes.
+
+## Getting help
+
+- **Bugs:** [open an issue](https://github.com/deveshgupta30/okinvo/issues/new/choose). There
+  is a separate form for wrong totals, tax or numbering, because those get fixed first.
+- **Questions, ideas and show-and-tell:**
+  [Discussions](https://github.com/deveshgupta30/okinvo/discussions).
+- **Security holes:** never in public; see `SECURITY.md`.
 
 ## Roles
 

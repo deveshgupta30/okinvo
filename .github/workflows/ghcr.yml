@@ -4,9 +4,14 @@ name: ghcr
 # the registry prefix:
 #   ghcr.io/deveshgupta30/okinvo:<tag>          the app (Dockerfile target `runner`)
 #   ghcr.io/deveshgupta30/okinvo:<tag>-migrate  the one-shot migration job (target `migrate`)
-# <tag> is `sha-<short sha>` always, plus `latest` for main; a manual run can add one more (for
-# example 1.2.0). Runs on every merge to main and on demand. Build and push only: the tests, the
+# <tag> is `sha-<short sha>` always, plus `latest` and the version in package.json (1.0.0) for
+# main; a manual run can add one more. The version tag follows package.json, so bump it there
+# to publish 1.0.1. Runs on every merge to main and on demand. Build and push only: the tests, the
 # e2e suite and the image scan stay in ci.yml, so this costs one build per target and no more.
+# Docker Scout then reports the pushed image's critical and high CVEs in the run summary
+# (report only, never fails the run). Scout needs a Docker account: it runs once the repository
+# secrets DOCKERHUB_USERNAME and DOCKERHUB_TOKEN (a Docker Hub personal access token, read-only
+# is enough) exist, the same pair release.yml uses, and is skipped with a notice until then.
 on:
   push:
     branches: [main]
@@ -51,7 +56,10 @@ jobs:
           image="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/okinvo"
           suffix="${{ matrix.suffix }}"
           tags="$image:sha-${GITHUB_SHA::7}$suffix"
-          if [ "$REF" = "refs/heads/main" ]; then tags="$tags,$image:latest$suffix"; fi
+          echo "primary=$image:sha-${GITHUB_SHA::7}$suffix" >> "$GITHUB_OUTPUT"
+          version="$(node -p "require('./package.json').version")"
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "package.json version is not X.Y.Z: $version"; exit 1; }
+          if [ "$REF" = "refs/heads/main" ]; then tags="$tags,$image:latest$suffix,$image:$version$suffix"; fi
           if [ -n "$EXTRA" ]; then
             [[ "$EXTRA" =~ ^[A-Za-z0-9_][A-Za-z0-9_.-]{0,119}$ ]] || { echo "invalid tag: $EXTRA"; exit 1; }
             tags="$tags,$image:$EXTRA$suffix"
@@ -84,3 +92,33 @@ jobs:
             org.opencontainers.image.created=${{ steps.tags.outputs.date }}
           cache-from: type=gha,scope=${{ matrix.target }}
           cache-to: type=gha,mode=max,scope=${{ matrix.target }}
+
+      - name: docker scout available?
+        id: scout
+        shell: bash
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+        run: |
+          if [ -n "$DOCKERHUB_USERNAME" ] && [ -n "$DOCKERHUB_TOKEN" ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Docker Scout skipped::add the DOCKERHUB_USERNAME and DOCKERHUB_TOKEN repository secrets to scan the pushed images"
+          fi
+
+      - name: docker scout cves
+        if: steps.scout.outputs.ok == 'true'
+        uses: docker/scout-action@v1.26.0
+        with:
+          command: cves
+          image: registry://${{ steps.tags.outputs.primary }}
+          registry-user: ${{ github.actor }}
+          registry-password: ${{ secrets.GITHUB_TOKEN }}
+          dockerhub-user: ${{ secrets.DOCKERHUB_USERNAME }}
+          dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
+          only-severities: critical,high
+          only-fixed: true
+          summary: true
+          write-comment: false
+          exit-code: false

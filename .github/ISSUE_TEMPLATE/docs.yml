@@ -1,0 +1,27 @@
+name: "📚 The docs lied to me"
+description: Something in the README, the user guide or the comments is wrong, missing or confusing.
+title: "docs: "
+labels: [documentation]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Where?
+      description: A file path, a wiki page or a link.
+      placeholder: docs/wiki/operations-compose.md, "From published images"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong or missing?
+      placeholder: It says run `docker compose up`, but I ran it and my cat left the room. (Also it needed `docker login` first.)
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: What should it say?
+      description: Optional, but if you write it I'll probably just paste it in.
