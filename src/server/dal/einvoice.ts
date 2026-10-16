@@ -17,7 +17,7 @@ import { EInvoiceStateSchema, type EInvoiceState } from "@/lib/schemas/einvoice-
 import type { Actor } from "@/server/actor";
 import { audit } from "./audit";
 import { requireWriter } from "./authz";
-import { regenerateDocument } from "./documents";
+import { ensureDocument, regenerateDocument } from "./documents";
 import { einvoiceConnectorFor, resolveNicCredentials } from "./einvoice-settings";
 import { InvariantError } from "./errors";
 import { getInvoice, type InvoiceDto } from "./invoices";
@@ -106,6 +106,16 @@ function registered(result: IrpResult, connector: "manual" | "nic"): EInvoiceSta
   };
 }
 
+/**
+ * The canonical PDF is rendered in the background after issue (actions/invoices.ts). A
+ * registration or cancellation recorded inside that window would otherwise race it for version
+ * 1 and refuse to overwrite the blob, so the first version is settled before the invoice changes;
+ * the regenerate that follows is then always a later version.
+ */
+async function settleFirstVersion(invoiceId: string): Promise<void> {
+  await ensureDocument("INVOICE", invoiceId);
+}
+
 /** Registers through the configured NIC connector (EDITOR); the manual connector needs the pasted response. */
 export async function generateIrn(actor: Actor, invoiceId: string): Promise<EInvoiceState> {
   requireWriter(actor);
@@ -129,6 +139,7 @@ export async function generateIrn(actor: Actor, invoiceId: string): Promise<EInv
     if (e instanceof GstEInvoiceError) throw new InvariantError(e.message);
     throw e;
   }
+  await settleFirstVersion(inv.id);
   try {
     const result = await target.connector.generate(payload);
     const state = registered(result, "nic");
@@ -174,6 +185,7 @@ export async function recordManualIrn(
     throw e;
   }
   const state = registered(result, "manual");
+  await settleFirstVersion(inv.id);
   await save(
     actor,
     inv,
@@ -228,6 +240,7 @@ export async function cancelIrn(
       200,
     ),
   };
+  await settleFirstVersion(inv.id);
   await save(
     actor,
     inv,
