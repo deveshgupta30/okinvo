@@ -26,8 +26,8 @@ app is up. Caddy obtains the certificate for `APP_DOMAIN` itself (an internal ce
 ## From published images
 
 Every merge to `main` pushes the app and migration images to the GitHub Container Registry as
-`ghcr.io/deveshgupta30/okinvo:<tag>` and `<tag>-migrate`, where `<tag>` is `sha-<short commit>`
-or `latest`. `compose.example.yml` is the same stack without the build step, so a host needs no
+`ghcr.io/deveshgupta30/okinvo:<tag>` and `<tag>-migrate`, where `<tag>` is the release version
+(currently `1.0.0`), `sha-<short commit>` or `latest`. `compose.example.yml` is the same stack without the build step, so a host needs no
 Node toolchain:
 
 ```bash
@@ -37,7 +37,7 @@ docker compose -f compose.local.yml pull
 docker compose -f compose.local.yml up -d
 ```
 
-Pin `OKINVO_VERSION` in `.env` to a `sha-` tag for repeatable installs. `OKINVO_IMAGE` switches
+Pin `OKINVO_VERSION` in `.env` to `1.0.0` or a `sha-` tag for repeatable installs. `OKINVO_IMAGE` switches
 the registry, for example to `docker.io/deveshgupta30/okinvo` for the versioned Docker Hub
 releases. The checkout is still needed for `docker/`, which the services mount.
 

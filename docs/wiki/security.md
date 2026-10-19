@@ -65,6 +65,7 @@ configuration and the image in CI.
 ## Disclosure
 
 Report a weakness to the operator contact on `/legal/security` of your instance, or open a
-private security advisory on the GitHub repository for the software itself.
+private security advisory on the GitHub repository for the software itself (`SECURITY.md` in
+the repository has the details). Every published image also gets a Docker Scout CVE report.
 
 Related: [Roles and members](roles-and-members.md), [Sharing](sharing-and-protected-pdfs.md).
