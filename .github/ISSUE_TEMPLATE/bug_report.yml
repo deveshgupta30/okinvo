@@ -1,0 +1,88 @@
+name: "🐛 Something broke"
+description: okinvo did something it shouldn't have. Let's fix it before your next invoice goes out.
+title: "bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time. Bugs that come with steps get fixed faster than bugs that come with vibes. 🙏
+
+        **Before you paste anything:** no real client names, GSTINs, bank details, API keys or `.env` contents. Swap them for fakes. Your clients will thank you.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Tell me what you saw. Screenshots are welcome, blurry phone photos of the monitor less so.
+      placeholder: I clicked "Save and issue" and the invoice number jumped from 007 to 009. Where did 008 go?
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead?
+      placeholder: INV/26-27/008, like a well-behaved sequence.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The shortest path from a fresh page to the bug.
+      placeholder: |
+        1. Go to Invoices > New invoice
+        2. Pick a profile and a client
+        3. Click "Save and issue"
+        4. Stare at the number
+    validations:
+      required: true
+
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: How are you running okinvo?
+      options:
+        - Docker Compose, built from source (compose.yml)
+        - Docker Compose, published images (compose.example.yml)
+        - Kubernetes (k8s/)
+        - Local development (pnpm dev)
+        - Something creative I should know about
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Settings > Status shows the build commit. The image tag works too.
+      placeholder: sha-151af97
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: Chrome 140 on Windows 11, or Safari on an iPhone that has seen things
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: "`docker compose logs app` around the time it happened. Scrub anything secret first."
+      render: shell
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Quick checklist
+      options:
+        - label: I searched the existing issues and this isn't a duplicate.
+          required: true
+        - label: I removed real customer data, secrets and tokens from everything above.
+          required: true
+        - label: This is not a security vulnerability (those go to a private advisory, see the issue chooser).
+          required: true

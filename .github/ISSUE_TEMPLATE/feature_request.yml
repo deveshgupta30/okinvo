@@ -1,0 +1,60 @@
+name: "✨ I wish okinvo could..."
+description: Suggest a feature. Bonus points if it saves someone from a spreadsheet.
+title: "feat: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Love a good idea. A heads-up so nobody's surprised: okinvo is a small, self-hosted, single-business app, and I'd rather it does fewer things well. "Make it a SaaS with 14 microservices" will get a polite no. Everything else, let's talk.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's annoying you right now?
+      description: Start with the problem, not the solution. "I keep doing X by hand" is gold.
+      placeholder: Every month I copy last month's retainer invoice line by line. My Ctrl and C keys are tired.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would make it better?
+      placeholder: A "Duplicate invoice" button that makes a fresh draft with the same client and lines.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Invoices and the builder
+        - Tax and compliance (GST, VAT, e-invoicing)
+        - Payments and credit notes
+        - Clients, services and products
+        - PDF templates and documents
+        - Email
+        - Exports and backups
+        - Users, roles and sign-in
+        - API, SDK and MCP
+        - Deployment (Docker, Kubernetes, images)
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Workarounds or alternatives you've tried
+      placeholder: Currently using a Google Sheet called "invoices_FINAL_v3_real.xlsx".
+
+  - type: dropdown
+    id: help
+    attributes:
+      label: Fancy helping build it?
+      options:
+        - Just the idea, thanks
+        - Happy to test it
+        - "I'll open a PR, point me in the right direction"

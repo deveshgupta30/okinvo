@@ -1,4 +1,4 @@
-# okinvo — Production Implementation, DevOps & Security Architecture Specification
+# okinvo: Production Implementation, DevOps & Security Architecture Specification
 
 `okinvo` is a self-hostable, full-lifecycle Invoice Management System (IMS) engineered for freelancers and contractors operating as independent professionals or corporate entities. This document outlines the end-to-end technical blueprint, covering pinned component versions, database schemas, multi-provider OIDC/OAuth authentication, SeaweedFS distributed blob storage, field-level invoice visibility customization, container and Kubernetes DevOps runbooks, and zero-trust security hardening.
 
@@ -1260,7 +1260,7 @@ const securityHeaders = [
 
 ---
 
-## Addendum (provided 2026-10-01) — Linear Design System UI Specification
+## Addendum (provided 2026-10-01): Linear Design System UI Specification
 
 *Supplied by the author after the original document; preserved verbatim. Superseded by `DESIGN.md` and `IMPLEMENTATION_PLAN_v2.md` §24, which adopt these values and add AA-verified light-mode variants.*
 
