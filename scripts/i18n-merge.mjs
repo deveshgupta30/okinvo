@@ -14,13 +14,13 @@ const BASE = path.join(ROOT, "messages", "en-US.json");
 const LOCK = path.join(ROOT, "messages", ".merge.lock");
 
 const isRecord = (v) => typeof v === "object" && v !== null && !Array.isArray(v);
-/** Keys that would write through to Object.prototype instead of creating a namespace. */
-const RESERVED = new Set(["__proto__", "constructor", "prototype"]);
 
 export function mergeInto(target, fragment, prefix = "", conflicts = []) {
   for (const [key, value] of Object.entries(fragment)) {
     const full = prefix ? `${prefix}.${key}` : key;
-    if (RESERVED.has(key)) {
+    // Keys that would write through to Object.prototype instead of creating a namespace. Spelled
+    // out (not a Set lookup) so code scanning recognises the guard.
+    if (key === "__proto__" || key === "constructor" || key === "prototype") {
       conflicts.push(`${full}: reserved key`);
       continue;
     }
