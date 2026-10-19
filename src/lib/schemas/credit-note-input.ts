@@ -4,7 +4,7 @@ import { fDecimal } from "@/lib/forms";
 import { D } from "@/lib/money";
 import { DisplayConfigSchema } from "./display-config";
 
-/** SPEC §4.9: amount-based — a reason and a credit amount excluding tax. */
+/** SPEC §4.9: amount-based - a reason and a credit amount excluding tax. */
 export const CreditNoteInputSchema = z.object({
   invoiceId: z.string().min(1, "choose an invoice"),
   reason: z.string().trim().min(1, "required").max(500),

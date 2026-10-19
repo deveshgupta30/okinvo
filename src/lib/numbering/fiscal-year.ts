@@ -4,7 +4,7 @@ import { addDays, isDateString, type DateString } from "@/lib/dates";
  * Fiscal-year labels (SPEC.md §4.2, §4.6 "Numbering"). A year starting in month 1 is labelled by
  * the calendar year ("2026"); any other start month spans two calendar years and is labelled
  * "YYYY-YY" ("2026-27" for 2026-04-01..2027-03-31). Pure string arithmetic on `YYYY-MM-DD`
- * dates — never a `Date` from a bare date string. Browser-safe.
+ * dates - never a `Date` from a bare date string. Browser-safe.
  */
 
 const FY_LABEL_RE = /^(\d{4})(?:-(\d{2}))?$/;
@@ -13,7 +13,7 @@ const pad2 = (n: number): string => String(n).padStart(2, "0");
 
 function assertStartMonth(startMonth: number): void {
   if (!Number.isInteger(startMonth) || startMonth < 1 || startMonth > 12) {
-    throw new RangeError(`Fiscal-year start month must be an integer 1–12, got ${startMonth}`);
+    throw new RangeError(`Fiscal-year start month must be an integer 1-12, got ${startMonth}`);
   }
 }
 

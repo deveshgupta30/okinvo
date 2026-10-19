@@ -5,7 +5,7 @@ export type SequenceKind = "INVOICE" | "CREDIT_NOTE";
 /**
  * The only place a document number is assigned (CLAUDE.md "Numbering"). One upsert takes the row
  * lock implicitly, so concurrent issues serialise and a rolled-back transaction rolls the counter
- * back with it — no gaps, no duplicates (v2 §8.4). Must run inside the issue transaction.
+ * back with it - no gaps, no duplicates (v2 §8.4). Must run inside the issue transaction.
  */
 export async function allocateDocumentNumber(
   tx: Tx,

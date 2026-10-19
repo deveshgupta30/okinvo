@@ -66,7 +66,7 @@ run_backup() {
     mv "$tgz.part" "$tgz"
   else
     tgz=""
-    echo "okinvo backup: no $DATA_DIR/storage directory (S3 driver?) — database only"
+    echo "okinvo backup: no $DATA_DIR/storage directory (S3 driver?) - database only"
   fi
   size=$(stat -c %s "$dump")
   if [ -n "$tgz" ]; then size=$((size + $(stat -c %s "$tgz"))); fi

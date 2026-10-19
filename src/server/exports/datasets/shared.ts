@@ -107,7 +107,7 @@ export function creditNoteClientName(snapshot: unknown): string | null {
   return parsed.success ? parsed.data.client.displayName : null;
 }
 
-/** The 10-character PAN embedded in a GSTIN (positions 3–12); null for any other tax ID. */
+/** The 10-character PAN embedded in a GSTIN (positions 3-12); null for any other tax ID. */
 export function panFromGstin(taxId: string | null, taxIdType: string | null): string | null {
   if (taxIdType !== "GSTIN" || !taxId || taxId.length !== 15) return null;
   return taxId.slice(2, 12).toUpperCase();

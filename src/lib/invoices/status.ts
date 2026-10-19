@@ -1,7 +1,7 @@
 import { compareDates, type DateString } from "@/lib/dates";
 import type { Decimal } from "@/lib/money";
 
-/** Derived display status (SPEC.md §4.6) — never stored. */
+/** Derived display status (SPEC.md §4.6) - never stored. */
 export type DisplayStatus =
   "DRAFT" | "ISSUED" | "SENT" | "PARTIALLY_PAID" | "PAID" | "OVERDUE" | "VOID";
 

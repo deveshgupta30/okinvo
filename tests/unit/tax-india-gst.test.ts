@@ -42,7 +42,7 @@ function summary(result: ReturnType<typeof computeTax>) {
   };
 }
 
-describe("India GST — intra-state (CGST + SGST)", () => {
+describe("India GST - intra-state (CGST + SGST)", () => {
   it("10 × 1000 @ 18 % → CGST 900 / SGST 900", () => {
     const r = computeTax(ctx(), [line(1, "10000", "18")]);
     expect(summary(r)).toEqual({
@@ -114,7 +114,7 @@ describe("India GST — intra-state (CGST + SGST)", () => {
   });
 });
 
-describe("India GST — inter-state (IGST)", () => {
+describe("India GST - inter-state (IGST)", () => {
   const inter = ctx({ client: { countryCode: "IN", gstStateCode: "07" } });
 
   it("1 × 0.30 @ 5 % → IGST 0.02 (0.015 rounds half-up on the whole rate)", () => {
@@ -149,7 +149,7 @@ describe("India GST — inter-state (IGST)", () => {
   });
 });
 
-describe("India GST — exports", () => {
+describe("India GST - exports", () => {
   const abroad = { countryCode: "US" };
 
   it("with a LUT for the current FY → EXPORT_LUT, no tax lines, statement", () => {
@@ -209,7 +209,7 @@ describe("India GST — exports", () => {
   });
 });
 
-describe("India GST — reverse charge and unregistered issuer", () => {
+describe("India GST - reverse charge and unregistered issuer", () => {
   it("reverse charge → REVERSE_CHARGE, no tax lines, statement", () => {
     const r = computeTax(ctx({ isReverseCharge: true }), [line(1, "10000", "18")]);
     expect(summary(r)).toEqual({
@@ -250,7 +250,7 @@ describe("India GST — reverse charge and unregistered issuer", () => {
   });
 });
 
-describe("India GST — constants", () => {
+describe("India GST - constants", () => {
   it("exposes the selectable GST rates", () => {
     expect(GST_RATES).toEqual(["0", "5", "12", "18", "28"]);
   });

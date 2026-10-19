@@ -28,7 +28,7 @@ export function toDateString(d: Date): DateString {
   return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}`;
 }
 
-/** UTC midnight of a calendar date — the representation Postgres `date` columns round-trip. */
+/** UTC midnight of a calendar date - the representation Postgres `date` columns round-trip. */
 export function fromDateString(s: DateString): Date {
   if (!isDateString(s)) throw new RangeError(`Not a calendar date: ${s}`);
   return new Date(`${s}T00:00:00.000Z`);
@@ -44,7 +44,7 @@ export function isValidTimeZone(tz: string): boolean {
   }
 }
 
-/** "Today" for a person in `timeZone` — the only way to obtain a current date in the app. */
+/** "Today" for a person in `timeZone` - the only way to obtain a current date in the app. */
 export function todayIn(timeZone: string, now: Date = new Date()): DateString {
   const zone = isValidTimeZone(timeZone) ? timeZone : "UTC";
   const parts = new Intl.DateTimeFormat("en-CA", {

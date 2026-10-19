@@ -1,7 +1,7 @@
 /**
  * Email templates and the composer's pure helpers (SPEC.md §4.16, v2 §12.4). Templates are plain
  * text with `{{placeholder}}` tokens; the outgoing HTML part is generated from the text by
- * `textToHtml` (escaped, paragraphs and links only — no remote images, no tracking, no other
+ * `textToHtml` (escaped, paragraphs and links only - no remote images, no tracking, no other
  * markup). Nothing here sends anything.
  */
 

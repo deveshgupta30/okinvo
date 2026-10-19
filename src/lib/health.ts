@@ -6,7 +6,7 @@ export type Readiness = {
 
 /**
  * Runs `probe` with a hard time budget so a wedged database yields a fast 503 instead of a hung
- * request. The cause is handed to `onFailure` so the route can log it — the response body stays
+ * request. The cause is handed to `onFailure` so the route can log it - the response body stays
  * generic on purpose.
  */
 export async function checkReadiness(

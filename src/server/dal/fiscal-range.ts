@@ -12,7 +12,7 @@ export interface DateRange {
 /**
  * Turns an index page's `fy` / `from` / `to` filters into an inclusive calendar range. A fiscal
  * year is resolved against the chosen issuer's start month, else the default profile's (4 = April
- * when there is none). An FY label that does not fit the start month is refused — listing or
+ * when there is none). An FY label that does not fit the start month is refused - listing or
  * exporting every year under a wrong label would be worse than an error. `fy` wins over a range.
  */
 export async function resolveDateRange(f: {

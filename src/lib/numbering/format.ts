@@ -4,7 +4,7 @@ import { fiscalYearShort } from "./fiscal-year";
 
 /**
  * Document-number formats (SPEC.md §4.2): tokens `{FY}` (26-27), `{FYYYY}` (2026-27), `{YYYY}`,
- * `{YY}`, `{MM}`, `{SEQ}` and `{SEQ:n}` (zero-padded to n, 1–9). Defaults are `INV/{FY}/{SEQ:3}`
+ * `{YY}`, `{MM}`, `{SEQ}` and `{SEQ:n}` (zero-padded to n, 1-9). Defaults are `INV/{FY}/{SEQ:3}`
  * and `CN/{FY}/{SEQ:3}`. Only `allocateDocumentNumber()` (DAL, Task 12) may obtain the sequence;
  * this module is the pure formatting half. Browser-safe.
  */
@@ -28,7 +28,7 @@ export interface DocumentNumberParts {
 }
 
 /**
- * Render a number format. Unknown tokens (and `{SEQ:n}` with n outside 1–9) are left verbatim so
+ * Render a number format. Unknown tokens (and `{SEQ:n}` with n outside 1-9) are left verbatim so
  * a mistake is visible rather than silently dropped; `NumberFormatSchema` rejects them up front.
  */
 export function formatDocumentNumber(format: string, p: DocumentNumberParts): string {
@@ -54,7 +54,7 @@ export function formatDocumentNumber(format: string, p: DocumentNumberParts): st
       case "SEQ":
         return seq;
       default:
-        // "SEQ:n" — padding never truncates a wider sequence.
+        // "SEQ:n" - padding never truncates a wider sequence.
         return seq.padStart(Number(token.slice("SEQ:".length)), "0");
     }
   });

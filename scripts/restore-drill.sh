@@ -8,7 +8,7 @@
 # Needs: Docker, the compose.dev Postgres (`pnpm db:up`), pnpm deps and a generated Prisma client.
 # backup.sh / restore.sh run in a stock postgres:18.6-alpine container attached to the compose.dev
 # network, exactly as the production `backup` service does. The drill owns a database of its own
-# (the name must contain "drill" — it is dropped and recreated every run) and a temporary storage
+# (the name must contain "drill" - it is dropped and recreated every run) and a temporary storage
 # root, so the developer's dev database and .data/storage are never touched.
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -24,7 +24,7 @@ PG_PASS="$(url_part 2)"
 PG_DB="$(url_part 5)"
 case "$PG_DB" in
   *drill*) ;;
-  *) echo "restore-drill: refusing to use database '$PG_DB' — the name must contain 'drill' (it is dropped and recreated)" >&2; exit 2 ;;
+  *) echo "restore-drill: refusing to use database '$PG_DB' - the name must contain 'drill' (it is dropped and recreated)" >&2; exit 2 ;;
 esac
 
 # Docker Desktop on Windows (Git Bash) wants C:/… host paths and no MSYS path mangling.

@@ -9,7 +9,7 @@ import type { CellType, Column, ColumnBase, ExportMeta, ExportRow } from "./type
  * sheet `Filters` recording dataset, generation time, app version and the applied filters.
  *
  * Text is written as an explicit string value, never a formula: exceljs only emits `<f>` for
- * `{ formula }` objects, so `=1+1` stays the text `=1+1`. No apostrophe prefix is added — that is
+ * `{ formula }` objects, so `=1+1` stays the text `=1+1`. No apostrophe prefix is added - that is
  * the CSV rule; here the cell type itself carries the guarantee.
  */
 const DEFAULT_WIDTH: Record<CellType, number> = {

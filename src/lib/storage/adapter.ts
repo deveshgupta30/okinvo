@@ -1,8 +1,8 @@
 import type { Readable } from "node:stream";
 
 /**
- * Blob storage contract (v2 §11.1). Every blob the app keeps — uploaded assets and rendered
- * documents — goes through an implementation of this interface; callers store the **key**, never
+ * Blob storage contract (v2 §11.1). Every blob the app keeps - uploaded assets and rendered
+ * documents - goes through an implementation of this interface; callers store the **key**, never
  * a URL, and nothing behind it is reachable without going through `/api/assets` or
  * `/api/documents`.
  */
