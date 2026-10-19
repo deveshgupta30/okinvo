@@ -48,7 +48,7 @@ same whichever platform generated it.
 
 - tslib 1.14.1, 2.8.1 - Microsoft Corp. (https://www.typescriptlang.org/)
 
-### Apache-2.0 (67)
+### Apache-2.0 (66)
 
 - @aws-sdk/checksums 3.1001.1 - AWS SDK for JavaScript Team (https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/checksums)
 - @aws-sdk/client-s3 3.1144.0 - AWS SDK for JavaScript Team (https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-s3)
@@ -105,7 +105,6 @@ same whichever platform generated it.
 - baseline-browser-mapping 2.11.26 (https://github.com/web-platform-dx/baseline-browser-mapping#readme)
 - class-variance-authority 0.7.1 - Joe Bell (https://github.com/joe-bell/cva#readme)
 - crc-32 1.2.2 - sheetjs (https://sheetjs.com/)
-- denque 2.1.0 - Invertase (https://docs.page/invertase/denque)
 - detect-libc 2.1.2 - Lovell Fuller (https://github.com/lovell/detect-libc#readme)
 - events-universal 1.0.1 - Holepunch (https://github.com/holepunchto/events-universal#readme)
 - expect-type 1.4.0 (https://github.com/mmkal/expect-type#readme)
@@ -130,7 +129,7 @@ same whichever platform generated it.
 
 ### BSD-3-Clause (8)
 
-- deepmerge-ts 7.1.5 - Rebecca Stevens (https://github.com/RebeccaStevens/deepmerge-ts#readme)
+- deepmerge-ts 8.0.2 - Rebecca Stevens (https://github.com/RebeccaStevens/deepmerge-ts#readme)
 - duplexer2 0.1.4 - Conrad Pankoff (https://github.com/deoxxa/duplexer2#readme)
 - fast-uri 3.1.8 - Vincent Le Goff (https://github.com/fastify/fast-uri)
 - ieee754 1.2.1 - Feross Aboukhadijeh (https://github.com/feross/ieee754#readme)
@@ -202,7 +201,7 @@ same whichever platform generated it.
 - yargs-parser 18.1.3 - Ben Coe (https://github.com/yargs/yargs-parser#readme)
 - zod-to-json-schema 3.25.2 - Stefan Terdell (https://github.com/StefanTerdell/zod-to-json-schema#readme)
 
-### MIT (525)
+### MIT (524)
 
 - @babel/code-frame 7.29.7 - The Babel Team (https://babel.dev/docs/en/next/babel-code-frame)
 - @babel/compat-data 7.29.7 - The Babel Team (https://github.com/babel/babel#readme)
@@ -570,7 +569,7 @@ same whichever platform generated it.
 - motion-dom 14.2.0 - Matt Perry (https://github.com/motiondivision/motion#readme)
 - motion-utils 14.1.1 - Matt Perry (https://github.com/motiondivision/motion#readme)
 - ms 2.1.3 (https://github.com/vercel/ms#readme)
-- mysql2 3.15.3 - Andrey Sidorov (https://sidorares.github.io/node-mysql2/docs)
+- mysql2 3.24.6 - Andrey Sidorov (https://sidorares.github.io/node-mysql2/docs)
 - named-placeholders 1.1.6 - Andrey Sidorov (https://github.com/mysqljs/named-placeholders#readme)
 - nanoid 3.3.19, 6.0.1 - Andrey Sitnik (https://github.com/ai/nanoid#readme)
 - nanostores 1.5.4 - Andrey Sitnik (https://github.com/nanostores/nanostores#readme)
@@ -664,7 +663,6 @@ same whichever platform generated it.
 - safer-buffer 2.1.2 - Nikita Skovoroda (https://github.com/ChALkeR/safer-buffer#readme)
 - scheduler 0.25.0-rc-603e6108-20241029, 0.28.0 (https://react.dev/)
 - send 1.2.1 - TJ Holowaychuk (https://github.com/pillarjs/send#readme)
-- seq-queue 0.0.5 - changchang (https://github.com/changchang/seq-queue)
 - serve-static 2.2.1 - Douglas Christopher Wilson (https://github.com/expressjs/serve-static#readme)
 - server-only 0.0.1 (https://reactjs.org/)
 - set-cookie-parser 3.1.2 - Nathan Friedly (https://github.com/nfriedly/set-cookie-parser)
@@ -676,7 +674,7 @@ same whichever platform generated it.
 - side-channel-map 1.0.1 - Jordan Harband (https://github.com/ljharb/side-channel-map#readme)
 - side-channel-weakmap 1.0.2 - Jordan Harband (https://github.com/ljharb/side-channel-weakmap#readme)
 - sonic-boom 4.2.1 - Matteo Collina (https://github.com/pinojs/sonic-boom#readme)
-- sqlstring 2.3.3 (https://github.com/mysqljs/sqlstring#readme)
+- sql-escaper 1.5.2 - https://github.com/mysqljs (https://github.com/mysqljs/sql-escaper#readme)
 - statuses 2.0.2 (https://github.com/jshttp/statuses#readme)
 - std-env 3.10.0, 4.3.0 (https://github.com/unjs/std-env#readme)
 - streamx 2.28.1 - Mathias Buus (https://github.com/mafintosh/streamx)
@@ -711,7 +709,7 @@ same whichever platform generated it.
 - use-intl 4.14.9 - Jan Amann (https://next-intl.dev)
 - use-sidecar 1.1.3 - theKashey (https://github.com/theKashey/use-sidecar)
 - util-deprecate 1.0.2 - Nathan Rajlich (https://github.com/TooTallNate/util-deprecate)
-- uuid 8.3.2 (https://github.com/uuidjs/uuid#readme)
+- uuid 11.1.1 (https://github.com/uuidjs/uuid#readme)
 - valibot 1.4.2 - Fabian Hiller (https://valibot.dev)
 - vary 1.1.2 - Douglas Christopher Wilson (https://github.com/jshttp/vary#readme)
 - vite 8.3.1 - Evan You (https://vite.dev)
@@ -766,4 +764,4 @@ same whichever platform generated it.
 - postgres 3.4.7 - Rasmus Porsager (https://github.com/porsager/postgres)
 - robust-predicates 3.0.3 - Vladimir Agafonkin (https://github.com/mourner/robust-predicates#readme)
 
-_673 packages under 19 licences._
+_671 packages under 19 licences._

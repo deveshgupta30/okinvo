@@ -14,10 +14,16 @@ const BASE = path.join(ROOT, "messages", "en-US.json");
 const LOCK = path.join(ROOT, "messages", ".merge.lock");
 
 const isRecord = (v) => typeof v === "object" && v !== null && !Array.isArray(v);
+/** Keys that would write through to Object.prototype instead of creating a namespace. */
+const RESERVED = new Set(["__proto__", "constructor", "prototype"]);
 
 export function mergeInto(target, fragment, prefix = "", conflicts = []) {
   for (const [key, value] of Object.entries(fragment)) {
     const full = prefix ? `${prefix}.${key}` : key;
+    if (RESERVED.has(key)) {
+      conflicts.push(`${full}: reserved key`);
+      continue;
+    }
     if (isRecord(value)) {
       if (target[key] === undefined) target[key] = {};
       if (!isRecord(target[key])) conflicts.push(`${full}: a string is already there`);

@@ -104,7 +104,10 @@ function finish(e) {
   };
 }
 
-const esc = (s) => s.replace(/\|/g, "\\|");
+/** Table text: escape backslashes first so a trailing one cannot swallow the pipe escape. */
+const esc = (s) => s.replace(/[\\|]/g, "\\$&");
+/** Inside a code span a backslash is literal, so only the cell separator needs escaping. */
+const escCode = (s) => s.replaceAll("|", "\\|");
 
 export function renderEnvDocs(schemaSource, envExampleText) {
   const example = parseEnvExample(envExampleText);
@@ -118,7 +121,7 @@ export function renderEnvDocs(schemaSource, envExampleText) {
   for (const e of entries) {
     const ex = example[e.key];
     const notes = e.doc || ex?.comment || "";
-    const def = e.default !== "" ? `\`${esc(e.default)}\`` : "";
+    const def = e.default !== "" ? `\`${escCode(e.default)}\`` : "";
     lines.push(
       `| \`${e.key}\` | ${e.type} | ${def} | ${e.required ? "yes" : ""} | ${esc(notes)} |`,
     );
