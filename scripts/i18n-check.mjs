@@ -60,7 +60,7 @@ export function usedKeys(source, file) {
     const next = bindings.slice(i + 1).find((b) => b.name === binding.name);
     const region = source.slice(binding.start, next ? next.start : undefined);
     const call = new RegExp(
-      `\\b${binding.name.replace("$", "\\$")}(?:\\.(?:rich|markup|raw|has))?\\(\\s*"([\\w.]+)"`,
+      `\\b${binding.name.replaceAll("$", "\\$")}(?:\\.(?:rich|markup|raw|has))?\\(\\s*"([\\w.]+)"`,
       "g",
     );
     for (const m of region.matchAll(call)) {
