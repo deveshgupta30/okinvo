@@ -1292,7 +1292,7 @@ ARG NODE_IMAGE=node:24.21.0-alpine
 
 FROM ${NODE_IMAGE} AS base
 ENV PNPM_HOME=/pnpm PATH=/pnpm:$PATH NEXT_TELEMETRY_DISABLED=1
-RUN npm i -g pnpm@10.34.5 && apk add --no-cache tini
+RUN npm i -g pnpm@10.34.5 && apk upgrade --no-cache && apk add --no-cache tini
 WORKDIR /app
 
 FROM base AS deps
@@ -1309,14 +1309,16 @@ RUN pnpm prisma generate && pnpm build            # next.config.ts: output: "sta
 FROM deps AS migrate
 COPY prisma ./prisma
 COPY prisma.config.ts ./
+# npm, corepack, yarn and pnpm leave with their bundled dependencies; the CLI runs on node directly
+RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack            /usr/local/lib/node_modules/pnpm /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/pnpm /pnpm
 USER node
 ENTRYPOINT ["tini", "--"]
-CMD ["pnpm", "prisma", "migrate", "deploy"]
+CMD ["node", "node_modules/prisma/build/index.js", "migrate", "deploy"]
 
 # ── Runtime image ──
 FROM ${NODE_IMAGE} AS runner
 ENV NODE_ENV=production PORT=3000 HOSTNAME=0.0.0.0 NEXT_TELEMETRY_DISABLED=1
-RUN apk add --no-cache tini && addgroup -S -g 1001 app && adduser -S -u 1001 -G app app \
+RUN apk upgrade --no-cache && apk add --no-cache tini && addgroup -S -g 1001 app && adduser -S -u 1001 -G app app \
  && mkdir -p /data/storage /tmp/okinvo && chown -R app:app /data /tmp/okinvo
 WORKDIR /app
 COPY --from=build --chown=app:app /app/.next/standalone ./

@@ -3,7 +3,8 @@ ARG NODE_IMAGE=node:24.21.0-alpine
 
 FROM ${NODE_IMAGE} AS base
 ENV PNPM_HOME=/pnpm PATH=/pnpm:$PATH NEXT_TELEMETRY_DISABLED=1
-RUN npm i -g pnpm@10.34.5 && apk add --no-cache tini
+# `apk upgrade` picks up Alpine security fixes newer than the pinned node image (zlib, for one).
+RUN npm i -g pnpm@10.34.5 && apk upgrade --no-cache && apk add --no-cache tini
 WORKDIR /app
 
 FROM base AS deps
@@ -24,15 +25,16 @@ COPY prisma.config.ts ./
 # The schema engine is fetched by @prisma/engines' postinstall (allow-listed in package.json
 # `pnpm.onlyBuiltDependencies`). Verify it is present now - the runtime network has no egress - 
 # and let the unprivileged user own the directory so the CLI never tries to write as root.
-# pnpm (installed by npm in `base`) is self-contained; the migration image never runs npm, npx,
-# corepack or yarn, so they leave with their bundled dependencies (Trivy flags npm's).
+# The migration image runs the Prisma CLI with node directly, so npm, npx, corepack, yarn and
+# pnpm all leave with their bundled dependencies (scanners flag npm's, and pnpm ships its own
+# tar, ip-address and brace-expansion for node-gyp).
 RUN DATABASE_URL=postgresql://build:build@localhost:5432/build pnpm prisma --version \
  && chown -R node:node /app/node_modules/.pnpm/@prisma+engines* \
  && rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack /opt/yarn-v* \
-           /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack /usr/local/bin/yarn /usr/local/bin/yarnpkg
+           /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack /usr/local/bin/yarn /usr/local/bin/yarnpkg            /usr/local/lib/node_modules/pnpm /usr/local/bin/pnpm /usr/local/bin/pnpx /pnpm
 USER node
 ENTRYPOINT ["tini", "--"]
-CMD ["pnpm", "prisma", "migrate", "deploy"]
+CMD ["node", "node_modules/prisma/build/index.js", "migrate", "deploy"]
 
 # ── Runtime image ──
 FROM ${NODE_IMAGE} AS runner
@@ -42,7 +44,7 @@ ENV NODE_ENV=production PORT=3000 HOSTNAME=0.0.0.0 NEXT_TELEMETRY_DISABLED=1 \
     OKINVO_BUILD_SHA=$BUILD_SHA OKINVO_BUILD_DATE=$BUILD_DATE
 # The runtime only runs `node server.js`: npm, npx, corepack and yarn leave with their bundled
 # dependencies (Trivy flags npm's), which also keeps the image smaller.
-RUN apk add --no-cache tini && addgroup -S -g 1001 app && adduser -S -u 1001 -G app app \
+RUN apk upgrade --no-cache && apk add --no-cache tini && addgroup -S -g 1001 app && adduser -S -u 1001 -G app app \
  && mkdir -p /data/storage && chown -R app:app /data \
  && rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack /opt/yarn-v* \
            /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack /usr/local/bin/yarn /usr/local/bin/yarnpkg
