@@ -3,9 +3,8 @@
 #   git clone https://github.com/deveshgupta30/okinvo.git && cd okinvo
 #   cp .env.example .env && scripts/gen-secrets.sh >> .env   # then delete the two placeholder secret lines
 #   # edit .env: APP_DOMAIN, APP_URL, AUTH_ALLOWED_EMAILS and one AUTH_* provider pair
-#   # (or AUTH_PASSWORD_SIGNIN=true); pin OKINVO_VERSION to a pushed tag (sha-<commit>, latest)
+#   # (or AUTH_PASSWORD_SIGNIN=true); pin OKINVO_VERSION to a release (1.0.1) or sha-<commit>; the images are public
 #   cp compose.example.yml compose.local.yml                 # yours to edit; gitignored
-#   docker login ghcr.io                                     # private packages: a token with read:packages
 #   docker compose -f compose.local.yml pull
 #   docker compose -f compose.local.yml up -d                # migrate, then app, then caddy
 #

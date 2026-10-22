@@ -55,8 +55,8 @@ kubectl kustomize --load-restrictor LoadRestrictionsNone k8s/overlays/compose-pa
 ```
 
 Every merge to `main` also publishes `ghcr.io/deveshgupta30/okinvo:sha-<short commit>` (and
-`-migrate`). To run those, set that image instead and give the namespace an `imagePullSecret`
-for `ghcr.io`, since the packages are private.
+`-migrate`), and each release as `:X.Y.Z`. The packages are public, so setting that image is
+enough: no `imagePullSecret` is needed.
 
 ## Backups and restore
 
