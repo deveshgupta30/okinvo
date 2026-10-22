@@ -101,7 +101,7 @@ docker compose up -d --build    # migrate → app → caddy (automatic TLS; inte
 **From published images.** Every merge to `main` pushes both images to the GitHub Container
 Registry (`.github/workflows/ghcr.yml`, also runnable by hand from the Actions tab):
 `ghcr.io/deveshgupta30/okinvo:<tag>` and `:<tag>-migrate`, where `<tag>` is the version in
-`package.json` (currently `1.0.0`), `sha-<short commit>` or `latest`. `compose.example.yml` is the same stack without the build step:
+`package.json` (currently `1.0.1`, published once per version), `sha-<short commit>` or `latest`. `compose.example.yml` is the same stack without the build step:
 
 ```bash
 cp compose.example.yml compose.local.yml        # gitignored; edit it freely
