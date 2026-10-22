@@ -105,7 +105,6 @@ Registry (`.github/workflows/ghcr.yml`, also runnable by hand from the Actions t
 
 ```bash
 cp compose.example.yml compose.local.yml        # gitignored; edit it freely
-docker login ghcr.io                            # the packages are private: a token with read:packages
 docker compose -f compose.local.yml pull && docker compose -f compose.local.yml up -d
 ```
 

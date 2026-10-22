@@ -1,7 +1,41 @@
 # Changelog
 
-Milestones of okinvo v1.0 (`IMPLEMENTATION_PLAN_v2.md` §22). Dates are when the milestone's tests
-went green on the development branch.
+Releases are numbered `X.Y.Z` (git tags and image tags alike, never with a `v`) and published
+once each: `ghcr.yml` pushes `ghcr.io/deveshgupta30/okinvo:X.Y.Z` and creates the tag the first
+time a `package.json` version reaches `main`. Release 1.0.0 is the first public one and contains
+every milestone below it; the `v1.0`, `v1.1` and `M0` to `M5` headings are the feature milestones
+of `IMPLEMENTATION_PLAN_v2.md` §22, dated when their tests went green on the development branch.
+
+## 1.0.1 (2026-10-22)
+
+- Security: `@modelcontextprotocol/sdk` 1.32.1 (experimental MCP tasks are now bound to the
+  session that created them) and `vite` 8.3.5 (the bundled `launch-editor` advisories, dev
+  server only).
+- Each version is published once: `ghcr.yml` pushes `:X.Y.Z` only when that version has no git
+  tag yet and then creates the tag, so later merges never move a version tag. Tags carry no
+  `v`, and `scripts/release.sh` follows the same rule.
+
+## 1.0.0 (2026-10-19)
+
+The first public release: every milestone below, plus the work that made the repository
+public.
+
+- Published images: every merge to `main` pushes the app and migration images to
+  `ghcr.io/deveshgupta30/okinvo` (`.github/workflows/ghcr.yml`), and `compose.example.yml` runs
+  the stack from them without building. Docker Scout reports each image's fixable CVEs.
+- Both images scan clean: `apk upgrade` in the build picks up Alpine fixes (zlib), and the
+  migration image runs the Prisma CLI with `node` and no longer carries pnpm, npm or yarn.
+- Dependencies: patched `deepmerge-ts`, `mysql2`, `uuid` and `js-yaml` through pnpm overrides;
+  CodeQL findings fixed in the i18n and env-docs scripts (one was a real prototype-pollution
+  path in `i18n-merge`) and in the flag image.
+- E-invoicing: the first PDF version is settled before an IRN is generated, recorded or
+  cancelled, so a fast registration can no longer race the initial render.
+- `AUTH_RATE_LIMIT` turns the sign-in throttle off for the end-to-end suite; it stays on by
+  default.
+- Community: issue forms (something broke, the maths is off, feature request, docs), discussion
+  forms, `SECURITY.md` with private vulnerability reporting, and the wordmark in the README.
+- Repository: history rewritten so only the approved logo marks remain, no sample secrets in
+  any commit, and no em or en dashes in any tracked file.
 
 ## v1.1 (2026-10-15)
 
