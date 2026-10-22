@@ -10,7 +10,7 @@
 #    this machine.
 # 3. With --push only: multi-arch buildx of the `runner` and `migrate` targets, tagged
 #    X.Y.Z, X.Y and latest (+ "-migrate"), pushed to docker.io/deveshgupta30/okinvo, then the
-#    annotated git tag vX.Y.Z is created and pushed. Without --push nothing is pushed or tagged.
+#    annotated git tag X.Y.Z (no "v") is created and pushed. Without --push nothing is pushed or tagged.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -46,8 +46,8 @@ if [ "$DRY_RUN" -eq 0 ] && [ -n "$(git status --porcelain --ignore-submodules)" 
   echo "release.sh: working tree is dirty (modified or untracked files) - commit, stash or clean first" >&2
   exit 1
 fi
-if [ "$DRY_RUN" -eq 0 ] && git rev-parse -q --verify "refs/tags/v$VERSION" >/dev/null; then
-  echo "release.sh: tag v$VERSION already exists - a published version is never rebuilt; bump it" >&2
+if [ "$DRY_RUN" -eq 0 ] && git rev-parse -q --verify "refs/tags/$VERSION" >/dev/null; then
+  echo "release.sh: tag $VERSION already exists - a published version is never rebuilt; bump it" >&2
   exit 1
 fi
 
@@ -86,7 +86,7 @@ scan "$IMAGE:$VERSION-migrate"
 
 if [ "$PUSH" -eq 0 ]; then
   echo "release.sh: built and scanned $IMAGE:$VERSION locally. Re-run with --push to publish"
-  echo "            $IMAGE:{$VERSION,$MINOR,latest} and the -migrate images for $PLATFORM, and tag v$VERSION."
+  echo "            $IMAGE:{$VERSION,$MINOR,latest} and the -migrate images for $PLATFORM, and tag $VERSION."
   exit 0
 fi
 
@@ -98,6 +98,6 @@ for target in runner migrate; do
     -t "$IMAGE:$VERSION$suffix" -t "$IMAGE:$MINOR$suffix" -t "$IMAGE:latest$suffix" --push .
 done
 
-run git tag -a "v$VERSION" -m "okinvo $VERSION"
-run git push origin "v$VERSION"
-echo "release.sh: published $IMAGE:$VERSION (+ $MINOR, latest, -migrate) and tag v$VERSION"
+run git tag -a "$VERSION" -m "okinvo $VERSION"
+run git push origin "refs/tags/$VERSION"
+echo "release.sh: published $IMAGE:$VERSION (+ $MINOR, latest, -migrate) and tag $VERSION"

@@ -4,9 +4,12 @@ name: ghcr
 # the registry prefix:
 #   ghcr.io/deveshgupta30/okinvo:<tag>          the app (Dockerfile target `runner`)
 #   ghcr.io/deveshgupta30/okinvo:<tag>-migrate  the one-shot migration job (target `migrate`)
-# <tag> is `sha-<short sha>` always, plus `latest` and the version in package.json (1.0.0) for
-# main; a manual run can add one more. The version tag follows package.json, so bump it there
-# to publish 1.0.1. Runs on every merge to main and on demand. Build and push only: the tests, the
+# <tag> is `sha-<short sha>` always, plus `latest` for main; a manual run can add one more.
+# A version is published once: when package.json carries a version that has no git tag yet
+# (tags are plain X.Y.Z, no "v"), main also pushes `:X.Y.Z` and, after both images are up,
+# creates the git tag X.Y.Z on that commit. Later merges with the same version leave both the
+# image tag and the git tag alone, so bump package.json to publish the next one. Runs on every
+# merge to main and on demand. Build and push only: the tests, the
 # e2e suite and the image scan stay in ci.yml, so this costs one build per target and no more.
 # Docker Scout then reports the pushed image's critical and high CVEs in the run summary
 # (report only, never fails the run). Scout needs a Docker account: it runs once the repository
@@ -18,7 +21,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: Extra tag to push as well (for example 1.2.0); leave empty for none
+        description: Extra tag to push as well (for example 1.2.0, never v1.2.0); leave empty for none
         required: false
         default: ""
 
@@ -31,7 +34,34 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  version:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      version: ${{ steps.v.outputs.version }}
+      new: ${{ steps.v.outputs.new }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: package.json version, and whether it is already published
+        id: v
+        shell: bash
+        env:
+          REF: ${{ github.ref }}
+        run: |
+          set -euo pipefail
+          version="$(node -p "require('./package.json').version")"
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "package.json version is not X.Y.Z: $version"; exit 1; }
+          new=false
+          if [ "$REF" = "refs/heads/main" ] && [ -z "$(git ls-remote --tags origin "refs/tags/$version")" ]; then
+            new=true
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "new=$new" >> "$GITHUB_OUTPUT"
+          echo "version $version, new: $new"
+
   image:
+    needs: version
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
@@ -51,17 +81,19 @@ jobs:
         env:
           EXTRA: ${{ inputs.tag }}
           REF: ${{ github.ref }}
+          VERSION: ${{ needs.version.outputs.version }}
+          NEW: ${{ needs.version.outputs.new }}
         run: |
           set -euo pipefail
           image="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/okinvo"
           suffix="${{ matrix.suffix }}"
           tags="$image:sha-${GITHUB_SHA::7}$suffix"
           echo "primary=$image:sha-${GITHUB_SHA::7}$suffix" >> "$GITHUB_OUTPUT"
-          version="$(node -p "require('./package.json').version")"
-          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "package.json version is not X.Y.Z: $version"; exit 1; }
-          if [ "$REF" = "refs/heads/main" ]; then tags="$tags,$image:latest$suffix,$image:$version$suffix"; fi
+          if [ "$REF" = "refs/heads/main" ]; then tags="$tags,$image:latest$suffix"; fi
+          if [ "$NEW" = "true" ]; then tags="$tags,$image:$VERSION$suffix"; fi
           if [ -n "$EXTRA" ]; then
             [[ "$EXTRA" =~ ^[A-Za-z0-9_][A-Za-z0-9_.-]{0,119}$ ]] || { echo "invalid tag: $EXTRA"; exit 1; }
+            if [[ "$EXTRA" =~ ^v[0-9] ]]; then echo "versions carry no v prefix: use ${EXTRA#v}"; exit 1; fi
             tags="$tags,$image:$EXTRA$suffix"
           fi
           echo "tags=$tags" >> "$GITHUB_OUTPUT"
@@ -122,3 +154,29 @@ jobs:
           summary: true
           write-comment: false
           exit-code: false
+
+  # The git tag goes on only after both images are pushed, so a failed build can simply be rerun.
+  git-tag:
+    needs: [version, image]
+    if: needs.version.outputs.new == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write # create the X.Y.Z tag
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: tag ${{ needs.version.outputs.version }}
+        shell: bash
+        env:
+          VERSION: ${{ needs.version.outputs.version }}
+        run: |
+          set -euo pipefail
+          if [ -n "$(git ls-remote --tags origin "refs/tags/$VERSION")" ]; then
+            echo "::notice title=tag exists::$VERSION is already tagged; leaving it alone"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$VERSION" -m "okinvo $VERSION" "$GITHUB_SHA"
+          git push origin "refs/tags/$VERSION"
