@@ -6,6 +6,17 @@ time a `package.json` version reaches `main`. Release 1.0.0 is the first public 
 every milestone below it; the `v1.0`, `v1.1` and `M0` to `M5` headings are the feature milestones
 of `IMPLEMENTATION_PLAN_v2.md` §22, dated when their tests went green on the development branch.
 
+## 1.0.2 (2026-11-02)
+
+- Security: Next.js 16.4.4 (two critical unauthenticated remote code execution advisories, in
+  `use cache` functions and in image optimisation of SVG files, and a server-action denial of
+  service), nodemailer 10.3.1, zod 4.6.7 (memory exhaustion on oversized constrained
+  collections) and the MCP SDK 1.32.2; pnpm overrides move body-parser, fast-uri, ip-address
+  and qs to their fixed releases.
+- Audit ignores: the withdrawn braces advisory is gone; two new ones are documented in
+  `.trivyignore.yaml` (zod 3 inside the dev-only `@google/design.md` linter, minimatch, which
+  never sees a user-supplied pattern).
+
 ## 1.0.1 (2026-10-22)
 
 - Security: `@modelcontextprotocol/sdk` 1.32.1 (experimental MCP tasks are now bound to the
