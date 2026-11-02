@@ -1,6 +1,6 @@
 {
   "name": "okinvo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "license": "Apache-2.0",
   "type": "module",
@@ -249,8 +249,7 @@
   "pnpm": {
     "auditConfig": {
       "ignoreGhsas": [
-        "GHSA-mrhx-c7xc-m3w5",
-        "GHSA-g3hv-75wg-m249"
+        "GHSA-mrhx-c7xc-m3w5"
       ]
     },
     "onlyBuiltDependencies": [
@@ -266,7 +265,12 @@
       "body-parser@<2.4.0": "2.4.0",
       "fast-uri@<3.1.9": "3.1.9",
       "ip-address@<10.7.4": "10.7.5",
-      "qs@>=6.7.0 <6.16.1": "6.17.1"
+      "qs@>=6.7.0 <6.16.1": "6.17.1",
+      "minimatch@<11.0.1": "11.0.4",
+      "eslint-plugin-import>minimatch": "file:vendor/minimatch-callable",
+      "eslint-plugin-jsx-a11y>minimatch": "file:vendor/minimatch-callable",
+      "eslint-plugin-react>minimatch": "file:vendor/minimatch-callable",
+      "glob@7>minimatch": "file:vendor/minimatch-callable"
     }
   }
 }

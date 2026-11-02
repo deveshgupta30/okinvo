@@ -60,9 +60,16 @@ export function isPlatformPackage(name) {
   return PLATFORM_RE.test(name) && ARCH_RE.test(name);
 }
 
+/** Packages that live in this repository (`vendor/`): okinvo's own code, not a third party's. */
+const LOCAL_PACKAGES = new Set(["minimatch-callable"]);
+
+function isListed(name) {
+  return !isPlatformPackage(name) && !LOCAL_PACKAGES.has(name);
+}
+
 export function renderNotices(json) {
   const licences = Object.keys(json)
-    .filter((licence) => json[licence].some((p) => !isPlatformPackage(p.name)))
+    .filter((licence) => json[licence].some((p) => isListed(p.name)))
     .sort((a, b) => a.localeCompare(b));
   const lines = [
     "# Third-party notices",
@@ -83,7 +90,7 @@ export function renderNotices(json) {
   let total = 0;
   for (const licence of licences) {
     const pkgs = json[licence]
-      .filter((p) => !isPlatformPackage(p.name))
+      .filter((p) => isListed(p.name))
       .sort((a, b) => a.name.localeCompare(b.name));
     lines.push(`### ${licence} (${pkgs.length})`, "");
     for (const p of pkgs) {

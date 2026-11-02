@@ -1,10 +1,23 @@
 # Changelog
 
 Releases are numbered `X.Y.Z` (git tags and image tags alike, never with a `v`) and published
-once each: `ghcr.yml` pushes `ghcr.io/deveshgupta30/okinvo:X.Y.Z` and creates the tag the first
-time a `package.json` version reaches `main`. Release 1.0.0 is the first public one and contains
+once each: `ghcr.yml` pushes `ghcr.io/deveshgupta30/okinvo:X.Y.Z` and creates the tag and a GitHub
+Release (notes: the version's section below) the first time a `package.json` version reaches
+`main`. Release 1.0.0 is the first public one and contains
 every milestone below it; the `v1.0`, `v1.1` and `M0` to `M5` headings are the feature milestones
 of `IMPLEMENTATION_PLAN_v2.md` §22, dated when their tests went green on the development branch.
+
+## 1.0.4 (2026-11-02)
+
+- Security: every minimatch is 11.0.4 (GHSA-g3hv-75wg-m249, denial of service through glob part
+  amplification), so the last open advisory and its audit ignores are gone. minimatch 11 matches
+  without regular expressions and dropped the old API, so the dependants still written against
+  minimatch 3 (glob 7 under exceljs, and the import, jsx-a11y and react eslint plugins) load
+  `vendor/minimatch-callable`, a small adapter over minimatch 11 that restores the callable
+  module, `makeRe` and what glob 7 reads from a pattern part; `tests/unit/minimatch-callable.test.ts`
+  exercises each of them.
+- Releases: `ghcr.yml` now also creates the GitHub Release for each new version, with this
+  changelog's section as the notes.
 
 ## 1.0.3 (2026-11-02)
 

@@ -117,9 +117,10 @@ same whichever platform generated it.
 - text-decoder 1.2.7 - Holepunch (https://github.com/holepunchto/text-decoder#readme)
 - typescript 6.0.3 - Microsoft Corp. (https://www.typescriptlang.org/)
 
-### BlueOak-1.0.0 (2)
+### BlueOak-1.0.0 (3)
 
-- minimatch 10.2.6 - Isaac Z. Schlueter (https://github.com/isaacs/minimatch#readme)
+- @isaacs/nonrecursive-glob-match 1.0.3
+- minimatch 11.0.4 - Isaac Z. Schlueter (https://github.com/isaacs/minimatch#readme)
 - sax 1.6.1 - Isaac Z. Schlueter (https://github.com/isaacs/sax-js#readme)
 
 ### BSD-2-Clause (2)
@@ -146,7 +147,7 @@ same whichever platform generated it.
 
 - elkjs 0.11.1 - Ulf Rüegg (https://github.com/kieler/elkjs#readme)
 
-### ISC (52)
+### ISC (51)
 
 - @prisma/dev 0.24.17 - Igal Klebanov
 - cliui 6.0.0 - Ben Coe (https://github.com/yargs/cliui#readme)
@@ -179,7 +180,6 @@ same whichever platform generated it.
 - lru-cache 5.1.1 - Isaac Z. Schlueter (https://github.com/isaacs/node-lru-cache#readme)
 - lucide-react 1.49.0 - Eric Fennis (https://lucide.dev)
 - minimalistic-assert 1.0.1 (https://github.com/calvinmetcalf/minimalistic-assert)
-- minimatch 3.1.5, 5.1.9 - Isaac Z. Schlueter (https://github.com/isaacs/minimatch#readme)
 - once 1.4.0 - Isaac Z. Schlueter (https://github.com/isaacs/once#readme)
 - pg-int8 1.0.1 (https://github.com/charmander/pg-int8#readme)
 - picocolors 1.1.1 - Alexey Raspopov (https://github.com/alexeyraspopov/picocolors#readme)
@@ -201,7 +201,7 @@ same whichever platform generated it.
 - yargs-parser 18.1.3 - Ben Coe (https://github.com/yargs/yargs-parser#readme)
 - zod-to-json-schema 3.25.2 - Stefan Terdell (https://github.com/StefanTerdell/zod-to-json-schema#readme)
 
-### MIT (524)
+### MIT (523)
 
 - @babel/code-frame 7.29.7 - The Babel Team (https://babel.dev/docs/en/next/babel-code-frame)
 - @babel/compat-data 7.29.7 - The Babel Team (https://github.com/babel/babel#readme)
@@ -396,7 +396,7 @@ same whichever platform generated it.
 - async 3.2.6 - Caolan McMahon (https://caolan.github.io/async/)
 - atomic-sleep 1.0.0 - David Mark Clements (https://github.com/davidmarkclements/atomic-sleep#readme)
 - aws-ssl-profiles 1.1.2 - https://github.com/wellwelwel (https://github.com/mysqljs/aws-ssl-profiles#readme)
-- balanced-match 1.0.2, 4.0.4 (https://github.com/juliangruber/balanced-match#readme)
+- balanced-match 4.0.4 (https://github.com/juliangruber/balanced-match#readme)
 - base64-js 0.0.8, 1.5.1 - T. Jameson Little (https://github.com/beatgammit/base64-js)
 - better-auth 1.7.7 (https://better-auth.com)
 - better-call 1.4.0 (https://github.com/better-auth/better-call#readme)
@@ -407,7 +407,7 @@ same whichever platform generated it.
 - bluebird 3.4.7 - Petka Antonov (https://github.com/petkaantonov/bluebird)
 - body-parser 2.4.0 (https://github.com/expressjs/body-parser#readme)
 - bowser 2.14.1 - Dustin Diaz (https://github.com/bowser-js/bowser)
-- brace-expansion 1.1.21, 2.1.7, 5.0.12 (https://github.com/juliangruber/brace-expansion#readme)
+- brace-expansion 5.0.12 (https://github.com/juliangruber/brace-expansion#readme)
 - brotli 1.3.3 - Devon Govett (https://github.com/devongovett/brotli.js)
 - browserslist 4.29.3 - Andrey Sitnik (https://github.com/browserslist/browserslist#readme)
 - buffer 5.7.1, 6.0.3 - Feross Aboukhadijeh (https://github.com/feross/buffer)
@@ -428,7 +428,6 @@ same whichever platform generated it.
 - color-name 1.1.4, 2.1.1 - Dmitry Iv (https://github.com/colorjs/color-name)
 - color-string 2.1.4 - Josh Junon (https://github.com/Qix-/color-string#readme)
 - compress-commons 4.1.2, 7.0.1 - Chris Talkington (https://github.com/archiverjs/node-compress-commons)
-- concat-map 0.0.1 - James Halliday (https://github.com/substack/node-concat-map#readme)
 - confbox 0.2.4, 0.3.1 (https://github.com/unjs/confbox#readme)
 - content-disposition 1.1.0 - Douglas Christopher Wilson (https://github.com/jshttp/content-disposition#readme)
 - content-type 1.0.5, 2.1.0 - Douglas Christopher Wilson (https://github.com/jshttp/content-type#readme)
@@ -764,4 +763,4 @@ same whichever platform generated it.
 - postgres 3.4.7 - Rasmus Porsager (https://github.com/porsager/postgres)
 - robust-predicates 3.0.3 - Vladimir Agafonkin (https://github.com/mourner/robust-predicates#readme)
 
-_671 packages under 19 licences._
+_670 packages under 19 licences._

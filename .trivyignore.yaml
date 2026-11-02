@@ -7,12 +7,6 @@ vulnerabilities:
       reads the repository's own DESIGN.md; it never ships in an image or sees user input, and no
       patched 3.x exists. The app's own zod is 4.6.7 (fixed). Ignored in pnpm audit as well; drop
       both entries when design.md moves to zod 4.
-  - id: GHSA-g3hv-75wg-m249
-    statement: >-
-      minimatch amplification needs an attacker-chosen glob pattern; okinvo never passes user
-      input to minimatch (eslint at lint time, archiver walking its own paths for exceljs). The
-      fix exists only in 11.x, which eslint 9 and archiver 5 cannot take. Ignored in pnpm audit as
-      well; drop both entries when those dependants move to minimatch 11.
 misconfigurations:
   - id: KSV-0109
     paths:
