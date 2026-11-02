@@ -131,11 +131,11 @@ same whichever platform generated it.
 
 - deepmerge-ts 8.0.2 - Rebecca Stevens (https://github.com/RebeccaStevens/deepmerge-ts#readme)
 - duplexer2 0.1.4 - Conrad Pankoff (https://github.com/deoxxa/duplexer2#readme)
-- fast-uri 3.1.8 - Vincent Le Goff (https://github.com/fastify/fast-uri)
+- fast-uri 3.1.9 - Vincent Le Goff (https://github.com/fastify/fast-uri)
 - ieee754 1.2.1 - Feross Aboukhadijeh (https://github.com/feross/ieee754#readme)
 - intl-messageformat 11.2.15 - Eric Ferraiuolo (https://github.com/formatjs/formatjs)
 - normalize-wheel 1.0.1 - Bas Stottelaar
-- qs 6.16.0 (https://github.com/ljharb/qs)
+- qs 6.17.1 (https://github.com/ljharb/qs)
 - source-map-js 1.2.2 - Valentin 7rulnik Semirulnik (https://github.com/7rulnik/source-map-js)
 
 ### CC-BY-4.0 (1)
@@ -253,8 +253,8 @@ same whichever platform generated it.
 - @jridgewell/resolve-uri 3.1.2 - Justin Ridgewell (https://github.com/jridgewell/resolve-uri#readme)
 - @jridgewell/sourcemap-codec 1.6.0 - Justin Ridgewell (https://github.com/jridgewell/sourcemaps/tree/main/packages/sourcemap-codec)
 - @jridgewell/trace-mapping 0.3.31 - Justin Ridgewell (https://github.com/jridgewell/sourcemaps/tree/main/packages/trace-mapping)
-- @modelcontextprotocol/sdk 1.32.1 - Anthropic, PBC (https://modelcontextprotocol.io)
-- @next/env 16.3.8 - Next.js Team (https://github.com/vercel/next.js#readme)
+- @modelcontextprotocol/sdk 1.32.2 - Anthropic, PBC (https://modelcontextprotocol.io)
+- @next/env 16.4.4 - Next.js Team (https://github.com/vercel/next.js#readme)
 - @noble/ciphers 1.3.0, 2.4.0 - Paul Miller (https://paulmillr.com/noble/)
 - @noble/hashes 1.8.0, 2.4.0 - Paul Miller (https://paulmillr.com/noble/)
 - @oozcitak/dom 2.0.2 - Ozgur Ozcitak (http://github.com/oozcitak/dom)
@@ -405,7 +405,7 @@ same whichever platform generated it.
 - binary 0.3.0 - James Halliday (https://github.com/substack/node-binary#readme)
 - bl 4.1.0 (https://github.com/rvagg/bl)
 - bluebird 3.4.7 - Petka Antonov (https://github.com/petkaantonov/bluebird)
-- body-parser 2.3.0 (https://github.com/expressjs/body-parser#readme)
+- body-parser 2.4.0 (https://github.com/expressjs/body-parser#readme)
 - bowser 2.14.1 - Dustin Diaz (https://github.com/bowser-js/bowser)
 - brace-expansion 1.1.21, 2.1.7, 5.0.12 (https://github.com/juliangruber/brace-expansion#readme)
 - brotli 1.3.3 - Devon Govett (https://github.com/devongovett/brotli.js)
@@ -516,7 +516,7 @@ same whichever platform generated it.
 - iconv-lite 0.7.3 - Alexander Shtuchkin (https://github.com/pillarjs/iconv-lite)
 - icu-minify 4.14.9 - Jan Amann (https://next-intl.dev)
 - immediate 3.0.6 (https://github.com/calvinmetcalf/immediate#readme)
-- ip-address 10.7.3 - Beau Gunderson (https://github.com/beaugunderson/ip-address#readme)
+- ip-address 10.7.5 - Beau Gunderson (https://github.com/beaugunderson/ip-address#readme)
 - ipaddr.js 1.9.1 - whitequark (https://github.com/whitequark/ipaddr.js#readme)
 - is-extglob 2.1.1 - Jon Schlinkert (https://github.com/jonschlinkert/is-extglob)
 - is-fullwidth-code-point 3.0.0 - Sindre Sorhus (https://github.com/sindresorhus/is-fullwidth-code-point#readme)
@@ -571,10 +571,10 @@ same whichever platform generated it.
 - ms 2.1.3 (https://github.com/vercel/ms#readme)
 - mysql2 3.24.6 - Andrey Sidorov (https://sidorares.github.io/node-mysql2/docs)
 - named-placeholders 1.1.6 - Andrey Sidorov (https://github.com/mysqljs/named-placeholders#readme)
-- nanoid 3.3.19, 3.3.20, 6.0.1 - Andrey Sitnik (https://github.com/ai/nanoid#readme)
+- nanoid 3.3.20, 6.0.1 - Andrey Sitnik (https://github.com/ai/nanoid#readme)
 - nanostores 1.5.4 - Andrey Sitnik (https://github.com/nanostores/nanostores#readme)
 - negotiator 1.1.0 (https://github.com/jshttp/negotiator#readme)
-- next 16.3.8 (https://nextjs.org)
+- next 16.4.4 (https://nextjs.org)
 - next-intl 4.14.9 - Jan Amann (https://next-intl.dev)
 - next-intl-swc-plugin-extractor 4.14.9 - Jan Amann (https://next-intl.dev)
 - node-addon-api 7.1.1 (https://github.com/nodejs/node-addon-api)
@@ -725,7 +725,7 @@ same whichever platform generated it.
 - yoga-layout 3.2.1 - Meta Open Source (https://yogalayout.dev/)
 - zeptomatch 2.1.0 (https://github.com/fabiospampinato/zeptomatch#readme)
 - zip-stream 4.1.1, 7.0.5 - Chris Talkington (https://github.com/archiverjs/node-zip-stream)
-- zod 4.6.5 - Colin McDonnell (https://zod.dev)
+- zod 4.6.7 - Colin McDonnell (https://zod.dev)
 - zod-openapi 6.0.2 (https://github.com/samchungy/zod-openapi#readme)
 
 ### MIT and ISC (1)
@@ -734,7 +734,7 @@ same whichever platform generated it.
 
 ### MIT-0 (1)
 
-- nodemailer 10.0.13 - Andris Reinman (https://nodemailer.com/)
+- nodemailer 10.3.1 - Andris Reinman (https://nodemailer.com/)
 
 ### MIT/X11 (2)
 
