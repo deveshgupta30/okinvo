@@ -6,6 +6,13 @@ time a `package.json` version reaches `main`. Release 1.0.0 is the first public 
 every milestone below it; the `v1.0`, `v1.1` and `M0` to `M5` headings are the feature milestones
 of `IMPLEMENTATION_PLAN_v2.md` §22, dated when their tests went green on the development branch.
 
+## 1.0.3 (2026-11-02)
+
+- The migration image carries production dependencies only (`pnpm prune --prod` in its build
+  stage; `prisma` moved to `dependencies`, since a deploy needs the CLI). Dev tooling such as the
+  `@google/design.md` linter, and the zod 3 copy inside it that Docker Scout flagged, no longer
+  ship in it.
+
 ## 1.0.2 (2026-11-02)
 
 - Security: Next.js 16.4.4 (two critical unauthenticated remote code execution advisories, in
