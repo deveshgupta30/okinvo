@@ -162,7 +162,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
-      contents: write # create the X.Y.Z tag
+      contents: write # create the X.Y.Z tag and its GitHub Release
     steps:
       - uses: actions/checkout@v7
 
@@ -180,3 +180,38 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag -a "$VERSION" -m "okinvo $VERSION" "$GITHUB_SHA"
           git push origin "refs/tags/$VERSION"
+
+      # The release notes are the version's docs/changelog.md section plus how to run it. A rerun
+      # leaves an existing release alone; a version without a changelog section fails here, after
+      # the tag, so the gap is visible (add the section, then rerun this job).
+      - name: release ${{ needs.version.outputs.version }}
+        shell: bash
+        env:
+          VERSION: ${{ needs.version.outputs.version }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view "$VERSION" > /dev/null 2>&1; then
+            echo "::notice title=release exists::$VERSION already has a GitHub Release; leaving it alone"
+            exit 0
+          fi
+          awk -v v="$VERSION" '
+            index($0, "## " v " (") == 1 { on = 1; next }
+            on && /^## / { exit }
+            on { print }
+          ' docs/changelog.md | sed -e '/./,$!d' > notes.md
+          if [ ! -s notes.md ]; then
+            echo "::error title=no changelog entry::docs/changelog.md has no '## $VERSION (' section"
+            exit 1
+          fi
+          {
+            echo
+            echo "### Run it"
+            echo
+            echo '```bash'
+            echo "OKINVO_VERSION=$VERSION docker compose -f compose.example.yml up -d"
+            echo '```'
+            echo
+            echo "Images: \`ghcr.io/$GITHUB_REPOSITORY:$VERSION\` and \`ghcr.io/$GITHUB_REPOSITORY:$VERSION-migrate\` (public, linux/amd64). Setup and upgrades: the README and \`docs/wiki/operations-compose.md\`."
+          } >> notes.md
+          gh release create "$VERSION" --verify-tag --title "okinvo $VERSION" --notes-file notes.md

@@ -9,6 +9,8 @@ WORKDIR /app
 
 FROM base AS deps
 COPY package.json pnpm-lock.yaml .npmrc ./
+# pnpm.overrides installs this local package (minimatch 11 behind the old API), see its index.cjs.
+COPY vendor/minimatch-callable ./vendor/minimatch-callable
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 FROM deps AS build
