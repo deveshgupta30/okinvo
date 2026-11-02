@@ -25,13 +25,16 @@ COPY prisma.config.ts ./
 # The schema engine is fetched by @prisma/engines' postinstall (allow-listed in package.json
 # `pnpm.onlyBuiltDependencies`). Verify it is present now - the runtime network has no egress - 
 # and let the unprivileged user own the directory so the CLI never tries to write as root.
-# The migration image runs the Prisma CLI with node directly, so npm, npx, corepack, yarn and
-# pnpm all leave with their bundled dependencies (scanners flag npm's, and pnpm ships its own
-# tar, ip-address and brace-expansion for node-gyp).
-RUN DATABASE_URL=postgresql://build:build@localhost:5432/build pnpm prisma --version \
+# Only production dependencies stay (`prisma` is one: deploys need the CLI), so linters and test
+# tooling never reach the image. The CLI then runs with node directly, so npm, npx, corepack,
+# yarn and pnpm all leave with their bundled dependencies (scanners flag npm's, and pnpm ships
+# its own tar, ip-address and brace-expansion for node-gyp).
+RUN pnpm prune --prod \
+ && DATABASE_URL=postgresql://build:build@localhost:5432/build pnpm prisma --version \
  && chown -R node:node /app/node_modules/.pnpm/@prisma+engines* \
  && rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack /opt/yarn-v* \
-           /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack /usr/local/bin/yarn /usr/local/bin/yarnpkg            /usr/local/lib/node_modules/pnpm /usr/local/bin/pnpm /usr/local/bin/pnpx /pnpm
+           /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack /usr/local/bin/yarn /usr/local/bin/yarnpkg \
+           /usr/local/lib/node_modules/pnpm /usr/local/bin/pnpm /usr/local/bin/pnpx /pnpm
 USER node
 ENTRYPOINT ["tini", "--"]
 CMD ["node", "node_modules/prisma/build/index.js", "migrate", "deploy"]
